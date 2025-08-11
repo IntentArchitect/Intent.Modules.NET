@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ff0bb8e0-8fcc-4e0b-965d-bdc91d5081b2" type="Document Db Provider" typeId="fcfbd83f-a3eb-4eff-b341-5a812b016d31">
+  <name>DynamoDB</name>
+  <display>DynamoDB</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>2795a3d7-471c-452f-bb7d-185575c21997</parentFolderId>
+  <packageId>519202d6-a4a4-48f5-8fde-70ff3bfd63ba</packageId>
+  <packageName>Intent.Aws.DynamoDB</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

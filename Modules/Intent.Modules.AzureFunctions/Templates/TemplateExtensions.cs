@@ -3,6 +3,7 @@ using Intent.AzureFunctions.Api;
 using Intent.Modules.AzureFunctions.Templates.AzureFunctionClass;
 using Intent.Modules.AzureFunctions.Templates.AzureFunctionClassHelper;
 using Intent.Modules.AzureFunctions.Templates.InProcess.Startup;
+using Intent.Modules.AzureFunctions.Templates.Isolated.GlobalExceptionMiddleware;
 using Intent.Modules.AzureFunctions.Templates.Isolated.Program;
 using Intent.Modules.AzureFunctions.Templates.ReturnTypes.JsonResponse;
 using Intent.Modules.AzureFunctions.Templates.ReturnTypes.ResourceLocationClass;
@@ -45,6 +46,11 @@ namespace Intent.Modules.AzureFunctions.Templates
         public static string GetStartupName(this IIntentTemplate template)
         {
             return template.GetTypeName(StartupTemplate.TemplateId);
+        }
+
+        public static string GetGlobalExceptionMiddlewareTemplateName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(GlobalExceptionMiddlewareTemplate.TemplateId);
         }
 
         public static string GetProgramName(this IIntentTemplate template)

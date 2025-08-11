@@ -42,6 +42,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>b92b9be4-a8d1-418e-b019-d7ab9cca5a12</ProjectId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Intent.Modules.NET.Tests.Application.Core/Common/Interfaces/ICurrentUser.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICurrentUser.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b92b9be4-a8d1-418e-b019-d7ab9cca5a12</ProjectId>
       <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Intent.Modules.NET.Tests.Application.Core/Common/Interfaces/ICurrentUserService.cs</ApplicationRelativeFilePath>

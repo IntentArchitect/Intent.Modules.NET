@@ -86,7 +86,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.AzureFunctions.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.AzureFunctions.imodspec</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>42102847-cda1-437f-9e6e-0138fbcab2a9</ProjectId>
@@ -214,6 +214,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/InProcess/Startup/StartupTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>InProcess/Startup/StartupTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>51504bed-31ac-460a-a37f-35f377951a6d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#26c19497-a98d-493f-b692-66713d4f78ca</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/Isolated/GlobalExceptionMiddleware/GlobalExceptionMiddlewareTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Isolated/GlobalExceptionMiddleware/GlobalExceptionMiddlewareTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>51504bed-31ac-460a-a37f-35f377951a6d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#26c19497-a98d-493f-b692-66713d4f78ca</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/Isolated/GlobalExceptionMiddleware/GlobalExceptionMiddlewareTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Isolated/GlobalExceptionMiddleware/GlobalExceptionMiddlewareTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

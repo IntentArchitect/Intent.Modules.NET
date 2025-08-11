@@ -1,5 +1,6 @@
 using System.Configuration;
 using System.Linq;
+using AzureFunctions.AzureEventGrid.Api;
 using AzureFunctions.AzureEventGrid.Api.Configuration;
 using AzureFunctions.AzureEventGrid.Application;
 using AzureFunctions.AzureEventGrid.Infrastructure;
@@ -15,6 +16,7 @@ using Microsoft.Extensions.Logging;
 var host = new HostBuilder()
     .ConfigureFunctionsWebApplication((ctx, builder) =>
     {
+        builder.UseMiddleware<GlobalExceptionMiddleware>();
     })
     .ConfigureServices((ctx, services) =>
     {
@@ -33,6 +35,7 @@ var host = new HostBuilder()
                 options.Rules.Remove(toRemove);
             }
         });
+        services.AddSingleton<GlobalExceptionMiddleware>();
         services.AddApplication(configuration);
         services.ConfigureApplicationSecurity(configuration);
         services.AddInfrastructure(configuration);

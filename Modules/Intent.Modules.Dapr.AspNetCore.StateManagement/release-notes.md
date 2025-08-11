@@ -1,3 +1,7 @@
+### Version 1.2.13
+
+- Improvement: Added support for DynamoDB unit of work.
+
 ### Version 1.2.12
 
 - Fixed: Issue with unit of work not being correctly injected into the constructor

@@ -36,7 +36,9 @@ namespace AzureFunctions.NET6.Api.Enums.EnumService
         [FunctionName("Enums_EnumService_TestRouteEnum")]
         [OpenApiOperation("TestRouteEnum", tags: new[] { "RouteEnum" }, Description = "Test route enum")]
         [OpenApiParameter(name: "testEnum", In = ParameterLocation.Path, Required = true, Type = typeof(Company))]
+        [OpenApiResponseWithoutBody(statusCode: HttpStatusCode.Created)]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]
+        [OpenApiResponseWithBody(statusCode: HttpStatusCode.NotFound, contentType: "application/json", bodyType: typeof(object))]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "post", Route = "route-enum/{testEnum}/test-route-enum")] HttpRequest req,
             string testEnum,

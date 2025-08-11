@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9c5585cc-6532-4e22-a365-51eba3f2f73c" type="NuGet Packages" typeId="4c75c84d-c745-4f0f-b1f4-82eeca01dfc7">
+  <name>NuGet Packages</name>
+  <display>NuGet Packages</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>0b3d2a28-1ba9-4097-af45-7d93fdd4dc3a</parentFolderId>
+  <packageId>0b3d2a28-1ba9-4097-af45-7d93fdd4dc3a</packageId>
+  <packageName>Intent.Blazor.Wasm</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

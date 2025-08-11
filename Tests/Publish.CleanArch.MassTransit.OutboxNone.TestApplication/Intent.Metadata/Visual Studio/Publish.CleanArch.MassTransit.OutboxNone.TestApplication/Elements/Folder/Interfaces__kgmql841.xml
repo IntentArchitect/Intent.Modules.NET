@@ -101,5 +101,19 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="1c4dc385-41a2-4adb-98c1-f709e11ab569" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Identity.CurrentUserInterface</name>
+      <display>Intent.Application.Identity.CurrentUserInterface</display>
+      <externalReference>Intent.Application.Identity</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c994cefc-7a1a-4ec0-a7dc-3689b419b543</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

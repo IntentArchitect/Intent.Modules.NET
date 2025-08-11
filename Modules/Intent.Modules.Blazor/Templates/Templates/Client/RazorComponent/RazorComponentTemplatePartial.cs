@@ -23,12 +23,14 @@ using ComponentModel = Intent.Modelers.UI.Api.ComponentModel;
 
 namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
 {
+    using Intent.Blazor.Api;
     /// <summary>
     /// A Razor template.
     /// </summary>
     [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Ignore, Comments = Mode.Fully)]
     public class RazorComponentTemplate : RazorComponentTemplateBase<ComponentModel>
     {
+        public const string SecuredStereotypeId = "012f5173-6419-4006-a9a8-ab5c20b8a42e";
         /// <inheritdoc cref="IntentTemplateBase.Id"/>
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Blazor.Templates.Client.RazorComponentTemplate";
@@ -40,10 +42,10 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
         public RazorComponentTemplate(IOutputTarget outputTarget, ComponentModel model) : base(TemplateId, outputTarget, model)
         {
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
-            //AddTypeSource("Intent.Blazor.HttpClients.PagedResult");
             AddTypeSource(ModelDefinitionTemplate.TemplateId);
             AddTypeSource("Blazor.HttpClient.Contracts.Dto");
             AddTypeSource("Blazor.HttpClient.ServiceContract");
+            AddTypeSource("Intent.Application.Dtos.DtoModel");
             AddTypeSource(TemplateId);
 
             RazorFile = IRazorFile.Create(this, $"{Model.Name}")
@@ -88,7 +90,6 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
                     }
                 });
         }
-
 
         /// <inheritdoc />
         [IntentManaged(Mode.Ignore)]

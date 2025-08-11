@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture" version="5.1.3-pre.0" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore.Blazor.Standalone" version="1.1.3-pre.0" />
   <applications>
     <application id="a3039e69-7ab0-4ab4-8784-54706aa3fcd8" name="Standard.AspNetCore.TestApplication" relativePath="Standard.AspNetCore.TestApplication/Standard.AspNetCore.TestApplication.application.config" />
     <application id="859f5adf-c40e-40fb-9e68-e41da908d768" name="AzureFunctions.TestApplication" relativePath="AzureFunctions.TestApplication/AzureFunctions.TestApplication.application.config" />
@@ -161,5 +161,19 @@
     <application id="9e282f05-7636-4f1f-8d76-c849d13508c3" name="CleanArchitecture.Dapr.InvocationClient" relativePath="CleanArchitecture.Dapr.InvocationClient/CleanArchitecture.Dapr.InvocationClient.application.config" />
     <application id="c3ac2e0f-34c5-4509-9652-5f90a99106e8" name="CleanArchitecture.Comprehensive.HttpClients" relativePath="CleanArchitecture.Comprehensive.HttpClients/CleanArchitecture.Comprehensive.HttpClients.application.config" />
     <application id="c6bdb9c8-c162-46ae-b50b-4d7b54f84569" name="EntityFrameworkCore.SQLLite" relativePath="EntityFrameworkCore.SQLLite/EntityFrameworkCore.SQLLite.application.config" />
+    <application id="3cb9add1-3f80-4669-87fd-9abd5ebf5c86" name="DynamoDbTests.EntityInterfaces" solutionFolder="DynamoDB" relativePath="DynamoDbTests.EntityInterfaces/DynamoDbTests.EntityInterfaces.application.config" />
+    <application id="4feec6cb-26d5-4bda-987b-f87763af2c59" name="DynamoDbTests.EnumAsStrings" solutionFolder="DynamoDB" relativePath="DynamoDbTests.EnumAsStrings/DynamoDbTests.EnumAsStrings.application.config" />
+    <application id="efc75c2a-553c-417d-8519-9a100cad3a4f" name="DynamoDbTests.PrivateSetters" solutionFolder="DynamoDB" relativePath="DynamoDbTests.PrivateSetters/DynamoDbTests.PrivateSetters.application.config" />
+    <application id="e234187a-41d5-439b-96eb-d0f74ab0e5ae" name="DynamoDbTests" solutionFolder="DynamoDB" relativePath="DynamoDbTests/DynamoDbTests.application.config" />
+    <application id="ec449965-5357-4c9d-971a-ff0dcce48c52" name="EfCoreSoftDelete" relativePath="EfCoreSoftDelete/EfCoreSoftDelete.application.config" />
+    <application id="ce54c440-08d5-4919-b79a-452461aa28a4" name="Blazor.InteractiveAuto.AspNetCoreIdentity" solutionFolder="Blazor" relativePath="Blazor.InteractiveAuto.AspNetCoreIdentity/Blazor.InteractiveAuto.AspNetCoreIdentity.application.config" />
+    <application id="d97747ba-d409-4fd7-9321-3a35e41cd1b0" name="Blazor.InteractiveAuto.Jwt" solutionFolder="Blazor" relativePath="Blazor.InteractiveAuto.Jwt/Blazor.InteractiveAuto.Jwt.application.config" />
+    <application id="43b90ece-5ea7-41b0-8a78-d879a67124eb" name="Blazor.InteractiveAuto.Oidc" solutionFolder="Blazor" relativePath="Blazor.InteractiveAuto.Oidc/Blazor.InteractiveAuto.Oidc.application.config" />
+    <application id="e4e0d6f0-f513-4b44-867c-4bbb9c024241" name="Blazor.InteractiveServer.AspNetCoreIdentity" solutionFolder="Blazor" relativePath="Blazor.InteractiveServer.AspNetCoreIdentity/Blazor.InteractiveServer.AspNetCoreIdentity.application.config" />
+    <application id="10f20251-b360-4c01-b896-938de7e719cd" name="Blazor.InteractiveServer.Jwt" solutionFolder="Blazor" relativePath="Blazor.InteractiveServer.Jwt/Blazor.InteractiveServer.Jwt.application.config" />
+    <application id="1222ee57-ab7c-471d-9c4b-53a07bede8c5" name="Blazor.InteractiveServer.Oidc" solutionFolder="Blazor" relativePath="Blazor.InteractiveServer.Oidc/Blazor.InteractiveServer.Oidc.application.config" />
+    <application id="df2674ce-bd61-4b29-b653-abac88f67c4b" name="Blazor.InteractiveWebAssembly.AspNetCoreIdentity" solutionFolder="Blazor" relativePath="Blazor.InteractiveWebAssembly.AspNetCoreIdentity/Blazor.InteractiveWebAssembly.AspNetCoreIdentity.application.config" />
+    <application id="01b76726-e278-49c1-b40e-a2404c0cc8a0" name="Blazor.InteractiveWebAssembly.Jwt" solutionFolder="Blazor" relativePath="Blazor.InteractiveWebAssembly.Jwt/Blazor.InteractiveWebAssembly.Jwt.application.config" />
+    <application id="2faab4f2-d128-42b5-9dfa-f1ce2bad8729" name="Blazor.InteractiveWebAssembly.Oidc" solutionFolder="Blazor" relativePath="Blazor.InteractiveWebAssembly.Oidc/Blazor.InteractiveWebAssembly.Oidc.application.config" />
   </applications>
 </solution>

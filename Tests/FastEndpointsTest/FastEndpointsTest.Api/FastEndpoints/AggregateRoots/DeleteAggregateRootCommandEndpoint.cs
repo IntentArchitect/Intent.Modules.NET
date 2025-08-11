@@ -43,7 +43,7 @@ namespace FastEndpointsTest.Api.FastEndpoints.AggregateRoots
         public override async Task HandleAsync(DeleteAggregateRootCommand req, CancellationToken ct)
         {
             await _mediator.Send(req, ct);
-            await SendResultAsync(TypedResults.Ok());
+            await Send.ResultAsync(TypedResults.Ok());
         }
     }
 }

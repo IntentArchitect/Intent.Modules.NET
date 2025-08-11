@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="7cb4b43e-c0b2-465a-9d12-fbf184ebdb69" version="3.1.0">
+  <comment>Specify that the attribute contains the version of the DynamoDB document for optimistic concurrency.</comment>
+  <name>Version</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="0090fb93-483e-41af-a11d-5ad2dc796adf">Attribute</type>
+  </targetTypes>
+  <targetReferenceTypes />
+  <applyMode>manually</applyMode>
+  <icon type="FontAwesome" source="file-signature" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return false;</displayIconFunction>
+  <displayFunction />
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>83d4abc8-eee0-486d-8544-3b6d71ff679f</parentFolderId>
+  <order>0</order>
+  <packageId>519202d6-a4a4-48f5-8fde-70ff3bfd63ba</packageId>
+  <packageName>Intent.Aws.DynamoDB</packageName>
+  <properties />
+</stereotypeDefinition>

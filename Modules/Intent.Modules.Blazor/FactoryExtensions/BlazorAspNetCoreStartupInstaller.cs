@@ -1,6 +1,11 @@
+using System;
+using System.Linq;
 using Intent.Engine;
+using Intent.Exceptions;
+using Intent.Modules.Blazor.Settings;
 using Intent.Modules.Blazor.Templates;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.Plugins;
@@ -21,6 +26,36 @@ namespace Intent.Modules.Blazor.FactoryExtensions
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;
 
+        protected override void OnBeforeTemplateRegistrations(IApplication application)
+        {
+            base.OnBeforeTemplateRegistrations(application);
+            CheckBlazorWasmInstalled(application);
+            ConfigureRazorWeaving(application);
+        }
+
+
+        private void CheckBlazorWasmInstalled(IApplication application)
+        {
+            if (!application.GetSettings().GetBlazor().RenderMode().IsInteractiveServer() && !application.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Wasm"))
+            {
+                throw new FriendlyException($"For Render Module : {application.GetSettings().GetBlazor().RenderMode().AsEnum()}, please install the `Intent.Blazor.Wasm` module");
+            }
+        }
+
+        private void ConfigureRazorWeaving(IApplication application)
+        {
+            application.ConfigureRazorTagMatchingFor("link", c => c
+                .AllowMatchByAttributes("href"));
+            application.ConfigureRazorTagMatchingFor("script", c => c
+                .AllowMatchByAttributes("src"));
+            application.ConfigureRazorTagMatchingFor("EditForm", c => c
+                .AllowMatchByAttributes("FormName"));
+            application.ConfigureRazorTagMatchingFor("EditForm", c => c
+                .AllowMatchByAttributes("Input"));
+            application.ConfigureRazorTagMatchingFor("StatusMessage", c => c
+                .AllowMatchByAttributes("Message"));
+        }
+
         [IntentIgnore]
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
@@ -28,7 +63,7 @@ namespace Intent.Modules.Blazor.FactoryExtensions
             RegisterStartup(application);
         }
 
-        private void RegisterStartup(IApplication application)
+        private static void RegisterStartup(IApplication application)
         {
             var startup = application.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
             startup?.AddNugetDependency(NugetPackages.MicrosoftAspNetCoreComponentsWebAssemblyServer(startup.OutputTarget));
@@ -38,9 +73,16 @@ namespace Intent.Modules.Blazor.FactoryExtensions
                 startup.StartupFile.ConfigureServices((statements, context) =>
                 {
                     var addRazorComponents = new CSharpMethodChainStatement($"{context.Services}.AddRazorComponents()");
-                    addRazorComponents.AddChainStatement("AddInteractiveServerComponents()")
-                        .AddChainStatement("AddInteractiveWebAssemblyComponents()")
-                        .WithSemicolon();
+                    if (startup.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveWebAssembly() || startup.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveAuto())
+                    {
+                        ApplyAddAuthorizationConfiguration(statements, context);
+                        addRazorComponents.AddChainStatement("AddInteractiveWebAssemblyComponents()");
+                    }
+                    else if (startup.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveServer() || startup.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveAuto())
+                    {
+                        addRazorComponents.AddChainStatement("AddInteractiveServerComponents()");
+                    }
+                    addRazorComponents.WithSemicolon();
                     statements.AddStatement(addRazorComponents);
                 });
 
@@ -60,6 +102,32 @@ namespace Intent.Modules.Blazor.FactoryExtensions
                             elseStatement.AddStatement("app.UseHsts();");
                         });
                     }
+                    else
+                    {
+                        statements.FindStatement(m => m.Text.StartsWith("app.UseExceptionHandler"))?.Remove();
+                        var position = statements.FindStatement(m => m.Text.StartsWith("app.UseHttpsRedirection"));
+                        var ifDevStatement = new CSharpIfStatement("!app.Environment.IsDevelopment()");
+                        position.InsertBelow(ifDevStatement, statement => 
+                        {
+                            var ifs = (CSharpIfStatement)statement;
+                            ifs.AddStatement("app.UseExceptionHandler(\"/Error\");");
+                            ifs.AddStatement("// The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.");
+                            ifs.AddStatement("app.UseHsts();");
+                        });
+                        if (!startup.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveServer())
+                        {
+                            var elseStatement = new CSharpElseStatement();
+                            elseStatement.AddStatement("app.UseWebAssemblyDebugging();");
+                            ifDevStatement.InsertBelow(elseStatement);
+                        }
+                    }
+
+                    //This is a hack because in the way Asp.Identity always registers use.Authentication even if there isn't anything configured. That module needs to be fixed
+                    if (!application.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Authentication"))
+                    {
+                        statements.FindStatement(m => m.Text.StartsWith("app.UseAuthentication"))?.Remove();
+                        statements.FindStatement(m => m.Text.StartsWith("app.UseAuthorization"))?.Remove();
+                    }
 
                     statements.FindStatement(m => m.Text.StartsWith("app.UseEndpoints"))?
                         .InsertAbove("app.UseStaticFiles();")
@@ -68,14 +136,33 @@ namespace Intent.Modules.Blazor.FactoryExtensions
 
                 startup.StartupFile.ConfigureEndpoints((statements, context) =>
                 {
+                    
                     var addRazorComponents = new CSharpMethodChainStatement($"{context.Endpoints}.MapRazorComponents<{startup.GetAppRazorTemplateName()}>()");
-                    addRazorComponents.AddChainStatement("AddInteractiveServerRenderMode()")
-                        .AddChainStatement("AddInteractiveWebAssemblyRenderMode()")
-                        .AddChainStatement($"AddAdditionalAssemblies(typeof({startup.GetClientImportsRazorTemplateName()}).Assembly)")
-                        .WithSemicolon();
+
+                    if (startup.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveWebAssembly() || startup.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveAuto())
+                    {
+                        addRazorComponents.AddChainStatement("AddInteractiveWebAssemblyRenderMode()");
+                    }
+                    else if (startup.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveServer() || startup.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveAuto())
+                    {
+                        addRazorComponents.AddChainStatement("AddInteractiveServerRenderMode()");
+                    }
+                    if (!startup.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveServer())
+                    {
+                        addRazorComponents.AddChainStatement($"AddAdditionalAssemblies(typeof({startup.GetClientImportsRazorTemplateName()}).Assembly)");                            
+                    }
+                    addRazorComponents.WithSemicolon();
                     statements.AddStatement(addRazorComponents);
                 });
             });
+        }
+        
+        private static void ApplyAddAuthorizationConfiguration(IHasCSharpStatements statements, IAppStartupFile.IServiceConfigurationContext context)
+        {
+            if (statements.FindStatement(m => m.Text.Contains("AddAuthorization")) is null)
+            {
+                statements.AddStatement($"{context.Services}.AddAuthorization();");                
+            }
         }
     }
 }

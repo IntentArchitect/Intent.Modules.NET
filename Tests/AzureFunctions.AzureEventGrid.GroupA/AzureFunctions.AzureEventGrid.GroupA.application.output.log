@@ -58,6 +58,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>123230fb-082f-488b-8a13-63f10ce34188</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.Isolated.GlobalExceptionMiddlewareTemplate</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Api/GlobalExceptionMiddleware.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>GlobalExceptionMiddleware.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>123230fb-082f-488b-8a13-63f10ce34188</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.AzureFunctions.HostJson#123230fb-082f-488b-8a13-63f10ce34188</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Api/host.json</ApplicationRelativeFilePath>
@@ -214,6 +222,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/Common/Interfaces/ICommand.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>334010fc-2ede-40e8-b401-24e3343896a0</ProjectId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/Common/Interfaces/ICurrentUser.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICurrentUser.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

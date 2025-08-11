@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1b1ee0f2-8ce4-4f0c-ad26-518a6811f1a4" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+  <name>UpdateCustomerPrimaryAddressDto</name>
+  <display>UpdateCustomerPrimaryAddressDto</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d28bdbf5-2f14-4574-918b-06f1cc0ec1f4</parentFolderId>
+  <packageId>a741f575-70c9-4466-aa95-ace1ade8595f</packageId>
+  <packageName>EfCoreSoftDelete.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="9b9c6615-646b-462a-b03c-ce6d45d04073" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Line1</name>
+      <display>Line1: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="ec3836bd-79ed-41c3-ad85-9a81873b8b89">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>1b1ee0f2-8ce4-4f0c-ad26-518a6811f1a4</parentFolderId>
+      <packageId>a741f575-70c9-4466-aa95-ace1ade8595f</packageId>
+      <packageName>EfCoreSoftDelete.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="c782ebaf-c4cb-43ee-9c2c-f6efa12638a5" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Line2</name>
+      <display>Line2: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="3f12b2a3-1b8e-4ea7-9205-f54ff60897e7">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>1b1ee0f2-8ce4-4f0c-ad26-518a6811f1a4</parentFolderId>
+      <packageId>a741f575-70c9-4466-aa95-ace1ade8595f</packageId>
+      <packageName>EfCoreSoftDelete.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="bf896fb9-4ff8-4237-b45f-fe8c92588d5a" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>City</name>
+      <display>City: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="f35518c6-aae7-448f-a507-8c6d4c43df42">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>1b1ee0f2-8ce4-4f0c-ad26-518a6811f1a4</parentFolderId>
+      <packageId>a741f575-70c9-4466-aa95-ace1ade8595f</packageId>
+      <packageName>EfCoreSoftDelete.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="33a5ba1e-cc88-4948-9c29-a3ea450a5c07" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Postal</name>
+      <display>Postal: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="bd19b8c6-f750-4c8a-a526-7ee546129e18">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>1b1ee0f2-8ce4-4f0c-ad26-518a6811f1a4</parentFolderId>
+      <packageId>a741f575-70c9-4466-aa95-ace1ade8595f</packageId>
+      <packageName>EfCoreSoftDelete.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

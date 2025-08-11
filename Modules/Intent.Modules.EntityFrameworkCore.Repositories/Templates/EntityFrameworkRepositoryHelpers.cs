@@ -9,6 +9,7 @@ using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Domain.Repositories.Api;
+using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
@@ -117,7 +118,7 @@ internal static class EntityFrameworkRepositoryHelpers
         var dbSetPropertiesByModelId = new Lazy<Dictionary<string, CSharpProperty>>(() =>
         {
             var dbContextTemplate = template.GetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Infrastructure.Data.ConnectionStringDbContext, dbContextInstance);
-            return dbContextTemplate.CSharpFile.Classes.Single().Properties
+            return dbContextTemplate.CSharpFile.Classes.First().Properties
                 .Where(x => x.HasMetadata("model"))
                 .ToDictionary(x => x.GetMetadata("model") switch
                 {
@@ -505,7 +506,9 @@ internal static class EntityFrameworkRepositoryHelpers
         if (parameterFactory is DefaultDbParameterFactory)
         {
             method.AddStatement("// IntentInitialGen");
-            method.AddStatement($"throw new {template.UseType("System.NotImplementedException")}();");
+            method.AddStatement("// Stored procedure implementation is not supported with the selected database provider.");
+            method.AddStatement("// IntentInitialGen");
+            method.AddStatement($@"throw new {template.UseType("System.NotImplementedException")}(""In-Memory does not have Stored Procedures. Add custom implementation here."");");
 
             resultExpressionsByModel = outputs.ToDictionary(x => x.Model, x => x.Expression); // Check this
             return;
@@ -557,12 +560,15 @@ internal static class EntityFrameworkRepositoryHelpers
             method.AddMethodChainStatement($"{assignment}{openingBracket}await GetSet()", chainStatement =>
             {
                 if (template is not RepositoryTemplate repositoryTemplate ||
-                    repositoryTemplate.Model.Id != returnTypeElement.Id)
+                    (repositoryTemplate.Model.Id != returnTypeElement.Id))
                 {
                     // If we do this too early the DbSets have not yet been generated:
                     template.CSharpFile.AfterBuild(_ =>
                     {
-                        chainStatement.Text = chainStatement.Text.Replace("GetSet()", $"_dbContext.{dbSetPropertiesByModelId.Value[returnTypeElement.Id].Name}");
+                        if (dbSetPropertiesByModelId.Value.ContainsKey(returnTypeElement.Id))
+                        {
+                            chainStatement.Text = chainStatement.Text.Replace("GetSet()", $"_dbContext.{dbSetPropertiesByModelId.Value[returnTypeElement.Id].Name}");
+                        }
                     }, 1000);
                 }
 
@@ -614,7 +620,19 @@ internal static class EntityFrameworkRepositoryHelpers
         }
     }
 
-    public static IReadOnlyCollection<StoredProcedureModel> GetStoredProcedureModels(this RepositoryModel repositoryModel)
+    internal record StoredProcedureModelPair
+    {
+        public StoredProcedureModelPair(StoredProcedureModel storedProcedureModel)
+        {
+            StoredProcedureModel = storedProcedureModel;
+            DbContextInstance = new DbContextInstance(storedProcedureModel.InternalElement.Package.AsDomainPackageModel());
+        }
+        
+        public StoredProcedureModel StoredProcedureModel { get; }
+        public DbContextInstance DbContextInstance { get; }
+    }
+
+    public static IReadOnlyCollection<StoredProcedureModelPair> GetStoredProcedureModels(this RepositoryModel repositoryModel)
     {
         return repositoryModel.InternalElement.ChildElements
             .SelectMany(childElement =>
@@ -622,15 +640,28 @@ internal static class EntityFrameworkRepositoryHelpers
                 var storedProcedureModel = childElement.AsStoredProcedureModel();
                 if (storedProcedureModel != null)
                 {
-                    return [storedProcedureModel];
+                    return [new StoredProcedureModelPair(storedProcedureModel)];
                 }
 
                 var operationModel = OperationModelExtensions.AsOperationModel(childElement);
                 if (operationModel != null)
                 {
-                    return operationModel.StoredProcedureInvocationTargets()
-                        .Select(x => x.TypeReference?.Element?.AsStoredProcedureModel()!)
-                        .Where(x => x != null);
+                    var invokedStoredProcedures = operationModel.StoredProcedureInvocationTargets()
+                        .Select(x => x.TypeReference?.Element?.AsStoredProcedureModel())
+                        .Where(x => x != null)
+                        .Cast<StoredProcedureModel>()
+                        .Select(x => new StoredProcedureModelPair(x))
+                        .ToArray();
+
+                    if (invokedStoredProcedures.Length > 0)
+                    {
+                        return invokedStoredProcedures;
+                    }
+                    
+                    if (operationModel.HasStereotype("Stored Procedure"))
+                    {
+                        return [new StoredProcedureModelPair(new StoredProcedureModel(operationModel.InternalElement, OperationModel.SpecializationType))];
+                    }
                 }
 
                 return [];
@@ -638,16 +669,20 @@ internal static class EntityFrameworkRepositoryHelpers
             .ToArray();
     }
 
+    internal record DataContractModelPair(DataContractModel DataContractModel, DbContextInstance DbContextInstance);
+    
     // Method to determine the rules for a EntityTypeConfiguration to be generated for a DataContract
-    public static IReadOnlyCollection<DataContractModel> GetEntityTypeConfigurationDataContractModels(IApplication application)
+    public static IReadOnlyCollection<DataContractModelPair> GetEntityTypeConfigurationDataContractModels(IApplication application)
     {
         IList<RepositoryModel>? repositoryModels = application.MetadataManager.Domain(application).GetRepositoryModels();
 
         return [.. repositoryModels
                 .SelectMany(GetStoredProcedureModels)
-                .Select(x => x.TypeReference?.Element.AsDataContractModel())
+                .Select(x => x.StoredProcedureModel.TypeReference?.Element.AsDataContractModel() is not null 
+                    ? new DataContractModelPair(x.StoredProcedureModel.TypeReference.Element.AsDataContractModel(), x.DbContextInstance)
+                    : null)
                 .Where(x => x != null)
-                .Select(x => x!)
+                .Cast<DataContractModelPair>()
                 .Distinct()];
     }
 

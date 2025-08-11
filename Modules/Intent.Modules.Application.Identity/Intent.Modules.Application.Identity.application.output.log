@@ -25,6 +25,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>3d9283a3-68f9-4c73-99be-076c78ea4c42</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration#648f7f9e-ef85-4545-bd42-7424295180f1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Migrations/Migration_03_06_00_Pre_00.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Migration_03_06_00_Pre_00.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3d9283a3-68f9-4c73-99be-076c78ea4c42</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration#e23cad17-dfc1-4f58-8366-1e0599829027</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Migrations/OnInstallMigration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OnInstallMigration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>1e1d6eea-83ce-4717-958f-5c52e7492dcf</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions#b09f5a25-2251-4e93-acf2-8a84e42e4cb6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -62,6 +78,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/AuthorizeAttribute/AuthorizeAttributeTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AuthorizeAttribute/AuthorizeAttributeTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dc679d96-e52c-4347-8e1d-2771cac060fb</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#35e095a7-214f-44bd-ba1d-b121781e174b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/CurrentUserInterface/CurrentUserInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CurrentUserInterface/CurrentUserInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dc679d96-e52c-4347-8e1d-2771cac060fb</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#35e095a7-214f-44bd-ba1d-b121781e174b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/CurrentUserInterface/CurrentUserInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CurrentUserInterface/CurrentUserInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

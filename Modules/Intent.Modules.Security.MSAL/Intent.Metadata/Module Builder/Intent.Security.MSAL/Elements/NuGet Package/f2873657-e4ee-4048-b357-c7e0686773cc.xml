@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="eac5341b-b0c7-4a28-9aa4-412f6fcc5ddd" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>3.10.0</name>
+      <name>3.11.0</name>
       <display>3.9.1 ( &gt;= .NETCoreApp,Version=v7.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,10 +47,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="51fe87d1-b7cf-4864-a049-ea91294beaeb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ca4c2cf8-a2da-4422-944e-e3b7bbc33e04" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Identity.Web</name>
           <isAbstract>false</isAbstract>
-          <value>3.10.0</value>
+          <value>3.11.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>eac5341b-b0c7-4a28-9aa4-412f6fcc5ddd</parentFolderId>
@@ -61,7 +61,7 @@
       </childElements>
     </childElement>
     <childElement id="0528715f-11a6-4481-b431-782d4e7ac71a" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>3.10.0</name>
+      <name>3.11.0</name>
       <display>3.9.1 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -83,10 +83,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="ce9be9b9-cd7a-4679-9154-a52dc0fc7da7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9b0239c7-def8-47b1-b3a2-8241ed2e4cac" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Identity.Web</name>
           <isAbstract>false</isAbstract>
-          <value>3.10.0</value>
+          <value>3.11.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0528715f-11a6-4481-b431-782d4e7ac71a</parentFolderId>
@@ -97,7 +97,7 @@
       </childElements>
     </childElement>
     <childElement id="428d9067-6289-484d-b1cf-7fd92e25973a" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>3.10.0</name>
+      <name>3.11.0</name>
       <display>3.9.1 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -119,10 +119,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="03844451-1ef6-4a87-856b-ae3585a58a5c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="887fe402-5b85-404e-b22d-37a83152ce4e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Identity.Web</name>
           <isAbstract>false</isAbstract>
-          <value>3.10.0</value>
+          <value>3.11.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>428d9067-6289-484d-b1cf-7fd92e25973a</parentFolderId>
@@ -133,7 +133,7 @@
       </childElements>
     </childElement>
     <childElement id="a9597a76-e537-4bfa-8607-931b554ad2ac" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>3.10.0</name>
+      <name>3.11.0</name>
       <display>3.9.1 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -155,10 +155,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="53b8283b-be0b-4d16-8d33-c5f6032925e5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="5b8caed4-8577-46d2-9fdf-552b351ac898" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Identity.Web</name>
           <isAbstract>false</isAbstract>
-          <value>3.10.0</value>
+          <value>3.11.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a9597a76-e537-4bfa-8607-931b554ad2ac</parentFolderId>

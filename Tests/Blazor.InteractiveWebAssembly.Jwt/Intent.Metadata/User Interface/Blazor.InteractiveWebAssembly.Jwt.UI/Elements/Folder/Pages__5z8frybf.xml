@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d1aa7956-6c3f-413f-b855-72bbf5007a93" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Pages</name>
+  <display>Pages</display>
+  <externalReference>7c76fa0c-59ee-4111-9166-68faafc2dcf7</externalReference>
+  <isAbstract>false</isAbstract>
+  <order>2</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9058b7d1-869a-47fb-b9c1-96b8fe6c4000</parentFolderId>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.Common.CSharp</definitionPackageName>
+      <definitionPackageId>730e1275-0c32-44f7-991a-9619d07ca68d</definitionPackageId>
+      <properties>
+        <property name="96df2fa6-7361-4e43-9acf-dbcea23b650a" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="fe386a9b-1bbc-42aa-a0a4-2bfa4d4a2981" type="Component" typeId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b">
+      <name>ExamplePage</name>
+      <display>ExamplePage</display>
+      <externalReference>01f02822-4131-4787-a45b-3a10c82cf9e7</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d1aa7956-6c3f-413f-b855-72bbf5007a93</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="ea4adc09-8978-4ede-ba5f-265debb2b60c" name="Page">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Modelers.UI</definitionPackageName>
+          <definitionPackageId>5c4628ec-679e-4f3d-afda-137c978deae0</definitionPackageId>
+          <properties>
+            <property name="9dff9df1-a993-4bf6-9aa7-c16811142228" display="Route" value="/example-page/{Title}" isActive="true" />
+            <property name="0a8627ba-ec45-4023-9c36-b0999f43e982" display="Title" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <mappings>
+        <mapping type="View Binding" typeId="c33f86ad-423a-4a6f-a80c-a3206eafe5cd">
+          <source applicationId="01b76726-e278-49c1-b40e-a2404c0cc8a0" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="fe386a9b-1bbc-42aa-a0a4-2bfa4d4a2981" location="[Webinar.Blazor].[User Interface].[ExamplePage]" />
+          <target applicationId="01b76726-e278-49c1-b40e-a2404c0cc8a0" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="9c93e2f8-e0a4-435e-9b4a-8d0f66a7fcfa" location="[Webinar.Blazor].[User Interface].[[view]]" />
+          <mappedEnds>
+            <mappedEnd>
+              <expression>###{Title}</expression>
+              <path>
+                <target id="9c93e2f8-e0a4-435e-9b4a-8d0f66a7fcfa" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+                <target id="5c2038b7-32a3-48f0-9987-d508ddb04111" name="Card" type="element" specialization="Card" specializationId="dfe420aa-426a-4517-bcd1-83cf5ec074fe" />
+                <target id="8a9be0b0-691f-41ca-9be3-b0f3f832a39b" name="Header" type="element" specialization="Card Header" specializationId="61bd2c09-fb56-4f0a-9d45-7a04c649a965" />
+                <target id="b03c6efc-3e8e-4da9-a534-d44c8f85a3b8" name="Head" type="element" specialization="Text" specializationId="922150d2-42e6-4805-a002-f9580cdf7f6f" />
+              </path>
+              <sources>
+                <source identifier="Title" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+                  <path>
+                    <target id="fe386a9b-1bbc-42aa-a0a4-2bfa4d4a2981" name="ExamplePage" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                    <target id="fef74f04-1467-48b2-8023-bc53a3648cf5" name="Title" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                  </path>
+                </source>
+              </sources>
+            </mappedEnd>
+            <mappedEnd>
+              <expression>A simple example "{Title}" page for navigation purposes.</expression>
+              <path>
+                <target id="9c93e2f8-e0a4-435e-9b4a-8d0f66a7fcfa" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+                <target id="5c2038b7-32a3-48f0-9987-d508ddb04111" name="Card" type="element" specialization="Card" specializationId="dfe420aa-426a-4517-bcd1-83cf5ec074fe" />
+                <target id="8a9be0b0-691f-41ca-9be3-b0f3f832a39b" name="Header" type="element" specialization="Card Header" specializationId="61bd2c09-fb56-4f0a-9d45-7a04c649a965" />
+                <target id="dc033556-ae6d-4efa-81f6-fc53fc1df080" name="Text" type="element" specialization="Text" specializationId="922150d2-42e6-4805-a002-f9580cdf7f6f" />
+              </path>
+              <sources>
+                <source identifier="Title" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+                  <path>
+                    <target id="fe386a9b-1bbc-42aa-a0a4-2bfa4d4a2981" name="ExamplePage" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                    <target id="fef74f04-1467-48b2-8023-bc53a3648cf5" name="Title" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                  </path>
+                </source>
+              </sources>
+            </mappedEnd>
+            <mappedEnd>
+              <expression>{NavigateToHome}</expression>
+              <path>
+                <target id="9c93e2f8-e0a4-435e-9b4a-8d0f66a7fcfa" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+                <target id="5c2038b7-32a3-48f0-9987-d508ddb04111" name="Card" type="element" specialization="Card" specializationId="dfe420aa-426a-4517-bcd1-83cf5ec074fe" />
+                <target id="7732c479-f60a-46a5-ade8-c060dd304043" name="Actions" type="element" specialization="Card Actions" specializationId="8dd9e894-be78-41ec-89f2-d2bd2d26d8d6" />
+                <target id="3d3ac8a1-c76d-4fda-9dbc-41c83fb26b44" name="Return Home" type="element" specialization="Button" specializationId="4474d808-f6fd-405f-a9c7-6998cd000ede" />
+                <target id="ddfa6961-1042-4bea-84c7-4b2e9853c80a" name="Link To" type="static-mappable" specialization="Link To" specializationId="ddfa6961-1042-4bea-84c7-4b2e9853c80a" />
+              </path>
+              <sources>
+                <source identifier="NavigateToHome" mappingType="Event Mapping" mappingTypeId="95ce3c3e-ddf4-440b-a9b2-6b152a5fc1b8">
+                  <path>
+                    <target id="fe386a9b-1bbc-42aa-a0a4-2bfa4d4a2981" name="ExamplePage" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                    <target id="6378f540-bd2f-43b3-8ec8-a243f4869255" name="NavigateToHome" type="association" specialization="Navigation Target End" specializationId="2b191288-ecae-4743-b069-cbdd927ef349" />
+                  </path>
+                </source>
+              </sources>
+            </mappedEnd>
+          </mappedEnds>
+        </mapping>
+      </mappings>
+      <metadata />
+      <childElements>
+        <childElement id="9c93e2f8-e0a4-435e-9b4a-8d0f66a7fcfa" type="Component View" typeId="624513a6-cba8-4dde-8ebe-6b19f00f0364">
+          <name>[view]</name>
+          <display>[view]</display>
+          <externalReference>b82fca39-d0f5-4088-82a6-3e0f2f900287</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>fe386a9b-1bbc-42aa-a0a4-2bfa4d4a2981</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements>
+            <childElement id="5c2038b7-32a3-48f0-9987-d508ddb04111" type="Card" typeId="dfe420aa-426a-4517-bcd1-83cf5ec074fe">
+              <name>Card</name>
+              <display>Card</display>
+              <externalReference>d407fe59-4947-4a91-a1a2-e4ebd3765246</externalReference>
+              <isAbstract>false</isAbstract>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>9c93e2f8-e0a4-435e-9b4a-8d0f66a7fcfa</parentFolderId>
+              <stereotypes />
+              <metadata />
+              <childElements>
+                <childElement id="7732c479-f60a-46a5-ade8-c060dd304043" type="Card Actions" typeId="8dd9e894-be78-41ec-89f2-d2bd2d26d8d6">
+                  <name>Actions</name>
+                  <display>Actions</display>
+                  <externalReference>11349ba0-410f-4de7-9d30-bb2c886a7699</externalReference>
+                  <isAbstract>false</isAbstract>
+                  <genericTypes />
+                  <isMapped>false</isMapped>
+                  <parentFolderId>5c2038b7-32a3-48f0-9987-d508ddb04111</parentFolderId>
+                  <stereotypes />
+                  <metadata />
+                  <childElements>
+                    <childElement id="3d3ac8a1-c76d-4fda-9dbc-41c83fb26b44" type="Button" typeId="4474d808-f6fd-405f-a9c7-6998cd000ede">
+                      <name>Return Home</name>
+                      <display>Return Home</display>
+                      <externalReference>a5284b62-52e8-450b-8e8d-dc4b184e9f8c</externalReference>
+                      <isAbstract>false</isAbstract>
+                      <genericTypes />
+                      <isMapped>false</isMapped>
+                      <parentFolderId>7732c479-f60a-46a5-ade8-c060dd304043</parentFolderId>
+                      <stereotypes>
+                        <stereotype stereotypeDefinitionId="b218f7cb-d150-401d-a17a-9e22fadf863f" name="Appearance">
+                          <addedByDefault>true</addedByDefault>
+                          <definitionPackageName>Intent.Blazor.Components.MudBlazor</definitionPackageName>
+                          <definitionPackageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</definitionPackageId>
+                          <properties>
+                            <property name="eecbc26c-443b-4d97-a706-a4e21fc13552" display="Icon Only" value="false" isActive="true" />
+                            <property name="de8a25d2-a144-4806-b5ad-e6c195abfa43" display="Variant" value="93828c49-ea2f-46d2-b661-df6fc2c4a0e2" isActive="true" />
+                            <property name="d527d5a7-fd00-4486-a204-5c6fc93099a5" display="Color" value="edfca156-96df-48d3-80a0-8bb814a37d01" isActive="true" />
+                            <property name="9243cf9b-c6de-47d4-a914-382ab7ddf920" display="Class" value="my-2 ml-2" isActive="true" />
+                          </properties>
+                        </stereotype>
+                        <stereotype stereotypeDefinitionId="a7de29e5-4bee-4e5d-93f0-740569ac6130" name="Interaction">
+                          <addedByDefault>true</addedByDefault>
+                          <definitionPackageName>Intent.Modelers.UI.Core</definitionPackageName>
+                          <definitionPackageId>a2a95421-3e55-43c7-96ad-355610b43c4d</definitionPackageId>
+                          <properties>
+                            <property name="7cee794d-e1a7-4590-b65a-6e56914a2a97" display="Type" value="Default" isActive="true" />
+                            <property name="2265736b-4381-42dc-9dbf-b757188837bc" display="Form" isActive="false" />
+                            <property name="d05f7b5b-fe45-4cbb-b938-380a4b68c0df" display="On Click" isActive="true" />
+                            <property name="86aeb4ba-54e8-4327-bcb0-166fb9b9968c" display="Link To" value="{NavigateToHome}" isActive="true" />
+                          </properties>
+                        </stereotype>
+                        <stereotype stereotypeDefinitionId="8e1b7033-fd27-495a-a2a7-36b5168f04f5" name="Icon">
+                          <addedByDefault>false</addedByDefault>
+                          <definitionPackageName>Intent.Blazor.Components.MudBlazor</definitionPackageName>
+                          <definitionPackageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</definitionPackageId>
+                          <properties>
+                            <property name="7bda044e-8be7-4ac4-98cd-41e97132942f" display="Icon Value" value="2e0b8994-65b2-41d5-9818-dfa480428644" isActive="true" />
+                            <property name="6a70b142-c60d-4015-97aa-be0bcab7d128" display="Icon Color" isActive="true" />
+                            <property name="13f1151e-7611-4bde-8374-1598b5d3335c" display="Variant" value="41f2ef78-a358-43bd-9b84-926dc185c8d1" isActive="true" />
+                          </properties>
+                        </stereotype>
+                      </stereotypes>
+                      <metadata />
+                      <childElements />
+                    </childElement>
+                  </childElements>
+                </childElement>
+                <childElement id="8a9be0b0-691f-41ca-9be3-b0f3f832a39b" type="Card Header" typeId="61bd2c09-fb56-4f0a-9d45-7a04c649a965">
+                  <name>Header</name>
+                  <display>Header</display>
+                  <externalReference>1c8eb785-4363-4983-aa1e-135634ba4fcc</externalReference>
+                  <isAbstract>false</isAbstract>
+                  <genericTypes />
+                  <isMapped>false</isMapped>
+                  <parentFolderId>5c2038b7-32a3-48f0-9987-d508ddb04111</parentFolderId>
+                  <stereotypes />
+                  <metadata />
+                  <childElements>
+                    <childElement id="b03c6efc-3e8e-4da9-a534-d44c8f85a3b8" type="Text" typeId="922150d2-42e6-4805-a002-f9580cdf7f6f">
+                      <name>Head</name>
+                      <display>Head = ###{Title}</display>
+                      <externalReference>874acd90-a2a0-4588-afa4-e9b9440227c3</externalReference>
+                      <isAbstract>false</isAbstract>
+                      <value>###{Title}</value>
+                      <genericTypes />
+                      <isMapped>false</isMapped>
+                      <parentFolderId>8a9be0b0-691f-41ca-9be3-b0f3f832a39b</parentFolderId>
+                      <stereotypes />
+                      <metadata />
+                      <childElements />
+                    </childElement>
+                    <childElement id="dc033556-ae6d-4efa-81f6-fc53fc1df080" type="Text" typeId="922150d2-42e6-4805-a002-f9580cdf7f6f">
+                      <name>Text</name>
+                      <display>Text = A simple example "{Title}" page for navigation purposes.</display>
+                      <externalReference>cec254d4-cec7-4135-a6b6-2180e6687c7d</externalReference>
+                      <isAbstract>false</isAbstract>
+                      <value>A simple example "{Title}" page for navigation purposes.</value>
+                      <genericTypes />
+                      <isMapped>false</isMapped>
+                      <parentFolderId>8a9be0b0-691f-41ca-9be3-b0f3f832a39b</parentFolderId>
+                      <stereotypes />
+                      <metadata />
+                      <childElements />
+                    </childElement>
+                  </childElements>
+                </childElement>
+              </childElements>
+            </childElement>
+          </childElements>
+        </childElement>
+        <childElement id="fef74f04-1467-48b2-8023-bc53a3648cf5" type="Property" typeId="356fbe17-bc63-4e16-b915-feefbc063cbe">
+          <name>Title</name>
+          <display>Title: string = "Example Page"</display>
+          <externalReference>44294593-08b6-40c2-aceb-249be2679f86</externalReference>
+          <isAbstract>false</isAbstract>
+          <value>"Example Page"</value>
+          <genericTypes />
+          <typeReference id="f6735dfd-17b6-4b19-9d61-34494d7a97a1">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>false</isRequired>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>fe386a9b-1bbc-42aa-a0a4-2bfa4d4a2981</parentFolderId>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="f324c4ea-bac2-450d-b1b1-cc7f09ca3472" name="[Route Parameter]">
+              <addedByDefault>false</addedByDefault>
+              <definitionPackageName>Intent.Modelers.UI</definitionPackageName>
+              <definitionPackageId>5c4628ec-679e-4f3d-afda-137c978deae0</definitionPackageId>
+              <properties />
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="bb1dfe72-549d-4423-b30b-8089872cfdd6" type="Component Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+          <name>OnInitializedAsync</name>
+          <display>OnInitializedAsync(): void</display>
+          <externalReference>f3dda682-fbf5-47c1-b526-b1ef2c6f6355</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="09ca4998-9d23-4168-9e56-68210f096dc1">
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>false</isRequired>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>fe386a9b-1bbc-42aa-a0a4-2bfa4d4a2981</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="58696e98-7a62-4bbf-91bb-bd3364d4e471" type="Component" typeId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b">
+      <name>Home</name>
+      <display>Home</display>
+      <externalReference>5cf35899-5d12-4e0c-8642-ba734abbf14d</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d1aa7956-6c3f-413f-b855-72bbf5007a93</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="ea4adc09-8978-4ede-ba5f-265debb2b60c" name="Page">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Modelers.UI</definitionPackageName>
+          <definitionPackageId>5c4628ec-679e-4f3d-afda-137c978deae0</definitionPackageId>
+          <properties>
+            <property name="9dff9df1-a993-4bf6-9aa7-c16811142228" display="Route" value="/" isActive="true" />
+            <property name="0a8627ba-ec45-4023-9c36-b0999f43e982" display="Title" value="Home" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="15d305f6-dd54-45dc-a1df-6eb1637379ab" type="Component View" typeId="624513a6-cba8-4dde-8ebe-6b19f00f0364">
+          <name>[view]</name>
+          <display>[view]</display>
+          <externalReference>df564f66-db25-4356-8f5f-f481b3de9fe5</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>58696e98-7a62-4bbf-91bb-bd3364d4e471</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements>
+            <childElement id="d1c4a59a-ab01-4770-91f7-bc6c2a9084d7" type="Text" typeId="922150d2-42e6-4805-a002-f9580cdf7f6f">
+              <name>Head</name>
+              <display>Head = ###Hello, world!</display>
+              <externalReference>7f8968fe-e7ee-4719-bc8c-6d357b2fa7ed</externalReference>
+              <isAbstract>false</isAbstract>
+              <value>###Hello, world!</value>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>15d305f6-dd54-45dc-a1df-6eb1637379ab</parentFolderId>
+              <stereotypes />
+              <metadata />
+              <childElements />
+            </childElement>
+            <childElement id="21b935fa-0991-40eb-964e-d1b90fedaee0" type="Text" typeId="922150d2-42e6-4805-a002-f9580cdf7f6f">
+              <name>Text</name>
+              <display>Text = Welcome to your new app, code-automated by Intent Architect,</display>
+              <externalReference>be4cad91-1a36-47b1-9168-e55611e51558</externalReference>
+              <isAbstract>false</isAbstract>
+              <value>Welcome to your new app, code-automated by Intent Architect,</value>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>15d305f6-dd54-45dc-a1df-6eb1637379ab</parentFolderId>
+              <stereotypes />
+              <metadata />
+              <childElements />
+            </childElement>
+            <childElement id="83269b2a-27a5-47bd-a69c-1c33b5c9db45" type="Text" typeId="922150d2-42e6-4805-a002-f9580cdf7f6f">
+              <name>Text2</name>
+              <display>Text2 = and powered by MudBlazor and .NET 8!</display>
+              <externalReference>991229f0-d10f-47b1-8499-fc679a245c1d</externalReference>
+              <isAbstract>false</isAbstract>
+              <value>and powered by MudBlazor and .NET 8!</value>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>15d305f6-dd54-45dc-a1df-6eb1637379ab</parentFolderId>
+              <stereotypes />
+              <metadata />
+              <childElements />
+            </childElement>
+          </childElements>
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

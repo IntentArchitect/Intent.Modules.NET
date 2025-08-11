@@ -1,3 +1,7 @@
+### Version 1.2.1
+
+- Fixed: EventBus didn't clear the messages buffer after being flushed.
+
 ### Version 1.2.0
 
 - Improvement: Updated NuGet package versions.

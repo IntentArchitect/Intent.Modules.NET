@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.Identity</id>
-  <version>3.5.6</version>
-  <supportedClientVersions>[4.1.0-pre.0, 5.0.0-a)</supportedClientVersions>
+  <version>3.6.0-pre.0</version>
+  <supportedClientVersions>[4.5.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Application level identity and security components</summary>
   <description>Application level identity and security components</description>
   <authors>Intent Architect</authors>
@@ -25,6 +25,14 @@
       </config>
       <role>Application.Contracts</role>
       <location>Common/Security</location>
+    </template>
+    <template id="Intent.Application.Identity.CurrentUserInterface" externalReference="35e095a7-214f-44bd-ba1d-b121781e174b">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Contracts</role>
+      <location>Common/Interfaces</location>
     </template>
     <template id="Intent.Application.Identity.CurrentUserService" externalReference="bcf0844b-9485-4c56-8454-1e90d3e33140">
       <config>
@@ -78,6 +86,11 @@
         <package id="Intent.Security.MSAL" version="4.2.4" />
       </install>
     </detect>
+    <detect id="Intent.Application.MediatR.Behaviours">
+      <install>
+        <package id="Intent.Application.MediatR.Behaviours" version="4.4.0-pre.0" />
+      </install>
+    </detect>
   </interoperability>
   <files>
     <file src="$outDir$/$id$.dll" />
@@ -85,7 +98,7 @@
   </files>
   <metadata />
   <moduleSettings>
-    <group id="1045dea6-d28f-4ab8-9b5e-6f360035fdb6" title="Identity Settings" externalReference="1045dea6-d28f-4ab8-9b5e-6f360035fdb6">
+    <group id="1045dea6-d28f-4ab8-9b5e-6f360035fdb6" title="Identity Settings" externalReference="1045dea6-d28f-4ab8-9b5e-6f360035fdb6" type="application-settings">
       <settings>
         <setting id="0ac959d1-dc9e-4403-ae44-2a75c53a1331" title="UserId Type" type="select">
           <hint>Which Type is used to represent authenticated user's identity.</hint>
@@ -97,9 +110,16 @@
             <option value="string" description="string" />
           </options>
         </setting>
+        <setting id="fb7918a2-c5e5-4eb1-b840-5359765e2392" title="Keep Sync Accessors" type="switch">
+          <hint>Synchronous accessors for UserName and UserId have been removed as the async variants .</hint>
+          <defaultValue>true</defaultValue>
+        </setting>
       </settings>
     </group>
   </moduleSettings>
   <moduleSettingsExtensions />
   <tags />
+  <migrations has-on-install-migration="true">
+    <migration version="3.6.0-pre.0" />
+  </migrations>
 </package>

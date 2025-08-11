@@ -42,8 +42,9 @@ namespace MudBlazor.ExampleApp.Api
             services.ConfigureSwagger(Configuration);
             services.AddClientServices(Configuration);
 
+            services.AddAuthorization();
+
             services.AddRazorComponents()
-                .AddInteractiveServerComponents()
                 .AddInteractiveWebAssemblyComponents();
 
             services.AddMudServices();
@@ -66,8 +67,6 @@ namespace MudBlazor.ExampleApp.Api
             app.UseExceptionHandler();
             app.UseHttpsRedirection();
             app.UseRouting();
-            app.UseAuthentication();
-            app.UseAuthorization();
             app.UseStaticFiles();
             app.UseAntiforgery();
             app.UseEndpoints(endpoints =>
@@ -76,7 +75,6 @@ namespace MudBlazor.ExampleApp.Api
                 endpoints.MapControllers();
 
                 endpoints.MapRazorComponents<App>()
-                    .AddInteractiveServerRenderMode()
                     .AddInteractiveWebAssemblyRenderMode()
                     .AddAdditionalAssemblies(typeof(Client._Imports).Assembly);
             });

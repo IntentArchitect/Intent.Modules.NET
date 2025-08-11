@@ -47,16 +47,15 @@ namespace EFCore.Lazy.Loading.Tests.Application.Common.Behaviours
             if (elapsedMilliseconds > 500)
             {
                 var requestName = typeof(TRequest).Name;
-                var userId = _currentUserService.UserId;
-                var userName = _currentUserService.UserName;
+                var user = await _currentUserService.GetAsync();
 
                 if (_logRequestPayload)
                 {
-                    _logger.LogWarning("EFCore.Lazy.Loading.Tests Long Running Request: {Name} ({ElapsedMilliseconds} milliseconds) {@UserId} {@UserName} {@Request}", requestName, elapsedMilliseconds, userId, userName, request);
+                    _logger.LogWarning("EFCore.Lazy.Loading.Tests Long Running Request: {Name} ({ElapsedMilliseconds} milliseconds) {@UserId} {@UserName} {@Request}", requestName, elapsedMilliseconds, user?.Id, user?.Name, request);
                 }
                 else
                 {
-                    _logger.LogWarning("EFCore.Lazy.Loading.Tests Long Running Request: {Name} ({ElapsedMilliseconds} milliseconds) {@UserId} {@UserName}", requestName, elapsedMilliseconds, userId, userName);
+                    _logger.LogWarning("EFCore.Lazy.Loading.Tests Long Running Request: {Name} ({ElapsedMilliseconds} milliseconds) {@UserId} {@UserName}", requestName, elapsedMilliseconds, user?.Id, user?.Name);
                 }
             }
 

@@ -383,7 +383,6 @@
                       <name>Product</name>
                       <display>Product</display>
                       <isAbstract>false</isAbstract>
-                      <value />
                       <sort-children>manually</sort-children>
                       <genericTypes />
                       <isMapped>false</isMapped>
@@ -428,7 +427,6 @@
                       <name>Units</name>
                       <display>Units</display>
                       <isAbstract>false</isAbstract>
-                      <value />
                       <sort-children>manually</sort-children>
                       <genericTypes />
                       <isMapped>false</isMapped>
@@ -491,7 +489,6 @@
                       <name>Unit Price</name>
                       <display>Unit Price</display>
                       <isAbstract>false</isAbstract>
-                      <value />
                       <sort-children>manually</sort-children>
                       <genericTypes />
                       <isMapped>false</isMapped>
@@ -554,7 +551,6 @@
                       <name>Discount</name>
                       <display>Discount</display>
                       <isAbstract>false</isAbstract>
-                      <value />
                       <sort-children>manually</sort-children>
                       <genericTypes />
                       <isMapped>false</isMapped>

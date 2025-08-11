@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Components;
 using MudBlazor.ExampleApp.Client.HttpClients;
 using MudBlazor.ExampleApp.Client.HttpClients.Contracts.Services.Customers;
 
-[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate", Version = "1.0")]
 
 namespace MudBlazor.ExampleApp.Client.Pages.Customers.Components
@@ -35,7 +35,6 @@ namespace MudBlazor.ExampleApp.Client.Pages.Customers.Components
             {
                 Snackbar.Add(e.Message, Severity.Error);
             }
-            StateHasChanged();
         }
 
         private async Task OnSaveClicked()

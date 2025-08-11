@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b0157cbf-ca40-47cc-bc6a-13b45a10fd53" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>Blazor</name>
+  <display>Blazor</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>7d654d13-8f02-4c25-b621-bb084e1201a4</parentFolderId>
+  <packageId>7d654d13-8f02-4c25-b621-bb084e1201a4</packageId>
+  <packageName>Intent.Modules.NET</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

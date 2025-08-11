@@ -194,6 +194,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>61fd1a1f-5435-4417-a7a7-9cb85f179b9f</ProjectId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>SqlDbProject.Application/Common/Interfaces/ICurrentUser.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICurrentUser.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>61fd1a1f-5435-4417-a7a7-9cb85f179b9f</ProjectId>
       <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SqlDbProject.Application/Common/Interfaces/ICurrentUserService.cs</ApplicationRelativeFilePath>

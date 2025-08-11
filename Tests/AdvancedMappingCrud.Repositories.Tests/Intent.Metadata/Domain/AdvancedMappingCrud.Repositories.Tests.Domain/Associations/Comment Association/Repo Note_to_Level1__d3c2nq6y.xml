@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="ad6732af-2625-4385-a8a7-f2a05957287e">
+  <sourceEnd id="e0061aca-39d9-48c5-b149-e0bf5bf614a9" type="Comment Source End" typeId="7e98213c-4a9c-4d6f-98fc-f185948cc9e8">
+    <display>: Repo Note</display>
+    <order>0</order>
+    <typeReference id="5abf183d-32f7-48fc-acce-a8372edb41c0">
+      <typeId>bc3deb8d-0d29-48e7-b74f-28414be4f4fe</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="ad6732af-2625-4385-a8a7-f2a05957287e" type="Comment Target End" typeId="b7edce45-ccf0-47ed-b79f-86d5145c9f62">
+    <display>: Level1</display>
+    <order>0</order>
+    <typeReference id="b6fad36e-65e5-4ac6-a9dc-b0f47897395c">
+      <typeId>2ff60246-ff21-40ae-a6df-f677f4024f4c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Comment Association</associationType>
+  <associationTypeId>5264c135-e856-468d-8bd7-154b75842256</associationTypeId>
+  <stereotypes />
+</association>

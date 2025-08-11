@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="60216c30-ea2c-480a-9cdd-135cd9048cf4" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Contracts</name>
+  <display>Contracts</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>781eb415-b6fc-4c7f-9096-803bc08bce3c</parentFolderId>
+  <packageId>ccae603a-1eca-4e21-b3ce-ac9b3112d3d6</packageId>
+  <packageName>${application.name}</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="86c03915-fc00-4fbc-9965-65ff31c0fc16" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.HttpClients.DtoContract</name>
+      <display>Intent.Blazor.HttpClients.DtoContract</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>60216c30-ea2c-480a-9cdd-135cd9048cf4</parentFolderId>
+      <packageId>ccae603a-1eca-4e21-b3ce-ac9b3112d3d6</packageId>
+      <packageName>${application.name}</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="345871d5-987d-4018-832b-600d5b2cbe8b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.HttpClients.EnumContract</name>
+      <display>Intent.Blazor.HttpClients.EnumContract</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>60216c30-ea2c-480a-9cdd-135cd9048cf4</parentFolderId>
+      <packageId>ccae603a-1eca-4e21-b3ce-ac9b3112d3d6</packageId>
+      <packageName>${application.name}</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

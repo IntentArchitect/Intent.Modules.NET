@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore.DataMasking</id>
-  <version>1.0.0-beta.6</version>
+  <version>1.0.0-beta.7</version>
   <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
   <summary>Introduces role based, field-level data masking support for Entity Framework Core providers</summary>
   <description>Introduces role based, field-level data masking support for Entity Framework Core providers</description>
@@ -27,6 +27,7 @@
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
+    <dependency id="Intent.Application.Identity" version="3.6.0-pre.0" />
     <dependency id="Intent.Common" version="3.7.2" />
     <dependency id="Intent.Common.CSharp" version="3.8.0" />
     <dependency id="Intent.Common.Types" version="3.4.0" />

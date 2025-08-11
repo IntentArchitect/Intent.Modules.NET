@@ -23,12 +23,12 @@
     <childElement id="87802fb5-da4d-4185-88ca-606e5d6855b4" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
       <comment>Method comment.</comment>
       <name>MyProc</name>
-      <display>MyProc(param: SpParameter[*]): SpResult</display>
+      <display>MyProc(param: SpParameter[*]): SpOpResult</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="c5d36d92-7de6-44d6-8adc-8502133a05ad">
-        <typeId>ac220ea1-4718-4f07-986f-bc72141bb099</typeId>
+        <typeId>961240b3-a1a6-4983-9ae5-e9f38925ba3a</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>

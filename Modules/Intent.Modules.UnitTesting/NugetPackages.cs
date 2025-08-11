@@ -63,7 +63,7 @@ namespace Intent.Modules.UnitTesting
             NugetRegistry.Register(XunitRunnerVisualstudioPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, >= 0) => new PackageVersion("3.1.2"),
+                        ( >= 8, >= 0) => new PackageVersion("3.1.3"),
                         ( >= 6, >= 0) => new PackageVersion("3.0.2"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{XunitRunnerVisualstudioPackageName}'"),
                     }

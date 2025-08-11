@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3306d3b7-3ebb-47d8-b115-11393d15c3b1" type="Repository" typeId="96ffceb2-a70a-4b69-869b-0df436c470c3">
+  <name>CustomerRepository</name>
+  <display>CustomerRepository&lt;Customer&gt;</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>manually</sort-children>
+  <genericTypes />
+  <typeReference id="79ffca21-f2a5-4529-98af-cdf2b6664d7a">
+    <typeId>2d2ea131-1be7-4b0e-b8c5-34ab2e848ad9</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>EfCoreSoftDelete.Domain</typePackageName>
+    <typePackageId>b6ce5576-2037-4e9d-b081-93fd1b478e5d</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>b6ce5576-2037-4e9d-b081-93fd1b478e5d</parentFolderId>
+  <packageId>b6ce5576-2037-4e9d-b081-93fd1b478e5d</packageId>
+  <packageName>EfCoreSoftDelete.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="120c9ebe-bca7-4aef-b9a5-c5dafd5e7d1c" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>FindDeletedByIdAsync</name>
+      <display>FindDeletedByIdAsync(id: guid): Customer?</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="aa84bbec-e470-4bc0-acd8-00526d0cf9d2">
+        <typeId>2d2ea131-1be7-4b0e-b8c5-34ab2e848ad9</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>true</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EfCoreSoftDelete.Domain</typePackageName>
+        <typePackageId>b6ce5576-2037-4e9d-b081-93fd1b478e5d</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>3306d3b7-3ebb-47d8-b115-11393d15c3b1</parentFolderId>
+      <packageId>b6ce5576-2037-4e9d-b081-93fd1b478e5d</packageId>
+      <packageName>EfCoreSoftDelete.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="1858d615-3228-4c2e-87fb-17118eec929e" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>id</name>
+          <display>in : id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="a3644672-2c2b-4cf5-b916-b3b9491b4c6b">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>120c9ebe-bca7-4aef-b9a5-c5dafd5e7d1c</parentFolderId>
+          <packageId>b6ce5576-2037-4e9d-b081-93fd1b478e5d</packageId>
+          <packageName>EfCoreSoftDelete.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

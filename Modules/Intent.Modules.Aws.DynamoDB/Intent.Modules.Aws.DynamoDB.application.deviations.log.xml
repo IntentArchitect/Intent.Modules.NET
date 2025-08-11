@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#9037cc75-09ff-4977-8a64-efcaa5c8f5ab</correlationId>
+      <path>Intent.Modules.Aws.DynamoDB/Templates/DynamoDBDocument/DynamoDBDocumentTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2025-07-22T12:31:33.9771628Z</updatedAt>
+      <deviationsHash>315760919B124CA83E36CA88B8B651CC2F731DE0A74225F460FD8D689F07B017</deviationsHash>
+      <fileHash>4C6D27D448BEB06B6D2F97E629699C88C37887488DFFFD1F91727EA8AAA8D26F</fileHash>
+    </file>
+  </files>
+</deviationsLog>

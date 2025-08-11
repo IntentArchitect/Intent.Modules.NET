@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e09d2b27-a739-4e23-a442-d264785f243f" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>Product</name>
+  <display>Product</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>0c0abbad-5585-497e-9c17-ab8f06a14cc0</parentFolderId>
+  <packageId>0c0abbad-5585-497e-9c17-ab8f06a14cc0</packageId>
+  <packageName>DynamoDbTests.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="f02c620e-28a1-4cc5-b7c6-544c3711cf05" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id</name>
+      <display>Id: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="56a9971b-0fd9-4a35-9f91-685e2f8519ba">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>e09d2b27-a739-4e23-a442-d264785f243f</parentFolderId>
+      <packageId>0c0abbad-5585-497e-9c17-ab8f06a14cc0</packageId>
+      <packageName>DynamoDbTests.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="64f6a994-4909-4a9d-a0a9-afc5adf2ef74" name="Primary Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.DocumentDB</definitionPackageName>
+          <definitionPackageId>1c7eab18-9482-4b4e-b61b-1fbd2d2427b6</definitionPackageId>
+          <properties>
+            <property name="ce12cf69-e97f-401b-9b08-7e2c62171d4e" display="Data source" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="2ce3dc6d-37fa-4bcc-baa3-5a314b646686" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Name</name>
+      <display>Name: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="f77b4b96-2f22-4dde-af00-295e97af7e7b">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>e09d2b27-a739-4e23-a442-d264785f243f</parentFolderId>
+      <packageId>0c0abbad-5585-497e-9c17-ab8f06a14cc0</packageId>
+      <packageName>DynamoDbTests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="4e3c5418-c8f5-4bb5-9427-86cb14bef97e" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>CategoriesIds</name>
+      <display>CategoriesIds: string[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="41d95fb5-8f64-46e0-8fce-a68ab2e07057">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>e09d2b27-a739-4e23-a442-d264785f243f</parentFolderId>
+      <packageId>0c0abbad-5585-497e-9c17-ab8f06a14cc0</packageId>
+      <packageName>DynamoDbTests.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="ced3e970-e900-4f99-bd04-b993228fe17d" name="Foreign Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.DocumentDB</definitionPackageName>
+          <definitionPackageId>1c7eab18-9482-4b4e-b61b-1fbd2d2427b6</definitionPackageId>
+          <properties>
+            <property name="9e1a5430-b594-405e-9129-dcc188923265" display="Association" value="d650f451-6e2e-4f63-a6a3-0b5aeb078ba6" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="fk-original-name" value="CategoriesIds" />
+        <entry key="association" value="d650f451-6e2e-4f63-a6a3-0b5aeb078ba6" />
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

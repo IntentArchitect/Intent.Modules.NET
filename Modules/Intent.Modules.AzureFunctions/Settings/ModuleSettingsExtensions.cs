@@ -40,5 +40,6 @@ namespace Intent.Modules.AzureFunctions.Settings
         }
 
         public bool SimpleFunctionNames() => bool.TryParse(_groupSettings.GetSetting("ff298d6c-705b-41d9-9286-be85480a0abd")?.Value.ToPascalCase(), out var result) && result;
+        public bool UseGlobalExceptionMiddleware() => bool.TryParse(_groupSettings.GetSetting("312bcf3a-c8a7-41e4-b1f9-be7ef43ece07")?.Value.ToPascalCase(), out var result) && result;
     }
 }

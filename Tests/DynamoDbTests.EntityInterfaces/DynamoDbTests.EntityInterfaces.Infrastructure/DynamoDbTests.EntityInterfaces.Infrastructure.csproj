@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <NoWarn>1701,1702</NoWarn>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AWSSDK.DynamoDBv2" Version="4.0.3.1" />
+    <PackageReference Include="AWSSDK.Extensions.NETCore.Setup" Version="4.0.2.1" />
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.7" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="9.0.7" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DynamoDbTests.EntityInterfaces.Domain\DynamoDbTests.EntityInterfaces.Domain.csproj" />
+    <ProjectReference Include="..\DynamoDbTests.EntityInterfaces.Application\DynamoDbTests.EntityInterfaces.Application.csproj" />
+  </ItemGroup>
+  </Project>

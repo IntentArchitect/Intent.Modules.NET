@@ -22,6 +22,9 @@
     <name>NavigateToPagedInvoiceTable</name>
     <display>[navigate] PagedInvoiceTable</display>
     <order>7</order>
+    <traits>
+      <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+    </traits>
     <typeReference id="9662e66f-f929-4ba8-88f5-446a2616b8fb">
       <typeId>4d478d1c-f939-4fe0-a5b3-2e64163e99bb</typeId>
       <isNavigable>true</isNavigable>

@@ -10,22 +10,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>3baed312-a9f5-4fe9-ab66-81977a898f8f</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#0a66489f-30aa-417b-a75d-b945863366fd</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Api/AssociationTargetEndModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AssociationTargetEndModelStereotypeExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>3baed312-a9f5-4fe9-ab66-81977a898f8f</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#0090fb93-483e-41af-a11d-5ad2dc796adf</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Api/AttributeModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AttributeModelStereotypeExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>3baed312-a9f5-4fe9-ab66-81977a898f8f</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#04e12b51-ed12-42a3-9667-a6aa81bb6d10</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Api/ClassModelStereotypeExtensions.cs</ApplicationRelativeFilePath>

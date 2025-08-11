@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="39654561-dbf0-4bc8-8deb-121883540205">
+  <sourceEnd id="1c1a9aac-52d4-4880-a1a0-4249a5bbe3de" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : Customers.DeleteCustomerCommand</display>
+    <order>0</order>
+    <typeReference id="457a1cc7-55fd-4065-969e-9c4925a6aeac">
+      <typeId>2ebdc5c6-2853-402f-88a3-80ece736cc6f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EfCoreSoftDelete.Services</typePackageName>
+      <typePackageId>a741f575-70c9-4466-aa95-ace1ade8595f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="39654561-dbf0-4bc8-8deb-121883540205" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>customer</name>
+    <display>[delete] customer: Customer</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="54391a90-e3ba-41b7-86aa-92ed6976d572">
+      <typeId>2d2ea131-1be7-4b0e-b8c5-34ab2e848ad9</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EfCoreSoftDelete.Domain</typePackageName>
+      <typePackageId>b6ce5576-2037-4e9d-b081-93fd1b478e5d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="ec449965-5357-4c9d-971a-ff0dcce48c52" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="2ebdc5c6-2853-402f-88a3-80ece736cc6f" location="[EfCoreSoftDelete].[Services].[DeleteCustomerCommand]" />
+        <target applicationId="ec449965-5357-4c9d-971a-ff0dcce48c52" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="2d2ea131-1be7-4b0e-b8c5-34ab2e848ad9" location="[EfCoreSoftDelete].[Services].[Customer]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="2d2ea131-1be7-4b0e-b8c5-34ab2e848ad9" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="3d535ca2-9528-49ce-8883-f2edb895b0b7" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="2ebdc5c6-2853-402f-88a3-80ece736cc6f" name="DeleteCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="815abc3b-6d73-4879-9076-2a1bcaee00a9" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

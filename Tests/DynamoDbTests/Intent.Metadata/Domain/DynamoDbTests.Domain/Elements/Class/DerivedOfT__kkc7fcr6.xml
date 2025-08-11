@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="945214fe-1308-470c-b382-198002bf0f20" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>DerivedOfT</name>
+  <display>DerivedOfT : BaseOfT&lt;int&gt;</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>0c0abbad-5585-497e-9c17-ab8f06a14cc0</parentFolderId>
+  <packageId>0c0abbad-5585-497e-9c17-ab8f06a14cc0</packageId>
+  <packageName>DynamoDbTests.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="42047dd4-1dcf-4123-a167-3463d7500491" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>DerivedAttribute</name>
+      <display>DerivedAttribute: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="32428a80-19e1-4d37-ba62-7ba641b1284e">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>945214fe-1308-470c-b382-198002bf0f20</parentFolderId>
+      <packageId>0c0abbad-5585-497e-9c17-ab8f06a14cc0</packageId>
+      <packageName>DynamoDbTests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

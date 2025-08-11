@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="078df28e-c8bc-4db7-9e58-659b131c73be" type="Component Group" typeId="027f8bb9-9b28-4c1d-a516-8c3daa70e46d">
+  <name>Blazor</name>
+  <display>Blazor (3)</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <order>2</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>a4d094db-4aab-467a-970a-2c6c9aaabe82</parentFolderId>
+  <packageId>a4d094db-4aab-467a-970a-2c6c9aaabe82</packageId>
+  <packageName>Intent.ApplicationTemplate.AspNetCore.Blazor.Server</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="08b4c68f-3654-44cc-b3a1-87de79c23936" name="Component Group Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+      <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+      <properties>
+        <property name="54b29a03-082b-407a-b42e-cbacbcfa7fd7" display="Selection Mode" value="Allow Multiple" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="48051b48-8bdc-4fa0-9a7c-ad8948f0e1bd" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
+      <name>Blazor</name>
+      <display>Blazor (1)</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>078df28e-c8bc-4db7-9e58-659b131c73be</parentFolderId>
+      <packageId>a4d094db-4aab-467a-970a-2c6c9aaabe82</packageId>
+      <packageName>Intent.ApplicationTemplate.AspNetCore.Blazor.Server</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="78da9b5b-428f-4b1e-a5e5-120c7b3d87d3" name="Component Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+          <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+          <properties>
+            <property name="004dc68b-f2c0-4859-9f03-fb2e29505437" display="Icon" value="{&quot;source&quot;:&quot;data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZpZXdCb3g9IjAgMCAyNTAwIDIyNDgiPgogIDxkZWZzPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJsaW5lYXItZ3JhZGllbnQiIHgxPSI1NzIuNiIgeTE9IjE3ODYuNSIgeDI9IjIyNTAuNSIgeTI9IjQ0MS45IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iLjIiIHN0b3AtY29sb3I9IiM5NDYwZjciLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIuNCIgc3RvcC1jb2xvcj0iIzkwNWJmNCIvPgogICAgICA8c3RvcCBvZmZzZXQ9Ii42IiBzdG9wLWNvbG9yPSIjODY0ZmVjIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iLjgiIHN0b3AtY29sb3I9IiM3NjNhZTAiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNjQyMmQyIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJOZXdfR3JhZGllbnRfU3dhdGNoIiBkYXRhLW5hbWU9Ik5ldyBHcmFkaWVudCBTd2F0Y2giIHgxPSIxMjI4LjEiIHkxPSIyNjguNCIgeDI9IjEyMjguMSIgeTI9IjIyMzMuNCIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9Ii4yIiBzdG9wLWNvbG9yPSIjOTQ2MGY3Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzY0MjJkMiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI4LjcuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDEuMi4wIEJ1aWxkIDE0MikgIC0tPgogIDxnPgogICAgPGcgaWQ9IkxheWVyXzEiPgogICAgICA8cGF0aCBkPSJNMjI4OC4zLDkwMS42Yy00Ni41LDI5MS40LTE5NC44LDU1Ni45LTQxOC42LDc0OS4yLTIyMy44LDE5Mi4zLTUwOC42LDI5OS04MDMuNiwzMDEtNTkuOCwyLjMtMTE5LjYtMS4zLTE3OC43LTEwLjgtMjU0LjUtNDMuMi00NDQuMi0yNTguMy00NTUuMy01MTYuMiwxLjItMTM5LjYsNTcuMi0yNzMuMSwxNTYtMzcxLjcsMjA1LjUtMjA1LjIsNTM3LjYtMjA3LjYsNzQ2LTUuMywxMDAuMiw5Ny4yLDE1OC4xLDIyOS45LDE2MS4yLDM2OS41LDIuMiw4OC4xLTM1LjksMTY1LjQtMTE0LjQsMTY3LjctODMuOCwwLTEyMy4xLTU5LjgtMTIzLjEtMTQwLjR2LTIyNGMwLTc1LjQtNjAuNy0xMzYuNy0xMzYuMS0xMzcuM2gtMTg3LjhjLTExMS0uOC0yMTQuOCw1NC44LTI3NS42LDE0Ny43LTk5LDE1MS01Ni44LDM1My42LDk0LjIsNDUyLjYsMzguOCwyNS40LDgyLjUsNDIuMywxMjguMyw0OS41LDEwOS42LDE3LjMsMjIwLjUtMjIuMywyOTQuNS0xMDUuMWw2LjYtOS44LDYuNiwxMC45YzQ1LjksNjIuMywxMTkuOSw5Ny42LDE5Ny4yLDkzLjksMTQxLjEtMTAuMywyNDguMi0xMzEuMiwyNDEuNC0yNzIuNC43LTU4LjMtNS45LTExNi41LTE5LjUtMTczLjItMzQuOC0xNjAuMi0xMjcuNy0zMDEuOC0yNjAuNy0zOTcuNS0yNzUuNS0xOTguMy02NTYuMy0xNTYuNi04ODIuMyw5Ni42LTEwOS4yLDEyMi4zLTE2OS4yLDI4MC42LTE2OC41LDQ0NC41LDIuMSwxNzMuOCw3MS41LDM0MCwxOTMuNiw0NjMuOCwxMjIuMSwxMjMuNywyODcuNCwxOTUuMyw0NjEuMSwxOTkuNywwLDAsNDkuMiw0LjUsMTA0LjYsMy4yLDI2OS41LTEuNyw1MzIuOS04MC4zLDc1OS4zLTIyNi41LDMuMi0yLjIsNi40LDIuMiw0LjMsNS41LTIyMy4xLDI0MC4zLTU0MC42LDM3MC4yLTg2OC4yLDM1NS4xLTIxMy44LDMuOS00MTkuOC03OS44LTU3MC40LTIzMS42LTE1MC42LTE1MS44LTIzMi42LTM1OC42LTIyNy01NzIuMy4xLTI1NS43LDEyMC44LTQ5Ni40LDMyNS43LTY0OS40LDEzNS44LTEwMCwyOTkuOS0xNTQuMiw0NjguNS0xNTQuN2gyNTJjMTk5LjEtLjEsMzg4LjktODQsNTIzLjEtMjMxLDEuNC0xLjYsMy4zLTIuNiw1LjMtMyw0LjItLjksOC41LDEsMTAuNyw0LjcsMS4xLDEuOCwxLjYsMy45LDEuNCw2LTEwLjcsMTEzLjMtNDguNCwyMjIuMy0xMTAsMzE4LTEuOSwzLjQtMS41LDcuNi44LDEwLjYsMi4zLDMuMSw2LjMsNC41LDEwLDMuNiwyMzUuOS01My4zLDQzMi41LTIxNS40LDUyOS44LTQzNi45LDEuMi0yLDIuOS0zLjYsNC45LTQuNyw0LjEtMi4zLDkuMS0yLjMsMTMuMiwwLDIsMS4xLDMuNywyLjgsNC45LDQuNyw5OC44LDE4OS4yLDEzMi4xLDQwNS44LDk0LjcsNjE2aDBaTTk0OS45LDEyMTcuNmMtMTA4LjMsMC0xOTYsODcuNy0xOTYuMSwxOTYsMCwxMi45LDEuMywyNS43LDMuOCwzOC4zLDE1LjUsNzcuOCw3Ni4zLDEzOC42LDE1NCwxNTQsMTA2LjIsMjEuMSwyMDkuNC00Ny44LDIzMC41LTE1NCwyLjUtMTIuNiwzLjgtMjUuNCwzLjgtMzguM3YtMTgzYy0uNC03LjMtNi4yLTEzLjEtMTMuNC0xMy40bC0xODIuNi40WiIgZmlsbD0idXJsKCNsaW5lYXItZ3JhZGllbnQpIiBzdHJva2U9InVybCgjTmV3X0dyYWRpZW50X1N3YXRjaCkiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgc3Ryb2tlLXdpZHRoPSIyMS41Ii8+CiAgICA8L2c+CiAgPC9nPgo8L3N2Zz4=&quot;,&quot;type&quot;:0,&quot;absolutePathRelativeTo&quot;:null}" isActive="true" />
+            <property name="476744d2-a4bc-4750-a9db-7022edf576c5" display="Description" value="A modern front-end web framework based on HTML, CSS, and C# for building web apps." isActive="true" />
+            <property name="b928f640-5dfd-4676-b8c9-4aadac826d18" display="Include by Default" value="true" isActive="true" />
+            <property name="07af017d-20a4-4e73-978f-ca4a59351f70" display="Is Required" value="true" isActive="true" />
+            <property name="ed4d09bb-52e7-43dc-91db-6244d5390e53" display="Dependencies" value="[]" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="49a22399-7096-4717-9309-171090fa5e1b" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+          <name>Intent.Blazor</name>
+          <display>Intent.Blazor</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>48051b48-8bdc-4fa0-9a7c-ad8948f0e1bd</parentFolderId>
+          <packageId>a4d094db-4aab-467a-970a-2c6c9aaabe82</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore.Blazor.Server</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+              <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+              <properties>
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="1.0.0-pre.1" isActive="true" />
+                <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
+                <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
+                <property name="4bdd0a51-5a47-4119-b0bb-cd1240ac7850" display="Include Assets" value="All" isActive="true" />
+                <property name="478326e2-5290-428e-aef9-10f2c67f24c2" display="Included Assets" value="null" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="9b07e521-c632-40fe-a116-2246e20f8d35" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
+      <name>ASP.NET Core Hosting</name>
+      <display>ASP.NET Core Hosting (5)</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>078df28e-c8bc-4db7-9e58-659b131c73be</parentFolderId>
+      <packageId>a4d094db-4aab-467a-970a-2c6c9aaabe82</packageId>
+      <packageName>Intent.ApplicationTemplate.AspNetCore.Blazor.Server</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="78da9b5b-428f-4b1e-a5e5-120c7b3d87d3" name="Component Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+          <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+          <properties>
+            <property name="004dc68b-f2c0-4859-9f03-fb2e29505437" display="Icon" value="{&quot;source&quot;:&quot;data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZpZXdCb3g9IjAgMCA1MCA1MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudDc4ODQ3N2YxLTMzMDYtNGJiMS1iNzdjLTg4ZGQ3YWM2YjBmZSIgeDE9IjI1IiB5MT0iMy4yIiB4Mj0iMjUiIHkyPSI0Ni40IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzAwYzBmMiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMwMDU5OWMiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyOC43LjIsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiAxLjIuMCBCdWlsZCAxNTQpICAtLT4KICA8Zz4KICAgIDxnIGlkPSJrZXkteWVsbG93Ij4KICAgICAgPHBhdGggZD0iTTMuOSwyMC45aDBzMCwwLDAsMGMwLDAsMC0uMiwwLS4zLDAsMCwwLC4yLDAsLjJaIiBmaWxsPSIjZmYwMDEzIi8+CiAgICAgIDxwYXRoIGQ9Ik00NiwyMC43Yy0uMi0uOC0uNC0xLjYtLjYtMi4zLS40LTEuMi0uOS0yLjQtMS41LTMuNS0uNC0uOC0xLTEuNy0xLjUtMi40LS41LS43LTEuMS0xLjQtMS43LTIuMS0xLjMtMS40LTIuNy0yLjYtNC4zLTMuNi0xLjktMS4yLTQuMS0yLjEtNi4zLTIuNy0uNS0uMS0uOS0uMi0xLjQtLjMtLjgtLjItMS42LS4yLTIuNS0uMy0uNCwwLS45LDAtMS4zLDBzLS45LDAtMS4zLDBjLS44LDAtMS42LjEtMi40LjMtLjUsMC0uOS4yLTEuMy4zLTIuMy41LTQuNCwxLjUtNi40LDIuNy0xLjYsMS0zLDIuMi00LjMsMy42LS42LjctMS4yLDEuMy0xLjcsMi4xLTEuMSwxLjYtMiwzLjMtMi43LDUuMS0uNCwxLS43LDIuMS0uOSwzLjEsMCwwLDAsLjIsMCwuMywwLDAsMCwwLDAsMC0uMywxLjMtLjQsMi43LS40LDRzLjIsMy43LjcsNS40YzEuNCw1LjMsNC44LDkuOSw5LjMsMTIuNywyLDEuMiw0LjIsMi4yLDYuNSwyLjcuNCwwLC44LjIsMS4yLjIuOC4yLDEuNS4yLDIuMy4zLjUsMCwuOSwwLDEuNCwwcy45LDAsMS40LDBjLjgsMCwxLjYtLjEsMi40LS4zLjQsMCwuOC0uMiwxLjItLjIsMi4zLS41LDQuNS0xLjUsNi41LTIuNyw0LjUtMi45LDcuOS03LjQsOS4zLTEyLjcuNS0xLjcuNy0zLjUuNy01LjRzLS4yLTIuOS0uNC00LjNaTTQwLjIsMTRjLjksMS4yLDEuNiwyLjUsMi4yLDMuOS0xLjUsMi4xLTMuNiw0LTYuMiw1LjQtLjEtMi40LS41LTQuNy0xLjEtNi45LDEuOC0uNiwzLjYtMS40LDUuMS0yLjRaTTM4LjUsMTIuMWMtMS4zLjgtMi43LDEuNS00LjMsMi4xLTEtMi43LTIuNS01LjItNC4yLTcuMiwzLjMuOSw2LjIsMi43LDguNSw1LjFaTTMzLjksMjQuNGMtMywxLjMtNi41LDItMTAuMiwycy01LjItLjQtNy42LTEuMXYtLjNjMC0yLjguNC01LjQsMS4yLTcuOSwyLjQuNiw1LDEsNy43LDFzNS4zLS4zLDcuNy0xYy43LDIuMywxLjEsNC43LDEuMSw3LjNaTTI0LjgsNi4zaC40YzIuOCwxLjksNS4yLDQuOSw2LjcsOC42LTIuMi42LTQuNS45LTYuOS45cy00LjctLjMtNi45LS45YzEuNS0zLjcsMy45LTYuNyw2LjctOC42Wk0yMCw3Yy0xLjcsMi0zLjIsNC41LTQuMiw3LjItMS41LS42LTMtMS4zLTQuMy0yLjEsMi4zLTIuNCw1LjItNC4yLDguNS01LjFaTTkuOCwxNGMxLjYsMSwzLjMsMS44LDUuMSwyLjQtLjcsMi41LTEuMSw1LjItMS4yLDguMS0yLjctMS4xLTUtMi42LTYuOS00LjQuNi0yLjIsMS42LTQuMywyLjktNi4xWk02LjcsMjljLS4zLTEuMy0uNC0yLjYtLjQtNHMwLTEuMiwwLTEuOGMyLjEsMS43LDQuNywzLDcuNSw0LC4yLDIuOS44LDUuNywxLjcsOC4yLTMuNy0xLjQtNi44LTMuNi04LjgtNi4zWk05LjEsMzQuOWMyLjIsMS41LDQuOSwyLjcsNy43LDMuNS45LDEuNywxLjksMy4zLDMuMSw0LjctNC41LTEuMy04LjQtNC4yLTEwLjgtOC4yWk0yNS4zLDQzLjdoLS42Yy0xLjctMS4yLTMuMy0yLjgtNC41LTQuNywxLjYuMiwzLjIuNCw0LjguNHMzLjItLjEsNC44LS40Yy0xLjMsMS45LTIuOCwzLjUtNC41LDQuN1pNMjUsMzcuMWMtMi4yLDAtNC40LS4zLTYuNC0uOGgwYy0xLjItMi41LTItNS40LTIuMy04LjQsMi4zLjYsNC44LjksNy40LjlzNy0uNiwxMC4xLTEuN2MtLjIsMy40LTEuMSw2LjUtMi40LDkuMi0yLC41LTQuMi44LTYuNC44Wk0zMC4xLDQzYzEuMi0xLjQsMi4yLTIuOSwzLjEtNC43LDIuOC0uOCw1LjUtMiw3LjctMy41LTIuNCwzLjktNi4yLDYuOC0xMC44LDguMVpNNDMuMywyOWMtMi4xLDIuNy01LjEsNC45LTguOCw2LjMsMS0yLjgsMS42LTYsMS44LTkuMywyLjgtMS4zLDUuMi0zLDcuMS01LC4zLDEuMi40LDIuNS40LDMuOXMtLjIsMi43LS40LDRaIiBmaWxsPSJ1cmwoI2xpbmVhci1ncmFkaWVudDc4ODQ3N2YxLTMzMDYtNGJiMS1iNzdjLTg4ZGQ3YWM2YjBmZSkiLz4KICAgIDwvZz4KICA8L2c+Cjwvc3ZnPg==&quot;,&quot;type&quot;:0,&quot;absolutePathRelativeTo&quot;:null}" isActive="true" />
+            <property name="476744d2-a4bc-4750-a9db-7022edf576c5" display="Description" value="ASP.NET Core is a cross-platform, high-performance, open-source framework for building modern, cloud-based, Internet-connected applications." isActive="true" />
+            <property name="b928f640-5dfd-4676-b8c9-4aadac826d18" display="Include by Default" value="true" isActive="true" />
+            <property name="07af017d-20a4-4e73-978f-ca4a59351f70" display="Is Required" value="true" isActive="true" />
+            <property name="ed4d09bb-52e7-43dc-91db-6244d5390e53" display="Dependencies" value="[]" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="9b6ea21a-1928-4ee3-94d6-981b27a69ab2" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+          <name>Intent.AspNetCore</name>
+          <display>Intent.AspNetCore</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>9b07e521-c632-40fe-a116-2246e20f8d35</parentFolderId>
+          <packageId>a4d094db-4aab-467a-970a-2c6c9aaabe82</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore.Blazor.Server</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+              <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+              <properties>
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="6.1.2" isActive="true" />
+                <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
+                <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
+                <property name="4bdd0a51-5a47-4119-b0bb-cd1240ac7850" display="Include Assets" value="All" isActive="true" />
+                <property name="478326e2-5290-428e-aef9-10f2c67f24c2" display="Included Assets" value="null" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="656c3ce0-32e0-4df0-84d5-04d4f3d4a303" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+          <name>Intent.Application.DependencyInjection</name>
+          <display>Intent.Application.DependencyInjection</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>9b07e521-c632-40fe-a116-2246e20f8d35</parentFolderId>
+          <packageId>a4d094db-4aab-467a-970a-2c6c9aaabe82</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore.Blazor.Server</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+              <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+              <properties>
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="4.1.8" isActive="true" />
+                <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
+                <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
+                <property name="4bdd0a51-5a47-4119-b0bb-cd1240ac7850" display="Include Assets" value="All" isActive="true" />
+                <property name="478326e2-5290-428e-aef9-10f2c67f24c2" display="Included Assets" value="null" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="1c41e332-0304-464d-aafc-27bbc695340f" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+          <name>Intent.Infrastructure.DependencyInjection</name>
+          <display>Intent.Infrastructure.DependencyInjection</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>9b07e521-c632-40fe-a116-2246e20f8d35</parentFolderId>
+          <packageId>a4d094db-4aab-467a-970a-2c6c9aaabe82</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore.Blazor.Server</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+              <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+              <properties>
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="4.1.9" isActive="true" />
+                <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
+                <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
+                <property name="4bdd0a51-5a47-4119-b0bb-cd1240ac7850" display="Include Assets" value="All" isActive="true" />
+                <property name="478326e2-5290-428e-aef9-10f2c67f24c2" display="Included Assets" value="null" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="377a26d3-db42-446e-920a-f2803435680c" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+          <name>Intent.Application.Dtos</name>
+          <display>Intent.Application.Dtos</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>9b07e521-c632-40fe-a116-2246e20f8d35</parentFolderId>
+          <packageId>a4d094db-4aab-467a-970a-2c6c9aaabe82</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore.Blazor.Server</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+              <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+              <properties>
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="4.4.5" isActive="true" />
+                <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
+                <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
+                <property name="4bdd0a51-5a47-4119-b0bb-cd1240ac7850" display="Include Assets" value="All" isActive="true" />
+                <property name="478326e2-5290-428e-aef9-10f2c67f24c2" display="Included Assets" value="null" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="f31a2a39-5bd9-4d52-a661-a7bd287f62ba" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+          <name>Intent.Application.Dtos.Pagination</name>
+          <display>Intent.Application.Dtos.Pagination</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>9b07e521-c632-40fe-a116-2246e20f8d35</parentFolderId>
+          <packageId>a4d094db-4aab-467a-970a-2c6c9aaabe82</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore.Blazor.Server</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+              <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+              <properties>
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="4.1.2" isActive="true" />
+                <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
+                <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="false" isActive="true" />
+                <property name="4bdd0a51-5a47-4119-b0bb-cd1240ac7850" display="Include Assets" value="All" isActive="true" />
+                <property name="478326e2-5290-428e-aef9-10f2c67f24c2" display="Included Assets" value="null" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="2c98fb89-7966-48a4-a040-39bb40aa3433" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
+      <name>Blazor AI (BETA)</name>
+      <display>Blazor AI (BETA) (1)</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>078df28e-c8bc-4db7-9e58-659b131c73be</parentFolderId>
+      <packageId>a4d094db-4aab-467a-970a-2c6c9aaabe82</packageId>
+      <packageName>Intent.ApplicationTemplate.AspNetCore.Blazor.Server</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="78da9b5b-428f-4b1e-a5e5-120c7b3d87d3" name="Component Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+          <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+          <properties>
+            <property name="004dc68b-f2c0-4859-9f03-fb2e29505437" display="Icon" value="{&quot;type&quot;:0,&quot;source&quot;:&quot;data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iYnJhY2tldF9zeW1ib2wtYmx1ZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgNDIuOSA0Mi45Ij4KICA8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMjkuNi4xLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogMi4xLjEgQnVpbGQgOSkgIC0tPgogIDxkZWZzPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJsaW5lYXItZ3JhZGllbnQtNDV5OTg3ZGZnaGRmZ3hkZmJ2c2Z2aHdkZmJkZnJ2ZWZuajIwMzh0aGktZXJnbmkzOTU0eTc4dTIwMzlyZmowLXc0My10OWozMGlidm5lOTg1Ym52ZSIgeDE9Ii0xMTUyMi43IiB5MT0iLTY2NTcuNyIgeDI9Ii0xMTUyMi43IiB5Mj0iLTY2MzkuNCIgZ3JhZGllbnRUcmFuc2Zvcm09InRyYW5zbGF0ZSgtNjYzNiAtMTE0OTUuMikgcm90YXRlKC05MCkgc2NhbGUoMSAtMSkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmZmIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iLjQiIHN0b3AtY29sb3I9IiMwOWM0ZmYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMDA3MGMwIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJsaW5lYXItZ3JhZGllbnQtNDV5OTg3ZGZnaGRmZ3hkZmJ2c2Z2aHdkZmJkZnJ2ZWZuajIwMzh0aGktZXJnbmkzOTU0eTc4dTIwMzlyZmowLXc0My10OWozMGlidm5lOTg1Ym52ZTEiIHgxPSItMTU2MTIuMiIgeTE9Ii0xNTM3IiB4Mj0iLTE1NjEyLjIiIHkyPSItMTUxOC45IiBncmFkaWVudFRyYW5zZm9ybT0idHJhbnNsYXRlKC0xMjA5OS44IC05OTI4LjcpIHJvdGF0ZSgtMTM1KSBzY2FsZSgxIC0xKSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZmYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIuNCIgc3RvcC1jb2xvcj0iIzA5YzRmZiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMwMDcwYzAiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudC00NXk5ODdkZmdoZGZneGRmYnZzZnZod2RmYmRmcnZlZm5qMjAzOHRoaS1lcmduaTM5NTR5Nzh1MjAzOXJmajAtdzQzLXQ5ajMwaWJ2bmU5ODVibnZlMiIgeDE9Ii0xNDg4Mi42IiB5MT0iNDk3NS40IiB4Mj0iLTE0ODgyLjYiIHkyPSI0OTkzLjYiIGdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTE0ODU1LjIgLTQ5NTcuMikgcm90YXRlKC0xODApIHNjYWxlKDEgLTEpIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZmZiIvPgogICAgICA8c3RvcCBvZmZzZXQ9Ii40IiBzdG9wLWNvbG9yPSIjMDljNGZmIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzAwNzBjMCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50LTQ1eTk4N2RmZ2hkZmd4ZGZidnNmdmh3ZGZiZGZydmVmbmoyMDM4dGhpLWVyZ25pMzk1NHk3OHUyMDM5cmZqMC13NDMtdDlqMzBpYnZuZTk4NWJudmUzIiB4MT0iLTk3NjIuMyIgeTE9IjkwNjQuNSIgeDI9Ii05NzYyLjMiIHkyPSI5MDgyLjciIGdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTEzMjg4LjcgNTA2LjcpIHJvdGF0ZSgxMzUpIHNjYWxlKDEgLTEpIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZmZiIvPgogICAgICA8c3RvcCBvZmZzZXQ9Ii40IiBzdG9wLWNvbG9yPSIjMDljNGZmIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzAwNzBjMCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50LTQ1eTk4N2RmZ2hkZmd4ZGZidnNmdmh3ZGZiZGZydmVmbmoyMDM4dGhpLWVyZ25pMzk1NHk3OHUyMDM5cmZqMC13NDMtdDlqMzBpYnZuZTk4NWJudmU0IiB4MT0iLTMyNDkuNSIgeTE9IjgzMzUuNCIgeDI9Ii0zMjQ5LjUiIHkyPSI4MzUzLjYiIGdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTgzMTcuMSAzMjYyLjEpIHJvdGF0ZSg5MCkgc2NhbGUoMSAtMSkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmZmIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iLjQiIHN0b3AtY29sb3I9IiMwOWM0ZmYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMDA3MGMwIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJsaW5lYXItZ3JhZGllbnQtNDV5OTg3ZGZnaGRmZ3hkZmJ2c2Z2aHdkZmJkZnJ2ZWZuajIwMzh0aGktZXJnbmkzOTU0eTc4dTIwMzlyZmowLXc0My10OWozMGlidm5lOTg1Ym52ZTUiIHgxPSI4MzkuNCIgeTE9IjMyMTQuOCIgeDI9IjgzOS40IiB5Mj0iMzIzMyIgZ3JhZGllbnRUcmFuc2Zvcm09InRyYW5zbGF0ZSgtMjg1My4zIDE2OTUuNSkgcm90YXRlKDQ1KSBzY2FsZSgxIC0xKSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZmYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIuNCIgc3RvcC1jb2xvcj0iIzA5YzRmZiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMwMDcwYzAiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudC00NXk5ODdkZmdoZGZneGRmYnZzZnZod2RmYmRmcnZlZm5qMjAzOHRoaS1lcmduaTM5NTR5Nzh1MjAzOXJmajAtdzQzLXQ5ajMwaWJ2bmU5ODVibnZlNiIgeDE9IjExMC41IiB5MT0iLTMyOTcuNyIgeDI9IjExMC41IiB5Mj0iLTMyNzkuNCIgZ3JhZGllbnRUcmFuc2Zvcm09InRyYW5zbGF0ZSgtOTcuOSAtMzI3Nikgc2NhbGUoMSAtMSkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmZmIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iLjQiIHN0b3AtY29sb3I9IiMwOWM0ZmYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMDA3MGMwIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJsaW5lYXItZ3JhZGllbnQtNDV5OTg3ZGZnaGRmZ3hkZmJ2c2Z2aHdkZmJkZnJ2ZWZuajIwMzh0aGktZXJnbmkzOTU0eTc4dTIwMzlyZmowLXc0My10OWozMGlidm5lOTg1Ym52ZTciIHgxPSItNTAxMC42IiB5MT0iLTczODYuNyIgeDI9Ii01MDEwLjYiIHkyPSItNzM2OC42IiBncmFkaWVudFRyYW5zZm9ybT0idHJhbnNsYXRlKC0xNjY0LjUgLTg3MzkuOCkgcm90YXRlKC00NSkgc2NhbGUoMSAtMSkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmZmIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iLjQiIHN0b3AtY29sb3I9IiMwOWM0ZmYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMDA3MGMwIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJsaW5lYXItZ3JhZGllbnQtNDV5OTg3ZGZnaGRmZ3hkZmJ2c2Z2aHdkZmJkZnJ2ZWZuajIwMzh0aGktZXJnbmkzOTU0eTc4dTIwMzlyZmowLXc0My10OWozMGlidm5lOTg1Ym52ZTgiIHgxPSIyOSIgeTE9IjIxLjgiIHgyPSIyOSIgeTI9IjEuMSIgZ3JhZGllbnRUcmFuc2Zvcm09InRyYW5zbGF0ZSgwIDQ0KSBzY2FsZSgxIC0xKSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiM3MDJhZjciLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNWMyZDkxIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJsaW5lYXItZ3JhZGllbnQtNDV5OTg3ZGZnaGRmZ3hkZmJ2c2Z2aHdkZmJkZnJ2ZWZuajIwMzh0aGktZXJnbmkzOTU0eTc4dTIwMzlyZmowLXc0My10OWozMGlidm5lOTg1Ym52ZTkiIHgxPSIyOSIgeTE9IjIxLjgiIHgyPSIyOSIgeTI9IjEuMSIgZ3JhZGllbnRUcmFuc2Zvcm09InRyYW5zbGF0ZSgwIDQ0KSBzY2FsZSgxIC0xKSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiM3MDJhZjciLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNWMyZDkxIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cGF0aCBkPSJNMjEuNywyMS43YzAtLjQuNCwzLjctMS41LDYuOC0xLjgsMy4xLTQuMSw0LTcuNyw0LjgtMiwuNS0zLjIsMC00LjgtLjUtMi4yLS43LTMuMy0yLjUtMy43LTMuMXMtLjgtMS45LS41LTMuMmMuNS0yLjIsMi0zLjMsNC0zLjkuNCwwLDIuMi0uNSwzLjkuNHMyLjIsMS41LDMuNywxLjljMS41LjQsMy4xLDAsMy43LS40LDEuNy0uNiwyLjktMi40LDMuMS0zLjF2LjJoLS4yWiIgZmlsbD0idXJsKCNsaW5lYXItZ3JhZGllbnQtNDV5OTg3ZGZnaGRmZ3hkZmJ2c2Z2aHdkZmJkZnJ2ZWZuajIwMzh0aGktZXJnbmkzOTU0eTc4dTIwMzlyZmowLXc0My10OWozMGlidm5lOTg1Ym52ZSkiLz4KICA8cGF0aCBkPSJNMjIuNCwxOS45Yy0uMy0uMywyLjksMi40LDMuNyw1LjhzLjIsNS44LTIsOC45Yy0xLjIsMS44LTIuMywyLjQtMy44LDMuMi0yLjEsMS00LjIuNi00LjcuNXMtMS45LS43LTIuNi0xLjljLTEuMS0xLjktMS0zLjgsMC01LjYuMy0uMywxLjEtMS45LDMtMi41LDEuOC0uNiwyLjYtLjUsNC0xLjNzMi4xLTIuMSwyLjQtMi45Yy43LTEuNy40LTMuNywwLTQuM2guMi0uMloiIGZpbGw9InVybCgjbGluZWFyLWdyYWRpZW50LTQ1eTk4N2RmZ2hkZmd4ZGZidnNmdmh3ZGZiZGZydmVmbmoyMDM4dGhpLWVyZ25pMzk1NHk3OHUyMDM5cmZqMC13NDMtdDlqMzBpYnZuZTk4NWJudmUxKSIvPgogIDxwYXRoIGQ9Ik0yMS43LDE4LjNjLS40LDAsMy43LS40LDYuOCwxLjUsMy4xLDEuOCw0LjMsNCw0LjgsNy43LjQsMiwwLDMuMi0uNSw0LjgtLjcsMi4yLTIuNSwzLjMtMy4xLDMuN3MtMS45LjgtMy4yLjVjLTIuMi0uNS0zLjMtMi0zLjktNCwwLS40LS41LTIuMi40LTMuOXMxLjUtMi4yLDEuOS0zLjcsMC0zLjEtLjQtMy43Yy0uNi0xLjctMi40LTIuOS0zLjEtMy4xaC4ydi4yaC4xWiIgZmlsbD0idXJsKCNsaW5lYXItZ3JhZGllbnQtNDV5OTg3ZGZnaGRmZ3hkZmJ2c2Z2aHdkZmJkZnJ2ZWZuajIwMzh0aGktZXJnbmkzOTU0eTc4dTIwMzlyZmowLXc0My10OWozMGlidm5lOTg1Ym52ZTIpIi8+CiAgPHBhdGggZD0iTTE5LjksMTcuNmMtLjMuMywyLjQtMi45LDUuOC0zLjdzNS44LS4yLDguOSwyYzEuOCwxLjIsMi40LDIuMywzLjIsMy44LDEsMi4xLjYsNC4yLjUsNC43cy0uNywxLjktMS45LDIuNmMtMS45LDEuMS0zLjgsMS01LjYsMC0uMy0uMy0xLjktMS4xLTIuNS0zcy0uNS0yLjYtMS4zLTQtMi4xLTIuMS0yLjktMi40Yy0xLjctLjctMy43LS40LTQuMywwaDB2LS4yaDB2LjJzLjEsMCwuMSwwWiIgZmlsbD0idXJsKCNsaW5lYXItZ3JhZGllbnQtNDV5OTg3ZGZnaGRmZ3hkZmJ2c2Z2aHdkZmJkZnJ2ZWZuajIwMzh0aGktZXJnbmkzOTU0eTc4dTIwMzlyZmowLXc0My10OWozMGlidm5lOTg1Ym52ZTMpIi8+CiAgPHBhdGggZD0iTTE4LjMsMTguM2MwLC40LS40LTMuNywxLjUtNi44czQtNC4zLDcuNy00LjhjMi0uNCwzLjIsMCw0LjguNSwyLjIuNywzLjMsMi41LDMuNywzLjFzLjgsMS45LjUsMy4yYy0uNSwyLjItMiwzLjMtNCwzLjktLjQsMC0yLjIuNS0zLjktLjRzLTIuMi0xLjUtMy43LTEuOS0zLjEsMC0zLjcuNGMtMS43LjYtMi45LDIuNC0zLjEsMy4xdi0uMmguMloiIGZpbGw9InVybCgjbGluZWFyLWdyYWRpZW50LTQ1eTk4N2RmZ2hkZmd4ZGZidnNmdmh3ZGZiZGZydmVmbmoyMDM4dGhpLWVyZ25pMzk1NHk3OHUyMDM5cmZqMC13NDMtdDlqMzBpYnZuZTk4NWJudmU0KSIvPgogIDxwYXRoIGQ9Ik0xNy42LDE5LjljLjMuMy0yLjktMi40LTMuNy01LjhzLS4yLTUuOCwyLTguOWMxLjItMS44LDIuMy0yLjQsMy44LTMuMiwyLjEtMSw0LjItLjYsNC43LS41czEuOS43LDIuNiwxLjljMS4xLDEuOSwxLDMuOCwwLDUuNi0uMy4zLTEuMSwxLjktMywyLjVzLTIuNi41LTQsMS4zYy0xLjMuOC0yLjEsMi4xLTIuNCwyLjktLjcsMS43LS40LDMuNywwLDQuM2gtLjIuMiwwWiIgZmlsbD0idXJsKCNsaW5lYXItZ3JhZGllbnQtNDV5OTg3ZGZnaGRmZ3hkZmJ2c2Z2aHdkZmJkZnJ2ZWZuajIwMzh0aGktZXJnbmkzOTU0eTc4dTIwMzlyZmowLXc0My10OWozMGlidm5lOTg1Ym52ZTUpIi8+CiAgPHBhdGggZD0iTTE4LjMsMjEuN2MuNCwwLTMuNy40LTYuOC0xLjVzLTQuMy00LTQuOC03LjdjLS40LTIsMC0zLjIuNS00LjguNy0yLjIsMi41LTMuMywzLjEtMy43czEuOS0uOCwzLjItLjVjMi4yLjUsMy4zLDIsMy45LDQsMCwuNC41LDIuMi0uNCwzLjlzLTEuNSwyLjItMS45LDMuN2MtLjQsMS41LDAsMy4xLjQsMy43LjYsMS43LDIuNCwyLjksMy4xLDMuMWgtLjJ2LS4yaC0uMVoiIGZpbGw9InVybCgjbGluZWFyLWdyYWRpZW50LTQ1eTk4N2RmZ2hkZmd4ZGZidnNmdmh3ZGZiZGZydmVmbmoyMDM4dGhpLWVyZ25pMzk1NHk3OHUyMDM5cmZqMC13NDMtdDlqMzBpYnZuZTk4NWJudmU2KSIvPgogIDxwYXRoIGQ9Ik0xOS45LDIyLjRjLjMtLjMtMi40LDIuOS01LjgsMy43cy01LjguMi04LjktMmMtMS44LTEuMi0yLjQtMi4zLTMuMi0zLjgtMS0yLjEtLjYtNC4yLS41LTQuN3MuNy0xLjksMS45LTIuNmMxLjktMS4xLDMuOC0xLDUuNiwwLC4zLjMsMS45LDEuMSwyLjUsMywuNiwxLjguNSwyLjYsMS4zLDQsLjgsMS4zLDIuMSwyLjEsMi45LDIuNCwxLjcuNywzLjcuNCw0LjMsMGgwdi4yaDB2LS4ycy0uMSwwLS4xLDBaIiBmaWxsPSJ1cmwoI2xpbmVhci1ncmFkaWVudC00NXk5ODdkZmdoZGZneGRmYnZzZnZod2RmYmRmcnZlZm5qMjAzOHRoaS1lcmduaTM5NTR5Nzh1MjAzOXJmajAtdzQzLXQ5ajMwaWJ2bmU5ODVibnZlNykiLz4KICA8ZWxsaXBzZSBjeD0iMjgiIGN5PSIzMyIgcng9IjkuNSIgcnk9IjgiIGZpbGw9IiNmZmYiLz4KICA8cGF0aCBkPSJNNDAuMywyNy4zYy0uNSwzLjEtMi4xLDUuOS00LjQsNy45LTIuNCwyLTUuNCwzLjItOC41LDMuMnMtMS4zLDAtMS45LDBjLTIuNy0uNS00LjctMi43LTQuOC01LjUsMC0xLjUuNi0yLjksMS43LTMuOSwyLjItMi4yLDUuNy0yLjIsNy45LDAsMS4xLDEsMS43LDIuNCwxLjcsMy45cy0uNCwxLjgtMS4yLDEuOC0xLjMtLjYtMS4zLTEuNXYtMi40YzAtLjgtLjYtMS41LTEuNC0xLjVoLTJjLTEuMiwwLTIuMy42LTIuOSwxLjYtMS4xLDEuNi0uNiwzLjgsMSw0LjguNC4zLjkuNCwxLjQuNSwxLjIuMiwyLjMtLjIsMy4xLTEuMWgwYzAsMCwwLDAsMCwwLC41LjcsMS4zLDEsMi4xLDEsMS41LDAsMi42LTEuNCwyLjYtMi45czAtMS4yLS4yLTEuOGMtLjQtMS43LTEuNC0zLjItMi44LTQuMi0yLjktMi4xLTctMS43LTkuNCwxLTEuMiwxLjMtMS44LDMtMS44LDQuN3MuOCwzLjYsMi4xLDQuOWMxLjMsMS4zLDMsMi4xLDQuOSwyLjFoMS4xYzIuOSwwLDUuNy0uOSw4LjEtMi40aDBjLTIuNCwyLjUtNS43LDMuOS05LjIsMy44LTIuMywwLTQuNS0uOC02LjEtMi41LTEuNi0xLjYtMi41LTMuOC0yLjQtNi4xLDAtMi43LDEuMy01LjMsMy41LTYuOSwxLjQtMS4xLDMuMi0xLjYsNS0xLjZoMi43YzIuMSwwLDQuMS0uOSw1LjYtMi41aDBjMCwxLjItLjUsMi40LTEuMiwzLjRoMHEwLC4xLDAsLjFjMi41LS42LDQuNi0yLjMsNS42LTQuNmgwYzEsMiwxLjQsNC4zLDEsNi41aDB2LjNaTTI2LDMwLjdjLTEuMSwwLTIsLjgtMiwydi40Yy4yLjguOCwxLjUsMS42LDEuNiwxLjEuMiwyLjItLjUsMi40LTEuNnYtMi4zczAtLjEtLjEtLjFoLTEuOVoiIGZpbGw9InVybCgjbGluZWFyLWdyYWRpZW50LTQ1eTk4N2RmZ2hkZmd4ZGZidnNmdmh3ZGZiZGZydmVmbmoyMDM4dGhpLWVyZ25pMzk1NHk3OHUyMDM5cmZqMC13NDMtdDlqMzBpYnZuZTk4NWJudmU4KSIgc3Ryb2tlPSIjZmZmIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS13aWR0aD0iLjkiLz4KICA8cGF0aCBkPSJNNDAuMywyNy4zYy0uNSwzLjEtMi4xLDUuOS00LjQsNy45LTIuNCwyLTUuNCwzLjItOC41LDMuMnMtMS4zLDAtMS45LDBjLTIuNy0uNS00LjctMi43LTQuOC01LjUsMC0xLjUuNi0yLjksMS43LTMuOSwyLjItMi4yLDUuNy0yLjIsNy45LDAsMS4xLDEsMS43LDIuNCwxLjcsMy45cy0uNCwxLjgtMS4yLDEuOC0xLjMtLjYtMS4zLTEuNXYtMi40YzAtLjgtLjYtMS41LTEuNC0xLjVoLTJjLTEuMiwwLTIuMy42LTIuOSwxLjYtMS4xLDEuNi0uNiwzLjgsMSw0LjguNC4zLjkuNCwxLjQuNSwxLjIuMiwyLjMtLjIsMy4xLTEuMWgwYzAsMCwwLDAsMCwwLC41LjcsMS4zLDEsMi4xLDEsMS41LDAsMi42LTEuNCwyLjYtMi45czAtMS4yLS4yLTEuOGMtLjQtMS43LTEuNC0zLjItMi44LTQuMi0yLjktMi4xLTctMS43LTkuNCwxLTEuMiwxLjMtMS44LDMtMS44LDQuN3MuOCwzLjYsMi4xLDQuOWMxLjMsMS4zLDMsMi4xLDQuOSwyLjFoMS4xYzIuOSwwLDUuNy0uOSw4LjEtMi40aDBjLTIuNCwyLjUtNS43LDMuOS05LjIsMy44LTIuMywwLTQuNS0uOC02LjEtMi41LTEuNi0xLjYtMi41LTMuOC0yLjQtNi4xLDAtMi43LDEuMy01LjMsMy41LTYuOSwxLjQtMS4xLDMuMi0xLjYsNS0xLjZoMi43YzIuMSwwLDQuMS0uOSw1LjYtMi41aDBjMCwxLjItLjUsMi40LTEuMiwzLjRoMHEwLC4xLDAsLjFjMi41LS42LDQuNi0yLjMsNS42LTQuNmgwYzEsMiwxLjQsNC4zLDEsNi41aDB2LjNaTTI2LDMwLjdjLTEuMSwwLTIsLjgtMiwydi40Yy4yLjguOCwxLjUsMS42LDEuNiwxLjEuMiwyLjItLjUsMi40LTEuNnYtMi4zczAtLjEtLjEtLjFoLTEuOVoiIGZpbGw9InVybCgjbGluZWFyLWdyYWRpZW50LTQ1eTk4N2RmZ2hkZmd4ZGZidnNmdmh3ZGZiZGZydmVmbmoyMDM4dGhpLWVyZ25pMzk1NHk3OHUyMDM5cmZqMC13NDMtdDlqMzBpYnZuZTk4NWJudmU5KSIgc3Ryb2tlPSIjZmZmIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS13aWR0aD0iLjIiLz4KPC9zdmc+&quot;}" isActive="true" />
+            <property name="476744d2-a4bc-4750-a9db-7022edf576c5" display="Description" value="AI support for auto-implementing Razor Pages based on existing implementations." isActive="true" />
+            <property name="b928f640-5dfd-4676-b8c9-4aadac826d18" display="Include by Default" value="false" isActive="true" />
+            <property name="07af017d-20a4-4e73-978f-ca4a59351f70" display="Is Required" value="false" isActive="true" />
+            <property name="ed4d09bb-52e7-43dc-91db-6244d5390e53" display="Dependencies" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="e363d477-365c-42bc-86fa-2845c0db87d5" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+          <name>Intent.AI.Blazor</name>
+          <display>Intent.AI.Blazor</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2c98fb89-7966-48a4-a040-39bb40aa3433</parentFolderId>
+          <packageId>a4d094db-4aab-467a-970a-2c6c9aaabe82</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore.Blazor.Server</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+              <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+              <properties>
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="1.0.0-beta.7" isActive="true" />
+                <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
+                <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
+                <property name="4bdd0a51-5a47-4119-b0bb-cd1240ac7850" display="Include Assets" value="All" isActive="true" />
+                <property name="478326e2-5290-428e-aef9-10f2c67f24c2" display="Included Assets" value="[]" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

@@ -1,0 +1,27 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.InteractiveAuto.Jwt", "Blazor.InteractiveAuto.Jwt\Blazor.InteractiveAuto.Jwt.csproj", "{CA2E6D18-343D-4D89-8377-2050DF89F8AD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.InteractiveAuto.Jwt.Client", "Blazor.InteractiveAuto.Jwt.Client\Blazor.InteractiveAuto.Jwt.Client.csproj", "{DD7CAA7B-56B8-41E1-A777-13B5130DD4A3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CA2E6D18-343D-4D89-8377-2050DF89F8AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA2E6D18-343D-4D89-8377-2050DF89F8AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA2E6D18-343D-4D89-8377-2050DF89F8AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA2E6D18-343D-4D89-8377-2050DF89F8AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD7CAA7B-56B8-41E1-A777-13B5130DD4A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD7CAA7B-56B8-41E1-A777-13B5130DD4A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD7CAA7B-56B8-41E1-A777-13B5130DD4A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD7CAA7B-56B8-41E1-A777-13B5130DD4A3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

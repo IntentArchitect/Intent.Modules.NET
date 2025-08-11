@@ -244,6 +244,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>3234db93-e3f7-4e0d-ab70-22684e94001b</ProjectId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Kafka.Producer.Application/Common/Interfaces/ICurrentUser.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICurrentUser.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3234db93-e3f7-4e0d-ab70-22684e94001b</ProjectId>
       <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Kafka.Producer.Application/Common/Interfaces/ICurrentUserService.cs</ApplicationRelativeFilePath>

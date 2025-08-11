@@ -9,6 +9,7 @@ using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Entities.SoftDelete.Templates;
+using Intent.Modules.EntityFrameworkCore.Shared;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -76,9 +77,8 @@ namespace Intent.Modules.Entities.SoftDelete.FactoryExtensions
 
                 AddSetSoftDeletePropertiesMethod(dbContext, priClass);
 
-                var asyncSaveChanges =
-                    priClass.Methods.Where(p => p.Name == "SaveChangesAsync").MaxBy(o => o.Parameters.Count);
-                var normalSaveChanges = priClass.Methods.Where(p => p.Name == "SaveChanges").MaxBy(o => o.Parameters.Count);
+                var asyncSaveChanges = dbContext.GetSaveChangesAsyncMethod();
+                var normalSaveChanges = dbContext.GetSaveChangesMethod();
 
                 asyncSaveChanges?.FindStatement(s => s.HasMetadata("save-changes"))
                     ?.InsertAbove("SetSoftDeleteProperties();");
@@ -131,16 +131,16 @@ namespace Intent.Modules.Entities.SoftDelete.FactoryExtensions
             ICSharpFileBuilderTemplate template,
             CSharpClass priClass)
         {
+            template.AddUsing("Microsoft.EntityFrameworkCore.ChangeTracking");
             priClass.AddMethod("void", "SetSoftDeleteProperties", method =>
             {
                 method.Private();
                 method.AddMethodChainStatement("var entities = ChangeTracker", stmt => stmt
-                    .AddChainStatement("Entries()")
-                    .AddChainStatement(
-                        $"Where(t => t.Entity is {template.GetSoftDeleteInterfaceName()} && t.State == EntityState.Deleted)")
+                    .AddChainStatement($"Entries<{template.GetSoftDeleteInterfaceName()}>()")
+                    .AddChainStatement("Where(t => t.State == EntityState.Deleted)")
                     .AddChainStatement("ToArray()"));
 
-                method.AddIfStatement("!entities.Any()", stmt =>
+                method.AddIfStatement("entities.Length == 0", stmt =>
                 {
                     stmt.SeparatedFromPrevious();
                     stmt.AddStatement("return;");
@@ -149,9 +149,47 @@ namespace Intent.Modules.Entities.SoftDelete.FactoryExtensions
                 method.AddForEachStatement("entry", "entities", stmt =>
                 {
                     stmt.SeparatedFromPrevious();
-                    stmt.AddStatement($"var entity = ({template.GetSoftDeleteInterfaceName()})entry.Entity;");
+                    stmt.AddStatement("var entity = entry.Entity;");
                     stmt.AddStatement("entity.SetDeleted(true);");
                     stmt.AddStatement("entry.State = EntityState.Modified;");
+                    stmt.AddStatement("UpdateOwnedEntriesRecursive(entry);");
+                });
+
+                method.AddStatement("return;", s => s.SeparatedFromPrevious());
+
+                method.AddLocalMethod("void", "UpdateOwnedEntriesRecursive", l =>
+                {
+                    l.AddParameter("EntityEntry", "entry");
+
+                    l.AddStatement(new CSharpAssignmentStatement(
+                        new CSharpVariableDeclaration("ownedReferencedEntries"),
+                        new CSharpStatement("entry.References")
+                            .AddInvocation("Where", i => i.AddArgument(new CSharpLambdaBlock("x"), a => a.WithExpressionBody("x.TargetEntry != null")).OnNewLine())
+                            .AddInvocation("Select", i => i.AddArgument(new CSharpLambdaBlock("x"), a => a.WithExpressionBody("x.TargetEntry!")).OnNewLine())
+                            .AddInvocation("Where", i => i.AddArgument(new CSharpLambdaBlock("x"), a => a.WithExpressionBody("x.State == EntityState.Deleted && x.Metadata.IsOwned()")).OnNewLine())
+                    ));
+
+                    l.AddForEachStatement("ownedEntry", "ownedReferencedEntries",
+                        @for =>
+                        {
+                            @for.AddStatement("ownedEntry.State = EntityState.Unchanged;");
+                            @for.AddStatement("UpdateOwnedEntriesRecursive(ownedEntry);");
+                        });
+
+                    l.AddStatement(new CSharpAssignmentStatement(
+                        new CSharpVariableDeclaration("ownedCollectionEntries"),
+                        new CSharpStatement("entry.Collections")
+                            .AddInvocation("Where", i => i.AddArgument(new CSharpLambdaBlock("x"), a => a.WithExpressionBody("x.IsLoaded && x.CurrentValue != null")).OnNewLine())
+                            .AddInvocation("SelectMany", i => i.AddArgument(new CSharpLambdaBlock("x"), a => a.WithExpressionBody("x.CurrentValue!.Cast<object>().Select(Entry)")).OnNewLine())
+                            .AddInvocation("Where", i => i.AddArgument(new CSharpLambdaBlock("x"), a => a.WithExpressionBody("x.State == EntityState.Deleted && x.Metadata.IsOwned()")).OnNewLine())
+                    ), s => s.SeparatedFromPrevious());
+
+                    l.AddForEachStatement("ownedEntry", "ownedCollectionEntries",
+                        @for =>
+                        {
+                            @for.AddStatement("ownedEntry.State = EntityState.Unchanged;");
+                            @for.AddStatement("UpdateOwnedEntriesRecursive(ownedEntry);");
+                        });
                 });
             });
         }

@@ -1,0 +1,14 @@
+[assembly: DefaultIntentManaged(Mode.Fully)]
+
+namespace AzureFunctions.AzureEventGrid.EventDomain
+{
+    public record OrderCreatedEvent
+    {
+        public OrderCreatedEvent()
+        {
+            RefNo = null!;
+        }
+
+        public string RefNo { get; init; }
+    }
+}

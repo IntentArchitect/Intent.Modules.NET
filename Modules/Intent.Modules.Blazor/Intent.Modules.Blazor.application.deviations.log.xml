@@ -12,20 +12,17 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-11-14T18:08:05.9641452Z</approvedAt>
       <deviationsHash>4952755CE6BDC0936CB35781E416897F46153F726BAD40450FDADA30AFACEB04</deviationsHash>
-      <fileHash>4112F99A3E2EDC74B673F07A21E1C796402339C228C3E633750FD560B7F67834</fileHash>
+      <fileHash>F4197C6ED637CF58C3236ADB3402DB0D9BC649A5C66755E02C0B6AE304E52939</fileHash>
     </file>
     <file>
-      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#2d5ee2ba-5a78-4ac9-9905-ccd9f68247f9</correlationId>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#1bd5dbd4-1bdd-4133-88b7-ccf452399b4a</correlationId>
       <path>Intent.Modules.Blazor/Templates/Templates/Client/Program/ProgramTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-11-14T16:20:37.6651201Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-11-14T16:20:37.6652346Z</approvedAt>
+      <updatedAt>2025-08-05T15:30:51.0659739Z</updatedAt>
       <deviationsHash>5B62E4129E2F36143F4064F64FA22BB29355E04CF492569B3EF07D125870655D</deviationsHash>
-      <fileHash>57FCA19E781828D3B6E31D7F1B3BCEEE2791B471406C4A651324BE348904BB0D</fileHash>
+      <fileHash>F0DD4CEAAE9DA6B987B999BDB7B69C070A83D0EC892BC30DA69E2F224ED7360C</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial#1132514b-15dd-4dac-b602-462278e1128d</correlationId>
@@ -38,7 +35,7 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-11-14T18:08:05.9685076Z</approvedAt>
       <deviationsHash>D6E9818C67256E08495449C540E7E0408902DCC49FA777A3498754436D726A1D</deviationsHash>
-      <fileHash>EF54E340348A133F953E26CBB71AD5F5D0563FB9907A14987F351AC5347C4FC8</fileHash>
+      <fileHash>9DC629892028932FFA317CD0DD3A0DE9319847045CAB607F74B45C63551F1D4C</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#1132514b-15dd-4dac-b602-462278e1128d</correlationId>
@@ -77,7 +74,27 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-11-14T18:08:05.9726532Z</approvedAt>
       <deviationsHash>54A1C27F1CF048A4FA7369BF01D455FE04C3E36F1F8742A570EE7BF090964567</deviationsHash>
-      <fileHash>E12030DDE1BE129F886951EA2C03115303B272BA8F99DDA845D223406540B6FA</fileHash>
+      <fileHash>F57B7BFB35FEEFD6CBBA729E4EE4D49336FE52204DE6B4E11A0DBD0E70090EBE</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#1847a039-bc0e-41ec-9b51-a56f93d1c1b6</correlationId>
+      <path>Intent.Modules.Blazor/Templates/Templates/Client/StaticContentTemplateRegistrations/WasmNoSampleStaticContentTemplateRegistration.cs</path>
+      <count>2</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2025-08-04T09:00:58.5327645Z</updatedAt>
+      <deviationsHash>E84EEAD9491DE031C71E195B973DA03CE6930F24B4D0CC8BCA488E524FB1AE49</deviationsHash>
+      <fileHash>5D0A614949E8D5276C6C999784ED08CD8BD1DA93444B0F0043857CBADFC8D2DA</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#cf0d83f6-5edf-461b-bc7f-91a5e241dc13</correlationId>
+      <path>Intent.Modules.Blazor/Templates/Templates/Client/StaticContentTemplateRegistrations/WasmSamplePagesStaticContentTemplateRegistration.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2025-08-04T09:00:58.5327854Z</updatedAt>
+      <deviationsHash>D8BE9AEC1B3F71D743515743297A7085A277A3E7663E64A6AC18D4CA4D30259A</deviationsHash>
+      <fileHash>46D5D1812E904F2CB56BD0C0FFCC405BF9DB3BA2B133507C4162F2926E7C496E</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial#b7665695-e7e7-4a21-883a-da6fa2d84710</correlationId>
@@ -90,7 +107,27 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-11-14T18:08:05.9739678Z</approvedAt>
       <deviationsHash>EB677E52EC84423A6AC719FAD686B65C99C5244DC6B8964C899617CE3749B8D2</deviationsHash>
-      <fileHash>32A1C09215BF189563C68DE54700DB76F1FCC45914E628E30C900362A9ABB3C2</fileHash>
+      <fileHash>069C7D796C76AA6C2217A410C74739808C2EDDB74AB9240565FF6A257F061B58</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#39c87006-657c-4f64-b82c-d9dd57f9670b</correlationId>
+      <path>Intent.Modules.Blazor/Templates/Templates/Server/StaticContentTemplateRegistrations/NoSamplePagesStaticContentTemplateRegistration.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2025-07-25T11:27:53.6368268Z</updatedAt>
+      <deviationsHash>A90CF0AA5A831C6182C70721EABEA2C3BBF66C92C90C44E8584E53B1321E17D3</deviationsHash>
+      <fileHash>4E0DB5447822C7E32419FC5D6209A0FBA4DE75E7261CBBE33ED426C7015CB2D2</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#0a626c1c-206c-4b4f-b299-a0bbb8ba0eea</correlationId>
+      <path>Intent.Modules.Blazor/Templates/Templates/Server/StaticContentTemplateRegistrations/SamplePagesStaticContentTemplateRegistration.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2025-07-24T09:32:00.9913414Z</updatedAt>
+      <deviationsHash>A410DB2FCD80280E1ED391DECF98D4F467D9A16FB48F6FA710827D95D942A5B9</deviationsHash>
+      <fileHash>CECA8B672DA9DE6F6239AE15D39630AA27626E455B4EE282B4975FC8EFBC2112</fileHash>
     </file>
   </files>
 </deviationsLog>

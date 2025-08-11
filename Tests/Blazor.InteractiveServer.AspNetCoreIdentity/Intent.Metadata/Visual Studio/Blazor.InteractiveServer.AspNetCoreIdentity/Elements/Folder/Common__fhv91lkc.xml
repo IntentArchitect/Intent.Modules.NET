@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="31f67ec3-43c0-454e-88b2-c37327d5548e" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Common</name>
+  <display>Common</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>fcc944a0-2052-4d43-be01-b22892c9dcd4</parentFolderId>
+  <packageId>9348e91a-6b57-419d-9d01-1256b8c91369</packageId>
+  <packageName>Blazor.InteractiveServer.AspNetCoreIdentity</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="51c274bb-f255-4a75-8f40-ace16ec0e42d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Authentication.Templates.Client.PersistentAuthenticationStateProviderTemplate</name>
+      <display>Intent.Blazor.Authentication.Templates.Client.PersistentAuthenticationStateProviderTemplate</display>
+      <externalReference>Intent.Blazor.Authentication</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>31f67ec3-43c0-454e-88b2-c37327d5548e</parentFolderId>
+      <packageId>9348e91a-6b57-419d-9d01-1256b8c91369</packageId>
+      <packageName>Blazor.InteractiveServer.AspNetCoreIdentity</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="7abf31ad-aac0-4b91-91bb-62f58cd22050" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Authentication.Templates.Server.AspNetCoreIdentityAuthServiceConcreteTemplate</name>
+      <display>Intent.Blazor.Authentication.Templates.Server.AspNetCoreIdentityAuthServiceConcreteTemplate</display>
+      <externalReference>Intent.Blazor.Authentication</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>31f67ec3-43c0-454e-88b2-c37327d5548e</parentFolderId>
+      <packageId>9348e91a-6b57-419d-9d01-1256b8c91369</packageId>
+      <packageName>Blazor.InteractiveServer.AspNetCoreIdentity</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="3f6c272b-d489-4a74-9da0-7b6c55a46484" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Authentication.Templates.Server.AuthServiceInterfaceTemplate</name>
+      <display>Intent.Blazor.Authentication.Templates.Server.AuthServiceInterfaceTemplate</display>
+      <externalReference>Intent.Blazor.Authentication</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>31f67ec3-43c0-454e-88b2-c37327d5548e</parentFolderId>
+      <packageId>9348e91a-6b57-419d-9d01-1256b8c91369</packageId>
+      <packageName>Blazor.InteractiveServer.AspNetCoreIdentity</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="9d48fa6b-a25b-4ebe-839b-3f00a34ec6b8" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Authentication.Templates.Server.JwtAuthServiceConcreteTemplate</name>
+      <display>Intent.Blazor.Authentication.Templates.Server.JwtAuthServiceConcreteTemplate</display>
+      <externalReference>Intent.Blazor.Authentication</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>31f67ec3-43c0-454e-88b2-c37327d5548e</parentFolderId>
+      <packageId>9348e91a-6b57-419d-9d01-1256b8c91369</packageId>
+      <packageName>Blazor.InteractiveServer.AspNetCoreIdentity</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="1c1b723d-0f6e-4490-adb0-8cb4247873bb" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Authentication.Templates.Server.OidcAuthServiceConcreteTemplate</name>
+      <display>Intent.Blazor.Authentication.Templates.Server.OidcAuthServiceConcreteTemplate</display>
+      <externalReference>Intent.Blazor.Authentication</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>31f67ec3-43c0-454e-88b2-c37327d5548e</parentFolderId>
+      <packageId>9348e91a-6b57-419d-9d01-1256b8c91369</packageId>
+      <packageName>Blazor.InteractiveServer.AspNetCoreIdentity</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

@@ -1,0 +1,12 @@
+[assembly: DefaultIntentManaged(Mode.Fully)]
+
+namespace AzureFunctions.AzureEventGrid.Domain.Repositories
+{
+    [IntentManaged(Mode.Fully, Signature = Mode.Fully)]
+    public interface IRepository<in TDomain>
+    {
+        void Add(TDomain entity);
+        void Update(TDomain entity);
+        void Remove(TDomain entity);
+    }
+}

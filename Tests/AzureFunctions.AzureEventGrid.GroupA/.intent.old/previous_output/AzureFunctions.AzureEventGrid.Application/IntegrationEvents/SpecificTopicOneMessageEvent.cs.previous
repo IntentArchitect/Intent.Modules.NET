@@ -1,0 +1,14 @@
+[assembly: DefaultIntentManaged(Mode.Fully)]
+
+namespace AzureFunctions.AzureEventGrid.GroupB.Eventing.Messages
+{
+    public record SpecificTopicOneMessageEvent
+    {
+        public SpecificTopicOneMessageEvent()
+        {
+            FieldA = null!;
+        }
+
+        public string FieldA { get; init; }
+    }
+}

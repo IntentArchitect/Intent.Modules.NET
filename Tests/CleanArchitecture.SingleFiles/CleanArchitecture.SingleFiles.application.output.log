@@ -548,6 +548,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f91df31-4534-44bc-9638-cf4eb77599f6</ProjectId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Application/Common/Interfaces/ICurrentUser.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICurrentUser.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f91df31-4534-44bc-9638-cf4eb77599f6</ProjectId>
       <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Application/Common/Interfaces/ICurrentUserService.cs</ApplicationRelativeFilePath>

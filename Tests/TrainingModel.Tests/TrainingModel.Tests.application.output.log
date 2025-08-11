@@ -420,6 +420,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>a7d2f1ab-cea9-4ad0-af85-3eb4188c2df7</ProjectId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>TrainingModel.Tests.Application/Common/Interfaces/ICurrentUser.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICurrentUser.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a7d2f1ab-cea9-4ad0-af85-3eb4188c2df7</ProjectId>
       <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>TrainingModel.Tests.Application/Common/Interfaces/ICurrentUserService.cs</ApplicationRelativeFilePath>

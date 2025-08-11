@@ -28,8 +28,6 @@ namespace Intent.Modules.DocumentDB.Shared
             IPrimaryKeyInitStrategy primaryKeyInitStrategy,
             bool makeNonPersistentPropertiesVirtual)
         {
-            
-            
             // Implementation
             {
                 var templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateRoles.Domain.Entity.Primary));

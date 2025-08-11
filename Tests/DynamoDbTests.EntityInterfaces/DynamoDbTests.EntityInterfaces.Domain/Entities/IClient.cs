@@ -1,0 +1,21 @@
+using DynamoDbTests.EntityInterfaces.Domain.Common;
+using Intent.RoslynWeaver.Attributes;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.Entities.DomainEntityInterface", Version = "1.0")]
+
+namespace DynamoDbTests.EntityInterfaces.Domain.Entities
+{
+    public interface IClient : IHasDomainEvent
+    {
+        string Identifier { get; set; }
+
+        ClientType ClientType { get; set; }
+
+        string Name { get; set; }
+
+        bool IsDeleted { get; set; }
+
+        void Update(ClientType type, string name);
+    }
+}

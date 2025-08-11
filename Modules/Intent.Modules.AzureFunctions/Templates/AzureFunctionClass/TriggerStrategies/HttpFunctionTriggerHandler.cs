@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using Intent.AzureFunctions.Api;
+using Intent.Modules.AzureFunctions.Settings;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -97,43 +98,58 @@ internal class HttpFunctionTriggerHandler : IFunctionTriggerHandler
 
     public void ApplyMethodStatements(CSharpClassMethod method)
     {
-        method.AddTryBlock(tryBlock =>
+        if (_template.ExecutionContext.Settings.GetAzureFunctionsSettings().UseGlobalExceptionMiddleware())
         {
-            foreach (var param in GetQueryParams())
+            AddBodyStatements(method, method);
+        }
+        else
+        {
+            method.AddTryBlock(tryBlock =>
             {
-                ConvertParamToLocalVariable(tryBlock, param, "Query");
-            }
+                AddBodyStatements(tryBlock, method);
+            }).AddCatchBlock("FormatException", "exception", catchBlock => { catchBlock.AddStatement($"return new BadRequestObjectResult(new {{ exception.Message }});"); });
+        }
+    }
 
-            foreach (var param in GetHeaderParams())
-            {
-                ConvertParamToLocalVariable(tryBlock, param, "Headers");
-            }
+    private void AddBodyStatements(IHasCSharpStatements statementBlock, CSharpClassMethod method)
+    {
+        foreach (var param in GetQueryParams())
+        {
+            ConvertParamToLocalVariable(statementBlock, param, "Query");
+        }
 
-            foreach (var param in GetRouteParams())
-            {
-                if (param.TypeReference.Element.IsEnumModel())
-                {
-                    tryBlock.AddStatement(
-                        $"var {param.Name.ToParameterName()}Enum = {_template.GetAzureFunctionClassHelperName()}.{(param.TypeReference.IsNullable ? "GetEnumParamNullable" : "GetEnumParam")}<{_template.GetTypeName(param.TypeReference.Element.AsTypeReference())}>(nameof({param.Name.ToParameterName()}), {param.Name.ToParameterName()});");
-                }
-            }
+        foreach (var param in GetHeaderParams())
+        {
+            ConvertParamToLocalVariable(statementBlock, param, "Headers");
+        }
 
-            if (!string.IsNullOrWhiteSpace(GetRequestDtoType()))
+        foreach (var param in GetRouteParams())
+        {
+            if (param.TypeReference.Element.IsEnumModel())
             {
-                tryBlock.AddInvocationStatement(
-                    $"var {GetRequestInput().Name} = await {_template.GetAzureFunctionClassHelperName()}.DeserializeJsonContentAsync<{GetRequestDtoType()}>", inv => inv
-                        .AddArgument("req.Body")
-                        .AddArgument("cancellationToken"));
+                statementBlock.AddStatement(
+                    $"var {param.Name.ToParameterName()}Enum = {_template.GetAzureFunctionClassHelperName()}.{(param.TypeReference.IsNullable ? "GetEnumParamNullable" : "GetEnumParam")}<{_template.GetTypeName(param.TypeReference.Element.AsTypeReference())}>(nameof({param.Name.ToParameterName()}), {param.Name.ToParameterName()});");
+            }
+        }
+
+        if (!string.IsNullOrWhiteSpace(GetRequestDtoType()))
+        {
+            statementBlock.AddInvocationStatement(
+                $"var {GetRequestInput().Name} = await {_template.GetAzureFunctionClassHelperName()}.DeserializeJsonContentAsync<{GetRequestDtoType()}>", inv => inv
+                    .AddArgument("req.Body")
+                    .AddArgument("cancellationToken"));
+
+            if (statementBlock != method)
+            {
                 method.AddCatchBlock(_template.UseType("System.Text.Json.JsonException"), "exception", catchBlock =>
                 {
                     catchBlock.AddStatement($"return new BadRequestObjectResult(new {{ exception.Message }});");
                 });
             }
-        }).AddCatchBlock("FormatException", "exception", catchBlock => { catchBlock.AddStatement($"return new BadRequestObjectResult(new {{ exception.Message }});"); });
-
+        }
     }
 
-    private void ConvertParamToLocalVariable(CSharpTryBlock tryBlock, IHttpEndpointInputModel param, string paramType)
+    private void ConvertParamToLocalVariable(IHasCSharpStatements tryBlock, IHttpEndpointInputModel param, string paramType)
     {
         if (param.TypeReference.HasStringType())
         {

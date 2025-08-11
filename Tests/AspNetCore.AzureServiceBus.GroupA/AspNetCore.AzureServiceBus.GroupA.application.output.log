@@ -226,6 +226,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>cd94ae19-a61f-49a0-85a8-7212e6d3be0b</ProjectId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Application/Common/Interfaces/ICurrentUser.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICurrentUser.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>cd94ae19-a61f-49a0-85a8-7212e6d3be0b</ProjectId>
       <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Application/Common/Interfaces/ICurrentUserService.cs</ApplicationRelativeFilePath>

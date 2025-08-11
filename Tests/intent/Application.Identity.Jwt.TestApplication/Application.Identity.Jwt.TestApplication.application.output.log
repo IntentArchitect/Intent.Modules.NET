@@ -124,6 +124,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>32496fca-bd90-4f61-b9eb-7238d38ca6bb</ProjectId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../../Application.Identity.Jwt.TestApplication/Application.Identity.Jwt.TestApplication/Application.Identity.Jwt.TestApplication.Application/Common/Interfaces/ICurrentUser.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICurrentUser.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>32496fca-bd90-4f61-b9eb-7238d38ca6bb</ProjectId>
       <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../../Application.Identity.Jwt.TestApplication/Application.Identity.Jwt.TestApplication/Application.Identity.Jwt.TestApplication.Application/Common/Interfaces/ICurrentUserService.cs</ApplicationRelativeFilePath>

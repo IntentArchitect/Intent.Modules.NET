@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.ApiGateway.Ocelot</id>
-  <version>1.0.0-beta.6</version>
+  <version>1.0.0-beta.7</version>
   <supportedClientVersions>[4.5.0-a,5.0.0)</supportedClientVersions>
   <summary>Implementation of Ocelot API Gateway pattern.</summary>
   <description>Implementation of Ocelot API Gateway pattern.</description>

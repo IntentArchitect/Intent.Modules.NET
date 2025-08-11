@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="df8f0dbe-009e-4c5f-b1c4-2b58c9d5322d" type="NuGet Packages" typeId="4c75c84d-c745-4f0f-b1f4-82eeca01dfc7">
+  <name>NuGet Packages</name>
+  <display>NuGet Packages</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>99b1597f-25dc-4d33-ba2d-6b1201368aff</parentFolderId>
+  <packageId>99b1597f-25dc-4d33-ba2d-6b1201368aff</packageId>
+  <packageName>Intent.Aws.Common</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

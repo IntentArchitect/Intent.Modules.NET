@@ -37,7 +37,9 @@ namespace AzureFunctions.AzureServiceBus.Api.Client
         [Function("Client_CreateClient")]
         [OpenApiOperation("CreateClientCommand", tags: new[] { "Client" }, Description = "Create client command")]
         [OpenApiRequestBody(contentType: "application/json", bodyType: typeof(CreateClientCommand))]
+        [OpenApiResponseWithoutBody(statusCode: HttpStatusCode.Created)]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]
+        [OpenApiResponseWithBody(statusCode: HttpStatusCode.NotFound, contentType: "application/json", bodyType: typeof(object))]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "post", Route = "client")] HttpRequest req,
             CancellationToken cancellationToken)

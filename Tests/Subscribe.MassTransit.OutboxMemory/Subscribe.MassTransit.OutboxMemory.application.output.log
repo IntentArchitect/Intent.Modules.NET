@@ -220,6 +220,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>aa9c7d1e-9d66-4d1f-af11-5bef4a9d799d</ProjectId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxMemory.Application/Common/Interfaces/ICurrentUser.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICurrentUser.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>aa9c7d1e-9d66-4d1f-af11-5bef4a9d799d</ProjectId>
       <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxMemory.Application/Common/Interfaces/ICurrentUserService.cs</ApplicationRelativeFilePath>

@@ -1,3 +1,8 @@
+### Version 1.1.4
+
+- Improvement: Added support for DynamoDB unit of work.
+- Fixed: EventBus didn't clear the messages buffer after being flushed.
+
 ### Version 1.1.3
 
 - Improvement: SQL Lite ambient transaction suppression.

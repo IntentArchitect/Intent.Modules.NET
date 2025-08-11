@@ -1,0 +1,19 @@
+@page "/example-page/{Title}"
+
+<MudCard>
+    <MudCardHeader>
+        <CardHeaderContent>
+            <MudText Typo="Typo.h3">@Title</MudText>
+            <MudText>A simple example "@Title" page for navigation purposes.</MudText>
+        </CardHeaderContent>
+    </MudCardHeader>
+    <MudCardActions>
+        <MudButton Href="/"
+                   Variant="Variant.Filled"
+                   StartIcon="@Icons.Material.Filled.Home"
+                   Class="my-2 ml-2"
+                   Color="Color.Primary">
+            <MudText>Return Home</MudText>
+        </MudButton>
+    </MudCardActions>
+</MudCard>

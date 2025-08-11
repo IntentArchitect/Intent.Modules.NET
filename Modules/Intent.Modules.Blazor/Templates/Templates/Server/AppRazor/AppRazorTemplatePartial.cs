@@ -47,19 +47,25 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.AppRazor
                                 .AddAttribute("name", "viewport")
                                 .AddAttribute("content", "width=device-width, initial-scale=1.0"));
                             head.AddHtmlElement("base", t => t.AddAttribute("href", "/"));
-                            head.AddHtmlElement("link", t => t
-                                .AddAttribute("rel", "stylesheet")
-                                .AddAttribute("href", "bootstrap/bootstrap.min.css"));
+                            if (this.ExecutionContext.GetSettings().GetBlazor().IncludeSamplePages())
+                            {
+                                head.AddHtmlElement("link", t => t
+                                    .AddAttribute("rel", "stylesheet")
+                                    .AddAttribute("href", "bootstrap/bootstrap.min.css"));
+                            }
                             head.AddHtmlElement("link", t => t
                                 .AddAttribute("rel", "stylesheet")
                                 .AddAttribute("href", "app.css"));
                             head.AddHtmlElement("link", t => t
                                 .AddAttribute("rel", "stylesheet")
                                 .AddAttribute("href", $"{outputTarget.GetProject().Name}.styles.css"));
-                            head.AddHtmlElement("link", t => t
-                                .AddAttribute("rel", "icon")
-                                .AddAttribute("type", "image/png")
-                                .AddAttribute("href", $"favicon.png"));
+                            if (this.ExecutionContext.GetSettings().GetBlazor().IncludeSamplePages())
+                            {
+                                head.AddHtmlElement("link", t => t
+                                    .AddAttribute("rel", "icon")
+                                    .AddAttribute("type", "image/png")
+                                    .AddAttribute("href", $"favicon.png"));
+                            }
                             head.AddHtmlElement("HeadOutlet", t => t.AddAttribute("@rendermode", "GetRenderModeForPage()"));
                         });
 
@@ -84,7 +90,15 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.AppRazor
 
                         code.AddMethod("IComponentRenderMode?", "GetRenderModeForPage", method =>
                         {
-                            method.AddStatement($"return {GetRenderModeConfiguration(ExecutionContext.Settings.GetBlazor()?.RenderMode()?.AsEnum())};");
+                            // Server with out pre-render
+                            if (!ExecutionContext.Settings.GetBlazor().RenderMode().IsInteractiveWebAssembly() && !ExecutionContext.Settings.GetBlazor().ServerPrerendering())
+                            {
+                                method.AddStatement($"return new {GetRenderModeConfiguration(ExecutionContext.Settings.GetBlazor()?.RenderMode()?.AsEnum())}RenderMode(prerender: false);");
+                            }
+                            else
+                            {
+                                method.AddStatement($"return {GetRenderModeConfiguration(ExecutionContext.Settings.GetBlazor()?.RenderMode()?.AsEnum())};");
+                            }
                         });
                     });
                 });

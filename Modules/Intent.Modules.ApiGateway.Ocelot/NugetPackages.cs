@@ -18,13 +18,13 @@ namespace Intent.Modules.ApiGateway.Ocelot
             NugetRegistry.Register(OcelotPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("24.0.0")
+                        ( >= 9, >= 0) => new PackageVersion("24.0.1")
                             .WithNugetDependency("FluentValidation", "11.11.0")
                             .WithNugetDependency("IPAddressRange", "6.2.0")
                             .WithNugetDependency("Microsoft.AspNetCore.MiddlewareAnalysis", "9.0.4")
                             .WithNugetDependency("Microsoft.AspNetCore.Mvc.NewtonsoftJson", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.DiagnosticAdapter", "3.1.32"),
-                        ( >= 8, >= 0) => new PackageVersion("24.0.0")
+                        ( >= 8, >= 0) => new PackageVersion("24.0.1")
                             .WithNugetDependency("FluentValidation", "11.11.0")
                             .WithNugetDependency("IPAddressRange", "6.2.0")
                             .WithNugetDependency("Microsoft.AspNetCore.MiddlewareAnalysis", "8.0.15")

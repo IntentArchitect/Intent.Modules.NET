@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="07c676e1-b7dc-48aa-bf7a-41653e793cd0" type="Module Settings Extension" typeId="72044cdf-1f96-4ad2-86be-8d5468725e67">
+  <name>Blazor Settings Extension</name>
+  <display>Blazor Settings Extension: Blazor</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>manually</sort-children>
+  <genericTypes />
+  <typeReference id="18afa947-17ad-44a3-86a1-b6d9737876d2">
+    <typeId>489a67db-31b2-4d51-96d7-52637c3795be</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.Blazor</typePackageName>
+    <typePackageId>3ac5ff1e-5fc9-46a2-95e5-2d9ca579e484</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>b9d38f7c-7a8d-4007-b33d-7f386ccf119a</parentFolderId>
+  <packageId>b9d38f7c-7a8d-4007-b33d-7f386ccf119a</packageId>
+  <packageName>Intent.Blazor.Authentication</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="5ec4a775-6208-405b-b66f-0dd5c6e591bb" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
+      <name>Authentication</name>
+      <display>Authentication</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>07c676e1-b7dc-48aa-bf7a-41653e793cd0</parentFolderId>
+      <packageId>b9d38f7c-7a8d-4007-b33d-7f386ccf119a</packageId>
+      <packageName>Intent.Blazor.Authentication</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4805c791-5be3-4049-b929-6046d7be9944" name="Field Configuration">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Select" isActive="true" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="false" />
+            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" isActive="true" />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="aspnetcore-identity" isActive="true" />
+            <property name="c3456e79-0607-41a5-9b85-e0712f4f4834" display="Is Active Function" isActive="true" />
+            <property name="fa54329f-d4e5-48bc-8027-e17206e9fc89" display="Is Required Function" isActive="true" />
+            <property name="29696a13-bf1d-4fbd-bdf3-adb802430cb4" display="Order Priority" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="cac2cf5e-7b5d-4dbc-b3ad-8b9b870011d0" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>ASP.NET Core Identity</name>
+          <display>ASP.NET Core Identity = aspnetcore-identity</display>
+          <isAbstract>false</isAbstract>
+          <value>aspnetcore-identity</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>5ec4a775-6208-405b-b66f-0dd5c6e591bb</parentFolderId>
+          <packageId>b9d38f7c-7a8d-4007-b33d-7f386ccf119a</packageId>
+          <packageName>Intent.Blazor.Authentication</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="1eaa1bb7-843b-4b81-a38c-93aa82781111" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>JWT</name>
+          <display>JWT = jwt</display>
+          <isAbstract>false</isAbstract>
+          <value>jwt</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>5ec4a775-6208-405b-b66f-0dd5c6e591bb</parentFolderId>
+          <packageId>b9d38f7c-7a8d-4007-b33d-7f386ccf119a</packageId>
+          <packageName>Intent.Blazor.Authentication</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="46733fee-f934-41d7-b6f4-8542ae89f477" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>OIDC</name>
+          <display>OIDC = oidc</display>
+          <isAbstract>false</isAbstract>
+          <value>oidc</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>5ec4a775-6208-405b-b66f-0dd5c6e591bb</parentFolderId>
+          <packageId>b9d38f7c-7a8d-4007-b33d-7f386ccf119a</packageId>
+          <packageName>Intent.Blazor.Authentication</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

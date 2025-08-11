@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="fef2e41b-5fd1-4285-8b74-c4abad2edd0e" type="NuGet Packages" typeId="4c75c84d-c745-4f0f-b1f4-82eeca01dfc7">
+  <name>NuGet Packages</name>
+  <display>NuGet Packages</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>b9d38f7c-7a8d-4007-b33d-7f386ccf119a</parentFolderId>
+  <packageId>b9d38f7c-7a8d-4007-b33d-7f386ccf119a</packageId>
+  <packageName>Intent.Blazor.Authentication</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

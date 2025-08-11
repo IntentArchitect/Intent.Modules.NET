@@ -53,7 +53,7 @@ namespace FastEndpointsTest.Api.FastEndpoints.ServiceDispatch.ServiceDispatchWit
                 await _unitOfWork.SaveChangesAsync(ct);
                 transaction.Complete();
             }
-            await SendResultAsync(TypedResults.Created(string.Empty, (string?)null));
+            await Send.ResultAsync(TypedResults.Created(string.Empty, (string?)null));
         }
     }
 

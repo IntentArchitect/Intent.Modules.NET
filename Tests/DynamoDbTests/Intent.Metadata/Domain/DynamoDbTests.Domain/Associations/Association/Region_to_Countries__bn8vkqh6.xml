@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="91e4289a-3b1f-46ab-bcd6-45f68911faad">
+  <sourceEnd id="c1bfc1b8-0d6f-45f7-b160-9f96e61ddfef" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Region</name>
+    <display>Region: Region</display>
+    <order>0</order>
+    <typeReference id="721099f7-4aa9-43a0-8891-6a193759f03f">
+      <typeId>faa3d820-00cf-41a9-b041-79d7caa7162d</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>DynamoDbTests.Domain</typePackageName>
+      <typePackageId>0c0abbad-5585-497e-9c17-ab8f06a14cc0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="91e4289a-3b1f-46ab-bcd6-45f68911faad" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Countries</name>
+    <display>Countries: Country[*]</display>
+    <order>2</order>
+    <typeReference id="d00a8ac3-b6f0-4dfa-a79b-022b607f1114">
+      <typeId>2baa4996-88ae-4eea-ba0c-42b02cf727ba</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>DynamoDbTests.Domain</typePackageName>
+      <typePackageId>0c0abbad-5585-497e-9c17-ab8f06a14cc0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

@@ -1,0 +1,27 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.InteractiveWebAssembly.AspNetCoreIdentity", "Blazor.InteractiveWebAssembly.AspNetCoreIdentity\Blazor.InteractiveWebAssembly.AspNetCoreIdentity.csproj", "{5ED830A5-1A5F-4F44-81FA-1B6A44DCB149}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Client", "Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Client\Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Client.csproj", "{58436585-9BD9-4608-815E-FD35C3362E19}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5ED830A5-1A5F-4F44-81FA-1B6A44DCB149}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5ED830A5-1A5F-4F44-81FA-1B6A44DCB149}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5ED830A5-1A5F-4F44-81FA-1B6A44DCB149}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5ED830A5-1A5F-4F44-81FA-1B6A44DCB149}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58436585-9BD9-4608-815E-FD35C3362E19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58436585-9BD9-4608-815E-FD35C3362E19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58436585-9BD9-4608-815E-FD35C3362E19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58436585-9BD9-4608-815E-FD35C3362E19}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

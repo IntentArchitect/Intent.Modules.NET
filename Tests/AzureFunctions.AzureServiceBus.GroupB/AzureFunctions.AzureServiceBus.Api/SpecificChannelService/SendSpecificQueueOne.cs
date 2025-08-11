@@ -46,7 +46,9 @@ namespace AzureFunctions.AzureServiceBus.Api.SpecificChannelService
         [Function("SpecificChannelService_SendSpecificQueueOne")]
         [OpenApiOperation("SendSpecificQueueOne", tags: new[] { "SpecificChannel" }, Description = "Send specific queue one")]
         [OpenApiRequestBody(contentType: "application/json", bodyType: typeof(PayloadDto))]
+        [OpenApiResponseWithoutBody(statusCode: HttpStatusCode.Created)]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]
+        [OpenApiResponseWithBody(statusCode: HttpStatusCode.NotFound, contentType: "application/json", bodyType: typeof(object))]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "post", Route = "specific-channel/send-specific-queue-one")] HttpRequest req,
             CancellationToken cancellationToken)

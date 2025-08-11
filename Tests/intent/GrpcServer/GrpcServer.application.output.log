@@ -1258,6 +1258,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>13798ab4-d370-47e4-a239-e255efe3bb33</ProjectId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../../GrpcServer/GrpcServer.Application/Common/Interfaces/ICurrentUser.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICurrentUser.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>13798ab4-d370-47e4-a239-e255efe3bb33</ProjectId>
       <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../../GrpcServer/GrpcServer.Application/Common/Interfaces/ICurrentUserService.cs</ApplicationRelativeFilePath>

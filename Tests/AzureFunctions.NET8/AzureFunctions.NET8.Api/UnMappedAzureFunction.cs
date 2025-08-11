@@ -28,6 +28,7 @@ namespace AzureFunctions.NET8.Api
         [OpenApiOperation("UnMappedAzureFunction", tags: new[] { "Unmappedazurefunction" }, Description = "Hi There")]
         [OpenApiRequestBody(contentType: "application/json", bodyType: typeof(SampleDomainDto))]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]
+        [OpenApiResponseWithBody(statusCode: HttpStatusCode.NotFound, contentType: "application/json", bodyType: typeof(object))]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "post", Route = "unmappedazurefunction")] HttpRequest req,
             CancellationToken cancellationToken)

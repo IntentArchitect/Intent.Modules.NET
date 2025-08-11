@@ -37,5 +37,61 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="476c9c55-5c4a-46a2-a9d5-6c5462bc303f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Templates.Server.ScopedExecutorInterfaceTemplate</name>
+      <display>Intent.Blazor.Templates.Server.ScopedExecutorInterfaceTemplate</display>
+      <externalReference>Intent.Blazor</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f82c465f-eeac-4a8b-bfd4-49e405fca63b</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="bf9b76e6-7c77-47ed-b81c-fd929c003c70" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Templates.Server.ScopedExecutorTemplate</name>
+      <display>Intent.Blazor.Templates.Server.ScopedExecutorTemplate</display>
+      <externalReference>Intent.Blazor</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f82c465f-eeac-4a8b-bfd4-49e405fca63b</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="558396d9-7152-4741-a017-6ea353c1a961" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Templates.Server.ScopedMediatorInterfaceTemplate</name>
+      <display>Intent.Blazor.Templates.Server.ScopedMediatorInterfaceTemplate</display>
+      <externalReference>Intent.Blazor</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f82c465f-eeac-4a8b-bfd4-49e405fca63b</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="34fbd4f5-17fc-4264-8e9b-4bfc5a409fda" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Templates.Server.ScopedMediatorTemplate</name>
+      <display>Intent.Blazor.Templates.Server.ScopedMediatorTemplate</display>
+      <externalReference>Intent.Blazor</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f82c465f-eeac-4a8b-bfd4-49e405fca63b</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

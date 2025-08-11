@@ -252,6 +252,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>d9e3b4ee-9a92-4dea-8dc5-db7c89a05b6a</ProjectId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/Common/Interfaces/ICurrentUser.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICurrentUser.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d9e3b4ee-9a92-4dea-8dc5-db7c89a05b6a</ProjectId>
       <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/Common/Interfaces/ICurrentUserService.cs</ApplicationRelativeFilePath>

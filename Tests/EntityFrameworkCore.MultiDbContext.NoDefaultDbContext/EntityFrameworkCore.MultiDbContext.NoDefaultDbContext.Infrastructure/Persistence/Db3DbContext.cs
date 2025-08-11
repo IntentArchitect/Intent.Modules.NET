@@ -22,8 +22,6 @@ namespace EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Infrastructure.P
         {
             _domainEventService = domainEventService;
         }
-
-        public DbSet<ProductInMemory> ProductInMemories { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Db3DomainPackageAuditLog> Db3DomainPackageAuditLogs { get; set; }
 
@@ -48,7 +46,6 @@ namespace EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Infrastructure.P
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
-            modelBuilder.ApplyConfiguration(new ProductInMemoryConfiguration());
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
             modelBuilder.ApplyConfiguration(new Db3DomainPackageAuditLogConfiguration());
             modelBuilder.ApplyConfiguration(new Db3EntityConfiguration());

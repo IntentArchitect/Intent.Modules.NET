@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a4696d48-64be-4a87-950c-b2f38d3f32cc" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Pages</name>
+  <display>Pages</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>1cb7609f-e04b-4032-9c3f-5f889b6ad802</parentFolderId>
+  <packageId>d352ec30-da6b-48b9-b552-7e170e3aac54</packageId>
+  <packageName>Blazor.InteractiveAuto.Jwt</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="f99dbd37-eae6-4611-8ee1-50cda50027b8" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Authentication.Templates.Server.ConfirmEmailTemplate</name>
+      <display>Intent.Blazor.Authentication.Templates.Server.ConfirmEmailTemplate</display>
+      <externalReference>Intent.Blazor.Authentication</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a4696d48-64be-4a87-950c-b2f38d3f32cc</parentFolderId>
+      <packageId>d352ec30-da6b-48b9-b552-7e170e3aac54</packageId>
+      <packageName>Blazor.InteractiveAuto.Jwt</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="6a42f8b6-2df8-460f-8ff2-10223e4e72c5" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Authentication.Templates.Server.ForgotPasswordTemplate</name>
+      <display>Intent.Blazor.Authentication.Templates.Server.ForgotPasswordTemplate</display>
+      <externalReference>Intent.Blazor.Authentication</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a4696d48-64be-4a87-950c-b2f38d3f32cc</parentFolderId>
+      <packageId>d352ec30-da6b-48b9-b552-7e170e3aac54</packageId>
+      <packageName>Blazor.InteractiveAuto.Jwt</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="e3715bd0-1495-4837-8b88-5bcaa15929d1" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Authentication.Templates.Server.LoginTemplate</name>
+      <display>Intent.Blazor.Authentication.Templates.Server.LoginTemplate</display>
+      <externalReference>Intent.Blazor.Authentication</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a4696d48-64be-4a87-950c-b2f38d3f32cc</parentFolderId>
+      <packageId>d352ec30-da6b-48b9-b552-7e170e3aac54</packageId>
+      <packageName>Blazor.InteractiveAuto.Jwt</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="39d78e5e-42c6-45a3-8927-f7687ecc677a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Authentication.Templates.Server.RegisterTemplate</name>
+      <display>Intent.Blazor.Authentication.Templates.Server.RegisterTemplate</display>
+      <externalReference>Intent.Blazor.Authentication</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a4696d48-64be-4a87-950c-b2f38d3f32cc</parentFolderId>
+      <packageId>d352ec30-da6b-48b9-b552-7e170e3aac54</packageId>
+      <packageName>Blazor.InteractiveAuto.Jwt</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="8363b490-c553-429c-87c5-f5251f03cee3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Authentication.Templates.Server.ResendEmailConfirmationTemplate</name>
+      <display>Intent.Blazor.Authentication.Templates.Server.ResendEmailConfirmationTemplate</display>
+      <externalReference>Intent.Blazor.Authentication</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a4696d48-64be-4a87-950c-b2f38d3f32cc</parentFolderId>
+      <packageId>d352ec30-da6b-48b9-b552-7e170e3aac54</packageId>
+      <packageName>Blazor.InteractiveAuto.Jwt</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="75b3eea9-ea44-45b6-951f-f79a3933a9c5" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Authentication.Templates.Server.ResetPasswordTemplate</name>
+      <display>Intent.Blazor.Authentication.Templates.Server.ResetPasswordTemplate</display>
+      <externalReference>Intent.Blazor.Authentication</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a4696d48-64be-4a87-950c-b2f38d3f32cc</parentFolderId>
+      <packageId>d352ec30-da6b-48b9-b552-7e170e3aac54</packageId>
+      <packageName>Blazor.InteractiveAuto.Jwt</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="e38f7d2c-f02a-4511-826b-78cfc45757dc" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations.AccountFolderPagesFolderFilesStaticContentTemplateRegistration</name>
+      <display>Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations.AccountFolderPagesFolderFilesStaticContentTemplateRegistration</display>
+      <externalReference>Intent.Blazor.Authentication</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a4696d48-64be-4a87-950c-b2f38d3f32cc</parentFolderId>
+      <packageId>d352ec30-da6b-48b9-b552-7e170e3aac54</packageId>
+      <packageName>Blazor.InteractiveAuto.Jwt</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

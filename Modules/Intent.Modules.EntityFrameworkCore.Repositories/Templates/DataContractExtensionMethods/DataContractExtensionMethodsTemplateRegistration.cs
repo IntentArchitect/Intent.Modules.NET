@@ -38,7 +38,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.DataContract
         {
             return _metadataManager.Domain(application).GetRepositoryModels()
                 .SelectMany(repository => repository.GetStoredProcedureModels())
-                .SelectMany(storedProcedure => storedProcedure.Parameters
+                .SelectMany(storedProcedure => storedProcedure.StoredProcedureModel.Parameters
                     .Where(parameter => parameter.TypeReference.Element.IsDataContractModel())
                     .Select(parameter => parameter.TypeReference.Element.AsDataContractModel()))
                 .Distinct();

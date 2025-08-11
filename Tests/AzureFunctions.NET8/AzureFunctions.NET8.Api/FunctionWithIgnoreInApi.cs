@@ -27,6 +27,7 @@ namespace AzureFunctions.NET8.Api
         [OpenApiOperation("FunctionWithIgnoreInApi", tags: new[] { "FunctionWithIgnoreInApi", "V1" }, Description = "Function with ignore in api", Summary = "Function with ignore in api")]
         [OpenApiIgnoreAttribute]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]
+        [OpenApiResponseWithBody(statusCode: HttpStatusCode.NotFound, contentType: "application/json", bodyType: typeof(object))]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "post", Route = "function-with-ignore-in-api")] HttpRequest req,
             CancellationToken cancellationToken)

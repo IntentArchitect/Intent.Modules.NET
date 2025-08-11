@@ -1,0 +1,10 @@
+using AutoMapper;
+[assembly: DefaultIntentManaged(Mode.Fully)]
+
+namespace AzureFunctions.AzureEventGrid.Application.Common.Mappings
+{
+    internal interface IMapFrom<T>
+    {
+        void Mapping(Profile profile);
+    }
+}

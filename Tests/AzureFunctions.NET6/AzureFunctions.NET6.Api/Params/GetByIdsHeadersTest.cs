@@ -37,6 +37,7 @@ namespace AzureFunctions.NET6.Api.Params
         [OpenApiParameter(name: "ids", In = ParameterLocation.Header, Required = true, Type = typeof(IEnumerable<int>))]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(int))]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]
+        [OpenApiResponseWithBody(statusCode: HttpStatusCode.NotFound, contentType: "application/json", bodyType: typeof(object))]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", Route = "params/by-ids-headers-test")] HttpRequest req,
             CancellationToken cancellationToken)

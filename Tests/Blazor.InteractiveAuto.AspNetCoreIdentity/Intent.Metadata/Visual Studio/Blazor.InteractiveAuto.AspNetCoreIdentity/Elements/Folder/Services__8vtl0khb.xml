@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3b134680-1a01-40d6-aeb8-78e7154cf8bf" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Services</name>
+  <display>Services</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d70605e2-ae9d-431a-9ac0-c46d809072d7</parentFolderId>
+  <packageId>6ba2e10b-69af-45d7-a21f-d66be5fa348b</packageId>
+  <packageName>Blazor.InteractiveAuto.AspNetCoreIdentity</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="3daf5d4a-faa7-4349-b4f5-f05f2327f155" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Authentication.Templates.Server.SetUserContextInterface</name>
+      <display>Intent.Blazor.Authentication.Templates.Server.SetUserContextInterface</display>
+      <externalReference>Intent.Blazor.Authentication</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>3b134680-1a01-40d6-aeb8-78e7154cf8bf</parentFolderId>
+      <packageId>6ba2e10b-69af-45d7-a21f-d66be5fa348b</packageId>
+      <packageName>Blazor.InteractiveAuto.AspNetCoreIdentity</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="6b9db8da-b8fe-44a7-a91b-6f7d732c404c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Templates.Server.ScopedExecutorInterfaceTemplate</name>
+      <display>Intent.Blazor.Templates.Server.ScopedExecutorInterfaceTemplate</display>
+      <externalReference>Intent.Blazor</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>3b134680-1a01-40d6-aeb8-78e7154cf8bf</parentFolderId>
+      <packageId>6ba2e10b-69af-45d7-a21f-d66be5fa348b</packageId>
+      <packageName>Blazor.InteractiveAuto.AspNetCoreIdentity</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="3d7de46c-5676-42c2-b82a-11ae5ecb8c9f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Templates.Server.ScopedExecutorTemplate</name>
+      <display>Intent.Blazor.Templates.Server.ScopedExecutorTemplate</display>
+      <externalReference>Intent.Blazor</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>3b134680-1a01-40d6-aeb8-78e7154cf8bf</parentFolderId>
+      <packageId>6ba2e10b-69af-45d7-a21f-d66be5fa348b</packageId>
+      <packageName>Blazor.InteractiveAuto.AspNetCoreIdentity</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="2198b4b5-304e-442b-a8a4-9f1fb4ac2c0b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Templates.Server.ScopedMediatorInterfaceTemplate</name>
+      <display>Intent.Blazor.Templates.Server.ScopedMediatorInterfaceTemplate</display>
+      <externalReference>Intent.Blazor</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>3b134680-1a01-40d6-aeb8-78e7154cf8bf</parentFolderId>
+      <packageId>6ba2e10b-69af-45d7-a21f-d66be5fa348b</packageId>
+      <packageName>Blazor.InteractiveAuto.AspNetCoreIdentity</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="8c669284-c272-47f8-9f14-c22510ba052c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Templates.Server.ScopedMediatorTemplate</name>
+      <display>Intent.Blazor.Templates.Server.ScopedMediatorTemplate</display>
+      <externalReference>Intent.Blazor</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>3b134680-1a01-40d6-aeb8-78e7154cf8bf</parentFolderId>
+      <packageId>6ba2e10b-69af-45d7-a21f-d66be5fa348b</packageId>
+      <packageName>Blazor.InteractiveAuto.AspNetCoreIdentity</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

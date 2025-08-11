@@ -22,6 +22,9 @@
     <name>GetProductByIdQuery</name>
     <display>[call] ProductsService.GetProductByIdQuery(id: guid): ProductDto</display>
     <order>0</order>
+    <traits>
+      <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+    </traits>
     <typeReference id="81f75473-77ae-47e3-b70b-a5de23781549">
       <typeId>dda5526c-a283-4836-a610-d8ae72ee036d</typeId>
       <isNavigable>true</isNavigable>

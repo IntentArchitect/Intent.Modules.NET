@@ -1,0 +1,21 @@
+using System.Reflection;
+using Blazor.InteractiveAuto.Jwt.Client.Common.Validation;
+using FluentValidation;
+using Intent.RoslynWeaver.Attributes;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.Blazor.Templates.Client.DependencyInjection", Version = "1.0")]
+
+namespace Blazor.InteractiveAuto.Jwt.Client
+{
+    public static class DependencyInjection
+    {
+        public static IServiceCollection AddClientServices(this IServiceCollection services, IConfiguration configuration)
+        {
+            services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly(), lifetime: ServiceLifetime.Transient);
+            services.AddHttpClients(configuration);
+            services.AddScoped<IValidatorProvider, ValidatorProvider>();
+            return services;
+        }
+    }
+}

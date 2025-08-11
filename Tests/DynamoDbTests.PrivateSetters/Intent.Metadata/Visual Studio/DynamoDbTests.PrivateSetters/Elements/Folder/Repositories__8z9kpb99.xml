@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d44fe681-5d1f-4697-bace-78e59cf61b98" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Repositories</name>
+  <display>Repositories</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>93f8782d-9b7b-4b20-ad73-0241420d0231</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="64dd9a4d-a952-43f6-9a8d-ebff1e2868a2" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.Repositories.Api.CustomRepository</name>
+      <display>Intent.Entities.Repositories.Api.CustomRepository</display>
+      <externalReference>Intent.Entities.Repositories.Api</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d44fe681-5d1f-4697-bace-78e59cf61b98</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="6de7d788-021e-47c9-ad46-8c05f8a0bd18" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Aws.DynamoDB.DynamoDBRepository</name>
+      <display>Intent.Aws.DynamoDB.DynamoDBRepository</display>
+      <externalReference>Intent.Aws.DynamoDB</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d44fe681-5d1f-4697-bace-78e59cf61b98</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="031fc85d-07c6-48ee-8df7-226a99099878" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Aws.DynamoDB.DynamoDBRepositoryBase</name>
+      <display>Intent.Aws.DynamoDB.DynamoDBRepositoryBase</display>
+      <externalReference>Intent.Aws.DynamoDB</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d44fe681-5d1f-4697-bace-78e59cf61b98</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

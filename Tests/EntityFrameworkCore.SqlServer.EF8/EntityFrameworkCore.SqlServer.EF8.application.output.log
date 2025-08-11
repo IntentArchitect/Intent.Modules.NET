@@ -100,6 +100,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>dd996d12-c9b6-4241-ad0e-3a0fd2434764</ProjectId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF8.Application/Common/Interfaces/ICurrentUser.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICurrentUser.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dd996d12-c9b6-4241-ad0e-3a0fd2434764</ProjectId>
       <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF8.Application/Common/Interfaces/ICurrentUserService.cs</ApplicationRelativeFilePath>

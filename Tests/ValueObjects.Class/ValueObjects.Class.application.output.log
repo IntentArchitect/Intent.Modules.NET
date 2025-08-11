@@ -196,6 +196,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>5e5eddb2-9ff4-4f55-9c32-a3c7842407a8</ProjectId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>ValueObjects.Class.Application/Common/Interfaces/ICurrentUser.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICurrentUser.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5e5eddb2-9ff4-4f55-9c32-a3c7842407a8</ProjectId>
       <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>ValueObjects.Class.Application/Common/Interfaces/ICurrentUserService.cs</ApplicationRelativeFilePath>

@@ -14,7 +14,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Repositories
         /// <summary>
         /// Method comment.
         /// </summary>
-        Task<SpResult> MyProc(IEnumerable<SpParameter> param, CancellationToken cancellationToken = default);
+        Task<SpOpResult> MyProc(IEnumerable<SpParameter> param, CancellationToken cancellationToken = default);
         Task<string> WithBidrectionalParam(string birectionalTest, CancellationToken cancellationToken = default);
     }
 }

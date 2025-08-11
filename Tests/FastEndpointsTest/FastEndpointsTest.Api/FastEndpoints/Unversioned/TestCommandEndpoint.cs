@@ -44,7 +44,7 @@ namespace FastEndpointsTest.Api.FastEndpoints.Unversioned
         public override async Task HandleAsync(TestCommand req, CancellationToken ct)
         {
             await _mediator.Send(req, ct);
-            await SendResultAsync(TypedResults.Created(string.Empty, (string?)null));
+            await Send.ResultAsync(TypedResults.Created(string.Empty, (string?)null));
         }
     }
 }

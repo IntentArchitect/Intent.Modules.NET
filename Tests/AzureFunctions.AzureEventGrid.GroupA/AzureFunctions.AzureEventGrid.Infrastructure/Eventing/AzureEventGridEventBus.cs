@@ -78,6 +78,7 @@ namespace AzureFunctions.AzureEventGrid.Infrastructure.Eventing
                 }
                 await client.SendEventsAsync(cloudEvents, cancellationToken);
             }
+            _messageQueue.Clear();
         }
 
         private void ValidateMessage(object message)

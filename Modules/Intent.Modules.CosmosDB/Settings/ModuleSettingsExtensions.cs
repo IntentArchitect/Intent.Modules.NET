@@ -11,17 +11,17 @@ namespace Intent.Modules.CosmosDB.Settings
 {
     public static class ModuleSettingsExtensions
     {
-        public static CosmosDb GetCosmosDb(this IApplicationSettingsProvider settings)
+        public static CosmosDBSettings GetCosmosDBSettings(this IApplicationSettingsProvider settings)
         {
-            return new CosmosDb(settings.GetGroup("dcfa949a-c512-47c4-a644-0f2b88e44794"));
+            return new CosmosDBSettings(settings.GetGroup("dcfa949a-c512-47c4-a644-0f2b88e44794"));
         }
     }
 
-    public class CosmosDb : IGroupSettings
+    public class CosmosDBSettings : IGroupSettings
     {
         private readonly IGroupSettings _groupSettings;
 
-        public CosmosDb(IGroupSettings groupSettings)
+        public CosmosDBSettings(IGroupSettings groupSettings)
         {
             _groupSettings = groupSettings;
         }

@@ -40,12 +40,12 @@ namespace Intent.Modules.CosmosDB.Templates
                         property.WithInitialValue("default!");
                     }
 
-                    if (attribute.HasFieldSetting())
+                    if (attribute.HasFieldSettings())
                     {
-                        property.AddAttribute($"{template.UseType("Newtonsoft.Json.JsonProperty")}(\"{attribute.GetFieldSetting().Name()}\")");
+                        property.AddAttribute($"{template.UseType("Newtonsoft.Json.JsonProperty")}(\"{attribute.GetFieldSettings().Name()}\")");
                     }
 
-                    if (attribute.TypeReference?.Element?.IsEnumModel() == true && template.ExecutionContext.Settings.GetCosmosDb().StoreEnumsAsStrings())
+                    if (attribute.TypeReference?.Element?.IsEnumModel() == true && template.ExecutionContext.Settings.GetCosmosDBSettings().StoreEnumsAsStrings())
                     {
                         property.AddAttribute($"{template.UseType("Newtonsoft.Json.JsonConverter")}(typeof({template.GetEnumJsonConverterName()}))");
                     }
@@ -79,9 +79,9 @@ namespace Intent.Modules.CosmosDB.Templates
                         property.WithInitialValue("default!");
                     }
 
-                    if (associationEnd is AssociationTargetEndModel targetEnd && targetEnd.HasFieldSetting())
+                    if (associationEnd is AssociationTargetEndModel targetEnd && targetEnd.HasFieldSettings())
                     {
-                        property.AddAttribute($"{template.UseType("Newtonsoft.Json.JsonProperty")}(\"{targetEnd.GetFieldSetting().Name()}\")");
+                        property.AddAttribute($"{template.UseType("Newtonsoft.Json.JsonProperty")}(\"{targetEnd.GetFieldSettings().Name()}\")");
                     }
                 });
 
@@ -152,7 +152,7 @@ namespace Intent.Modules.CosmosDB.Templates
             bool isAggregate,
             bool hasBaseType)
         {
-            var useOptimisticConcurrency = template.ExecutionContext.Settings.GetCosmosDb().UseOptimisticConcurrency();
+            var useOptimisticConcurrency = template.ExecutionContext.Settings.GetCosmosDBSettings().UseOptimisticConcurrency();
             var genericTypeArguments = @class.GenericParameters.Any()
                 ? $"<{string.Join(", ", @class.GenericParameters.Select(x => x.TypeName))}>"
                 : string.Empty;

@@ -44,7 +44,7 @@ namespace FastEndpointsTest.Api.FastEndpoints.Unversioned
         {
             var result = default(int);
             result = await _mediator.Send(req, ct);
-            await SendResultAsync(TypedResults.Ok(result));
+            await Send.ResultAsync(TypedResults.Ok(result));
         }
     }
 }

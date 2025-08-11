@@ -44,7 +44,7 @@ namespace FastEndpointsTest.Api.FastEndpoints.ScalarCollectionReturnType.Service
         {
             var result = default(List<string>);
             result = await _appService.DoScalarWithCollectionReturn(ct);
-            await SendResultAsync(TypedResults.Ok(new JsonResponse<List<string>>(result)));
+            await Send.ResultAsync(TypedResults.Ok(new JsonResponse<List<string>>(result)));
         }
     }
 }

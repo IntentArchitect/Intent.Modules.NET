@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ba6bc88f-3ad8-4e6f-8517-4113e256e81a" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+  <name>CustomerAddressBuildingDto</name>
+  <display>CustomerAddressBuildingDto</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>true</isMapped>
+  <mappedClass isRoot="true">
+    <applicationId>ec449965-5357-4c9d-971a-ff0dcce48c52</applicationId>
+    <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
+    <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
+    <autoSyncTypeReference>true</autoSyncTypeReference>
+    <mappedPath>
+      <target id="6c9755da-57f8-476a-a9ef-31ebeef738b2" name="AddressBuilding" type="element" specialization="Value Object" specializationId="5fe6bb0a-7fc3-42ae-a351-d9188f5b8bc5" />
+    </mappedPath>
+  </mappedClass>
+  <parentFolderId>d28bdbf5-2f14-4574-918b-06f1cc0ec1f4</parentFolderId>
+  <packageId>a741f575-70c9-4466-aa95-ace1ade8595f</packageId>
+  <packageName>EfCoreSoftDelete.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="f193e745-b028-4b6a-8917-579510e09f87" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Name</name>
+      <display>Name: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="f2cd9b20-58ed-4048-bb96-370243c85b57">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="def4c875-ae10-4cf3-83b9-139a626977d0" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>ba6bc88f-3ad8-4e6f-8517-4113e256e81a</parentFolderId>
+      <packageId>a741f575-70c9-4466-aa95-ace1ade8595f</packageId>
+      <packageName>EfCoreSoftDelete.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

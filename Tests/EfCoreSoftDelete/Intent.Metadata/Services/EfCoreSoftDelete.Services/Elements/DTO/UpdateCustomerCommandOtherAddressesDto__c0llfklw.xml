@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="bfc8709f-6201-4b4b-8196-2f58f93c694b" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+  <name>UpdateCustomerCommandOtherAddressesDto</name>
+  <display>UpdateCustomerCommandOtherAddressesDto</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d28bdbf5-2f14-4574-918b-06f1cc0ec1f4</parentFolderId>
+  <packageId>a741f575-70c9-4466-aa95-ace1ade8595f</packageId>
+  <packageName>EfCoreSoftDelete.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="bc2545f7-9ad5-4284-ae48-df6751532101" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Line1</name>
+      <display>Line1: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="5877ddc2-340a-4bcb-a3c1-378a13902848">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>bfc8709f-6201-4b4b-8196-2f58f93c694b</parentFolderId>
+      <packageId>a741f575-70c9-4466-aa95-ace1ade8595f</packageId>
+      <packageName>EfCoreSoftDelete.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="5b3c3bc9-8975-4c6f-baad-0cf296e57740" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Line2</name>
+      <display>Line2: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="6449eb8b-265a-40e7-af6d-b9f1ff2d48d5">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>bfc8709f-6201-4b4b-8196-2f58f93c694b</parentFolderId>
+      <packageId>a741f575-70c9-4466-aa95-ace1ade8595f</packageId>
+      <packageName>EfCoreSoftDelete.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="b3f664e0-c112-40cb-92ee-9534643ae41b" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>City</name>
+      <display>City: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="b22da0f2-aa7e-48ca-bacc-0c30ad55d52f">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>bfc8709f-6201-4b4b-8196-2f58f93c694b</parentFolderId>
+      <packageId>a741f575-70c9-4466-aa95-ace1ade8595f</packageId>
+      <packageName>EfCoreSoftDelete.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="6a5b415a-37f2-4af5-a541-250ae36c8cb8" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Postal</name>
+      <display>Postal: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="9c73c426-ac69-4d21-8296-67eebf36a413">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>bfc8709f-6201-4b4b-8196-2f58f93c694b</parentFolderId>
+      <packageId>a741f575-70c9-4466-aa95-ace1ade8595f</packageId>
+      <packageName>EfCoreSoftDelete.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="39955329-37ae-46e1-b5c0-bbb76ce84ffa" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>OtherBuildings</name>
+      <display>OtherBuildings: UpdateCustomerCommandOtherBuildingsDto[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="8dff40bf-8cbd-4ba8-b275-c732f0f9539a">
+        <typeId>5a27ce40-680f-41d0-bc86-e485e5605f11</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EfCoreSoftDelete.Services</typePackageName>
+        <typePackageId>a741f575-70c9-4466-aa95-ace1ade8595f</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>bfc8709f-6201-4b4b-8196-2f58f93c694b</parentFolderId>
+      <packageId>a741f575-70c9-4466-aa95-ace1ade8595f</packageId>
+      <packageName>EfCoreSoftDelete.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="d1f202c3-0026-4704-a7a5-d030b38e6523" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>PrimaryBuilding</name>
+      <display>PrimaryBuilding: UpdateCustomerCommandPrimaryBuildingDto</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="c886df98-fdd7-4930-8cf8-2b20b316d17f">
+        <typeId>40e2c0de-d5bb-48e4-a1ab-497a6b7d43a5</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EfCoreSoftDelete.Services</typePackageName>
+        <typePackageId>a741f575-70c9-4466-aa95-ace1ade8595f</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>bfc8709f-6201-4b4b-8196-2f58f93c694b</parentFolderId>
+      <packageId>a741f575-70c9-4466-aa95-ace1ade8595f</packageId>
+      <packageName>EfCoreSoftDelete.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

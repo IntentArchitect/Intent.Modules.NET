@@ -19,7 +19,7 @@
     <childElements />
   </sourceEnd>
   <targetEnd id="0509b389-ee60-4bc3-b3d2-0d425ea0fcb4" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
-    <display>[call] : Operation_Params3_ReturnsV_Collection0(...): null</display>
+    <display>[call] : Operation_Params3_ReturnsV_Collection0(...): void</display>
     <order>17</order>
     <traits>
       <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />

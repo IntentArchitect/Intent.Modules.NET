@@ -1,5 +1,4 @@
 ﻿using Intent.Metadata.Models;
-using Intent.Modelers.UI.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.RazorBuilder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -10,13 +9,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static Intent.Blazor.Api.ButtonModelStereotypeExtensions;
-using static Intent.Modules.Constants.TemplateRoles.Blazor.Client;
 
 namespace Intent.Modules.Blazor.Api;
 public static class SecuredHelper
 {
-    public static string AuthorizationAttribute(this Intent.Blazor.Api.ComponentModelStereotypeExtensions.Secured model, ICSharpTemplate template)
+
+    internal static string AuthorizationAttribute(this Intent.Blazor.Api.ComponentModelStereotypeExtensions.Secured model, ICSharpTemplate template)
     {
         var authText = GetSecuredText(model.Policy(), model.Roles());
 

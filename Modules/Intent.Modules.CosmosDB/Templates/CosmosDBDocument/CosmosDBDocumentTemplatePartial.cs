@@ -7,6 +7,7 @@ using System.Runtime.InteropServices;
 using System.Xml.Linq;
 using Intent.CosmosDB.Api;
 using Intent.Engine;
+using Intent.Metadata.DocumentDB.Api;
 using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -191,7 +192,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
             }
 
 
-            var useOptimisticConcurrency = ExecutionContext.Settings.GetCosmosDb().UseOptimisticConcurrency() && Model.ParentClass == null;
+            var useOptimisticConcurrency = ExecutionContext.Settings.GetCosmosDBSettings().UseOptimisticConcurrency() && Model.ParentClass == null;
             if (useOptimisticConcurrency)
             {
                 // Etag implementation:
@@ -252,13 +253,13 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                         property.WithInitialValue("default!");
                     }
 
-                    if (metadataModel is AttributeModel classAttribute1 && classAttribute1.HasFieldSetting())
+                    if (metadataModel is AttributeModel classAttribute1 && classAttribute1.HasFieldSettings())
                     {
-                        property.AddAttribute($"{UseType("Newtonsoft.Json.JsonProperty")}(\"{classAttribute1.GetFieldSetting().Name()}\")");
+                        property.AddAttribute($"{UseType("Newtonsoft.Json.JsonProperty")}(\"{classAttribute1.GetFieldSettings().Name()}\")");
                     }
-                    else if (metadataModel is AssociationTargetEndModel targetEnd && targetEnd.HasFieldSetting())
+                    else if (metadataModel is AssociationTargetEndModel targetEnd && targetEnd.HasFieldSettings())
                     {
-                        property.AddAttribute($"{UseType("Newtonsoft.Json.JsonProperty")}(\"{targetEnd.GetFieldSetting().Name()}\")");
+                        property.AddAttribute($"{UseType("Newtonsoft.Json.JsonProperty")}(\"{targetEnd.GetFieldSettings().Name()}\")");
                     }
                     else
                     // Add "Id" property with JsonProperty attribute if not the PK
@@ -281,7 +282,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                     }
 
                     if (classAttribute2.TypeReference?.Element?.IsEnumModel() == true &&
-                        ExecutionContext.Settings.GetCosmosDb().StoreEnumsAsStrings())
+                        ExecutionContext.Settings.GetCosmosDBSettings().StoreEnumsAsStrings())
                     {
                         property.AddAttribute($"{UseType("Newtonsoft.Json.JsonConverter")}(typeof({this.GetEnumJsonConverterName()}))");
                     }

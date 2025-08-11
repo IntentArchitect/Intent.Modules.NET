@@ -41,8 +41,9 @@ namespace AzureFunctions.NET6.Api
         [FunctionName("MappedAzureFunction")]
         [OpenApiOperation("CustomOnAzureFunction", tags: new[] { "MappedAzureFunction" }, Description = "Mapped azure function")]
         [OpenApiRequestBody(contentType: "application/json", bodyType: typeof(SampleMappedRequest))]
-        [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(string))]
+        [OpenApiResponseWithBody(statusCode: HttpStatusCode.Created, contentType: "application/json", bodyType: typeof(string))]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]
+        [OpenApiResponseWithBody(statusCode: HttpStatusCode.NotFound, contentType: "application/json", bodyType: typeof(object))]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "post", Route = "mapped-azure-function")] HttpRequest req,
             CancellationToken cancellationToken)

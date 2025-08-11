@@ -1212,6 +1212,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>a78eee2a-b6f2-4d92-86be-7841b1821471</ProjectId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/Common/Interfaces/ICurrentUser.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICurrentUser.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a78eee2a-b6f2-4d92-86be-7841b1821471</ProjectId>
       <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/Common/Interfaces/ICurrentUserService.cs</ApplicationRelativeFilePath>

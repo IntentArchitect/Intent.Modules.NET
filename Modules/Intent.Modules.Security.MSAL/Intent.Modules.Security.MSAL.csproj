@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="..\Intent.Modules.Security.JWT\FactoryExtensions\CurrentUserHelper.cs" Link="FactoryExtensions\CurrentUserHelper.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Intent.Modules.Application.Identity" Version="3.4.0" />
     <PackageReference Include="Intent.Modules.AspNetCore" Version="4.0.0" />
     <PackageReference Include="Intent.Modules.Common" Version="3.7.2" />

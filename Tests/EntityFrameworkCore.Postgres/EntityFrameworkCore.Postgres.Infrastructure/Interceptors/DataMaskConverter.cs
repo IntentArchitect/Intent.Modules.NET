@@ -79,7 +79,7 @@ namespace EntityFrameworkCore.Postgres.Infrastructure.Interceptors
         public static bool IsAuthorized(ICurrentUserService currentUserService, string[] roles, string[] policies)
         {
             // Must be an authenticated user
-            if (currentUserService.UserId is null)
+            if (currentUserService.GetAsync().GetAwaiter().GetResult() is null)
             {
                 return false;
             }

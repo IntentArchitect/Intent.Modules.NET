@@ -37,6 +37,7 @@ namespace AzureFunctions.NET6.Api.Customers
         [OpenApiParameter(name: "customerId", In = ParameterLocation.Path, Required = true, Type = typeof(Guid))]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(CustomerDto))]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]
+        [OpenApiResponseWithBody(statusCode: HttpStatusCode.NotFound, contentType: "application/json", bodyType: typeof(object))]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", Route = "customers/{customerId}/thing")] HttpRequest req,
             Guid customerId,

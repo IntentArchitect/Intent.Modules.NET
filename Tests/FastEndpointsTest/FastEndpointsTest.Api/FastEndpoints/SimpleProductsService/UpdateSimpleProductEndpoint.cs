@@ -61,7 +61,7 @@ namespace FastEndpointsTest.Api.FastEndpoints.SimpleProductsService
                 await _unitOfWork.SaveChangesAsync(ct);
                 transaction.Complete();
             }
-            await SendResultAsync(TypedResults.NoContent());
+            await Send.ResultAsync(TypedResults.NoContent());
         }
     }
 }

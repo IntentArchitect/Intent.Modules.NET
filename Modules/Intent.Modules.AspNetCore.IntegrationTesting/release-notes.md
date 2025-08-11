@@ -1,3 +1,8 @@
+### Version 2.0.6
+
+- Improvement: Updated NuGet package versions.
+- Fixed: Fixed Software Factory error when generic DTO is reused as endpoint return object.
+
 ### Version 2.0.5
 
 - Improvement: Updated NuGet package versions.

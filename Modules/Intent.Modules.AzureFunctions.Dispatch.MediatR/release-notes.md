@@ -1,3 +1,7 @@
+### Version 2.0.1
+
+- Improvement: Enhanced the OpenApiResponse attributes added to the `Run` method
+
 ### Version 2.0.0
 
 - Improvement: Updated code and dependencies in line with the Isolated Process upgrade.

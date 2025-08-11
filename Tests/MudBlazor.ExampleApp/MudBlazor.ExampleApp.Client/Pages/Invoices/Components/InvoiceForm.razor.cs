@@ -4,7 +4,7 @@ using MudBlazor.ExampleApp.Client.HttpClients;
 using MudBlazor.ExampleApp.Client.HttpClients.Contracts.Services.Customers;
 using MudBlazor.ExampleApp.Client.HttpClients.Contracts.Services.Products;
 
-[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate", Version = "1.0")]
 
 namespace MudBlazor.ExampleApp.Client.Pages.Invoices.Components
@@ -43,7 +43,6 @@ namespace MudBlazor.ExampleApp.Client.Pages.Invoices.Components
             {
                 Snackbar.Add(e.Message, Severity.Error);
             }
-            StateHasChanged();
         }
 
         private async Task OnSaveClicked()
@@ -99,7 +98,6 @@ namespace MudBlazor.ExampleApp.Client.Pages.Invoices.Components
         {
         }
 
-        [IntentIgnore]
         private async Task<IEnumerable<string>> OnStateAutoAsync(string value, CancellationToken cancellationToken = default)
         {
             if (string.IsNullOrEmpty(value))
@@ -108,13 +106,11 @@ namespace MudBlazor.ExampleApp.Client.Pages.Invoices.Components
             return _states.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase)).ToList();
         }
 
-        [IntentIgnore]
         private bool IsSaveDisabled()
         {
             return false;
         }
 
-        [IntentIgnore]
         private string[] _states =
         {
         "Alabama", "Alaska", "Arizona", "Arkansas", "California",

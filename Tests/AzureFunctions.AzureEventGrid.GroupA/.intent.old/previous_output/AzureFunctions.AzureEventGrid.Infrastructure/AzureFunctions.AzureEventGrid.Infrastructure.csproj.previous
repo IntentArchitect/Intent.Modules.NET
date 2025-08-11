@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <NoWarn>1701,1702</NoWarn>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AzureFunctions.AzureEventGrid.Application\AzureFunctions.AzureEventGrid.Application.csproj" />
+    <ProjectReference Include="..\AzureFunctions.AzureEventGrid.Domain\AzureFunctions.AzureEventGrid.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Azure.Messaging.EventGrid" Version="5.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.18" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.18" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.18" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="8.0.18" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.18" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="9.0.7" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="9.0.7" />
+  </ItemGroup>
+  </Project>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="bc3deb8d-0d29-48e7-b74f-28414be4f4fe" type="Comment" typeId="c4c0c77f-720b-4e91-9c48-b58d2164d30a">
+  <comment>This should no longer cause: NotSupportedException("Cannot create a repository for type Level1")</comment>
+  <name>Repo Note</name>
+  <display>Repo Note</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>e5ed367e-aea5-4a03-890f-dd671a48d907</parentFolderId>
+  <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+  <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -19,7 +19,7 @@
     <childElements />
   </sourceEnd>
   <targetEnd id="ebbcb10a-acd3-4a93-8394-309d2625134b" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
-    <display>[call] : DoSomething(...): null</display>
+    <display>[call] : DoSomething(...): void</display>
     <order>0</order>
     <traits>
       <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />

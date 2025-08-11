@@ -1,0 +1,12 @@
+using System.Threading;
+using System.Threading.Tasks;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+
+namespace AzureFunctions.AzureEventGrid.Application.Common.Validation
+{
+    public interface IValidationService
+    {
+        Task Handle<TRequest>(TRequest request, CancellationToken cancellationToken = default);
+    }
+}

@@ -39,7 +39,9 @@ namespace AzureFunctions.NET6.Api.Customers
         [OpenApiOperation("UpdateCustomerCommand", tags: new[] { "Customers" }, Description = "Update customer command")]
         [OpenApiRequestBody(contentType: "application/json", bodyType: typeof(UpdateCustomerCommand))]
         [OpenApiParameter(name: "id", In = ParameterLocation.Path, Required = true, Type = typeof(Guid))]
+        [OpenApiResponseWithoutBody(statusCode: HttpStatusCode.NoContent)]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]
+        [OpenApiResponseWithBody(statusCode: HttpStatusCode.NotFound, contentType: "application/json", bodyType: typeof(object))]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "put", Route = "customers/{id}")] HttpRequest req,
             Guid id,

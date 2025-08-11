@@ -63,6 +63,7 @@ namespace WindowsServiceHost.Tests.Eventing
                 await sender.SendMessageAsync(serviceBusMessage, cancellationToken);
             }
             scope.Complete();
+            _messageQueue.Clear();
         }
 
         private void ValidateMessage(object message)

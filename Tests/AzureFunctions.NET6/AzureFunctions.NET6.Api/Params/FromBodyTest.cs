@@ -38,7 +38,9 @@ namespace AzureFunctions.NET6.Api.Params
         [FunctionName("Params_FromBodyTest")]
         [OpenApiOperation("FromBodyTestCommand", tags: new[] { "FromBodyTest" }, Description = "From body test command")]
         [OpenApiRequestBody(contentType: "application/json", bodyType: typeof(IEnumerable<int>))]
+        [OpenApiResponseWithoutBody(statusCode: HttpStatusCode.Created)]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]
+        [OpenApiResponseWithBody(statusCode: HttpStatusCode.NotFound, contentType: "application/json", bodyType: typeof(object))]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "post", Route = "from-body-test")] HttpRequest req,
             CancellationToken cancellationToken)

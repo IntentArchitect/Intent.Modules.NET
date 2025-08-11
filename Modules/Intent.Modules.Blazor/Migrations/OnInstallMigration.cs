@@ -1,11 +1,14 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using Intent.Engine;
 using Intent.IArchitect.Agent.Persistence.Model;
+using Intent.IArchitect.Agent.Persistence.Model.Common;
 using Intent.Metadata;
 using Intent.Plugins;
 using Intent.RoslynWeaver.Attributes;
@@ -21,12 +24,10 @@ namespace Intent.Modules.Blazor.Migrations
         private const string VisualStudioSolutionPackageSpecializationId = "07e7b690-a59d-4b72-8440-4308a121d32c";
         private const string RoleSpecializationId = "025e933b-b602-4b6d-95ab-0ec36ae940da";
         private readonly IApplicationConfigurationProvider _configurationProvider;
-        private readonly IMetadataInstaller _metadataInstaller;
 
-        public OnInstallMigration(IApplicationConfigurationProvider configurationProvider, IMetadataInstaller metadataInstaller)
+        public OnInstallMigration(IApplicationConfigurationProvider configurationProvider)
         {
             _configurationProvider = configurationProvider;
-            _metadataInstaller = metadataInstaller;
         }
 
         [IntentFully]
@@ -35,18 +36,18 @@ namespace Intent.Modules.Blazor.Migrations
         public void OnInstall()
         {
             var app = ApplicationPersistable.Load(_configurationProvider.GetApplicationConfig().FilePath);
-            var designer = app.GetDesigner(VisualStudioDesignerId);
-            var packages = designer.GetPackages().Where(x => x.SpecializationTypeId == VisualStudioSolutionPackageSpecializationId);
+            if (app == null)
+                return;
 
-            foreach (var package in packages)
+            bool changes = false;
+            changes |= EnsureBlazorRoleInVSDesigner(app);
+            changes |= MigrationHelper.InitializeIncludeSamplesSetting(app, "true");
+            if (changes)
             {
-                var elements = package.GetElementsOfType(RoleSpecializationId);
-                if (elements.Any(x => x.Name == "Blazor"))
-                {
-                    return;
-                }
+                app.SaveAllChanges();
             }
 
+            /*
             var visualStudioMetadataInstallationFile = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "../content", "visual-studio.metadata.config");
             if (File.Exists(visualStudioMetadataInstallationFile))
             {
@@ -60,8 +61,45 @@ namespace Intent.Modules.Blazor.Migrations
             else
             {
                 throw new Exception("File not found: " + visualStudioMetadataInstallationFile);
+            }*/
+        }
+
+        private static bool EnsureBlazorRoleInVSDesigner(ApplicationPersistable app)
+        {
+            var designer = app.GetDesigner(VisualStudioDesignerId);
+            var packages = designer.GetPackages().Where(x => x.SpecializationTypeId == VisualStudioSolutionPackageSpecializationId);
+
+            StartupDetails? startupDetails = null;
+            foreach (var package in packages)
+            {
+                var elements = package.GetElementsOfType(RoleSpecializationId);
+                if (elements.Any(x => x.Name == "Blazor"))
+                {
+                    return false;
+                }
+                if (startupDetails == null)
+                {
+                    var startupRole = elements.FirstOrDefault(x => x.Name == "Startup");
+                    if (startupRole != null)
+                    {
+                        startupDetails = new StartupDetails(package, startupRole);
+                    }
+                }
+            }
+
+            if (startupDetails != null)
+            {
+                var project = startupDetails.Role.Parent;
+                project.AddElement(new ElementPersistable { SpecializationTypeId = RoleSpecializationId, SpecializationType = "Role", Name = "Blazor", Id = Guid.NewGuid().ToString() });
+                return true;
+            }
+            else
+            {
+                throw new Exception("Could not find (Startup) or (Blazor) Role.");
             }
         }
+
+        private record StartupDetails(PackageModelPersistable Pacakge, ElementPersistable Role);
 
         public void OnUninstall()
         {

@@ -36,7 +36,9 @@ namespace AzureFunctions.NET6.Api.Enums.EnumService
         [FunctionName("Enums_EnumService_TestQueryEnum")]
         [OpenApiOperation("TestQueryEnum", tags: new[] { "Enum" }, Description = "Test query enum")]
         [OpenApiParameter(name: "testEnum", In = ParameterLocation.Query, Required = true, Type = typeof(Company))]
+        [OpenApiResponseWithoutBody(statusCode: HttpStatusCode.Created)]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]
+        [OpenApiResponseWithBody(statusCode: HttpStatusCode.NotFound, contentType: "application/json", bodyType: typeof(object))]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "post", Route = "enum/test-query-enum")] HttpRequest req,
             CancellationToken cancellationToken)

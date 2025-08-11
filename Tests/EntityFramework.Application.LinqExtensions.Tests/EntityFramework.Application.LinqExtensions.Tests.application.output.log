@@ -210,6 +210,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>66f413cd-3a55-4784-94cc-d95c3ce0d918</ProjectId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFramework.Application.LinqExtensions.Tests.Application/Common/Interfaces/ICurrentUser.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICurrentUser.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>66f413cd-3a55-4784-94cc-d95c3ce0d918</ProjectId>
       <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFramework.Application.LinqExtensions.Tests.Application/Common/Interfaces/ICurrentUserService.cs</ApplicationRelativeFilePath>

@@ -9,6 +9,9 @@
   <parentFolderId>4ce7c6ec-b0c7-4123-b8b3-ac33274f5353</parentFolderId>
   <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
   <packageName>MudBlazor.ExampleApp.UI</packageName>
+  <traits>
+    <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+  </traits>
   <stereotypes />
   <mappings>
     <mapping type="View Binding" typeId="c33f86ad-423a-4a6f-a80c-a3206eafe5cd">

@@ -162,10 +162,13 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
                                 }
                                 else if (queryParameter.TypeReference.IsCollection)
                                 {
-                                    method.AddStatement("var index = 0;");
+                                    // if there is only one parameter which is a collection then keep it "index", otherwise rename
+                                    var variableName = queryParams.Count(q => q.TypeReference.IsCollection) == 1 ? "index" : $"{queryParameter.Name}Index";
+                                    
+                                    method.AddStatement($"var {variableName} = 0;");
                                     method.AddForEachStatement("element", GetSourceExpression(parameterName, endpoint, queryParameter), block =>
                                     {
-                                        block.AddStatement($@"queryParams.Add($""{queryParameter.QueryStringName ?? GetSourceExpression(parameterName, endpoint, queryParameter)}[{{index++}}]"", element.ToString());");
+                                        block.AddStatement($@"queryParams.Add($""{queryParameter.QueryStringName ?? GetSourceExpression(parameterName, endpoint, queryParameter)}[{{{variableName}++}}]"", element.ToString());");
                                     });
                                 }
                                 else

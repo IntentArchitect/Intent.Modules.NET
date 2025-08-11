@@ -1,6 +1,7 @@
 using System;
 using Intent.Engine;
 using Intent.Modules.Blazor.Api;
+using Intent.Modules.Blazor.Settings;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.RazorBuilder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -43,9 +44,15 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.ClientImportsRazor
             });
         }
 
+        public override bool CanRunTemplate()
+        {
+            return base.CanRunTemplate() && !ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveServer(); 
+        }
+
         /// <inheritdoc />
         public override void AfterTemplateRegistration()
         {
+            if (!CanRunTemplate()) return;
             base.AfterTemplateRegistration();
             OutputTarget.GetProject().AddProperty("NoDefaultLaunchSettingsFile", "true");
             OutputTarget.GetProject().AddProperty("StaticWebAssetProjectMode", "Default");

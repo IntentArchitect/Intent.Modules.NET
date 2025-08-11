@@ -45,7 +45,7 @@ namespace FastEndpointsTest.Api.FastEndpoints.AggregateWithUniqueConstraintIndex
             CancellationToken ct)
         {
             await _mediator.Send(req, ct);
-            await SendResultAsync(TypedResults.Ok());
+            await Send.ResultAsync(TypedResults.Ok());
         }
     }
 }

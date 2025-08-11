@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="aba2a10b-de55-4a0e-b0f0-71cef2e87f12" type="On-Uninstall Migration" typeId="d95b829a-fabc-4f12-b044-b3fa198885aa">
+  <name>On-Uninstall</name>
+  <display>On-Uninstall</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>a726a9ac-e016-40b5-a8cb-b2cb3d9c6832</parentFolderId>
+  <packageId>0b3d2a28-1ba9-4097-af45-7d93fdd4dc3a</packageId>
+  <packageName>Intent.Blazor.Wasm</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

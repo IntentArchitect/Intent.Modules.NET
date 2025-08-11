@@ -36,7 +36,9 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.DataContract
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<DataContractModel> GetModels(IApplication application)
         {
-            return EntityFrameworkRepositoryHelpers.GetEntityTypeConfigurationDataContractModels(application);
+            return EntityFrameworkRepositoryHelpers.GetEntityTypeConfigurationDataContractModels(application)
+                .Select(x => x.DataContractModel)
+                .ToList();
         }
     }
 }

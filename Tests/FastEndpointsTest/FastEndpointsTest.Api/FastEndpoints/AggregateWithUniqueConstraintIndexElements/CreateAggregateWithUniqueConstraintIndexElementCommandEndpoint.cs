@@ -48,7 +48,7 @@ namespace FastEndpointsTest.Api.FastEndpoints.AggregateWithUniqueConstraintIndex
         {
             var result = Guid.Empty;
             result = await _mediator.Send(req, ct);
-            await SendCreatedAtAsync<GetAggregateWithUniqueConstraintIndexElementByIdQueryEndpoint>(new { id = result }, new JsonResponse<Guid>(result), cancellation: ct);
+            await Send.CreatedAtAsync<GetAggregateWithUniqueConstraintIndexElementByIdQueryEndpoint>(new { id = result }, new JsonResponse<Guid>(result), cancellation: ct);
         }
     }
 }

@@ -10,6 +10,7 @@ namespace OpenTelemetry.AzureMonitorOpentelemetryDistro.Application.Common.Inter
     {
         string? UserId { get; }
         string? UserName { get; }
+        Task<ICurrentUser?> GetAsync();
         Task<bool> IsInRoleAsync(string role);
         Task<bool> AuthorizeAsync(string policy);
     }

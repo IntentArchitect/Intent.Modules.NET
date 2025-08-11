@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d0918061-a76d-4ac7-a8db-7520837a6a2a" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>1b7fb00b-5ce4-45b8-876c-8f0f1874fdbb</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>1f767340-e37c-4441-be0e-5e0e593a05ef</parentFolderId>
+  <packageId>1f767340-e37c-4441-be0e-5e0e593a05ef</packageId>
+  <packageName>DynamoDbTests.EntityInterfaces.Domain</packageName>
+  <diagram>
+    <targetPackageId>1f767340-e37c-4441-be0e-5e0e593a05ef</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

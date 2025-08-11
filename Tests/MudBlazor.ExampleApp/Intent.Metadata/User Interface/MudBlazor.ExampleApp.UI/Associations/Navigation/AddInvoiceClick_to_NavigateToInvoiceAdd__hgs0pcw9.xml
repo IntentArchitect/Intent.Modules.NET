@@ -22,6 +22,9 @@
     <name>NavigateToInvoiceAdd</name>
     <display>[navigate] InvoiceAdd</display>
     <order>0</order>
+    <traits>
+      <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+    </traits>
     <typeReference id="52923dfe-d623-41a9-9c6b-4bdce172b6f8">
       <typeId>fd65838a-6502-4d5f-9282-b6faa6a381fc</typeId>
       <isNavigable>true</isNavigable>

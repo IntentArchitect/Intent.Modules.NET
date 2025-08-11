@@ -1,3 +1,7 @@
+### Version 5.1.3
+
+- Improvement: Updated referenced packages.
+
 ### Version 5.1.2
 
 - Improvement: Will now generate service contracts for direct invocations of services in other applications.

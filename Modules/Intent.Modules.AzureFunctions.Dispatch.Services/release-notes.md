@@ -1,3 +1,7 @@
+### Version 5.0.3
+
+- Improvement: Enhanced the OpenApiResponse attributes added to the `Run` method
+
 ### Version 5.0.2
 
 - Improvement: Updated referenced packages versions

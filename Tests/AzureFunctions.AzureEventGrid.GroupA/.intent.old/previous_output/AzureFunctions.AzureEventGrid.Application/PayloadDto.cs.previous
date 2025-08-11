@@ -1,0 +1,22 @@
+[assembly: DefaultIntentManaged(Mode.Fully)]
+
+namespace AzureFunctions.AzureEventGrid.Application
+{
+    public class PayloadDto
+    {
+        public PayloadDto()
+        {
+            Data = null!;
+        }
+
+        public string Data { get; set; }
+
+        public static PayloadDto Create(string data)
+        {
+            return new PayloadDto
+            {
+                Data = data
+            };
+        }
+    }
+}

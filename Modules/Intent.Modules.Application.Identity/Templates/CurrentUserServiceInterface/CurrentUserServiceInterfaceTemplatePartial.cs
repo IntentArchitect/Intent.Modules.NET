@@ -27,9 +27,13 @@ namespace Intent.Modules.Application.Identity.Templates.CurrentUserServiceInterf
                 .AddUsing("System.Threading.Tasks")
                 .AddInterface($"ICurrentUserService", @interface =>
                 {
-                    string userIdType = ExecutionContext.Settings.GetIdentitySettings().UserIdType().ToCSharpType();
-                    @interface.AddProperty($"{this.UseType(userIdType)}?", "UserId", p => p.ReadOnly());
-                    @interface.AddProperty("string?", "UserName", p => p.ReadOnly());
+                    if (ExecutionContext.Settings.GetIdentitySettings().KeepSyncAccessors())
+                    {
+                        string userIdType = ExecutionContext.Settings.GetIdentitySettings().UserIdType().ToCSharpType();
+                        @interface.AddProperty($"{this.UseType(userIdType)}?", "UserId", p => p.ReadOnly());
+                        @interface.AddProperty("string?", "UserName", p => p.ReadOnly());
+                    }
+                    @interface.AddMethod($"Task<{this.GetCurrentUserInterfaceName()}?>", "GetAsync");
                     @interface.AddMethod("Task<bool>", "IsInRoleAsync", method =>
                     {
                         method.AddParameter("string", "role");

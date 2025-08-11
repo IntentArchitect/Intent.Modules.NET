@@ -244,6 +244,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>54254dd0-6fa3-4199-95f2-dc2b22d19812</ProjectId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.ProjectTo.Tests.Application/Common/Interfaces/ICurrentUser.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICurrentUser.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>54254dd0-6fa3-4199-95f2-dc2b22d19812</ProjectId>
       <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.ProjectTo.Tests.Application/Common/Interfaces/ICurrentUserService.cs</ApplicationRelativeFilePath>

@@ -1,0 +1,14 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
+    "CqrsSettings:LogRequestPayload": true,
+    "EventGrid:Topics:OrderCreatedEvent:Source": "order-created-event",
+    "EventGrid:Domains:MainDomain:Key": "",
+    "EventGrid:Domains:MainDomain:Endpoint": "",
+    "EventGrid:Topics:ClientCreatedEvent:Source": "client-created-event",
+    "EventGrid:Topics:ClientCreatedEvent:Key": "",
+    "EventGrid:Topics:ClientCreatedEvent:Endpoint": ""
+  }
+}

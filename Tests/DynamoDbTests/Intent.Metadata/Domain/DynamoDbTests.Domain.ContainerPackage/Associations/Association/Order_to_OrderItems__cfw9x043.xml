@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="ddbea3a5-ecb4-4faf-b096-633cfce9a6ac">
+  <sourceEnd id="5a200e90-3af1-4c6d-bf57-52421962e38e" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Order</name>
+    <display>Order: Order</display>
+    <order>0</order>
+    <typeReference id="466cf6f6-ff9b-4e4e-a182-5b6dbd2205aa">
+      <typeId>b94b012a-8532-4c4b-aca4-9df1f4b39af1</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>DynamoDbTests.Domain.ContainerPackage</typePackageName>
+      <typePackageId>0950a114-2a37-4be1-8238-6662e663b48b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="ddbea3a5-ecb4-4faf-b096-633cfce9a6ac" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>OrderItems</name>
+    <display>OrderItems: OrderItem[*]</display>
+    <order>4</order>
+    <typeReference id="1acd0fc3-e2c6-429a-aa75-4e13cffe4b05">
+      <typeId>bdd18ce2-e371-4452-bc5f-6d6437b6eb92</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>DynamoDbTests.Domain.ContainerPackage</typePackageName>
+      <typePackageId>0950a114-2a37-4be1-8238-6662e663b48b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

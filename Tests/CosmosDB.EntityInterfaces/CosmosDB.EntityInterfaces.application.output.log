@@ -652,6 +652,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>7b482276-fdbf-4116-9c3c-73cec48d95e9</ProjectId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.EntityInterfaces.Application/Common/Interfaces/ICurrentUser.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICurrentUser.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7b482276-fdbf-4116-9c3c-73cec48d95e9</ProjectId>
       <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.EntityInterfaces.Application/Common/Interfaces/ICurrentUserService.cs</ApplicationRelativeFilePath>

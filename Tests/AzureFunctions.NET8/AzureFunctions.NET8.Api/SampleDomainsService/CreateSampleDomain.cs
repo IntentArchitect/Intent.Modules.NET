@@ -35,8 +35,9 @@ namespace AzureFunctions.NET8.Api.SampleDomainsService
         [Function("SampleDomainsService_CreateSampleDomain")]
         [OpenApiOperation("CreateSampleDomain", tags: new[] { "SampleDomains" }, Description = "Create sample domain")]
         [OpenApiRequestBody(contentType: "application/json", bodyType: typeof(SampleDomainCreateDto))]
-        [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(Guid))]
+        [OpenApiResponseWithBody(statusCode: HttpStatusCode.Created, contentType: "application/json", bodyType: typeof(Guid))]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]
+        [OpenApiResponseWithBody(statusCode: HttpStatusCode.NotFound, contentType: "application/json", bodyType: typeof(object))]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "post", Route = "sample-domains")] HttpRequest req,
             CancellationToken cancellationToken)

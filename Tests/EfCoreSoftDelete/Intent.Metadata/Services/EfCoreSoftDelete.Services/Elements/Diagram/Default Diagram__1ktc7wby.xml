@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6a24c916-855c-4c21-8294-02a1c51a3cdb" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>169f3801-8244-4b9e-ac2f-3eaede785048</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>a741f575-70c9-4466-aa95-ace1ade8595f</parentFolderId>
+  <packageId>a741f575-70c9-4466-aa95-ace1ade8595f</packageId>
+  <packageName>EfCoreSoftDelete.Services</packageName>
+  <diagram>
+    <targetPackageId>a741f575-70c9-4466-aa95-ace1ade8595f</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

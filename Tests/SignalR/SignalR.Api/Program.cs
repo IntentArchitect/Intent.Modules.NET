@@ -44,7 +44,7 @@ namespace SignalR.Api
                 builder.Services.AddApplication(builder.Configuration);
                 builder.Services.ConfigureApplicationSecurity(builder.Configuration);
                 builder.Services.ConfigureProblemDetails();
-                builder.Services.ConfigureSignalR();
+                builder.Services.ConfigureSignalR(builder.Configuration);
                 builder.Services.ConfigureApiVersioning();
                 builder.Services.AddInfrastructure(builder.Configuration);
                 builder.Services.ConfigureSwagger(builder.Configuration);

@@ -46,7 +46,7 @@ namespace FastEndpointsTest.Api.FastEndpoints.AccountHolders
         {
             var result = default(string);
             result = await _mediator.Send(req, ct);
-            await SendResultAsync(TypedResults.Ok(new JsonResponse<string>(result)));
+            await Send.ResultAsync(TypedResults.Ok(new JsonResponse<string>(result)));
         }
     }
 }

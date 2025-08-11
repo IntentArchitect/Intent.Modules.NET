@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="940008ac-68c3-4f2d-a108-7db6cdb7ef4e" type="NuGet Packages" typeId="4c75c84d-c745-4f0f-b1f4-82eeca01dfc7">
+  <name>NuGet Packages</name>
+  <display>NuGet Packages</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>519202d6-a4a4-48f5-8fde-70ff3bfd63ba</parentFolderId>
+  <packageId>519202d6-a4a4-48f5-8fde-70ff3bfd63ba</packageId>
+  <packageName>Intent.Aws.DynamoDB</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

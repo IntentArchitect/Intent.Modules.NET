@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d21fc1b9-ded0-494e-b829-b6c04e8cabe3" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>EnsureParameterlessConstructorsExtension</name>
+  <display>EnsureParameterlessConstructorsExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>519202d6-a4a4-48f5-8fde-70ff3bfd63ba</parentFolderId>
+  <packageId>519202d6-a4a4-48f5-8fde-70ff3bfd63ba</packageId>
+  <packageName>Intent.Aws.DynamoDB</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

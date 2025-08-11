@@ -95,12 +95,12 @@ internal class NetFrameworkPackageReferencesSchemeProcessor : INuGetSchemeProces
             var packageReferenceElement = packageReferenceItemGroup.XPathSelectElement($"{prefix}:PackageReference[@Include='{packageId}']", namespaceManager);
             if (packageReferenceElement == null)
             {
-                tracing.Info($"Installing {packageId} {package.Version} into project {projectName}");
+                tracing.Info($"Installing {packageId} {package.VersionInfo} into project {projectName}");
 
                 packageReferenceItemGroup.Add(packageReferenceElement = new XElement(
                     XName.Get("PackageReference", namespaceName),
                     new XAttribute("Include", packageId),
-                    new XElement(XName.Get("Version", namespaceName), package.Version.OriginalString)));
+                    new XElement(XName.Get("Version", namespaceName), package.VersionInfo.OriginalVersion)));
             }
 
             var versionElement = packageReferenceElement.XPathSelectElement($"{prefix}:Version", namespaceManager); // try element first
@@ -110,14 +110,14 @@ internal class NetFrameworkPackageReferencesSchemeProcessor : INuGetSchemeProces
                 throw new Exception("Missing version element from PackageReference element.");
             }
 
-            if (VersionRange.Parse(versionElement?.Value ?? versionAttribute.Value).MinVersion >= package.Version.MinVersion)
+            if (new VersionInfo(versionElement?.Value ?? versionAttribute.Value) >= package.VersionInfo)
             {
                 continue;
             }
 
-            tracing.Info($"Upgrading {packageId} from {versionElement?.Value ?? versionAttribute.Value} to {package.Version} in project {projectName}");
-            versionElement?.SetValue(package.Version.OriginalString);
-            versionAttribute?.SetValue(package.Version.OriginalString);
+            tracing.Info($"Upgrading {packageId} from {versionElement?.Value ?? versionAttribute.Value} to {package.VersionInfo} in project {projectName}");
+            versionElement?.SetValue(package.VersionInfo.OriginalVersion);
+            versionAttribute?.SetValue(package.VersionInfo.OriginalVersion);
         }
 
         SortAlphabetically(packageReferenceItemGroup);

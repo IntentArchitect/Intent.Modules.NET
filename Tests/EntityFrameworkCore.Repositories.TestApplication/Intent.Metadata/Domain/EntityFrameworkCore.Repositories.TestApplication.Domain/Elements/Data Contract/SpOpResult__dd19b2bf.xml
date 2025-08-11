@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="961240b3-a1a6-4983-9ae5-e9f38925ba3a" type="Data Contract" typeId="4464fabe-c59e-4d90-81fc-c9245bdd1afd">
+  <name>SpOpResult</name>
+  <display>SpOpResult</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</parentFolderId>
+  <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+  <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="c2fa50b4-0677-41fd-a55f-0ea1f85c8fcc" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Data</name>
+      <display>Data: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="db578ab0-9df2-40d5-b148-f14e3af1bcd2">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>961240b3-a1a6-4983-9ae5-e9f38925ba3a</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

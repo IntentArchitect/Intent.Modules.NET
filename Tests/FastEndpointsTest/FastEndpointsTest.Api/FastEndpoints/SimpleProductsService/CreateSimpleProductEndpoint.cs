@@ -63,7 +63,7 @@ namespace FastEndpointsTest.Api.FastEndpoints.SimpleProductsService
                 await _unitOfWork.SaveChangesAsync(ct);
                 transaction.Complete();
             }
-            await SendCreatedAtAsync<FindSimpleProductByIdEndpoint>(new { id = result }, new JsonResponse<Guid>(result), cancellation: ct);
+            await Send.CreatedAtAsync<FindSimpleProductByIdEndpoint>(new { id = result }, new JsonResponse<Guid>(result), cancellation: ct);
         }
     }
 }

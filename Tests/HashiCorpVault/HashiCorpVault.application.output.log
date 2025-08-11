@@ -196,6 +196,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>5a131bbb-172e-4ad8-971b-2b4dc325aa1d</ProjectId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>HashiCorpVault.Application/Common/Interfaces/ICurrentUser.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICurrentUser.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5a131bbb-172e-4ad8-971b-2b4dc325aa1d</ProjectId>
       <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>HashiCorpVault.Application/Common/Interfaces/ICurrentUserService.cs</ApplicationRelativeFilePath>

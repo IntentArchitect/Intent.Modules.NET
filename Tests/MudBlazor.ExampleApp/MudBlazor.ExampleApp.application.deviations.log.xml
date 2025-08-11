@@ -12,20 +12,7 @@
       <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
       <approvedAt>2025-07-09T19:12:25.7914229Z</approvedAt>
       <deviationsHash>87AB4612F3F6950F3751F72EA4F9D2B9571B76D70A0F3637EDB53B58FB744402</deviationsHash>
-      <fileHash>42ADC682A16D37E27DAAFEEA3D3E5C50D52C4F2234613BDD5410BC9840E78D81</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate#03d22c9a-2ea7-4c62-a54b-addae3c7f0b5</correlationId>
-      <path>MudBlazor.ExampleApp.Client/Pages/Invoices/Components/InvoiceForm.razor.cs</path>
-      <count>3</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2025-07-09T19:12:25.8078246Z</updatedAt>
-      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2025-07-09T19:12:25.8078356Z</approvedAt>
-      <deviationsHash>6285757C30695C99B42C5EE748BA9830BF731585D7C07F37D9F95232120658E2</deviationsHash>
-      <fileHash>22F522237A54BF0312BB84EDE50E1ABC79CF4E6F6DF7FA616B03648914521E01</fileHash>
+      <fileHash>C9678A21B6E2FD5564CEC3A9BE311B044979ADA6EAB84B96D0C19B3A893689C4</fileHash>
     </file>
   </files>
 </deviationsLog>

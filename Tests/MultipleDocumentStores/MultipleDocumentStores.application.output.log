@@ -220,6 +220,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>6b41c887-6eb2-4dc0-81b6-0c40dde5e5ba</ProjectId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MultipleDocumentStores.Application/Common/Interfaces/ICurrentUser.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICurrentUser.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6b41c887-6eb2-4dc0-81b6-0c40dde5e5ba</ProjectId>
       <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MultipleDocumentStores.Application/Common/Interfaces/ICurrentUserService.cs</ApplicationRelativeFilePath>

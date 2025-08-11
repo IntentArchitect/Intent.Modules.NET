@@ -14,18 +14,13 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Persis
         {
             builder.HasKey(x => x.Id);
 
-            builder.OwnsOne(x => x.AggregateRoot5EntityWithRepo, ConfigureAggregateRoot5EntityWithRepo)
-                .Navigation(x => x.AggregateRoot5EntityWithRepo).IsRequired();
+            builder.HasOne(x => x.AggregateRoot5EntityWithRepo)
+                .WithOne()
+                .HasForeignKey<AggregateRoot5EntityWithRepo>(x => x.Id)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.Ignore(e => e.DomainEvents);
-        }
-
-        public static void ConfigureAggregateRoot5EntityWithRepo(OwnedNavigationBuilder<AggregateRoot5, AggregateRoot5EntityWithRepo> builder)
-        {
-            builder.WithOwner()
-                .HasForeignKey(x => x.Id);
-
-            builder.HasKey(x => x.Id);
         }
     }
 }

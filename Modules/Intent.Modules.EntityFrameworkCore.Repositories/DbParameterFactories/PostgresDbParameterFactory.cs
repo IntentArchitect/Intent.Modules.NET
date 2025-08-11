@@ -110,7 +110,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.DbParameterFactories
             statement.AddObjectInitStatement("IsNullable", parameter.TypeReference.IsNullable ? "true" : "false");
             statement.AddObjectInitStatement("NpgsqlDbType", $"{DbTypeTypeName}.Unknown");
             statement.AddObjectInitStatement("Value", $"{valueVariableName}.ToDataTable()");
-            statement.AddObjectInitStatement("TypeName", $"\"{userDefinedTableName}\"");
+            statement.AddObjectInitStatement("DataTypeName", $"\"{userDefinedTableName}\"");
             statement.WithSemicolon();
 
             return statement;
@@ -160,12 +160,12 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.DbParameterFactories
 
         public string GenerateTypeElementSqlStatement(string storeProcedureName, List<SqlParameter> parameters)
         {
-            return $"$\"CALL {storeProcedureName}({string.Join(",", parameters.Select((x, index) => index == 0 ? $"{{{x.VariableName}}}" : $" {{{x.VariableName}}}"))})\"";
+            return $"$\"CALL {storeProcedureName}({string.Join(",", parameters.Select((x, index) => index == 0 ? $"{{{x.VariableName.ToParameterName()}}}" : $" {{{x.VariableName.ToParameterName()}}}"))})\"";
         }
 
         public string GenerateTableTypeSqlStatement(string storeProcedureName, List<SqlParameter> parameters)
         {
-            return $"$\"SELECT * FROM {storeProcedureName}({string.Join(",", parameters.Select((x, index) => index == 0 ? $"{{{x.VariableName}}}" : $" {{{x.VariableName}}}"))})\"";
+            return $"$\"SELECT * FROM {storeProcedureName}({string.Join(",", parameters.Select((x, index) => index == 0 ? $"{{{x.VariableName.ToParameterName()}}}" : $" {{{x.VariableName.ToParameterName()}}}"))})\"";
         }
     }
 }

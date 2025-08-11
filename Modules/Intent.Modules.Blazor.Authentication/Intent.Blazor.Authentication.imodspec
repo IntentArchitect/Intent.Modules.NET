@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <id>Intent.Blazor.Authentication</id>
+  <version>1.0.0-pre.8</version>
+  <supportedClientVersions>[4.5.0-a,5.0.0)</supportedClientVersions>
+  <summary>Automates Authentication components for a Blazor application</summary>
+  <description>Automates Authentication components for a Blazor application</description>
+  <authors>Intent Architect</authors>
+  <iconUrl>data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZpZXdCb3g9IjAgMCAyNTAwIDIyNDgiPgogIDxkZWZzPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJsaW5lYXItZ3JhZGllbnQiIHgxPSI1NzIuNiIgeTE9IjE3ODYuNSIgeDI9IjIyNTAuNSIgeTI9IjQ0MS45IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iLjIiIHN0b3AtY29sb3I9IiM5NDYwZjciLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIuNCIgc3RvcC1jb2xvcj0iIzkwNWJmNCIvPgogICAgICA8c3RvcCBvZmZzZXQ9Ii42IiBzdG9wLWNvbG9yPSIjODY0ZmVjIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iLjgiIHN0b3AtY29sb3I9IiM3NjNhZTAiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNjQyMmQyIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJOZXdfR3JhZGllbnRfU3dhdGNoIiBkYXRhLW5hbWU9Ik5ldyBHcmFkaWVudCBTd2F0Y2giIHgxPSIxMjI4LjEiIHkxPSIyNjguNCIgeDI9IjEyMjguMSIgeTI9IjIyMzMuNCIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9Ii4yIiBzdG9wLWNvbG9yPSIjOTQ2MGY3Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzY0MjJkMiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI4LjcuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDEuMi4wIEJ1aWxkIDE0MikgIC0tPgogIDxnPgogICAgPGcgaWQ9IkxheWVyXzEiPgogICAgICA8cGF0aCBkPSJNMjI4OC4zLDkwMS42Yy00Ni41LDI5MS40LTE5NC44LDU1Ni45LTQxOC42LDc0OS4yLTIyMy44LDE5Mi4zLTUwOC42LDI5OS04MDMuNiwzMDEtNTkuOCwyLjMtMTE5LjYtMS4zLTE3OC43LTEwLjgtMjU0LjUtNDMuMi00NDQuMi0yNTguMy00NTUuMy01MTYuMiwxLjItMTM5LjYsNTcuMi0yNzMuMSwxNTYtMzcxLjcsMjA1LjUtMjA1LjIsNTM3LjYtMjA3LjYsNzQ2LTUuMywxMDAuMiw5Ny4yLDE1OC4xLDIyOS45LDE2MS4yLDM2OS41LDIuMiw4OC4xLTM1LjksMTY1LjQtMTE0LjQsMTY3LjctODMuOCwwLTEyMy4xLTU5LjgtMTIzLjEtMTQwLjR2LTIyNGMwLTc1LjQtNjAuNy0xMzYuNy0xMzYuMS0xMzcuM2gtMTg3LjhjLTExMS0uOC0yMTQuOCw1NC44LTI3NS42LDE0Ny43LTk5LDE1MS01Ni44LDM1My42LDk0LjIsNDUyLjYsMzguOCwyNS40LDgyLjUsNDIuMywxMjguMyw0OS41LDEwOS42LDE3LjMsMjIwLjUtMjIuMywyOTQuNS0xMDUuMWw2LjYtOS44LDYuNiwxMC45YzQ1LjksNjIuMywxMTkuOSw5Ny42LDE5Ny4yLDkzLjksMTQxLjEtMTAuMywyNDguMi0xMzEuMiwyNDEuNC0yNzIuNC43LTU4LjMtNS45LTExNi41LTE5LjUtMTczLjItMzQuOC0xNjAuMi0xMjcuNy0zMDEuOC0yNjAuNy0zOTcuNS0yNzUuNS0xOTguMy02NTYuMy0xNTYuNi04ODIuMyw5Ni42LTEwOS4yLDEyMi4zLTE2OS4yLDI4MC42LTE2OC41LDQ0NC41LDIuMSwxNzMuOCw3MS41LDM0MCwxOTMuNiw0NjMuOCwxMjIuMSwxMjMuNywyODcuNCwxOTUuMyw0NjEuMSwxOTkuNywwLDAsNDkuMiw0LjUsMTA0LjYsMy4yLDI2OS41LTEuNyw1MzIuOS04MC4zLDc1OS4zLTIyNi41LDMuMi0yLjIsNi40LDIuMiw0LjMsNS41LTIyMy4xLDI0MC4zLTU0MC42LDM3MC4yLTg2OC4yLDM1NS4xLTIxMy44LDMuOS00MTkuOC03OS44LTU3MC40LTIzMS42LTE1MC42LTE1MS44LTIzMi42LTM1OC42LTIyNy01NzIuMy4xLTI1NS43LDEyMC44LTQ5Ni40LDMyNS43LTY0OS40LDEzNS44LTEwMCwyOTkuOS0xNTQuMiw0NjguNS0xNTQuN2gyNTJjMTk5LjEtLjEsMzg4LjktODQsNTIzLjEtMjMxLDEuNC0xLjYsMy4zLTIuNiw1LjMtMyw0LjItLjksOC41LDEsMTAuNyw0LjcsMS4xLDEuOCwxLjYsMy45LDEuNCw2LTEwLjcsMTEzLjMtNDguNCwyMjIuMy0xMTAsMzE4LTEuOSwzLjQtMS41LDcuNi44LDEwLjYsMi4zLDMuMSw2LjMsNC41LDEwLDMuNiwyMzUuOS01My4zLDQzMi41LTIxNS40LDUyOS44LTQzNi45LDEuMi0yLDIuOS0zLjYsNC45LTQuNyw0LjEtMi4zLDkuMS0yLjMsMTMuMiwwLDIsMS4xLDMuNywyLjgsNC45LDQuNyw5OC44LDE4OS4yLDEzMi4xLDQwNS44LDk0LjcsNjE2aDBaTTk0OS45LDEyMTcuNmMtMTA4LjMsMC0xOTYsODcuNy0xOTYuMSwxOTYsMCwxMi45LDEuMywyNS43LDMuOCwzOC4zLDE1LjUsNzcuOCw3Ni4zLDEzOC42LDE1NCwxNTQsMTA2LjIsMjEuMSwyMDkuNC00Ny44LDIzMC41LTE1NCwyLjUtMTIuNiwzLjgtMjUuNCwzLjgtMzguM3YtMTgzYy0uNC03LjMtNi4yLTEzLjEtMTMuNC0xMy40bC0xODIuNi40WiIgZmlsbD0idXJsKCNsaW5lYXItZ3JhZGllbnQpIiBzdHJva2U9InVybCgjTmV3X0dyYWRpZW50X1N3YXRjaCkiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgc3Ryb2tlLXdpZHRoPSIyMS41Ii8+CiAgICA8L2c+CiAgPC9nPgo8L3N2Zz4=</iconUrl>
+  <projectUrl>https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Blazor.Authentication/README.md</projectUrl>
+  <tags>blazor authentication ui</tags>
+  <templates>
+    <template id="Intent.Blazor.Authentication.Templates.Client.PersistentAuthenticationStateProviderTemplate" externalReference="9bef92a3-6542-4902-b83d-a79109013108">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Blazor.Client</role>
+      <location>Common</location>
+    </template>
+    <template id="Intent.Blazor.Authentication.Templates.Client.RedirectToLoginTemplate" externalReference="70b935ea-010d-4827-9156-14efdc2aafc4">
+      <role>Blazor.Client</role>
+      <location>Components/Account/Shared</location>
+    </template>
+    <template id="Intent.Blazor.Authentication.Templates.Client.ServerAuthorizationMessageHandlerTemplate" externalReference="15e7db1d-a0ec-49ce-b5f3-5f6d000f10de">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Blazor.Client</role>
+      <location>Components/Account/Shared</location>
+    </template>
+    <template id="Intent.Blazor.Authentication.Templates.Client.UserInfoTemplate" externalReference="826f81c4-31a0-4ff7-8d4a-c125c55e4702">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Blazor.Client</role>
+      <location>Components/Account/Shared</location>
+    </template>
+    <template id="Intent.Blazor.Authentication.Templates.Server.AccountLayoutTemplate" externalReference="9bf51ee3-9b8a-4021-a947-c4eb8e516a6d">
+      <role>Startup,Blazor</role>
+      <location>Components/Account/Shared</location>
+    </template>
+    <template id="Intent.Blazor.Authentication.Templates.Server.ApplicationDbContextTemplate" externalReference="efae6982-1671-4329-bc0f-405e20afe380">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Startup,Blazor</role>
+      <location>Data</location>
+    </template>
+    <template id="Intent.Blazor.Authentication.Templates.Server.ApplicationUserTemplate" externalReference="6e72feea-1e43-48b9-a34a-3628a8c8feb9">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Startup,Blazor</role>
+      <location>Data</location>
+    </template>
+    <template id="Intent.Blazor.Authentication.Templates.Server.AspNetCoreIdentityAuthServiceConcreteTemplate" externalReference="8839263e-bd06-4bbd-8e72-0b599222e22c">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Startup,Blazor</role>
+      <location>Common</location>
+    </template>
+    <template id="Intent.Blazor.Authentication.Templates.Server.AuthServiceInterfaceTemplate" externalReference="ee57170a-dd75-4cc7-b462-7fe8bbaa643b">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Startup,Blazor</role>
+      <location>Common</location>
+    </template>
+    <template id="Intent.Blazor.Authentication.Templates.Server.ConfirmEmailTemplate" externalReference="f022b54a-c3c2-415a-a560-b676f2b4b4ee">
+      <role>Startup,Blazor</role>
+      <location>Components/Account/Pages</location>
+    </template>
+    <template id="Intent.Blazor.Authentication.Templates.Server.ForgotPasswordTemplate" externalReference="fcc16ec8-8672-4444-bafe-4e5c2a68bcd9">
+      <role>Startup,Blazor</role>
+      <location>Components/Account/Pages</location>
+    </template>
+    <template id="Intent.Blazor.Authentication.Templates.Server.IdentityComponentsEndpointRouteBuilderExtensionsTemplate" externalReference="0a57e8a9-374b-4028-8d86-e4c84d8120ae">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Startup,Blazor</role>
+      <location>Components/Account</location>
+    </template>
+    <template id="Intent.Blazor.Authentication.Templates.Server.IdentityNoOpEmailSenderTemplate" externalReference="59e4a953-f9a6-4a8f-bae0-dabd0975831f">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Startup,Blazor</role>
+      <location>Components/Account</location>
+    </template>
+    <template id="Intent.Blazor.Authentication.Templates.Server.IdentityRedirectManagerTemplate" externalReference="a7e13c69-d60a-4292-b0cd-834f491c875b">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Startup,Blazor</role>
+      <location>Components/Account</location>
+    </template>
+    <template id="Intent.Blazor.Authentication.Templates.Server.IdentityRevalidatingAuthenticationStateProviderTemplate" externalReference="ed2ce2d4-f3dd-4ee7-94c6-0edbb258db3b">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Startup,Blazor</role>
+      <location>Components/Account</location>
+    </template>
+    <template id="Intent.Blazor.Authentication.Templates.Server.IdentityUserAccessorTemplate" externalReference="3e9cb448-cb4e-47d2-b4e0-d1973b83ab91">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Startup,Blazor</role>
+      <location>Components/Account</location>
+    </template>
+    <template id="Intent.Blazor.Authentication.Templates.Server.JwtAuthServiceConcreteTemplate" externalReference="5d7bee39-8fba-4450-9d55-1ab14041340b">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Startup,Blazor</role>
+      <location>Common</location>
+    </template>
+    <template id="Intent.Blazor.Authentication.Templates.Server.LoginTemplate" externalReference="ae09df64-808b-40e1-82af-7bca830d0617">
+      <role>Startup,Blazor</role>
+      <location>Components/Account/Pages</location>
+    </template>
+    <template id="Intent.Blazor.Authentication.Templates.Server.OidcAuthenticationOptionsTemplate" externalReference="614d58ce-5ba0-47d2-af7a-74fbb37a5857">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Startup,Blazor</role>
+      <location>Common</location>
+    </template>
+    <template id="Intent.Blazor.Authentication.Templates.Server.OidcAuthServiceConcreteTemplate" externalReference="7be3c1f1-74cf-4775-bd5d-bc737260fac0">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Startup,Blazor</role>
+      <location>Common</location>
+    </template>
+    <template id="Intent.Blazor.Authentication.Templates.Server.PersistingRevalidatingAuthenticationStateProviderTemplate" externalReference="b1347657-8b7c-482c-8b55-8f3895209b18">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Startup,Blazor</role>
+      <location>Components/Account</location>
+    </template>
+    <template id="Intent.Blazor.Authentication.Templates.Server.PersistingServerAuthenticationStateProviderTemplate" externalReference="f441f791-15a7-49fe-a2de-a1697efc9f86">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Startup,Blazor</role>
+      <location>Components/Account</location>
+    </template>
+    <template id="Intent.Blazor.Authentication.Templates.Server.RegisterTemplate" externalReference="6a23c915-898c-42a3-ba29-a96355b33842">
+      <role>Startup,Blazor</role>
+      <location>Components/Account/Pages</location>
+    </template>
+    <template id="Intent.Blazor.Authentication.Templates.Server.ResendEmailConfirmationTemplate" externalReference="39a81dac-c114-4a0d-9b90-e7c85ea0a26d">
+      <role>Startup,Blazor</role>
+      <location>Components/Account/Pages</location>
+    </template>
+    <template id="Intent.Blazor.Authentication.Templates.Server.ResetPasswordTemplate" externalReference="229bc344-bc8a-4807-b2d2-98ad02c3c14b">
+      <role>Startup,Blazor</role>
+      <location>Components/Account/Pages</location>
+    </template>
+    <template id="Intent.Blazor.Authentication.Templates.Server.SetUserContextInterface" externalReference="71383371-74d6-4655-9df0-484b7354d4c0">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Services</role>
+      <location>Services</location>
+    </template>
+    <template id="Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations.AccountFolderPagesFolderFilesStaticContentTemplateRegistration" externalReference="b1dde391-adec-41d2-a5c8-e4d2bb58db7c">
+      <role>Startup,Blazor</role>
+      <location>Components/Account/Pages</location>
+    </template>
+    <template id="Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations.AccountFolderSharedFolderFilesStaticContentTemplateRegistration" externalReference="1145f97b-3ae3-4bc4-8759-87905618b27f">
+      <role>Startup,Blazor</role>
+      <location>Components/Account/Shared</location>
+    </template>
+    <template id="Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations.WwwRootCssFilesStaticContentTemplateRegistration" externalReference="bac0ff15-dd32-4618-b598-a0c72013e3de">
+      <role>Startup,Blazor</role>
+      <location>wwwroot</location>
+    </template>
+  </templates>
+  <decorators></decorators>
+  <factoryExtensions>
+    <factoryExtension id="Intent.Blazor.Authentication.ChangeRenderMode" externalReference="22649449-21b2-4068-8ec0-a8ab4e3fd8dd" />
+    <factoryExtension id="Intent.Blazor.Authentication.ClientAddAuthentication" externalReference="472bc746-3023-4cf6-97d7-5f25394e6c38" />
+    <factoryExtension id="Intent.Blazor.Authentication.CurrentUserServiceImplementation" externalReference="c38e0867-e297-48c6-bdd8-8d3d2cbb41e5" />
+    <factoryExtension id="Intent.Blazor.Authentication.ServerAddAuthentication" externalReference="de4442b6-372c-43eb-a5c0-b4b3679b9c6a" />
+  </factoryExtensions>
+  <moduleSettings />
+  <dependencies>
+    <dependency id="Intent.Blazor" version="1.0.0-beta.31" />
+    <dependency id="Intent.Code.Weaving.Razor" version="1.0.7" />
+    <dependency id="Intent.Common" version="3.7.3" />
+    <dependency id="Intent.Common.CSharp" version="3.9.3-pre.2" />
+    <dependency id="Intent.Common.Types" version="3.4.0" />
+    <dependency id="Intent.Modelers.Domain" includeAssets="none" version="3.12.5-pre.0" />
+    <dependency id="Intent.Modelers.UI" version="1.0.0-beta.7" />
+    <dependency id="Intent.Modelers.UI.Core" version="1.0.0-beta.10" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
+  </dependencies>
+  <files>
+    <file src="$outDir$/$id$.dll" />
+    <file src="$outDir$/$id$.pdb" />
+  </files>
+  <tags />
+  <releaseNotes>release-notes.md</releaseNotes>
+  <moduleSettingsExtensions>
+    <groupExtension id="07c676e1-b7dc-48aa-bf7a-41653e793cd0" groupId="489a67db-31b2-4d51-96d7-52637c3795be" externalReference="07c676e1-b7dc-48aa-bf7a-41653e793cd0">
+      <settings>
+        <setting id="5ec4a775-6208-405b-b66f-0dd5c6e591bb" title="Authentication" type="select">
+          <isRequired>false</isRequired>
+          <defaultValue>aspnetcore-identity</defaultValue>
+          <options>
+            <option value="aspnetcore-identity" description="ASP.NET Core Identity" />
+            <option value="jwt" description="JWT" />
+            <option value="oidc" description="OIDC" />
+          </options>
+        </setting>
+      </settings>
+    </groupExtension>
+  </moduleSettingsExtensions>
+  <metadata>
+    <install target="User Interface" src="Intent.Metadata/Module Builder/Intent.Blazor.Authentication/Intent.Blazor.Authentication.pkg.config" externalReference="b9d38f7c-7a8d-4007-b33d-7f386ccf119a" />
+  </metadata>
+  <migrations />
+</package>

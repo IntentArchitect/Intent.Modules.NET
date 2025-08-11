@@ -81,7 +81,7 @@ internal class NetFrameworkPackagesDotConfigSchemeProcessor : INuGetSchemeProces
             .Where(x => !installedPackages.ContainsKey(x.Key))
             .ToArray();
         var upgradesRequired = requestedPackages
-            .Where(x => installedPackages.TryGetValue(x.Key, out var nuGetPackage) && nuGetPackage.Version.MinVersion < x.Value.Version.MinVersion)
+            .Where(x => installedPackages.TryGetValue(x.Key, out var nuGetPackage) && nuGetPackage.VersionInfo < x.Value.VersionInfo)
             .ToArray();
 
         if (!installationsRequired.Any() && !upgradesRequired.Any())
@@ -95,12 +95,12 @@ internal class NetFrameworkPackagesDotConfigSchemeProcessor : INuGetSchemeProces
                       "on how to upgrade this existing project. You can alternatively manually install/upgrade the following packages using Visual Studio:");
         foreach (var item in installationsRequired)
         {
-            sb.AppendLine($"  - Install {item.Key} version {item.Value.Version}");
+            sb.AppendLine($"  - Install {item.Key} version {item.Value.VersionInfo}");
         }
 
         foreach (var item in upgradesRequired)
         {
-            sb.AppendLine($"  - Upgrade version of {item.Key} from {installedPackages[item.Key]} to {item.Value.Version}");
+            sb.AppendLine($"  - Upgrade version of {item.Key} from {installedPackages[item.Key]} to {item.Value.VersionInfo}");
         }
 
         tracing.Warning(sb.ToString());

@@ -90,9 +90,9 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet
             Assert.Collection(saved, nuGetProject =>
             {
                 Assert.Equal(project2.FilePath, nuGetProject.path);
-                    nuGetProject.content.ReplaceLineEndings().ShouldBe(
-                    XDocument.Parse(
-                        @"<Project Sdk=""Microsoft.NET.Sdk"">
+                nuGetProject.content.ReplaceLineEndings().ShouldBe(
+                XDocument.Parse(
+                    @"<Project Sdk=""Microsoft.NET.Sdk"">
 
   <ItemGroup>
     <PackageReference Include=""TestPackage.One"" Version=""2.0.0"" />
@@ -171,7 +171,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet
 
             // Assert
             Assert.True(testCase.Domain.RequestedPackages.ContainsKey("RoslynWeaver"));
-            Assert.Equal("2.1.4", testCase.Domain.RequestedPackages["RoslynWeaver"].Version.MinVersion.ToString());
+            Assert.Equal("2.1.4", testCase.Domain.RequestedPackages["RoslynWeaver"].VersionInfo.Version);
 
             Assert.False(testCase.Api.RequestedPackages.ContainsKey("RoslynWeaver"));
             Assert.False(testCase.Application.RequestedPackages.ContainsKey("RoslynWeaver"));
@@ -204,7 +204,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet
 
             // Assert
             Assert.True(testCase.Domain.RequestedPackages.ContainsKey("RoslynWeaver"));
-            Assert.Equal("2.1.5", testCase.Domain.RequestedPackages["RoslynWeaver"].Version.MinVersion.ToString());
+            Assert.Equal("2.1.5", testCase.Domain.RequestedPackages["RoslynWeaver"].VersionInfo.Version);
             Assert.False(testCase.Api.RequestedPackages.ContainsKey("RoslynWeaver"));
             Assert.False(testCase.Application.RequestedPackages.ContainsKey("RoslynWeaver"));
             Assert.False(testCase.Infrastructure.RequestedPackages.ContainsKey("RoslynWeaver"));
@@ -237,9 +237,9 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet
 
             // Assert
             Assert.True(testCase.Domain.RequestedPackages.ContainsKey("RoslynWeaver"));
-            Assert.Equal("2.1.5", testCase.Domain.RequestedPackages["RoslynWeaver"].Version.MinVersion.ToString());
+            Assert.Equal("2.1.5", testCase.Domain.RequestedPackages["RoslynWeaver"].VersionInfo.Version);
             Assert.True(testCase.Api.RequestedPackages.ContainsKey("RoslynWeaver"));
-            Assert.Equal("2.1.5", testCase.Api.RequestedPackages["RoslynWeaver"].Version.MinVersion.ToString());
+            Assert.Equal("2.1.5", testCase.Api.RequestedPackages["RoslynWeaver"].VersionInfo.Version);
 
             Assert.False(testCase.Application.RequestedPackages.ContainsKey("RoslynWeaver"));
             Assert.False(testCase.Infrastructure.RequestedPackages.ContainsKey("RoslynWeaver"));
@@ -257,7 +257,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet
 
             testCase.Api.RequestedPackages.AddNuGet("Common", "1.0.0");
 
-            testCase.Domain.RequestedPackages.AddNuGet("Common.CSharp", "2.0.0", c => 
+            testCase.Domain.RequestedPackages.AddNuGet("Common.CSharp", "2.0.0", c =>
             {
                 c.Dependencies.Add(new NugetPackageDependency("Common", "1.0.0"));
             });
@@ -267,7 +267,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet
 
             // Assert
             Assert.True(testCase.Domain.RequestedPackages.ContainsKey("Common.CSharp"));
-            Assert.Equal("2.0.0", testCase.Domain.RequestedPackages["Common.CSharp"].Version.MinVersion.ToString());
+            Assert.Equal("2.0.0", testCase.Domain.RequestedPackages["Common.CSharp"].VersionInfo.Version);
             Assert.False(testCase.Domain.RequestedPackages.ContainsKey("Common"));
             Assert.False(testCase.Api.RequestedPackages.ContainsKey("Common"));
         }
@@ -294,10 +294,10 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet
 
             // Assert
             Assert.True(testCase.Domain.RequestedPackages.ContainsKey("Common.CSharp"));
-            Assert.Equal("2.0.0", testCase.Domain.RequestedPackages["Common.CSharp"].Version.MinVersion.ToString());
+            Assert.Equal("2.0.0", testCase.Domain.RequestedPackages["Common.CSharp"].VersionInfo.Version);
             Assert.False(testCase.Domain.RequestedPackages.ContainsKey("Common"));
             Assert.True(testCase.Api.RequestedPackages.ContainsKey("Common"));
-            Assert.Equal("1.5.0", testCase.Api.RequestedPackages["Common"].Version.MinVersion.ToString());
+            Assert.Equal("1.5.0", testCase.Api.RequestedPackages["Common"].VersionInfo.Version);
         }
 
         [Fact]
@@ -321,10 +321,10 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet
 
             // Assert
             Assert.True(testCase.Domain.RequestedPackages.ContainsKey("Common.CSharp"));
-            Assert.Equal("2.0.0", testCase.Domain.RequestedPackages["Common.CSharp"].Version.MinVersion.ToString());
+            Assert.Equal("2.0.0", testCase.Domain.RequestedPackages["Common.CSharp"].VersionInfo.Version);
             Assert.False(testCase.Domain.RequestedPackages.ContainsKey("Common"));
             Assert.True(testCase.Api.RequestedPackages.ContainsKey("Common"));
-            Assert.Equal("1.5.0", testCase.Api.RequestedPackages["Common"].Version.MinVersion.ToString());
+            Assert.Equal("1.5.0", testCase.Api.RequestedPackages["Common"].VersionInfo.Version);
         }
 
         [Fact]
@@ -349,11 +349,11 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet
 
             // Assert
             Assert.True(testCase.Domain.RequestedPackages.ContainsKey("Common.CSharp"));
-            Assert.Equal("2.0.0", testCase.Domain.RequestedPackages["Common.CSharp"].Version.MinVersion.ToString());
+            Assert.Equal("2.0.0", testCase.Domain.RequestedPackages["Common.CSharp"].VersionInfo.Version);
             Assert.False(testCase.Domain.RequestedPackages.ContainsKey("Common"));
             Assert.False(testCase.Api.RequestedPackages.ContainsKey("Common"));
             Assert.True(testCase.Application.RequestedPackages.ContainsKey("Common"));
-            Assert.Equal("1.5.0", testCase.Application.RequestedPackages["Common"].Version.MinVersion.ToString());
+            Assert.Equal("1.5.0", testCase.Application.RequestedPackages["Common"].VersionInfo.Version);
         }
 
         [Fact]
@@ -380,7 +380,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet
 
             // Assert
             Assert.True(testCase.Domain.RequestedPackages.ContainsKey("Common.CSharp"));
-            Assert.Equal("2.0.0", testCase.Domain.RequestedPackages["Common.CSharp"].Version.MinVersion.ToString());
+            Assert.Equal("2.0.0", testCase.Domain.RequestedPackages["Common.CSharp"].VersionInfo.Version);
             Assert.False(testCase.Domain.RequestedPackages.ContainsKey("Common"));
             Assert.False(testCase.Api.RequestedPackages.ContainsKey("Common"));
             Assert.False(testCase.Application.RequestedPackages.ContainsKey("Common"));
@@ -411,10 +411,10 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet
             // Assert
 
             Assert.True(testCase.Domain.RequestedPackages.ContainsKey("Common.CSharp"));
-            Assert.Equal("2.0.0", testCase.Domain.RequestedPackages["Common.CSharp"].Version.MinVersion.ToString());
+            Assert.Equal("2.0.0", testCase.Domain.RequestedPackages["Common.CSharp"].VersionInfo.Version);
             Assert.False(testCase.Domain.RequestedPackages.ContainsKey("Common"));
             Assert.True(testCase.Application.RequestedPackages.ContainsKey("Common"));
-            Assert.Equal("1.5.0", testCase.Application.RequestedPackages["Common"].Version.MinVersion.ToString());
+            Assert.Equal("1.5.0", testCase.Application.RequestedPackages["Common"].VersionInfo.Version);
             Assert.False(testCase.Api.RequestedPackages.ContainsKey("Common"));
         }
 
@@ -443,10 +443,45 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet
             // Assert
 
             Assert.True(testCase.Domain.RequestedPackages.ContainsKey("Common.CSharp"));
-            Assert.Equal("2.0.0", testCase.Domain.RequestedPackages["Common.CSharp"].Version.MinVersion.ToString());
+            Assert.Equal("2.0.0", testCase.Domain.RequestedPackages["Common.CSharp"].VersionInfo.Version);
             Assert.True(testCase.Domain.RequestedPackages.ContainsKey("Common2"));
-            Assert.Equal("1.5.0", testCase.Domain.RequestedPackages["Common2"].Version.MinVersion.ToString());
+            Assert.Equal("1.5.0", testCase.Domain.RequestedPackages["Common2"].VersionInfo.Version);
             Assert.False(testCase.Domain.RequestedPackages.ContainsKey("Common"));
+        }
+
+        [Fact]
+        public void NuGetPackageConsolidationTest_WithVariable()
+        {
+            // Arrange
+            var tracing = new TestTracing();
+            var sut = TestFixtureHelper.GetNuGetInstaller(true, false);
+
+            var testCase = TestFixtureHelper.GetCleanArchitectureProjectSetup();
+
+            //Older version already installed
+            testCase.Api.InstalledPackages.AddNuGet("RoslynWeaver", "$(MyVar)");
+            testCase.Api.RequestedPackages.AddNuGet("RoslynWeaver", "$(MyVar)");
+
+            testCase.Application.RequestedPackages.AddNuGet("RoslynWeaver", "2.1.4");
+
+            testCase.Domain.RequestedPackages.AddNuGet("RoslynWeaver", "2.1.5");
+
+            testCase.Infrastructure.RequestedPackages.AddNuGet("RoslynWeaver", "2.1.4");
+
+            testCase.Test.RequestedPackages.AddNuGet("RoslynWeaver", "2.1.4");
+
+            // Act
+            sut.ConsolidateRequestedPackages(testCase.Projects());
+
+            // Assert
+            Assert.True(testCase.Domain.RequestedPackages.ContainsKey("RoslynWeaver"));
+            Assert.Equal("$(MyVar)", testCase.Domain.RequestedPackages["RoslynWeaver"].VersionInfo.Version);
+            Assert.True(testCase.Api.RequestedPackages.ContainsKey("RoslynWeaver"));
+            Assert.Equal("$(MyVar)", testCase.Api.RequestedPackages["RoslynWeaver"].VersionInfo.Version);
+
+            Assert.False(testCase.Application.RequestedPackages.ContainsKey("RoslynWeaver"));
+            Assert.False(testCase.Infrastructure.RequestedPackages.ContainsKey("RoslynWeaver"));
+            Assert.False(testCase.Test.RequestedPackages.ContainsKey("RoslynWeaver"));
         }
 
     }
@@ -460,7 +495,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet
             {
                 configurePackge(package);
             }
-            dictionary.Add(packageName, NuGetPackage.Create("", package, new NuGetInstallOptions()));
+            dictionary.Add(packageName, NuGetPackage.Create("", package, new NuGetInstallOptions(), null));
         }
 
     }

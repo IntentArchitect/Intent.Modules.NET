@@ -1,3 +1,7 @@
+### Version 5.0.12
+
+- Improvement: Added a setting to enable global exception handling.
+
 ### Version 5.0.11
 
 - Improvement: Updated NuGet package versions.
@@ -18,7 +22,7 @@
 
 ### Version 5.0.7
 
-- Improvement: Added stereotype descriptions in preperation for Intent Architect 4.5. 
+- Improvement: Added stereotype descriptions in preparation for Intent Architect 4.5. 
 - Improvement: Updated NuGet package versions.
 
 ### Version 5.0.6

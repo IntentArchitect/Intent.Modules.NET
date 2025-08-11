@@ -35,7 +35,9 @@ namespace AzureFunctions.NET6.Api.SampleDomainsService
         [FunctionName("SampleDomainsService_DeleteSampleDomain")]
         [OpenApiOperation("DeleteSampleDomain", tags: new[] { "SampleDomains" }, Description = "Delete sample domain")]
         [OpenApiParameter(name: "id", In = ParameterLocation.Path, Required = true, Type = typeof(Guid))]
+        [OpenApiResponseWithoutBody(statusCode: HttpStatusCode.OK)]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]
+        [OpenApiResponseWithBody(statusCode: HttpStatusCode.NotFound, contentType: "application/json", bodyType: typeof(object))]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "delete", Route = "sample-domains/{id}")] HttpRequest req,
             Guid id,

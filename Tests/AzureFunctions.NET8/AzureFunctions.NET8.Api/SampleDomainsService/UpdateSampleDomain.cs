@@ -36,7 +36,9 @@ namespace AzureFunctions.NET8.Api.SampleDomainsService
         [OpenApiOperation("UpdateSampleDomain", tags: new[] { "SampleDomains" }, Description = "Update sample domain")]
         [OpenApiRequestBody(contentType: "application/json", bodyType: typeof(SampleDomainUpdateDto))]
         [OpenApiParameter(name: "id", In = ParameterLocation.Path, Required = true, Type = typeof(Guid))]
+        [OpenApiResponseWithoutBody(statusCode: HttpStatusCode.NoContent)]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]
+        [OpenApiResponseWithBody(statusCode: HttpStatusCode.NotFound, contentType: "application/json", bodyType: typeof(object))]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "put", Route = "sample-domains/{id}")] HttpRequest req,
             Guid id,

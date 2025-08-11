@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="40a17e7a-31a9-452a-a972-14d371a63b85" type="Domain Event" typeId="0814e459-fb9b-47db-b7eb-32ce30397e8a">
+  <name>RegionChangedDomainEvent</name>
+  <display>RegionChangedDomainEvent</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>0c0abbad-5585-497e-9c17-ab8f06a14cc0</parentFolderId>
+  <packageId>0c0abbad-5585-497e-9c17-ab8f06a14cc0</packageId>
+  <packageName>DynamoDbTests.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="75e9a75a-f30d-42d1-b742-828ea4bff222" type="Property" typeId="b4d69073-5abb-4968-b41b-545b2f7408ed">
+      <name>Region</name>
+      <display>Region: Region</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="1b7c38a5-4ee7-4109-927c-b8aa4f4695a9">
+        <typeId>faa3d820-00cf-41a9-b041-79d7caa7162d</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>DynamoDbTests.Domain</typePackageName>
+        <typePackageId>0c0abbad-5585-497e-9c17-ab8f06a14cc0</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>40a17e7a-31a9-452a-a972-14d371a63b85</parentFolderId>
+      <packageId>0c0abbad-5585-497e-9c17-ab8f06a14cc0</packageId>
+      <packageName>DynamoDbTests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

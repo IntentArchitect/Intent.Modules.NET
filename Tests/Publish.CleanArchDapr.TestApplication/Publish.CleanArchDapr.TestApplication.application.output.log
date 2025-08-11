@@ -284,6 +284,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>3f61c05c-533a-4339-a667-92b2c9dad05d</ProjectId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArchDapr.TestApplication.Application/Common/Interfaces/ICurrentUser.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICurrentUser.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3f61c05c-533a-4339-a667-92b2c9dad05d</ProjectId>
       <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.CleanArchDapr.TestApplication.Application/Common/Interfaces/ICurrentUserService.cs</ApplicationRelativeFilePath>

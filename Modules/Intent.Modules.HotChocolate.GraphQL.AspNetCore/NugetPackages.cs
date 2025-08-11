@@ -19,19 +19,19 @@ namespace Intent.Modules.HotChocolate.GraphQL.AspNetCore
             NugetRegistry.Register(HotChocolateAspNetCorePackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("15.1.7")
-                            .WithNugetDependency("HotChocolate.Transport.Sockets", "15.1.7")
-                            .WithNugetDependency("HotChocolate", "15.1.7")
-                            .WithNugetDependency("HotChocolate.Subscriptions.InMemory", "15.1.7")
-                            .WithNugetDependency("HotChocolate.Types.Scalars.Upload", "15.1.7")
-                            .WithNugetDependency("HotChocolate.Utilities.DependencyInjection", "15.1.7")
+                        ( >= 9, >= 0) => new PackageVersion("15.1.8")
+                            .WithNugetDependency("HotChocolate.Transport.Sockets", "15.1.8")
+                            .WithNugetDependency("HotChocolate", "15.1.8")
+                            .WithNugetDependency("HotChocolate.Subscriptions.InMemory", "15.1.8")
+                            .WithNugetDependency("HotChocolate.Types.Scalars.Upload", "15.1.8")
+                            .WithNugetDependency("HotChocolate.Utilities.DependencyInjection", "15.1.8")
                             .WithNugetDependency("ChilliCream.Nitro.App", "28.0.7"),
-                        ( >= 8, >= 0) => new PackageVersion("15.1.7")
-                            .WithNugetDependency("HotChocolate.Transport.Sockets", "15.1.7")
-                            .WithNugetDependency("HotChocolate", "15.1.7")
-                            .WithNugetDependency("HotChocolate.Subscriptions.InMemory", "15.1.7")
-                            .WithNugetDependency("HotChocolate.Types.Scalars.Upload", "15.1.7")
-                            .WithNugetDependency("HotChocolate.Utilities.DependencyInjection", "15.1.7")
+                        ( >= 8, >= 0) => new PackageVersion("15.1.8")
+                            .WithNugetDependency("HotChocolate.Transport.Sockets", "15.1.8")
+                            .WithNugetDependency("HotChocolate", "15.1.8")
+                            .WithNugetDependency("HotChocolate.Subscriptions.InMemory", "15.1.8")
+                            .WithNugetDependency("HotChocolate.Types.Scalars.Upload", "15.1.8")
+                            .WithNugetDependency("HotChocolate.Utilities.DependencyInjection", "15.1.8")
                             .WithNugetDependency("ChilliCream.Nitro.App", "28.0.7"),
                         ( >= 7, >= 0) => new PackageVersion("14.3.0")
                             .WithNugetDependency("HotChocolate.Transport.Sockets", "14.3.0")
@@ -62,10 +62,10 @@ namespace Intent.Modules.HotChocolate.GraphQL.AspNetCore
             NugetRegistry.Register(HotChocolateAspNetCoreAuthorizationPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("15.1.7")
-                            .WithNugetDependency("HotChocolate", "15.1.7"),
-                        ( >= 8, >= 0) => new PackageVersion("15.1.7")
-                            .WithNugetDependency("HotChocolate", "15.1.7"),
+                        ( >= 9, >= 0) => new PackageVersion("15.1.8")
+                            .WithNugetDependency("HotChocolate", "15.1.8"),
+                        ( >= 8, >= 0) => new PackageVersion("15.1.8")
+                            .WithNugetDependency("HotChocolate", "15.1.8"),
                         ( >= 7, >= 0) => new PackageVersion("14.3.0")
                             .WithNugetDependency("HotChocolate", "14.3.0"),
                         ( >= 6, >= 0) => new PackageVersion("14.3.0")

@@ -41,7 +41,7 @@ namespace FastEndpointsTest.Api.FastEndpoints.ServiceDispatch.ServiceDispatchWit
         {
             var result = default(string);
             result = await _appService.QueryNoImpl6Async(ct);
-            await SendResultAsync(TypedResults.Ok(result));
+            await Send.ResultAsync(TypedResults.Ok(result));
         }
     }
 }

@@ -503,10 +503,15 @@ public static class DataAccessProviderExtensions
 
             var targetEntity = associationEndModel.OtherEnd().Class;
             var primaryKeys = targetEntity.Attributes.Where(x => x.IsPrimaryKey());
-            var requestProperties = primaryKeys.Select(x => (
-                Property: x.Name,
-                ValueExpression: new CSharpStatement($"{formatter(targetEntity.Name)}{x.Name}")
-            )).ToList();
+            var requestProperties = primaryKeys.Select(x =>
+            {
+                var simplifiedPk = x.Name.StartsWith(targetEntity.Name) ? x.Name.RemovePrefix(targetEntity.Name) : x.Name;
+                var accessorExpression = $"{formatter(targetEntity.Name)}{simplifiedPk}";
+                return (
+                    Property: x.Name,
+                    ValueExpression: new CSharpStatement(accessorExpression)
+                );
+            }).ToList();
 
             var expression = requestProperties.Count == 1
                 ? $"x => x.{requestProperties[0].Property} == {requestProperties[0].ValueExpression}"

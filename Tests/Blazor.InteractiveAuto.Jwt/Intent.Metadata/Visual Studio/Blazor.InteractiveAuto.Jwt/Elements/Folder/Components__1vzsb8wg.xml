@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b06c111b-499d-48ba-8449-f75ce5a2f572" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Components</name>
+  <display>Components</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>ca2e6d18-343d-4d89-8377-2050df89f8ad</parentFolderId>
+  <packageId>d352ec30-da6b-48b9-b552-7e170e3aac54</packageId>
+  <packageName>Blazor.InteractiveAuto.Jwt</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="e01cf426-cc08-4738-a916-dd3fbee939d8" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Templates.Server.AppRazorTemplate</name>
+      <display>Intent.Blazor.Templates.Server.AppRazorTemplate</display>
+      <externalReference>Intent.Blazor</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b06c111b-499d-48ba-8449-f75ce5a2f572</parentFolderId>
+      <packageId>d352ec30-da6b-48b9-b552-7e170e3aac54</packageId>
+      <packageName>Blazor.InteractiveAuto.Jwt</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="6898c7eb-0c80-4498-b592-6dd80f08e342" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Templates.Server.ServerImportsRazorTemplate</name>
+      <display>Intent.Blazor.Templates.Server.ServerImportsRazorTemplate</display>
+      <externalReference>Intent.Blazor</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b06c111b-499d-48ba-8449-f75ce5a2f572</parentFolderId>
+      <packageId>d352ec30-da6b-48b9-b552-7e170e3aac54</packageId>
+      <packageName>Blazor.InteractiveAuto.Jwt</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

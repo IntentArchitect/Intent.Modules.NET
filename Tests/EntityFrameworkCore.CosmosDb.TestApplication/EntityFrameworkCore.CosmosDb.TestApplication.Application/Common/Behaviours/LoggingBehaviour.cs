@@ -27,21 +27,19 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Application.Common.Behavi
             _logRequestPayload = configuration.GetValue<bool?>("CqrsSettings:LogRequestPayload") ?? false;
         }
 
-        public Task Process(TRequest request, CancellationToken cancellationToken)
+        public async Task Process(TRequest request, CancellationToken cancellationToken)
         {
             var requestName = typeof(TRequest).Name;
-            var userId = _currentUserService.UserId;
-            var userName = _currentUserService.UserName;
+            var user = await _currentUserService.GetAsync();
 
             if (_logRequestPayload)
             {
-                _logger.LogInformation("EntityFrameworkCore.CosmosDb.TestApplication Request: {Name} {@UserId} {@UserName} {@Request}", requestName, userId, userName, request);
+                _logger.LogInformation("EntityFrameworkCore.CosmosDb.TestApplication Request: {Name} {@UserId} {@UserName} {@Request}", requestName, user?.Id, user?.Name, request);
             }
             else
             {
-                _logger.LogInformation("EntityFrameworkCore.CosmosDb.TestApplication Request: {Name} {@UserId} {@UserName}", requestName, userId, userName);
+                _logger.LogInformation("EntityFrameworkCore.CosmosDb.TestApplication Request: {Name} {@UserId} {@UserName}", requestName, user?.Id, user?.Name);
             }
-            return Task.CompletedTask;
         }
     }
 }

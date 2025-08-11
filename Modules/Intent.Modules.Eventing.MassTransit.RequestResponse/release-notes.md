@@ -1,3 +1,7 @@
+### Version 1.1.9
+
+- Improvement: Updated referenced packages.
+
 ### Version 1.1.8
 
 - Improvement: Removed internal shared project.

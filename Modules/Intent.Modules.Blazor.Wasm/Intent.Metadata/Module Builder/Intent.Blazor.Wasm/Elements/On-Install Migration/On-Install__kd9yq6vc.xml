@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ecf2b9fb-0cb9-451d-a494-4904e0b8918a" type="On-Install Migration" typeId="4ba35747-deea-43a9-acd4-26d57edb5bb9">
+  <name>On-Install</name>
+  <display>On-Install</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>a726a9ac-e016-40b5-a8cb-b2cb3d9c6832</parentFolderId>
+  <packageId>0b3d2a28-1ba9-4097-af45-7d93fdd4dc3a</packageId>
+  <packageName>Intent.Blazor.Wasm</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

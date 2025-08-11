@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{3A6DE0C4-7FA5-4636-B16F-A651322F48D4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DynamoDbTests.EntityInterfaces.Api", "DynamoDbTests.EntityInterfaces.Api\DynamoDbTests.EntityInterfaces.Api.csproj", "{906243CA-D172-49DA-8935-111D1659BCA9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{8D46470B-F85D-4E52-B087-6C298FC1701B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DynamoDbTests.EntityInterfaces.Application", "DynamoDbTests.EntityInterfaces.Application\DynamoDbTests.EntityInterfaces.Application.csproj", "{D4612D32-BB79-4F43-9CAB-66E097A59D06}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{6CDA4AF7-A5FA-4349-92AA-B1392EFE9D53}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DynamoDbTests.EntityInterfaces.Domain", "DynamoDbTests.EntityInterfaces.Domain\DynamoDbTests.EntityInterfaces.Domain.csproj", "{BF540B5F-7927-4D98-A4AA-29C067596DF6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{A92512A4-894F-4FA7-BE19-89E66661EFD7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DynamoDbTests.EntityInterfaces.Infrastructure", "DynamoDbTests.EntityInterfaces.Infrastructure\DynamoDbTests.EntityInterfaces.Infrastructure.csproj", "{EF87BB4D-7D98-4DCF-B95C-4521EA6078E9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{906243CA-D172-49DA-8935-111D1659BCA9} = {3A6DE0C4-7FA5-4636-B16F-A651322F48D4}
+		{D4612D32-BB79-4F43-9CAB-66E097A59D06} = {8D46470B-F85D-4E52-B087-6C298FC1701B}
+		{BF540B5F-7927-4D98-A4AA-29C067596DF6} = {6CDA4AF7-A5FA-4349-92AA-B1392EFE9D53}
+		{EF87BB4D-7D98-4DCF-B95C-4521EA6078E9} = {A92512A4-894F-4FA7-BE19-89E66661EFD7}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{906243CA-D172-49DA-8935-111D1659BCA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{906243CA-D172-49DA-8935-111D1659BCA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{906243CA-D172-49DA-8935-111D1659BCA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{906243CA-D172-49DA-8935-111D1659BCA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4612D32-BB79-4F43-9CAB-66E097A59D06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4612D32-BB79-4F43-9CAB-66E097A59D06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4612D32-BB79-4F43-9CAB-66E097A59D06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4612D32-BB79-4F43-9CAB-66E097A59D06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF540B5F-7927-4D98-A4AA-29C067596DF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF540B5F-7927-4D98-A4AA-29C067596DF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF540B5F-7927-4D98-A4AA-29C067596DF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF540B5F-7927-4D98-A4AA-29C067596DF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF87BB4D-7D98-4DCF-B95C-4521EA6078E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF87BB4D-7D98-4DCF-B95C-4521EA6078E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF87BB4D-7D98-4DCF-B95C-4521EA6078E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF87BB4D-7D98-4DCF-B95C-4521EA6078E9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -82,6 +82,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>99f262f9-c25f-4328-ac12-2dacb1cf3cc0</ProjectId>
+      <CorrelationId>Intent.FastEndpoints.EndpointTemplate#ad6ce8b0-7fb7-4155-9e74-c026f5cecd27</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FastEndpointsTest.Api/FastEndpoints/AccountHolders/UpdateNoteAccountNoResultCommandEndpoint.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AccountHolders/UpdateNoteAccountNoResultCommandEndpoint.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>99f262f9-c25f-4328-ac12-2dacb1cf3cc0</ProjectId>
+      <CorrelationId>Intent.FastEndpoints.EndpointTemplate#54e352b9-7887-4da2-a9d0-e755d479f71a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FastEndpointsTest.Api/FastEndpoints/AccountHolders/UpdateNoteAccountStringCommandEndpoint.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AccountHolders/UpdateNoteAccountStringCommandEndpoint.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>99f262f9-c25f-4328-ac12-2dacb1cf3cc0</ProjectId>
       <CorrelationId>Intent.FastEndpoints.EndpointTemplate#67fddefb-0e83-4737-823c-278d54af5434</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>FastEndpointsTest.Api/FastEndpoints/AggregateRoots/CreateAggregateRootCommandEndpoint.cs</ApplicationRelativeFilePath>
@@ -710,6 +726,54 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>FastEndpointsTest.Application/AccountHolders/UpdateNoteAccount/UpdateNoteAccountCommandValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AccountHolders/UpdateNoteAccount/UpdateNoteAccountCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8c673357-b030-480f-8c12-985d765eeb07</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#ad6ce8b0-7fb7-4155-9e74-c026f5cecd27</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FastEndpointsTest.Application/AccountHolders/UpdateNoteAccountNoResult/UpdateNoteAccountNoResultCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AccountHolders/UpdateNoteAccountNoResult/UpdateNoteAccountNoResultCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8c673357-b030-480f-8c12-985d765eeb07</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#ad6ce8b0-7fb7-4155-9e74-c026f5cecd27</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FastEndpointsTest.Application/AccountHolders/UpdateNoteAccountNoResult/UpdateNoteAccountNoResultCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AccountHolders/UpdateNoteAccountNoResult/UpdateNoteAccountNoResultCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8c673357-b030-480f-8c12-985d765eeb07</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#ad6ce8b0-7fb7-4155-9e74-c026f5cecd27</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FastEndpointsTest.Application/AccountHolders/UpdateNoteAccountNoResult/UpdateNoteAccountNoResultCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AccountHolders/UpdateNoteAccountNoResult/UpdateNoteAccountNoResultCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8c673357-b030-480f-8c12-985d765eeb07</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#54e352b9-7887-4da2-a9d0-e755d479f71a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FastEndpointsTest.Application/AccountHolders/UpdateNoteAccountString/UpdateNoteAccountStringCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AccountHolders/UpdateNoteAccountString/UpdateNoteAccountStringCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8c673357-b030-480f-8c12-985d765eeb07</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#54e352b9-7887-4da2-a9d0-e755d479f71a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FastEndpointsTest.Application/AccountHolders/UpdateNoteAccountString/UpdateNoteAccountStringCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AccountHolders/UpdateNoteAccountString/UpdateNoteAccountStringCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8c673357-b030-480f-8c12-985d765eeb07</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#54e352b9-7887-4da2-a9d0-e755d479f71a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FastEndpointsTest.Application/AccountHolders/UpdateNoteAccountString/UpdateNoteAccountStringCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AccountHolders/UpdateNoteAccountString/UpdateNoteAccountStringCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1766,6 +1830,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>FastEndpointsTest.Application/Common/Interfaces/ICommand.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1c6e7d13-b38f-45b7-9c74-629ed6dd9e10</ProjectId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FastEndpointsTest.Application/Common/Interfaces/ICurrentUser.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICurrentUser.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

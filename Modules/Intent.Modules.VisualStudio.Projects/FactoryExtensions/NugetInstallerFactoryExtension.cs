@@ -240,17 +240,17 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
 
         private static void ConsolidateVersionsUpfront(IReadOnlyCollection<NuGetProject> projectPackages)
         {
-            var highestRequestedVersions = new Dictionary<string, VersionRange>();
+            var highestRequestedVersions = new Dictionary<string, VersionInfo>();
             foreach (var projectPackage in projectPackages)
             {
                 foreach (var kvp in projectPackage.RequestedPackages)
                 {
-                    DetermineHighest(highestRequestedVersions, kvp.Key, kvp.Value.Version);
+                    DetermineHighest(highestRequestedVersions, kvp.Key, kvp.Value.VersionInfo);
                     if (kvp.Value.RequestedPackage?.Dependencies?.Any() == true)
                     {
                         foreach (var dependant in kvp.Value.RequestedPackage.Dependencies)
                         {
-                            var dependantVersion = VersionRange.Parse(dependant.Version);
+                            var dependantVersion = new VersionInfo(dependant.Version);
                             DetermineHighest(highestRequestedVersions, dependant.Name, dependantVersion);
                         }
                     }
@@ -262,7 +262,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                 foreach (var kvp in projectPackage.RequestedPackages)
                 {
                     var highestRequested = highestRequestedVersions[kvp.Key];
-                    if (kvp.Value.Version.MinVersion < highestRequested.MinVersion)
+                    if (kvp.Value.VersionInfo < highestRequested)
                     {
                         kvp.Value.Update(highestRequested, null, null);
                     }
@@ -270,7 +270,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
             }
 
 
-            static void DetermineHighest(Dictionary<string, VersionRange> highestRequestedVersions, string packageName, VersionRange version)
+            static void DetermineHighest(Dictionary<string, VersionInfo> highestRequestedVersions, string packageName, VersionInfo version)
             {
                 if (!highestRequestedVersions.TryGetValue(packageName, out var current))
                 {
@@ -278,7 +278,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                 }
                 else
                 {
-                    if (version.MinVersion > current.MinVersion)
+                    if (version > current)
                     {
                         highestRequestedVersions[packageName] = version;
                     }
@@ -288,13 +288,13 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
 
         private void RemoveTransitiveDependencies(IReadOnlyCollection<NuGetProject> projectPackages)
         {
-            var projectToNugetPackageMap = new Dictionary<string, Dictionary<string, VersionRange>>();
+            var projectToNugetPackageMap = new Dictionary<string, Dictionary<string, VersionInfo>>();
             foreach (var projectPackage in projectPackages)
             {
-                var requestedPackages = new Dictionary<string, VersionRange>();
+                var requestedPackages = new Dictionary<string, VersionInfo>();
                 foreach (var kvp in projectPackage.RequestedPackages)
                 {
-                    AddUpdatePackageVersion(requestedPackages, kvp.Key, kvp.Value.Version);
+                    AddUpdatePackageVersion(requestedPackages, kvp.Key, kvp.Value.VersionInfo);
                     if (kvp.Value.RequestedPackage?.Dependencies?.Any() != true)
                     {
                         continue;
@@ -302,7 +302,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
 
                     foreach (var dependant in kvp.Value.RequestedPackage.Dependencies)
                     {
-                        var dependentVersion = VersionRange.Parse(dependant.Version);
+                        var dependentVersion = new VersionInfo(dependant.Version);
                         AddUpdatePackageVersion(requestedPackages, dependant.Name, dependentVersion);
                     }
                 }
@@ -324,7 +324,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                         }
                         //The requested package is higher than the dependent so install the higher version, 
                         //This scenario happens if an implicit version is lower than requested as the explicits are consolidated.
-                        if (projectPackage.RequestedPackages[dependantPackage.Key].Version.MinVersion > dependantPackage.Value.MinVersion)
+                        if (projectPackage.RequestedPackages[dependantPackage.Key].VersionInfo > dependantPackage.Value)
                         {
                             continue;
                         }
@@ -364,8 +364,8 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                             continue;
                         }
 
-                        var dependentVersion = VersionRange.Parse(dependant.Version);
-                        if (projectPackage.RequestedPackages[dependant.Name].Version.MinVersion <= dependentVersion.MinVersion)
+                        var dependentVersion = new VersionInfo(dependant.Version);
+                        if (projectPackage.RequestedPackages[dependant.Name].VersionInfo <= dependentVersion)
                         {
                             toRemove.Add(dependant.Name);
                         }
@@ -378,16 +378,16 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
             }
         }
 
-        private static Dictionary<string, Dictionary<string, PackageVersionRange>> GetEnrichedPackageMap(Dictionary<string, Dictionary<string, VersionRange>> projectToNugetPackageMap, NuGetProject projectPackage)
+        private static Dictionary<string, Dictionary<string, PackageVersionInfo>> GetEnrichedPackageMap(Dictionary<string, Dictionary<string, VersionInfo>> projectToNugetPackageMap, NuGetProject projectPackage)
         {
             // this block will basically convert the projectToNugetPackageMap, type: Dictionary<string, Dictionary<string, VersionRange>> to a 
             // type of Dictionary<string, Dictionary<string, PackageVersionRange>>. The second type contains the same info as the first one, with the 
             // addition of the NuGetProject
             // This is required so that the GetDependantPackages method has enough information to determine if the package has the "PrivateAssets" property set or not
-            var projectToNugetPackageMapEnriched = new Dictionary<string, Dictionary<string, PackageVersionRange>>();
+            var projectToNugetPackageMapEnriched = new Dictionary<string, Dictionary<string, PackageVersionInfo>>();
             foreach (var projectNugetMap in projectToNugetPackageMap)
             {
-                Dictionary<string, PackageVersionRange> keyValuePairs = [];
+                Dictionary<string, PackageVersionInfo> keyValuePairs = [];
                 foreach (var kvp in projectNugetMap.Value)
                 {
                     NuGetPackage nuGetPackage = null;
@@ -395,7 +395,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                     {
                         nuGetPackage = value;
                     }
-                    var package = new PackageVersionRange(kvp.Value, nuGetPackage);
+                    var package = new PackageVersionInfo(kvp.Value, nuGetPackage);
                     keyValuePairs.Add(kvp.Key, package);
                 }
 
@@ -405,9 +405,9 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
             return projectToNugetPackageMapEnriched;
         }
 
-        private Dictionary<string, VersionRange> GetDependantPackages(IOutputTarget project, Dictionary<string, Dictionary<string, PackageVersionRange>> projectToNugetPackageMap)
+        private Dictionary<string, VersionInfo> GetDependantPackages(IOutputTarget project, Dictionary<string, Dictionary<string, PackageVersionInfo>> projectToNugetPackageMap)
         {
-            var collectedPackages = new Dictionary<string, VersionRange>();
+            var collectedPackages = new Dictionary<string, VersionInfo>();
 
             if (!project.Dependencies().Any())
             {
@@ -423,7 +423,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                         // if the package is a private asset, don't consider it for harvesting
                         if (package.Value.Package?.PrivateAssets.Count == 0)
                         {
-                            AddUpdatePackageVersion(collectedPackages, package.Key, package.Value.VersionRange);
+                            AddUpdatePackageVersion(collectedPackages, package.Key, package.Value.VersionInfo);
                         }
                     }
                 }
@@ -439,11 +439,11 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
             return collectedPackages;
         }
 
-        private static void AddUpdatePackageVersion(Dictionary<string, VersionRange> packages, string packageName, VersionRange version)
+        private static void AddUpdatePackageVersion(Dictionary<string, VersionInfo> packages, string packageName, VersionInfo version)
         {
             if (packages.TryGetValue(packageName, out var current))
             {
-                if (current.MinVersion < version.MinVersion)
+                if (current < version)
                 {
                     packages[packageName] = version;
                 }
@@ -457,13 +457,13 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
         /// <summary>
         /// Internal so available to unit tests
         /// </summary>
-        internal (IReadOnlyCollection<NuGetProject> Projects, Dictionary<string, VersionRange> HighestVersions) DeterminePackages(
+        internal (IReadOnlyCollection<NuGetProject> Projects, Dictionary<string, VersionInfo> HighestVersions) DeterminePackages(
             IDictionary<VisualStudioProjectScheme, INuGetSchemeProcessor> nuGetProjectSchemeProcessors,
             IEnumerable<IVisualStudioProjectTemplate> applicationProjectTemplates)
         {
             var projects = new List<NuGetProject>();
 
-            var highestVersions = new Dictionary<string, VersionRange>();
+            var highestVersions = new Dictionary<string, VersionInfo>();
             foreach (var template in applicationProjectTemplates.OrderBy(x => x.Name))
             {
                 var projectNugetInfo = DetermineProjectNugetPackageInfo(
@@ -473,7 +473,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                 {
                     if (!highestVersions.TryGetValue(nuGetVersion.Key, out var highestVersion) ||
                         (highestVersion != null &&
-                         highestVersion.MinVersion < nuGetVersion.Value.MinVersion))
+                         highestVersion < nuGetVersion.Value))
                     {
                         highestVersions[nuGetVersion.Key] = nuGetVersion.Value;
                     }
@@ -499,13 +499,13 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
 
             var installedPackages = processor.GetInstalledPackages(template.Project.Solution.Id, template.FilePath, document);
 
-            var highestVersionsInProject = new Dictionary<string, VersionRange>();
+            var highestVersionsInProject = new Dictionary<string, VersionInfo>();
             foreach (var (packageId, value) in installedPackages)
             {
                 if (!highestVersionsInProject.TryGetValue(packageId, out var highestVersion) ||
-                    highestVersion.MinVersion < value.Version.MinVersion)
+                    highestVersion < value.VersionInfo)
                 {
-                    highestVersionsInProject[packageId] = value.Version;
+                    highestVersionsInProject[packageId] = value.VersionInfo;
                 }
             }
 
@@ -514,7 +514,8 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
             var nugetPackageRequests = template.RequestedNugetPackageInstalls().ToList();
             foreach (var install in nugetPackageRequests)
             {
-                if (!VersionRange.TryParse(install.Package.Version, out var semanticVersion))
+
+                if (!VersionInfo.TryParse(install.Package.Version, out var semanticVersion))
                 {
                     throw new Exception(
                         $"Could not parse '{install.Package.Version}' from Intent metadata for package '{install.Package.Name}' in project '{template.Name}' as a valid Semantic Version 2.0 'version' value.");
@@ -522,21 +523,21 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
 
                 if (!highestVersionsInProject.TryGetValue(install.Package.Name, out var highestVersion) ||
                     (highestVersion != null &&
-                     highestVersion.MinVersion < semanticVersion.MinVersion))
+                     highestVersion < semanticVersion))
                 {
                     highestVersionsInProject[install.Package.Name] = semanticVersion;
                 }
 
                 if (requestedPackages.TryGetValue(install.Package.Name, out var requestedPackage))
                 {
-                    if (requestedPackage.Version.MinVersion < semanticVersion.MinVersion)
+                    if (requestedPackage.VersionInfo < semanticVersion)
                     {
                         requestedPackage.Update(semanticVersion, install.Package, requestedPackage.Options);
                     }
                 }
                 else
                 {
-                    requestedPackages.Add(install.Package.Name, NuGetPackage.Create(template.FilePath, install.Package, install.Options, semanticVersion));
+                    requestedPackages.Add(install.Package.Name, NuGetPackage.Create(template.FilePath, install.Package, install.Options, semanticVersion.Version));
                 }
             }
 
@@ -556,7 +557,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
             };
         }
 
-        private static void ConsolidatePackageVersions(IReadOnlyCollection<NuGetProject> projectPackages, IDictionary<string, VersionRange> highestVersions)
+        private static void ConsolidatePackageVersions(IReadOnlyCollection<NuGetProject> projectPackages, IDictionary<string, VersionInfo> highestVersions)
         {
             foreach (var highestVersion in highestVersions)
             {
@@ -564,16 +565,16 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                 {
                     if (projectPackage.RequestedPackages.TryGetValue(highestVersion.Key, out var requestedPackage))
                     {
-                        if (requestedPackage.Version.MinVersion < highestVersion.Value.MinVersion)
+                        if (requestedPackage.VersionInfo < highestVersion.Value)
                         {
-                            requestedPackage.Version = highestVersion.Value;
+                            requestedPackage.VersionInfo = highestVersion.Value;
                         }
 
                         continue;
                     }
 
                     if (projectPackage.InstalledPackages.TryGetValue(highestVersion.Key, out var installedPackage) &&
-                        installedPackage.Version.MinVersion < highestVersion.Value.MinVersion)
+                        installedPackage.VersionInfo < highestVersion.Value)
                     {
                         projectPackage.RequestedPackages.Add(highestVersion.Key, installedPackage.Clone(highestVersion.Value));
                     }
@@ -593,7 +594,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
 
             var packagesWithMultipleVersions = resolvedProjects
                 .SelectMany(x => x.ConsolidatedPackageVersions)
-                .GroupBy(x => x.Key, x => x.Value.Version)
+                .GroupBy(x => x.Key, x => x.Value.VersionInfo)
                 .Where(x => x.Distinct().Count() > 1)
                 .Select(x => x.Key)
                 .ToArray();
@@ -612,11 +613,11 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                         .Select(x => new
                         {
                             x.ProjectName,
-                            x.ConsolidatedPackageVersions[packageId].Version
+                            x.ConsolidatedPackageVersions[packageId].VersionInfo
                         })
-                        .OrderByDescending(x => x.Version.ToString())
+                        .OrderByDescending(x => x.VersionInfo)
                         .ThenBy(x => x.ProjectName)
-                        .Select(x => $"    Version {x.Version} in '{x.ProjectName}'")
+                        .Select(x => $"    Version {x.VersionInfo.Version} in '{x.ProjectName}'")
                         .Aggregate((x, y) => x + Environment.NewLine + y)
                 })
                 .Select(x => $"{x.PackageId} has the following versions installed:{Environment.NewLine}{x.VersionReport}")

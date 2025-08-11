@@ -2,12 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
-using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Transactions;
 using AzureFunctions.AzureEventGrid.Application.CreateOrder;
-using AzureFunctions.AzureEventGrid.Domain.Common.Exceptions;
 using AzureFunctions.AzureEventGrid.Domain.Common.Interfaces;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
@@ -37,33 +35,16 @@ namespace AzureFunctions.AzureEventGrid.Api
         [Function("CreateOrder")]
         [OpenApiOperation("CreateOrderCommand", tags: new[] { "AzureFunctionsAzureEventGridGroupAServices" }, Description = "Create order command")]
         [OpenApiRequestBody(contentType: "application/json", bodyType: typeof(CreateOrderCommand))]
+        [OpenApiResponseWithoutBody(statusCode: HttpStatusCode.Created)]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]
+        [OpenApiResponseWithBody(statusCode: HttpStatusCode.NotFound, contentType: "application/json", bodyType: typeof(object))]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "post", Route = "azure-functions-azure-event-grid-group-a-services")] HttpRequest req,
             CancellationToken cancellationToken)
         {
-            try
-            {
-                var command = await AzureFunctionHelper.DeserializeJsonContentAsync<CreateOrderCommand>(req.Body, cancellationToken);
-                await _mediator.Send(command, cancellationToken);
-                return new CreatedResult(string.Empty, null);
-            }
-            catch (ValidationException exception)
-            {
-                return new BadRequestObjectResult(exception.Errors);
-            }
-            catch (NotFoundException exception)
-            {
-                return new NotFoundObjectResult(new { exception.Message });
-            }
-            catch (JsonException exception)
-            {
-                return new BadRequestObjectResult(new { exception.Message });
-            }
-            catch (FormatException exception)
-            {
-                return new BadRequestObjectResult(new { exception.Message });
-            }
+            var command = await AzureFunctionHelper.DeserializeJsonContentAsync<CreateOrderCommand>(req.Body, cancellationToken);
+            await _mediator.Send(command, cancellationToken);
+            return new CreatedResult(string.Empty, null);
         }
     }
 }

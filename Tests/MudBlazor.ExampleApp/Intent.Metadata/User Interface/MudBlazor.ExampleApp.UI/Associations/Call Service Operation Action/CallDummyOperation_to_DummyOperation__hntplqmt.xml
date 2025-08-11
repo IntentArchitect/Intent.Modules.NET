@@ -22,6 +22,9 @@
     <name>DummyOperation</name>
     <display>[call] DummyService.DummyOperation(id: guid, name: string): void</display>
     <order>2</order>
+    <traits>
+      <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+    </traits>
     <typeReference id="63a0d663-841e-4e8a-8145-94ab6666d260">
       <typeId>b5766610-aa1b-4925-8679-73ccb130e9a2</typeId>
       <isNavigable>true</isNavigable>

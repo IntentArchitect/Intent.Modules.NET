@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="aa54f9e4-5510-44fc-bd40-4a7df313c817">
+  <sourceEnd id="1844b5d4-9f33-49a2-b3ab-6ba2f1172364" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>DerivedTypes</name>
+    <display>DerivedTypes: DerivedType[*]</display>
+    <order>0</order>
+    <typeReference id="45bc6da3-b628-45a5-8761-6e0ce10d4ca9">
+      <typeId>dc08da61-c8cd-4d6a-ac20-4e57304391e9</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>DynamoDbTests.Domain</typePackageName>
+      <typePackageId>0c0abbad-5585-497e-9c17-ab8f06a14cc0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="aa54f9e4-5510-44fc-bd40-4a7df313c817" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>DerivedTypeAggregate</name>
+    <display>DerivedTypeAggregate: DerivedTypeAggregate</display>
+    <order>2</order>
+    <typeReference id="57e5f6ae-4457-4838-b1da-45cf57c3d6f4">
+      <typeId>8884f188-608b-4b96-96d4-9b3aa37b5e1a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>DynamoDbTests.Domain</typePackageName>
+      <typePackageId>0c0abbad-5585-497e-9c17-ab8f06a14cc0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

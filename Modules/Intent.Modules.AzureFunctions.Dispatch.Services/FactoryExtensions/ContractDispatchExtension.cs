@@ -112,33 +112,36 @@ namespace Intent.Modules.AzureFunctions.Dispatch.Services.FactoryExtensions
         private static CSharpStatement GetReturnStatement(AzureFunctionClassTemplate template)
         {
             var httpTriggersView = HttpEndpointModelFactory.GetEndpoint(template.Model.InternalElement, "");
-            var result = httpTriggersView?.Verb switch
+            var (result, statusCode) = httpTriggersView?.Verb switch
             {
                 HttpVerb.Get => template.Model.ReturnType == null
-                    ? $"new NoContentResult()"
-                    : $"new OkObjectResult({GetResultExpression(template)})",
+                    ? ($"new NoContentResult()", "NoContent")
+                    : ($"new OkObjectResult({GetResultExpression(template)})", "OK"),
                 HttpVerb.Post => template.Model.ReturnType == null
-                    ? $"new CreatedResult(string.Empty, null)"
-                    : $"new CreatedResult(string.Empty, {GetResultExpression(template)})",
+                    ? ($"new CreatedResult(string.Empty, null)", "Created")
+                    : ($"new CreatedResult(string.Empty, {GetResultExpression(template)})", "Created"),
                 HttpVerb.Put or HttpVerb.Patch => template.Model.ReturnType == null
-                    ? $"new NoContentResult()"
-                    : $"new OkObjectResult({GetResultExpression(template)})",
+                    ? ($"new NoContentResult()", "NoContent")
+                    : ($"new OkObjectResult({GetResultExpression(template)})", "OK"),
                 HttpVerb.Delete => template.Model.ReturnType == null
-                    ? $"new OkResult()"
-                    : $"new OkObjectResult({GetResultExpression(template)})",
+                    ? ($"new OkResult()", "OK")
+                    : ($"new OkObjectResult({GetResultExpression(template)})", "OK"),
                 null => template.Model.ReturnType == null
-                    ? string.Empty
-                    : $"result",
+                    ? (string.Empty, "OK")
+                    : ($"result", "OK"),
                 _ => throw new ArgumentOutOfRangeException()
             };
 
             if (string.IsNullOrEmpty(result))
             {
-                return new CSharpStatement().AddMetadata("return", true);
+                return new CSharpStatement()
+                    .AddMetadata("return", true)
+                    .AddMetadata("return-response-type", statusCode);
             }
             
             return new CSharpReturnStatement(result)
-                .AddMetadata("return", true);
+                .AddMetadata("return", true)
+                .AddMetadata("return-response-type", statusCode);
         }
 
         private static string GetResultExpression(AzureFunctionClassTemplate template)

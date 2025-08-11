@@ -398,6 +398,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.I
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Blazor.JwtAuth", "Intent.Modules.Blazor.JwtAuth\Intent.Modules.Blazor.JwtAuth.csproj", "{AC620C37-6585-4E04-B43E-0BAEFAE34E3C}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Blazor.Wasm", "Intent.Modules.Blazor.Wasm\Intent.Modules.Blazor.Wasm.csproj", "{C46B3DF3-628D-48C6-A8DB-D1AFC2CB7CF5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Aws.DynamoDB", "Intent.Modules.Aws.DynamoDB\Intent.Modules.Aws.DynamoDB.csproj", "{E515E56C-436E-40D9-B8DA-9FBB3F2D5545}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Aws.Common", "Intent.Modules.Aws.Common\Intent.Modules.Aws.Common.csproj", "{68073039-FB1C-4A45-AAB3-BB401E1A947D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Amazon", "Amazon", "{5BB799CC-54A3-440B-B0D3-499DEE424CD8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Blazor.Authentication", "Intent.Modules.Blazor.Authentication\Intent.Modules.Blazor.Authentication.csproj", "{24706897-5AA1-4842-B13A-BCB948B0FFD0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -1048,6 +1058,22 @@ Global
 		{AC620C37-6585-4E04-B43E-0BAEFAE34E3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC620C37-6585-4E04-B43E-0BAEFAE34E3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC620C37-6585-4E04-B43E-0BAEFAE34E3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C46B3DF3-628D-48C6-A8DB-D1AFC2CB7CF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C46B3DF3-628D-48C6-A8DB-D1AFC2CB7CF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C46B3DF3-628D-48C6-A8DB-D1AFC2CB7CF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C46B3DF3-628D-48C6-A8DB-D1AFC2CB7CF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E515E56C-436E-40D9-B8DA-9FBB3F2D5545}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E515E56C-436E-40D9-B8DA-9FBB3F2D5545}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E515E56C-436E-40D9-B8DA-9FBB3F2D5545}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E515E56C-436E-40D9-B8DA-9FBB3F2D5545}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68073039-FB1C-4A45-AAB3-BB401E1A947D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68073039-FB1C-4A45-AAB3-BB401E1A947D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68073039-FB1C-4A45-AAB3-BB401E1A947D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68073039-FB1C-4A45-AAB3-BB401E1A947D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24706897-5AA1-4842-B13A-BCB948B0FFD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24706897-5AA1-4842-B13A-BCB948B0FFD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24706897-5AA1-4842-B13A-BCB948B0FFD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24706897-5AA1-4842-B13A-BCB948B0FFD0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1175,6 +1201,7 @@ Global
 		{A5D6D94F-98EA-425D-B7B7-52BF2AA44E62} = {06CBED72-FCB9-4F68-B410-0D6974A98B9A}
 		{A62D0C8F-724C-42A8-81F0-D930A724244E} = {408AB16B-0F81-405E-A39A-A052297CEF9C}
 		{57C3C1AD-5CF7-4E51-8B9A-860B11FF7196} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
+		{04EF8E79-E4BC-4DC3-8547-C4C8C7E7079C} = {1595E08E-BAD2-4F90-8BD9-65F6A846526B}
 		{6755D512-DE99-44B6-B3B8-29BC0878EE25} = {F75494CA-24E5-4CF2-8123-55A41BC20BC6}
 		{97A4546B-440F-472D-910E-475B0E90B26B} = {CB4522ED-5D9E-4388-8859-20415CC7F7E6}
 		{A1838A89-12C1-4144-A8F0-86D9BEB3437B} = {F75494CA-24E5-4CF2-8123-55A41BC20BC6}
@@ -1226,7 +1253,10 @@ Global
 		{992BB1F9-CDD6-4A3D-BF90-6554358DD319} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{14629E11-96B5-4050-A853-12D4FC016914} = {F75494CA-24E5-4CF2-8123-55A41BC20BC6}
 		{AC620C37-6585-4E04-B43E-0BAEFAE34E3C} = {5F9FE51C-33D0-4FDE-81AF-20FD12C6AF27}
-		{04EF8E79-E4BC-4DC3-8547-C4C8C7E7079C} = {1595E08E-BAD2-4F90-8BD9-65F6A846526B}
+		{C46B3DF3-628D-48C6-A8DB-D1AFC2CB7CF5} = {5F9FE51C-33D0-4FDE-81AF-20FD12C6AF27}
+		{E515E56C-436E-40D9-B8DA-9FBB3F2D5545} = {CB4522ED-5D9E-4388-8859-20415CC7F7E6}
+		{68073039-FB1C-4A45-AAB3-BB401E1A947D} = {5BB799CC-54A3-440B-B0D3-499DEE424CD8}
+		{24706897-5AA1-4842-B13A-BCB948B0FFD0} = {5F9FE51C-33D0-4FDE-81AF-20FD12C6AF27}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A00AF88A-EA58-4AEA-B65F-92354533E2CA}
@@ -1300,6 +1330,8 @@ Global
 		Intent.Modules.UnitOfWork.Persistence.Shared\Intent.Modules.UnitOfWork.Persistence.Shared.projitems*{d45c75d5-5cee-428c-9dd8-cca45b97d980}*SharedItemsImports = 5
 		Intent.Modules.EntityFrameworkCore.Shared\Intent.Modules.EntityFrameworkCore.Shared.projitems*{d9ee0b15-fa5d-4bad-90c2-cf771e4b80de}*SharedItemsImports = 5
 		Intent.Modules.Security.Shared\Intent.Modules.Security.Shared.projitems*{d9ee0b15-fa5d-4bad-90c2-cf771e4b80de}*SharedItemsImports = 5
+		Intent.Modules.EntityFrameworkCore.Shared\Intent.Modules.EntityFrameworkCore.Shared.projitems*{ded84d15-0d51-44ab-a00d-fbdb739730a7}*SharedItemsImports = 5
+		Intent.Modules.DocumentDB.Shared\Intent.Modules.DocumentDB.Shared.projitems*{e515e56c-436e-40d9-b8da-9fbb3f2d5545}*SharedItemsImports = 5
 		Intent.Modules.Security.Shared\Intent.Modules.Security.Shared.projitems*{e734455f-4103-4ef0-932c-28948e7f2e94}*SharedItemsImports = 5
 		Intent.Modules.UnitOfWork.Persistence.Shared\Intent.Modules.UnitOfWork.Persistence.Shared.projitems*{e734455f-4103-4ef0-932c-28948e7f2e94}*SharedItemsImports = 5
 		Intent.Modules.EntityFrameworkCore.Shared\Intent.Modules.EntityFrameworkCore.Shared.projitems*{e8fc2c42-6fc9-4a68-8f84-79cea0ea9cab}*SharedItemsImports = 5

@@ -49,7 +49,7 @@
     </childElement>
     <childElement id="427c58a2-32ed-4941-abde-2bae17d3fdbf" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>9.0.7</name>
-      <display>9.0.6 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <display>9.0.7 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -70,24 +70,30 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="5a68a331-2ae5-4a84-a19f-81187e07edf7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.Abstractions</name>
+        <childElement id="95c98ed0-cc97-4e3b-b3bd-35e0c067b7df" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration</name>
+          <display>Microsoft.Extensions.Configuration (9.0.7)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.7</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>427c58a2-32ed-4941-abde-2bae17d3fdbf</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="95c98ed0-cc97-4e3b-b3bd-35e0c067b7df" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration</name>
+        <childElement id="5a68a331-2ae5-4a84-a19f-81187e07edf7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.Abstractions</name>
+          <display>Microsoft.Extensions.Configuration.Abstractions (9.0.7)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.7</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>427c58a2-32ed-4941-abde-2bae17d3fdbf</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -96,7 +102,7 @@
     </childElement>
     <childElement id="fe4a9bde-bc72-4c63-abbe-90e7540b43e7" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>9.0.7</name>
-      <display>9.0.6 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <display>9.0.7 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -117,24 +123,30 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="ded6639e-fb42-48e4-a7f2-ff53f3efdd2a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.Abstractions</name>
+        <childElement id="ee1a9ac3-783c-483f-bf06-be34193aade3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration</name>
+          <display>Microsoft.Extensions.Configuration (9.0.7)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.7</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>fe4a9bde-bc72-4c63-abbe-90e7540b43e7</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="ee1a9ac3-783c-483f-bf06-be34193aade3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration</name>
+        <childElement id="ded6639e-fb42-48e4-a7f2-ff53f3efdd2a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.Abstractions</name>
+          <display>Microsoft.Extensions.Configuration.Abstractions (9.0.7)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.7</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>fe4a9bde-bc72-4c63-abbe-90e7540b43e7</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -143,7 +155,7 @@
     </childElement>
     <childElement id="fd53d1fb-24f4-44e7-a7c4-1fdcfb991a44" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>9.0.7</name>
-      <display>9.0.6 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <display>9.0.7 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -164,24 +176,30 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="fa8d807c-cdc3-4f2d-a839-9c81ae9e3d42" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.Abstractions</name>
+        <childElement id="fa6216dd-d71d-4549-8187-e2735f49d544" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration</name>
+          <display>Microsoft.Extensions.Configuration (9.0.7)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.7</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>fd53d1fb-24f4-44e7-a7c4-1fdcfb991a44</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="fa6216dd-d71d-4549-8187-e2735f49d544" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration</name>
+        <childElement id="fa8d807c-cdc3-4f2d-a839-9c81ae9e3d42" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.Abstractions</name>
+          <display>Microsoft.Extensions.Configuration.Abstractions (9.0.7)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.7</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>fd53d1fb-24f4-44e7-a7c4-1fdcfb991a44</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />

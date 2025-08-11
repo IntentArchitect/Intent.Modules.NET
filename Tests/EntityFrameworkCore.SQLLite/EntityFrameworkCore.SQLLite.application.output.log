@@ -218,6 +218,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>7e880093-890f-460f-a466-c6526302420e</ProjectId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SQLLite.Application/Common/Interfaces/ICurrentUser.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICurrentUser.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7e880093-890f-460f-a466-c6526302420e</ProjectId>
       <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SQLLite.Application/Common/Interfaces/ICurrentUserService.cs</ApplicationRelativeFilePath>
@@ -577,6 +585,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>233a7e52-cd60-4b8f-af65-ade625500388</ProjectId>
+      <CorrelationId>Intent.ValueObjects.ValueObject#550e25a2-afff-4373-abe0-e86fbdd6eab0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SQLLite.Domain/Money.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Money.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>233a7e52-cd60-4b8f-af65-ade625500388</ProjectId>
+      <CorrelationId>Intent.ValueObjects.ValueObject#0e71e467-28a8-4a86-aa69-60fde36c6c1f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SQLLite.Domain/OrderLine.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OrderLine.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>958556ff-334e-4732-90c9-f88671a66547</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#fe7aed22-656e-48b3-8f6f-f566c49288ed</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -614,6 +638,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SQLLite.Domain/Repositories/IRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>233a7e52-cd60-4b8f-af65-ade625500388</ProjectId>
+      <CorrelationId>Intent.ValueObjects.ValueObjectBase</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SQLLite.Domain/ValueObject.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValueObject.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

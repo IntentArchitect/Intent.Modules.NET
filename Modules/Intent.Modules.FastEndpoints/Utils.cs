@@ -174,7 +174,7 @@ internal static class Utils
                     var getByIdOperation = template.Model.Container.Endpoints.FirstOrDefault(GetByIdForAggregateEntity);
                     if (getByIdOperation != null && endpointModel.ReturnType?.Element.Name is "guid" or "long" or "int" or "string")
                     {
-                        responseStatement = new CSharpInvocationStatement($"SendCreatedAtAsync<{template.GetEndpointTemplateName(getByIdOperation)}>")
+                        responseStatement = new CSharpInvocationStatement($"Send.CreatedAtAsync<{template.GetEndpointTemplateName(getByIdOperation)}>")
                             .AddArgument("new { id = result }")
                             .AddArgument(resultExpression)
                             .AddArgument("cancellation: ct");
@@ -195,7 +195,7 @@ internal static class Utils
                     if (getByIdOperation != null && endpointModel.ReturnType?.Element.Name is "guid" or "long" or "int" or "string")
                     {
                         var aggregateIdParameter = getByIdOperation.Parameters[0].Name.ToParameterName();
-                        responseStatement = new CSharpInvocationStatement($"SendCreatedAtAsync<{template.GetEndpointTemplateName(getByIdOperation)}>")
+                        responseStatement = new CSharpInvocationStatement($"Send.CreatedAtAsync<{template.GetEndpointTemplateName(getByIdOperation)}>")
                             .AddArgument($"new {{ {aggregateIdParameter} = req.{aggregateIdParameter.ToPropertyName()},  id = result }}")
                             .AddArgument(resultExpression)
                             .AddArgument("cancellation: ct");
@@ -225,13 +225,13 @@ internal static class Utils
         var packagedResultExpression = endpointModel.GetSuccessResponseCodeOperation(defaultResponseExpression, resultExpression);
         if (packagedResultExpression is not null)
         {
-            responseStatement = new CSharpAwaitExpression(new CSharpInvocationStatement("SendResultAsync")
+            responseStatement = new CSharpAwaitExpression(new CSharpInvocationStatement("Send.ResultAsync")
                 .AddArgument(packagedResultExpression));
             responseStatement.AddMetadata("response", "SendResultAsync");
         }
         else if (!string.IsNullOrEmpty(resultExpression))
         {
-            responseStatement = new CSharpAwaitExpression(new CSharpInvocationStatement("SendAsync")
+            responseStatement = new CSharpAwaitExpression(new CSharpInvocationStatement("Send.ResponseAsync")
                 .AddArgument(resultExpression)
                 .AddArgument(endpointModel.GetSuccessResponseCode("204"))
                 .AddArgument("ct"));
@@ -239,7 +239,7 @@ internal static class Utils
         }
         else
         {
-            responseStatement = new CSharpAwaitExpression(new CSharpInvocationStatement("SendResultAsync")
+            responseStatement = new CSharpAwaitExpression(new CSharpInvocationStatement("Send.ResultAsync")
                 .AddArgument($"TypedResults.StatusCode({endpointModel.GetSuccessResponseCode("204")})"));
             responseStatement.AddMetadata("response", "SendResultAsync");
         }

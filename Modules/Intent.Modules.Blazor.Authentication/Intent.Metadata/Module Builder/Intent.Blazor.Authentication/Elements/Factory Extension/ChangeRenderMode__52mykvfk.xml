@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="22649449-21b2-4068-8ec0-a8ab4e3fd8dd" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>ChangeRenderMode</name>
+  <display>ChangeRenderMode</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>19bcb1ad-3c00-4335-9173-4a2387c714c3</parentFolderId>
+  <packageId>b9d38f7c-7a8d-4007-b33d-7f386ccf119a</packageId>
+  <packageName>Intent.Blazor.Authentication</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

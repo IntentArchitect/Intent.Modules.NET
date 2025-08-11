@@ -33,6 +33,7 @@ public abstract class RazorComponentTemplateBase<TModel> : RazorTemplateBase<TMo
         var template = CodeBehindTemplate ?? (ICSharpTemplate)this;
 
         var mappingManager = new CSharpClassMappingManager(template);
+        mappingManager.AddMappingResolver(new LocalCommandQueryMappingResolver(template));
         mappingManager.AddMappingResolver(new CallServiceOperationMappingResolver(template));
         mappingManager.AddMappingResolver(new PropertyCollectionMappingResolver(template));
         mappingManager.AddMappingResolver(new RazorBindingMappingResolver(template));

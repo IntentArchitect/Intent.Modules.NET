@@ -11,6 +11,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial", Version = "1.0")]
@@ -37,7 +38,12 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RoutesRazor
             {
                 var securedComponents = ExecutionContext.MetadataManager.UserInterface(ExecutionContext.GetApplicationConfig().Id)
                     .Elements
-                    .Where(e => e.HasStereotype("Secured"));
+                    .Where(e => e.HasStereotype("Secured")).Any();
+
+                if(ExecutionContext.GetInstalledModules().FirstOrDefault(m => m.ModuleId == "Intent.Blazor.Authentication") is not null)
+                {
+                    securedComponents = true;
+                }
 
                 file.AddHtmlElement("Router", router =>
                 {
@@ -46,7 +52,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RoutesRazor
                     {
                         found.AddAttribute("Context", "routeData");
 
-                        if (!securedComponents.Any())
+                        if (!securedComponents)
                         {
                             found.AddHtmlElement("RouteView", html =>
                             {
@@ -77,6 +83,18 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RoutesRazor
             });
         }
 
+        private string GetProgramTemplateName()
+        {
+            if (this.TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Blazor.Client.Program, out var clientProgramFile))
+            {
+                return this.GetTypeName(clientProgramFile);
+            }
+            else
+            {
+                return this.GetTypeName(TemplateRoles.Distribution.WebApi.Program);
+            }
+        }
+
         private void AddRouteAttributes(IHtmlElement html)
         {
             html.AddAttribute("RouteData", "routeData");
@@ -87,6 +105,11 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RoutesRazor
             if (defaultLayoutModel != null)
             {
                 html.AddAttribute("DefaultLayout", $"typeof({NormalizeNamespace(GetTemplate<IClassProvider>(RazorLayoutTemplate.TemplateId, defaultLayoutModel).FullTypeName())})");
+            }
+            else
+            {
+                //This could be better, need a better way 
+                html.AddAttribute("DefaultLayout", $"typeof(Layout.MainLayout)");
             }
         }
 

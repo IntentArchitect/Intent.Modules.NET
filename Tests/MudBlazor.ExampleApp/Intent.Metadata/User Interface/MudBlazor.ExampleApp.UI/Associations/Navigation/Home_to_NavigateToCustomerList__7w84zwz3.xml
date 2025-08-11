@@ -22,6 +22,9 @@
     <name>NavigateToCustomerList</name>
     <display>[navigate] CustomerList</display>
     <order>1</order>
+    <traits>
+      <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+    </traits>
     <typeReference id="206e0646-c8b8-4cd5-a77b-7b2bb8e8248d">
       <typeId>0dc39b57-b081-4dc6-a294-7e0628233b03</typeId>
       <isNavigable>true</isNavigable>

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="640b94f1-e0e9-47e0-97ec-73a354db26ed" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+  <name>CustomerAddressDto</name>
+  <display>CustomerAddressDto</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>true</isMapped>
+  <mappedClass isRoot="true">
+    <applicationId>ec449965-5357-4c9d-971a-ff0dcce48c52</applicationId>
+    <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
+    <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
+    <autoSyncTypeReference>true</autoSyncTypeReference>
+    <mappedPath>
+      <target id="2aec1cd1-d74f-416a-9371-d8b94cab38c1" name="Address" type="element" specialization="Value Object" specializationId="5fe6bb0a-7fc3-42ae-a351-d9188f5b8bc5" />
+    </mappedPath>
+  </mappedClass>
+  <parentFolderId>d28bdbf5-2f14-4574-918b-06f1cc0ec1f4</parentFolderId>
+  <packageId>a741f575-70c9-4466-aa95-ace1ade8595f</packageId>
+  <packageName>EfCoreSoftDelete.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="dd5eda12-89d1-4375-92b4-9f9d422dc441" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Line1</name>
+      <display>Line1: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="9a933399-dd65-417e-a745-aa780d30660e">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="167c4b7d-b978-4c33-a2f6-d65212971783" name="Line1" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>640b94f1-e0e9-47e0-97ec-73a354db26ed</parentFolderId>
+      <packageId>a741f575-70c9-4466-aa95-ace1ade8595f</packageId>
+      <packageName>EfCoreSoftDelete.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="e86b6422-edb5-4606-a3b7-32e4b59274b2" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Line2</name>
+      <display>Line2: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="7d195250-53a9-42e4-9f38-98d362cbb2d8">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="93cbc7ef-fea6-4579-b6e0-857fce27e114" name="Line2" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>640b94f1-e0e9-47e0-97ec-73a354db26ed</parentFolderId>
+      <packageId>a741f575-70c9-4466-aa95-ace1ade8595f</packageId>
+      <packageName>EfCoreSoftDelete.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="ad040b9b-e6f8-4073-b7ce-28dabbf42acc" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>City</name>
+      <display>City: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="45bd5473-d66e-46e9-ab28-e9de74de37ea">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="56f56910-db9e-48bf-9f04-9f5952625974" name="City" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>640b94f1-e0e9-47e0-97ec-73a354db26ed</parentFolderId>
+      <packageId>a741f575-70c9-4466-aa95-ace1ade8595f</packageId>
+      <packageName>EfCoreSoftDelete.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="f00f240c-a6fd-424c-a43f-61312c0331d4" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Postal</name>
+      <display>Postal: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="a05f8eca-00c2-4475-b466-9bb683ed7a93">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="98f8d8fd-47e0-4837-92fd-5a71b36ac721" name="Postal" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>640b94f1-e0e9-47e0-97ec-73a354db26ed</parentFolderId>
+      <packageId>a741f575-70c9-4466-aa95-ace1ade8595f</packageId>
+      <packageName>EfCoreSoftDelete.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="db3b6064-2fcb-477f-b731-f2cb9300dcba" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>OtherBuildings</name>
+      <display>OtherBuildings: CustomerAddressBuildingDto[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="48255b1c-4763-4842-95d9-8f36918be145">
+        <typeId>ba6bc88f-3ad8-4e6f-8517-4113e256e81a</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EfCoreSoftDelete.Services</typePackageName>
+        <typePackageId>a741f575-70c9-4466-aa95-ace1ade8595f</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
+        <autoSyncTypeReference>false</autoSyncTypeReference>
+        <mappedPath>
+          <target id="fc25a2eb-7340-47b9-86f1-c5bac17df80b" name="OtherBuildings" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>640b94f1-e0e9-47e0-97ec-73a354db26ed</parentFolderId>
+      <packageId>a741f575-70c9-4466-aa95-ace1ade8595f</packageId>
+      <packageName>EfCoreSoftDelete.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="3a9349c3-e04e-4384-a00a-307174995b6a" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>PrimaryBuilding</name>
+      <display>PrimaryBuilding: CustomerAddressBuildingDto</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="3bf4c179-8356-4a3c-bb99-7c9f8dd965e8">
+        <typeId>ba6bc88f-3ad8-4e6f-8517-4113e256e81a</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EfCoreSoftDelete.Services</typePackageName>
+        <typePackageId>a741f575-70c9-4466-aa95-ace1ade8595f</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
+        <autoSyncTypeReference>false</autoSyncTypeReference>
+        <mappedPath>
+          <target id="9b0a698c-0e59-474b-8866-db8c06377ec0" name="PrimaryBuilding" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>640b94f1-e0e9-47e0-97ec-73a354db26ed</parentFolderId>
+      <packageId>a741f575-70c9-4466-aa95-ace1ade8595f</packageId>
+      <packageName>EfCoreSoftDelete.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

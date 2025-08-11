@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="ad46a5bd-ee02-41da-a619-2d2ea7e6dd6b">
+  <sourceEnd id="3a09a89c-7104-417c-b1f3-c2e75829eff8" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Customer</name>
+    <display>Customer: Customer</display>
+    <order>0</order>
+    <typeReference id="20d18734-24a4-4a0a-b32d-7873a17b83bc">
+      <typeId>2d2ea131-1be7-4b0e-b8c5-34ab2e848ad9</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EfCoreSoftDelete.Domain</typePackageName>
+      <typePackageId>b6ce5576-2037-4e9d-b081-93fd1b478e5d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="ad46a5bd-ee02-41da-a619-2d2ea7e6dd6b" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>PrimaryAddress</name>
+    <display>PrimaryAddress: Address</display>
+    <order>5</order>
+    <typeReference id="009bfc49-296f-454a-a2e8-d24690d507f1">
+      <typeId>2aec1cd1-d74f-416a-9371-d8b94cab38c1</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EfCoreSoftDelete.Domain</typePackageName>
+      <typePackageId>b6ce5576-2037-4e9d-b081-93fd1b478e5d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

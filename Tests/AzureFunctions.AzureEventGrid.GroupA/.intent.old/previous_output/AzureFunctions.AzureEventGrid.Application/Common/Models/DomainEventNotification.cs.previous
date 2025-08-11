@@ -1,0 +1,17 @@
+using AzureFunctions.AzureEventGrid.Domain.Common;
+using MediatR;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+
+namespace AzureFunctions.AzureEventGrid.Application.Common.Models
+{
+    public class DomainEventNotification<TDomainEvent> : INotification where TDomainEvent : DomainEvent
+    {
+        public DomainEventNotification(TDomainEvent domainEvent)
+        {
+            DomainEvent = domainEvent;
+        }
+
+        public TDomainEvent DomainEvent { get; }
+    }
+}

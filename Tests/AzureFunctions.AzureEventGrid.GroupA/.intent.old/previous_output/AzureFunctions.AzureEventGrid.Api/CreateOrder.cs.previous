@@ -1,0 +1,48 @@
+using AzureFunctions.AzureEventGrid.Domain.Common.Interfaces;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.AspNetCore.Http;
+using System.Threading;
+using AzureFunctions.AzureEventGrid.Application.CreateOrder;
+using MediatR;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Threading.Tasks;
+using System.Net;
+using Microsoft.OpenApi.Models;
+using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Attributes;
+using FluentValidation;
+using System.Transactions;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+
+namespace AzureFunctions.AzureEventGrid.Api
+{
+    public class CreateOrder
+    {
+        private readonly IMediator _mediator;
+        private readonly IUnitOfWork _unitOfWork;
+
+        public CreateOrder(IMediator mediator, IUnitOfWork unitOfWork)
+        {
+            _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
+            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
+        }
+
+        [Function("CreateOrder")]
+        [OpenApiOperation("CreateOrderCommand", tags: new [] {"AzureFunctionsAzureEventGridGroupAServices"}, Description = "Create order command")]
+        [OpenApiRequestBody(contentType: "application/json", bodyType: typeof(CreateOrderCommand))]
+        [OpenApiResponseWithoutBody(statusCode: HttpStatusCode.Created)]
+        [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]
+        [OpenApiResponseWithBody(statusCode: HttpStatusCode.NotFound, contentType: "application/json", bodyType: typeof(object))]
+        public async Task<IActionResult> Run(
+            [HttpTrigger(AuthorizationLevel.Function, "post", Route = "azure-functions-azure-event-grid-group-a-services")] HttpRequest req,
+            CancellationToken cancellationToken)
+        {
+            var command = await AzureFunctionHelper.DeserializeJsonContentAsync<CreateOrderCommand>(req.Body, cancellationToken);
+            await _mediator.Send(command, cancellationToken);
+            return new CreatedResult(string.Empty, null);
+        }
+    }
+}

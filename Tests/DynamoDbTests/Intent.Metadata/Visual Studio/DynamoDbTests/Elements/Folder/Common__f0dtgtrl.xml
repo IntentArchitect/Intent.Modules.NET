@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="38bc4abc-ce70-4cb0-9be9-3ceb5e4f56c5" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Common</name>
+  <display>Common</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>2b975534-17d1-4e94-821d-8243823bda44</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="6d468722-24d4-41bb-a21f-f606594e9a81" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.DomainEvents.DomainEventBase</name>
+      <display>Intent.DomainEvents.DomainEventBase</display>
+      <externalReference>Intent.DomainEvents</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>38bc4abc-ce70-4cb0-9be9-3ceb5e4f56c5</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="a3ab190d-fbdb-4faf-8dc7-be8a58ffcd70" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.DomainEvents.HasDomainEventInterface</name>
+      <display>Intent.DomainEvents.HasDomainEventInterface</display>
+      <externalReference>Intent.DomainEvents</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>38bc4abc-ce70-4cb0-9be9-3ceb5e4f56c5</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="fbae0d12-e37b-4d5d-b1ed-0db8338d0b9d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.CollectionExtensions</name>
+      <display>Intent.Entities.CollectionExtensions</display>
+      <externalReference>Intent.Entities</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>38bc4abc-ce70-4cb0-9be9-3ceb5e4f56c5</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="13b81940-c7af-4475-aa38-15d83297c6ef" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.UpdateHelper</name>
+      <display>Intent.Entities.UpdateHelper</display>
+      <externalReference>Intent.Entities</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>38bc4abc-ce70-4cb0-9be9-3ceb5e4f56c5</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

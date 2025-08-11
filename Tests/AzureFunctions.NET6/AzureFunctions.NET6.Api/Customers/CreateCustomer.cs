@@ -38,8 +38,9 @@ namespace AzureFunctions.NET6.Api.Customers
         [FunctionName("Customers_CreateCustomer")]
         [OpenApiOperation("CustomOnCommand", tags: new[] { "Customers" }, Description = "Line 1\nLine 2\nTab \t\nSlash \\")]
         [OpenApiRequestBody(contentType: "application/json", bodyType: typeof(CreateCustomerCommand))]
-        [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(Guid))]
+        [OpenApiResponseWithBody(statusCode: HttpStatusCode.Created, contentType: "application/json", bodyType: typeof(Guid))]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]
+        [OpenApiResponseWithBody(statusCode: HttpStatusCode.NotFound, contentType: "application/json", bodyType: typeof(object))]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "post", Route = "customers")] HttpRequest req,
             CancellationToken cancellationToken)

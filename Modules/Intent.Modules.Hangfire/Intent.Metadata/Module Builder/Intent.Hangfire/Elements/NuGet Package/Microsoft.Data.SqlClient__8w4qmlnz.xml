@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="72d389ab-8f0f-40d8-b766-e5c4c4af81ac" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>5.2.3</name>
+      <name>6.1.0</name>
       <display>5.2.3 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,598 +47,112 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="984903cf-eaf9-411d-b1e2-f7fa3aa29156" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="253e059c-bb03-4e8b-9d8d-41d67bd40c2b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Identity</name>
-          <display>Azure.Identity (1.11.4)</display>
           <isAbstract>false</isAbstract>
-          <value>1.11.4</value>
+          <value>1.13.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>72d389ab-8f0f-40d8-b766-e5c4c4af81ac</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="62a4c028-3e41-4874-a534-1dfb06725a0e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="fbf7fcf6-fd70-46da-8d91-ddce7f7c8023" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Bcl.Cryptography</name>
+          <isAbstract>false</isAbstract>
+          <value>9.0.4</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>72d389ab-8f0f-40d8-b766-e5c4c4af81ac</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="eae8668a-a929-49ce-a802-5f36dc634b49" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Data.SqlClient.SNI.runtime</name>
-          <display>Microsoft.Data.SqlClient.SNI.runtime (5.2.0)</display>
           <isAbstract>false</isAbstract>
-          <value>5.2.0</value>
+          <value>6.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>72d389ab-8f0f-40d8-b766-e5c4c4af81ac</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="38120f72-08cc-4c2a-8a9f-c672aea54922" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Identity.Client</name>
-          <display>Microsoft.Identity.Client (4.61.3)</display>
+        <childElement id="96f0b0a1-8b06-4f72-bcdd-1a77ab71a9ed" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Caching.Memory</name>
           <isAbstract>false</isAbstract>
-          <value>4.61.3</value>
+          <value>9.0.4</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>72d389ab-8f0f-40d8-b766-e5c4c4af81ac</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="f9848f49-5a10-402f-9780-fdaaeea64445" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c0fe6789-5637-420f-ba80-62d74fcac280" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.JsonWebTokens</name>
-          <display>Microsoft.IdentityModel.JsonWebTokens (6.35.0)</display>
           <isAbstract>false</isAbstract>
-          <value>6.35.0</value>
+          <value>7.7.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>72d389ab-8f0f-40d8-b766-e5c4c4af81ac</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="6d45fe13-88e1-4c40-8d75-5e68c452cbd0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c7aaa4f8-f183-4656-be02-e6d2768ab838" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.Protocols.OpenIdConnect</name>
-          <display>Microsoft.IdentityModel.Protocols.OpenIdConnect (6.35.0)</display>
           <isAbstract>false</isAbstract>
-          <value>6.35.0</value>
+          <value>7.7.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>72d389ab-8f0f-40d8-b766-e5c4c4af81ac</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="6ee3c2bb-8327-4f84-9599-072c2c49228c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e3da58ac-63fe-4c39-a240-589140c8bf57" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.SqlServer.Server</name>
-          <display>Microsoft.SqlServer.Server (1.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>1.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>72d389ab-8f0f-40d8-b766-e5c4c4af81ac</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="52329f1a-9f05-4e68-b067-e122a9def93f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Win32.Registry</name>
-          <display>Microsoft.Win32.Registry (5.0.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>5.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>72d389ab-8f0f-40d8-b766-e5c4c4af81ac</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="ba923fef-4cb1-4229-9784-ebd5444ecf3c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.Buffers</name>
-          <display>System.Buffers (4.5.1)</display>
-          <isAbstract>false</isAbstract>
-          <value>4.5.1</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>72d389ab-8f0f-40d8-b766-e5c4c4af81ac</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="dfbd47b9-32bc-4498-9016-9703c2e0be9b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a205da00-0f4a-4952-b18e-43c7bedc97df" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Configuration.ConfigurationManager</name>
-          <display>System.Configuration.ConfigurationManager (6.0.1)</display>
           <isAbstract>false</isAbstract>
-          <value>6.0.1</value>
+          <value>9.0.4</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>72d389ab-8f0f-40d8-b766-e5c4c4af81ac</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c80110d3-bb4c-494f-ac39-3df2e6ca688e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.Diagnostics.DiagnosticSource</name>
-          <display>System.Diagnostics.DiagnosticSource (6.0.1)</display>
+        <childElement id="955bc3ae-9835-4928-bfbd-818f48095eff" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Security.Cryptography.Pkcs</name>
           <isAbstract>false</isAbstract>
-          <value>6.0.1</value>
+          <value>9.0.4</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>72d389ab-8f0f-40d8-b766-e5c4c4af81ac</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="07d5b394-3c23-46a4-8ada-68c8df60d4d9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.Runtime.Caching</name>
-          <display>System.Runtime.Caching (6.0.0)</display>
+        <childElement id="0f2f5870-61d4-4ad0-ac6f-09c372c9eb56" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Text.Json</name>
           <isAbstract>false</isAbstract>
-          <value>6.0.0</value>
+          <value>9.0.5</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>72d389ab-8f0f-40d8-b766-e5c4c4af81ac</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="0ef3926c-80fd-49eb-8a02-40c97a1fae69" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.Runtime.Loader</name>
-          <display>System.Runtime.Loader (4.3.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>4.3.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>72d389ab-8f0f-40d8-b766-e5c4c4af81ac</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="1042b54c-bab7-495c-8855-fc7144aab0b6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.Security.Cryptography.Cng</name>
-          <display>System.Security.Cryptography.Cng (5.0.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>5.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>72d389ab-8f0f-40d8-b766-e5c4c4af81ac</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="b2296681-ca57-43d7-8525-114aa1e35d9e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.Security.Principal.Windows</name>
-          <display>System.Security.Principal.Windows (5.0.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>5.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>72d389ab-8f0f-40d8-b766-e5c4c4af81ac</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="65778626-2716-40e6-9bb5-2345a309b221" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.Text.Encoding.CodePages</name>
-          <display>System.Text.Encoding.CodePages (6.0.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>6.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>72d389ab-8f0f-40d8-b766-e5c4c4af81ac</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="6854884b-c280-416d-9709-e63b7f79da6e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.Text.Encodings.Web</name>
-          <display>System.Text.Encodings.Web (6.0.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>6.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>72d389ab-8f0f-40d8-b766-e5c4c4af81ac</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
-    <childElement id="ddcd1353-023f-4de0-b68f-b11f0b9ec619" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>5.2.3</name>
-      <display>5.2.3 ( &gt;= .NETStandard,Version=v2.1 )</display>
-      <isAbstract>false</isAbstract>
-      <sort-children>by-type-then-by-name</sort-children>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>6c316d80-0756-4598-a1e4-4d1f343cd889</parentFolderId>
-      <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-      <packageName>Intent.Hangfire</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>false</addedByDefault>
-          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
-          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
-          <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.1" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="601efbd5-ad7a-4900-b69f-d2f54a1a32f3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Azure.Identity</name>
-          <display>Azure.Identity (1.11.4)</display>
-          <isAbstract>false</isAbstract>
-          <value>1.11.4</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>ddcd1353-023f-4de0-b68f-b11f0b9ec619</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="e456156e-6baa-40f1-9045-36c5a2426855" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Data.SqlClient.SNI.runtime</name>
-          <display>Microsoft.Data.SqlClient.SNI.runtime (5.2.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>5.2.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>ddcd1353-023f-4de0-b68f-b11f0b9ec619</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="cfc3eeba-99f1-43a7-9127-7f68cd0eb70e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Identity.Client</name>
-          <display>Microsoft.Identity.Client (4.61.3)</display>
-          <isAbstract>false</isAbstract>
-          <value>4.61.3</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>ddcd1353-023f-4de0-b68f-b11f0b9ec619</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="666898da-0a89-4900-99e5-3745c256885b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.IdentityModel.JsonWebTokens</name>
-          <display>Microsoft.IdentityModel.JsonWebTokens (6.35.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>6.35.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>ddcd1353-023f-4de0-b68f-b11f0b9ec619</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="10df2a5b-0c76-4949-9824-24314df8ea2a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.IdentityModel.Protocols.OpenIdConnect</name>
-          <display>Microsoft.IdentityModel.Protocols.OpenIdConnect (6.35.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>6.35.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>ddcd1353-023f-4de0-b68f-b11f0b9ec619</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="471cf92f-9a83-4827-9700-9db18b16cfff" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.SqlServer.Server</name>
-          <display>Microsoft.SqlServer.Server (1.0.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>1.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>ddcd1353-023f-4de0-b68f-b11f0b9ec619</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="3c368eb8-050a-496a-8a1a-ee49975b6ba9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Win32.Registry</name>
-          <display>Microsoft.Win32.Registry (5.0.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>5.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>ddcd1353-023f-4de0-b68f-b11f0b9ec619</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="ae47efb7-3cbb-44af-81de-60976a238e89" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.Configuration.ConfigurationManager</name>
-          <display>System.Configuration.ConfigurationManager (6.0.1)</display>
-          <isAbstract>false</isAbstract>
-          <value>6.0.1</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>ddcd1353-023f-4de0-b68f-b11f0b9ec619</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="56fccbd0-7911-4777-80bf-4065d04e983e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.Diagnostics.DiagnosticSource</name>
-          <display>System.Diagnostics.DiagnosticSource (6.0.1)</display>
-          <isAbstract>false</isAbstract>
-          <value>6.0.1</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>ddcd1353-023f-4de0-b68f-b11f0b9ec619</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="535ca08d-2d73-4921-b8e2-bb625da3beb6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.Runtime.Caching</name>
-          <display>System.Runtime.Caching (6.0.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>6.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>ddcd1353-023f-4de0-b68f-b11f0b9ec619</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="d980d6e8-5420-40a0-9c7f-1f6934e5ce26" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.Runtime.Loader</name>
-          <display>System.Runtime.Loader (4.3.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>4.3.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>ddcd1353-023f-4de0-b68f-b11f0b9ec619</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="b2214c87-5fc6-4e4d-adc2-a3636b17f255" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.Security.Cryptography.Cng</name>
-          <display>System.Security.Cryptography.Cng (5.0.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>5.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>ddcd1353-023f-4de0-b68f-b11f0b9ec619</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="1761d813-1896-4a06-8e86-07a42d4616ab" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.Security.Principal.Windows</name>
-          <display>System.Security.Principal.Windows (5.0.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>5.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>ddcd1353-023f-4de0-b68f-b11f0b9ec619</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="513bd98d-0bb4-4147-bb7e-b1da11a82537" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.Text.Encoding.CodePages</name>
-          <display>System.Text.Encoding.CodePages (6.0.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>6.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>ddcd1353-023f-4de0-b68f-b11f0b9ec619</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="70649b70-dd80-4543-b1b1-0a6164e1938b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.Text.Encodings.Web</name>
-          <display>System.Text.Encodings.Web (6.0.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>6.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>ddcd1353-023f-4de0-b68f-b11f0b9ec619</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
-    <childElement id="1895abc9-dddf-4f7c-808e-38804f53a094" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>5.2.3</name>
-      <display>5.2.3 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
-      <isAbstract>false</isAbstract>
-      <sort-children>by-type-then-by-name</sort-children>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>6c316d80-0756-4598-a1e4-4d1f343cd889</parentFolderId>
-      <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-      <packageName>Intent.Hangfire</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>false</addedByDefault>
-          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
-          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
-          <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v6.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="d40c78f6-bcc5-4219-8a34-e053237c58be" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Azure.Identity</name>
-          <display>Azure.Identity (1.11.4)</display>
-          <isAbstract>false</isAbstract>
-          <value>1.11.4</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>1895abc9-dddf-4f7c-808e-38804f53a094</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="b5e85c7d-d5ac-4722-b4c8-bb9afb04fde2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Data.SqlClient.SNI.runtime</name>
-          <display>Microsoft.Data.SqlClient.SNI.runtime (5.2.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>5.2.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>1895abc9-dddf-4f7c-808e-38804f53a094</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="22c06194-9c39-42b3-a1cc-388fc2119065" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Identity.Client</name>
-          <display>Microsoft.Identity.Client (4.61.3)</display>
-          <isAbstract>false</isAbstract>
-          <value>4.61.3</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>1895abc9-dddf-4f7c-808e-38804f53a094</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="555f2983-6bc6-490f-b601-d4b8831bf32b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.IdentityModel.JsonWebTokens</name>
-          <display>Microsoft.IdentityModel.JsonWebTokens (6.35.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>6.35.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>1895abc9-dddf-4f7c-808e-38804f53a094</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="0c8ce90c-5070-4f54-ba16-9cecbab510db" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.IdentityModel.Protocols.OpenIdConnect</name>
-          <display>Microsoft.IdentityModel.Protocols.OpenIdConnect (6.35.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>6.35.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>1895abc9-dddf-4f7c-808e-38804f53a094</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="dec6d259-1dd3-48ae-aff9-79d7f744ca99" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.SqlServer.Server</name>
-          <display>Microsoft.SqlServer.Server (1.0.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>1.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>1895abc9-dddf-4f7c-808e-38804f53a094</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="b848957b-c670-4343-95b5-88d0456ce6b6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.Configuration.ConfigurationManager</name>
-          <display>System.Configuration.ConfigurationManager (6.0.1)</display>
-          <isAbstract>false</isAbstract>
-          <value>6.0.1</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>1895abc9-dddf-4f7c-808e-38804f53a094</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="84ca868f-eb37-4dd1-816e-17730747f40b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.Runtime.Caching</name>
-          <display>System.Runtime.Caching (6.0.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>6.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>1895abc9-dddf-4f7c-808e-38804f53a094</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -646,7 +160,7 @@
       </childElements>
     </childElement>
     <childElement id="bc5254a3-c49a-49fa-a5af-0d24bbe1f91d" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>6.0.2</name>
+      <name>6.1.0</name>
       <display>6.0.2 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -668,128 +182,112 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="eb30cd9c-c18f-4067-87b1-1de21cbd97f8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ee8a9d06-c7fb-4cf8-a828-274c6006a356" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Identity</name>
-          <display>Azure.Identity (1.11.4)</display>
           <isAbstract>false</isAbstract>
-          <value>1.11.4</value>
+          <value>1.13.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>bc5254a3-c49a-49fa-a5af-0d24bbe1f91d</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="a33900fe-dfdd-41eb-9cab-f5f2860767ac" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="67f55687-12e8-475f-9b74-156129cd90a8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Bcl.Cryptography</name>
-          <display>Microsoft.Bcl.Cryptography (8.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>bc5254a3-c49a-49fa-a5af-0d24bbe1f91d</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="289e4f7e-ae0d-4497-b0af-a086b437d11b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f90cf300-3e94-4020-96f0-de74035d78aa" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Data.SqlClient.SNI.runtime</name>
-          <display>Microsoft.Data.SqlClient.SNI.runtime (6.0.2)</display>
           <isAbstract>false</isAbstract>
           <value>6.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>bc5254a3-c49a-49fa-a5af-0d24bbe1f91d</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="07396191-960b-4f41-afaa-a0d801961fd7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="dc974f9e-28ee-4837-a737-6c6435e76a41" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Caching.Memory</name>
-          <display>Microsoft.Extensions.Caching.Memory (8.0.1)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>bc5254a3-c49a-49fa-a5af-0d24bbe1f91d</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="445ee84f-a951-4165-bb5e-15244b3a7bce" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="65352fcb-b6ec-4ed5-98df-5a010acc063e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.JsonWebTokens</name>
-          <display>Microsoft.IdentityModel.JsonWebTokens (7.5.0)</display>
           <isAbstract>false</isAbstract>
-          <value>7.5.0</value>
+          <value>7.7.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>bc5254a3-c49a-49fa-a5af-0d24bbe1f91d</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="3c2fcae4-26cf-4d2b-bd3c-bd1fda309bc3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d96f2c7e-bd84-4a9a-85a5-ad08599d6007" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.Protocols.OpenIdConnect</name>
-          <display>Microsoft.IdentityModel.Protocols.OpenIdConnect (7.5.0)</display>
           <isAbstract>false</isAbstract>
-          <value>7.5.0</value>
+          <value>7.7.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>bc5254a3-c49a-49fa-a5af-0d24bbe1f91d</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="061e65e3-6600-483f-af28-dc5d4cbd1553" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c137b417-2bfb-44b1-b4a2-2f5e2be756b4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.SqlServer.Server</name>
-          <display>Microsoft.SqlServer.Server (1.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>1.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>bc5254a3-c49a-49fa-a5af-0d24bbe1f91d</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="23ad3066-6393-40f4-aef9-86a40f410658" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="0dd5f5ce-3c1b-4485-abd5-df6be2f0294f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Configuration.ConfigurationManager</name>
-          <display>System.Configuration.ConfigurationManager (8.0.1)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>bc5254a3-c49a-49fa-a5af-0d24bbe1f91d</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="88e69af4-8570-41ba-840d-624b6dc95e95" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="976fcc11-d75a-4726-9cc1-f4f8ae242c5e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Security.Cryptography.Pkcs</name>
-          <display>System.Security.Cryptography.Pkcs (8.0.1)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>bc5254a3-c49a-49fa-a5af-0d24bbe1f91d</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="64327b03-3ef1-4097-8f47-a33b39c521f7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Text.Json</name>
+          <isAbstract>false</isAbstract>
+          <value>8.0.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>bc5254a3-c49a-49fa-a5af-0d24bbe1f91d</parentFolderId>
           <stereotypes />
           <metadata />
           <childElements />
@@ -797,7 +295,7 @@
       </childElements>
     </childElement>
     <childElement id="4808befb-6d09-4b36-a473-b4985217af7e" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>6.0.2</name>
+      <name>6.1.0</name>
       <display>6.0.2 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -819,128 +317,112 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="f175cb98-9723-40f5-9f2e-5d4941c26e0c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d49a8a01-0d5e-464b-815d-4cbc574aac5f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Identity</name>
-          <display>Azure.Identity (1.11.4)</display>
           <isAbstract>false</isAbstract>
-          <value>1.11.4</value>
+          <value>1.13.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4808befb-6d09-4b36-a473-b4985217af7e</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="eb4a7402-6f51-4ed7-ae99-fa3f6c4adf26" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="67b6210e-94f7-419d-8316-a6a0840b829a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Bcl.Cryptography</name>
-          <display>Microsoft.Bcl.Cryptography (9.0.4)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.4</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4808befb-6d09-4b36-a473-b4985217af7e</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="6c2aa65c-1ec8-4393-a36a-3957adf4d727" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="61427bfb-8914-475b-a9c6-5ef40cc52368" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Data.SqlClient.SNI.runtime</name>
-          <display>Microsoft.Data.SqlClient.SNI.runtime (6.0.2)</display>
           <isAbstract>false</isAbstract>
           <value>6.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4808befb-6d09-4b36-a473-b4985217af7e</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="2fb7cb41-6883-4091-ae3f-20856fcd652d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f5595a57-18fe-4ea9-af70-1c824b7025fa" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Caching.Memory</name>
-          <display>Microsoft.Extensions.Caching.Memory (9.0.4)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.4</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4808befb-6d09-4b36-a473-b4985217af7e</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d2b2f322-ff90-4aaa-a179-af09f5b3211c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="896732c9-645b-4804-9c20-dac008526369" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.JsonWebTokens</name>
-          <display>Microsoft.IdentityModel.JsonWebTokens (7.5.0)</display>
           <isAbstract>false</isAbstract>
-          <value>7.5.0</value>
+          <value>7.7.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4808befb-6d09-4b36-a473-b4985217af7e</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="0ae1ae50-fadd-45f7-aa35-9a4034658311" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6dd3ca04-bc92-4df3-b68b-f84435e4c748" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.Protocols.OpenIdConnect</name>
-          <display>Microsoft.IdentityModel.Protocols.OpenIdConnect (7.5.0)</display>
           <isAbstract>false</isAbstract>
-          <value>7.5.0</value>
+          <value>7.7.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4808befb-6d09-4b36-a473-b4985217af7e</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="05c571db-5ee8-4424-a68e-b36d0cd04ee8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b39638ee-18a6-4744-b9d8-64a82df1a311" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.SqlServer.Server</name>
-          <display>Microsoft.SqlServer.Server (1.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>1.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4808befb-6d09-4b36-a473-b4985217af7e</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="85a5b907-c7bc-4d9e-95d1-a19306c0504b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="afe9d6eb-148e-40be-9b38-12ea945beea9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Configuration.ConfigurationManager</name>
-          <display>System.Configuration.ConfigurationManager (9.0.4)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.4</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4808befb-6d09-4b36-a473-b4985217af7e</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="6ee542a7-3642-4a75-8d37-81aa13b36680" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d1616318-0c40-4f41-b237-1352bdb433f5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Security.Cryptography.Pkcs</name>
-          <display>System.Security.Cryptography.Pkcs (9.0.4)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.4</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4808befb-6d09-4b36-a473-b4985217af7e</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="cf8eabcb-fb04-4425-9a76-f6a16c3bece2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Text.Json</name>
+          <isAbstract>false</isAbstract>
+          <value>9.0.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>4808befb-6d09-4b36-a473-b4985217af7e</parentFolderId>
           <stereotypes />
           <metadata />
           <childElements />

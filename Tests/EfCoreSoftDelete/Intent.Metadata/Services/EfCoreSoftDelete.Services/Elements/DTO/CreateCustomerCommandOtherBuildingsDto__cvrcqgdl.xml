@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="15e3a5ab-0198-40dc-bee2-7fa9ee8cf981" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+  <name>CreateCustomerCommandOtherBuildingsDto</name>
+  <display>CreateCustomerCommandOtherBuildingsDto</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d28bdbf5-2f14-4574-918b-06f1cc0ec1f4</parentFolderId>
+  <packageId>a741f575-70c9-4466-aa95-ace1ade8595f</packageId>
+  <packageName>EfCoreSoftDelete.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="4839be3f-58a4-4f4f-98ac-4a28fcd9f720" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Name</name>
+      <display>Name: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="38d2b268-9c5c-4062-85bf-679b815909f0">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>15e3a5ab-0198-40dc-bee2-7fa9ee8cf981</parentFolderId>
+      <packageId>a741f575-70c9-4466-aa95-ace1ade8595f</packageId>
+      <packageName>EfCoreSoftDelete.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

@@ -1,4 +1,5 @@
-﻿using Intent.Modelers.Domain.Api;
+﻿using Intent.Metadata.Models;
+using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
@@ -38,7 +39,7 @@ public class EntityUpdateMappingTypeResolver : IMappingTypeResolver
             return new ValueObjectCollectionUpdateMapping(mappingModel, _sourceTemplate);
         }
 
-        if (model.TypeReference?.Element?.SpecializationType == "Value Object" && model.TypeReference.IsCollection  && (model.SpecializationType != "Operation" && model.SpecializationType != "Parameter"))
+        if ((model as IElement)?.ParentElement.SpecializationType != "Value Object" && model.TypeReference?.Element?.SpecializationType == "Value Object" && model.TypeReference.IsCollection  && (model.SpecializationType != "Operation" && model.SpecializationType != "Parameter"))
         {
             return new ValueObjectCollectionUpdateMapping(mappingModel, _sourceTemplate);
         }

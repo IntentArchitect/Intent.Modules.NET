@@ -204,6 +204,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>05552417-7cbd-4ca6-8c8d-991d6dc3acbe</ProjectId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Interfaces/ICurrentUser.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICurrentUser.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>05552417-7cbd-4ca6-8c8d-991d6dc3acbe</ProjectId>
       <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Interfaces/ICurrentUserService.cs</ApplicationRelativeFilePath>

@@ -21,22 +21,6 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="f0ef8fe4-8e3d-43d2-be2e-c1f35dab30a9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.Dtos.Pagination.PagedResultMappingExtensions</name>
-      <display>Intent.Application.Dtos.Pagination.PagedResultMappingExtensions</display>
-      <externalReference>Intent.Application.Dtos.Pagination</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>34fa2d69-59a8-4605-b326-d254a0630e6c</parentFolderId>
-      <packageId>35f90acd-253f-4eba-8251-a11921d97b47</packageId>
-      <packageName>Intent.Modules.NET.Tests</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="881dec80-553a-4749-9d28-1dfca54d9ecf" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Application.Dtos.Pagination.CursorPagedResult</name>
       <display>Intent.Application.Dtos.Pagination.CursorPagedResult</display>
@@ -45,6 +29,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>34fa2d69-59a8-4605-b326-d254a0630e6c</parentFolderId>
+      <packageId>35f90acd-253f-4eba-8251-a11921d97b47</packageId>
+      <packageName>Intent.Modules.NET.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -59,6 +45,24 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>34fa2d69-59a8-4605-b326-d254a0630e6c</parentFolderId>
+      <packageId>35f90acd-253f-4eba-8251-a11921d97b47</packageId>
+      <packageName>Intent.Modules.NET.Tests</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="f0ef8fe4-8e3d-43d2-be2e-c1f35dab30a9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Dtos.Pagination.PagedResultMappingExtensions</name>
+      <display>Intent.Application.Dtos.Pagination.PagedResultMappingExtensions</display>
+      <externalReference>Intent.Application.Dtos.Pagination</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>34fa2d69-59a8-4605-b326-d254a0630e6c</parentFolderId>
+      <packageId>35f90acd-253f-4eba-8251-a11921d97b47</packageId>
+      <packageName>Intent.Modules.NET.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

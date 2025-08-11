@@ -194,6 +194,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>bac57042-e14d-47c3-97ab-af153539a5ff</ProjectId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.DomainEntityInterfaces.Application/Common/Interfaces/ICurrentUser.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICurrentUser.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bac57042-e14d-47c3-97ab-af153539a5ff</ProjectId>
       <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Dapr.DomainEntityInterfaces.Application/Common/Interfaces/ICurrentUserService.cs</ApplicationRelativeFilePath>

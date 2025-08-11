@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="381e371b-ad12-41c6-be27-5e1a79aac1ed">
+  <sourceEnd id="8f147bfc-28b3-4fb0-a742-dd9d05e3d8f1" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Departments</name>
+    <display>Departments: Department[*]</display>
+    <order>0</order>
+    <typeReference id="2e361c08-cf7a-44e6-a3b2-f3e2692a16b2">
+      <typeId>6544e553-60ea-4421-af32-6d4d5b900954</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>DynamoDbTests.Domain</typePackageName>
+      <typePackageId>0c0abbad-5585-497e-9c17-ab8f06a14cc0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="381e371b-ad12-41c6-be27-5e1a79aac1ed" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>University</name>
+    <display>University: University?</display>
+    <order>3</order>
+    <typeReference id="9e5362a7-cfe1-4118-8fd1-6f51afa764f7">
+      <typeId>c49cdb05-8aaa-4f64-bf79-8fbe837ca26a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>DynamoDbTests.Domain</typePackageName>
+      <typePackageId>0c0abbad-5585-497e-9c17-ab8f06a14cc0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

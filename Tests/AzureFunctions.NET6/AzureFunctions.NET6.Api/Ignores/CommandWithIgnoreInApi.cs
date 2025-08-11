@@ -37,7 +37,9 @@ namespace AzureFunctions.NET6.Api.Ignores
         [FunctionName("Ignores_CommandWithIgnoreInApi")]
         [OpenApiOperation("CommandWithIgnoreInApi", tags: new[] { "Ignores" }, Description = "Command with ignore in api")]
         [OpenApiIgnoreAttribute]
+        [OpenApiResponseWithoutBody(statusCode: HttpStatusCode.NoContent)]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]
+        [OpenApiResponseWithBody(statusCode: HttpStatusCode.NotFound, contentType: "application/json", bodyType: typeof(object))]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "put", Route = "ignores/command-with-ignore-in-api")] HttpRequest req,
             CancellationToken cancellationToken)

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="16c55126-09e4-4383-ab5a-8db528d70858">
+  <sourceEnd id="d0377762-3e79-4fc7-b976-6288a6f277e6" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Root</name>
+    <display>Root: Root</display>
+    <order>0</order>
+    <typeReference id="655ae816-3ae0-448a-8616-b76302b58824">
+      <typeId>6d1fd174-f1e6-4c8b-8e0f-a520c6d46eee</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="16c55126-09e4-4383-ab5a-8db528d70858" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Level1s</name>
+    <display>Level1s: Level1[*]</display>
+    <order>1</order>
+    <typeReference id="2f90d004-a26f-4ba5-ae64-171194364be2">
+      <typeId>2ff60246-ff21-40ae-a6df-f677f4024f4c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

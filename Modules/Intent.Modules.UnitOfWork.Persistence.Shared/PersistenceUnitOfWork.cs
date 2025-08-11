@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Intent.Engine;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -21,15 +20,17 @@ internal static class PersistenceUnitOfWork
         return
             template.GetTemplate<ICSharpTemplate>(TemplateRoles.Infrastructure.Data.DbContext, TemplateDiscoveryOptions) != null ||
             template.TryGetTemplate<ICSharpTemplate>(TemplateIds.CosmosDBUnitOfWorkInterface, out _) ||
+            template.TryGetTemplate<ICSharpTemplate>(TemplateIds.DynamoDBUnitOfWorkInterface, out _) ||
             template.TryGetTemplate<ICSharpTemplate>(TemplateIds.DaprStateStoreUnitOfWorkInterface, out _) ||
             template.TryGetTemplate<ICSharpTemplate>(TemplateIds.MongoDbUnitOfWorkInterface, out _) ||
             template.TryGetTemplate<ICSharpTemplate>(TemplateIds.RedisOmUnitOfWorkInterface, out _) ||
             template.TryGetTemplate<ICSharpTemplate>(TemplateIds.TableStorageUnitOfWorkInterface, out _) ||
             template.TryGetTemplate<ICSharpTemplate>(TemplateIds.DistributedCacheWithUnitOfWorkInterface, out _);
     }
-    
+
     internal const string ChainEntityFramework = "ef";
     internal const string ChainCosmosDb = "cosmosdb";
+    internal const string ChainDynamoDb = "dynamodb";
     internal const string ChainMongoDb = "mongodb";
     internal const string ChainDapr = "dapr";
     internal const string ChainRedisOm = "redisom";
@@ -60,6 +61,7 @@ internal static class PersistenceUnitOfWork
 
         // Auto-detect and add providers to chain
         AddCosmosDbToChain(template, constructor, config, chainOfResponsibilities);
+        AddDynamoDbToChain(template, constructor, config, chainOfResponsibilities);
         AddDaprStateStoreToChain(template, constructor, config, chainOfResponsibilities);
         AddMongoDbToChain(template, constructor, config, chainOfResponsibilities);
         AddTableStorageToChain(template, constructor, config, chainOfResponsibilities);
@@ -109,7 +111,7 @@ internal static class PersistenceUnitOfWork
                 {
                     return;
                 }
-                
+
                 var efVariable = fieldSuffix;
                 var cosmosVariable = $"cosmosDB{fieldSuffix.ToPascalCase()}";
                 var daprVariable = $"daprStateStore{fieldSuffix.ToPascalCase()}";
@@ -127,9 +129,9 @@ internal static class PersistenceUnitOfWork
     }
 
     private static void AddCosmosDbToChain(
-        ICSharpFileBuilderTemplate template, 
-        CSharpConstructor constructor, 
-        UnitOfWorkConfiguration config, 
+        ICSharpFileBuilderTemplate template,
+        CSharpConstructor constructor,
+        UnitOfWorkConfiguration config,
         Stack<ChainOfResponsibility> chainOfResponsibilities)
     {
         if (!template.TryGetTemplate<ICSharpTemplate>(TemplateIds.CosmosDBUnitOfWorkInterface, out _))
@@ -156,24 +158,70 @@ internal static class PersistenceUnitOfWork
         chainOfResponsibilities.Push((blockStack, next) =>
         {
             var currentBlock = blockStack.Peek();
-            
+
             if (shouldAddServiceResolution)
             {
                 var typeName = template.GetTypeName(TemplateIds.CosmosDBUnitOfWorkInterface);
                 currentBlock.AddStatement($"var {variableName} = {config.ServiceProviderVariableName}.GetRequiredService<{typeName}>();");
             }
-            
+
             next(blockStack);
-            
+
             var fieldOrVariable = shouldAddServiceResolution ? variableName : $"_{variableName}";
-            currentBlock.AddStatement($"await {fieldOrVariable}.SaveChangesAsync({config.CancellationTokenExpression});", SeparatedFromPrevious);
+            currentBlock.AddStatement<IHasCSharpStatements, CSharpStatement>($"await {fieldOrVariable}.SaveChangesAsync({config.CancellationTokenExpression});", SeparatedFromPrevious);
+        });
+    }
+
+    private static void AddDynamoDbToChain(
+        ICSharpFileBuilderTemplate template,
+        CSharpConstructor constructor,
+        UnitOfWorkConfiguration config,
+        Stack<ChainOfResponsibility> chainOfResponsibilities)
+    {
+        if (!template.TryGetTemplate<ICSharpTemplate>(TemplateIds.DynamoDBUnitOfWorkInterface, out _))
+        {
+            return;
+        }
+
+        var shouldAddServiceResolution = false;
+        var variableName = config.VariableOverrides.GetValueOrDefault(ChainDynamoDb, "dynamoDBUnitOfWork");
+
+        if (config.ResolutionStrategy == UnitOfWorkResolutionStrategy.ServiceProvider)
+        {
+            shouldAddServiceResolution = true;
+        }
+        else if (constructor.Parameters.All(p => p.Type != template.GetTypeName(TemplateIds.DynamoDBUnitOfWorkInterface)))
+        {
+            constructor.AddParameter(
+                type: template.GetTypeName(TemplateIds.DynamoDBUnitOfWorkInterface),
+                name: variableName,
+                configure: param => param.IntroduceReadonlyField((_, statement) =>
+                {
+                    statement.ThrowArgumentNullException();
+                }));
+        }
+
+        chainOfResponsibilities.Push((blockStack, next) =>
+        {
+            var currentBlock = blockStack.Peek();
+
+            if (shouldAddServiceResolution)
+            {
+                var typeName = template.GetTypeName(TemplateIds.DynamoDBUnitOfWorkInterface);
+                currentBlock.AddStatement($"var {variableName} = {config.ServiceProviderVariableName}.GetRequiredService<{typeName}>();");
+            }
+
+            next(blockStack);
+
+            var fieldOrVariable = shouldAddServiceResolution ? variableName : $"_{variableName}";
+            currentBlock.AddStatement<IHasCSharpStatements, CSharpStatement>($"await {fieldOrVariable}.SaveChangesAsync({config.CancellationTokenExpression});", SeparatedFromPrevious);
         });
     }
 
     private static void AddDaprStateStoreToChain(
-        ICSharpFileBuilderTemplate template, 
-        CSharpConstructor constructor, 
-        UnitOfWorkConfiguration config, 
+        ICSharpFileBuilderTemplate template,
+        CSharpConstructor constructor,
+        UnitOfWorkConfiguration config,
         Stack<ChainOfResponsibility> chainOfResponsibilities)
     {
         if (!template.TryGetTemplate<ICSharpTemplate>(TemplateIds.DaprStateStoreUnitOfWorkInterface, out _))
@@ -200,24 +248,24 @@ internal static class PersistenceUnitOfWork
         chainOfResponsibilities.Push((blockStack, next) =>
         {
             var currentBlock = blockStack.Peek();
-            
+
             if (shouldAddServiceResolution)
             {
                 var typeName = template.GetTypeName(TemplateIds.DaprStateStoreUnitOfWorkInterface);
                 currentBlock.AddStatement($"var {variableName} = {config.ServiceProviderVariableName}.GetRequiredService<{typeName}>();");
             }
-            
+
             next(blockStack);
-            
+
             var fieldOrVariable = shouldAddServiceResolution ? variableName : $"_{variableName}";
-            currentBlock.AddStatement($"await {fieldOrVariable}.SaveChangesAsync({config.CancellationTokenExpression});", SeparatedFromPrevious);
+            currentBlock.AddStatement<IHasCSharpStatements, CSharpStatement>($"await {fieldOrVariable}.SaveChangesAsync({config.CancellationTokenExpression});", SeparatedFromPrevious);
         });
     }
 
     private static void AddMongoDbToChain(
-        ICSharpFileBuilderTemplate template, 
-        CSharpConstructor constructor, 
-        UnitOfWorkConfiguration config, 
+        ICSharpFileBuilderTemplate template,
+        CSharpConstructor constructor,
+        UnitOfWorkConfiguration config,
         Stack<ChainOfResponsibility> chainOfResponsibilities)
     {
         if (!template.TryGetTemplate<ICSharpTemplate>(TemplateIds.MongoDbUnitOfWorkInterface, out _))
@@ -225,7 +273,7 @@ internal static class PersistenceUnitOfWork
 
         var shouldAddServiceResolution = false;
         var variableName = config.VariableOverrides.GetValueOrDefault(ChainMongoDb, "mongoDbUnitOfWork");
-        
+
         if (config.ResolutionStrategy == UnitOfWorkResolutionStrategy.ServiceProvider)
         {
             shouldAddServiceResolution = true;
@@ -244,24 +292,24 @@ internal static class PersistenceUnitOfWork
         chainOfResponsibilities.Push((blockStack, next) =>
         {
             var currentBlock = blockStack.Peek();
-            
+
             if (shouldAddServiceResolution)
             {
                 var typeName = template.GetTypeName(TemplateIds.MongoDbUnitOfWorkInterface);
                 currentBlock.AddStatement($"var {variableName} = {config.ServiceProviderVariableName}.GetRequiredService<{typeName}>();");
             }
-            
+
             next(blockStack);
-            
+
             var fieldOrVariable = shouldAddServiceResolution ? variableName : $"_{variableName}";
-            currentBlock.AddStatement($"await {fieldOrVariable}.SaveChangesAsync({config.CancellationTokenExpression});", SeparatedFromPrevious);
+            currentBlock.AddStatement<IHasCSharpStatements, CSharpStatement>($"await {fieldOrVariable}.SaveChangesAsync({config.CancellationTokenExpression});", SeparatedFromPrevious);
         });
     }
 
     private static void AddTableStorageToChain(
-        ICSharpFileBuilderTemplate template, 
-        CSharpConstructor constructor, 
-        UnitOfWorkConfiguration config, 
+        ICSharpFileBuilderTemplate template,
+        CSharpConstructor constructor,
+        UnitOfWorkConfiguration config,
         Stack<ChainOfResponsibility> chainOfResponsibilities)
     {
         if (!template.TryGetTemplate<ICSharpTemplate>(TemplateIds.TableStorageUnitOfWorkInterface, out _))
@@ -269,7 +317,7 @@ internal static class PersistenceUnitOfWork
 
         var shouldAddServiceResolution = false;
         var variableName = config.VariableOverrides.GetValueOrDefault(ChainTableStorage, "tableStorageUnitOfWork");
-        
+
         if (config.ResolutionStrategy == UnitOfWorkResolutionStrategy.ServiceProvider)
         {
             shouldAddServiceResolution = true;
@@ -285,24 +333,24 @@ internal static class PersistenceUnitOfWork
         chainOfResponsibilities.Push((blockStack, next) =>
         {
             var currentBlock = blockStack.Peek();
-            
+
             if (shouldAddServiceResolution)
             {
                 var typeName = template.GetTypeName(TemplateIds.TableStorageUnitOfWorkInterface);
                 currentBlock.AddStatement($"var {variableName} = {config.ServiceProviderVariableName}.GetRequiredService<{typeName}>();");
             }
-            
+
             next(blockStack);
-            
+
             var fieldOrVariable = shouldAddServiceResolution ? variableName : $"_{variableName}";
-            currentBlock.AddStatement($"await {fieldOrVariable}.SaveChangesAsync({config.CancellationTokenExpression});", SeparatedFromPrevious);
+            currentBlock.AddStatement<IHasCSharpStatements, CSharpStatement>($"await {fieldOrVariable}.SaveChangesAsync({config.CancellationTokenExpression});", SeparatedFromPrevious);
         });
     }
 
     private static void AddRedisOmToChain(
-        ICSharpFileBuilderTemplate template, 
-        CSharpConstructor constructor, 
-        UnitOfWorkConfiguration config, 
+        ICSharpFileBuilderTemplate template,
+        CSharpConstructor constructor,
+        UnitOfWorkConfiguration config,
         Stack<ChainOfResponsibility> chainOfResponsibilities)
     {
         if (!template.TryGetTemplate<ICSharpTemplate>(TemplateIds.RedisOmUnitOfWorkInterface, out _))
@@ -310,7 +358,7 @@ internal static class PersistenceUnitOfWork
 
         var shouldAddServiceResolution = false;
         var variableName = config.VariableOverrides.GetValueOrDefault(ChainRedisOm, "redisOmUnitOfWork");
-        
+
         if (config.ResolutionStrategy == UnitOfWorkResolutionStrategy.ServiceProvider)
         {
             shouldAddServiceResolution = true;
@@ -326,24 +374,24 @@ internal static class PersistenceUnitOfWork
         chainOfResponsibilities.Push((blockStack, next) =>
         {
             var currentBlock = blockStack.Peek();
-            
+
             if (shouldAddServiceResolution)
             {
                 var typeName = template.GetTypeName(TemplateIds.RedisOmUnitOfWorkInterface);
                 currentBlock.AddStatement($"var {variableName} = {config.ServiceProviderVariableName}.GetRequiredService<{typeName}>();");
             }
-            
+
             next(blockStack);
-            
+
             var fieldOrVariable = shouldAddServiceResolution ? variableName : $"_{variableName}";
-            currentBlock.AddStatement($"await {fieldOrVariable}.SaveChangesAsync({config.CancellationTokenExpression});", SeparatedFromPrevious);
+            currentBlock.AddStatement<IHasCSharpStatements, CSharpStatement>($"await {fieldOrVariable}.SaveChangesAsync({config.CancellationTokenExpression});", SeparatedFromPrevious);
         });
     }
 
     private static void AddDistributedCacheToChain(
-        ICSharpFileBuilderTemplate template, 
-        CSharpConstructor constructor, 
-        UnitOfWorkConfiguration config, 
+        ICSharpFileBuilderTemplate template,
+        CSharpConstructor constructor,
+        UnitOfWorkConfiguration config,
         Stack<ChainOfResponsibility> chainOfResponsibilities)
     {
         if (!template.TryGetTemplate<ICSharpTemplate>(TemplateIds.DistributedCacheWithUnitOfWorkInterface, out _))
@@ -351,7 +399,7 @@ internal static class PersistenceUnitOfWork
 
         var shouldAddServiceResolution = false;
         var variableName = config.VariableOverrides.GetValueOrDefault(ChainDistributedCache, "distributedCacheWithUnitOfWork");
-        
+
         if (config.ResolutionStrategy == UnitOfWorkResolutionStrategy.ServiceProvider)
         {
             shouldAddServiceResolution = true;
@@ -379,15 +427,15 @@ internal static class PersistenceUnitOfWork
             {
                 blockStack.Push(@using);
                 next(blockStack);
-                @using.AddStatement($"await {fieldOrVariable}.SaveChangesAsync({config.CancellationTokenExpression});", SeparatedFromPrevious);
+                @using.AddStatement<IHasCSharpStatements, CSharpStatement>($"await {fieldOrVariable}.SaveChangesAsync({config.CancellationTokenExpression});", SeparatedFromPrevious);
             });
         });
     }
 
     private static void AddEntityFrameworkToChain(
-        ICSharpFileBuilderTemplate template, 
-        CSharpConstructor constructor, 
-        UnitOfWorkConfiguration config, 
+        ICSharpFileBuilderTemplate template,
+        CSharpConstructor constructor,
+        UnitOfWorkConfiguration config,
         Stack<ChainOfResponsibility> chainOfResponsibilities)
     {
         if (template.GetTemplate<ICSharpTemplate>(TemplateRoles.Infrastructure.Data.DbContext, TemplateDiscoveryOptions) == null)
@@ -399,7 +447,7 @@ internal static class PersistenceUnitOfWork
         var variableName = config.VariableOverrides.GetValueOrDefault(ChainEntityFramework, "unitOfWork");
 
         var typeName = ResolveEntityFrameworkTypeName(template);
-        
+
         if (config.ResolutionStrategy == UnitOfWorkResolutionStrategy.ServiceProvider)
         {
             shouldAddServiceResolution = true;
@@ -417,16 +465,15 @@ internal static class PersistenceUnitOfWork
         chainOfResponsibilities.Push((blockStack, next) =>
         {
             var currentBlock = blockStack.Peek();
-            
+
             if (shouldAddServiceResolution)
             {
                 currentBlock.AddStatement($"var {variableName} = {config.ServiceProviderVariableName}.GetRequiredService<{typeName}>();");
             }
 
-            var doingTransacion = config.AllowTransactionScope && supportsAmbientTransactions;
+            var doingTransaction = config.AllowTransactionScope && supportsAmbientTransactions;
 
-
-            if (doingTransacion && config.IncludeComments)
+            if (doingTransaction && config.IncludeComments)
             {
                 currentBlock.AddStatement(
                     """
@@ -440,7 +487,7 @@ internal static class PersistenceUnitOfWork
                     stmt => stmt.SeparatedFromPrevious());
             }
 
-            if (doingTransacion)
+            if (doingTransaction)
             {
                 var transactionScope = template.UseType("System.Transactions.TransactionScope");
                 var transactionScopeOption = template.UseType("System.Transactions.TransactionScopeOption");
@@ -461,7 +508,7 @@ internal static class PersistenceUnitOfWork
 
             next(blockStack);
 
-            if (doingTransacion && config.IncludeComments)
+            if (doingTransaction && config.IncludeComments)
             {
                 currentBlock.AddStatement(
                     """
@@ -477,12 +524,13 @@ internal static class PersistenceUnitOfWork
                 $"await {fieldOrVariable}.SaveChangesAsync({config.CancellationTokenExpression});",
                 s => s.AddMetadata("transaction", "save-changes"));
 
-            if (doingTransacion && config.IncludeComments)
+            if (doingTransaction && config.IncludeComments)
             {
-                currentBlock.AddStatement("// Commit transaction if everything succeeds, transaction will auto-rollback when", stmt=>stmt.SeparatedFromPrevious());
+                currentBlock.AddStatement("// Commit transaction if everything succeeds, transaction will auto-rollback when", stmt => stmt.SeparatedFromPrevious());
                 currentBlock.AddStatement("// disposed if anything failed.");
             }
-            if (doingTransacion)
+
+            if (doingTransaction)
             {
                 currentBlock.AddStatement("transaction.Complete();", s => s.AddMetadata("transaction", "complete"));
             }
@@ -493,16 +541,13 @@ internal static class PersistenceUnitOfWork
     {
         var databaseSettingGroup = template.ExecutionContext.GetSettings().GetGroup("ac0a788e-d8b3-4eea-b56d-538608f1ded9"); // Database Settings
 
-        if (databaseSettingGroup is null)
-        {
-            return true;
-        }
-        var provider = databaseSettingGroup.GetSetting("00bb780c-57bf-43c1-b952-303f11096be7")?.Value;// Database Provider
+        var provider = databaseSettingGroup?.GetSetting("00bb780c-57bf-43c1-b952-303f11096be7")?.Value; // Database Provider
         if (provider is null)
         {
             return true;
         }
-        return  provider != "sql-lite";
+
+        return provider != "sql-lite";
     }
 
     private static void SeparatedFromPrevious(CSharpStatement statement)
