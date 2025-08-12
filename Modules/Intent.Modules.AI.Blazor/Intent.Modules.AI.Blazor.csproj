@@ -1,8 +1,36 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Samples\MudBlazor\Add.razor.cs" />
+    <Compile Remove="Samples\MudBlazor\Edit.razor.cs" />
+    <Compile Remove="Samples\MudBlazor\SearchScreenExample.razor.cs" />
+    <Compile Remove="Samples\MudBlazor\View.razor.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Samples\MudBlazor\Add.razor" />
+    <None Remove="Samples\MudBlazor\Edit.razor" />
+    <None Remove="Samples\MudBlazor\SearchScreenExample.razor" />
+    <None Remove="Samples\MudBlazor\View.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Samples\MudBlazor\Add.razor" />
+    <EmbeddedResource Include="Samples\MudBlazor\Add.razor.cs" />
+    <EmbeddedResource Include="Samples\MudBlazor\Edit.razor" />
+    <EmbeddedResource Include="Samples\MudBlazor\Edit.razor.cs" />
+    <EmbeddedResource Include="Samples\MudBlazor\SearchScreenExample.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Samples\MudBlazor\SearchScreenExample.razor.cs" />
+    <EmbeddedResource Include="Samples\MudBlazor\View.razor" />
+    <EmbeddedResource Include="Samples\MudBlazor\View.razor.cs" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.7.3" />
@@ -16,6 +44,10 @@
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.7" />
     <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.9.0-alpha.5" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Intent.Modules.AI.Blazor.Samples.MudBlazor\**\*.*" />
   </ItemGroup>
 
 </Project>

@@ -13,6 +13,8 @@ using Intent.Utils;
 using Microsoft.SemanticKernel;
 using Newtonsoft.Json;
 using Intent.Modules.AI.Blazor.Tasks.Helpers;
+using Intent.Modules.AI.Blazor.Samples;
+using System.Diagnostics;
 
 namespace Intent.Modules.AI.Prompts.Tasks;
 
@@ -73,11 +75,15 @@ public class GenerateBlazorWithAITask : IModuleTask
             return _fileProvider.GetFilesForMetadata(component);
         }).ToArray() ?? [];
 
-        var exampleJson = JsonConvert.SerializeObject(exampleFiles, Formatting.Indented);
-
         var applicationConfig = _solution.GetApplicationConfig(args[0]);
-        var environmentMetadata = GetEnvironmentMetadata(applicationConfig);
 
+        if (!exampleFiles.Any() && applicationConfig.Modules.Any(m => m.ModuleId == "Intent.Blazor.Components.MudBlazor"))
+        {
+            exampleFiles = MudBlazorSampleTemplates.LoadMudBlazorSamples().ToArray();
+        }
+
+        var environmentMetadata = GetEnvironmentMetadata(applicationConfig);
+        var exampleJson = JsonConvert.SerializeObject(exampleFiles, Formatting.Indented);
         var requestFunction = CreatePromptFunction(kernel);
         var fileChangesResult = requestFunction.InvokeFileChangesPrompt(kernel, new KernelArguments()
         {
@@ -153,6 +159,7 @@ public class GenerateBlazorWithAITask : IModuleTask
             * PRESERVE existing code in the `.razor.cs` file. You may add code, but you are not allowed to change the existing code (IMPORTANT) in the .`razor.cs` file!
             * ONLY IF YOU add any code directives in the `.razor.cs` file, MUST you add an `[IntentIgnore]` attribute to that directive.
             * NEVER ADD COMMENTS
+            * Don't display technical ids to end users like Guids
 
             ## Input Code Files
             {{$inputFilesJson}}
@@ -216,6 +223,7 @@ public class GenerateBlazorWithAITask : IModuleTask
                 inputFiles.AddRange(filesProvider.GetFilesForMetadata(associationEnd.TypeReference.Element));
             }
         }
+        inputFiles.AddRange(_fileProvider.GetFilesForTemplate("Intent.Application.Dtos.Pagination.PagedResult"));
 
         //inputFiles.AddRange(filesProvider.GetFilesForTemplate("Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface"));
         //inputFiles.AddRange(filesProvider.GetFilesForTemplate("Intent.EntityFrameworkCore.Repositories.RepositoryBase"));

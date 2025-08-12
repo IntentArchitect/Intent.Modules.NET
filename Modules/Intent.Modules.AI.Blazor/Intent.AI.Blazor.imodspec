@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AI.Blazor</id>
-  <version>1.0.0-beta.7</version>
+  <version>1.0.0-beta.9</version>
   <supportedClientVersions>[4.5.0-a,5.0.0)</supportedClientVersions>
   <summary>AI support for auto-implementing unit tests based on existing application service implementations.</summary>
   <description>AI support for auto-implementing unit tests based on existing application service implementations.</description>
@@ -12,6 +12,13 @@
   <decorators></decorators>
   <factoryExtensions></factoryExtensions>
   <moduleSettings></moduleSettings>
+  <interoperability>
+    <detect id="Intent.Blazor">
+      <install>
+        <package id="Intent.Blazor" version="1.0.1-pre.0" />
+      </install>
+    </detect>
+  </interoperability>
   <dependencies>
     <dependency id="Intent.Common" version="3.7.2" />
     <dependency id="Intent.Common.AI" version="1.0.0-beta.4" />
@@ -24,7 +31,6 @@
     <file src="$outDir$/$id$.dll" />
     <file src="$outDir$/$id$.pdb" />
   </files>
-  <tags />
   <moduleSettingsExtensions />
   <metadata>
     <install target="User Interface" src="modelers/AI Prompts.designer.settings" externalReference="f9e99bc0-f22e-4de6-bb26-1d211a947467" />

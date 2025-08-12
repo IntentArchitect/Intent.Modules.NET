@@ -1,0 +1,112 @@
+﻿<!-- Sample Search screen for Customers -->
+@page "/customers"
+@using BlazorServer.Sample.App.Application.Customers;
+<MudPaper Class="pa-4 mb-4 ux-gradient-primary" Elevation="0">
+    <MudText Typo="Typo.h4" Class="text-white font-weight-bold mb-2">
+        <MudIcon Icon="@Icons.Material.Filled.Person" Class="mr-2" />
+        Customers Management
+    </MudText>
+    <MudText Typo="Typo.body1" Class="text-white opacity-90">
+        View and manage your customer list.
+    </MudText>
+</MudPaper>
+
+<MudCard Class="ux-fade-in-up" Style="animation-delay: 0.1s">
+    <MudCardHeader>
+        <CardHeaderContent>
+            <MudText Typo="Typo.h5">Customers</MudText>
+        </CardHeaderContent>
+    </MudCardHeader>
+    <MudCardContent>
+        <MudGrid>
+            <MudItem xs="12" md="6">
+                <MudTextField @bind-Value="SearchText"
+                              Placeholder="Search by name"
+                              Label="Search"
+                              Adornment="Adornment.Start"
+                              AdornmentIcon="@Icons.Material.Filled.Search"
+                              Margin="Margin.Normal"
+                              Immediate="true"
+                              OnKeyDown="@(async e => { if(e.Key=="Enter" && _table!=null) await _table.ReloadServerData(); })"
+                              Class="mb-4" />
+            </MudItem>
+            <MudItem xs="12">
+                <MudButton Variant="Variant.Filled"
+                           StartIcon="@Icons.Material.Filled.Search"
+                           Color="Color.Primary"
+                           OnClick="@(async () =>
+                               {
+                                   if (_table != null)
+                                       await _table.ReloadServerData();
+                               })"
+                           Class="mb-4 ml-md-4">
+                    <MudText>Search</MudText>
+                </MudButton>
+                <MudButton Variant="Variant.Filled"
+                           StartIcon="@Icons.Material.Filled.Add"
+                           Color="Color.Secondary"
+                           OnClick="@AddCustomer"
+                           Class="mb-4 ml-md-4">
+                    <MudText>Add Customer</MudText>
+                </MudButton>
+            </MudItem>
+            <MudItem xs="12">
+                <MudTable T="CustomerSummaryDto"
+                          @ref="_table"
+                          ServerData="LoadServerData"
+                          Dense="true"
+                          Hover="true"
+                          Striped
+                          Elevation="2">
+                    <HeaderContent>
+                        <MudTh>
+                            <MudTableSortLabel T="CustomerSummaryDto" SortLabel="@nameof(CustomerSummaryDto.Name)">
+                                Name
+                            </MudTableSortLabel>
+                        </MudTh>
+                        <MudTh>
+                            <MudTableSortLabel T="CustomerSummaryDto" SortLabel="@nameof(CustomerSummaryDto.Surname)">
+                                Surname
+                            </MudTableSortLabel>
+                        </MudTh>
+                        <MudTh>
+                            <MudTableSortLabel T="CustomerSummaryDto" SortLabel="@nameof(CustomerSummaryDto.Email)">
+                                Email
+                            </MudTableSortLabel>
+                        </MudTh>
+                        <MudTh>Actions</MudTh>
+                    </HeaderContent>
+                    <RowTemplate>
+                        <MudTd DataLabel="Name">@context.Name</MudTd>
+                        <MudTd DataLabel="Surname">@context.Surname</MudTd>
+                        <MudTd DataLabel="Email">@context.Email</MudTd>
+                        <MudTd DataLabel="Actions">
+                            <MudTooltip Text="View Customer">
+                                <MudIconButton Icon="@Icons.Material.Filled.Visibility"
+                                               Color="Color.Info"
+                                               OnClick="@(() => ViewCustomer(context.Id))"
+                                               Title="View" />
+                            </MudTooltip>
+                            <MudTooltip Text="Edit Customer">
+                                <MudIconButton Icon="@Icons.Material.Filled.Edit"
+                                               Color="Color.Primary"
+                                               OnClick="@(() => EditCustomer(context.Id))"
+                                               Title="Edit" />
+                            </MudTooltip>
+                            <MudTooltip Text="Delete Customer">
+                                <MudIconButton Icon="@Icons.Material.Filled.Delete"
+                                               Color="Color.Error"
+                                               OnClick="@(() => OnDeleteCustomer(context.Id))"
+                                               Title="Delete" />
+                            </MudTooltip>
+                        </MudTd>
+                    </RowTemplate>
+                    <PagerContent>
+                        <MudTablePager PageSizeOptions="new int[] {10, 25, 50, 100}" />
+                    </PagerContent>
+                </MudTable>
+            </MudItem>
+        </MudGrid>
+    </MudCardContent>
+</MudCard>
+</MudCard>
