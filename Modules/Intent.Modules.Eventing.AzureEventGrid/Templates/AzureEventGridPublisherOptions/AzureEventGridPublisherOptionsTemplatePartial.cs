@@ -109,12 +109,6 @@ public partial class AzureEventGridPublisherOptionsTemplate : CSharpTemplateBase
         }
     }
 
-    public override bool CanRunTemplate()
-    {
-        var publishEvents = IntegrationManager.Instance.GetPublishedAzureEventGridMessages(ExecutionContext.GetApplicationConfig().Id);
-        return publishEvents.Any();
-    }
-
     [IntentManaged(Mode.Fully)]
     public CSharpFile CSharpFile { get; }
 

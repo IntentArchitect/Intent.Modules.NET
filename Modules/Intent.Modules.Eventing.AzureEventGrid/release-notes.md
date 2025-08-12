@@ -1,3 +1,7 @@
+### Version 1.2.2
+
+- Fixed: Removed requirement of published messages for `AzureEventGridPublisherOptions` to be generated.
+
 ### Version 1.2.1
 
 - Fixed: EventBus didn't clear the messages buffer after being flushed.
