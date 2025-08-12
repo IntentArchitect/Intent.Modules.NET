@@ -1,18 +1,19 @@
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
-using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates.StaticContent;
 using Intent.Registrations;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using System.Linq;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration", Version = "1.0")]
 
 namespace Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations
 {
+    [IntentMerge]
     public class MudBlazorTemplateThemeCSSStaticContentTemplateRegistration : StaticContentTemplateRegistration
     {
         public new const string TemplateId = "Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.MudBlazorTemplateThemeCSSStaticContentTemplateRegistration";

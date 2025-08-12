@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.RazorBuilder;
@@ -5,9 +8,6 @@ using Intent.Modules.Common.Plugins;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Utils;
-using System.Collections.Generic;
-using System.Linq;
-using System;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -49,7 +49,9 @@ namespace Intent.Modules.AI.Blazor.FactoryExtensions
 
     }
 
+
     //Should Add Blazor Dep for this if we want to do that.
+    [IntentIgnore]
     public static class RazorFileExtensions
     {
 
