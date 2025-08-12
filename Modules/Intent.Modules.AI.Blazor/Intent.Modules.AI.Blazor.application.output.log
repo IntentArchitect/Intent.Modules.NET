@@ -10,6 +10,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>6161ed7e-68be-4788-8bdf-9942f39626b5</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.StaticContentOutputReadme#338fdca3-cde3-47ec-9aa9-b164c8ff9cb9</CorrelationId>
+      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>content/MudBlazor/readme.txt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>content/MudBlazor/readme.txt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>878a1a1a-18cd-4b87-b2b9-0e1b165f94b2</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#80e2fd46-e30d-45df-bb96-9e169a84e3b0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/WireupCssExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>WireupCssExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6161ed7e-68be-4788-8bdf-9942f39626b5</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.AI.Blazor.imodspec</ApplicationRelativeFilePath>
@@ -38,6 +54,14 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>release-notes.md</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>release-notes.md</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a08c49a0-cdb2-4ff0-8d23-78132a261abc</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#338fdca3-cde3-47ec-9aa9-b164c8ff9cb9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/StaticContentTemplateRegistrations/MudBlazorTemplateThemeCSSStaticContentTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>StaticContentTemplateRegistrations/MudBlazorTemplateThemeCSSStaticContentTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>
