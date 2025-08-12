@@ -8,8 +8,11 @@
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
       <updatedAt>2025-08-12T14:10:54.8223413Z</updatedAt>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2025-08-12T16:32:11.761648Z</approvedAt>
       <deviationsHash>8AB814A19093A071B2CD86E50C62BDFEAEB4C92917E14168899DBC753BD8AAFB</deviationsHash>
-      <fileHash>1A0FD57B79528169EC21FAD987F79D09C85412D5A4633A938552BB5BB2618CC5</fileHash>
+      <fileHash>B8E098234E7E216BB0F5FE2457A4A59B954C4064D97DF55DFBB397E80151F9FA</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#b377226a-7824-4941-a648-cf7f14dbe267</correlationId>
