@@ -65,6 +65,8 @@ internal class CqrsInvocationHttpInteractionStrategy : IInteractionStrategy
                 var creationExpression = csharpMapping.GenerateCreationStatement(interaction.Mappings.First());
 
                 invocation.AddArgument(creationExpression);
+
+                csharpMapping.SetFromReplacement(interaction, interaction.Name.ToLocalVariableName());
             }
 
             if (methodToInvoke.IsAsync && method.IsAsync)
