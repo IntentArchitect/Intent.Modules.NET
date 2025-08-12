@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Entities.SoftDelete.Templates.SoftDeleteEFCoreInterceptor;
 using Intent.Modules.Entities.SoftDelete.Templates.SoftDeleteInterface;
 using Intent.RoslynWeaver.Attributes;
 
@@ -11,6 +12,10 @@ namespace Intent.Modules.Entities.SoftDelete.Templates
 {
     public static class TemplateExtensions
     {
+        public static string GetSoftDeleteEFCoreInterceptorName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(SoftDeleteEFCoreInterceptorTemplate.TemplateId);
+        }
         public static string GetSoftDeleteInterfaceName(this IIntentTemplate template)
         {
             return template.GetTypeName(SoftDeleteInterfaceTemplate.TemplateId);

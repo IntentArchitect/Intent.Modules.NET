@@ -1,4 +1,6 @@
+using System;
 using System.Linq;
+using System.Threading;
 using Intent.Engine;
 using Intent.Entities.SoftDelete.Api;
 using Intent.Modelers.Domain.Api;
@@ -33,8 +35,31 @@ namespace Intent.Modules.Entities.SoftDelete.FactoryExtensions
             }
 
             InstallSoftDeleteOnEntities(application);
-            InstallSoftDeleteOnDbContext(application);
+            // TODO: Delete all code related to the below once the new pattern passes tests.
+            //InstallSoftDeleteOnDbContext(application); // No longer necessary since we're now using the SoftDeleteInterceptor
+            InstallSoftDeleteInterceptor(application);
             InstallSoftDeleteOnEntityTypeConfiguration(application);
+        }
+
+        private static void InstallSoftDeleteInterceptor(IApplication application)
+        {
+            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateRoles.Infrastructure.DependencyInjection);
+            if (template == null)
+            {
+                return;
+            }
+
+            template.CSharpFile.OnBuild(file =>
+            {
+                var method = file.Classes.First().FindMethod("AddInfrastructure");
+                var addDbContext = method?.FindStatement(s => s.Text.StartsWith("services.AddDbContext")) as IHasCSharpStatements;
+                if (addDbContext == null)
+                {
+                    return;
+                }
+                addDbContext.AddStatement($"options.AddInterceptors(sp.GetService<{template.GetSoftDeleteEFCoreInterceptorName()}>()!);");
+                ((CSharpStatement)addDbContext).InsertAbove($"services.AddSingleton<{template.GetSoftDeleteEFCoreInterceptorName()}>();");
+            }, 10);
         }
 
         private static void InstallSoftDeleteOnEntities(IApplication application)
