@@ -44,7 +44,7 @@ namespace Intent.Modules.AzureFunctions.Templates.Isolated.GlobalExceptionMiddle
                         .AddCatchBlock($"{GetTypeName("Intent.Entities.NotFoundException")}", "nf", @catch => @catch.AddStatement("await WriteJsonError(context, HttpStatusCode.NotFound, nf.Message);"))
                         .AddCatchBlock("JsonException", "je", @catch => @catch.AddStatement("await WriteJsonError(context, HttpStatusCode.BadRequest, je.Message);"))
                         .AddCatchBlock("FormatException", "fe", @catch => @catch.AddStatement("await WriteJsonError(context, HttpStatusCode.BadRequest, fe.Message);"))
-                        .AddCatchBlock("Exception", "ex", @catch => @catch.AddStatement("await WriteJsonError(context, HttpStatusCode.InternalServerError, \"Internal server error!!!!\");"));
+                        .AddCatchBlock("Exception", "ex", @catch => @catch.AddStatement("await WriteJsonError(context, HttpStatusCode.InternalServerError, ex.Message);"));
                     });
 
                     @class.AddMethod("Task", "WriteJsonError", writeJsonError =>

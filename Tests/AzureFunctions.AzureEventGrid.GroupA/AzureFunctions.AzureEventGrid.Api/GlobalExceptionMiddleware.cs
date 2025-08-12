@@ -40,7 +40,7 @@ namespace AzureFunctions.AzureEventGrid.Api
             }
             catch (Exception ex)
             {
-                await WriteJsonError(context, HttpStatusCode.InternalServerError, "Internal server error!!!!");
+                await WriteJsonError(context, HttpStatusCode.InternalServerError, ex.Message);
             }
         }
 
