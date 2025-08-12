@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.DependencyInjection.MediatR</id>
-  <version>3.5.17</version>
+  <version>3.6.0-pre.0</version>
   <supportedClientVersions>[4.0.3-pre.6, 5.0.0-a)</supportedClientVersions>
   <releaseNotes>release-notes.md</releaseNotes>
   <summary>Dependency Injection for MediatR.</summary>
@@ -12,15 +12,15 @@
   <projectUrl>https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Application.DependencyInjection.MediatR/README.md</projectUrl>
   <templates></templates>
   <dependencies>
-    <dependency id="Intent.Application.DependencyInjection" version="3.3.4" />
+    <dependency id="Intent.Application.DependencyInjection" version="4.1.8" />
     <dependency id="Intent.Common" version="3.6.0" />
-    <dependency id="Intent.Common.CSharp" version="3.8.0" />
+    <dependency id="Intent.Common.CSharp" version="3.9.4-pre.0" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
   </dependencies>
   <interoperability>
     <detect id="Intent.Application.MediatR">
       <install>
-        <package id="Intent.Application.MediatR" version="4.2.3" />
+        <package id="Intent.Application.MediatR" version="4.5.0-pre.0" />
       </install>
     </detect>
   </interoperability>
@@ -30,7 +30,16 @@
   </files>
   <decorators />
   <metadata />
-  <moduleSettings />
+  <moduleSettings>
+    <group id="ee01965a-8208-4fa2-b38e-2a3c95b5b67f" title="MediatR Settings" externalReference="ee01965a-8208-4fa2-b38e-2a3c95b5b67f">
+      <settings>
+        <setting id="9a60a38a-fd0d-4272-bd0a-42559e5c065f" title="Use Pre-Commercial Version" type="switch">
+          <hint>Lock to pre-commercial [licensing terms NuGet version](https://www.jimmybogard.com/automapper-and-mediatr-commercial-editions-launch-today).</hint>
+          <defaultValue>true</defaultValue>
+        </setting>
+      </settings>
+    </group>
+  </moduleSettings>
   <moduleSettingsExtensions />
   <factoryExtensions>
     <factoryExtension id="Intent.Application.DependencyInjection.MediatR.DependencyInjectionFactoryExtension" externalReference="dc90cc72-2170-4cc5-b685-43317caacfd6" />

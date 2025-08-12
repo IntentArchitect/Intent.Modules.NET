@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading;
 using Intent.Engine;
 using Intent.Eventing;
+using Intent.Modules.Application.DependencyInjection.MediatR.Settings;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
@@ -65,7 +66,11 @@ namespace Intent.Modules.Application.DependencyInjection.MediatR.FactoryExtentio
             {
                 return;
             }
+            
+            // It would be important to remove the existing MediatR package if it exists so that the correct version is installed.
+            template.ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.MediatRPackageName, template.OutputTarget));
             template.AddNugetDependency(NugetPackages.MediatR(template.OutputTarget));
+            
             application.EventDispatcher.Publish(new RemoveNugetPackageEvent("MediatR.Extensions.Microsoft.DependencyInjection", template.OutputTarget));
 
             template.CSharpFile.AfterBuild(file =>
@@ -77,9 +82,9 @@ namespace Intent.Modules.Application.DependencyInjection.MediatR.FactoryExtentio
                 method.AddInvocationStatement("services.AddMediatR", invocation =>
                 {
                     invocation.AddMetadata("mediatr-config", true);
-                    invocation.AddArgument(new CSharpLambdaBlock("cfg"), a =>
+                    invocation.AddArgument(new CSharpLambdaBlock("cfg"), arg =>
                     {
-                        var options = (CSharpLambdaBlock)a;
+                        var options = (CSharpLambdaBlock)arg;
                         options.AddStatement("cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());");
 
                         foreach (var registration in _containerRegistrationRequests.OrderBy(x => x.Priority))
@@ -100,6 +105,13 @@ namespace Intent.Modules.Application.DependencyInjection.MediatR.FactoryExtentio
                                 template.AddUsing(ns);
                             }
                             options.AddStatement($"cfg.AddOpenBehavior({UseTypeOf(template, registration.ConcreteType)});");
+                        }
+
+                        if (!application.Settings.GetMediatRSettings().UsePreCommercialVersion())
+                        {
+                            (template as IntentTemplateBase)?.ApplyAppSetting("MediatR:LicenseKey", "<License key here>");
+
+                            options.AddStatement(@"cfg.LicenseKey = configuration[""MediatR:LicenseKey""] ?? string.Empty;");
                         }
                     });
                 });

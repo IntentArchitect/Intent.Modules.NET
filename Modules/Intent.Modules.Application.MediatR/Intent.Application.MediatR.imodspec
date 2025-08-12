@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.MediatR</id>
-  <version>4.4.2</version>
+  <version>4.5.0-pre.0</version>
   <supportedClientVersions>[4.5.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Provides the MediatR middleware</summary>
   <description>Provides the MediatR middleware</description>
@@ -61,6 +61,8 @@
     </template>
   </templates>
   <dependencies>
+    <dependency id="Intent.Application.DependencyInjection" version="4.1.8" />
+    <dependency id="Intent.Application.DependencyInjection.MediatR" version="3.6.0-pre.0" />
     <dependency id="Intent.Common" version="3.8.0" />
     <dependency id="Intent.Common.CSharp" version="3.9.0" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
@@ -75,12 +77,6 @@
     <detect id="Intent.AzureFunctions">
       <install>
         <package id="Intent.AzureFunctions.Dispatch.MediatR" version="2.0.0" />
-        <package id="Intent.Application.DependencyInjection.MediatR" version="3.5.12" />
-      </install>
-    </detect>
-    <detect id="Intent.AspNetCore">
-      <install>
-        <package id="Intent.Application.DependencyInjection.MediatR" version="3.5.12" />
       </install>
     </detect>
     <!-- Minimum Compatible Versions -->
@@ -89,24 +85,14 @@
         <package id="Intent.HotChocolate.GraphQL.Dispatch.MediatR" version="2.0.0" />
       </install>
     </detect>
-    <detect id="Intent.Application.DependencyInjection.MediatR">
-      <install>
-        <package id="Intent.Application.DependencyInjection.MediatR" version="3.5.12" />
-      </install>
-    </detect>
     <detect id="Intent.VisualStudio.Projects">
       <install>
         <package id="Intent.VisualStudio.Projects" version="3.6.2" />
       </install>
     </detect>
-    <detect id="Intent.Application.DependencyInjection">
-      <install>
-        <package id="Intent.Application.DependencyInjection" version="4.1.0" />
-      </install>
-    </detect>
     <detect id="Intent.Application.MediatR.Behaviours">
       <install>
-        <package id="Intent.Application.MediatR.Behaviours" version="4.3.0" />
+        <package id="Intent.Application.MediatR.Behaviours" version="4.5.0-pre.0" />
       </install>
     </detect>
     <detect id="Intent.Application.MediatR.CRUD">

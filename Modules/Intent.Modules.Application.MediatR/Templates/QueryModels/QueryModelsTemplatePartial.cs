@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Services.CQRS.Api;
+using Intent.Modules.Application.DependencyInjection.MediatR;
 using Intent.Modules.Application.MediatR.Settings;
 using Intent.Modules.Application.MediatR.Templates.QueryHandler;
 using Intent.Modules.Common;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="ea3bd1b2-96e2-4abc-ab43-5f232983595f" type="NuGet Package" typeId="f747cc37-29ee-488a-8dbe-755e856a842d">
   <name>MediatR</name>
-  <display>MediatR [locked]</display>
+  <display>MediatR</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
@@ -16,7 +16,7 @@
       <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
       <properties>
         <property name="4de9cc21-d4fb-4d52-8dfd-2eb6cf267a9a" display="Friendly Name" isActive="true" />
-        <property name="67c7c4d8-40ed-48f9-a83c-985eedb32141" display="Locked" value="true" isActive="true" />
+        <property name="67c7c4d8-40ed-48f9-a83c-985eedb32141" display="Locked" value="false" isActive="true" />
         <property name="c166c7cf-45e3-484b-9ec5-f7300951f897" display="Private Assets" isActive="true" />
         <property name="6bd6430c-8011-435e-bb73-6013477a875d" display="Include Assets" isActive="true" />
       </properties>
@@ -24,9 +24,9 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="5b422d5b-e00b-4621-b2f5-02485b98f5f9" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>12.5.0</name>
-      <display>12.5.0 ( &gt;= .NETCoreApp,Version=v6.0 ) [locked]</display>
+    <childElement id="5749f619-81a3-407e-b3b5-b4d61f44feae" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>13.0.0</name>
+      <display>13.0.0 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -40,35 +40,63 @@
           <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
           <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
           <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v6.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="true" isActive="true" />
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v9.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="f872eec2-93b2-4f23-a737-a72fc47b61b5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="3661eac4-6f5b-4911-856a-ed9b6499b0eb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>MediatR.Contracts</name>
           <display>MediatR.Contracts (2.0.1)</display>
           <isAbstract>false</isAbstract>
           <value>2.0.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>5b422d5b-e00b-4621-b2f5-02485b98f5f9</parentFolderId>
+          <parentFolderId>5749f619-81a3-407e-b3b5-b4d61f44feae</parentFolderId>
           <packageId>00e3615b-00c1-480e-ac73-2ee3715c95fc</packageId>
           <packageName>Intent.Application.DependencyInjection.MediatR</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="326397cd-9883-4075-9aa0-d330d7a85595" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="621b247b-209f-473f-be96-c53f04b29ea8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
           <display>Microsoft.Extensions.DependencyInjection.Abstractions (8.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>5b422d5b-e00b-4621-b2f5-02485b98f5f9</parentFolderId>
+          <parentFolderId>5749f619-81a3-407e-b3b5-b4d61f44feae</parentFolderId>
+          <packageId>00e3615b-00c1-480e-ac73-2ee3715c95fc</packageId>
+          <packageName>Intent.Application.DependencyInjection.MediatR</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="8322812d-2a92-4eb8-8eb1-2c1d92e12543" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging</name>
+          <display>Microsoft.Extensions.Logging (8.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>5749f619-81a3-407e-b3b5-b4d61f44feae</parentFolderId>
+          <packageId>00e3615b-00c1-480e-ac73-2ee3715c95fc</packageId>
+          <packageName>Intent.Application.DependencyInjection.MediatR</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="9e1397de-a096-4c16-8e3a-7da9c8a1ea01" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.IdentityModel.JsonWebTokens</name>
+          <display>Microsoft.IdentityModel.JsonWebTokens (8.0.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>5749f619-81a3-407e-b3b5-b4d61f44feae</parentFolderId>
           <packageId>00e3615b-00c1-480e-ac73-2ee3715c95fc</packageId>
           <packageName>Intent.Application.DependencyInjection.MediatR</packageName>
           <stereotypes />
@@ -77,9 +105,9 @@
         </childElement>
       </childElements>
     </childElement>
-    <childElement id="66d2e522-7c10-4041-94bc-a62e5525bd86" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>12.5.0</name>
-      <display>12.5.0 ( &gt;= .NETStandard,Version=v2.0 ) [locked]</display>
+    <childElement id="e3a8fc79-e037-4b91-a7c0-7502bc70f4db" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>13.0.0</name>
+      <display>13.0.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -89,53 +117,162 @@
       <packageName>Intent.Application.DependencyInjection.MediatR</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>false</addedByDefault>
+          <addedByDefault>true</addedByDefault>
           <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
           <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
           <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="true" isActive="true" />
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="a205bd18-83ca-456f-8221-8753148cf8f4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="2e090e5d-0d83-40f4-bf3d-a4b462b4aba7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>MediatR.Contracts</name>
           <display>MediatR.Contracts (2.0.1)</display>
           <isAbstract>false</isAbstract>
           <value>2.0.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>66d2e522-7c10-4041-94bc-a62e5525bd86</parentFolderId>
+          <parentFolderId>e3a8fc79-e037-4b91-a7c0-7502bc70f4db</parentFolderId>
           <packageId>00e3615b-00c1-480e-ac73-2ee3715c95fc</packageId>
           <packageName>Intent.Application.DependencyInjection.MediatR</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="7f04c349-2b26-4b8e-b2eb-0d65fdb870f6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Bcl.AsyncInterfaces</name>
-          <display>Microsoft.Bcl.AsyncInterfaces (8.0.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>8.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>66d2e522-7c10-4041-94bc-a62e5525bd86</parentFolderId>
-          <packageId>00e3615b-00c1-480e-ac73-2ee3715c95fc</packageId>
-          <packageName>Intent.Application.DependencyInjection.MediatR</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="5f41d019-65e0-4a04-b9c9-11a8136a1104" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="2aed21b0-1829-450a-a3a3-518540cdd060" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
           <display>Microsoft.Extensions.DependencyInjection.Abstractions (8.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>66d2e522-7c10-4041-94bc-a62e5525bd86</parentFolderId>
+          <parentFolderId>e3a8fc79-e037-4b91-a7c0-7502bc70f4db</parentFolderId>
+          <packageId>00e3615b-00c1-480e-ac73-2ee3715c95fc</packageId>
+          <packageName>Intent.Application.DependencyInjection.MediatR</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="4fb47fd8-380e-4636-b403-fe0f665d0be4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging</name>
+          <display>Microsoft.Extensions.Logging (8.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>e3a8fc79-e037-4b91-a7c0-7502bc70f4db</parentFolderId>
+          <packageId>00e3615b-00c1-480e-ac73-2ee3715c95fc</packageId>
+          <packageName>Intent.Application.DependencyInjection.MediatR</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="ed253fe1-86e7-4ba3-9c06-24b4e39f6dcb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.IdentityModel.JsonWebTokens</name>
+          <display>Microsoft.IdentityModel.JsonWebTokens (8.0.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>e3a8fc79-e037-4b91-a7c0-7502bc70f4db</parentFolderId>
+          <packageId>00e3615b-00c1-480e-ac73-2ee3715c95fc</packageId>
+          <packageName>Intent.Application.DependencyInjection.MediatR</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="8c10929f-5bd7-44af-bf33-1716d57de447" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>13.0.0</name>
+      <display>13.0.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>ea3bd1b2-96e2-4abc-ab43-5f232983595f</parentFolderId>
+      <packageId>00e3615b-00c1-480e-ac73-2ee3715c95fc</packageId>
+      <packageName>Intent.Application.DependencyInjection.MediatR</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="5fb589a5-a170-4571-8875-2d756c220882" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>MediatR.Contracts</name>
+          <display>MediatR.Contracts (2.0.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>2.0.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>8c10929f-5bd7-44af-bf33-1716d57de447</parentFolderId>
+          <packageId>00e3615b-00c1-480e-ac73-2ee3715c95fc</packageId>
+          <packageName>Intent.Application.DependencyInjection.MediatR</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="4e368ec3-32d0-4b87-bf69-813670e82f4b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Bcl.AsyncInterfaces</name>
+          <display>Microsoft.Bcl.AsyncInterfaces (8.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>8c10929f-5bd7-44af-bf33-1716d57de447</parentFolderId>
+          <packageId>00e3615b-00c1-480e-ac73-2ee3715c95fc</packageId>
+          <packageName>Intent.Application.DependencyInjection.MediatR</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="69c679ea-f01d-4ff8-b6cb-939e8f2f105b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
+          <display>Microsoft.Extensions.DependencyInjection.Abstractions (8.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>8c10929f-5bd7-44af-bf33-1716d57de447</parentFolderId>
+          <packageId>00e3615b-00c1-480e-ac73-2ee3715c95fc</packageId>
+          <packageName>Intent.Application.DependencyInjection.MediatR</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="94f6ed47-fd6f-4cb5-97c0-bbd9692bcf90" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging</name>
+          <display>Microsoft.Extensions.Logging (8.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>8c10929f-5bd7-44af-bf33-1716d57de447</parentFolderId>
+          <packageId>00e3615b-00c1-480e-ac73-2ee3715c95fc</packageId>
+          <packageName>Intent.Application.DependencyInjection.MediatR</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="83ebe7df-5450-43a6-a80e-b6e8960de23f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.IdentityModel.JsonWebTokens</name>
+          <display>Microsoft.IdentityModel.JsonWebTokens (8.0.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>8c10929f-5bd7-44af-bf33-1716d57de447</parentFolderId>
           <packageId>00e3615b-00c1-480e-ac73-2ee3715c95fc</packageId>
           <packageName>Intent.Application.DependencyInjection.MediatR</packageName>
           <stereotypes />
