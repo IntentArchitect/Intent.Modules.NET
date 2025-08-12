@@ -1,3 +1,12 @@
+### Version 4.5.0
+
+- Improvement: Select whether to lock the version of the MediatR Nuget package to the one prior to the commercial version or proceed to use the commercial version accepting its license. Read the article [here](https://www.jimmybogard.com/automapper-and-mediatr-commercial-editions-launch-today/).
+
+> ⚠️ NOTE
+>
+> If you decide to go with the commercial version you will need to obtain and specify the license key.
+> This can be done by requesting one as indicated in the article above and then inserting it into the `appsettings.json` under `MediatR:LicenseKey` (or as an environment variable `MediatR__LicenseKey`).
+
 ### Version 4.4.0
 
 - Improvement: Upgraded to new ICurrentUserService interface.

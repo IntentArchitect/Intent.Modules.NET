@@ -1,3 +1,7 @@
+### Version 3.8.15
+
+- Fixed: Removed obsolete dependency `Intent.Application.DependencyInjection.AutoMapper` from the module.
+
 ### Version 3.8.14
 
 - Fixed: Fixed Solution Relative Location path using `Path.GetFullPath` to correctly handle relative locations like ../.

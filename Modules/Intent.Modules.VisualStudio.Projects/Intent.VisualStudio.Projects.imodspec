@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.VisualStudio.Projects</id>
-  <version>3.8.14</version>
+  <version>3.8.15-pre.0</version>
   <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Visual Studio solution and project layout designer</summary>
   <description>Visual Studio solution and project layout designer</description>
@@ -72,11 +72,6 @@
   </factoryExtensions>
   <interoperability>
     <!-- Minimum Compatible Versions -->
-    <detect id="Intent.Application.DependencyInjection.AutoMapper">
-      <install>
-        <package id="Intent.Application.DependencyInjection.AutoMapper" version="3.4.5" />
-      </install>
-    </detect>
     <detect id="Intent.EntityFrameworkCore">
       <install>
         <package id="Intent.EntityFrameworkCore" version="5.0.1" />

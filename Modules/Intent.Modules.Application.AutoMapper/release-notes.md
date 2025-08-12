@@ -1,6 +1,11 @@
 ### Version 5.3.0
 
-- Improvement: Opt to lock the nuget package version to the free version or continue using the latest commercial version.
+- Improvement: Select whether to lock the version of the AutoMapper Nuget package to the one prior to the commercial version or proceed to use the commercial version accepting its license. Read the article [here](https://www.jimmybogard.com/automapper-and-mediatr-commercial-editions-launch-today/).
+
+> ⚠️ NOTE
+>
+> If you decide to go with the commercial version you will need to obtain and specify the license key.
+> This can be done by requesting one as indicated in the article above and then inserting it into the `appsettings.json` under `AutoMapper:LicenseKey` (or as an environment variable `AutoMapper__LicenseKey`).
 
 ### Version 5.2.2
 
