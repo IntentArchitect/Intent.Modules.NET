@@ -137,5 +137,56 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="292c75a0-87d7-4232-b9a8-210f999db4f6" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>CreateCustomerNameCommand</name>
+      <display>CreateCustomerNameCommand(customerName: string): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="398c057a-d524-4812-a2d1-f9c8487972ee">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>5e5b3f86-aac1-413f-8e4e-4dd9e3b4b04f</parentFolderId>
+      <packageId>5d4b36a8-cabe-4268-85ee-239d3b05a77a</packageId>
+      <packageName>CleanArchitecture.Comprehensive.HttpClients.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="600986c4-2cb0-4348-992b-839edcadbc7d" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>customerName</name>
+          <display>in : customerName: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="5ef00ada-802d-492f-b187-1a3d4fc2fdec">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>292c75a0-87d7-4232-b9a8-210f999db4f6</parentFolderId>
+          <packageId>5d4b36a8-cabe-4268-85ee-239d3b05a77a</packageId>
+          <packageName>CleanArchitecture.Comprehensive.HttpClients.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>

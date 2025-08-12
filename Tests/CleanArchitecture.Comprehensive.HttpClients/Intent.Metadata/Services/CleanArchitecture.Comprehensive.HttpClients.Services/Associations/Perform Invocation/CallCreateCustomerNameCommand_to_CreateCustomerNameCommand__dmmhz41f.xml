@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="49b0cab6-e334-4558-8a21-4d24458caa43">
+  <sourceEnd id="0a5b4995-bbc1-4ddb-9302-6737bd1e4c89" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : Customers.CallCreateCustomerNameCommand</display>
+    <order>0</order>
+    <typeReference id="b21e9135-8c2d-46af-a1d5-6349a9715ea2">
+      <typeId>3a3e09a6-96eb-4032-8e80-c71bf02ff94f</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.HttpClients.Services</typePackageName>
+      <typePackageId>5d4b36a8-cabe-4268-85ee-239d3b05a77a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="49b0cab6-e334-4558-8a21-4d24458caa43" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <display>[call] : CreateCustomerNameCommand(...): void</display>
+    <order>2</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="75530cc5-1ff1-491f-981b-0e695ca8c860">
+      <typeId>292c75a0-87d7-4232-b9a8-210f999db4f6</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.HttpClients.Services</typePackageName>
+      <typePackageId>5d4b36a8-cabe-4268-85ee-239d3b05a77a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Invocation Mapping" typeId="a4c4c5cc-76df-48ed-9d4e-c35caf44b567">
+        <source applicationId="c3ac2e0f-34c5-4509-9652-5f90a99106e8" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="3a3e09a6-96eb-4032-8e80-c71bf02ff94f" location="[CleanArchitecture.Comprehensive.HttpClients].[Services].[CallCreateCustomerNameCommand]" />
+        <target applicationId="c3ac2e0f-34c5-4509-9652-5f90a99106e8" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="292c75a0-87d7-4232-b9a8-210f999db4f6" location="[CleanArchitecture.Comprehensive.HttpClients].[Services].[CreateCustomerNameCommand]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{result.Name}</expression>
+            <path>
+              <target id="292c75a0-87d7-4232-b9a8-210f999db4f6" name="CreateCustomerNameCommand" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+              <target id="600986c4-2cb0-4348-992b-839edcadbc7d" name="customerName" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+            </path>
+            <sources>
+              <source identifier="result.Name" mappingType="Data Mapping" mappingTypeId="1ad97d12-2aa8-4f03-8cb0-3a8a4e71b4d9">
+                <path>
+                  <target id="3a3e09a6-96eb-4032-8e80-c71bf02ff94f" name="CallCreateCustomerNameCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="0cdad9fc-a335-4fe0-9e44-9aa70daa79c4" name="result" type="association" specialization="Perform Invocation Target End" specializationId="093e5909-ffe4-4510-b3ea-532f30212f3c" />
+                  <target id="393439aa-d952-4d06-a3a4-bcb5ab46c945" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Perform Invocation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>

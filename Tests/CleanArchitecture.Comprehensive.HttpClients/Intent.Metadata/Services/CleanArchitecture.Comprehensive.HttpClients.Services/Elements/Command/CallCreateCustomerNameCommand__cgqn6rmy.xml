@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3a3e09a6-96eb-4032-8e80-c71bf02ff94f" type="Command" typeId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">
+  <name>CallCreateCustomerNameCommand</name>
+  <display>CallCreateCustomerNameCommand: void</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <typeReference id="076f8525-7835-49f6-9752-59e1265a4d2b">
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>80ad1d69-631b-4764-ae7f-18da91e0e37f</parentFolderId>
+  <packageId>5d4b36a8-cabe-4268-85ee-239d3b05a77a</packageId>
+  <packageName>CleanArchitecture.Comprehensive.HttpClients.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="fd22fc75-c906-46e2-8aed-a3b8c09057a6" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>CustomerId</name>
+      <display>CustomerId: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="3f0fd04a-70ac-4d14-927a-655c695d6ee2">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>3a3e09a6-96eb-4032-8e80-c71bf02ff94f</parentFolderId>
+      <packageId>5d4b36a8-cabe-4268-85ee-239d3b05a77a</packageId>
+      <packageName>CleanArchitecture.Comprehensive.HttpClients.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

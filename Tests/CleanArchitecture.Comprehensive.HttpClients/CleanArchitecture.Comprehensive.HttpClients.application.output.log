@@ -242,6 +242,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>507cfa0a-628b-422b-9693-d3f1bb5b28f3</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#3a3e09a6-96eb-4032-8e80-c71bf02ff94f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.HttpClients.Application/Customers/CallCreateCustomerName/CallCreateCustomerNameCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/CallCreateCustomerName/CallCreateCustomerNameCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>507cfa0a-628b-422b-9693-d3f1bb5b28f3</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#3a3e09a6-96eb-4032-8e80-c71bf02ff94f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.HttpClients.Application/Customers/CallCreateCustomerName/CallCreateCustomerNameCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/CallCreateCustomerName/CallCreateCustomerNameCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>507cfa0a-628b-422b-9693-d3f1bb5b28f3</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#254d194e-a3b9-4c07-8604-ade71528c074</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.HttpClients.Application/Customers/CallDeleteCustomer/CallDeleteCustomerCommand.cs</ApplicationRelativeFilePath>

@@ -12,5 +12,6 @@ namespace CleanArchitecture.Comprehensive.HttpClients.Application.Interfaces.Cus
         Task UpdateCustomerCommand(CancellationToken cancellationToken = default);
         Task DeleteCustomerCommand(CancellationToken cancellationToken = default);
         Task CreateCustomerCommand(CancellationToken cancellationToken = default);
+        Task CreateCustomerNameCommand(string customerName, CancellationToken cancellationToken = default);
     }
 }

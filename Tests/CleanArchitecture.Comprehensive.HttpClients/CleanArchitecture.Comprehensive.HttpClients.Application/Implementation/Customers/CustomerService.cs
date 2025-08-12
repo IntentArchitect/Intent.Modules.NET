@@ -74,5 +74,12 @@ namespace CleanArchitecture.Comprehensive.HttpClients.Application.Implementation
                 }
             }, cancellationToken);
         }
+
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
+        public async Task CreateCustomerNameCommand(string customerName, CancellationToken cancellationToken = default)
+        {
+            // TODO: Implement CreateCustomerNameCommand (CustomerService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
+        }
     }
 }
