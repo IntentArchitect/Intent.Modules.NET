@@ -75,5 +75,7 @@ namespace Intent.Modules.Application.AutoMapper.Settings
             ProfileInDto,
             ProfileSeparate,
         }
+
+        public bool UsePreCommercialVersion() => bool.TryParse(_groupSettings.GetSetting("e6c94301-0e22-4668-8909-e2e4d43b1416")?.Value.ToPascalCase(), out var result) && result;
     }
 }

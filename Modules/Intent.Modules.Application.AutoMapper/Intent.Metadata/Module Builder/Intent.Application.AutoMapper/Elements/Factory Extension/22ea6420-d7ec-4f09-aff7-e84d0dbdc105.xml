@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="a2f3219f-0ac3-46cd-a9e7-ae89ce1d7254" type="NuGet Packages" typeId="4c75c84d-c745-4f0f-b1f4-82eeca01dfc7">
-  <name>NuGet Packages</name>
-  <display>NuGet Packages</display>
+<class id="22ea6420-d7ec-4f09-aff7-e84d0dbdc105" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>AutoMapperDependencyInjectionExtension</name>
+  <display>AutoMapperDependencyInjectionExtension</display>
   <isAbstract>false</isAbstract>
-  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>bbd2c56f-b591-4434-ac25-2b08337570c3</parentFolderId>

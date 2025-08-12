@@ -1,5 +1,6 @@
 using System;
 using Intent.Engine;
+using Intent.Modules.Application.AutoMapper.Settings;
 using Intent.Modules.Common.CSharp.Nuget;
 using Intent.Modules.Common.VisualStudio;
 using Intent.RoslynWeaver.Attributes;
@@ -11,12 +12,24 @@ namespace Intent.Modules.Application.AutoMapper
 {
     public class NugetPackages : INugetPackages
     {
+        [IntentIgnore]
+        private readonly IApplicationSettingsProvider _applicationSettingsProvider;
+        
         public const string AutoMapperPackageName = "AutoMapper";
+
+        [IntentIgnore]
+        public NugetPackages(IApplicationSettingsProvider applicationSettingsProvider)
+        {
+            _applicationSettingsProvider = applicationSettingsProvider;
+        }
 
         public void RegisterPackages()
         {
-            NugetRegistry.Register(AutoMapperPackageName,
-                (framework) => (framework.Major, framework.Minor) switch
+            //IntentIgnore
+            if (_applicationSettingsProvider.GetAutoMapperSettings().UsePreCommercialVersion())
+            {
+                NugetRegistry.Register(AutoMapperPackageName,
+                    (framework) => (framework.Major, framework.Minor) switch
                     {
                         ( >= 8, >= 0) => new PackageVersion("14.0.0", locked: true)
                             .WithNugetDependency("Microsoft.Extensions.Options", "8.0.0"),
@@ -26,6 +39,29 @@ namespace Intent.Modules.Application.AutoMapper
                             .WithNugetDependency("Microsoft.CSharp", "4.7.0"),
                         ( >= 2, >= 0) => new PackageVersion("10.1.1", locked: true)
                             .WithNugetDependency("Microsoft.CSharp", "4.7.0")
+                            .WithNugetDependency("System.Reflection.Emit", "4.7.0"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AutoMapperPackageName}'"),
+                    }
+                );
+                return;
+            }
+            
+            NugetRegistry.Register(AutoMapperPackageName,
+                (framework) => (framework.Major, framework.Minor) switch
+                    {
+                        ( >= 9, >= 0) => new PackageVersion("15.0.1")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "8.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "8.0.0")
+                            .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.0.1"),
+                        ( >= 8, >= 0) => new PackageVersion("15.0.1")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "8.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "8.0.0")
+                            .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.0.1"),
+                        ( >= 2, >= 0) => new PackageVersion("15.0.1")
+                            .WithNugetDependency("Microsoft.Bcl.HashCode", "6.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "8.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "8.0.0")
+                            .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.0.1")
                             .WithNugetDependency("System.Reflection.Emit", "4.7.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AutoMapperPackageName}'"),
                     }

@@ -2,6 +2,16 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</correlationId>
+      <path>Intent.Modules.Application.AutoMapper/NugetPackages.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2025-08-12T14:10:54.8223413Z</updatedAt>
+      <deviationsHash>8AB814A19093A071B2CD86E50C62BDFEAEB4C92917E14168899DBC753BD8AAFB</deviationsHash>
+      <fileHash>1A0FD57B79528169EC21FAD987F79D09C85412D5A4633A938552BB5BB2618CC5</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#b377226a-7824-4941-a648-cf7f14dbe267</correlationId>
       <path>Intent.Modules.Application.AutoMapper/Templates/MapFromInterface/MapFromInterfaceTemplatePartial.cs</path>
       <count>3</count>

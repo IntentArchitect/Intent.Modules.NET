@@ -1,3 +1,7 @@
+### Version 4.0.3
+
+- Obsolete: Please install Intent.Application.AutoMapper as this module is no longer in use. It can be safely removed.
+
 ### Version 4.0.2
 
 - Improvement: Updated module NuGet packages infrastructure.

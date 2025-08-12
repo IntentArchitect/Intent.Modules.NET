@@ -9,22 +9,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>a2b4b206-200e-4fe1-9347-0a696c69e9d0</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#b02246a4-53da-41e2-be7a-afe40ccb87ba</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/AutoMapperDependencyInjectionDecorator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AutoMapperDependencyInjectionDecorator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>a2b4b206-200e-4fe1-9347-0a696c69e9d0</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#b02246a4-53da-41e2-be7a-afe40ccb87ba</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/AutoMapperDependencyInjectionDecoratorRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AutoMapperDependencyInjectionDecoratorRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>35cd9749-ca61-45b2-a111-c9e47cc49465</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

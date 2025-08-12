@@ -25,12 +25,13 @@ namespace Intent.Modules.Application.AutoMapper.Migrations
         {
             var app = ApplicationPersistable.Load(_configurationProvider.GetApplicationConfig().FilePath);
 
-            var group = app.ModuleSettingGroups.FirstOrDefault(x => x.Id == "137e5f2f-8432-4ade-b797-9a8e5e703e6d");//Automapper Settings
+            const string autoMapperSettingsGroupId = "137e5f2f-8432-4ade-b797-9a8e5e703e6d";
+            var group = app.ModuleSettingGroups.FirstOrDefault(x => x.Id == autoMapperSettingsGroupId);
             if (group == null)
             {
                 group = new ApplicationModuleSettingsPersistable
                 {
-                    Id = "137e5f2f-8432-4ade-b797-9a8e5e703e6d",
+                    Id = autoMapperSettingsGroupId,
                     Module = "Intent.Application.AutoMapper",
                     Title = "AutoMapper Settings",
                     Settings = []
@@ -39,13 +40,14 @@ namespace Intent.Modules.Application.AutoMapper.Migrations
                 app.ModuleSettingGroups.Add(group);
             }
 
-            var entityConvention = group.Settings.FirstOrDefault(s => s.Title == "e2a4568b-8eac-49a4-b7df-9dbe9dc04d20");
+            const string profileLocationSettingId = "e2a4568b-8eac-49a4-b7df-9dbe9dc04d20";
+            var entityConvention = group.Settings.FirstOrDefault(s => s.Id == profileLocationSettingId);
 
             if (entityConvention == null)
             {
                 group.Settings.Add(new ModuleSettingPersistable
                 {
-                    Id = "e2a4568b-8eac-49a4-b7df-9dbe9dc04d20",
+                    Id = profileLocationSettingId,
                     Title = "Profile location",
                     Module = "Intent.Application.AutoMapper",
                     Hint = "Put AutoMapper profiles in Dtos files or separate them out.",

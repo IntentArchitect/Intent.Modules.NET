@@ -1,6 +1,10 @@
+### Version 5.3.0
+
+- Improvement: Opt to lock the nuget package version to the free version or continue using the latest commercial version.
+
 ### Version 5.2.2
 
-- Improvement: Locked AutoMapper NuGet package version
+- Improvement: Locked AutoMapper NuGet package version.
 
 ### Version 5.2.1
 
