@@ -1,3 +1,7 @@
+### Version 5.0.13
+
+- Fixed: Corrected Exception Logging.
+
 ### Version 5.0.12
 
 - Improvement: Added a setting to enable global exception handling.
