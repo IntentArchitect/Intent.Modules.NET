@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e92262dc-c452-47c3-b4cc-d3dcb6186948" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Interceptors</name>
+  <display>Interceptors</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>384f25a6-f7aa-4525-8aa1-f80d6af8eeb9</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="d8ef70bc-d95b-41c6-9f22-abd12cfbbe77" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.SoftDelete.SoftDeleteEFCoreInterceptor</name>
+      <display>Intent.Entities.SoftDelete.SoftDeleteEFCoreInterceptor</display>
+      <externalReference>Intent.Entities.SoftDelete</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>e92262dc-c452-47c3-b4cc-d3dcb6186948</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

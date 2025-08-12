@@ -633,6 +633,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>03308ff5-f9fe-4764-8863-a12511a2a5b5</ProjectId>
+      <CorrelationId>Intent.Entities.SoftDelete.SoftDeleteEFCoreInterceptor</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreSoftDelete.Infrastructure/Persistence/Interceptors/SoftDeleteInterceptor.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SoftDeleteInterceptor.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>a0c3c2d7-691f-4ecd-92cb-65b842eda668</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

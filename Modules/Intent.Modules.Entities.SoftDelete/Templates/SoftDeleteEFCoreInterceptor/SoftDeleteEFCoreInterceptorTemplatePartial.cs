@@ -28,7 +28,7 @@ namespace Intent.Modules.Entities.SoftDelete.Templates.SoftDeleteEFCoreIntercept
                 {
                     @class.Sealed();
                     @class.WithBaseType(UseType("Microsoft.EntityFrameworkCore.Diagnostics.SaveChangesInterceptor"));
-                    @class.AddMethod("ValueTask<InterceptionResult<int>>", "SavingChangesAsync", method =>
+                    @class.AddMethod($"{UseType("System.Threading.Tasks.ValueTask")}<InterceptionResult<int>>", "SavingChangesAsync", method =>
                     {
                         method.Override();
                         method.AddParameter("DbContextEventData ", "eventData")
@@ -43,7 +43,7 @@ namespace Intent.Modules.Entities.SoftDelete.Templates.SoftDeleteEFCoreIntercept
                         // TODO: Fix obsolete method:
                         method.AddMethodChainStatement("var entries = eventData.Context.ChangeTracker", stmt => stmt
                             .AddChainStatement($"Entries<{this.GetSoftDeleteInterfaceName()}>()")
-                            .AddChainStatement($"Where(e => e.State == {UseType("Microsoft.EntityFrameworkCore.EntityState")}.Deleted)")
+                            .AddChainStatement($"{UseType("System.Linq.Where")}(e => e.State == {UseType("Microsoft.EntityFrameworkCore.EntityState")}.Deleted)")
                             .SeparatedFromPrevious());
 
                         method.AddForEachStatement("softDeletable", "entries", stmt =>

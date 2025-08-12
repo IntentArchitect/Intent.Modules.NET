@@ -20,6 +20,7 @@ using EntityFrameworkCore.Postgres.Domain.Repositories.TPT.InheritanceAssociatio
 using EntityFrameworkCore.Postgres.Domain.Repositories.TPT.Polymorphic;
 using EntityFrameworkCore.Postgres.Domain.Repositories.ValueObjects;
 using EntityFrameworkCore.Postgres.Infrastructure.Persistence;
+using EntityFrameworkCore.Postgres.Infrastructure.Persistence.Interceptors;
 using EntityFrameworkCore.Postgres.Infrastructure.Repositories;
 using EntityFrameworkCore.Postgres.Infrastructure.Repositories.Accounts;
 using EntityFrameworkCore.Postgres.Infrastructure.Repositories.Accounts.NotSchema;
@@ -54,6 +55,7 @@ namespace EntityFrameworkCore.Postgres.Infrastructure
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
+            services.AddSingleton<SoftDeleteInterceptor>();
             services.AddDbContext<ApplicationDbContext>((sp, options) =>
             {
                 options.UseNpgsql(
@@ -64,6 +66,7 @@ namespace EntityFrameworkCore.Postgres.Infrastructure
                         b.UseNetTopologySuite();
                     });
                 options.UseLazyLoadingProxies();
+                options.AddInterceptors(sp.GetService<SoftDeleteInterceptor>()!);
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<ISchemaParentRepository, SchemaParentRepository>();

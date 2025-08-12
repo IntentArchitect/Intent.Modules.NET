@@ -42,7 +42,6 @@ namespace EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure.P
         {
             await DispatchEventsAsync(cancellationToken);
             SetAuditableFields();
-            SetSoftDeleteProperties();
             LogDiffAudit();
             return await base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
         }
@@ -51,7 +50,6 @@ namespace EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure.P
         {
             DispatchEventsAsync().GetAwaiter().GetResult();
             SetAuditableFields();
-            SetSoftDeleteProperties();
             LogDiffAudit();
             return base.SaveChanges(acceptAllChangesOnSuccess);
         }
@@ -135,54 +133,6 @@ namespace EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure.P
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();
-                }
-            }
-        }
-
-        private void SetSoftDeleteProperties()
-        {
-            var entities = ChangeTracker
-                .Entries<ISoftDelete>()
-                .Where(t => t.State == EntityState.Deleted)
-                .ToArray();
-
-            if (entities.Length == 0)
-            {
-                return;
-            }
-
-            foreach (var entry in entities)
-            {
-                var entity = entry.Entity;
-                entity.SetDeleted(true);
-                entry.State = EntityState.Modified;
-                UpdateOwnedEntriesRecursive(entry);
-            }
-
-            return;
-
-            void UpdateOwnedEntriesRecursive(EntityEntry entry)
-            {
-                var ownedReferencedEntries = entry.References
-                    .Where(x => x.TargetEntry != null)
-                    .Select(x => x.TargetEntry!)
-                    .Where(x => x.State == EntityState.Deleted && x.Metadata.IsOwned());
-
-                foreach (var ownedEntry in ownedReferencedEntries)
-                {
-                    ownedEntry.State = EntityState.Unchanged;
-                    UpdateOwnedEntriesRecursive(ownedEntry);
-                }
-
-                var ownedCollectionEntries = entry.Collections
-                    .Where(x => x.IsLoaded && x.CurrentValue != null)
-                    .SelectMany(x => x.CurrentValue!.Cast<object>().Select(Entry))
-                    .Where(x => x.State == EntityState.Deleted && x.Metadata.IsOwned());
-
-                foreach (var ownedEntry in ownedCollectionEntries)
-                {
-                    ownedEntry.State = EntityState.Unchanged;
-                    UpdateOwnedEntriesRecursive(ownedEntry);
                 }
             }
         }

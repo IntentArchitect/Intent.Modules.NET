@@ -18,20 +18,6 @@ namespace EfCoreSoftDelete.Infrastructure.Persistence
 
         public DbSet<Customer> Customers { get; set; }
 
-        public override int SaveChanges(bool acceptAllChangesOnSuccess)
-        {
-            SetSoftDeleteProperties();
-            return base.SaveChanges(acceptAllChangesOnSuccess);
-        }
-
-        public override async Task<int> SaveChangesAsync(
-            bool acceptAllChangesOnSuccess,
-            CancellationToken cancellationToken = default)
-        {
-            SetSoftDeleteProperties();
-            return await base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
-        }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -51,54 +37,6 @@ namespace EfCoreSoftDelete.Infrastructure.Persistence
                 new Car() { CarId = 2, Make = "Ferrari", Model = "F50" },
                 new Car() { CarId = 3, Make = "Lamborghini", Model = "Countach" });
             */
-        }
-
-        private void SetSoftDeleteProperties()
-        {
-            var entities = ChangeTracker
-                .Entries<ISoftDelete>()
-                .Where(t => t.State == EntityState.Deleted)
-                .ToArray();
-
-            if (entities.Length == 0)
-            {
-                return;
-            }
-
-            foreach (var entry in entities)
-            {
-                var entity = entry.Entity;
-                entity.SetDeleted(true);
-                entry.State = EntityState.Modified;
-                UpdateOwnedEntriesRecursive(entry);
-            }
-
-            return;
-
-            void UpdateOwnedEntriesRecursive(EntityEntry entry)
-            {
-                var ownedReferencedEntries = entry.References
-                    .Where(x => x.TargetEntry != null)
-                    .Select(x => x.TargetEntry!)
-                    .Where(x => x.State == EntityState.Deleted && x.Metadata.IsOwned());
-
-                foreach (var ownedEntry in ownedReferencedEntries)
-                {
-                    ownedEntry.State = EntityState.Unchanged;
-                    UpdateOwnedEntriesRecursive(ownedEntry);
-                }
-
-                var ownedCollectionEntries = entry.Collections
-                    .Where(x => x.IsLoaded && x.CurrentValue != null)
-                    .SelectMany(x => x.CurrentValue!.Cast<object>().Select(Entry))
-                    .Where(x => x.State == EntityState.Deleted && x.Metadata.IsOwned());
-
-                foreach (var ownedEntry in ownedCollectionEntries)
-                {
-                    ownedEntry.State = EntityState.Unchanged;
-                    UpdateOwnedEntriesRecursive(ownedEntry);
-                }
-            }
         }
     }
 }

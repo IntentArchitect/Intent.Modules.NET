@@ -14,6 +14,7 @@ using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.Polymorph
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.SoftDelete;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.ValueObjects;
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistence;
+using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistence.Interceptors;
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Repositories;
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Repositories.Associations;
 using EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Repositories.BasicAudit;
@@ -39,6 +40,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
+            services.AddSingleton<SoftDeleteInterceptor>();
             services.AddDbContext<ApplicationDbContext>((sp, options) =>
             {
                 options.UseCosmos(
@@ -46,6 +48,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure
                     configuration["Cosmos:AccountKey"],
                     configuration["Cosmos:DatabaseName"]);
                 options.UseLazyLoadingProxies();
+                options.AddInterceptors(sp.GetService<SoftDeleteInterceptor>()!);
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<IExplicitKeyClassRepository, ExplicitKeyClassRepository>();

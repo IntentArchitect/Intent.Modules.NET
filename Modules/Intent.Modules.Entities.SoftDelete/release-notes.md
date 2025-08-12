@@ -1,4 +1,8 @@
-﻿### Version 1.1.0
+﻿### Version 1.2.0
+
+- Improvement: Moved this pattern over to a `SoftDeleteInterceptor` for better separation and a cleaner implementation.
+
+### Version 1.1.0
 
 > ⚠️ **NOTE**
 >

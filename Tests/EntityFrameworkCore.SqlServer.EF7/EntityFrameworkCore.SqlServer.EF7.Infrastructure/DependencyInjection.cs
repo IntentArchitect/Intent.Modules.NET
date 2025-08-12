@@ -20,6 +20,7 @@ using EntityFrameworkCore.SqlServer.EF7.Domain.Repositories.TPT.InheritanceAssoc
 using EntityFrameworkCore.SqlServer.EF7.Domain.Repositories.TPT.Polymorphic;
 using EntityFrameworkCore.SqlServer.EF7.Domain.Repositories.ValueObjects;
 using EntityFrameworkCore.SqlServer.EF7.Infrastructure.Persistence;
+using EntityFrameworkCore.SqlServer.EF7.Infrastructure.Persistence.Interceptors;
 using EntityFrameworkCore.SqlServer.EF7.Infrastructure.Repositories;
 using EntityFrameworkCore.SqlServer.EF7.Infrastructure.Repositories.Accounts;
 using EntityFrameworkCore.SqlServer.EF7.Infrastructure.Repositories.Accounts.NotSchema;
@@ -55,6 +56,7 @@ namespace EntityFrameworkCore.SqlServer.EF7.Infrastructure
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
+            services.AddSingleton<SoftDeleteInterceptor>();
             services.AddDbContext<ApplicationDbContext>((sp, options) =>
             {
                 options.UseSqlServer(
@@ -66,6 +68,7 @@ namespace EntityFrameworkCore.SqlServer.EF7.Infrastructure
                         b.UseNetTopologySuite();
                     });
                 options.UseLazyLoadingProxies();
+                options.AddInterceptors(sp.GetService<SoftDeleteInterceptor>()!);
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<ISchemaParentRepository, SchemaParentRepository>();

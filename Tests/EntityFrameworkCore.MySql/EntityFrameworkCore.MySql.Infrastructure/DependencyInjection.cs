@@ -20,6 +20,7 @@ using EntityFrameworkCore.MySql.Domain.Repositories.TPT.InheritanceAssociations;
 using EntityFrameworkCore.MySql.Domain.Repositories.TPT.Polymorphic;
 using EntityFrameworkCore.MySql.Domain.Repositories.ValueObjects;
 using EntityFrameworkCore.MySql.Infrastructure.Persistence;
+using EntityFrameworkCore.MySql.Infrastructure.Persistence.Interceptors;
 using EntityFrameworkCore.MySql.Infrastructure.Repositories;
 using EntityFrameworkCore.MySql.Infrastructure.Repositories.Accounts;
 using EntityFrameworkCore.MySql.Infrastructure.Repositories.Accounts.NotSchema;
@@ -54,6 +55,7 @@ namespace EntityFrameworkCore.MySql.Infrastructure
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
+            services.AddSingleton<SoftDeleteInterceptor>();
             services.AddDbContext<ApplicationDbContext>((sp, options) =>
             {
                 options.UseMySql(configuration.GetConnectionString("DefaultConnection"), ServerVersion.Parse("8.0"), b =>
@@ -62,6 +64,7 @@ namespace EntityFrameworkCore.MySql.Infrastructure
                     b.UseNetTopologySuite();
                 });
                 options.UseLazyLoadingProxies();
+                options.AddInterceptors(sp.GetService<SoftDeleteInterceptor>()!);
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<ISchemaParentRepository, SchemaParentRepository>();

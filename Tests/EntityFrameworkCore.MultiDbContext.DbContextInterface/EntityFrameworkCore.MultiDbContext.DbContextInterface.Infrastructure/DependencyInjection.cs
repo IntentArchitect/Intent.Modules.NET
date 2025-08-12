@@ -2,6 +2,7 @@ using EntityFrameworkCore.MultiDbContext.DbContextInterface.Application.Common.I
 using EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain.Common.Interfaces;
 using EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain.Repositories;
 using EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure.Persistence;
+using EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure.Persistence.Interceptors;
 using EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure.Repositories;
 using EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure.Services;
 using Intent.RoslynWeaver.Attributes;
@@ -18,12 +19,14 @@ namespace EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
+            services.AddSingleton<SoftDeleteInterceptor>();
             services.AddDbContext<ApplicationDbContext>((sp, options) =>
             {
                 options.UseSqlServer(
                     configuration.GetConnectionString("DefaultConnection"),
                     b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName));
                 options.UseLazyLoadingProxies();
+                options.AddInterceptors(sp.GetService<SoftDeleteInterceptor>()!);
             });
             services.AddDbContext<ConnStrDbContext>((sp, options) =>
             {

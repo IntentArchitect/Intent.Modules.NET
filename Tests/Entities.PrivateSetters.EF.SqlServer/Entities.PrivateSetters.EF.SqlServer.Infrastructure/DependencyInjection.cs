@@ -4,6 +4,7 @@ using Entities.PrivateSetters.EF.SqlServer.Application;
 using Entities.PrivateSetters.EF.SqlServer.Domain.Common.Interfaces;
 using Entities.PrivateSetters.EF.SqlServer.Domain.Repositories;
 using Entities.PrivateSetters.EF.SqlServer.Infrastructure.Persistence;
+using Entities.PrivateSetters.EF.SqlServer.Infrastructure.Persistence.Interceptors;
 using Entities.PrivateSetters.EF.SqlServer.Infrastructure.Repositories;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
@@ -19,12 +20,14 @@ namespace Entities.PrivateSetters.EF.SqlServer.Infrastructure
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
+            services.AddSingleton<SoftDeleteInterceptor>();
             services.AddDbContext<ApplicationDbContext>((sp, options) =>
             {
                 options.UseSqlServer(
                     configuration.GetConnectionString("DefaultConnection"),
                     b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName));
                 options.UseLazyLoadingProxies();
+                options.AddInterceptors(sp.GetService<SoftDeleteInterceptor>()!);
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<IAuditedRepository, AuditedRepository>();
