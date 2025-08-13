@@ -79,7 +79,7 @@ namespace Intent.Modules.Application.DependencyInjection.MediatR.FactoryExtentio
 
                 var method = file.Classes.First().FindMethod("AddApplication");
 
-                method.AddInvocationStatement("services.AddMediatR", invocation =>
+                method?.AddInvocationStatement("services.AddMediatR", invocation =>
                 {
                     invocation.AddMetadata("mediatr-config", true);
                     invocation.AddArgument(new CSharpLambdaBlock("cfg"), arg =>

@@ -11,6 +11,7 @@ namespace Intent.Modules.AzureFunctions
 {
     public class NugetPackages : INugetPackages
     {
+        public const string AutoMapperPackageName = "AutoMapper";
         public const string AzureMessagingEventHubsPackageName = "Azure.Messaging.EventHubs";
         public const string MediatRPackageName = "MediatR";
         public const string MicrosoftApplicationInsightsWorkerServicePackageName = "Microsoft.ApplicationInsights.WorkerService";
@@ -53,6 +54,27 @@ namespace Intent.Modules.AzureFunctions
 
         public void RegisterPackages()
         {
+            NugetRegistry.Register(AutoMapperPackageName,
+                (framework) => (framework.Major, framework.Minor) switch
+                    {
+                        ( >= 9, >= 0) => new PackageVersion("15.0.1")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "8.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "8.0.0")
+                            .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.0.1"),
+                        ( >= 8, >= 0) => new PackageVersion("15.0.1")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "8.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "8.0.0")
+                            .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.0.1"),
+                        ( >= 6, >= 0) => new PackageVersion("13.0.1", locked: true),
+                        ( >= 2, >= 0) => new PackageVersion("15.0.1")
+                            .WithNugetDependency("Microsoft.Bcl.HashCode", "6.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "8.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "8.0.0")
+                            .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.0.1")
+                            .WithNugetDependency("System.Reflection.Emit", "4.7.0"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AutoMapperPackageName}'"),
+                    }
+                );
             NugetRegistry.Register(AzureMessagingEventHubsPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
@@ -63,12 +85,23 @@ namespace Intent.Modules.AzureFunctions
             NugetRegistry.Register(MediatRPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 7, >= 0) => new PackageVersion("12.5.0", locked: true),
+                        ( >= 9, >= 0) => new PackageVersion("13.0.0")
+                            .WithNugetDependency("MediatR.Contracts", "2.0.1")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "8.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "8.0.0")
+                            .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.0.1"),
+                        ( >= 8, >= 0) => new PackageVersion("13.0.0")
+                            .WithNugetDependency("MediatR.Contracts", "2.0.1")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "8.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "8.0.0")
+                            .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.0.1"),
                         ( >= 6, >= 0) => new PackageVersion("12.1.1", locked: true),
-                        ( >= 2, >= 0) => new PackageVersion("12.5.0", locked: true)
+                        ( >= 2, >= 0) => new PackageVersion("13.0.0")
                             .WithNugetDependency("MediatR.Contracts", "2.0.1")
                             .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "8.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "8.0.0"),
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "8.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "8.0.0")
+                            .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.0.1"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MediatRPackageName}'"),
                     }
                 );
@@ -629,6 +662,8 @@ namespace Intent.Modules.AzureFunctions
                     }
                 );
         }
+
+        public static NugetPackageInfo AutoMapper(IOutputTarget outputTarget) => NugetRegistry.GetVersion(AutoMapperPackageName, outputTarget.GetMaxNetAppVersion());
 
         public static NugetPackageInfo MicrosoftNETSdkFunctions(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftNETSdkFunctionsPackageName, outputTarget.GetMaxNetAppVersion());
 

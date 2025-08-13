@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <Version>4.4.2</Version>
+    <Version>4.5.0-pre.0</Version>
     <PackageProjectUrl>https://intentarchitect.com</PackageProjectUrl>
     <PackageIconUrl></PackageIconUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -85,10 +85,10 @@
     </PackageReference>
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.7" />
     <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.7.0" />
+    <PackageReference Include="Intent.Modules.Application.DependencyInjection.MediatR" Version="3.6.0-pre.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Intent.Modules.Application.DependencyInjection.MediatR\Intent.Modules.Application.DependencyInjection.MediatR.csproj" />
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
   </ItemGroup>
 
