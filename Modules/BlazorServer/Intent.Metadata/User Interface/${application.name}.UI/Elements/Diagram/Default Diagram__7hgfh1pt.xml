@@ -5,11 +5,11 @@
   <isAbstract>false</isAbstract>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>be64657f-ba7e-49be-9da5-f42dafcbfc21</parentFolderId>
+  <parentFolderId>4cf1ae55-cb01-4d30-bba7-4960f64c222a</parentFolderId>
   <packageId>be64657f-ba7e-49be-9da5-f42dafcbfc21</packageId>
   <packageName>${application.name}.UI</packageName>
   <diagram>
-    <targetPackageId>41a7806c-72bd-4b20-8aa1-15af6225384f</targetPackageId>
+    <targetPackageId>4cf1ae55-cb01-4d30-bba7-4960f64c222a</targetPackageId>
   </diagram>
   <stereotypes />
   <metadata />

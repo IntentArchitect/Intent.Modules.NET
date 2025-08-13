@@ -3,6 +3,7 @@
   <name>Pages</name>
   <display>Pages</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>be64657f-ba7e-49be-9da5-f42dafcbfc21</parentFolderId>
