@@ -1,3 +1,7 @@
+### Version 2.0.2
+
+- Fixed: Nuget package management update.
+
 ### Version 2.0.1
 
 - Improvement: Enhanced the OpenApiResponse attributes added to the `Run` method
