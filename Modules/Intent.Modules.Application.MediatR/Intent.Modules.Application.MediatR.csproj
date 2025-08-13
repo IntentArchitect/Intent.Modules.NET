@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -74,6 +74,7 @@
 
   <ItemGroup>
     <PackageReference Include="Intent.Architect.Persistence" Version="3.7.0" />
+    <PackageReference Include="Intent.Modules.Application.DependencyInjection.MediatR" Version="3.6.0-pre.0" />
     <PackageReference Include="Intent.Modules.Common" Version="3.8.0" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.9.0" />
     <PackageReference Include="Intent.Modules.Metadata.Security" Version="1.0.0" />
@@ -85,7 +86,6 @@
     </PackageReference>
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.7" />
     <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.7.0" />
-    <PackageReference Include="Intent.Modules.Application.DependencyInjection.MediatR" Version="3.6.0-pre.0" />
   </ItemGroup>
 
   <ItemGroup>
