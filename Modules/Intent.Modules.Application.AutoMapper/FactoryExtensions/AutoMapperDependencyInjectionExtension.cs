@@ -32,7 +32,7 @@ namespace Intent.Modules.Application.AutoMapper.FactoryExtensions
                 return;
             }
 
-            template.CSharpFile.OnBuild(file =>
+            template.CSharpFile.AfterBuild(file =>
             {
                 var method = file.Classes.First().FindMethod("AddApplication");
                 if (method is null)
@@ -58,7 +58,7 @@ namespace Intent.Modules.Application.AutoMapper.FactoryExtensions
                     }
                     stmt.AddArgument("Assembly.GetExecutingAssembly()");
                 });
-            });
+            }, 1);
         }
     }
 }
