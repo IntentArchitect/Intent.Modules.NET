@@ -1,3 +1,6 @@
+### Version 5.0.28
+- Fixed: Incorrect 'HasForeignKey' is specific scenarios.
+
 ### Version 5.0.27
 
 - Improvement: Enhanced composite model handling so that you no longer need to explicitly add the `Table` stereotype.

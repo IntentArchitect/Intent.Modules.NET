@@ -286,10 +286,20 @@ public class EfCoreAssociationConfigStatement : CSharpStatement
         return associationEnd.OtherEnd().Class.GetExplicitPrimaryKey()
                 .Select(x => new RequiredEntityProperty(
                     Class: associationEnd.Element,
-                    Name: $"{associationEnd.OtherEnd().Name.ToPascalCase()}{x.Name.ToPascalCase()}",
+                    Name: GuessName( associationEnd.OtherEnd().Name.ToPascalCase(), x.Name.ToPascalCase()),
                     Type: x.Type.Element,
                     IsNullable: associationEnd.IsNullable))
                 .ToArray();
+    }
+
+    private string GuessName(string parentName, string attributeName)
+    {
+        if (!attributeName.StartsWith(parentName))
+        {
+            return $"{parentName}{attributeName}";
+        }
+        return attributeName;
+
     }
 
     public override string GetText(string indentation)
