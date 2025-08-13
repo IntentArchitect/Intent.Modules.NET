@@ -41,20 +41,6 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="65bc1889-959a-426a-b5ea-d9bec63de94c" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
-      <name>Intent.Application.DependencyInjection.AutoMapper</name>
-      <display>Intent.Application.DependencyInjection.AutoMapper 4.0.2</display>
-      <isAbstract>false</isAbstract>
-      <value>4.0.2</value>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>cd827c9b-fbbf-4a5a-93ea-fd2e755ebeac</parentFolderId>
-      <packageId>47b86f35-d2c9-414a-8dd9-8017a1a1aec9</packageId>
-      <packageName>Intent.ApplicationTemplate.AspNetCore.ModularMonolith.Host</packageName>
-      <stereotypes />
-      <metadata />
-      <childElements />
-    </childElement>
     <childElement id="0813cb88-76dd-4da8-a926-943284e2126b" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Application.DependencyInjection.MediatR</name>
       <display>Intent.Application.DependencyInjection.MediatR 3.5.17</display>
