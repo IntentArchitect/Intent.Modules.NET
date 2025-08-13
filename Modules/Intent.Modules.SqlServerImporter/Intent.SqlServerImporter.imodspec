@@ -17,7 +17,7 @@
   <dependencies>
     <dependency id="Intent.Common" version="3.7.2" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
-    <dependency id="Intent.Rdbms.Importer" version="1.0.1" />
+    <dependency id="Intent.Rdbms.Importer" version="1.0.2" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />
