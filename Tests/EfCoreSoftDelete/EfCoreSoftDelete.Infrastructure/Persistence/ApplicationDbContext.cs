@@ -3,7 +3,6 @@ using EfCoreSoftDelete.Domain.Entities;
 using EfCoreSoftDelete.Infrastructure.Persistence.Configurations;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.EntityFrameworkCore.DbContext", Version = "1.0")]
