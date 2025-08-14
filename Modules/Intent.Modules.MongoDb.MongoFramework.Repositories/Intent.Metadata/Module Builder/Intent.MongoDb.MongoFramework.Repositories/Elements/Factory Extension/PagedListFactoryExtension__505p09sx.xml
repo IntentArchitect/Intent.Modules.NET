@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d2636e48-0aa6-4833-9877-8a22c06e64cd" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>PagedListFactoryExtension</name>
+  <display>PagedListFactoryExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>894c3e27-5a94-4bcc-aa41-203d4886663a</parentFolderId>
+  <packageId>894c3e27-5a94-4bcc-aa41-203d4886663a</packageId>
+  <packageName>Intent.MongoDb.MongoFramework.Repositories</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

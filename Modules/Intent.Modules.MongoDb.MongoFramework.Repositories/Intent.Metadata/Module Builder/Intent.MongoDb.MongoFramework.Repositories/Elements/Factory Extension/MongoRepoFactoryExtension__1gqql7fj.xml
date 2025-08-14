@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="dd865815-86ca-458d-ad7a-e14a4d16a1fa" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>MongoRepoFactoryExtension</name>
+  <display>MongoRepoFactoryExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>894c3e27-5a94-4bcc-aa41-203d4886663a</parentFolderId>
+  <packageId>894c3e27-5a94-4bcc-aa41-203d4886663a</packageId>
+  <packageName>Intent.MongoDb.MongoFramework.Repositories</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

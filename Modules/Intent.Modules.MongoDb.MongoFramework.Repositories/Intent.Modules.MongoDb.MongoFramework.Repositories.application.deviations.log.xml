@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#b87c40c2-09be-4e16-86e2-d3b5a5b20faf</correlationId>
+      <path>Intent.Modules.MongoDb.MongoFramework.Repositories/Templates/MongoRepositoryBase/MongoRepositoryBaseTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>theunis.vanderstoep@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Theunis van der Stoep</updatedByDisplayName>
+      <updatedAt>2025-08-14T10:02:24.5871791Z</updatedAt>
+      <deviationsHash>A9BB802F651D2AC1D03DDD9D9254B81B4C6CE6A2407A513DACC66D8DCBC8E369</deviationsHash>
+      <fileHash>7E108FBB715CE1C884142AF49771A4C1CDD5B5923397642E66FEBC8923217339</fileHash>
+    </file>
+  </files>
+</deviationsLog>
