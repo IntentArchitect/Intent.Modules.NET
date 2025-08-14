@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3da65706-027d-4433-9218-6b0f90ce3fc4" type=".NET Core Version" typeId="65fb2757-ce97-41a8-9c53-b03d53c2c03f">
+  <name>.NET 10.0</name>
+  <display>.NET 10.0</display>
+  <isAbstract>false</isAbstract>
+  <value>net10.0</value>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>4aab5ac2-71c3-4d2b-a616-0ad39a8193ba</parentFolderId>
+  <packageId>4aab5ac2-71c3-4d2b-a616-0ad39a8193ba</packageId>
+  <packageName>Intent.VisualStudio.Projects.Frameworks</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

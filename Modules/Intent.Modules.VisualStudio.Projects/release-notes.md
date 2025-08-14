@@ -1,5 +1,6 @@
 ### Version 3.8.15
 
+- Improvement: Added option for `.NET 10` to the `Target Framework` property on the `.NET Settings` stereotype in the Visual Studio designer.
 - Fixed: Removed obsolete dependency `Intent.Application.DependencyInjection.AutoMapper` from the module.
 
 ### Version 3.8.14
