@@ -114,6 +114,13 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 .ToList();
         }
 
+        public static IList<ServiceFabricProjectModel> GetServiceFabricProjectModels(this IDesigner designer)
+        {
+            return designer.GetElementsOfType(ServiceFabricProjectModel.SpecializationTypeId)
+                .Select(x => new ServiceFabricProjectModel(x))
+                .ToList();
+        }
+
         public static IList<SQLServerDatabaseProjectModel> GetSQLServerDatabaseProjectModels(this IDesigner designer)
         {
             return designer.GetElementsOfType(SQLServerDatabaseProjectModel.SpecializationTypeId)
