@@ -386,7 +386,8 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
                 throw new Exception("relativeFileName is null");
             }
 
-            if (Path.GetExtension(relativePath).Equals(".config", StringComparison.InvariantCultureIgnoreCase))
+            if (!string.Equals(relativePath, "packages.config", StringComparison.OrdinalIgnoreCase) &&
+                Path.GetExtension(relativePath).Equals(".config", StringComparison.OrdinalIgnoreCase))
             {
                 copyToOutputDirectory = "PreserveNewest";
             }
@@ -399,6 +400,7 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
                     case "cs":
                         itemType = "Compile";
                         break;
+                    case "sfproj":
                     case "csproj":
                         return;
                     default:
