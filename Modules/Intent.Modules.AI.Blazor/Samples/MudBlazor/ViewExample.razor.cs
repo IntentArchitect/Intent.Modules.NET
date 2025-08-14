@@ -28,7 +28,7 @@ namespace BlazorServer.Sample.App.Api.Components.Pages.Customers
             await LoadCustomerById(CustomerId);
         }
 
-        private void EditCustomer() => NavigationManager.NavigateTo($"/customers/edit/{CustomerId}");
+        private void EditCustomer() => NavigationManager.NavigateTo($"/customers-example/edit-customer/{CustomerId}");
 
         private async Task LoadCustomerById(Guid id)
         {
@@ -56,7 +56,7 @@ namespace BlazorServer.Sample.App.Api.Components.Pages.Customers
 
         private void Cancel()
         {
-            NavigationManager.NavigateTo("/customers/");
+            NavigationManager.NavigateTo("/customers-example/");
         }
     }
 }

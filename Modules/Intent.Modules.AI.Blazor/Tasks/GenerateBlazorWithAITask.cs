@@ -62,9 +62,9 @@ public class GenerateBlazorWithAITask : IModuleTask
         {
             throw new Exception($"An element was selected to be executed upon but could not be found. Please ensure you have saved your designer and try again.");
         }
-        var inputFiles = GetInputFiles(componentModel);
+        var inputFiles = GetInputFiles(componentModel, out var toModify );
         var jsonInput = JsonConvert.SerializeObject(inputFiles, Formatting.Indented);
-
+        var fileToModifyJson = JsonConvert.SerializeObject(toModify.Select(m => m.FilePath).ToArray());
         var exampleFiles = exampleComponentIds?.SelectMany(componentId =>
         {
             var component = _metadataManager.UserInterface(applicationId).Elements.FirstOrDefault(x => x.Id == componentId);
@@ -91,7 +91,8 @@ public class GenerateBlazorWithAITask : IModuleTask
             ["inputFilesJson"] = jsonInput,
             ["userProvidedContext"] = userProvidedContext,
             ["targetFileName"] = componentModel.Name + "Handler",
-            ["examples"] = exampleJson
+            ["examples"] = exampleJson,
+            ["filesToModifyJson"] = fileToModifyJson
         });
 
         // Output the updated file changes.
@@ -142,33 +143,45 @@ public class GenerateBlazorWithAITask : IModuleTask
             {{$environmentMetadata}}
 
             ## Primary Objective
-            Completely implement the MudBlazor component by reading and updating the `.razor` file, and `.razor.cs` file if necessary.
+            Completely implement the Blazor component by reading and updating the `.razor` file, and `.razor.cs` file if necessary.
 
             ## Code File Modification Rules
             1. PRESERVE all [IntentManaged] Attributes on the existing test file's constructor, class or file.
-            2. You may only create or update the test file
-            3. Add using clauses for code files that you use
-            4. (CRITICAL) Read and understand the code in all provided Input Code Files. Understand how these code files interact with one another.
-            5. If services to provide data are available, use them.
-            6. If you bind to a field or method from the `.razor` file, you must make sure that the `.razor.cs` file has that code declared. If it doesn't add it appropriately.
-            7. (CRITICAL) CHECK AND ENSURE AND CORRECT all bindings between the `.razor` and `.razor.cs`. The code must compile!
-
+            2. Add using clauses for code files that you use
+            3. (CRITICAL) Read and understand the code in all provided Input Code Files. Understand how these code files interact with one another.
+            4. If services to provide data are available, use them.
+            5. If you bind to a field or method from the `.razor` file, you must make sure that the `.razor.cs` file has that code declared. If it doesn't add it appropriately.
+            6. (CRITICAL) CHECK AND ENSURE AND CORRECT all bindings between the `.razor` and `.razor.cs`. The code must compile!
+            7. **Only modify files listed in "Files Allowed To Modify". All other Input Code Files are read-only.**
+            
             ## Important Rules
             * The `.razor.cs` file is the C# backing file for the `.razor` file.
             * (IMPORTANT) Only add razor markup to the `.razor` file. If you want to add C# code, add it to the `.razor.cs` file. Therefore, do NOT add a @code directive to the `.razor` file.
             * PRESERVE existing code in the `.razor.cs` file. You may add code, but you are not allowed to change the existing code (IMPORTANT) in the .`razor.cs` file!
             * ONLY IF YOU add any code directives in the `.razor.cs` file, MUST you add an `[IntentIgnore]` attribute to that directive.
             * NEVER ADD COMMENTS
+            * The supplied Example Components are examples to guide your implementation 
             * Don't display technical ids to end users like Guids
+
+            ## Files Allowed To Modify
+            {{$filesToModifyJson}}
 
             ## Input Code Files
             {{$inputFilesJson}}
-
+            
             ## User Context
             {{$userProvidedContext}}
 
             ## Previous Error Message:
             {{$previousError}}
+
+            ## Validation Checklist (perform before output)
+            - [ ] Every `FileChanges[i].FilePath` exists in "Files Allowed To Modify".
+            - [ ] All `@bind` and event handlers in `.razor` are defined in `.razor.cs`.
+            - [ ] No `@code` blocks in `.razor`.
+            - [ ] `[IntentManaged]` attributes preserved.
+            - [ ] Any new members in `.razor.cs` marked `[IntentIgnore]`.
+            - [ ] Code compiles with added `using` directives.
 
             ## Required Output Format
             Respond ONLY with JSON that matches the following schema:
@@ -203,10 +216,11 @@ public class GenerateBlazorWithAITask : IModuleTask
         return requestFunction;
     }
 
-    private List<ICodebaseFile> GetInputFiles(IElement element)
+    private List<ICodebaseFile> GetInputFiles(IElement element, out List<ICodebaseFile> filesToModify)
     {
         var filesProvider = _applicationConfigurationProvider.GeneratedFilesProvider();
         var inputFiles = filesProvider.GetFilesForMetadata(element).ToList();
+        filesToModify = [.. inputFiles];
         foreach (var dto in element.ChildElements)
         {
             if (dto.TypeReference != null && dto.TypeReference.Element != null)

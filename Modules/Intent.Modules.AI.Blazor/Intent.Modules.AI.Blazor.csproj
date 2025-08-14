@@ -5,31 +5,28 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Samples\MudBlazor\Add.razor.cs" />
-    <Compile Remove="Samples\MudBlazor\Edit.razor.cs" />
+    <Compile Remove="Samples\MudBlazor\AddExample.razor.cs" />
+    <Compile Remove="Samples\MudBlazor\EditExample.razor.cs" />
     <Compile Remove="Samples\MudBlazor\SearchScreenExample.razor.cs" />
-    <Compile Remove="Samples\MudBlazor\View.razor.cs" />
+    <Compile Remove="Samples\MudBlazor\ViewExample.razor.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Samples\MudBlazor\Add.razor" />
-    <None Remove="Samples\MudBlazor\Edit.razor" />
     <None Remove="Samples\MudBlazor\SearchScreenExample.razor" />
-    <None Remove="Samples\MudBlazor\View.razor" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Samples\MudBlazor\Add.razor" />
-    <EmbeddedResource Include="Samples\MudBlazor\Add.razor.cs" />
-    <EmbeddedResource Include="Samples\MudBlazor\Edit.razor" />
-    <EmbeddedResource Include="Samples\MudBlazor\Edit.razor.cs" />
+    <EmbeddedResource Include="Samples\MudBlazor\AddExample.razor" />
+    <EmbeddedResource Include="Samples\MudBlazor\AddExample.razor.cs" />
+    <EmbeddedResource Include="Samples\MudBlazor\EditExample.razor" />
+    <EmbeddedResource Include="Samples\MudBlazor\EditExample.razor.cs" />
     <EmbeddedResource Include="Samples\MudBlazor\SearchScreenExample.razor" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Samples\MudBlazor\SearchScreenExample.razor.cs" />
-    <EmbeddedResource Include="Samples\MudBlazor\View.razor" />
-    <EmbeddedResource Include="Samples\MudBlazor\View.razor.cs" />
+    <EmbeddedResource Include="Samples\MudBlazor\ViewExample.razor" />
+    <EmbeddedResource Include="Samples\MudBlazor\ViewExample.razor.cs" />
   </ItemGroup>
 
   <ItemGroup>

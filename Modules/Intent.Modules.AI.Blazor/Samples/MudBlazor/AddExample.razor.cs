@@ -55,7 +55,7 @@ namespace BlazorServer.Sample.App.Api.Components.Pages.Customers
                 await CreateCustomer();
 
                 Snackbar.Add("Customer created successfully.", Severity.Success);
-                NavigationManager.NavigateTo("/customers/");
+                NavigationManager.NavigateTo("/customers-example/");
             }
             catch (Exception ex)
             {
@@ -67,7 +67,7 @@ namespace BlazorServer.Sample.App.Api.Components.Pages.Customers
             }
         }
 
-        private void Cancel() => NavigationManager.NavigateTo("/customers/");
+        private void Cancel() => NavigationManager.NavigateTo("/customers-example/");
 
         private async Task CreateCustomer()
         {
