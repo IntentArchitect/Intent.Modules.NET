@@ -26,6 +26,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 .Concat(metadataManager.VisualStudio(application).GetAzureFunctionsProjectModels())
                 .Concat(metadataManager.VisualStudio(application).GetConsoleAppNETCoreModels())
                 .Concat(metadataManager.VisualStudio(application).GetCSharpProjectNETModels())
+                .Concat(metadataManager.VisualStudio(application).GetServiceFabricProjectModels())
                 .ToList();
         }
 
@@ -111,6 +112,13 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         {
             return designer.GetElementsOfType(RuntimeEnvironmentModel.SpecializationTypeId)
                 .Select(x => new RuntimeEnvironmentModel(x))
+                .ToList();
+        }
+
+        public static IList<ServiceFabricProjectModel> GetServiceFabricProjectModels(this IDesigner designer)
+        {
+            return designer.GetElementsOfType(ServiceFabricProjectModel.SpecializationTypeId)
+                .Select(x => new ServiceFabricProjectModel(x))
                 .ToList();
         }
 
