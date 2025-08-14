@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1c5994f0-a71e-40b9-9dfa-aefca2e8db49" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>DomainEventsFactoryExtension</name>
+  <display>DomainEventsFactoryExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>45c8da16-507f-4c0c-840f-50f52fc75406</parentFolderId>
+  <packageId>45c8da16-507f-4c0c-840f-50f52fc75406</packageId>
+  <packageName>Intent.MongoDb.MongoFramework</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

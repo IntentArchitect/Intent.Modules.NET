@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="0e67659d-31a0-442b-b991-0494b8f0f1d3" version="3.1.0">
+  <comment>Configures properties of the MongoDB Index.</comment>
+  <name>Settings</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="9f58fea3-953a-4d1b-af88-cd75249387a9">Document Store Index</type>
+  </targetTypes>
+  <targetReferenceTypes />
+  <applyMode>always</applyMode>
+  <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAAAj5JREFUeF7t3DFOwzAUxvGXioGBI3SAA5AdIgbuwAHgECBBF5ZCj8EBuAVEYkRBMCHRgZGxA2JoUCUGlvQ5fK1lo3/X+DXOL1+a1HZbGC9JoJCqKTYAxRAACKAoIJaTQABFAbGcBK4bcFSXbc99TMdVs9OzJtvmbgJXCXhel0eFtVs5aM2L+f1k//nV62tUwFFdvpnZttepFLa31p5cVU83Xl8A7BBKFfDOzIbeWU1h+9zs9Lpqbr2+RE2g15kctwMonjUAcwJM8S48rho3RMuM3eJVPgcCGBb3zm8iAIqAZw/lcNAONsLeJk6ryd7jVNlTyCW8+PbQ5/U+rpqDPgU5t3UBcz64GH0HUFQGEEBRQCwngQCKAmI5CQRQFBDLSSCAooBYTgIBFAXEcjeBF/XucZ99tFbMQiZj+rxnym1dwFUOqKYM8de+RQUc1SXTmgFnKqsR6a7jSXVinaUdSgJZXBSgZ2Ysb/vtxF14eWqi3oVTvIRDlrAtI4wKyLyw+BkIoA6Y3IO0up476iUc5p9XKxeQwQTxLpxXHuL31k1g/C7ltUcAxfMFIICigFhOAgEUBcRyEgigKCCWk0AARQGxnASuG/BnDK/PbviZw7rmRFL8oU1XMjY/vz4uD19mXnLcS3iVk0opjkh3ATGx7kXH2Q7gfwQUjynJ8qifgUkKiJ0CMCfAFNcHZjWtmeJjDP+ZIF6CWQGyuCjsbLM+MMyJVgsB9zEGpuUCAIoJARBAUUAsJ4EAigJiOQkUAb8BCvJSYFwDz3sAAAAASUVORK5CYII=" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return false;</displayIconFunction>
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>da5cad01-9ead-4606-81d3-e580bf211328</parentFolderId>
+  <order>0</order>
+  <packageId>45c8da16-507f-4c0c-840f-50f52fc75406</packageId>
+  <packageName>Intent.MongoDb.MongoFramework</packageName>
+  <properties>
+    <property id="21dc7b6c-ee7a-4d88-a7ef-492cadfc35b8">
+      <name>Use Default Name</name>
+      <type>string</type>
+      <controlType>checkbox</controlType>
+      <optionsSource>n/a</optionsSource>
+      <defaultValue>true</defaultValue>
+    </property>
+    <property id="47756536-1333-482a-ada0-382db9b6fd1b">
+      <name>Unique</name>
+      <type>boolean</type>
+      <controlType>checkbox</controlType>
+      <optionsSource>n/a</optionsSource>
+      <defaultValue>false</defaultValue>
+    </property>
+    <property id="ed962b0f-1001-41c2-8a4f-8780da2cf1ac">
+      <name>Sort Order</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>options</optionsSource>
+      <defaultValue>Ascending</defaultValue>
+      <valueOptions>
+        <option>Ascending</option>
+        <option>Descending</option>
+      </valueOptions>
+    </property>
+  </properties>
+</stereotypeDefinition>

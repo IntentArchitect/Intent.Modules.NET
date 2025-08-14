@@ -172,5 +172,6 @@
     <application id="aa074ccb-388e-4fde-a585-3ac9e95c6ced" name="Intent.Modules.Blazor.Wasm" solutionFolder="Blazor" relativePath="Intent.Modules.Blazor.Wasm/Intent.Modules.Blazor.Wasm.application.config" />
     <application id="75504337-fcbb-4352-809b-8054f7a6af95" name="Intent.Modules.Aws.Common" solutionFolder="Amazon" relativePath="Intent.Modules.Aws.Common/Intent.Modules.Aws.Common.application.config" />
     <application id="3f08d954-b821-4c2d-871f-ac109217513a" name="Intent.Modules.Blazor.Authentication" solutionFolder="Blazor" relativePath="Intent.Modules.Blazor.Authentication/Intent.Modules.Blazor.Authentication.application.config" />
+    <application id="86b08704-7cea-4f57-a181-759963f12268" name="Intent.Modules.MongoDb.MongoFramework" relativePath="Intent.Modules.MongoDb.MongoFramework/Intent.Modules.MongoDb.MongoFramework.application.config" />
   </applications>
 </solution>
