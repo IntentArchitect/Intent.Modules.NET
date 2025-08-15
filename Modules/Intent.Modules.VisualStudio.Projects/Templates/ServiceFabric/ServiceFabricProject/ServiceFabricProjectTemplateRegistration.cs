@@ -5,6 +5,8 @@ using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
+using Intent.Modules.VisualStudio.Projects.Api;
+using Intent.Modules.VisualStudio.Projects.Templates.ConsoleApp.Program;
 using Intent.Registrations;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -29,7 +31,13 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.ServiceFabric.ServiceFa
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public void DoRegistration(ITemplateInstanceRegistry registry, IApplication applicationManager)
         {
-            registry.RegisterTemplate(TemplateId, project => new ServiceFabricProjectTemplate(project, null));
+            var models = _metadataManager.VisualStudio(applicationManager).GetServiceFabricProjectModels();
+
+            foreach (var model in models)
+            {
+                var project = applicationManager.Projects.Single(x => x.Id == model.Id);
+                registry.Register(TemplateId, project, p => new ServiceFabricProjectTemplate(p, model));
+            }
         }
     }
 }

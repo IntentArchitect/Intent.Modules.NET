@@ -81,6 +81,7 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
                     case VisualStudioProjectTypeIds.NodeJsConsoleApplication:
                     case VisualStudioProjectTypeIds.WcfApplication:
                     case VisualStudioProjectTypeIds.WebApiApplication:
+                    case VisualStudioProjectTypeIds.ServiceFabricProject:
                         new FrameworkProjectSyncProcessor(templateInstance, _sfEventDispatcher, _changeManager).Process(events);
                         break;
                     case VisualStudioProjectTypeIds.SdkCSharpProject:

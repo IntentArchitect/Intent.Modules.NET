@@ -26,6 +26,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 .Concat(metadataManager.VisualStudio(application).GetAzureFunctionsProjectModels())
                 .Concat(metadataManager.VisualStudio(application).GetConsoleAppNETCoreModels())
                 .Concat(metadataManager.VisualStudio(application).GetCSharpProjectNETModels())
+                .Concat(metadataManager.VisualStudio(application).GetServiceFabricProjectModels())
                 .ToList();
         }
 

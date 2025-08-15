@@ -49,7 +49,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         protected readonly IElement _element;
 
         [IntentManaged(Mode.Merge)]
-        public ServiceFabricProjectModel(IElement element, string requiredType = SpecializationTypeId)
+        public ServiceFabricProjectModel(IElement element, string requiredType = SpecializationType)
         {
             if (!requiredType.Equals(element.SpecializationType, StringComparison.InvariantCultureIgnoreCase))
             {

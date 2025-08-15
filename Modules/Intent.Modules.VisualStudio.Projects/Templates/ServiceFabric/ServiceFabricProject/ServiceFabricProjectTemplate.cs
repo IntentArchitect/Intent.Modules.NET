@@ -33,14 +33,24 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.ServiceFabric.ServiceFa
                       <Configuration>Debug</Configuration>
                       <Platform>x64</Platform>
                     </ProjectConfiguration>
-                    <ProjectConfiguration Include="Dev|x64">
-                      <Configuration>Dev</Configuration>
-                      <Platform>x64</Platform>
-                    </ProjectConfiguration>
                     <ProjectConfiguration Include="Release|x64">
                       <Configuration>Release</Configuration>
                       <Platform>x64</Platform>
                     </ProjectConfiguration>
+                  </ItemGroup>
+                  <ItemGroup>
+                    <None Include="ApplicationPackageRoot\ApplicationManifest.xml" />
+                    <None Include="ApplicationParameters\Cloud.xml" />
+                    <None Include="ApplicationParameters\Local.1Node.xml" />
+                    <None Include="ApplicationParameters\Local.5Node.xml" />
+                    <None Include="PublishProfiles\Cloud.xml" />
+                    <None Include="PublishProfiles\Local.1Node.xml" />
+                    <None Include="PublishProfiles\Local.5Node.xml" />
+                    <None Include="Scripts\Deploy-FabricApplication.ps1" />
+                    <None Include="StartupServiceParameters\Cloud.xml" />
+                    <None Include="StartupServiceParameters\Local.1Node.xml" />
+                    <None Include="StartupServiceParameters\Local.5Node.xml" />
+                    <None Include="StartupServices.xml" />
                   </ItemGroup>
                   <ItemGroup>
                     <Content Include="packages.config" />
