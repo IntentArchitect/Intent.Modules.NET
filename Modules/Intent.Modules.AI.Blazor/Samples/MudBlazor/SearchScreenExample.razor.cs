@@ -85,7 +85,6 @@ namespace BlazorServer.Sample.App.Api.Components.Pages.Customers
         /// <summary>
         /// The CancellationToken cancelationToken is required.(IMPORTANT)
         /// </summary>
-        /// <param name="customerId"></param>
         public async Task<TableData<CustomerSummaryDto>> LoadServerData(TableState state, CancellationToken cancelationToken)
         {
             string? orderBy = null;

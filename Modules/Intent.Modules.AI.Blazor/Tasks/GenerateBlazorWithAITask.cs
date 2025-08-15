@@ -14,6 +14,7 @@ using Microsoft.SemanticKernel;
 using Newtonsoft.Json;
 using Intent.Modules.AI.Blazor.Tasks.Helpers;
 using Intent.Modules.AI.Blazor.Samples;
+using Intent.Modelers.Services.Api;
 using System.Diagnostics;
 
 namespace Intent.Modules.AI.Prompts.Tasks;
@@ -235,6 +236,12 @@ public class GenerateBlazorWithAITask : IModuleTask
             foreach (var associationEnd in dto.AssociatedElements)
             {
                 inputFiles.AddRange(filesProvider.GetFilesForMetadata(associationEnd.TypeReference.Element));
+
+                foreach (var childDto in GetAllChildren(associationEnd.TypeReference.Element, e => e.IsDTOModel()))
+                {
+                    inputFiles.AddRange(filesProvider.GetFilesForMetadata(childDto));
+                }
+
             }
         }
         inputFiles.AddRange(_fileProvider.GetFilesForTemplate("Intent.Application.Dtos.Pagination.PagedResult"));
@@ -245,6 +252,25 @@ public class GenerateBlazorWithAITask : IModuleTask
         //inputFiles.AddRange(filesProvider.GetFilesForTemplate("Intent.VisualStudio.Projects.VisualStudioSolution"));
 
         return inputFiles;
+    }
+
+    private ICanBeReferencedType[] GetAllChildren(ICanBeReferencedType element, Func<ICanBeReferencedType, bool> match)
+    {
+        var children = new List<ICanBeReferencedType>();
+        if (element is IElement e)
+        {
+            foreach (var x in e.ChildElements)
+            {
+                var type = x.TypeReference?.Element;
+                if (type is not null && match(type))
+                {
+                    children.Add(type);
+                    children.AddRange(GetAllChildren(type, match));
+                }
+            }
+        }
+
+        return children.ToArray();
     }
 
     private static string GetRenderMode(string? value)
