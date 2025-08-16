@@ -9,6 +9,7 @@ using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.AI.AutoImplementation.Tasks.Helpers;
 using Intent.Modules.Common.AI;
+using Intent.Modules.Common.AI.Settings;
 using Intent.Plugins;
 using Intent.Registrations;
 using Intent.Utils;
@@ -49,10 +50,13 @@ public class AutoImplementServiceOperationTask : IModuleTask
     {
         var applicationId = args[0];
         var elementId = args[1];
-        var userProvidedContext = args.Length > 2 && !string.IsNullOrWhiteSpace(args[2]) ? args[2] : "None";
+        var userProvidedContext = !string.IsNullOrWhiteSpace(args[2]) ? args[2] : "None";
+        var provider = new AISettings.ProviderOptions(args[3]).AsEnum();
+        var modelId = args[4];
+        var thinkingType = args[5];
 
         Logging.Log.Info($"Args: {string.Join(",", args)}");
-        var kernel = _intentSemanticKernelFactory.BuildSemanticKernel();
+        var kernel = _intentSemanticKernelFactory.BuildSemanticKernel(modelId, provider, null);
 
         var element = _metadataManager.Services(applicationId).Elements.FirstOrDefault(x => x.Id == elementId);
         if (element == null)
@@ -62,7 +66,7 @@ public class AutoImplementServiceOperationTask : IModuleTask
         var inputFiles = GetInputFiles(element);
         var jsonInput = JsonConvert.SerializeObject(inputFiles, Formatting.Indented);
 
-        var requestFunction = CreatePromptFunction(kernel);
+        var requestFunction = CreatePromptFunction(kernel, thinkingType);
         var fileChangesResult = requestFunction.InvokeFileChangesPrompt(kernel, new KernelArguments()
         {
             ["inputFilesJson"] = jsonInput,
@@ -82,7 +86,7 @@ public class AutoImplementServiceOperationTask : IModuleTask
         return "success";
     }
 
-    private static KernelFunction CreatePromptFunction(Kernel kernel)
+    private static KernelFunction CreatePromptFunction(Kernel kernel, string thinkingType)
     {
 	    const string promptTemplate =
             """
@@ -199,7 +203,26 @@ public class AutoImplementServiceOperationTask : IModuleTask
             - You can't access owned entities from the dbContext in EntityFrameworkCore
             """;
 	    
-	    var requestFunction = kernel.CreateFunctionFromPrompt(promptTemplate);
+        var requestFunction = kernel.CreateFunctionFromPrompt(promptTemplate, new PromptExecutionSettings
+        {
+            ExtensionData = new Dictionary<string, object>
+            {
+                // OpenAI equivalent
+                ["reasoning"] = new
+                {
+                    effort = thinkingType
+                },
+                // Anthropic equivalent
+                ["thinking"] = new
+                {
+                    type = thinkingType == "low" 
+                        ? "disabled" 
+                        : thinkingType == "high" 
+                            ? "enabled" 
+                            : throw new ArgumentOutOfRangeException($"{thinkingType} is invalid")
+                }
+            }
+        });
 	    return requestFunction;
     }
     
