@@ -19,22 +19,22 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Samples\MudBlazor\Add.razor" />
-    <EmbeddedResource Include="Samples\MudBlazor\Add.razor.cs" />
-    <EmbeddedResource Include="Samples\MudBlazor\Edit.razor" />
-    <EmbeddedResource Include="Samples\MudBlazor\Edit.razor.cs" />
-    <EmbeddedResource Include="Samples\MudBlazor\SearchScreenExample.razor" />
+    <Content Include="Samples\MudBlazor\Add.razor" />
+    <Content Include="Samples\MudBlazor\Add.razor.cs" />
+    <Content Include="Samples\MudBlazor\Edit.razor" />
+    <Content Include="Samples\MudBlazor\Edit.razor.cs" />
+    <Content Include="Samples\MudBlazor\SearchScreenExample.razor" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Samples\MudBlazor\SearchScreenExample.razor.cs" />
-    <EmbeddedResource Include="Samples\MudBlazor\View.razor" />
-    <EmbeddedResource Include="Samples\MudBlazor\View.razor.cs" />
+    <Content Include="Samples\MudBlazor\SearchScreenExample.razor.cs" />
+    <Content Include="Samples\MudBlazor\View.razor" />
+    <Content Include="Samples\MudBlazor\View.razor.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.7.3" />
-    <PackageReference Include="Intent.Modules.Common.AI" Version="1.0.0-beta.3" />
+    <PackageReference Include="Intent.Modules.Common.AI" Version="1.0.0-beta.8" />
     <PackageReference Include="Intent.Modules.Modelers.UI" Version="1.0.0-beta.6" />
     <PackageReference Include="Intent.Modules.VisualStudio.Projects" Version="3.8.11" />
     <PackageReference Include="Intent.Packager" Version="3.6.0-pre.1">
@@ -42,7 +42,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.7" />
-    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.9.0-alpha.5" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.9.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 

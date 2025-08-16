@@ -215,11 +215,7 @@ public class AutoImplementServiceOperationTask : IModuleTask
                 // Anthropic equivalent
                 ["thinking"] = new
                 {
-                    type = thinkingType == "low" 
-                        ? "disabled" 
-                        : thinkingType == "high" 
-                            ? "enabled" 
-                            : throw new ArgumentOutOfRangeException($"{thinkingType} is invalid")
+                    type = thinkingType == "low" ? "disabled" : thinkingType == "high" ? "enabled" : null
                 }
             }
         });

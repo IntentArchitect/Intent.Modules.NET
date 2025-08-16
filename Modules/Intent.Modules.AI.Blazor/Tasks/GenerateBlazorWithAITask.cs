@@ -15,6 +15,7 @@ using Newtonsoft.Json;
 using Intent.Modules.AI.Blazor.Tasks.Helpers;
 using Intent.Modules.AI.Blazor.Samples;
 using System.Diagnostics;
+using Intent.Modules.Common.AI.Settings;
 
 namespace Intent.Modules.AI.Prompts.Tasks;
 
@@ -52,11 +53,14 @@ public class GenerateBlazorWithAITask : IModuleTask
     {
         var applicationId = args[0];
         var elementId = args[1];
-        var userProvidedContext = args.Length > 2 && !string.IsNullOrWhiteSpace(args[2]) ? args[2] : "None";
-        var exampleComponentIds = args.Length > 3 && !string.IsNullOrWhiteSpace(args[3]) ? JsonConvert.DeserializeObject<string[]>(args[3]) : [];
+        var userProvidedContext = !string.IsNullOrWhiteSpace(args[2]) ? args[2] : "None";
+        var exampleComponentIds = !string.IsNullOrWhiteSpace(args[3]) ? JsonConvert.DeserializeObject<string[]>(args[3]) : [];
+        var provider = new AISettings.ProviderOptions(args[4]).AsEnum();
+        var modelId = args[5];
+        var thinkingType = args[6];
 
         Logging.Log.Info($"Args: {string.Join(",", args)}");
-        var kernel = _intentSemanticKernelFactory.BuildSemanticKernel();
+        var kernel = _intentSemanticKernelFactory.BuildSemanticKernel(modelId, provider, null);
         var componentModel = _metadataManager.UserInterface(applicationId).Elements.FirstOrDefault(x => x.Id == elementId);
         if (componentModel == null)
         {
@@ -84,7 +88,7 @@ public class GenerateBlazorWithAITask : IModuleTask
 
         var environmentMetadata = GetEnvironmentMetadata(applicationConfig);
         var exampleJson = JsonConvert.SerializeObject(exampleFiles, Formatting.Indented);
-        var requestFunction = CreatePromptFunction(kernel);
+        var requestFunction = CreatePromptFunction(kernel, thinkingType);
         var fileChangesResult = requestFunction.InvokeFileChangesPrompt(kernel, new KernelArguments()
         {
             ["environmentMetadata"] = environmentMetadata,
@@ -131,7 +135,7 @@ public class GenerateBlazorWithAITask : IModuleTask
         return JsonConvert.SerializeObject(metadata, Formatting.Indented);
     }
 
-    private static KernelFunction CreatePromptFunction(Kernel kernel)
+    private static KernelFunction CreatePromptFunction(Kernel kernel, string thinkingType)
     {
         const string promptTemplate =
             """
@@ -199,7 +203,22 @@ public class GenerateBlazorWithAITask : IModuleTask
             {{$examples}}
             """;
         
-        var requestFunction = kernel.CreateFunctionFromPrompt(promptTemplate);
+        var requestFunction = kernel.CreateFunctionFromPrompt(promptTemplate, new PromptExecutionSettings
+        {
+            ExtensionData = new Dictionary<string, object>
+            {
+                // OpenAI equivalent
+                ["reasoning"] = new
+                {
+                    effort = thinkingType
+                },
+                // Anthropic equivalent
+                ["thinking"] = new
+                {
+                    type = thinkingType == "low" ? "disabled" : thinkingType == "high" ? "enabled" : null
+                }
+            }
+        });
         return requestFunction;
     }
 
