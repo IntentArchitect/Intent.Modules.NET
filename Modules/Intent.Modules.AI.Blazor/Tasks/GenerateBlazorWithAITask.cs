@@ -13,9 +13,9 @@ using Intent.Utils;
 using Microsoft.SemanticKernel;
 using Newtonsoft.Json;
 using Intent.Modules.AI.Blazor.Tasks.Helpers;
-using Intent.Modules.AI.Blazor.Samples;
 using Intent.Modelers.Services.Api;
 using System.Diagnostics;
+using Intent.Modules.AI.Blazor.Tasks.Config;
 
 namespace Intent.Modules.AI.Prompts.Tasks;
 
@@ -55,6 +55,7 @@ public class GenerateBlazorWithAITask : IModuleTask
         var elementId = args[1];
         var userProvidedContext = args.Length > 2 && !string.IsNullOrWhiteSpace(args[2]) ? args[2] : "None";
         var exampleComponentIds = args.Length > 3 && !string.IsNullOrWhiteSpace(args[3]) ? JsonConvert.DeserializeObject<string[]>(args[3]) : [];
+        var templateId = args.Length > 4 && !string.IsNullOrWhiteSpace(args[4]) ? args[4] : null;
 
         Logging.Log.Info($"Args: {string.Join(",", args)}");
         var kernel = _intentSemanticKernelFactory.BuildSemanticKernel();
@@ -63,9 +64,23 @@ public class GenerateBlazorWithAITask : IModuleTask
         {
             throw new Exception($"An element was selected to be executed upon but could not be found. Please ensure you have saved your designer and try again.");
         }
-        var inputFiles = GetInputFiles(componentModel, out var toModify );
+
+        var promptTemplateConfig = PromptConfig.TryLoad(_solution.SolutionRootLocation);
+        if (promptTemplateConfig is null)
+        {
+            Logging.Log.Warning("No Prompt Templates Found.");
+            promptTemplateConfig = new PromptConfig();
+        }
+        if (templateId is not null && promptTemplateConfig.Templates.FirstOrDefault(t => t.Id == templateId) == null)
+        {
+            throw new Exception($"Could not find Template {templateId}.");
+        }
+
+        var inputFiles = GetInputFiles(componentModel, out var toModify)
+            .Concat(LoadAdditionalFiles(promptTemplateConfig.GetInputFile(templateId))); 
         var jsonInput = JsonConvert.SerializeObject(inputFiles, Formatting.Indented);
         var fileToModifyJson = JsonConvert.SerializeObject(toModify.Select(m => m.FilePath).ToArray());
+
         var exampleFiles = exampleComponentIds?.SelectMany(componentId =>
         {
             var component = _metadataManager.UserInterface(applicationId).Elements.FirstOrDefault(x => x.Id == componentId);
@@ -74,16 +89,18 @@ public class GenerateBlazorWithAITask : IModuleTask
                 return [];
             }
             return _fileProvider.GetFilesForMetadata(component);
-        }).ToArray() ?? [];
+        }).ToList() ?? [];
 
         var applicationConfig = _solution.GetApplicationConfig(args[0]);
 
-        if (!exampleFiles.Any() && applicationConfig.Modules.Any(m => m.ModuleId == "Intent.Blazor.Components.MudBlazor"))
+        var templateFiles = promptTemplateConfig.LoadTemplateFiles(templateId);
+        if (templateFiles.Any())
         {
-            exampleFiles = MudBlazorSampleTemplates.LoadMudBlazorSamples().ToArray();
+            Logging.Log.Debug($"Adding Template Files ({templateFiles.Count()})");
+            exampleFiles.AddRange(templateFiles);
         }
 
-        var environmentMetadata = GetEnvironmentMetadata(applicationConfig);
+        var environmentMetadata = GetEnvironmentMetadata(applicationConfig, promptTemplateConfig.GetMetadata(templateId));
         var exampleJson = JsonConvert.SerializeObject(exampleFiles, Formatting.Indented);
         var requestFunction = CreatePromptFunction(kernel);
         var fileChangesResult = requestFunction.InvokeFileChangesPrompt(kernel, new KernelArguments()
@@ -93,7 +110,8 @@ public class GenerateBlazorWithAITask : IModuleTask
             ["userProvidedContext"] = userProvidedContext,
             ["targetFileName"] = componentModel.Name + "Handler",
             ["examples"] = exampleJson,
-            ["filesToModifyJson"] = fileToModifyJson
+            ["filesToModifyJson"] = fileToModifyJson,
+            ["additionalRules"] = promptTemplateConfig.GetAdditionalRules(templateId)
         });
 
         // Output the updated file changes.
@@ -106,10 +124,21 @@ public class GenerateBlazorWithAITask : IModuleTask
         return "success";
     }
 
-    private string GetEnvironmentMetadata(IApplicationConfig applicationConfig)
+    private IEnumerable<ICodebaseFile> LoadAdditionalFiles(IEnumerable<string> filenames)
     {
-        //We need a better way to get this data.
+        foreach (var filename in filenames)
+        {
+            if (!File.Exists(filename))
+            {
+                Logging.Log.Warning($"Unable to find Prompt Tempalte file : {filename}");
+                continue;
+            }
+            yield return new PromptFile(filename, File.ReadAllText(filename));
+        }
+    }
 
+    private string GetEnvironmentMetadata(IApplicationConfig applicationConfig, Dictionary<string, object> promptTempalteMetadata)
+    {
         var blazorSettings = applicationConfig.ModuleSetting.FirstOrDefault(s => s.Id == "489a67db-31b2-4d51-96d7-52637c3795be");// Blazor Settings
         var prerendering = blazorSettings.GetSetting("d851b4d1-b230-461f-9873-80d6857fa175");// Prerendering
         var renderMode = blazorSettings.GetSetting("3e3d24f8-ad29-44d6-b7e5-e76a5af2a7fa");// RenderMode
@@ -121,17 +150,12 @@ public class GenerateBlazorWithAITask : IModuleTask
             ["prerenderingMode"] = prerendering?.Value == "false" ? "disabled":"enabled",
 
         };
-        if (applicationConfig.Modules.Any(m => m.ModuleId == "Intent.Blazor.Components.MudBlazor"))
-        {
-            metadata["componentLibrary"] = new Dictionary<string, string>
-            {
-                ["name"] = "MudBlazor",
-                ["version"] = "8.10.0"
-            };
-        }
+       
+        metadata = DictionaryHelper.MergeDictionaries(metadata, promptTempalteMetadata);
 
         return JsonConvert.SerializeObject(metadata, Formatting.Indented);
     }
+
 
     private static KernelFunction CreatePromptFunction(Kernel kernel)
     {
@@ -159,10 +183,12 @@ public class GenerateBlazorWithAITask : IModuleTask
             * The `.razor.cs` file is the C# backing file for the `.razor` file.
             * (IMPORTANT) Only add razor markup to the `.razor` file. If you want to add C# code, add it to the `.razor.cs` file. Therefore, do NOT add a @code directive to the `.razor` file.
             * PRESERVE existing code in the `.razor.cs` file. You may add code, but you are not allowed to change the existing code (IMPORTANT) in the .`razor.cs` file!
-            * ONLY IF YOU add any code directives in the `.razor.cs` file, MUST you add an `[IntentIgnore]` attribute to that directive.
             * NEVER ADD COMMENTS
             * The supplied Example Components are examples to guide your implementation 
             * Don't display technical ids to end users like Guids
+            
+            ## Additional Rules
+            {{$additionalRules}}
 
             ## Files Allowed To Modify
             {{$filesToModifyJson}}
@@ -181,7 +207,6 @@ public class GenerateBlazorWithAITask : IModuleTask
             - [ ] All `@bind` and event handlers in `.razor` are defined in `.razor.cs`.
             - [ ] No `@code` blocks in `.razor`.
             - [ ] `[IntentManaged]` attributes preserved.
-            - [ ] Any new members in `.razor.cs` marked `[IntentIgnore]`.
             - [ ] Code compiles with added `using` directives.
 
             ## Required Output Format
