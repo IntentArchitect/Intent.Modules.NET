@@ -16,6 +16,7 @@ using Intent.Modules.AI.Blazor.Tasks.Helpers;
 using Intent.Modelers.Services.Api;
 using System.Diagnostics;
 using Intent.Modules.AI.Blazor.Tasks.Config;
+using Intent.Modelers.Services.CQRS.Api;
 
 namespace Intent.Modules.AI.Prompts.Tasks;
 
@@ -65,7 +66,7 @@ public class GenerateBlazorWithAITask : IModuleTask
             throw new Exception($"An element was selected to be executed upon but could not be found. Please ensure you have saved your designer and try again.");
         }
 
-        var promptTemplateConfig = PromptConfig.TryLoad(_solution.SolutionRootLocation);
+        var promptTemplateConfig = PromptConfig.TryLoad(_solution.SolutionRootLocation, _applicationConfigurationProvider.GetApplicationConfig().Name);
         if (promptTemplateConfig is null)
         {
             Logging.Log.Warning("No Prompt Templates Found.");
@@ -260,11 +261,12 @@ public class GenerateBlazorWithAITask : IModuleTask
 
             foreach (var associationEnd in dto.AssociatedElements)
             {
-                inputFiles.AddRange(filesProvider.GetFilesForMetadata(associationEnd.TypeReference.Element));
+                inputFiles.AddRange(GetCodeFilesForElement(filesProvider, associationEnd.TypeReference.Element));
 
-                foreach (var childDto in GetAllChildren(associationEnd.TypeReference.Element, e => e.IsDTOModel()))
+                if ((associationEnd.TypeReference.Element.IsCommandModel() || associationEnd.TypeReference.Element.IsQueryModel())
+                    && associationEnd.TypeReference.Element.TypeReference.Element.IsDTOModel())
                 {
-                    inputFiles.AddRange(filesProvider.GetFilesForMetadata(childDto));
+                    inputFiles.AddRange(GetCodeFilesForElement(filesProvider, associationEnd.TypeReference.Element.TypeReference.Element));
                 }
 
             }
@@ -276,6 +278,18 @@ public class GenerateBlazorWithAITask : IModuleTask
         //inputFiles.AddRange(filesProvider.GetFilesForTemplate("Intent.Entities.NotFoundException"));
         //inputFiles.AddRange(filesProvider.GetFilesForTemplate("Intent.VisualStudio.Projects.VisualStudioSolution"));
 
+        return inputFiles;
+    }
+
+    private List<ICodebaseFile> GetCodeFilesForElement(IGeneratedFilesProvider filesProvider, ICanBeReferencedType element)
+    {
+        var inputFiles = new List<ICodebaseFile>();
+        inputFiles.AddRange(filesProvider.GetFilesForMetadata(element));
+
+        foreach (var childDto in GetAllChildren(element, e => e.IsDTOModel()))
+        {
+            inputFiles.AddRange(filesProvider.GetFilesForMetadata(childDto));
+        }
         return inputFiles;
     }
 

@@ -1,0 +1,141 @@
+{
+  "metadata": {
+    "component-library": {
+      "name": "MudBlazor",
+      "version": "8.10.0"
+    }
+  },
+  "rules": [
+    "Don't add `@using MudBlazor` into .razor files"
+  ],
+  "input-files": [],
+  "templates": [
+    {
+      "id": "SearchEntity",
+      "name": "Search Entity",
+      "description": "Search Entity",
+      "applicability": {
+        "key-words": [
+          {
+            "word": "search",
+            "weight": 3
+          },
+          {
+            "word": "find",
+            "weight": 3
+          },
+          {
+            "word": "filter",
+            "weight": 2
+          },
+          {
+            "word": "list",
+            "weight": 3
+          },
+          {
+            "word": "lookup",
+            "weight": 2
+          },
+          {
+            "word": "query",
+            "weight": 2
+          }
+        ]
+      },
+      "template-folder": "SearchEntity",
+      "metadata": {},
+      "rules": [
+        "if you implement LoadServerData it must have 2 parameters (TableState state, CancellationToken cancelationToken)",
+        "if there are not methods which represent actions, do not add them to the rows e.g. Delete, Edit, View "
+      ]
+    },
+    {
+      "id": "AddEntity",
+      "name": "Add Entity",
+      "description": "Add Entity",
+      "applicability": {
+        "key-words": [
+          {
+            "word": "add",
+            "weight": 3
+          },
+          {
+            "word": "create",
+            "weight": 3
+          },
+          {
+            "word": "new",
+            "weight": 2
+          },
+          {
+            "word": "insert",
+            "weight": 2
+          },
+          {
+            "word": "register",
+            "weight": 2
+          }
+        ]
+      },
+      "template-folder": "AddEntity",
+      "metadata": {},
+      "rules": []
+    },
+    {
+      "id": "EditEntity",
+      "name": "Edit Entity",
+      "description": "Edit Entity",
+      "applicability": {
+        "key-words": [
+          {
+            "word": "edit",
+            "weight": 3
+          },
+          {
+            "word": "update",
+            "weight": 3
+          },
+          {
+            "word": "modify",
+            "weight": 2
+          },
+          {
+            "word": "change",
+            "weight": 2
+          }
+        ]
+      },
+      "template-folder": "EditEntity",
+      "metadata": {},
+      "rules": []
+    },
+    {
+      "id": "ViewEntity",
+      "name": "View Entity",
+      "description": "View Entity",
+      "applicability": {
+        "key-words": [
+          {
+            "word": "view",
+            "weight": 2
+          },
+          {
+            "word": "details",
+            "weight": 2
+          },
+          {
+            "word": "detail",
+            "weight": 2
+          },
+          {
+            "word": "show",
+            "weight": 2
+          }
+        ]
+      },
+      "template-folder": "ViewEntity",
+      "metadata": {},
+      "rules": []
+    }
+  ]
+}

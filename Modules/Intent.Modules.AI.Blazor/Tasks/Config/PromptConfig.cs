@@ -34,10 +34,14 @@ namespace Intent.Modules.AI.Blazor.Tasks.Config
         public List<Template> Templates { get; set; } = new List<Template>();
 
 
+        internal static string GetTemplatePromptPath(string solutionPath, string applicationName)
+        { 
+            return Path.Combine(solutionPath, "AI.Prompt.Templates", applicationName, "Intent.Blazor.AI");
+        }
 
-        internal static PromptConfig? TryLoad(string solutionPath)
+        internal static PromptConfig? TryLoad(string solutionPath, string applicationName)
         {
-            var path = Path.Combine(solutionPath, "AI.Prompt.Templates", "Intent.Blazor.AI");
+            var path = GetTemplatePromptPath(solutionPath, applicationName);
             var filename = System.IO.Directory.Exists(path) ? Path.Combine(path, DefaultConfigFileName) : path;
             if (System.IO.File.Exists(filename))
             {

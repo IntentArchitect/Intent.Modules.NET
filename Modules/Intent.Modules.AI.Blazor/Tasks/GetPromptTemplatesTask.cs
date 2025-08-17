@@ -21,15 +21,11 @@ namespace Intent.Modules.AI.Blazor.Tasks
 {
     public class GetPromptTemplatesTask : IModuleTask
     {
-        private readonly IApplicationConfigurationProvider _applicationConfigurationProvider;
-        private readonly ISolutionConfig _solution;
+        private readonly ISolutionConfig _solutionConfig;
 
-        public GetPromptTemplatesTask(
-            IApplicationConfigurationProvider applicationConfigurationProvider,
-            ISolutionConfig solution)
+        public GetPromptTemplatesTask(ISolutionConfig solutionConfig)
         {
-            _applicationConfigurationProvider = applicationConfigurationProvider;
-            _solution = solution;
+            _solutionConfig = solutionConfig;
         }
 
         public string TaskTypeId => "Intent.Modules.AI.Blazor.GetPromptTemplates";
@@ -38,10 +34,13 @@ namespace Intent.Modules.AI.Blazor.Tasks
 
         public string Execute(params string[] args)
         {
-            string pageName = args.Length > 0 ? args[0] :  "";
+            string applicationId = args.Length > 0 ? args[0] : throw new Exception($"No Application Id specified for {TaskTypeId}");
+            string pageName = args.Length > 1 ? args[1] : throw new Exception($"No Page Name specified for {TaskTypeId}");
+
+            var applicationConfig = _solutionConfig.GetApplicationConfig(applicationId);
+
             var result = new List<TemplateResult>();
-            string promptTemplateLocation = Path.Combine(_solution.SolutionRootLocation, "AI.Prompt.Templates", "Intent.Blazor.AI");
-            var config = PromptConfig.TryLoad(_solution.SolutionRootLocation);
+            var config = PromptConfig.TryLoad(_solutionConfig.SolutionRootLocation, applicationConfig.Name);
             if (config != null)
             {
                 var guess = TemplateGuesser.Guess(config, pageName);

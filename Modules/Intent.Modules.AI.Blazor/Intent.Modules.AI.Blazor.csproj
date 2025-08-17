@@ -5,23 +5,24 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="resources\AI.Prompt.Templates\AddEntity\AddExample.razor.cs" />
-    <Compile Remove="resources\AI.Prompt.Templates\EditEntity\EditExample.razor.cs" />
-    <Compile Remove="resources\AI.Prompt.Templates\SearchEntity\SearchScreenExample.razor.cs" />
-    <Compile Remove="resources\AI.Prompt.Templates\ViewEntity\ViewExample.razor.cs" />
+    <Compile Remove="content\MudBlazorAIPromptTemplates\AddEntity\AddExample.razor.cs" />
+    <Compile Remove="content\MudBlazorAIPromptTemplates\EditEntity\EditExample.razor.cs" />
+    <Compile Remove="content\MudBlazorAIPromptTemplates\SearchEntity\SearchScreenExample.razor.cs" />
+    <Compile Remove="content\MudBlazorAIPromptTemplates\ViewEntity\ViewExample.razor.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="resources\AI.Prompt.Templates\AddEntity\AddExample.razor.cs" />
-    <None Include="resources\AI.Prompt.Templates\EditEntity\EditExample.razor.cs" />
-    <None Include="resources\AI.Prompt.Templates\SearchEntity\SearchScreenExample.razor.cs" />
-    <None Include="resources\AI.Prompt.Templates\ViewEntity\ViewExample.razor.cs" />
+    <None Include="content\MudBlazorAIPromptTemplates\AddEntity\AddExample.razor.cs" />
+    <None Include="content\MudBlazorAIPromptTemplates\EditEntity\EditExample.razor.cs" />
+    <None Include="content\MudBlazorAIPromptTemplates\SearchEntity\SearchScreenExample.razor.cs" />
+    <None Include="content\MudBlazorAIPromptTemplates\ViewEntity\ViewExample.razor.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.7.3" />
     <PackageReference Include="Intent.Modules.Common.AI" Version="1.0.0-beta.3" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.9.3" />
+    <PackageReference Include="Intent.Modules.Modelers.Services.CQRS" Version="5.1.1" />
     <PackageReference Include="Intent.Modules.Modelers.UI" Version="1.0.0-beta.6" />
     <PackageReference Include="Intent.Modules.VisualStudio.Projects" Version="3.8.11" />
     <PackageReference Include="Intent.Packager" Version="3.6.0-pre.1">
@@ -35,6 +36,10 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Intent.Modules.AI.Blazor.Samples.MudBlazor\**\*.*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="resources\" />
   </ItemGroup>
 
 </Project>
