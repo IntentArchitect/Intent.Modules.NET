@@ -17,6 +17,7 @@ using Intent.Modelers.Services.Api;
 using System.Diagnostics;
 using Intent.Modules.AI.Blazor.Tasks.Config;
 using Intent.Modelers.Services.CQRS.Api;
+using Intent.Modules.Common.Types.Api;
 
 namespace Intent.Modules.AI.Prompts.Tasks;
 
@@ -54,7 +55,7 @@ public class GenerateBlazorWithAITask : IModuleTask
     {
         var applicationId = args[0];
         var elementId = args[1];
-        var userProvidedContext = args.Length > 2 && !string.IsNullOrWhiteSpace(args[2]) ? args[2] : "None";
+        var userProvidedContext = args.Length > 2 && !string.IsNullOrWhiteSpace(args[2]) ? args[2] : "";
         var exampleComponentIds = args.Length > 3 && !string.IsNullOrWhiteSpace(args[3]) ? JsonConvert.DeserializeObject<string[]>(args[3]) : [];
         var templateId = args.Length > 4 && !string.IsNullOrWhiteSpace(args[4]) ? args[4] : null;
 
@@ -64,6 +65,12 @@ public class GenerateBlazorWithAITask : IModuleTask
         if (componentModel == null)
         {
             throw new Exception($"An element was selected to be executed upon but could not be found. Please ensure you have saved your designer and try again.");
+        }
+
+        //Append the Component Model Comment for Persistent Instance Based Context - i.e.
+        if (!string.IsNullOrEmpty(componentModel.Comment))
+        {
+            userProvidedContext = componentModel.Comment + Environment.NewLine + userProvidedContext;
         }
 
         var promptTemplateConfig = PromptConfig.TryLoad(_solution.SolutionRootLocation, _applicationConfigurationProvider.GetApplicationConfig().Name);
@@ -103,7 +110,18 @@ public class GenerateBlazorWithAITask : IModuleTask
 
         var environmentMetadata = GetEnvironmentMetadata(applicationConfig, promptTemplateConfig.GetMetadata(templateId));
         var exampleJson = JsonConvert.SerializeObject(exampleFiles, Formatting.Indented);
+        var additionalRules = promptTemplateConfig.GetAdditionalRules(templateId);
         var requestFunction = CreatePromptFunction(kernel);
+
+        if (string.IsNullOrEmpty(userProvidedContext))
+        {
+            userProvidedContext = "None";
+        }
+        if (string.IsNullOrEmpty(additionalRules))
+        {
+            additionalRules = "None";
+        }
+
         var fileChangesResult = requestFunction.InvokeFileChangesPrompt(kernel, new KernelArguments()
         {
             ["environmentMetadata"] = environmentMetadata,
@@ -112,7 +130,7 @@ public class GenerateBlazorWithAITask : IModuleTask
             ["targetFileName"] = componentModel.Name + "Handler",
             ["examples"] = exampleJson,
             ["filesToModifyJson"] = fileToModifyJson,
-            ["additionalRules"] = promptTemplateConfig.GetAdditionalRules(templateId)
+            ["additionalRules"] =  additionalRules
         });
 
         // Output the updated file changes.
@@ -268,7 +286,6 @@ public class GenerateBlazorWithAITask : IModuleTask
                 {
                     inputFiles.AddRange(GetCodeFilesForElement(filesProvider, associationEnd.TypeReference.Element.TypeReference.Element));
                 }
-
             }
         }
         inputFiles.AddRange(_fileProvider.GetFilesForTemplate("Intent.Application.Dtos.Pagination.PagedResult"));
@@ -286,7 +303,7 @@ public class GenerateBlazorWithAITask : IModuleTask
         var inputFiles = new List<ICodebaseFile>();
         inputFiles.AddRange(filesProvider.GetFilesForMetadata(element));
 
-        foreach (var childDto in GetAllChildren(element, e => e.IsDTOModel()))
+        foreach (var childDto in GetAllChildren(element, e => e.IsDTOModel() || e.IsEnumModel()))
         {
             inputFiles.AddRange(filesProvider.GetFilesForMetadata(childDto));
         }
