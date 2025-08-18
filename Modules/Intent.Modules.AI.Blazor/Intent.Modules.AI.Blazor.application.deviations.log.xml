@@ -12,6 +12,16 @@
       <fileHash>E80613B26A7097394B2B70F0AEAE34CC9F7D656B55278E2008C771578CFBC8D8</fileHash>
     </file>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#cd5ec8d4-a454-4644-942f-4923971ac10f</correlationId>
+      <path>Intent.Modules.AI.Blazor/Templates/StaticContentTemplateRegistrations/MudBlazorAIPromptTemplatesStaticContentTemplateRegistration.cs</path>
+      <count>2</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2025-08-17T10:10:30.1279167Z</updatedAt>
+      <deviationsHash>E2EC82870D2F9BD78DD52F4166C7B5AA70E71098C7CD010099E62730609FD0E4</deviationsHash>
+      <fileHash>44E36F6FA0553CC21C6B32322883CF4A38809A3F4004E4AC98BD40A8AD9EA02B</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#338fdca3-cde3-47ec-9aa9-b164c8ff9cb9</correlationId>
       <path>Intent.Modules.AI.Blazor/Templates/StaticContentTemplateRegistrations/MudBlazorTemplateThemeCSSStaticContentTemplateRegistration.cs</path>
       <count>1</count>

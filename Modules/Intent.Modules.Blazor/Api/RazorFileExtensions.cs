@@ -202,12 +202,8 @@ public static class RazorFileExtensions
                                 string? serviceName = null;
                                 CSharpStatement? invocation = null;
 
-                                if (template.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveServer() && IsLocalServiceInvocatiion(action, targetElement, parentElement))
+                                if (template.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveServer() && IsLocalServiceInvocation(action, targetElement, parentElement))
                                 {
-                                    if (method.Name == "LoadCategories" )
-                                    {
-
-                                    }
                                     if (targetElement.SpecializationTypeId is commandSpecializationTypeId or querySpecializationTypeId)
                                     {
                                         serviceName = block.InjectServiceProperty(block.Template.GetScopedMediatorInterfaceTemplateName(), "Mediator");
@@ -488,7 +484,7 @@ public static class RazorFileExtensions
         return result;
     }
 
-    private static bool IsLocalServiceInvocatiion(IElement? action, IElement targetElement, IElement parentElement)
+    private static bool IsLocalServiceInvocation(IElement? action, IElement targetElement, IElement parentElement)
     {
         const string commandSpecializationTypeId = "ccf14eb6-3a55-4d81-b5b9-d27311c70cb9";
         const string querySpecializationTypeId = "e71b0662-e29d-4db2-868b-8a12464b25d0";

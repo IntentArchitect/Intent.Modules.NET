@@ -40,13 +40,6 @@ public class LocalCommandQueryMappingResolver : IMappingTypeResolver
             return null;
         }
 
-        //Exposed Services are handled by proxies
-        const string httpSettingsDefinitionId = "b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6";
-        if (mappingModel.Model.HasStereotype(httpSettingsDefinitionId))
-        {
-            return null;
-        }
-
         if ((_template.TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Application.Command, mappingModel.Model.Id, out var templateInstance) ||
              _template.TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Application.Query, mappingModel.Model.Id, out templateInstance)) 
              )

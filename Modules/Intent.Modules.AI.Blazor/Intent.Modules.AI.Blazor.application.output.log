@@ -17,6 +17,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>6161ed7e-68be-4788-8bdf-9942f39626b5</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.StaticContentOutputReadme#cd5ec8d4-a454-4644-942f-4923971ac10f</CorrelationId>
+      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>content/MudBlazorAIPromptTemplates/readme.txt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>content/MudBlazorAIPromptTemplates/readme.txt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>878a1a1a-18cd-4b87-b2b9-0e1b165f94b2</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#80e2fd46-e30d-45df-bb96-9e169a84e3b0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -54,6 +62,14 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>release-notes.md</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>release-notes.md</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a08c49a0-cdb2-4ff0-8d23-78132a261abc</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#cd5ec8d4-a454-4644-942f-4923971ac10f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/StaticContentTemplateRegistrations/MudBlazorAIPromptTemplatesStaticContentTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>StaticContentTemplateRegistrations/MudBlazorAIPromptTemplatesStaticContentTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

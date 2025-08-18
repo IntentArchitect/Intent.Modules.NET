@@ -50,12 +50,12 @@ namespace BlazorServer.Sample.App.Api.Components.Pages.Customers
 
         private void AddCustomer()
         {
-            NavigationManager.NavigateTo("/customers/add");
+            NavigationManager.NavigateTo("/customers-example/add-customer");
         }
 
         private void ViewCustomer(Guid customerId)
         {
-            NavigationManager.NavigateTo($"/customers/view/{customerId}");
+            NavigationManager.NavigateTo($"/customers-example/view-customer/{customerId}");
         }
 
         private async Task DeleteCustomer(Guid customerId)
@@ -74,7 +74,7 @@ namespace BlazorServer.Sample.App.Api.Components.Pages.Customers
 
         private void EditCustomer(Guid customerId)
         {
-            NavigationManager.NavigateTo($"/customers/edit/{customerId}");
+            NavigationManager.NavigateTo($"/customers-example/edit-customer/{customerId}");
         }
 
         public class DeleteCustomerModel
@@ -82,6 +82,9 @@ namespace BlazorServer.Sample.App.Api.Components.Pages.Customers
             public Guid Id { get; set; }
         }
 
+        /// <summary>
+        /// The CancellationToken cancelationToken is required.(IMPORTANT)
+        /// </summary>
         public async Task<TableData<CustomerSummaryDto>> LoadServerData(TableState state, CancellationToken cancelationToken)
         {
             string? orderBy = null;
@@ -102,6 +105,10 @@ namespace BlazorServer.Sample.App.Api.Components.Pages.Customers
             };
         }
 
+        /// <summary>
+        /// This is how we do confirmation dialogs for example for deletes, using DialogService.ShowMessageBox.(IMPORTANT)
+        /// </summary>
+        /// <param name="customerId"></param>
         private async void OnDeleteCustomer(Guid customerId)
         {
             var confirmed = await DialogService.ShowMessageBox(

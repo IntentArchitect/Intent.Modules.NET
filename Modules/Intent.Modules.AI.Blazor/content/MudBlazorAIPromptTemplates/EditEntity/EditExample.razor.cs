@@ -77,7 +77,7 @@ namespace BlazorServer.Sample.App.Api.Components.Pages.Customers
 
                 await UpdateCustomer();
                 Snackbar.Add("Customer updated successfully.", Severity.Success);
-                NavigationManager.NavigateTo("/customers/");
+                NavigationManager.NavigateTo("/customers-example/");
             }
             catch (Exception ex)
             {
