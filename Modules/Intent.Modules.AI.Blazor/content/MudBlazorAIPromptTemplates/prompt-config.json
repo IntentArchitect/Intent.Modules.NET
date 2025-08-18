@@ -8,7 +8,8 @@
   "rules": [
     "Don't add `@using MudBlazor` into .razor files"
   ],
-  "input-files": [],
+  "input-files": [
+  ],
   "templates": [
     {
       "id": "SearchEntity",
@@ -43,7 +44,8 @@
         ]
       },
       "template-folder": "SearchEntity",
-      "metadata": {},
+      "metadata": {
+      },
       "rules": [
         "if you implement LoadServerData it must have 2 parameters (TableState state, CancellationToken cancelationToken)",
         "if there are not methods which represent actions, do not add them to the rows e.g. Delete, Edit, View "
@@ -78,8 +80,10 @@
         ]
       },
       "template-folder": "AddEntity",
-      "metadata": {},
-      "rules": []
+      "metadata": {
+      },
+      "rules": [
+      ]
     },
     {
       "id": "EditEntity",
@@ -106,8 +110,10 @@
         ]
       },
       "template-folder": "EditEntity",
-      "metadata": {},
-      "rules": []
+      "metadata": {
+      },
+      "rules": [
+      ]
     },
     {
       "id": "ViewEntity",
@@ -134,8 +140,10 @@
         ]
       },
       "template-folder": "ViewEntity",
-      "metadata": {},
-      "rules": []
+      "metadata": {
+      },
+      "rules": [
+      ]
     }
   ]
 }
