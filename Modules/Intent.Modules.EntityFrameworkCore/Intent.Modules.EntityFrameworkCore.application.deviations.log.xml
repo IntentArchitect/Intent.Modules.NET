@@ -28,32 +28,6 @@
       <fileHash>A27976A84DA17645B785EAB01CB78AA98A3B52D6396B9E505DF45CE15C447D8E</fileHash>
     </file>
     <file>
-      <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#8dca43ad-a912-4d76-aca9-4eaf77d6127a</correlationId>
-      <path>Intent.Modules.EntityFrameworkCore/Templates/DbMigrationsReadMe/DbMigrationsReadMeTemplatePartial.cs</path>
-      <count>3</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-08-16T13:58:52.4228535Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-08-20T12:20:32.9350514Z</approvedAt>
-      <deviationsHash>B1EA491FD19234036BC1936F4BC10DDA10E2E41777E47D6D076F550CAC53CEF7</deviationsHash>
-      <fileHash>CBEC05BBEB31DFC7382D98CC6B7E51594E2967E084C667D182DE4911D4CDFCD4</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#8dca43ad-a912-4d76-aca9-4eaf77d6127a</correlationId>
-      <path>Intent.Modules.EntityFrameworkCore/Templates/DbMigrationsReadMe/DbMigrationsReadMeTemplateRegistration.cs</path>
-      <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-08-16T13:58:52.4229002Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-08-20T12:20:32.9368828Z</approvedAt>
-      <deviationsHash>95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B</deviationsHash>
-      <fileHash>90431FA7EFD6D05ED8275B84D37EB461C6CFAECDA71131CD866287EAD2A2EE07</fileHash>
-    </file>
-    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#aba7dad6-c66b-4476-9470-0ab8786b5b4d</correlationId>
       <path>Intent.Modules.EntityFrameworkCore/Templates/EntityTypeConfiguration/EntityTypeConfigurationTemplatePartial.cs</path>
       <count>4</count>

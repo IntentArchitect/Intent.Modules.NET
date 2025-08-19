@@ -51,10 +51,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>DbMigrationsReadMeTemplate.cs</LastGenOutput>
-    </None>
     <None Update="Templates\Configurations\ConfigurationsTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ConfigurationsTemplate.cs</LastGenOutput>
@@ -70,11 +66,6 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>ConfigurationsTemplate.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>DbMigrationsReadMeTemplate.tt</DependentUpon>
     </Compile>
     <Compile Update="Templates\UnitOfWorkInterface\UnitOfWorkInterfaceTemplate.cs">
       <DesignTime>True</DesignTime>

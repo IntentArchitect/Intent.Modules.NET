@@ -37,7 +37,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates
                 var belowMinVersion = template.ExecutionContext.GetInstalledModules().Where(m => _sqlLiteMinumumRequirements.TryGetValue(m.ModuleId, out var version) && new NuGetVersion(m.Version) < version);
                 if (belowMinVersion.Any())
                 {
-                    Logging.Log.Failure($"SQL Lite requires modules updates: {string.Join(",", belowMinVersion.Select(x => $"({x.ModuleId} {_sqlLiteMinumumRequirements[x.ModuleId]})") )}");
+                    Logging.Log.Failure($"SQLite requires modules updates: {string.Join(",", belowMinVersion.Select(x => $"({x.ModuleId} {_sqlLiteMinumumRequirements[x.ModuleId]})") )}");
                 }
             }
         }

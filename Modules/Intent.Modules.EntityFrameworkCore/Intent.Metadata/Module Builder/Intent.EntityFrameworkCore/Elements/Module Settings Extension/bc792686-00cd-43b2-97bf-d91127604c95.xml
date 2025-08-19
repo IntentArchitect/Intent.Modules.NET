@@ -135,8 +135,8 @@
           <childElements />
         </childElement>
         <childElement id="4e14f73f-3f86-4f56-a7f0-5c4a03623bbf" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
-          <name>SQL Lite</name>
-          <display>SQL Lite = sql-lite</display>
+          <name>SQLite</name>
+          <display>SQLite = sql-lite</display>
           <isAbstract>false</isAbstract>
           <value>sql-lite</value>
           <genericTypes />

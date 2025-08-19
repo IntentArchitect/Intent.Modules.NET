@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore</id>
-  <version>5.0.28-pre.0</version>
+  <version>5.0.28-pre.1</version>
   <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Provides the Entity Framework Core, Object Relational Mapper framework</summary>
   <description>Provides the Entity Framework Core, Object Relational Mapper framework</description>
@@ -37,7 +37,7 @@
     </template>
     <template id="Intent.EntityFrameworkCore.DbMigrationsReadMe" enabled="true" externalReference="8dca43ad-a912-4d76-aca9-4eaf77d6127a">
       <role>Infrastructure.Data</role>
-      <location>Persistence</location>
+      <location>Migrations</location>
     </template>
     <template id="Intent.EntityFrameworkCore.EntityTypeConfiguration" externalReference="aba7dad6-c66b-4476-9470-0ab8786b5b4d">
       <config>
@@ -113,7 +113,7 @@
             <option value="postgresql" description="PostgreSQL" />
             <option value="my-sql" description="MySQL" />
             <option value="oracle" description="Oracle" />
-            <option value="sql-lite" description="SQL Lite" />
+            <option value="sql-lite" description="SQLite" />
           </options>
         </setting>
         <setting id="49b09c68-e86a-4e15-96ab-cd482168ef22" title="Table naming convention" type="select">

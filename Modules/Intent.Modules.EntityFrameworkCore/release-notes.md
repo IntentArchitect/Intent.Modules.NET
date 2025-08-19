@@ -1,5 +1,8 @@
 ### Version 5.0.28
-- Fixed: Incorrect 'HasForeignKey' is specific scenarios.
+
+- Improvement: Modernized `MIGRATION_README.txt` file to rather be a `readme.md` in the `Migrations` folder.
+- Fixed: Incorrect 'HasForeignKey' in specific scenarios.
+- Fixed: Fixed spelling "SQLite" in places where it was written "SQL Lite".
 
 ### Version 5.0.27
 
@@ -10,7 +13,7 @@
 ### Version 5.0.26
 
 - Improvement: Updated NuGet package versions.
-- Improvement: SQL Lite support.
+- Improvement: SQLite support.
 - Improvement: Added support for column collation.
 
 - Fixed: This module was introducing an artificial dependency between PagedList in Application and the IDBContextInterface which should be movable.

@@ -22,7 +22,7 @@ This setting allows you to configure which `Database Provider` you want Entity F
 * SQL Server
 * PostgresSQL
 * My SQL
-* SQL Lite
+* SQLite
 * Cosmos DB
 
 ![Database Settings - `Database Provider`](images/database-provider.png)

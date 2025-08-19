@@ -18,7 +18,7 @@
 ### Version 4.3.7
 
 - Improvement: Updated NuGet package versions.
-- Improvement: SQL Lite ambient transaction suppression.
+- Improvement: SQLite ambient transaction suppression.
 
 ### Version 4.3.6
 
