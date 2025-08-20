@@ -5,7 +5,7 @@
     <order>0</order>
     <typeReference id="c437151b-f73b-449c-a8de-3bf9d6011533">
       <typeId>8fd489d0-ac30-40e7-8181-6f90b3618f0c</typeId>
-      <isNavigable>true</isNavigable>
+      <isNavigable>false</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
       <isRequired>true</isRequired>

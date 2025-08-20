@@ -2,6 +2,7 @@ using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Basics;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Customers;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Farmers;
+using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Ones;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Optionals;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Orders;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.ParentWithAnemicChildren;
@@ -9,6 +10,7 @@ using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.Basics;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.Countries;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.Customers;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.Farmers;
+using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.Ones;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.Optionals;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.Orders;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.PagingTS;
@@ -88,6 +90,16 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests
             var basicId = await client.CreateBasicAsync(command);
             _idTracker["BasicId"] = basicId;
             return basicId;
+        }
+
+        public async Task<Guid> CreateOne()
+        {
+            var client = new OnesHttpClient(_factory.CreateClient());
+
+            var command = CreateCommand<CreateOneCommand>();
+            var oneId = await client.CreateOneAsync(command);
+            _idTracker["OneId"] = oneId;
+            return oneId;
         }
 
         public async Task<Guid> CreateOptional()

@@ -12,6 +12,7 @@ using AdvancedMappingCrud.Repositories.Tests.Domain.Entities.EdgeCompositeHandli
 using AdvancedMappingCrud.Repositories.Tests.Domain.Entities.ExtensiveDomainServices;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Entities.Indexing;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Entities.MappingTests;
+using AdvancedMappingCrud.Repositories.Tests.Domain.Entities.NullableNested;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Entities.OData.SimpleKey;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Entities.OperationMapping;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Configurations;
@@ -22,6 +23,7 @@ using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Configur
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Configurations.ExtensiveDomainServices;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Configurations.Indexing;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Configurations.MappingTests;
+using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Configurations.NullableNested;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Configurations.OData.SimpleKey;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Configurations.OperationMapping;
 using Intent.RoslynWeaver.Attributes;
@@ -79,6 +81,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence
         public DbSet<ConcreteEntityB> ConcreteEntityBs { get; set; }
         public DbSet<FilteredIndex> FilteredIndices { get; set; }
         public DbSet<NestingParent> NestingParents { get; set; }
+        public DbSet<One> Ones { get; set; }
         public DbSet<ODataCustomer> ODataCustomers { get; set; }
         public DbSet<ODataProduct> ODataProducts { get; set; }
         public DbSet<Domain.Entities.OperationMapping.User> OperationMappingUsers { get; set; }
@@ -137,6 +140,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new ConcreteEntityBConfiguration());
             modelBuilder.ApplyConfiguration(new FilteredIndexConfiguration());
             modelBuilder.ApplyConfiguration(new NestingParentConfiguration());
+            modelBuilder.ApplyConfiguration(new OneConfiguration());
             modelBuilder.ApplyConfiguration(new ODataCustomerConfiguration());
             modelBuilder.ApplyConfiguration(new ODataProductConfiguration());
             modelBuilder.ApplyConfiguration(new Configurations.OperationMapping.UserConfiguration());

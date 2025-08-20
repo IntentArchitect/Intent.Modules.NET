@@ -8,6 +8,7 @@ using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories.EdgeCompositeHa
 using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories.ExtensiveDomainServices;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories.Indexing;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories.MappingTests;
+using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories.NullableNested;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories.OData.SimpleKey;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories.OperationMapping;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories.ServiceToServiceInvocations;
@@ -22,6 +23,7 @@ using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories.EdgeCom
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories.ExtensiveDomainServices;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories.Indexing;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories.MappingTests;
+using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories.NullableNested;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories.OData.SimpleKey;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories.OperationMapping;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories.ServiceToServiceInvocations;
@@ -83,6 +85,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure
             services.AddTransient<IConcreteEntityBRepository, ConcreteEntityBRepository>();
             services.AddTransient<IFilteredIndexRepository, FilteredIndexRepository>();
             services.AddTransient<INestingParentRepository, NestingParentRepository>();
+            services.AddTransient<IOneRepository, OneRepository>();
             services.AddTransient<IODataCustomerRepository, ODataCustomerRepository>();
             services.AddTransient<IODataProductRepository, ODataProductRepository>();
             services.AddTransient<Domain.Repositories.OperationMapping.IUserRepository, Repositories.OperationMapping.UserRepository>();
