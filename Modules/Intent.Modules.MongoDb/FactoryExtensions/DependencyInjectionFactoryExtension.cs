@@ -46,7 +46,8 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
 
             dependencyInjection.CSharpFile.OnBuild(file =>
             {
-                file.AddUsing("MongoFramework");
+                file.AddUsing("MongoDB.Driver");
+
                 var method = file.Classes.First().FindMethod("AddInfrastructure");
 
                 //method.AddStatement($"services.AddScoped<{dependencyInjection.GetTypeName(dbContext.Id)}>();");
@@ -70,7 +71,31 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
                 }
                 else
                 {
-                    method.AddStatement("services.AddSingleton<IMongoDbConnection>((c) => MongoDbConnection.FromConnectionString(configuration.GetConnectionString(\"MongoDbConnection\")));");
+                    method.AddStatement(@$"services.AddSingleton<IMongoClient>(sp =>
+                    {{
+                        var connectionString = configuration.GetConnectionString(""MongoDbConnection"");
+                        return new MongoClient(connectionString);
+                    }});");
+                    method.AddStatement(@$"services.AddSingleton(sp =>
+                    {{
+                        var connectionString = configuration.GetConnectionString(""MongoDbConnection"");
+
+                        // Parse connection string to get the database name
+                        var mongoUrl = new MongoUrl(connectionString);
+                        var client = sp.GetRequiredService<IMongoClient>();
+
+                        return client.GetDatabase(mongoUrl.DatabaseName);
+                    }});");
+
+                    foreach (var model in dependencyInjection.ExecutionContext.FindTemplateInstances<ICSharpFileBuilderTemplate>("Intent.MongoDb.MongoDbDocument"))
+                    {
+                        dependencyInjection.GetTypeName(model);
+                        method.AddStatement(@$"services.AddSingleton<IMongoCollection<{model.ClassName}>>(sp =>
+                        {{
+                            var database = sp.GetRequiredService<IMongoDatabase>();
+                            return database.GetCollection<{model.ClassName}>(""{model.ClassName.Replace("Document", "")}"");
+                        }});");
+                    }
                 }
             });
 

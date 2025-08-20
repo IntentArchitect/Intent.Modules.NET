@@ -24,6 +24,7 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbUnitOfWork
         public MongoDbUnitOfWorkTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddUsing("System.Collections.Concurrent")
                 .AddClass($"MongoDbUnitOfWork", @class =>
                 {
                     TryGetTemplate<IClassProvider>("Intent.DomainEvents.DomainEventServiceInterface", out var domainEventServiceTemplate);

@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
@@ -8,8 +6,13 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Entities.Repositories.Api.Templates;
+using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
+using Intent.Modules.MongoDb.Templates.MongoDbDocumentInterface;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -25,6 +28,7 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryInterface
         public MongoDbRepositoryInterfaceTemplate(IOutputTarget outputTarget, IList<ClassModel> model) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddUsing("System.Linq.Expressions")
                 .AddInterface($"IMongoRepository", @interface =>
                 {
 
@@ -114,6 +118,31 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryInterface
                             .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
                         );
                 });
+        }
+
+        public override void AfterTemplateRegistration()
+        {
+            base.AfterTemplateRegistration();
+
+            foreach (var model in Model)
+            {
+                var template = GetTemplate<ICSharpFileBuilderTemplate>(EntityRepositoryInterfaceTemplate.TemplateId, model.Id);
+
+                template.CSharpFile.OnBuild(file => file.Metadata["entity-state-template-id"] = MongoDbDocumentInterfaceTemplate.TemplateId);
+                template.CSharpFile.AfterBuild(file =>
+                {
+
+                    var @interface = file.Interfaces.Single();
+                    @interface.Interfaces.Clear();
+                    var genericTypeParameters = model.GenericTypes.Any()
+                        ? $"<{string.Join(", ", model.GenericTypes)}>"
+                        : string.Empty;
+                    var tDomainGenericArgument = template.GetTypeName(TemplateRoles.Domain.Entity.Interface, model);
+                    var tDocumentInterfaceGenericArgument = template.GetTypeName(MongoDbDocumentInterfaceTemplate.TemplateId, model);
+                    @interface.ImplementsInterfaces($"{this.GetMongoDbRepositoryInterfaceName()}<{tDomainGenericArgument}{genericTypeParameters}, {tDocumentInterfaceGenericArgument}{genericTypeParameters}>");
+
+                }, 1000);
+            }
         }
 
         [IntentManaged(Mode.Fully)]

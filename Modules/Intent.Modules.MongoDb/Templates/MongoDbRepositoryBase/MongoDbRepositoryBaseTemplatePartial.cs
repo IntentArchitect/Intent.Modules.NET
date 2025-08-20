@@ -31,6 +31,8 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryBase
             RemoveNugetDependency(NugetPackages.MongoFrameworkPackageName);
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddUsing("System.Linq.Expressions")
+                .AddUsing("MongoDB.Driver.Linq")
                 .AddClass($"MongoRepositoryBase", @class =>
                 {
                     @class
@@ -67,12 +69,12 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryBase
                         : string.Empty;
                     @class
                         .AddGenericTypeConstraint(tDocument, c => c
-                            .AddType($"{this.GetMongoDbRepositoryInterfaceName()}<{tDomain}{tDomainStateConstraint}, {tDocument}>")
+                            .AddType($"{this.GetMongoDbDocumentOfTInterfaceName()}<{tDomain}{tDomainStateConstraint}, {tDocument}>")
                             .AddType(tDocumentInterface)
                             .AddType("new()"))
                         ;
 
-                    @class.AddField("List<string>", "_objectIds", f => f.PrivateReadOnly().WithAssignment("new List<string>();"));
+                    @class.AddField("List<string>", "_objectIds", f => f.PrivateReadOnly().WithAssignment("new List<string>()"));
 
                     @class.AddConstructor(ctor =>
                     {
