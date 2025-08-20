@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="231eac38-e821-4c02-91c0-c9d4dc2900da" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Identity Diagram</name>
+  <display>Identity Diagram</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>a0388b8d-374e-44ca-a4b1-1f31924add15</parentFolderId>
+  <packageId>a0388b8d-374e-44ca-a4b1-1f31924add15</packageId>
+  <packageName>BlazorNoMudBlazor.Domain</packageName>
+  <diagram>
+    <targetPackageId>a0388b8d-374e-44ca-a4b1-1f31924add15</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -40,7 +40,6 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Login
 
                     file.AddUsing("System.ComponentModel.DataAnnotations");
                     file.AddUsing("Microsoft.AspNetCore.Authentication");
-                    file.AddUsing("Microsoft.AspNetCore.Identity");
                     file.AddInjectDirective(GetTypeName(AuthServiceInterfaceTemplate.TemplateId), "AuthService");
                     file.AddInjectDirective("Microsoft.AspNetCore.Components.NavigationManager", "NavigationManager");
 
