@@ -33,7 +33,7 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbUnitOfWorkInterface
                         inter.ExtendsInterface(originalUnitOfWorkInterfaceName);
                     }
 
-                    inter.AddMethod("Task<int>", "SaveChangesAsync", method =>
+                    inter.AddMethod("Task", "SaveChangesAsync", method =>
                     {
                         method.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
                     });

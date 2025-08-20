@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
-using Intent.Metadata.DocumentDB.Api;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
@@ -13,33 +12,30 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileListModel", Version = "1.0")]
 
-namespace Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext
+namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryInterface
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class ApplicationMongoDbContextTemplateRegistration : SingleFileListModelTemplateRegistration<ClassModel>
+    public class MongoDbRepositoryInterfaceTemplateRegistration : SingleFileListModelTemplateRegistration<ClassModel>
     {
         private readonly IMetadataManager _metadataManager;
 
-        public ApplicationMongoDbContextTemplateRegistration(IMetadataManager metadataManager)
+        public MongoDbRepositoryInterfaceTemplateRegistration(IMetadataManager metadataManager)
         {
             _metadataManager = metadataManager;
         }
-        public override string TemplateId => ApplicationMongoDbContextTemplate.TemplateId;
+
+        public override string TemplateId => MongoDbRepositoryInterfaceTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, IList<ClassModel> model)
         {
-            return new ApplicationMongoDbContextTemplate(outputTarget, model);
+            return new MongoDbRepositoryInterfaceTemplate(outputTarget, model);
         }
 
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IList<ClassModel> GetModels(IApplication application)
         {
-            return _metadataManager.Domain(application).GetClassModels()
-                .Where(p =>
-                    MongoDbProvider.FilterDbProvider(p) &&
-                    p.IsAggregateRoot())
-                .ToArray();
+            return _metadataManager.Domain(application).GetClassModels();
         }
     }
 }
