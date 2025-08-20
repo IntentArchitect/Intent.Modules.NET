@@ -167,9 +167,8 @@ public class GenerateBlazorWithAITask : IModuleTask
         {
             ["renderMode"] = GetRenderMode(renderMode?.Value),
             ["prerenderingMode"] = prerendering?.Value == "false" ? "disabled":"enabled",
-
         };
-       
+
         metadata = DictionaryHelper.MergeDictionaries(metadata, promptTempalteMetadata);
 
         return JsonConvert.SerializeObject(metadata, Formatting.Indented);
@@ -289,7 +288,7 @@ public class GenerateBlazorWithAITask : IModuleTask
             }
         }
         inputFiles.AddRange(_fileProvider.GetFilesForTemplate("Intent.Application.Dtos.Pagination.PagedResult"));
-
+        inputFiles.AddRange(_fileProvider.GetFilesForTemplate("Intent.Blazor.Templates.Server.ServerImportsRazorTemplate"));        
         //inputFiles.AddRange(filesProvider.GetFilesForTemplate("Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface"));
         //inputFiles.AddRange(filesProvider.GetFilesForTemplate("Intent.EntityFrameworkCore.Repositories.RepositoryBase"));
         //inputFiles.AddRange(filesProvider.GetFilesForTemplate("Intent.Entities.NotFoundException"));

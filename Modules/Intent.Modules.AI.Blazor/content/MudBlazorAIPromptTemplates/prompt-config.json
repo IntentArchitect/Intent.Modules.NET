@@ -6,7 +6,11 @@
     }
   },
   "rules": [
-    "Don't add `@using MudBlazor` into .razor files"
+    "Don't add `@using MudBlazor` into .razor files",
+    "if you add T='SomeDto' to a Mudblazor component and the using Clause is required in the Razor to compile, add it",
+    "Favour reusing existing backing method to fetching data",
+    "Don't adding using clauses which are already in the _Imports.razor'",
+    "When adding using clause, add them in the right place i.e stick to the convention in the file."
   ],
   "input-files": [
   ],
@@ -47,8 +51,10 @@
       "metadata": {
       },
       "rules": [
-        "if you implement LoadServerData it must have 2 parameters (TableState state, CancellationToken cancelationToken)",
-        "if there are not methods which represent actions, do not add them to the rows e.g. Delete, Edit, View "
+        "if you implement LoadServerData it must have 2 parameters (TableState state, CancellationToken cancellationToken)",
+        "if there are not methods which represent actions, do not add them to the rows e.g. Delete, Edit, View",
+        "Only add search criteria is they are supported on the backing page search mechanism",
+        "if you add scripts like this, OnKeyPress set to @(async e => { ... }), if there are quotes in lambda don't escape them with backslashes'"
       ]
     },
     {

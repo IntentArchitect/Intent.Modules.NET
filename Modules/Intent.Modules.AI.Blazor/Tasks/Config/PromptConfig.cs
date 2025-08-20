@@ -111,13 +111,13 @@ namespace Intent.Modules.AI.Blazor.Tasks.Config
 
             foreach (var rule in Rules)
             {
-                result.AppendLine(rule);
+                result.AppendLine($"* {rule}");
             }
             if (template is not null)
             {
                 foreach (var rule in template.Rules)
                 {
-                    result.AppendLine(rule);
+                    result.AppendLine($"* {rule}");
                 }
             }
             return result.ToString();
