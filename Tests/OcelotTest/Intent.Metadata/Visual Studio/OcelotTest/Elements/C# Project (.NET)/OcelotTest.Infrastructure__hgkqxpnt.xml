@@ -94,5 +94,34 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="a8bbcff2-6211-4d18-b3df-f209fdff8d1c" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+      <name>Migrations</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>46b6d6df-2675-44bc-a723-59e166cdd1a6</parentFolderId>
+      <packageId>62529060-9af2-4e23-8b08-da066f8c4400</packageId>
+      <packageName>OcelotTest</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="a46d5222-6fa4-4136-8821-c94f57e6a4be" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.EntityFrameworkCore.DbMigrationsReadMe</name>
+          <display>Intent.EntityFrameworkCore.DbMigrationsReadMe</display>
+          <externalReference>Intent.EntityFrameworkCore</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a8bbcff2-6211-4d18-b3df-f209fdff8d1c</parentFolderId>
+          <packageId>62529060-9af2-4e23-8b08-da066f8c4400</packageId>
+          <packageName>OcelotTest</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>

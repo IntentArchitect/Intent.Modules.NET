@@ -94,5 +94,34 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="1eb26f92-c909-4953-84ee-eedbc912a71a" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+      <name>Migrations</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>fcfefd1b-d39c-4a8e-9d46-5cb00c02ddfb</parentFolderId>
+      <packageId>8ab04101-bcc2-4325-baab-7570faf71b83</packageId>
+      <packageName>GraphQL.AzureFunction.TestApplication</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="4213d858-92e4-44bf-bb56-43f3a24cb104" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.EntityFrameworkCore.DbMigrationsReadMe</name>
+          <display>Intent.EntityFrameworkCore.DbMigrationsReadMe</display>
+          <externalReference>Intent.EntityFrameworkCore</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>1eb26f92-c909-4953-84ee-eedbc912a71a</parentFolderId>
+          <packageId>8ab04101-bcc2-4325-baab-7570faf71b83</packageId>
+          <packageName>GraphQL.AzureFunction.TestApplication</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>

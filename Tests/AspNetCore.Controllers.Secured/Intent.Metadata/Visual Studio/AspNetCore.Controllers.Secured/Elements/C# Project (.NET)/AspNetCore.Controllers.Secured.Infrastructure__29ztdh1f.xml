@@ -94,5 +94,34 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="8f22bf2f-cce6-4c9f-8bfc-91bec5dd476a" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+      <name>Migrations</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a8609a21-d0c4-4fb7-8480-106a534628d1</parentFolderId>
+      <packageId>17153b8a-9853-462a-a3a3-3b18b059dd4e</packageId>
+      <packageName>AspNetCore.Controllers.Secured</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="5b03e307-b8ac-448c-a270-05362b194e61" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.EntityFrameworkCore.DbMigrationsReadMe</name>
+          <display>Intent.EntityFrameworkCore.DbMigrationsReadMe</display>
+          <externalReference>Intent.EntityFrameworkCore</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>8f22bf2f-cce6-4c9f-8bfc-91bec5dd476a</parentFolderId>
+          <packageId>17153b8a-9853-462a-a3a3-3b18b059dd4e</packageId>
+          <packageName>AspNetCore.Controllers.Secured</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>

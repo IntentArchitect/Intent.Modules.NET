@@ -94,5 +94,34 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="372eb61e-70ff-43ef-9f6d-02640c69422c" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+      <name>Migrations</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>fe688d06-442e-4f24-9aef-8d3f1c3ddbe8</parentFolderId>
+      <packageId>a880b47d-5e3c-4c5b-8a26-d836fbf177db</packageId>
+      <packageName>ProxyServiceTests.Proxy.TMS</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="ab812766-1989-4923-9109-8daae155f233" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.EntityFrameworkCore.DbMigrationsReadMe</name>
+          <display>Intent.EntityFrameworkCore.DbMigrationsReadMe</display>
+          <externalReference>Intent.EntityFrameworkCore</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>372eb61e-70ff-43ef-9f6d-02640c69422c</parentFolderId>
+          <packageId>a880b47d-5e3c-4c5b-8a26-d836fbf177db</packageId>
+          <packageName>ProxyServiceTests.Proxy.TMS</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>

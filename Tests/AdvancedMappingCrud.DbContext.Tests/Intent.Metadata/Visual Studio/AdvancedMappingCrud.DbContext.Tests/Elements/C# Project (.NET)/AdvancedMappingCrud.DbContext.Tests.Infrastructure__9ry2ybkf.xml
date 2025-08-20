@@ -94,5 +94,34 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="22be47cc-fa3c-4875-be94-dbc0643f6673" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+      <name>Migrations</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>3042658d-5472-4c53-95da-0e7a3bde78e2</parentFolderId>
+      <packageId>1f431e6e-b70a-4bb6-a0ef-7458f32b5512</packageId>
+      <packageName>AdvancedMappingCrud.DbContext.Tests</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="ecb0247b-5bbd-413a-ab3c-3dcef7d9300e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.EntityFrameworkCore.DbMigrationsReadMe</name>
+          <display>Intent.EntityFrameworkCore.DbMigrationsReadMe</display>
+          <externalReference>Intent.EntityFrameworkCore</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>22be47cc-fa3c-4875-be94-dbc0643f6673</parentFolderId>
+          <packageId>1f431e6e-b70a-4bb6-a0ef-7458f32b5512</packageId>
+          <packageName>AdvancedMappingCrud.DbContext.Tests</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>

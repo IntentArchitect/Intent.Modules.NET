@@ -91,5 +91,34 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="aa466609-1a5a-4bdf-8788-dacb529d8f39" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+      <name>Migrations</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>aa94e9e2-894b-4b6f-b8c7-309342c8eec5</parentFolderId>
+      <packageId>c2b4a780-047f-4f48-bf01-0c021ce8721d</packageId>
+      <packageName>Application.Identity.Jwt.TestApplication</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="9a972df3-5d58-48b4-a4eb-ca078197bd6b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.EntityFrameworkCore.DbMigrationsReadMe</name>
+          <display>Intent.EntityFrameworkCore.DbMigrationsReadMe</display>
+          <externalReference>Intent.EntityFrameworkCore</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>aa466609-1a5a-4bdf-8788-dacb529d8f39</parentFolderId>
+          <packageId>c2b4a780-047f-4f48-bf01-0c021ce8721d</packageId>
+          <packageName>Application.Identity.Jwt.TestApplication</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>

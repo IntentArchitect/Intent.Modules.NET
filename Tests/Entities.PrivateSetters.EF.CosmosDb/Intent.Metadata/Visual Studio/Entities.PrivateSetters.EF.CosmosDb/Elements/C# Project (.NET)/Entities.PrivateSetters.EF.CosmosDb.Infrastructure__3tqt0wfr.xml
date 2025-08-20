@@ -91,5 +91,34 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="cd209e23-0854-4079-ac9b-906d91bde30d" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+      <name>Migrations</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>10646b37-332c-468f-b03c-7904547633a6</parentFolderId>
+      <packageId>b4100c4f-008d-48d9-b763-6048e68c931d</packageId>
+      <packageName>Entities.PrivateSetters.EF.CosmosDb</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="88229f41-809d-4473-b1fe-a747f5939213" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.EntityFrameworkCore.DbMigrationsReadMe</name>
+          <display>Intent.EntityFrameworkCore.DbMigrationsReadMe</display>
+          <externalReference>Intent.EntityFrameworkCore</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>cd209e23-0854-4079-ac9b-906d91bde30d</parentFolderId>
+          <packageId>b4100c4f-008d-48d9-b763-6048e68c931d</packageId>
+          <packageName>Entities.PrivateSetters.EF.CosmosDb</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>

@@ -94,5 +94,34 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="d9c48cf9-69e4-4360-a8e3-f97a8e31d379" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+      <name>Migrations</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>3f793bfe-f5bb-483d-ba0a-2e5bcbad85ea</parentFolderId>
+      <packageId>2b40d123-6d46-4759-89e7-a360ec7e29be</packageId>
+      <packageName>MassTransit.RabbitMQ</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="47871488-cc90-4b17-9ce9-ab2693cca66c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.EntityFrameworkCore.DbMigrationsReadMe</name>
+          <display>Intent.EntityFrameworkCore.DbMigrationsReadMe</display>
+          <externalReference>Intent.EntityFrameworkCore</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d9c48cf9-69e4-4360-a8e3-f97a8e31d379</parentFolderId>
+          <packageId>2b40d123-6d46-4759-89e7-a360ec7e29be</packageId>
+          <packageName>MassTransit.RabbitMQ</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>

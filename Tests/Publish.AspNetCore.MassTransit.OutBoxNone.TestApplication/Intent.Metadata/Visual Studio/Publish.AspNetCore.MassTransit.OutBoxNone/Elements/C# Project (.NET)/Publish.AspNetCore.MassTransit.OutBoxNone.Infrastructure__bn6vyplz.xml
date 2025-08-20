@@ -91,5 +91,34 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="2a4172d6-b4cb-4bfe-8fd9-e4df0a6e6aa7" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+      <name>Migrations</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>643b219a-a2eb-4625-8c8d-81df3b881c74</parentFolderId>
+      <packageId>494434ee-0027-47c0-8b22-6852f9e3fc7c</packageId>
+      <packageName>Publish.AspNetCore.MassTransit.OutBoxNone</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="ea7adf17-2afa-4222-ac06-973ba8b3e1ce" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.EntityFrameworkCore.DbMigrationsReadMe</name>
+          <display>Intent.EntityFrameworkCore.DbMigrationsReadMe</display>
+          <externalReference>Intent.EntityFrameworkCore</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2a4172d6-b4cb-4bfe-8fd9-e4df0a6e6aa7</parentFolderId>
+          <packageId>494434ee-0027-47c0-8b22-6852f9e3fc7c</packageId>
+          <packageName>Publish.AspNetCore.MassTransit.OutBoxNone</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>

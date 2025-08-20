@@ -53,22 +53,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="6dfb4af0-80f7-4554-82eb-4dd2cdef0174" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.EntityFrameworkCore.DbMigrationsReadMe</name>
-      <display>Intent.EntityFrameworkCore.DbMigrationsReadMe</display>
-      <externalReference>Intent.EntityFrameworkCore</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>addbe589-da5e-46c5-9f4f-61fdcb57f92c</parentFolderId>
-      <packageId>ca8e7db5-54da-4f00-aa50-68c424acf855</packageId>
-      <packageName>CleanArchitecture.SingleFiles</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="46c279b1-2725-4731-88f1-57c86fbbc8b7" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.MongoDb.ApplicationMongoDbContext</name>
       <display>Intent.MongoDb.ApplicationMongoDbContext</display>
