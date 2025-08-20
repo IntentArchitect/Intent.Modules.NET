@@ -1,17 +1,18 @@
-using System;
-using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Entities.Repositories.Api.Templates;
 using Intent.Modules.Modelers.Domain.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using System;
+using System.Collections.Generic;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -28,7 +29,9 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryBase
         {
             var createEntityInterfaces = ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces();
             AddNugetDependency(NugetPackages.MongoDBDriver(outputTarget));
-            RemoveNugetDependency(NugetPackages.MongoFrameworkPackageName);
+
+            outputTarget.ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent(
+                    NugetPackages.MongoFrameworkPackageName, outputTarget));
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System.Linq.Expressions")

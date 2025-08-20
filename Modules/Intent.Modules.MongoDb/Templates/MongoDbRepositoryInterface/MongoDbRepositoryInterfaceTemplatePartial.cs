@@ -126,22 +126,29 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryInterface
 
             foreach (var model in Model)
             {
-                var template = GetTemplate<ICSharpFileBuilderTemplate>(EntityRepositoryInterfaceTemplate.TemplateId, model.Id);
-
-                template.CSharpFile.OnBuild(file => file.Metadata["entity-state-template-id"] = MongoDbDocumentInterfaceTemplate.TemplateId);
-                template.CSharpFile.AfterBuild(file =>
+                if (TryGetTemplate<ICSharpFileBuilderTemplate>(EntityRepositoryInterfaceTemplate.TemplateId, model, out var template))
                 {
 
-                    var @interface = file.Interfaces.Single();
-                    @interface.Interfaces.Clear();
-                    var genericTypeParameters = model.GenericTypes.Any()
-                        ? $"<{string.Join(", ", model.GenericTypes)}>"
-                        : string.Empty;
-                    var tDomainGenericArgument = template.GetTypeName(TemplateRoles.Domain.Entity.Interface, model);
-                    var tDocumentInterfaceGenericArgument = template.GetTypeName(MongoDbDocumentInterfaceTemplate.TemplateId, model);
-                    @interface.ImplementsInterfaces($"{this.GetMongoDbRepositoryInterfaceName()}<{tDomainGenericArgument}{genericTypeParameters}, {tDocumentInterfaceGenericArgument}{genericTypeParameters}>");
+                    template.CSharpFile.OnBuild(file => file.Metadata["entity-state-template-id"] = MongoDbDocumentInterfaceTemplate.TemplateId);
+                    template.CSharpFile.AfterBuild(file =>
+                    {
 
-                }, 1000);
+                        var @interface = file.Interfaces.Single();
+                        @interface.Interfaces.Clear();
+                        var genericTypeParameters = model.GenericTypes.Any()
+                            ? $"<{string.Join(", ", model.GenericTypes)}>"
+                            : string.Empty;
+                        var tDomainGenericArgument = template.GetTypeName(TemplateRoles.Domain.Entity.Interface, model);
+                        var tDocumentInterfaceGenericArgument = template.GetTypeName(MongoDbDocumentInterfaceTemplate.TemplateId, model);
+                        @interface.ImplementsInterfaces($"{this.GetMongoDbRepositoryInterfaceName()}<{tDomainGenericArgument}{genericTypeParameters}, {tDocumentInterfaceGenericArgument}{genericTypeParameters}>");
+
+                        @interface.AddMethod($"List<{tDomainGenericArgument}>", "SearchText", method =>
+                        {
+                            method.AddParameter($"string", "searchText");
+                            method.AddParameter($"Expression<Func<{tDomainGenericArgument}, bool>>", "filterExpression", p => p.WithDefaultValue("null"));
+                        });
+                    }, 1000);
+                }
             }
         }
 
