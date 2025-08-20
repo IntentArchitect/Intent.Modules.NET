@@ -11,6 +11,7 @@ using Intent.Modules.Constants;
 using Intent.Modules.Entities.Repositories.Api.Templates;
 using Intent.Modules.Modelers.Domain.Settings;
 using Intent.Modules.MongoDb.MongoFramework.Repositories.Templates.PagedList;
+using Intent.Modules.MongoDb.MongoFramework.Templates;
 using Intent.Modules.MongoDb.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
