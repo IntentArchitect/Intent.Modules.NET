@@ -204,29 +204,6 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryBase
                         .AddStatement("return LoadAndTrackDocuments(documents).ToList();", s => s.SeparatedFromPrevious())
                     );
 
-
-                    //@class.AddMethod($"Task<{tDomain}?>", "FindByIdAsync", m => m
-                    //    .Async()
-                    //    .Protected()
-                    //    .AddParameter("string", "id")
-                    //    .AddParameter("string?", "partitionKey", p => p.WithDefaultValue("default"))
-                    //    .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"))
-                    //    .AddTryBlock(tryBlock =>
-                    //    {
-                    //        tryBlock
-                    //            .AddStatement(
-                    //                "var document = await _cosmosRepository.GetAsync(id, partitionKey, cancellationToken: cancellationToken);",
-                    //                c => c.AddMetadata(MetadataNames.DocumentDeclarationStatement, true))
-                    //            .AddStatement("var entity = LoadAndTrackDocument(document);")
-                    //            .AddStatement("return entity;", s => s.SeparatedFromPrevious());
-                    //    })
-                    //    .AddCatchBlock(UseType("Microsoft.Azure.Cosmos.CosmosException"), "ex", c =>
-                    //    {
-                    //        c.WithWhenExpression($"ex.StatusCode == {UseType("System.Net.HttpStatusCode")}.NotFound");
-                    //        c.AddStatement("return null;");
-                    //    })
-                    //);
-
                     @class.AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method =>
                     {
                         method.Virtual();
@@ -303,38 +280,6 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryBase
                         method.AddStatement("return await MongoPagedList<TDomain, TDocument>.CreateAsync(query.Cast<TDomain>(), pageNo, pageSize, cancellationToken);");
                     });
 
-                    //@class.AddMethod($"Task<{this.GetPagedResultInterfaceName()}<{tDomain}>>", "FindAllAsync", method =>
-                    //{
-                    //    method.Async();
-                    //    method.AddParameter($"Expression<Func<{tDocumentInterface}, bool>>", "filterExpression")
-                    //        .AddParameter("int", "pageNo")
-                    //        .AddParameter("int", "pageSize")
-                    //        .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
-
-                    //    var tDomainStateGenericTypeArgument = createEntityInterfaces
-                    //        ? $", {tDomainState}"
-                    //        : string.Empty;
-                    //    method
-                    //        .AddStatement(
-                    //            "var pagedDocuments = await _cosmosRepository.PageAsync(AdaptFilterPredicate(filterExpression), pageNo, pageSize, true, cancellationToken);",
-                    //            c => c.AddMetadata(MetadataNames.PagedDocumentsDeclarationStatement, true))
-                    //        .AddStatement("var entities = LoadAndTrackDocuments(pagedDocuments.Items).ToList();")
-                    //        .AddStatement("var totalCount = pagedDocuments.Total ?? 0;", s => s.SeparatedFromPrevious())
-                    //        .AddStatement("var pageCount = pagedDocuments.TotalPages ?? 0;")
-                    //        .AddStatement($"return new {this.GetMongoDbPagedListName()}<{tDomain}{tDomainStateGenericTypeArgument}, {tDocument}>(entities, totalCount, pageCount, pageNo, pageSize);", s => s.SeparatedFromPrevious());
-                    //});
-
-                    //    @class.AddMethod($"Task<List<{tDomain}>>", "FindByIdsAsync", m => m
-                    //        .Async()
-                    //        .AddParameter("IEnumerable<string>", "ids")
-                    //        .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"))
-                    //        .AddStatement(
-                    //            @"var queryDefinition = new QueryDefinition($""SELECT * from c WHERE ARRAY_CONTAINS(@ids, c.{_idFieldName})"")
-                    //.WithParameter(""@ids"", ids);",
-                    //            c => c.AddMetadata(MetadataNames.QueryDefinitionDeclarationStatement, true))
-                    //        .AddStatement("return await FindAllAsync(queryDefinition);", s => s.SeparatedFromPrevious())
-                    //    );
-
                     @class.AddMethod($"Task<{tDomain}?>", "FindAsync", method => method
                         .Virtual()
                         .Async()
@@ -402,27 +347,6 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryBase
                         .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
                         .AddStatement("return await QueryInternal(x => true, queryOptions).AnyAsync(cancellationToken);", s => s.SeparatedFromPrevious())
                     );
-
-                    //@class.AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", m => m
-                    //    .Protected()
-                    //    .Async()
-                    //    .AddParameter("QueryDefinition", "queryDefinition")
-                    //    .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"))
-                    //    .AddStatement("var documents = await _cosmosRepository.GetByQueryAsync(queryDefinition, cancellationToken);")
-                    //    .AddStatement("var results = LoadAndTrackDocuments(documents).ToList();")
-                    //    .AddStatement("return results;", s => s.SeparatedFromPrevious())
-                    //);
-
-                    //@class.AddMethod($"Task<{tDomain}?>", "FindAsync", m => m
-                    //    .Protected()
-                    //    .Async()
-                    //    .AddParameter("QueryDefinition", "queryDefinition")
-                    //    .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"))
-                    //    .AddStatement("var documents = await _cosmosRepository.GetByQueryAsync(queryDefinition, cancellationToken);")
-                    //    .AddIfStatement("!documents.Any()", ifs => ifs.AddStatement("return default;"))
-                    //    .AddStatement("var entity = LoadAndTrackDocument(documents.First());")
-                    //    .AddStatement("return entity;", s => s.SeparatedFromPrevious())
-                    //);
 
                     @class.AddMethod($"IQueryable<TDocument>", "QueryInternal", m => m
                         .Protected().Virtual()
