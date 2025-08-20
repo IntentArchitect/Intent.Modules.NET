@@ -47,7 +47,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbMigrationsReadMe
                     """);
             }
 
-            var commands = new List<Command>
+            var quickReference = new List<Command>
             {
                 new(
                     Heading: "Create a new migration",
@@ -58,6 +58,10 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbMigrationsReadMe
                     Heading: "Update the schema to the latest version",
                     PmcCommand: $$"""Update-Database {{GetVsStartupProjectArgument()}}-Project "{{MigrationProject}}"{{GetVsDbContextArgument()}}{{GetExtraArguments()}}""",
                     CliCommand: $$"""dotnet ef database update {{GetCliStartupProjectArgument()}}--project "{{MigrationProject}}"{{GetCliDbContextArgument()}}{{GetExtraArguments()}}"""),
+            };
+
+            var other = new List<Command>()
+            {
                 new(
                     Heading: "Generate a script which detects the current database schema version and updates it to the latest",
                     PmcCommand: $$"""Script-Migration -Idempotent {{GetVsStartupProjectArgument()}}-Project "{{MigrationProject}}"{{GetVsDbContextArgument()}}{{GetExtraArguments()}}""",
@@ -80,47 +84,45 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbMigrationsReadMe
                 """
                 
                 ## Visual Studio Package Manager Console quick reference
-                
-                ```powershell
                 """);
 
-            foreach (var command in commands)
+            foreach (var command in quickReference)
             {
-                sb.AppendLine(
-                    $"""
-                    # {command.Heading}
-                    {command.PmcCommand}
-                    """);
-                sb.AppendLine();
+                AppendCommand(sb, command, CommandType.Pmc);
             }
-
-            // Remove trailing new line
-            sb.Length -= Environment.NewLine.Length;
-
-            sb.AppendLine("```");
 
             sb.AppendLine(
                 """
 
                 ## .NET CLI quick reference
-
-                ```powershell
                 """);
 
-            foreach (var command in commands)
+            foreach (var command in quickReference)
             {
-                sb.AppendLine(
-                    $"""
-                     # {command.Heading}
-                     {command.CliCommand}
-                     """);
-                sb.AppendLine();
+                AppendCommand(sb, command, CommandType.Cli);
             }
 
-            // Remove trailing new line
-            sb.Length -= Environment.NewLine.Length;
+            sb.AppendLine(
+                """
 
-            sb.AppendLine("```");
+                ## Visual Studio Package Manager Console additional commands
+                """);
+
+            foreach (var command in other)
+            {
+                AppendCommand(sb, command, CommandType.Pmc);
+            }
+
+            sb.AppendLine(
+                """
+
+                ## .NET CLI additional commands
+                """);
+
+            foreach (var command in other)
+            {
+                AppendCommand(sb, command, CommandType.Cli);
+            }
 
             sb.AppendLine(
                 $"""
@@ -139,7 +141,29 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbMigrationsReadMe
                 """);
 
             return sb.ToString();
+
+            static void AppendCommand(StringBuilder sb, Command command, CommandType type)
+            {
+                var (cmd, bracketText) = type switch
+                {
+                    CommandType.Cli => (command.CliCommand, "CLI"),
+                    CommandType.Pmc => (command.PmcCommand, "PMC"),
+                    _ => throw new ArgumentOutOfRangeException(nameof(type))
+                };
+
+                sb.AppendLine(
+                    $"""
+
+                     ### {command.Heading} ({bracketText})
+
+                     ```powershell
+                     {cmd}
+                     ```
+                     """);
+            }
         }
+
+        private enum CommandType { Pmc, Cli }
 
         private record Command(string Heading, string PmcCommand, string CliCommand);
     }
