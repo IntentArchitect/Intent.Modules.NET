@@ -178,7 +178,7 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Templates
                     return $"{pathTarget.Name}{operationCall}{nullForgivingOperator}";
                 })).TrimEnd('!');
 
-            return (Path: path, MethodName: path.Contains('!') ? MethodName.ForPath : MethodName.ForMember);
+            return (Path: path, MethodName: MethodName.ForMember);
         }
 
 

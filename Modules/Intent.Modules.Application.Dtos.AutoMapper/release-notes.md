@@ -1,3 +1,7 @@
+### Version 4.0.17
+
+- Fixed: `ForMember` now used with child mappings instead of `ForPath`
+
 ### Version 4.0.16
 
 - Fixed: Missing using directives in DTO Mapping Profile.
