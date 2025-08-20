@@ -1,3 +1,7 @@
+### Version 1.0.1
+
+- Fixed: De-coupled a optional template.
+
 ### Version 1.0.0
 
 - Fixed: No default authentication type was set.
