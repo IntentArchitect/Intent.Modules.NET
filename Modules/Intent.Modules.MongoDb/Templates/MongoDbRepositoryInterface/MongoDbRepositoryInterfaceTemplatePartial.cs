@@ -132,7 +132,7 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryInterface
                     template.CSharpFile.OnBuild(file => file.Metadata["entity-state-template-id"] = MongoDbDocumentInterfaceTemplate.TemplateId);
                     template.CSharpFile.AfterBuild(file =>
                     {
-
+                        file.AddUsing("System.Linq.Expressions");
                         var @interface = file.Interfaces.Single();
                         @interface.Interfaces.Clear();
                         var genericTypeParameters = model.GenericTypes.Any()

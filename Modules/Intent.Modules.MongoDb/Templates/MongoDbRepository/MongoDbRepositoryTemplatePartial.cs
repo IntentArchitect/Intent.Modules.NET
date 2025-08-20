@@ -96,11 +96,10 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepository
                             .WithExpressionBody($"await {baseQualifier}FindAllAsync({GetPKUsages(pkAttribute)}, cancellationToken)");
                     });
 
-                    @class.AddMethod($"{UseType("System.Threading.Tasks.Task")}<{UseType("System.Collections.Generic.List")}<{EntityTypeName}>>", "SearchText", method =>
+                    @class.AddMethod($"{UseType("System.Collections.Generic.List")}<{EntityTypeName}>", "SearchText", method =>
                     {
                         AddUsing("System.Linq");
                         method
-                            .Async()
                             .AddParameter($"string", "searchText")
                             .AddParameter($"Expression<Func<{EntityTypeName}, bool>>", "filterExpression")
                             .AddStatement($"throw new NotImplementedException();");
