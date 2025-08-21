@@ -4,6 +4,7 @@ using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.Types.Api;
 using Intent.Modules.MongoDb.Templates.MongoDbDocumentInterface;
 using Intent.Modules.MongoDb.Templates.MongoDbValueObjectDocumentInterface;
 using System;
@@ -11,6 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AttributeModel = Intent.Modelers.Domain.Api.AttributeModel;
 
 namespace Intent.Modules.MongoDb.Templates
 {
@@ -127,7 +129,7 @@ namespace Intent.Modules.MongoDb.Templates
 
                     if (associationEnd.IsCollection)
                     {
-                        assignmentValueExpression = $"{associationEnd.Name}{nullable}.Select(x => x.ToEntity()).ToList()";
+                        assignmentValueExpression = $"{associationEnd.Name}{nullable}.Select(x => (x as {associationEnd.Name.Singularize()}Document).ToEntity()).ToList()";
                     }
                     else if (!associationEnd.IsNullable)
                     {
@@ -176,12 +178,12 @@ namespace Intent.Modules.MongoDb.Templates
                         var documentTypeName = template.GetTypeName((IElement)attribute.TypeReference.Element);
                         if (attribute.TypeReference.IsCollection)
                         {
-                            suffix = $".Select(x => {documentTypeName}.FromEntity(x)!)";
+                            suffix = $".Select(x => {documentTypeName}Document.FromEntity(x)!)";
                         }
                         else
                         {
                             var nullableSuppression = attribute.TypeReference.IsNullable ? string.Empty : "!";
-                            suffix = $"{documentTypeName}.FromEntity(entity.{attribute.Name.ToPascalCase()}){nullableSuppression}";
+                            suffix = $"{documentTypeName}Document.FromEntity(entity.{attribute.Name.ToPascalCase()}){nullableSuppression}";
 
                             accessEntityAttribute = false;
                         }
@@ -205,7 +207,7 @@ namespace Intent.Modules.MongoDb.Templates
                         template.AddUsing("System.Linq");
 
                         var nullable = associationEnd.IsNullable ? "?" : string.Empty;
-                        method.AddStatement($"{associationEnd.Name} = entity.{associationEnd.Name}{nullable}.Select(x => {documentTypeName}.FromEntity(x)!).ToList();");
+                        method.AddStatement($"{associationEnd.Name} = entity.{associationEnd.Name}{nullable}.Select(x => {documentTypeName}Document.FromEntity(x)!).ToList();");
                         continue;
                     }
 
@@ -233,6 +235,90 @@ namespace Intent.Modules.MongoDb.Templates
 
                     method.AddStatement($"return new {@class.Name}{genericTypeArguments}().PopulateFromEntity(entity);", s => s.SeparatedFromPrevious());
                 });
+            }
+        }
+
+        private static void AddDocumentInterfaceAccessor<TModel>(
+            this CSharpTemplateBase<TModel> template,
+            CSharpClass @class,
+            string documentInterfaceTemplateId,
+            ITypeReference elementReference,
+            string entityPropertyName)
+            where TModel : IMetadataModel
+        {
+            @class.AddProperty(template.GetDocumentInterfaceName(elementReference), entityPropertyName,
+                property =>
+                {
+                    property.ExplicitlyImplements(template.GetTypeName(documentInterfaceTemplateId, template.Model));
+                    property.Getter.WithExpressionImplementation(entityPropertyName);
+                    property.WithoutSetter();
+                });
+        }
+
+        public static void AddMongoDbDocumentProperties<TModel>(
+            this CSharpTemplateBase<TModel> template,
+            CSharpClass @class,
+            IEnumerable<AttributeModel> attributes,
+            IEnumerable<AssociationEndModel> associationEnds,
+            string documentInterfaceTemplateId = null)
+            where TModel : IMetadataModel
+        {
+            foreach (var attribute in attributes)
+            {
+                @class.AddProperty(template.GetTypeName(attribute.TypeReference), attribute.Name.ToPascalCase(), property =>
+                {
+                    if (template.IsNonNullableReferenceType(attribute.TypeReference))
+                    {
+                        property.WithInitialValue("default!");
+                    }
+
+                    if (attribute.HasFieldSettings())
+                    {
+                        property.AddAttribute($"{template.UseType("Newtonsoft.Json.JsonProperty")}(\"{attribute.GetFieldSettings().Name()}\")");
+                    }
+
+
+                    if (attribute.TypeReference?.Element?.SpecializationType == "Value Object")
+                    {
+                        template.AddDocumentInterfaceAccessor(@class, documentInterfaceTemplateId, attribute.TypeReference, attribute.Name.ToPascalCase());
+                    }
+                });
+
+                if (attribute.TypeReference.IsCollection)
+                {
+                    @class.AddProperty(
+                        type: $"{template.UseType("System.Collections.Generic.IReadOnlyList")}<{template.GetTypeName((IElement)attribute.TypeReference.Element)}>",
+                        name: attribute.Name.ToPascalCase(),
+                        configure: property =>
+                        {
+                            property.ExplicitlyImplements(template.GetTypeName(documentInterfaceTemplateId, template.Model));
+                            property.Getter.WithExpressionImplementation(attribute.Name.ToPascalCase());
+                            property.WithoutSetter();
+                        });
+                }
+            }
+
+            foreach (var associationEnd in associationEnds)
+            {
+                @class.AddProperty(template.GetTypeName(associationEnd), associationEnd.Name.ToPascalCase(), property =>
+                {
+                    if (!associationEnd.TypeReference.IsNullable)
+                    {
+                        property.WithInitialValue("default!");
+                    }
+
+                    if (associationEnd is AssociationTargetEndModel targetEnd && targetEnd.HasFieldSettings())
+                    {
+                        property.AddAttribute($"{template.UseType("Newtonsoft.Json.JsonProperty")}(\"{targetEnd.GetFieldSettings().Name()}\")");
+                    }
+                });
+
+                if (documentInterfaceTemplateId == null)
+                {
+                    continue;
+                }
+
+                template.AddDocumentInterfaceAccessor(@class, documentInterfaceTemplateId, associationEnd.TypeReference, associationEnd.Name.ToPascalCase());
             }
         }
     }

@@ -86,12 +86,12 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbDocument
                     }
                     else
                     {
-                        //this.AddCosmosDBDocumentProperties(
-                        //    @class: @class,
-                        //    attributes: attributes,
-                        //    associationEnds: associationEnds,
-                        //    documentInterfaceTemplateId: MongoDbDocumentInterfaceTemplate.TemplateId
-                        //);
+                        this.AddMongoDbDocumentProperties(
+                            @class: @class,
+                            attributes: attributes,
+                            associationEnds: associationEnds,
+                            documentInterfaceTemplateId: MongoDbDocumentInterfaceTemplate.TemplateId
+                        );
                     }
 
                     var pk = Model.GetPrimaryKeyAttribute();
@@ -162,6 +162,11 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbDocument
                     typeName = Helpers.PrimaryKeyType;
                 }
 
+                if(metadataModel is AssociationEndModel)
+                {
+                    typeName = typeName.Replace(typeReference.Element.Name, $"I{typeReference.Element.Name}Document");
+                }
+
                 bool interfaceAccessorAdded = false;
                 @class.AddProperty(typeName, entityProperty.Name, property =>
                 {
@@ -200,10 +205,11 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbDocument
                     }
                 });
 
-                if (metadataModel is AssociationTargetEndModel targetEndModel)
-                {
-                    AddDocumentInterfaceAccessor(@class, targetEndModel.TypeReference, entityProperty.Name);
-                }
+                //if (metadataModel is AssociationTargetEndModel targetEndModel)
+                //{
+                //    AddDocumentInterfaceAccessor(@class, targetEndModel.TypeReference, entityProperty.Name);
+                //    interfaceAccessorAdded = true;
+                //}
 
                 if (metadataModel is AttributeModel classAttribute3 && classAttribute3.TypeReference.IsCollection && !interfaceAccessorAdded)
                 {

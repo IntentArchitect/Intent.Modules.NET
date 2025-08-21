@@ -29,6 +29,11 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryInterface
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System.Linq.Expressions")
+                .AddUsing("System.Threading.Tasks")
+                .AddUsing("System")
+                .AddUsing("System.Threading")
+                .AddUsing("System.Linq")
+                .AddUsing("System.Collections.Generic")
                 .AddInterface($"IMongoRepository", @interface =>
                 {
 

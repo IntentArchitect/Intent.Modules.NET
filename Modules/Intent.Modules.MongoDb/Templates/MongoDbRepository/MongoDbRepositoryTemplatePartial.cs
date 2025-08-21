@@ -36,6 +36,7 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepository
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System.Linq.Expressions")
+                .AddUsing("System")
                 .AddClass($"{Model.Name}MongoRepository", @class =>
                 {
                     // this will force a load of the Domain.Entities type which in turn means 

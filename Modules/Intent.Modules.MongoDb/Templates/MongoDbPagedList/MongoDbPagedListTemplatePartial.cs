@@ -26,6 +26,9 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbPagedList
             var createEntityInterfaces = ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces();
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("MongoDB.Driver.Linq")
+                .AddUsing("System.Collections.Generic")
+                .AddUsing("System.Linq")
+                .AddUsing("System.Threading")
                 .AddClass($"MongoPagedList", @class =>
                 {
                     @class

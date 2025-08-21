@@ -67,7 +67,8 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbDocumentInterface
 
                     foreach (var associationEnd in associationEnds)
                     {
-                        @interface.AddProperty(GetTypeName(associationEnd), associationEnd.Name.ToPascalCase(), p => p.WithoutSetter());
+                        file.AddUsing("System.Collections.Generic");
+                        @interface.AddProperty($"IEnumerable<I{associationEnd.Name.Singularize()}Document>", associationEnd.Name.ToPascalCase(), p => p.WithoutSetter());
                     }
                 }, 1000);
         }
