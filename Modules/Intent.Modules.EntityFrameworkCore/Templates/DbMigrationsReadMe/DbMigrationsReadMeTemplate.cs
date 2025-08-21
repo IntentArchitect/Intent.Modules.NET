@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using System.Text;
 using Intent.RoslynWeaver.Attributes;
 
@@ -21,11 +20,15 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbMigrationsReadMe
                 """
                 # Entity Framework Core migrations readme
                 
-                See <https://learn.microsoft.com//ef/core/managing-schemas/migrations> for information about migrations using Entity Framework Core.
+                See <https://learn.microsoft.com/ef/core/managing-schemas/migrations> for information about migrations
+                using Entity Framework Core.
                 
-                You can perform these commands in the Visual Studio IDE using the Package Manager Console (View > Other Windows > Package Manager Console) or using the dotnet Command Line Interface (CLI) instructions.
+                You can perform these commands in the Visual Studio IDE using the Package Manager Console (VS PMC), which can
+                be opened through the `View` > `Other Windows` > `Package Manager Console` menu option, or using the .NET
+                Command Line Interface (.NET CLI) tools.
                 
-                Substitute the curly brace (`{}`) enclosed arguments below with the appropriate migration name when executing these commands.
+                Substitute the curly brace (`{}`) enclosed arguments below with the appropriate migration name when
+                executing these commands.
                 """);
 
             if (!PackageManagerConsoleSupported)
@@ -146,8 +149,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbMigrationsReadMe
             {
                 var (cmd, bracketText) = type switch
                 {
-                    CommandType.Cli => (command.CliCommand, "CLI"),
-                    CommandType.Pmc => (command.PmcCommand, "PMC"),
+                    CommandType.Cli => (command.CliCommand, ".NET CLI"),
+                    CommandType.Pmc => (command.PmcCommand, "VS PMC"),
                     _ => throw new ArgumentOutOfRangeException(nameof(type))
                 };
 

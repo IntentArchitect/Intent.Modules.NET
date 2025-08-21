@@ -147,7 +147,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbMigrationsReadMe
         public override ITemplateFileConfig GetTemplateFileConfig()
         {
             return new TemplateFileConfig(
-                fileName: $"readme",
+                fileName: $"README",
                 fileExtension: "md"
             );
         }
