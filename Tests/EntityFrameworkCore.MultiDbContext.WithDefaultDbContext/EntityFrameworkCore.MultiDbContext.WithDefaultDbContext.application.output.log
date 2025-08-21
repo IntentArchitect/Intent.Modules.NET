@@ -998,8 +998,8 @@
       <ProjectId>33f43ca1-e021-4f01-89d4-123d10053eee</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure/Migrations/readme.md</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>readme.md</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure/Migrations/README.md</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>README.md</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

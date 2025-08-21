@@ -2182,8 +2182,8 @@
       <ProjectId>55177568-53e6-4980-b189-9ba4a0b9e264</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Infrastructure/Migrations/readme.md</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>readme.md</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Infrastructure/Migrations/README.md</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>README.md</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

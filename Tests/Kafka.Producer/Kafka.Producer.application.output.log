@@ -734,8 +734,8 @@
       <ProjectId>39ba7c21-33ee-40b3-aa7d-8d0a63cdd6f9</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Kafka.Producer.Infrastructure/Migrations/readme.md</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>readme.md</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Kafka.Producer.Infrastructure/Migrations/README.md</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>README.md</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

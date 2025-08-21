@@ -46,8 +46,8 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Customers
         public void Mapping(Profile profile)
         {
             profile.CreateMap<Customer, CustomerDto>()
-                .ForMember(d => d.PreferencesNewsletter, opt => opt.MapFrom(src => src.Preferences != null ? src.Preferences!.Newsletter : (bool?)null))
-                .ForMember(d => d.PreferencesSpecials, opt => opt.MapFrom(src => src.Preferences != null ? src.Preferences!.Specials : (bool?)null));
+                .ForMember(d => d.PreferencesNewsletter, opt => opt.MapFrom(src => src.Preferences!.Newsletter))
+                .ForMember(d => d.PreferencesSpecials, opt => opt.MapFrom(src => src.Preferences!.Specials));
         }
     }
 }

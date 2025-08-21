@@ -64,12 +64,12 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Ones
             profile.CreateMap<One, OneDto>()
                 .ForMember(d => d.OneName1, opt => opt.MapFrom(src => src.OneName))
                 .ForMember(d => d.Fives, opt => opt.MapFrom(src => src.Fives))
-                .ForMember(d => d.FourName4, opt => opt.MapFrom(src => src.Four != null ? src.Four!.FourName : null))
-                .ForMember(d => d.ThreeName3, opt => opt.MapFrom(src => src.Four != null && src.Four.Three != null ? src.Four!.Three!.ThreeName : null))
+                .ForMember(d => d.FourName4, opt => opt.MapFrom(src => src.Four!.FourName))
+                .ForMember(d => d.ThreeName3, opt => opt.MapFrom(src => src.Four!.Three!.ThreeName))
                 .ForMember(d => d.TwoName2, opt => opt.MapFrom(src => src.Two.TwoName))
                 .ForMember(d => d.OneAge1, opt => opt.MapFrom(src => src.OneAge))
-                .ForMember(d => d.FourAge4, opt => opt.MapFrom(src => src.Four != null ? src.Four!.FourAge : (int?)null))
-                .ForMember(d => d.ThreeAge3, opt => opt.MapFrom(src => src.Four != null && src.Four.Three != null ? src.Four!.Three!.ThreeAge : (int?)null))
+                .ForMember(d => d.FourAge4, opt => opt.MapFrom(src => src.Four!.FourAge))
+                .ForMember(d => d.ThreeAge3, opt => opt.MapFrom(src => src.Four!.Three!.ThreeAge))
                 .ForMember(d => d.TwoAge2, opt => opt.MapFrom(src => src.Two.TwoAge));
         }
     }
