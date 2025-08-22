@@ -11,17 +11,17 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel", Version = "1.0")]
 
-namespace Intent.Modules.MongoDb.Repositories.Templates.MongoRepositoryBase
+namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.MongoDbFrameworkContainerFixture
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class MongoRepositoryBaseTemplateRegistration : SingleFileTemplateRegistration
+    public class MongoDbFrameworkContainerFixtureTemplateRegistration : SingleFileTemplateRegistration
     {
-        public override string TemplateId => MongoRepositoryBaseTemplate.TemplateId;
+        public override string TemplateId => MongoDbFrameworkContainerFixtureTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new MongoRepositoryBaseTemplate(outputTarget);
+            return new MongoDbFrameworkContainerFixtureTemplate(outputTarget);
         }
     }
 }

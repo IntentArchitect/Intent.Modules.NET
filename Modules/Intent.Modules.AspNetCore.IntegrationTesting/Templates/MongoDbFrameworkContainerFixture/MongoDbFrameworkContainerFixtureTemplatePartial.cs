@@ -11,21 +11,21 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.MongoDbContainerFixture
+namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.MongoDbFrameworkContainerFixture
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public partial class MongoDbContainerFixtureTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
+    public partial class MongoDbFrameworkContainerFixtureTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
-        public const string TemplateId = "Intent.AspNetCore.IntegrationTesting.MongoDbContainerFixture";
+        public const string TemplateId = "Intent.AspNetCore.IntegrationTesting.MongoDbFrameworkContainerFixture";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public MongoDbContainerFixtureTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
+        public MongoDbFrameworkContainerFixtureTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
-                .AddClass($"MongoDbContainerFixture", @class =>
+                .AddClass($"MongoDbFrameworkContainerFixture", @class =>
                 {
                     AddUsing("Microsoft.Extensions.DependencyInjection");
-                    AddUsing("MongoDB.Driver");
+                    AddUsing("MongoFramework");
                     AddUsing("Testcontainers.MongoDb");
                     AddNugetDependency(NugetPackages.TestcontainersMongoDb(outputTarget));
                     @class.AddField("MongoDbContainer", "_dbContainer", f => f.PrivateReadOnly());
@@ -78,7 +78,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.MongoDbContaine
 
         public override bool CanRunTemplate()
         {
-            return base.CanRunTemplate() && ContainerHelper.RequireMongoContainer(this);
+            return base.CanRunTemplate() && ContainerHelper.RequireMongoFrameworkContainer(this);
         }
 
         [IntentManaged(Mode.Fully)]

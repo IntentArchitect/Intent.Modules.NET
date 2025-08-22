@@ -49,6 +49,10 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbPagedList
                         .AddGenericTypeConstraint(tDomain, c => c
                             .AddType("class"));
 
+                    @class
+                        .Internal()
+                        .AddGenericParameter("TIdentifier", out var tIdentifier);
+
                     if (createEntityInterfaces)
                     {
                         @class
@@ -62,7 +66,7 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbPagedList
                         : string.Empty;
                     @class
                         .AddGenericTypeConstraint(tDocument, c => c
-                            .AddType($"{this.GetMongoDbDocumentOfTInterfaceName()}<{tDomain}{tDomainStateConstraint}, {tDocument}>"))
+                            .AddType($"{this.GetMongoDbDocumentOfTInterfaceName()}<{tDomain}{tDomainStateConstraint}, {tDocument}, {tIdentifier}>"))
                         ;
 
                     @class.AddProperty("int", "TotalCount", prop => prop.PrivateSetter());
@@ -111,7 +115,7 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbPagedList
                         method.AddStatement("var count = await source.CountAsync(cancellationToken);");
                         method.AddStatement("var skip = ((pageNo - 1) * pageSize);");
                         method.AddStatement("var results = await source.Skip(skip).Take(pageSize).ToListAsync(cancellationToken);");
-                        method.AddStatement("return new MongoPagedList<TDomain, TDocument>(count, pageNo, pageSize, results);");
+                        method.AddStatement($"return new MongoPagedList<{tDomain}, {tDocument}, {tIdentifier}>(count, pageNo, pageSize, results);");
                     });
 
                     @class.AddMethod($"int", "GetPageCount", method =>

@@ -60,7 +60,10 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepository
                     var entityStateGenericTypeArgument = createEntityInterfaces
                         ? $", {EntityStateTypeName}"
                         : string.Empty;
-                    @class.ExtendsClass($"{this.GetMongoDbRepositoryBaseName()}<{EntityTypeName}{entityStateGenericTypeArgument}, {entityDocumentName}, {entityDocumentInterfaceName}>");
+
+                    var pkType = GetPKType(pkAttribute);
+
+                    @class.ExtendsClass($"{this.GetMongoDbRepositoryBaseName()}<{EntityTypeName}{entityStateGenericTypeArgument}, {entityDocumentName}, {entityDocumentInterfaceName}, {pkType}>");
                     @class.ImplementsInterface($"{this.GetEntityRepositoryInterfaceName()}{genericTypeParameters}");
 
                     @class.AddConstructor(ctor =>
@@ -73,38 +76,37 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepository
                         );
                     });
 
-                    var pkType = GetPKType(pkAttribute);
-                    var baseQualifier = pkType == "string"
-                        ? "base."
-                        : string.Empty;
+                    //var baseQualifier = pkType == "string"
+                    //    ? "base."
+                    //    : string.Empty;
 
-                    @class.AddMethod($"{UseType("System.Threading.Tasks.Task")}<{EntityTypeName}{nullableChar}>", "FindByIdAsync", method =>
-                    {
-                        method
-                            .Async()
-                            .AddParameter(pkType, "id")
-                            .AddOptionalCancellationTokenParameter(this)
-                            .WithExpressionBody($"await {baseQualifier}FindAsync({GetPKUsage(pkAttribute)}, cancellationToken)");
-                    });
+                    //@class.AddMethod($"{UseType("System.Threading.Tasks.Task")}<{EntityTypeName}{nullableChar}>", "FindByIdAsync", method =>
+                    //{
+                    //    method
+                    //        .Async()
+                    //        .AddParameter(pkType, "id")
+                    //        .AddOptionalCancellationTokenParameter(this)
+                    //        .WithExpressionBody($"await {baseQualifier}FindAsync({GetPKUsage(pkAttribute)}, cancellationToken)");
+                    //});
 
-                    @class.AddMethod($"{UseType("System.Threading.Tasks.Task")}<{UseType("System.Collections.Generic.List")}<{EntityTypeName}>>", "FindByIdsAsync", method =>
-                    {
-                        AddUsing("System.Linq");
-                        method
-                            .Async()
-                            .AddParameter($"{pkType}[]", "ids")
-                            .AddOptionalCancellationTokenParameter(this)
-                            .WithExpressionBody($"await {baseQualifier}FindAllAsync({GetPKUsages(pkAttribute)}, cancellationToken)");
-                    });
+                    //@class.AddMethod($"{UseType("System.Threading.Tasks.Task")}<{UseType("System.Collections.Generic.List")}<{EntityTypeName}>>", "FindByIdsAsync", method =>
+                    //{
+                    //    AddUsing("System.Linq");
+                    //    method
+                    //        .Async()
+                    //        .AddParameter($"{pkType}[]", "ids")
+                    //        .AddOptionalCancellationTokenParameter(this)
+                    //        .WithExpressionBody($"await {baseQualifier}FindAllAsync({GetPKUsages(pkAttribute)}, cancellationToken)");
+                    //});
 
-                    @class.AddMethod($"{UseType("System.Collections.Generic.List")}<{EntityTypeName}>", "SearchText", method =>
-                    {
-                        AddUsing("System.Linq");
-                        method
-                            .AddParameter($"string", "searchText")
-                            .AddParameter($"Expression<Func<{EntityTypeName}, bool>>", "filterExpression")
-                            .AddStatement($"throw new NotImplementedException();");
-                    });
+                    //@class.AddMethod($"{UseType("System.Collections.Generic.List")}<{EntityTypeName}>", "SearchText", method =>
+                    //{
+                    //    AddUsing("System.Linq");
+                    //    method
+                    //        .AddParameter($"string", "searchText")
+                    //        .AddParameter($"Expression<Func<{EntityTypeName}, bool>>", "filterExpression")
+                    //        .AddStatement($"throw new NotImplementedException();");
+                    //});
                 });
         }
 

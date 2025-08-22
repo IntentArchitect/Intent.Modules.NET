@@ -34,6 +34,8 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbDocument
         public MongoDbDocumentTemplate(IOutputTarget outputTarget, ClassModel model) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddUsing("MongoDB.Driver")
+                .AddUsing("MongoDB.Bson.Serialization.Attributes")
                 .AddClass($"{Model.Name}Document", @class =>
                 {
                     @class.Internal();
@@ -105,7 +107,9 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbDocument
                                                               Model.Constructors.All(x => x.Parameters.Count != 0),
                         entityRequiresReflectionPropertySetting: ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters(),
                         isAggregate: Model.IsAggregateRoot(),
-                        hasBaseType: Model.ParentClass != null
+                        hasBaseType: Model.ParentClass != null,
+                        GetTypeName(pk),
+                        pk.Name
                     );
                 });
         }
@@ -113,6 +117,7 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbDocument
         private void AddPropertiesForAggregate(CSharpClass @class)
         {
             var createEntityInterfaces = ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces();
+            var pk = Model.GetPrimaryKeyAttribute();
 
             var genericTypeArguments = Model.GenericTypes.Any()
                 ? $"<{string.Join(", ", Model.GenericTypes)}>"
@@ -121,9 +126,8 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbDocument
                 ? $", {EntityStateTypeName}{genericTypeArguments}"
                 : string.Empty;
             @class.ImplementsInterface(
-                $"{this.GetMongoDbDocumentOfTInterfaceName()}<{EntityTypeName}{genericTypeArguments}{tDomainStateConstraint}, {@class.Name}{genericTypeArguments}>");
+                $"{this.GetMongoDbDocumentOfTInterfaceName()}<{EntityTypeName}{genericTypeArguments}{tDomainStateConstraint}, {@class.Name}{genericTypeArguments}, {GetTypeName(pk)}>");
 
-            var pk = Model.GetPrimaryKeyAttribute();
 
             var entityProperties = EntityStateFileBuilder.CSharpFile.Classes.First()
                 .Properties.Where(x => x.ExplicitlyImplementing == null &&
@@ -156,13 +160,13 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbDocument
 
                 var typeName = GetTypeName(typeReference);
 
-                // PK must always be a string
-                if (metadataModel.Id == pk.Id && !string.Equals(typeName, Helpers.PrimaryKeyType, StringComparison.OrdinalIgnoreCase))
-                {
-                    typeName = Helpers.PrimaryKeyType;
-                }
+                //// PK must always be a string
+                //if (metadataModel.Id == pk.Id && !string.Equals(typeName, Helpers.PrimaryKeyType, StringComparison.OrdinalIgnoreCase))
+                //{
+                //    typeName = Helpers.PrimaryKeyType;
+                //}
 
-                if(metadataModel is AssociationEndModel)
+                if (metadataModel is AssociationEndModel)
                 {
                     typeName = typeName.Replace(typeReference.Element.Name, $"I{typeReference.Element.Name}Document");
                 }
@@ -170,6 +174,11 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbDocument
                 bool interfaceAccessorAdded = false;
                 @class.AddProperty(typeName, entityProperty.Name, property =>
                 {
+                    if (metadataModel.Id == pk.Id && (string.Equals(typeName, Helpers.PrimaryKeyType, StringComparison.OrdinalIgnoreCase) || string.Equals(typeName, Helpers.PrimaryKeyTypeGuid, StringComparison.OrdinalIgnoreCase))) 
+                    {
+                        property.AddAttribute("BsonId");
+                        property.AddAttribute("BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)");
+                    }
                     if (metadataModel is AttributeModel classAttribute1 && classAttribute1.HasFieldSettings())
                     {
                         property.AddAttribute($"{UseType("Newtonsoft.Json.JsonProperty")}(\"{classAttribute1.GetFieldSettings().Name()}\")");
@@ -204,6 +213,7 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbDocument
                         interfaceAccessorAdded = true;
                     }
                 });
+
 
                 //if (metadataModel is AssociationTargetEndModel targetEndModel)
                 //{

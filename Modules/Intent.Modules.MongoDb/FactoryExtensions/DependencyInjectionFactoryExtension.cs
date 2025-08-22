@@ -32,6 +32,7 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
 
+
             //var dbContext = application.FindTemplateInstance<ICSharpTemplate>(TemplateDependency.OnTemplate(ApplicationMongoDbContextTemplate.TemplateId));
             //if (dbContext == null)
             //{
@@ -49,6 +50,7 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
                 file.AddUsing("MongoDB.Driver");
 
                 var method = file.Classes.First().FindMethod("AddInfrastructure");
+
 
                 //method.AddStatement($"services.AddScoped<{dependencyInjection.GetTypeName(dbContext.Id)}>();");
 

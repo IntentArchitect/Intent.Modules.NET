@@ -1,6 +1,7 @@
 ﻿using Intent.Metadata.DocumentDB.Api;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
+using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -12,6 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Schema;
 using AttributeModel = Intent.Modelers.Domain.Api.AttributeModel;
 
 namespace Intent.Modules.MongoDb.Templates
@@ -48,7 +50,9 @@ namespace Intent.Modules.MongoDb.Templates
             bool entityRequiresReflectionConstruction,
             bool entityRequiresReflectionPropertySetting,
             bool isAggregate,
-            bool hasBaseType)
+            bool hasBaseType,
+            string primaryKeyType,
+            string primaryKeyName)
         {
             var genericTypeArguments = @class.GenericParameters.Any()
                 ? $"<{string.Join(", ", @class.GenericParameters.Select(x => x.TypeName))}>"
@@ -85,19 +89,20 @@ namespace Intent.Modules.MongoDb.Templates
                     var attributeTypeName = attribute.TypeReference.Element?.Name.ToLowerInvariant();
 
                     // If this is the PK which is not a string, we need to convert it:
-                    if (isAggregate && attribute.HasPrimaryKey() && !string.Equals(attributeTypeName, "string"))
-                    {
-                        assignmentValueExpression = attributeTypeName switch
-                        {
-                            "int" or "long" => $"{attributeTypeName}.Parse({assignmentValueExpression}, {template.UseType("System.Globalization.CultureInfo")}.InvariantCulture)",
-                            "guid" => $"{template.UseType("System.Guid")}.Parse({assignmentValueExpression})",
-                            _ => throw new Exception(
-                                $"Unsupported primary key type \"{attributeTypeName}\" [{attribute.TypeReference.Element?.Id}] for attribute " +
-                                $"\"{attribute.Name}\" [{attribute.Id}] " +
-                                $"on \"{attribute.InternalElement.ParentElement.Name}\" [{attribute.InternalElement.ParentElement.Id}]")
-                        };
-                    }
-                    else if (attribute.TypeReference?.Element?.SpecializationType == "Value Object")
+                    //if (isAggregate && attribute.HasPrimaryKey() && !string.Equals(attributeTypeName, "string"))
+                    //{
+                    //    assignmentValueExpression = attributeTypeName switch
+                    //    {
+                    //        "int" or "long" => $"{attributeTypeName}.Parse({assignmentValueExpression}, {template.UseType("System.Globalization.CultureInfo")}.InvariantCulture)",
+                    //        "guid" => $"{template.UseType("System.Guid")}.Parse({assignmentValueExpression})",
+                    //        _ => throw new Exception(
+                    //            $"Unsupported primary key type \"{attributeTypeName}\" [{attribute.TypeReference.Element?.Id}] for attribute " +
+                    //            $"\"{attribute.Name}\" [{attribute.Id}] " +
+                    //            $"on \"{attribute.InternalElement.ParentElement.Name}\" [{attribute.InternalElement.ParentElement.Id}]")
+                    //    };
+                    //}
+                    //else 
+                    if (attribute.TypeReference?.Element?.SpecializationType == "Value Object")
                     {
                         var nullable = attribute.TypeReference.IsNullable ? "?" : string.Empty;
                         assignmentValueExpression = $"{attribute.Name.ToPascalCase()}{nullable}.ToEntity()";
@@ -160,20 +165,21 @@ namespace Intent.Modules.MongoDb.Templates
                     var accessEntityAttribute = true;
 
                     // If this is the PK which is not a string, we need to convert it:
-                    var attributeTypeName = attribute.TypeReference.Element?.Name.ToLowerInvariant();
-                    if (isAggregate && attribute.HasPrimaryKey() && !string.Equals(attributeTypeName, "string"))
-                    {
-                        suffix = attributeTypeName switch
-                        {
-                            "int" or "long" => $".ToString({template.UseType("System.Globalization.CultureInfo")}.InvariantCulture)",
-                            "guid" => ".ToString()",
-                            _ => throw new Exception(
-                                $"Unsupported primary key type \"{attributeTypeName}\" [{attribute.TypeReference.Element?.Id}] for attribute " +
-                                $"\"{attribute.Name}\" [{attribute.Id}] " +
-                                $"on \"{attribute.InternalElement.ParentElement.Name}\" [{attribute.InternalElement.ParentElement.Id}]")
-                        };
-                    }
-                    else if (attribute.TypeReference?.Element?.SpecializationType == "Value Object")
+                    //var attributeTypeName = attribute.TypeReference.Element?.Name.ToLowerInvariant();
+                    //if (isAggregate && attribute.HasPrimaryKey() && !string.Equals(attributeTypeName, "string"))
+                    //{
+                    //    suffix = attributeTypeName switch
+                    //    {
+                    //        "int" or "long" => $".ToString({template.UseType("System.Globalization.CultureInfo")}.InvariantCulture)",
+                    //        "guid" => ".ToString()",
+                    //        _ => throw new Exception(
+                    //            $"Unsupported primary key type \"{attributeTypeName}\" [{attribute.TypeReference.Element?.Id}] for attribute " +
+                    //            $"\"{attribute.Name}\" [{attribute.Id}] " +
+                    //            $"on \"{attribute.InternalElement.ParentElement.Name}\" [{attribute.InternalElement.ParentElement.Id}]")
+                    //    };
+                    //}
+                    //else 
+                    if (attribute.TypeReference?.Element?.SpecializationType == "Value Object")
                     {
                         var documentTypeName = template.GetTypeName((IElement)attribute.TypeReference.Element);
                         if (attribute.TypeReference.IsCollection)
@@ -195,7 +201,23 @@ namespace Intent.Modules.MongoDb.Templates
                         suffix = $"{suffix}{(attribute.TypeReference.IsNullable ? "?" : "")}.ToList()";
                     }
 
-                    method.AddStatement($"{attribute.Name.ToPascalCase()} = {(accessEntityAttribute ? $"entity.{attribute.Name.ToPascalCase()}" : "")}{suffix};");
+                    if (attribute.HasStereotype("64f6a994-4909-4a9d-a0a9-afc5adf2ef74")
+                        && (primaryKeyType == Helpers.PrimaryKeyType || primaryKeyType == Helpers.PrimaryKeyTypeGuid)
+                        && attribute.Stereotypes.First(s => s.DefinitionId == "64f6a994-4909-4a9d-a0a9-afc5adf2ef74").TryGetProperty("ce12cf69-e97f-401b-9b08-7e2c62171d4e", out var property))
+                    {
+                        if(property.Value == "Auto-generated")
+                        {
+                            method.AddStatement($"{attribute.Name.ToPascalCase()} = ObjectId.GenerateNewId().ToString();");
+                        }
+                        else
+                        {
+                            method.AddStatement($"{attribute.Name.ToPascalCase()} = {(accessEntityAttribute ? $"entity.{attribute.Name.ToPascalCase()}" : "")}{suffix};");
+                        }
+                    }
+                    else
+                    {
+                        method.AddStatement($"{attribute.Name.ToPascalCase()} = {(accessEntityAttribute ? $"entity.{attribute.Name.ToPascalCase()}" : "")}{suffix};");
+                    }
                 }
 
                 foreach (var associationEnd in associationEnds)
@@ -234,6 +256,29 @@ namespace Intent.Modules.MongoDb.Templates
                     method.AddIfStatement("entity is null", @if => @if.AddStatement("return null;"));
 
                     method.AddStatement($"return new {@class.Name}{genericTypeArguments}().PopulateFromEntity(entity);", s => s.SeparatedFromPrevious());
+                });
+
+                @class.AddMethod($"FilterDefinition<{@class.Name}{genericTypeArguments}>", "GetIdFilter", method =>
+                {
+                    method.AddParameter(primaryKeyType, primaryKeyName.ToCamelCase());
+
+                    method.Static();
+
+                    method.AddStatement($"return Builders<{@class.Name}{genericTypeArguments}>.Filter.Eq(d => d.{primaryKeyName.ToPascalCase()}, {primaryKeyName.ToCamelCase()});", s => s.SeparatedFromPrevious());
+                });
+
+                @class.AddMethod($"FilterDefinition<{@class.Name}{genericTypeArguments}>", "GetIdsFilter", method =>
+                {
+                    method.AddParameter($"{primaryKeyType}[]", primaryKeyName.Pluralize().ToCamelCase());
+
+                    method.Static();
+
+                    method.AddStatement($"return Builders<{@class.Name}{genericTypeArguments}>.Filter.In(d => d.{primaryKeyName.ToPascalCase()}, {primaryKeyName.Pluralize().ToCamelCase()});", s => s.SeparatedFromPrevious());
+                });
+
+                @class.AddMethod($"FilterDefinition<{@class.Name}{genericTypeArguments}>", "GetIdFilter", method =>
+                {
+                    method.WithExpressionBody($"GetIdFilter({primaryKeyName.ToPascalCase()})");
                 });
             }
         }

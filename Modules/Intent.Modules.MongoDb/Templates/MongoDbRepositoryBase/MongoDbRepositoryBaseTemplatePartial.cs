@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
@@ -11,8 +13,6 @@ using Intent.Modules.Entities.Repositories.Api.Templates;
 using Intent.Modules.Modelers.Domain.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using System;
-using System.Collections.Generic;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -57,10 +57,11 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryBase
 
                     @class
                         .AddGenericParameter("TDocument", out var tDocument)
-                        .AddGenericParameter("TDocumentInterface", out var tDocumentInterface);
+                        .AddGenericParameter("TDocumentInterface", out var tDocumentInterface)
+                        .AddGenericParameter("TIdentifier", out var tIdentifier);
 
                     @class
-                        .ImplementsInterface($"{this.GetMongoDbRepositoryInterfaceName()}<{tDomain}, {tDocumentInterface}>")
+                        .ImplementsInterface($"{this.GetMongoDbRepositoryInterfaceName()}<{tDomain}, {tDocumentInterface}, {tIdentifier}>")
                         .AddGenericTypeConstraint(tDomain, c => c
                             .AddType("class"));
 
@@ -77,12 +78,10 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryBase
                         : string.Empty;
                     @class
                         .AddGenericTypeConstraint(tDocument, c => c
-                            .AddType($"{this.GetMongoDbDocumentOfTInterfaceName()}<{tDomain}{tDomainStateConstraint}, {tDocument}>")
+                            .AddType($"{this.GetMongoDbDocumentOfTInterfaceName()}<{tDomain}{tDomainStateConstraint}, {tDocument}, {tIdentifier}>")
                             .AddType(tDocumentInterface)
                             .AddType("new()"))
                         ;
-
-                    @class.AddField("List<string>", "_objectIds", f => f.PrivateReadOnly().WithAssignment("new List<string>()"));
 
                     @class.AddConstructor(ctor =>
                     {
@@ -107,7 +106,8 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryBase
                             invocation
                                 .AddArgument(new CSharpLambdaBlock("async cancellationToken")
                                     .AddStatement($"var document = new {tDocument}().PopulateFromEntity(entity);")
-                                    .AddStatement("await _collection.InsertOneAsync(document, cancellationToken: cancellationToken);"));
+                                    .AddStatement("await _collection.InsertOneAsync(document, cancellationToken: cancellationToken);")
+                                    .AddStatement("document.ToEntity(entity);"));
                         })
                     );
 
@@ -121,9 +121,8 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryBase
                             invocation
                                 .AddArgument(new CSharpLambdaBlock("async cancellationToken")
                                     .AddStatement($"var document = new {tDocument}().PopulateFromEntity(entity);", c => c.AddMetadata(MetadataNames.DocumentDeclarationStatement, true))
-                                    .AddStatement($"var filter = Builders<{tDocument}>.Filter.Eq(d => d.Id, document.Id);")
                                     .AddStatement(
-                                        "await _collection.ReplaceOneAsync(filter, document, cancellationToken: cancellationToken);")
+                                        "await _collection.ReplaceOneAsync(document.GetIdFilter(), document, cancellationToken: cancellationToken);")
                                 );
                         })
                     );
@@ -138,11 +137,26 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryBase
                             invocation
                                 .AddArgument(new CSharpLambdaBlock("async cancellationToken")
                                     .AddStatement($"var document = new {tDocument}().PopulateFromEntity(entity);", c => c.AddMetadata(MetadataNames.DocumentDeclarationStatement, true))
-                                    .AddStatement($"var filter = Builders<{tDocument}>.Filter.Eq(d => d.Id, document.Id);")
                                     .AddStatement(
-                                        "await _collection.DeleteOneAsync(filter, cancellationToken: cancellationToken);")
+                                        "await _collection.DeleteOneAsync(document.GetIdFilter(), cancellationToken: cancellationToken);")
                                 );
                         })
+                    );
+
+                    @class.AddMethod($"Task<{tDomain}>", "FindByIdAsync", m => m
+                        .Virtual().Async()
+                        .AddParameter(tIdentifier, "id")
+                        .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"))
+                        .AddStatement($"var cursor = await _collection.FindAsync({tDocument}.GetIdFilter(id));")
+                        .AddStatement($"return LoadAndTrackDocument(cursor.Single());")
+                    );
+
+                    @class.AddMethod($"Task<List<{tDomain}>>", "FindByIdsAsync", m => m
+                        .Virtual().Async()
+                        .AddParameter($"{tIdentifier}[]", "ids")
+                        .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"))
+                        .AddStatement($"var cursor = await _collection.FindAsync({tDocument}.GetIdsFilter(ids));")
+                        .AddStatement($"return LoadAndTrackDocuments(cursor.ToEnumerable()).ToList();")
                     );
 
                     @class.AddMethod($"List<{tDomain}>", "SearchText", m => m
@@ -258,7 +272,7 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryBase
                             .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
 
                         method.AddStatement("var query = QueryInternal(x => true);");
-                        method.AddStatement("return await MongoPagedList<TDomain, TDocument>.CreateAsync(query.Cast<TDomain>(), pageNo, pageSize, cancellationToken);");
+                        method.AddStatement("return await MongoPagedList<TDomain, TDocument, TIdentifier>.CreateAsync(query.Cast<TDomain>(), pageNo, pageSize, cancellationToken);");
                     });
 
                     @class.AddMethod($"Task<{this.GetPagedResultInterfaceName()}<{tDomain}>>", "FindAllAsync", method =>
@@ -272,7 +286,7 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryBase
                             .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
 
                         method.AddStatement("var query = QueryInternal(filterExpression, linq);");
-                        method.AddStatement("return await MongoPagedList<TDomain, TDocument>.CreateAsync(query.Cast<TDomain>(), pageNo, pageSize, cancellationToken);");
+                        method.AddStatement("return await MongoPagedList<TDomain, TDocument, TIdentifier>.CreateAsync(query.Cast<TDomain>(), pageNo, pageSize, cancellationToken);");
                     });
 
                     @class.AddMethod($"Task<{this.GetPagedResultInterfaceName()}<{tDomain}>>", "FindAllAsync", method =>
@@ -285,7 +299,7 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryBase
                             .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
 
                         method.AddStatement("var query = QueryInternal(filterExpression);");
-                        method.AddStatement("return await MongoPagedList<TDomain, TDocument>.CreateAsync(query.Cast<TDomain>(), pageNo, pageSize, cancellationToken);");
+                        method.AddStatement("return await MongoPagedList<TDomain, TDocument, TIdentifier>.CreateAsync(query.Cast<TDomain>(), pageNo, pageSize, cancellationToken);");
                     });
 
                     @class.AddMethod($"Task<{tDomain}?>", "FindAsync", method => method
@@ -321,7 +335,7 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryBase
                             .AddParameter($"Func<IQueryable<{tDocumentInterface}>, IQueryable<{tDocumentInterface}>>", "queryOptions")
                             .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
                             .AddStatement("var query = QueryInternal(x => true, queryOptions);")
-                            .AddStatement("return await MongoPagedList<TDomain, TDocument>.CreateAsync(query.Cast<TDomain>(), pageNo, pageSize, cancellationToken);");
+                            .AddStatement("return await MongoPagedList<TDomain, TDocument, TIdentifier>.CreateAsync(query.Cast<TDomain>(), pageNo, pageSize, cancellationToken);");
                     });
                     @class.AddMethod("Task<int>", "CountAsync", method => method
                         .Virtual()
@@ -403,7 +417,6 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryBase
                         method.AddStatement("var entity = document.ToEntity();");
 
                         method.AddStatement("_unitOfWork.Track(entity);", s => s.SeparatedFromPrevious());
-                        method.AddStatement("_objectIds.Add(document.Id);");
 
                         method.AddStatement("return entity;", s => s.SeparatedFromPrevious());
 

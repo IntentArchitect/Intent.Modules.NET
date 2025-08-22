@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -6,8 +8,6 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Modelers.Domain.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using System;
-using System.Collections.Generic;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -44,9 +44,13 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbDocumentOfTInterface
                     }
 
                     @interface
-                        .AddGenericParameter("TDocument", out var tDocument, g => g.Covariant())
+                        .AddGenericParameter("TDocument", out var tDocument)
                         .AddGenericTypeConstraint(tDomain, c => c
                             .AddType("class"));
+
+                    @interface
+                        .AddGenericParameter("TIdentifier", out var tIdentifier);
+
                     if (createEntityInterfaces)
                     {
                         @interface
@@ -60,22 +64,19 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbDocumentOfTInterface
                         : string.Empty;
                     @interface
                         .AddGenericTypeConstraint(tDocument, c => c
-                            .AddType($"{this.GetMongoDbDocumentOfTInterfaceName()}<{tDomain}{tDomainStateConstraint}, {tDocument}>"));
+                            .AddType($"{this.GetMongoDbDocumentOfTInterfaceName()}<{tDomain}{tDomainStateConstraint}, {tDocument}, {tIdentifier}>"));
 
-                    @interface.ImplementsInterfaces(UseType("IMongoDBDocument"));
-
-                    
-                        @interface.AddMethod(tDocument, "PopulateFromEntity", c => c
-                        .AddParameter(tDomain, "entity"));
+                    @interface.AddMethod(tDocument, "PopulateFromEntity", c => c
+                    .AddParameter(tDomain, "entity"));
 
                     @interface.AddMethod(tDomainState, "ToEntity", c => c
                         .AddParameter($"{tDomainState}?", "entity", p => p.WithDefaultValue("null")));
-                })
-                .AddInterface($"IMongoDBDocument", @interface =>
-                {
-                    @interface.Internal();
 
-                    @interface.AddProperty("string", "Id");
+                    @interface.AddMethod($"FilterDefinition<{tDocument}>", "GetIdFilter", c => c.Static().Abstract()
+                        .AddParameter($"{tIdentifier}", "id"));
+                    @interface.AddMethod($"FilterDefinition<{tDocument}>", "GetIdsFilter", c => c.Static().Abstract()
+                        .AddParameter($"{tIdentifier}[]", "ids"));
+                    @interface.AddMethod($"FilterDefinition<{tDocument}>", "GetIdFilter");
                 });
         }
 

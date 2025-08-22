@@ -30,5 +30,10 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates
         {
             return template.ExecutionContext.InstalledModules.Any(p => p.ModuleId == "Intent.MongoDb");
         }
+
+        internal static bool RequireMongoFrameworkContainer(IntentTemplateBase template)
+        {
+            return template.ExecutionContext.InstalledModules.Any(p => p.ModuleId == "Intent.MongoDb.MongoFramework");
+        }
     }
 }
