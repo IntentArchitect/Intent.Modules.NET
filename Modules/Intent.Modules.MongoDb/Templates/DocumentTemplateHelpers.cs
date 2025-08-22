@@ -11,6 +11,7 @@ using Intent.Modules.MongoDb.Templates.MongoDbValueObjectDocumentInterface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Schema;
@@ -113,6 +114,11 @@ namespace Intent.Modules.MongoDb.Templates
                         }
                     }
 
+                    if (attribute.TypeReference.IsCollection)
+                    {
+                        assignmentValueExpression = $"{assignmentValueExpression}.ToList()";
+                    }
+
                     if (template.IsNonNullableReferenceType(attribute.TypeReference))
                     {
                         assignmentValueExpression =
@@ -130,7 +136,7 @@ namespace Intent.Modules.MongoDb.Templates
                 {
                     var nullable = associationEnd.IsNullable ? "?" : string.Empty;
 
-                    var assignmentValueExpression = $"{associationEnd.Name}{nullable}.ToEntity()";
+                    var assignmentValueExpression = $"({associationEnd.Name} as {associationEnd.Name.Singularize()}Document){nullable}.ToEntity()";
 
                     if (associationEnd.IsCollection)
                     {
@@ -205,7 +211,7 @@ namespace Intent.Modules.MongoDb.Templates
                         && (primaryKeyType == Helpers.PrimaryKeyType || primaryKeyType == Helpers.PrimaryKeyTypeGuid)
                         && attribute.Stereotypes.First(s => s.DefinitionId == "64f6a994-4909-4a9d-a0a9-afc5adf2ef74").TryGetProperty("ce12cf69-e97f-401b-9b08-7e2c62171d4e", out var property))
                     {
-                        if(property.Value == "Auto-generated")
+                        if (property.Value == "Auto-generated")
                         {
                             method.AddStatement($"{attribute.Name.ToPascalCase()} = ObjectId.GenerateNewId().ToString();");
                         }
@@ -234,7 +240,7 @@ namespace Intent.Modules.MongoDb.Templates
                     }
 
                     var nullableSuppression = associationEnd.IsNullable ? string.Empty : "!";
-                    method.AddStatement($"{associationEnd.Name} = {documentTypeName}.FromEntity(entity.{associationEnd.Name}){nullableSuppression};");
+                    method.AddStatement($"{associationEnd.Name} = {documentTypeName}Document.FromEntity(entity.{associationEnd.Name}){nullableSuppression};");
                 }
 
                 if (hasBaseType)
@@ -245,7 +251,7 @@ namespace Intent.Modules.MongoDb.Templates
                 method.AddStatement("return this;", s => s.SeparatedFromPrevious());
             });
 
-            if (!@class.IsAbstract && (!string.IsNullOrEmpty(primaryKeyType) || !string.IsNullOrEmpty(primaryKeyName)))
+            if (!@class.IsAbstract)
             {
                 @class.AddMethod($"{@class.Name}{genericTypeArguments}?", "FromEntity", method =>
                 {
@@ -257,7 +263,10 @@ namespace Intent.Modules.MongoDb.Templates
 
                     method.AddStatement($"return new {@class.Name}{genericTypeArguments}().PopulateFromEntity(entity);", s => s.SeparatedFromPrevious());
                 });
+            }
 
+            if (@class.Interfaces.Any(i => i.StartsWith("IMongoDbDocument")))
+            {
                 @class.AddMethod($"FilterDefinition<{@class.Name}{genericTypeArguments}>", "GetIdFilter", method =>
                 {
                     method.AddParameter(primaryKeyType, primaryKeyName.ToCamelCase());
@@ -291,13 +300,13 @@ namespace Intent.Modules.MongoDb.Templates
             string entityPropertyName)
             where TModel : IMetadataModel
         {
-            @class.AddProperty(template.GetDocumentInterfaceName(elementReference), entityPropertyName,
-                property =>
-                {
-                    property.ExplicitlyImplements(template.GetTypeName(documentInterfaceTemplateId, template.Model));
-                    property.Getter.WithExpressionImplementation(entityPropertyName);
-                    property.WithoutSetter();
-                });
+            //@class.AddProperty(template.GetDocumentInterfaceName(elementReference), entityPropertyName,
+            //    property =>
+            //    {
+            //        property.ExplicitlyImplements(template.GetTypeName(documentInterfaceTemplateId, template.Model));
+            //        property.Getter.WithExpressionImplementation(entityPropertyName);
+            //        property.WithoutSetter();
+            //    });
         }
 
         public static void AddMongoDbDocumentProperties<TModel>(
@@ -329,23 +338,26 @@ namespace Intent.Modules.MongoDb.Templates
                     }
                 });
 
-                if (attribute.TypeReference.IsCollection)
-                {
-                    @class.AddProperty(
-                        type: $"{template.UseType("System.Collections.Generic.IReadOnlyList")}<{template.GetTypeName((IElement)attribute.TypeReference.Element)}>",
-                        name: attribute.Name.ToPascalCase(),
-                        configure: property =>
-                        {
-                            property.ExplicitlyImplements(template.GetTypeName(documentInterfaceTemplateId, template.Model));
-                            property.Getter.WithExpressionImplementation(attribute.Name.ToPascalCase());
-                            property.WithoutSetter();
-                        });
-                }
+                //if (attribute.TypeReference.IsCollection)
+                //{
+                //    @class.AddProperty(
+                //        type: $"{template.UseType("System.Collections.Generic.IEnumerable")}<{template.GetTypeName((IElement)attribute.TypeReference.Element)}>",
+                //        name: attribute.Name.ToPascalCase(),
+                //        configure: property =>
+                //        {
+                //            property.ExplicitlyImplements(template.GetTypeName(documentInterfaceTemplateId, template.Model));
+                //            property.Getter.WithExpressionImplementation(attribute.Name.ToPascalCase());
+                //            property.WithoutSetter();
+                //        });
+                //}
             }
 
             foreach (var associationEnd in associationEnds)
             {
-                @class.AddProperty(template.GetTypeName(associationEnd), associationEnd.Name.ToPascalCase(), property =>
+
+                var propertyName = template.GetTypeName(associationEnd).Replace(associationEnd.Name.Singularize(), template.GetTemplate<MongoDbDocumentInterfaceTemplate>(MongoDbDocumentInterfaceTemplate.TemplateId, associationEnd.TypeReference.Element).ClassName);
+
+                @class.AddProperty(propertyName, associationEnd.Name.ToPascalCase(), property =>
                 {
                     if (!associationEnd.TypeReference.IsNullable)
                     {

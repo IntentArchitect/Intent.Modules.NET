@@ -68,7 +68,17 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbDocumentInterface
                     foreach (var associationEnd in associationEnds)
                     {
                         file.AddUsing("System.Collections.Generic");
-                        @interface.AddProperty($"IEnumerable<I{associationEnd.Name.Singularize()}Document>", associationEnd.Name.ToPascalCase(), p => p.WithoutSetter());
+                        var propertyName = GetTypeName(associationEnd).Replace(associationEnd.Name.Singularize(), file.Template.GetTemplate<MongoDbDocumentInterfaceTemplate>(TemplateId, associationEnd.TypeReference.Element).ClassName);
+                        @interface.AddProperty(propertyName, associationEnd.Name.ToPascalCase(), p => p.WithoutSetter());
+                        //file.Template.GetTemplate<MongoDbDocumentInterfaceTemplate>(TemplateId, associationEnd.TypeReference.Element);
+                        //if (associationEnd.Multiplicity == Multiplicity.Many)
+                        //{
+                        //    @interface.AddProperty($"IEnumerable<I{associationEnd.Name.Singularize()}Document>", associationEnd.Name.ToPascalCase(), p => p.WithoutSetter());
+                        //}
+                        //else
+                        //{
+                        //    @interface.AddProperty($"I{associationEnd.Name.Singularize()}Document", associationEnd.Name.ToPascalCase(), p => p.WithoutSetter());
+                        //}
                     }
                 }, 1000);
         }

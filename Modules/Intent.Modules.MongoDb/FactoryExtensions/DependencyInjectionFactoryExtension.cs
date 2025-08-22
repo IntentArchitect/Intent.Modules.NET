@@ -45,7 +45,7 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
                 return;
             }
 
-            dependencyInjection.CSharpFile.OnBuild(file =>
+            dependencyInjection.CSharpFile.AfterBuild(file =>
             {
                 file.AddUsing("MongoDB.Driver");
 
@@ -92,11 +92,18 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
                     foreach (var model in dependencyInjection.ExecutionContext.FindTemplateInstances<ICSharpFileBuilderTemplate>("Intent.MongoDb.MongoDbDocument"))
                     {
                         dependencyInjection.GetTypeName(model);
-                        method.AddStatement(@$"services.AddSingleton<IMongoCollection<{model.ClassName}>>(sp =>
-                        {{
-                            var database = sp.GetRequiredService<IMongoDatabase>();
-                            return database.GetCollection<{model.ClassName}>(""{model.ClassName.Replace("Document", "")}"");
-                        }});");
+                        if (!model.CSharpFile.Classes.First().IsAbstract)
+                        {
+                            if(model.ClassName == "BaseTypeDocument")
+                            {
+                                var p = 1;
+                            }
+                            method.AddStatement(@$"services.AddSingleton<IMongoCollection<{model.ClassName}>>(sp =>
+                            {{
+                                var database = sp.GetRequiredService<IMongoDatabase>();
+                                return database.GetCollection<{model.ClassName}>(""{model.ClassName.Replace("Document", "")}"");
+                            }});");
+                        }
                     }
                 }
             });

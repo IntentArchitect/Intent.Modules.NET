@@ -108,8 +108,8 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbDocument
                         entityRequiresReflectionPropertySetting: ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters(),
                         isAggregate: Model.IsAggregateRoot(),
                         hasBaseType: Model.ParentClass != null,
-                        pk == null ? string.Empty : GetTypeName(pk),
-                        pk == null ? string.Empty : pk.Name
+                        pk == null ? "string" : GetTypeName(pk),
+                        pk == null ? "Id" : pk.Name
                     );
                 });
         }
@@ -215,45 +215,43 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbDocument
                     }
                 });
 
-
-
-                //if (metadataModel is AssociationTargetEndModel targetEndModel)
-                //{
-                //    AddDocumentInterfaceAccessor(@class, targetEndModel.TypeReference, entityProperty.Name);
-                //    interfaceAccessorAdded = true;
-                //}
-
-                if (metadataModel is AttributeModel classAttribute3 && classAttribute3.TypeReference.IsCollection && !interfaceAccessorAdded)
+                if (metadataModel is AssociationTargetEndModel targetEndModel)
                 {
-                    var nullablePostFix = "";
-                    var isNullable = classAttribute3.TypeReference.IsNullable;
-                    if (isNullable)
-                    {
-                        nullablePostFix = OutputTarget.GetProject().NullableEnabled ? "?" : "";
-                    }
-
-                    @class.AddProperty(
-                        type: $"{UseType("System.Collections.Generic.IReadOnlyList")}<{GetTypeName((IElement)classAttribute3.TypeReference.Element)}>{nullablePostFix}",
-                        name: entityProperty.Name,
-                        configure: property =>
-                        {
-                            property.ExplicitlyImplements(this.GetMongoDbDocumentInterfaceName());
-                            property.Getter.WithExpressionImplementation(entityProperty.Name);
-                            property.WithoutSetter();
-                        });
+                    AddDocumentInterfaceAccessor(@class, targetEndModel.TypeReference, entityProperty.Name);
+                    interfaceAccessorAdded = true;
                 }
+
+                //if (metadataModel is AttributeModel classAttribute3 && classAttribute3.TypeReference.IsCollection && !interfaceAccessorAdded)
+                //{
+                //    var nullablePostFix = "";
+                //    var isNullable = classAttribute3.TypeReference.IsNullable;
+                //    if (isNullable)
+                //    {
+                //        nullablePostFix = OutputTarget.GetProject().NullableEnabled ? "?" : "";
+                //    }
+
+                //    @class.AddProperty(
+                //        type: $"{UseType("System.Collections.Generic.IEnumerable")}<{GetTypeName((IElement)classAttribute3.TypeReference.Element)}>{nullablePostFix}",
+                //        name: entityProperty.Name,
+                //        configure: property =>
+                //        {
+                //            property.ExplicitlyImplements(this.GetMongoDbDocumentInterfaceName());
+                //            property.Getter.WithExpressionImplementation(entityProperty.Name);
+                //            property.WithoutSetter();
+                //        });
+                //}
             }
         }
 
         private void AddDocumentInterfaceAccessor(CSharpClass @class, ITypeReference elementReference, string entityPropertyName)
         {
-            @class.AddProperty(this.GetDocumentInterfaceName(elementReference), entityPropertyName,
-                property =>
-                {
-                    property.ExplicitlyImplements(this.GetMongoDbDocumentInterfaceName());
-                    property.Getter.WithExpressionImplementation(entityPropertyName);
-                    property.WithoutSetter();
-                });
+            //@class.AddProperty(this.GetDocumentInterfaceName(elementReference), entityPropertyName,
+            //    property =>
+            //    {
+            //        property.ExplicitlyImplements(this.GetMongoDbDocumentInterfaceName());
+            //        property.Getter.WithExpressionImplementation(entityPropertyName);
+            //        property.WithoutSetter();
+            //    });
         }
 
         public string EntityStateTypeName => GetTypeName(TemplateRoles.Domain.Entity.Primary, Model);
