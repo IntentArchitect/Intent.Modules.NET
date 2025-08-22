@@ -140,9 +140,9 @@
         <package id="Intent.Modules.AspNetCore.MultiTenancy" version="5.1.5" />
       </install>
     </detect>
-    <detect id="Intent.Modules.MongoDb.Repositories">
+    <detect id="Intent.MongoDb.Repositories">
       <install>
-        <package id="Intent.Modules.MongoDb.Repositories" version="2.0.0" />
+        <package id="Intent.MongoDb.Repositories" version="2.0.0-pre.0" />
       </install>
     </detect>
     <!-- /Minimum Compatible Versions -->

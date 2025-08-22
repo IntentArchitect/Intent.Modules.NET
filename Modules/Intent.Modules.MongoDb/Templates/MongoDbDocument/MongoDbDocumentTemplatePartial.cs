@@ -108,8 +108,8 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbDocument
                         entityRequiresReflectionPropertySetting: ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters(),
                         isAggregate: Model.IsAggregateRoot(),
                         hasBaseType: Model.ParentClass != null,
-                        GetTypeName(pk),
-                        pk.Name
+                        pk == null ? string.Empty : GetTypeName(pk),
+                        pk == null ? string.Empty : pk.Name
                     );
                 });
         }
@@ -160,6 +160,7 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbDocument
 
                 var typeName = GetTypeName(typeReference);
 
+
                 //// PK must always be a string
                 //if (metadataModel.Id == pk.Id && !string.Equals(typeName, Helpers.PrimaryKeyType, StringComparison.OrdinalIgnoreCase))
                 //{
@@ -174,7 +175,7 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbDocument
                 bool interfaceAccessorAdded = false;
                 @class.AddProperty(typeName, entityProperty.Name, property =>
                 {
-                    if (metadataModel.Id == pk.Id && (string.Equals(typeName, Helpers.PrimaryKeyType, StringComparison.OrdinalIgnoreCase) || string.Equals(typeName, Helpers.PrimaryKeyTypeGuid, StringComparison.OrdinalIgnoreCase))) 
+                    if (metadataModel.Id == pk.Id && (string.Equals(typeName, Helpers.PrimaryKeyType, StringComparison.OrdinalIgnoreCase) || string.Equals(typeName, Helpers.PrimaryKeyTypeGuid, StringComparison.OrdinalIgnoreCase)))
                     {
                         property.AddAttribute("BsonId");
                         property.AddAttribute("BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)");
@@ -213,6 +214,7 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbDocument
                         interfaceAccessorAdded = true;
                     }
                 });
+
 
 
                 //if (metadataModel is AssociationTargetEndModel targetEndModel)

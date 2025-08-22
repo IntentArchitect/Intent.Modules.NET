@@ -5,6 +5,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -29,6 +30,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.MongoDbContaine
                     AddUsing("Testcontainers.MongoDb");
                     AddNugetDependency(NugetPackages.TestcontainersMongoDb(outputTarget));
                     @class.AddField("MongoDbContainer", "_dbContainer", f => f.PrivateReadOnly());
+                    @class.AddField("string", "DatabaseName", f => f.PrivateConstant("\"IntegrationTestDb\""));
 
                     @class.AddConstructor(ctor =>
                     {
@@ -43,7 +45,12 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.MongoDbContaine
                         method.AddParameter("IServiceCollection", "services");
                         string databaseName = "IntegrationTestDb";
                         method.AddStatement($"string connectionString = GetTestConnectionString(_dbContainer.GetConnectionString());");
-                        method.AddStatement("services.AddSingleton<IMongoDbConnection>((c) => MongoDbConnection.FromConnectionString(connectionString));");
+                        method.AddStatement("services.AddSingleton<IMongoClient>(_ => new MongoClient(connectionString));");
+                        method.AddStatements(@$"services.AddSingleton(sp =>
+                            {{ var client = sp.GetRequiredService<IMongoClient>();
+                            return client.GetDatabase(DatabaseName);
+                            }});
+                        ".ConvertToStatements());
 
                         @class.AddMethod("void", "OnHostCreation", method =>
                         {

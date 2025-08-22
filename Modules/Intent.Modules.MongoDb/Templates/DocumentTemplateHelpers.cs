@@ -245,7 +245,7 @@ namespace Intent.Modules.MongoDb.Templates
                 method.AddStatement("return this;", s => s.SeparatedFromPrevious());
             });
 
-            if (!@class.IsAbstract)
+            if (!@class.IsAbstract && (!string.IsNullOrEmpty(primaryKeyType) || !string.IsNullOrEmpty(primaryKeyName)))
             {
                 @class.AddMethod($"{@class.Name}{genericTypeArguments}?", "FromEntity", method =>
                 {
