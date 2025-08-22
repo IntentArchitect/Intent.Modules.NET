@@ -63,8 +63,15 @@ namespace Intent.Modules.Aws.Lambda.Functions.Templates.FunctionClass
                                 {
                                     case HttpInputSource.FromRoute:
                                         break;
+                                    case null:
                                     case HttpInputSource.FromQuery:
-                                        param.AddAttribute("FromQuery", attr => attr.AddArgument($@"Name = ""{paramModel.QueryStringName}"""));
+                                        param.AddAttribute("FromQuery", attr =>
+                                        {
+                                            if (!string.IsNullOrWhiteSpace(paramModel.QueryStringName))
+                                            {
+                                                attr.AddArgument($@"Name = ""{paramModel.QueryStringName}""");   
+                                            }
+                                        });
                                         break;
                                     case HttpInputSource.FromBody:
                                         param.AddAttribute("FromBody");
