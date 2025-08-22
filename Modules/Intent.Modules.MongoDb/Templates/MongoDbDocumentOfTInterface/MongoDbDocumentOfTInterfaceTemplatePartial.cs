@@ -24,6 +24,7 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbDocumentOfTInterface
         {
             var createEntityInterfaces = ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces();
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddUsing("MongoDB.Driver")
                 .AddInterface($"IMongoDbDocument", @interface =>
                 {
                     @interface

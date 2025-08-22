@@ -27,8 +27,6 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbMultiTenantConnectionFactory
                 .AddUsing("System.Collections.Concurrent")
                 .AddUsing("Finbuckle.MultiTenant")
                 .AddUsing("MongoDB.Driver")
-                .AddUsing("MongoFramework")
-                .AddUsing("MongoFramework.Infrastructure.Diagnostics")
                 .AddClass($"MongoDbMultiTenantConnectionFactory", @class =>
                 {
                     @class.ImplementsInterface("IDisposable");
