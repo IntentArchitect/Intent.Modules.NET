@@ -1,3 +1,7 @@
+### Version 4.3.1
+
+- Improvement: Upgrades to interplay better with Blazor.Authentication module.
+
 ### Version 4.3.0
 
 - Improvement: Supporting async User access.

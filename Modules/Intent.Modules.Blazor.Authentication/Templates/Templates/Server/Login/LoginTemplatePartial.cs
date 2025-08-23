@@ -134,7 +134,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Login
                             {
                                 if (ExecutionContext.GetSettings().GetBlazor().Authentication().IsAspnetcoreIdentity())
                                 {
-                                    @if.AddStatement("await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);");
+                                    @if.AddStatement($"await HttpContext.SignOutAsync({code.Template.UseType("Microsoft.AspNetCore.Identity.IdentityConstants")}.ExternalScheme);");
                                 }
                                 else
                                 {

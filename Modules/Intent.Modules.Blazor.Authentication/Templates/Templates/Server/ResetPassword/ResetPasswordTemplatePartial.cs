@@ -72,7 +72,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ResetP
 
                     file.AddCodeBlock(code =>
                     {
-                        code.AddField("IEnumerable<IdentityError>?", "identityErrors");
+                        code.AddField($"IEnumerable<{code.Template.UseType("Microsoft.AspNetCore.Identity.IdentityError")}>?", "identityErrors");
 
                         code.AddProperty("InputModel", "Input", input =>
                         {
