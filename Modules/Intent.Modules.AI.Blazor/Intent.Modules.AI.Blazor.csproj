@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -7,6 +7,7 @@
   <ItemGroup>
     <Compile Remove="content\MudBlazorAIPromptTemplates\AddEntity\AddExample.razor.cs" />
     <Compile Remove="content\MudBlazorAIPromptTemplates\EditEntity\EditExample.razor.cs" />
+    <Compile Remove="content\MudBlazorAIPromptTemplates\LookupDialog\LookupCustomerDialog.razor.cs" />
     <Compile Remove="content\MudBlazorAIPromptTemplates\SearchEntity\SearchScreenExample.razor.cs" />
     <Compile Remove="content\MudBlazorAIPromptTemplates\ViewEntity\ViewExample.razor.cs" />
   </ItemGroup>
@@ -14,6 +15,7 @@
   <ItemGroup>
     <None Include="content\MudBlazorAIPromptTemplates\AddEntity\AddExample.razor.cs" />
     <None Include="content\MudBlazorAIPromptTemplates\EditEntity\EditExample.razor.cs" />
+    <None Include="content\MudBlazorAIPromptTemplates\LookupDialog\LookupCustomerDialog.razor.cs" />
     <None Include="content\MudBlazorAIPromptTemplates\SearchEntity\SearchScreenExample.razor.cs" />
     <None Include="content\MudBlazorAIPromptTemplates\ViewEntity\ViewExample.razor.cs" />
   </ItemGroup>

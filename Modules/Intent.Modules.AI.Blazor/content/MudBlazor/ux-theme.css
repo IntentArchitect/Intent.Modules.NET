@@ -386,6 +386,7 @@ h6 { font-size: var(--ux-font-size-base); }
 .mud-dialog {
   border-radius: var(--ux-border-radius-xl) !important;
   box-shadow: var(--ux-shadow-lg) !important;
+  width:70%;
 }
 
 .mud-dialog-title {
@@ -395,11 +396,15 @@ h6 { font-size: var(--ux-font-size-base); }
   border-bottom: 1px solid var(--ux-border-color) !important;
 }
 
-.mud-dialog .mud-dialog-title {
-    background-color: var(--ux-warning-light) !important;
-    color: var(--ux-gray-900) !important;
+.mud-dialog-title {
+    background-color: var(--ux-primary) !important;
+    color: var(--ux-white) !important;
     font-weight: 600 !important;
-    border-bottom: 2px solid var(--ux-warning) !important;
+    border-bottom: 1px solid var(--ux-border-color) !important;
+}
+
+.mud-dialog-title h6 {
+    color: var(--ux-white) !important;
 }
 
 /* Snackbar Styling */

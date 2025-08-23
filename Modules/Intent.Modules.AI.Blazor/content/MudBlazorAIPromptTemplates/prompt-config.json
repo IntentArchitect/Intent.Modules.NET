@@ -7,9 +7,14 @@
   },
   "rules": [
     "Don't add `@using MudBlazor` into .razor files",
-    "if you add T='SomeDto' to a Mudblazor component and the using Clause is required in the Razor to compile, add it",
-    "Favour reusing existing backing method to fetching data",
-    "Don't adding using clauses which are already in the _Imports.razor'",
+    "if you add T='SomeDto' to a MudBlazor component and the using clause is required in the .razor to compile, add it",
+    "Favour reusing existing backing methods to fetching data",
+    "Always explicitly specify the T parameter (e.g., T='string', T='int?') unless it is guaranteed to be inferred correctly.",
+    "When generating MudBlazor code, always use the official enum values for parameters like AlignItems and Justify (e.g., AlignItems.Center, Justify.SpaceBetween) instead of raw strings",
+    "Favour use DataAnnotations for validation instead of inline lambdas",
+    "For Validation, ensure the lambda/method matches Func<T, IEnumerable<string>>. If T is a reference type (like string), use a nullable parameter (string? v). If T is a value type: Use the nullable form (int? v) or (DateTime? v) if the field can be empty. Use the non-nullable form (int v) only if the field must always have a value.",
+    "For MudSwitch components always specify the T attribute",
+    "Don't adding using clauses which are already in the _Imports.razor",
     "When adding using clause, add them in the right place i.e stick to the convention in the file."
   ],
   "input-files": [
@@ -52,7 +57,7 @@
       },
       "rules": [
         "if you implement LoadServerData it must have 2 parameters (TableState state, CancellationToken cancellationToken)",
-        "if there are not methods which represent actions, do not add them to the rows e.g. Delete, Edit, View",
+        "if there are not methods in the razor.cs which represent actions, do not add them to the rows e.g. Delete, Edit, View",
         "Only add search criteria is they are supported on the backing page search mechanism",
         "if you add scripts like this, OnKeyPress set to @(async e => { ... }), if there are quotes in lambda don't escape them with backslashes'"
       ]
@@ -149,6 +154,39 @@
       "metadata": {
       },
       "rules": [
+      ]
+    },
+    {
+      "id": "LookupDialog",
+      "name": "Lookup Dialog",
+      "description": "Dialog to search and select existing records",
+      "applicability": {
+        "key-words": [
+          {
+            "word": "dialog",
+            "weight": 2
+          },
+          {
+            "word": "search",
+            "weight": 2
+          },
+          {
+            "word": "lookup",
+            "weight": 2
+          },
+          {
+            "word": "find",
+            "weight": 2
+          }
+        ]
+      },
+      "template-folder": "LookupDialog",
+      "metadata": {
+      },
+      "rules": [
+        "if you implement LoadServerData it must have 2 parameters (TableState state, CancellationToken cancellationToken)",
+        "Only add search criteria is they are supported on the backing page search mechanism",
+        "if you add scripts like this, OnKeyPress set to @(async e => { ... }), if there are quotes in lambda don't escape them with backslashes'"
       ]
     }
   ]

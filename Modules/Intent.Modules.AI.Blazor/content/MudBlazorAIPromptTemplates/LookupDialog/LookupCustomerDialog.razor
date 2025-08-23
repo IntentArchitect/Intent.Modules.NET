@@ -1,0 +1,84 @@
+﻿<!-- Sample Lookup Dialog for finding Customers -->
+
+@using RetailArch.Workshops.Orders.Application.Customers
+
+<MudDialog>
+    <DialogContent>
+        <div class="pa-4">
+            <MudStack Spacing="2">
+                <MudText Typo="Typo.h5">
+                    <MudIcon Icon="@Icons.Material.Filled.Search" class="mr-2" />
+                    @Title
+                </MudText>
+
+                <!-- Simple filter bar -->
+                <MudStack Row AlignItems="AlignItems.Center" Spacing="2">
+                    <MudTextField @bind-Value="_searchTerm"
+                                  Placeholder="Search customers..."
+                                  Adornment="Adornment.Start"
+                                  AdornmentIcon="@Icons.Material.Filled.Search"
+                                  Immediate Clearable class="mr-2" />
+                    <MudSpacer />
+                    @if (MultiSelect)
+                    {
+                        <MudButton OnClick="ConfirmSelection"
+                                   Disabled="@(!_selectedItems.Any())"
+                                   Color="Color.Primary">
+                            Select (@_selectedItems.Count)
+                        </MudButton>
+                    }
+                </MudStack>
+
+                <MudTable T="CustomerSummaryDto"
+                          ServerData="LoadServerData"
+                          Dense="true" Hover="true" Striped="true"
+                          MultiSelection="MultiSelect"
+                          SelectOnRowClick="true"
+                          @bind-SelectedItem="_selectedItem"
+                          @bind-SelectedItems="_selectedItems"
+                          OnRowClick="HandleRowClick"
+                          Loading="_loading">
+
+                    <HeaderContent>
+                        <MudTh SortBy="nameof(CustomerSummaryDto.Name)">Name</MudTh>
+                        <MudTh SortBy="nameof(CustomerSummaryDto.Surname)">Surname</MudTh>
+                        <MudTh SortBy="nameof(CustomerSummaryDto.Email)">Email</MudTh>
+                        <MudTh SortBy="nameof(CustomerSummaryDto.IsActive)">Active</MudTh>
+                    </HeaderContent>
+
+                    <RowTemplate>
+                        <MudTd DataLabel="Name">@context.Name</MudTd>
+                        <MudTd DataLabel="Surname">@context.Surname</MudTd>
+                        <MudTd DataLabel="Email">@context.Email</MudTd>
+                        <MudTd DataLabel="Active">
+                            @if (context.IsActive)
+                            {
+                                <MudIcon Icon="@Icons.Material.Filled.CheckCircle" Color="Color.Success" />
+                            }
+                            else
+                            {
+                                <MudIcon Icon="@Icons.Material.Filled.Cancel" Color="Color.Error" />
+                            }
+                        </MudTd>
+                    </RowTemplate>
+
+                    <PagerContent>
+                        <MudTablePager PageSizeOptions="new int[]{10,20,50}" />
+                    </PagerContent>
+                </MudTable>
+            </MudStack>
+        </div>
+    </DialogContent>
+
+    <DialogActions>
+        <div class="pa-3">
+            <MudButton OnClick="Cancel" Color="Color.Secondary">Cancel</MudButton>
+            @if (MultiSelect)
+            {
+                <MudButton OnClick="ConfirmSelection"
+                           Color="Color.Primary"
+                           Disabled="@(!_selectedItems.Any())">Select</MudButton>
+            }
+        </div>
+    </DialogActions>
+</MudDialog>
