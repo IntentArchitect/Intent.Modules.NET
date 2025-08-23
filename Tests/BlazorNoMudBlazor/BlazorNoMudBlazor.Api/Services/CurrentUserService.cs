@@ -30,7 +30,7 @@ namespace BlazorNoMudBlazor.Api.Services
         {
             var user = await GetPrincipalAsync();
 
-            if (user is null)
+            if (user is null || !(user?.Identity?.IsAuthenticated == true))
             {
                 return null;
             }
@@ -66,9 +66,16 @@ namespace BlazorNoMudBlazor.Api.Services
 
             var httpUser = _httpContextAccessor.HttpContext?.User;
 
-            if (httpUser?.Identity?.IsAuthenticated == true)
+            if (httpUser?.Identity is not null)
             {
-                _cachedUser = httpUser;
+                if (httpUser?.Identity?.IsAuthenticated == true)
+                {
+                    _cachedUser = httpUser;
+                }
+                else
+                {
+                    return null;
+                }
             }
             else
             {
@@ -79,9 +86,9 @@ namespace BlazorNoMudBlazor.Api.Services
             return _cachedUser;
         }
 
-        private static string? GetUserName(ClaimsPrincipal user) => user.Identity?.Name;
+        private static string? GetUserName(ClaimsPrincipal? claimsPrincipal) => claimsPrincipal?.Identity?.Name;
 
-        private static string? GetUserId(ClaimsPrincipal user) => user.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        private static string? GetUserId(ClaimsPrincipal? claimsPrincipal) => claimsPrincipal?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
     }
 
     public record CurrentUser(string? Id, string? Name, ClaimsPrincipal Principal) : ICurrentUser;
