@@ -2,7 +2,7 @@
 <package>
   <id>Intent.VisualStudio.Projects</id>
   <version>3.9.0-pre.0</version>
-  <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
+  <supportedClientVersions>[4.5.15-a, 5.0.0-a)</supportedClientVersions>
   <summary>Visual Studio solution and project layout designer</summary>
   <description>Visual Studio solution and project layout designer</description>
   <projectUrl>https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.VisualStudio.Projects/README.md</projectUrl>
@@ -88,7 +88,7 @@
     <!-- /Minimum Compatible Versions -->
   </interoperability>
   <dependencies>
-    <dependency id="Intent.Common" version="3.7.1" />
+    <dependency id="Intent.Common" version="3.9.0-pre.0" />
     <dependency id="Intent.Common.CSharp" version="3.9.5-pre.1" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />

@@ -56,20 +56,40 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                 }
 
                 var templateDependencies = outputTarget.TemplateInstances
-                        .SelectMany(ti => ti.GetAllTemplateDependencies())
-                        .Distinct()
-                        .ToList();
+                    .SelectMany(ti => ti.GetAllTemplateDependencies(), (template, dependency) => (Template: template, Dependency: dependency))
+                    .Distinct()
+                    .GroupBy(x => x.Dependency)
+                    .ToArray();
 
-                var projectDependencies =
-                    templateDependencies.Select(x => outputTarget.Application.FindOutputTargetWithTemplate(x)?.GetTargetPath()[0])
-                        .Where(x => x != null && !x.Equals(project))
-                        .Distinct()
-                        .ToList();
+                var projectDependencies = templateDependencies
+                    .Select(grouping =>
+                    {
+                        var outputTargetWithTemplate = outputTarget.Application.FindOutputTargetWithTemplate(grouping.Key);
+                        var target = outputTargetWithTemplate?.GetTargetPath()[0];
+                        var templates = grouping.ToArray();
+
+                        if (target?.Name == "Command"
+                            && (templates[0].Template as IntentTemplateBase)?.OutputTarget.Name == "Query"
+                            )
+                        {
+                            var template = templates[0].Template as IntentTemplateBase;
+
+                        }
+
+                        return new
+                        {
+                            Target = target,
+                            RequestedBy = $"{string.Concat(grouping.Select(x => $"{Environment.NewLine}    {x.Template.Id} => {x.Dependency.TemplateId}"))}",
+                            Templates = templates
+                        };
+                    })
+                    .Where(x => x.Target != null && !x.Target.Equals(project))
+                    .ToList();
 
                 foreach (var projectDependency in projectDependencies)
                 {
                     // 2. Add project dependencies
-                    project.AddDependency(projectDependency);
+                    project.AddDependency(projectDependency.Target, projectDependency.RequestedBy);
                 }
             }
         }

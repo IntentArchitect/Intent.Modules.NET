@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Intent.Configuration;
 using Intent.Metadata.Models;
 
 namespace Intent.Modules.VisualStudio.Projects.Api
 {
-    internal class ProjectConfig : IOutputTargetConfig
+    internal class ProjectConfig : IOutputTargetContainerConfig
     {
         public static class MetadataKey
         {
@@ -27,6 +26,13 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 ["InternalElement"] = project.InternalElement,
                 [MetadataKey.IsMatch] = true
             };
+            ReferencedOutputTargetIds = project.InternalElement.ChildElements
+                .Where(x => x.SpecializationTypeId == DependenciesModel.SpecializationTypeId)
+                .SelectMany(x => x.OwnedAssociations)
+                .Where(x => x.SpecializationTypeId == ProjectReferenceModel.SpecializationTypeId)
+                .Select(x => x.TargetEnd.TypeReference?.ElementId!)
+                .Where(x => x is not null)
+                .ToArray();
         }
 
         public IEnumerable<IStereotype> Stereotypes => _project.Stereotypes;
@@ -42,6 +48,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         public IEnumerable<IOutputTargetRole> Roles => _project.Roles;
         public IEnumerable<IOutputTargetTemplate> Templates => _project.TemplateOutputs.DetectDuplicates();
         public IDictionary<string, object> Metadata { get; }
+        public IEnumerable<string> ReferencedOutputTargetIds { get; }
     }
 
     internal class FolderOutputTarget : IOutputTargetConfig
@@ -63,7 +70,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         public string RelativeLocation => _model.Name;
         public string ParentId => _model.InternalElement.ParentId;
 
-        public IEnumerable<string> SupportedFrameworks => Array.Empty<string>();
+        public IEnumerable<string> SupportedFrameworks => [];
         public IEnumerable<IOutputTargetRole> Roles => _model.Roles;
         public IEnumerable<IOutputTargetTemplate> Templates => _model.TemplateOutputs.DetectDuplicates();
         public IDictionary<string, object> Metadata { get; }
