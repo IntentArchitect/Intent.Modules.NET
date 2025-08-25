@@ -18,4 +18,6 @@
       <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.7.0" />
     </ItemGroup>
 
+    <Import Project="..\Intent.Modules.ApiHosting.Shared\Intent.Modules.ApiHosting.Shared.projitems" Label="Shared" />
+
 </Project>

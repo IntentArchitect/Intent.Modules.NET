@@ -24,6 +24,8 @@ namespace Intent.Modules.Aws.Lambda.Functions.Templates.FunctionClass
     {
         public const string TemplateId = "Intent.Aws.Lambda.Functions.FunctionClassTemplate";
 
+        private readonly FunctionClassResponseMapper _responseMapper = new();
+        
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public FunctionClassTemplate(IOutputTarget outputTarget, ILambdaFunctionContainerModel model) : base(TemplateId, outputTarget, model)
         {
