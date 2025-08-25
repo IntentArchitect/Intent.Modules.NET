@@ -408,8 +408,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Amazon", "Amazon", "{5BB799
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Blazor.Authentication", "Intent.Modules.Blazor.Authentication\Intent.Modules.Blazor.Authentication.csproj", "{24706897-5AA1-4842-B13A-BCB948B0FFD0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Intent.Modules.Common.CSharp", "..\..\Intent.Modules\Modules\Intent.Modules.Common.CSharp\Intent.Modules.Common.CSharp.csproj", "{E7D67DAA-F433-778C-689B-E249FA985494}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -1076,10 +1074,6 @@ Global
 		{24706897-5AA1-4842-B13A-BCB948B0FFD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24706897-5AA1-4842-B13A-BCB948B0FFD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24706897-5AA1-4842-B13A-BCB948B0FFD0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E7D67DAA-F433-778C-689B-E249FA985494}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E7D67DAA-F433-778C-689B-E249FA985494}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E7D67DAA-F433-778C-689B-E249FA985494}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E7D67DAA-F433-778C-689B-E249FA985494}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1263,7 +1257,6 @@ Global
 		{E515E56C-436E-40D9-B8DA-9FBB3F2D5545} = {CB4522ED-5D9E-4388-8859-20415CC7F7E6}
 		{68073039-FB1C-4A45-AAB3-BB401E1A947D} = {5BB799CC-54A3-440B-B0D3-499DEE424CD8}
 		{24706897-5AA1-4842-B13A-BCB948B0FFD0} = {5F9FE51C-33D0-4FDE-81AF-20FD12C6AF27}
-		{E7D67DAA-F433-778C-689B-E249FA985494} = {2B2A8D0F-03B4-4F6B-8A44-267AF99C23CA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A00AF88A-EA58-4AEA-B65F-92354533E2CA}
