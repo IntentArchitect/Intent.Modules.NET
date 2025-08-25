@@ -132,14 +132,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>0d72f64b-027f-4e29-8567-b43887b0fc08</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.Controller#d6042a21-0ef1-4165-aedc-4a31fc889119</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Api/Controllers/OnesController.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>OnesController.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>0d72f64b-027f-4e29-8567-b43887b0fc08</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#70bb4e42-9973-49d0-a7e0-971554cf8c12</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Api/Controllers/OperationMapping/UserController.cs</ApplicationRelativeFilePath>
@@ -6500,22 +6492,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>48f936b0-25d5-4f2b-a48f-62f6ccbbedd9</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#d6042a21-0ef1-4165-aedc-4a31fc889119</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/HttpClients/Ones/IOnesService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Ones/IOnesService.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>48f936b0-25d5-4f2b-a48f-62f6ccbbedd9</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.HttpClient#d6042a21-0ef1-4165-aedc-4a31fc889119</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/HttpClients/Ones/OnesHttpClient.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Ones/OnesHttpClient.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>48f936b0-25d5-4f2b-a48f-62f6ccbbedd9</ProjectId>
       <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#4d7df1d1-0f11-458f-9614-00eac630328b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/HttpClients/OperationMapping/IOperationMappingService.cs</ApplicationRelativeFilePath>
@@ -7144,78 +7120,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/FileUploads/UploadFileCommand.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Services/FileUploads/UploadFileCommand.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#a5d47b02-0eda-4be8-82ce-b63be4871963</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/Ones/CreateOneCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/Ones/CreateOneCommand.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#3cc14d26-5a77-418d-849b-b1be65fbfa46</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/Ones/CreateOneTwoDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/Ones/CreateOneTwoDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#41325355-4c8a-4214-a88d-2d6815fa013f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/Ones/DeleteOneCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/Ones/DeleteOneCommand.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#c53d7be8-f53f-4e4d-8052-eed258829df4</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/Ones/GetOneByIdQuery.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/Ones/GetOneByIdQuery.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#41c6fc09-5bc5-468c-a619-e7512bcd92f8</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/Ones/GetOnesQuery.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/Ones/GetOnesQuery.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#4c19f8cf-0824-4797-964a-498059eab57d</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/Ones/OneDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/Ones/OneDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#98da0cce-d7a3-444d-bfca-50791cf19ff8</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/Ones/OneFiveDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/Ones/OneFiveDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#1d208dc4-dcf8-49e6-a12f-2b6f427079d3</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/Ones/UpdateOneCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/Ones/UpdateOneCommand.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#e99618a2-e310-4823-954f-2b365902b081</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/Ones/UpdateOneTwoDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/Ones/UpdateOneTwoDto.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -8184,46 +8088,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/FileUploads/UploadFileTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>FileUploads/UploadFileTests.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d7a8fa5f-5a2f-4da5-9855-1bb027bf566b</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#a5d47b02-0eda-4be8-82ce-b63be4871963</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/Ones/CreateOneTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Ones/CreateOneTests.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d7a8fa5f-5a2f-4da5-9855-1bb027bf566b</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#41325355-4c8a-4214-a88d-2d6815fa013f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/Ones/DeleteOneTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Ones/DeleteOneTests.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d7a8fa5f-5a2f-4da5-9855-1bb027bf566b</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#c53d7be8-f53f-4e4d-8052-eed258829df4</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/Ones/GetOneByIdTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Ones/GetOneByIdTests.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d7a8fa5f-5a2f-4da5-9855-1bb027bf566b</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#41c6fc09-5bc5-468c-a619-e7512bcd92f8</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/Ones/GetOnesTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Ones/GetOnesTests.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d7a8fa5f-5a2f-4da5-9855-1bb027bf566b</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#1d208dc4-dcf8-49e6-a12f-2b6f427079d3</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/Ones/UpdateOneTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Ones/UpdateOneTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
