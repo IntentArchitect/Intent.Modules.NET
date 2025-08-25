@@ -150,6 +150,8 @@ steps:
     command: 'test'
     projects: $(targetsToBuild)
     arguments: >
+      --blame-hang
+      --blame-hang-timeout 10m
       --no-build
       --filter Requirement!=CosmosDB
 
