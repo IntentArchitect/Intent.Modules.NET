@@ -27,30 +27,33 @@ namespace Intent.Modules.AspNetCore.Controllers.FactoryExtentions
 
         private static void InstallStartupControllerFilter(IApplication application)
         {
-            var template = application.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
+            var templates = application.FindTemplateInstances<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
 
-            template?.CSharpFile.OnBuild(_ =>
+            foreach (var template in templates)
             {
-                var startup = template.StartupFile;
+                template?.CSharpFile.OnBuild(_ =>
+                {
+                    var startup = template.StartupFile;
 
-                startup.AddServiceConfigurationLambda(
-                    methodName: "AddControllers",
-                    parameters: new[] { "opt" },
-                    configure: (statement, lambda, context) =>
-                    {
-                        statement
-                            .WithArgumentsOnNewLines() // To maintain formatting of existing files
-                            .AddMetadata("configure-services-controllers-generic", true) // legacy
-                            .AddMetadata("configure-services-controllers", "generic"); // easier to identify
+                    startup.AddServiceConfigurationLambda(
+                        methodName: "AddControllers",
+                        parameters: ["opt"],
+                        configure: (statement, lambda, context) =>
+                        {
+                            statement
+                                .WithArgumentsOnNewLines() // To maintain formatting of existing files
+                                .AddMetadata("configure-services-controllers-generic", true) // legacy
+                                .AddMetadata("configure-services-controllers", "generic"); // easier to identify
 
-                        lambda.AddStatement($"{context.Parameters[0]}.Filters.Add<{template.GetExceptionFilterName()}>();");
-                    },
-                    priority: -10_000_000);
+                            lambda.AddStatement($"{context.Parameters[0]}.Filters.Add<{template.GetExceptionFilterName()}>();");
+                        },
+                        priority: -10_000_000);
 
-                startup.AddUseEndpointsStatement(
-                    create: context => $"{context.Endpoints}.MapControllers();",
-                    configure: (s, _) => s.AddMetadata("configure-endpoints-controllers-generic", true));
-            });
+                    startup.AddUseEndpointsStatement(
+                        create: context => $"{context.Endpoints}.MapControllers();",
+                        configure: (s, _) => s.AddMetadata("configure-endpoints-controllers-generic", true));
+                });
+            }
         }
     }
 }

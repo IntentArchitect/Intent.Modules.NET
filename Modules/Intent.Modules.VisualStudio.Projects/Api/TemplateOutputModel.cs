@@ -1,3 +1,4 @@
+//extern alias DynamicLinq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,6 +7,8 @@ using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.RoslynWeaver.Attributes;
+using DynamicExpressionParser = System.Linq.Dynamic.Core.DynamicExpressionParser;
+using ParsingConfig = System.Linq.Dynamic.Core.ParsingConfig;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.Api.ApiElementModel", Version = "1.0")]
@@ -15,6 +18,8 @@ namespace Intent.Modules.VisualStudio.Projects.Api
     [IntentManaged(Mode.Merge)]
     public class TemplateOutputModel : IHasStereotypes, IMetadataModel, IOutputTargetTemplate, IHasName, IElementWrapper
     {
+        private static readonly ParsingConfig _parsingConfig = new();
+
         public const string SpecializationType = "Template Output";
         public const string SpecializationTypeId = "d421c322-7a51-4094-89fa-e5d8a0a97b27";
         protected readonly IElement _element;
@@ -29,13 +34,26 @@ namespace Intent.Modules.VisualStudio.Projects.Api
             _element = element;
         }
 
+        public bool IsApplicableFor<TModel>(TModel model)
+        {
+            if (!this.TryGetTemplateOutputSettings(out var settings) ||
+                string.IsNullOrWhiteSpace(settings.RegistrationFilter()))
+            {
+                return true;
+            }
+
+            var compiledExpression = DynamicExpressionParser.ParseLambda<TModel, bool>(_parsingConfig, true, settings.RegistrationFilter()).Compile();
+
+            return compiledExpression(model);
+        }
+
         public string Id => _element.Id;
 
         [IntentManaged(Mode.Ignore)]
         string IOutputTargetTemplate.Id => _element.Name;
 
         [IntentManaged(Mode.Ignore)]
-        public IEnumerable<string> RequiredFrameworks => new string[0];
+        string IOutputTargetTemplate.UniqueIdentifier => _element.Id;
 
         public string Name => _element.Name;
 

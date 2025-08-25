@@ -130,6 +130,11 @@ namespace Intent.Modules.VisualStudio.Projects.Api
             .Select(x => new FolderModel(x))
             .ToList();
 
+        public DependenciesModel Dependencies => _element.ChildElements
+            .GetElementsOfType(DependenciesModel.SpecializationTypeId)
+            .Select(x => new DependenciesModel(x))
+            .SingleOrDefault();
+
         public IList<RuntimeEnvironmentModel> RuntimeEnvironments => _element.ChildElements
             .GetElementsOfType(RuntimeEnvironmentModel.SpecializationTypeId)
             .Select(x => new RuntimeEnvironmentModel(x))

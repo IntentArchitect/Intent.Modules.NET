@@ -748,11 +748,12 @@ return libraryIcon;</iconFunction>
       <allowConvertToType p4:nil="true" xmlns:p4="http://www.w3.org/2001/XMLSchema-instance" />
       <allowSetValue>false</allowSetValue>
       <typeOrder>
-        <type order="-1" type="Custom Implicit Usings" typeId="f18c4808-ef93-4b1d-8bc1-7745579843cf" />
-        <type order="1" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce" />
-        <type order="2" type="Runtime Environment" typeId="9edf270e-3f38-406c-ac94-07b9737bb531" />
-        <type order="3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27" />
-        <type order="4" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da" />
+        <type order="-2" type="Custom Implicit Usings" typeId="f18c4808-ef93-4b1d-8bc1-7745579843cf" />
+        <type order="-1" type="Dependencies" typeId="3a50f114-9bb7-4f58-98ce-5ecd0089b947" />
+        <type order="2" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce" />
+        <type order="3" type="Runtime Environment" typeId="9edf270e-3f38-406c-ac94-07b9737bb531" />
+        <type order="4" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27" />
+        <type order="5" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da" />
       </typeOrder>
       <contextMenuOptions>
         <createElement type="element">
@@ -763,6 +764,15 @@ return libraryIcon;</iconFunction>
           <specializationTypeId>3407a825-1331-4f3f-89a4-901903ed97ce</specializationTypeId>
           <defaultName>NewFolder</defaultName>
           <allowMultiple>true</allowMultiple>
+        </createElement>
+        <createElement order="-1" type="element">
+          <text>Add Dependencies</text>
+          <shortcut>ctrl + shift + d</shortcut>
+          <icon type="FontAwesome" source="fa-link" />
+          <specializationType>Dependencies</specializationType>
+          <specializationTypeId>3a50f114-9bb7-4f58-98ce-5ecd0089b947</specializationTypeId>
+          <defaultName>Dependencies</defaultName>
+          <allowMultiple>false</allowMultiple>
         </createElement>
         <createElement type="element">
           <text>Add Runtime Environment</text>
@@ -790,7 +800,7 @@ return libraryIcon;</iconFunction>
           <defaultName>NewRole</defaultName>
           <allowMultiple>true</allowMultiple>
         </createElement>
-        <createElement order="-1" type="element">
+        <createElement order="-2" type="element">
           <text>Add Custom Implicit Usings</text>
           <icon type="UrlImagePath" source="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+DQogICAgPHN0eWxlPg0KICAgICAgICAuZ2xvYmFsVXNpbmdMb2dvX2JlNjU5ZmQzYjEzYzRhZDlhNWRjMWQ3NTQ0YWJkMmVlIHsNCiAgICAgICAgICAgIGZpbGw6ICMwMDAwMDANCiAgICAgICAgfQ0KDQogICAgICAgIFtkYXRhLXRoZW1lPSJkYXJrIl0gLmdsb2JhbFVzaW5nTG9nb19iZTY1OWZkM2IxM2M0YWQ5YTVkYzFkNzU0NGFiZDJlZSB7DQogICAgICAgICAgICBmaWxsOiAjZmZmZmZmDQogICAgICAgIH0NCiAgICA8L3N0eWxlPg0KICAgIDxwYXRoDQogICAgICAgIGQ9Ik00LjAxNCwxNC45NzZhMi41MSwyLjUxLDAsMCwwLDEuNTY3LS41MThBMi4zNzcsMi4zNzcsMCwwLDAsNi4zODYsMTMuMSwxNS4yNjEsMTUuMjYxLDAsMCwwLDYuNiwxMC4xNTZxLjAxMi0yLjA4NS4wNzUtMi43NDdhNS4yMzYsNS4yMzYsMCwwLDEsLjQxOC0xLjY4NiwzLjAyNSwzLjAyNSwwLDAsMSwuNzU1LTEuMDE4QTMuMDQ2LDMuMDQ2LDAsMCwxLDksNC4xMjUsNi43NjIsNi43NjIsMCwwLDEsMTAuNTQ0LDRoLjdWNS45NmgtLjM4N2EyLjMzOCwyLjMzOCwwLDAsMC0xLjcyMy40NjhBMy40LDMuNCwwLDAsMCw4LjcwOSw4LjUyYTM2LjA1NCwzNi4wNTQsMCwwLDEtLjEzNyw0LjEzMyw0LjczNCw0LjczNCwwLDAsMS0uNzY4LDIuMDZBNC41NjcsNC41NjcsMCwwLDEsNi4xLDE2YTMuODA5LDMuODA5LDAsMCwxLDEuOTkyLDEuNzU0LDguODYxLDguODYxLDAsMCwxLC42MTgsMy44NjVxMCwyLjQzNS4wNSwyLjlBMS43NTUsMS43NTUsMCwwLDAsOS4yNjQsMjUuN2EyLjYzOSwyLjYzOSwwLDAsMCwxLjU5Mi4zMzdoLjM4N1YyOGgtLjdhNS42NTUsNS42NTUsMCwwLDEtMS43NzMtLjIsMi45NywyLjk3LDAsMCwxLTEuMzI0LS45MywzLjM1MywzLjM1MywwLDAsMS0uNjgxLTEuNjNBMjQuMTc1LDI0LjE3NSwwLDAsMSw2LjYsMjIuMDA2LDE2LjQ2OSwxNi40NjksMCwwLDAsNi4zODYsMTguOWEyLjQwOCwyLjQwOCwwLDAsMC0uODA1LTEuMzYxLDIuNDg5LDIuNDg5LDAsMCwwLTEuNTY3LS41MjRaIg0KICAgICAgICBjbGFzcz0iZ2xvYmFsVXNpbmdMb2dvX2JlNjU5ZmQzYjEzYzRhZDlhNWRjMWQ3NTQ0YWJkMmVlIiAvPg0KICAgIDxwYXRoDQogICAgICAgIGQ9Ik0yNy45ODYsMTcuMDExYTIuNDg5LDIuNDg5LDAsMCwwLTEuNTY3LjUyNCwyLjQwOCwyLjQwOCwwLDAsMC0uODA1LDEuMzYxLDE2LjQ2OSwxNi40NjksMCwwLDAtLjIxMiwzLjEwOSwyNC4xNzUsMjQuMTc1LDAsMCwxLS4xNjksMy4yMzQsMy4zNTMsMy4zNTMsMCwwLDEtLjY4MSwxLjYzLDIuOTcsMi45NywwLDAsMS0xLjMyNC45Myw1LjY1NSw1LjY1NSwwLDAsMS0xLjc3My4yaC0uN1YyNi4wNGguMzg3YTIuNjM5LDIuNjM5LDAsMCwwLDEuNTkyLS4zMzcsMS43NTUsMS43NTUsMCwwLDAsLjUwNi0xLjE4NnEuMDUtLjQ2Mi4wNS0yLjlhOC44NjEsOC44NjEsMCwwLDEsLjYxOC0zLjg2NUEzLjgwOSwzLjgwOSwwLDAsMSwyNS45LDE2YTQuNTY3LDQuNTY3LDAsMCwxLTEuNy0xLjI4Niw0LjczNCw0LjczNCwwLDAsMS0uNzY4LTIuMDYsMzYuMDU0LDM2LjA1NCwwLDAsMS0uMTM3LTQuMTMzLDMuNCwzLjQsMCwwLDAtLjQyNS0yLjA5MiwyLjMzOCwyLjMzOCwwLDAsMC0xLjcyMy0uNDY4aC0uMzg3VjRoLjdBNi43NjIsNi43NjIsMCwwLDEsMjMsNC4xMjVhMy4wNDYsMy4wNDYsMCwwLDEsMS4xNDkuNTgxLDMuMDI1LDMuMDI1LDAsMCwxLC43NTUsMS4wMTgsNS4yMzYsNS4yMzYsMCwwLDEsLjQxOCwxLjY4NnEuMDYyLjY2Mi4wNzUsMi43NDdhMTUuMjYxLDE1LjI2MSwwLDAsMCwuMjEyLDIuOTQ3LDIuMzc3LDIuMzc3LDAsMCwwLC44MDUsMS4zNTUsMi41MSwyLjUxLDAsMCwwLDEuNTY3LjUxOFoiDQogICAgICAgIGNsYXNzPSJnbG9iYWxVc2luZ0xvZ29fYmU2NTlmZDNiMTNjNGFkOWE1ZGMxZDc1NDRhYmQyZWUiIC8+DQo8L3N2Zz4=" />
           <specializationType>Custom Implicit Usings</specializationType>
@@ -809,6 +819,15 @@ return libraryIcon;</iconFunction>
           <defaultName>NewFolder</defaultName>
           <allowMultiple>true</allowMultiple>
         </option>
+        <option order="-1" type="element">
+          <text>Add Dependencies</text>
+          <shortcut>ctrl + shift + d</shortcut>
+          <icon type="FontAwesome" source="fa-link" />
+          <specializationType>Dependencies</specializationType>
+          <specializationTypeId>3a50f114-9bb7-4f58-98ce-5ecd0089b947</specializationTypeId>
+          <defaultName>Dependencies</defaultName>
+          <allowMultiple>false</allowMultiple>
+        </option>
         <option type="element">
           <text>Add Runtime Environment</text>
           <shortcut>ctrl + shift + r</shortcut>
@@ -835,7 +854,7 @@ return libraryIcon;</iconFunction>
           <defaultName>NewRole</defaultName>
           <allowMultiple>true</allowMultiple>
         </option>
-        <option order="-1" type="element">
+        <option order="-2" type="element">
           <text>Add Custom Implicit Usings</text>
           <icon type="UrlImagePath" source="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+DQogICAgPHN0eWxlPg0KICAgICAgICAuZ2xvYmFsVXNpbmdMb2dvX2JlNjU5ZmQzYjEzYzRhZDlhNWRjMWQ3NTQ0YWJkMmVlIHsNCiAgICAgICAgICAgIGZpbGw6ICMwMDAwMDANCiAgICAgICAgfQ0KDQogICAgICAgIFtkYXRhLXRoZW1lPSJkYXJrIl0gLmdsb2JhbFVzaW5nTG9nb19iZTY1OWZkM2IxM2M0YWQ5YTVkYzFkNzU0NGFiZDJlZSB7DQogICAgICAgICAgICBmaWxsOiAjZmZmZmZmDQogICAgICAgIH0NCiAgICA8L3N0eWxlPg0KICAgIDxwYXRoDQogICAgICAgIGQ9Ik00LjAxNCwxNC45NzZhMi41MSwyLjUxLDAsMCwwLDEuNTY3LS41MThBMi4zNzcsMi4zNzcsMCwwLDAsNi4zODYsMTMuMSwxNS4yNjEsMTUuMjYxLDAsMCwwLDYuNiwxMC4xNTZxLjAxMi0yLjA4NS4wNzUtMi43NDdhNS4yMzYsNS4yMzYsMCwwLDEsLjQxOC0xLjY4NiwzLjAyNSwzLjAyNSwwLDAsMSwuNzU1LTEuMDE4QTMuMDQ2LDMuMDQ2LDAsMCwxLDksNC4xMjUsNi43NjIsNi43NjIsMCwwLDEsMTAuNTQ0LDRoLjdWNS45NmgtLjM4N2EyLjMzOCwyLjMzOCwwLDAsMC0xLjcyMy40NjhBMy40LDMuNCwwLDAsMCw4LjcwOSw4LjUyYTM2LjA1NCwzNi4wNTQsMCwwLDEtLjEzNyw0LjEzMyw0LjczNCw0LjczNCwwLDAsMS0uNzY4LDIuMDZBNC41NjcsNC41NjcsMCwwLDEsNi4xLDE2YTMuODA5LDMuODA5LDAsMCwxLDEuOTkyLDEuNzU0LDguODYxLDguODYxLDAsMCwxLC42MTgsMy44NjVxMCwyLjQzNS4wNSwyLjlBMS43NTUsMS43NTUsMCwwLDAsOS4yNjQsMjUuN2EyLjYzOSwyLjYzOSwwLDAsMCwxLjU5Mi4zMzdoLjM4N1YyOGgtLjdhNS42NTUsNS42NTUsMCwwLDEtMS43NzMtLjIsMi45NywyLjk3LDAsMCwxLTEuMzI0LS45MywzLjM1MywzLjM1MywwLDAsMS0uNjgxLTEuNjNBMjQuMTc1LDI0LjE3NSwwLDAsMSw2LjYsMjIuMDA2LDE2LjQ2OSwxNi40NjksMCwwLDAsNi4zODYsMTguOWEyLjQwOCwyLjQwOCwwLDAsMC0uODA1LTEuMzYxLDIuNDg5LDIuNDg5LDAsMCwwLTEuNTY3LS41MjRaIg0KICAgICAgICBjbGFzcz0iZ2xvYmFsVXNpbmdMb2dvX2JlNjU5ZmQzYjEzYzRhZDlhNWRjMWQ3NTQ0YWJkMmVlIiAvPg0KICAgIDxwYXRoDQogICAgICAgIGQ9Ik0yNy45ODYsMTcuMDExYTIuNDg5LDIuNDg5LDAsMCwwLTEuNTY3LjUyNCwyLjQwOCwyLjQwOCwwLDAsMC0uODA1LDEuMzYxLDE2LjQ2OSwxNi40NjksMCwwLDAtLjIxMiwzLjEwOSwyNC4xNzUsMjQuMTc1LDAsMCwxLS4xNjksMy4yMzQsMy4zNTMsMy4zNTMsMCwwLDEtLjY4MSwxLjYzLDIuOTcsMi45NywwLDAsMS0xLjMyNC45Myw1LjY1NSw1LjY1NSwwLDAsMS0xLjc3My4yaC0uN1YyNi4wNGguMzg3YTIuNjM5LDIuNjM5LDAsMCwwLDEuNTkyLS4zMzcsMS43NTUsMS43NTUsMCwwLDAsLjUwNi0xLjE4NnEuMDUtLjQ2Mi4wNS0yLjlhOC44NjEsOC44NjEsMCwwLDEsLjYxOC0zLjg2NUEzLjgwOSwzLjgwOSwwLDAsMSwyNS45LDE2YTQuNTY3LDQuNTY3LDAsMCwxLTEuNy0xLjI4Niw0LjczNCw0LjczNCwwLDAsMS0uNzY4LTIuMDYsMzYuMDU0LDM2LjA1NCwwLDAsMS0uMTM3LTQuMTMzLDMuNCwzLjQsMCwwLDAtLjQyNS0yLjA5MiwyLjMzOCwyLjMzOCwwLDAsMC0xLjcyMy0uNDY4aC0uMzg3VjRoLjdBNi43NjIsNi43NjIsMCwwLDEsMjMsNC4xMjVhMy4wNDYsMy4wNDYsMCwwLDEsMS4xNDkuNTgxLDMuMDI1LDMuMDI1LDAsMCwxLC43NTUsMS4wMTgsNS4yMzYsNS4yMzYsMCwwLDEsLjQxOCwxLjY4NnEuMDYyLjY2Mi4wNzUsMi43NDdhMTUuMjYxLDE1LjI2MSwwLDAsMCwuMjEyLDIuOTQ3LDIuMzc3LDIuMzc3LDAsMCwwLC44MDUsMS4zNTUsMi41MSwyLjUxLDAsMCwwLDEuNTY3LjUxOFoiDQogICAgICAgIGNsYXNzPSJnbG9iYWxVc2luZ0xvZ29fYmU2NTlmZDNiMTNjNGFkOWE1ZGMxZDc1NDRhYmQyZWUiIC8+DQo8L3N2Zz4=" />
           <specializationType>Custom Implicit Usings</specializationType>
@@ -924,6 +943,50 @@ property.setValue("enable");
               <mappingSettings />
             </childElementSetting>
           </childElementSettings>
+        </childElementSetting>
+        <childElementSetting type="Dependencies" typeId="3a50f114-9bb7-4f58-98ce-5ecd0089b947">
+          <icon type="FontAwesome" source="fa-link" />
+          <saveAsOwnFile>false</saveAsOwnFile>
+          <allowRename>false</allowRename>
+          <nameMustBeUnique>false</nameMustBeUnique>
+          <allowAbstract>false</allowAbstract>
+          <allowStatic>false</allowStatic>
+          <allowGenericTypes>false</allowGenericTypes>
+          <allowMapping>false</allowMapping>
+          <allowSorting>false</allowSorting>
+          <sortChildren>by-type-then-by-name</sortChildren>
+          <allowFindInView>false</allowFindInView>
+          <allowTypeReference>false</allowTypeReference>
+          <allowConvertToType p6:nil="true" xmlns:p6="http://www.w3.org/2001/XMLSchema-instance" />
+          <allowSetValue>false</allowSetValue>
+          <typeOrder>
+            <type order="0" type="Project Reference Target End" typeId="dea99762-17e6-41f7-acb5-6b3c28969e3d" />
+          </typeOrder>
+          <contextMenuOptions>
+            <createAssociation type="association">
+              <text>Add Reference</text>
+              <shortcut>ctrl + shift + a</shortcut>
+              <icon type="FontAwesome" source="fa-link" />
+              <specializationType>Project Reference Target End</specializationType>
+              <specializationTypeId>dea99762-17e6-41f7-acb5-6b3c28969e3d</specializationTypeId>
+              <defaultName>Reference</defaultName>
+              <allowMultiple>true</allowMultiple>
+            </createAssociation>
+          </contextMenuOptions>
+          <creationOptions>
+            <option type="association">
+              <text>Add Reference</text>
+              <shortcut>ctrl + shift + a</shortcut>
+              <icon type="FontAwesome" source="fa-link" />
+              <specializationType>Project Reference Target End</specializationType>
+              <specializationTypeId>dea99762-17e6-41f7-acb5-6b3c28969e3d</specializationTypeId>
+              <defaultName>Reference</defaultName>
+              <allowMultiple>true</allowMultiple>
+            </option>
+          </creationOptions>
+          <scriptOptions />
+          <mappingOptions />
+          <mappingSettings />
         </childElementSetting>
       </childElementSettings>
     </elementSetting>
@@ -1603,26 +1666,26 @@ createElement(servicesTypeId, "Services", element.id);</script>
           <allowConvertToType p6:nil="true" xmlns:p6="http://www.w3.org/2001/XMLSchema-instance" />
           <allowSetValue>false</allowSetValue>
           <typeOrder>
-            <type order="0" type="Reference" typeId="739daaad-c42f-41a4-9435-d515952d11a8" />
+            <type order="0" type="Project Reference Target End" typeId="dea99762-17e6-41f7-acb5-6b3c28969e3d" />
           </typeOrder>
           <contextMenuOptions>
-            <createElement type="element">
+            <createAssociation type="association">
               <text>Add Reference</text>
               <shortcut>ctrl + shift + a</shortcut>
               <icon type="FontAwesome" source="fa-link" />
-              <specializationType>Reference</specializationType>
-              <specializationTypeId>739daaad-c42f-41a4-9435-d515952d11a8</specializationTypeId>
+              <specializationType>Project Reference Target End</specializationType>
+              <specializationTypeId>dea99762-17e6-41f7-acb5-6b3c28969e3d</specializationTypeId>
               <defaultName>Reference</defaultName>
               <allowMultiple>true</allowMultiple>
-            </createElement>
+            </createAssociation>
           </contextMenuOptions>
           <creationOptions>
-            <option type="element">
+            <option type="association">
               <text>Add Reference</text>
               <shortcut>ctrl + shift + a</shortcut>
               <icon type="FontAwesome" source="fa-link" />
-              <specializationType>Reference</specializationType>
-              <specializationTypeId>739daaad-c42f-41a4-9435-d515952d11a8</specializationTypeId>
+              <specializationType>Project Reference Target End</specializationType>
+              <specializationTypeId>dea99762-17e6-41f7-acb5-6b3c28969e3d</specializationTypeId>
               <defaultName>Reference</defaultName>
               <allowMultiple>true</allowMultiple>
             </option>
@@ -1630,60 +1693,6 @@ createElement(servicesTypeId, "Services", element.id);</script>
           <scriptOptions />
           <mappingOptions />
           <mappingSettings />
-          <childElementSettings>
-            <childElementSetting type="Reference" typeId="739daaad-c42f-41a4-9435-d515952d11a8">
-              <icon type="FontAwesome" source="fa-link" />
-              <saveAsOwnFile>false</saveAsOwnFile>
-              <validateFunction>const netSettingsStereotypeId = "a490a23f-5397-40a1-a3cb-6da7e0b467c0";
-const netSettingsStereotypeSdkPropertyId = "1f0cdbc4-7a18-40a5-aeca-90452cce4fcf";
-const netSettingsStereotypeOutputTypePropertyId = "6a7d81d7-351e-4cdf-a596-142a74507455";
-
-const referenced = element.typeReference?.getType();
-if (referenced == null) {
-    return;
-}
-
-const stereotype = referenced.getStereotype(netSettingsStereotypeId);
-if (stereotype == null) {
-    return;
-}
-
-if (stereotype.getProperty(netSettingsStereotypeSdkPropertyId)?.getValue() == "Microsoft.NET.Sdk.Web" ||
-    stereotype.getProperty(netSettingsStereotypeOutputTypePropertyId)?.getValue() == "Console Application"
-) {
-    return;
-}
-
-return "Referenced project must be either using the \"Microsoft.NET.Sdk.Web\" SDK or have its output type set to \"Console Application\"";
-</validateFunction>
-              <allowRename>false</allowRename>
-              <nameMustBeUnique>false</nameMustBeUnique>
-              <allowAbstract>false</allowAbstract>
-              <allowStatic>false</allowStatic>
-              <allowGenericTypes>false</allowGenericTypes>
-              <allowMapping>false</allowMapping>
-              <allowSorting>false</allowSorting>
-              <sortChildren>by-type-then-by-name</sortChildren>
-              <allowFindInView>false</allowFindInView>
-              <allowTypeReference>true</allowTypeReference>
-              <allowConvertToType p8:nil="true" xmlns:p8="http://www.w3.org/2001/XMLSchema-instance" />
-              <allowSetValue>false</allowSetValue>
-              <typeReferenceSetting>
-                <displayName>Project</displayName>
-                <isRequired>true</isRequired>
-                <targetTypes>
-                  <type type="C# Project (.NET)" typeId="8e9e6693-2888-4f48-a0d6-0f163baab740" />
-                </targetTypes>
-                <allowIsNavigable>true</allowIsNavigable>
-                <allowIsNullable>false</allowIsNullable>
-                <allowIsCollection>false</allowIsCollection>
-                <isNavigableDefault>true</isNavigableDefault>
-                <isNullableDefault>false</isNullableDefault>
-                <isCollectionDefault>false</isCollectionDefault>
-              </typeReferenceSetting>
-              <mappingSettings />
-            </childElementSetting>
-          </childElementSettings>
         </childElementSetting>
       </childElementSettings>
     </elementSetting>
@@ -2226,7 +2235,46 @@ if (element.getParent().specialization == "Visual Studio Solution") {
     </elementSetting>
   </elementSettings>
   <elementExtensions />
-  <associationSettings />
+  <associationSettings>
+    <associationSetting type="Project Reference" typeId="08ed7993-fa72-4359-aa1e-b4389a32edec">
+      <sourceEnd type="Project Reference Source End" typeId="bf6b54c8-e305-41d5-a08d-52d5325d05b2">
+        <nameAccessibilityMode>hidden</nameAccessibilityMode>
+        <allowSorting>false</allowSorting>
+        <sortChildren>by-name</sortChildren>
+        <typeReferenceSetting>
+          <isRequired>true</isRequired>
+          <targetTypes />
+          <allowIsNavigable>false</allowIsNavigable>
+          <allowIsNullable>false</allowIsNullable>
+          <allowIsCollection>false</allowIsCollection>
+          <isNavigableDefault>false</isNavigableDefault>
+          <isNullableDefault>false</isNullableDefault>
+          <isCollectionDefault>false</isCollectionDefault>
+        </typeReferenceSetting>
+      </sourceEnd>
+      <targetEnd type="Project Reference Target End" typeId="dea99762-17e6-41f7-acb5-6b3c28969e3d">
+        <nameAccessibilityMode>disabled</nameAccessibilityMode>
+        <defaultNameFunction>return "Reference";</defaultNameFunction>
+        <nameMustBeUnique>false</nameMustBeUnique>
+        <icon type="FontAwesome" source="fa-link" />
+        <allowSorting>false</allowSorting>
+        <sortChildren>by-name</sortChildren>
+        <typeReferenceSetting>
+          <isRequired>true</isRequired>
+          <targetTypes>
+            <type type="C# Project (.NET)" typeId="8e9e6693-2888-4f48-a0d6-0f163baab740" />
+          </targetTypes>
+          <allowIsNavigable>false</allowIsNavigable>
+          <allowIsNullable>false</allowIsNullable>
+          <allowIsCollection>false</allowIsCollection>
+          <isNavigableDefault>true</isNavigableDefault>
+          <isNullableDefault>false</isNullableDefault>
+          <isCollectionDefault>false</isCollectionDefault>
+        </typeReferenceSetting>
+      </targetEnd>
+      <macros />
+    </associationSetting>
+  </associationSettings>
   <associationExtensions />
   <mappingSettings />
   <mappableElementPackages />

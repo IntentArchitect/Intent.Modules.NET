@@ -37,11 +37,6 @@ namespace Intent.Modules.VisualStudio.Projects.Api
 
         public IElement InternalElement => _element;
 
-        public IList<ReferenceModel> References => _element.ChildElements
-            .GetElementsOfType(ReferenceModel.SpecializationTypeId)
-            .Select(x => new ReferenceModel(x))
-            .ToList();
-
         public override string ToString()
         {
             return _element.ToString();

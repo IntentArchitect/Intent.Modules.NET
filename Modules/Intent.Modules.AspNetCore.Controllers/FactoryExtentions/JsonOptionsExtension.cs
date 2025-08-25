@@ -4,7 +4,6 @@ using System.Text;
 using System.Threading;
 using Intent.Engine;
 using Intent.Modules.AspNetCore.Controllers.Settings;
-using Intent.Modules.AspNetCore.Controllers.Templates;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
@@ -33,75 +32,72 @@ namespace Intent.Modules.AspNetCore.Controllers.FactoryExtentions
 
         private static void SetupEnumsAsStrings(IApplication application)
         {
-            var template = application.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
+            var templates = application.FindTemplateInstances<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
 
-            if (template is null)
+            foreach (var template in templates)
             {
-                return;
-            }
-
-            var enumsAsStrings = template.ExecutionContext.Settings.GetAPISettings().SerializeEnumsAsStrings();
-            var ignoreCycles = template.ExecutionContext.Settings.GetAPISettings().OnSerializationIgnoreJSONReferenceCycles();
-            if (!enumsAsStrings && !ignoreCycles)
-            {
-                return;
-            }
-
-            template.CSharpFile.OnBuild(file =>
-            {
-                var startup = template.StartupFile;
-                startup.ConfigureServices((statements, context) =>
+                var enumsAsStrings = template.ExecutionContext.Settings.GetAPISettings().SerializeEnumsAsStrings();
+                var ignoreCycles = template.ExecutionContext.Settings.GetAPISettings().OnSerializationIgnoreJSONReferenceCycles();
+                if (!enumsAsStrings && !ignoreCycles)
                 {
-                    if (statements.FindStatement(s => s.HasMetadata("configure-services-controllers-generic")) is not
-                        CSharpInvocationStatement controllersStatement)
+                    return;
+                }
+
+                template.CSharpFile.OnBuild(file =>
+                {
+                    var startup = template.StartupFile;
+                    startup.ConfigureServices((statements, context) =>
                     {
-                        return;
-                    }
-
-                    file.AddUsing("System.Text.Json.Serialization");
-
-                    // Until we can make the "AddController" statement in the Intent.AspNetCore.Controllers be
-                    // a CSharpInvocationStatement that supports method chaining, this will have to do.
-                    // It's our original hack approach anyway and turning this into a CSharpMethodChainStatement will
-                    // only make the CSharpInvocationStatement change later difficult. 
-                    template.CSharpFile.AfterBuild(nestedFile =>
-                    {
-                        var statementsToCheck = new List<CSharpStatement>();
-                        ExtractPossibleStatements(statements, statementsToCheck);
-
-                        var lastConfigStatement = (CSharpInvocationStatement)statementsToCheck.Last(p => p.HasMetadata("configure-services-controllers"));
-                        var addJsonOptionsStatement = statements.FindStatement(s => s.TryGetMetadata<string>("configure-services-controllers", out var v) && v == "json")
-                            as CSharpInvocationStatement;
-                        if (addJsonOptionsStatement is null)
+                        if (statements.FindStatement(s => s.HasMetadata("configure-services-controllers-generic")) is not CSharpInvocationStatement)
                         {
-                            addJsonOptionsStatement = new CSharpInvocationStatement(".AddJsonOptions");
-                            addJsonOptionsStatement.AddMetadata("configure-services-controllers", "json");
-                            lastConfigStatement.InsertBelow(addJsonOptionsStatement);
+                            return;
                         }
 
-                        lastConfigStatement.WithoutSemicolon();
+                        file.AddUsing("System.Text.Json.Serialization");
 
-                        var lambda = addJsonOptionsStatement.Statements.FirstOrDefault() as CSharpLambdaBlock;
-                        if (lambda is null)
+                        // Until we can make the "AddController" statement in the Intent.AspNetCore.Controllers be
+                        // a CSharpInvocationStatement that supports method chaining, this will have to do.
+                        // It's our original hack approach anyway and turning this into a CSharpMethodChainStatement will
+                        // only make the CSharpInvocationStatement change later difficult. 
+                        template.CSharpFile.AfterBuild(_ =>
                         {
-                            lambda = new CSharpLambdaBlock("options");
-                            addJsonOptionsStatement.AddArgument(lambda);
-                        }
+                            var statementsToCheck = new List<CSharpStatement>();
+                            ExtractPossibleStatements(statements, statementsToCheck);
 
-                        if (enumsAsStrings)
-                        {
-                            lambda.AddStatement(
-                                "options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());");
-                        }
+                            var lastConfigStatement = (CSharpInvocationStatement)statementsToCheck.Last(p => p.HasMetadata("configure-services-controllers"));
+                            var addJsonOptionsStatement = statements.FindStatement(s => s.TryGetMetadata<string>("configure-services-controllers", out var v) && v == "json")
+                                as CSharpInvocationStatement;
+                            if (addJsonOptionsStatement is null)
+                            {
+                                addJsonOptionsStatement = new CSharpInvocationStatement(".AddJsonOptions");
+                                addJsonOptionsStatement.AddMetadata("configure-services-controllers", "json");
+                                lastConfigStatement.InsertBelow(addJsonOptionsStatement);
+                            }
 
-                        if (ignoreCycles)
-                        {
-                            lambda.AddStatement(
-                                "options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;");
-                        }
+                            lastConfigStatement.WithoutSemicolon();
+
+                            var lambda = addJsonOptionsStatement.Statements.FirstOrDefault() as CSharpLambdaBlock;
+                            if (lambda is null)
+                            {
+                                lambda = new CSharpLambdaBlock("options");
+                                addJsonOptionsStatement.AddArgument(lambda);
+                            }
+
+                            if (enumsAsStrings)
+                            {
+                                lambda.AddStatement(
+                                    "options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());");
+                            }
+
+                            if (ignoreCycles)
+                            {
+                                lambda.AddStatement(
+                                    "options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;");
+                            }
+                        });
                     });
-                });
-            }, 14);
+                }, 14);
+            }
         }
 
         private static void ExtractPossibleStatements(IHasCSharpStatements targetBlock, List<CSharpStatement> statementsToCheck)

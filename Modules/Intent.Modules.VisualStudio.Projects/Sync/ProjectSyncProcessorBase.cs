@@ -12,6 +12,7 @@ using Intent.Modules.Constants;
 using Intent.Modules.VisualStudio.Projects.Templates;
 using Intent.SdkEvolutionHelpers;
 using Intent.Utils;
+using CustomMetadataKeys = Intent.Modules.Common.CSharp.VisualStudio.CustomMetadataKeys;
 
 namespace Intent.Modules.VisualStudio.Projects.Sync
 {

@@ -1,3 +1,7 @@
+### Version 3.9.0
+
+- Feature: Template outputs now allow filtering.
+
 ### Version 3.8.15
 
 - Improvement: Added option for `.NET 10` to the `Target Framework` property on the `.NET Settings` stereotype in the Visual Studio designer.

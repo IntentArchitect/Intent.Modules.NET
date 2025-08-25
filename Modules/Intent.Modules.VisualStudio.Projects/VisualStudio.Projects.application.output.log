@@ -75,6 +75,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>341f2475-429b-48fd-aaaa-3748947e6633</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#3a50f114-9bb7-4f58-98ce-5ecd0089b947</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/DependenciesModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DependenciesModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>5e94c359-e6e5-4b58-a1fc-151de9c10934</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#FFD54A85-9362-48AC-B646-C93AB9AC63D2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -164,6 +172,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>5e94c359-e6e5-4b58-a1fc-151de9c10934</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiAssociationModelExtensions#08ed7993-fa72-4359-aa1e-b4389a32edec</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/Extensions/ProjectReferenceModelAssociationExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProjectReferenceModelAssociationExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5e94c359-e6e5-4b58-a1fc-151de9c10934</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#0b49ae99-c1c2-46c7-a4e3-41591e0118e1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Api/Extensions/ServiceFabricProjectModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
@@ -184,6 +200,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Api/Extensions/SQLServerDatabaseProjectModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SQLServerDatabaseProjectModelStereotypeExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5e94c359-e6e5-4b58-a1fc-151de9c10934</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#d421c322-7a51-4094-89fa-e5d8a0a97b27</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/Extensions/TemplateOutputModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TemplateOutputModelStereotypeExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -244,10 +268,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>341f2475-429b-48fd-aaaa-3748947e6633</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#739daaad-c42f-41a4-9435-d515952d11a8</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiAssociationModel#08ed7993-fa72-4359-aa1e-b4389a32edec</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Api/ReferenceModel.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ReferenceModel.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Api/ProjectReferenceModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProjectReferenceModel.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
