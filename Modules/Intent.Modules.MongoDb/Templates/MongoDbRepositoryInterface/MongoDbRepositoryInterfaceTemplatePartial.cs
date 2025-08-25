@@ -143,7 +143,10 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryInterface
             {
                 if (TryGetTemplate<ICSharpFileBuilderTemplate>(EntityRepositoryInterfaceTemplate.TemplateId, model, out var template))
                 {
-
+                    if(model.GetPrimaryKeyAttribute() == null)
+                    {
+                        return;
+                    }
                     template.CSharpFile.OnBuild(file => file.Metadata["entity-state-template-id"] = MongoDbDocumentInterfaceTemplate.TemplateId);
                     template.CSharpFile.AfterBuild(file =>
                     {

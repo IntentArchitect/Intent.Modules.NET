@@ -119,6 +119,11 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbDocument
             var createEntityInterfaces = ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces();
             var pk = Model.GetPrimaryKeyAttribute();
 
+            if(pk == null)
+            {
+                return;
+            }
+
             var genericTypeArguments = Model.GenericTypes.Any()
                 ? $"<{string.Join(", ", Model.GenericTypes)}>"
                 : string.Empty;
