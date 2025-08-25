@@ -186,7 +186,10 @@
       "rules": [
         "if you implement LoadServerData it must have 2 parameters (TableState state, CancellationToken cancellationToken)",
         "Only add search criteria is they are supported on the backing page search mechanism",
-        "if you add scripts like this, OnKeyPress set to @(async e => { ... }), if there are quotes in lambda don't escape them with backslashes'"
+        "if you add scripts like this, OnKeyPress set to @(async e => { ... }), if there are quotes in lambda don't escape them with backslashes'",
+        "use IMudDialogInstance not MudDialogInstance in the razor.cs",
+        "use these tags <TitleContent><DialogContent><DialogActions> not the old tags like <MudDialogTitle><MudDialogContent><MudDialogActions>",
+        "MudBlazor DialogResult has a Canceled property not Cancelled"
       ]
     }
   ]

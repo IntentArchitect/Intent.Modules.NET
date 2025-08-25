@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AI.Blazor</id>
-  <version>1.0.0-beta.12</version>
+  <version>1.0.0-beta.13</version>
   <supportedClientVersions>[4.5.0-a,5.0.0)</supportedClientVersions>
   <summary>AI support for auto-implementing unit tests based on existing application service implementations.</summary>
   <description>AI support for auto-implementing unit tests based on existing application service implementations.</description>
