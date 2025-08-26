@@ -41,22 +41,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>8836c0bd-d9d9-4c7e-ad93-32f3df472275</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.Controller#d28bdbf5-2f14-4574-918b-06f1cc0ec1f4</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreSoftDelete.Api/Controllers/CustomersController.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CustomersController.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>832302ab-33e8-478d-8771-3c13ac8e5568</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.JsonResponse</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreSoftDelete.Api/Controllers/ResponseTypes/JsonResponse.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>JsonResponse.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>8d97c8df-eebd-45b4-bfd2-c6b7921c23b4</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#8d97c8df-eebd-45b4-bfd2-c6b7921c23b4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -690,34 +674,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>03e5b8cc-079e-427c-b8ff-7624bbf58fd5</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.HttpClient#d28bdbf5-2f14-4574-918b-06f1cc0ec1f4</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreSoftDelete.IntegrationTests/HttpClients/Customers/CustomersHttpClient.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Customers/CustomersHttpClient.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>03e5b8cc-079e-427c-b8ff-7624bbf58fd5</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#d28bdbf5-2f14-4574-918b-06f1cc0ec1f4</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreSoftDelete.IntegrationTests/HttpClients/Customers/ICustomersService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Customers/ICustomersService.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>03e5b8cc-079e-427c-b8ff-7624bbf58fd5</ProjectId>
       <CorrelationId>Intent.AspNetCore.IntegrationTesting.HttpClientRequestException</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreSoftDelete.IntegrationTests/HttpClients/HttpClientRequestException.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>HttpClientRequestException.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>03e5b8cc-079e-427c-b8ff-7624bbf58fd5</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.JsonResponse</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreSoftDelete.IntegrationTests/HttpClients/JsonResponse.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>JsonResponse.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -746,182 +706,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>a6ea32d1-f8b5-4abc-ba78-f1693223b6d0</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#57341433-25d6-42a4-9892-54c83f55354c</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreSoftDelete.IntegrationTests/Services/Customers/CreateCustomerCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/Customers/CreateCustomerCommand.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>a6ea32d1-f8b5-4abc-ba78-f1693223b6d0</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#5b729a99-e67a-4e98-8055-7c750440f149</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreSoftDelete.IntegrationTests/Services/Customers/CreateCustomerCommandOtherAddressesDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/Customers/CreateCustomerCommandOtherAddressesDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>a6ea32d1-f8b5-4abc-ba78-f1693223b6d0</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#15e3a5ab-0198-40dc-bee2-7fa9ee8cf981</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreSoftDelete.IntegrationTests/Services/Customers/CreateCustomerCommandOtherBuildingsDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/Customers/CreateCustomerCommandOtherBuildingsDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>a6ea32d1-f8b5-4abc-ba78-f1693223b6d0</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#5824680b-21a3-4889-aadc-5dca103a2bb2</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreSoftDelete.IntegrationTests/Services/Customers/CreateCustomerCommandOtherBuildingsDto1.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/Customers/CreateCustomerCommandOtherBuildingsDto1.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>a6ea32d1-f8b5-4abc-ba78-f1693223b6d0</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#3030e42c-e88b-4dd2-8c0d-d86322e8c42d</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreSoftDelete.IntegrationTests/Services/Customers/CreateCustomerCommandPrimaryBuildingDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/Customers/CreateCustomerCommandPrimaryBuildingDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>a6ea32d1-f8b5-4abc-ba78-f1693223b6d0</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#96e11cb0-8b21-4700-b759-09fcd2ce7971</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreSoftDelete.IntegrationTests/Services/Customers/CreateCustomerCommandPrimaryBuildingDto1.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/Customers/CreateCustomerCommandPrimaryBuildingDto1.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>a6ea32d1-f8b5-4abc-ba78-f1693223b6d0</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#ec2c7cf7-b79b-4396-b1ca-1d25a3862637</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreSoftDelete.IntegrationTests/Services/Customers/CreateCustomerPrimaryAddressDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/Customers/CreateCustomerPrimaryAddressDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>a6ea32d1-f8b5-4abc-ba78-f1693223b6d0</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#ba6bc88f-3ad8-4e6f-8517-4113e256e81a</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreSoftDelete.IntegrationTests/Services/Customers/CustomerAddressBuildingDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/Customers/CustomerAddressBuildingDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>a6ea32d1-f8b5-4abc-ba78-f1693223b6d0</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#640b94f1-e0e9-47e0-97ec-73a354db26ed</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreSoftDelete.IntegrationTests/Services/Customers/CustomerAddressDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/Customers/CustomerAddressDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>a6ea32d1-f8b5-4abc-ba78-f1693223b6d0</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#0a6929b6-076a-4672-b818-f76522900d7d</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreSoftDelete.IntegrationTests/Services/Customers/CustomerDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/Customers/CustomerDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>a6ea32d1-f8b5-4abc-ba78-f1693223b6d0</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#2ebdc5c6-2853-402f-88a3-80ece736cc6f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreSoftDelete.IntegrationTests/Services/Customers/DeleteCustomerCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/Customers/DeleteCustomerCommand.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>a6ea32d1-f8b5-4abc-ba78-f1693223b6d0</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#92c3e5fe-9646-48ad-a47c-77922e01a9b2</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreSoftDelete.IntegrationTests/Services/Customers/GetCustomerByIdQuery.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/Customers/GetCustomerByIdQuery.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>a6ea32d1-f8b5-4abc-ba78-f1693223b6d0</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#2c3f0de3-d8c5-4efa-9b82-11e05213f66e</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreSoftDelete.IntegrationTests/Services/Customers/GetCustomersQuery.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/Customers/GetCustomersQuery.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>a6ea32d1-f8b5-4abc-ba78-f1693223b6d0</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#0344f213-4bcb-43cc-a114-fa6111aabe00</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreSoftDelete.IntegrationTests/Services/Customers/GetDeletedCustomerByIdQuery.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/Customers/GetDeletedCustomerByIdQuery.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>a6ea32d1-f8b5-4abc-ba78-f1693223b6d0</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#152b248f-9941-4342-84c6-d5040bc504fb</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreSoftDelete.IntegrationTests/Services/Customers/UpdateCustomerCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/Customers/UpdateCustomerCommand.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>a6ea32d1-f8b5-4abc-ba78-f1693223b6d0</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#bfc8709f-6201-4b4b-8196-2f58f93c694b</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreSoftDelete.IntegrationTests/Services/Customers/UpdateCustomerCommandOtherAddressesDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/Customers/UpdateCustomerCommandOtherAddressesDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>a6ea32d1-f8b5-4abc-ba78-f1693223b6d0</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#5a27ce40-680f-41d0-bc86-e485e5605f11</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreSoftDelete.IntegrationTests/Services/Customers/UpdateCustomerCommandOtherBuildingsDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/Customers/UpdateCustomerCommandOtherBuildingsDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>a6ea32d1-f8b5-4abc-ba78-f1693223b6d0</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#3d2b9584-d8cd-447b-ae25-a58b63c1c3c7</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreSoftDelete.IntegrationTests/Services/Customers/UpdateCustomerCommandOtherBuildingsDto1.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/Customers/UpdateCustomerCommandOtherBuildingsDto1.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>a6ea32d1-f8b5-4abc-ba78-f1693223b6d0</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#40e2c0de-d5bb-48e4-a1ab-497a6b7d43a5</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreSoftDelete.IntegrationTests/Services/Customers/UpdateCustomerCommandPrimaryBuildingDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/Customers/UpdateCustomerCommandPrimaryBuildingDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>a6ea32d1-f8b5-4abc-ba78-f1693223b6d0</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#aab7c48b-a905-4cae-9e90-f1dcedfe9f9e</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreSoftDelete.IntegrationTests/Services/Customers/UpdateCustomerCommandPrimaryBuildingDto1.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/Customers/UpdateCustomerCommandPrimaryBuildingDto1.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>a6ea32d1-f8b5-4abc-ba78-f1693223b6d0</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#1b1ee0f2-8ce4-4f0c-ad26-518a6811f1a4</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreSoftDelete.IntegrationTests/Services/Customers/UpdateCustomerPrimaryAddressDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/Customers/UpdateCustomerPrimaryAddressDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>b9286e33-3ea7-4398-8029-ecf528dde6a4</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.PagedResult#9204e067-bdc8-45e7-8970-8a833fdc5253</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreSoftDelete.IntegrationTests/Services/PagedResult.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PagedResult.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>a6ea32d1-f8b5-4abc-ba78-f1693223b6d0</ProjectId>
       <CorrelationId>Intent.AspNetCore.IntegrationTesting.SharedContainerFixture</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreSoftDelete.IntegrationTests/SharedContainerFixture.cs</ApplicationRelativeFilePath>
@@ -934,54 +718,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreSoftDelete.IntegrationTests/TestDataFactory.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TestDataFactory.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>6407df47-d3b5-44c0-a210-2cd6ef2e9f73</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#57341433-25d6-42a4-9892-54c83f55354c</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreSoftDelete.IntegrationTests/Tests/Customers/CreateCustomerTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Customers/CreateCustomerTests.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>6407df47-d3b5-44c0-a210-2cd6ef2e9f73</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#2ebdc5c6-2853-402f-88a3-80ece736cc6f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreSoftDelete.IntegrationTests/Tests/Customers/DeleteCustomerTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Customers/DeleteCustomerTests.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>6407df47-d3b5-44c0-a210-2cd6ef2e9f73</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#92c3e5fe-9646-48ad-a47c-77922e01a9b2</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreSoftDelete.IntegrationTests/Tests/Customers/GetCustomerByIdTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Customers/GetCustomerByIdTests.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>6407df47-d3b5-44c0-a210-2cd6ef2e9f73</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#2c3f0de3-d8c5-4efa-9b82-11e05213f66e</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreSoftDelete.IntegrationTests/Tests/Customers/GetCustomersTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Customers/GetCustomersTests.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>6407df47-d3b5-44c0-a210-2cd6ef2e9f73</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#0344f213-4bcb-43cc-a114-fa6111aabe00</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreSoftDelete.IntegrationTests/Tests/Customers/GetDeletedCustomerByIdTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Customers/GetDeletedCustomerByIdTests.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>6407df47-d3b5-44c0-a210-2cd6ef2e9f73</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#152b248f-9941-4342-84c6-d5040bc504fb</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreSoftDelete.IntegrationTests/Tests/Customers/UpdateCustomerTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Customers/UpdateCustomerTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

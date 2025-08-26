@@ -27,15 +27,5 @@ namespace EfCoreSoftDelete.IntegrationTests
             fixture.Customizations.Add(new PopulateIdsSpecimenBuilder(_idTracker));
             return fixture.Create<T>();
         }
-
-        public async Task<Guid> CreateCustomer()
-        {
-            var client = new CustomersHttpClient(_factory.CreateClient());
-
-            var command = CreateCommand<CreateCustomerCommand>();
-            var customerId = await client.CreateCustomerAsync(command);
-            _idTracker["CustomerId"] = customerId;
-            return customerId;
-        }
     }
 }
