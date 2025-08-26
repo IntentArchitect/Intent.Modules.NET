@@ -119,7 +119,7 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbDocument
             var createEntityInterfaces = ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces();
             var pk = Model.GetPrimaryKeyAttribute();
 
-            if(pk == null)
+            if (pk == null)
             {
                 return;
             }
@@ -140,18 +140,18 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbDocument
                 .ToArray();
 
             // If the PK is not derived and has a name other than "Id", then we need to do an explicit implementation for Id:
-            if (!string.Equals(pk.Name, "Id", StringComparison.OrdinalIgnoreCase) &&
-                entityProperties.Any(x => x.GetMetadata<IMetadataModel>("model").Id == pk.Id))
-            {
-                var pkPropertyName = pk.Name.ToPascalCase();
-                @class.AddProperty("string", "Id", property =>
-                {
-                    property.AddAttribute($"{UseType("MongoDB.Bson.Serialization.Attributes.BsonId")}(\"id\")");
-                    // TODO Cater for GUIDS with a Setting
-                    property.Getter.WithExpressionImplementation($"{pkPropertyName}");
-                    property.Setter.WithExpressionImplementation($"{pkPropertyName} = value");
-                });
-            }
+            //if (!string.Equals(pk.Name, "Id", StringComparison.OrdinalIgnoreCase) &&
+            //    entityProperties.Any(x => x.GetMetadata<IMetadataModel>("model").Id == pk.Id))
+            //{
+            //    var pkPropertyName = pk.Name.ToPascalCase();
+            //    @class.AddProperty("string", "Id", property =>
+            //    {
+            //        property.AddAttribute($"{UseType("MongoDB.Bson.Serialization.Attributes.BsonId")}");
+            //        // TODO Cater for GUIDS with a Setting
+            //        property.Getter.WithExpressionImplementation($"{pkPropertyName}");
+            //        property.Setter.WithExpressionImplementation($"{pkPropertyName} = value");
+            //    });
+            //}
 
             foreach (var entityProperty in entityProperties)
             {
@@ -164,6 +164,7 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbDocument
                 };
 
                 var typeName = GetTypeName(typeReference);
+
 
 
                 //// PK must always be a string

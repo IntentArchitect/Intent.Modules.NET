@@ -162,7 +162,7 @@
     <file src="$outDir$/$id$.pdb" />
   </files>
   <metadata>
-    <install target="Domain;Services" src="Intent.Metadata/Module Builder/Intent.MongoDb/Intent.MongoDb.pkg.config" externalReference="3f385f6e-90c2-4071-bde2-7d8943252fd5" />
+    <install target="Domain" src="Intent.Metadata/Module Builder/Intent.MongoDb/Intent.MongoDb.pkg.config" externalReference="3f385f6e-90c2-4071-bde2-7d8943252fd5" />
     <install target="Domain" src="modelers/MongoDb Types.designer.settings" externalReference="c1f5fb5e-a1fc-47f2-99f2-c377c4714d88" />
   </metadata>
   <moduleSettingsExtensions>

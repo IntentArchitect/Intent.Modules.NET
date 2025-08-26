@@ -33,6 +33,7 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
         {
 
 
+
             //var dbContext = application.FindTemplateInstance<ICSharpTemplate>(TemplateDependency.OnTemplate(ApplicationMongoDbContextTemplate.TemplateId));
             //if (dbContext == null)
             //{
@@ -50,6 +51,7 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
                 file.AddUsing("MongoDB.Driver");
 
                 var method = file.Classes.First().FindMethod("AddInfrastructure");
+
 
 
                 //method.AddStatement($"services.AddScoped<{dependencyInjection.GetTypeName(dbContext.Id)}>();");
@@ -94,7 +96,7 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
                         dependencyInjection.GetTypeName(model);
                         if (!model.CSharpFile.Classes.First().IsAbstract)
                         {
-                            if(model.ClassName == "BaseTypeDocument")
+                            if (model.ClassName == "BaseTypeDocument")
                             {
                                 var p = 1;
                             }

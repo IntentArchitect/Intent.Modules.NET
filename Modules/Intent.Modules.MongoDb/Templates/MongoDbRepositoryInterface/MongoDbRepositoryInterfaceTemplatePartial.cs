@@ -143,7 +143,7 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryInterface
             {
                 if (TryGetTemplate<ICSharpFileBuilderTemplate>(EntityRepositoryInterfaceTemplate.TemplateId, model, out var template))
                 {
-                    if(model.GetPrimaryKeyAttribute() == null)
+                    if (model.GetPrimaryKeyAttribute() == null)
                     {
                         return;
                     }
