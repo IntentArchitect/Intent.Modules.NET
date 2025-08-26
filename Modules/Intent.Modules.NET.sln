@@ -412,6 +412,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Aws.Lambda.F
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intent.Modules.ApiHosting.Shared", "Intent.Modules.ApiHosting.Shared\Intent.Modules.ApiHosting.Shared.shproj", "{83FA2D65-5D3F-433C-A1A4-7C044B4E3A3C}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Aws.Lambda.Functions.Dispatch.Services", "Intent.Modules.Aws.Lambda.Functions.Dispatch.Services\Intent.Modules.Aws.Lambda.Functions.Dispatch.Services.csproj", "{48E0FA03-08A9-4D9C-A439-129909ECE486}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -1082,6 +1084,10 @@ Global
 		{3480947D-4CCF-40B8-97F1-0AAE4DC904F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3480947D-4CCF-40B8-97F1-0AAE4DC904F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3480947D-4CCF-40B8-97F1-0AAE4DC904F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48E0FA03-08A9-4D9C-A439-129909ECE486}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48E0FA03-08A9-4D9C-A439-129909ECE486}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48E0FA03-08A9-4D9C-A439-129909ECE486}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48E0FA03-08A9-4D9C-A439-129909ECE486}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1267,6 +1273,7 @@ Global
 		{24706897-5AA1-4842-B13A-BCB948B0FFD0} = {5F9FE51C-33D0-4FDE-81AF-20FD12C6AF27}
 		{3480947D-4CCF-40B8-97F1-0AAE4DC904F4} = {F75494CA-24E5-4CF2-8123-55A41BC20BC6}
 		{83FA2D65-5D3F-433C-A1A4-7C044B4E3A3C} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
+		{48E0FA03-08A9-4D9C-A439-129909ECE486} = {F75494CA-24E5-4CF2-8123-55A41BC20BC6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A00AF88A-EA58-4AEA-B65F-92354533E2CA}
