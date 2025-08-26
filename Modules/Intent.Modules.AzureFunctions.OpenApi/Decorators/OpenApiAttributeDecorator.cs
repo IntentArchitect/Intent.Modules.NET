@@ -13,6 +13,7 @@ using Intent.Modules.AzureFunctions.Templates.AzureFunctionClass;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Metadata.WebApi.Models;
 using Intent.RoslynWeaver.Attributes;
@@ -52,8 +53,10 @@ namespace Intent.Modules.AzureFunctions.OpenApi.Decorators
                 Logging.Log.Warning($"Http Settings could not be found on Azure Function [{template.Model.Name}] that is Http triggered");
             }
 
-            _template.AddNugetDependency(NugetPackages.MicrosoftAzureWebJobsExtensionsOpenApi(_template.OutputTarget));
-
+            if (template.OutputTarget.GetProject().GetMaxNetAppVersion().Major < 8)
+            {
+                _template.AddNugetDependency(NugetPackages.MicrosoftAzureWebJobsExtensionsOpenApi(_template.OutputTarget));
+            }
 
             template.CSharpFile.OnBuild(file =>
             {

@@ -34,7 +34,6 @@
       <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore" Version="2.0.2" />
       <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.OpenApi" Version="1.5.1" />
       <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="2.0.5" />
-      <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.OpenApi" Version="1.5.1" />
       <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.14.0" />
       <PackageReference Include="Microsoft.Extensions.Http" Version="9.0.7" />
     </ItemGroup>

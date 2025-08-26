@@ -13,9 +13,6 @@ namespace Intent.Modules.AzureFunctions.OpenApi
     {
         public const string MicrosoftAzureFunctionsWorkerExtensionsOpenApiPackageName = "Microsoft.Azure.Functions.Worker.Extensions.OpenApi";
         public const string MicrosoftAzureWebJobsExtensionsOpenApiPackageName = "Microsoft.Azure.WebJobs.Extensions.OpenApi";
-        public const string MicrosoftCodeAnalysisCommonPackageName = "Microsoft.CodeAnalysis.Common";
-        public const string MicrosoftCodeAnalysisCSharpWorkspacesPackageName = "Microsoft.CodeAnalysis.CSharp.Workspaces";
-        public const string MicrosoftCodeAnalysisWorkspacesCommonPackageName = "Microsoft.CodeAnalysis.Workspaces.Common";
 
         public void RegisterPackages()
         {
@@ -50,126 +47,10 @@ namespace Intent.Modules.AzureFunctions.OpenApi
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftAzureWebJobsExtensionsOpenApiPackageName}'"),
                     }
                 );
-            NugetRegistry.Register(MicrosoftCodeAnalysisCommonPackageName,
-                (framework) => (framework.Major, framework.Minor) switch
-                    {
-                        ( >= 9, >= 0) => new PackageVersion("4.14.0")
-                            .WithNugetDependency("Microsoft.CodeAnalysis.Analyzers", "3.11.0")
-                            .WithNugetDependency("System.Collections.Immutable", "9.0.0")
-                            .WithNugetDependency("System.Reflection.Metadata", "9.0.0"),
-                        ( >= 8, >= 0) => new PackageVersion("4.14.0")
-                            .WithNugetDependency("Microsoft.CodeAnalysis.Analyzers", "3.11.0")
-                            .WithNugetDependency("System.Collections.Immutable", "9.0.0")
-                            .WithNugetDependency("System.Reflection.Metadata", "9.0.0"),
-                        ( >= 2, >= 0) => new PackageVersion("4.14.0")
-                            .WithNugetDependency("Microsoft.CodeAnalysis.Analyzers", "3.11.0")
-                            .WithNugetDependency("System.Buffers", "4.5.1")
-                            .WithNugetDependency("System.Collections.Immutable", "9.0.0")
-                            .WithNugetDependency("System.Memory", "4.5.5")
-                            .WithNugetDependency("System.Numerics.Vectors", "4.5.0")
-                            .WithNugetDependency("System.Reflection.Metadata", "9.0.0")
-                            .WithNugetDependency("System.Runtime.CompilerServices.Unsafe", "6.0.0")
-                            .WithNugetDependency("System.Text.Encoding.CodePages", "7.0.0")
-                            .WithNugetDependency("System.Threading.Tasks.Extensions", "4.5.4"),
-                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftCodeAnalysisCommonPackageName}'"),
-                    }
-                );
-            NugetRegistry.Register(MicrosoftCodeAnalysisCSharpWorkspacesPackageName,
-                (framework) => (framework.Major, framework.Minor) switch
-                    {
-                        ( >= 9, >= 0) => new PackageVersion("4.14.0")
-                            .WithNugetDependency("Humanizer.Core", "2.14.1")
-                            .WithNugetDependency("Microsoft.CodeAnalysis.Analyzers", "3.11.0")
-                            .WithNugetDependency("Microsoft.CodeAnalysis.Common", "4.14.0")
-                            .WithNugetDependency("Microsoft.CodeAnalysis.CSharp", "4.14.0")
-                            .WithNugetDependency("Microsoft.CodeAnalysis.Workspaces.Common", "4.14.0")
-                            .WithNugetDependency("System.Collections.Immutable", "9.0.0")
-                            .WithNugetDependency("System.Composition", "9.0.0")
-                            .WithNugetDependency("System.IO.Pipelines", "9.0.0")
-                            .WithNugetDependency("System.Reflection.Metadata", "9.0.0")
-                            .WithNugetDependency("System.Threading.Channels", "7.0.0"),
-                        ( >= 8, >= 0) => new PackageVersion("4.14.0")
-                            .WithNugetDependency("Humanizer.Core", "2.14.1")
-                            .WithNugetDependency("Microsoft.CodeAnalysis.Analyzers", "3.11.0")
-                            .WithNugetDependency("Microsoft.CodeAnalysis.Common", "4.14.0")
-                            .WithNugetDependency("Microsoft.CodeAnalysis.CSharp", "4.14.0")
-                            .WithNugetDependency("Microsoft.CodeAnalysis.Workspaces.Common", "4.14.0")
-                            .WithNugetDependency("System.Collections.Immutable", "9.0.0")
-                            .WithNugetDependency("System.Composition", "9.0.0")
-                            .WithNugetDependency("System.IO.Pipelines", "9.0.0")
-                            .WithNugetDependency("System.Reflection.Metadata", "9.0.0")
-                            .WithNugetDependency("System.Threading.Channels", "7.0.0"),
-                        ( >= 2, >= 0) => new PackageVersion("4.14.0")
-                            .WithNugetDependency("Humanizer.Core", "2.14.1")
-                            .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "9.0.0")
-                            .WithNugetDependency("Microsoft.CodeAnalysis.Analyzers", "3.11.0")
-                            .WithNugetDependency("Microsoft.CodeAnalysis.Common", "4.14.0")
-                            .WithNugetDependency("Microsoft.CodeAnalysis.CSharp", "4.14.0")
-                            .WithNugetDependency("Microsoft.CodeAnalysis.Workspaces.Common", "4.14.0")
-                            .WithNugetDependency("System.Buffers", "4.5.1")
-                            .WithNugetDependency("System.Collections.Immutable", "9.0.0")
-                            .WithNugetDependency("System.Composition", "9.0.0")
-                            .WithNugetDependency("System.IO.Pipelines", "9.0.0")
-                            .WithNugetDependency("System.Memory", "4.5.5")
-                            .WithNugetDependency("System.Numerics.Vectors", "4.5.0")
-                            .WithNugetDependency("System.Reflection.Metadata", "9.0.0")
-                            .WithNugetDependency("System.Runtime.CompilerServices.Unsafe", "6.0.0")
-                            .WithNugetDependency("System.Text.Encoding.CodePages", "7.0.0")
-                            .WithNugetDependency("System.Threading.Channels", "7.0.0")
-                            .WithNugetDependency("System.Threading.Tasks.Extensions", "4.5.4"),
-                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftCodeAnalysisCSharpWorkspacesPackageName}'"),
-                    }
-                );
-            NugetRegistry.Register(MicrosoftCodeAnalysisWorkspacesCommonPackageName,
-                (framework) => (framework.Major, framework.Minor) switch
-                    {
-                        ( >= 9, >= 0) => new PackageVersion("4.14.0")
-                            .WithNugetDependency("Humanizer.Core", "2.14.1")
-                            .WithNugetDependency("Microsoft.CodeAnalysis.Analyzers", "3.11.0")
-                            .WithNugetDependency("Microsoft.CodeAnalysis.Common", "4.14.0")
-                            .WithNugetDependency("System.Collections.Immutable", "9.0.0")
-                            .WithNugetDependency("System.Composition", "9.0.0")
-                            .WithNugetDependency("System.IO.Pipelines", "9.0.0")
-                            .WithNugetDependency("System.Reflection.Metadata", "9.0.0")
-                            .WithNugetDependency("System.Threading.Channels", "7.0.0"),
-                        ( >= 8, >= 0) => new PackageVersion("4.14.0")
-                            .WithNugetDependency("Humanizer.Core", "2.14.1")
-                            .WithNugetDependency("Microsoft.CodeAnalysis.Analyzers", "3.11.0")
-                            .WithNugetDependency("Microsoft.CodeAnalysis.Common", "4.14.0")
-                            .WithNugetDependency("System.Collections.Immutable", "9.0.0")
-                            .WithNugetDependency("System.Composition", "9.0.0")
-                            .WithNugetDependency("System.IO.Pipelines", "9.0.0")
-                            .WithNugetDependency("System.Reflection.Metadata", "9.0.0")
-                            .WithNugetDependency("System.Threading.Channels", "7.0.0"),
-                        ( >= 2, >= 0) => new PackageVersion("4.14.0")
-                            .WithNugetDependency("Humanizer.Core", "2.14.1")
-                            .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "9.0.0")
-                            .WithNugetDependency("Microsoft.CodeAnalysis.Analyzers", "3.11.0")
-                            .WithNugetDependency("Microsoft.CodeAnalysis.Common", "4.14.0")
-                            .WithNugetDependency("System.Buffers", "4.5.1")
-                            .WithNugetDependency("System.Collections.Immutable", "9.0.0")
-                            .WithNugetDependency("System.Composition", "9.0.0")
-                            .WithNugetDependency("System.IO.Pipelines", "9.0.0")
-                            .WithNugetDependency("System.Memory", "4.5.5")
-                            .WithNugetDependency("System.Numerics.Vectors", "4.5.0")
-                            .WithNugetDependency("System.Reflection.Metadata", "9.0.0")
-                            .WithNugetDependency("System.Runtime.CompilerServices.Unsafe", "6.0.0")
-                            .WithNugetDependency("System.Text.Encoding.CodePages", "7.0.0")
-                            .WithNugetDependency("System.Threading.Channels", "7.0.0")
-                            .WithNugetDependency("System.Threading.Tasks.Extensions", "4.5.4"),
-                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftCodeAnalysisWorkspacesCommonPackageName}'"),
-                    }
-                );
         }
 
         public static NugetPackageInfo MicrosoftAzureFunctionsWorkerExtensionsOpenApi(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftAzureFunctionsWorkerExtensionsOpenApiPackageName, outputTarget.GetMaxNetAppVersion());
 
         public static NugetPackageInfo MicrosoftAzureWebJobsExtensionsOpenApi(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftAzureWebJobsExtensionsOpenApiPackageName, outputTarget.GetMaxNetAppVersion());
-
-        public static NugetPackageInfo MicrosoftCodeAnalysisCommon(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftCodeAnalysisCommonPackageName, outputTarget.GetMaxNetAppVersion());
-
-        public static NugetPackageInfo MicrosoftCodeAnalysisCSharpWorkspaces(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftCodeAnalysisCSharpWorkspacesPackageName, outputTarget.GetMaxNetAppVersion());
-
-        public static NugetPackageInfo MicrosoftCodeAnalysisWorkspacesCommon(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftCodeAnalysisWorkspacesCommonPackageName, outputTarget.GetMaxNetAppVersion());
     }
 }

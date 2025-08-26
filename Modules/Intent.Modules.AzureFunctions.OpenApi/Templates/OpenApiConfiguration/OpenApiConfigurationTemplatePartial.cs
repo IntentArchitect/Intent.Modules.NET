@@ -28,9 +28,6 @@ namespace Intent.Modules.AzureFunctions.OpenApi.Templates.OpenApiConfiguration
             {
                 case >= 8:
                     AddNugetDependency(NugetPackages.MicrosoftAzureFunctionsWorkerExtensionsOpenApi(outputTarget));
-                    AddNugetDependency(NugetPackages.MicrosoftCodeAnalysisWorkspacesCommon(outputTarget));
-                    AddNugetDependency(NugetPackages.MicrosoftCodeAnalysisCSharpWorkspaces(outputTarget));
-                    AddNugetDependency(NugetPackages.MicrosoftCodeAnalysisCommon(outputTarget), new NuGetInstallOptions { ForceInstall = true });
 
                     ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.MicrosoftAzureWebJobsExtensionsOpenApiPackageName, outputTarget));
                     break;
