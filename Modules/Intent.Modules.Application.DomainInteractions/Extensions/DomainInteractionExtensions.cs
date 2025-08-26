@@ -1,20 +1,12 @@
 using System;
-using System;
 using System.Collections.Generic;
-using System.Data.SqlTypes;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Reflection;
-using System.Xml.Linq;
-using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.DomainInteractions.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Interactions;
-using Intent.Modules.Common.CSharp.Mapping;
-using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Types.Api;
 
 namespace Intent.Modules.Application.DomainInteractions.Extensions;
@@ -34,7 +26,6 @@ public static class DomainInteractionExtensions
                || model.CallServiceOperationActions().Any();
     }
 
-
     public static IEnumerable<CSharpStatement> GetReturnStatements(this CSharpClassMethod method, ITypeReference returnType)
     {
         if (returnType.Element == null)
@@ -43,13 +34,13 @@ public static class DomainInteractionExtensions
         }
         var statements = new List<CSharpStatement>();
 
-        var _template = method.File.Template;
-        var entitiesReturningPk = GetEntitiesReturningPK(method, returnType);
-        var nonUserSuppliedEntitiesReturningPks = GetEntitiesReturningPK(method, returnType, isUserSupplied: false);
+        var template = method.File.Template;
+        var entitiesReturningPk = GetEntitiesReturningPk(method, returnType);
+        var nonUserSuppliedEntitiesReturningPks = GetEntitiesReturningPk(method, returnType, isUserSupplied: false);
 
         if (returnType.Element.AsDTOModel()?.IsMapped == true &&
             method.TrackedEntities().Values.Any(x => x.ElementModel?.Id == returnType.Element.AsDTOModel().Mapping.ElementId) &&
-            _template.TryGetTypeName("Application.Contract.Dto", returnType.Element, out var returnDto))
+            template.TryGetTypeName("Application.Contract.Dto", returnType.Element, out var returnDto))
         {
             var entityDetails = method.TrackedEntities().Values.First(x => x.ElementModel?.Id == returnType.Element.AsDTOModel().Mapping.ElementId);
             if (entityDetails.ProjectedType == returnDto)
@@ -59,16 +50,16 @@ public static class DomainInteractionExtensions
             else
             {
                 //Adding Using Clause for Extension Methods
-                _template.TryGetTypeName("Intent.Application.Dtos.EntityDtoMappingExtensions", returnType.Element, out var _);
-                var autoMapperFieldName = method.Class.InjectService(_template.UseType("AutoMapper.IMapper"));
-                string nullable = returnType.IsNullable ? "?" : "";
+                template.TryGetTypeName("Intent.Application.Dtos.EntityDtoMappingExtensions", returnType.Element, out _);
+                var autoMapperFieldName = method.Class.InjectService(template.UseType("AutoMapper.IMapper"));
+                var nullable = returnType.IsNullable ? "?" : "";
                 statements.Add($"return {entityDetails.VariableName}{nullable}.MapTo{returnDto}{(returnType.IsCollection ? "List" : "")}({autoMapperFieldName});");
             }
         }
         else if ((returnType.IsResultPaginated() || returnType.IsResultCursorPaginated()) &&
                  returnType.GenericTypeParameters.FirstOrDefault()?.Element.AsDTOModel()?.IsMapped == true &&
                  method.TrackedEntities().Values.Any(x => x.ElementModel?.Id == returnType.GenericTypeParameters.First().Element.AsDTOModel().Mapping.ElementId) &&
-                 _template.TryGetTypeName("Application.Contract.Dto", returnType.GenericTypeParameters.First().Element, out returnDto))
+                 template.TryGetTypeName("Application.Contract.Dto", returnType.GenericTypeParameters.First().Element, out returnDto))
         {
             var mappingMethod = returnType.IsResultPaginated() ? "MapToPagedResult" : "MapToCursorPagedResult";
 
@@ -79,7 +70,7 @@ public static class DomainInteractionExtensions
             }
             else
             {
-                var autoMapperFieldName = method.Class.InjectService(_template.UseType("AutoMapper.IMapper"));
+                var autoMapperFieldName = method.Class.InjectService(template.UseType("AutoMapper.IMapper"));
                 statements.Add($"return {entityDetails.VariableName}.{mappingMethod}(x => x.MapTo{returnDto}({autoMapperFieldName}));");
             }
         }
@@ -106,7 +97,7 @@ public static class DomainInteractionExtensions
         return statements;
     }
 
-    private static List<EntityDetails> GetEntitiesReturningPK(CSharpClassMethod method, ITypeReference returnType, bool? isUserSupplied = null)
+    private static List<EntityDetails> GetEntitiesReturningPk(CSharpClassMethod method, ITypeReference returnType, bool? isUserSupplied = null)
     {
         if (returnType.Element.IsDTOModel())
         {
@@ -116,17 +107,21 @@ public static class DomainInteractionExtensions
                 .Where(x => x.Mapping != null && x.Mapping.Element.IsAttributeModel() && x.Mapping.Element.AsAttributeModel().IsPrimaryKey(isUserSupplied))
                 .Select(x => x.Mapping.Element.AsAttributeModel().InternalElement.ParentElement.Id)
                 .Distinct()
-                .ToList();
-            if (mappedPks.Any())
+                .ToArray();
+
+            if (mappedPks.Length == 0)
             {
-                return method.TrackedEntities().Values
+                return [];
+            }
+
+            return method.TrackedEntities().Values
                 .Where(x => x.ElementModel.IsClassModel() && mappedPks.Contains(x.ElementModel.Id))
                 .ToList();
-            }
-            return new List<EntityDetails>();
+
         }
+
         return method.TrackedEntities().Values
-            .Where(x => x.ElementModel.AsClassModel()?.GetTypesInHierarchy()
+            .Where(x =>x.ElementModel.AsClassModel()?.GetTypesInHierarchy()
                 .SelectMany(c => c.Attributes)
                 .Count(a => a.IsPrimaryKey(isUserSupplied) && a.TypeReference.Element.Id == returnType.Element.Id) == 1)
             .ToList();
@@ -160,16 +155,21 @@ internal static class AttributeModelExtensions
         return attribute.HasStereotype("Foreign Key");
     }
 
-    public static AssociationTargetEndModel GetForeignKeyAssociation(this AttributeModel attribute)
+    public static AssociationTargetEndModel? GetForeignKeyAssociation(this AttributeModel attribute)
     {
         return attribute.GetStereotype("Foreign Key")?.GetProperty<IElement>("Association")?.AsAssociationTargetEndModel();
     }
 
     public static string AsSingleOrTuple(this IEnumerable<CSharpStatement> idFields)
     {
-        if (idFields.Count() <= 1)
-            return $"{idFields.Single()}";
-        return $"({string.Join(", ", idFields.Select(idField => $"{idField}"))})";
+        var enumeratedIdFields = idFields as CSharpStatement[] ?? idFields.ToArray();
+
+        return enumeratedIdFields.Length switch
+        {
+            <= 0 => throw new Exception("Expected count of at least 1"),
+            1 => $"{enumeratedIdFields[0]}",
+            > 1 => $"({string.Join(", ", enumeratedIdFields.Select(idField => $"{idField}"))})"
+        };
     }
 }
 
