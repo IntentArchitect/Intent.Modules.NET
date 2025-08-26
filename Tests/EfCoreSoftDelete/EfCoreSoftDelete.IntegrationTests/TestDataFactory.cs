@@ -1,6 +1,4 @@
 using AutoFixture;
-using EfCoreSoftDelete.IntegrationTests.HttpClients.Customers;
-using EfCoreSoftDelete.IntegrationTests.Services.Customers;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
