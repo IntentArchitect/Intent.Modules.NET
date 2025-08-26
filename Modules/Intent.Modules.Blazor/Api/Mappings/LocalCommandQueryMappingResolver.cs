@@ -63,7 +63,7 @@ public class LocalCommandQueryMappingResolver : IMappingTypeResolver
                 return new ConstructorMapping(mappingModel, _template);
             }
         }
-        throw new Exception($"Can't find Query or Command ({mappingModel.Model.Name}).");
+        return null;
     }
 
     private class ParameterlessConstructor(MappingModel model, ICSharpTemplate template, ICSharpFileBuilderTemplate commandOrQuery) : CSharpMappingBase(model, template)
