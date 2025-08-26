@@ -1,6 +1,9 @@
-### Version 5.0.13
+### Version 5.0.14
 
 - Fixed: Corrected Exception Logging.
+
+### Version 5.0.13
+
 - Fixed: Nuget package management update.
 
 ### Version 5.0.12
