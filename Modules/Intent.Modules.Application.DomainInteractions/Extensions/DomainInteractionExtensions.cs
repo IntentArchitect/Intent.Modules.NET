@@ -34,11 +34,14 @@ public static class DomainInteractionExtensions
         }
         var statements = new List<CSharpStatement>();
 
+        var autoMapperIsInstalled = method.File.Template.ExecutionContext.InstalledModules.Any(x => x.ModuleId == "Intent.Application.Dtos.AutoMapper");
+
         var template = method.File.Template;
         var entitiesReturningPk = GetEntitiesReturningPk(method, returnType);
         var nonUserSuppliedEntitiesReturningPks = GetEntitiesReturningPk(method, returnType, isUserSupplied: false);
 
-        if (returnType.Element.AsDTOModel()?.IsMapped == true &&
+        if (autoMapperIsInstalled &&
+            returnType.Element.AsDTOModel()?.IsMapped == true &&
             method.TrackedEntities().Values.Any(x => x.ElementModel?.Id == returnType.Element.AsDTOModel().Mapping.ElementId) &&
             template.TryGetTypeName("Application.Contract.Dto", returnType.Element, out var returnDto))
         {
@@ -56,7 +59,8 @@ public static class DomainInteractionExtensions
                 statements.Add($"return {entityDetails.VariableName}{nullable}.MapTo{returnDto}{(returnType.IsCollection ? "List" : "")}({autoMapperFieldName});");
             }
         }
-        else if ((returnType.IsResultPaginated() || returnType.IsResultCursorPaginated()) &&
+        else if (autoMapperIsInstalled &&
+                 (returnType.IsResultPaginated() || returnType.IsResultCursorPaginated()) &&
                  returnType.GenericTypeParameters.FirstOrDefault()?.Element.AsDTOModel()?.IsMapped == true &&
                  method.TrackedEntities().Values.Any(x => x.ElementModel?.Id == returnType.GenericTypeParameters.First().Element.AsDTOModel().Mapping.ElementId) &&
                  template.TryGetTypeName("Application.Contract.Dto", returnType.GenericTypeParameters.First().Element, out returnDto))

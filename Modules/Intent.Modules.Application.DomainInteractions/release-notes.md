@@ -1,3 +1,7 @@
+### Version 1.1.3
+
+- Fixed: Logic to use AutoMapper would be generated even when the required AutoMapper module was not installed.
+
 ### Version 1.1.2
 
 - Fixed: Add handling for Parameter specialization type in CallServiceInteractionStrategy.
