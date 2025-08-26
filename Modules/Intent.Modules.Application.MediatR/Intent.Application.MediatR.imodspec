@@ -64,7 +64,7 @@
     <dependency id="Intent.Application.DependencyInjection" version="4.1.8" />
     <dependency id="Intent.Application.DependencyInjection.MediatR" version="3.6.0" />
     <dependency id="Intent.Common" version="3.8.0" />
-    <dependency id="Intent.Common.CSharp" version="3.9.0" />
+    <dependency id="Intent.Common.CSharp" version="3.9.4" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Metadata.Security" version="1.0.0" />
     <dependency id="Intent.Metadata.WebApi" version="4.5.5" />
