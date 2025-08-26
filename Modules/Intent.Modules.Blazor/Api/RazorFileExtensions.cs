@@ -495,7 +495,7 @@ public static class RazorFileExtensions
             return false;
         }
         
-        if (parentElement.Application.Id == action?.Application?.Id)
+        if (parentElement.Package.ApplicationId == action?.Application?.Id)
         {
             return true;
         }

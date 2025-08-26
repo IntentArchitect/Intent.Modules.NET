@@ -1,6 +1,4 @@
 using AutoFixture;
-using EfCoreSoftDelete.IntegrationTests.HttpClients.Customers;
-using EfCoreSoftDelete.IntegrationTests.Services.Customers;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -26,16 +24,6 @@ namespace EfCoreSoftDelete.IntegrationTests
             fixture.RepeatCount = 1;
             fixture.Customizations.Add(new PopulateIdsSpecimenBuilder(_idTracker));
             return fixture.Create<T>();
-        }
-
-        public async Task<Guid> CreateCustomer()
-        {
-            var client = new CustomersHttpClient(_factory.CreateClient());
-
-            var command = CreateCommand<CreateCustomerCommand>();
-            var customerId = await client.CreateCustomerAsync(command);
-            _idTracker["CustomerId"] = customerId;
-            return customerId;
         }
     }
 }
