@@ -87,7 +87,6 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.UnitOfWorkBeha
                 .ForInterface("typeof(IPipelineBehavior<,>)")
                 .WithPriority(5)
                 .ForConcern("MediatR")
-                .RequiresUsingNamespaces("MediatR")
                 .HasDependency(this));
         }
 

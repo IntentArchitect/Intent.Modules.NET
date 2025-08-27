@@ -134,7 +134,6 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.AuthorizationB
                 .ForInterface("typeof(IPipelineBehavior<,>)")
                 .WithPriority(2)
                 .ForConcern("MediatR")
-                .RequiresUsingNamespaces("MediatR")
                 .HasDependency(this));
         }
 

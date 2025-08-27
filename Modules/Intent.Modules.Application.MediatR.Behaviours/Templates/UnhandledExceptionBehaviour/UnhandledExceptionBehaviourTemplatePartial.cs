@@ -90,7 +90,6 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.UnhandledExcep
                 .ForInterface("typeof(IPipelineBehavior<,>)")
                 .WithPriority(0)
                 .ForConcern("MediatR")
-                .RequiresUsingNamespaces("MediatR")
                 .HasDependency(this));
         }
 
