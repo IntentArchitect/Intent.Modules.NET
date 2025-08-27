@@ -81,6 +81,7 @@ public class JavaScriptProjectTemplateTests
         }
 
         public string DefinitionId => "141b4305-433b-4d5a-97ed-7796eabbe2aa";
+        public IStereotypeDefinition Definition { get; }
         public string Name => "JavaScript Settings";
         public IEnumerable<IStereotypeProperty> Properties { get; }
     }
