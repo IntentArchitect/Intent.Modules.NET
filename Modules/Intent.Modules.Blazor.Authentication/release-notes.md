@@ -1,6 +1,10 @@
+### Version 1.0.2
+
+- Fixed: Syntax generation fix.
+
 ### Version 1.0.1
 
-- Fixed: De-coupled a optional template.
+- Fixed: De-coupled an optional template.
 
 ### Version 1.0.0
 
