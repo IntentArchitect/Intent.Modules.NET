@@ -72,7 +72,7 @@ namespace Intent.Modules.MongoDb.Templates.ReflectionHelper
             var domainDesigner = ExecutionContext.MetadataManager.Domain(ExecutionContext.GetApplicationConfig().Id);
 
             return domainDesigner.GetValueObjects().Any() ||
-                   domainDesigner.GetClassModels().Any(x =>
+                   domainDesigner.GetClassModels().Where(MongoDbProvider.FilterDbProvider).Any(x =>
                        x.Constructors.Any() && x.Constructors.All(y => y.Parameters.Count != 0));
         }
 

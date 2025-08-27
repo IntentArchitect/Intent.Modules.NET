@@ -35,7 +35,8 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryBase
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IList<ClassModel> GetModels(IApplication application)
         {
-            return _metadataManager.Domain(application).GetClassModels().ToList();
+            return _metadataManager.Domain(application).GetClassModels().Where(MongoDbProvider.FilterDbProvider)
+                .ToArray();
         }
     }
 }
