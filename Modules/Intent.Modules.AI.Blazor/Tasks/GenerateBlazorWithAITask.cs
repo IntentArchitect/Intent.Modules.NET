@@ -201,7 +201,7 @@ public class GenerateBlazorWithAITask : IModuleTask
             * The `.razor.cs` file is the C# backing file for the `.razor` file.
             * (IMPORTANT) Only add razor markup to the `.razor` file. If you want to add C# code, add it to the `.razor.cs` file. Therefore, do NOT add a @code directive to the `.razor` file.
             * PRESERVE existing code in the `.razor.cs` file. You may add code, but you are not allowed to change the existing code (IMPORTANT) in the .`razor.cs` file!
-            * NEVER ADD COMMENTS
+            * (IMPORTANT)NEVER ADD COMMENTS, not even code comments from templates or examples
             * The supplied Example Components are examples to guide your implementation 
             * Don't display technical ids to end users like Guids
             
@@ -226,6 +226,7 @@ public class GenerateBlazorWithAITask : IModuleTask
             - [ ] No `@code` blocks in `.razor`.
             - [ ] `[IntentManaged]` attributes preserved.
             - [ ] Code compiles with added `using` directives.
+            - [ ] No Comments were added to the code.
 
             ## Required Output Format
             Respond ONLY with JSON that matches the following schema:

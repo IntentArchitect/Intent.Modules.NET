@@ -40,7 +40,7 @@ public class CallServiceOperationMappingResolver : IMappingTypeResolver
                 : new ObjectInitializationMapping(mappingModel, _template);
         }
         
-        if (//mappingModel.Model.SpecializationType is "Parameter" && 
+        if (
             mappingModel.Model.TypeReference?.Element?.SpecializationType is "Command" or "DTO" or "Model Definition" &&
             mappingModel.Model.SpecializationType is not "Event Emitter")
         {

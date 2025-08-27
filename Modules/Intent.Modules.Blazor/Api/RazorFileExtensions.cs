@@ -352,7 +352,8 @@ public static class RazorFileExtensions
                                         if (mapping == null || mapping.MappedEnds.Count == 0)
                                             a.Remove();
                                     })
-                                    .AddArgument("new DialogOptions() { FullWidth = true }"))));
+                                    .AddArgument("new DialogOptions() { FullWidth = true, MaxWidth=MaxWidth.Large, BackdropClick = false }")
+                                    )));
                                 method.AddStatement(new CSharpAssignmentStatement("var result", new CSharpAwaitExpression(new CSharpStatement($"dialog.Result;"))));
                                 method.AddStatement(new CSharpIfStatement("result.Canceled").AddStatement("return;"));
 

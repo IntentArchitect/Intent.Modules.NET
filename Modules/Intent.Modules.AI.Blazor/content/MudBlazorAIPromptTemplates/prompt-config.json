@@ -6,23 +6,26 @@
     }
   },
   "rules": [
-    "Don't add `@using MudBlazor` into .razor files",
-    "if you add T='SomeDto' to a MudBlazor component and the using clause is required in the .razor to compile, add it",
-    "Favour reusing existing backing methods to fetching data",
-    "Always explicitly specify the T parameter (e.g., T='string', T='int?') unless it is guaranteed to be inferred correctly.",
-    "When generating MudBlazor code, always use the official enum values for parameters like AlignItems and Justify (e.g., AlignItems.Center, Justify.SpaceBetween) instead of raw strings",
-    "Favour use DataAnnotations for validation instead of inline lambdas",
+    "Don't add `@using MudBlazor` into .razor files.",
+    "if you add T='SomeDto' to a MudBlazor component and the using clause is required in the .razor to compile, add it.",
+    "Favour reusing existing backing methods to fetching data.",
+    "When generating MudBlazor code, always use the official enum values for parameters like AlignItems, Size and Justify (e.g., AlignItems.Center, Justify.SpaceBetween) instead of raw strings.",
     "For Validation, ensure the lambda/method matches Func<T, IEnumerable<string>>. If T is a reference type (like string), use a nullable parameter (string? v). If T is a value type: Use the nullable form (int? v) or (DateTime? v) if the field can be empty. Use the non-nullable form (int v) only if the field must always have a value.",
-    "For MudSwitch components always specify the T attribute",
-    "Don't adding using clauses which are already in the _Imports.razor",
-    "When adding using clause, add them in the right place i.e stick to the convention in the file."
+    "Don't adding using clauses which are already in the _Imports.razor.",
+    "When adding using clause, add them in the right place i.e stick to the convention in the file.",
+    "For MudBlazor generics like MudChipSet, MudSelect, MudRadioGroup, MudSwitch declare T explicitly.",
+    "When generating MudBlazor components inside conditional Razor blocks, always set the generic T explicitly.",
+    "If you are binding to Component which expect nullable types like MudSelect or MudDatePicker update the backing field to be nullable.",
+    "If you are add mutliple forms to isolate validations, make sure they are not nested inside one another.",
+    "In Razor pages use foreach statements rather than for statements.",
+    "If you add Dense, Variants or Margins to Form Controls do it consistently across the form controls."
   ],
   "input-files": [
   ],
   "templates": [
     {
       "id": "SearchEntity",
-      "name": "Search Entity",
+      "name": "Page - Search Entity",
       "description": "Search Entity",
       "applicability": {
         "key-words": [
@@ -57,14 +60,15 @@
       },
       "rules": [
         "if you implement LoadServerData it must have 2 parameters (TableState state, CancellationToken cancellationToken)",
-        "if there are not methods in the razor.cs which represent actions, do not add them to the rows e.g. Delete, Edit, View",
+        "Only Add actions to grid rows, like View, Edit and Delete, if there are methods in the razor.cs code behind which represent them like AddEntity, EditEntity, Delete Entity etc",
         "Only add search criteria is they are supported on the backing page search mechanism",
-        "if you add scripts like this, OnKeyPress set to @(async e => { ... }), if there are quotes in lambda don't escape them with backslashes'"
+        "if you add scripts like this, OnKeyPress set to @(async e => { ... }), if there are quotes in the lambda function don't escape them with backslashes",
+        "Always add placeholders to search criteria input controls"
       ]
     },
     {
       "id": "AddEntity",
-      "name": "Add Entity",
+      "name": "Page - Add Entity",
       "description": "Add Entity",
       "applicability": {
         "key-words": [
@@ -98,7 +102,7 @@
     },
     {
       "id": "EditEntity",
-      "name": "Edit Entity",
+      "name": "Page - Edit Entity",
       "description": "Edit Entity",
       "applicability": {
         "key-words": [
@@ -128,7 +132,7 @@
     },
     {
       "id": "ViewEntity",
-      "name": "View Entity",
+      "name": "Page - View Entity",
       "description": "View Entity",
       "applicability": {
         "key-words": [
@@ -157,8 +161,86 @@
       ]
     },
     {
+      "id": "AddEntityDialog",
+      "name": "Dialog - Add Entity",
+      "description": "Dialog to add reocrds",
+      "applicability": {
+        "key-words": [
+          {
+            "word": "dialog",
+            "weight": 2
+          },
+          {
+            "word": "add",
+            "weight": 3
+          },
+          {
+            "word": "create",
+            "weight": 3
+          },
+          {
+            "word": "new",
+            "weight": 2
+          },
+          {
+            "word": "insert",
+            "weight": 2
+          },
+          {
+            "word": "register",
+            "weight": 2
+          }
+        ]
+      },
+      "template-folder": "AddEntityDialog",
+      "metadata": {
+      },
+      "rules": [
+        "use IMudDialogInstance not MudDialogInstance in the razor.cs",
+        "use these tags <TitleContent><DialogContent><DialogActions> not the old tags like <MudDialogTitle><MudDialogContent><MudDialogActions>",
+        "MudBlazor DialogResult has a Canceled property not Cancelled"
+      ]
+    },
+    {
+      "id": "EditEntityDialog",
+      "name": "Dialog - Edit Entity",
+      "description": "Dialog to edit records",
+      "applicability": {
+        "key-words": [
+          {
+            "word": "dialog",
+            "weight": 2
+          },
+          {
+            "word": "edit",
+            "weight": 3
+          },
+          {
+            "word": "update",
+            "weight": 3
+          },
+          {
+            "word": "modify",
+            "weight": 2
+          },
+          {
+            "word": "change",
+            "weight": 2
+          }
+        ]
+      },
+      "template-folder": "LookupDialog",
+      "metadata": {
+      },
+      "rules": [
+        "use IMudDialogInstance not MudDialogInstance in the razor.cs",
+        "use these tags <TitleContent><DialogContent><DialogActions> not the old tags like <MudDialogTitle><MudDialogContent><MudDialogActions>",
+        "MudBlazor DialogResult has a Canceled property not Cancelled"
+      ]
+    },
+    {
       "id": "LookupDialog",
-      "name": "Lookup Dialog",
+      "name": "Dialog - Lookup",
       "description": "Dialog to search and select existing records",
       "applicability": {
         "key-words": [
@@ -186,10 +268,11 @@
       "rules": [
         "if you implement LoadServerData it must have 2 parameters (TableState state, CancellationToken cancellationToken)",
         "Only add search criteria is they are supported on the backing page search mechanism",
-        "if you add scripts like this, OnKeyPress set to @(async e => { ... }), if there are quotes in lambda don't escape them with backslashes'",
+        "if you add scripts like this, OnKeyPress set to @(async e => { ... }), if there are quotes in the lambda function don't escape them with backslashes",
         "use IMudDialogInstance not MudDialogInstance in the razor.cs",
         "use these tags <TitleContent><DialogContent><DialogActions> not the old tags like <MudDialogTitle><MudDialogContent><MudDialogActions>",
-        "MudBlazor DialogResult has a Canceled property not Cancelled"
+        "MudBlazor DialogResult has a Canceled property not Cancelled",
+        "Always add placeholders to search criteria input controls"
       ]
     }
   ]

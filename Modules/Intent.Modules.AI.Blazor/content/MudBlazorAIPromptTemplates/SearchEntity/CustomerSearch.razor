@@ -1,6 +1,8 @@
-﻿<!-- Sample Search screen for Customers -->
-@page "/customers-example"
-@using BlazorServer.Sample.App.Application.Customers;
+<!-- Sample Search Entity Page -->
+
+@page "/page-based/customers/search"
+@using UI.AI.Samples.Application.Customers
+
 <MudPaper Class="pa-4 mb-4 ux-gradient-primary" Elevation="0">
     <MudText Typo="Typo.h4" Class="text-white font-weight-bold mb-2">
         <MudIcon Icon="@Icons.Material.Filled.Person" Class="mr-2" />
@@ -29,17 +31,19 @@
                               Immediate="true"
                               OnKeyDown="@(async e => { if(e.Key=="Enter" && _table!=null) await _table.ReloadServerData(); })"
                               Class="mb-4" />
-                <!--Add additional search criteria here-->
+            </MudItem>
+            <MudItem xs="12" md="6">
+                <MudSelect T="bool?" @bind-Value="IsActive" Label="Active status" Placeholder="All" Margin="Margin.Normal" Class="mb-4" Dense>
+                    <MudSelectItem T="bool?" Value="null">All</MudSelectItem>
+                    <MudSelectItem T="bool?" Value="true">Active</MudSelectItem>
+                    <MudSelectItem T="bool?" Value="false">Inactive</MudSelectItem>
+                </MudSelect>
             </MudItem>
             <MudItem xs="12">
                 <MudButton Variant="Variant.Filled"
                            StartIcon="@Icons.Material.Filled.Search"
                            Color="Color.Primary"
-                           OnClick="@(async () =>
-                               {
-                                   if (_table != null)
-                                       await _table.ReloadServerData();
-                               })"
+                           OnClick="@(async () => { if (_table != null) await _table.ReloadServerData(); })"
                            Class="mb-4 ml-md-4">
                     <MudText>Search</MudText>
                 </MudButton>
@@ -75,12 +79,23 @@
                                 Email
                             </MudTableSortLabel>
                         </MudTh>
+                        <MudTh>Status</MudTh>
                         <MudTh>Actions</MudTh>
                     </HeaderContent>
                     <RowTemplate>
                         <MudTd DataLabel="Name">@context.Name</MudTd>
                         <MudTd DataLabel="Surname">@context.Surname</MudTd>
                         <MudTd DataLabel="Email">@context.Email</MudTd>
+                        <MudTd DataLabel="Status">
+                            @if (context.IsActive)
+                            {
+                                <MudChip T="string" Color="Color.Success" Variant="Variant.Filled" Size="Size.Small">Active</MudChip>
+                            }
+                            else
+                            {
+                                <MudChip T="string" Color="Color.Error" Variant="Variant.Filled" Size="Size.Small">Inactive</MudChip>
+                            }
+                        </MudTd>
                         <MudTd DataLabel="Actions">
                             <MudTooltip Text="View Customer">
                                 <MudIconButton Icon="@Icons.Material.Filled.Visibility"

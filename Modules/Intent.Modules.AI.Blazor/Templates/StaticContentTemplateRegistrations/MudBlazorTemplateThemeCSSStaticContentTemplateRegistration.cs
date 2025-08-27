@@ -38,7 +38,7 @@ namespace Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations
 
         protected override OverwriteBehaviour GetDefaultOverrideBehaviour(IOutputTarget outputTarget)
         {
-            return OverwriteBehaviour.OnceOff;
+            return OverwriteBehaviour.Always;
         }
 
         protected override void Register(ITemplateInstanceRegistry registry, IApplication application)

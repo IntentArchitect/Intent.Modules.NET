@@ -44,7 +44,8 @@ namespace Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations
         {
             if (fileFullPath.EndsWith(".json"))
             {
-                return new JsonStaticContentTemplate(fileFullPath, fileRelativePath, RelativeOutputPathPrefix, TemplateId, outputTarget, Replacements(outputTarget), defaultOverwriteBehaviour);
+                //Taking this out for now JSON Weaving is not working so well or im doing it wrong
+                //return new JsonStaticContentTemplate(fileFullPath, fileRelativePath, RelativeOutputPathPrefix, TemplateId, outputTarget, Replacements(outputTarget), defaultOverwriteBehaviour);
             }
             return base.CreateTemplate(outputTarget, fileFullPath, fileRelativePath, defaultOverwriteBehaviour);
         }

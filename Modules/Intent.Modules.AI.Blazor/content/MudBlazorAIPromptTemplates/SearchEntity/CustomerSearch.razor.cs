@@ -1,19 +1,18 @@
-﻿using BlazorServer.Sample.App.Application.Common.Pagination;
-using BlazorServer.Sample.App.Application.Customers;
-using BlazorServer.Sample.App.Application.Customers.DeleteCustomer;
-using BlazorServer.Sample.App.Application.Customers.GetCustomersPaged;
-using BlazorServer.Sample.App.Infrastructure.Services;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Components;
 using MudBlazor;
-using MudBlazor.Extensions;
+using UI.AI.Samples.Application.Common.Pagination;
+using UI.AI.Samples.Application.Customers;
+using UI.AI.Samples.Application.Customers.DeleteCustomer;
+using UI.AI.Samples.Application.Customers.GetCustomers;
+using UI.AI.Samples.Infrastructure.Services;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate", Version = "1.0")]
 
-namespace BlazorServer.Sample.App.Api.Components.Pages.Customers
+namespace UI.AI.Samples.Api.Components.Pages.PageBased.Customers
 {
-    public partial class Customer
+    public partial class CustomerSearch
     {
         public PagedResult<CustomerSummaryDto> Model { get; set; }
         [Inject]
@@ -22,25 +21,27 @@ namespace BlazorServer.Sample.App.Api.Components.Pages.Customers
         public NavigationManager NavigationManager { get; set; } = default!;
         [Inject]
         public ISnackbar Snackbar { get; set; } = default!;
-        [Inject] public IDialogService DialogService { get; set; } = default!;
+        [Inject] 
+        public IDialogService DialogService { get; set; } = default!;
 
-        public string SearchText { get; set; }
-
+        public string? SearchText { get; set; } = string.Empty;
+        public bool? IsActive { get; set; } = null;
         private MudTable<CustomerSummaryDto>? _table;
 
         protected override async Task OnInitializedAsync()
         {
         }
 
-        private async Task LoadCustomersPaged(int pageNo, int pageSize, string? orderBy, string searchTerm)
+        private async Task LoadCustomers(int pageNo, int pageSize, string? orderBy, string? searchTerm, bool? isActive)
         {
             try
             {
-                Model = await Mediator.Send(new GetCustomersPagedQuery(
+                Model = await Mediator.Send(new GetCustomersQuery(
                     pageNo: pageNo,
                     pageSize: pageSize,
                     orderBy: orderBy,
-                    searchTerm: searchTerm));
+                    searchTerm: searchTerm,
+                    isActive: isActive));
             }
             catch (Exception e)
             {
@@ -50,12 +51,12 @@ namespace BlazorServer.Sample.App.Api.Components.Pages.Customers
 
         private void AddCustomer()
         {
-            NavigationManager.NavigateTo("/customers-example/add-customer");
+            NavigationManager.NavigateTo("/page-based/customers/add");
         }
 
-        private void ViewCustomer(Guid customerId)
+        private void EditCustomer(Guid customerId)
         {
-            NavigationManager.NavigateTo($"/customers-example/view-customer/{customerId}");
+            NavigationManager.NavigateTo($"/page-based/customers/edit/{customerId}");
         }
 
         private async Task DeleteCustomer(Guid customerId)
@@ -72,9 +73,9 @@ namespace BlazorServer.Sample.App.Api.Components.Pages.Customers
             }
         }
 
-        private void EditCustomer(Guid customerId)
+        private void ViewCustomer(Guid customerId)
         {
-            NavigationManager.NavigateTo($"/customers-example/edit-customer/{customerId}");
+            NavigationManager.NavigateTo($"/page-based/customers/view/{customerId}");
         }
 
         public class DeleteCustomerModel
@@ -85,7 +86,7 @@ namespace BlazorServer.Sample.App.Api.Components.Pages.Customers
         /// <summary>
         /// The CancellationToken cancelationToken is required.(IMPORTANT)
         /// </summary>
-        public async Task<TableData<CustomerSummaryDto>> LoadServerData(TableState state, CancellationToken cancelationToken)
+        public async Task<TableData<CustomerSummaryDto>> LoadServerData(TableState state, CancellationToken cancellationToken)
         {
             string? orderBy = null;
             if (!string.IsNullOrEmpty(state.SortLabel))
@@ -94,8 +95,7 @@ namespace BlazorServer.Sample.App.Api.Components.Pages.Customers
             }
             var pageNo = state.Page + 1;
             var pageSize = state.PageSize;
-            // As MudBlazor calls with only state and cancelationToken, no search term parameter is passed; use empty string
-            await LoadCustomersPaged(pageNo, pageSize, orderBy, SearchText);
+            await LoadCustomers(pageNo, pageSize, orderBy, SearchText, IsActive);
             var items = Model?.Data ?? new List<CustomerSummaryDto>();
             var totalItems = Model?.TotalCount ?? 0;
             return new TableData<CustomerSummaryDto>
@@ -116,13 +116,8 @@ namespace BlazorServer.Sample.App.Api.Components.Pages.Customers
                 markupMessage: (MarkupString)"Are you sure you want to delete this customer?",
                 yesText: "Delete",
                 cancelText: "Cancel",
-                options: new DialogOptions
-                {
-                    MaxWidth = MaxWidth.ExtraSmall,
-                    CloseOnEscapeKey = false,
-                    BackdropClick = false,
-                });
-
+                options: new DialogOptions { MaxWidth = MaxWidth.ExtraSmall, CloseOnEscapeKey = false, BackdropClick = false }
+            );
             if (confirmed == true)
             {
                 await DeleteCustomer(customerId);
@@ -130,6 +125,5 @@ namespace BlazorServer.Sample.App.Api.Components.Pages.Customers
                     await _table.ReloadServerData();
             }
         }
-
     }
 }
