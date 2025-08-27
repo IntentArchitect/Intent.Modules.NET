@@ -17,13 +17,24 @@ namespace Intent.Modules.Blazor.FluentValidation.Templates;
 
 internal static class ValidationModelResolverHelper
 {
-    public static string GetDtoTypeName(IFluentValidationTemplate template, IElement dtoModel)
+    public static bool TryGetDtoTypeName(IFluentValidationTemplate template, IElement dtoModel, out string typeName)
     {
         if (dtoModel.ParentElement.IsComponentModel())
         {
-            return $"{template.GetTypeName(RazorComponentCodeBehindTemplate.TemplateId, dtoModel.ParentElement)}.{dtoModel.Name}";
+            if (template.TryGetTypeName(RazorComponentCodeBehindTemplate.TemplateId, dtoModel.ParentElement, out var parentTypeName))
+            {
+                typeName = $"{parentTypeName}.{dtoModel.Name}";
+                return true;
+            }
         }
-        return template.GetTypeName(template.ToValidateTemplateId, dtoModel);
+        else if (template.TryGetTypeName(template.ToValidateTemplateId, dtoModel, out var dtoTypeName))
+        {
+            typeName = dtoTypeName;
+            return true;
+        }
+
+        typeName = string.Empty;
+        return false;
     }
 
     public static IEnumerable<DtoFieldMetadata> GetDtoFields(IFluentValidationTemplate template, IElement dtoModel)

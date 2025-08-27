@@ -8,6 +8,7 @@ using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modelers.UI.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
+using Intent.Modules.Contracts.Clients.Http.Shared;
 using Intent.Modules.Contracts.Clients.Shared.Templates.PagedResult;
 using Intent.Modules.Metadata.WebApi.Models;
 using Intent.Modules.Modelers.Types.ServiceProxies;
@@ -41,14 +42,14 @@ namespace Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.Templates.DtoV
                     includeReturnTypes: false,
                     stereotypeNames: null,
                     getDesigners: [_metadataManager.UserInterface])
-                .Where(x =>
+                .Where(dto =>
                 {
-                    if (x.InternalElement.IsCommandModel() || x.InternalElement.IsQueryModel())
+                    if (dto.InternalElement.IsCommandModel() || dto.InternalElement.IsQueryModel())
                     {
-                        return HttpEndpointModelFactory.GetEndpoint(x.InternalElement)?.Inputs.Any(i => i.Id == x.Id) == true;
+                        return HttpEndpointModelFactory.GetEndpoint(dto.InternalElement)?.Inputs.Any(i => i.Id == dto.Id) == true;
                     }
 
-                    if (x.Id == PagedResultTemplateBase.TypeDefinitionElementId)
+                    if (dto.Id == PagedResultTemplateBase.TypeDefinitionElementId)
                     {
                         return false;
                     }

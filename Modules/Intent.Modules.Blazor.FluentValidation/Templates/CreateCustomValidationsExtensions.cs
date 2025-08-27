@@ -28,7 +28,10 @@ public static class CreateCustomValidationsExtensions
         var validations = field.GetValidations();
         var @class = template.CSharpFile.Classes.First();
         
-        var toValidateTypeName = ValidationModelResolverHelper.GetDtoTypeName(template, componentModel.InternalElement);
+        if (!ValidationModelResolverHelper.TryGetDtoTypeName(template, componentModel.InternalElement, out var toValidateTypeName))
+        {
+            return;
+        }
         if (validations.Custom())
         {
             validationRuleChain.AddChainStatement($"CustomAsync(Validate{field.Name.ToPascalCase()}Async)");
