@@ -39,7 +39,7 @@ namespace Blazor.InteractiveServer.Jwt.Components.Account
             AuthenticationState authenticationState,
             CancellationToken cancellationToken)
         {
-            return await Task.FromResult(authenticationState.User.Identity.IsAuthenticated); ;
+            return await Task.FromResult(authenticationState.User.Identity.IsAuthenticated);
         }
     }
 }

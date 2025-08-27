@@ -16,10 +16,8 @@ using AdvancedMappingCrud.Repositories.Tests.Domain.Services;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Services.DomainServices;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Services.ExtensiveDomainServices;
 using AdvancedMappingCrud.Repositories.Tests.Eventing.Messages;
-using AutoMapper;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
-using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

@@ -36,7 +36,7 @@ namespace BlazorNoMudBlazor.Api.Components.Account
         {
             await using var scope = _serviceScopeFactory.CreateAsyncScope();
             var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
-            return await ValidateSecurityStampAsync(userManager, authenticationState.User); ;
+            return await ValidateSecurityStampAsync(userManager, authenticationState.User);
         }
 
         private async Task<bool> ValidateSecurityStampAsync(

@@ -4,7 +4,6 @@ using AspNetCore.AzureServiceBus.GroupB.Application.Common.Behaviours;
 using AspNetCore.AzureServiceBus.GroupB.Application.Common.Eventing;
 using AspNetCore.AzureServiceBus.GroupB.Application.IntegrationEvents.EventHandlers;
 using Intent.RoslynWeaver.Attributes;
-using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

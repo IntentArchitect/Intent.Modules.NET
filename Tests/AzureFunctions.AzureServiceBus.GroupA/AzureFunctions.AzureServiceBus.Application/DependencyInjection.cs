@@ -1,5 +1,4 @@
 using System.Reflection;
-using AutoMapper;
 using AzureFunctions.AzureServiceBus.Application.Common.Behaviours;
 using AzureFunctions.AzureServiceBus.Application.Common.Eventing;
 using AzureFunctions.AzureServiceBus.Application.Common.Validation;
@@ -7,7 +6,6 @@ using AzureFunctions.AzureServiceBus.Application.IntegrationEvents.EventHandlers
 using AzureFunctions.AzureServiceBus.GroupB.Eventing.Messages;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
-using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

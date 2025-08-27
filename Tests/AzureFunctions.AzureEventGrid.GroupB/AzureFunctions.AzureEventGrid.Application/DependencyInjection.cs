@@ -1,5 +1,4 @@
 using System.Reflection;
-using AutoMapper;
 using AzureFunctions.AzureEventGrid.Application.Common.Behaviours;
 using AzureFunctions.AzureEventGrid.Application.Common.Eventing;
 using AzureFunctions.AzureEventGrid.Application.Common.Validation;
@@ -10,7 +9,6 @@ using AzureFunctions.AzureEventGrid.EventDomain;
 using AzureFunctions.AzureEventGrid.GroupA.Eventing.Messages;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
-using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
