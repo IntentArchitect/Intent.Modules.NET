@@ -4,6 +4,7 @@ using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 using AzureFunctions.MongoDb.Domain.Entities;
+using AzureFunctions.MongoDb.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -12,15 +13,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace AzureFunctions.MongoDb.Domain.Repositories
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IDerivedRepository : IMongoRepository<Derived>
+    public interface IDerivedRepository : IMongoRepository<Derived, IDerivedDocument, string>
     {
-        [IntentManaged(Mode.Fully)]
-        List<Derived> SearchText(string searchText, Expression<Func<Derived, bool>> filterExpression = null);
-        [IntentManaged(Mode.Fully)]
-        void Update(Derived entity);
-        [IntentManaged(Mode.Fully)]
-        Task<Derived?> FindByIdAsync(string id, CancellationToken cancellationToken = default);
-        [IntentManaged(Mode.Fully)]
-        Task<List<Derived>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default);
     }
 }

@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using MongoDb.TestApplication.Domain.Entities.Indexes;
+using MongoDb.TestApplication.Domain.Repositories.Documents.Indexes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Entities.Repositories.Api.EntityRepositoryInterface", Version = "1.0")]
@@ -13,15 +14,7 @@ using MongoDb.TestApplication.Domain.Entities.Indexes;
 namespace MongoDb.TestApplication.Domain.Repositories.Indexes
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface ITextIndexEntityMultiParentRepository : IMongoRepository<TextIndexEntityMultiParent>
+    public interface ITextIndexEntityMultiParentRepository : IMongoRepository<TextIndexEntityMultiParent, ITextIndexEntityMultiParentDocument, string>
     {
-        [IntentManaged(Mode.Fully)]
-        List<TextIndexEntityMultiParent> SearchText(string searchText, Expression<Func<TextIndexEntityMultiParent, bool>> filterExpression = null);
-        [IntentManaged(Mode.Fully)]
-        void Update(TextIndexEntityMultiParent entity);
-        [IntentManaged(Mode.Fully)]
-        Task<TextIndexEntityMultiParent?> FindByIdAsync(string id, CancellationToken cancellationToken = default);
-        [IntentManaged(Mode.Fully)]
-        Task<List<TextIndexEntityMultiParent>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default);
     }
 }

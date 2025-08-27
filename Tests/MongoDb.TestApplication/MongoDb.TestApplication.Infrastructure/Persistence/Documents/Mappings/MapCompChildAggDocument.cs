@@ -1,0 +1,60 @@
+using System;
+using Intent.RoslynWeaver.Attributes;
+using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Driver;
+using MongoDb.TestApplication.Domain.Entities.Mappings;
+using MongoDb.TestApplication.Domain.Repositories.Documents.Mappings;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.MongoDb.MongoDbDocument", Version = "1.0")]
+
+namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents.Mappings
+{
+    internal class MapCompChildAggDocument : IMapCompChildAggDocument, IMongoDbDocument<MapCompChildAgg, MapCompChildAggDocument, string>
+    {
+        [BsonId]
+        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
+        public string Id { get; set; }
+        public string CompChildAggAtt { get; set; }
+
+        public MapCompChildAgg ToEntity(MapCompChildAgg? entity = default)
+        {
+            entity ??= new MapCompChildAgg();
+
+            entity.Id = Id ?? throw new Exception($"{nameof(entity.Id)} is null");
+            entity.CompChildAggAtt = CompChildAggAtt ?? throw new Exception($"{nameof(entity.CompChildAggAtt)} is null");
+
+            return entity;
+        }
+
+        public MapCompChildAggDocument PopulateFromEntity(MapCompChildAgg entity)
+        {
+            Id = entity.Id;
+            CompChildAggAtt = entity.CompChildAggAtt;
+
+            return this;
+        }
+
+        public static MapCompChildAggDocument? FromEntity(MapCompChildAgg? entity)
+        {
+            if (entity is null)
+            {
+                return null;
+            }
+
+            return new MapCompChildAggDocument().PopulateFromEntity(entity);
+        }
+
+        public static FilterDefinition<MapCompChildAggDocument> GetIdFilter(string id)
+        {
+            return Builders<MapCompChildAggDocument>.Filter.Eq(d => d.Id, id);
+        }
+
+        public FilterDefinition<MapCompChildAggDocument> GetIdFilter() => GetIdFilter(Id);
+
+        public static FilterDefinition<MapCompChildAggDocument> GetIdsFilter(string[] ids)
+        {
+            return Builders<MapCompChildAggDocument>.Filter.In(d => d.Id, ids);
+        }
+    }
+}

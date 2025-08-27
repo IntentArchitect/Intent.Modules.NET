@@ -1,0 +1,46 @@
+using System;
+using Intent.RoslynWeaver.Attributes;
+using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Driver;
+using MongoDb.TestApplication.Domain.Entities.Mappings;
+using MongoDb.TestApplication.Domain.Repositories.Documents.Mappings;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.MongoDb.MongoDbDocument", Version = "1.0")]
+
+namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents.Mappings
+{
+    internal class MapCompChildDocument : IMapCompChildDocument
+    {
+        public string CompChildAtt { get; set; } = default!;
+        public string MapCompChildAggId { get; set; } = default!;
+
+        public MapCompChild ToEntity(MapCompChild? entity = default)
+        {
+            entity ??= new MapCompChild();
+
+            entity.CompChildAtt = CompChildAtt ?? throw new Exception($"{nameof(entity.CompChildAtt)} is null");
+            entity.MapCompChildAggId = MapCompChildAggId ?? throw new Exception($"{nameof(entity.MapCompChildAggId)} is null");
+
+            return entity;
+        }
+
+        public MapCompChildDocument PopulateFromEntity(MapCompChild entity)
+        {
+            CompChildAtt = entity.CompChildAtt;
+            MapCompChildAggId = entity.MapCompChildAggId;
+
+            return this;
+        }
+
+        public static MapCompChildDocument? FromEntity(MapCompChild? entity)
+        {
+            if (entity is null)
+            {
+                return null;
+            }
+
+            return new MapCompChildDocument().PopulateFromEntity(entity);
+        }
+    }
+}

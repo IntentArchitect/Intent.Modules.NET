@@ -37,22 +37,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="2c103348-33e1-486e-a9ef-62bcd8b1a266" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.MongoDb.ApplicationMongoDbContext</name>
-      <display>Intent.MongoDb.ApplicationMongoDbContext</display>
-      <externalReference>Intent.MongoDb</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>024f0157-0fc4-425d-9f1a-d1f98b9fc874</parentFolderId>
-      <packageId>d6b1ee2c-b65f-4edd-8b70-4ced1335c0c4</packageId>
-      <packageName>MultipleDocumentStores</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="44d47f9e-484d-483a-b082-0caf3aed2401" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.CosmosDB.CosmosDBUnitOfWork</name>
       <display>Intent.CosmosDB.CosmosDBUnitOfWork</display>
@@ -126,6 +110,20 @@
     <childElement id="270c8c64-d65b-4327-b4ae-307de220e445" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.MongoDb.MongoDbMultiTenantConnectionFactory</name>
       <display>Intent.MongoDb.MongoDbMultiTenantConnectionFactory</display>
+      <externalReference>Intent.MongoDb</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>024f0157-0fc4-425d-9f1a-d1f98b9fc874</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="56259c26-3a9c-463d-9ff4-6340880190ca" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.MongoDb.MongoDbUnitOfWork</name>
+      <display>Intent.MongoDb.MongoDbUnitOfWork</display>
       <externalReference>Intent.MongoDb</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />

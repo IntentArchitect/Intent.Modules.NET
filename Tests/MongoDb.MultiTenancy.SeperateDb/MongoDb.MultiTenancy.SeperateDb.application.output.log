@@ -561,6 +561,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>4eab8c39-f30b-4d02-9fd5-f56836387be5</ProjectId>
+      <CorrelationId>Intent.MongoDb.MongoDbDocumentInterface#7241012b-20e5-4aa3-94cc-0dc46cdb427f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.MultiTenancy.SeperateDb.Domain/Repositories/Documents/ICustomerDocument.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICustomerDocument.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>49bcad2a-3e96-4006-98d3-01e6c1c73660</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#7241012b-20e5-4aa3-94cc-0dc46cdb427f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -570,7 +578,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>49bcad2a-3e96-4006-98d3-01e6c1c73660</ProjectId>
-      <CorrelationId>Intent.MongoDb.Repositories.MongoRepositoryInterface</CorrelationId>
+      <CorrelationId>Intent.MongoDb.MongoDbRepositoryInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.MultiTenancy.SeperateDb.Domain/Repositories/IMongoRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IMongoRepository.cs</ProjectRelativeFilePath>
@@ -625,11 +633,19 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>aebb8212-565c-46ba-ad95-584669afd75a</ProjectId>
-      <CorrelationId>Intent.MongoDb.ApplicationMongoDbContext</CorrelationId>
+      <ProjectId>4f64065a-3a04-462b-888a-1c5dcdd9fb15</ProjectId>
+      <CorrelationId>Intent.MongoDb.MongoDbDocument#7241012b-20e5-4aa3-94cc-0dc46cdb427f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.MultiTenancy.SeperateDb.Infrastructure/Persistence/ApplicationMongoDbContext.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ApplicationMongoDbContext.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>MongoDb.MultiTenancy.SeperateDb.Infrastructure/Persistence/Documents/CustomerDocument.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CustomerDocument.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4f64065a-3a04-462b-888a-1c5dcdd9fb15</ProjectId>
+      <CorrelationId>Intent.MongoDb.MongoDbDocumentOfTInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.MultiTenancy.SeperateDb.Infrastructure/Persistence/Documents/IMongoDbDocument.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IMongoDbDocument.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -641,8 +657,16 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>aebb8212-565c-46ba-ad95-584669afd75a</ProjectId>
+      <CorrelationId>Intent.MongoDb.MongoDbUnitOfWork</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.MultiTenancy.SeperateDb.Infrastructure/Persistence/MongoDbUnitOfWork.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MongoDbUnitOfWork.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>5dc56826-673e-41dd-b55d-1826df9d9f5b</ProjectId>
-      <CorrelationId>Intent.MongoDb.Repositories.Repository#7241012b-20e5-4aa3-94cc-0dc46cdb427f</CorrelationId>
+      <CorrelationId>Intent.MongoDb.MongoDbRepository#7241012b-20e5-4aa3-94cc-0dc46cdb427f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.MultiTenancy.SeperateDb.Infrastructure/Repositories/CustomerMongoRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CustomerMongoRepository.cs</ProjectRelativeFilePath>
@@ -650,7 +674,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5dc56826-673e-41dd-b55d-1826df9d9f5b</ProjectId>
-      <CorrelationId>Intent.MongoDb.Repositories.PagedList</CorrelationId>
+      <CorrelationId>Intent.MongoDb.MongoDbPagedList</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.MultiTenancy.SeperateDb.Infrastructure/Repositories/MongoPagedList.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MongoPagedList.cs</ProjectRelativeFilePath>
@@ -658,7 +682,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5dc56826-673e-41dd-b55d-1826df9d9f5b</ProjectId>
-      <CorrelationId>Intent.MongoDb.Repositories.MongoRepositoryBase</CorrelationId>
+      <CorrelationId>Intent.MongoDb.MongoDbRepositoryBase</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.MultiTenancy.SeperateDb.Infrastructure/Repositories/MongoRepositoryBase.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MongoRepositoryBase.cs</ProjectRelativeFilePath>

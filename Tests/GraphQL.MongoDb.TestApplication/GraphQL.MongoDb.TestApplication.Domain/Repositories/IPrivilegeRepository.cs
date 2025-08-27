@@ -5,6 +5,7 @@ using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 using GraphQL.MongoDb.TestApplication.Domain.Entities;
+using GraphQL.MongoDb.TestApplication.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -13,15 +14,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace GraphQL.MongoDb.TestApplication.Domain.Repositories
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IPrivilegeRepository : IMongoRepository<Privilege>
+    public interface IPrivilegeRepository : IMongoRepository<Privilege, IPrivilegeDocument, string>
     {
-        [IntentManaged(Mode.Fully)]
-        List<Privilege> SearchText(string searchText, Expression<Func<Privilege, bool>> filterExpression = null);
-        [IntentManaged(Mode.Fully)]
-        void Update(Privilege entity);
-        [IntentManaged(Mode.Fully)]
-        Task<Privilege?> FindByIdAsync(string id, CancellationToken cancellationToken = default);
-        [IntentManaged(Mode.Fully)]
-        Task<List<Privilege>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default);
     }
 }

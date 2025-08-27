@@ -1,33 +1,27 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
+using MongoDB.Driver;
 using MongoDb.TestApplication.Domain.Entities.ToManyIds;
 using MongoDb.TestApplication.Domain.Repositories;
+using MongoDb.TestApplication.Domain.Repositories.Documents.ToManyIds;
 using MongoDb.TestApplication.Domain.Repositories.ToManyIds;
 using MongoDb.TestApplication.Infrastructure.Persistence;
+using MongoDb.TestApplication.Infrastructure.Persistence.Documents.ToManyIds;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.MongoDb.Repositories.Repository", Version = "1.0")]
+[assembly: IntentTemplate("Intent.MongoDb.MongoDbRepository", Version = "1.0")]
 
 namespace MongoDb.TestApplication.Infrastructure.Repositories.ToManyIds
 {
-    public class ToManySourceMongoRepository : MongoRepositoryBase<ToManySource>, IToManySourceRepository
+    internal class ToManySourceMongoRepository : MongoRepositoryBase<ToManySource, ToManySourceDocument, IToManySourceDocument, string>, IToManySourceRepository
     {
-        public ToManySourceMongoRepository(ApplicationMongoDbContext context) : base(context)
+        public ToManySourceMongoRepository(IMongoCollection<ToManySourceDocument> collection, MongoDbUnitOfWork unitOfWork) : base(collection, unitOfWork)
         {
-        }
-
-        public async Task<ToManySource?> FindByIdAsync(string id, CancellationToken cancellationToken = default)
-        {
-            return await FindAsync(x => x.Id == id, cancellationToken);
-        }
-
-        public async Task<List<ToManySource>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default)
-        {
-            return await FindAllAsync(x => ids.Contains(x.Id), cancellationToken);
         }
     }
 }

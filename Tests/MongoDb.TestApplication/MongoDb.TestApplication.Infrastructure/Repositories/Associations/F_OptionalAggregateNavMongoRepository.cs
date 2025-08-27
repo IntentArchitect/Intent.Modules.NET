@@ -1,35 +1,28 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
+using MongoDB.Driver;
 using MongoDb.TestApplication.Domain.Entities.Associations;
 using MongoDb.TestApplication.Domain.Repositories;
 using MongoDb.TestApplication.Domain.Repositories.Associations;
+using MongoDb.TestApplication.Domain.Repositories.Documents.Associations;
 using MongoDb.TestApplication.Infrastructure.Persistence;
+using MongoDb.TestApplication.Infrastructure.Persistence.Documents.Associations;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.MongoDb.Repositories.Repository", Version = "1.0")]
+[assembly: IntentTemplate("Intent.MongoDb.MongoDbRepository", Version = "1.0")]
 
 namespace MongoDb.TestApplication.Infrastructure.Repositories.Associations
 {
-    public class F_OptionalAggregateNavMongoRepository : MongoRepositoryBase<F_OptionalAggregateNav>, IF_OptionalAggregateNavRepository
+    internal class F_OptionalAggregateNavMongoRepository : MongoRepositoryBase<F_OptionalAggregateNav, F_OptionalAggregateNavDocument, IF_OptionalAggregateNavDocument, string>, IF_OptionalAggregateNavRepository
     {
-        public F_OptionalAggregateNavMongoRepository(ApplicationMongoDbContext context) : base(context)
+        public F_OptionalAggregateNavMongoRepository(IMongoCollection<F_OptionalAggregateNavDocument> collection,
+            MongoDbUnitOfWork unitOfWork) : base(collection, unitOfWork)
         {
-        }
-
-        public async Task<F_OptionalAggregateNav?> FindByIdAsync(string id, CancellationToken cancellationToken = default)
-        {
-            return await FindAsync(x => x.Id == id, cancellationToken);
-        }
-
-        public async Task<List<F_OptionalAggregateNav>> FindByIdsAsync(
-            string[] ids,
-            CancellationToken cancellationToken = default)
-        {
-            return await FindAllAsync(x => ids.Contains(x.Id), cancellationToken);
         }
     }
 }

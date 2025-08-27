@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using MongoDb.TestApplication.Domain.Entities.Indexes;
+using MongoDb.TestApplication.Domain.Repositories.Documents.Indexes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Entities.Repositories.Api.EntityRepositoryInterface", Version = "1.0")]
@@ -13,15 +14,7 @@ using MongoDb.TestApplication.Domain.Entities.Indexes;
 namespace MongoDb.TestApplication.Domain.Repositories.Indexes
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IMultikeyIndexEntitySingleParentRepository : IMongoRepository<MultikeyIndexEntitySingleParent>
+    public interface IMultikeyIndexEntitySingleParentRepository : IMongoRepository<MultikeyIndexEntitySingleParent, IMultikeyIndexEntitySingleParentDocument, string>
     {
-        [IntentManaged(Mode.Fully)]
-        List<MultikeyIndexEntitySingleParent> SearchText(string searchText, Expression<Func<MultikeyIndexEntitySingleParent, bool>> filterExpression = null);
-        [IntentManaged(Mode.Fully)]
-        void Update(MultikeyIndexEntitySingleParent entity);
-        [IntentManaged(Mode.Fully)]
-        Task<MultikeyIndexEntitySingleParent?> FindByIdAsync(string id, CancellationToken cancellationToken = default);
-        [IntentManaged(Mode.Fully)]
-        Task<List<MultikeyIndexEntitySingleParent>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default);
     }
 }

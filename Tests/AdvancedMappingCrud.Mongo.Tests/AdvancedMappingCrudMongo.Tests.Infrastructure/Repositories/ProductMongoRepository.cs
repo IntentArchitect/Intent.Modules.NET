@@ -1,32 +1,26 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 using AdvancedMappingCrudMongo.Tests.Domain.Entities;
 using AdvancedMappingCrudMongo.Tests.Domain.Repositories;
+using AdvancedMappingCrudMongo.Tests.Domain.Repositories.Documents;
 using AdvancedMappingCrudMongo.Tests.Infrastructure.Persistence;
+using AdvancedMappingCrudMongo.Tests.Infrastructure.Persistence.Documents;
 using Intent.RoslynWeaver.Attributes;
+using MongoDB.Driver;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.MongoDb.Repositories.Repository", Version = "1.0")]
+[assembly: IntentTemplate("Intent.MongoDb.MongoDbRepository", Version = "1.0")]
 
 namespace AdvancedMappingCrudMongo.Tests.Infrastructure.Repositories
 {
-    public class ProductMongoRepository : MongoRepositoryBase<Product>, IProductRepository
+    internal class ProductMongoRepository : MongoRepositoryBase<Product, ProductDocument, IProductDocument, string>, IProductRepository
     {
-        public ProductMongoRepository(ApplicationMongoDbContext context) : base(context)
+        public ProductMongoRepository(IMongoCollection<ProductDocument> collection, MongoDbUnitOfWork unitOfWork) : base(collection, unitOfWork)
         {
-        }
-
-        public async Task<Product?> FindByIdAsync(string id, CancellationToken cancellationToken = default)
-        {
-            return await FindAsync(x => x.Id == id, cancellationToken);
-        }
-
-        public async Task<List<Product>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default)
-        {
-            return await FindAllAsync(x => ids.Contains(x.Id), cancellationToken);
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 using AzureFunctions.MongoDb.Domain.Entities.Indexes;
+using AzureFunctions.MongoDb.Domain.Repositories.Documents.Indexes;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -12,15 +13,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace AzureFunctions.MongoDb.Domain.Repositories.Indexes
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IMultikeyIndexEntityMultiParentRepository : IMongoRepository<MultikeyIndexEntityMultiParent>
+    public interface IMultikeyIndexEntityMultiParentRepository : IMongoRepository<MultikeyIndexEntityMultiParent, IMultikeyIndexEntityMultiParentDocument, string>
     {
-        [IntentManaged(Mode.Fully)]
-        List<MultikeyIndexEntityMultiParent> SearchText(string searchText, Expression<Func<MultikeyIndexEntityMultiParent, bool>> filterExpression = null);
-        [IntentManaged(Mode.Fully)]
-        void Update(MultikeyIndexEntityMultiParent entity);
-        [IntentManaged(Mode.Fully)]
-        Task<MultikeyIndexEntityMultiParent?> FindByIdAsync(string id, CancellationToken cancellationToken = default);
-        [IntentManaged(Mode.Fully)]
-        Task<List<MultikeyIndexEntityMultiParent>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default);
     }
 }

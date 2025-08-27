@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using MongoDb.TestApplication.Domain.Entities.Collections.FolderCollection;
+using MongoDb.TestApplication.Domain.Repositories.Documents.Collections.FolderCollection;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Entities.Repositories.Api.EntityRepositoryInterface", Version = "1.0")]
@@ -12,15 +13,7 @@ using MongoDb.TestApplication.Domain.Entities.Collections.FolderCollection;
 namespace MongoDb.TestApplication.Domain.Repositories.Collections.FolderCollection
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IFolderCollectionEntityARepository : IMongoRepository<FolderCollectionEntityA>
+    public interface IFolderCollectionEntityARepository : IMongoRepository<FolderCollectionEntityA, IFolderCollectionEntityADocument, string>
     {
-        [IntentManaged(Mode.Fully)]
-        List<FolderCollectionEntityA> SearchText(string searchText, Expression<Func<FolderCollectionEntityA, bool>> filterExpression = null);
-        [IntentManaged(Mode.Fully)]
-        void Update(FolderCollectionEntityA entity);
-        [IntentManaged(Mode.Fully)]
-        Task<FolderCollectionEntityA?> FindByIdAsync(string id, CancellationToken cancellationToken = default);
-        [IntentManaged(Mode.Fully)]
-        Task<List<FolderCollectionEntityA>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default);
     }
 }

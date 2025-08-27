@@ -4,6 +4,7 @@ using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 using AzureFunctions.MongoDb.Domain.Entities.IdTypes;
+using AzureFunctions.MongoDb.Domain.Repositories.Documents.IdTypes;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -12,15 +13,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace AzureFunctions.MongoDb.Domain.Repositories.IdTypes
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IIdTypeGuidRepository : IMongoRepository<IdTypeGuid>
+    public interface IIdTypeGuidRepository : IMongoRepository<IdTypeGuid, IIdTypeGuidDocument, Guid>
     {
-        [IntentManaged(Mode.Fully)]
-        List<IdTypeGuid> SearchText(string searchText, Expression<Func<IdTypeGuid, bool>> filterExpression = null);
-        [IntentManaged(Mode.Fully)]
-        void Update(IdTypeGuid entity);
-        [IntentManaged(Mode.Fully)]
-        Task<IdTypeGuid?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
-        [IntentManaged(Mode.Fully)]
-        Task<List<IdTypeGuid>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }
 }

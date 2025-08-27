@@ -1,0 +1,60 @@
+using System;
+using Intent.RoslynWeaver.Attributes;
+using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Driver;
+using MongoDb.TestApplication.Domain.Entities.Mappings;
+using MongoDb.TestApplication.Domain.Repositories.Documents.Mappings;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.MongoDb.MongoDbDocument", Version = "1.0")]
+
+namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents.Mappings
+{
+    internal class MapPeerCompChildAggDocument : IMapPeerCompChildAggDocument, IMongoDbDocument<MapPeerCompChildAgg, MapPeerCompChildAggDocument, string>
+    {
+        [BsonId]
+        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
+        public string Id { get; set; }
+        public string MapPeerCompChildAggAtt { get; set; }
+
+        public MapPeerCompChildAgg ToEntity(MapPeerCompChildAgg? entity = default)
+        {
+            entity ??= new MapPeerCompChildAgg();
+
+            entity.Id = Id ?? throw new Exception($"{nameof(entity.Id)} is null");
+            entity.MapPeerCompChildAggAtt = MapPeerCompChildAggAtt ?? throw new Exception($"{nameof(entity.MapPeerCompChildAggAtt)} is null");
+
+            return entity;
+        }
+
+        public MapPeerCompChildAggDocument PopulateFromEntity(MapPeerCompChildAgg entity)
+        {
+            Id = entity.Id;
+            MapPeerCompChildAggAtt = entity.MapPeerCompChildAggAtt;
+
+            return this;
+        }
+
+        public static MapPeerCompChildAggDocument? FromEntity(MapPeerCompChildAgg? entity)
+        {
+            if (entity is null)
+            {
+                return null;
+            }
+
+            return new MapPeerCompChildAggDocument().PopulateFromEntity(entity);
+        }
+
+        public static FilterDefinition<MapPeerCompChildAggDocument> GetIdFilter(string id)
+        {
+            return Builders<MapPeerCompChildAggDocument>.Filter.Eq(d => d.Id, id);
+        }
+
+        public FilterDefinition<MapPeerCompChildAggDocument> GetIdFilter() => GetIdFilter(Id);
+
+        public static FilterDefinition<MapPeerCompChildAggDocument> GetIdsFilter(string[] ids)
+        {
+            return Builders<MapPeerCompChildAggDocument>.Filter.In(d => d.Id, ids);
+        }
+    }
+}

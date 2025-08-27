@@ -1,35 +1,28 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
+using MongoDB.Driver;
 using MongoDb.TestApplication.Domain.Entities.Associations;
 using MongoDb.TestApplication.Domain.Repositories;
 using MongoDb.TestApplication.Domain.Repositories.Associations;
+using MongoDb.TestApplication.Domain.Repositories.Documents.Associations;
 using MongoDb.TestApplication.Infrastructure.Persistence;
+using MongoDb.TestApplication.Infrastructure.Persistence.Documents.Associations;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.MongoDb.Repositories.Repository", Version = "1.0")]
+[assembly: IntentTemplate("Intent.MongoDb.MongoDbRepository", Version = "1.0")]
 
 namespace MongoDb.TestApplication.Infrastructure.Repositories.Associations
 {
-    public class A_RequiredCompositeMongoRepository : MongoRepositoryBase<A_RequiredComposite>, IA_RequiredCompositeRepository
+    internal class A_RequiredCompositeMongoRepository : MongoRepositoryBase<A_RequiredComposite, A_RequiredCompositeDocument, IA_RequiredCompositeDocument, string>, IA_RequiredCompositeRepository
     {
-        public A_RequiredCompositeMongoRepository(ApplicationMongoDbContext context) : base(context)
+        public A_RequiredCompositeMongoRepository(IMongoCollection<A_RequiredCompositeDocument> collection,
+            MongoDbUnitOfWork unitOfWork) : base(collection, unitOfWork)
         {
-        }
-
-        public async Task<A_RequiredComposite?> FindByIdAsync(string id, CancellationToken cancellationToken = default)
-        {
-            return await FindAsync(x => x.Id == id, cancellationToken);
-        }
-
-        public async Task<List<A_RequiredComposite>> FindByIdsAsync(
-            string[] ids,
-            CancellationToken cancellationToken = default)
-        {
-            return await FindAllAsync(x => ids.Contains(x.Id), cancellationToken);
         }
     }
 }

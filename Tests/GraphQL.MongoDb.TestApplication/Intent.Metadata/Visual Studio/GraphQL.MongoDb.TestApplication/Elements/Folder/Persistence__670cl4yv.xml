@@ -21,25 +21,23 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="55f8041a-f9f6-4d56-bea1-30f2db430465" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.MongoDb.ApplicationMongoDbContext</name>
-      <display>Intent.MongoDb.ApplicationMongoDbContext</display>
+    <childElement id="15e9ddc9-494a-4c75-8ed5-c88010cfe4a8" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.MongoDb.MongoDbMultiTenantConnectionFactory</name>
+      <display>Intent.MongoDb.MongoDbMultiTenantConnectionFactory</display>
       <externalReference>Intent.MongoDb</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>0075165a-c8cd-4218-b4ac-3fc9894eac4c</parentFolderId>
-      <packageId>e7bb0f4e-f966-469b-b10f-2e6cafd531df</packageId>
-      <packageName>GraphQL.MongoDb.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="15e9ddc9-494a-4c75-8ed5-c88010cfe4a8" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.MongoDb.MongoDbMultiTenantConnectionFactory</name>
-      <display>Intent.MongoDb.MongoDbMultiTenantConnectionFactory</display>
+    <childElement id="1129cd86-63f8-4bad-aa7a-e8c57baec373" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.MongoDb.MongoDbUnitOfWork</name>
+      <display>Intent.MongoDb.MongoDbUnitOfWork</display>
       <externalReference>Intent.MongoDb</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />

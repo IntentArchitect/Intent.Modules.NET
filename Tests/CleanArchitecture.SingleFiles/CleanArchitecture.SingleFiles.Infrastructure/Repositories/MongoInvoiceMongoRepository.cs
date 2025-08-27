@@ -1,32 +1,26 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 using CleanArchitecture.SingleFiles.Domain.Entities;
 using CleanArchitecture.SingleFiles.Domain.Repositories;
+using CleanArchitecture.SingleFiles.Domain.Repositories.Documents;
 using CleanArchitecture.SingleFiles.Infrastructure.Persistence;
+using CleanArchitecture.SingleFiles.Infrastructure.Persistence.Documents;
 using Intent.RoslynWeaver.Attributes;
+using MongoDB.Driver;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.MongoDb.Repositories.Repository", Version = "1.0")]
+[assembly: IntentTemplate("Intent.MongoDb.MongoDbRepository", Version = "1.0")]
 
 namespace CleanArchitecture.SingleFiles.Infrastructure.Repositories
 {
-    public class MongoInvoiceMongoRepository : MongoRepositoryBase<MongoInvoice>, IMongoInvoiceRepository
+    internal class MongoInvoiceMongoRepository : MongoRepositoryBase<MongoInvoice, MongoInvoiceDocument, IMongoInvoiceDocument, string>, IMongoInvoiceRepository
     {
-        public MongoInvoiceMongoRepository(ApplicationMongoDbContext context) : base(context)
+        public MongoInvoiceMongoRepository(IMongoCollection<MongoInvoiceDocument> collection, MongoDbUnitOfWork unitOfWork) : base(collection, unitOfWork)
         {
-        }
-
-        public async Task<MongoInvoice?> FindByIdAsync(string id, CancellationToken cancellationToken = default)
-        {
-            return await FindAsync(x => x.Id == id, cancellationToken);
-        }
-
-        public async Task<List<MongoInvoice>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default)
-        {
-            return await FindAllAsync(x => ids.Contains(x.Id), cancellationToken);
         }
     }
 }

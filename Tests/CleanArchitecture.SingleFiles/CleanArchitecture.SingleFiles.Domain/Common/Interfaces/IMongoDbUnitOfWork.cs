@@ -7,8 +7,8 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.SingleFiles.Domain.Common.Interfaces
 {
-    public interface IMongoDbUnitOfWork : IUnitOfWork
+    public interface IMongoDbUnitOfWork
     {
-        Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
+        Task SaveChangesAsync(CancellationToken cancellationToken = default);
     }
 }

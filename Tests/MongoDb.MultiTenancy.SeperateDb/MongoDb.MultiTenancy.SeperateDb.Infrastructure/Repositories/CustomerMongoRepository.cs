@@ -1,32 +1,26 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
+using MongoDB.Driver;
 using MongoDb.MultiTenancy.SeperateDb.Domain.Entities;
 using MongoDb.MultiTenancy.SeperateDb.Domain.Repositories;
+using MongoDb.MultiTenancy.SeperateDb.Domain.Repositories.Documents;
 using MongoDb.MultiTenancy.SeperateDb.Infrastructure.Persistence;
+using MongoDb.MultiTenancy.SeperateDb.Infrastructure.Persistence.Documents;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.MongoDb.Repositories.Repository", Version = "1.0")]
+[assembly: IntentTemplate("Intent.MongoDb.MongoDbRepository", Version = "1.0")]
 
 namespace MongoDb.MultiTenancy.SeperateDb.Infrastructure.Repositories
 {
-    public class CustomerMongoRepository : MongoRepositoryBase<Customer>, ICustomerRepository
+    internal class CustomerMongoRepository : MongoRepositoryBase<Customer, CustomerDocument, ICustomerDocument, string>, ICustomerRepository
     {
-        public CustomerMongoRepository(ApplicationMongoDbContext context) : base(context)
+        public CustomerMongoRepository(IMongoCollection<CustomerDocument> collection, MongoDbUnitOfWork unitOfWork) : base(collection, unitOfWork)
         {
-        }
-
-        public async Task<Customer?> FindByIdAsync(string id, CancellationToken cancellationToken = default)
-        {
-            return await FindAsync(x => x.Id == id, cancellationToken);
-        }
-
-        public async Task<List<Customer>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default)
-        {
-            return await FindAllAsync(x => ids.Contains(x.Id), cancellationToken);
         }
     }
 }
