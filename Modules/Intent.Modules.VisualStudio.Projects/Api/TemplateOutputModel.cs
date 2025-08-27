@@ -38,7 +38,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
             _element = element;
         }
 
-        public bool IsApplicableFor<TModel>(TModel model)
+        public bool IsApplicableToModel<TModel>(TModel model)
         {
             LazyInitializer.EnsureInitialized(ref _cacheableRegistrationFilter, ref _cacheableRegistrationFilterLock, () =>
             {
