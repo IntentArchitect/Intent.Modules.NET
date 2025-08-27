@@ -37,7 +37,7 @@ namespace Blazor.InteractiveServer.AspNetCoreIdentity.Components.Account
         {
             await using var scope = _serviceScopeFactory.CreateAsyncScope();
             var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
-            return await ValidateSecurityStampAsync(userManager, authenticationState.User); ;
+            return await ValidateSecurityStampAsync(userManager, authenticationState.User);
         }
 
         private async Task<bool> ValidateSecurityStampAsync(
