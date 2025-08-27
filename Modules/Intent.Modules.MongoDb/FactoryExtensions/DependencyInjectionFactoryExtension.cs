@@ -63,7 +63,7 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
 
                     var teneantConnectionsTemplate = dependencyInjection.GetTemplate<ICSharpFileBuilderTemplate>("Intent.Modules.AspNetCore.MultiTenancy.TenantConnectionsInterfaceTemplate");
                     dependencyInjection.AddUsing("Finbuckle.MultiTenant");
-                    method.AddStatement(@$"services.AddScoped<IMongoDbConnection>(provider =>
+                    method.AddStatement(@$"services.AddScoped<IMongoDatabase>(provider =>
                     {{
                         var tenantConnections = provider.GetService<{dependencyInjection.GetTypeName(teneantConnectionsTemplate)}>();
                         if (tenantConnections is null || tenantConnections.MongoDbConnection is null)
@@ -72,6 +72,23 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
                         }}
                         return provider.GetRequiredService<{dependencyInjection.GetMongoDbMultiTenantConnectionFactoryName()}>().GetConnection(tenantConnections.MongoDbConnection);
                     }});");
+
+                    foreach (var model in dependencyInjection.ExecutionContext.FindTemplateInstances<ICSharpFileBuilderTemplate>("Intent.MongoDb.MongoDbDocument"))
+                    {
+                        dependencyInjection.GetTypeName(model);
+                        if (!model.CSharpFile.Classes.First().IsAbstract)
+                        {
+                            if (model.ClassName == "BaseTypeDocument")
+                            {
+                                var p = 1;
+                            }
+                            method.AddStatement(@$"services.AddScoped<IMongoCollection<{model.ClassName}>>(sp =>
+                            {{
+                                var database = sp.GetRequiredService<IMongoDatabase>();
+                                return database.GetCollection<{model.ClassName}>(""{model.ClassName.Replace("Document", "")}"");
+                            }});");
+                        }
+                    }
                 }
                 else
                 {
