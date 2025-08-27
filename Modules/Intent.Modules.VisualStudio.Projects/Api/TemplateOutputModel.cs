@@ -1,7 +1,8 @@
-//extern alias DynamicLinq;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Threading;
 using Intent.Configuration;
 using Intent.Exceptions;
 using Intent.Metadata.Models;
@@ -18,8 +19,10 @@ namespace Intent.Modules.VisualStudio.Projects.Api
     [IntentManaged(Mode.Merge)]
     public class TemplateOutputModel : IHasStereotypes, IMetadataModel, IOutputTargetTemplate, IHasName, IElementWrapper
     {
-        private static readonly ParsingConfig _parsingConfig = new();
+        private static readonly ParsingConfig ParsingConfig = new();
+        private object _cacheableRegistrationFilterLock = new();
 
+        private Func<object, bool> _cacheableRegistrationFilter;
         public const string SpecializationType = "Template Output";
         public const string SpecializationTypeId = "d421c322-7a51-4094-89fa-e5d8a0a97b27";
         protected readonly IElement _element;
@@ -31,20 +34,25 @@ namespace Intent.Modules.VisualStudio.Projects.Api
             {
                 throw new Exception($"Cannot create a '{GetType().Name}' from element with specialization type '{element.SpecializationType}'. Must be of type '{SpecializationType}'");
             }
+
             _element = element;
         }
 
         public bool IsApplicableFor<TModel>(TModel model)
         {
-            if (!this.TryGetTemplateOutputSettings(out var settings) ||
-                string.IsNullOrWhiteSpace(settings.RegistrationFilter()))
+            LazyInitializer.EnsureInitialized(ref _cacheableRegistrationFilter, ref _cacheableRegistrationFilterLock, () =>
             {
-                return true;
-            }
+                if (!this.TryGetTemplateOutputSettings(out var settings) ||
+                    string.IsNullOrWhiteSpace(settings.RegistrationFilter()))
+                {
+                    return _ => true;
+                }
 
-            var compiledExpression = DynamicExpressionParser.ParseLambda<TModel, bool>(_parsingConfig, true, settings.RegistrationFilter()).Compile();
+                var compiledExpression = DynamicExpressionParser.ParseLambda<TModel, bool>(ParsingConfig, true, settings.RegistrationFilter()).Compile();
+                return _cacheableRegistrationFilter = parameter => compiledExpression((TModel)parameter);
+            });
 
-            return compiledExpression(model);
+            return _cacheableRegistrationFilter(model);
         }
 
         public string Id => _element.Id;
@@ -53,7 +61,11 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         string IOutputTargetTemplate.Id => _element.Name;
 
         [IntentManaged(Mode.Ignore)]
-        string IOutputTargetTemplate.UniqueIdentifier => _element.Id;
+        bool IOutputTargetTemplate.TryGetElementId([NotNullWhen(true)] out string id)
+        {
+            id = _element.Id;
+            return true;
+        }
 
         public string Name => _element.Name;
 
