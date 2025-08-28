@@ -1,3 +1,6 @@
+using System;
+using System.Linq;
+using System.Linq.Expressions;
 using AzureFunctions.MongoDb.Domain.Entities.ToManyIds;
 using AzureFunctions.MongoDb.Domain.Repositories.Documents.ToManyIds;
 using Intent.RoslynWeaver.Attributes;

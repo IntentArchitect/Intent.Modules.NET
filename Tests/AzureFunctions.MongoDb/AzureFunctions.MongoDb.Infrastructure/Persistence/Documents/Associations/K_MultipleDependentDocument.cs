@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using AzureFunctions.MongoDb.Domain.Entities.Associations;
 using AzureFunctions.MongoDb.Domain.Repositories.Documents.Associations;
 using Intent.RoslynWeaver.Attributes;
@@ -60,6 +61,16 @@ namespace AzureFunctions.MongoDb.Infrastructure.Persistence.Documents.Associatio
         public static FilterDefinition<K_MultipleDependentDocument> GetIdsFilter(string[] ids)
         {
             return Builders<K_MultipleDependentDocument>.Filter.In(d => d.Id, ids);
+        }
+
+        public static Expression<Func<K_MultipleDependentDocument, bool>> GetIdFilterPredicate(string id)
+        {
+            return x => x.Id == id;
+        }
+
+        public static Expression<Func<K_MultipleDependentDocument, bool>> GetIdsFilterPredicate(string[] ids)
+        {
+            return x => ids.Contains(x.Id);
         }
     }
 }

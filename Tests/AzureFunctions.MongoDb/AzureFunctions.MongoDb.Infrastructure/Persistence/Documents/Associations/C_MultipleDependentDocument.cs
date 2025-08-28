@@ -1,4 +1,6 @@
 using System;
+using System.Linq;
+using System.Linq.Expressions;
 using AzureFunctions.MongoDb.Domain.Entities.Associations;
 using AzureFunctions.MongoDb.Domain.Repositories.Documents.Associations;
 using Intent.RoslynWeaver.Attributes;

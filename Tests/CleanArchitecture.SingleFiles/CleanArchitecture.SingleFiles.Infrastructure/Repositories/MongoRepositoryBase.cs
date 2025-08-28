@@ -54,16 +54,16 @@ namespace CleanArchitecture.SingleFiles.Infrastructure.Repositories
 
         public virtual async Task<TDomain> FindByIdAsync(TIdentifier id, CancellationToken cancellationToken = default)
         {
-            var cursor = await _collection.FindAsync(TDocument.GetIdFilter(id));
-            return LoadAndTrackDocument(cursor.Single());
+            var result = QueryInternalTDocument(TDocument.GetIdFilterPredicate(id)).Single();
+            return LoadAndTrackDocument(result);
         }
 
         public virtual async Task<List<TDomain>> FindByIdsAsync(
             TIdentifier[] ids,
             CancellationToken cancellationToken = default)
         {
-            var cursor = await _collection.FindAsync(TDocument.GetIdsFilter(ids));
-            return LoadAndTrackDocuments(cursor.ToEnumerable()).ToList();
+            var result = QueryInternalTDocument(TDocument.GetIdsFilterPredicate(ids));
+            return LoadAndTrackDocuments(result).ToList();
         }
 
         public virtual void Update(TDomain entity)
@@ -274,14 +274,14 @@ namespace CleanArchitecture.SingleFiles.Infrastructure.Repositories
 
         protected virtual IQueryable<TDocument> QueryInternal(Expression<Func<TDocumentInterface, bool>>? filterExpression)
         {
-            var queryable = _collection.AsQueryable();
+            Expression<Func<TDocument, bool>>? filterAdapted = null;
 
             if (filterExpression != null)
             {
-                queryable = queryable.Where(AdaptFilterPredicate(filterExpression));
+                filterAdapted = AdaptFilterPredicate(filterExpression);
             }
 
-            return queryable;
+            return QueryInternalTDocument(filterAdapted);
         }
 
         protected virtual IQueryable<TDocument> QueryInternal(
@@ -292,6 +292,18 @@ namespace CleanArchitecture.SingleFiles.Infrastructure.Repositories
             var castable = linq(queryable.Cast<TDocumentInterface>());
 
             return castable.Cast<TDocument>();
+        }
+
+        protected virtual IQueryable<TDocument> QueryInternalTDocument(Expression<Func<TDocument, bool>>? filterExpression)
+        {
+            var queryable = _collection.AsQueryable();
+
+            if (filterExpression != null)
+            {
+                queryable = queryable.Where(filterExpression);
+            }
+
+            return queryable;
         }
 
         /// <summary>

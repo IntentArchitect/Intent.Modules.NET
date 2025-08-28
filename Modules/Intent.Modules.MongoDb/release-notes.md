@@ -1,3 +1,15 @@
+### Version 2.0.0
+
+- Improvement: Migrated from MongoFramework to MongoDB.Driver.
+
+    Breaking Change: Requires update to `Intent.MongoDb.Repositories version 2.0.0.`
+
+    Note: If you still wish to use MongoFramework, uninstall the `Intent.MongoDb` and `Intent.MongoDb.Repositories` modules and instead install:
+
+    `Intent.MongoDb.MongoFramework`
+
+    `Intent.MongoDb.MongoFramework.Repositories`
+
 ### Version 1.0.26
 
 - Improvement: Updated NuGet package versions.

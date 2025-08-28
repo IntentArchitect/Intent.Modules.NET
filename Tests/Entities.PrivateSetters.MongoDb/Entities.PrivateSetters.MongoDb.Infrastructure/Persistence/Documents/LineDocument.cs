@@ -1,4 +1,6 @@
 using System;
+using System.Linq;
+using System.Linq.Expressions;
 using Entities.PrivateSetters.MongoDb.Domain.Entities;
 using Entities.PrivateSetters.MongoDb.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;

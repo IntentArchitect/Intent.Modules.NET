@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using GraphQL.MongoDb.TestApplication.Domain.Entities;
 using GraphQL.MongoDb.TestApplication.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;
@@ -66,6 +67,16 @@ namespace GraphQL.MongoDb.TestApplication.Infrastructure.Persistence.Documents
         public static FilterDefinition<UserDocument> GetIdsFilter(string[] ids)
         {
             return Builders<UserDocument>.Filter.In(d => d.Id, ids);
+        }
+
+        public static Expression<Func<UserDocument, bool>> GetIdFilterPredicate(string id)
+        {
+            return x => x.Id == id;
+        }
+
+        public static Expression<Func<UserDocument, bool>> GetIdsFilterPredicate(string[] ids)
+        {
+            return x => ids.Contains(x.Id);
         }
     }
 }

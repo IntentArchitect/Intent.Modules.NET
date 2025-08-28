@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using AzureFunctions.MongoDb.Domain.Entities.Mappings;
 using AzureFunctions.MongoDb.Domain.Repositories.Documents.Mappings;
 using Intent.RoslynWeaver.Attributes;
@@ -72,6 +73,16 @@ namespace AzureFunctions.MongoDb.Infrastructure.Persistence.Documents.Mappings
         public static FilterDefinition<MapperRootDocument> GetIdsFilter(string[] ids)
         {
             return Builders<MapperRootDocument>.Filter.In(d => d.Id, ids);
+        }
+
+        public static Expression<Func<MapperRootDocument, bool>> GetIdFilterPredicate(string id)
+        {
+            return x => x.Id == id;
+        }
+
+        public static Expression<Func<MapperRootDocument, bool>> GetIdsFilterPredicate(string[] ids)
+        {
+            return x => ids.Contains(x.Id);
         }
     }
 }

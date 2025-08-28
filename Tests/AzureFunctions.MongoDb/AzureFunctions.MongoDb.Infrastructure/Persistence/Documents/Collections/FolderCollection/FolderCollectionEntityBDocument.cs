@@ -1,4 +1,6 @@
 using System;
+using System.Linq;
+using System.Linq.Expressions;
 using AzureFunctions.MongoDb.Domain.Entities.Collections.FolderCollection;
 using AzureFunctions.MongoDb.Domain.Repositories.Documents.Collections.FolderCollection;
 using Intent.RoslynWeaver.Attributes;
@@ -55,6 +57,16 @@ namespace AzureFunctions.MongoDb.Infrastructure.Persistence.Documents.Collection
         public static FilterDefinition<FolderCollectionEntityBDocument> GetIdsFilter(string[] ids)
         {
             return Builders<FolderCollectionEntityBDocument>.Filter.In(d => d.Id, ids);
+        }
+
+        public static Expression<Func<FolderCollectionEntityBDocument, bool>> GetIdFilterPredicate(string id)
+        {
+            return x => x.Id == id;
+        }
+
+        public static Expression<Func<FolderCollectionEntityBDocument, bool>> GetIdsFilterPredicate(string[] ids)
+        {
+            return x => ids.Contains(x.Id);
         }
     }
 }

@@ -1,3 +1,5 @@
+using System;
+using System.Linq.Expressions;
 using Intent.RoslynWeaver.Attributes;
 using MongoDB.Driver;
 
@@ -15,5 +17,7 @@ namespace AdvancedMappingCrudMongo.Tests.Infrastructure.Persistence.Documents
         static abstract FilterDefinition<TDocument> GetIdFilter(TIdentifier id);
         FilterDefinition<TDocument> GetIdFilter();
         static abstract FilterDefinition<TDocument> GetIdsFilter(TIdentifier[] ids);
+        static abstract Expression<Func<TDocument, bool>> GetIdFilterPredicate(TIdentifier id);
+        static abstract Expression<Func<TDocument, bool>> GetIdsFilterPredicate(TIdentifier[] ids);
     }
 }

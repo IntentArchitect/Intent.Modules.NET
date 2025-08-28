@@ -1,4 +1,6 @@
 using System;
+using System.Linq;
+using System.Linq.Expressions;
 using Intent.RoslynWeaver.Attributes;
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Driver;
@@ -58,6 +60,16 @@ namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents.Associati
         public static FilterDefinition<F_OptionalAggregateNavDocument> GetIdsFilter(string[] ids)
         {
             return Builders<F_OptionalAggregateNavDocument>.Filter.In(d => d.Id, ids);
+        }
+
+        public static Expression<Func<F_OptionalAggregateNavDocument, bool>> GetIdFilterPredicate(string id)
+        {
+            return x => x.Id == id;
+        }
+
+        public static Expression<Func<F_OptionalAggregateNavDocument, bool>> GetIdsFilterPredicate(string[] ids)
+        {
+            return x => ids.Contains(x.Id);
         }
     }
 }

@@ -1,4 +1,6 @@
 using System;
+using System.Linq;
+using System.Linq.Expressions;
 using CleanArchitecture.SingleFiles.Domain.Entities;
 using CleanArchitecture.SingleFiles.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;

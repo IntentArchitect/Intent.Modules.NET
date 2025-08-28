@@ -289,6 +289,24 @@ namespace Intent.Modules.MongoDb.Templates
                 {
                     method.WithExpressionBody($"GetIdFilter({primaryKeyName.ToPascalCase()})");
                 });
+
+                @class.AddMethod($"Expression<Func<{@class.Name}{genericTypeArguments}, bool>>", "GetIdFilterPredicate", method =>
+                {
+                    method.AddParameter(primaryKeyType, primaryKeyName.ToCamelCase());
+
+                    method.Static();
+
+                    method.AddStatement($"return x => x.{primaryKeyName.ToPascalCase()} == {primaryKeyName.ToCamelCase()};", s => s.SeparatedFromPrevious());
+                });
+
+                @class.AddMethod($"Expression<Func<{@class.Name}{genericTypeArguments}, bool>>", "GetIdsFilterPredicate", method =>
+                {
+                    method.AddParameter($"{primaryKeyType}[]", primaryKeyName.Pluralize().ToCamelCase());
+
+                    method.Static();
+                    
+                    method.AddStatement($"return x => {primaryKeyName.Pluralize().ToCamelCase()}.Contains(x.{primaryKeyName.ToPascalCase()});", s => s.SeparatedFromPrevious());
+                });
             }
         }
 

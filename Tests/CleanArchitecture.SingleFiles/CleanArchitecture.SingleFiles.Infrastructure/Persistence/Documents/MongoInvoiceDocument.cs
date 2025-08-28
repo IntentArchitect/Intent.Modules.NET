@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using CleanArchitecture.SingleFiles.Domain.Entities;
 using CleanArchitecture.SingleFiles.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;
@@ -60,6 +61,16 @@ namespace CleanArchitecture.SingleFiles.Infrastructure.Persistence.Documents
         public static FilterDefinition<MongoInvoiceDocument> GetIdsFilter(string[] ids)
         {
             return Builders<MongoInvoiceDocument>.Filter.In(d => d.Id, ids);
+        }
+
+        public static Expression<Func<MongoInvoiceDocument, bool>> GetIdFilterPredicate(string id)
+        {
+            return x => x.Id == id;
+        }
+
+        public static Expression<Func<MongoInvoiceDocument, bool>> GetIdsFilterPredicate(string[] ids)
+        {
+            return x => ids.Contains(x.Id);
         }
     }
 }

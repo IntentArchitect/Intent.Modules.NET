@@ -25,6 +25,8 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbDocumentOfTInterface
             var createEntityInterfaces = ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces();
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("MongoDB.Driver")
+                .AddUsing("System.Linq.Expressions")
+                .AddUsing("System")
                 .AddInterface($"IMongoDbDocument", @interface =>
                 {
                     @interface
@@ -78,6 +80,11 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbDocumentOfTInterface
                     @interface.AddMethod($"FilterDefinition<{tDocument}>", "GetIdsFilter", c => c.Static().Abstract()
                         .AddParameter($"{tIdentifier}[]", "ids"));
                     @interface.AddMethod($"FilterDefinition<{tDocument}>", "GetIdFilter");
+
+                    @interface.AddMethod($"Expression<Func<{tDocument}, bool>>", "GetIdFilterPredicate", c => c.Static().Abstract()
+                        .AddParameter($"{tIdentifier}", "id"));
+                    @interface.AddMethod($"Expression<Func<{tDocument}, bool>>", "GetIdsFilterPredicate", c => c.Static().Abstract()
+                        .AddParameter($"{tIdentifier}[]", "ids"));
                 });
         }
 

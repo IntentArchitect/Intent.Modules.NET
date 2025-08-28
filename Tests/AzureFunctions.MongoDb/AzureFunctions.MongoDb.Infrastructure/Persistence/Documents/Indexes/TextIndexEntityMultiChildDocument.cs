@@ -1,4 +1,6 @@
 using System;
+using System.Linq;
+using System.Linq.Expressions;
 using AzureFunctions.MongoDb.Domain.Entities.Indexes;
 using AzureFunctions.MongoDb.Domain.Repositories.Documents.Indexes;
 using Intent.RoslynWeaver.Attributes;

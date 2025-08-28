@@ -1,4 +1,6 @@
 using System;
+using System.Linq;
+using System.Linq.Expressions;
 using GraphQL.MongoDb.TestApplication.Domain.Entities;
 using GraphQL.MongoDb.TestApplication.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;

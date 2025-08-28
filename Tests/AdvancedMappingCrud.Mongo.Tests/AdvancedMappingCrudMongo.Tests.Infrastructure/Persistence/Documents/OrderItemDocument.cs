@@ -1,4 +1,6 @@
 using System;
+using System.Linq;
+using System.Linq.Expressions;
 using AdvancedMappingCrudMongo.Tests.Domain.Entities;
 using AdvancedMappingCrudMongo.Tests.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;

@@ -1,4 +1,6 @@
 using System;
+using System.Linq;
+using System.Linq.Expressions;
 using Entities.PrivateSetters.MongoDb.Domain.Entities;
 using Entities.PrivateSetters.MongoDb.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;
@@ -56,6 +58,16 @@ namespace Entities.PrivateSetters.MongoDb.Infrastructure.Persistence.Documents
         public static FilterDefinition<TagDocument> GetIdsFilter(string[] ids)
         {
             return Builders<TagDocument>.Filter.In(d => d.Id, ids);
+        }
+
+        public static Expression<Func<TagDocument, bool>> GetIdFilterPredicate(string id)
+        {
+            return x => x.Id == id;
+        }
+
+        public static Expression<Func<TagDocument, bool>> GetIdsFilterPredicate(string[] ids)
+        {
+            return x => ids.Contains(x.Id);
         }
     }
 }

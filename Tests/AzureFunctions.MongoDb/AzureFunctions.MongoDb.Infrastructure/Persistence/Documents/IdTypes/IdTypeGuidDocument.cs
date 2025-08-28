@@ -1,4 +1,6 @@
 using System;
+using System.Linq;
+using System.Linq.Expressions;
 using AzureFunctions.MongoDb.Domain.Entities.IdTypes;
 using AzureFunctions.MongoDb.Domain.Repositories.Documents.IdTypes;
 using Intent.RoslynWeaver.Attributes;
@@ -55,6 +57,16 @@ namespace AzureFunctions.MongoDb.Infrastructure.Persistence.Documents.IdTypes
         public static FilterDefinition<IdTypeGuidDocument> GetIdsFilter(Guid[] ids)
         {
             return Builders<IdTypeGuidDocument>.Filter.In(d => d.Id, ids);
+        }
+
+        public static Expression<Func<IdTypeGuidDocument, bool>> GetIdFilterPredicate(Guid id)
+        {
+            return x => x.Id == id;
+        }
+
+        public static Expression<Func<IdTypeGuidDocument, bool>> GetIdsFilterPredicate(Guid[] ids)
+        {
+            return x => ids.Contains(x.Id);
         }
     }
 }

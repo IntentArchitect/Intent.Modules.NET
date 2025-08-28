@@ -36,6 +36,9 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbDocument
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("MongoDB.Driver")
                 .AddUsing("MongoDB.Bson.Serialization.Attributes")
+                .AddUsing("System.Linq.Expressions")
+                .AddUsing("System.Linq")
+                .AddUsing("System")
                 .AddClass($"{Model.Name}Document", @class =>
                 {
                     @class.Internal();

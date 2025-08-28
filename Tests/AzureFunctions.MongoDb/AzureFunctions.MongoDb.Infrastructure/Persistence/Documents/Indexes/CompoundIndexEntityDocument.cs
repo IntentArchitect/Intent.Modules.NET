@@ -1,4 +1,6 @@
 using System;
+using System.Linq;
+using System.Linq.Expressions;
 using AzureFunctions.MongoDb.Domain.Entities.Indexes;
 using AzureFunctions.MongoDb.Domain.Repositories.Documents.Indexes;
 using Intent.RoslynWeaver.Attributes;
@@ -61,6 +63,16 @@ namespace AzureFunctions.MongoDb.Infrastructure.Persistence.Documents.Indexes
         public static FilterDefinition<CompoundIndexEntityDocument> GetIdsFilter(string[] ids)
         {
             return Builders<CompoundIndexEntityDocument>.Filter.In(d => d.Id, ids);
+        }
+
+        public static Expression<Func<CompoundIndexEntityDocument, bool>> GetIdFilterPredicate(string id)
+        {
+            return x => x.Id == id;
+        }
+
+        public static Expression<Func<CompoundIndexEntityDocument, bool>> GetIdsFilterPredicate(string[] ids)
+        {
+            return x => ids.Contains(x.Id);
         }
     }
 }

@@ -1,3 +1,6 @@
+using System;
+using System.Linq;
+using System.Linq.Expressions;
 using AzureFunctions.MongoDb.Domain.Entities;
 using AzureFunctions.MongoDb.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;
@@ -46,6 +49,16 @@ namespace AzureFunctions.MongoDb.Infrastructure.Persistence.Documents
         public static FilterDefinition<DerivedOfTDocument> GetIdsFilter(string[] ids)
         {
             return Builders<DerivedOfTDocument>.Filter.In(d => d.Id, ids);
+        }
+
+        public static Expression<Func<DerivedOfTDocument, bool>> GetIdFilterPredicate(string id)
+        {
+            return x => x.Id == id;
+        }
+
+        public static Expression<Func<DerivedOfTDocument, bool>> GetIdsFilterPredicate(string[] ids)
+        {
+            return x => ids.Contains(x.Id);
         }
     }
 }

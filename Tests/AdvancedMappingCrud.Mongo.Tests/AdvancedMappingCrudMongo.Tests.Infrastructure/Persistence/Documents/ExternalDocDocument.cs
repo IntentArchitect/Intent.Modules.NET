@@ -1,4 +1,6 @@
 using System;
+using System.Linq;
+using System.Linq.Expressions;
 using AdvancedMappingCrudMongo.Tests.Domain.Entities;
 using AdvancedMappingCrudMongo.Tests.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;
@@ -56,6 +58,16 @@ namespace AdvancedMappingCrudMongo.Tests.Infrastructure.Persistence.Documents
         public static FilterDefinition<ExternalDocDocument> GetIdsFilter(long[] ids)
         {
             return Builders<ExternalDocDocument>.Filter.In(d => d.Id, ids);
+        }
+
+        public static Expression<Func<ExternalDocDocument, bool>> GetIdFilterPredicate(long id)
+        {
+            return x => x.Id == id;
+        }
+
+        public static Expression<Func<ExternalDocDocument, bool>> GetIdsFilterPredicate(long[] ids)
+        {
+            return x => ids.Contains(x.Id);
         }
     }
 }

@@ -147,16 +147,16 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryBase
                         .Virtual().Async()
                         .AddParameter(tIdentifier, "id")
                         .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"))
-                        .AddStatement($"var cursor = await _collection.FindAsync({tDocument}.GetIdFilter(id));")
-                        .AddStatement($"return LoadAndTrackDocument(cursor.Single());")
+                        .AddStatement($"var result = QueryInternalTDocument(TDocument.GetIdFilterPredicate(id)).Single();")
+                        .AddStatement($"return LoadAndTrackDocument(result);")
                     );
 
                     @class.AddMethod($"Task<List<{tDomain}>>", "FindByIdsAsync", m => m
                         .Virtual().Async()
                         .AddParameter($"{tIdentifier}[]", "ids")
                         .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"))
-                        .AddStatement($"var cursor = await _collection.FindAsync({tDocument}.GetIdsFilter(ids));")
-                        .AddStatement($"return LoadAndTrackDocuments(cursor.ToEnumerable()).ToList();")
+                        .AddStatement($"var result = QueryInternalTDocument(TDocument.GetIdsFilterPredicate(ids));")
+                        .AddStatement($"return LoadAndTrackDocuments(result).ToList();")
                     );
 
                     @class.AddMethod($"List<{tDomain}>", "SearchText", m => m
@@ -373,10 +373,21 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryBase
                     @class.AddMethod($"IQueryable<TDocument>", "QueryInternal", m => m
                         .Protected().Virtual()
                         .AddParameter("Expression<Func<TDocumentInterface, bool>>?", "filterExpression")
+                        .AddStatement("Expression<Func<TDocument, bool>>? filterAdapted = null;")
+                        .AddIfStatement("filterExpression != null", @if =>
+                        {
+                            @if.AddStatement("filterAdapted = AdaptFilterPredicate(filterExpression);");
+                        })
+                        .AddStatement("return QueryInternalTDocument(filterAdapted);", stmt => stmt.SeparatedFromPrevious())
+                    );
+
+                    @class.AddMethod($"IQueryable<TDocument>", "QueryInternalTDocument", m => m
+                        .Protected().Virtual()
+                        .AddParameter("Expression<Func<TDocument, bool>>?", "filterExpression")
                         .AddStatement("var queryable = _collection.AsQueryable();")
                         .AddIfStatement("filterExpression != null", @if =>
                         {
-                            @if.AddStatement("queryable = queryable.Where(AdaptFilterPredicate(filterExpression));");
+                            @if.AddStatement("queryable = queryable.Where(filterExpression);");
                         })
                         .AddStatement("return queryable;", stmt => stmt.SeparatedFromPrevious())
                     );
