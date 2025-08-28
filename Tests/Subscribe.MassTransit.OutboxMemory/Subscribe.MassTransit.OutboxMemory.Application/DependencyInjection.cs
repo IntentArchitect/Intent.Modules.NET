@@ -1,12 +1,10 @@
 using System.Reflection;
-using AutoMapper;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using MassTransit.Messages.Shared.BasketItems;
 using MassTransit.Messages.Shared.Baskets;
 using MassTransit.Messages.Shared.Roles;
 using MassTransit.Messages.Shared.Scheduled;
-using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Subscribe.MassTransit.OutboxMemory.Application.Common.Behaviours;

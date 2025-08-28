@@ -1,5 +1,4 @@
 using System.Reflection;
-using AutoMapper;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;

@@ -1,5 +1,4 @@
 using System.Reflection;
-using AutoMapper;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using MassTransit.RabbitMQ.Application.Common.Behaviours;
@@ -12,7 +11,6 @@ using MassTransit.RabbitMQ.Eventing.Messages;
 using MassTransit.RabbitMQ.Services.Animals;
 using MassTransit.RabbitMQ.Services.NamingOverrides;
 using MassTransit.RabbitMQ.Services.People;
-using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

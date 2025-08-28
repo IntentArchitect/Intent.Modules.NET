@@ -1,10 +1,8 @@
 using System.Reflection;
-using AutoMapper;
 using DynamoDbTests.PrivateSetters.Application.Common.Behaviours;
 using DynamoDbTests.PrivateSetters.Application.Common.Validation;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
-using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

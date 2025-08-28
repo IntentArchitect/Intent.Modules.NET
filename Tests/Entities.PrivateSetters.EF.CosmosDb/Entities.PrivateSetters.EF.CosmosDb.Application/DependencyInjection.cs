@@ -1,5 +1,4 @@
 using System.Reflection;
-using AutoMapper;
 using Entities.PrivateSetters.EF.CosmosDb.Application.Implementation;
 using Entities.PrivateSetters.EF.CosmosDb.Application.Interfaces;
 using Intent.RoslynWeaver.Attributes;

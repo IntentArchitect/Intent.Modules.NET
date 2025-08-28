@@ -1,7 +1,5 @@
 using System.Reflection;
-using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
-using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using OpenTelemetry.OpenTelemetryProtocol.Application.Common.Behaviours;

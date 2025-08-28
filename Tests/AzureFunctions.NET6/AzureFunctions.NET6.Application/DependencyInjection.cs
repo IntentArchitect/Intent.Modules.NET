@@ -1,5 +1,4 @@
 using System.Reflection;
-using AutoMapper;
 using AzureFunctions.NET6.Application.Common.Behaviours;
 using AzureFunctions.NET6.Application.Common.Validation;
 using AzureFunctions.NET6.Application.Implementation;
@@ -14,7 +13,6 @@ using AzureFunctions.NET6.Application.Interfaces.Queues;
 using AzureFunctions.NET6.Application.Interfaces.Queues.Bindings;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
-using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

@@ -1,10 +1,8 @@
 using System.Reflection;
 using AspNetCore.Controllers.Secured.Application.Common.Behaviours;
 using AspNetCore.Controllers.Secured.Application.Common.Validation;
-using AutoMapper;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
-using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

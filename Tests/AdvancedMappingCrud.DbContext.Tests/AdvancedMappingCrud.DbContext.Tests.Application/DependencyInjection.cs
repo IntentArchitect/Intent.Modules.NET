@@ -3,10 +3,8 @@ using AdvancedMappingCrud.DbContext.Tests.Application.Common.Behaviours;
 using AdvancedMappingCrud.DbContext.Tests.Application.Common.Validation;
 using AdvancedMappingCrud.DbContext.Tests.Application.Implementation;
 using AdvancedMappingCrud.DbContext.Tests.Application.Interfaces;
-using AutoMapper;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
-using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

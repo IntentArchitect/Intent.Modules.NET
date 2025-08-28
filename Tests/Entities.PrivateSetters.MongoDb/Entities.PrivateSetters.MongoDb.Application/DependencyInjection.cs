@@ -1,5 +1,4 @@
 using System.Reflection;
-using AutoMapper;
 using Entities.PrivateSetters.MongoDb.Application.Implementation;
 using Entities.PrivateSetters.MongoDb.Application.Interfaces;
 using Intent.RoslynWeaver.Attributes;

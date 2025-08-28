@@ -1,5 +1,4 @@
 using System.Reflection;
-using AutoMapper;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using MassTransit.AzureServiceBus.Application.Common.Behaviours;
@@ -14,7 +13,6 @@ using MassTransit.AzureServiceBus.Services.Configuration;
 using MassTransit.AzureServiceBus.Services.External;
 using MassTransit.AzureServiceBus.Services.NamingOverrides;
 using MassTransit.AzureServiceBus.Services.People;
-using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

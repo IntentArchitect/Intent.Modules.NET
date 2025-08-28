@@ -1,12 +1,10 @@
 using System.Reflection;
-using AutoMapper;
 using EntityFrameworkCore.SQLLite.Application.Common.Behaviours;
 using EntityFrameworkCore.SQLLite.Application.Common.Validation;
 using EntityFrameworkCore.SQLLite.Application.Implementation;
 using EntityFrameworkCore.SQLLite.Application.Interfaces;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
-using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

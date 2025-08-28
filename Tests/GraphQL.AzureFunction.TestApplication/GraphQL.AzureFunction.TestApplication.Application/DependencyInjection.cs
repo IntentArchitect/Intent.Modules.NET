@@ -1,12 +1,10 @@
 using System.Reflection;
-using AutoMapper;
 using FluentValidation;
 using GraphQL.AzureFunction.TestApplication.Application.Common.Behaviours;
 using GraphQL.AzureFunction.TestApplication.Application.Common.Validation;
 using GraphQL.AzureFunction.TestApplication.Application.Implementation;
 using GraphQL.AzureFunction.TestApplication.Application.Interfaces;
 using Intent.RoslynWeaver.Attributes;
-using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

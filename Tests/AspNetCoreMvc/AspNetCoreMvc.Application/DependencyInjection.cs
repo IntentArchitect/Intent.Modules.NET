@@ -3,10 +3,8 @@ using AspNetCoreMvc.Application.Common.Behaviours;
 using AspNetCoreMvc.Application.Common.Validation;
 using AspNetCoreMvc.Application.Implementation;
 using AspNetCoreMvc.Application.Interfaces;
-using AutoMapper;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
-using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

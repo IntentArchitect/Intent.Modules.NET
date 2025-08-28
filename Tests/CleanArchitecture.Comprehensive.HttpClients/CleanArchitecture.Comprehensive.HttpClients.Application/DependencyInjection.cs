@@ -1,10 +1,8 @@
 using System.Reflection;
-using AutoMapper;
 using CleanArchitecture.Comprehensive.HttpClients.Application.Common.Behaviours;
 using CleanArchitecture.Comprehensive.HttpClients.Application.Implementation.Customers;
 using CleanArchitecture.Comprehensive.HttpClients.Application.Interfaces.Customers;
 using Intent.RoslynWeaver.Attributes;
-using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

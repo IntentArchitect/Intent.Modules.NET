@@ -1,5 +1,4 @@
 using System.Reflection;
-using AutoMapper;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using Kafka.Consumer.Application.Common.Behaviours;
@@ -7,7 +6,6 @@ using Kafka.Consumer.Application.Common.Eventing;
 using Kafka.Consumer.Application.Common.Validation;
 using Kafka.Consumer.Application.IntegrationEvents.EventHandlers.Invoices;
 using Kafka.Producer.Eventing.Messages;
-using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

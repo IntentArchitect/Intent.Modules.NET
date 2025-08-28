@@ -4,10 +4,8 @@ using AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Application.Common.Valid
 using AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Application.Implementation;
 using AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Application.Interfaces;
 using AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Domain.Services;
-using AutoMapper;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
-using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

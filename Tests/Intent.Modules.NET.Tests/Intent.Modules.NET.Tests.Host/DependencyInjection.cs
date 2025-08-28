@@ -1,7 +1,6 @@
 using System.Reflection;
 using Intent.Modules.NET.Tests.Host.Common.Behaviours;
 using Intent.RoslynWeaver.Attributes;
-using MediatR;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.DependencyInjection.DependencyInjection", Version = "1.0")]

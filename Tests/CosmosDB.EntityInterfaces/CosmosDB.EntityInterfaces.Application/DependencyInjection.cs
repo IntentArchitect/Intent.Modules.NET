@@ -1,12 +1,10 @@
 using System.Reflection;
-using AutoMapper;
 using CosmosDB.EntityInterfaces.Application.Common.Behaviours;
 using CosmosDB.EntityInterfaces.Application.Common.Validation;
 using CosmosDB.EntityInterfaces.Application.Implementation.ServiceTesting;
 using CosmosDB.EntityInterfaces.Application.Interfaces.ServiceTesting;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
-using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

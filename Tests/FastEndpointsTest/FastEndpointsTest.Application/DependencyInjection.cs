@@ -1,5 +1,4 @@
 using System.Reflection;
-using AutoMapper;
 using FastEndpointsTest.Application.Common.Behaviours;
 using FastEndpointsTest.Application.Common.Validation;
 using FastEndpointsTest.Application.Implementation;
@@ -15,7 +14,6 @@ using FastEndpointsTest.Application.Interfaces.ServiceDispatch;
 using FastEndpointsTest.Domain.Services.DDD;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
-using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
