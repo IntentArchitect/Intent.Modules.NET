@@ -9,7 +9,6 @@
     <Compile Remove="content\MudBlazorAIPromptTemplates\AddEntity\CustomerAdd.razor.cs" />
     <Compile Remove="content\MudBlazorAIPromptTemplates\EditEntityDialog\EditCustomerDialog.razor.cs" />
     <Compile Remove="content\MudBlazorAIPromptTemplates\EditEntity\CustomerEdit.razor.cs" />
-    <Compile Remove="content\MudBlazorAIPromptTemplates\LookupDialog\LookupCustomerDialog.razor.cs" />
     <Compile Remove="content\MudBlazorAIPromptTemplates\SearchEntity\CustomerSearch.razor.cs" />
     <Compile Remove="content\MudBlazorAIPromptTemplates\ViewEntity\ViewCustomer.razor.cs" />
   </ItemGroup>
@@ -19,7 +18,6 @@
     <None Include="content\MudBlazorAIPromptTemplates\AddEntity\CustomerAdd.razor.cs" />
     <None Include="content\MudBlazorAIPromptTemplates\EditEntityDialog\EditCustomerDialog.razor.cs" />
     <None Include="content\MudBlazorAIPromptTemplates\EditEntity\CustomerEdit.razor.cs" />
-    <None Include="content\MudBlazorAIPromptTemplates\LookupDialog\LookupCustomerDialog.razor.cs" />
     <None Include="content\MudBlazorAIPromptTemplates\SearchEntity\CustomerSearch.razor.cs" />
     <None Include="content\MudBlazorAIPromptTemplates\ViewEntity\ViewCustomer.razor.cs" />
   </ItemGroup>
