@@ -1,3 +1,7 @@
+### Version 2.0.8
+
+- Improvement: Added MongoDB.Drive support
+
 ### Version 2.0.7
 
 - Fixed: Correct variable path used when invoking an external service and mapping to entity
