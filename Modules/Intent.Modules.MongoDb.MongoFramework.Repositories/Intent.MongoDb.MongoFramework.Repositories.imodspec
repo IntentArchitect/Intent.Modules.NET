@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
-  <id>Intent.MongoDb.Repositories</id>
+  <id>Intent.MongoDb.MongoFramework.Repositories</id>
   <version>1.2.5</version>
   <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Repository pattern for MongoDB provider.</summary>
