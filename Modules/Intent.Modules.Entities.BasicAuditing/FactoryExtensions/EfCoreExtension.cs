@@ -164,11 +164,11 @@ namespace Intent.Modules.Entities.BasicAuditing.FactoryExtensions
                 switch (template.ExecutionContext.Settings.GetBasicAuditing().UserIdentityToAudit().AsEnum())
                 {
                     case Settings.BasicAuditing.UserIdentityToAuditOptionsEnum.UserName:
-                        userIdentityProperty = "UserName";
+                        userIdentityProperty = "GetAsync()?.GetAwaiter().GetResult()?.Name";
                         break;
                     case Settings.BasicAuditing.UserIdentityToAuditOptionsEnum.UserId:
                     default:
-                        userIdentityProperty = "UserId";
+                        userIdentityProperty = "GetAsync()?.GetAwaiter().GetResult()?.Id";
                         break;
                 }
                 method.AddStatement(

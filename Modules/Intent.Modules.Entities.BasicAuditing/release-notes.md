@@ -1,3 +1,7 @@
+### Version 1.0.7
+
+- Fixed: Updated template to use the updated `ICurrentUserService` implementation.
+
 ### Version 1.0.6
 
 - Improvement: Added stereotype descriptions in preperation for Intent Architect 4.5. 
