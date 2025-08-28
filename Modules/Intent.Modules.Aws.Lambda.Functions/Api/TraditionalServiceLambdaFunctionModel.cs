@@ -28,7 +28,7 @@ public class TraditionalServiceLambdaFunctionModel : ILambdaFunctionModel
         Comment = operationModel.Comment;
         TypeReference = operationModel.TypeReference;
         Verb = httpEndpoint.Verb;
-        Route = httpEndpoint.Route;
+        Route = $"{httpEndpoint.BaseRoute}/{httpEndpoint.SubRoute}";
         MediaType = httpEndpoint.MediaType;
         Parameters = httpEndpoint.Inputs.Select(GetInput).ToList();
         ReturnType = operationModel.ReturnType;

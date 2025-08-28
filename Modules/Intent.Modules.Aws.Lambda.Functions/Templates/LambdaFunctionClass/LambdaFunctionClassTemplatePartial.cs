@@ -151,7 +151,7 @@ public partial class LambdaFunctionClassTemplate : CSharpTemplateBase<ILambdaFun
                     if (getByIdOperation != null && operationModel.ReturnType?.Element.Name is "guid" or "long" or "int" or "string")
                     {
                         var aggregateIdParameter = getByIdOperation.Parameters[0].Name.ToCamelCase();
-                        returnExpression = $@"HttpResults.Created($""{getByIdOperation.Route!.Replace("{" + getByIdOperation.Parameters[0].Name + "}", $"{{Uri.EscapeDataString({aggregateIdParameter}.ToString())}}").Replace("{id}", "{Uri.EscapeDataString(result.ToString())")}"", {resultExpression})";
+                        returnExpression = $@"HttpResults.Created($""{getByIdOperation.Route!.Replace("{" + getByIdOperation.Parameters[0].Name + "}", $"{{Uri.EscapeDataString({aggregateIdParameter}.ToString())}}").Replace("{id}", "{Uri.EscapeDataString(result.ToString())}")}"", {resultExpression})";
                     }
                 }
                     break;
