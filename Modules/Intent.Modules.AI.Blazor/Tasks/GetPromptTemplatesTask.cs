@@ -52,6 +52,7 @@ namespace Intent.Modules.AI.Blazor.Tasks
                     DefaultUserPrompt = t.DefaultUserPrompt,
                     RecommenedDefault = guess is null ? false : t.Id == guess.TemplateId 
                 }));
+                result.Insert(0, new TemplateResult { Id = "", Description = "None", RecommenedDefault = guess is null ? true : false });
             }
             return JsonConvert.SerializeObject(result, JsonNet.Settings);
         }

@@ -149,7 +149,7 @@ public class GenerateBlazorWithAITask : IModuleTask
         {
             if (!File.Exists(filename))
             {
-                Logging.Log.Warning($"Unable to find Prompt Tempalte file : {filename}");
+                Logging.Log.Warning($"Unable to find Prompt Template file : {filename}");
                 continue;
             }
             yield return new PromptFile(filename, File.ReadAllText(filename));
@@ -180,7 +180,7 @@ public class GenerateBlazorWithAITask : IModuleTask
         const string promptTemplate =
             """
             ## Role and Context
-            You are a senior C# Blazor. You are an expert in UI layout and always implement exceptional modern user interfaces that follow best practices.
+            You are a senior C# Blazor Engineer. You are an expert in UI layout and always implement exceptional modern user interfaces that follow best practices.
             
             ## Environment Metadata
             {{$environmentMetadata}}
