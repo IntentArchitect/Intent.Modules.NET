@@ -4,10 +4,8 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
-using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
-using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -15,58 +13,45 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.AzureFunctions.Templates.InProcess.Startup
+namespace Intent.Modules.Aws.Lambda.Functions.Templates.Startup
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public partial class StartupTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
-        public const string TemplateId = "Intent.AzureFunctions.InProcess.Startup";
+        public const string TemplateId = "Intent.Aws.Lambda.Functions.StartupTemplate";
 
-        private readonly IList<ServiceConfigurationRequest> _serviceConfigurations =
-            new List<ServiceConfigurationRequest>();
-
+        private readonly List<ServiceConfigurationRequest> _serviceConfigurations = new();
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public StartupTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             ExecutionContext.EventDispatcher.Subscribe<ServiceConfigurationRequest>(HandleServiceConfigurationRequest);
 
-            if (CanRunTemplate())
-            {
-                AddNugetDependency(NugetPackages.MicrosoftAzureFunctionsExtensions(outputTarget));
-
-                AddNugetDependency(NugetPackages.MicrosoftNETSdkFunctions(outputTarget));
-                AddNugetDependency(NugetPackages.MicrosoftAzureFunctionsExtensions(outputTarget));
-
-                // Remove Isolated nuget dependencies
-                ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.MicrosoftAzureFunctionsWorkerPackageName, outputTarget));
-                ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.MicrosoftAzureFunctionsWorkerSdkPackageName, outputTarget));
-                ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.MicrosoftAzureFunctionsWorkerExtensionsHttpPackageName, outputTarget));
-                ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.MicrosoftAzureFunctionsWorkerExtensionsHttpAspNetCorePackageName, outputTarget));
-            }
-
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
-                .AddUsing("Microsoft.Azure.Functions.Extensions.DependencyInjection")
+                .AddUsing("Microsoft.Extensions.Configuration")
+                .AddUsing("Microsoft.Extensions.DependencyInjection")
+                .AddUsing("Microsoft.Extensions.Hosting")
+                .AddUsing("Microsoft.Extensions.Logging")
                 .AddClass($"Startup", @class =>
                 {
-                    @class.WithBaseType("FunctionsStartup");
-                    @class.AddMethod("void", "Configure", method =>
+                    @class.AddAttribute(UseType("Amazon.Lambda.Annotations.LambdaStartup"));
+                    @class.AddMethod("HostApplicationBuilder", "ConfigureHostBuilder", method =>
                     {
-                        method.Override();
-                        method.AddParameter("IFunctionsHostBuilder", "builder");
-                        method.AddStatement("var configuration = builder.GetContext().Configuration;");
+                        method.AddStatement("var hostBuilder = new HostApplicationBuilder();");
+                        method.AddAssignmentStatement(
+                            new CSharpVariableDeclaration("configuration").ToString(),
+                            new CSharpStatement("hostBuilder.Configuration")
+                                .AddInvocation("AddJsonFile", add => add.AddArgument(@"""appsettings.json""").AddArgument("optional", "true").OnNewLine())
+                                .AddInvocation("AddEnvironmentVariables", add => add.OnNewLine())
+                                .AddInvocation("Build", build => build.OnNewLine()));
+                        method.AddStatement("hostBuilder.Logging.AddLambdaLogger();");
                     });
-                })
-                .OnBuild(file =>
-                {
-                    var @class = file.Classes.First();
-                    file.AddAssemblyAttribute($"FunctionsStartup(typeof({this.GetNamespace()}.{@class.Name}))");
                 })
                 .AfterBuild(file =>
                 {
                     var @class = file.Classes.First();
-                    var method = @class.FindMethod("Configure")!;
-                    method.AddStatements(GetServiceConfigurationStatementList());
+                    var configMethod = @class.FindMethod("ConfigureHostBuilder")!;
+                    configMethod.AddStatements(GetServiceConfigurationStatementList());
 
                     foreach (var request in GetRelevantServiceConfigurationRequests())
                     {
@@ -86,20 +71,9 @@ namespace Intent.Modules.AzureFunctions.Templates.InProcess.Startup
                             AddUsing(@namespace);
                         }
                     }
+
+                    configMethod.AddReturn("hostBuilder");
                 });
-        }
-
-        public override void AfterTemplateRegistration()
-        {
-            if (CanRunTemplate())
-            {
-                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("FUNCTIONS_WORKER_RUNTIME", "dotnet"));
-            }
-        }
-
-        public override bool CanRunTemplate()
-        {
-            return AzureFunctionsHelper.GetAzureFunctionsProcessType(OutputTarget) == AzureFunctionsHelper.AzureFunctionsProcessType.InProcess;
         }
 
         private void HandleServiceConfigurationRequest(ServiceConfigurationRequest request)
@@ -129,7 +103,7 @@ namespace Intent.Modules.AzureFunctions.Templates.InProcess.Startup
                         AddTemplateDependency(dependency);
                         AddUsing(classProvider.Namespace);
                     }
-                    return new CSharpStatement($"builder.Services.{s.ExtensionMethodName}({GetExtensionMethodParameterList(s)});");
+                    return new CSharpStatement($"hostBuilder.Services.{s.ExtensionMethodName}({GetExtensionMethodParameterList(s)});");
                 }));
 
             return statementList;

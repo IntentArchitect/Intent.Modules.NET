@@ -31,12 +31,12 @@ public class TraditionalServiceLambdaFunctionModel : ILambdaFunctionModel
         Route = httpEndpoint.Route;
         MediaType = httpEndpoint.MediaType;
         Parameters = httpEndpoint.Inputs.Select(GetInput).ToList();
+        ReturnType = operationModel.ReturnType;
     }
 
     public string Id { get; }
     public string Name { get; }
     public ITypeReference TypeReference { get; }
-    public IFolder Folder { get; }
     public IEnumerable<IStereotype> Stereotypes { get; }
     public string Comment { get; }
     public ITypeReference? ReturnType { get; }

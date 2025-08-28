@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Intent.Metadata.Models;
-using Intent.Modules.FastEndpoints.Intent.Modules.ApiHosting.Shared.Endpoints;
+using Intent.Modules.ApiHosting.Shared.Endpoints;
 
 namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller;
 

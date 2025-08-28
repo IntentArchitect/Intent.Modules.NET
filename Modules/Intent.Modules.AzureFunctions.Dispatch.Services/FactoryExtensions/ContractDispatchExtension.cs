@@ -27,6 +27,8 @@ namespace Intent.Modules.AzureFunctions.Dispatch.Services.FactoryExtensions
 
         [IntentManaged(Mode.Ignore)] public override int Order => 0;
 
+        // Please don't use this as an example for how to inject dispatcher code into your tech solution.
+        // Rather look at ASP.NET Core or FastEndpoints for more robust examples.
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
             var templates = application.FindTemplateInstances<AzureFunctionClassTemplate>(TemplateDependency.OnTemplate(AzureFunctionClassTemplate.TemplateId));

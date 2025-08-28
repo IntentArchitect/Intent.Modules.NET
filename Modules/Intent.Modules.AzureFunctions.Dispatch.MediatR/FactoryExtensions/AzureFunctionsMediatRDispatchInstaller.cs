@@ -30,14 +30,8 @@ namespace Intent.Modules.AzureFunctions.Dispatch.MediatR.FactoryExtensions
 
         [IntentManaged(Mode.Ignore)] public override int Order => 0;
 
-        /// <summary>
-        /// This is an example override which would extend the
-        /// <see cref="ExecutionLifeCycleSteps.Start"/> phase of the Software Factory execution.
-        /// See <see cref="FactoryExtensionBase"/> for all available overrides.
-        /// </summary>
-        /// <remarks>
-        /// It is safe to update or delete this method.
-        /// </remarks>
+        // Please don't use this as an example for how to inject dispatcher code into your tech solution.
+        // Rather look at ASP.NET Core or FastEndpoints for more robust examples.
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
             var templates = application.FindTemplateInstances<AzureFunctionClassTemplate>(TemplateDependency.OnTemplate(AzureFunctionClassTemplate.TemplateId));

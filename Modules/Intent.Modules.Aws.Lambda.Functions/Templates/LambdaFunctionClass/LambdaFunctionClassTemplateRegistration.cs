@@ -14,24 +14,24 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.FilePerModel", Version = "1.0")]
 
-namespace Intent.Modules.Aws.Lambda.Functions.Templates.FunctionClass
+namespace Intent.Modules.Aws.Lambda.Functions.Templates.LambdaFunctionClass
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class FunctionClassTemplateRegistration : FilePerModelTemplateRegistration<ILambdaFunctionContainerModel>
+    public class LambdaFunctionClassTemplateRegistration : FilePerModelTemplateRegistration<ILambdaFunctionContainerModel>
     {
         private readonly IMetadataManager _metadataManager;
 
-        public FunctionClassTemplateRegistration(IMetadataManager metadataManager)
+        public LambdaFunctionClassTemplateRegistration(IMetadataManager metadataManager)
         {
             _metadataManager = metadataManager;
         }
 
-        public override string TemplateId => FunctionClassTemplate.TemplateId;
+        public override string TemplateId => LambdaFunctionClassTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, ILambdaFunctionContainerModel model)
         {
-            return new FunctionClassTemplate(outputTarget, model);
+            return new LambdaFunctionClassTemplate(outputTarget, model);
         }
 
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]

@@ -1,9 +1,7 @@
-using System;
 using Intent.Metadata.Models;
 using Intent.Modules.Common;
-using Intent.Modules.Common.CSharp.Builder;
 
-namespace Intent.Modules.FastEndpoints.Intent.Modules.ApiHosting.Shared.Endpoints;
+namespace Intent.Modules.ApiHosting.Shared.Endpoints;
 
 internal record ResponseCodeLookup(string Code);
 

@@ -12,7 +12,15 @@
       <role>Aws.Lambda.Api</role>
       <location></location>
     </template>
-    <template id="Intent.Aws.Lambda.Functions.FunctionClassTemplate" externalReference="6ecd7a9c-88ff-482c-a215-ed99f15fa9dc">
+    <template id="Intent.Aws.Lambda.Functions.JsonResponse" externalReference="584d9ed3-fe7f-4401-9b95-5de4a4fa672e">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Aws.Lambda.Api</role>
+      <location>ResponseTypes</location>
+    </template>
+    <template id="Intent.Aws.Lambda.Functions.LambdaFunctionClassTemplate" externalReference="6ecd7a9c-88ff-482c-a215-ed99f15fa9dc">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
@@ -21,6 +29,14 @@
       <location></location>
     </template>
     <template id="Intent.Aws.Lambda.Functions.SamConfigTemplate" externalReference="e4853587-0701-42b5-a3ca-d604c459ddc6">
+      <role>Aws.Lambda.Api</role>
+      <location></location>
+    </template>
+    <template id="Intent.Aws.Lambda.Functions.StartupTemplate" externalReference="b42ececb-e2c8-4d4d-970c-9d51f1e98736">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
       <role>Aws.Lambda.Api</role>
       <location></location>
     </template>
