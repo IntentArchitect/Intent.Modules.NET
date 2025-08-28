@@ -5,7 +5,6 @@ using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.ServiceProxies.Api;
 using Intent.Modelers.Services.Api;
-using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Application.Contracts.Clients;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.VisualStudio;

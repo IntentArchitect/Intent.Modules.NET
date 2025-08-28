@@ -56,7 +56,7 @@ namespace MultipleDocumentStores.Infrastructure.Repositories
         }
 
         public static async Task<IPagedList<TDomain>> CreateAsync(
-            IQueryable<TDomain> source,
+            IQueryable<TDocument> source,
             int pageNo,
             int pageSize,
             CancellationToken cancellationToken = default)
@@ -68,7 +68,7 @@ namespace MultipleDocumentStores.Infrastructure.Repositories
                 .Skip(skip)
                 .Take(pageSize)
                 .ToListAsync(cancellationToken);
-            return new MongoPagedList<TDomain, TDocument, TIdentifier>(count, pageNo, pageSize, results);
+            return new MongoPagedList<TDomain, TDocument, TIdentifier>(count, pageNo, pageSize, results.Select(x => x.ToEntity()).ToList());
         }
     }
 }

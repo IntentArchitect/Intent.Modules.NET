@@ -78,6 +78,7 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryBase
                         : string.Empty;
                     @class
                         .AddGenericTypeConstraint(tDocument, c => c
+                            .AddType("class")
                             .AddType($"{this.GetMongoDbDocumentOfTInterfaceName()}<{tDomain}{tDomainStateConstraint}, {tDocument}, {tIdentifier}>")
                             .AddType(tDocumentInterface)
                             .AddType("new()"))
@@ -147,7 +148,8 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryBase
                         .Virtual().Async()
                         .AddParameter(tIdentifier, "id")
                         .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"))
-                        .AddStatement($"var result = QueryInternalTDocument(TDocument.GetIdFilterPredicate(id)).Single();")
+                        .AddStatement($"var result = QueryInternalTDocument(TDocument.GetIdFilterPredicate(id)).SingleOrDefault();")
+                        .AddIfStatement("result == null", @if => @if.AddReturn("null"))
                         .AddStatement($"return LoadAndTrackDocument(result);")
                     );
 
@@ -272,7 +274,7 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryBase
                             .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
 
                         method.AddStatement("var query = QueryInternal(x => true);");
-                        method.AddStatement("return await MongoPagedList<TDomain, TDocument, TIdentifier>.CreateAsync(query.Cast<TDomain>(), pageNo, pageSize, cancellationToken);");
+                        method.AddStatement("return await MongoPagedList<TDomain, TDocument, TIdentifier>.CreateAsync(query, pageNo, pageSize, cancellationToken);");
                     });
 
                     @class.AddMethod($"Task<{this.GetPagedResultInterfaceName()}<{tDomain}>>", "FindAllAsync", method =>
@@ -286,7 +288,7 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryBase
                             .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
 
                         method.AddStatement("var query = QueryInternal(filterExpression, linq);");
-                        method.AddStatement("return await MongoPagedList<TDomain, TDocument, TIdentifier>.CreateAsync(query.Cast<TDomain>(), pageNo, pageSize, cancellationToken);");
+                        method.AddStatement("return await MongoPagedList<TDomain, TDocument, TIdentifier>.CreateAsync(query, pageNo, pageSize, cancellationToken);");
                     });
 
                     @class.AddMethod($"Task<{this.GetPagedResultInterfaceName()}<{tDomain}>>", "FindAllAsync", method =>
@@ -299,7 +301,7 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryBase
                             .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
 
                         method.AddStatement("var query = QueryInternal(filterExpression);");
-                        method.AddStatement("return await MongoPagedList<TDomain, TDocument, TIdentifier>.CreateAsync(query.Cast<TDomain>(), pageNo, pageSize, cancellationToken);");
+                        method.AddStatement("return await MongoPagedList<TDomain, TDocument, TIdentifier>.CreateAsync(query, pageNo, pageSize, cancellationToken);");
                     });
 
                     @class.AddMethod($"Task<{tDomain}?>", "FindAsync", method => method
@@ -335,7 +337,7 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryBase
                             .AddParameter($"Func<IQueryable<{tDocumentInterface}>, IQueryable<{tDocumentInterface}>>", "queryOptions")
                             .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
                             .AddStatement("var query = QueryInternal(x => true, queryOptions);")
-                            .AddStatement("return await MongoPagedList<TDomain, TDocument, TIdentifier>.CreateAsync(query.Cast<TDomain>(), pageNo, pageSize, cancellationToken);");
+                            .AddStatement("return await MongoPagedList<TDomain, TDocument, TIdentifier>.CreateAsync(query, pageNo, pageSize, cancellationToken);");
                     });
                     @class.AddMethod("Task<int>", "CountAsync", method => method
                         .Virtual()
@@ -370,20 +372,19 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryBase
                         .AddStatement("return await QueryInternal(x => true, queryOptions).AnyAsync(cancellationToken);", s => s.SeparatedFromPrevious())
                     );
 
-                    @class.AddMethod($"IQueryable<TDocument>", "QueryInternal", m => m
+                    @class.AddMethod($"IQueryable<{tDocument}>", "QueryInternal", m => m
                         .Protected().Virtual()
-                        .AddParameter("Expression<Func<TDocumentInterface, bool>>?", "filterExpression")
-                        .AddStatement("Expression<Func<TDocument, bool>>? filterAdapted = null;")
+                        .AddParameter($"Expression<Func<{tDocumentInterface}, bool>>?", "filterExpression")
                         .AddIfStatement("filterExpression != null", @if =>
                         {
-                            @if.AddStatement("filterAdapted = AdaptFilterPredicate(filterExpression);");
+                            @if.AddStatement("return QueryInternalTDocument(AdaptFilterPredicate(filterExpression));");
                         })
-                        .AddStatement("return QueryInternalTDocument(filterAdapted);", stmt => stmt.SeparatedFromPrevious())
+                        .AddStatement("return QueryInternalTDocument(null);", stmt => stmt.SeparatedFromPrevious())
                     );
 
-                    @class.AddMethod($"IQueryable<TDocument>", "QueryInternalTDocument", m => m
+                    @class.AddMethod($"IQueryable<{tDocument}>", "QueryInternalTDocument", m => m
                         .Protected().Virtual()
-                        .AddParameter("Expression<Func<TDocument, bool>>?", "filterExpression")
+                        .AddParameter($"Expression<Func<{tDocument}, bool>>?", "filterExpression")
                         .AddStatement("var queryable = _collection.AsQueryable();")
                         .AddIfStatement("filterExpression != null", @if =>
                         {
@@ -394,11 +395,12 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryBase
 
                     @class.AddMethod($"IQueryable<TDocument>", "QueryInternal", m => m
                         .Protected().Virtual()
-                        .AddParameter("Expression<Func<TDocumentInterface, bool>>", "filterExpression")
+                        .AddParameter($"Expression<Func<{tDocumentInterface}, bool>>", "filterExpression")
                         .AddParameter($"Func<IQueryable<{tDocumentInterface}>, IQueryable<{tDocumentInterface}>>", "linq")
                         .AddStatement("var queryable = QueryInternal(filterExpression);")
-                        .AddStatement("var castable = linq(queryable.Cast<TDocumentInterface>());")
-                        .AddStatement("return castable.Cast<TDocument>();", stmt => stmt.SeparatedFromPrevious())
+                        .AddStatement("var adaptedQueryFunction = QueryableAdapter.AdaptQueryFunction<TDocumentInterface, TDocument>(linq);")
+                        .AddStatement("var result = adaptedQueryFunction(queryable);")
+                        .AddStatement("return result;", stmt => stmt.SeparatedFromPrevious())
                     );
 
                     @class.AddMethod($"Expression<Func<{tDocument}, bool>>", "AdaptFilterPredicate", method =>
@@ -460,6 +462,265 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryBase
 
                             method.AddStatement("return node == _before ? _after : base.Visit(node);");
                         });
+                    });
+                }).AddClass("QueryableAdapter", @class =>
+                {
+                    @class.Static();
+
+                    @class.AddMethod("Func<IQueryable<TDocument>, IQueryable<TDocument>>", "AdaptQueryFunction", method =>
+                    {
+                        method.Static();
+                        method.AddGenericParameter("TDocumentInterface");
+                        method.AddGenericParameter("TDocument");
+
+                        method.AddParameter("Func<IQueryable<TDocumentInterface>, IQueryable<TDocumentInterface>>", "queryOptions");
+
+                        method.AddGenericTypeConstraint("TDocument", tDocument => tDocument.AddType("class").AddType("TDocumentInterface"));
+
+                        method.AddReturn(@$"sourceQueryable =>
+                        {{
+                            // Create a fake queryable of the interface type
+                            var interfaceQueryable = new InterfaceQueryableAdapter<TDocumentInterface, TDocument>(sourceQueryable);
+
+                            // Apply the user's query function
+                            var resultQueryable = queryOptions(interfaceQueryable);
+
+                            // Extract the adapted queryable
+                            if (resultQueryable is InterfaceQueryableAdapter<TDocumentInterface, TDocument> adapter)
+                            {{
+                                return adapter.UnderlyingQueryable;
+                            }}
+
+                            throw new InvalidOperationException(""Query function returned an unexpected queryable type"");
+                        }}");
+                    });
+                }).AddClass("InterfaceQueryableAdapter", @class =>
+                {
+                    @class.Internal();
+
+                    @class.AddGenericParameter("TInterface", out var tDocument);
+                    @class.AddGenericParameter("TDocument", out var tInterface);
+
+                    @class.ImplementsInterface("IQueryable<TInterface>");
+
+                    @class.AddGenericTypeConstraint(tInterface, c => c.AddType("class").AddType(tDocument));
+
+                    @class.AddField("QueryableMethodAdapter", "_methodAdapter", f => f.PrivateReadOnly());
+
+                    @class.AddConstructor(c =>
+                    {
+                        c.AddParameter("IQueryable<TDocument>", "underlyingQueryable", p => p.IntroduceReadonlyField());
+
+                        c.AddStatement("_methodAdapter = new QueryableMethodAdapter(typeof(TInterface), typeof(TDocument));");
+                    });
+
+                    @class.AddProperty("IQueryable<TDocument>", "UnderlyingQueryable", p => p.ReadOnly().Getter.WithExpressionImplementation("_underlyingQueryable"));
+                    @class.AddProperty("Type", "ElementType", p => p.ReadOnly().Getter.WithExpressionImplementation("typeof(TInterface)"));
+                    @class.AddProperty("Expression", "Expression", p => p.ReadOnly().Getter.WithExpressionImplementation("_methodAdapter.AdaptExpression(_underlyingQueryable.Expression)"));
+                    @class.AddProperty("IQueryProvider", "Provider", p => p.ReadOnly().Getter.WithExpressionImplementation("new InterfaceQueryProvider<TInterface, TDocument>(_underlyingQueryable.Provider, _methodAdapter)"));
+
+                    @class.AddMethod("IEnumerator<TInterface>", "GetEnumerator", m => m.AddReturn("_underlyingQueryable.Cast<TInterface>().GetEnumerator()"));
+
+                    @class.AddMethod("System.Collections.IEnumerator", "System.Collections.IEnumerable.GetEnumerator", m => m.AddReturn("GetEnumerator()").WithoutAccessModifier());
+                }).AddClass("InterfaceQueryProvider", @class =>
+                {
+                    @class.Internal();
+
+                    @class.AddGenericParameter("TInterface", out var tDocument);
+                    @class.AddGenericParameter("TDocument", out var tInterface);
+
+                    @class.ImplementsInterface("IQueryProvider");
+
+                    @class.AddGenericTypeConstraint(tInterface, c => c.AddType("class").AddType(tDocument));
+
+                    @class.AddConstructor(c =>
+                    {
+                        c.AddParameter("IQueryProvider", "underlyingProvider", p => p.IntroduceReadonlyField());
+                        c.AddParameter("QueryableMethodAdapter", "methodAdapter", p => p.IntroduceReadonlyField());
+                    });
+
+                    @class.AddMethod("IQueryable", "CreateQuery", method =>
+                    {
+                        method.AddParameter("Expression", "expression");
+
+                        method.AddStatement("var adaptedExpression = _methodAdapter.AdaptExpressionFromInterface(expression);");
+                        method.AddStatement("var result = _underlyingProvider.CreateQuery(adaptedExpression);");
+
+                        method.AddIfStatement("result is IQueryable<TDocument> typedResult", @if => @if.AddReturn("new InterfaceQueryableAdapter<TInterface, TDocument>(typedResult)"));
+
+                        method.AddReturn("result");
+                    });
+
+                    @class.AddMethod("IQueryable<TElement>", "CreateQuery", method =>
+                    {
+                        method.AddGenericParameter("TElement");
+                        method.AddParameter("Expression", "expression");
+
+                        method.AddIfStatement("typeof(TElement) == typeof(TInterface)", @if =>
+                        {
+                            @if.AddStatement("var adaptedExpression = _methodAdapter.AdaptExpressionFromInterface(expression);");
+                            @if.AddStatement("var result = _underlyingProvider.CreateQuery<TDocument>(adaptedExpression);");
+                            @if.AddReturn("(IQueryable<TElement>)(object)new InterfaceQueryableAdapter<TInterface, TDocument>(result)");
+                        });
+
+                        method.AddStatement("var directAdaptedExpression = _methodAdapter.AdaptExpressionFromInterface(expression);");
+                        method.AddReturn("_underlyingProvider.CreateQuery<TElement>(directAdaptedExpression)");
+                    });
+
+                    @class.AddMethod("object", "Execute", method =>
+                    {
+                        method.AddParameter("Expression", "expression");
+
+                        method.AddStatement("var adaptedExpression = _methodAdapter.AdaptExpressionFromInterface(expression);");
+                        method.AddReturn("_underlyingProvider.Execute(adaptedExpression)");
+                    });
+
+                    @class.AddMethod("TResult", "Execute", method =>
+                    {
+                        method.AddGenericParameter("TResult");
+                        method.AddParameter("Expression", "expression");
+
+                        method.AddStatement("var adaptedExpression = _methodAdapter.AdaptExpressionFromInterface(expression);");
+                        method.AddReturn("_underlyingProvider.Execute<TResult>(adaptedExpression)");
+                    });
+                }).AddClass("QueryableMethodAdapter", @class =>
+                {
+                    @class.Internal();
+
+                    @class.AddConstructor(c =>
+                    {
+                        c.AddParameter("Type", "interfaceType", p => p.IntroduceReadonlyField());
+                        c.AddParameter("Type", "documentType", p => p.IntroduceReadonlyField());
+                    });
+
+                    @class.AddMethod("Expression", "AdaptExpression", method =>
+                    {
+                        method.AddParameter("Expression", "expression");
+
+                        method.AddReturn("new TypeSubstitutionVisitor(_documentType, _interfaceType).Visit(expression)");
+                    });
+
+                    @class.AddMethod("Expression", "AdaptExpressionFromInterface", method =>
+                    {
+                        method.AddParameter("Expression", "expression");
+
+                        method.AddReturn("new TypeSubstitutionVisitor(_interfaceType, _documentType).Visit(expression)");
+                    });
+                }).AddClass("TypeSubstitutionVisitor", @class =>
+                {
+                    @class.Internal();
+
+                    @class.WithBaseType("ExpressionVisitor");
+
+                    @class.AddConstructor(c =>
+                    {
+                        c.AddParameter("Type", "fromType", p => p.IntroduceReadonlyField());
+                        c.AddParameter("Type", "toType", p => p.IntroduceReadonlyField());
+                    });
+
+                    @class.AddMethod("Expression", "VisitParameter", method =>
+                    {
+                        method.Protected().Override();
+                        method.AddParameter("ParameterExpression", "node");
+
+                        method.AddIfStatement("node.Type == _fromType", @if =>
+                        {
+                            @if.AddReturn("Expression.Parameter(_toType, node.Name)");
+                        });
+
+                        method.AddReturn("base.VisitParameter(node)");
+                    });
+
+                    @class.AddMethod("Expression", "VisitMethodCall", method =>
+                    {
+                        method.Protected().Override();
+                        method.AddParameter("MethodCallExpression", "node");
+
+                        method.AddIfStatement("node.Method.IsGenericMethod", @if =>
+                        {
+                            @if.AddStatements(@$"var genericArgs = node.Method.GetGenericArguments();
+                                var newGenericArgs = new Type[genericArgs.Length];
+                                bool hasChanges = false;
+
+                                for (int i = 0; i < genericArgs.Length; i++)
+                                {{
+                                    if (genericArgs[i] == _fromType)
+                                    {{
+                                        newGenericArgs[i] = _toType;
+                                        hasChanges = true;
+                                    }}
+                                    else
+                                    {{
+                                        newGenericArgs[i] = genericArgs[i];
+                                    }}
+                                }}
+
+                                if (hasChanges)
+                                {{
+                                    var newMethod = node.Method.GetGenericMethodDefinition().MakeGenericMethod(newGenericArgs);
+                                    var newObject = Visit(node.Object);
+                                    var newArgs = node.Arguments.Select(Visit).ToArray();
+                                    return Expression.Call(newObject, newMethod, newArgs);
+                                }}".ConvertToStatements());
+                            
+                        });
+
+                        method.AddReturn("base.VisitMethodCall(node)");
+                    });
+
+                    @class.AddMethod("Expression", "VisitLambda", method =>
+                    {
+                        method.Protected().Override();
+                        method.AddGenericParameter("T");
+                        method.AddParameter("Expression<T>", "node");
+
+                        method.AddStatements($@"var newParameters = node.Parameters.Select(p =>
+                            p.Type == _fromType ? Expression.Parameter(_toType, p.Name) : p).ToArray();
+
+                        if (newParameters.SequenceEqual(node.Parameters))
+                        {{
+                            return base.VisitLambda(node);
+                        }}
+
+                        var parameterMap = node.Parameters.Zip(newParameters, (old, @new) => new {{ old, @new }})
+                            .ToDictionary(x => x.old, x => x.@new);
+
+                        var visitor = new ParameterReplacementVisitor(parameterMap);
+                        var newBody = visitor.Visit(node.Body);
+
+                        // Create new lambda with correct delegate type
+                        var delegateType = typeof(T);
+                        if (delegateType.IsGenericType)
+                        {{
+                            var genericArgs = delegateType.GetGenericArguments();
+                            var newGenericArgs = genericArgs.Select(arg => arg == _fromType ? _toType : arg).ToArray();
+
+                            if (!newGenericArgs.SequenceEqual(genericArgs))
+                            {{
+                                var genericDefinition = delegateType.GetGenericTypeDefinition();
+                                delegateType = genericDefinition.MakeGenericType(newGenericArgs);
+                            }}
+                        }}
+
+                        return Expression.Lambda(delegateType, newBody, newParameters);".ConvertToStatements());
+                    });
+                }).AddClass("ParameterReplacementVisitor", @class =>
+                {
+                    @class.Internal();
+
+                    @class.WithBaseType("ExpressionVisitor");
+
+                    @class.AddConstructor(c =>
+                    {
+                        c.AddParameter("Dictionary<ParameterExpression, ParameterExpression>", "parameterMap", p => p.IntroduceReadonlyField());
+                    });
+
+                    @class.AddMethod("Expression", "VisitParameter", method =>
+                    {
+                        method.Protected().Override();
+                        method.AddParameter("ParameterExpression", "node");
+
+                        method.AddReturn("_parameterMap.TryGetValue(node, out var replacement) ? replacement : node");
                     });
                 });
         }

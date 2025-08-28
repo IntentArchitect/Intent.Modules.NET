@@ -107,7 +107,7 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbPagedList
                     {
                         method.Static().Async();
 
-                        method.AddParameter($"IQueryable<{tDomain}>", "source")
+                        method.AddParameter($"IQueryable<{tDocument}>", "source")
                             .AddParameter("int", "pageNo")
                             .AddParameter("int", "pageSize")
                             .AddParameter("CancellationToken", "cancellationToken", c => c.WithDefaultValue("default"));
@@ -115,7 +115,7 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbPagedList
                         method.AddStatement("var count = await source.CountAsync(cancellationToken);");
                         method.AddStatement("var skip = ((pageNo - 1) * pageSize);");
                         method.AddStatement("var results = await source.Skip(skip).Take(pageSize).ToListAsync(cancellationToken);");
-                        method.AddStatement($"return new MongoPagedList<{tDomain}, {tDocument}, {tIdentifier}>(count, pageNo, pageSize, results);");
+                        method.AddStatement($"return new MongoPagedList<{tDomain}, {tDocument}, {tIdentifier}>(count, pageNo, pageSize, results.Select(x => x.ToEntity()).ToList());");
                     });
 
                     @class.AddMethod($"int", "GetPageCount", method =>

@@ -1,6 +1,7 @@
 using AdvancedMappingCrudMongo.Tests.Application.Common.Interfaces;
 using AdvancedMappingCrudMongo.Tests.Domain.Common.Interfaces;
 using AdvancedMappingCrudMongo.Tests.Domain.Repositories;
+using AdvancedMappingCrudMongo.Tests.Domain.Repositories.Documents;
 using AdvancedMappingCrudMongo.Tests.Infrastructure.Persistence;
 using AdvancedMappingCrudMongo.Tests.Infrastructure.Persistence.Documents;
 using AdvancedMappingCrudMongo.Tests.Infrastructure.Repositories;
@@ -8,6 +9,8 @@ using AdvancedMappingCrudMongo.Tests.Infrastructure.Services;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MongoDB.Bson.Serialization;
+using MongoDB.Bson.Serialization.Serializers;
 using MongoDB.Driver;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -59,7 +62,9 @@ namespace AdvancedMappingCrudMongo.Tests.Infrastructure
                                 var database = sp.GetRequiredService<IMongoDatabase>();
                                 return database.GetCollection<ProductDocument>("Product");
                             });
+
             services.AddScoped<ICustomerRepository, CustomerMongoRepository>();
+
             services.AddScoped<IExternalDocRepository, ExternalDocMongoRepository>();
             services.AddScoped<IOrderRepository, OrderMongoRepository>();
             services.AddScoped<IProductRepository, ProductMongoRepository>();

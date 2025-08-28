@@ -5,7 +5,9 @@ using System.Linq.Expressions;
 using AdvancedMappingCrudMongo.Tests.Domain.Entities;
 using AdvancedMappingCrudMongo.Tests.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;
+using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Bson.Serialization.Serializers;
 using MongoDB.Driver;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -26,6 +28,7 @@ namespace AdvancedMappingCrudMongo.Tests.Infrastructure.Persistence.Documents
 
         public Order ToEntity(Order? entity = default)
         {
+            
             entity ??= new Order();
 
             entity.Id = Id ?? throw new Exception($"{nameof(entity.Id)} is null");

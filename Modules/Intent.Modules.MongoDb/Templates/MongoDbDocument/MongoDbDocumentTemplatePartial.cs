@@ -142,6 +142,7 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbDocument
                                        x.TryGetMetadata<IMetadataModel>("model", out var metadataModel) && metadataModel is AttributeModel or AssociationEndModel)
                 .ToArray();
 
+
             // If the PK is not derived and has a name other than "Id", then we need to do an explicit implementation for Id:
             //if (!string.Equals(pk.Name, "Id", StringComparison.OrdinalIgnoreCase) &&
             //    entityProperties.Any(x => x.GetMetadata<IMetadataModel>("model").Id == pk.Id))
@@ -167,6 +168,7 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbDocument
                 };
 
                 var typeName = GetTypeName(typeReference);
+
 
 
 
