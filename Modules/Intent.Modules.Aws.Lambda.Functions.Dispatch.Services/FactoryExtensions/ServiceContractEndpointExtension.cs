@@ -108,14 +108,6 @@ namespace Intent.Modules.Aws.Lambda.Functions.Dispatch.Services.FactoryExtension
                     var awaitModifier = string.Empty;
                     var arguments = string.Join(", ", operationModel.Parameters
                         .Select(param => param.TypeReference.HasGuidType() ? $"{param.Name}Guid" : param.Name ?? ""));
-                    // if (FileTransferHelper.IsFileUploadOperation(operationModel))
-                    // {
-                    //
-                    //     FileTransferHelper.AddControllerStreamLogic(template, method, operationModel);
-                    //
-                    //
-                    //     arguments = string.Join(", ", operationModel.Parameters.Select((x) => FileTransferHelper.IsStreamType(x.TypeReference) ? $"stream" : x.Name ?? ""));
-                    // }
 
                     if (!operationModel.InternalElement.HasStereotype("Synchronous"))
                     {
@@ -222,12 +214,11 @@ namespace Intent.Modules.Aws.Lambda.Functions.Dispatch.Services.FactoryExtension
                 ctor.AddParameter(template.GetTypeName(TemplateRoles.Application.Eventing.EventBusInterface), "eventBus",
                     p => { p.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException()); });
 
-                // foreach (var method in @class.Methods.Where(x => x.Attributes.All(a => !a.ToString()!.StartsWith("[HttpGet"))))
-                // {
-                //     method.Statements.LastOrDefault(x => x.ToString()!.Trim().StartsWith("return "))?
-                //         .InsertAbove("await _eventBus.FlushAllAsync(cancellationToken);", stmt => stmt.AddMetadata("eventbus-flush", true));
-                // }
-                
+                foreach (var method in @class.Methods.Where(method => (method.RepresentedModel as ILambdaFunctionModel)?.Verb != HttpVerb.Get))
+                {
+                    method.Statements.LastOrDefault(x => x.ToString()!.Trim().StartsWith("return "))?
+                        .InsertAbove("await _eventBus.FlushAllAsync(cancellationToken);", stmt => stmt.AddMetadata("eventbus-flush", true));
+                }
             }, order: -100);
         }
     }
