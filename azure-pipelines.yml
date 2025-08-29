@@ -152,6 +152,9 @@ steps:
     arguments: >
       --blame-hang
       --blame-hang-timeout 10m
+      --diag:TestResults/diag.log
+      --logger "trx;LogFileName=test_results.trx"
+      --logger "console;verbosity=detailed"
       --no-build
       --filter Requirement!=CosmosDB
 
