@@ -150,8 +150,7 @@ steps:
     command: 'test'
     projects: $(targetsToBuild)
     arguments: >
-      --blame-hang
-      --blame-hang-timeout 10m
+      --blame
       --diag:TestResults/diag.log
       --logger "trx;LogFileName=test_results.trx"
       --logger "console;verbosity=detailed"
