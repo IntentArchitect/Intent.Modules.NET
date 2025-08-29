@@ -106,7 +106,8 @@ namespace Intent.Modules.Aws.Lambda.Functions.Dispatch.Services.FactoryExtension
                                                """);
                     
                     var awaitModifier = string.Empty;
-                    var arguments = string.Join(", ", operationModel.Parameters.Select((x) => x.Name ?? ""));
+                    var arguments = string.Join(", ", operationModel.Parameters
+                        .Select(param => param.TypeReference.HasGuidType() ? $"{param.Name}Guid" : param.Name ?? ""));
                     // if (FileTransferHelper.IsFileUploadOperation(operationModel))
                     // {
                     //

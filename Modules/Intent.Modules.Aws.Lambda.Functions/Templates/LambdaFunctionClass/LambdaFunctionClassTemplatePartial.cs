@@ -69,37 +69,65 @@ public partial class LambdaFunctionClassTemplate : CSharpTemplateBase<ILambdaFun
                         method.AddAttribute("HttpApi", attr => attr
                             .AddArgument($"LambdaHttpMethod.{functionModel.Verb}")
                             .AddArgument($@"""{functionModel.Route}"""));
-                        method.AddParameters(functionModel.Parameters, param =>
+                        foreach (var parameterModel in functionModel.Parameters)
                         {
-                            var paramModel = (IEndpointParameterModel)param.RepresentedModel;
-                            switch (paramModel.Source)
+                            // Use string type for Guid route/query parameters
+                            var methodParameterType = parameterModel.TypeReference.HasGuidType() ? "string" : GetTypeName(parameterModel.TypeReference);
+                            
+                            method.AddParameter(methodParameterType, parameterModel.Name, param =>
                             {
-                                case HttpInputSource.FromRoute:
-                                    break;
-                                case null:
-                                case HttpInputSource.FromQuery:
-                                    param.AddAttribute("FromQuery", attr =>
-                                    {
-                                        if (!string.IsNullOrWhiteSpace(paramModel.QueryStringName))
+                                param.RepresentsModel(parameterModel);
+                                switch (parameterModel.Source)
+                                {
+                                    case HttpInputSource.FromRoute:
+                                        break;
+                                    case null:
+                                    case HttpInputSource.FromQuery:
+                                        param.AddAttribute("FromQuery", attr =>
                                         {
-                                            attr.AddArgument($@"Name = ""{paramModel.QueryStringName}""");
-                                        }
-                                    });
-                                    break;
-                                case HttpInputSource.FromBody:
-                                    param.AddAttribute("FromBody");
-                                    break;
-                                case HttpInputSource.FromForm:
-                                    throw new ElementException(functionModel.InternalElement,
-                                        $"Parameter {paramModel.Name} source is FromForm which is not supported in AWS Lambda functions.");
-                                case HttpInputSource.FromHeader:
-                                    param.AddAttribute("FromHeader", attr => attr.AddArgument($@"Name = ""{paramModel.HeaderName}"""));
-                                    break;
-                                default:
-                                    throw new ArgumentOutOfRangeException($"Source '{paramModel.Source}' is not supported.");
-                            }
-                        });
+                                            if (!string.IsNullOrWhiteSpace(parameterModel.QueryStringName))
+                                            {
+                                                attr.AddArgument($@"Name = ""{parameterModel.QueryStringName}""");
+                                            }
+                                        });
+                                        break;
+                                    case HttpInputSource.FromBody:
+                                        param.AddAttribute("FromBody");
+                                        break;
+                                    case HttpInputSource.FromForm:
+                                        throw new ElementException(functionModel.InternalElement,
+                                            $"Parameter {parameterModel.Name} source is FromForm which is not supported in AWS Lambda functions.");
+                                    case HttpInputSource.FromHeader:
+                                        param.AddAttribute("FromHeader", attr => attr.AddArgument($@"Name = ""{parameterModel.HeaderName}"""));
+                                        break;
+                                    default:
+                                        throw new ArgumentOutOfRangeException($"Source '{parameterModel.Source}' is not supported.");
+                                }
+                            });
+                        }
 
+                        // Add Guid parsing logic for route/query parameters
+                        var guidRouteQueryParameters = functionModel.Parameters
+                            .Where(p => p.TypeReference.HasGuidType())
+                            .ToList();
+
+                        if (guidRouteQueryParameters.Any())
+                        {
+                            method.AddStatement("""
+                                                // AWS Lambda Function Annotations have issue accepting Guid parameter types due to how string is converted to Guid.
+                                                // Workaround by accepting string parameters and converting to Guid here.
+                                                """);
+                        }
+                        
+                        foreach (var guidParam in guidRouteQueryParameters)
+                        {
+                            var guidParamName = $"{guidParam.Name}Guid";
+
+                            method.AddIfStatement($"!Guid.TryParse({guidParam.Name}, out var {guidParamName})", @if =>
+                            {
+                                @if.AddReturn($"HttpResults.BadRequest($\"Invalid format for {guidParam.Name}: {{{guidParam.Name}}}\")");
+                            });
+                        }
                         method.AddReturn("HttpResults.Ok()");
                     });
                 }
