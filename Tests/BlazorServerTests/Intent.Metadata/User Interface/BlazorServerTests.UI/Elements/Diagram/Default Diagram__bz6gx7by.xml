@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="fe9aca9e-c318-483b-8f4a-5564912276df" type="Diagram" typeId="4912c89a-77eb-497e-a3f4-7408b6a20886">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>aba7806c-72bd-4b20-8aa1-15af62253841</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>e117e0fb-4f07-40e8-930b-36e9466e0765</parentFolderId>
+  <packageId>5741124d-249d-489b-a8a8-5a68530785ff</packageId>
+  <packageName>BlazorServerTests.UI</packageName>
+  <diagram>
+    <targetPackageId>e117e0fb-4f07-40e8-930b-36e9466e0765</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

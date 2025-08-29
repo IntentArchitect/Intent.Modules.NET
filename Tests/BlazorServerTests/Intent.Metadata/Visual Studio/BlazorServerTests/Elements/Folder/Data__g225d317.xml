@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c7c488cb-33e2-4fbe-8bca-84a82b394790" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Data</name>
+  <display>Data</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>23d60d6c-b9c2-47d2-9962-2107504028e2</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="2ba49d49-d7bf-42d5-a898-9a58dee15985" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Authentication.Templates.Server.ApplicationDbContextTemplate</name>
+      <display>Intent.Blazor.Authentication.Templates.Server.ApplicationDbContextTemplate</display>
+      <externalReference>Intent.Blazor.Authentication</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c7c488cb-33e2-4fbe-8bca-84a82b394790</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="0726de42-e362-4d19-8196-4d718f54ece8" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Authentication.Templates.Server.ApplicationUserTemplate</name>
+      <display>Intent.Blazor.Authentication.Templates.Server.ApplicationUserTemplate</display>
+      <externalReference>Intent.Blazor.Authentication</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c7c488cb-33e2-4fbe-8bca-84a82b394790</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

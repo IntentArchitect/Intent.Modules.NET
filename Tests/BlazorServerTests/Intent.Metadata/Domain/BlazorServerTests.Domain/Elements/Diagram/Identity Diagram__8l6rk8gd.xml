@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f9a1417c-2d4c-4d6d-9d11-d73b8a361ba7" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Identity Diagram</name>
+  <display>Identity Diagram</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>07195c0a-07c6-4615-8cf8-59f7ff4acdd1</parentFolderId>
+  <packageId>07195c0a-07c6-4615-8cf8-59f7ff4acdd1</packageId>
+  <packageName>BlazorServerTests.Domain</packageName>
+  <diagram>
+    <targetPackageId>07195c0a-07c6-4615-8cf8-59f7ff4acdd1</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

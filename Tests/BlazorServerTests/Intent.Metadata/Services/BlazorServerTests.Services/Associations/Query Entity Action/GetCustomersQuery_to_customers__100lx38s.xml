@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="ae737a0e-3148-4367-b619-464c412651bf">
+  <sourceEnd id="51e08782-d8f0-4469-ace9-93d4e25c5b5a" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetCustomersQuery</display>
+    <order>0</order>
+    <typeReference id="1d76c314-39f0-4382-8a13-78de41b01306">
+      <typeId>3fb0e0c4-c238-4c6d-9123-fd7d8cd645a4</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>BlazorServerTests.Services</typePackageName>
+      <typePackageId>b1f28292-95d5-42af-b3ce-f0f1ec22da35</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="ae737a0e-3148-4367-b619-464c412651bf" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>customers</name>
+    <display>[query] customers: Customer[*]</display>
+    <order>5</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="3dd16141-f2b7-42b4-8a6e-1b7fbbb55f53">
+      <typeId>79153315-b954-4d31-a2ed-f6e5a21995ff</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>BlazorServerTests.Domain</typePackageName>
+      <typePackageId>07195c0a-07c6-4615-8cf8-59f7ff4acdd1</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="f8b54b48-1f06-4e13-a107-2e93c5a3e37b" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="3fb0e0c4-c238-4c6d-9123-fd7d8cd645a4" location="[BlazorServerTests].[Services].[GetCustomersQuery]" />
+        <target applicationId="f8b54b48-1f06-4e13-a107-2e93c5a3e37b" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="79153315-b954-4d31-a2ed-f6e5a21995ff" location="[BlazorServerTests].[Services].[Customer]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

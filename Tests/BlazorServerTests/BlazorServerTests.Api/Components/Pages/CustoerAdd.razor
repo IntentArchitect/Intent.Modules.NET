@@ -1,0 +1,81 @@
+@page "/custoer-add"
+@using System.ComponentModel.DataAnnotations
+
+<MudPaper Class="pa-4 mb-4 ux-gradient-primary" Elevation="0">
+    <MudText Typo="Typo.h4" Class="text-white font-weight-bold mb-2">
+        <MudIcon Icon="@Icons.Material.Filled.PersonAdd" Class="mr-2" />
+        Add Customer
+    </MudText>
+    <MudText Typo="Typo.body1" Class="text-white opacity-90">
+        Capture a new customer.
+    </MudText>
+</MudPaper>
+
+<MudCard Class="ux-fade-in-up" Style="animation-delay: 0.1s">
+    <MudCardHeader>
+        <CardHeaderContent>
+            <MudText Typo="Typo.h5">Customer Details</MudText>
+        </CardHeaderContent>
+    </MudCardHeader>
+    <MudCardContent>
+        <MudForm Model="@Model" @ref="_form">
+            <MudGrid>
+                <MudItem xs="12" md="6">
+                    <MudTextField @bind-Value="Model.Name"
+                                  Label="Name"
+                                  Placeholder="Enter name"
+                                  Adornment="Adornment.Start"
+                                  AdornmentIcon="@Icons.Material.Filled.Badge"
+                                  Immediate 
+                                  Required
+                                  RequiredError="Name is required" />
+                </MudItem>
+                <MudItem xs="12" md="6">
+                    <MudTextField @bind-Value="Model.Surname"
+                                  Label="Surname"
+                                  Placeholder="Enter surname"
+                                  Adornment="Adornment.Start"
+                                  AdornmentIcon="@Icons.Material.Filled.Person"
+                                  Immediate
+                                  Required
+                                  RequiredError="Surname is required" />
+                </MudItem>
+                <MudItem xs="12" md="6">
+                    <MudTextField @bind-Value="Model.Email"
+                                  Label="Email"
+                                  Placeholder="name@company.com"
+                                  Adornment="Adornment.Start"
+                                  AdornmentIcon="@Icons.Material.Filled.Email"
+                                  Immediate
+                                  Required
+                                  RequiredError="Email is required"
+                                  Validation="@(new Func<string?, IEnumerable<string>>(value =>
+                                      string.IsNullOrWhiteSpace(value)
+                                          ? Array.Empty<string>()
+                                          : (new EmailAddressAttribute().IsValid(value)
+                                              ? Array.Empty<string>()
+                                              : new[] { "Please enter a valid email" })))" />
+                </MudItem>
+                <MudItem xs="12" md="6">
+                    <MudSwitch T="bool" @bind-Value="Model.IsActive" Color="Color.Primary" Label="Active" Class="mt-4" />
+                </MudItem>
+                <MudItem xs="12" class="mt-4">
+                    <MudStack Row Spacing="2" Justify="Justify.FlexEnd" AlignItems="AlignItems.Center">
+                        <MudButton OnClick="@CreateCustomer"
+                                   Color="Color.Primary"
+                                   Variant="Variant.Filled"
+                                   StartIcon="@Icons.Material.Filled.Save">
+                            Save
+                        </MudButton>
+                        <MudButton OnClick="@Cancel"
+                                   Color="Color.Secondary"
+                                   Variant="Variant.Filled"
+                                   StartIcon="@Icons.Material.Filled.ArrowBack">
+                            Back to list
+                        </MudButton>
+                    </MudStack>
+                </MudItem>
+            </MudGrid>
+        </MudForm>
+    </MudCardContent>
+</MudCard>

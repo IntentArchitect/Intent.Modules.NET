@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="711cdf54-bb53-4a61-824f-59daa0cbfde7" type="Component View" typeId="624513a6-cba8-4dde-8ebe-6b19f00f0364">
+  <name>[view]</name>
+  <display>[view]</display>
+  <isAbstract>false</isAbstract>
+  <order>0</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>c470a7eb-507b-49d2-bb5e-c4dd47017fd3</parentFolderId>
+  <packageId>5741124d-249d-489b-a8a8-5a68530785ff</packageId>
+  <packageName>BlazorServerTests.UI</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

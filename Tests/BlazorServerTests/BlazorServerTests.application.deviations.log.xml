@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#3fb0e0c4-c238-4c6d-9123-fd7d8cd645a4</correlationId>
+      <path>BlazorServerTests.Application/Customers/GetCustomers/GetCustomersQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2025-08-28T14:36:01.8312262Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2025-08-28T15:28:23.5278335Z</approvedAt>
+      <deviationsHash>AC33032FC5146701E431C5F0C81B8F9339E935202E6D4390EC91C7EA63DE848C</deviationsHash>
+      <fileHash>61CFDD526F16BF90621BE0C6994212F6C071DCA89DE0D5E302AC40E335B76EE7</fileHash>
+    </file>
+  </files>
+</deviationsLog>
