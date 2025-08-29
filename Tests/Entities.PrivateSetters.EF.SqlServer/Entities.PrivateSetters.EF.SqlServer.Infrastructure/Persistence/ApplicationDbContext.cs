@@ -91,7 +91,7 @@ namespace Entities.PrivateSetters.EF.SqlServer.Infrastructure.Persistence
                 return;
             }
 
-            var userIdentifier = _currentUserService.UserId ?? throw new InvalidOperationException("UserId is null");
+            var userIdentifier = _currentUserService.GetAsync()?.GetAwaiter().GetResult()?.Id ?? throw new InvalidOperationException("GetAsync()?.GetAwaiter().GetResult()?.Id is null");
             var timestamp = DateTimeOffset.UtcNow;
 
             foreach (var entry in auditableEntries)
