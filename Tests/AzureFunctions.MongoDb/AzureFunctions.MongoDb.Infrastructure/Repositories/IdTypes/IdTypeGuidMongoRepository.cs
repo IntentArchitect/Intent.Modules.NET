@@ -1,11 +1,6 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Threading;
-using System.Threading.Tasks;
 using AzureFunctions.MongoDb.Domain.Entities.IdTypes;
-using AzureFunctions.MongoDb.Domain.Repositories;
 using AzureFunctions.MongoDb.Domain.Repositories.Documents.IdTypes;
 using AzureFunctions.MongoDb.Domain.Repositories.IdTypes;
 using AzureFunctions.MongoDb.Infrastructure.Persistence;

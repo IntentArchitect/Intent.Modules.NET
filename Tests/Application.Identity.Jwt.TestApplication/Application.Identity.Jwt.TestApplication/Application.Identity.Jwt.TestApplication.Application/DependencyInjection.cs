@@ -1,6 +1,5 @@
 using System.Reflection;
 using Application.Identity.Jwt.TestApplication.Application.Common.Validation;
-using AutoMapper;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;

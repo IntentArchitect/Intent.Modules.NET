@@ -1,11 +1,6 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Threading;
-using System.Threading.Tasks;
 using AzureFunctions.MongoDb.Domain.Entities.Indexes;
-using AzureFunctions.MongoDb.Domain.Repositories;
 using AzureFunctions.MongoDb.Domain.Repositories.Documents.Indexes;
 using AzureFunctions.MongoDb.Domain.Repositories.Indexes;
 using AzureFunctions.MongoDb.Infrastructure.Persistence;

@@ -1,13 +1,8 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Threading;
-using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using MongoDB.Driver;
 using MongoDb.TestApplication.Domain.Entities.Collections.FolderCollection;
-using MongoDb.TestApplication.Domain.Repositories;
 using MongoDb.TestApplication.Domain.Repositories.Collections.FolderCollection;
 using MongoDb.TestApplication.Domain.Repositories.Documents.Collections.FolderCollection;
 using MongoDb.TestApplication.Infrastructure.Persistence;
