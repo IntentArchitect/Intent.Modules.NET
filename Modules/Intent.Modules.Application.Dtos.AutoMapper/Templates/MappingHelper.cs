@@ -236,8 +236,13 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Templates
                 return string.Empty;
             }
 
+            if(!type.EndsWith("?"))
+            {
+                type = $"{type}?";
+            }
+
             // only have an explicit cast if its a primitive, otherwise null is fine
-            return template.GetTypeInfo(field.TypeReference).IsPrimitive ? $" : ({type}?)null" : " : null";
+            return template.GetTypeInfo(field.TypeReference).IsPrimitive ? $" : ({type})null" : " : null";
         }
     }
 }
