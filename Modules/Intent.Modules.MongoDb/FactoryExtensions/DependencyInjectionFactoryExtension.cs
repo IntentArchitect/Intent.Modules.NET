@@ -31,16 +31,6 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-
-
-
-
-            //var dbContext = application.FindTemplateInstance<ICSharpTemplate>(TemplateDependency.OnTemplate(ApplicationMongoDbContextTemplate.TemplateId));
-            //if (dbContext == null)
-            //{
-            //    return;
-            //}
-
             var dependencyInjection = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateRoles.Infrastructure.DependencyInjection);
             if (dependencyInjection == null)
             {
@@ -52,11 +42,6 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
                 file.AddUsing("MongoDB.Driver");
 
                 var method = file.Classes.First().FindMethod("AddInfrastructure");
-
-
-
-
-                //method.AddStatement($"services.AddScoped<{dependencyInjection.GetTypeName(dbContext.Id)}>();");
 
                 if (application.Settings.GetMultitenancySettings()?.MongoDbDataIsolation()?.IsSeparateDatabase() == true)
                 {
