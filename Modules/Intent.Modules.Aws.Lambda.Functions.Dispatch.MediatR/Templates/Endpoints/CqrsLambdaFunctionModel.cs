@@ -30,7 +30,8 @@ public class CqrsLambdaFunctionModel : ILambdaFunctionModel
         Route = $"{httpEndpoint.BaseRoute}/{httpEndpoint.SubRoute}";
         MediaType = httpEndpoint.MediaType;
         Parameters = httpEndpoint.Inputs.Select(GetInput).ToList();
-        ReturnType = endpointElement.TypeReference;
+        ReturnType = endpointElement.TypeReference.Element != null ? endpointElement.TypeReference : null;
+        Stereotypes = endpointElement.Stereotypes;
     }
 
     public string Id { get; }

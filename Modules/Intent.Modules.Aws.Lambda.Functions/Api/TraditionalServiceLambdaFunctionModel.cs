@@ -30,7 +30,8 @@ public class TraditionalServiceLambdaFunctionModel : ILambdaFunctionModel
         Route = $"{httpEndpoint.BaseRoute}/{httpEndpoint.SubRoute}";
         MediaType = httpEndpoint.MediaType;
         Parameters = httpEndpoint.Inputs.Select(GetInput).ToList();
-        ReturnType = operationModel.ReturnType;
+        ReturnType = operationModel.TypeReference.Element != null ? operationModel.TypeReference : null;
+        Stereotypes = operationModel.InternalElement.Stereotypes;
     }
 
     public string Id { get; }

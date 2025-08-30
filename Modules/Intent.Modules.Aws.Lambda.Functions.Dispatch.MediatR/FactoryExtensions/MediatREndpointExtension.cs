@@ -36,8 +36,8 @@ namespace Intent.Modules.Aws.Lambda.Functions.Dispatch.MediatR.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            var controllerTemplates = application.FindTemplateInstances<LambdaFunctionClassTemplate>(LambdaFunctionClassTemplate.TemplateId);
-            foreach (var containerTemplate in controllerTemplates)
+            var templates = application.FindTemplateInstances<LambdaFunctionClassTemplate>(LambdaFunctionClassTemplate.TemplateId);
+            foreach (var containerTemplate in templates)
             {
                 if (containerTemplate.Model is not CqrsLambdaFunctionContainerModel)
                 {
@@ -51,15 +51,14 @@ namespace Intent.Modules.Aws.Lambda.Functions.Dispatch.MediatR.FactoryExtensions
                 containerTemplate.CSharpFile.OnBuild(file =>
                 {
                     file.AddUsing("MediatR");
-                    file.AddUsing("Microsoft.AspNetCore.Mvc");
                     file.AddUsing("Microsoft.Extensions.DependencyInjection");
 
-                    var controllerClass = file.Classes.First();
-                    var ctor = controllerClass.Constructors.First();
+                    var @class = file.Classes.First();
+                    var ctor = @class.Constructors.First();
                     ctor.AddParameter(containerTemplate.UseType("MediatR.ISender"), "mediator",
                         p => p.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException()));
 
-                    foreach (var actionMethod in controllerClass.Methods)
+                    foreach (var actionMethod in @class.Methods)
                     {
                         var operationModel = (ILambdaFunctionModel)actionMethod.RepresentedModel;
                         
@@ -69,7 +68,7 @@ namespace Intent.Modules.Aws.Lambda.Functions.Dispatch.MediatR.FactoryExtensions
                                                          """);
                         
                         AddCqrsParameterToFieldAssignments(application, actionMethod, operationModel);
-                        actionMethod.AddStatements(GetValidations(operationModel));
+                        actionMethod.AddStatements(GetValidations(containerTemplate, operationModel));
                         actionMethod.AddStatement(GetDispatchViaMediatorStatement(containerTemplate, operationModel), s => s.SeparatedFromPrevious());
                         
                         var returnStatement = actionMethod.Statements.LastOrDefault(x => x.ToString()!.Trim().StartsWith("return "));
@@ -158,7 +157,7 @@ namespace Intent.Modules.Aws.Lambda.Functions.Dispatch.MediatR.FactoryExtensions
         };
 
 
-        private IEnumerable<CSharpStatement> GetValidations(ILambdaFunctionModel operationModel)
+        private IEnumerable<CSharpStatement> GetValidations(LambdaFunctionClassTemplate containerTemplate, ILambdaFunctionModel operationModel)
         {
             var validations = new List<CSharpStatement>();
             var payloadParameter = GetPayloadParameter(operationModel);
@@ -170,8 +169,8 @@ namespace Intent.Modules.Aws.Lambda.Functions.Dispatch.MediatR.FactoryExtensions
             foreach (var mappedParameter in GetMappedParameters(operationModel))
             {
                 validations.Add(new CSharpIfStatement(
-                        $"{mappedParameter.Name.ToParameterName()} != {payloadParameter.Name}.{mappedParameter.MappedPayloadProperty.Name.ToPascalCase()}")
-                    .AddStatement("return BadRequest();"));
+                        $"{(mappedParameter.TypeReference.HasGuidType() ? $"{mappedParameter.Name.ToParameterName()}Guid" : mappedParameter.Name.ToParameterName())} != {payloadParameter.Name}.{mappedParameter.MappedPayloadProperty.Name.ToPascalCase()}")
+                    .AddStatement($"return {containerTemplate.UseType("Amazon.Lambda.Annotations.APIGateway.HttpResults")}.BadRequest();"));
             }
 
             return validations;
