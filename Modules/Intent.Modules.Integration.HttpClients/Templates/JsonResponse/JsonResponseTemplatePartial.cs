@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Metadata.Models;
-using Intent.Modelers.ServiceProxies.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -31,9 +30,10 @@ namespace Intent.Modules.Integration.HttpClients.Templates.JsonResponse
 
         protected override IEnumerable<IServiceProxyModel> GetServiceContractModels(IMetadataManager metadataManager, string applicationId)
         {
+            const string serviceProxiesDesignerId = "2799aa83-e256-46fe-9589-b96f7d6b09f7";
             return metadataManager.GetServiceProxyModels(
                 applicationId,
-                metadataManager.ServiceProxies,
+                applicationId => metadataManager.GetDesigner(applicationId, serviceProxiesDesignerId), // for backward compatibility
                 metadataManager.Services);
         }
     }

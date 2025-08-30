@@ -4,7 +4,6 @@ using System.Diagnostics;
 using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
-using Intent.Modelers.ServiceProxies.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modelers.Types.ServiceProxies.Api;
@@ -42,10 +41,11 @@ namespace Intent.Modules.Application.Contracts.Clients.Templates.DtoContract
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<DTOModel> GetModels(IApplication application)
         {
+            const string serviceProxiesDesignerId = "2799aa83-e256-46fe-9589-b96f7d6b09f7";
             var referencedElementIds = _metadataManager
                 .GetServiceContractModels(
                     application.Id,
-                    _metadataManager.ServiceProxies,
+                    applicationId => _metadataManager.GetDesigner(applicationId, serviceProxiesDesignerId), // for backward compatibility
                     _metadataManager.Services)
                 .SelectMany(x => x.Operations)
                 .SelectMany(x => x.Parameters)
@@ -58,7 +58,7 @@ namespace Intent.Modules.Application.Contracts.Clients.Templates.DtoContract
                     includeReturnTypes: true,
                     stereotypeNames: null,
                     getDesigners: [
-                        _metadataManager.ServiceProxies,
+                        applicationId => _metadataManager.GetDesigner(applicationId, serviceProxiesDesignerId), // for backward compatibility
                         _metadataManager.Services
                     ])
                 .Where(x =>

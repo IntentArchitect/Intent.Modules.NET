@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
-using Intent.Modelers.ServiceProxies.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Common;
@@ -39,13 +38,14 @@ namespace Intent.Modules.Application.Contracts.Clients.Templates.EnumContract
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<EnumModel> GetModels(IApplication application)
         {
+            const string serviceProxiesDesignerId = "2799aa83-e256-46fe-9589-b96f7d6b09f7";
             var results = _metadataManager
                 .GetServiceProxyReferencedEnums(
                     applicationId: application.Id,
                     stereotypeNames: null,
                     getDesigners:
                     [
-                        _metadataManager.ServiceProxies,
+                        applicationId => _metadataManager.GetDesigner(applicationId, serviceProxiesDesignerId), // for backward compatibility
                         _metadataManager.Services
                     ])
                 .ToArray();
