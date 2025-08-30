@@ -71,6 +71,14 @@
             </sources>
           </mappedEnd>
           <mappedEnd>
+            <expression>0</expression>
+            <path>
+              <target id="6db854b4-638b-425b-8921-8b553e8e73e1" name="One" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="f5a42e0c-2617-4411-b378-c7dd16df63b4" name="OneAge" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources />
+          </mappedEnd>
+          <mappedEnd>
             <expression>{Two.TwoName}</expression>
             <path>
               <target id="6db854b4-638b-425b-8921-8b553e8e73e1" name="One" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />

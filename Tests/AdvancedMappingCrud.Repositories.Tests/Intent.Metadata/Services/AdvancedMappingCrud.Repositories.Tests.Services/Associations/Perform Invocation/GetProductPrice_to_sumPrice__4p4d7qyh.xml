@@ -22,7 +22,7 @@
   <targetEnd id="2f93be43-1b2c-4941-abf4-bb9eea46f6df" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
     <comment />
     <name>sumPrice</name>
-    <display>[call] sumPrice: SumPrices(...): decimal</display>
+    <display>[call] sumPrice = SumPrices(...): decimal</display>
     <order>3</order>
     <traits>
       <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />

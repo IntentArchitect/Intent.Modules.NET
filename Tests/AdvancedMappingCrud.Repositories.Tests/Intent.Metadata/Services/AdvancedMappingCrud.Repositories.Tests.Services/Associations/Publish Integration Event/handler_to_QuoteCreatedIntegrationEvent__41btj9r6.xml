@@ -39,7 +39,7 @@
     <mappings>
       <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
         <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="52a77343-8971-412c-9fc2-85d4391e7415" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[handler]" />
-        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="822e4254-9ced-4dd1-ad56-500b861f7e4d" elementId="bcb053c5-8b3c-46f1-9b0c-40338ee1c3eb" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[QuoteCreatedIntegrationEvent]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="bcb053c5-8b3c-46f1-9b0c-40338ee1c3eb" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[QuoteCreatedIntegrationEvent]" />
         <mappedEnds>
           <mappedEnd>
             <expression>{Quote.Id}</expression>

@@ -22,6 +22,9 @@
     <name>customer</name>
     <display>[query] customer: Customer</display>
     <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="b3384f5d-2396-47cb-815f-6d3738d5c13a">
       <typeId>a45dd931-55a8-4f02-8b91-bd479bd0359e</typeId>
       <isNavigable>true</isNavigable>

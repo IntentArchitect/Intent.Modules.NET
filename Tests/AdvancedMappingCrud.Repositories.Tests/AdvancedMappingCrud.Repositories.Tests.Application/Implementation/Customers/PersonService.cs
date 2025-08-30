@@ -20,7 +20,10 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Implementation.Cust
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-        public async Task<PersonDto> GetPersonById(Guid personId, CancellationToken cancellationToken = default)
+        public async Task<PersonDto> GetPersonById(
+            Guid personId,
+            Guid quoteId,
+            CancellationToken cancellationToken = default)
         {
             // TODO: Implement GetPersonById (PersonService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");

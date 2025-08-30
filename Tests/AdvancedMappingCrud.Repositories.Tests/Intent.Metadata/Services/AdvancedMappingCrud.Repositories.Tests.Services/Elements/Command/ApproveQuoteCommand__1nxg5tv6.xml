@@ -89,7 +89,7 @@
     </childElement>
     <childElement id="5f9eae48-dbe7-4390-b859-2744f8ef959a" type="Processing Action" typeId="405a2857-b911-431f-8142-719a0e9f15f3">
       <name>Update Quote</name>
-      <display>Update Quote</display>
+      <display>[execute] Update Quote</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -116,7 +116,7 @@
                 <source identifier="result.Email" mappingType="Data Mapping" mappingTypeId="ac40ddfb-4d32-495d-928e-ddb991434a87">
                   <path>
                     <target id="1d883b18-40f6-4097-9989-8a8c0f5c99f2" name="ApproveQuoteCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
-                    <target id="a2f7738f-4f46-484b-bb57-c411fb63a28d" name="result" type="association" specialization="Call Service Operation Target End" specializationId="093e5909-ffe4-4510-b3ea-532f30212f3c" />
+                    <target id="a2f7738f-4f46-484b-bb57-c411fb63a28d" name="result" type="association" specialization="Perform Invocation Target End" specializationId="093e5909-ffe4-4510-b3ea-532f30212f3c" />
                     <target id="6a5e4f4a-5988-4185-a2b7-764f4ebbe8d6" name="Email" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                   </path>
                 </source>

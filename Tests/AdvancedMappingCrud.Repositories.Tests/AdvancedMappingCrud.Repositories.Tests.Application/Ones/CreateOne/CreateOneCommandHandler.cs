@@ -28,6 +28,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Ones.CreateOne
             var one = new One
             {
                 OneName = request.OneName,
+                OneAge = 0,
                 Two = new Two
                 {
                     TwoName = request.Two.TwoName

@@ -44,7 +44,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.EventHandlers.Custo
             {
                 throw new NotFoundException($"Could not find User '{domainEvent.Quote.PersonId}'");
             }
-            var result = await _personService.GetPersonById(domainEvent.Quote.PersonId, cancellationToken);
+            var result = await _personService.GetPersonById(domainEvent.Quote.PersonId, user.QuoteId, cancellationToken);
 
             user.Email = result.Email;
             user.Name = result.Name;

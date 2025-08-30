@@ -5,7 +5,7 @@
     <order>0</order>
     <typeReference id="39f360b8-dff8-4560-992f-64abe5a302ad">
       <typeId>bc493468-6ae9-4a05-a567-a9404dfd0989</typeId>
-      <isNavigable>true</isNavigable>
+      <isNavigable>false</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
       <isRequired>true</isRequired>
@@ -22,6 +22,9 @@
     <name>product</name>
     <display>[delete] product: Product</display>
     <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="0315ac99-aa18-4a31-bc15-3acac8e28be8">
       <typeId>566bc687-4fd4-4cda-aa03-d3edec8c482e</typeId>
       <isNavigable>true</isNavigable>

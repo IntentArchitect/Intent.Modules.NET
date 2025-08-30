@@ -33,6 +33,10 @@
       <parentFolderId>99f7485c-17b9-45da-8405-1bb5782967be</parentFolderId>
       <packageId>b9c64131-4227-4b8a-9d95-8d5a5c97897f</packageId>
       <packageName>AdvancedMappingCrud.DbContext.Tests.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
@@ -83,6 +87,10 @@
       <parentFolderId>99f7485c-17b9-45da-8405-1bb5782967be</parentFolderId>
       <packageId>b9c64131-4227-4b8a-9d95-8d5a5c97897f</packageId>
       <packageName>AdvancedMappingCrud.DbContext.Tests.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
@@ -132,6 +140,10 @@
       <parentFolderId>99f7485c-17b9-45da-8405-1bb5782967be</parentFolderId>
       <packageId>b9c64131-4227-4b8a-9d95-8d5a5c97897f</packageId>
       <packageName>AdvancedMappingCrud.DbContext.Tests.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements />
@@ -154,6 +166,10 @@
       <parentFolderId>99f7485c-17b9-45da-8405-1bb5782967be</parentFolderId>
       <packageId>b9c64131-4227-4b8a-9d95-8d5a5c97897f</packageId>
       <packageName>AdvancedMappingCrud.DbContext.Tests.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
@@ -249,6 +265,10 @@
       <parentFolderId>99f7485c-17b9-45da-8405-1bb5782967be</parentFolderId>
       <packageId>b9c64131-4227-4b8a-9d95-8d5a5c97897f</packageId>
       <packageName>AdvancedMappingCrud.DbContext.Tests.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
