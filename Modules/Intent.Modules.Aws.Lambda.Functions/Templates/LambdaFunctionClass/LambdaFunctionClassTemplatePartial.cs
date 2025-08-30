@@ -53,7 +53,7 @@ public partial class LambdaFunctionClassTemplate : CSharpTemplateBase<ILambdaFun
             .AddUsing("Amazon.Lambda.Annotations.APIGateway")
             .AddUsing("Amazon.Lambda.Core")
             .AddUsing("Amazon.Lambda.Serialization.SystemTextJson")
-            .AddClass($"{Model.Name}", @class =>
+            .AddClass($"{Model.Name}Functions", @class =>
             {
                 @class.AddConstructor(ctor => { });
                 @class.RepresentsModel(Model);
