@@ -15,6 +15,7 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Metadata.WebApi.Models;
 using Intent.Modules.UnitOfWork.Persistence.Shared;
+using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -46,7 +47,7 @@ namespace Intent.Modules.Aws.Lambda.Functions.Dispatch.Services.FactoryExtension
                 InstallMessageBus(template, application);
             }
         }
-        
+
         private static void InstallValidation(LambdaFunctionClassTemplate template)
         {
             if (!template.TryGetTypeName(TemplateRoles.Application.Common.ValidationServiceInterface, out var validationProviderName))
@@ -104,7 +105,7 @@ namespace Intent.Modules.Aws.Lambda.Functions.Dispatch.Services.FactoryExtension
                                                // AWSLambda0107: can parameter of type System.Threading.CancellationToken passing is not supported.
                                                var cancellationToken = {template.UseType("System.Threading.CancellationToken")}.None;
                                                """);
-                    
+
                     var awaitModifier = string.Empty;
                     var arguments = string.Join(", ", operationModel.Parameters
                         .Select(param => param.TypeReference.HasGuidType() ? $"{param.Name}Guid" : param.Name ?? ""));
@@ -130,7 +131,7 @@ namespace Intent.Modules.Aws.Lambda.Functions.Dispatch.Services.FactoryExtension
                         method.AddStatement($"{awaitModifier}_appService.{operationModel.Name}({arguments});",
                             stmt => stmt.AddMetadata("service-contract-dispatch", true));
                     }
-                    
+
                     var returnStatement = method.Statements.LastOrDefault(x => x.ToString()!.Trim().StartsWith("return "));
                     if (returnStatement != null)
                     {
@@ -166,7 +167,7 @@ namespace Intent.Modules.Aws.Lambda.Functions.Dispatch.Services.FactoryExtension
                     {
                         continue;
                     }
-                    
+
                     if (operationModel.Verb == HttpVerb.Get)
                     {
                         continue;

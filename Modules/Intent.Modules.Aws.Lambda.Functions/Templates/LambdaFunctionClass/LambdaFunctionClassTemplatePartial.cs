@@ -73,7 +73,7 @@ public partial class LambdaFunctionClassTemplate : CSharpTemplateBase<ILambdaFun
                         {
                             // Use string type for Guid route/query parameters
                             var methodParameterType = parameterModel.TypeReference.HasGuidType() ? "string" : GetTypeName(parameterModel.TypeReference);
-                            
+
                             method.AddParameter(methodParameterType, parameterModel.Name, param =>
                             {
                                 param.RepresentsModel(parameterModel);
@@ -118,7 +118,7 @@ public partial class LambdaFunctionClassTemplate : CSharpTemplateBase<ILambdaFun
                                                 // Workaround by accepting string parameters and converting to Guid here.
                                                 """);
                         }
-                        
+
                         foreach (var guidParam in guidRouteQueryParameters)
                         {
                             var guidParamName = $"{guidParam.Name}Guid";
@@ -156,32 +156,32 @@ public partial class LambdaFunctionClassTemplate : CSharpTemplateBase<ILambdaFun
             switch (operationModel.Parameters.Count)
             {
                 case 1: // Aggregate
-                {
-                    var getByIdOperation = Model.Endpoints
-                        .FirstOrDefault(x => x.Verb == HttpVerb.Get &&
-                                             !string.IsNullOrWhiteSpace(x.Route) &&
-                                             x is { ReturnType.IsCollection: false, Parameters.Count: 1 } &&
-                                             string.Equals(x.Parameters[0].Name, "id", StringComparison.OrdinalIgnoreCase));
-                    if (getByIdOperation != null && operationModel.ReturnType?.Element.Name is "guid" or "long" or "int" or "string")
                     {
-                        returnExpression = $@"HttpResults.Created($""{getByIdOperation.Route!.Replace("{id}", "{Uri.EscapeDataString(result.ToString())}")}"", {resultExpression})";
+                        var getByIdOperation = Model.Endpoints
+                            .FirstOrDefault(x => x.Verb == HttpVerb.Get &&
+                                                 !string.IsNullOrWhiteSpace(x.Route) &&
+                                                 x is { ReturnType.IsCollection: false, Parameters.Count: 1 } &&
+                                                 string.Equals(x.Parameters[0].Name, "id", StringComparison.OrdinalIgnoreCase));
+                        if (getByIdOperation != null && operationModel.ReturnType?.Element.Name is "guid" or "long" or "int" or "string")
+                        {
+                            returnExpression = $@"HttpResults.Created($""{getByIdOperation.Route!.Replace("{id}", "{Uri.EscapeDataString(result.ToString())}")}"", {resultExpression})";
+                        }
                     }
-                }
                     break;
                 case 2: // Owned composite
-                {
-                    var getByIdOperation = Model.Endpoints
-                        .FirstOrDefault(x => x.Verb == HttpVerb.Get &&
-                                             !string.IsNullOrWhiteSpace(x.Route) &&
-                                             x is { ReturnType.IsCollection: false, Parameters.Count: 2 } &&
-                                             string.Equals(x.Parameters[0].Name, operationModel.Parameters[0].Name, StringComparison.OrdinalIgnoreCase) &&
-                                             string.Equals(x.Parameters[1].Name, "id", StringComparison.OrdinalIgnoreCase));
-                    if (getByIdOperation != null && operationModel.ReturnType?.Element.Name is "guid" or "long" or "int" or "string")
                     {
-                        var aggregateIdParameter = getByIdOperation.Parameters[0].Name.ToCamelCase();
-                        returnExpression = $@"HttpResults.Created($""{getByIdOperation.Route!.Replace("{" + getByIdOperation.Parameters[0].Name + "}", $"{{Uri.EscapeDataString({aggregateIdParameter}.ToString())}}").Replace("{id}", "{Uri.EscapeDataString(result.ToString())}")}"", {resultExpression})";
+                        var getByIdOperation = Model.Endpoints
+                            .FirstOrDefault(x => x.Verb == HttpVerb.Get &&
+                                                 !string.IsNullOrWhiteSpace(x.Route) &&
+                                                 x is { ReturnType.IsCollection: false, Parameters.Count: 2 } &&
+                                                 string.Equals(x.Parameters[0].Name, operationModel.Parameters[0].Name, StringComparison.OrdinalIgnoreCase) &&
+                                                 string.Equals(x.Parameters[1].Name, "id", StringComparison.OrdinalIgnoreCase));
+                        if (getByIdOperation != null && operationModel.ReturnType?.Element.Name is "guid" or "long" or "int" or "string")
+                        {
+                            var aggregateIdParameter = getByIdOperation.Parameters[0].Name.ToCamelCase();
+                            returnExpression = $@"HttpResults.Created($""{getByIdOperation.Route!.Replace("{" + getByIdOperation.Parameters[0].Name + "}", $"{{Uri.EscapeDataString({aggregateIdParameter}.ToString())}}").Replace("{id}", "{Uri.EscapeDataString(result.ToString())}")}"", {resultExpression})";
+                        }
                     }
-                }
                     break;
             }
         }
@@ -268,7 +268,8 @@ public partial class LambdaFunctionClassTemplate : CSharpTemplateBase<ILambdaFun
         return stereotype.GetProperty<bool>("Is Collection");
     }
 
-    [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
+    [IntentManaged(Mode.Fully)]
+    public CSharpFile CSharpFile { get; }
 
     [IntentManaged(Mode.Fully)]
     protected override CSharpFileConfig DefineFileConfig()
