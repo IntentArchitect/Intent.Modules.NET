@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
@@ -9,7 +10,7 @@ namespace Intent.Modules.Application.DomainInteractions.Mapping.Resolvers;
 
 public class EntityCreationMappingTypeResolver : IMappingTypeResolver
 {
-    private readonly ICSharpFileBuilderTemplate _sourceTemplate;
+    private readonly ICSharpTemplate _sourceTemplate;
 
     public EntityCreationMappingTypeResolver(ICSharpFileBuilderTemplate sourceTemplate)
     {
@@ -26,8 +27,18 @@ public class EntityCreationMappingTypeResolver : IMappingTypeResolver
 
         if (model.IsGeneralizationTargetEndModel())
         {
-            var mapping = new InheritedChildrenMapping(mappingModel, _sourceTemplate);
+            var mapping = new InheritedChildrenMapping(mappingModel, (ICSharpFileBuilderTemplate)_sourceTemplate);
             return mapping;
+        }
+
+        if (model.AsOperationModel()?.IsStatic == true && model.TypeReference.ElementId == ((IElement)model).ParentId)
+        {
+            return new StaticMethodInvocationMapping(mappingModel, _sourceTemplate);
+        }
+
+        if (model.IsClassConstructorModel())
+        {
+            return new ConstructorMapping(mappingModel, _sourceTemplate);
         }
 
         if (model.SpecializationType == "Class" || model.TypeReference?.Element?.SpecializationType == "Class")
