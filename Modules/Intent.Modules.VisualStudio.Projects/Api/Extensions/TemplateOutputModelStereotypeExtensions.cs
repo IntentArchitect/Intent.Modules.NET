@@ -48,6 +48,11 @@ namespace Intent.Modules.VisualStudio.Projects.Api
 
             public string Name => _stereotype.Name;
 
+            public bool IsEnabled()
+            {
+                return _stereotype.GetProperty<bool>("Is Enabled");
+            }
+
             public string RegistrationFilter()
             {
                 return _stereotype.GetProperty<string>("Registration Filter");

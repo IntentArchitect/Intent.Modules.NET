@@ -8,6 +8,7 @@ using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.RoslynWeaver.Attributes;
+using static Intent.Modules.VisualStudio.Projects.Api.TemplateOutputModelStereotypeExtensions;
 using DynamicExpressionParser = System.Linq.Dynamic.Core.DynamicExpressionParser;
 using ParsingConfig = System.Linq.Dynamic.Core.ParsingConfig;
 
@@ -53,6 +54,12 @@ namespace Intent.Modules.VisualStudio.Projects.Api
             });
 
             return _cacheableRegistrationFilter(model);
+        }
+
+        public bool IsEnabled()
+        {
+            // We don't use the generated API extension in case stereotype or "Is Enabled" property is not in the metadata:
+            return this.GetStereotypeProperty(TemplateOutputSettings.DefinitionId, "Is Enabled", true);
         }
 
         public string Id => _element.Id;

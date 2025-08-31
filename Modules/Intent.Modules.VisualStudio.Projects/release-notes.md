@@ -1,6 +1,6 @@
 ### Version 3.9.0
 
-- Feature: Template outputs now allow filtering.
+- Feature: Template outputs now allow filtering and controlling whether they're enabled.
 - Improvement: Opt-in to add `appsettings.json` and `launchSettings.json` to a standard `Microsoft.NET.Sdk` project type.
 - Fixed: `Folder Options` for `Solution Folders` can now materialize for files in general, not just `csproj` files.
 
