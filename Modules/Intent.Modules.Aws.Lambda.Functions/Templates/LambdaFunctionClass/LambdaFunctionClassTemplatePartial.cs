@@ -33,11 +33,7 @@ public partial class LambdaFunctionClassTemplate : CSharpTemplateBase<ILambdaFun
     {
         AddNugetDependency(NugetPackages.AmazonLambdaCore(outputTarget));
         AddNugetDependency(NugetPackages.AmazonLambdaAPIGatewayEvents(outputTarget));
-        AddNugetDependency(NugetPackages.AmazonLambdaSerializationSystemTextJson(outputTarget));
         AddNugetDependency(NugetPackages.AmazonLambdaAnnotations(outputTarget));
-        AddNugetDependency(NugetPackages.AmazonLambdaLoggingAspNetCore(outputTarget));
-
-        AddFrameworkDependency("Microsoft.AspNetCore.App");
 
         AddTypeSource(TemplateRoles.Application.Contracts.Dto, "List<{0}>");
         AddTypeSource(TemplateRoles.Application.Command);
@@ -45,14 +41,12 @@ public partial class LambdaFunctionClassTemplate : CSharpTemplateBase<ILambdaFun
         AddTypeSource(TemplateRoles.Application.Contracts.Enum);
 
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
-            .AddAssemblyAttribute("LambdaSerializer", attr => attr.AddArgument($"typeof(DefaultLambdaJsonSerializer)"))
             .AddUsing("System")
             .AddUsing("System.Collections.Generic")
             .AddUsing("System.Threading.Tasks")
             .AddUsing("Amazon.Lambda.Annotations")
             .AddUsing("Amazon.Lambda.Annotations.APIGateway")
             .AddUsing("Amazon.Lambda.Core")
-            .AddUsing("Amazon.Lambda.Serialization.SystemTextJson")
             .AddClass($"{Model.Name}Functions", @class =>
             {
                 @class.AddConstructor(ctor => { });
@@ -132,12 +126,6 @@ public partial class LambdaFunctionClassTemplate : CSharpTemplateBase<ILambdaFun
                     });
                 }
             });
-    }
-
-    public override void BeforeTemplateExecution()
-    {
-        Project.GetProject().AddProperty("AWSProjectType", "Lambda");
-        Project.GetProject().AddProperty("PublishReadyToRun", "true");
     }
 
     public CSharpStatement GetReturnStatement(ILambdaFunctionModel operationModel)

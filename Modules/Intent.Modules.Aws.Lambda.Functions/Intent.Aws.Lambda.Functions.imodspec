@@ -44,6 +44,18 @@
   <decorators></decorators>
   <factoryExtensions></factoryExtensions>
   <moduleSettings></moduleSettings>
+  <interoperability>
+    <detect id="Intent.Application.Contracts">
+      <install>
+        <package id="Intent.Aws.Lambda.Functions.Dispatch.Services" version="1.0.0-pre.0" />
+      </install>
+    </detect>
+    <detect id="Intent.Application.MediatR">
+      <install>
+        <package id="Intent.Aws.Lambda.Functions.Dispatch.MediatR" version="1.0.0-pre.0" />
+      </install>
+    </detect>
+  </interoperability>
   <dependencies>
     <dependency id="Intent.Common" version="3.8.0" />
     <dependency id="Intent.Common.CSharp" version="3.9.5-pre.1" />

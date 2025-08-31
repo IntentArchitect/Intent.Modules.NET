@@ -7,7 +7,9 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.VisualStudio;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -26,13 +28,27 @@ namespace Intent.Modules.Aws.Lambda.Functions.Templates.Startup
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public StartupTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            AddNugetDependency(NugetPackages.AmazonLambdaCore(outputTarget));
+            AddNugetDependency(NugetPackages.AmazonLambdaAPIGatewayEvents(outputTarget));
+            AddNugetDependency(NugetPackages.AmazonLambdaSerializationSystemTextJson(outputTarget));
+            AddNugetDependency(NugetPackages.AmazonLambdaAnnotations(outputTarget));
+            AddNugetDependency(NugetPackages.AmazonLambdaLoggingAspNetCore(outputTarget));
+            AddNugetDependency(NugetPackages.MicrosoftExtensionsLogging(outputTarget));
+            AddNugetDependency(NugetPackages.MicrosoftExtensionsDependencyInjection(outputTarget));
+            AddNugetDependency(NugetPackages.MicrosoftExtensionsConfigurationBinder(outputTarget));
+            
+            AddFrameworkDependency("Microsoft.AspNetCore.App");
+            
             ExecutionContext.EventDispatcher.Subscribe<ServiceConfigurationRequest>(HandleServiceConfigurationRequest);
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddAssemblyAttribute("LambdaSerializer", attr => attr.AddArgument($"typeof(DefaultLambdaJsonSerializer)"))
                 .AddUsing("Microsoft.Extensions.Configuration")
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
                 .AddUsing("Microsoft.Extensions.Hosting")
                 .AddUsing("Microsoft.Extensions.Logging")
+                .AddUsing("Amazon.Lambda.Serialization.SystemTextJson")
+                .AddUsing("Amazon.Lambda.Core")
                 .AddClass($"Startup", @class =>
                 {
                     @class.AddAttribute(UseType("Amazon.Lambda.Annotations.LambdaStartup"));
@@ -84,12 +100,15 @@ namespace Intent.Modules.Aws.Lambda.Functions.Templates.Startup
                 Name = "Mock Lambda Test Tool",
                 CommandName = "Executable",
                 CommandLineArgs = "--port 5050",
-                ExecutablePath = """%USERPROFILE%\\.dotnet\\tools\\dotnet-lambda-test-tool-8.0.exe""",
+                ExecutablePath = """%USERPROFILE%\.dotnet\tools\dotnet-lambda-test-tool-8.0.exe""",
                 EnvironmentVariables = new Dictionary<string, string>(),
                 WorkingDirectory = "$(ProjectDir)$(OutputPath)"
             });
+            
+            Project.GetProject().AddProperty("AWSProjectType", "Lambda");
+            Project.GetProject().AddProperty("PublishReadyToRun", "true");
         }
-
+        
         private void HandleServiceConfigurationRequest(ServiceConfigurationRequest request)
         {
             _serviceConfigurations.Add(request);
