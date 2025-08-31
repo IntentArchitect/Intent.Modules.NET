@@ -162,6 +162,16 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 return new ManagePackageVersionsCentrallyOptions(_stereotype.GetProperty<string>("Manage Package Versions Centrally"));
             }
 
+            public bool GenerateAppSettingsFile()
+            {
+                return _stereotype.GetProperty<bool>("Generate AppSettings File");
+            }
+
+            public bool GenerateLaunchSettingsFile()
+            {
+                return _stereotype.GetProperty<bool>("Generate LaunchSettings File");
+            }
+
             public class SDKOptions
             {
                 public readonly string Value;

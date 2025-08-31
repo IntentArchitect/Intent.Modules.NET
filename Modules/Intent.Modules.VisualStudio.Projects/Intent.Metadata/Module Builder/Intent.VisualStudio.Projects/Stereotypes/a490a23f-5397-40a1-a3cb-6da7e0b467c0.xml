@@ -212,5 +212,33 @@ return applicableSdks.indexOf(properties["SDK"].value) &gt;= 0;</isActiveFunctio
         <option>true</option>
       </valueOptions>
     </property>
+    <property id="a811d3f2-253e-46de-ae72-bd6ec9f30d54">
+      <name>Generate AppSettings File</name>
+      <type>string</type>
+      <controlType>checkbox</controlType>
+      <optionsSource>options</optionsSource>
+      <placeholder>(unspecified)</placeholder>
+      <defaultValue>false</defaultValue>
+      <isActiveFunction>switch (SDK) {
+    case "Microsoft.NET.Sdk":
+        return true;
+    default:
+        return false;
+}</isActiveFunction>
+    </property>
+    <property id="4fe561b9-333e-4341-8243-d569db8cd8f4">
+      <name>Generate LaunchSettings File</name>
+      <type>string</type>
+      <controlType>checkbox</controlType>
+      <optionsSource>options</optionsSource>
+      <placeholder>(unspecified)</placeholder>
+      <defaultValue>false</defaultValue>
+      <isActiveFunction>switch (SDK) {
+    case "Microsoft.NET.Sdk":
+        return true;
+    default:
+        return false;
+}</isActiveFunction>
+    </property>
   </properties>
 </stereotypeDefinition>

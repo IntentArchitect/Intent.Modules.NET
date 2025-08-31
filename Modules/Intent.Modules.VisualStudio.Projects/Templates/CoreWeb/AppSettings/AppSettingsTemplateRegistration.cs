@@ -38,7 +38,6 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
                     RequiresSpecifiedRole = false,
                     IncludeAllowHosts = true,
                     IncludeAspNetCoreLoggingLevel = true,
-
                 })
                 .Union(_metadataManager.VisualStudio(applicationManager).GetCSharpProjectNETModels()
                     .Where(x => x.GetNETSettings().SDK().IsMicrosoftNETSdkWeb())
@@ -71,6 +70,18 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
                         Location = "wwwroot",
                         RequiresSpecifiedRole = true,
                         IncludeAllowHosts = true,
+                        IncludeAspNetCoreLoggingLevel = false,
+                    }))
+                .Union(_metadataManager.VisualStudio(applicationManager).GetCSharpProjectNETModels()
+                    .Where(x => x.GetNETSettings().SDK().IsMicrosoftNETSdk() && 
+                                x.GetNETSettings().GenerateAppSettingsFile())
+                    .Select(x => new
+                    {
+                        x.Id,
+                        x.RuntimeEnvironments,
+                        Location = "",
+                        RequiresSpecifiedRole = true,
+                        IncludeAllowHosts = false,
                         IncludeAspNetCoreLoggingLevel = false,
                     }));
 
