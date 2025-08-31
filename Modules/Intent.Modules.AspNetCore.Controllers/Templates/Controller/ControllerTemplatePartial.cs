@@ -31,6 +31,8 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
     {
         [IntentManaged(Mode.Fully)] public const string TemplateId = "Intent.AspNetCore.Controllers.Controller";
         private readonly bool _isIgnoredForApiExplorer;
+        
+        private readonly ControllerResponseMapper _responseMapper = new();
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public ControllerTemplate(IOutputTarget outputTarget, IControllerModel model = null) : base(TemplateId, outputTarget, model)
@@ -180,6 +182,8 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             return CSharpFile.ToString();
         }
 
+        internal ControllerResponseMapper ResponseMapper => _responseMapper;
+        
         private List<CSharpAttribute> GetControllerAttributes()
         {
             var attributes = new List<CSharpAttribute>();
@@ -237,17 +241,17 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             switch (operation.Verb)
             {
                 case HttpVerb.Get:
-                    lines.Add($"/// <response code=\"{operation.GetSuccessResponseCode("200")}\">Returns the specified {returnType.Replace("<", "&lt;").Replace(">", "&gt;")}.</response>");
+                    lines.Add($"/// <response code=\"{_responseMapper.GetResponseCode(operation.InternalElement, "200")}\">Returns the specified {returnType.Replace("<", "&lt;").Replace(">", "&gt;")}.</response>");
                     break;
                 case HttpVerb.Post:
-                    lines.Add($"/// <response code=\"{operation.GetSuccessResponseCode("201")}\">Successfully created.</response>");
+                    lines.Add($"/// <response code=\"{_responseMapper.GetResponseCode(operation.InternalElement, "201")}\">Successfully created.</response>");
                     break;
                 case HttpVerb.Patch:
                 case HttpVerb.Put:
-                    lines.Add($"/// <response code=\"{(operation.GetSuccessResponseCode(operation.ReturnType != null ? "200" : "204"))}\">Successfully updated.</response>");
+                    lines.Add($"/// <response code=\"{(_responseMapper.GetResponseCode(operation.InternalElement, operation.ReturnType != null ? "200" : "204"))}\">Successfully updated.</response>");
                     break;
                 case HttpVerb.Delete:
-                    lines.Add($"/// <response code=\"{operation.GetSuccessResponseCode("200")}\">Successfully deleted.</response>");
+                    lines.Add($"/// <response code=\"{_responseMapper.GetResponseCode(operation.InternalElement, "200")}\">Successfully deleted.</response>");
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -318,18 +322,18 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             switch (operation.Verb)
             {
                 case HttpVerb.Get:
-                    attributes.Add(new CSharpAttribute($"[ProducesResponseType({apiResponse}StatusCodes.{operation.GetSuccessResponseCodeEnumValue("Status200OK")})]"));
+                    attributes.Add(new CSharpAttribute($"[ProducesResponseType({apiResponse}{_responseMapper.GetResponseStatusCodeEnum(operation.InternalElement, "StatusCodes.Status200OK")})]"));
                     break;
                 case HttpVerb.Post:
-                    attributes.Add(new CSharpAttribute($"[ProducesResponseType({apiResponse}StatusCodes.{operation.GetSuccessResponseCodeEnumValue("Status201Created")})]"));
+                    attributes.Add(new CSharpAttribute($"[ProducesResponseType({apiResponse}{_responseMapper.GetResponseStatusCodeEnum(operation.InternalElement, "StatusCodes.Status201Created")})]"));
                     break;
                 case HttpVerb.Put:
                 case HttpVerb.Patch:
-                    var defaultValue = operation.ReturnType != null ? "Status200OK" : "Status204NoContent";
-                    attributes.Add(new CSharpAttribute($"[ProducesResponseType({apiResponse}StatusCodes.{operation.GetSuccessResponseCodeEnumValue(defaultValue)})]"));
+                    var defaultValue = operation.ReturnType != null ? "StatusCodes.Status200OK" : "StatusCodes.Status204NoContent";
+                    attributes.Add(new CSharpAttribute($"[ProducesResponseType({apiResponse}{_responseMapper.GetResponseStatusCodeEnum(operation.InternalElement, defaultValue)})]"));
                     break;
                 case HttpVerb.Delete:
-                    attributes.Add(new CSharpAttribute($"[ProducesResponseType({apiResponse}StatusCodes.{operation.GetSuccessResponseCodeEnumValue("Status200OK")})]"));
+                    attributes.Add(new CSharpAttribute($"[ProducesResponseType({apiResponse}{_responseMapper.GetResponseStatusCodeEnum(operation.InternalElement, "StatusCodes.Status200OK")})]"));
                     break;
                 default:
                     throw new ArgumentOutOfRangeException($"Unknown verb: {operation.Verb}");
@@ -337,7 +341,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
 
             if (operation.Verb is not HttpVerb.Patch && operation.CanReturnNoContent())
             {
-                attributes.Add(new CSharpAttribute($"[ProducesResponseType(StatusCodes.{operation.GetSuccessResponseCodeEnumValue("Status204NoContent")})]"));
+                attributes.Add(new CSharpAttribute($"[ProducesResponseType(StatusCodes.{_responseMapper.GetResponseStatusCodeEnum(operation.InternalElement, "StatusCodes.Status204NoContent")})]"));
             }
 
             if (operation.Parameters.Any())

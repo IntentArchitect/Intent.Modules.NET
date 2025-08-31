@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.EmptyVisualStudioSolution" version="4.1.4-pre.0" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.EmptyVisualStudioSolution" version="4.1.6-pre.0" />
   <applications>
     <application id="7decc3ee-90dc-439b-b1f1-a6652711ee7b" name="Intent.ApplicationTemplates.NET" solutionFolder="Application Templates" relativePath="Intent.ApplicationTemplates.NET/Intent.ApplicationTemplates.NET.application.config" />
     <application id="3f2f8c1e-0bbc-4270-88b3-666aec19564a" name="Intent.ApplicationTemplates.NET.Metadata.FullStackWebApi" solutionFolder="Application Templates (Obsolete)" relativePath="Intent.ApplicationTemplates.NET.Metadata.FullStackWebApi/Intent.ApplicationTemplates.NET.Metadata.FullStackWebApi.application.config" />
@@ -29,5 +29,6 @@
     <application id="da6e8e1c-f5b0-44f6-ae70-82c956f7c08c" name="IaC.Terraform.Metadata" solutionFolder="Modules" relativePath="IaC.Terraform.Metadata/IaC.Terraform.Metadata.application.config" />
     <application id="f3e65ec8-6e3f-4d49-a1d6-31a93689f6db" name="Intent.Blazor.Wasm.Metadata" solutionFolder="Modules" relativePath="Intent.Blazor.Wasm.Metadata/Intent.Blazor.Wasm.Metadata.application.config" />
     <application id="2c68b267-002e-4d9c-9e5a-9e24c93d2f2e" name="BlazorServer" solutionFolder="Application Templates" relativePath="BlazorServer/BlazorServer.application.config" />
+    <application id="2d4f0f67-87a7-4980-ba17-4740ae759a4f" name="AwsLambdaFunctions" solutionFolder="Application Templates" relativePath="AwsLambdaFunctions/AwsLambdaFunctions.application.config" />
   </applications>
 </solution>

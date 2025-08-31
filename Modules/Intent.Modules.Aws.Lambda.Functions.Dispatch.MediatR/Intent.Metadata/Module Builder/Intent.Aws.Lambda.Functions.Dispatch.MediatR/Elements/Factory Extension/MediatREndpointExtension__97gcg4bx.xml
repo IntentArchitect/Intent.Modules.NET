@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c5b4b485-21c9-4330-af00-bfeb98ec6e2d" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>MediatREndpointExtension</name>
+  <display>MediatREndpointExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>2b5783d8-12b7-4ad1-bbfc-fd364fef7d13</parentFolderId>
+  <packageId>2b5783d8-12b7-4ad1-bbfc-fd364fef7d13</packageId>
+  <packageName>Intent.Aws.Lambda.Functions.Dispatch.MediatR</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

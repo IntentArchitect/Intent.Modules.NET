@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a66cc675-6d17-47a9-b8c2-98c74f5d045d" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>ServiceContractEndpointExtension</name>
+  <display>ServiceContractEndpointExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>68632eda-d3f9-4c13-b852-9703dd980c09</parentFolderId>
+  <packageId>68632eda-d3f9-4c13-b852-9703dd980c09</packageId>
+  <packageName>Intent.Aws.Lambda.Functions.Dispatch.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
