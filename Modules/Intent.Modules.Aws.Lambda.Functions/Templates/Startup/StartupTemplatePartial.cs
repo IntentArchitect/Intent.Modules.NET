@@ -4,6 +4,7 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -74,6 +75,19 @@ namespace Intent.Modules.Aws.Lambda.Functions.Templates.Startup
 
                     configMethod.AddReturn("hostBuilder");
                 });
+        }
+
+        public override void BeforeTemplateExecution()
+        {
+            this.ExecutionContext.EventDispatcher.Publish(new LaunchProfileRegistrationRequest
+            {
+                Name = "Mock Lambda Test Tool",
+                CommandName = "Executable",
+                CommandLineArgs = "--port 5050",
+                ExecutablePath = """%USERPROFILE%\\.dotnet\\tools\\dotnet-lambda-test-tool-8.0.exe""",
+                EnvironmentVariables = new Dictionary<string, string>(),
+                WorkingDirectory = "$(ProjectDir)$(OutputPath)"
+            });
         }
 
         private void HandleServiceConfigurationRequest(ServiceConfigurationRequest request)

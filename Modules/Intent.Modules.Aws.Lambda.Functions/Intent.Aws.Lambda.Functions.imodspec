@@ -46,7 +46,7 @@
   <moduleSettings></moduleSettings>
   <dependencies>
     <dependency id="Intent.Common" version="3.8.0" />
-    <dependency id="Intent.Common.CSharp" version="3.9.3" />
+    <dependency id="Intent.Common.CSharp" version="3.9.5-pre.1" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Metadata.WebApi" version="4.7.12" />
     <dependency id="Intent.Modelers.Services" version="4.0.2" />
