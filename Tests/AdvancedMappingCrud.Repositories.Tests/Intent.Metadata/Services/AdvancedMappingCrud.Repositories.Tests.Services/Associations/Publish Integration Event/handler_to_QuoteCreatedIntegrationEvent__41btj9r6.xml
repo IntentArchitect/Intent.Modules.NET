@@ -106,6 +106,22 @@
             </sources>
           </mappedEnd>
           <mappedEnd>
+            <expression>{user.Email}</expression>
+            <path>
+              <target id="bcb053c5-8b3c-46f1-9b0c-40338ee1c3eb" name="QuoteCreatedIntegrationEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="dbe08062-fd5e-4e57-a19a-ad8dda8a4cdb" name="UserEmail" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="user.Email" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="52a77343-8971-412c-9fc2-85d4391e7415" name="handler" type="association" specialization="Domain Event Handler Association Target End" specializationId="f45dfee9-f62b-45ac-bfce-a3878e04b73f" />
+                  <target id="708b47a2-31f7-4b23-9604-9f101e3e0283" name="user" type="association" specialization="Query Entity Action Target End" specializationId="93ef6675-cba4-4998-adff-cb22d5343ed4" />
+                  <target id="16e16f74-79b4-48ae-8903-4da355712f2d" name="Email" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
             <expression>{Quote.QuoteLines}</expression>
             <path>
               <target id="bcb053c5-8b3c-46f1-9b0c-40338ee1c3eb" name="QuoteCreatedIntegrationEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />

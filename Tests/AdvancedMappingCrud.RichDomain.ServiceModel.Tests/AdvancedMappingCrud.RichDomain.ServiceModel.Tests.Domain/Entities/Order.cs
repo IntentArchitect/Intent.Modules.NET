@@ -41,6 +41,12 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Domain.Entities
 
         public List<DomainEvent> DomainEvents { get; set; } = [];
 
+        public static Order StaticConstructor(string refNo, DateTime orderDate, IEnumerable<OrderItem> orderItems)
+        {
+            // TODO: Implement StaticConstructor (Order) functionality
+            throw new NotImplementedException("Replace with your implementation...");
+        }
+
         public void UpdateOrderItems(IEnumerable<OrderItemUpdateDC> orderItemDetails)
         {
             UpdateHelper.CreateOrUpdateCollection<OrderItemUpdateDC, OrderItem>(

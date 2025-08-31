@@ -108,6 +108,30 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="dbe08062-fd5e-4e57-a19a-ad8dda8a4cdb" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>UserEmail</name>
+      <display>UserEmail: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="e0446a86-7ddf-4f0a-bd04-50e7e028b35a">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>bcb053c5-8b3c-46f1-9b0c-40338ee1c3eb</parentFolderId>
+      <packageId>ff1d4a85-cc14-45d9-9fcc-b37e30143ee0</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests.Eventing.Messages</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
     <childElement id="58a4d613-b8a6-4d7a-804d-be07fa2c9639" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
       <name>QuoteLines</name>
       <display>QuoteLines: QuoteCreatedIntegrationEventQuoteLinesDto[*]</display>

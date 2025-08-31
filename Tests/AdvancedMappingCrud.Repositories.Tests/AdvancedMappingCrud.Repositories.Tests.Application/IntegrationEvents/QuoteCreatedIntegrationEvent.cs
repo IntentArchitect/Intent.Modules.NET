@@ -12,6 +12,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Eventing.Messages
         public QuoteCreatedIntegrationEvent()
         {
             RefNo = null!;
+            UserEmail = null!;
             QuoteLines = null!;
         }
 
@@ -19,6 +20,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Eventing.Messages
         public string RefNo { get; init; }
         public Guid PersonId { get; init; }
         public string? PersonEmail { get; init; }
+        public string UserEmail { get; init; }
         public List<QuoteCreatedIntegrationEventQuoteLinesDto> QuoteLines { get; init; }
     }
 }

@@ -411,5 +411,114 @@
         </childElement>
       </childElements>
     </childElement>
+    <childElement id="f788efbe-8990-4149-a471-87c6539db2c1" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>OrderLineStaticConstructor</name>
+      <display>OrderLineStaticConstructor(productId: guid, quantity: int, amount: decimal): OrderItem</display>
+      <isAbstract>false</isAbstract>
+      <isStatic>true</isStatic>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="84839a3a-3b4d-41f5-b152-eee891a5c536">
+        <typeId>7480f944-740e-497a-bf40-426b648db645</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Domain</typePackageName>
+        <typePackageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>7480f944-740e-497a-bf40-426b648db645</parentFolderId>
+      <packageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</packageId>
+      <packageName>AdvancedMappingCrud.RichDomain.Tests.Domain</packageName>
+      <traits>
+        <trait id="39a4c065-f9c5-46dc-b035-2eb025698330" name="[Static Constructor]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="39a4c065-f9c5-46dc-b035-2eb025698330" name="[Static Constructor]">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.Domain</definitionPackageName>
+          <definitionPackageId>6572b98d-5e13-4d4b-9ffc-820057da974e</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="0e7e7c81-7718-4314-bacd-67cd25f04ae6" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>productId</name>
+          <display>in : productId: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="bffe99fd-88d4-4c41-9a9e-24cdc7c7aad1">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>f788efbe-8990-4149-a471-87c6539db2c1</parentFolderId>
+          <packageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</packageId>
+          <packageName>AdvancedMappingCrud.RichDomain.Tests.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="b517ebfa-ab9c-460c-9286-c76346e4cdcc" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>quantity</name>
+          <display>in : quantity: int</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="1c43d1e1-098e-4080-b34a-353f1b50cea7">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>f788efbe-8990-4149-a471-87c6539db2c1</parentFolderId>
+          <packageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</packageId>
+          <packageName>AdvancedMappingCrud.RichDomain.Tests.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="86e87214-ebe5-472b-9d96-d66700b7c5e9" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>amount</name>
+          <display>in : amount: decimal</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="3644ba2f-1b95-4478-abbb-c8f6d1584c18">
+            <typeId>675c7b84-997a-44e0-82b9-cd724c07c9e6</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>f788efbe-8990-4149-a471-87c6539db2c1</parentFolderId>
+          <packageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</packageId>
+          <packageName>AdvancedMappingCrud.RichDomain.Tests.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>

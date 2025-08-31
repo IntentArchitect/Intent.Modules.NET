@@ -56,6 +56,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.EventHandlers.Custo
                 RefNo = domainEvent.Quote.RefNo,
                 PersonId = domainEvent.Quote.PersonId,
                 PersonEmail = domainEvent.Quote.PersonEmail,
+                UserEmail = user.Email,
                 QuoteLines = domainEvent.Quote.QuoteLines
                     .Select(ql => new QuoteCreatedIntegrationEventQuoteLinesDto
                     {
