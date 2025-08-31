@@ -341,7 +341,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
 
             if (operation.Verb is not HttpVerb.Patch && operation.CanReturnNoContent())
             {
-                attributes.Add(new CSharpAttribute($"[ProducesResponseType(StatusCodes.{_responseMapper.GetResponseStatusCodeEnum(operation.InternalElement, "StatusCodes.Status204NoContent")})]"));
+                attributes.Add(new CSharpAttribute($"[ProducesResponseType({_responseMapper.GetResponseStatusCodeEnum(operation.InternalElement, "StatusCodes.Status204NoContent")})]"));
             }
 
             if (operation.Parameters.Any())
