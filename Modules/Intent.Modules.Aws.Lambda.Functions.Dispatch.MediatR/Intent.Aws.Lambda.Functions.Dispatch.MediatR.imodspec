@@ -28,5 +28,6 @@
   <tags>csharp dotnet aws lambda function serverless dispatch mediatr</tags>
   <moduleSettingsExtensions />
   <metadata />
+  <releaseNotes>release-notes.md</releaseNotes>
   <migrations />
 </package>
