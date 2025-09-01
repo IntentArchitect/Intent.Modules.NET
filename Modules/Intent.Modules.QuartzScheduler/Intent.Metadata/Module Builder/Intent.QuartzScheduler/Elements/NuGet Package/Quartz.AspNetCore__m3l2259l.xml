@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="c9f8a35d-344e-4d0a-b9e2-49bd170169d9" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>3.14.0</name>
+      <name>3.15.0</name>
       <display>3.14.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,44 +47,35 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="22a8f2cc-9254-476c-a839-bd8f00d087a4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
-          <display>Microsoft.Extensions.DependencyInjection.Abstractions (8.0.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>8.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>c9f8a35d-344e-4d0a-b9e2-49bd170169d9</parentFolderId>
-          <packageId>046b57a5-7822-4ce0-aad8-dd40a93ecee5</packageId>
-          <packageName>Intent.QuartzScheduler</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="588820b8-8acd-4968-944d-39d6ed3b7cc7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Diagnostics.HealthChecks</name>
-          <display>Microsoft.Extensions.Diagnostics.HealthChecks (8.0.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>8.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>c9f8a35d-344e-4d0a-b9e2-49bd170169d9</parentFolderId>
-          <packageId>046b57a5-7822-4ce0-aad8-dd40a93ecee5</packageId>
-          <packageName>Intent.QuartzScheduler</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="716758e7-d4bd-4dca-9f7b-23125bfa0f7b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="4f3d83a9-65cc-484f-99b7-6c1e19548ad1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Quartz.Extensions.Hosting</name>
-          <display>Quartz.Extensions.Hosting (3.14.0)</display>
           <isAbstract>false</isAbstract>
-          <value>3.14.0</value>
+          <value>3.15.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>c9f8a35d-344e-4d0a-b9e2-49bd170169d9</parentFolderId>
-          <packageId>046b57a5-7822-4ce0-aad8-dd40a93ecee5</packageId>
-          <packageName>Intent.QuartzScheduler</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="10144109-cf82-45b4-bc01-4c18062b5d2a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
+          <isAbstract>false</isAbstract>
+          <value>8.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>c9f8a35d-344e-4d0a-b9e2-49bd170169d9</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="30996a99-c115-4983-b4af-2be9f930d31c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Diagnostics.HealthChecks</name>
+          <isAbstract>false</isAbstract>
+          <value>8.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>c9f8a35d-344e-4d0a-b9e2-49bd170169d9</parentFolderId>
           <stereotypes />
           <metadata />
           <childElements />
@@ -92,7 +83,7 @@
       </childElements>
     </childElement>
     <childElement id="0d0d4c1d-d6f7-48fd-a059-1c607d45008d" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>3.14.0</name>
+      <name>3.15.0</name>
       <display>3.14.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -114,30 +105,24 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="1f303434-80b6-4167-85ac-2433ebc28309" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c4c53ca3-bade-4525-8b83-afa02e780c0c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Quartz.Extensions.Hosting</name>
+          <isAbstract>false</isAbstract>
+          <value>3.15.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>0d0d4c1d-d6f7-48fd-a059-1c607d45008d</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="50f79a56-c57d-4f1c-a4dd-6c2a903f63c3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
-          <display>Microsoft.Extensions.DependencyInjection.Abstractions (2.1.1)</display>
           <isAbstract>false</isAbstract>
           <value>2.1.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0d0d4c1d-d6f7-48fd-a059-1c607d45008d</parentFolderId>
-          <packageId>046b57a5-7822-4ce0-aad8-dd40a93ecee5</packageId>
-          <packageName>Intent.QuartzScheduler</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="15174ff1-094d-478d-af93-91d8bb83f291" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Quartz.Extensions.Hosting</name>
-          <display>Quartz.Extensions.Hosting (3.14.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>3.14.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>0d0d4c1d-d6f7-48fd-a059-1c607d45008d</parentFolderId>
-          <packageId>046b57a5-7822-4ce0-aad8-dd40a93ecee5</packageId>
-          <packageName>Intent.QuartzScheduler</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -145,7 +130,7 @@
       </childElements>
     </childElement>
     <childElement id="b36f3eb7-dd5a-4b3a-8f74-7789b75db36d" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>3.14.0</name>
+      <name>3.15.0</name>
       <display>3.14.0 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -167,44 +152,35 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="4d2526b3-78f1-41c3-aec8-fcf077af0046" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
-          <display>Microsoft.Extensions.DependencyInjection.Abstractions (9.0.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>9.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>b36f3eb7-dd5a-4b3a-8f74-7789b75db36d</parentFolderId>
-          <packageId>046b57a5-7822-4ce0-aad8-dd40a93ecee5</packageId>
-          <packageName>Intent.QuartzScheduler</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="5d11e7f4-7a8c-4228-9db1-653c556e5e8d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Diagnostics.HealthChecks</name>
-          <display>Microsoft.Extensions.Diagnostics.HealthChecks (9.0.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>9.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>b36f3eb7-dd5a-4b3a-8f74-7789b75db36d</parentFolderId>
-          <packageId>046b57a5-7822-4ce0-aad8-dd40a93ecee5</packageId>
-          <packageName>Intent.QuartzScheduler</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="51d46645-ff89-4813-8237-6d84927c6812" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="3935ca23-0652-4cac-b3b5-74af6ab28b6b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Quartz.Extensions.Hosting</name>
-          <display>Quartz.Extensions.Hosting (3.14.0)</display>
           <isAbstract>false</isAbstract>
-          <value>3.14.0</value>
+          <value>3.15.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>b36f3eb7-dd5a-4b3a-8f74-7789b75db36d</parentFolderId>
-          <packageId>046b57a5-7822-4ce0-aad8-dd40a93ecee5</packageId>
-          <packageName>Intent.QuartzScheduler</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="724212e8-c714-425b-bd2e-887a4010cd03" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
+          <isAbstract>false</isAbstract>
+          <value>9.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b36f3eb7-dd5a-4b3a-8f74-7789b75db36d</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="6d70134d-8e84-4303-b088-a52c4f83b067" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Diagnostics.HealthChecks</name>
+          <isAbstract>false</isAbstract>
+          <value>9.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b36f3eb7-dd5a-4b3a-8f74-7789b75db36d</parentFolderId>
           <stereotypes />
           <metadata />
           <childElements />

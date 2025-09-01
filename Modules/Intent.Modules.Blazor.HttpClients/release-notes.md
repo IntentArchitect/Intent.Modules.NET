@@ -1,3 +1,7 @@
+### Version 4.0.15
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 4.0.14
 
 - Fixed: Correct variable path used when invoking an external service and mapping to entity

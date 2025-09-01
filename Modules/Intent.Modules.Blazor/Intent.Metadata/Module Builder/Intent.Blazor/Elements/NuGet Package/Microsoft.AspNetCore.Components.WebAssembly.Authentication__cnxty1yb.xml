@@ -184,7 +184,7 @@
       </childElements>
     </childElement>
     <childElement id="66557075-ee01-4afc-9499-a8aa4621befd" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.0.18</name>
+      <name>8.0.19</name>
       <display>8.0.18 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -206,30 +206,24 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="98919dff-8f34-42ab-a973-49111297d809" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="03199941-1a2c-432a-a65b-b7be7a620d00" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Components.Authorization</name>
-          <display>Microsoft.AspNetCore.Components.Authorization (8.0.18)</display>
           <isAbstract>false</isAbstract>
-          <value>8.0.18</value>
+          <value>8.0.19</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>66557075-ee01-4afc-9499-a8aa4621befd</parentFolderId>
-          <packageId>3ac5ff1e-5fc9-46a2-95e5-2d9ca579e484</packageId>
-          <packageName>Intent.Blazor</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c56add46-0ce2-4a77-ae77-88869aee8ff8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="7787cdbe-a701-4512-91fa-d6d2deaef04e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Components.Web</name>
-          <display>Microsoft.AspNetCore.Components.Web (8.0.18)</display>
           <isAbstract>false</isAbstract>
-          <value>8.0.18</value>
+          <value>8.0.19</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>66557075-ee01-4afc-9499-a8aa4621befd</parentFolderId>
-          <packageId>3ac5ff1e-5fc9-46a2-95e5-2d9ca579e484</packageId>
-          <packageName>Intent.Blazor</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -237,7 +231,7 @@
       </childElements>
     </childElement>
     <childElement id="a3ae2356-2af3-4c98-8479-de2494a9ae48" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.7</name>
+      <name>9.0.8</name>
       <display>9.0.7 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -259,30 +253,24 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="533a2612-95fa-4f97-95f6-3aea1ea31661" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e4af7b42-f78e-43f6-bc95-9cf145bc5d6d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Components.Authorization</name>
-          <display>Microsoft.AspNetCore.Components.Authorization (9.0.7)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.7</value>
+          <value>9.0.8</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a3ae2356-2af3-4c98-8479-de2494a9ae48</parentFolderId>
-          <packageId>3ac5ff1e-5fc9-46a2-95e5-2d9ca579e484</packageId>
-          <packageName>Intent.Blazor</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="4acd0dc9-4cc0-46bd-bb13-a860a4b5f633" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="03d172f0-8c0f-4e53-9896-9db7268ca889" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Components.Web</name>
-          <display>Microsoft.AspNetCore.Components.Web (9.0.7)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.7</value>
+          <value>9.0.8</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a3ae2356-2af3-4c98-8479-de2494a9ae48</parentFolderId>
-          <packageId>3ac5ff1e-5fc9-46a2-95e5-2d9ca579e484</packageId>
-          <packageName>Intent.Blazor</packageName>
           <stereotypes />
           <metadata />
           <childElements />

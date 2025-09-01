@@ -1,5 +1,6 @@
 ### Version 4.5.1
 
+- Improvement: Updated NuGet package versions.
 - Fixed: Removed unnecessary `MediatR` using directive for Dependency Injection.
 
 ### Version 4.5.0

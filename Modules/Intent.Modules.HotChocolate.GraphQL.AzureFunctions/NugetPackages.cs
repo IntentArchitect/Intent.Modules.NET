@@ -18,12 +18,12 @@ namespace Intent.Modules.HotChocolate.GraphQL.AzureFunctions
             NugetRegistry.Register(HotChocolateAzureFunctionsPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("15.1.8")
-                            .WithNugetDependency("HotChocolate.AspNetCore", "15.1.8")
+                        ( >= 9, >= 0) => new PackageVersion("15.1.10")
+                            .WithNugetDependency("HotChocolate.AspNetCore", "15.1.10")
                             .WithNugetDependency("ChilliCream.Nitro.App", "28.0.7")
                             .WithNugetDependency("Microsoft.Azure.Functions.Extensions", "1.1.0"),
-                        ( >= 8, >= 0) => new PackageVersion("15.1.8")
-                            .WithNugetDependency("HotChocolate.AspNetCore", "15.1.8")
+                        ( >= 8, >= 0) => new PackageVersion("15.1.10")
+                            .WithNugetDependency("HotChocolate.AspNetCore", "15.1.10")
                             .WithNugetDependency("ChilliCream.Nitro.App", "28.0.7")
                             .WithNugetDependency("Microsoft.Azure.Functions.Extensions", "1.1.0"),
                         ( >= 7, >= 0) => new PackageVersion("14.3.0")

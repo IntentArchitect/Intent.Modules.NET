@@ -1,3 +1,7 @@
+### Version 5.0.29
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 5.0.28
 
 - Improvement: Modernized `MIGRATION_README.txt` file to rather be a `readme.md` in the `Migrations` folder.

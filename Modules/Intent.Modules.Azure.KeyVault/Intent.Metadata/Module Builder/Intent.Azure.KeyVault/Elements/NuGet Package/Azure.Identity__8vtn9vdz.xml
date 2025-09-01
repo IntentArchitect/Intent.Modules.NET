@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="dfddc7d5-de99-45de-8469-502129219a44" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>1.14.2</name>
+      <name>1.15.0</name>
       <display>1.13.1 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,10 +47,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="78edbd46-aaaa-4ac0-83f9-45ea92fef3a7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="bd5c0b24-86e4-44ca-b2ce-f22ba8c5ac40" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Core</name>
           <isAbstract>false</isAbstract>
-          <value>1.46.1</value>
+          <value>1.47.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>dfddc7d5-de99-45de-8469-502129219a44</parentFolderId>
@@ -58,7 +58,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="a88c9ad6-ff52-42c6-a628-3da0e9fc7e09" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c838657c-3231-4bd3-95b8-846bafd3d37f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Identity.Client</name>
           <isAbstract>false</isAbstract>
           <value>4.73.1</value>
@@ -69,7 +69,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="fbb0233e-639c-4eb8-9c7e-c3e308fc1055" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d212b99d-cbc7-4df0-b1da-e759244e997a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Identity.Client.Extensions.Msal</name>
           <isAbstract>false</isAbstract>
           <value>4.73.1</value>
@@ -80,7 +80,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="fe5eea60-04da-47dc-b23b-45b4f334add9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="93fa5f23-c9b9-4325-9b2e-20e3bcc82dab" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Memory</name>
           <isAbstract>false</isAbstract>
           <value>4.5.5</value>
@@ -94,7 +94,7 @@
       </childElements>
     </childElement>
     <childElement id="fdee18d7-17ea-4d6c-82c7-9e8582cdbc67" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>1.14.2</name>
+      <name>1.15.0</name>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -112,10 +112,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="745a9edc-e73c-44a1-97cf-d1bb957c3996" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ee95c915-2904-4d16-9d8e-af4db484749b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Core</name>
           <isAbstract>false</isAbstract>
-          <value>1.46.1</value>
+          <value>1.47.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>fdee18d7-17ea-4d6c-82c7-9e8582cdbc67</parentFolderId>
@@ -123,7 +123,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="6ad5de55-6c01-4046-8187-dde3fbfdbce4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="0e5a828a-86ee-4b6f-99a5-829be9ec37f7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Identity.Client</name>
           <isAbstract>false</isAbstract>
           <value>4.73.1</value>
@@ -134,21 +134,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="5a877db2-af0c-4eb7-b3c6-fc383e35e6ed" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="98dce89c-220c-42b6-8a40-de5c9806e919" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Identity.Client.Extensions.Msal</name>
           <isAbstract>false</isAbstract>
           <value>4.73.1</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>fdee18d7-17ea-4d6c-82c7-9e8582cdbc67</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="4331a638-9de3-46c7-8ab3-765800b6ca7f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.Memory</name>
-          <isAbstract>false</isAbstract>
-          <value>4.5.5</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>fdee18d7-17ea-4d6c-82c7-9e8582cdbc67</parentFolderId>

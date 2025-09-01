@@ -1,3 +1,7 @@
+### Version 7.0.7
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 7.0.6
 
 - Improvement: Added support for DynamoDB unit of work.

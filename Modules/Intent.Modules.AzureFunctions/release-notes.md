@@ -1,5 +1,6 @@
 ### Version 5.0.14
 
+- Improvement: Updated NuGet package versions.
 - Fixed: Corrected Exception Logging.
 
 ### Version 5.0.13

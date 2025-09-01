@@ -1,5 +1,6 @@
 ### Version 2.0.0
 
+- Improvement: Updated NuGet package versions.
 - Improvement: Migrated from MongoFramework to MongoDB.Driver.
 
     Breaking Change: Requires update to `Intent.MongoDb.Repositories version 2.0.0.`

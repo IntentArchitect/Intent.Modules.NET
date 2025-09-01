@@ -1,5 +1,6 @@
 ### Version 1.0.2
 
+- Improvement: Updated NuGet package versions.
 - Fixed: Syntax generation fix.
 
 ### Version 1.0.1

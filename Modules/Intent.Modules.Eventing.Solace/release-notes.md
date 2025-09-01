@@ -1,3 +1,7 @@
+### Version 2.0.9
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 2.0.8
 
 - Improvement: Added support for DynamoDB unit of work.

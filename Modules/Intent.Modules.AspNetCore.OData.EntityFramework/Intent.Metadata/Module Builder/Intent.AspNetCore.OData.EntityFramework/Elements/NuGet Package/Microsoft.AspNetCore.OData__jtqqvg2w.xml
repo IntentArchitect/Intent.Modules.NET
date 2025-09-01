@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="7c1ffbce-9960-424e-b313-52c7fa7eb94c" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>7.7.8</name>
+      <name>7.7.9</name>
       <display>7.7.8 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,44 +47,35 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="d6fc16b8-1918-4de3-b2e6-9a267697b63e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ec1f7bea-d93f-4380-a6b1-cc9c368a37d5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Mvc.Core</name>
-          <display>Microsoft.AspNetCore.Mvc.Core (2.0.1)</display>
           <isAbstract>false</isAbstract>
           <value>2.0.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7c1ffbce-9960-424e-b313-52c7fa7eb94c</parentFolderId>
-          <packageId>f80db930-cd05-493f-a2a6-f487326ec7c5</packageId>
-          <packageName>Intent.AspNetCore.OData.EntityFramework</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="667368c5-2705-4499-bccf-371cb2680398" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="18eac259-657f-4d88-ba01-5c466c4c551a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection</name>
-          <display>Microsoft.Extensions.DependencyInjection (2.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>2.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7c1ffbce-9960-424e-b313-52c7fa7eb94c</parentFolderId>
-          <packageId>f80db930-cd05-493f-a2a6-f487326ec7c5</packageId>
-          <packageName>Intent.AspNetCore.OData.EntityFramework</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="7e84ffa0-b27e-46d2-98de-b7dc6851b021" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="4d700eda-6fcb-4ab3-b0dc-52332d831b8b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.OData.Core</name>
-          <display>Microsoft.OData.Core (7.20.0)</display>
           <isAbstract>false</isAbstract>
           <value>7.20.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7c1ffbce-9960-424e-b313-52c7fa7eb94c</parentFolderId>
-          <packageId>f80db930-cd05-493f-a2a6-f487326ec7c5</packageId>
-          <packageName>Intent.AspNetCore.OData.EntityFramework</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -161,7 +152,7 @@
       </childElements>
     </childElement>
     <childElement id="0e4033e4-778b-4cd8-ada1-e1138e2a8aaf" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.3.2</name>
+      <name>9.4.0</name>
       <display>9.3.1 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -183,7 +174,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="ef2f50c6-a899-4379-97cf-f78d5b7e9142" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="305ddd34-0849-4246-83b7-a843532373a7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.OData.ModelBuilder</name>
           <isAbstract>false</isAbstract>
           <value>2.0.0</value>
@@ -194,7 +185,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="62e56e9b-9ed2-4d6a-8c28-5204f3fd2f6c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9869ef32-74fa-4631-afd4-90c9406ced4e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.OData.Core</name>
           <isAbstract>false</isAbstract>
           <value>8.2.3</value>
@@ -205,7 +196,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="13711741-39f7-45a7-baa4-1a3ebe44b8d5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="df927c9d-dee2-4328-b27a-da7f32f9865d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.OData.Edm</name>
           <isAbstract>false</isAbstract>
           <value>8.2.3</value>
@@ -216,7 +207,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="95d9b2d8-752c-4b93-87d4-c628990c0129" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c9ed8069-3932-4a43-a921-739151da8fdc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Spatial</name>
           <isAbstract>false</isAbstract>
           <value>8.2.3</value>

@@ -1,5 +1,6 @@
 ### Version 2.0.8
 
+- Improvement: Updated NuGet package versions.
 - Improvement: Added MongoDB.Drive support
 
 ### Version 2.0.7
