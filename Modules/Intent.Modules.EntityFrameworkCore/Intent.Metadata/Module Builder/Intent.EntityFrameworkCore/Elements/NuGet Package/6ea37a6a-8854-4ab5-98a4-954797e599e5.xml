@@ -155,8 +155,8 @@
     </childElement>
     <childElement id="8000e910-006d-4eec-a893-ee4d29a879da" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <comment>Not all the .net8 providers  (Oracle and MySql) have upgraded to support 9.0.0.</comment>
-      <name>8.0.18</name>
-      <display>8.0.18 ( &gt;= .NETCoreApp,Version=v8.0 ) [locked]</display>
+      <name>8.0.19</name>
+      <display>8.0.19 ( &gt;= .NETCoreApp,Version=v8.0 ) [locked]</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -180,8 +180,8 @@
     <childElement id="533cf692-afbb-46f4-ba91-0066394f99f4" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <comment>Not all the .net8 providers  (Oracle and MySql) have upgraded to support 9.0.0.
 Created this entry so .net9 gets 9.0.0</comment>
-      <name>9.0.7</name>
-      <display>9.0.7 ( &gt;= .NETCoreApp,Version=v9.0 ) [locked]</display>
+      <name>9.0.8</name>
+      <display>9.0.8 ( &gt;= .NETCoreApp,Version=v9.0 ) [locked]</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -288,9 +288,9 @@ Created this entry so .net9 gets 9.0.0</comment>
         </childElement>
         <childElement id="c7bb27f7-9690-4ef3-be3b-d1cbfdbbcdc3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore.Relational</name>
-          <display>Microsoft.EntityFrameworkCore.Relational (9.0.6)</display>
+          <display>Microsoft.EntityFrameworkCore.Relational (9.0.8)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.6</value>
+          <value>9.0.8</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>533cf692-afbb-46f4-ba91-0066394f99f4</parentFolderId>
@@ -302,9 +302,9 @@ Created this entry so .net9 gets 9.0.0</comment>
         </childElement>
         <childElement id="51912c85-f28f-4af5-bebe-e776d181f750" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Caching.Memory</name>
-          <display>Microsoft.Extensions.Caching.Memory (9.0.6)</display>
+          <display>Microsoft.Extensions.Caching.Memory (9.0.8)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.6</value>
+          <value>9.0.8</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>533cf692-afbb-46f4-ba91-0066394f99f4</parentFolderId>
@@ -316,9 +316,9 @@ Created this entry so .net9 gets 9.0.0</comment>
         </childElement>
         <childElement id="30cc67e5-114b-4c6d-845e-10e2367bb5b3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Abstractions</name>
-          <display>Microsoft.Extensions.Configuration.Abstractions (9.0.6)</display>
+          <display>Microsoft.Extensions.Configuration.Abstractions (9.0.8)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.6</value>
+          <value>9.0.8</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>533cf692-afbb-46f4-ba91-0066394f99f4</parentFolderId>
@@ -330,9 +330,9 @@ Created this entry so .net9 gets 9.0.0</comment>
         </childElement>
         <childElement id="1751b60f-d19c-4904-8b5f-b04e3483e38f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyModel</name>
-          <display>Microsoft.Extensions.DependencyModel (9.0.6)</display>
+          <display>Microsoft.Extensions.DependencyModel (9.0.8)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.6</value>
+          <value>9.0.8</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>533cf692-afbb-46f4-ba91-0066394f99f4</parentFolderId>
@@ -344,9 +344,9 @@ Created this entry so .net9 gets 9.0.0</comment>
         </childElement>
         <childElement id="a80d316d-36a3-4354-b9e7-a4d0e36797a2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging</name>
-          <display>Microsoft.Extensions.Logging (9.0.6)</display>
+          <display>Microsoft.Extensions.Logging (9.0.8)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.6</value>
+          <value>9.0.8</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>533cf692-afbb-46f4-ba91-0066394f99f4</parentFolderId>

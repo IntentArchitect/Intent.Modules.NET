@@ -206,7 +206,7 @@
     </childElement>
     <childElement id="857c959d-7098-4f5b-b18e-b9f0a24a06d5" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>9.0.0</name>
-      <display>8.0.3 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <display>9.0.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -229,22 +229,28 @@
       <childElements>
         <childElement id="c7f423cc-2b7d-4601-99cd-931bdb373389" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore.Relational</name>
+          <display>Microsoft.EntityFrameworkCore.Relational (9.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>857c959d-7098-4f5b-b18e-b9f0a24a06d5</parentFolderId>
+          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+          <packageName>Intent.EntityFrameworkCore</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="16d6e5de-5524-47a7-ab37-f22d58eeb935" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>MySqlConnector</name>
+          <display>MySqlConnector (2.4.0)</display>
           <isAbstract>false</isAbstract>
           <value>2.4.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>857c959d-7098-4f5b-b18e-b9f0a24a06d5</parentFolderId>
+          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+          <packageName>Intent.EntityFrameworkCore</packageName>
           <stereotypes />
           <metadata />
           <childElements />
