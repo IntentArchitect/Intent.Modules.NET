@@ -1,6 +1,11 @@
 ### Version 3.8.16
 
 - Improvement: Opt-in to add `appsettings.json` and `launchSettings.json` to a standard `Microsoft.NET.Sdk` project type.
+- Fixed: `Folder Options` for `Solution Folders` can now materialize for files in general, not just `csproj` files.
+
+> ⚠️ NOTE
+> 
+> Specifying `RelativeOutputPathPrefix` will only work if none of the `Solution Folders` have materialized folders switched on.
 
 ### Version 3.8.15
 
