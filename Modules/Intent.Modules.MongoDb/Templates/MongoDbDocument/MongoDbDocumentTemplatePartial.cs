@@ -19,6 +19,7 @@ using Intent.Templates;
 using Intent.Utils;
 using AttributeModel = Intent.Modelers.Domain.Api.AttributeModel;
 using static Intent.Modules.Constants.TemplateRoles.Repository;
+using Intent.Modules.MongoDb.Settings;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -42,6 +43,11 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbDocument
                 .AddClass($"{Model.Name}Document", @class =>
                 {
                     @class.Internal();
+
+                    if (ExecutionContext.Settings.GetMongoDBSettings().AlwaysIncludeDiscriminatorInDocuments())
+                    {
+                        @class.AddAttribute("BsonDiscriminator", a => a.AddArgument($"nameof({Model.Name})").AddArgument("Required = true"));
+                    }
 
                     if (Model.IsAbstract)
                     {
@@ -165,7 +171,10 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbDocument
                     if (metadataModel.Id == pk.Id && (string.Equals(typeName, Helpers.PrimaryKeyType, StringComparison.OrdinalIgnoreCase) || string.Equals(typeName, Helpers.PrimaryKeyTypeGuid, StringComparison.OrdinalIgnoreCase)))
                     {
                         property.AddAttribute("BsonId");
-                        property.AddAttribute("BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)");
+                        if (ExecutionContext.Settings.GetMongoDBSettings().PersistPrimaryKeyAsObjectId())
+                        {
+                            property.AddAttribute("BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)");
+                        }
                     }
                     if (metadataModel is AttributeModel classAttribute1 && classAttribute1.HasFieldSettings())
                     {

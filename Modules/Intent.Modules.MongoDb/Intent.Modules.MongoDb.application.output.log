@@ -97,6 +97,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>16d30242-f998-4fd2-b406-89cdbc9d55d7</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration#ef7901e4-083e-4382-82a7-742db58f81f4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Migrations/Migration_02_00_00_Alpha_02.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Migration_02_00_00_Alpha_02.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>b42cb104-9697-4b78-873e-ca5602b25497</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.DesignerSettings#c1f5fb5e-a1fc-47f2-99f2-c377c4714d88</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

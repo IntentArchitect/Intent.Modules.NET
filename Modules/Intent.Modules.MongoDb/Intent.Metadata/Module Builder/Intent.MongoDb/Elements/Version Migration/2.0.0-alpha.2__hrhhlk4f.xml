@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ef7901e4-083e-4382-82a7-742db58f81f4" type="Version Migration" typeId="03f24c57-66d8-4868-95a7-6daef900dc7f">
+  <name>2.0.0-alpha.2</name>
+  <display>2.0.0-alpha.2</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>10e0a8d7-accd-4def-92df-7f45a42542c5</parentFolderId>
+  <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
+  <packageName>Intent.MongoDb</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

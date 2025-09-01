@@ -31,7 +31,7 @@ namespace Intent.Modules.MongoDb.Settings
         }
     }
 
-    internal static class ModuleSettingsExtensions
+    internal static class MultitenancyModuleSettingsExtensions
     {
         public static MultitenancySettings? GetMultitenancySettings(this IApplicationSettingsProvider settings)
         {
