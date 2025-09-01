@@ -25,7 +25,6 @@ namespace Intent.Modules.MongoDb.Migrations
 
         public void Up()
         {
-            Debugger.Launch();
             var app = ApplicationPersistable.Load(_configurationProvider.GetApplicationConfig().FilePath);
             if (app == null)
                 return;
