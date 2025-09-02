@@ -148,8 +148,10 @@ steps:
     DOTNET_NOLOGO: 1
   inputs:
     command: 'test'
+    publishTestResults: false
     projects: $(targetsToBuild)
     arguments: >
+      --results-directory $(Agent.TempDirectory)/TestResults
       --diag:$(Agent.TempDirectory)/TestResults/diag.log
       --logger "trx;LogFileName=test_results.trx"
       --logger "console;verbosity=detailed"
@@ -158,13 +160,13 @@ steps:
       --maxcpucount:1
       --filter Requirement!=CosmosDB
 
-- task: PublishTestResults@2
+- task: PublishPipelineArtifact@1
+  displayName: 'Publish test logs & results'
   condition: always()
   inputs:
-    testResultsFormat: 'VSTest'
-    testResultsFiles: '$(Agent.TempDirectory)/*.trx'
-    searchFolder: '$(Agent.TempDirectory)'
-    failTaskOnFailedTests: true
+    targetPath: '$(Agent.TempDirectory)/TestResults'
+    artifact: 'test-results'
+    publishLocation: 'pipeline'
 
 - task: PowerShell@2
   displayName: 'Add repositories (modules)'
