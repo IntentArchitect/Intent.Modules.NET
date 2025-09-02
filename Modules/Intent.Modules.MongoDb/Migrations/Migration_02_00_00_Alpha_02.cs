@@ -1,9 +1,9 @@
+using System.Diagnostics;
+using System.Linq;
 using Intent.Engine;
 using Intent.IArchitect.Agent.Persistence.Model;
 using Intent.Plugins;
 using Intent.RoslynWeaver.Attributes;
-using System.Diagnostics;
-using System.Linq;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration", Version = "1.0")]
@@ -30,7 +30,7 @@ namespace Intent.Modules.MongoDb.Migrations
                 return;
 
             var mongoDb = app.ModuleSettingGroups.FirstOrDefault(x => x.Id == "65b66781-0c91-48b4-990e-b9456f203ca6");
-            if(mongoDb is null)
+            if (mongoDb is null)
             {
                 var group = new ApplicationModuleSettingsPersistable
                 {

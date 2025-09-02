@@ -13,13 +13,13 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Constants;
 using Intent.Modules.Modelers.Domain.Settings;
+using Intent.Modules.MongoDb.Settings;
 using Intent.Modules.MongoDb.Templates.MongoDbDocumentInterface;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using Intent.Utils;
 using AttributeModel = Intent.Modelers.Domain.Api.AttributeModel;
 using static Intent.Modules.Constants.TemplateRoles.Repository;
-using Intent.Modules.MongoDb.Settings;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]

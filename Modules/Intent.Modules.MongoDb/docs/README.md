@@ -44,6 +44,17 @@ public static void InitializeStore(IServiceProvider sp)
 }
 ```
 
+## Settings
+
+### Persist Primary Key as ObjectId
+
+When enabled, this setting stores the entity’s primary key using MongoDB’s native ObjectId type instead of a string or GUID.
+
+### Always Include Discriminator in Documents
+
+This setting ensures that a discriminator field is always stored in each document, even when the document belongs to the base type. 
+This can make querying and polymorphic deserialization more reliable, particularly in systems where documents of multiple subtypes are stored in the same collection.
+
 ## Related Modules
 
 ### Intent.Metadata.DocumentDB
