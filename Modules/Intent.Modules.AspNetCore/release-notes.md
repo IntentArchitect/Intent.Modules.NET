@@ -1,3 +1,7 @@
+### Version 6.1.3
+
+- Improvement: Preliminary support for multiple ASP.NET Core projects in the same Intent Architect application.
+
 ### Version 6.1.2
 
 - Improvement: Added new setting to control if the `Required` attribute automatically added to qualifying parameter.

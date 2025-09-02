@@ -12,35 +12,6 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.VisualStudio.Projects.Api
 {
-    //public class Thing : IVisualStudioProject
-    //{
-    //    public string Id { get; }
-    //    public IEnumerable<IStereotype> Stereotypes { get; }
-    //    public string Name { get; }
-    //    public IOutputTargetConfig ToOutputTargetConfig()
-    //    {
-    //        throw new NotImplementedException();
-    //    }
-
-    //    public SolutionFolderModel ParentFolder { get; }
-    //    public string FileExtension { get; }
-    //    public IElement InternalElement { get; }
-    //    public string ProjectTypeId { get; }
-    //    public string RelativeLocation { get; }
-    //    public VisualStudioSolutionModel Solution { get; }
-    //    public IList<RoleModel> Roles { get; }
-    //    public IList<TemplateOutputModel> TemplateOutputs { get; }
-    //    public IList<FolderModel> Folders { get; }
-    //    public string Type { get; }
-    //    public IEnumerable<string> TargetFrameworkVersion()
-    //    {
-    //        throw new NotImplementedException();
-    //    }
-
-    //    public string LanguageVersion { get; }
-    //    public bool NullableEnabled { get; }
-    //}
-
     [IntentManaged(Mode.Merge)]
     public class ServiceFabricProjectModel : IMetadataModel, IHasStereotypes, IHasName, IElementWrapper, IVisualStudioProject
     {

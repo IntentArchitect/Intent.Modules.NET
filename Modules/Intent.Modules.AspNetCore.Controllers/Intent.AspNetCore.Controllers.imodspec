@@ -77,7 +77,7 @@
   </interoperability>
   <dependencies>
     <dependency id="Intent.AspNetCore" version="6.0.8" />
-    <dependency id="Intent.Common" version="3.9.0-alpha.0" />
+    <dependency id="Intent.Common" version="3.9.0-pre.0" />
     <dependency id="Intent.Common.CSharp" version="3.8.16" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Metadata.WebApi" version="4.7.1" />

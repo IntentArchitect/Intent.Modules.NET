@@ -1,8 +1,10 @@
 ### Version 3.9.0
 
+- Feature: It is now possible to model dependencies between projects in the Visual Studio designer, allowing for templates to be able to handle more complex solution structures, such as multiple entry assemblies.
 - Feature: Template outputs now allow filtering and controlling whether they're enabled.
 - Improvement: Opt-in to add `appsettings.json` and `launchSettings.json` to a standard `Microsoft.NET.Sdk` project type.
 - Fixed: `Folder Options` for `Solution Folders` can now materialize for files in general, not just `csproj` files.
+- Fixed: Detect when cyclic dependencies exist between projects due to template dependencies and show useful error message rather than the Software Factory crashing without showing any error at all.
 
 > ⚠️ NOTE
 > 

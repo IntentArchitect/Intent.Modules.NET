@@ -18,7 +18,7 @@
   <dependencies>
     <dependency id="Intent.Application.MediatR" version="4.3.0" />
     <dependency id="Intent.AspNetCore.Controllers" version="7.1.0" />
-    <dependency id="Intent.Common" version="3.9.0-alpha.0" />
+    <dependency id="Intent.Common" version="3.9.0-pre.0" />
     <dependency id="Intent.Common.CSharp" version="3.8.16" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Metadata.WebApi" version="4.6.4" />
