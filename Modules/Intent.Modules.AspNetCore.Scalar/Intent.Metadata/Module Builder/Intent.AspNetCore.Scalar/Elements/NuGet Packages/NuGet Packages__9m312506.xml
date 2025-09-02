@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="95dc228b-19d4-4eeb-a7f2-d30cf87eb341" type="NuGet Packages" typeId="4c75c84d-c745-4f0f-b1f4-82eeca01dfc7">
+  <name>NuGet Packages</name>
+  <display>NuGet Packages</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>26ad62ab-3eab-479d-be93-ac6c6cd8046c</parentFolderId>
+  <packageId>26ad62ab-3eab-479d-be93-ac6c6cd8046c</packageId>
+  <packageName>Intent.AspNetCore.Scalar</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

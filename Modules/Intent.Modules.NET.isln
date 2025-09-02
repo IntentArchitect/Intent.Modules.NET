@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="4.1.5" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="4.1.6-pre.0" />
   <applications>
     <application id="ad79943a-b771-42b0-9563-9e01f7ea2dbc" name="VisualStudio.Projects" solutionFolder="Developer Tooling" relativePath="Intent.Modules.VisualStudio.Projects\VisualStudio.Projects.application.config" />
     <application id="d0170c2a-3918-4877-bc3c-7ae70a4885e0" name="Intent.Modules.IdentityServer4.X509CertSigning" solutionFolder="Obsolete" relativePath="Intent.Modules.IdentityServer4.X509CertSigning\Intent.Modules.IdentityServer4.X509CertSigning.application.config" />
@@ -177,5 +177,6 @@
     <application id="d0ba3935-538e-43a2-807d-1f07ed23691d" name="Intent.Modules.Aws.Lambda.Functions" solutionFolder="API Frameworks" relativePath="Intent.Modules.Aws.Lambda.Functions/Intent.Modules.Aws.Lambda.Functions.application.config" />
     <application id="fee9c70c-2e0b-4bc4-a09a-bf6305dbf329" name="Intent.Modules.Aws.Lambda.Functions.Dispatch.Services" solutionFolder="API Frameworks" relativePath="Intent.Modules.Aws.Lambda.Functions.Dispatch.Services/Intent.Modules.Aws.Lambda.Functions.Dispatch.Services.application.config" />
     <application id="14a0fe52-c0de-479d-bd24-b9cb60a2f7fd" name="Intent.Modules.Aws.Lambda.Functions.Dispatch.MediatR" solutionFolder="API Frameworks" relativePath="Intent.Modules.Aws.Lambda.Functions.Dispatch.MediatR/Intent.Modules.Aws.Lambda.Functions.Dispatch.MediatR.application.config" />
+    <application id="25929a5b-e346-4676-b602-ce00f0d62117" name="Intent.Modules.AspNetCore.Scalar" solutionFolder="API Frameworks" relativePath="Intent.Modules.AspNetCore.Scalar/Intent.Modules.AspNetCore.Scalar.application.config" />
   </applications>
 </solution>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d20b9b86-5710-4632-8fc7-a0a588572991" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>ScalarStartupConfigurationExtension</name>
+  <display>ScalarStartupConfigurationExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>26ad62ab-3eab-479d-be93-ac6c6cd8046c</parentFolderId>
+  <packageId>26ad62ab-3eab-479d-be93-ac6c6cd8046c</packageId>
+  <packageName>Intent.AspNetCore.Scalar</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

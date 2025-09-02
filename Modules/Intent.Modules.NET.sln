@@ -420,6 +420,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Aws.Lambda.F
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Aws.Lambda.Functions", "Intent.Modules.Aws.Lambda.Functions\Intent.Modules.Aws.Lambda.Functions.csproj", "{3480947D-4CCF-40B8-97F1-0AAE4DC904F4}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.Scalar", "Intent.Modules.AspNetCore.Scalar\Intent.Modules.AspNetCore.Scalar.csproj", "{63294471-F6D9-43FE-B896-D997A1665BF1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -1106,6 +1108,10 @@ Global
 		{3480947D-4CCF-40B8-97F1-0AAE4DC904F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3480947D-4CCF-40B8-97F1-0AAE4DC904F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3480947D-4CCF-40B8-97F1-0AAE4DC904F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63294471-F6D9-43FE-B896-D997A1665BF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63294471-F6D9-43FE-B896-D997A1665BF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63294471-F6D9-43FE-B896-D997A1665BF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63294471-F6D9-43FE-B896-D997A1665BF1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1295,6 +1301,7 @@ Global
 		{48E0FA03-08A9-4D9C-A439-129909ECE486} = {F75494CA-24E5-4CF2-8123-55A41BC20BC6}
 		{812B51F1-2971-46B2-BEEA-D533074057DE} = {F75494CA-24E5-4CF2-8123-55A41BC20BC6}
 		{3480947D-4CCF-40B8-97F1-0AAE4DC904F4} = {F75494CA-24E5-4CF2-8123-55A41BC20BC6}
+		{63294471-F6D9-43FE-B896-D997A1665BF1} = {F75494CA-24E5-4CF2-8123-55A41BC20BC6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A00AF88A-EA58-4AEA-B65F-92354533E2CA}
