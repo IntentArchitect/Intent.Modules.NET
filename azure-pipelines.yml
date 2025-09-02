@@ -163,7 +163,7 @@ steps:
   inputs:
     testResultsFormat: 'VSTest'
     testResultsFiles: '$(Agent.TempDirectory)/*.trx'
-    searchFolder: '$(Agent.TempDirectory)
+    searchFolder: '$(Agent.TempDirectory)`
     failTaskOnFailedTests: true
 
 - task: PowerShell@2
