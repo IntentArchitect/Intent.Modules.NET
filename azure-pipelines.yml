@@ -150,12 +150,18 @@ steps:
     command: 'test'
     projects: $(targetsToBuild)
     arguments: >
-      --blame
       --diag:TestResults/diag.log
-      --logger "trx;LogFileName=test_results.trx"
+      --logger "trx;LogFileName=test_results.trx;LogFileDir=TestResults"
       --logger "console;verbosity=detailed"
-      --no-build
+      --blame-hang --blame-hang-timeout:5m --blame-crash
+      --no-build -m:1
       --filter Requirement!=CosmosDB
+
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'VSTest'
+    testResultsFiles: '**/TestResults/*.trx'
+    failTaskOnFailedTests: true
 
 - task: PowerShell@2
   displayName: 'Add repositories (modules)'

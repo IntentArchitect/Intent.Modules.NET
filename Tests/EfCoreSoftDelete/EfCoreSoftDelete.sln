@@ -1,5 +1,5 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 17
+# Visual Studio Version 17
 VisualStudioVersion = 17.8.34322.80
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{C35562AF-B149-4D0A-BB6A-423BB790C67B}"
@@ -18,24 +18,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - I
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EfCoreSoftDelete.Infrastructure", "EfCoreSoftDelete.Infrastructure\EfCoreSoftDelete.Infrastructure.csproj", "{861A62E8-4371-4CB5-880A-489C140C6EAB}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Tests", "5 - Tests", "{4DE0BF6B-3A50-4F8D-9C02-B546B928CB2D}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EfCoreSoftDelete.IntegrationTests", "EfCoreSoftDelete.IntegrationTests\EfCoreSoftDelete.IntegrationTests.csproj", "{A6EA32D1-F8B5-4ABC-BA78-F1693223B6D0}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{8D97C8DF-EEBD-45B4-BFD2-C6B7921C23B4} = {C35562AF-B149-4D0A-BB6A-423BB790C67B}
-		{C9A0A847-426C-4ED3-9E85-021A70E42C6D} = {16F272BF-D3C7-4E33-8720-D68A38968D60}
-		{0211B9A9-1D0B-44DE-BB6A-F1AD7B1F4B20} = {44E667F8-C7F8-4414-A433-19DB07EF00A4}
-		{861A62E8-4371-4CB5-880A-489C140C6EAB} = {C4BD3519-6BFE-4E37-9BD8-00B284CDE963}
-		{A6EA32D1-F8B5-4ABC-BA78-F1693223B6D0} = {4DE0BF6B-3A50-4F8D-9C02-B546B928CB2D}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{8D97C8DF-EEBD-45B4-BFD2-C6B7921C23B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -54,9 +40,14 @@ Global
 		{861A62E8-4371-4CB5-880A-489C140C6EAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{861A62E8-4371-4CB5-880A-489C140C6EAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{861A62E8-4371-4CB5-880A-489C140C6EAB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A6EA32D1-F8B5-4ABC-BA78-F1693223B6D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A6EA32D1-F8B5-4ABC-BA78-F1693223B6D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A6EA32D1-F8B5-4ABC-BA78-F1693223B6D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A6EA32D1-F8B5-4ABC-BA78-F1693223B6D0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8D97C8DF-EEBD-45B4-BFD2-C6B7921C23B4} = {C35562AF-B149-4D0A-BB6A-423BB790C67B}
+		{C9A0A847-426C-4ED3-9E85-021A70E42C6D} = {16F272BF-D3C7-4E33-8720-D68A38968D60}
+		{0211B9A9-1D0B-44DE-BB6A-F1AD7B1F4B20} = {44E667F8-C7F8-4414-A433-19DB07EF00A4}
+		{861A62E8-4371-4CB5-880A-489C140C6EAB} = {C4BD3519-6BFE-4E37-9BD8-00B284CDE963}
 	EndGlobalSection
 EndGlobal

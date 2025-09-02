@@ -3,26 +3,24 @@
   <name>Configurations</name>
   <display>Configurations</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>a0c3c2d7-691f-4ecd-92cb-65b842eda668</parentFolderId>
-  <stereotypes />
+  <packageId>529bf4ef-debf-44e2-8afd-7f5e214d14a6</packageId>
+  <packageName>EfCoreSoftDelete</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="6d0de992-ebbf-4517-8aab-8bf5efc54673" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.EntityFrameworkCore.Repositories.DataContractEntityTypeConfiguration</name>
-      <display>Intent.EntityFrameworkCore.Repositories.DataContractEntityTypeConfiguration</display>
-      <externalReference>Intent.EntityFrameworkCore.Repositories</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>0063cdf5-06ad-4f73-9a8b-719de345159b</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="ca253157-8cd4-4fb0-823c-6a1c50366142" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.EntityFrameworkCore.EntityTypeConfiguration</name>
       <display>Intent.EntityFrameworkCore.EntityTypeConfiguration</display>
@@ -31,6 +29,24 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>0063cdf5-06ad-4f73-9a8b-719de345159b</parentFolderId>
+      <packageId>529bf4ef-debf-44e2-8afd-7f5e214d14a6</packageId>
+      <packageName>EfCoreSoftDelete</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="6d0de992-ebbf-4517-8aab-8bf5efc54673" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.EntityFrameworkCore.Repositories.DataContractEntityTypeConfiguration</name>
+      <display>Intent.EntityFrameworkCore.Repositories.DataContractEntityTypeConfiguration</display>
+      <externalReference>Intent.EntityFrameworkCore.Repositories</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>0063cdf5-06ad-4f73-9a8b-719de345159b</parentFolderId>
+      <packageId>529bf4ef-debf-44e2-8afd-7f5e214d14a6</packageId>
+      <packageName>EfCoreSoftDelete</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
