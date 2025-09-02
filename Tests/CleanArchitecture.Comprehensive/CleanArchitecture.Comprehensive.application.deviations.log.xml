@@ -2,15 +2,15 @@
 <deviationsLog>
   <files>
     <file>
-      <correlationId>Intent.Blazor.WebAssembly.ProgramTemplate</correlationId>
+      <correlationId>Intent.Blazor.WebAssembly.ProgramTemplate#814d8866-e0b6-45bb-9dbf-21101d866007</correlationId>
       <path>CleanArchitecture.Comprehensive.BlazorClient/Client/Program.cs</path>
       <count>2</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2025-07-09T15:48:07.2928921Z</updatedAt>
+      <updatedAt>2025-09-02T22:40:39.1977491Z</updatedAt>
       <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2025-07-09T19:27:39.2104677Z</approvedAt>
+      <approvedAt>2025-09-02T22:40:39.197857Z</approvedAt>
       <deviationsHash>15EF45840CC9DFC30FE037B4322716C6739B4A98B0C9C31943849688E66B5549</deviationsHash>
       <fileHash>276FAC0AD81449635DD3A0E135F03ECD3A2F5590ED108536F83F11B2DF8AE3A3</fileHash>
     </file>

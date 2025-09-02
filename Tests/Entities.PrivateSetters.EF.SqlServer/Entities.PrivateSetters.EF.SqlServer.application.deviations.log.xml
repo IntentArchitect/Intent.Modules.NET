@@ -2,15 +2,15 @@
 <deviationsLog>
   <files>
     <file>
-      <correlationId>Intent.Application.Identity.CurrentUserService</correlationId>
+      <correlationId>Intent.Application.Identity.CurrentUserService#88587a7b-4f70-40d5-97ee-139415797260</correlationId>
       <path>Entities.PrivateSetters.EF.SqlServer.Api/Services/CurrentUserService.cs</path>
       <count>2</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2025-07-09T18:55:25.817179Z</updatedAt>
+      <updatedAt>2025-09-02T22:40:50.1050979Z</updatedAt>
       <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2025-07-09T18:55:25.8172797Z</approvedAt>
+      <approvedAt>2025-09-02T22:40:50.105211Z</approvedAt>
       <deviationsHash>19F38C4AC26CE12317F366DC72D65C72FFEEDAD5F4BE87CE6EE47A4737A7F807</deviationsHash>
       <fileHash>0F85CAD7B1B4AAA484183146B4C86649783D17DCBC06F1E9903C1E16C7B50593</fileHash>
     </file>

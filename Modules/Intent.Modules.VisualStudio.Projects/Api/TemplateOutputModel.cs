@@ -8,9 +8,9 @@ using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.RoslynWeaver.Attributes;
-using static Intent.Modules.VisualStudio.Projects.Api.TemplateOutputModelStereotypeExtensions;
 using DynamicExpressionParser = System.Linq.Dynamic.Core.DynamicExpressionParser;
 using ParsingConfig = System.Linq.Dynamic.Core.ParsingConfig;
+using static Intent.Modules.VisualStudio.Projects.Api.TemplateOutputModelStereotypeExtensions;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.Api.ApiElementModel", Version = "1.0")]

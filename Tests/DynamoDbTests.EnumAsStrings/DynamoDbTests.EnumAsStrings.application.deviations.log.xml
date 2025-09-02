@@ -2,17 +2,17 @@
 <deviationsLog>
   <files>
     <file>
-      <correlationId>Intent.Infrastructure.DependencyInjection.DependencyInjection</correlationId>
+      <correlationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#1f00b3ba-d639-4c13-8a83-9e02118066c3</correlationId>
       <path>DynamoDbTests.EnumAsStrings.Infrastructure/DependencyInjection.cs</path>
       <count>1</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2025-07-28T21:14:19.0891195Z</updatedAt>
+      <updatedAt>2025-09-02T22:39:16.3755125Z</updatedAt>
       <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2025-07-29T14:42:35.2758254Z</approvedAt>
+      <approvedAt>2025-09-02T22:40:25.5621021Z</approvedAt>
       <deviationsHash>C964CA59B2AE569C4CF74B30E5EFCC0CE179EFA49CC86D5E8584FED18702D2BC</deviationsHash>
-      <fileHash>142415DE9D892C4F357F58BBF2169973A68488DF74CC9DB4DC0A26B3CDD36EC9</fileHash>
+      <fileHash>EFA084352D9229013B09E24EB55E03F64D20320A2CB2B225EC11BE7F8A388699</fileHash>
     </file>
   </files>
 </deviationsLog>
