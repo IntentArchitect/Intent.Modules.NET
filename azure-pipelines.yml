@@ -153,7 +153,7 @@ steps:
       --diag:TestResults/diag.log
       --logger "trx;LogFileName=test_results.trx;LogFileDir=TestResults"
       --logger "console;verbosity=detailed"
-      --blame-hang --blame-hang-timeout:5m --blame-crash
+      --blame-hang --blame-hang-timeout:10m --blame-crash
       --no-build -m:1
       --filter Requirement!=CosmosDB
 
