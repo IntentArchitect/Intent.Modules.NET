@@ -150,8 +150,9 @@ steps:
     command: 'test'
     projects: $(targetsToBuild)
     arguments: >
-      --diag:TestResults/diag.log
-      --logger "trx;LogFileName=test_results.trx;LogFileDir=TestResults"
+      --results-directory $(Agent.TempDirectory)/TestResults
+      --diag:$(Agent.TempDirectory)/TestResults/diag.log
+      --logger "trx;LogFileName=test_results.trx"
       --logger "console;verbosity=detailed"
       --blame-hang --blame-hang-timeout:10m --blame-crash
       --no-build -m:1
@@ -161,7 +162,8 @@ steps:
   condition: always()
   inputs:
     testResultsFormat: 'VSTest'
-    testResultsFiles: '**/TestResults/*.trx'
+    testResultsFiles: '$(Agent.TempDirectory)/TestResults/*.trx'
+    searchFolder: '$(Agent.TempDirectory)/TestResults'
     failTaskOnFailedTests: true
 
 - task: PowerShell@2
