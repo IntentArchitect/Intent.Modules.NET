@@ -58,6 +58,26 @@ steps:
   fetchDepth: '1'
   submodules: 'recursive'
 
+- script: |
+    echo "Checking Intent Architect health endpoint (with timing)..."
+    curl -f -s -o /dev/null -w "HTTP %{http_code}, Time: %{time_total}s\n" https://intentarchitect.com/api/health/online
+  displayName: 'Health check with timing'
+  condition: always()
+
+- script: |
+    echo "Checking Intent ASP.NET Core HealthChecks module artifact..."
+    curl -f -s -o /dev/null -w "HTTP %{http_code}, Time: %{time_total}s\n" \
+      https://intentarchitect.com/artifacts/modules/intent.aspnetcore.healthchecks/2.0.11/intent.aspnetcore.healthchecks.2.0.11.imod
+  displayName: 'Check intentarchitect with timing'
+  condition: always()
+
+- script: |
+    echo "Checking Intent ASP.NET Core HealthChecks module artifact..."
+    curl -f -s -o /dev/null -w "HTTP %{http_code}, Time: %{time_total}s\n" \
+      https://artifacts.intentarchitect.com/modules/intent.aspnetcore.healthchecks/2.0.11/intent.aspnetcore.healthchecks.2.0.11.imod
+  displayName: 'Check artifact with timing'
+  condition: always()
+
 - task: PowerShell@2
   displayName: 'Pre-build validations'
   inputs:
@@ -142,6 +162,26 @@ steps:
       --no-restore
       -p:IntentModuleOutputPath=$(Build.ArtifactStagingDirectory)
 
+- script: |
+    echo "Checking Intent Architect health endpoint (with timing)..."
+    curl -f -s -o /dev/null -w "HTTP %{http_code}, Time: %{time_total}s\n" https://intentarchitect.com/api/health/online
+  displayName: 'Health check with timing'
+  condition: always()
+
+- script: |
+    echo "Checking Intent ASP.NET Core HealthChecks module artifact..."
+    curl -f -s -o /dev/null -w "HTTP %{http_code}, Time: %{time_total}s\n" \
+      https://intentarchitect.com/artifacts/modules/intent.aspnetcore.healthchecks/2.0.11/intent.aspnetcore.healthchecks.2.0.11.imod
+  displayName: 'Check intentarchitect with timing'
+  condition: always()
+
+- script: |
+    echo "Checking Intent ASP.NET Core HealthChecks module artifact..."
+    curl -f -s -o /dev/null -w "HTTP %{http_code}, Time: %{time_total}s\n" \
+      https://artifacts.intentarchitect.com/modules/intent.aspnetcore.healthchecks/2.0.11/intent.aspnetcore.healthchecks.2.0.11.imod
+  displayName: 'Check artifact with timing'
+  condition: always()
+
 - task: DotNetCoreCLI@2
   displayName: 'dotnet test'
   env:
@@ -167,6 +207,26 @@ steps:
     targetPath: '$(Agent.TempDirectory)/TestResults'
     artifact: 'test-results'
     publishLocation: 'pipeline'
+
+- script: |
+    echo "Checking Intent Architect health endpoint (with timing)..."
+    curl -f -s -o /dev/null -w "HTTP %{http_code}, Time: %{time_total}s\n" https://intentarchitect.com/api/health/online
+  displayName: 'Health check with timing'
+  condition: always()
+
+- script: |
+    echo "Checking Intent ASP.NET Core HealthChecks module artifact..."
+    curl -f -s -o /dev/null -w "HTTP %{http_code}, Time: %{time_total}s\n" \
+      https://intentarchitect.com/artifacts/modules/intent.aspnetcore.healthchecks/2.0.11/intent.aspnetcore.healthchecks.2.0.11.imod
+  displayName: 'Check intentarchitect with timing'
+  condition: always()
+
+- script: |
+    echo "Checking Intent ASP.NET Core HealthChecks module artifact..."
+    curl -f -s -o /dev/null -w "HTTP %{http_code}, Time: %{time_total}s\n" \
+      https://artifacts.intentarchitect.com/modules/intent.aspnetcore.healthchecks/2.0.11/intent.aspnetcore.healthchecks.2.0.11.imod
+  displayName: 'Check artifact with timing'
+  condition: always()
 
 - task: PowerShell@2
   displayName: 'Add repositories (modules)'
