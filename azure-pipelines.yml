@@ -150,20 +150,20 @@ steps:
     command: 'test'
     projects: $(targetsToBuild)
     arguments: >
-      --results-directory $(Agent.TempDirectory)/TestResults
       --diag:$(Agent.TempDirectory)/TestResults/diag.log
       --logger "trx;LogFileName=test_results.trx"
       --logger "console;verbosity=detailed"
       --blame-hang --blame-hang-timeout:10m --blame-crash
-      --no-build -m:1
+      --no-build 
+      --maxcpucount:1
       --filter Requirement!=CosmosDB
 
 - task: PublishTestResults@2
   condition: always()
   inputs:
     testResultsFormat: 'VSTest'
-    testResultsFiles: '$(Agent.TempDirectory)/TestResults/*.trx'
-    searchFolder: '$(Agent.TempDirectory)/TestResults'
+    testResultsFiles: '$(Agent.TempDirectory)/*.trx'
+    searchFolder: '$(Agent.TempDirectory)
     failTaskOnFailedTests: true
 
 - task: PowerShell@2
