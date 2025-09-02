@@ -158,6 +158,7 @@ steps:
       --filter Requirement!=CosmosDB
 
 - task: PublishTestResults@2
+  condition: always()
   inputs:
     testResultsFormat: 'VSTest'
     testResultsFiles: '**/TestResults/*.trx'
