@@ -482,11 +482,36 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
             }
             else
             {
+                var authMethods = ExecutionContext.Settings.GetCosmosDBSettings().AuthenticationMethods();
+                if (authMethods.Length == 0 || (authMethods.Length == 1 && authMethods.Any(a => a.IsKeyBased())))
+                {
+                    return new
+                    {
+                        CosmosConnectionString = "AccountEndpoint=https://localhost:8081/;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==",
+                        DatabaseId = ExecutionContext.GetApplicationConfig().Name,
+                        ContainerId = "Container"
+                    };
+                }
+
+                if (authMethods.Length == 1 && authMethods.Any(a => a.IsManagedIdentity()))
+                {
+                    return new
+                    {
+                        DatabaseId = ExecutionContext.GetApplicationConfig().Name,
+                        ContainerId = "Container",
+                        ManagedIdentityClientId = "ClientId",
+                        AccountEndpoint = "https://my-cosmos-db-account.documents.azure.com:443/"
+                    };
+                }
+
                 return new
                 {
                     CosmosConnectionString = "AccountEndpoint=https://localhost:8081/;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==",
+                    AuthenticationMethod = "ManagedIdentity OR Key",
                     DatabaseId = ExecutionContext.GetApplicationConfig().Name,
-                    ContainerId = "Container"
+                    ContainerId = "Container",
+                    ManagedIdentityClientId = "ClientId",
+                    AccountEndpoint = "https://my-cosmos-db-account.documents.azure.com:443/"
                 };
             }
         }

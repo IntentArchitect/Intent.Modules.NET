@@ -6,11 +6,15 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Constants;
+using Intent.Modules.CosmosDB.Helpers;
+using Intent.Modules.CosmosDB.Settings;
 using Intent.Modules.CosmosDB.Templates;
+using Intent.Modules.CosmosDB.Templates.CosmosDBConfiguration;
 using Intent.Modules.CosmosDB.Templates.CosmosDBDocument;
 using Intent.Modules.DocumentDB.Shared;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
+using static Intent.Modules.CosmosDB.Settings.CosmosDBSettings;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -50,83 +54,35 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
                 file.Template.AddTypeSource(CosmosDBDocumentTemplate.TemplateId);
 
                 var method = file.Classes.First().FindMethod("AddInfrastructure");
-                method.AddInvocationStatement("services.AddCosmosRepository", invocation =>
+
+                var authenticationMethods = application.Settings.GetCosmosDBSettings().AuthenticationMethods();
+                if (authenticationMethods != null && authenticationMethods.Any(a => !a.IsKeyBased()))
                 {
-                    var classes = application.MetadataManager.Domain(application).GetClassModels()
-                        .Where(x => CosmosDbProvider.FilterDbProvider(x) &&
-                                    x.IsAggregateRoot() &&
-                                    !x.IsAbstract)
-                        .ToArray();
-
-                    if (classes.All(x => !x.TryGetContainerSettings(out _)))
+                    var cosmosConfigTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(CosmosDBConfigurationTemplate.TemplateId);
+                    if (cosmosConfigTemplate is not null)
                     {
-                        return;
+                        template.CSharpFile.AddUsing(cosmosConfigTemplate.Namespace);
                     }
-
-                    invocation.AddArgument(new CSharpLambdaBlock("options"), options =>
+                    
+                    // add the extended setup with managed identity or multiple authentication methods
+                    method.AddInvocationStatement("services.ConfigureCosmosRepository", invocation =>
                     {
-                        const string defaultContainerId = "defaultContainerId";
-
-                        var hasDefaultContainerName = classes.Any(x => !x.TryGetContainerSettings(out var containerSettings) ||
-                                                                       containerSettings.Name == null);
-                        if (hasDefaultContainerName)
-                        {
-
-                            options.AddStatement(
-                                $"var {defaultContainerId} = configuration.GetValue<string>(\"RepositoryOptions:ContainerId\");");
-                            options.AddIfStatement("string.IsNullOrWhiteSpace(defaultContainerId)", @if => @if
-                                .AddStatement($"throw new {template.UseType("System.Exception")}(\"\\\"RepositoryOptions:ContainerId\\\" configuration not specified\");")
-                            );
-                        }
-
-                        options.AddStatement("options.ContainerPerItemType = true;", s =>
-                        {
-                            if (hasDefaultContainerName)
-                            {
-                                s.SeparatedFromPrevious();
-                            }
-                        });
-
-                        options.AddMethodChainStatement("options.ContainerBuilder", c =>
-                        {
-                            foreach (var @class in classes)
-                            {
-                                @class.TryGetContainerSettings(out var containerSettings);
-
-                                var documentTypeName = template.GetCosmosDBDocumentName(@class);
-                                c.AddChainStatement(new CSharpInvocationStatement($"Configure<{documentTypeName}>"), l =>
-                                {
-                                    var configureContainer = (CSharpInvocationStatement)l;
-                                    configureContainer.WithoutSemicolon();
-
-                                    var cSharpMethodChainStatement = new CSharpMethodChainStatement("c => c");
-                                    configureContainer.AddArgument(cSharpMethodChainStatement.WithoutSemicolon());
-
-                                    var containerName = containerSettings?.Name != null ? $"\"{containerSettings.Name}\"" : defaultContainerId;
-                                    cSharpMethodChainStatement.AddChainStatement($"WithContainer({containerName})");
-
-                                    if (containerSettings?.PartitionKey != null)
-                                    {
-                                        cSharpMethodChainStatement.AddChainStatement($"WithPartitionKey(\"/{containerSettings.PartitionKey}\")");
-                                    }
-
-                                    switch (containerSettings?.ThroughputType)
-                                    {
-                                        case ContainerThroughputType.Autoscale:
-                                            cSharpMethodChainStatement.AddChainStatement($"WithAutoscaleThroughput({containerSettings.AutomaticThroughputMax:D})");
-                                            break;
-                                        case ContainerThroughputType.Manual:
-                                            cSharpMethodChainStatement.AddChainStatement($"WithManualThroughput({containerSettings.ManualThroughput:D})");
-                                            break;
-                                        case ContainerThroughputType.Serverless:
-                                            cSharpMethodChainStatement.AddChainStatement($"WithServerlessThroughput({containerSettings.ManualThroughput:D})");
-                                            break;
-                                    }
-                                });
-                            }
-                        });
+                        invocation.AddArgument("configuration");
                     });
-                });
+                    
+                    return;
+                }
+
+                // add the default setup
+                AddCosmosRepository(application, template, method);
+            });
+        }
+
+        private static void AddCosmosRepository(IApplication application, ICSharpFileBuilderTemplate template, CSharpClassMethod? method)
+        {
+            method.AddInvocationStatement("services.AddCosmosRepository", invocation =>
+            {
+                ConfigurationHelper.BuildConfigurationLambda(application.MetadataManager.Domain(application), template, invocation);
             });
         }
     }
