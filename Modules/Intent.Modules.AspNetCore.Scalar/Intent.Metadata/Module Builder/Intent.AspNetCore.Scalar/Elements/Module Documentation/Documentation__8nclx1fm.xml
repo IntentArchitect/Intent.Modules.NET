@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f54c437d-588f-4e8f-a9ca-e7310a635a4c" type="Module Documentation" typeId="a869a2c4-bf24-477c-9d19-87fb24d4209f">
+  <name>Documentation</name>
+  <display>Documentation</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>26ad62ab-3eab-479d-be93-ac6c6cd8046c</parentFolderId>
+  <packageId>26ad62ab-3eab-479d-be93-ac6c6cd8046c</packageId>
+  <packageName>Intent.AspNetCore.Scalar</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="e621d8c9-8858-4393-9a05-16406cbd729e" type="Documentation Topic" typeId="5cc56ebc-6b61-41a6-a452-8efd9382da6f">
+      <name>ASP.NET Core Scalar Module Documentation</name>
+      <display>ASP.NET Core Scalar Module Documentation</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f54c437d-588f-4e8f-a9ca-e7310a635a4c</parentFolderId>
+      <packageId>26ad62ab-3eab-479d-be93-ac6c6cd8046c</packageId>
+      <packageName>Intent.AspNetCore.Scalar</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="83dfd8ae-5086-4e41-94c2-7110d5a49b4c" name="Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="2792ad9a-2afd-4350-bac6-bdcf4b701ff1" display="Description" value="Information and guidance for using the Intent.AspNetCore.Scalar module." isActive="true" />
+            <property name="4fa553d3-1b96-4f63-bdb9-3237eca31f6b" display="Icon" value="{&quot;type&quot;:0,&quot;source&quot;:&quot;data:image/png;base64,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&quot;}" isActive="true" />
+            <property name="207e8583-2ba5-4ea3-84aa-2f65cd5915ca" display="Href" value="https://docs.intentarchitect.com/articles/modules-dotnet/intent-aspnetcore-scalar/intent-aspnetcore-scalar.html" isActive="true" />
+            <property name="21d13790-2910-475c-b58f-9d350f2e13c6" display="Designers" value="[]" isActive="true" />
+            <property name="8642b1d1-93f9-4f5f-b5ae-ad5fc20d7a46" display="Elements" value="[]" isActive="true" />
+            <property name="f55a1f0c-40dd-48b4-b985-8360933e6a47" display="Tags" value="Intent.AspNetCore.Scalar openapi scalar api rest module moduledocumentation" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

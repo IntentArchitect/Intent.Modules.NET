@@ -1,36 +1,54 @@
-﻿# Intent.AspNetCore.Swashbuckle
+﻿# Intent.AspNetCore.Scalar
 
-This module installs and configures `Swashbuckle.AspNetCore`.
+This module installs and configures `Microsoft.AspNetCore.OpenApi` and integrates with [Scalar](https://scalar.com/) for API documentation.
 
-Swashbuckle.AspNetCore is a popular open-source library for ASP.NET Core applications that simplifies the process of adding Swagger support. Swagger is a set of tools and specifications for describing and visualizing RESTful APIs. Swashbuckle.AspNetCore integrates Swagger into ASP.NET Core projects, enabling developers to automatically generate interactive API documentation, known as Swagger UI, and JSON-formatted API specifications, known as Swagger/OpenAPI specification. With Swashbuckle.AspNetCore, developers can easily expose the details of their Web API, including available endpoints, request and response models, and supported HTTP methods. This makes it easier for developers and third-party consumers to understand, test, and interact with the API, promoting better communication and collaboration between frontend and backend teams.
+Scalar is a modern, fast, and user-friendly OpenAPI documentation viewer. It works with the new `Microsoft.AspNetCore.OpenApi` features introduced in .NET 9+, allowing you to generate OpenAPI documents and visualize them in an interactive UI. Scalar replaces older Swagger UI solutions such as Swashbuckle, providing a clean developer experience, native integration with ASP.NET Core, and support for OpenAPI 3.1. 
+
+With Scalar, developers can easily expose the details of their Web API, including available endpoints, request and response models, and supported HTTP methods. This makes it easier for developers and third-party consumers to understand, test, and interact with the API, promoting better communication and collaboration between frontend and backend teams.
 
 This module specifically deals with:
 
 - Dependency Injection wiring
-- Swashbuckle - Swagger and Swagger UI Configuration
+- OpenAPI document generation using `Microsoft.AspNetCore.OpenApi`
+- Scalar UI configuration
 
-For more information on `Swashbuckle.AspNetCore`, check out their [GitHub](https://github.com/domaindrivendev/Swashbuckle.AspNetCore).
+For more information on `Scalar`, check out their [Website](https://scalar.com/) or [GitHub](https://github.com/scalar/scalar).
 
 ## Settings
 
-### Mark non-nullable fields as required
-
-Default setting: _enabled_
-
-Controls whether or not non-nullable properties cause `"nullable": true` to be added to them in their generated schema.
-
-### Use simple schema identifiers
-
-Default setting: _disabled_
+### Use fully qualified schema identifiers
 
 By default, schema identifiers have been configured to be the fully qualified type name so as to avoid conflicts with otherwise identically named types. When this option is enabled "simple" identifiers without a namespace are generated instead.
 
-## Inclusion of XML documentation comments
+### Authentication
 
-To enable inclusion of XML documentation comments, ensure that in the Visual Studio designer, `Generate Documentation File` is set to `true` for both the `<ApplicationName>.Api` and `<ApplicationName>.Application` projects. It is also recommended on these projects to append `;1591` to the `Suppress Warnings` property so as to prevent generation of [Missing XML comment for publicly visible type or member 'Type_or_Member'](https://learn.microsoft.com/dotnet/csharp/language-reference/compiler-messages/cs1591) warnings.
+This module supports authentication in your API documentation by adding security schemes for both **Bearer tokens** and **OIDC Implicit Flow**. This enables the Scalar UI to provide an "Authorize" button where developers can authenticate and test endpoints against a secured API.
 
-## Related Modules
+#### Bearer Token Authentication
 
-### Intent.Intent.AspNetCore.Swashbuckle.Security
+Bearer authentication is automatically configured with the following security scheme:
 
-This module introduces Authentication related patterns to this module.
+- **Scheme:** `bearer`
+- **Format:** `JWT`
+
+This allows developers to paste a raw JWT token into the Scalar "Authorize" dialog and have it automatically included in all requests.
+
+#### OIDC Implicit Flow Authentication
+
+This module also supports OIDC (OpenID Connect) using the Implicit Flow. When enabled, the Scalar UI will provide a login button that redirects the user to your identity provider's `authorize` endpoint and automatically obtains an access token for use in API calls.
+
+To enable OIDC implicit flow, you must provide the configuration values in `appsettings.json`:
+
+```jsonc
+{
+  "OpenApi": {
+    "Oidc": {
+      "AuthorizationUrl": "https://auth.myapp.com/connect/authorize",
+      "Scopes": [
+        "openid",
+        "profile",
+        "api"
+      ]
+    }
+  }
+}

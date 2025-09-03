@@ -5,6 +5,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Configuration;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Plugins.FactoryExtensions;
@@ -25,6 +26,8 @@ namespace Intent.Modules.AspNetCore.Scalar.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
+            //ASP Net Core Versioning
+            DisableTemplate(application, "Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions");
 
             var template = application.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
 
@@ -32,8 +35,7 @@ namespace Intent.Modules.AspNetCore.Scalar.FactoryExtensions
             ((IntentTemplateBase)template).AddTemplateDependency(OpenApiConfigurationTemplate.TemplateId);
             template.AddUsing(configurationTemplate.Namespace);
 
-
-            //((IntentTemplateBase)template).PublishDefaultLaunchUrlPathRequest("scalar/v1");
+            ((IntentTemplateBase)template).PublishDefaultLaunchUrlPathRequest("scalar/v1");
 
             template.CSharpFile.OnBuild(_ =>
             {
@@ -67,6 +69,17 @@ namespace Intent.Modules.AspNetCore.Scalar.FactoryExtensions
                     }
                 });
             }, 100);
+        }
+
+        private void DisableTemplate(IApplication application, string templateId)
+        {
+            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(templateId);
+
+            if (template is not null)
+            {
+                template.CanRun = false;
+            }
+
         }
     }
 }
