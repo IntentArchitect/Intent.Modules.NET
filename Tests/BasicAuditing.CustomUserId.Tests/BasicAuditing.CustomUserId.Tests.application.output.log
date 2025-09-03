@@ -20,7 +20,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>f0877bb2-86f0-440a-902c-9ec811dbbb32</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Versioning.ApiVersioningConfiguration</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Versioning.ApiVersioningConfiguration#b1fc7f8f-e342-4b70-99a6-eb1728ea2146</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Api/Configuration/ApiVersioningConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApiVersioningConfiguration.cs</ProjectRelativeFilePath>
@@ -28,15 +28,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>f0877bb2-86f0-440a-902c-9ec811dbbb32</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Api/Configuration/ApiVersionSwaggerGenOptions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ApiVersionSwaggerGenOptions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>f0877bb2-86f0-440a-902c-9ec811dbbb32</ProjectId>
-      <CorrelationId>Intent.Application.Identity.ApplicationSecurityConfiguration</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.ApplicationSecurityConfiguration#68fbf9c8-73fa-40e4-9db2-413c9dd221a4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Api/Configuration/ApplicationSecurityConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApplicationSecurityConfiguration.cs</ProjectRelativeFilePath>
@@ -44,7 +36,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>f0877bb2-86f0-440a-902c-9ec811dbbb32</ProjectId>
-      <CorrelationId>Intent.AspNetCore.HealthChecks.HealthChecksConfiguration</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.HealthChecks.HealthChecksConfiguration#2ea2fde1-769c-49c8-86db-815be25e6947</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Api/Configuration/HealthChecksConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>HealthChecksConfiguration.cs</ProjectRelativeFilePath>
@@ -52,47 +44,31 @@
     </FileLog>
     <FileLog>
       <ProjectId>f0877bb2-86f0-440a-902c-9ec811dbbb32</ProjectId>
-      <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Scalar.OpenApiConfiguration#0a286e9c-4897-41a1-9783-bdb6f7fe5ea4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Api/Configuration/OpenApiConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OpenApiConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f0877bb2-86f0-440a-902c-9ec811dbbb32</ProjectId>
+      <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration#87bdef9d-b627-49c6-aebc-45f9e4d3e209</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Api/Configuration/ProblemDetailsConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ProblemDetailsConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>f0877bb2-86f0-440a-902c-9ec811dbbb32</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Api/Configuration/SwashbuckleConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SwashbuckleConfiguration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>a406360c-bae8-4096-ba48-472346cf0036</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Api/Filters/AuthorizeCheckOperationFilter.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AuthorizeCheckOperationFilter.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>a406360c-bae8-4096-ba48-472346cf0036</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.ExceptionFilter</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Controllers.ExceptionFilter#3ed41d0f-e86a-4894-af8a-a54d4ffb245a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Api/Filters/ExceptionFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ExceptionFilter.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>a406360c-bae8-4096-ba48-472346cf0036</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>TypeSchemaFilter.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>1dc2d108-a0f8-4d28-bc54-79c6075b2ddb</ProjectId>
-      <CorrelationId>Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate</CorrelationId>
+      <CorrelationId>Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate#6803ac59-ba1c-4f25-97f2-30f813776142</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Api/Logging/BoundedLoggingDestructuringPolicy.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>BoundedLoggingDestructuringPolicy.cs</ProjectRelativeFilePath>
@@ -100,7 +76,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ff784759-321c-4c05-87f8-57ad0752e1b7</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Program</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Program#758e73bd-d616-4310-abbd-805707b858d4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Api/Program.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Program.cs</ProjectRelativeFilePath>
@@ -116,7 +92,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>518f9f04-0fb6-45a1-98ee-bb6c877ce8e0</ProjectId>
-      <CorrelationId>Intent.Application.Identity.CurrentUserService</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserService#68cd6860-d79c-450b-95ec-b9131de53844</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Api/Services/CurrentUserService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CurrentUserService.cs</ProjectRelativeFilePath>
@@ -124,7 +100,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ff784759-321c-4c05-87f8-57ad0752e1b7</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Startup</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Startup#08221d35-1d6b-4d1a-8141-ea579df89d5f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Api/Startup.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Startup.cs</ProjectRelativeFilePath>
@@ -140,7 +116,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>f860f9dd-dd54-4bd7-8350-215fdcc24f5d</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.AuthorizationBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.AuthorizationBehaviour#f6a8cd7d-4ca7-4816-b6ec-43619fda8931</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Application/Common/Behaviours/AuthorizationBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AuthorizationBehaviour.cs</ProjectRelativeFilePath>
@@ -148,7 +124,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>f860f9dd-dd54-4bd7-8350-215fdcc24f5d</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.LoggingBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.LoggingBehaviour#2b9af9d2-6a51-47f6-8fdb-59ce8745aa91</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Application/Common/Behaviours/LoggingBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>LoggingBehaviour.cs</ProjectRelativeFilePath>
@@ -156,7 +132,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>f860f9dd-dd54-4bd7-8350-215fdcc24f5d</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.PerformanceBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.PerformanceBehaviour#132c52e9-596f-457d-8340-df6fdac6c2ba</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Application/Common/Behaviours/PerformanceBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PerformanceBehaviour.cs</ProjectRelativeFilePath>
@@ -164,7 +140,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>f860f9dd-dd54-4bd7-8350-215fdcc24f5d</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour#07fb9b6a-cd3f-4990-a986-e00066c8d001</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UnhandledExceptionBehaviour.cs</ProjectRelativeFilePath>
@@ -172,7 +148,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>f860f9dd-dd54-4bd7-8350-215fdcc24f5d</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour#a44cbeca-0214-41e6-aafa-0e0f6af96b08</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Application/Common/Behaviours/UnitOfWorkBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UnitOfWorkBehaviour.cs</ProjectRelativeFilePath>
@@ -180,7 +156,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>f860f9dd-dd54-4bd7-8350-215fdcc24f5d</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.FluentValidation.ValidationBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.ValidationBehaviour#b71932d5-237d-40c7-ada6-956e5e297c85</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Application/Common/Behaviours/ValidationBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ValidationBehaviour.cs</ProjectRelativeFilePath>
@@ -188,7 +164,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>0c23d041-8b21-46d1-a56f-c7b4c0823881</ProjectId>
-      <CorrelationId>Intent.Application.Identity.ForbiddenAccessException</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.ForbiddenAccessException#1062e0dd-fd5b-46bc-9cdb-5281ed18d963</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Application/Common/Exceptions/ForbiddenAccessException.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ForbiddenAccessException.cs</ProjectRelativeFilePath>
@@ -196,7 +172,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>0d092ec1-d48c-45a6-855f-c4b471f68feb</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandInterface</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.CommandInterface#21a2f79a-6574-4e56-a075-5cc622d13d2f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Application/Common/Interfaces/ICommand.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICommand.cs</ProjectRelativeFilePath>
@@ -204,7 +180,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>0d092ec1-d48c-45a6-855f-c4b471f68feb</ProjectId>
-      <CorrelationId>Intent.Application.Identity.CurrentUserInterface</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserInterface#50b5f326-5748-496d-9931-ab4e0689e05b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Application/Common/Interfaces/ICurrentUser.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICurrentUser.cs</ProjectRelativeFilePath>
@@ -212,7 +188,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>0d092ec1-d48c-45a6-855f-c4b471f68feb</ProjectId>
-      <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface#4f913090-c560-4750-8ed6-124e4266916b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Application/Common/Interfaces/ICurrentUserService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICurrentUserService.cs</ProjectRelativeFilePath>
@@ -220,7 +196,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>0d092ec1-d48c-45a6-855f-c4b471f68feb</ProjectId>
-      <CorrelationId>Intent.DomainEvents.DomainEventServiceInterface</CorrelationId>
+      <CorrelationId>Intent.DomainEvents.DomainEventServiceInterface#ca03259a-f307-4ef4-a190-d61004642b9e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Application/Common/Interfaces/IDomainEventService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IDomainEventService.cs</ProjectRelativeFilePath>
@@ -228,7 +204,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>0d092ec1-d48c-45a6-855f-c4b471f68feb</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.QueryInterface</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.QueryInterface#c51b5663-d157-431b-bedf-d84df58264bb</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Application/Common/Interfaces/IQuery.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IQuery.cs</ProjectRelativeFilePath>
@@ -236,7 +212,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5e4fe22d-2e2e-46f9-8d7d-a90dc2f0941d</ProjectId>
-      <CorrelationId>Intent.Application.AutoMapper.MapFromInterface</CorrelationId>
+      <CorrelationId>Intent.Application.AutoMapper.MapFromInterface#f78a85e0-8612-4ded-8819-ba76fa025907</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Application/Common/Mappings/IMapFrom.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IMapFrom.cs</ProjectRelativeFilePath>
@@ -244,7 +220,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5e4fe22d-2e2e-46f9-8d7d-a90dc2f0941d</ProjectId>
-      <CorrelationId>Intent.Application.AutoMapper.MappingProfile</CorrelationId>
+      <CorrelationId>Intent.Application.AutoMapper.MappingProfile#4760bd52-d872-4b78-836b-bcd25608434c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Application/Common/Mappings/MappingProfile.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MappingProfile.cs</ProjectRelativeFilePath>
@@ -252,7 +228,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>c36a6c04-e036-4bc0-90b9-81da369c03ce</ProjectId>
-      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventNotification</CorrelationId>
+      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventNotification#ff7447c0-eed1-4e6c-bcac-d469bf2c669f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Application/Common/Models/DomainEventNotification.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEventNotification.cs</ProjectRelativeFilePath>
@@ -260,7 +236,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>c36a6c04-e036-4bc0-90b9-81da369c03ce</ProjectId>
-      <CorrelationId>Intent.Application.Identity.ResultModel</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.ResultModel#58c7d2ee-f0f6-4d63-b407-2895167ee684</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Application/Common/Models/Result.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Result.cs</ProjectRelativeFilePath>
@@ -268,7 +244,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>d6f58e3d-2260-4cff-9feb-3ecb1cad4b6d</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.PagedList</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.PagedList#5bbc2951-c9f0-4e6b-9be3-b2233ec84dfa</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Application/Common/Pagination/PagedList.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedList.cs</ProjectRelativeFilePath>
@@ -276,7 +252,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>d6f58e3d-2260-4cff-9feb-3ecb1cad4b6d</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResult</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResult#c7547a21-3e8a-4184-a3bc-e0e335085643</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Application/Common/Pagination/PagedResult.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedResult.cs</ProjectRelativeFilePath>
@@ -284,7 +260,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>d6f58e3d-2260-4cff-9feb-3ecb1cad4b6d</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResultMappingExtensions</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResultMappingExtensions#f3cc273d-9399-40bc-b70c-904f40644b81</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Application/Common/Pagination/PagedResultMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedResultMappingExtensions.cs</ProjectRelativeFilePath>
@@ -292,7 +268,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>e110c3d1-baf2-43ab-b91a-6cb7acdef065</ProjectId>
-      <CorrelationId>Intent.Application.Identity.AuthorizeAttribute</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.AuthorizeAttribute#790ac488-57d8-4ee9-bcc8-85ef0206a424</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Application/Common/Security/AuthorizeAttribute.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AuthorizeAttribute.cs</ProjectRelativeFilePath>
@@ -300,7 +276,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>029093ac-70ed-4067-82d1-97b96e7b9066</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface</CorrelationId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface#1b132377-3bc6-4cb6-b306-6b32adc0bb23</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Application/Common/Validation/IValidatorProvider.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IValidatorProvider.cs</ProjectRelativeFilePath>
@@ -308,7 +284,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>029093ac-70ed-4067-82d1-97b96e7b9066</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProvider</CorrelationId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProvider#5ccbf16c-c990-4465-a71e-08330c91c3c8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Application/Common/Validation/ValidatorProvider.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ValidatorProvider.cs</ProjectRelativeFilePath>
@@ -316,7 +292,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>30146331-9338-4942-a252-caa4edb5e791</ProjectId>
-      <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection</CorrelationId>
+      <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection#62f8ad85-618c-4f2a-81f9-66f56a2d3eda</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Application/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
@@ -332,7 +308,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a5212f3d-e445-4a91-9770-b7a17ddde0b3</ProjectId>
-      <CorrelationId>Intent.Entities.CollectionExtensions</CorrelationId>
+      <CorrelationId>Intent.Entities.CollectionExtensions#3600c7e1-de7d-41a9-ae79-bfcf1d0b85fd</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Domain/Common/CollectionExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CollectionExtensions.cs</ProjectRelativeFilePath>
@@ -340,7 +316,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a5212f3d-e445-4a91-9770-b7a17ddde0b3</ProjectId>
-      <CorrelationId>Intent.DomainEvents.DomainEventBase</CorrelationId>
+      <CorrelationId>Intent.DomainEvents.DomainEventBase#925de3e3-2746-468a-af4c-66110ec0827d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Domain/Common/DomainEvent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEvent.cs</ProjectRelativeFilePath>
@@ -348,7 +324,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>49a90ec2-ba61-418a-b2cb-172ec7b79d2e</ProjectId>
-      <CorrelationId>Intent.Entities.NotFoundException</CorrelationId>
+      <CorrelationId>Intent.Entities.NotFoundException#4262450e-a356-4fef-b32c-6bb0927927e7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Domain/Common/Exceptions/NotFoundException.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>NotFoundException.cs</ProjectRelativeFilePath>
@@ -356,7 +332,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a5212f3d-e445-4a91-9770-b7a17ddde0b3</ProjectId>
-      <CorrelationId>Intent.DomainEvents.HasDomainEventInterface</CorrelationId>
+      <CorrelationId>Intent.DomainEvents.HasDomainEventInterface#925fd260-e435-4332-99c4-f271c0f49f4a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Domain/Common/IHasDomainEvent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IHasDomainEvent.cs</ProjectRelativeFilePath>
@@ -364,7 +340,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>84600d64-8e78-4638-9f10-b918927ce91a</ProjectId>
-      <CorrelationId>Intent.Entities.BasicAuditing.AuditableInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.BasicAuditing.AuditableInterface#632f4486-2552-44aa-96d2-143fea59be78</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Domain/Common/Interfaces/IAuditable.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IAuditable.cs</ProjectRelativeFilePath>
@@ -372,7 +348,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>84600d64-8e78-4638-9f10-b918927ce91a</ProjectId>
-      <CorrelationId>Intent.CosmosDB.CosmosDBUnitOfWorkInterface</CorrelationId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBUnitOfWorkInterface#9e206252-cde4-4953-9edb-950252ef0fc4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Domain/Common/Interfaces/ICosmosDBUnitOfWork.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICosmosDBUnitOfWork.cs</ProjectRelativeFilePath>
@@ -380,7 +356,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>84600d64-8e78-4638-9f10-b918927ce91a</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.UnitOfWorkInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.UnitOfWorkInterface#8cdc1205-9948-4cc4-940c-36020fafef8a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Domain/Common/Interfaces/IUnitOfWork.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IUnitOfWork.cs</ProjectRelativeFilePath>
@@ -388,7 +364,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a5212f3d-e445-4a91-9770-b7a17ddde0b3</ProjectId>
-      <CorrelationId>Intent.Entities.UpdateHelper</CorrelationId>
+      <CorrelationId>Intent.Entities.UpdateHelper#0b8c3534-b6ee-4ce0-b2a3-146311d9fc39</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Domain/Common/UpdateHelper.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UpdateHelper.cs</ProjectRelativeFilePath>
@@ -428,7 +404,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>edb9e882-2d42-428e-ad8a-04c0af1c11ab</ProjectId>
-      <CorrelationId>Intent.CosmosDB.CosmosDBRepositoryInterface</CorrelationId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBRepositoryInterface#c2919f2e-75af-4bcc-bb2e-bf6cae5ca786</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Domain/Repositories/ICosmosDBRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICosmosDBRepository.cs</ProjectRelativeFilePath>
@@ -444,7 +420,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>edb9e882-2d42-428e-ad8a-04c0af1c11ab</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface#f77d6cb4-f617-4fb6-9c44-ddd0808647c7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Domain/Repositories/IEFRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IEFRepository.cs</ProjectRelativeFilePath>
@@ -452,7 +428,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>edb9e882-2d42-428e-ad8a-04c0af1c11ab</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.PagedListInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.PagedListInterface#148372ce-e39f-4997-b7fb-082999f92a98</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Domain/Repositories/IPagedList.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IPagedList.cs</ProjectRelativeFilePath>
@@ -460,7 +436,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>edb9e882-2d42-428e-ad8a-04c0af1c11ab</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.RepositoryInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.RepositoryInterface#44c41539-e0d8-4652-889c-0397b97aab66</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Domain/Repositories/IRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IRepository.cs</ProjectRelativeFilePath>
@@ -476,7 +452,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>05f8c6ff-d528-408e-ac55-efad1bff6f94</ProjectId>
-      <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection</CorrelationId>
+      <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#8af164de-7a3c-432f-97e2-dacd988d9eb8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Infrastructure/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
@@ -484,7 +460,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9753474e-94b9-4243-bcb8-3244cf3cef33</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe#2a4bc07d-e496-4c83-8973-5fe2a13db3e4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Infrastructure/Migrations/README.md</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>README.md</ProjectRelativeFilePath>
@@ -508,7 +484,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>e97921ff-6da3-456f-aeb2-6be6ec5dffd5</ProjectId>
-      <CorrelationId>Intent.CosmosDB.CosmosDBUnitOfWork</CorrelationId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBUnitOfWork#2aef1241-e21d-4d6c-b6a9-26ac0de7c6e1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Infrastructure/Persistence/CosmosDBUnitOfWork.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CosmosDBUnitOfWork.cs</ProjectRelativeFilePath>
@@ -524,7 +500,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b6cde9e4-c2ff-48dc-9e58-951eb2eed529</ProjectId>
-      <CorrelationId>Intent.CosmosDB.CosmosDBDocumentOfTInterface</CorrelationId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocumentOfTInterface#d09b8182-4e89-4421-9afd-2d210ec9275f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Infrastructure/Persistence/Documents/ICosmosDBDocument.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICosmosDBDocument.cs</ProjectRelativeFilePath>
@@ -532,7 +508,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b6cde9e4-c2ff-48dc-9e58-951eb2eed529</ProjectId>
-      <CorrelationId>Intent.CosmosDB.CosmosDBDocumentTypeExtensionMethods</CorrelationId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocumentTypeExtensionMethods#3ca4e176-d94c-42d4-a25e-3e3283d89e80</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Infrastructure/Persistence/Documents/TypeExtensionMethods.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TypeExtensionMethods.cs</ProjectRelativeFilePath>
@@ -548,7 +524,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>85bc2dc2-8fc1-43d1-b428-52fd60cd22b4</ProjectId>
-      <CorrelationId>Intent.CosmosDB.CosmosDBRepositoryBase</CorrelationId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBRepositoryBase#58c5cfcf-92af-49a3-bb97-71403613d314</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Infrastructure/Repositories/CosmosDBRepositoryBase.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CosmosDBRepositoryBase.cs</ProjectRelativeFilePath>
@@ -556,7 +532,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>85bc2dc2-8fc1-43d1-b428-52fd60cd22b4</ProjectId>
-      <CorrelationId>Intent.CosmosDB.CosmosPagedList</CorrelationId>
+      <CorrelationId>Intent.CosmosDB.CosmosPagedList#100b22bc-a698-4b64-9a1f-82127f77f7c8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Infrastructure/Repositories/CosmosPagedList.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CosmosPagedList.cs</ProjectRelativeFilePath>
@@ -572,7 +548,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>85bc2dc2-8fc1-43d1-b428-52fd60cd22b4</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.RepositoryBase</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.RepositoryBase#d532ce6d-efe7-45c8-9582-029b9247fff0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Infrastructure/Repositories/RepositoryBase.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RepositoryBase.cs</ProjectRelativeFilePath>
@@ -580,7 +556,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>1a18ef6a-e959-40d0-84ef-ba165ce74ad5</ProjectId>
-      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventService</CorrelationId>
+      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventService#bbb0fa2b-cf5c-4182-8b41-4a2506e58098</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Infrastructure/Services/DomainEventService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEventService.cs</ProjectRelativeFilePath>

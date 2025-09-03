@@ -14,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Scalar.AspNetCore;
 using Serilog;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -43,7 +44,7 @@ namespace CosmosDB.Api
             services.ConfigureHealthChecks(Configuration);
             services.ConfigureProblemDetails();
             services.AddInfrastructure(Configuration);
-            services.ConfigureSwagger(Configuration);
+            services.ConfigureOpenApi();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -64,8 +65,9 @@ namespace CosmosDB.Api
             {
                 endpoints.MapDefaultHealthChecks();
                 endpoints.MapControllers();
+                endpoints.MapOpenApi();
+                endpoints.MapScalarApiReference();
             });
-            app.UseSwashbuckle(Configuration);
         }
     }
 }

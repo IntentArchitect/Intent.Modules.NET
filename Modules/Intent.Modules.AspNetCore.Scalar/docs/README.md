@@ -52,3 +52,79 @@ To enable OIDC implicit flow, you must provide the configuration values in `apps
     }
   }
 }
+```
+
+### Migration from Intent.AspNetCore.Swashbuckle
+
+Ensure that you set your launch URL's in your `launchsettings.json` to `scalar/v1`
+
+Example, replace https://localhost:44339/swagger with https://localhost:44339/scalar/v1
+
+```
+// Change this
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:58204/",
+      "sslPort": 44339
+    }
+  },
+  "profiles": {
+    "CosmosDB.Api": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "applicationUrl": "https://localhost:44339/",
+      "launchUrl": "https://localhost:44339/swagger",
+      "publishAllPorts": false,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "https://localhost:44339/swagger",
+      "publishAllPorts": false,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
+
+// To This
+
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:58204/",
+      "sslPort": 44339
+    }
+  },
+  "profiles": {
+    "CosmosDB.Api": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "applicationUrl": "https://localhost:44339/",
+      "launchUrl": "https://localhost:44339/scalar/1",
+      "publishAllPorts": false,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "https://localhost:44339/scalar/v1",
+      "publishAllPorts": false,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
+```

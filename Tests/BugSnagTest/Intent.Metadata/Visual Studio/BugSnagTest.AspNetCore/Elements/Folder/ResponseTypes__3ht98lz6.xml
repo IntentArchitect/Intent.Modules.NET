@@ -31,7 +31,17 @@
       <parentFolderId>da1fca32-48c7-4d08-a196-0ff9e04ba6b5</parentFolderId>
       <packageId>04efcf03-925e-4fd9-9eff-433f8fd7cd82</packageId>
       <packageName>BugSnagTest.AspNetCore</packageName>
-      <stereotypes />
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+          <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>

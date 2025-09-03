@@ -28,18 +28,18 @@
     </FileLog>
     <FileLog>
       <ProjectId>e2ea6f83-bec5-4325-b48a-a8d49f5ba8c1</ProjectId>
-      <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration#df378474-f4ac-4818-af0b-a9ffe71abadf</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Scalar.OpenApiConfiguration#59c29c47-7d09-471c-bf5d-ac494fc271a2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CosmosDB.Api/Configuration/ProblemDetailsConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ProblemDetailsConfiguration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CosmosDB.Api/Configuration/OpenApiConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OpenApiConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e2ea6f83-bec5-4325-b48a-a8d49f5ba8c1</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration#d1a12863-7204-4025-b603-e8032aad11a4</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration#df378474-f4ac-4818-af0b-a9ffe71abadf</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CosmosDB.Api/Configuration/SwashbuckleConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SwashbuckleConfiguration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CosmosDB.Api/Configuration/ProblemDetailsConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProblemDetailsConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -108,26 +108,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>c234d03a-9776-4943-8095-406b851a39aa</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter#4d4f4a57-27d6-431d-bad4-844074cdca19</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CosmosDB.Api/Filters/AuthorizeCheckOperationFilter.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AuthorizeCheckOperationFilter.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c234d03a-9776-4943-8095-406b851a39aa</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.ExceptionFilter#0024b83e-a525-43a2-b384-5a3c38731795</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.Api/Filters/ExceptionFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ExceptionFilter.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c234d03a-9776-4943-8095-406b851a39aa</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter#ed84d99a-9b73-41bc-8815-a3bcf70dddd2</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CosmosDB.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>TypeSchemaFilter.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
