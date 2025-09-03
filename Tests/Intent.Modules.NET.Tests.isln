@@ -177,5 +177,6 @@
     <application id="2faab4f2-d128-42b5-9dfa-f1ce2bad8729" name="Blazor.InteractiveWebAssembly.Oidc" solutionFolder="Blazor" relativePath="Blazor.InteractiveWebAssembly.Oidc/Blazor.InteractiveWebAssembly.Oidc.application.config" />
     <application id="173c43c8-b2df-4d84-bd99-45f63320cc26" name="BlazorNoMudBlazor" solutionFolder="Blazor" relativePath="BlazorNoMudBlazor/BlazorNoMudBlazor.application.config" />
     <application id="f8b54b48-1f06-4e13-a107-2e93c5a3e37b" name="BlazorServerTests" solutionFolder="Blazor" relativePath="BlazorServerTests/BlazorServerTests.application.config" />
+    <application id="61758231-3283-475f-9f65-f2f2d1ef2b55" name="EntityFrameworkCore.SqlServer.PkNoneProvider" relativePath="EntityFrameworkCore.SqlServer.PkNoneProvider/EntityFrameworkCore.SqlServer.PkNoneProvider.application.config" />
   </applications>
 </solution>
