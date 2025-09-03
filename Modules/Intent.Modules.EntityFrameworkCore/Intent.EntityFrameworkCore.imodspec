@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore</id>
-  <version>5.0.29-pre.0</version>
+  <version>5.0.29-pre.1</version>
   <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Provides the Entity Framework Core, Object Relational Mapper framework</summary>
   <description>Provides the Entity Framework Core, Object Relational Mapper framework</description>
@@ -158,6 +158,15 @@
           <isRequired>false</isRequired>
           <hint>SQL column ordering should reflect the model order.</hint>
           <defaultValue>false</defaultValue>
+        </setting>
+        <setting id="af882a31-9a5e-4efc-8666-7059a55ff42d" title="Primary key value provider" type="select">
+          <isRequired>false</isRequired>
+          <hint>Controls value generation in `EntityTypeConfiguration` classes.</hint>
+          <defaultValue>default</defaultValue>
+          <options>
+            <option value="default" description="Default" />
+            <option value="none" description="None" />
+          </options>
         </setting>
       </settings>
     </groupExtension>

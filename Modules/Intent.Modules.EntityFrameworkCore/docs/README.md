@@ -100,6 +100,13 @@ If you are using the `Store enums as strings` setting you will get the following
 Intent will automatically do the Column ordering but if you want to get very specific you can use the `DataColumn` stereotype to explicitly set the ordering.
 This can also be using for forcing columns in base class to go to the end by assigning them a arbitrary large number.
 
+### Database Settings - `Primary key value provider`
+
+This setting comes with the following options:
+
+- **Default**: Uses the default value generation behaviour depending on the `Data Source` option on `Primary Key` Entity attributes.
+- **None**: Disables value generation for primary keys and instead configured them to use `ValueGeneratedNever`.
+
 ## Domain Designer modeling
 
 The `Domain Designer` has been extended with many stereotypes for modeling RDBMS technology specific concepts in your domain.
