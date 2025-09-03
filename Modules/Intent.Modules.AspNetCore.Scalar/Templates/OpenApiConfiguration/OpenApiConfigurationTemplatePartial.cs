@@ -40,6 +40,10 @@ namespace Intent.Modules.AspNetCore.Scalar.Templates.OpenApiConfiguration
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Microsoft.OpenApi.Models")
+                .AddUsing("Microsoft.Extensions.DependencyInjection")
+                .AddUsing("System")
+                .AddUsing("System.Threading.Tasks")
+                .AddUsing("System.Collections.Generic")
                 .AddClass($"OpenApiConfiguration", @class =>
                 {
                     @class.Static();

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modules.AspNetCore.Scalar.Templates.OpenApiConfiguration;
@@ -56,11 +57,14 @@ namespace Intent.Modules.AspNetCore.Scalar.FactoryExtensions
                     // The swagger UI endpoint doesn't work if it is placed after UseEndpoints is called and MVC is set up.
                     // We do it conditionally to minimize SF noise after an update for clients which aren't using MVC.
                     var useEndpointStatement = statements.FindStatement(x => x.ToString().Contains("UseEndpoints"));
-                    if (useEndpointStatement != null &&
-                        application.GetInstalledModules().Any(x => string.Equals(x.ModuleId, "Intent.AspNetCore.Mvc")))
+                    if (useEndpointStatement != null)
                     {
-                        useEndpointStatement.InsertAbove(statementToAdd1);
-                        useEndpointStatement.InsertAbove(statementToAdd2);
+                        statementToAdd1 = string.Format(mapOpenApiStatement, "endpoints");
+                        statementToAdd2 = string.Format(mapScalarStatement, "endpoints");
+                        var invocation = useEndpointStatement as CSharpInvocationStatement;
+                        var lambda = invocation.Statements.First() as CSharpLambdaBlock;
+                        lambda.Statements.Add(statementToAdd1);
+                        lambda.Statements.Add(statementToAdd2);
                     }
                     else
                     {
