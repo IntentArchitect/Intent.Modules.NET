@@ -55,6 +55,7 @@ namespace Intent.Modules.AspNetCore.Scalar.Settings
                 {
                     "Bearer" => AuthenticationOptionsEnum.Bearer,
                     "Implicit" => AuthenticationOptionsEnum.Implicit,
+                    "None" => AuthenticationOptionsEnum.None,
                     _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
                 };
             }
@@ -68,12 +69,18 @@ namespace Intent.Modules.AspNetCore.Scalar.Settings
             {
                 return Value == "Implicit";
             }
+
+            public bool IsNone()
+            {
+                return Value == "None";
+            }
         }
 
         public enum AuthenticationOptionsEnum
         {
             Bearer,
             Implicit,
+            None,
         }
 
         public bool UseFullyQualifiedSchemaIdentifiers() => bool.TryParse(_groupSettings.GetSetting("1bc3a9df-c63d-4a62-a734-5cf53cc3f629")?.Value.ToPascalCase(), out var result) && result;

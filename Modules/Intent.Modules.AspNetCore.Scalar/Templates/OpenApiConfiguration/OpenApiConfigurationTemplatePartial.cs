@@ -2,12 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Exceptions;
 using Intent.Modules.AspNetCore.Scalar.Settings;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -24,15 +26,20 @@ namespace Intent.Modules.AspNetCore.Scalar.Templates.OpenApiConfiguration
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public OpenApiConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            var package = this.ExecutionContext.MetadataManager.GetDesigner(this.ExecutionContext.GetApplicationConfig().Id, Designers.Services).Packages.FirstOrDefault();
+            if (package is null)
+            {
+                throw new Exception("No package found. Please create a package and uninstall and re-install the Intent.AspNetCore.IdentityService module.");
+            }
             var versionCheck = OutputTarget.GetProject().GetMaxNetAppVersion();
             if (versionCheck.Major < 9)
             {
-                throw new Exception("Microsoft.AspNetCore.OpenApi is only supported on .NET 9 or greater, please update your application.");
+                throw new ElementException(package, "Microsoft.AspNetCore.OpenApi is only supported on .NET 9 or greater, please update your application.");
             }
 
             if (ExecutionContext.InstalledModules.Any(x => x.ModuleId == "Intent.AspNetCore.Swashbuckle"))
             {
-                throw new Exception("Intent.AspNetCore.Swashbucle is also installed, only Intent.AspNetCore.Swashbuckle or Intent.AspNetCore.Scalar can be installed. Uninstall one or the other module");
+                throw new ElementException(package, "Intent.AspNetCore.Swashbucle is also installed, only Intent.AspNetCore.Swashbuckle or Intent.AspNetCore.Scalar can be installed. Uninstall one or the other module");
             }
 
             AddNugetDependency(NugetPackages.ScalarAspNetCore(OutputTarget));

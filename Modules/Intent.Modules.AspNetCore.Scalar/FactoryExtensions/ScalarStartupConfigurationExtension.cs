@@ -25,6 +25,21 @@ namespace Intent.Modules.AspNetCore.Scalar.FactoryExtensions
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;
 
+        protected override void OnBeforeTemplateExecution(IApplication application)
+        {
+            try
+            {
+                var template = application.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
+                ((IntentTemplateBase)template).PublishDefaultLaunchUrlPathRequest("scalar/v1");
+            }
+            catch (System.Exception)
+            {
+
+            }
+            
+            base.OnBeforeTemplateExecution(application);
+        }
+
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
             //ASP Net Core Versioning
@@ -36,9 +51,15 @@ namespace Intent.Modules.AspNetCore.Scalar.FactoryExtensions
             ((IntentTemplateBase)template).AddTemplateDependency(OpenApiConfigurationTemplate.TemplateId);
             template.AddUsing(configurationTemplate.Namespace);
 
-            ((IntentTemplateBase)template).PublishDefaultLaunchUrlPathRequest("scalar/v1");
+            try
+            {
+                ((IntentTemplateBase)template).PublishDefaultLaunchUrlPathRequest("scalar/v1");
+            }
+            catch (System.Exception)
+            {
+            }
 
-            template.CSharpFile.OnBuild(_ =>
+            template.CSharpFile.AfterBuild(_ =>
             {
                 var startup = template.StartupFile;
 
@@ -46,33 +67,12 @@ namespace Intent.Modules.AspNetCore.Scalar.FactoryExtensions
 
                 startup.AddServiceConfiguration(ctx => $"{ctx.Services}.ConfigureOpenApi();");
 
-                var mapOpenApiStatement = "{0}.MapOpenApi();";
-                var mapScalarStatement = "{0}.MapScalarApiReference();";
-
-                startup.ConfigureApp((statements, ctx) =>
+                startup.ConfigureEndpoints((statements, context) =>
                 {
-                    var statementToAdd1 = string.Format(mapOpenApiStatement, ctx.App);
-                    var statementToAdd2 = string.Format(mapScalarStatement, ctx.App);
-
-                    // The swagger UI endpoint doesn't work if it is placed after UseEndpoints is called and MVC is set up.
-                    // We do it conditionally to minimize SF noise after an update for clients which aren't using MVC.
-                    var useEndpointStatement = statements.FindStatement(x => x.ToString().Contains("UseEndpoints"));
-                    if (useEndpointStatement != null)
-                    {
-                        statementToAdd1 = string.Format(mapOpenApiStatement, "endpoints");
-                        statementToAdd2 = string.Format(mapScalarStatement, "endpoints");
-                        var invocation = useEndpointStatement as CSharpInvocationStatement;
-                        var lambda = invocation.Statements.First() as CSharpLambdaBlock;
-                        lambda.Statements.Add(statementToAdd1);
-                        lambda.Statements.Add(statementToAdd2);
-                    }
-                    else
-                    {
-                        startup.AddAppConfiguration(context => string.Format(mapOpenApiStatement, context.App));
-                        startup.AddAppConfiguration(context => string.Format(mapScalarStatement, context.App));
-                    }
+                    statements.InsertStatement(0, (CSharpStatement)$"{context.Endpoints}.MapOpenApi();");
+                    statements.InsertStatement(0, (CSharpStatement)$"{context.Endpoints}.MapScalarApiReference();");
                 });
-            }, 100);
+            }, 999);
         }
 
         private void DisableTemplate(IApplication application, string templateId)

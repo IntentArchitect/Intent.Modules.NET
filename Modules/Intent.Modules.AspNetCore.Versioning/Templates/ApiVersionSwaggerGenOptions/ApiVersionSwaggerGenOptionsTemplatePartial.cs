@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -73,6 +74,9 @@ namespace Intent.Modules.AspNetCore.Versioning.Templates.ApiVersionSwaggerGenOpt
             return CSharpFile.ToString();
         }
 
-
+        public override bool CanRunTemplate()
+        {
+            return base.CanRunTemplate() && ExecutionContext.InstalledModules.Any(x => x.ModuleId == "Intent.AspNetCore.Swashbuckle");
+        }
     }
 }

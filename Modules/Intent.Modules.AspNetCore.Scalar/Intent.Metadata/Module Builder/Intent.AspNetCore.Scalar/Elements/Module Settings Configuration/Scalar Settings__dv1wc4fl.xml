@@ -40,7 +40,7 @@
             <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Select" isActive="true" />
             <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="false" />
             <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Scalar Security Scheme" isActive="true" />
-            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="Bearer" isActive="true" />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="None" isActive="true" />
             <property name="c3456e79-0607-41a5-9b85-e0712f4f4834" display="Is Active Function" isActive="true" />
             <property name="fa54329f-d4e5-48bc-8027-e17206e9fc89" display="Is Required Function" isActive="true" />
             <property name="29696a13-bf1d-4fbd-bdf3-adb802430cb4" display="Order Priority" isActive="true" />
@@ -68,6 +68,20 @@
           <display>OAuth 2.0 - Implicit = Implicit</display>
           <isAbstract>false</isAbstract>
           <value>Implicit</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d845a606-c05b-4a11-9212-c5f099d890c6</parentFolderId>
+          <packageId>26ad62ab-3eab-479d-be93-ac6c6cd8046c</packageId>
+          <packageName>Intent.AspNetCore.Scalar</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="155ed90c-85ed-458d-a612-38c9eb42af80" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>None</name>
+          <display>None = None</display>
+          <isAbstract>false</isAbstract>
+          <value>None</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d845a606-c05b-4a11-9212-c5f099d890c6</parentFolderId>
