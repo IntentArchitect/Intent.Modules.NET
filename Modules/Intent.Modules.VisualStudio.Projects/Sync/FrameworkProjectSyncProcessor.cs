@@ -404,7 +404,7 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
                     case "csproj":
                         return;
                     default:
-                        itemType = "Content";
+                        itemType = "Content"; // TODO JL: Here
                         break;
                 }
             }

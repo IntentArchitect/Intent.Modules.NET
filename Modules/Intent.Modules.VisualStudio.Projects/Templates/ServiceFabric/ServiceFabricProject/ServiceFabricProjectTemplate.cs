@@ -22,10 +22,10 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.ServiceFabric.ServiceFa
                 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
                   <Import Project="..\packages\Microsoft.VisualStudio.Azure.Fabric.MSBuild.{{nugetPackageVersion}}\build\Microsoft.VisualStudio.Azure.Fabric.Application.props" Condition="Exists('..\packages\Microsoft.VisualStudio.Azure.Fabric.MSBuild.{{nugetPackageVersion}}\build\Microsoft.VisualStudio.Azure.Fabric.Application.props')" />
                   <PropertyGroup Label="Globals">
-                    <ProjectGuid>a6224586-24a3-4fc9-95cc-1845d093271c</ProjectGuid>
-                    <ProjectVersion>2.6</ProjectVersion>
+                    <ProjectGuid>{{Model.Id}}</ProjectGuid>
+                    <ProjectVersion>2.7</ProjectVersion>
                     <MinToolsVersion>16.10</MinToolsVersion>
-                    <SupportedMSBuildNuGetPackageVersion>1.7.6</SupportedMSBuildNuGetPackageVersion>
+                    <SupportedMSBuildNuGetPackageVersion>1.7.9</SupportedMSBuildNuGetPackageVersion>
                     <TargetFrameworkVersion>{{GetTargetFrameworks().First()}}</TargetFrameworkVersion>
                   </PropertyGroup>
                   <ItemGroup Label="ProjectConfigurations">
