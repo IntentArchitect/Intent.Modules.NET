@@ -13,9 +13,11 @@ using MongoDB.Driver;
 
 namespace Entities.PrivateSetters.MongoDb.Infrastructure.Persistence.Documents
 {
+    [BsonDiscriminator(nameof(Invoice), Required = true)]
     internal class InvoiceDocument : IInvoiceDocument, IMongoDbDocument<Invoice, InvoiceDocument, string>
     {
         [BsonId]
+        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get; set; }
         public DateTime Date { get; set; }
         public IEnumerable<string> TagsIds { get; set; }

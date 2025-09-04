@@ -12,6 +12,7 @@ using MongoDB.Driver;
 
 namespace AzureFunctions.MongoDb.Infrastructure.Persistence.Documents
 {
+    [BsonDiscriminator(nameof(DerivedOfT), Required = true)]
     internal class DerivedOfTDocument : BaseTypeOfTDocument<int>, IDerivedOfTDocument, IMongoDbDocument<DerivedOfT, DerivedOfTDocument, string>
     {
         public DerivedOfT ToEntity(DerivedOfT? entity = default)

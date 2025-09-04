@@ -12,6 +12,7 @@ using MongoDB.Driver;
 
 namespace AzureFunctions.MongoDb.Infrastructure.Persistence.Documents.Associations
 {
+    [BsonDiscriminator(nameof(E_RequiredDependent), Required = true)]
     internal class E_RequiredDependentDocument : IE_RequiredDependentDocument
     {
         public string Attribute { get; set; } = default!;

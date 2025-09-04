@@ -13,9 +13,11 @@ using Tag = Entities.PrivateSetters.MongoDb.Domain.Entities.Tag;
 
 namespace Entities.PrivateSetters.MongoDb.Infrastructure.Persistence.Documents
 {
+    [BsonDiscriminator(nameof(Tag), Required = true)]
     internal class TagDocument : ITagDocument, IMongoDbDocument<Tag, TagDocument, string>
     {
         [BsonId]
+        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get; set; }
         public string Name { get; set; }
 

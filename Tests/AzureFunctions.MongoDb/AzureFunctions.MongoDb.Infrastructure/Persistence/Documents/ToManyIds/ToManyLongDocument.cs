@@ -12,6 +12,7 @@ using MongoDB.Driver;
 
 namespace AzureFunctions.MongoDb.Infrastructure.Persistence.Documents.ToManyIds
 {
+    [BsonDiscriminator(nameof(ToManyLong), Required = true)]
     internal class ToManyLongDocument : IToManyLongDocument
     {
         public long Id { get; set; }

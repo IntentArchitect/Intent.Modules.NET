@@ -12,6 +12,7 @@ using MongoDb.TestApplication.Domain.Repositories.Documents.Mappings;
 
 namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents.Mappings
 {
+    [BsonDiscriminator(nameof(MapCompChild), Required = true)]
     internal class MapCompChildDocument : IMapCompChildDocument
     {
         public string CompChildAtt { get; set; } = default!;

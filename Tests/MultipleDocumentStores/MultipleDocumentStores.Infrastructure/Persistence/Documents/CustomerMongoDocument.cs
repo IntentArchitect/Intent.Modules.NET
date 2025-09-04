@@ -12,9 +12,11 @@ using MultipleDocumentStores.Domain.Repositories.Documents;
 
 namespace MultipleDocumentStores.Infrastructure.Persistence.Documents
 {
+    [BsonDiscriminator(nameof(CustomerMongo), Required = true)]
     internal class CustomerMongoDocument : ICustomerMongoDocument, IMongoDbDocument<CustomerMongo, CustomerMongoDocument, string>
     {
         [BsonId]
+        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get; set; }
         public string Name { get; set; }
 

@@ -12,9 +12,11 @@ using MongoDB.Driver;
 
 namespace AzureFunctions.MongoDb.Infrastructure.Persistence.Documents.NestedAssociations
 {
+    [BsonDiscriminator(nameof(AggregateA), Required = true)]
     internal class AggregateADocument : IAggregateADocument, IMongoDbDocument<AggregateA, AggregateADocument, string>
     {
         [BsonId]
+        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get; set; }
         public string Attribute { get; set; }
         public INestedCompositionADocument NestedCompositionA { get; set; }

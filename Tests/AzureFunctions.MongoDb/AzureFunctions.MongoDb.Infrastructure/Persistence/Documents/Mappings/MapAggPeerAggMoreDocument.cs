@@ -12,9 +12,11 @@ using MongoDB.Driver;
 
 namespace AzureFunctions.MongoDb.Infrastructure.Persistence.Documents.Mappings
 {
+    [BsonDiscriminator(nameof(MapAggPeerAggMore), Required = true)]
     internal class MapAggPeerAggMoreDocument : IMapAggPeerAggMoreDocument, IMongoDbDocument<MapAggPeerAggMore, MapAggPeerAggMoreDocument, string>
     {
         [BsonId]
+        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get; set; }
         public string MapAggPeerAggMoreAtt { get; set; }
 

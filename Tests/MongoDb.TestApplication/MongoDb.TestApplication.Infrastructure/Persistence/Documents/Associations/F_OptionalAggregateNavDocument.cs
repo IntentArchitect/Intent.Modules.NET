@@ -12,9 +12,11 @@ using MongoDb.TestApplication.Domain.Repositories.Documents.Associations;
 
 namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents.Associations
 {
+    [BsonDiscriminator(nameof(F_OptionalAggregateNav), Required = true)]
     internal class F_OptionalAggregateNavDocument : IF_OptionalAggregateNavDocument, IMongoDbDocument<F_OptionalAggregateNav, F_OptionalAggregateNavDocument, string>
     {
         [BsonId]
+        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get; set; }
         public string Attribute { get; set; }
         public string? FOptionaldependentId { get; set; }

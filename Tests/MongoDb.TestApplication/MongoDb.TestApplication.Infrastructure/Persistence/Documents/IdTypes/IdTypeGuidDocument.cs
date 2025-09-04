@@ -12,9 +12,11 @@ using MongoDb.TestApplication.Domain.Repositories.Documents.IdTypes;
 
 namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents.IdTypes
 {
+    [BsonDiscriminator(nameof(IdTypeGuid), Required = true)]
     internal class IdTypeGuidDocument : IIdTypeGuidDocument, IMongoDbDocument<IdTypeGuid, IdTypeGuidDocument, Guid>
     {
         [BsonId]
+        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public Guid Id { get; set; }
         public string Attribute { get; set; }
 

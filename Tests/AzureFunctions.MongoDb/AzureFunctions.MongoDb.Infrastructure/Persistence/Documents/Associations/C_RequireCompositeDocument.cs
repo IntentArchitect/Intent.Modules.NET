@@ -13,9 +13,11 @@ using MongoDB.Driver;
 
 namespace AzureFunctions.MongoDb.Infrastructure.Persistence.Documents.Associations
 {
+    [BsonDiscriminator(nameof(C_RequireComposite), Required = true)]
     internal class C_RequireCompositeDocument : IC_RequireCompositeDocument, IMongoDbDocument<C_RequireComposite, C_RequireCompositeDocument, string>
     {
         [BsonId]
+        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get; set; }
         public string Attribute { get; set; }
         public IEnumerable<IC_MultipleDependentDocument> C_MultipleDependents { get; set; }

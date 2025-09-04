@@ -12,6 +12,7 @@ using MongoDB.Driver;
 
 namespace AzureFunctions.MongoDb.Infrastructure.Persistence.Documents.Mappings
 {
+    [BsonDiscriminator(nameof(MapCompOptional), Required = true)]
     internal class MapCompOptionalDocument : IMapCompOptionalDocument
     {
         public string Name { get; set; } = default!;

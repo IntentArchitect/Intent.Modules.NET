@@ -12,6 +12,7 @@ using MongoDb.TestApplication.Domain.Repositories.Documents.Associations;
 
 namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents.Associations
 {
+    [BsonDiscriminator(nameof(G_MultipleDependent), Required = true)]
     internal class G_MultipleDependentDocument : IG_MultipleDependentDocument
     {
         public string Id { get; set; } = default!;

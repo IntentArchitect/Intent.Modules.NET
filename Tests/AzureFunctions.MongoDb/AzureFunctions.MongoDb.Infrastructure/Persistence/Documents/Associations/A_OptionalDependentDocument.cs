@@ -12,6 +12,7 @@ using MongoDB.Driver;
 
 namespace AzureFunctions.MongoDb.Infrastructure.Persistence.Documents.Associations
 {
+    [BsonDiscriminator(nameof(A_OptionalDependent), Required = true)]
     internal class A_OptionalDependentDocument : IA_OptionalDependentDocument
     {
         public string OptDepAttribute { get; set; } = default!;

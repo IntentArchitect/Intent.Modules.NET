@@ -12,9 +12,11 @@ using MongoDB.Driver;
 
 namespace AzureFunctions.MongoDb.Infrastructure.Persistence.Documents.Associations
 {
+    [BsonDiscriminator(nameof(D_OptionalAggregate), Required = true)]
     internal class D_OptionalAggregateDocument : ID_OptionalAggregateDocument, IMongoDbDocument<D_OptionalAggregate, D_OptionalAggregateDocument, string>
     {
         [BsonId]
+        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get; set; }
         public string Attribute { get; set; }
 

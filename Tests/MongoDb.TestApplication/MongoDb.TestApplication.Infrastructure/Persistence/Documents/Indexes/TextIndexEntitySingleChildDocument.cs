@@ -12,6 +12,7 @@ using MongoDb.TestApplication.Domain.Repositories.Documents.Indexes;
 
 namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents.Indexes
 {
+    [BsonDiscriminator(nameof(TextIndexEntitySingleChild), Required = true)]
     internal class TextIndexEntitySingleChildDocument : ITextIndexEntitySingleChildDocument
     {
         public string FullText { get; set; } = default!;

@@ -12,9 +12,11 @@ using MongoDb.TestApplication.Domain.Repositories.Documents.Mappings;
 
 namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents.Mappings
 {
+    [BsonDiscriminator(nameof(MapAggPeer), Required = true)]
     internal class MapAggPeerDocument : IMapAggPeerDocument, IMongoDbDocument<MapAggPeer, MapAggPeerDocument, string>
     {
         [BsonId]
+        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get; set; }
         public string PeerAtt { get; set; }
         public string MapAggPeerAggId { get; set; }

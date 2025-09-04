@@ -12,9 +12,11 @@ using MongoDb.TestApplication.Domain.Repositories.Documents.Associations;
 
 namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents.Associations
 {
+    [BsonDiscriminator(nameof(A_RequiredComposite), Required = true)]
     internal class A_RequiredCompositeDocument : IA_RequiredCompositeDocument, IMongoDbDocument<A_RequiredComposite, A_RequiredCompositeDocument, string>
     {
         [BsonId]
+        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get; set; }
         public string ReqCompAttribute { get; set; }
         public IA_OptionalDependentDocument? A_OptionalDependent { get; set; }

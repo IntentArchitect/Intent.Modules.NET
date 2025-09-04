@@ -13,9 +13,11 @@ using MongoDb.TestApplication.Domain.Repositories.Documents.Indexes;
 
 namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents.Indexes
 {
+    [BsonDiscriminator(nameof(SingleIndexEntityMultiParent), Required = true)]
     internal class SingleIndexEntityMultiParentDocument : ISingleIndexEntityMultiParentDocument, IMongoDbDocument<SingleIndexEntityMultiParent, SingleIndexEntityMultiParentDocument, string>
     {
         [BsonId]
+        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get; set; }
         public string SomeField { get; set; }
         public IEnumerable<ISingleIndexEntityMultiChildDocument> SingleIndexEntityMultiChild { get; set; }

@@ -12,9 +12,11 @@ using MongoDB.Driver;
 
 namespace AzureFunctions.MongoDb.Infrastructure.Persistence.Documents.Mappings
 {
+    [BsonDiscriminator(nameof(MapImplyOptional), Required = true)]
     internal class MapImplyOptionalDocument : IMapImplyOptionalDocument, IMongoDbDocument<MapImplyOptional, MapImplyOptionalDocument, string>
     {
         [BsonId]
+        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get; set; }
         public string Description { get; set; }
 

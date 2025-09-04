@@ -12,9 +12,11 @@ using MongoDb.TestApplication.Domain.Repositories.Documents.Indexes;
 
 namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents.Indexes
 {
+    [BsonDiscriminator(nameof(TextIndexEntitySingleParent), Required = true)]
     internal class TextIndexEntitySingleParentDocument : ITextIndexEntitySingleParentDocument, IMongoDbDocument<TextIndexEntitySingleParent, TextIndexEntitySingleParentDocument, string>
     {
         [BsonId]
+        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get; set; }
         public string SomeField { get; set; }
         public ITextIndexEntitySingleChildDocument TextIndexEntitySingleChild { get; set; }

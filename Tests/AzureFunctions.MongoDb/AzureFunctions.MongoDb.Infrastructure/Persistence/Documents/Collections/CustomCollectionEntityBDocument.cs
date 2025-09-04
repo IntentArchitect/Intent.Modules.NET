@@ -12,9 +12,11 @@ using MongoDB.Driver;
 
 namespace AzureFunctions.MongoDb.Infrastructure.Persistence.Documents.Collections
 {
+    [BsonDiscriminator(nameof(CustomCollectionEntityB), Required = true)]
     internal class CustomCollectionEntityBDocument : ICustomCollectionEntityBDocument, IMongoDbDocument<CustomCollectionEntityB, CustomCollectionEntityBDocument, string>
     {
         [BsonId]
+        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get; set; }
         public string Attribute { get; set; }
 

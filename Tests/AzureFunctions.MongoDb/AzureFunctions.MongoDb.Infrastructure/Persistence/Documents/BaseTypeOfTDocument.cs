@@ -12,9 +12,11 @@ using MongoDB.Driver;
 
 namespace AzureFunctions.MongoDb.Infrastructure.Persistence.Documents
 {
+    [BsonDiscriminator(nameof(BaseTypeOfT), Required = true)]
     internal abstract class BaseTypeOfTDocument<T> : IBaseTypeOfTDocument<T>, IMongoDbDocument<BaseTypeOfT<T>, BaseTypeOfTDocument<T>, string>
     {
         [BsonId]
+        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get; set; }
         public T BaseAttribute { get; set; }
 

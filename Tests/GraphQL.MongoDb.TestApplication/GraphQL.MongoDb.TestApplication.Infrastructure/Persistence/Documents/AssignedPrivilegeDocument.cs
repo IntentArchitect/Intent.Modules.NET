@@ -12,6 +12,7 @@ using MongoDB.Driver;
 
 namespace GraphQL.MongoDb.TestApplication.Infrastructure.Persistence.Documents
 {
+    [BsonDiscriminator(nameof(AssignedPrivilege), Required = true)]
     internal class AssignedPrivilegeDocument : IAssignedPrivilegeDocument
     {
         public string Id { get; set; } = default!;

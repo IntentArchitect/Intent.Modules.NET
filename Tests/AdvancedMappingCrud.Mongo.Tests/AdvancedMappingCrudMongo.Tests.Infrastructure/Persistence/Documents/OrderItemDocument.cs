@@ -12,6 +12,7 @@ using MongoDB.Driver;
 
 namespace AdvancedMappingCrudMongo.Tests.Infrastructure.Persistence.Documents
 {
+    [BsonDiscriminator(nameof(OrderItem), Required = true)]
     internal class OrderItemDocument : IOrderItemDocument
     {
         public string Id { get; set; } = default!;

@@ -12,6 +12,7 @@ using MongoDB.Driver;
 
 namespace CleanArchitecture.SingleFiles.Infrastructure.Persistence.Documents
 {
+    [BsonDiscriminator(nameof(MongoLine), Required = true)]
     internal class MongoLineDocument : IMongoLineDocument
     {
         public string Id { get; set; } = default!;

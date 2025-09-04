@@ -12,9 +12,11 @@ using MongoDb.TestApplication.Domain.Repositories.Documents.NestedAssociations;
 
 namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents.NestedAssociations
 {
+    [BsonDiscriminator(nameof(AggregateB), Required = true)]
     internal class AggregateBDocument : IAggregateBDocument, IMongoDbDocument<AggregateB, AggregateBDocument, string>
     {
         [BsonId]
+        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get; set; }
         public string Attribute { get; set; }
 

@@ -12,9 +12,11 @@ using MongoDb.TestApplication.Domain.Repositories.Documents.Mappings;
 
 namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents.Mappings
 {
+    [BsonDiscriminator(nameof(MapAggChild), Required = true)]
     internal class MapAggChildDocument : IMapAggChildDocument, IMongoDbDocument<MapAggChild, MapAggChildDocument, string>
     {
         [BsonId]
+        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get; set; }
         public string ChildName { get; set; }
 

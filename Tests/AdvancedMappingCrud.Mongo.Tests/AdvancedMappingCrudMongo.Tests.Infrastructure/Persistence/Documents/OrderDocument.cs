@@ -15,9 +15,11 @@ using MongoDB.Driver;
 
 namespace AdvancedMappingCrudMongo.Tests.Infrastructure.Persistence.Documents
 {
+    [BsonDiscriminator(nameof(Order), Required = true)]
     internal class OrderDocument : IOrderDocument, IMongoDbDocument<Order, OrderDocument, string>
     {
         [BsonId]
+        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get; set; }
         public string CustomerId { get; set; }
         public string RefNo { get; set; }

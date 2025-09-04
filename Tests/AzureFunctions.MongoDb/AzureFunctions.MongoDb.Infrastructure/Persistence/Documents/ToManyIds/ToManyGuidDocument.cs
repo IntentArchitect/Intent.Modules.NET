@@ -12,6 +12,7 @@ using MongoDB.Driver;
 
 namespace AzureFunctions.MongoDb.Infrastructure.Persistence.Documents.ToManyIds
 {
+    [BsonDiscriminator(nameof(ToManyGuid), Required = true)]
     internal class ToManyGuidDocument : IToManyGuidDocument
     {
         public Guid Id { get; set; }

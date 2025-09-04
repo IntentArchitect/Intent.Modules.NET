@@ -13,9 +13,11 @@ using MongoDB.Driver;
 
 namespace GraphQL.MongoDb.TestApplication.Infrastructure.Persistence.Documents
 {
+    [BsonDiscriminator(nameof(User), Required = true)]
     internal class UserDocument : IUserDocument, IMongoDbDocument<User, UserDocument, string>
     {
         [BsonId]
+        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }

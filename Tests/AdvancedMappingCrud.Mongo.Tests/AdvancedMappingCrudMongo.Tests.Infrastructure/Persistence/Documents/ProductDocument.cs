@@ -12,9 +12,11 @@ using MongoDB.Driver;
 
 namespace AdvancedMappingCrudMongo.Tests.Infrastructure.Persistence.Documents
 {
+    [BsonDiscriminator(nameof(Product), Required = true)]
     internal class ProductDocument : IProductDocument, IMongoDbDocument<Product, ProductDocument, string>
     {
         [BsonId]
+        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }

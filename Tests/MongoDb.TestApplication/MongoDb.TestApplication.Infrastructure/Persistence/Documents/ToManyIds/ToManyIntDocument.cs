@@ -12,6 +12,7 @@ using MongoDb.TestApplication.Domain.Repositories.Documents.ToManyIds;
 
 namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents.ToManyIds
 {
+    [BsonDiscriminator(nameof(ToManyInt), Required = true)]
     internal class ToManyIntDocument : IToManyIntDocument
     {
         public int Id { get; set; }

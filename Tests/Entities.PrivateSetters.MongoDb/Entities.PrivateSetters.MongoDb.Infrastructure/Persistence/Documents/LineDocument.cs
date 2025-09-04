@@ -12,6 +12,7 @@ using MongoDB.Driver;
 
 namespace Entities.PrivateSetters.MongoDb.Infrastructure.Persistence.Documents
 {
+    [BsonDiscriminator(nameof(Line), Required = true)]
     internal class LineDocument : ILineDocument
     {
         public string Id { get; set; } = default!;

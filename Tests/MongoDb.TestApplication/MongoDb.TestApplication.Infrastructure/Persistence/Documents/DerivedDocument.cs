@@ -12,6 +12,7 @@ using MongoDb.TestApplication.Domain.Repositories.Documents;
 
 namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents
 {
+    [BsonDiscriminator(nameof(Derived), Required = true)]
     internal class DerivedDocument : BaseTypeDocument, IDerivedDocument, IMongoDbDocument<Derived, DerivedDocument, string>
     {
         public string DerivedAttribute { get; set; }

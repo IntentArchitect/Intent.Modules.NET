@@ -13,9 +13,11 @@ using MongoDb.TestApplication.Domain.Repositories.Documents.Associations;
 
 namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents.Associations
 {
+    [BsonDiscriminator(nameof(K_MultipleDependent), Required = true)]
     internal class K_MultipleDependentDocument : IK_MultipleDependentDocument, IMongoDbDocument<K_MultipleDependent, K_MultipleDependentDocument, string>
     {
         [BsonId]
+        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get; set; }
         public string Attribute { get; set; }
         public IEnumerable<string> JMultipleaggregatesIds { get; set; }

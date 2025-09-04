@@ -12,9 +12,11 @@ using MongoDB.Driver;
 
 namespace AzureFunctions.MongoDb.Infrastructure.Persistence.Documents.Indexes
 {
+    [BsonDiscriminator(nameof(CompoundIndexEntitySingleParent), Required = true)]
     internal class CompoundIndexEntitySingleParentDocument : ICompoundIndexEntitySingleParentDocument, IMongoDbDocument<CompoundIndexEntitySingleParent, CompoundIndexEntitySingleParentDocument, string>
     {
         [BsonId]
+        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get; set; }
         public string SomeField { get; set; }
         public ICompoundIndexEntitySingleChildDocument CompoundIndexEntitySingleChild { get; set; }

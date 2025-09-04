@@ -12,6 +12,7 @@ using MongoDb.TestApplication.Domain.Repositories.Documents.Indexes;
 
 namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents.Indexes
 {
+    [BsonDiscriminator(nameof(CompoundIndexEntitySingleChild), Required = true)]
     internal class CompoundIndexEntitySingleChildDocument : ICompoundIndexEntitySingleChildDocument
     {
         public string CompoundOne { get; set; } = default!;

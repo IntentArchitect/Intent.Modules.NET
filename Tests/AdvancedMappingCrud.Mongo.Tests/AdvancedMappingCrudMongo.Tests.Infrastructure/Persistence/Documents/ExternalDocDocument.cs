@@ -12,6 +12,7 @@ using MongoDB.Driver;
 
 namespace AdvancedMappingCrudMongo.Tests.Infrastructure.Persistence.Documents
 {
+    [BsonDiscriminator(nameof(ExternalDoc), Required = true)]
     internal class ExternalDocDocument : IExternalDocDocument, IMongoDbDocument<ExternalDoc, ExternalDocDocument, long>
     {
         public long Id { get; set; }
