@@ -100,6 +100,12 @@ steps:
   inputs:
     version: '9.x'
 
+- script: |
+    echo "Increasing Docker HTTP timeouts"
+    echo "##vso[task.setvariable variable=DOCKER_CLIENT_TIMEOUT]300"
+    echo "##vso[task.setvariable variable=COMPOSE_HTTP_TIMEOUT]300"
+  displayName: 'Set Docker timeouts'
+
 # Required for entry in NuGet.Config that is generated as part of 'dotnet pack'.
 - task: NuGetAuthenticate@1
 
