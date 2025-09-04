@@ -1,18 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using Intent.Configuration;
 using Intent.Engine;
-using Intent.IArchitect.CrossPlatform.IO;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Templates;
 using Microsoft.DotNet.Cli.Sln.Internal;
-using static Intent.Modules.Constants.TemplateRoles.Blazor.Client;
-using Path = Intent.IArchitect.CrossPlatform.IO.Path;
 
 namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution
 {
@@ -46,12 +42,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution
                 ? SlnFile.Read(targetFile, File.ReadAllText(targetFile))
                 : SlnFile.CreateEmpty(targetFile);
 
-            var solutionConfigurationPlatforms = slnFile.SolutionConfigurationsSection;
-            if (solutionConfigurationPlatforms.IsEmpty)
-            {
-                solutionConfigurationPlatforms.TryAdd("Debug|Any CPU", "Debug|Any CPU");
-                solutionConfigurationPlatforms.TryAdd("Release|Any CPU", "Release|Any CPU");
-            }
+            SyncSolutionConfigurationPlatforms(slnFile, out var configurationPlatforms);
 
             var solutionProperties = slnFile.GetOrCreateSolutionPropertiesSection(out var alreadyAlreadyExisted);
             if (!alreadyAlreadyExisted)
@@ -64,9 +55,57 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution
                 currentSlnFolder: null,
                 currentFolderModel: null,
                 childFolderModels: Model.Folders,
-                projectModels: Projects.ToArray());
+                projectModels: Projects.ToArray(),
+                configurationPlatforms: configurationPlatforms);
 
             return slnFile.Generate();
+        }
+
+        private void SyncSolutionConfigurationPlatforms(SlnFile slnFile, out ConfigurationPlatform[] configurationPlatforms)
+        {
+            var section = slnFile.SolutionConfigurationsSection;
+            IEnumerable<string> configurations;
+            IEnumerable<string> platforms;
+
+            if (section.IsEmpty)
+            {
+                configurations = ["Debug", "Release"];
+                platforms = GetRequiredPlatforms().Union(["Any CPU"]);
+            }
+            else
+            {
+                var items = section.Keys.Select(x => x.Split('|')).ToArray();
+                configurations = items.Select(x => x[0]);
+                platforms = GetRequiredPlatforms().Union(items.Select(x => x[1]));
+            }
+
+            configurationPlatforms = configurations
+                .SelectMany(x => platforms.Select(y => new ConfigurationPlatform(x, y)))
+                .OrderBy(x => x.Joined)
+                .ToArray();
+
+            if (configurationPlatforms.All(x => section.ContainsKey(x.Joined)))
+            {
+                return;
+            }
+
+            // Clear first so that re-added in sorted order
+            section.Clear();
+
+            foreach (var item in configurationPlatforms)
+            {
+                section.TryAdd(item.Joined, item.Joined);
+            }
+        }
+
+        private IReadOnlyCollection<string> GetRequiredPlatforms()
+        {
+            if (Projects.Any(x => x.ProjectTypeId == VisualStudioProjectTypeIds.ServiceFabricProject))
+            {
+                return ["x64"];
+            }
+
+            return [];
         }
 
         /// <remarks>
@@ -77,7 +116,8 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution
             SlnProject currentSlnFolder,
             SolutionFolderModel currentFolderModel,
             IEnumerable<SolutionFolderModel> childFolderModels,
-            IReadOnlyCollection<IVisualStudioSolutionProject> projectModels)
+            IReadOnlyCollection<IVisualStudioSolutionProject> projectModels,
+            ConfigurationPlatform[] configurationPlatforms)
         {
             foreach (var model in projectModels.Where(x => x.ParentFolder?.Id == currentFolderModel?.Id))
             {
@@ -89,18 +129,47 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution
                     typeGuid: model.ProjectTypeId,
                     filePath: filePath,
                     parent: currentSlnFolder,
-                    alreadyExisted: out var alreadyExisted);
+                    alreadyExisted: out _);
 
-                if (alreadyExisted)
+                var propertySet = slnFile.ProjectConfigurationsSection.GetOrCreatePropertySet(project.Id);
+
+                var (projectConfigurationSuffixes, defaultPlatform) = model.ProjectTypeId switch
                 {
-                    continue;
+                    VisualStudioProjectTypeIds.ServiceFabricProject => ([".ActiveCfg", ".Build.0", ".Deploy.0"], "x64"),
+                    _ => (new[] { ".ActiveCfg", ".Build.0" }, "Any CPU")
+                };
+
+                var projectConfigurations = configurationPlatforms
+                    .SelectMany(_ => projectConfigurationSuffixes, (configurationPlatform, suffix) => new
+                    {
+                        ConfigurationPlatform = configurationPlatform,
+                        Suffix = suffix,
+                        Key = $"{configurationPlatform.Joined}{suffix}"
+                    })
+                    .OrderBy(x => x.Key)
+                    .ToArray();
+
+                if (projectConfigurations.All(x => propertySet.ContainsKey(x.Key)))
+                {
+                    return;
                 }
 
-                foreach (var configuration in slnFile.SolutionConfigurationsSection.Values)
+                var oldValues = propertySet
+                    .OrderBy(x => x.Key)
+                    .Select(x => new { x.Key, x.Value })
+                    .ToArray();
+
+                // Clear first so that re-added in sorted order
+                propertySet.Values.Clear();
+
+                foreach (var item in projectConfigurations)
                 {
-                    var propertySet = slnFile.ProjectConfigurationsSection.GetOrCreatePropertySet(project.Id);
-                    propertySet.TryAdd($"{configuration}.ActiveCfg", configuration);
-                    propertySet.TryAdd($"{configuration}.Build.0", configuration);
+                    var value = oldValues.FirstOrDefault(x => x.Key == item.Key)?.Value ??
+                                oldValues.FirstOrDefault(x => x.Key.StartsWith(item.ConfigurationPlatform.ConfigurationWithPipe) && x.Key.EndsWith(item.Suffix))?.Value ??
+                                projectConfigurations.FirstOrDefault(x => x.ConfigurationPlatform.Configuration == item.ConfigurationPlatform.Configuration && x.ConfigurationPlatform.Platform == defaultPlatform)?.ConfigurationPlatform.Joined ??
+                                item.ConfigurationPlatform.Joined;
+
+                    propertySet.TryAdd(item.Key, value);
                 }
             }
 
@@ -115,7 +184,8 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution
                     currentSlnFolder: childSlnFolder,
                     currentFolderModel: childFolderModel,
                     childFolderModels: childFolderModel.Folders,
-                    projectModels: projectModels);
+                    projectModels: projectModels,
+                    configurationPlatforms: configurationPlatforms);
             }
         }
 
@@ -169,6 +239,12 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution
             }
 
             public IApplication Application { get; }
+        }
+
+        internal record ConfigurationPlatform(string Configuration, string Platform)
+        {
+            public string Joined { get; } = $"{Configuration}|{Platform}";
+            public string ConfigurationWithPipe { get; } = $"{Configuration}";
         }
     }
 }
