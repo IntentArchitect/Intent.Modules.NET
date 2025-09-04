@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="eeeb1a97-7a20-447b-8885-103cfa954224" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>Product</name>
+  <display>Product</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>52cc78ac-c3e7-4ce9-9435-9f75884d5406</parentFolderId>
+  <packageId>52cc78ac-c3e7-4ce9-9435-9f75884d5406</packageId>
+  <packageName>CosmosDB.Authentication.Domain</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="ef9b1772-18e1-44ad-b606-66406221c805" name="Container">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.CosmosDB</definitionPackageName>
+      <definitionPackageId>b52e75f6-d86b-4c53-b4bd-8a8c2c267865</definitionPackageId>
+      <properties>
+        <property name="7ebc3aff-936c-465b-ac34-3e52362090ef" display="Name" isActive="true" />
+        <property name="bda56f7f-8ac6-4b36-bbc1-91bba18e71d9" display="Partition Key" value="Name" isActive="true" />
+        <property name="2c4ac3b3-b72b-459f-a22b-b1d6fb7fd3ea" display="Throughput Type" isActive="true" />
+        <property name="55056d4b-08db-4df3-b073-ae2ccc0ac7ac" display="Maximum Throughput (RUs)" isActive="false" />
+        <property name="e06caad5-06a1-478b-9827-7e110f94039a" display="Manual Throughput (RUs)" isActive="false" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata>
+    <entry key="currentPartitionKey" value="Name" />
+  </metadata>
+  <childElements>
+    <childElement id="9acbdee6-6b0e-4b0c-a620-459aff5bf67c" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id</name>
+      <display>Id: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="8ecd9411-cfa6-4c6f-8c40-44ceed858b23">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>eeeb1a97-7a20-447b-8885-103cfa954224</parentFolderId>
+      <packageId>52cc78ac-c3e7-4ce9-9435-9f75884d5406</packageId>
+      <packageName>CosmosDB.Authentication.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="64f6a994-4909-4a9d-a0a9-afc5adf2ef74" name="Primary Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.DocumentDB</definitionPackageName>
+          <definitionPackageId>1c7eab18-9482-4b4e-b61b-1fbd2d2427b6</definitionPackageId>
+          <properties>
+            <property name="ce12cf69-e97f-401b-9b08-7e2c62171d4e" display="Data source" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="managed" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="ab2d204f-e23f-4108-ad0a-de19fa34ca51" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Name</name>
+      <display>Name: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="dc0a17dc-903a-4a04-9472-fd3631b2e236">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>eeeb1a97-7a20-447b-8885-103cfa954224</parentFolderId>
+      <packageId>52cc78ac-c3e7-4ce9-9435-9f75884d5406</packageId>
+      <packageName>CosmosDB.Authentication.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="64f6a994-4909-4a9d-a0a9-afc5adf2ef74" name="Primary Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.DocumentDB</definitionPackageName>
+          <definitionPackageId>1c7eab18-9482-4b4e-b61b-1fbd2d2427b6</definitionPackageId>
+          <properties>
+            <property name="ce12cf69-e97f-401b-9b08-7e2c62171d4e" display="Data source" value="User supplied" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="partition-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="2c74ba35-f816-4fa2-9b6b-9ce7c0e15bce" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Value</name>
+      <display>Value: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="5ad7ac83-ff28-4d39-947a-b99107d6790c">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>eeeb1a97-7a20-447b-8885-103cfa954224</parentFolderId>
+      <packageId>52cc78ac-c3e7-4ce9-9435-9f75884d5406</packageId>
+      <packageName>CosmosDB.Authentication.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="bce773b8-17aa-4690-9870-29c969842362" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Qty</name>
+      <display>Qty: int</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="300598c9-01c8-4095-8878-4975a0c11815">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>eeeb1a97-7a20-447b-8885-103cfa954224</parentFolderId>
+      <packageId>52cc78ac-c3e7-4ce9-9435-9f75884d5406</packageId>
+      <packageName>CosmosDB.Authentication.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

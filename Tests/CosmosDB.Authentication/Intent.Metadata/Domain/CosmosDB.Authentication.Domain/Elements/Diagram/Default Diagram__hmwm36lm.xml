@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="783752e2-5954-4c5b-be06-27fcf9c2944d" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>1b7fb00b-5ce4-45b8-876c-8f0f1874fdbb</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>52cc78ac-c3e7-4ce9-9435-9f75884d5406</parentFolderId>
+  <packageId>52cc78ac-c3e7-4ce9-9435-9f75884d5406</packageId>
+  <packageName>CosmosDB.Authentication.Domain</packageName>
+  <diagram>
+    <targetPackageId>52cc78ac-c3e7-4ce9-9435-9f75884d5406</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

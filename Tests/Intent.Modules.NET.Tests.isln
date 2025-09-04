@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore.Blazor.Server" version="1.0.2-pre.0" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture" version="5.1.6-pre.0" />
   <applications>
     <application id="a3039e69-7ab0-4ab4-8784-54706aa3fcd8" name="Standard.AspNetCore.TestApplication" relativePath="Standard.AspNetCore.TestApplication/Standard.AspNetCore.TestApplication.application.config" />
     <application id="859f5adf-c40e-40fb-9e68-e41da908d768" name="AzureFunctions.TestApplication" relativePath="AzureFunctions.TestApplication/AzureFunctions.TestApplication.application.config" />
@@ -178,5 +178,6 @@
     <application id="173c43c8-b2df-4d84-bd99-45f63320cc26" name="BlazorNoMudBlazor" solutionFolder="Blazor" relativePath="BlazorNoMudBlazor/BlazorNoMudBlazor.application.config" />
     <application id="f8b54b48-1f06-4e13-a107-2e93c5a3e37b" name="BlazorServerTests" solutionFolder="Blazor" relativePath="BlazorServerTests/BlazorServerTests.application.config" />
     <application id="61758231-3283-475f-9f65-f2f2d1ef2b55" name="EntityFrameworkCore.SqlServer.PkNoneProvider" relativePath="EntityFrameworkCore.SqlServer.PkNoneProvider/EntityFrameworkCore.SqlServer.PkNoneProvider.application.config" />
+    <application id="c3933cb3-ca6e-48b1-ade1-334f665d89fe" name="CosmosDB.Authentication" relativePath="CosmosDB.Authentication/CosmosDB.Authentication.application.config" />
   </applications>
 </solution>
