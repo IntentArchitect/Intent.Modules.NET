@@ -63,10 +63,10 @@ namespace CosmosDB.Api
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapScalarApiReference();
+                endpoints.MapOpenApi();
                 endpoints.MapDefaultHealthChecks();
                 endpoints.MapControllers();
-                endpoints.MapOpenApi();
-                endpoints.MapScalarApiReference();
             });
         }
     }

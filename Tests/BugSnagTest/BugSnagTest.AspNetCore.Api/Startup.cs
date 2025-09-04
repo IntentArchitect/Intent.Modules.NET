@@ -62,9 +62,9 @@ namespace BugSnagTest.AspNetCore.Api
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
-                endpoints.MapOpenApi();
                 endpoints.MapScalarApiReference();
+                endpoints.MapOpenApi();
+                endpoints.MapControllers();
             });
         }
     }
