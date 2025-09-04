@@ -1,3 +1,4 @@
+using System.Reflection;
 using DotNet.Testcontainers.Builders;
 using DotNet.Testcontainers.Configurations;
 using DotNet.Testcontainers.Images;
@@ -6,7 +7,6 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using System.Reflection;
 using Testcontainers.PostgreSql;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -20,13 +20,14 @@ namespace IntegrationTesting.Tests.IntegrationTests
 
         public EFContainerFixture()
         {
+            // IntentMerge
             _dbContainer = new PostgreSqlBuilder()
                     .WithImage("postgres:14.7")
                     .WithDatabase("db")
                     .WithUsername("postgres")
                     .WithPassword("postgres")
                     .WithCleanUp(true)
-                    .WithImagePullPolicy(PullPolicy.Missing) 
+                    .WithImagePullPolicy(PullPolicy.Missing)
                     .Build();
         }
 
