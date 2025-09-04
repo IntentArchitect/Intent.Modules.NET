@@ -16,7 +16,6 @@ namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents.Associati
     internal class H_OptionalAggregateNavDocument : IH_OptionalAggregateNavDocument, IMongoDbDocument<H_OptionalAggregateNav, H_OptionalAggregateNavDocument, string>
     {
         [BsonId]
-        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get; set; }
         public string Attribute { get; set; }
         public IEnumerable<string> HMultipledependentsIds { get; set; }

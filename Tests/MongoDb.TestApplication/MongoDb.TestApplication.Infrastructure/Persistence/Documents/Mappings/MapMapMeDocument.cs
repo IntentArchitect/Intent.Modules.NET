@@ -15,7 +15,6 @@ namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents.Mappings
     internal class MapMapMeDocument : IMapMapMeDocument, IMongoDbDocument<MapMapMe, MapMapMeDocument, string>
     {
         [BsonId]
-        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get; set; }
         public string Name { get; set; }
 

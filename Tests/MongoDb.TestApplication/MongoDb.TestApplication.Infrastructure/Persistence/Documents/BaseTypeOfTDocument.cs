@@ -15,7 +15,6 @@ namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents
     internal abstract class BaseTypeOfTDocument<T> : IBaseTypeOfTDocument<T>, IMongoDbDocument<BaseTypeOfT<T>, BaseTypeOfTDocument<T>, string>
     {
         [BsonId]
-        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get; set; }
         public T BaseAttribute { get; set; }
 

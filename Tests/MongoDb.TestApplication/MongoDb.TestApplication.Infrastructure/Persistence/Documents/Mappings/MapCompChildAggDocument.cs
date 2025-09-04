@@ -15,7 +15,6 @@ namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents.Mappings
     internal class MapCompChildAggDocument : IMapCompChildAggDocument, IMongoDbDocument<MapCompChildAgg, MapCompChildAggDocument, string>
     {
         [BsonId]
-        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get; set; }
         public string CompChildAggAtt { get; set; }
 

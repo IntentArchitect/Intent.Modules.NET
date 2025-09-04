@@ -15,7 +15,6 @@ namespace GraphQL.MongoDb.TestApplication.Infrastructure.Persistence.Documents
     internal class PrivilegeDocument : IPrivilegeDocument, IMongoDbDocument<Privilege, PrivilegeDocument, string>
     {
         [BsonId]
-        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get; set; }
         public string Name { get; set; }
         public string? Description { get; set; }

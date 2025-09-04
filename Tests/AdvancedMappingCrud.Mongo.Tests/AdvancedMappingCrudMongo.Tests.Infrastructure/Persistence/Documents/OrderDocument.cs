@@ -18,7 +18,6 @@ namespace AdvancedMappingCrudMongo.Tests.Infrastructure.Persistence.Documents
     internal class OrderDocument : IOrderDocument, IMongoDbDocument<Order, OrderDocument, string>
     {
         [BsonId]
-        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get; set; }
         public string CustomerId { get; set; }
         public string RefNo { get; set; }
@@ -28,7 +27,7 @@ namespace AdvancedMappingCrudMongo.Tests.Infrastructure.Persistence.Documents
 
         public Order ToEntity(Order? entity = default)
         {
-            
+
             entity ??= new Order();
 
             entity.Id = Id ?? throw new Exception($"{nameof(entity.Id)} is null");

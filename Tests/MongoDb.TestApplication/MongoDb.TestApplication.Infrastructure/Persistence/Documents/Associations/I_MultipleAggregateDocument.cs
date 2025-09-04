@@ -15,7 +15,6 @@ namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents.Associati
     internal class I_MultipleAggregateDocument : II_MultipleAggregateDocument, IMongoDbDocument<I_MultipleAggregate, I_MultipleAggregateDocument, string>
     {
         [BsonId]
-        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get; set; }
         public string Attribute { get; set; }
         public string JRequireddependentId { get; set; }

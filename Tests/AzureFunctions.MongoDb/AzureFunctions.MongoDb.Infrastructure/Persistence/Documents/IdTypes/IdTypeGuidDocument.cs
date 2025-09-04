@@ -15,7 +15,6 @@ namespace AzureFunctions.MongoDb.Infrastructure.Persistence.Documents.IdTypes
     internal class IdTypeGuidDocument : IIdTypeGuidDocument, IMongoDbDocument<IdTypeGuid, IdTypeGuidDocument, Guid>
     {
         [BsonId]
-        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public Guid Id { get; set; }
         public string Attribute { get; set; }
 

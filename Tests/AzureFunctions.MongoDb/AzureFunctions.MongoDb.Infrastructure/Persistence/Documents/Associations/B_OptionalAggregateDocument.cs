@@ -15,7 +15,6 @@ namespace AzureFunctions.MongoDb.Infrastructure.Persistence.Documents.Associatio
     internal class B_OptionalAggregateDocument : IB_OptionalAggregateDocument, IMongoDbDocument<B_OptionalAggregate, B_OptionalAggregateDocument, string>
     {
         [BsonId]
-        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get; set; }
         public string Attribute { get; set; }
         public string? BOptionalDependentId { get; set; }

@@ -15,7 +15,6 @@ namespace AzureFunctions.MongoDb.Infrastructure.Persistence.Documents.Mappings
     internal class MapImplyOptionalDocument : IMapImplyOptionalDocument, IMongoDbDocument<MapImplyOptional, MapImplyOptionalDocument, string>
     {
         [BsonId]
-        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get; set; }
         public string Description { get; set; }
 

@@ -16,7 +16,6 @@ namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents.Mappings
     internal class MapperRootDocument : IMapperRootDocument, IMongoDbDocument<MapperRoot, MapperRootDocument, string>
     {
         [BsonId]
-        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get; set; }
         public string No { get; set; }
         public IEnumerable<string> MapAggChildrenIds { get; set; }

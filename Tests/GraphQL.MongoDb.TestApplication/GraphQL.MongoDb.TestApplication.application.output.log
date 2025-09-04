@@ -12,7 +12,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9b838e76-7276-437c-beac-32e7ec0f16f6</ProjectId>
-      <CorrelationId>Intent.Application.Identity.ApplicationSecurityConfiguration</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.ApplicationSecurityConfiguration#1955ece1-b9d9-4fdb-9afb-ae7ac96207a5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Api/Configuration/ApplicationSecurityConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApplicationSecurityConfiguration.cs</ProjectRelativeFilePath>
@@ -20,7 +20,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9b838e76-7276-437c-beac-32e7ec0f16f6</ProjectId>
-      <CorrelationId>Intent.HotChocolate.GraphQL.AspNetCore.GraphQLConfiguration</CorrelationId>
+      <CorrelationId>Intent.HotChocolate.GraphQL.AspNetCore.GraphQLConfiguration#ca64e395-096b-46fd-9631-29681cbd3a37</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Api/Configuration/GraphQLConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>GraphQLConfiguration.cs</ProjectRelativeFilePath>
@@ -28,7 +28,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9b838e76-7276-437c-beac-32e7ec0f16f6</ProjectId>
-      <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration#e2470039-3c2b-4012-93a9-8be158159b66</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Api/Configuration/ProblemDetailsConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ProblemDetailsConfiguration.cs</ProjectRelativeFilePath>
@@ -36,7 +36,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>e85feec0-a0f6-4edf-bb97-c88f40701bbc</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.ExceptionFilter</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Controllers.ExceptionFilter#30dfaa0a-1a08-4144-8ce6-982204d6f6bf</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Api/Filters/ExceptionFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ExceptionFilter.cs</ProjectRelativeFilePath>
@@ -84,7 +84,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>639dfeed-a706-4953-bffa-ddd19ae1f297</ProjectId>
-      <CorrelationId>Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate</CorrelationId>
+      <CorrelationId>Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate#e2de550f-0c0f-446c-acff-e9e14ecff1df</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Api/Logging/BoundedLoggingDestructuringPolicy.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>BoundedLoggingDestructuringPolicy.cs</ProjectRelativeFilePath>
@@ -92,7 +92,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>8e7ffd1c-c720-4129-835c-461134115f05</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Program</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Program#81771d88-ae4d-44a8-97a8-b6855244d1d9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Api/Program.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Program.cs</ProjectRelativeFilePath>
@@ -108,7 +108,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>642333a7-d3b1-4822-bde7-eeea67e00e3f</ProjectId>
-      <CorrelationId>Intent.Application.Identity.CurrentUserService</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserService#722d20e6-a85b-4cca-ab56-247a5306fb89</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Api/Services/CurrentUserService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CurrentUserService.cs</ProjectRelativeFilePath>
@@ -116,7 +116,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>8e7ffd1c-c720-4129-835c-461134115f05</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Startup</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Startup#30f71af6-f85d-484c-ac66-dc2fb6a839f7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Api/Startup.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Startup.cs</ProjectRelativeFilePath>
@@ -124,7 +124,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a6fec8a3-fd2f-4895-b679-9c7d6f6b7ae9</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.AuthorizationBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.AuthorizationBehaviour#a9aaf9ed-d7de-4f73-977c-6c259a28a135</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Application/Common/Behaviours/AuthorizationBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AuthorizationBehaviour.cs</ProjectRelativeFilePath>
@@ -132,7 +132,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a6fec8a3-fd2f-4895-b679-9c7d6f6b7ae9</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.LoggingBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.LoggingBehaviour#c690882d-78d9-4d7b-89dc-48e11f8475aa</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Application/Common/Behaviours/LoggingBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>LoggingBehaviour.cs</ProjectRelativeFilePath>
@@ -140,7 +140,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a6fec8a3-fd2f-4895-b679-9c7d6f6b7ae9</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.PerformanceBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.PerformanceBehaviour#757df6bc-8273-4f7d-a5fd-dce283e64011</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Application/Common/Behaviours/PerformanceBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PerformanceBehaviour.cs</ProjectRelativeFilePath>
@@ -148,7 +148,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a6fec8a3-fd2f-4895-b679-9c7d6f6b7ae9</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour#fecf6733-d1ac-4ab3-a7b7-a1189445065c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UnhandledExceptionBehaviour.cs</ProjectRelativeFilePath>
@@ -156,7 +156,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a6fec8a3-fd2f-4895-b679-9c7d6f6b7ae9</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour#b5385f55-8dc0-4ec2-9794-5812084817d4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Application/Common/Behaviours/UnitOfWorkBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UnitOfWorkBehaviour.cs</ProjectRelativeFilePath>
@@ -164,7 +164,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a6fec8a3-fd2f-4895-b679-9c7d6f6b7ae9</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.FluentValidation.ValidationBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.ValidationBehaviour#89d680af-c1e3-4d93-a6e6-3fb6a2baa955</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Application/Common/Behaviours/ValidationBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ValidationBehaviour.cs</ProjectRelativeFilePath>
@@ -172,7 +172,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b8d28c6b-202d-4ab6-9e85-6dd05aec0129</ProjectId>
-      <CorrelationId>Intent.Application.Identity.ForbiddenAccessException</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.ForbiddenAccessException#944f1f61-e3f8-4263-89a8-41def2d03834</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Application/Common/Exceptions/ForbiddenAccessException.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ForbiddenAccessException.cs</ProjectRelativeFilePath>
@@ -180,7 +180,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9927902f-3de2-40a3-a8a9-f4a1d2c3561b</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandInterface</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.CommandInterface#b0f4732b-b1c7-470e-8d92-01545722efa3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Application/Common/Interfaces/ICommand.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICommand.cs</ProjectRelativeFilePath>
@@ -188,7 +188,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9927902f-3de2-40a3-a8a9-f4a1d2c3561b</ProjectId>
-      <CorrelationId>Intent.Application.Identity.CurrentUserInterface</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserInterface#2166ee97-72f8-4c90-a11e-51279872b0ca</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Application/Common/Interfaces/ICurrentUser.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICurrentUser.cs</ProjectRelativeFilePath>
@@ -196,7 +196,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9927902f-3de2-40a3-a8a9-f4a1d2c3561b</ProjectId>
-      <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface#0f0897d9-9a0a-413a-a745-2b1a54199a96</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Application/Common/Interfaces/ICurrentUserService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICurrentUserService.cs</ProjectRelativeFilePath>
@@ -204,7 +204,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9927902f-3de2-40a3-a8a9-f4a1d2c3561b</ProjectId>
-      <CorrelationId>Intent.DomainEvents.DomainEventServiceInterface</CorrelationId>
+      <CorrelationId>Intent.DomainEvents.DomainEventServiceInterface#72151771-2e44-4131-9b24-987960e28937</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Application/Common/Interfaces/IDomainEventService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IDomainEventService.cs</ProjectRelativeFilePath>
@@ -212,7 +212,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9927902f-3de2-40a3-a8a9-f4a1d2c3561b</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.QueryInterface</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.QueryInterface#ae9fec9b-9ee9-4840-b8de-00ef0ace7fce</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Application/Common/Interfaces/IQuery.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IQuery.cs</ProjectRelativeFilePath>
@@ -220,7 +220,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ff1e9b1a-a247-48e2-8010-a834c23e8df0</ProjectId>
-      <CorrelationId>Intent.Application.AutoMapper.MapFromInterface</CorrelationId>
+      <CorrelationId>Intent.Application.AutoMapper.MapFromInterface#01c5ae9c-fbca-405a-9533-4a13a1c08200</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Application/Common/Mappings/IMapFrom.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IMapFrom.cs</ProjectRelativeFilePath>
@@ -228,7 +228,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ff1e9b1a-a247-48e2-8010-a834c23e8df0</ProjectId>
-      <CorrelationId>Intent.Application.AutoMapper.MappingProfile</CorrelationId>
+      <CorrelationId>Intent.Application.AutoMapper.MappingProfile#d41c9942-51c3-4e82-9392-43dba7f541e5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Application/Common/Mappings/MappingProfile.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MappingProfile.cs</ProjectRelativeFilePath>
@@ -236,7 +236,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>e3cd93e6-2285-4aae-b560-9d0a6b4ae02d</ProjectId>
-      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventNotification</CorrelationId>
+      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventNotification#c393673a-d435-45eb-9c2b-e046e0f7d19c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Application/Common/Models/DomainEventNotification.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEventNotification.cs</ProjectRelativeFilePath>
@@ -244,7 +244,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>e3cd93e6-2285-4aae-b560-9d0a6b4ae02d</ProjectId>
-      <CorrelationId>Intent.Application.Identity.ResultModel</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.ResultModel#7d1285f7-4d20-40f8-8fbb-20a76b5bd582</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Application/Common/Models/Result.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Result.cs</ProjectRelativeFilePath>
@@ -252,7 +252,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a2cfe276-0c62-43db-945b-571ec161bafa</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResult</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResult#73051022-2935-4e9b-b5b6-3eab326510d8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Application/Common/Pagination/PagedResult.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedResult.cs</ProjectRelativeFilePath>
@@ -260,7 +260,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a2cfe276-0c62-43db-945b-571ec161bafa</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResultMappingExtensions</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResultMappingExtensions#5abe9550-9ad3-46d3-b00c-350e4978385c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Application/Common/Pagination/PagedResultMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedResultMappingExtensions.cs</ProjectRelativeFilePath>
@@ -268,7 +268,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>e75e75ff-bf84-41f9-8cfe-5b8c97363851</ProjectId>
-      <CorrelationId>Intent.Application.Identity.AuthorizeAttribute</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.AuthorizeAttribute#e5165131-b591-4c53-b6ac-b66ecb106d75</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Application/Common/Security/AuthorizeAttribute.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AuthorizeAttribute.cs</ProjectRelativeFilePath>
@@ -276,7 +276,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>bcafbdb0-28a8-40e0-b209-5837e415bcc8</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationServiceInterface</CorrelationId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationServiceInterface#a2b4915b-55f8-4f33-bbe0-3b87902c3427</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Application/Common/Validation/IValidationService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IValidationService.cs</ProjectRelativeFilePath>
@@ -284,7 +284,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>bcafbdb0-28a8-40e0-b209-5837e415bcc8</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface</CorrelationId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface#b25b182c-a311-4dca-94cc-27356d15538a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Application/Common/Validation/IValidatorProvider.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IValidatorProvider.cs</ProjectRelativeFilePath>
@@ -292,7 +292,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>bcafbdb0-28a8-40e0-b209-5837e415bcc8</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationService</CorrelationId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationService#bb0d0da3-c37e-4b8c-ada5-48461d887981</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Application/Common/Validation/ValidationService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ValidationService.cs</ProjectRelativeFilePath>
@@ -300,7 +300,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>bcafbdb0-28a8-40e0-b209-5837e415bcc8</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProvider</CorrelationId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProvider#7dd0ab6d-b7b4-4269-8201-05f872926d02</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Application/Common/Validation/ValidatorProvider.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ValidatorProvider.cs</ProjectRelativeFilePath>
@@ -308,7 +308,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>8d09ad06-b56c-4f15-ac61-758ec2f477c7</ProjectId>
-      <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection</CorrelationId>
+      <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection#e8ffabdd-0cd2-4042-a63e-f5f8d47862c2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Application/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
@@ -628,7 +628,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>1bc98099-d6e4-4aea-99f5-e9e547c8b9ce</ProjectId>
-      <CorrelationId>Intent.Entities.CollectionExtensions</CorrelationId>
+      <CorrelationId>Intent.Entities.CollectionExtensions#3aa4a1ba-057c-42a2-9367-d5141589adb3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Domain/Common/CollectionExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CollectionExtensions.cs</ProjectRelativeFilePath>
@@ -636,7 +636,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>1bc98099-d6e4-4aea-99f5-e9e547c8b9ce</ProjectId>
-      <CorrelationId>Intent.DomainEvents.DomainEventBase</CorrelationId>
+      <CorrelationId>Intent.DomainEvents.DomainEventBase#72d32170-2817-404f-bd11-bcd36ce62572</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Domain/Common/DomainEvent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEvent.cs</ProjectRelativeFilePath>
@@ -644,7 +644,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>1de21cb1-da79-4ead-8da4-bcce42ef85d3</ProjectId>
-      <CorrelationId>Intent.Entities.NotFoundException</CorrelationId>
+      <CorrelationId>Intent.Entities.NotFoundException#e1eb001b-eb84-4f77-81cc-e0e40e4a3576</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Domain/Common/Exceptions/NotFoundException.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>NotFoundException.cs</ProjectRelativeFilePath>
@@ -652,7 +652,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>1bc98099-d6e4-4aea-99f5-e9e547c8b9ce</ProjectId>
-      <CorrelationId>Intent.DomainEvents.HasDomainEventInterface</CorrelationId>
+      <CorrelationId>Intent.DomainEvents.HasDomainEventInterface#a1ed7c5f-4da7-4db3-85fe-0b894e56104f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Domain/Common/IHasDomainEvent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IHasDomainEvent.cs</ProjectRelativeFilePath>
@@ -660,7 +660,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>49373b74-0125-476b-8121-2b2632e39445</ProjectId>
-      <CorrelationId>Intent.MongoDb.MongoDbUnitOfWorkInterface</CorrelationId>
+      <CorrelationId>Intent.MongoDb.MongoDbUnitOfWorkInterface#e10614fe-fd33-47e1-84c1-8cbdda188d31</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Domain/Common/Interfaces/IMongoDbUnitOfWork.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IMongoDbUnitOfWork.cs</ProjectRelativeFilePath>
@@ -668,7 +668,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>49373b74-0125-476b-8121-2b2632e39445</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.UnitOfWorkInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.UnitOfWorkInterface#af77d3c4-6827-47fe-a3bb-c43063537cf7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Domain/Common/Interfaces/IUnitOfWork.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IUnitOfWork.cs</ProjectRelativeFilePath>
@@ -676,7 +676,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>1bc98099-d6e4-4aea-99f5-e9e547c8b9ce</ProjectId>
-      <CorrelationId>Intent.Entities.UpdateHelper</CorrelationId>
+      <CorrelationId>Intent.Entities.UpdateHelper#81b42433-fa4f-4104-8f68-0ea7594fbe65</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Domain/Common/UpdateHelper.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UpdateHelper.cs</ProjectRelativeFilePath>
@@ -740,7 +740,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>988c61ee-1b99-40f1-951e-b939b562acff</ProjectId>
-      <CorrelationId>Intent.MongoDb.MongoDbRepositoryInterface</CorrelationId>
+      <CorrelationId>Intent.MongoDb.MongoDbRepositoryInterface#bb39c5b2-c99d-4d8f-a36a-c23b242b1503</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Domain/Repositories/IMongoRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IMongoRepository.cs</ProjectRelativeFilePath>
@@ -748,7 +748,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>988c61ee-1b99-40f1-951e-b939b562acff</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.PagedListInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.PagedListInterface#34f42821-e945-49a7-a7f9-1759ab29d50c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Domain/Repositories/IPagedList.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IPagedList.cs</ProjectRelativeFilePath>
@@ -764,7 +764,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>988c61ee-1b99-40f1-951e-b939b562acff</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.RepositoryInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.RepositoryInterface#96144449-b598-4622-9497-33469a78a115</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Domain/Repositories/IRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IRepository.cs</ProjectRelativeFilePath>
@@ -780,7 +780,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>4d4ae5a0-96f9-4915-97db-7bc5e91d7ee0</ProjectId>
-      <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection</CorrelationId>
+      <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#57c6ef11-2753-416c-bc17-9d24760d88f3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Infrastructure/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
@@ -804,7 +804,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ecccc8ed-52a9-4f6b-bb2e-dac7fe10ac99</ProjectId>
-      <CorrelationId>Intent.MongoDb.MongoDbDocumentOfTInterface</CorrelationId>
+      <CorrelationId>Intent.MongoDb.MongoDbDocumentOfTInterface#f4fc8b77-eb5d-4f6a-8c7e-57a8598c3a73</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Infrastructure/Persistence/Documents/IMongoDbDocument.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IMongoDbDocument.cs</ProjectRelativeFilePath>
@@ -820,7 +820,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ecccc8ed-52a9-4f6b-bb2e-dac7fe10ac99</ProjectId>
-      <CorrelationId>Intent.MongoDb.ReflectionHelper</CorrelationId>
+      <CorrelationId>Intent.MongoDb.ReflectionHelper#de9cac4c-f44b-4159-8329-a4f3b81d8604</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Infrastructure/Persistence/Documents/ReflectionHelper.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ReflectionHelper.cs</ProjectRelativeFilePath>
@@ -836,7 +836,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>0075165a-c8cd-4218-b4ac-3fc9894eac4c</ProjectId>
-      <CorrelationId>Intent.MongoDb.MongoDbUnitOfWork</CorrelationId>
+      <CorrelationId>Intent.MongoDb.MongoDbUnitOfWork#1129cd86-63f8-4bad-aa7a-e8c57baec373</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Infrastructure/Persistence/MongoDbUnitOfWork.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MongoDbUnitOfWork.cs</ProjectRelativeFilePath>
@@ -844,7 +844,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>0d635f30-81a4-40cf-ade3-c7bb2983daf5</ProjectId>
-      <CorrelationId>Intent.MongoDb.MongoDbPagedList</CorrelationId>
+      <CorrelationId>Intent.MongoDb.MongoDbPagedList#ce59a05a-3c90-4426-a182-a878a331cf34</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Infrastructure/Repositories/MongoPagedList.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MongoPagedList.cs</ProjectRelativeFilePath>
@@ -852,7 +852,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>0d635f30-81a4-40cf-ade3-c7bb2983daf5</ProjectId>
-      <CorrelationId>Intent.MongoDb.MongoDbRepositoryBase</CorrelationId>
+      <CorrelationId>Intent.MongoDb.MongoDbRepositoryBase#584b7794-c419-42e6-bd39-df3876ddfe72</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Infrastructure/Repositories/MongoRepositoryBase.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MongoRepositoryBase.cs</ProjectRelativeFilePath>
@@ -876,7 +876,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>bdfb1a65-cfa2-4bd6-8b1e-939c065b6d57</ProjectId>
-      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventService</CorrelationId>
+      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventService#e808f514-3536-4792-8613-93aaef511b2d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Infrastructure/Services/DomainEventService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEventService.cs</ProjectRelativeFilePath>

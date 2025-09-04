@@ -16,7 +16,6 @@ namespace Entities.PrivateSetters.MongoDb.Infrastructure.Persistence.Documents
     internal class TagDocument : ITagDocument, IMongoDbDocument<Tag, TagDocument, string>
     {
         [BsonId]
-        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get; set; }
         public string Name { get; set; }
 

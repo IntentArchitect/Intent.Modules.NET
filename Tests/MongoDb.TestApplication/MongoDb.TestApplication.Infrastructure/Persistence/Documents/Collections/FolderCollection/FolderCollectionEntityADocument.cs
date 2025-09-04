@@ -15,7 +15,6 @@ namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents.Collectio
     internal class FolderCollectionEntityADocument : IFolderCollectionEntityADocument, IMongoDbDocument<FolderCollectionEntityA, FolderCollectionEntityADocument, string>
     {
         [BsonId]
-        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get; set; }
         public string Attribute { get; set; }
 

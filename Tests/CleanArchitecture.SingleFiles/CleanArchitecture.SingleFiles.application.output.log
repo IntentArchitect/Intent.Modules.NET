@@ -20,7 +20,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>edc517b8-a95e-49a7-b577-b9f982425b07</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Versioning.ApiVersioningConfiguration</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Versioning.ApiVersioningConfiguration#b009a727-db66-48a2-be9b-1c1ab12fcc2f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Api/Configuration/ApiVersioningConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApiVersioningConfiguration.cs</ProjectRelativeFilePath>
@@ -28,7 +28,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>edc517b8-a95e-49a7-b577-b9f982425b07</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions#73d2cd94-3dd0-4e90-83b7-4a9efbefa785</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Api/Configuration/ApiVersionSwaggerGenOptions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApiVersionSwaggerGenOptions.cs</ProjectRelativeFilePath>
@@ -36,7 +36,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>edc517b8-a95e-49a7-b577-b9f982425b07</ProjectId>
-      <CorrelationId>Intent.Application.Identity.ApplicationSecurityConfiguration</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.ApplicationSecurityConfiguration#e8fc3c39-fc07-4efb-9005-29821aba7057</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Api/Configuration/ApplicationSecurityConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApplicationSecurityConfiguration.cs</ProjectRelativeFilePath>
@@ -44,7 +44,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>edc517b8-a95e-49a7-b577-b9f982425b07</ProjectId>
-      <CorrelationId>Intent.AspNetCore.HealthChecks.HealthChecksConfiguration</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.HealthChecks.HealthChecksConfiguration#1bcfaca9-9610-4da2-9c61-de804edab61b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Api/Configuration/HealthChecksConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>HealthChecksConfiguration.cs</ProjectRelativeFilePath>
@@ -52,7 +52,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>edc517b8-a95e-49a7-b577-b9f982425b07</ProjectId>
-      <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration#8c73c35a-ee45-4d50-bd4c-4bc889304161</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Api/Configuration/ProblemDetailsConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ProblemDetailsConfiguration.cs</ProjectRelativeFilePath>
@@ -60,7 +60,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>edc517b8-a95e-49a7-b577-b9f982425b07</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration#c4aa54d1-f894-4916-9ecf-63bc1d13a7a5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Api/Configuration/SwashbuckleConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SwashbuckleConfiguration.cs</ProjectRelativeFilePath>
@@ -132,7 +132,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f22543e-a531-429b-be77-d9157adb44cb</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.JsonResponse</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Controllers.JsonResponse#422706b4-4f8b-4eff-8894-529328635ddd</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Api/Controllers/ResponseTypes/JsonResponse.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>JsonResponse.cs</ProjectRelativeFilePath>
@@ -140,7 +140,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ede930b8-905e-4c37-8b52-483e5a74d84f</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter#f96e7c88-3c46-4747-9017-ed2794c8a290</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Api/Filters/AuthorizeCheckOperationFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AuthorizeCheckOperationFilter.cs</ProjectRelativeFilePath>
@@ -148,7 +148,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ede930b8-905e-4c37-8b52-483e5a74d84f</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.ExceptionFilter</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Controllers.ExceptionFilter#3d3a6f0a-da3e-4915-8914-b8b20bfd6c37</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Api/Filters/ExceptionFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ExceptionFilter.cs</ProjectRelativeFilePath>
@@ -156,7 +156,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ede930b8-905e-4c37-8b52-483e5a74d84f</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter#b94d4148-4230-4d96-a09a-2da7a30849d4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TypeSchemaFilter.cs</ProjectRelativeFilePath>
@@ -164,7 +164,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ed0f926c-02e1-4c59-ac33-07cfa8699607</ProjectId>
-      <CorrelationId>Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate</CorrelationId>
+      <CorrelationId>Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate#afd67818-684e-4c4a-9b21-4fbe8ddf8a2c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Api/Logging/BoundedLoggingDestructuringPolicy.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>BoundedLoggingDestructuringPolicy.cs</ProjectRelativeFilePath>
@@ -172,7 +172,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>c65ee65d-b4c7-4bb2-bb59-72215705884b</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Program</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Program#b4eed977-fe56-43e2-a74f-c9681949e663</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Api/Program.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Program.cs</ProjectRelativeFilePath>
@@ -188,7 +188,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>114c3346-06c1-47a3-be82-fa829e7f4214</ProjectId>
-      <CorrelationId>Intent.Application.Identity.CurrentUserService</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserService#46efce49-7671-4ddd-978e-aeec7336d729</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Api/Services/CurrentUserService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CurrentUserService.cs</ProjectRelativeFilePath>
@@ -196,7 +196,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>c65ee65d-b4c7-4bb2-bb59-72215705884b</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Startup</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Startup#fb9a6844-adac-4729-9058-dd56ed7cfca5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Api/Startup.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Startup.cs</ProjectRelativeFilePath>
@@ -444,7 +444,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>1773a42c-b33a-400c-acbb-0b81956fcadd</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.AssemblyAttributes</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.AssemblyAttributes#7b4da383-d889-4768-ae94-dfa4e0fdca45</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Application/AssemblyAttributes.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AssemblyAttributes.cs</ProjectRelativeFilePath>
@@ -460,7 +460,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>57995499-1304-4c5f-b6a3-294ca55d475d</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.AuthorizationBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.AuthorizationBehaviour#a3b8c77f-f1e2-4cc6-bd52-d7306a39d897</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Application/Common/Behaviours/AuthorizationBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AuthorizationBehaviour.cs</ProjectRelativeFilePath>
@@ -468,7 +468,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>57995499-1304-4c5f-b6a3-294ca55d475d</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.EventBusPublishBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.EventBusPublishBehaviour#07584e70-3028-4fdc-abf1-a1bcd3b09754</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Application/Common/Behaviours/EventBusPublishBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>EventBusPublishBehaviour.cs</ProjectRelativeFilePath>
@@ -476,7 +476,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>57995499-1304-4c5f-b6a3-294ca55d475d</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.LoggingBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.LoggingBehaviour#100587e5-d69e-47cf-a277-b22341e7e16b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Application/Common/Behaviours/LoggingBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>LoggingBehaviour.cs</ProjectRelativeFilePath>
@@ -484,7 +484,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>57995499-1304-4c5f-b6a3-294ca55d475d</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.PerformanceBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.PerformanceBehaviour#d507f12d-991a-4fd1-b682-07b01e23228e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Application/Common/Behaviours/PerformanceBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PerformanceBehaviour.cs</ProjectRelativeFilePath>
@@ -492,7 +492,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>57995499-1304-4c5f-b6a3-294ca55d475d</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour#20d79f11-2129-4a78-acd3-ba0a2b21de95</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UnhandledExceptionBehaviour.cs</ProjectRelativeFilePath>
@@ -500,7 +500,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>57995499-1304-4c5f-b6a3-294ca55d475d</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour#ae6f4971-ca3b-4c57-96ad-03ee7a30c101</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Application/Common/Behaviours/UnitOfWorkBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UnitOfWorkBehaviour.cs</ProjectRelativeFilePath>
@@ -508,7 +508,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>57995499-1304-4c5f-b6a3-294ca55d475d</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.FluentValidation.ValidationBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.ValidationBehaviour#98e436fb-5ef2-4e70-8b33-04e3a66dae23</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Application/Common/Behaviours/ValidationBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ValidationBehaviour.cs</ProjectRelativeFilePath>
@@ -516,7 +516,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b1b4601e-4cda-47a3-9dd0-a70f5c2630a7</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.EventBusInterface</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.EventBusInterface#5314c82f-9e08-4695-b2bb-1568a91aced4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Application/Common/Eventing/IEventBus.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IEventBus.cs</ProjectRelativeFilePath>
@@ -524,7 +524,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b1b4601e-4cda-47a3-9dd0-a70f5c2630a7</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventHandlerInterface</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventHandlerInterface#e2683bdc-5167-4138-8ad6-dc9f7b8bc875</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Application/Common/Eventing/IIntegrationEventHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IIntegrationEventHandler.cs</ProjectRelativeFilePath>
@@ -532,7 +532,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>4fa3ea70-5da6-49e8-832b-2ba075047647</ProjectId>
-      <CorrelationId>Intent.Application.Identity.ForbiddenAccessException</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.ForbiddenAccessException#d7fbc00a-f881-49f0-a9df-405299595ca1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Application/Common/Exceptions/ForbiddenAccessException.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ForbiddenAccessException.cs</ProjectRelativeFilePath>
@@ -540,7 +540,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f91df31-4534-44bc-9638-cf4eb77599f6</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandInterface</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.CommandInterface#5edc2710-7413-428f-8f64-38cb458f2296</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Application/Common/Interfaces/ICommand.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICommand.cs</ProjectRelativeFilePath>
@@ -548,7 +548,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f91df31-4534-44bc-9638-cf4eb77599f6</ProjectId>
-      <CorrelationId>Intent.Application.Identity.CurrentUserInterface</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserInterface#66ea3f64-0927-47d4-9be5-9f4d843185bf</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Application/Common/Interfaces/ICurrentUser.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICurrentUser.cs</ProjectRelativeFilePath>
@@ -556,7 +556,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f91df31-4534-44bc-9638-cf4eb77599f6</ProjectId>
-      <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface#9aa1a77c-45c0-42ee-95b7-3aa70aae01cd</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Application/Common/Interfaces/ICurrentUserService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICurrentUserService.cs</ProjectRelativeFilePath>
@@ -564,7 +564,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f91df31-4534-44bc-9638-cf4eb77599f6</ProjectId>
-      <CorrelationId>Intent.DomainEvents.DomainEventServiceInterface</CorrelationId>
+      <CorrelationId>Intent.DomainEvents.DomainEventServiceInterface#125a04d9-b819-4581-a079-d6fadee8a414</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Application/Common/Interfaces/IDomainEventService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IDomainEventService.cs</ProjectRelativeFilePath>
@@ -572,7 +572,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f91df31-4534-44bc-9638-cf4eb77599f6</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.QueryInterface</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.QueryInterface#8f8fb01b-b8a3-444d-b419-47dc6bb8bcba</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Application/Common/Interfaces/IQuery.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IQuery.cs</ProjectRelativeFilePath>
@@ -580,7 +580,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>dfc1e8d3-cef1-42b3-9904-f682a02ce5f7</ProjectId>
-      <CorrelationId>Intent.Application.AutoMapper.MapFromInterface</CorrelationId>
+      <CorrelationId>Intent.Application.AutoMapper.MapFromInterface#7da8d52e-6e25-4ab9-b062-d51bbf98ec79</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Application/Common/Mappings/IMapFrom.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IMapFrom.cs</ProjectRelativeFilePath>
@@ -588,7 +588,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>dfc1e8d3-cef1-42b3-9904-f682a02ce5f7</ProjectId>
-      <CorrelationId>Intent.Application.AutoMapper.MappingProfile</CorrelationId>
+      <CorrelationId>Intent.Application.AutoMapper.MappingProfile#cca7304f-b498-48cc-be87-5a70250d1e0c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Application/Common/Mappings/MappingProfile.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MappingProfile.cs</ProjectRelativeFilePath>
@@ -596,7 +596,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b8c40daf-5b15-435d-acfb-b2753b3e5138</ProjectId>
-      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventNotification</CorrelationId>
+      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventNotification#3563547e-e4cf-4025-a3f9-afcbb7f6f937</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Application/Common/Models/DomainEventNotification.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEventNotification.cs</ProjectRelativeFilePath>
@@ -604,7 +604,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b8c40daf-5b15-435d-acfb-b2753b3e5138</ProjectId>
-      <CorrelationId>Intent.Application.Identity.ResultModel</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.ResultModel#14f592d9-cf56-4c7b-8b92-f0212110f0d7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Application/Common/Models/Result.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Result.cs</ProjectRelativeFilePath>
@@ -612,7 +612,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>6d2bc90b-7dd3-4e45-97b3-2baea94698ea</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.PagedList</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.PagedList#95501db3-7270-4bad-a795-3900e719a130</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Application/Common/Pagination/PagedList.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedList.cs</ProjectRelativeFilePath>
@@ -620,7 +620,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>6d2bc90b-7dd3-4e45-97b3-2baea94698ea</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResult</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResult#db014596-fad7-4ea7-b4b2-ea311ea51d58</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Application/Common/Pagination/PagedResult.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedResult.cs</ProjectRelativeFilePath>
@@ -628,7 +628,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>6d2bc90b-7dd3-4e45-97b3-2baea94698ea</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResultMappingExtensions</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResultMappingExtensions#0b4eb168-d81d-4aa4-9674-fec9fe4e19ce</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Application/Common/Pagination/PagedResultMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedResultMappingExtensions.cs</ProjectRelativeFilePath>
@@ -636,7 +636,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5f7ab43f-c39c-41f2-b6d8-9eb7b8bf27a3</ProjectId>
-      <CorrelationId>Intent.Application.Identity.AuthorizeAttribute</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.AuthorizeAttribute#199936f5-a936-458b-917a-28743a238a48</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Application/Common/Security/AuthorizeAttribute.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AuthorizeAttribute.cs</ProjectRelativeFilePath>
@@ -644,7 +644,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>1eba4acb-8db1-4a26-85fb-b4753d274065</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface</CorrelationId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface#33a5e5ce-9f44-433c-b8c9-f27942366e60</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Application/Common/Validation/IValidatorProvider.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IValidatorProvider.cs</ProjectRelativeFilePath>
@@ -652,7 +652,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>1eba4acb-8db1-4a26-85fb-b4753d274065</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProvider</CorrelationId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProvider#ac2f42ff-504e-44ed-a96a-a015e93be519</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Application/Common/Validation/ValidatorProvider.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ValidatorProvider.cs</ProjectRelativeFilePath>
@@ -884,7 +884,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>1773a42c-b33a-400c-acbb-0b81956fcadd</ProjectId>
-      <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection</CorrelationId>
+      <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection#8d2adfa5-67e0-4751-a935-082a7656954a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Application/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
@@ -1188,7 +1188,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b30fbd9e-69cb-4603-8605-7628393c79df</ProjectId>
-      <CorrelationId>Intent.Entities.CollectionExtensions</CorrelationId>
+      <CorrelationId>Intent.Entities.CollectionExtensions#05f268d4-ed23-4635-b939-ccf54003ca97</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Domain/Common/CollectionExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CollectionExtensions.cs</ProjectRelativeFilePath>
@@ -1196,7 +1196,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b30fbd9e-69cb-4603-8605-7628393c79df</ProjectId>
-      <CorrelationId>Intent.DomainEvents.DomainEventBase</CorrelationId>
+      <CorrelationId>Intent.DomainEvents.DomainEventBase#792190b6-eed5-4c35-a99f-2ab48e05c97a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Domain/Common/DomainEvent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEvent.cs</ProjectRelativeFilePath>
@@ -1204,7 +1204,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>8ab523fa-4a96-4d8b-b66f-9c73616a83c3</ProjectId>
-      <CorrelationId>Intent.Entities.NotFoundException</CorrelationId>
+      <CorrelationId>Intent.Entities.NotFoundException#a071c4c5-1d6f-4a66-8a52-db3974dbf674</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Domain/Common/Exceptions/NotFoundException.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>NotFoundException.cs</ProjectRelativeFilePath>
@@ -1212,7 +1212,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b30fbd9e-69cb-4603-8605-7628393c79df</ProjectId>
-      <CorrelationId>Intent.DomainEvents.HasDomainEventInterface</CorrelationId>
+      <CorrelationId>Intent.DomainEvents.HasDomainEventInterface#f5944046-d061-4f37-9132-03807acf94b7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Domain/Common/IHasDomainEvent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IHasDomainEvent.cs</ProjectRelativeFilePath>
@@ -1220,7 +1220,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>1bd5caa9-6fcd-441f-b792-30b8d75ee059</ProjectId>
-      <CorrelationId>Intent.CosmosDB.CosmosDBUnitOfWorkInterface</CorrelationId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBUnitOfWorkInterface#0f6d325e-60b2-44cb-9729-1c1a156c606d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Domain/Common/Interfaces/ICosmosDBUnitOfWork.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICosmosDBUnitOfWork.cs</ProjectRelativeFilePath>
@@ -1228,7 +1228,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>1bd5caa9-6fcd-441f-b792-30b8d75ee059</ProjectId>
-      <CorrelationId>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreUnitOfWorkInterface</CorrelationId>
+      <CorrelationId>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreUnitOfWorkInterface#3ece469b-e89f-4135-a3b9-ad508aeac2f1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Domain/Common/Interfaces/IDaprStateStoreUnitOfWork.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IDaprStateStoreUnitOfWork.cs</ProjectRelativeFilePath>
@@ -1236,7 +1236,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>1bd5caa9-6fcd-441f-b792-30b8d75ee059</ProjectId>
-      <CorrelationId>Intent.MongoDb.MongoDbUnitOfWorkInterface</CorrelationId>
+      <CorrelationId>Intent.MongoDb.MongoDbUnitOfWorkInterface#7def2248-3b94-453b-9baf-0e2240a07216</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Domain/Common/Interfaces/IMongoDbUnitOfWork.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IMongoDbUnitOfWork.cs</ProjectRelativeFilePath>
@@ -1244,7 +1244,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>1bd5caa9-6fcd-441f-b792-30b8d75ee059</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.UnitOfWorkInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.UnitOfWorkInterface#55b2ceb1-6d19-4d08-82f3-1ca8a3104f15</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Domain/Common/Interfaces/IUnitOfWork.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IUnitOfWork.cs</ProjectRelativeFilePath>
@@ -1252,7 +1252,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b30fbd9e-69cb-4603-8605-7628393c79df</ProjectId>
-      <CorrelationId>Intent.Entities.UpdateHelper</CorrelationId>
+      <CorrelationId>Intent.Entities.UpdateHelper#245a9eeb-9283-42d3-87ff-8ff1d0c63a7c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Domain/Common/UpdateHelper.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UpdateHelper.cs</ProjectRelativeFilePath>
@@ -1356,7 +1356,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>e99793ef-5c78-4064-8998-162defd96d22</ProjectId>
-      <CorrelationId>Intent.CosmosDB.CosmosDBRepositoryInterface</CorrelationId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBRepositoryInterface#69efd433-c933-4fde-bcb5-a8e76269325c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Domain/Repositories/ICosmosDBRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICosmosDBRepository.cs</ProjectRelativeFilePath>
@@ -1380,7 +1380,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>e99793ef-5c78-4064-8998-162defd96d22</ProjectId>
-      <CorrelationId>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreGenericRepositoryInterface</CorrelationId>
+      <CorrelationId>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreGenericRepositoryInterface#4437ba01-b393-4168-bdc2-850de69686fb</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Domain/Repositories/IDaprStateStoreGenericRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IDaprStateStoreGenericRepository.cs</ProjectRelativeFilePath>
@@ -1388,7 +1388,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>e99793ef-5c78-4064-8998-162defd96d22</ProjectId>
-      <CorrelationId>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreRepositoryInterface</CorrelationId>
+      <CorrelationId>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreRepositoryInterface#577df0b5-b4f8-4afc-98c7-fa6f6390b301</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Domain/Repositories/IDaprStateStoreRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IDaprStateStoreRepository.cs</ProjectRelativeFilePath>
@@ -1404,7 +1404,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>e99793ef-5c78-4064-8998-162defd96d22</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface#81861059-d065-4417-ba11-2e68795ac774</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Domain/Repositories/IEFRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IEFRepository.cs</ProjectRelativeFilePath>
@@ -1420,7 +1420,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>e99793ef-5c78-4064-8998-162defd96d22</ProjectId>
-      <CorrelationId>Intent.MongoDb.MongoDbRepositoryInterface</CorrelationId>
+      <CorrelationId>Intent.MongoDb.MongoDbRepositoryInterface#228e4334-2214-45d2-a6cc-aec3a6f3e8e0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Domain/Repositories/IMongoRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IMongoRepository.cs</ProjectRelativeFilePath>
@@ -1428,7 +1428,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>e99793ef-5c78-4064-8998-162defd96d22</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.PagedListInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.PagedListInterface#1de0d86f-6dfa-461f-833e-c3ead5f90337</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Domain/Repositories/IPagedList.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IPagedList.cs</ProjectRelativeFilePath>
@@ -1436,7 +1436,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>e99793ef-5c78-4064-8998-162defd96d22</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.RepositoryInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.RepositoryInterface#e74d7804-5a88-4b44-8e4e-1209c35ede38</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Domain/Repositories/IRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IRepository.cs</ProjectRelativeFilePath>
@@ -1452,7 +1452,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a1514d06-1e16-41d6-9dcf-f2b04e916bec</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.MassTransitConfiguration</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.MassTransitConfiguration#5bbd20ea-62b7-4d50-8040-8c336a04b604</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Infrastructure/Configuration/MassTransitConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MassTransitConfiguration.cs</ProjectRelativeFilePath>
@@ -1460,7 +1460,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>f0db48f6-7aa9-4e05-91ea-04cc31380034</ProjectId>
-      <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection</CorrelationId>
+      <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#b830fd1c-d25c-4401-9019-2b585f173dc8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Infrastructure/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
@@ -1468,7 +1468,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>03861739-2e39-445d-bf0d-b8877d89b3e3</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventConsumer</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventConsumer#5ac34396-8193-4ca6-a721-804ec119aab2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Infrastructure/Eventing/IntegrationEventConsumer.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IntegrationEventConsumer.cs</ProjectRelativeFilePath>
@@ -1476,7 +1476,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>03861739-2e39-445d-bf0d-b8877d89b3e3</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.MassTransitEventBus</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.MassTransitEventBus#f5124a56-49c6-4ef0-978c-59bbb324aaff</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Infrastructure/Eventing/MassTransitEventBus.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MassTransitEventBus.cs</ProjectRelativeFilePath>
@@ -1484,7 +1484,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>7f6ab3f6-a1a0-421b-8ae2-6efae3d45d17</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe#6dfb4af0-80f7-4554-82eb-4dd2cdef0174</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Infrastructure/Migrations/README.md</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>README.md</ProjectRelativeFilePath>
@@ -1508,7 +1508,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>addbe589-da5e-46c5-9f4f-61fdcb57f92c</ProjectId>
-      <CorrelationId>Intent.CosmosDB.CosmosDBUnitOfWork</CorrelationId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBUnitOfWork#b17441d3-e0c3-425f-93b8-d712ea2631ce</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Infrastructure/Persistence/CosmosDBUnitOfWork.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CosmosDBUnitOfWork.cs</ProjectRelativeFilePath>
@@ -1516,7 +1516,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>addbe589-da5e-46c5-9f4f-61fdcb57f92c</ProjectId>
-      <CorrelationId>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreUnitOfWork</CorrelationId>
+      <CorrelationId>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreUnitOfWork#c8346911-7b2a-4f42-88bb-82c5947700a9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Infrastructure/Persistence/DaprStateStoreUnitOfWork.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DaprStateStoreUnitOfWork.cs</ProjectRelativeFilePath>
@@ -1540,7 +1540,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9c73e7e6-3523-408a-b2e6-e9ea169f1bf2</ProjectId>
-      <CorrelationId>Intent.CosmosDB.CosmosDBDocumentOfTInterface</CorrelationId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocumentOfTInterface#ee31a304-3bc1-4b96-b077-1ea38c8e5c4e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Infrastructure/Persistence/Documents/ICosmosDBDocument.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICosmosDBDocument.cs</ProjectRelativeFilePath>
@@ -1548,7 +1548,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9c73e7e6-3523-408a-b2e6-e9ea169f1bf2</ProjectId>
-      <CorrelationId>Intent.MongoDb.MongoDbDocumentOfTInterface</CorrelationId>
+      <CorrelationId>Intent.MongoDb.MongoDbDocumentOfTInterface#5da957d5-0e3a-4e89-977e-0f4417eeac9c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Infrastructure/Persistence/Documents/IMongoDbDocument.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IMongoDbDocument.cs</ProjectRelativeFilePath>
@@ -1572,7 +1572,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9c73e7e6-3523-408a-b2e6-e9ea169f1bf2</ProjectId>
-      <CorrelationId>Intent.CosmosDB.CosmosDBDocumentTypeExtensionMethods</CorrelationId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocumentTypeExtensionMethods#9b263d93-cd3b-4cc6-be4f-d839d3e7076b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Infrastructure/Persistence/Documents/TypeExtensionMethods.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TypeExtensionMethods.cs</ProjectRelativeFilePath>
@@ -1580,7 +1580,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>addbe589-da5e-46c5-9f4f-61fdcb57f92c</ProjectId>
-      <CorrelationId>Intent.MongoDb.MongoDbUnitOfWork</CorrelationId>
+      <CorrelationId>Intent.MongoDb.MongoDbUnitOfWork#7b6fe1bb-230a-4684-8626-427fc6c32d94</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Infrastructure/Persistence/MongoDbUnitOfWork.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MongoDbUnitOfWork.cs</ProjectRelativeFilePath>
@@ -1588,7 +1588,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5679ef54-392d-494d-b721-faf0afca4959</ProjectId>
-      <CorrelationId>Intent.CosmosDB.CosmosDBRepositoryBase</CorrelationId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBRepositoryBase#77e730b8-de90-4800-a368-ee3990349ecf</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Infrastructure/Repositories/CosmosDBRepositoryBase.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CosmosDBRepositoryBase.cs</ProjectRelativeFilePath>
@@ -1604,7 +1604,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5679ef54-392d-494d-b721-faf0afca4959</ProjectId>
-      <CorrelationId>Intent.CosmosDB.CosmosPagedList</CorrelationId>
+      <CorrelationId>Intent.CosmosDB.CosmosPagedList#9589afea-4489-4fc9-bd89-c42a762dfb5c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Infrastructure/Repositories/CosmosPagedList.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CosmosPagedList.cs</ProjectRelativeFilePath>
@@ -1620,7 +1620,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5679ef54-392d-494d-b721-faf0afca4959</ProjectId>
-      <CorrelationId>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreGenericRepository</CorrelationId>
+      <CorrelationId>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreGenericRepository#4bcb1c31-9e98-4982-be6e-ebc7769c5bcd</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Infrastructure/Repositories/DaprStateStoreGenericRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DaprStateStoreGenericRepository.cs</ProjectRelativeFilePath>
@@ -1628,7 +1628,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5679ef54-392d-494d-b721-faf0afca4959</ProjectId>
-      <CorrelationId>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreRepositoryBase</CorrelationId>
+      <CorrelationId>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreRepositoryBase#af52458a-2c97-48e0-b077-8cef8b854c51</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Infrastructure/Repositories/DaprStateStoreRepositoryBase.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DaprStateStoreRepositoryBase.cs</ProjectRelativeFilePath>
@@ -1652,7 +1652,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5679ef54-392d-494d-b721-faf0afca4959</ProjectId>
-      <CorrelationId>Intent.MongoDb.MongoDbPagedList</CorrelationId>
+      <CorrelationId>Intent.MongoDb.MongoDbPagedList#b04d589f-d2c7-4e60-84a9-aa99eec3afb2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Infrastructure/Repositories/MongoPagedList.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MongoPagedList.cs</ProjectRelativeFilePath>
@@ -1660,7 +1660,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5679ef54-392d-494d-b721-faf0afca4959</ProjectId>
-      <CorrelationId>Intent.MongoDb.MongoDbRepositoryBase</CorrelationId>
+      <CorrelationId>Intent.MongoDb.MongoDbRepositoryBase#4c97bb2f-df2d-401a-ad69-2f2dddce58c8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Infrastructure/Repositories/MongoRepositoryBase.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MongoRepositoryBase.cs</ProjectRelativeFilePath>
@@ -1668,7 +1668,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5679ef54-392d-494d-b721-faf0afca4959</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.RepositoryBase</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.RepositoryBase#89777152-9a05-43fe-b54e-5aebb0dc24e9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Infrastructure/Repositories/RepositoryBase.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RepositoryBase.cs</ProjectRelativeFilePath>
@@ -1676,7 +1676,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>d1daeae7-8edb-451c-8014-28a93e10faae</ProjectId>
-      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventService</CorrelationId>
+      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventService#c7eef1b6-1aa5-4aaa-8526-86f211a97204</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Infrastructure/Services/DomainEventService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEventService.cs</ProjectRelativeFilePath>

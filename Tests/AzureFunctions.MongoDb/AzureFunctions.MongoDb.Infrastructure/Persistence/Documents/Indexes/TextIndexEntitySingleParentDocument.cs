@@ -15,7 +15,6 @@ namespace AzureFunctions.MongoDb.Infrastructure.Persistence.Documents.Indexes
     internal class TextIndexEntitySingleParentDocument : ITextIndexEntitySingleParentDocument, IMongoDbDocument<TextIndexEntitySingleParent, TextIndexEntitySingleParentDocument, string>
     {
         [BsonId]
-        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get; set; }
         public string SomeField { get; set; }
         public ITextIndexEntitySingleChildDocument TextIndexEntitySingleChild { get; set; }

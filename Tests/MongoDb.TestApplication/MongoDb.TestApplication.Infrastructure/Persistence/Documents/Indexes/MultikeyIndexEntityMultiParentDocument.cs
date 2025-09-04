@@ -16,7 +16,6 @@ namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents.Indexes
     internal class MultikeyIndexEntityMultiParentDocument : IMultikeyIndexEntityMultiParentDocument, IMongoDbDocument<MultikeyIndexEntityMultiParent, MultikeyIndexEntityMultiParentDocument, string>
     {
         [BsonId]
-        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get; set; }
         public string SomeField { get; set; }
         public IEnumerable<IMultikeyIndexEntityMultiChildDocument> MultikeyIndexEntityMultiChild { get; set; }

@@ -15,7 +15,6 @@ namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents.Associati
     internal class D_OptionalAggregateDocument : ID_OptionalAggregateDocument, IMongoDbDocument<D_OptionalAggregate, D_OptionalAggregateDocument, string>
     {
         [BsonId]
-        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get; set; }
         public string Attribute { get; set; }
 

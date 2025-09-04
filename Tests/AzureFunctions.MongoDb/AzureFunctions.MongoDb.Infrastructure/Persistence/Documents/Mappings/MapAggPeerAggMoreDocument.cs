@@ -15,7 +15,6 @@ namespace AzureFunctions.MongoDb.Infrastructure.Persistence.Documents.Mappings
     internal class MapAggPeerAggMoreDocument : IMapAggPeerAggMoreDocument, IMongoDbDocument<MapAggPeerAggMore, MapAggPeerAggMoreDocument, string>
     {
         [BsonId]
-        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get; set; }
         public string MapAggPeerAggMoreAtt { get; set; }
 

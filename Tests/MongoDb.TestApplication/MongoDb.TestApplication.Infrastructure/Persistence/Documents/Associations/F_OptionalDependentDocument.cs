@@ -15,7 +15,6 @@ namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents.Associati
     internal class F_OptionalDependentDocument : IF_OptionalDependentDocument, IMongoDbDocument<F_OptionalDependent, F_OptionalDependentDocument, string>
     {
         [BsonId]
-        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get; set; }
         public string Attribute { get; set; }
         public string? FOptionalaggregatenavId { get; set; }

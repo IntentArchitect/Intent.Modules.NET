@@ -16,7 +16,6 @@ namespace AzureFunctions.MongoDb.Infrastructure.Persistence.Documents.Associatio
     internal class K_MultipleDependentDocument : IK_MultipleDependentDocument, IMongoDbDocument<K_MultipleDependent, K_MultipleDependentDocument, string>
     {
         [BsonId]
-        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get; set; }
         public string Attribute { get; set; }
         public IEnumerable<string> JMultipleAggregatesIds { get; set; }

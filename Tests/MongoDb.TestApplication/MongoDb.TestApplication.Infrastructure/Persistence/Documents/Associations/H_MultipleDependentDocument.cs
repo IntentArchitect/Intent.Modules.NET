@@ -15,7 +15,6 @@ namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents.Associati
     internal class H_MultipleDependentDocument : IH_MultipleDependentDocument, IMongoDbDocument<H_MultipleDependent, H_MultipleDependentDocument, string>
     {
         [BsonId]
-        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get; set; }
         public string Attribute { get; set; }
         public string? HOptionalaggregatenavId { get; set; }

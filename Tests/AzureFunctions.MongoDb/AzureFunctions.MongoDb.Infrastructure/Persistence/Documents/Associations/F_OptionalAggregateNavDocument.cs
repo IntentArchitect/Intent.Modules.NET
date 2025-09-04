@@ -15,7 +15,6 @@ namespace AzureFunctions.MongoDb.Infrastructure.Persistence.Documents.Associatio
     internal class F_OptionalAggregateNavDocument : IF_OptionalAggregateNavDocument, IMongoDbDocument<F_OptionalAggregateNav, F_OptionalAggregateNavDocument, string>
     {
         [BsonId]
-        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get; set; }
         public string Attribute { get; set; }
         public string? FOptionalDependentId { get; set; }

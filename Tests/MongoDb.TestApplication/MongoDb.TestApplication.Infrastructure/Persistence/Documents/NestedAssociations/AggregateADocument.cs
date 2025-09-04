@@ -15,7 +15,6 @@ namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents.NestedAss
     internal class AggregateADocument : IAggregateADocument, IMongoDbDocument<AggregateA, AggregateADocument, string>
     {
         [BsonId]
-        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get; set; }
         public string Attribute { get; set; }
         public INestedCompositionADocument NestedCompositionA { get; set; }

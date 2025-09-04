@@ -15,7 +15,6 @@ namespace AzureFunctions.MongoDb.Infrastructure.Persistence.Documents.Collection
     internal class CustomCollectionEntityADocument : ICustomCollectionEntityADocument, IMongoDbDocument<CustomCollectionEntityA, CustomCollectionEntityADocument, string>
     {
         [BsonId]
-        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get; set; }
         public string Attribute { get; set; }
 

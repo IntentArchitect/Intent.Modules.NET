@@ -16,7 +16,6 @@ namespace Entities.PrivateSetters.MongoDb.Infrastructure.Persistence.Documents
     internal class InvoiceDocument : IInvoiceDocument, IMongoDbDocument<Invoice, InvoiceDocument, string>
     {
         [BsonId]
-        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get; set; }
         public DateTime Date { get; set; }
         public IEnumerable<string> TagsIds { get; set; }

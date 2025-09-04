@@ -16,7 +16,6 @@ namespace AzureFunctions.MongoDb.Infrastructure.Persistence.Documents.Indexes
     internal class MultikeyIndexEntityDocument : IMultikeyIndexEntityDocument, IMongoDbDocument<MultikeyIndexEntity, MultikeyIndexEntityDocument, string>
     {
         [BsonId]
-        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get; set; }
         public IEnumerable<string> MultiKey { get; set; }
         public string SomeField { get; set; }

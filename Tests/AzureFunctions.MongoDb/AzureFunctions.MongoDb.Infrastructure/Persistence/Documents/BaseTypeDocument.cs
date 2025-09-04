@@ -15,7 +15,6 @@ namespace AzureFunctions.MongoDb.Infrastructure.Persistence.Documents
     internal abstract class BaseTypeDocument : IBaseTypeDocument, IMongoDbDocument<BaseType, BaseTypeDocument, string>
     {
         [BsonId]
-        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get; set; }
         public string BaseAttribute { get; set; }
 

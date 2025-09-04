@@ -15,7 +15,6 @@ namespace AdvancedMappingCrudMongo.Tests.Infrastructure.Persistence.Documents
     internal class ProductDocument : IProductDocument, IMongoDbDocument<Product, ProductDocument, string>
     {
         [BsonId]
-        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }

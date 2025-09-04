@@ -15,7 +15,6 @@ namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents.Mappings
     internal class MapPeerCompChildAggDocument : IMapPeerCompChildAggDocument, IMongoDbDocument<MapPeerCompChildAgg, MapPeerCompChildAggDocument, string>
     {
         [BsonId]
-        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get; set; }
         public string MapPeerCompChildAggAtt { get; set; }
 
