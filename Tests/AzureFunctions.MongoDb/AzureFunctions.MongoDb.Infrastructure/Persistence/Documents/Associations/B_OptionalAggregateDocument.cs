@@ -12,7 +12,6 @@ using MongoDB.Driver;
 
 namespace AzureFunctions.MongoDb.Infrastructure.Persistence.Documents.Associations
 {
-    [BsonDiscriminator(nameof(B_OptionalAggregate), Required = true)]
     internal class B_OptionalAggregateDocument : IB_OptionalAggregateDocument, IMongoDbDocument<B_OptionalAggregate, B_OptionalAggregateDocument, string>
     {
         [BsonId]

@@ -12,7 +12,6 @@ using MongoDb.TestApplication.Domain.Repositories.Documents.Mappings;
 
 namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents.Mappings
 {
-    [BsonDiscriminator(nameof(MapMapMe), Required = true)]
     internal class MapMapMeDocument : IMapMapMeDocument, IMongoDbDocument<MapMapMe, MapMapMeDocument, string>
     {
         [BsonId]

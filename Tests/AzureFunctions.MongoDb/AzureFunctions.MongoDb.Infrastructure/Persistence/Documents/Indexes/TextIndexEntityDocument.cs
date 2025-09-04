@@ -12,7 +12,6 @@ using MongoDB.Driver;
 
 namespace AzureFunctions.MongoDb.Infrastructure.Persistence.Documents.Indexes
 {
-    [BsonDiscriminator(nameof(TextIndexEntity), Required = true)]
     internal class TextIndexEntityDocument : ITextIndexEntityDocument, IMongoDbDocument<TextIndexEntity, TextIndexEntityDocument, string>
     {
         [BsonId]

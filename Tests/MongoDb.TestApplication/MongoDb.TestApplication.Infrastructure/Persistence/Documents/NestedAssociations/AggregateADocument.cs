@@ -12,7 +12,6 @@ using MongoDb.TestApplication.Domain.Repositories.Documents.NestedAssociations;
 
 namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents.NestedAssociations
 {
-    [BsonDiscriminator(nameof(AggregateA), Required = true)]
     internal class AggregateADocument : IAggregateADocument, IMongoDbDocument<AggregateA, AggregateADocument, string>
     {
         [BsonId]

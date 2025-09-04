@@ -12,7 +12,6 @@ using MongoDb.TestApplication.Domain.Repositories.Documents.Associations;
 
 namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents.Associations
 {
-    [BsonDiscriminator(nameof(B_OptionalAggregate), Required = true)]
     internal class B_OptionalAggregateDocument : IB_OptionalAggregateDocument, IMongoDbDocument<B_OptionalAggregate, B_OptionalAggregateDocument, string>
     {
         [BsonId]

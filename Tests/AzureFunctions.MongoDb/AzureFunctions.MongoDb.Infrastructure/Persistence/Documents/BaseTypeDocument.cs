@@ -12,7 +12,6 @@ using MongoDB.Driver;
 
 namespace AzureFunctions.MongoDb.Infrastructure.Persistence.Documents
 {
-    [BsonDiscriminator(nameof(BaseType), Required = true)]
     internal abstract class BaseTypeDocument : IBaseTypeDocument, IMongoDbDocument<BaseType, BaseTypeDocument, string>
     {
         [BsonId]

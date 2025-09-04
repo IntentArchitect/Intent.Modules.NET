@@ -12,7 +12,6 @@ using MongoDb.TestApplication.Domain.Repositories.Documents.IdTypes;
 
 namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents.IdTypes
 {
-    [BsonDiscriminator(nameof(IdTypeOjectIdStr), Required = true)]
     internal class IdTypeOjectIdStrDocument : IIdTypeOjectIdStrDocument, IMongoDbDocument<IdTypeOjectIdStr, IdTypeOjectIdStrDocument, string>
     {
         [BsonId]

@@ -12,7 +12,6 @@ using MongoDb.TestApplication.Domain.Repositories.Documents.Mappings;
 
 namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents.Mappings
 {
-    [BsonDiscriminator(nameof(MapCompOptional), Required = true)]
     internal class MapCompOptionalDocument : IMapCompOptionalDocument
     {
         public string Name { get; set; } = default!;

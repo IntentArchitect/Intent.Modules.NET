@@ -12,7 +12,6 @@ using MongoDb.TestApplication.Domain.Repositories.Documents.Indexes;
 
 namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents.Indexes
 {
-    [BsonDiscriminator(nameof(TextIndexEntityMultiChild), Required = true)]
     internal class TextIndexEntityMultiChildDocument : ITextIndexEntityMultiChildDocument
     {
         public string Id { get; set; } = default!;

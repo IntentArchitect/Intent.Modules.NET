@@ -12,7 +12,6 @@ using MongoDb.TestApplication.Domain.Repositories.Documents.NestedAssociations;
 
 namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents.NestedAssociations
 {
-    [BsonDiscriminator(nameof(NestedCompositionA), Required = true)]
     internal class NestedCompositionADocument : INestedCompositionADocument
     {
         public string Attribute { get; set; } = default!;

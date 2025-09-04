@@ -12,7 +12,6 @@ using MongoDB.Driver;
 
 namespace AzureFunctions.MongoDb.Infrastructure.Persistence.Documents.NestedAssociations
 {
-    [BsonDiscriminator(nameof(NestedCompositionA), Required = true)]
     internal class NestedCompositionADocument : INestedCompositionADocument
     {
         public string Attribute { get; set; } = default!;

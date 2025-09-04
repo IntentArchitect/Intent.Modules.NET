@@ -13,7 +13,6 @@ using MongoDb.TestApplication.Domain.Repositories.Documents.Mappings;
 
 namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents.Mappings
 {
-    [BsonDiscriminator(nameof(MapperRoot), Required = true)]
     internal class MapperRootDocument : IMapperRootDocument, IMongoDbDocument<MapperRoot, MapperRootDocument, string>
     {
         [BsonId]

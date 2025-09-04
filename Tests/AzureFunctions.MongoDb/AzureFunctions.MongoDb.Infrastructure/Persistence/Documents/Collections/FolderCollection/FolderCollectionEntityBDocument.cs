@@ -12,7 +12,6 @@ using MongoDB.Driver;
 
 namespace AzureFunctions.MongoDb.Infrastructure.Persistence.Documents.Collections.FolderCollection
 {
-    [BsonDiscriminator(nameof(FolderCollectionEntityB), Required = true)]
     internal class FolderCollectionEntityBDocument : IFolderCollectionEntityBDocument, IMongoDbDocument<FolderCollectionEntityB, FolderCollectionEntityBDocument, string>
     {
         [BsonId]

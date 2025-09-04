@@ -13,7 +13,6 @@ using MongoDB.Driver;
 
 namespace AzureFunctions.MongoDb.Infrastructure.Persistence.Documents.ToManyIds
 {
-    [BsonDiscriminator(nameof(ToManySource), Required = true)]
     internal class ToManySourceDocument : IToManySourceDocument, IMongoDbDocument<ToManySource, ToManySourceDocument, string>
     {
         [BsonId]

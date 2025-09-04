@@ -12,7 +12,6 @@ using MongoDb.TestApplication.Domain.Repositories.Documents.Mappings;
 
 namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents.Mappings
 {
-    [BsonDiscriminator(nameof(MapAggPeer), Required = true)]
     internal class MapAggPeerDocument : IMapAggPeerDocument, IMongoDbDocument<MapAggPeer, MapAggPeerDocument, string>
     {
         [BsonId]

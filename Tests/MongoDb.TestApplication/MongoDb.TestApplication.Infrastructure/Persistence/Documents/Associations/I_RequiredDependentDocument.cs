@@ -12,7 +12,6 @@ using MongoDb.TestApplication.Domain.Repositories.Documents.Associations;
 
 namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents.Associations
 {
-    [BsonDiscriminator(nameof(I_RequiredDependent), Required = true)]
     internal class I_RequiredDependentDocument : II_RequiredDependentDocument, IMongoDbDocument<I_RequiredDependent, I_RequiredDependentDocument, string>
     {
         [BsonId]

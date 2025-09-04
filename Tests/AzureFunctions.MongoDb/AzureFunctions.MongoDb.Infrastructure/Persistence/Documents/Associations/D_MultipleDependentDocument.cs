@@ -13,7 +13,6 @@ using MongoDB.Driver;
 
 namespace AzureFunctions.MongoDb.Infrastructure.Persistence.Documents.Associations
 {
-    [BsonDiscriminator(nameof(D_MultipleDependent), Required = true)]
     internal class D_MultipleDependentDocument : ID_MultipleDependentDocument, IMongoDbDocument<D_MultipleDependent, D_MultipleDependentDocument, string>
     {
         [BsonId]

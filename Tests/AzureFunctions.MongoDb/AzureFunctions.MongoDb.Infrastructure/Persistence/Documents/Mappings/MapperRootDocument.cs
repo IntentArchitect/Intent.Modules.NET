@@ -13,7 +13,6 @@ using MongoDB.Driver;
 
 namespace AzureFunctions.MongoDb.Infrastructure.Persistence.Documents.Mappings
 {
-    [BsonDiscriminator(nameof(MapperRoot), Required = true)]
     internal class MapperRootDocument : IMapperRootDocument, IMongoDbDocument<MapperRoot, MapperRootDocument, string>
     {
         [BsonId]

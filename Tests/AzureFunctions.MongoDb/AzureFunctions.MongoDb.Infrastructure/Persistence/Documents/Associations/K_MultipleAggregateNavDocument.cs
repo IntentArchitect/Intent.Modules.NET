@@ -13,7 +13,6 @@ using MongoDB.Driver;
 
 namespace AzureFunctions.MongoDb.Infrastructure.Persistence.Documents.Associations
 {
-    [BsonDiscriminator(nameof(K_MultipleAggregateNav), Required = true)]
     internal class K_MultipleAggregateNavDocument : IK_MultipleAggregateNavDocument, IMongoDbDocument<K_MultipleAggregateNav, K_MultipleAggregateNavDocument, string>
     {
         [BsonId]

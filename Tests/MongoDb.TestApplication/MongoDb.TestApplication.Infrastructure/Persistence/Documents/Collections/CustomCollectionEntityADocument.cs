@@ -12,7 +12,6 @@ using MongoDb.TestApplication.Domain.Repositories.Documents.Collections;
 
 namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents.Collections
 {
-    [BsonDiscriminator(nameof(CustomCollectionEntityA), Required = true)]
     internal class CustomCollectionEntityADocument : ICustomCollectionEntityADocument, IMongoDbDocument<CustomCollectionEntityA, CustomCollectionEntityADocument, string>
     {
         [BsonId]

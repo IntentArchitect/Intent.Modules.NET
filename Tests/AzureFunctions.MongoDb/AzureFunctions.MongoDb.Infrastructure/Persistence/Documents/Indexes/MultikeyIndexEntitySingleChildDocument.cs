@@ -13,7 +13,6 @@ using MongoDB.Driver;
 
 namespace AzureFunctions.MongoDb.Infrastructure.Persistence.Documents.Indexes
 {
-    [BsonDiscriminator(nameof(MultikeyIndexEntitySingleChild), Required = true)]
     internal class MultikeyIndexEntitySingleChildDocument : IMultikeyIndexEntitySingleChildDocument
     {
         public IEnumerable<string> MultiKey { get; set; } = default!;

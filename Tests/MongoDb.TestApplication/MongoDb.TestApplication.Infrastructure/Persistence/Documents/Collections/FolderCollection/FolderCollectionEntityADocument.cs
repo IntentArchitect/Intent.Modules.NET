@@ -12,7 +12,6 @@ using MongoDb.TestApplication.Domain.Repositories.Documents.Collections.FolderCo
 
 namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents.Collections.FolderCollection
 {
-    [BsonDiscriminator(nameof(FolderCollectionEntityA), Required = true)]
     internal class FolderCollectionEntityADocument : IFolderCollectionEntityADocument, IMongoDbDocument<FolderCollectionEntityA, FolderCollectionEntityADocument, string>
     {
         [BsonId]

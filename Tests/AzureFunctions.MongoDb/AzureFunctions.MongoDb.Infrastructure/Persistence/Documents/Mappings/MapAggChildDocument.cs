@@ -12,7 +12,6 @@ using MongoDB.Driver;
 
 namespace AzureFunctions.MongoDb.Infrastructure.Persistence.Documents.Mappings
 {
-    [BsonDiscriminator(nameof(MapAggChild), Required = true)]
     internal class MapAggChildDocument : IMapAggChildDocument, IMongoDbDocument<MapAggChild, MapAggChildDocument, string>
     {
         [BsonId]

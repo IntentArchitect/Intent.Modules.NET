@@ -12,7 +12,6 @@ using MongoDb.TestApplication.Domain.Repositories.Documents.ToManyIds;
 
 namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents.ToManyIds
 {
-    [BsonDiscriminator(nameof(ToManyLong), Required = true)]
     internal class ToManyLongDocument : IToManyLongDocument
     {
         public long Id { get; set; }

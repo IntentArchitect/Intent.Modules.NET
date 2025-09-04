@@ -12,7 +12,6 @@ using MongoDb.TestApplication.Domain.Repositories.Documents.ToManyIds;
 
 namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents.ToManyIds
 {
-    [BsonDiscriminator(nameof(ToManyGuid), Required = true)]
     internal class ToManyGuidDocument : IToManyGuidDocument
     {
         public Guid Id { get; set; }

@@ -12,7 +12,6 @@ using MongoDb.TestApplication.Domain.Repositories.Documents;
 
 namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents
 {
-    [BsonDiscriminator(nameof(BaseType), Required = true)]
     internal abstract class BaseTypeDocument : IBaseTypeDocument, IMongoDbDocument<BaseType, BaseTypeDocument, string>
     {
         [BsonId]

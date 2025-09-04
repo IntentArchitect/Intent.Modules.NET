@@ -13,7 +13,6 @@ using MongoDb.TestApplication.Domain.Repositories.Documents.Associations;
 
 namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents.Associations
 {
-    [BsonDiscriminator(nameof(G_RequiredCompositeNav), Required = true)]
     internal class G_RequiredCompositeNavDocument : IG_RequiredCompositeNavDocument, IMongoDbDocument<G_RequiredCompositeNav, G_RequiredCompositeNavDocument, string>
     {
         [BsonId]

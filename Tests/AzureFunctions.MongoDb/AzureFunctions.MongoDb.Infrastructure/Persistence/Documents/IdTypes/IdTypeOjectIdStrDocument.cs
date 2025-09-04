@@ -12,7 +12,6 @@ using MongoDB.Driver;
 
 namespace AzureFunctions.MongoDb.Infrastructure.Persistence.Documents.IdTypes
 {
-    [BsonDiscriminator(nameof(IdTypeOjectIdStr), Required = true)]
     internal class IdTypeOjectIdStrDocument : IIdTypeOjectIdStrDocument, IMongoDbDocument<IdTypeOjectIdStr, IdTypeOjectIdStrDocument, string>
     {
         [BsonId]

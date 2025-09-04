@@ -13,7 +13,6 @@ using MongoDb.TestApplication.Domain.Repositories.Documents.Indexes;
 
 namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents.Indexes
 {
-    [BsonDiscriminator(nameof(TextIndexEntityMultiParent), Required = true)]
     internal class TextIndexEntityMultiParentDocument : ITextIndexEntityMultiParentDocument, IMongoDbDocument<TextIndexEntityMultiParent, TextIndexEntityMultiParentDocument, string>
     {
         [BsonId]

@@ -13,7 +13,6 @@ using MongoDb.TestApplication.Domain.Repositories.Documents.Associations;
 
 namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents.Associations
 {
-    [BsonDiscriminator(nameof(K_MultipleAggregateNav), Required = true)]
     internal class K_MultipleAggregateNavDocument : IK_MultipleAggregateNavDocument, IMongoDbDocument<K_MultipleAggregateNav, K_MultipleAggregateNavDocument, string>
     {
         [BsonId]

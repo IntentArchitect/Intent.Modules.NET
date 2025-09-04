@@ -12,7 +12,6 @@ using MongoDb.TestApplication.Domain.Repositories.Documents.Indexes;
 
 namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents.Indexes
 {
-    [BsonDiscriminator(nameof(SingleIndexEntity), Required = true)]
     internal class SingleIndexEntityDocument : ISingleIndexEntityDocument, IMongoDbDocument<SingleIndexEntity, SingleIndexEntityDocument, string>
     {
         [BsonId]

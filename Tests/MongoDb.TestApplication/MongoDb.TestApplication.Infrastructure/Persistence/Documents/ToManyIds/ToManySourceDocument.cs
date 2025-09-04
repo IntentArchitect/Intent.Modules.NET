@@ -13,7 +13,6 @@ using MongoDb.TestApplication.Domain.Repositories.Documents.ToManyIds;
 
 namespace MongoDb.TestApplication.Infrastructure.Persistence.Documents.ToManyIds
 {
-    [BsonDiscriminator(nameof(ToManySource), Required = true)]
     internal class ToManySourceDocument : IToManySourceDocument, IMongoDbDocument<ToManySource, ToManySourceDocument, string>
     {
         [BsonId]

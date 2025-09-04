@@ -12,7 +12,6 @@ using MongoDB.Driver;
 
 namespace AzureFunctions.MongoDb.Infrastructure.Persistence.Documents.NestedAssociations
 {
-    [BsonDiscriminator(nameof(AggregateA), Required = true)]
     internal class AggregateADocument : IAggregateADocument, IMongoDbDocument<AggregateA, AggregateADocument, string>
     {
         [BsonId]
