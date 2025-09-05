@@ -17,6 +17,8 @@ namespace Intent.Modules.Aws.Lambda.Functions
         public const string AmazonLambdaLoggingAspNetCorePackageName = "Amazon.Lambda.Logging.AspNetCore";
         public const string AmazonLambdaSerializationSystemTextJsonPackageName = "Amazon.Lambda.Serialization.SystemTextJson";
         public const string MicrosoftExtensionsConfigurationBinderPackageName = "Microsoft.Extensions.Configuration.Binder";
+        public const string MicrosoftExtensionsConfigurationJsonPackageName = "Microsoft.Extensions.Configuration.Json";
+        public const string MicrosoftExtensionsConfigurationUserSecretsPackageName = "Microsoft.Extensions.Configuration.UserSecrets";
         public const string MicrosoftExtensionsDependencyInjectionPackageName = "Microsoft.Extensions.DependencyInjection";
         public const string MicrosoftExtensionsLoggingPackageName = "Microsoft.Extensions.Logging";
 
@@ -96,6 +98,20 @@ namespace Intent.Modules.Aws.Lambda.Functions
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftExtensionsConfigurationBinderPackageName}'"),
                     }
                 );
+            NugetRegistry.Register(MicrosoftExtensionsConfigurationJsonPackageName,
+                (framework) => (framework.Major, framework.Minor) switch
+                    {
+                        ( >= 2, >= 0) => new PackageVersion("8.0.0", locked: true),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftExtensionsConfigurationJsonPackageName}'"),
+                    }
+                );
+            NugetRegistry.Register(MicrosoftExtensionsConfigurationUserSecretsPackageName,
+                (framework) => (framework.Major, framework.Minor) switch
+                    {
+                        ( >= 2, >= 0) => new PackageVersion("8.0.0", locked: true),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftExtensionsConfigurationUserSecretsPackageName}'"),
+                    }
+                );
             NugetRegistry.Register(MicrosoftExtensionsDependencyInjectionPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
@@ -152,6 +168,10 @@ namespace Intent.Modules.Aws.Lambda.Functions
         public static NugetPackageInfo AmazonLambdaSerializationSystemTextJson(IOutputTarget outputTarget) => NugetRegistry.GetVersion(AmazonLambdaSerializationSystemTextJsonPackageName, outputTarget.GetMaxNetAppVersion());
 
         public static NugetPackageInfo MicrosoftExtensionsConfigurationBinder(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftExtensionsConfigurationBinderPackageName, outputTarget.GetMaxNetAppVersion());
+
+        public static NugetPackageInfo MicrosoftExtensionsConfigurationJson(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftExtensionsConfigurationJsonPackageName, outputTarget.GetMaxNetAppVersion());
+
+        public static NugetPackageInfo MicrosoftExtensionsConfigurationUserSecrets(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftExtensionsConfigurationUserSecretsPackageName, outputTarget.GetMaxNetAppVersion());
 
         public static NugetPackageInfo MicrosoftExtensionsDependencyInjection(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftExtensionsDependencyInjectionPackageName, outputTarget.GetMaxNetAppVersion());
 
