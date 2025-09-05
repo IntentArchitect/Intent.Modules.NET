@@ -43,7 +43,7 @@
     </childElement>
     <childElement id="c600e922-5f2f-4be3-9112-9e449f5efbbd" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Application.DependencyInjection.MediatR</name>
-      <display>Intent.Application.DependencyInjection.MediatR 3.5.17</display>
+      <display>Intent.Application.DependencyInjection.MediatR 3.6.0</display>
       <isAbstract>false</isAbstract>
       <value>3.6.0</value>
       <genericTypes />
@@ -57,7 +57,7 @@
     </childElement>
     <childElement id="80188cc3-5f42-4f3d-9d22-cf958922d316" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Application.Dtos.AutoMapper</name>
-      <display>Intent.Application.Dtos.AutoMapper 4.0.16</display>
+      <display>Intent.Application.Dtos.AutoMapper 4.0.17</display>
       <isAbstract>false</isAbstract>
       <value>4.0.17</value>
       <genericTypes />
@@ -239,7 +239,7 @@
     </childElement>
     <childElement id="5ec84519-3532-483c-9d6a-2f94cf9da04a" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Common.CSharp</name>
-      <display>Intent.Common.CSharp 3.9.3</display>
+      <display>Intent.Common.CSharp 3.9.4</display>
       <isAbstract>false</isAbstract>
       <value>3.9.4</value>
       <genericTypes />
@@ -253,7 +253,7 @@
     </childElement>
     <childElement id="2443a706-ff11-412d-8290-e65e782a259a" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Common.Types</name>
-      <display>Intent.Common.Types 4.1.1</display>
+      <display>Intent.Common.Types 4.1.2</display>
       <isAbstract>false</isAbstract>
       <value>4.1.2</value>
       <genericTypes />
@@ -421,7 +421,7 @@
     </childElement>
     <childElement id="d5a2e92e-f0a2-4906-9340-cf959db6b187" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Metadata.WebApi</name>
-      <display>Intent.Metadata.WebApi 4.7.12</display>
+      <display>Intent.Metadata.WebApi 4.7.13</display>
       <isAbstract>false</isAbstract>
       <value>4.7.13</value>
       <genericTypes />
@@ -435,7 +435,7 @@
     </childElement>
     <childElement id="2bce1e6c-e0a9-409e-8b3a-315e3d6fc83f" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Modelers.Domain</name>
-      <display>Intent.Modelers.Domain 3.12.5</display>
+      <display>Intent.Modelers.Domain 3.12.6</display>
       <isAbstract>false</isAbstract>
       <value>3.12.6</value>
       <genericTypes />
@@ -533,7 +533,7 @@
     </childElement>
     <childElement id="2bcfa335-677f-46ce-bdd4-7dfd0936925f" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Modelers.Services</name>
-      <display>Intent.Modelers.Services 4.0.2</display>
+      <display>Intent.Modelers.Services 4.0.3</display>
       <isAbstract>false</isAbstract>
       <value>4.0.3</value>
       <genericTypes />
@@ -547,7 +547,7 @@
     </childElement>
     <childElement id="bee0b59a-c2a1-4a4c-81c3-d4cfc419b2f6" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Modelers.Services.CQRS</name>
-      <display>Intent.Modelers.Services.CQRS 6.0.2</display>
+      <display>Intent.Modelers.Services.CQRS 6.0.3</display>
       <isAbstract>false</isAbstract>
       <value>6.0.3</value>
       <genericTypes />
@@ -561,7 +561,7 @@
     </childElement>
     <childElement id="4110e23b-8381-4fad-8e82-a4fab8abcce5" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Modelers.Services.DomainInteractions</name>
-      <display>Intent.Modelers.Services.DomainInteractions 2.3.2</display>
+      <display>Intent.Modelers.Services.DomainInteractions 2.3.3</display>
       <isAbstract>false</isAbstract>
       <value>2.3.3</value>
       <genericTypes />
@@ -575,7 +575,7 @@
     </childElement>
     <childElement id="d76adfab-d83b-49fc-8e4d-b68d5746a243" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Modelers.Services.EventInteractions</name>
-      <display>Intent.Modelers.Services.EventInteractions 2.0.1</display>
+      <display>Intent.Modelers.Services.EventInteractions 2.0.2</display>
       <isAbstract>false</isAbstract>
       <value>2.0.2</value>
       <genericTypes />
@@ -589,7 +589,7 @@
     </childElement>
     <childElement id="61a0ef46-1425-4723-b9a5-78d758c5fc97" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Modelers.Services.ProxyInteractions</name>
-      <display>Intent.Modelers.Services.ProxyInteractions 1.1.3</display>
+      <display>Intent.Modelers.Services.ProxyInteractions 1.1.4</display>
       <isAbstract>false</isAbstract>
       <value>1.1.4</value>
       <genericTypes />

@@ -29,7 +29,7 @@
     </childElement>
     <childElement id="decaeac2-5107-46b2-8006-2376073b77ec" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Application.DependencyInjection.MediatR</name>
-      <display>Intent.Application.DependencyInjection.MediatR 3.5.17</display>
+      <display>Intent.Application.DependencyInjection.MediatR 3.6.0</display>
       <isAbstract>false</isAbstract>
       <value>3.6.0</value>
       <genericTypes />
@@ -99,7 +99,7 @@
     </childElement>
     <childElement id="0f7924d3-6116-439e-a6d3-90ba15934c64" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.AzureFunctions.Dispatch.MediatR</name>
-      <display>Intent.AzureFunctions.Dispatch.MediatR 2.0.2-pre.0</display>
+      <display>Intent.AzureFunctions.Dispatch.MediatR 2.0.2</display>
       <isAbstract>false</isAbstract>
       <value>2.0.2</value>
       <genericTypes />
@@ -141,7 +141,7 @@
     </childElement>
     <childElement id="0aa3bce1-eda1-49fa-b22f-05b12cd40dd6" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Common.CSharp</name>
-      <display>Intent.Common.CSharp 3.9.3</display>
+      <display>Intent.Common.CSharp 3.9.4</display>
       <isAbstract>false</isAbstract>
       <value>3.9.4</value>
       <genericTypes />
@@ -155,7 +155,7 @@
     </childElement>
     <childElement id="d28efebd-b1e7-4267-af45-a0e45864102c" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Common.Types</name>
-      <display>Intent.Common.Types 4.1.1</display>
+      <display>Intent.Common.Types 4.1.2</display>
       <isAbstract>false</isAbstract>
       <value>4.1.2</value>
       <genericTypes />
@@ -267,7 +267,7 @@
     </childElement>
     <childElement id="90780246-1742-45e9-8e15-594bec1aae18" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Metadata.WebApi</name>
-      <display>Intent.Metadata.WebApi 4.7.12</display>
+      <display>Intent.Metadata.WebApi 4.7.13</display>
       <isAbstract>false</isAbstract>
       <value>4.7.13</value>
       <genericTypes />
@@ -281,7 +281,7 @@
     </childElement>
     <childElement id="91e4aec2-2da0-4328-bb16-c46c3fe9a545" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Modelers.Domain</name>
-      <display>Intent.Modelers.Domain 3.12.5</display>
+      <display>Intent.Modelers.Domain 3.12.6</display>
       <isAbstract>false</isAbstract>
       <value>3.12.6</value>
       <genericTypes />
@@ -351,7 +351,7 @@
     </childElement>
     <childElement id="0e9ad9d2-b0a2-458f-b2d4-3aecae09bb9c" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Modelers.Services</name>
-      <display>Intent.Modelers.Services 4.0.2</display>
+      <display>Intent.Modelers.Services 4.0.3</display>
       <isAbstract>false</isAbstract>
       <value>4.0.3</value>
       <genericTypes />
@@ -365,7 +365,7 @@
     </childElement>
     <childElement id="4b8dac02-1381-4d68-bef8-875ca3acc19d" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Modelers.Services.CQRS</name>
-      <display>Intent.Modelers.Services.CQRS 6.0.2</display>
+      <display>Intent.Modelers.Services.CQRS 6.0.3</display>
       <isAbstract>false</isAbstract>
       <value>6.0.3</value>
       <genericTypes />
@@ -379,7 +379,7 @@
     </childElement>
     <childElement id="d865d582-0faa-4973-9f5e-ccfa34525d53" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Modelers.Services.DomainInteractions</name>
-      <display>Intent.Modelers.Services.DomainInteractions 2.3.2</display>
+      <display>Intent.Modelers.Services.DomainInteractions 2.3.3</display>
       <isAbstract>false</isAbstract>
       <value>2.3.3</value>
       <genericTypes />
