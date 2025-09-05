@@ -1,6 +1,7 @@
 ### Version 4.2.11
 
 - Improvement: Updated NuGet package versions.
+- Fixed: Prevent migration script generation for In-Memory database setting.
 
 ### Version 4.2.10
 

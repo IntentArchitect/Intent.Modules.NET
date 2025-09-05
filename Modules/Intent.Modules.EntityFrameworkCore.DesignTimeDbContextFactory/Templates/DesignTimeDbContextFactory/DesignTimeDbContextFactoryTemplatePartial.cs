@@ -53,6 +53,12 @@ public partial class DesignTimeDbContextFactoryTemplate : CSharpTemplateBase<obj
 /// This is optional but will only accept 1 parameter which is the name of the connection string to lookup
 /// in a local appsettings.json file. By default this will use ""DefaultConnection"".
 /// </param>");
+                    if (ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsInMemory())
+                    {
+                        method.AddStatement($@"throw new {UseType("System.NotSupportedException")}(""Cannot create migration scripts for In-Memory database provider"");");
+                        return;
+                    }
+                    
                     method.AddStatement($@"var optionsBuilder = new DbContextOptionsBuilder<{GetDbContextName()}>();");
                     method.AddMethodChainStatement("IConfigurationRoot configuration = new ConfigurationBuilder()", chain => chain
                         .AddChainStatement("SetBasePath(Directory.GetCurrentDirectory())")
@@ -69,8 +75,7 @@ public partial class DesignTimeDbContextFactoryTemplate : CSharpTemplateBase<obj
                     switch (ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().AsEnum())
                     {
                         case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.InMemory:
-                            method.AddStatement(connectionStringStatement);
-                            method.AddStatement("optionsBuilder.UseInMemoryDatabase(connStringName);");
+                            // Shouldn't reach this point.
                             break;
                         case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer:
                             method.AddStatement(connectionStringStatement);
