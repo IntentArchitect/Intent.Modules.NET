@@ -133,14 +133,20 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution
 
                 var propertySet = slnFile.ProjectConfigurationsSection.GetOrCreatePropertySet(project.Id);
 
-                var (projectConfigurationSuffixes, defaultPlatform) = model.ProjectTypeId switch
+                (string[] ProjectConfigurationSuffixes, string DefaultPlatform) config = model.ProjectTypeId switch
                 {
                     VisualStudioProjectTypeIds.ServiceFabricProject => ([".ActiveCfg", ".Build.0", ".Deploy.0"], "x64"),
+                    VisualStudioProjectTypeIds.SQLServerDatabaseProject => default,
                     _ => (new[] { ".ActiveCfg", ".Build.0" }, "Any CPU")
                 };
 
+                if (config == default)
+                {
+                    continue;
+                }
+
                 var projectConfigurations = configurationPlatforms
-                    .SelectMany(_ => projectConfigurationSuffixes, (configurationPlatform, suffix) => new
+                    .SelectMany(_ => config.ProjectConfigurationSuffixes, (configurationPlatform, suffix) => new
                     {
                         ConfigurationPlatform = configurationPlatform,
                         Suffix = suffix,
@@ -166,7 +172,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution
                 {
                     var value = oldValues.FirstOrDefault(x => x.Key == item.Key)?.Value ??
                                 oldValues.FirstOrDefault(x => x.Key.StartsWith(item.ConfigurationPlatform.ConfigurationWithPipe) && x.Key.EndsWith(item.Suffix))?.Value ??
-                                projectConfigurations.FirstOrDefault(x => x.ConfigurationPlatform.Configuration == item.ConfigurationPlatform.Configuration && x.ConfigurationPlatform.Platform == defaultPlatform)?.ConfigurationPlatform.Joined ??
+                                projectConfigurations.FirstOrDefault(x => x.ConfigurationPlatform.Configuration == item.ConfigurationPlatform.Configuration && x.ConfigurationPlatform.Platform == config.DefaultPlatform)?.ConfigurationPlatform.Joined ??
                                 item.ConfigurationPlatform.Joined;
 
                     propertySet.TryAdd(item.Key, value);
