@@ -36,7 +36,7 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.DaprEventHandlerContro
             AddNugetDependency(NugetPackages.DaprAspNetCore(outputTarget));
             AddNugetDependency(NugetPackages.MediatR(outputTarget));
             var shouldInstallUnitOfWork = new Lazy<bool>(this.SystemUsesPersistenceUnitOfWork);
-            var shouldInstallMessageBus = new Lazy<bool>(() => OutputTarget.FindTemplateInstance<IClassProvider>(TemplateRoles.Application.Eventing.EventBusInterface) != null);
+            var shouldInstallMessageBus = new Lazy<bool>(() => OutputTarget.FindTemplateInstance<IClassProvider>(TemplateRoles.Application.Eventing.EventBusInterface, accessibleTo: null) != null);
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")

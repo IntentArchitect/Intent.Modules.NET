@@ -1,4 +1,8 @@
-﻿### Version 3.0.6
+﻿### Version 3.0.7
+
+- Fixed: A software factory exception would occur when references were used in the Visual Studio designer.
+
+### Version 3.0.6
 
 - Improvement: Added support for DynamoDB unit of work.
 

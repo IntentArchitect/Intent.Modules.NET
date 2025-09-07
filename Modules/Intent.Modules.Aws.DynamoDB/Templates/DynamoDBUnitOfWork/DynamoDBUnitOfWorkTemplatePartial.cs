@@ -104,7 +104,7 @@ namespace Intent.Modules.Aws.DynamoDB.Templates.DynamoDBUnitOfWork
         {
             base.BeforeTemplateExecution();
 
-            var interfaceTemplate = Project.FindTemplateInstance<IClassProvider>(DynamoDBUnitOfWorkInterfaceTemplate.TemplateId);
+            var interfaceTemplate = Project.FindTemplateInstance<IClassProvider>(DynamoDBUnitOfWorkInterfaceTemplate.TemplateId, accessibleTo: null);
 
             ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this)
                 .ForConcern("Infrastructure")

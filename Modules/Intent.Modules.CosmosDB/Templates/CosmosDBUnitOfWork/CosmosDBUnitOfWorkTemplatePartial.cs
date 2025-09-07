@@ -106,7 +106,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBUnitOfWork
         {
             base.BeforeTemplateExecution();
 
-            var interfaceTemplate = Project.FindTemplateInstance<IClassProvider>(CosmosDBUnitOfWorkInterfaceTemplate.TemplateId);
+            var interfaceTemplate = Project.FindTemplateInstance<IClassProvider>(CosmosDBUnitOfWorkInterfaceTemplate.TemplateId, accessibleTo: null);
 
             ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this)
                 .ForConcern("Infrastructure")

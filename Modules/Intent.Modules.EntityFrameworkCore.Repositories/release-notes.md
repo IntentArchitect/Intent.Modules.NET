@@ -1,3 +1,7 @@
+### Version 4.7.16
+
+- Fixed: A software factory exception would occur when references were used in the Visual Studio designer.
+
 ### Version 4.7.15
 
 - Improvement: Better "non-implemented" message when the provider does not support stored procedures.

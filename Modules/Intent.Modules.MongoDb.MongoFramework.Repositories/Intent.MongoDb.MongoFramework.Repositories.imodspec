@@ -2,7 +2,7 @@
 <package>
   <id>Intent.MongoDb.MongoFramework.Repositories</id>
   <version>1.2.5</version>
-  <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
+  <supportedClientVersions>[4.5.15-a, 5.0.0-a)</supportedClientVersions>
   <summary>Repository pattern for MongoDB provider.</summary>
   <description>Repository pattern for MongoDB provider.</description>
   <authors>Intent Architect</authors>
@@ -50,8 +50,8 @@
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.Common" version="3.6.0" />
-    <dependency id="Intent.Common.CSharp" version="3.8.3" />
+    <dependency id="Intent.Common" version="3.9.0-pre.3" />
+    <dependency id="Intent.Common.CSharp" version="3.9.5-pre.3" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Entities.Repositories.Api" version="5.1.5" />
     <dependency id="Intent.Modelers.Domain" version="3.4.5" />

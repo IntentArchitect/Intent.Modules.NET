@@ -106,7 +106,7 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmUnitOf
         {
             base.BeforeTemplateExecution();
 
-            var interfaceTemplate = Project.FindTemplateInstance<IClassProvider>(RedisOmUnitOfWorkInterfaceTemplate.TemplateId);
+            var interfaceTemplate = Project.FindTemplateInstance<IClassProvider>(RedisOmUnitOfWorkInterfaceTemplate.TemplateId, accessibleTo: null);
 
             ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this)
                 .ForConcern("Infrastructure")

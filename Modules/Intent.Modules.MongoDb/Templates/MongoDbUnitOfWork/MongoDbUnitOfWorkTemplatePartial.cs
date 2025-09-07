@@ -106,7 +106,7 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbUnitOfWork
         {
             base.BeforeTemplateExecution();
 
-            var interfaceTemplate = Project.FindTemplateInstance<IClassProvider>(MongoDbUnitOfWorkInterfaceTemplate.TemplateId);
+            var interfaceTemplate = Project.FindTemplateInstance<IClassProvider>(MongoDbUnitOfWorkInterfaceTemplate.TemplateId, accessibleTo: null);
 
             ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this)
                 .ForConcern("Infrastructure")

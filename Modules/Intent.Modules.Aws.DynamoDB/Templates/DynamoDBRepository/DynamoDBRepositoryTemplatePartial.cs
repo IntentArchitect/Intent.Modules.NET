@@ -107,7 +107,7 @@ namespace Intent.Modules.Aws.DynamoDB.Templates.DynamoDBRepository
         {
             base.AfterTemplateRegistration();
 
-            var contractTemplate = Project.FindTemplateInstance<IClassProvider>(EntityRepositoryInterfaceTemplate.TemplateId, Model);
+            var contractTemplate = Project.FindTemplateInstance<IClassProvider>(EntityRepositoryInterfaceTemplate.TemplateId, Model, accessibleTo: null);
             if (contractTemplate == null)
             {
                 return;

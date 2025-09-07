@@ -5,9 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-	<PackageReference Include="Intent.Architect.Persistence" Version="3.7.0" />
-	<PackageReference Include="Intent.Modules.Common" Version="3.7.2" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.8.1" />
+    <PackageReference Include="Intent.Architect.Persistence" Version="3.7.0" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.9.0-pre.3" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.9.5-pre.3" />
     <PackageReference Include="Intent.Modules.Eventing.Contracts" Version="4.0.8" />
     <PackageReference Include="Intent.Modules.Modelers.Eventing" Version="5.1.0" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.7.1" />
@@ -17,7 +17,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.7" />
-    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.7.0" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.10.0-pre.2" />
   </ItemGroup>
 
   <ItemGroup>

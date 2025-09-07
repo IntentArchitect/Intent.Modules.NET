@@ -143,7 +143,7 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepository
         {
             base.AfterTemplateRegistration();
 
-            var contractTemplate = Project.FindTemplateInstance<IClassProvider>(EntityRepositoryInterfaceTemplate.TemplateId, Model);
+            var contractTemplate = Project.FindTemplateInstance<IClassProvider>(EntityRepositoryInterfaceTemplate.TemplateId, Model, accessibleTo: null);
             if (contractTemplate == null)
             {
                 return;

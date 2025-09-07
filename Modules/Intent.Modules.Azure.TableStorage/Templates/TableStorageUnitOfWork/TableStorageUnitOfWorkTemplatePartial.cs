@@ -106,7 +106,7 @@ namespace Intent.Modules.Azure.TableStorage.Templates.TableStorageUnitOfWork
         {
             base.BeforeTemplateExecution();
 
-            var interfaceTemplate = Project.FindTemplateInstance<IClassProvider>(TableStorageUnitOfWorkInterfaceTemplate.TemplateId);
+            var interfaceTemplate = Project.FindTemplateInstance<IClassProvider>(TableStorageUnitOfWorkInterfaceTemplate.TemplateId, accessibleTo: null);
 
             ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this)
                 .ForConcern("Infrastructure")
