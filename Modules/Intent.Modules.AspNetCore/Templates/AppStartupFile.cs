@@ -86,6 +86,16 @@ internal class AppStartupFile : IAppStartupFile
             _serviceConfigurationRequests.Add(request);
         });
 
+        template.OutputTarget.On<ServiceConfigurationRequest>(@event =>
+        {
+            if (isBuilt)
+            {
+                return;
+            }
+
+            _serviceConfigurationRequests.Add(@event.Data);
+        });
+
         template.ExecutionContext.EventDispatcher.Subscribe<ContainerRegistrationRequest>(request =>
         {
             if (isBuilt)
@@ -96,6 +106,16 @@ internal class AppStartupFile : IAppStartupFile
             _containerRegistrationRequests.Add(request);
         });
 
+        template.OutputTarget.On<ContainerRegistrationRequest>(@event =>
+        {
+            if (isBuilt)
+            {
+                return;
+            }
+
+            _containerRegistrationRequests.Add(@event.Data);
+        });
+
         template.ExecutionContext.EventDispatcher.Subscribe<ApplicationBuilderRegistrationRequest>(request =>
         {
             if (isBuilt)
@@ -104,6 +124,16 @@ internal class AppStartupFile : IAppStartupFile
             }
 
             _applicationBuilderRegistrationRequests.Add(request);
+        });
+
+        template.OutputTarget.On<ApplicationBuilderRegistrationRequest>(@event =>
+        {
+            if (isBuilt)
+            {
+                return;
+            }
+
+            _applicationBuilderRegistrationRequests.Add(@event.Data);
         });
 
         _cSharpFile
@@ -215,6 +245,9 @@ internal class AppStartupFile : IAppStartupFile
                 template.ExecutionContext.EventDispatcher.Subscribe<ServiceConfigurationRequest>(ProcessServiceConfigurationRequest);
                 template.ExecutionContext.EventDispatcher.Subscribe<ContainerRegistrationRequest>(ProcessContainerRegistrationRequest);
                 template.ExecutionContext.EventDispatcher.Subscribe<ApplicationBuilderRegistrationRequest>(ProcessApplicationConfigurationRequest);
+                template.OutputTarget.On<ServiceConfigurationRequest>(e => ProcessServiceConfigurationRequest(e.Data));
+                template.OutputTarget.On<ContainerRegistrationRequest>(e => ProcessContainerRegistrationRequest(e.Data));
+                template.OutputTarget.On<ApplicationBuilderRegistrationRequest>(e => ProcessApplicationConfigurationRequest(e.Data));
             }, int.MinValue + 1);
     }
 
