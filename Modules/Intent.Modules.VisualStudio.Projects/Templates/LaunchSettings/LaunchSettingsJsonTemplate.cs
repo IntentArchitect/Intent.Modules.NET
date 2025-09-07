@@ -40,7 +40,10 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
 #pragma warning disable CS0618 // Type or member is obsolete
             ExecutionContext.EventDispatcher.Subscribe(LaunchProfileRegistrationEvent.EventId, Handle);
 #pragma warning restore CS0618 // Type or member is obsolete
+
             ExecutionContext.EventDispatcher.Subscribe<DefaultLaunchUrlPathRequest>(HandleDefaultLaunchUrlRequest);
+            OutputTarget.On<DefaultLaunchUrlPathRequest>(x => HandleDefaultLaunchUrlRequest(x.Data));
+
             ExecutionContext.EventDispatcher.Subscribe(LaunchProfileHttpPortRequired.EventId, _ => _launchProfileHttpPortRequired = true);
             ExecutionContext.EventDispatcher.Subscribe<AddProjectPropertyEvent>(HandleNoDefaultLaunchSettingsFile);
         }

@@ -12,7 +12,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
 
-namespace Intent.Modules.AspNetCore.Controllers.FactoryExtentions
+namespace Intent.Modules.AspNetCore.Controllers.FactoryExtensions
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class BinaryContentFilterExtension : FactoryExtensionBase
@@ -30,27 +30,31 @@ namespace Intent.Modules.AspNetCore.Controllers.FactoryExtentions
 
         protected override void OnBeforeTemplateExecution(IApplication application)
         {
-            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Distribution.SwashbuckleConfiguration"));
-            if (template == null)
+            var templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Distribution.SwashbuckleConfiguration"));
+            foreach (var template in templates)
             {
-                return;
+                if (template == null)
+                {
+                    return;
+                }
+
+                if (!FileTransferHelper.NeedsFileUploadInfrastructure(_metadataManager, application.Id))
+                {
+                    return;
+                }
+
+                var @class = template.CSharpFile.Classes.First();
+
+                var configureSwaggerOptionsBlock = GetConfigureSwaggerOptionsBlock(@class);
+                if (configureSwaggerOptionsBlock == null)
+                {
+                    return;
+                }
+
+                configureSwaggerOptionsBlock.AddStatement($@"options.OperationFilter<{template.GetBinaryContentFilterName()}>();");
             }
-
-            if (!FileTransferHelper.NeedsFileUploadInfrastructure(_metadataManager, application.Id))
-            {
-                return;
-            }
-
-            var @class = template.CSharpFile.Classes.First();
-
-            var configureSwaggerOptionsBlock = GetConfigureSwaggerOptionsBlock(@class);
-            if (configureSwaggerOptionsBlock == null)
-            {
-                return;
-            }
-
-            configureSwaggerOptionsBlock.AddStatement($@"options.OperationFilter<{template.GetBinaryContentFilterName()}>();");
         }
+
         private static CSharpLambdaBlock GetConfigureSwaggerOptionsBlock(CSharpClass @class)
         {
             var configureSwaggerMethod = @class.FindMethod("ConfigureSwagger");

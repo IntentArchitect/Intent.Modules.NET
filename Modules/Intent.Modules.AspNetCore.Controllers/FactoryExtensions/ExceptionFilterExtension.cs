@@ -10,7 +10,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
 
-namespace Intent.Modules.AspNetCore.Controllers.FactoryExtentions
+namespace Intent.Modules.AspNetCore.Controllers.FactoryExtensions
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class ExceptionFilterExtension : FactoryExtensionBase

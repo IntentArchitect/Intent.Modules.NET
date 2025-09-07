@@ -25,39 +25,42 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            var template = application.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
+            var templates = application.FindTemplateInstances<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
 
-            var configurationTemplate = template.OutputTarget.FindTemplateInstance<IClassProvider>(SwashbuckleConfigurationTemplate.TemplateId);
-            ((IntentTemplateBase)template).AddTemplateDependency(SwashbuckleConfigurationTemplate.TemplateId);
-            template.AddUsing(configurationTemplate.Namespace);
-
-            ((IntentTemplateBase)template).PublishDefaultLaunchUrlPathRequest("swagger");
-
-            template.CSharpFile.OnBuild(_ =>
+            foreach (var template in templates)
             {
-                var startup = template.StartupFile;
-                startup.AddServiceConfiguration(ctx => $"{ctx.Services}.ConfigureSwagger({ctx.Configuration});");
+                var configurationTemplate = template.OutputTarget.FindTemplateInstance<IClassProvider>(SwashbuckleConfigurationTemplate.TemplateId);
+                ((IntentTemplateBase)template).AddTemplateDependency(SwashbuckleConfigurationTemplate.TemplateId);
+                template.AddUsing(configurationTemplate.Namespace);
 
-                var useSwashbuckleStatement = "{0}.UseSwashbuckle({1});";
+                template.OutputTarget.EmitDefaultLaunchUrlPathRequest("swagger");
 
-                startup.ConfigureApp((statements, ctx) =>
+                template.CSharpFile.OnBuild(_ =>
                 {
-                    var statementToAdd = string.Format(useSwashbuckleStatement, ctx.App, ctx.Configuration);
+                    var startup = template.StartupFile;
+                    startup.AddServiceConfiguration(ctx => $"{ctx.Services}.ConfigureSwagger({ctx.Configuration});");
 
-                    // The swagger UI endpoint doesn't work if it is placed after UseEndpoints is called and MVC is set up.
-                    // We do it conditionally to minimize SF noise after an update for clients which aren't using MVC.
-                    var useEndpointStatement = statements.FindStatement(x => x.ToString().Contains("UseEndpoints"));
-                    if (useEndpointStatement != null &&
-                        application.GetInstalledModules().Any(x => string.Equals(x.ModuleId, "Intent.AspNetCore.Mvc")))
+                    var useSwashbuckleStatement = "{0}.UseSwashbuckle({1});";
+
+                    startup.ConfigureApp((statements, ctx) =>
                     {
-                        useEndpointStatement.InsertAbove(statementToAdd);
-                    }
-                    else
-                    {
-                        startup.AddAppConfiguration(context => string.Format(useSwashbuckleStatement, context.App, context.Configuration));
-                    }
-                });
-            }, 100);
+                        var statementToAdd = string.Format(useSwashbuckleStatement, ctx.App, ctx.Configuration);
+
+                        // The swagger UI endpoint doesn't work if it is placed after UseEndpoints is called and MVC is set up.
+                        // We do it conditionally to minimize SF noise after an update for clients which aren't using MVC.
+                        var useEndpointStatement = statements.FindStatement(x => x.ToString().Contains("UseEndpoints"));
+                        if (useEndpointStatement != null &&
+                            application.GetInstalledModules().Any(x => string.Equals(x.ModuleId, "Intent.AspNetCore.Mvc")))
+                        {
+                            useEndpointStatement.InsertAbove(statementToAdd);
+                        }
+                        else
+                        {
+                            startup.AddAppConfiguration(context => string.Format(useSwashbuckleStatement, context.App, context.Configuration));
+                        }
+                    });
+                }, 100);
+            }
         }
     }
 }
