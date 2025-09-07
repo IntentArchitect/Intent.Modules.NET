@@ -135,11 +135,11 @@ namespace Intent.Modules.AspNetCore.Templates.ProblemDetailsConfiguration
                 return;
             }
 
-            OutputTarget.Emit(ServiceConfigurationRequest
+            EmitOrPublish(ServiceConfigurationRequest
                 .ToRegister("ConfigureProblemDetails")
                 .HasDependency(this));
 
-            OutputTarget.Emit(ApplicationBuilderRegistrationRequest
+            EmitOrPublish(ApplicationBuilderRegistrationRequest
                 .ToRegister("UseExceptionHandler")
                 .WithPriority(-40));
         }

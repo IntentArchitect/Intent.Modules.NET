@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="Intent.Architect.Persistence" Version="3.7.0" />
-    <PackageReference Include="Intent.Modules.Common" Version="3.9.0-pre.3" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.9.0-pre.4" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.9.5-pre.3" />
     <PackageReference Include="Intent.Modules.Eventing.Contracts" Version="4.0.8" />
     <PackageReference Include="Intent.Modules.Modelers.Eventing" Version="5.1.0" />

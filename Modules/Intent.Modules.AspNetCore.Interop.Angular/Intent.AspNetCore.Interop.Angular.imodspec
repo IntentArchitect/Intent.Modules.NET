@@ -25,7 +25,7 @@
   </interoperability>
   <dependencies>
     <dependency id="Intent.AspNetCore" version="6.0.0" />
-    <dependency id="Intent.Common" version="3.9.0-pre.3" />
+    <dependency id="Intent.Common" version="3.9.0-pre.4" />
     <dependency id="Intent.Common.CSharp" version="3.9.5-pre.3" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
   </dependencies>

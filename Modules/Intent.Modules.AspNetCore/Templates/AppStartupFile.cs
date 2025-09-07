@@ -76,7 +76,7 @@ internal class AppStartupFile : IAppStartupFile
         }
 
         var isBuilt = false;
-        template.ExecutionContext.EventDispatcher.Subscribe<ServiceConfigurationRequest>(request =>
+        template.OnEmitOrPublished<ServiceConfigurationRequest>(request =>
         {
             if (isBuilt)
             {
@@ -86,17 +86,7 @@ internal class AppStartupFile : IAppStartupFile
             _serviceConfigurationRequests.Add(request);
         });
 
-        template.OutputTarget.On<ServiceConfigurationRequest>(@event =>
-        {
-            if (isBuilt)
-            {
-                return;
-            }
-
-            _serviceConfigurationRequests.Add(@event.Data);
-        });
-
-        template.ExecutionContext.EventDispatcher.Subscribe<ContainerRegistrationRequest>(request =>
+        template.OnEmitOrPublished<ContainerRegistrationRequest>(request =>
         {
             if (isBuilt)
             {
@@ -106,17 +96,7 @@ internal class AppStartupFile : IAppStartupFile
             _containerRegistrationRequests.Add(request);
         });
 
-        template.OutputTarget.On<ContainerRegistrationRequest>(@event =>
-        {
-            if (isBuilt)
-            {
-                return;
-            }
-
-            _containerRegistrationRequests.Add(@event.Data);
-        });
-
-        template.ExecutionContext.EventDispatcher.Subscribe<ApplicationBuilderRegistrationRequest>(request =>
+        template.OnEmitOrPublished<ApplicationBuilderRegistrationRequest>(request =>
         {
             if (isBuilt)
             {
@@ -124,16 +104,6 @@ internal class AppStartupFile : IAppStartupFile
             }
 
             _applicationBuilderRegistrationRequests.Add(request);
-        });
-
-        template.OutputTarget.On<ApplicationBuilderRegistrationRequest>(@event =>
-        {
-            if (isBuilt)
-            {
-                return;
-            }
-
-            _applicationBuilderRegistrationRequests.Add(@event.Data);
         });
 
         _cSharpFile
@@ -242,12 +212,9 @@ internal class AppStartupFile : IAppStartupFile
                 // handle their subscriptions after this class which will read them all as
                 // unhandled. So we make new subscriptions which we know will process requests
                 // after the other handlers.
-                template.ExecutionContext.EventDispatcher.Subscribe<ServiceConfigurationRequest>(ProcessServiceConfigurationRequest);
-                template.ExecutionContext.EventDispatcher.Subscribe<ContainerRegistrationRequest>(ProcessContainerRegistrationRequest);
-                template.ExecutionContext.EventDispatcher.Subscribe<ApplicationBuilderRegistrationRequest>(ProcessApplicationConfigurationRequest);
-                template.OutputTarget.On<ServiceConfigurationRequest>(e => ProcessServiceConfigurationRequest(e.Data));
-                template.OutputTarget.On<ContainerRegistrationRequest>(e => ProcessContainerRegistrationRequest(e.Data));
-                template.OutputTarget.On<ApplicationBuilderRegistrationRequest>(e => ProcessApplicationConfigurationRequest(e.Data));
+                template.OnEmitOrPublished<ServiceConfigurationRequest>(ProcessServiceConfigurationRequest);
+                template.OnEmitOrPublished<ContainerRegistrationRequest>(ProcessContainerRegistrationRequest);
+                template.OnEmitOrPublished<ApplicationBuilderRegistrationRequest>(ProcessApplicationConfigurationRequest);
             }, int.MinValue + 1);
     }
 
@@ -598,13 +565,13 @@ internal class AppStartupFile : IAppStartupFile
             var classProvider = _template.ExecutionContext.FindTemplateInstance<IClassProvider>(dependency);
 
             if (_hasMultipleInstances.Value &&
-                !_template.ExecutionContext.IsAccessibleTo(classProvider, _template.OutputTarget))
+                !_template.ExecutionContext.IsAccessibleTo(classProvider!, _template.OutputTarget))
             {
                 resolvedDependencies = null;
                 return false;
             }
 
-            resolvedDependencies.Add((dependency, classProvider));
+            resolvedDependencies.Add((dependency, classProvider)!);
         }
 
         return true;

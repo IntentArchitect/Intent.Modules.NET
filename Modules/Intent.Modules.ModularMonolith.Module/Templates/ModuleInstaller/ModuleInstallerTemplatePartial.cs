@@ -33,7 +33,7 @@ namespace Intent.Modules.ModularMonolith.Module.Templates.ModuleInstaller
         public ModuleInstallerTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             var isBuilt = false;
-            this.ExecutionContext.EventDispatcher.Subscribe<ServiceConfigurationRequest>(request =>
+            OnEmitOrPublished<ServiceConfigurationRequest>(request =>
             {
                 if (isBuilt)
                 {
@@ -43,7 +43,7 @@ namespace Intent.Modules.ModularMonolith.Module.Templates.ModuleInstaller
                 _serviceConfigurationRequests.Add(request);
             });
 
-            this.ExecutionContext.EventDispatcher.Subscribe<ContainerRegistrationRequest>(request =>
+            OnEmitOrPublished<ContainerRegistrationRequest>(request =>
             {
                 if (isBuilt)
                 {
@@ -53,9 +53,6 @@ namespace Intent.Modules.ModularMonolith.Module.Templates.ModuleInstaller
                 _containerRegistrationRequests.Add(request);
             });
 
-            ExecutionContext.EventDispatcher.Subscribe<ServiceConfigurationRequest>(ProcessServiceConfigurationRequest);
-            ExecutionContext.EventDispatcher.Subscribe<ContainerRegistrationRequest>(ProcessContainerRegistrationRequest);
-
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Microsoft.Extensions.Configuration")
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
@@ -64,7 +61,7 @@ namespace Intent.Modules.ModularMonolith.Module.Templates.ModuleInstaller
                 .AddUsing("Microsoft.AspNetCore.Mvc.ApplicationParts")
                 .AddClass($"ModuleInstaller", @class =>
                 {
-                    this.AddFrameworkDependency("Microsoft.AspNetCore.App");
+                    AddFrameworkDependency("Microsoft.AspNetCore.App");
                     @class.ImplementsInterface(this.GetModuleInstallerInterfaceName());
                     @class.AddMethod("void", "ConfigureContainer", method =>
                     {
@@ -72,7 +69,7 @@ namespace Intent.Modules.ModularMonolith.Module.Templates.ModuleInstaller
                         _serviceConfigurationContext = new ServiceConfigurationContext("configuration", "services");
 
                         //Want Project Dependency
-                        this.GetTemplate<ICSharpFileBuilderTemplate>("Intent.Infrastructure.DependencyInjection.DependencyInjection");
+                        GetTemplate<ICSharpFileBuilderTemplate>("Intent.Infrastructure.DependencyInjection.DependencyInjection");
 
                         method.AddParameter("IServiceCollection", "services");
                         method.AddParameter("IConfiguration", "configuration");
@@ -82,7 +79,7 @@ namespace Intent.Modules.ModularMonolith.Module.Templates.ModuleInstaller
                     });
                     @class.AddMethod("void", "ConfigureSwagger", method =>
                     {
-                        string moduleInstallerTypeName = GetFullTypeName(ModuleInstaller.ModuleInstallerTemplate.TemplateId);
+                        string moduleInstallerTypeName = GetFullTypeName(TemplateId);
 
                         method.AddParameter("SwaggerGenOptions", "options");
                         method.AddStatement($"AddCommentFile(options, Path.Combine(AppContext.BaseDirectory, $\"{{typeof({moduleInstallerTypeName}).Assembly.GetName().Name}}.xml\"));");
@@ -126,8 +123,8 @@ namespace Intent.Modules.ModularMonolith.Module.Templates.ModuleInstaller
                     // handle their subscriptions after this class which will read them all as
                     // unhandled. So we make new subscriptions which we know will process requests
                     // after the other handlers.
-                    this.ExecutionContext.EventDispatcher.Subscribe<ServiceConfigurationRequest>(ProcessServiceConfigurationRequest);
-                    this.ExecutionContext.EventDispatcher.Subscribe<ContainerRegistrationRequest>(ProcessContainerRegistrationRequest);
+                    OnEmitOrPublished<ServiceConfigurationRequest>(ProcessServiceConfigurationRequest);
+                    OnEmitOrPublished<ContainerRegistrationRequest>(ProcessContainerRegistrationRequest);
 
                 });
         }
@@ -142,15 +139,15 @@ namespace Intent.Modules.ModularMonolith.Module.Templates.ModuleInstaller
             
             foreach (var dependency in request.TemplateDependencies)
             {
-                var classProvider = this.GetTemplate<IClassProvider>(dependency);
+                var classProvider = GetTemplate<IClassProvider>(dependency);
 
-                this.AddTemplateDependency(dependency);
-                this.AddUsing(classProvider.Namespace);
+                AddTemplateDependency(dependency);
+                AddUsing(classProvider.Namespace);
             }
 
             foreach (var @namespace in request.RequiredNamespaces)
             {
-                this.AddUsing(@namespace);
+                AddUsing(@namespace);
             }
 
             AddServiceConfiguration<CSharpStatement>(ctx =>
@@ -245,15 +242,15 @@ namespace Intent.Modules.ModularMonolith.Module.Templates.ModuleInstaller
 
             foreach (var dependency in request.TemplateDependencies)
             {
-                var classProvider = this.GetTemplate<IClassProvider>(dependency);
+                var classProvider = GetTemplate<IClassProvider>(dependency);
 
-                this.AddTemplateDependency(dependency);
-                this.AddUsing(classProvider.Namespace);
+                AddTemplateDependency(dependency);
+                AddUsing(classProvider.Namespace);
             }
 
             foreach (var @namespace in request.RequiredNamespaces)
             {
-                this.AddUsing(@namespace);
+                AddUsing(@namespace);
             }
 
             AddContainerRegistration<CSharpStatement>(ctx =>
@@ -261,8 +258,8 @@ namespace Intent.Modules.ModularMonolith.Module.Templates.ModuleInstaller
 
                 return (request.ConcreteType.StartsWith("typeof("), request.InterfaceType != null) switch
                 {
-                    (false, false) => $"{ctx.Services}.{RegistrationType(request)}<{this.UseType(request.ConcreteType)}>();",
-                    (false, true) => $"{ctx.Services}.{RegistrationType(request)}<{this.UseType(request.InterfaceType!)}, {this.UseType(request.ConcreteType)}>();",
+                    (false, false) => $"{ctx.Services}.{RegistrationType(request)}<{UseType(request.ConcreteType)}>();",
+                    (false, true) => $"{ctx.Services}.{RegistrationType(request)}<{UseType(request.InterfaceType!)}, {UseType(request.ConcreteType)}>();",
                     (true, false) => $"{ctx.Services}.{RegistrationType(request)}({UseTypeOf(request.ConcreteType)});",
                     (true, true) => $"{ctx.Services}.{RegistrationType(request)}({UseTypeOf(request.InterfaceType!)}, {UseTypeOf(request.ConcreteType)});"
                 };
@@ -270,7 +267,7 @@ namespace Intent.Modules.ModularMonolith.Module.Templates.ModuleInstaller
                 string UseTypeOf(string type)
                 {
                     var typeName = type.Substring("typeof(".Length, type.Length - "typeof()".Length);
-                    return $"typeof({this.UseType(typeName)})";
+                    return $"typeof({UseType(typeName)})";
                 }
 
                 static string RegistrationType(ContainerRegistrationRequest registration)
@@ -301,7 +298,7 @@ namespace Intent.Modules.ModularMonolith.Module.Templates.ModuleInstaller
 
         private string GetFullTypeName(string templateId)
         {
-            var template = this.GetTemplate<ICSharpFileBuilderTemplate>(templateId);
+            var template = GetTemplate<ICSharpFileBuilderTemplate>(templateId);
             return template.Namespace + "." + template.ClassName;
         }
 

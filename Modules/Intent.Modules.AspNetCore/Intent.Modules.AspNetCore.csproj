@@ -15,7 +15,7 @@
   <Import Project="..\Intent.Modules.Security.Shared\Intent.Modules.Security.Shared.projitems" Label="Shared" />
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common" Version="3.9.0-pre.3" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.9.0-pre.4" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.9.5-pre.3" />
     <PackageReference Include="Intent.Modules.VisualStudio.Projects" Version="3.6.0" />
     <PackageReference Include="Intent.Packager" Version="3.6.0-pre.1">
