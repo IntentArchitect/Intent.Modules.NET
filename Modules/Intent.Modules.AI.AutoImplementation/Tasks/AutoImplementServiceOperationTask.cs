@@ -102,6 +102,7 @@ public class AutoImplementServiceOperationTask : IModuleTask
                - Apply `[IntentIgnore]` attribute to both declaration and implementation
                - Then call this method from your service method
             5. Repository methods cannot return DTOs and must define their own data contracts alongside the interface if needed.
+            6. Never process in memory that which would be more efficiently processed in the database via an Entity Framework Core Linq query (e.g. calculating aggregate values).
 
             ## Implementation Process
             1. First, analyze all code files provided and understand how the fit together.
