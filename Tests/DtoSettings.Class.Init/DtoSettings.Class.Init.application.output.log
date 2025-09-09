@@ -12,7 +12,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9fa14036-4a65-4611-8e08-680389d3dfce</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Versioning.ApiVersioningConfiguration</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Versioning.ApiVersioningConfiguration#c3ae0ca2-3752-47c7-8f9d-94df23195d0a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Class.Init.Api/Configuration/ApiVersioningConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApiVersioningConfiguration.cs</ProjectRelativeFilePath>
@@ -20,7 +20,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9fa14036-4a65-4611-8e08-680389d3dfce</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions#a43390ab-7822-458a-92a9-2df6bad69928</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Class.Init.Api/Configuration/ApiVersionSwaggerGenOptions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApiVersionSwaggerGenOptions.cs</ProjectRelativeFilePath>
@@ -28,7 +28,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9fa14036-4a65-4611-8e08-680389d3dfce</ProjectId>
-      <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration#b7100247-d772-4bbe-815f-82dd469169e4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Class.Init.Api/Configuration/ProblemDetailsConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ProblemDetailsConfiguration.cs</ProjectRelativeFilePath>
@@ -36,7 +36,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9fa14036-4a65-4611-8e08-680389d3dfce</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration#4f9e9a26-02cf-4d27-81a4-3c2ba473aafa</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Class.Init.Api/Configuration/SwashbuckleConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SwashbuckleConfiguration.cs</ProjectRelativeFilePath>
@@ -60,7 +60,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a260437d-4204-412d-98c8-04055cc73ce6</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.ExceptionFilter</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Controllers.ExceptionFilter#805d881a-f353-48af-8b1d-0c6a04978d7b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Class.Init.Api/Filters/ExceptionFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ExceptionFilter.cs</ProjectRelativeFilePath>
@@ -68,7 +68,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a260437d-4204-412d-98c8-04055cc73ce6</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter#5e24bb4c-4492-41e9-a48c-c074e9e4c8e8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Class.Init.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TypeSchemaFilter.cs</ProjectRelativeFilePath>
@@ -76,7 +76,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>013e29c2-07cc-4743-b617-8ea08331e1e2</ProjectId>
-      <CorrelationId>Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate</CorrelationId>
+      <CorrelationId>Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate#b7951566-9391-4fba-b579-5dfd7e269506</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Class.Init.Api/Logging/BoundedLoggingDestructuringPolicy.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>BoundedLoggingDestructuringPolicy.cs</ProjectRelativeFilePath>
@@ -84,7 +84,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>bbf9d90b-7f2b-44a3-8993-322e7516d048</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Program</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Program#b436710b-67be-42ff-b38b-b59caae5a87f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Class.Init.Api/Program.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Program.cs</ProjectRelativeFilePath>
@@ -100,7 +100,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>bbf9d90b-7f2b-44a3-8993-322e7516d048</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Startup</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Startup#c1a21c4a-fffc-4385-acf7-7a03b6e50caf</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Class.Init.Api/Startup.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Startup.cs</ProjectRelativeFilePath>
@@ -108,7 +108,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9cdd0d68-0555-4123-ba42-d61e5c1984b9</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandInterface</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.CommandInterface#50d82cdc-2f25-4314-b50c-b4b1f895cef5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Class.Init.Application/Common/Interfaces/ICommand.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICommand.cs</ProjectRelativeFilePath>
@@ -116,7 +116,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9cdd0d68-0555-4123-ba42-d61e5c1984b9</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.QueryInterface</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.QueryInterface#04bfb329-3fa0-4dbb-b940-9b7fe8de7c26</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Class.Init.Application/Common/Interfaces/IQuery.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IQuery.cs</ProjectRelativeFilePath>
@@ -124,7 +124,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>624df203-96a7-4e7a-91c1-40f43380723f</ProjectId>
-      <CorrelationId>Intent.Application.AutoMapper.MapFromInterface</CorrelationId>
+      <CorrelationId>Intent.Application.AutoMapper.MapFromInterface#8040b43c-9117-4542-87f3-7c4d1c77ad78</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Class.Init.Application/Common/Mappings/IMapFrom.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IMapFrom.cs</ProjectRelativeFilePath>
@@ -132,7 +132,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>624df203-96a7-4e7a-91c1-40f43380723f</ProjectId>
-      <CorrelationId>Intent.Application.AutoMapper.MappingProfile</CorrelationId>
+      <CorrelationId>Intent.Application.AutoMapper.MappingProfile#693fadd2-ebca-4f3d-88e3-f04eb7984b0a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Class.Init.Application/Common/Mappings/MappingProfile.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MappingProfile.cs</ProjectRelativeFilePath>
@@ -140,7 +140,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>2179ed2a-4c31-4350-b993-722888956004</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.PagedList</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.PagedList#2e376395-0e21-421c-8c00-dc0970b66530</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Class.Init.Application/Common/Pagination/PagedList.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedList.cs</ProjectRelativeFilePath>
@@ -148,7 +148,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>2179ed2a-4c31-4350-b993-722888956004</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResult</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResult#0e4d3554-aec9-4756-9c61-3493ead1d43f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Class.Init.Application/Common/Pagination/PagedResult.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedResult.cs</ProjectRelativeFilePath>
@@ -156,7 +156,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>2179ed2a-4c31-4350-b993-722888956004</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResultMappingExtensions</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResultMappingExtensions#83ec7b3f-819c-4f08-b9fb-14c13a4568eb</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Class.Init.Application/Common/Pagination/PagedResultMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedResultMappingExtensions.cs</ProjectRelativeFilePath>
@@ -276,7 +276,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>6db6c452-7e2d-4536-9597-540edc452ccd</ProjectId>
-      <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection</CorrelationId>
+      <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection#d7637216-e509-45fa-a097-7cf1ada8be55</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Class.Init.Application/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
@@ -492,7 +492,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>70d94ded-f64c-49bf-9e7a-b106de1e0d88</ProjectId>
-      <CorrelationId>Intent.Entities.CollectionExtensions</CorrelationId>
+      <CorrelationId>Intent.Entities.CollectionExtensions#1ce4c519-4d90-4b91-88db-6e46c5a98c7b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Class.Init.Domain/Common/CollectionExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CollectionExtensions.cs</ProjectRelativeFilePath>
@@ -500,7 +500,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ca1f76b8-d60c-4a1d-a84b-6346979e865d</ProjectId>
-      <CorrelationId>Intent.Entities.NotFoundException</CorrelationId>
+      <CorrelationId>Intent.Entities.NotFoundException#d8caa607-6e1d-406e-a3e2-9a0abc0a3ed1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Class.Init.Domain/Common/Exceptions/NotFoundException.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>NotFoundException.cs</ProjectRelativeFilePath>
@@ -508,7 +508,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>224f7736-0626-4f09-b8dc-c26a32413b81</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.UnitOfWorkInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.UnitOfWorkInterface#25820100-7597-4e08-b462-3f65f0759134</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Class.Init.Domain/Common/Interfaces/IUnitOfWork.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IUnitOfWork.cs</ProjectRelativeFilePath>
@@ -516,7 +516,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>70d94ded-f64c-49bf-9e7a-b106de1e0d88</ProjectId>
-      <CorrelationId>Intent.Entities.UpdateHelper</CorrelationId>
+      <CorrelationId>Intent.Entities.UpdateHelper#2c5efb78-bb9e-4bf8-8696-be10ff24bac3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Class.Init.Domain/Common/UpdateHelper.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UpdateHelper.cs</ProjectRelativeFilePath>
@@ -572,7 +572,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>824e8539-e65b-4288-8b16-d5bdad3ab5d9</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface#5d14d9d1-95b7-4bf7-8a28-f1fb3d3ce4c7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Class.Init.Domain/Repositories/IEFRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IEFRepository.cs</ProjectRelativeFilePath>
@@ -588,7 +588,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>824e8539-e65b-4288-8b16-d5bdad3ab5d9</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.PagedListInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.PagedListInterface#2624897a-880e-40a9-95ac-721dbf820ed3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Class.Init.Domain/Repositories/IPagedList.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IPagedList.cs</ProjectRelativeFilePath>
@@ -596,7 +596,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>824e8539-e65b-4288-8b16-d5bdad3ab5d9</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.RepositoryInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.RepositoryInterface#bb494160-fcbf-4e05-b71a-eb4bce0a8d22</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Class.Init.Domain/Repositories/IRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IRepository.cs</ProjectRelativeFilePath>
@@ -604,7 +604,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>3927790b-32dd-4a42-840d-c1fff89bfed6</ProjectId>
-      <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection</CorrelationId>
+      <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#bad23209-0a91-40b4-9d35-6f068a60b2a3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Class.Init.Infrastructure/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
@@ -620,7 +620,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a52c0e5f-1834-4630-8b23-9d5e353f354f</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe#98f48b90-4b51-435c-9c93-8538df9cb737</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Class.Init.Infrastructure/Migrations/README.md</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>README.md</ProjectRelativeFilePath>
@@ -668,7 +668,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>0fa4c15a-fedd-455f-a2d3-72b19c82ede4</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.RepositoryBase</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.RepositoryBase#7b0a355d-ad6d-4604-bdd6-24f7ffc96357</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Class.Init.Infrastructure/Repositories/RepositoryBase.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RepositoryBase.cs</ProjectRelativeFilePath>

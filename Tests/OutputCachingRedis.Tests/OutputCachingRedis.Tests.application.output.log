@@ -12,7 +12,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>34dbc0c9-b115-423b-b923-38f30caade04</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Versioning.ApiVersioningConfiguration</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Versioning.ApiVersioningConfiguration#9d27cd9f-b73b-484c-8066-7a210a8ef951</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Api/Configuration/ApiVersioningConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApiVersioningConfiguration.cs</ProjectRelativeFilePath>
@@ -20,7 +20,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>34dbc0c9-b115-423b-b923-38f30caade04</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions#5222d25d-3d0a-48fd-8394-7412ef3cbe81</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Api/Configuration/ApiVersionSwaggerGenOptions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApiVersionSwaggerGenOptions.cs</ProjectRelativeFilePath>
@@ -28,7 +28,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>34dbc0c9-b115-423b-b923-38f30caade04</ProjectId>
-      <CorrelationId>Intent.Application.Identity.ApplicationSecurityConfiguration</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.ApplicationSecurityConfiguration#95d742fa-ca4d-45ce-bc84-b41043c0c9f6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Api/Configuration/ApplicationSecurityConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApplicationSecurityConfiguration.cs</ProjectRelativeFilePath>
@@ -36,7 +36,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>34dbc0c9-b115-423b-b923-38f30caade04</ProjectId>
-      <CorrelationId>Intent.AspNetCore.HealthChecks.HealthChecksConfiguration</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.HealthChecks.HealthChecksConfiguration#b75933d0-2fbe-4bf1-8ec7-c725b21d4c56</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Api/Configuration/HealthChecksConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>HealthChecksConfiguration.cs</ProjectRelativeFilePath>
@@ -44,7 +44,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>34dbc0c9-b115-423b-b923-38f30caade04</ProjectId>
-      <CorrelationId>Intent.AspNetCore.OutputCaching.Redis.OutputCachingConfiguration</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.OutputCaching.Redis.OutputCachingConfiguration#f0741577-e97f-402b-8c14-58caf80abcf5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Api/Configuration/OutputCachingConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>OutputCachingConfiguration.cs</ProjectRelativeFilePath>
@@ -52,7 +52,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>34dbc0c9-b115-423b-b923-38f30caade04</ProjectId>
-      <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration#cbc17474-e4bc-42fa-9120-4b37f2efa7b9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Api/Configuration/ProblemDetailsConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ProblemDetailsConfiguration.cs</ProjectRelativeFilePath>
@@ -60,7 +60,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>34dbc0c9-b115-423b-b923-38f30caade04</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration#40d00d23-8de0-40f8-83ad-1c2e0f94157d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Api/Configuration/SwashbuckleConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SwashbuckleConfiguration.cs</ProjectRelativeFilePath>
@@ -92,7 +92,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>e90009b7-9254-4dbe-9fe1-1bf14d8d91c4</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.BinaryContentAttribute</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Controllers.BinaryContentAttribute#e91d4428-311c-47c4-958d-ce9af3e6a225</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Api/Controllers/FileTransfer/BinaryContentAttribute.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>BinaryContentAttribute.cs</ProjectRelativeFilePath>
@@ -116,7 +116,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>1b9ce3cf-8ec4-4432-8b67-9cc401e1c257</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.JsonResponse</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Controllers.JsonResponse#04fe8a14-8849-42a8-b358-9503cfec6dd0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Api/Controllers/ResponseTypes/JsonResponse.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>JsonResponse.cs</ProjectRelativeFilePath>
@@ -124,7 +124,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>bf7ff033-20b3-4b61-b263-06eba01deb2d</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter#011d9516-30f8-4b59-8175-6eb81baf4fa3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Api/Filters/AuthorizeCheckOperationFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AuthorizeCheckOperationFilter.cs</ProjectRelativeFilePath>
@@ -132,7 +132,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>bf7ff033-20b3-4b61-b263-06eba01deb2d</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.BinaryContentFilter</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Controllers.BinaryContentFilter#bb2b003c-0370-4831-b896-65fe4087dde2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Api/Filters/BinaryContentFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>BinaryContentFilter.cs</ProjectRelativeFilePath>
@@ -140,7 +140,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>bf7ff033-20b3-4b61-b263-06eba01deb2d</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.ExceptionFilter</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Controllers.ExceptionFilter#62709691-dde1-43d4-bb0c-483540d16d8a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Api/Filters/ExceptionFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ExceptionFilter.cs</ProjectRelativeFilePath>
@@ -148,7 +148,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>bf7ff033-20b3-4b61-b263-06eba01deb2d</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter#b4c81549-c488-40de-a271-72723383f6c5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TypeSchemaFilter.cs</ProjectRelativeFilePath>
@@ -156,7 +156,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>6be3de7d-8692-4e6f-a731-9e27e533bf5d</ProjectId>
-      <CorrelationId>Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate</CorrelationId>
+      <CorrelationId>Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate#d2affe28-e9b0-4f14-903c-8c8d14354b6f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Api/Logging/BoundedLoggingDestructuringPolicy.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>BoundedLoggingDestructuringPolicy.cs</ProjectRelativeFilePath>
@@ -172,7 +172,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>2e824bc0-2bc0-422c-bba4-da72a19ea1a1</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Program</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Program#ff8c9915-99c5-4112-866e-b8eb6ac4715e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Api/Program.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Program.cs</ProjectRelativeFilePath>
@@ -188,7 +188,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>df09aebd-10d2-48ea-b74d-5688b4222c3f</ProjectId>
-      <CorrelationId>Intent.Application.Identity.CurrentUserService</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserService#0ad8883e-9d47-439b-a3e9-68bf1d0e318a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Api/Services/CurrentUserService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CurrentUserService.cs</ProjectRelativeFilePath>
@@ -196,7 +196,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>2e824bc0-2bc0-422c-bba4-da72a19ea1a1</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Startup</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Startup#c4a7ff04-bafa-49d3-b571-b75bc3ab0fe2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Api/Startup.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Startup.cs</ProjectRelativeFilePath>
@@ -340,7 +340,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>8b871d6c-addf-47c9-85a9-7f77d10ba96d</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.AuthorizationBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.AuthorizationBehaviour#f44c8f9e-1f8b-4edd-b9b9-4f5c0a324c14</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Application/Common/Behaviours/AuthorizationBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AuthorizationBehaviour.cs</ProjectRelativeFilePath>
@@ -348,7 +348,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>8b871d6c-addf-47c9-85a9-7f77d10ba96d</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.LoggingBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.LoggingBehaviour#30532149-1b25-4519-8103-a51d9518d8e3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Application/Common/Behaviours/LoggingBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>LoggingBehaviour.cs</ProjectRelativeFilePath>
@@ -356,7 +356,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>8b871d6c-addf-47c9-85a9-7f77d10ba96d</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.PerformanceBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.PerformanceBehaviour#2b2b2f06-ce1d-4f55-a3e3-4091e4adbde1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Application/Common/Behaviours/PerformanceBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PerformanceBehaviour.cs</ProjectRelativeFilePath>
@@ -364,7 +364,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>8b871d6c-addf-47c9-85a9-7f77d10ba96d</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour#61cc4284-d8be-41cc-a7b4-803936ef0db5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UnhandledExceptionBehaviour.cs</ProjectRelativeFilePath>
@@ -372,7 +372,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>8b871d6c-addf-47c9-85a9-7f77d10ba96d</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour#f14326e8-9cbc-4e21-8a49-941cbe744995</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Application/Common/Behaviours/UnitOfWorkBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UnitOfWorkBehaviour.cs</ProjectRelativeFilePath>
@@ -380,7 +380,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>8b871d6c-addf-47c9-85a9-7f77d10ba96d</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.FluentValidation.ValidationBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.ValidationBehaviour#34ddf532-2b68-4958-8946-5157d698be57</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Application/Common/Behaviours/ValidationBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ValidationBehaviour.cs</ProjectRelativeFilePath>
@@ -388,7 +388,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>cd8e97b2-041f-4664-8d36-4e2f7f62aa30</ProjectId>
-      <CorrelationId>Intent.Application.Identity.ForbiddenAccessException</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.ForbiddenAccessException#a24f440d-6b50-4179-8819-945ea25484f3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Application/Common/Exceptions/ForbiddenAccessException.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ForbiddenAccessException.cs</ProjectRelativeFilePath>
@@ -404,7 +404,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>077f46b5-79ac-4178-9413-033ae96b5440</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandInterface</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.CommandInterface#d4d0fde4-a1eb-460e-96a5-58ed573150fb</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Application/Common/Interfaces/ICommand.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICommand.cs</ProjectRelativeFilePath>
@@ -412,7 +412,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>077f46b5-79ac-4178-9413-033ae96b5440</ProjectId>
-      <CorrelationId>Intent.Application.Identity.CurrentUserInterface</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserInterface#7488f0df-1265-495c-9862-bbf26a1cfc5e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Application/Common/Interfaces/ICurrentUser.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICurrentUser.cs</ProjectRelativeFilePath>
@@ -420,7 +420,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>077f46b5-79ac-4178-9413-033ae96b5440</ProjectId>
-      <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface#1472a7b8-cb04-4409-86ce-ff5f02e9dfc8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Application/Common/Interfaces/ICurrentUserService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICurrentUserService.cs</ProjectRelativeFilePath>
@@ -428,7 +428,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>077f46b5-79ac-4178-9413-033ae96b5440</ProjectId>
-      <CorrelationId>Intent.DomainEvents.DomainEventServiceInterface</CorrelationId>
+      <CorrelationId>Intent.DomainEvents.DomainEventServiceInterface#c49400ff-896b-4bed-ab5b-d9ce4707f7cb</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Application/Common/Interfaces/IDomainEventService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IDomainEventService.cs</ProjectRelativeFilePath>
@@ -436,7 +436,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>077f46b5-79ac-4178-9413-033ae96b5440</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.QueryInterface</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.QueryInterface#73961f7f-c310-4ce2-988d-0411814b5b32</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Application/Common/Interfaces/IQuery.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IQuery.cs</ProjectRelativeFilePath>
@@ -444,7 +444,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9d507a43-6e0c-4ffc-a0ee-09204902052f</ProjectId>
-      <CorrelationId>Intent.Application.AutoMapper.MapFromInterface</CorrelationId>
+      <CorrelationId>Intent.Application.AutoMapper.MapFromInterface#369e972a-4f88-45e2-842d-7eb781fcb554</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Application/Common/Mappings/IMapFrom.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IMapFrom.cs</ProjectRelativeFilePath>
@@ -452,7 +452,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9d507a43-6e0c-4ffc-a0ee-09204902052f</ProjectId>
-      <CorrelationId>Intent.Application.AutoMapper.MappingProfile</CorrelationId>
+      <CorrelationId>Intent.Application.AutoMapper.MappingProfile#3602ec0e-72e3-4970-8bf2-e3f511d19e28</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Application/Common/Mappings/MappingProfile.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MappingProfile.cs</ProjectRelativeFilePath>
@@ -460,7 +460,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>8f091bad-e8f0-46e3-bde3-579cddc053ec</ProjectId>
-      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventNotification</CorrelationId>
+      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventNotification#cce11533-6042-4cf2-8ee2-2cd260e6d96d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Application/Common/Models/DomainEventNotification.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEventNotification.cs</ProjectRelativeFilePath>
@@ -468,7 +468,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>8f091bad-e8f0-46e3-bde3-579cddc053ec</ProjectId>
-      <CorrelationId>Intent.Application.Identity.ResultModel</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.ResultModel#f5e64d80-979c-4252-9045-53ca9d28ead7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Application/Common/Models/Result.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Result.cs</ProjectRelativeFilePath>
@@ -476,7 +476,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b5a7532f-944d-4150-90b7-23e69b68f8a4</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.PagedList</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.PagedList#042fe3b4-cb84-4b60-bdee-9d71f9dd1d0c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Application/Common/Pagination/PagedList.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedList.cs</ProjectRelativeFilePath>
@@ -484,7 +484,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b5a7532f-944d-4150-90b7-23e69b68f8a4</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResult</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResult#17e66a32-9950-46bb-bc27-873520eb2dc2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Application/Common/Pagination/PagedResult.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedResult.cs</ProjectRelativeFilePath>
@@ -492,7 +492,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b5a7532f-944d-4150-90b7-23e69b68f8a4</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResultMappingExtensions</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResultMappingExtensions#9f309818-e823-4e8a-b586-597eb726c6fc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Application/Common/Pagination/PagedResultMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedResultMappingExtensions.cs</ProjectRelativeFilePath>
@@ -500,7 +500,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>051a608c-2c31-4a5d-b5c8-cddeb1c011b0</ProjectId>
-      <CorrelationId>Intent.Application.Identity.AuthorizeAttribute</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.AuthorizeAttribute#e35bac51-2fb6-4c9c-9362-5dd5077a967b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Application/Common/Security/AuthorizeAttribute.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AuthorizeAttribute.cs</ProjectRelativeFilePath>
@@ -508,7 +508,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>03b787ff-eeed-41f4-aa39-c1db452ac6c2</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationServiceInterface</CorrelationId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationServiceInterface#950f88ae-b325-4028-a995-411faece25b4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Application/Common/Validation/IValidationService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IValidationService.cs</ProjectRelativeFilePath>
@@ -516,7 +516,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>03b787ff-eeed-41f4-aa39-c1db452ac6c2</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface</CorrelationId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface#a436b81c-4df1-4347-b0ad-68b855fa7939</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Application/Common/Validation/IValidatorProvider.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IValidatorProvider.cs</ProjectRelativeFilePath>
@@ -524,7 +524,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>03b787ff-eeed-41f4-aa39-c1db452ac6c2</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationService</CorrelationId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationService#adc2c7d2-dd68-4fde-9d34-11a875869194</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Application/Common/Validation/ValidationService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ValidationService.cs</ProjectRelativeFilePath>
@@ -532,7 +532,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>03b787ff-eeed-41f4-aa39-c1db452ac6c2</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProvider</CorrelationId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProvider#f3cec9a7-19b4-4d08-8169-f434915ce58f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Application/Common/Validation/ValidatorProvider.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ValidatorProvider.cs</ProjectRelativeFilePath>
@@ -700,7 +700,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b47ab40c-3e60-4441-9e11-49dce158014c</ProjectId>
-      <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection</CorrelationId>
+      <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection#1bcfa8a3-0d0b-44b2-b711-dce9444dfd2d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Application/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
@@ -980,7 +980,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>e7556259-ebd7-4bf0-88b9-aa2ec9639ef0</ProjectId>
-      <CorrelationId>Intent.Entities.CollectionExtensions</CorrelationId>
+      <CorrelationId>Intent.Entities.CollectionExtensions#025ebbdb-1ea2-49e6-bd52-dcf0e3928445</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Domain/Common/CollectionExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CollectionExtensions.cs</ProjectRelativeFilePath>
@@ -988,7 +988,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>e7556259-ebd7-4bf0-88b9-aa2ec9639ef0</ProjectId>
-      <CorrelationId>Intent.DomainEvents.DomainEventBase</CorrelationId>
+      <CorrelationId>Intent.DomainEvents.DomainEventBase#8defd3ae-93de-4ca7-9e66-ece5f736a313</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Domain/Common/DomainEvent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEvent.cs</ProjectRelativeFilePath>
@@ -996,7 +996,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>55bcffb3-6c3d-4604-924c-d5121889797b</ProjectId>
-      <CorrelationId>Intent.Entities.NotFoundException</CorrelationId>
+      <CorrelationId>Intent.Entities.NotFoundException#29a5fec2-43f8-4f4d-b5d2-31ea665fa013</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Domain/Common/Exceptions/NotFoundException.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>NotFoundException.cs</ProjectRelativeFilePath>
@@ -1004,7 +1004,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>e7556259-ebd7-4bf0-88b9-aa2ec9639ef0</ProjectId>
-      <CorrelationId>Intent.DomainEvents.HasDomainEventInterface</CorrelationId>
+      <CorrelationId>Intent.DomainEvents.HasDomainEventInterface#e304e65b-7bf6-4a67-92ab-3a7a59c9da4d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Domain/Common/IHasDomainEvent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IHasDomainEvent.cs</ProjectRelativeFilePath>
@@ -1012,7 +1012,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>cd1a79da-319d-450a-b4e4-38d1227ad147</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.UnitOfWorkInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.UnitOfWorkInterface#0046a697-d893-4a3a-ae11-5205c61127aa</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Domain/Common/Interfaces/IUnitOfWork.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IUnitOfWork.cs</ProjectRelativeFilePath>
@@ -1020,7 +1020,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>e7556259-ebd7-4bf0-88b9-aa2ec9639ef0</ProjectId>
-      <CorrelationId>Intent.Entities.UpdateHelper</CorrelationId>
+      <CorrelationId>Intent.Entities.UpdateHelper#ef0ce88b-40fb-41a2-81d6-5cd25ac35f33</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Domain/Common/UpdateHelper.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UpdateHelper.cs</ProjectRelativeFilePath>
@@ -1092,7 +1092,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>cd6e04b5-aad2-444a-9d33-2ec221a6f91b</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface#da0dbafb-7172-4b1f-83f3-85920de05123</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Domain/Repositories/IEFRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IEFRepository.cs</ProjectRelativeFilePath>
@@ -1116,7 +1116,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>cd6e04b5-aad2-444a-9d33-2ec221a6f91b</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.PagedListInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.PagedListInterface#df784fff-b0fb-44e7-9e95-c15ec60a5157</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Domain/Repositories/IPagedList.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IPagedList.cs</ProjectRelativeFilePath>
@@ -1132,7 +1132,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>cd6e04b5-aad2-444a-9d33-2ec221a6f91b</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.RepositoryInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.RepositoryInterface#6cd975a0-3d66-4663-96b6-3deb34958715</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Domain/Repositories/IRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IRepository.cs</ProjectRelativeFilePath>
@@ -1140,7 +1140,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>8f34dba5-a890-49d1-9de8-01b55baf5f48</ProjectId>
-      <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection</CorrelationId>
+      <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#9c78dfab-c102-43c8-bd3f-7476b30228a4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Infrastructure/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
@@ -1148,7 +1148,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>38035874-4b38-4510-90e9-8988525f58bb</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe#9f782f3a-e61a-438f-9a36-0a0dd6c876eb</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Infrastructure/Migrations/README.md</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>README.md</ProjectRelativeFilePath>
@@ -1252,7 +1252,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>69fe9750-8a46-4272-9ada-bf0ff43eeb3c</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.RepositoryBase</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.RepositoryBase#0a3d5ce2-b4e7-459b-bf22-70e4bdfdcc07</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Infrastructure/Repositories/RepositoryBase.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RepositoryBase.cs</ProjectRelativeFilePath>
@@ -1260,7 +1260,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>10415a37-afa6-4cf9-b6db-ca0e81613a59</ProjectId>
-      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventService</CorrelationId>
+      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventService#ed31dabb-1ac4-434f-b6cc-5ce8edbff51d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Infrastructure/Services/DomainEventService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEventService.cs</ProjectRelativeFilePath>

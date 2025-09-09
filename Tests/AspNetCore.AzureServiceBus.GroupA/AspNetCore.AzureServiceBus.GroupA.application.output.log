@@ -26,7 +26,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>4a35fa91-d3da-46da-ae5e-739684414f82</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Versioning.ApiVersioningConfiguration</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Versioning.ApiVersioningConfiguration#ccdfa09f-2ad1-4d28-a16c-2646250c67d0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Api/Configuration/ApiVersioningConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApiVersioningConfiguration.cs</ProjectRelativeFilePath>
@@ -34,7 +34,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>4a35fa91-d3da-46da-ae5e-739684414f82</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions#7d3315bd-3622-4ce6-b6e4-a80d3ccc1022</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Api/Configuration/ApiVersionSwaggerGenOptions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApiVersionSwaggerGenOptions.cs</ProjectRelativeFilePath>
@@ -42,7 +42,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>4a35fa91-d3da-46da-ae5e-739684414f82</ProjectId>
-      <CorrelationId>Intent.Application.Identity.ApplicationSecurityConfiguration</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.ApplicationSecurityConfiguration#56becf7c-4b70-4b5e-8bf3-f15fc1a86c2a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Api/Configuration/ApplicationSecurityConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApplicationSecurityConfiguration.cs</ProjectRelativeFilePath>
@@ -50,7 +50,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>4a35fa91-d3da-46da-ae5e-739684414f82</ProjectId>
-      <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration#67ea3b08-4fc9-45ca-86e5-6c247315e03b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Api/Configuration/ProblemDetailsConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ProblemDetailsConfiguration.cs</ProjectRelativeFilePath>
@@ -58,7 +58,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>4a35fa91-d3da-46da-ae5e-739684414f82</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration#e3af81be-da31-4aa4-a38c-b011ca425dc1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Api/Configuration/SwashbuckleConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SwashbuckleConfiguration.cs</ProjectRelativeFilePath>
@@ -74,7 +74,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>1421ebf4-03df-41cd-830d-a6f2f9178598</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.ExceptionFilter</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Controllers.ExceptionFilter#b5c02846-15b7-4fba-81dc-6d0e182cebf7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Api/Filters/ExceptionFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ExceptionFilter.cs</ProjectRelativeFilePath>
@@ -82,7 +82,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>1421ebf4-03df-41cd-830d-a6f2f9178598</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter#2ff0118f-08c2-4a0b-9fb2-3f9a0da32fde</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TypeSchemaFilter.cs</ProjectRelativeFilePath>
@@ -90,7 +90,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b69a0625-1332-400f-bc1e-2e0f0dff6242</ProjectId>
-      <CorrelationId>Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate</CorrelationId>
+      <CorrelationId>Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate#4a6f1d67-80aa-432d-ad4e-2ff000259673</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Api/Logging/BoundedLoggingDestructuringPolicy.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>BoundedLoggingDestructuringPolicy.cs</ProjectRelativeFilePath>
@@ -98,7 +98,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ba3a1e92-043b-4f6b-99da-2873d1c240fa</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Program</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Program#22c98db8-7fef-4666-96a2-f108e41692dd</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Api/Program.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Program.cs</ProjectRelativeFilePath>
@@ -114,7 +114,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>03eb9b1e-76f6-4ef5-b1d6-39159bcac3dd</ProjectId>
-      <CorrelationId>Intent.Eventing.AzureServiceBus.AzureServiceBusHostedService</CorrelationId>
+      <CorrelationId>Intent.Eventing.AzureServiceBus.AzureServiceBusHostedService#95188f95-3bdb-4cdc-865e-3b1d4ce7f2c7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Api/Services/AzureServiceBusHostedService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AzureServiceBusHostedService.cs</ProjectRelativeFilePath>
@@ -122,7 +122,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>03eb9b1e-76f6-4ef5-b1d6-39159bcac3dd</ProjectId>
-      <CorrelationId>Intent.Application.Identity.CurrentUserService</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserService#ee0a1da4-d3bf-4a90-9126-43c0412866a2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Api/Services/CurrentUserService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CurrentUserService.cs</ProjectRelativeFilePath>
@@ -138,7 +138,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>35409729-3b5b-473d-be91-7ead14df8347</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.AssemblyAttributes</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.AssemblyAttributes#2e73085f-21b5-4b2d-aaf2-aafd0da489f3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Application/AssemblyAttributes.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AssemblyAttributes.cs</ProjectRelativeFilePath>
@@ -146,7 +146,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>c49f62de-90b0-4f33-b830-edc44b5f98a9</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.AuthorizationBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.AuthorizationBehaviour#fe341f95-30ee-4250-a234-91bcdc20c61b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Application/Common/Behaviours/AuthorizationBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AuthorizationBehaviour.cs</ProjectRelativeFilePath>
@@ -154,7 +154,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>c49f62de-90b0-4f33-b830-edc44b5f98a9</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.EventBusPublishBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.EventBusPublishBehaviour#c0b5fae0-f37f-48dc-a136-21ccd9e5bfbe</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Application/Common/Behaviours/EventBusPublishBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>EventBusPublishBehaviour.cs</ProjectRelativeFilePath>
@@ -162,7 +162,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>c49f62de-90b0-4f33-b830-edc44b5f98a9</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.LoggingBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.LoggingBehaviour#9fa3d0c8-1b4a-4086-b30d-397671c75b3a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Application/Common/Behaviours/LoggingBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>LoggingBehaviour.cs</ProjectRelativeFilePath>
@@ -170,7 +170,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>c49f62de-90b0-4f33-b830-edc44b5f98a9</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.PerformanceBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.PerformanceBehaviour#a0366e5c-7d7b-475a-ba1c-63f1d956fe09</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Application/Common/Behaviours/PerformanceBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PerformanceBehaviour.cs</ProjectRelativeFilePath>
@@ -178,7 +178,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>c49f62de-90b0-4f33-b830-edc44b5f98a9</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour#987cc592-69d8-45b0-ae29-8fb75e40c287</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UnhandledExceptionBehaviour.cs</ProjectRelativeFilePath>
@@ -186,7 +186,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>c49f62de-90b0-4f33-b830-edc44b5f98a9</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour#357184b0-377e-4d83-95fd-b01f3b01ca15</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Application/Common/Behaviours/UnitOfWorkBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UnitOfWorkBehaviour.cs</ProjectRelativeFilePath>
@@ -194,7 +194,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ba4603e1-8b6e-4355-94cd-02dd918bc12e</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.EventBusInterface</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.EventBusInterface#6f659f85-fecb-4c0c-ae70-7ccf0d1d1dec</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Application/Common/Eventing/IEventBus.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IEventBus.cs</ProjectRelativeFilePath>
@@ -202,7 +202,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ba4603e1-8b6e-4355-94cd-02dd918bc12e</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventHandlerInterface</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventHandlerInterface#dca97aa1-74ed-4ba6-a18b-566414bc4c9e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Application/Common/Eventing/IIntegrationEventHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IIntegrationEventHandler.cs</ProjectRelativeFilePath>
@@ -210,7 +210,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>815adf1a-bfe4-420c-8adf-03cedf12d99e</ProjectId>
-      <CorrelationId>Intent.Application.Identity.ForbiddenAccessException</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.ForbiddenAccessException#fde90309-311f-4e18-b8b7-f64928cee8d9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Application/Common/Exceptions/ForbiddenAccessException.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ForbiddenAccessException.cs</ProjectRelativeFilePath>
@@ -218,7 +218,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>cd94ae19-a61f-49a0-85a8-7212e6d3be0b</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandInterface</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.CommandInterface#f2ed605b-3d75-42ff-b652-9227a52be401</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Application/Common/Interfaces/ICommand.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICommand.cs</ProjectRelativeFilePath>
@@ -226,7 +226,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>cd94ae19-a61f-49a0-85a8-7212e6d3be0b</ProjectId>
-      <CorrelationId>Intent.Application.Identity.CurrentUserInterface</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserInterface#36989b42-7964-4d32-b438-f44fecb2fccc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Application/Common/Interfaces/ICurrentUser.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICurrentUser.cs</ProjectRelativeFilePath>
@@ -234,7 +234,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>cd94ae19-a61f-49a0-85a8-7212e6d3be0b</ProjectId>
-      <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface#ab7a9304-c670-4038-a219-159022a1e914</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Application/Common/Interfaces/ICurrentUserService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICurrentUserService.cs</ProjectRelativeFilePath>
@@ -242,7 +242,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>cd94ae19-a61f-49a0-85a8-7212e6d3be0b</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.QueryInterface</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.QueryInterface#15d2a44e-6baf-4bd1-afab-9c4350b27504</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Application/Common/Interfaces/IQuery.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IQuery.cs</ProjectRelativeFilePath>
@@ -250,7 +250,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>664b5ca1-1cc5-4881-84d6-d5e64c1e1d4e</ProjectId>
-      <CorrelationId>Intent.Application.Identity.ResultModel</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.ResultModel#06bab8f9-3b67-4b26-9113-597a31478252</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Application/Common/Models/Result.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Result.cs</ProjectRelativeFilePath>
@@ -258,7 +258,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>0bea4136-3b35-4e18-9659-f34cc63256e0</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.PagedList</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.PagedList#0ecb339b-55e4-4bdc-877b-0a5971363dc3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Application/Common/Pagination/PagedList.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedList.cs</ProjectRelativeFilePath>
@@ -266,7 +266,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>0bea4136-3b35-4e18-9659-f34cc63256e0</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResult</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResult#2c4a5990-17a7-4dcd-a793-46ec9eb3378d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Application/Common/Pagination/PagedResult.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedResult.cs</ProjectRelativeFilePath>
@@ -274,7 +274,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>0bea4136-3b35-4e18-9659-f34cc63256e0</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResultMappingExtensions</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResultMappingExtensions#c1c495bd-dec4-4578-82e4-11c8543079cb</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Application/Common/Pagination/PagedResultMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedResultMappingExtensions.cs</ProjectRelativeFilePath>
@@ -282,7 +282,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>f8d7d222-b828-43fc-880d-b6760ffb18ca</ProjectId>
-      <CorrelationId>Intent.Application.Identity.AuthorizeAttribute</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.AuthorizeAttribute#085954e9-edaf-49c3-a0da-c37fc28f6ed7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Application/Common/Security/AuthorizeAttribute.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AuthorizeAttribute.cs</ProjectRelativeFilePath>
@@ -306,7 +306,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>35409729-3b5b-473d-be91-7ead14df8347</ProjectId>
-      <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection</CorrelationId>
+      <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection#7b77a00f-8bf0-414f-a7fe-ed1c2084bc9e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Application/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
@@ -330,7 +330,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ccdd8cc9-9d54-4d40-80c6-bc8a1d3716b0</ProjectId>
-      <CorrelationId>Intent.Entities.CollectionExtensions</CorrelationId>
+      <CorrelationId>Intent.Entities.CollectionExtensions#5282f70b-d5f2-4ed9-8307-b379a3fadb94</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Domain/Common/CollectionExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CollectionExtensions.cs</ProjectRelativeFilePath>
@@ -338,7 +338,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>8f32f271-a036-4ecf-893b-3654141625cf</ProjectId>
-      <CorrelationId>Intent.Entities.NotFoundException</CorrelationId>
+      <CorrelationId>Intent.Entities.NotFoundException#5a04194c-a20c-4311-944a-486bbd8c63dd</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Domain/Common/Exceptions/NotFoundException.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>NotFoundException.cs</ProjectRelativeFilePath>
@@ -346,7 +346,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>f3ab074f-ef89-4308-a095-ff23f1f84a28</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.UnitOfWorkInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.UnitOfWorkInterface#5cdce7c3-eede-413b-a2de-3f1e5d5e6243</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Domain/Common/Interfaces/IUnitOfWork.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IUnitOfWork.cs</ProjectRelativeFilePath>
@@ -354,7 +354,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ccdd8cc9-9d54-4d40-80c6-bc8a1d3716b0</ProjectId>
-      <CorrelationId>Intent.Entities.UpdateHelper</CorrelationId>
+      <CorrelationId>Intent.Entities.UpdateHelper#4a572280-ebf3-46fc-b593-0e5c3b3316a0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Domain/Common/UpdateHelper.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UpdateHelper.cs</ProjectRelativeFilePath>
@@ -362,7 +362,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>cb6d5540-3816-4bd4-aad9-7a89e99e182a</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface#16d0d808-0fcd-4634-a1a6-93905c73b073</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Domain/Repositories/IEFRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IEFRepository.cs</ProjectRelativeFilePath>
@@ -370,7 +370,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>cb6d5540-3816-4bd4-aad9-7a89e99e182a</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.PagedListInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.PagedListInterface#eb579a9e-9a6f-47a2-bc5f-a988e7cd3a7e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Domain/Repositories/IPagedList.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IPagedList.cs</ProjectRelativeFilePath>
@@ -378,7 +378,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>cb6d5540-3816-4bd4-aad9-7a89e99e182a</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.RepositoryInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.RepositoryInterface#f2fb62a0-f48e-4d6b-a80c-80ee7e2f8ae6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Domain/Repositories/IRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IRepository.cs</ProjectRelativeFilePath>
@@ -394,7 +394,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>e2978690-410e-465e-8a8d-0f4857d8f5c4</ProjectId>
-      <CorrelationId>Intent.Eventing.AzureServiceBus.AzureServiceBusConfiguration</CorrelationId>
+      <CorrelationId>Intent.Eventing.AzureServiceBus.AzureServiceBusConfiguration#2046d86a-4256-4258-9251-5e9e0b29bc7a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Infrastructure/Configuration/AzureServiceBusConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AzureServiceBusConfiguration.cs</ProjectRelativeFilePath>
@@ -402,7 +402,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>e2978690-410e-465e-8a8d-0f4857d8f5c4</ProjectId>
-      <CorrelationId>Intent.Eventing.AzureServiceBus.AzureServiceBusPublisherOptions</CorrelationId>
+      <CorrelationId>Intent.Eventing.AzureServiceBus.AzureServiceBusPublisherOptions#28c63fc7-6d62-418b-9b67-2e18d8fc6094</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Infrastructure/Configuration/AzureServiceBusPublisherOptions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AzureServiceBusPublisherOptions.cs</ProjectRelativeFilePath>
@@ -410,7 +410,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>e2978690-410e-465e-8a8d-0f4857d8f5c4</ProjectId>
-      <CorrelationId>Intent.Eventing.AzureServiceBus.AzureServiceBusSubscriptionOptions</CorrelationId>
+      <CorrelationId>Intent.Eventing.AzureServiceBus.AzureServiceBusSubscriptionOptions#d63e97c8-1da8-4a94-83e9-f9d6d7b33ea0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Infrastructure/Configuration/AzureServiceBusSubscriptionOptions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AzureServiceBusSubscriptionOptions.cs</ProjectRelativeFilePath>
@@ -418,7 +418,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>47888d6c-0909-42e3-b676-d7b975768601</ProjectId>
-      <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection</CorrelationId>
+      <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#19ca680e-d7fb-4281-9793-080bc3afbc3b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Infrastructure/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
@@ -426,7 +426,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>64bafc27-933b-4325-971a-685125f5d6de</ProjectId>
-      <CorrelationId>Intent.Eventing.AzureServiceBus.AzureServiceBusEventBus</CorrelationId>
+      <CorrelationId>Intent.Eventing.AzureServiceBus.AzureServiceBusEventBus#2dcf50d6-161a-460f-ab30-afc96ede7dc7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Infrastructure/Eventing/AzureServiceBusEventBus.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AzureServiceBusEventBus.cs</ProjectRelativeFilePath>
@@ -434,7 +434,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>64bafc27-933b-4325-971a-685125f5d6de</ProjectId>
-      <CorrelationId>Intent.Eventing.AzureServiceBus.AzureServiceBusMessageDispatcher</CorrelationId>
+      <CorrelationId>Intent.Eventing.AzureServiceBus.AzureServiceBusMessageDispatcher#9d65e161-a5f4-4883-ae95-b5dce063d0be</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Infrastructure/Eventing/AzureServiceBusMessageDispatcher.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AzureServiceBusMessageDispatcher.cs</ProjectRelativeFilePath>
@@ -442,7 +442,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>64bafc27-933b-4325-971a-685125f5d6de</ProjectId>
-      <CorrelationId>Intent.Eventing.AzureServiceBus.AzureServiceBusMessageDispatcherInterface</CorrelationId>
+      <CorrelationId>Intent.Eventing.AzureServiceBus.AzureServiceBusMessageDispatcherInterface#f5469664-d731-49c5-9859-d707068baf7b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Infrastructure/Eventing/IAzureServiceBusMessageDispatcher.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IAzureServiceBusMessageDispatcher.cs</ProjectRelativeFilePath>
@@ -450,7 +450,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>f12c9f2b-c1af-400a-b88e-2d904c6d8246</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe#c5e69ddb-2b5a-4df7-9fef-9005546cc4ae</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Infrastructure/Migrations/README.md</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>README.md</ProjectRelativeFilePath>
@@ -466,7 +466,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>fc809330-a78f-4d46-a560-3cbdd9fdbc37</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.RepositoryBase</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.RepositoryBase#6fd14cda-c13f-4406-9a46-0e12e394aabe</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Infrastructure/Repositories/RepositoryBase.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RepositoryBase.cs</ProjectRelativeFilePath>

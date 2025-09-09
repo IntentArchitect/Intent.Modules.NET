@@ -36,7 +36,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>af2712f5-bf0d-4c76-bcab-365e220a015b</ProjectId>
-      <CorrelationId>Intent.Application.Identity.ApplicationSecurityConfiguration</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.ApplicationSecurityConfiguration#b5246590-168d-4f49-b9f1-1cac3fcdae68</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Api/Configuration/ApplicationSecurityConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApplicationSecurityConfiguration.cs</ProjectRelativeFilePath>
@@ -44,7 +44,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>af2712f5-bf0d-4c76-bcab-365e220a015b</ProjectId>
-      <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration#befdc604-3ac4-4aaf-964f-c8e62b0c2ca2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Api/Configuration/ProblemDetailsConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ProblemDetailsConfiguration.cs</ProjectRelativeFilePath>
@@ -52,7 +52,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>af2712f5-bf0d-4c76-bcab-365e220a015b</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration#54de7286-059f-4bee-ba66-ddcefc49dea2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Api/Configuration/SwashbuckleConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SwashbuckleConfiguration.cs</ProjectRelativeFilePath>
@@ -60,7 +60,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>e6600fda-4e18-4832-af7b-734eabd30044</ProjectId>
-      <CorrelationId>Intent.Dapr.AspNetCore.Pubsub.DaprEventHandlerController</CorrelationId>
+      <CorrelationId>Intent.Dapr.AspNetCore.Pubsub.DaprEventHandlerController#17c882a5-3d1b-4ce7-b078-8ee6a7dd7f1e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Api/Controllers/DaprEventHandlerController.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DaprEventHandlerController.cs</ProjectRelativeFilePath>
@@ -68,7 +68,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>6647d19a-038b-405a-a0fb-636281d4f9fc</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter#c3d77402-cc69-40e7-ac3a-cce3297f9403</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Api/Filters/AuthorizeCheckOperationFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AuthorizeCheckOperationFilter.cs</ProjectRelativeFilePath>
@@ -76,7 +76,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>6647d19a-038b-405a-a0fb-636281d4f9fc</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.ExceptionFilter</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Controllers.ExceptionFilter#0483c844-cbef-4a33-b0e9-64e5a595feec</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Api/Filters/ExceptionFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ExceptionFilter.cs</ProjectRelativeFilePath>
@@ -84,7 +84,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>6647d19a-038b-405a-a0fb-636281d4f9fc</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter#92eb7a72-331f-4a09-a829-c8127e6bd6c4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TypeSchemaFilter.cs</ProjectRelativeFilePath>
@@ -92,7 +92,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>857e09b2-fa03-491c-969d-0baf1c39b539</ProjectId>
-      <CorrelationId>Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate</CorrelationId>
+      <CorrelationId>Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate#c236e7e4-5301-4f9c-8c60-f7013677e429</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Api/Logging/BoundedLoggingDestructuringPolicy.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>BoundedLoggingDestructuringPolicy.cs</ProjectRelativeFilePath>
@@ -100,7 +100,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>e5a755d8-c526-4b5e-8b91-06a2e8187ace</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Program</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Program#e95d2c02-91d6-4552-9566-be20fe8ec951</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Api/Program.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Program.cs</ProjectRelativeFilePath>
@@ -116,7 +116,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>44eccd8a-dda5-48cc-a9a3-1be9bdc4dcbd</ProjectId>
-      <CorrelationId>Intent.Application.Identity.CurrentUserService</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserService#d41e31a4-cb1b-4415-89d2-c334b2c2ee67</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Api/Services/CurrentUserService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CurrentUserService.cs</ProjectRelativeFilePath>
@@ -124,7 +124,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>e5a755d8-c526-4b5e-8b91-06a2e8187ace</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Startup</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Startup#3cfd166e-ae94-4668-a4b9-2313f507cc19</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Api/Startup.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Startup.cs</ProjectRelativeFilePath>
@@ -140,7 +140,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>dd65ae8d-acae-4555-af68-893ed7d51ace</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.AssemblyAttributes</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.AssemblyAttributes#30443994-2c22-45d0-adc7-6ebfa7ca0109</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Application/AssemblyAttributes.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AssemblyAttributes.cs</ProjectRelativeFilePath>
@@ -148,7 +148,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>bdd5a9e1-2664-4f8a-9bde-a8c41088326d</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.AuthorizationBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.AuthorizationBehaviour#4204a496-f0de-4f2e-b184-7cc258ac3665</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Application/Common/Behaviours/AuthorizationBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AuthorizationBehaviour.cs</ProjectRelativeFilePath>
@@ -156,7 +156,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>bdd5a9e1-2664-4f8a-9bde-a8c41088326d</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.EventBusPublishBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.EventBusPublishBehaviour#e8eb6ee5-ec64-4244-8eab-f03d543c79eb</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Application/Common/Behaviours/EventBusPublishBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>EventBusPublishBehaviour.cs</ProjectRelativeFilePath>
@@ -164,7 +164,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>bdd5a9e1-2664-4f8a-9bde-a8c41088326d</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.LoggingBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.LoggingBehaviour#5656f628-0e74-4025-9f03-26cbb5ac46ab</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Application/Common/Behaviours/LoggingBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>LoggingBehaviour.cs</ProjectRelativeFilePath>
@@ -172,7 +172,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>bdd5a9e1-2664-4f8a-9bde-a8c41088326d</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.PerformanceBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.PerformanceBehaviour#60a7a1f7-cc7b-4168-af7c-5f83a0082de7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Application/Common/Behaviours/PerformanceBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PerformanceBehaviour.cs</ProjectRelativeFilePath>
@@ -180,7 +180,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>bdd5a9e1-2664-4f8a-9bde-a8c41088326d</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour#87b5bd21-68df-4cfd-b7d5-dc302b3f5eed</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UnhandledExceptionBehaviour.cs</ProjectRelativeFilePath>
@@ -188,7 +188,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>bdd5a9e1-2664-4f8a-9bde-a8c41088326d</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour#f7620357-f82e-4ae7-9ba0-93961071237f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Application/Common/Behaviours/UnitOfWorkBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UnitOfWorkBehaviour.cs</ProjectRelativeFilePath>
@@ -196,7 +196,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>bdd5a9e1-2664-4f8a-9bde-a8c41088326d</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.FluentValidation.ValidationBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.ValidationBehaviour#89acec78-21dd-42e8-8fb6-23cf61351d20</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Application/Common/Behaviours/ValidationBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ValidationBehaviour.cs</ProjectRelativeFilePath>
@@ -204,7 +204,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>822b6ad6-f9c5-430e-b7cb-6e656fd6f0b4</ProjectId>
-      <CorrelationId>Intent.Dapr.AspNetCore.Pubsub.EventInterface</CorrelationId>
+      <CorrelationId>Intent.Dapr.AspNetCore.Pubsub.EventInterface#c8a9d844-3bc3-4bf3-a6d9-6fe2452d86c3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Application/Common/Eventing/IEvent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IEvent.cs</ProjectRelativeFilePath>
@@ -212,7 +212,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>822b6ad6-f9c5-430e-b7cb-6e656fd6f0b4</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.EventBusInterface</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.EventBusInterface#d5f470fd-7847-43f1-b651-fd493a2069a6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Application/Common/Eventing/IEventBus.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IEventBus.cs</ProjectRelativeFilePath>
@@ -220,7 +220,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>822b6ad6-f9c5-430e-b7cb-6e656fd6f0b4</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventHandlerInterface</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventHandlerInterface#13d396ae-0296-4554-b67d-f815d542ea11</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Application/Common/Eventing/IIntegrationEventHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IIntegrationEventHandler.cs</ProjectRelativeFilePath>
@@ -228,7 +228,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b0952d07-3e47-4b7a-a071-b897c594a9ad</ProjectId>
-      <CorrelationId>Intent.Application.Identity.ForbiddenAccessException</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.ForbiddenAccessException#54da72ec-4b00-403d-ac28-88423ebc3c58</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Application/Common/Exceptions/ForbiddenAccessException.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ForbiddenAccessException.cs</ProjectRelativeFilePath>
@@ -236,7 +236,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b0952d07-3e47-4b7a-a071-b897c594a9ad</ProjectId>
-      <CorrelationId>Intent.Dapr.AspNetCore.ServiceInvocation.HttpClientRequestException</CorrelationId>
+      <CorrelationId>Intent.Dapr.AspNetCore.ServiceInvocation.HttpClientRequestException#d718e892-3da2-4cdc-a037-da66371821a1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Application/Common/Exceptions/HttpClientRequestException.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>HttpClientRequestException.cs</ProjectRelativeFilePath>
@@ -244,7 +244,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b0952d07-3e47-4b7a-a071-b897c594a9ad</ProjectId>
-      <CorrelationId>Intent.Dapr.AspNetCore.ServiceInvocation.ProblemDetailsWithErrors</CorrelationId>
+      <CorrelationId>Intent.Dapr.AspNetCore.ServiceInvocation.ProblemDetailsWithErrors#9f29ed10-d93c-4648-9124-23dc1054e7cc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Application/Common/Exceptions/ProblemDetailsWithErrors.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ProblemDetailsWithErrors.cs</ProjectRelativeFilePath>
@@ -252,7 +252,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a743ab40-4f81-424e-8c76-aa5f74f0b4c4</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandInterface</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.CommandInterface#2e07299b-ff00-46ee-8939-491601cc1b57</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Application/Common/Interfaces/ICommand.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICommand.cs</ProjectRelativeFilePath>
@@ -260,7 +260,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a743ab40-4f81-424e-8c76-aa5f74f0b4c4</ProjectId>
-      <CorrelationId>Intent.Application.Identity.CurrentUserInterface</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserInterface#49dbe3d8-6388-4cc9-a766-eae055914c51</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Application/Common/Interfaces/ICurrentUser.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICurrentUser.cs</ProjectRelativeFilePath>
@@ -268,7 +268,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a743ab40-4f81-424e-8c76-aa5f74f0b4c4</ProjectId>
-      <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface#ce3b84f7-2bdd-4b79-94b2-13e2050b9608</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Application/Common/Interfaces/ICurrentUserService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICurrentUserService.cs</ProjectRelativeFilePath>
@@ -276,7 +276,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a743ab40-4f81-424e-8c76-aa5f74f0b4c4</ProjectId>
-      <CorrelationId>Intent.DomainEvents.DomainEventServiceInterface</CorrelationId>
+      <CorrelationId>Intent.DomainEvents.DomainEventServiceInterface#ea750e43-a1fe-41b8-a379-19ca6ca08314</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Application/Common/Interfaces/IDomainEventService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IDomainEventService.cs</ProjectRelativeFilePath>
@@ -284,7 +284,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a743ab40-4f81-424e-8c76-aa5f74f0b4c4</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.QueryInterface</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.QueryInterface#c461f32d-9112-4806-ad9f-4e188a3b57f7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Application/Common/Interfaces/IQuery.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IQuery.cs</ProjectRelativeFilePath>
@@ -292,7 +292,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>cecf3d3c-729b-4133-b501-0e2b79f6d56c</ProjectId>
-      <CorrelationId>Intent.Application.AutoMapper.MapFromInterface</CorrelationId>
+      <CorrelationId>Intent.Application.AutoMapper.MapFromInterface#67f49c4f-a54c-4f4f-ad97-cdf50a6871f4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Application/Common/Mappings/IMapFrom.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IMapFrom.cs</ProjectRelativeFilePath>
@@ -300,7 +300,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>cecf3d3c-729b-4133-b501-0e2b79f6d56c</ProjectId>
-      <CorrelationId>Intent.Application.AutoMapper.MappingProfile</CorrelationId>
+      <CorrelationId>Intent.Application.AutoMapper.MappingProfile#caf43db6-707e-41b1-96de-740b77f21bea</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Application/Common/Mappings/MappingProfile.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MappingProfile.cs</ProjectRelativeFilePath>
@@ -308,7 +308,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ce4aa626-bfe2-4b93-8bae-f8ba5174e5a3</ProjectId>
-      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventNotification</CorrelationId>
+      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventNotification#2fa0aabe-296c-42a9-a26c-e575ca4fdab3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Application/Common/Models/DomainEventNotification.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEventNotification.cs</ProjectRelativeFilePath>
@@ -316,7 +316,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ce4aa626-bfe2-4b93-8bae-f8ba5174e5a3</ProjectId>
-      <CorrelationId>Intent.Application.Identity.ResultModel</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.ResultModel#f6260e69-7bd0-400c-bfba-94f7543eb451</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Application/Common/Models/Result.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Result.cs</ProjectRelativeFilePath>
@@ -324,7 +324,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>0369fb43-9029-4fff-bde7-1cc3f682d6d5</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.PagedList</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.PagedList#c6b2a243-d8dc-49ca-bcc0-39e433f00420</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Application/Common/Pagination/PagedList.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedList.cs</ProjectRelativeFilePath>
@@ -332,7 +332,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>0369fb43-9029-4fff-bde7-1cc3f682d6d5</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResult</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResult#aa23faa9-17d6-4b9e-9d1c-f868222277c7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Application/Common/Pagination/PagedResult.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedResult.cs</ProjectRelativeFilePath>
@@ -340,7 +340,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>0369fb43-9029-4fff-bde7-1cc3f682d6d5</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResultMappingExtensions</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResultMappingExtensions#7635a02e-8866-4d60-a212-4f6e5ef2f965</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Application/Common/Pagination/PagedResultMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedResultMappingExtensions.cs</ProjectRelativeFilePath>
@@ -348,7 +348,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>76228523-f2f9-4868-ae10-383c3061a10a</ProjectId>
-      <CorrelationId>Intent.Application.Identity.AuthorizeAttribute</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.AuthorizeAttribute#c34e3fc6-c19b-45f7-a409-caa45124b2e6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Application/Common/Security/AuthorizeAttribute.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AuthorizeAttribute.cs</ProjectRelativeFilePath>
@@ -356,7 +356,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>91ab93c5-df21-452b-beeb-940fad4e99eb</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface</CorrelationId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface#e96c8df6-daae-4a28-b1f2-b64e3be5fbe7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Application/Common/Validation/IValidatorProvider.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IValidatorProvider.cs</ProjectRelativeFilePath>
@@ -364,7 +364,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>91ab93c5-df21-452b-beeb-940fad4e99eb</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProvider</CorrelationId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProvider#3533cb59-1377-4087-a752-15648af728cd</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Application/Common/Validation/ValidatorProvider.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ValidatorProvider.cs</ProjectRelativeFilePath>
@@ -372,7 +372,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>dd65ae8d-acae-4555-af68-893ed7d51ace</ProjectId>
-      <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection</CorrelationId>
+      <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection#c3a67fb9-2e5c-4563-83fe-26eb99bdcfa7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Application/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
@@ -436,7 +436,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>c5217d9a-fbf2-4bd6-ae68-15df0bc8d7a8</ProjectId>
-      <CorrelationId>Intent.Entities.CollectionExtensions</CorrelationId>
+      <CorrelationId>Intent.Entities.CollectionExtensions#1360f01b-824d-4d0d-8d61-09387e6e3b79</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Domain/Common/CollectionExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CollectionExtensions.cs</ProjectRelativeFilePath>
@@ -444,7 +444,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>c5217d9a-fbf2-4bd6-ae68-15df0bc8d7a8</ProjectId>
-      <CorrelationId>Intent.DomainEvents.DomainEventBase</CorrelationId>
+      <CorrelationId>Intent.DomainEvents.DomainEventBase#76a6026f-14a2-4510-bff9-4f55f06b4086</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Domain/Common/DomainEvent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEvent.cs</ProjectRelativeFilePath>
@@ -452,7 +452,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>4ebc72aa-c0d6-443b-bf9b-b81d4391ffb7</ProjectId>
-      <CorrelationId>Intent.Entities.NotFoundException</CorrelationId>
+      <CorrelationId>Intent.Entities.NotFoundException#a5e1112d-662f-4d48-948b-b43d23a03059</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Domain/Common/Exceptions/NotFoundException.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>NotFoundException.cs</ProjectRelativeFilePath>
@@ -460,7 +460,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>c5217d9a-fbf2-4bd6-ae68-15df0bc8d7a8</ProjectId>
-      <CorrelationId>Intent.DomainEvents.HasDomainEventInterface</CorrelationId>
+      <CorrelationId>Intent.DomainEvents.HasDomainEventInterface#674a35c5-e9e5-4013-93c6-4b15b2938cd4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Domain/Common/IHasDomainEvent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IHasDomainEvent.cs</ProjectRelativeFilePath>
@@ -468,7 +468,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>fcbf2061-f3c4-43f0-b474-ba9f068e8c80</ProjectId>
-      <CorrelationId>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreUnitOfWorkInterface</CorrelationId>
+      <CorrelationId>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreUnitOfWorkInterface#b512e699-33d7-4dc8-9f2b-2e981502a6d8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Domain/Common/Interfaces/IDaprStateStoreUnitOfWork.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IDaprStateStoreUnitOfWork.cs</ProjectRelativeFilePath>
@@ -476,7 +476,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>fcbf2061-f3c4-43f0-b474-ba9f068e8c80</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.UnitOfWorkInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.UnitOfWorkInterface#fb5809e3-5f86-4222-9630-03501ec1101d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Domain/Common/Interfaces/IUnitOfWork.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IUnitOfWork.cs</ProjectRelativeFilePath>
@@ -484,7 +484,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>c5217d9a-fbf2-4bd6-ae68-15df0bc8d7a8</ProjectId>
-      <CorrelationId>Intent.Entities.UpdateHelper</CorrelationId>
+      <CorrelationId>Intent.Entities.UpdateHelper#5c315801-3d70-465d-a000-ad117874bce9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Domain/Common/UpdateHelper.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UpdateHelper.cs</ProjectRelativeFilePath>
@@ -492,7 +492,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>36985ab8-5d90-47d7-9502-4d286ced9074</ProjectId>
-      <CorrelationId>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreGenericRepositoryInterface</CorrelationId>
+      <CorrelationId>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreGenericRepositoryInterface#f185448f-e5cd-4b59-8d6a-abdc96e2208c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Domain/Repositories/IDaprStateStoreGenericRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IDaprStateStoreGenericRepository.cs</ProjectRelativeFilePath>
@@ -500,7 +500,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>36985ab8-5d90-47d7-9502-4d286ced9074</ProjectId>
-      <CorrelationId>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreRepositoryInterface</CorrelationId>
+      <CorrelationId>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreRepositoryInterface#2f789195-900a-44d1-8788-9f2ab2af6aaa</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Domain/Repositories/IDaprStateStoreRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IDaprStateStoreRepository.cs</ProjectRelativeFilePath>
@@ -508,7 +508,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>36985ab8-5d90-47d7-9502-4d286ced9074</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface#a2584298-e17b-419f-a1c7-307f0dfad25a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Domain/Repositories/IEFRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IEFRepository.cs</ProjectRelativeFilePath>
@@ -516,7 +516,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>36985ab8-5d90-47d7-9502-4d286ced9074</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.PagedListInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.PagedListInterface#a380de2c-9f94-44e5-9ec0-6d0008d18f25</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Domain/Repositories/IPagedList.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IPagedList.cs</ProjectRelativeFilePath>
@@ -524,7 +524,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>36985ab8-5d90-47d7-9502-4d286ced9074</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.RepositoryInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.RepositoryInterface#f43fb6ed-edd1-4f1d-9320-d21757830045</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Domain/Repositories/IRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IRepository.cs</ProjectRelativeFilePath>
@@ -540,7 +540,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>1548fdee-e410-4d1f-8674-057546f3205b</ProjectId>
-      <CorrelationId>Intent.Dapr.AspNetCore.ServiceInvocation.HttpClientConfigurationTemplate</CorrelationId>
+      <CorrelationId>Intent.Dapr.AspNetCore.ServiceInvocation.HttpClientConfigurationTemplate#c703c56e-a7db-4fc0-af63-81846d92772c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Infrastructure/Configuration/HttpClientConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>HttpClientConfiguration.cs</ProjectRelativeFilePath>
@@ -548,7 +548,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9a02c2c1-32c1-4dfa-ad06-519222669804</ProjectId>
-      <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection</CorrelationId>
+      <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#cd5d736c-11ad-4d5b-9ea2-071261fe50b8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Infrastructure/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
@@ -556,7 +556,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b8372eb4-42cd-46f2-809b-f4c4d4be94ac</ProjectId>
-      <CorrelationId>Intent.Dapr.AspNetCore.Pubsub.EventBusImplementation</CorrelationId>
+      <CorrelationId>Intent.Dapr.AspNetCore.Pubsub.EventBusImplementation#d30a16ca-052a-493c-9b31-d99725e606e9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Infrastructure/Eventing/EventBusImplementation.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>EventBusImplementation.cs</ProjectRelativeFilePath>
@@ -564,7 +564,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>54734a52-c6e1-455b-999d-adfcf47a3b51</ProjectId>
-      <CorrelationId>Intent.Dapr.AspNetCore.ServiceInvocation.HttpClientDaprHandlerTemplate</CorrelationId>
+      <CorrelationId>Intent.Dapr.AspNetCore.ServiceInvocation.HttpClientDaprHandlerTemplate#f5cfcdd0-ccf4-43ad-8e54-be43d2eb1de8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Infrastructure/HttpClients/HttpClientDaprExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>HttpClientDaprExtensions.cs</ProjectRelativeFilePath>
@@ -572,7 +572,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>54734a52-c6e1-455b-999d-adfcf47a3b51</ProjectId>
-      <CorrelationId>Intent.Dapr.AspNetCore.ServiceInvocation.HttpClientHeaderHandlerTemplate</CorrelationId>
+      <CorrelationId>Intent.Dapr.AspNetCore.ServiceInvocation.HttpClientHeaderHandlerTemplate#a5d5aa98-cf99-4886-bb9c-b1920081c732</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Infrastructure/HttpClients/HttpClientHeaderHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>HttpClientHeaderHandler.cs</ProjectRelativeFilePath>
@@ -588,7 +588,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5d92d9fc-d29f-4d21-ad09-c23788a77d39</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe#ac95790a-2c66-4161-be15-5a426c5dd172</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Infrastructure/Migrations/README.md</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>README.md</ProjectRelativeFilePath>
@@ -604,7 +604,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>e1b7c2a1-0a11-47ab-9fce-c37ffb96e6cc</ProjectId>
-      <CorrelationId>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreUnitOfWork</CorrelationId>
+      <CorrelationId>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreUnitOfWork#45007287-92b9-4287-959d-db9c43c82129</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Infrastructure/Persistence/DaprStateStoreUnitOfWork.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DaprStateStoreUnitOfWork.cs</ProjectRelativeFilePath>
@@ -612,7 +612,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>eff84497-df60-4915-aa9e-9aeecf2b71af</ProjectId>
-      <CorrelationId>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreGenericRepository</CorrelationId>
+      <CorrelationId>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreGenericRepository#94c1c0b9-b832-43f5-a41d-9112e25c3315</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Infrastructure/Repositories/DaprStateStoreGenericRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DaprStateStoreGenericRepository.cs</ProjectRelativeFilePath>
@@ -620,7 +620,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>eff84497-df60-4915-aa9e-9aeecf2b71af</ProjectId>
-      <CorrelationId>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreRepositoryBase</CorrelationId>
+      <CorrelationId>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreRepositoryBase#f9c8e4d3-c0d8-458d-9739-e19f59215d8c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Infrastructure/Repositories/DaprStateStoreRepositoryBase.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DaprStateStoreRepositoryBase.cs</ProjectRelativeFilePath>
@@ -628,7 +628,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>eff84497-df60-4915-aa9e-9aeecf2b71af</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.RepositoryBase</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.RepositoryBase#6179f9ae-bce4-437c-9ad6-d38a05d114e8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Infrastructure/Repositories/RepositoryBase.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RepositoryBase.cs</ProjectRelativeFilePath>
@@ -636,7 +636,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>72ec705d-32fb-4e61-b616-075c344f71e8</ProjectId>
-      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventService</CorrelationId>
+      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventService#7d482fb8-63ff-438a-b0c8-1d29b266de48</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Infrastructure/Services/DomainEventService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEventService.cs</ProjectRelativeFilePath>

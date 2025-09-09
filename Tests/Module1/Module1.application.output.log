@@ -10,7 +10,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5e04705c-a13b-49a4-9be8-672c09aaf56a</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.EventBusInterface</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.EventBusInterface#d1b3a5b8-6af7-44f9-9071-bf8689625cb3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Intent.Modules.NET.Tests.Application.Core/Common/Eventing/IEventBus.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IEventBus.cs</ProjectRelativeFilePath>
@@ -18,7 +18,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5e04705c-a13b-49a4-9be8-672c09aaf56a</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventHandlerInterface</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventHandlerInterface#a1d1fe7d-c504-47a0-a9f4-e7d1e5cb609c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Intent.Modules.NET.Tests.Application.Core/Common/Eventing/IIntegrationEventHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IIntegrationEventHandler.cs</ProjectRelativeFilePath>
@@ -26,7 +26,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>840fd6d4-b161-4af9-bcf5-6372092ac050</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandInterface</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.CommandInterface#c5a5da08-605e-444c-8cd3-2f3bad40f262</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Intent.Modules.NET.Tests.Application.Core/Common/Interfaces/ICommand.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICommand.cs</ProjectRelativeFilePath>
@@ -34,7 +34,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>840fd6d4-b161-4af9-bcf5-6372092ac050</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.QueryInterface</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.QueryInterface#8c74109c-871e-4608-9973-a4d0ad19b998</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Intent.Modules.NET.Tests.Application.Core/Common/Interfaces/IQuery.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IQuery.cs</ProjectRelativeFilePath>
@@ -42,7 +42,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>75eab263-fce9-4618-a3f9-ce6e15eb461c</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResult</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResult#2d18ba30-4a8b-406a-b399-fc48260515a3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Intent.Modules.NET.Tests.Application.Core/Common/Pagination/PagedResult.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedResult.cs</ProjectRelativeFilePath>
@@ -58,7 +58,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>8631e4d9-a639-48c2-8aab-16f2d8719e49</ProjectId>
-      <CorrelationId>Intent.Entities.NotFoundException</CorrelationId>
+      <CorrelationId>Intent.Entities.NotFoundException#25a445a9-ff7e-48cb-97d2-5ef7a2142d03</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Intent.Modules.NET.Tests.Domain.Core/Common/Exceptions/NotFoundException.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>NotFoundException.cs</ProjectRelativeFilePath>
@@ -82,7 +82,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>55c8cc86-3c93-4b9a-9328-aac6327d855e</ProjectId>
-      <CorrelationId>Intent.ModularMonolith.Host.ModuleConfiguration</CorrelationId>
+      <CorrelationId>Intent.ModularMonolith.Host.ModuleConfiguration#f5212003-ea72-43bc-a6b2-4a38c9d962aa</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Intent.Modules.NET.Tests.Host/Configuration/ModuleInstallerFactory.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ModuleInstallerFactory.cs</ProjectRelativeFilePath>
@@ -106,7 +106,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>08906b70-f48c-4dfd-b686-6583339ef0da</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.MassTransitEventBus</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.MassTransitEventBus#7a4be017-e601-48ef-ab19-a43411a694af</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Intent.Modules.NET.Tests.Infrastructure.Core/Eventing/MassTransitEventBus.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MassTransitEventBus.cs</ProjectRelativeFilePath>
@@ -144,7 +144,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>69a5a1dd-d8ee-4863-b44c-47bbb821ffa4</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.JsonResponse</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Controllers.JsonResponse#a297156d-2815-4583-85ce-9261a3b295b9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Api/Controllers/ResponseTypes/JsonResponse.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>JsonResponse.cs</ProjectRelativeFilePath>
@@ -160,7 +160,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>0686ac53-f990-474b-b664-af4d8ce0d03a</ProjectId>
-      <CorrelationId>Intent.ModularMonolith.Module.ModuleInstallerTemplate</CorrelationId>
+      <CorrelationId>Intent.ModularMonolith.Module.ModuleInstallerTemplate#02039625-fe67-4842-b8b6-22eeeba1bbeb</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Api/ModuleInstaller.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ModuleInstaller.cs</ProjectRelativeFilePath>
@@ -344,7 +344,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>7be30d9c-a356-49e3-8df3-a0eeba8cc517</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.AssemblyAttributes</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.AssemblyAttributes#80ad1c32-f8ad-4775-ac7f-83c211c3ba3d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/AssemblyAttributes.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AssemblyAttributes.cs</ProjectRelativeFilePath>
@@ -352,7 +352,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>0f73c998-d69c-4d23-b338-7fbe55795921</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.FluentValidation.ValidationBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.ValidationBehaviour#9bacc690-a16d-4675-9cb9-dc67622e555b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Common/Behaviours/ValidationBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ValidationBehaviour.cs</ProjectRelativeFilePath>
@@ -360,7 +360,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>fd217d19-d8d0-43e5-a7a2-cd6cf005a28c</ProjectId>
-      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventNotification</CorrelationId>
+      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventNotification#5a47ecb2-ce53-42f1-9e73-7c42f11296dd</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Common/Models/DomainEventNotification.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEventNotification.cs</ProjectRelativeFilePath>
@@ -368,7 +368,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a867072d-1342-41bd-ac90-01b19f257d29</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.PagedList</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.PagedList#cbceeabd-7643-40b6-8d5b-b5d4f65afe27</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Common/Pagination/PagedList.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedList.cs</ProjectRelativeFilePath>
@@ -376,7 +376,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>e8068b74-4e90-4ff6-8950-1b02d5a938fc</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationServiceInterface</CorrelationId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationServiceInterface#a68b84eb-8567-4f02-a6c8-829a740200bd</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Common/Validation/IValidationService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IValidationService.cs</ProjectRelativeFilePath>
@@ -384,7 +384,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>e8068b74-4e90-4ff6-8950-1b02d5a938fc</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface</CorrelationId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface#df6408d8-1908-428e-82f8-3158dd20794f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Common/Validation/IValidatorProvider.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IValidatorProvider.cs</ProjectRelativeFilePath>
@@ -392,7 +392,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>e8068b74-4e90-4ff6-8950-1b02d5a938fc</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationService</CorrelationId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationService#ae11537e-08cc-407f-8906-48509f09029c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Common/Validation/ValidationService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ValidationService.cs</ProjectRelativeFilePath>
@@ -400,7 +400,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>e8068b74-4e90-4ff6-8950-1b02d5a938fc</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProvider</CorrelationId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProvider#6ad7eec6-7150-4f72-84a0-6856d6d9b3ab</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Common/Validation/ValidatorProvider.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ValidatorProvider.cs</ProjectRelativeFilePath>
@@ -488,7 +488,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>7be30d9c-a356-49e3-8df3-a0eeba8cc517</ProjectId>
-      <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection</CorrelationId>
+      <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection#5628e416-c048-4649-88e1-58a018ee34c0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
@@ -520,7 +520,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>f074b538-7d85-433c-8e3a-1fcb7bfefe6a</ProjectId>
-      <CorrelationId>Intent.DomainEvents.DomainEventServiceInterface</CorrelationId>
+      <CorrelationId>Intent.DomainEvents.DomainEventServiceInterface#bfe5c3f5-e5fe-4d14-8dfd-5a3929245389</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Interfaces/IDomainEventService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IDomainEventService.cs</ProjectRelativeFilePath>
@@ -576,7 +576,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>7be30d9c-a356-49e3-8df3-a0eeba8cc517</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResultMappingExtensions</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResultMappingExtensions#30aa216c-4d4c-43ae-8b5d-06bd56eef7a8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/PagedResultMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedResultMappingExtensions.cs</ProjectRelativeFilePath>
@@ -672,7 +672,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a4f91465-a0e4-40af-9855-7f6b78f8d810</ProjectId>
-      <CorrelationId>Intent.Entities.CollectionExtensions</CorrelationId>
+      <CorrelationId>Intent.Entities.CollectionExtensions#30f6d413-ad0e-4fba-a1db-10b1c8a6f1b1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Domain/Common/CollectionExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CollectionExtensions.cs</ProjectRelativeFilePath>
@@ -680,7 +680,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a4f91465-a0e4-40af-9855-7f6b78f8d810</ProjectId>
-      <CorrelationId>Intent.DomainEvents.DomainEventBase</CorrelationId>
+      <CorrelationId>Intent.DomainEvents.DomainEventBase#a7105adb-00ad-4445-adc3-ab2b59ecdb20</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Domain/Common/DomainEvent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEvent.cs</ProjectRelativeFilePath>
@@ -688,7 +688,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a4f91465-a0e4-40af-9855-7f6b78f8d810</ProjectId>
-      <CorrelationId>Intent.DomainEvents.HasDomainEventInterface</CorrelationId>
+      <CorrelationId>Intent.DomainEvents.HasDomainEventInterface#2327b7c2-3730-4514-99a2-3333dc1366a6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Domain/Common/IHasDomainEvent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IHasDomainEvent.cs</ProjectRelativeFilePath>
@@ -696,7 +696,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>811538cb-bacf-4459-9d55-7bdbfa81d35a</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.UnitOfWorkInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.UnitOfWorkInterface#a98a1bd4-b98d-4c13-93bf-bd21c03dc82b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Domain/Common/Interfaces/IUnitOfWork.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IUnitOfWork.cs</ProjectRelativeFilePath>
@@ -704,7 +704,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a4f91465-a0e4-40af-9855-7f6b78f8d810</ProjectId>
-      <CorrelationId>Intent.Entities.UpdateHelper</CorrelationId>
+      <CorrelationId>Intent.Entities.UpdateHelper#ade58498-f219-45ee-af4b-3ae77e55aeb6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Domain/Common/UpdateHelper.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UpdateHelper.cs</ProjectRelativeFilePath>
@@ -768,7 +768,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>d68887cb-9c71-4e07-a8a5-2c7b004d7e2d</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface#3dec6452-5d0f-49e3-a3ec-fedaa5bfab4e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Domain/Repositories/IEFRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IEFRepository.cs</ProjectRelativeFilePath>
@@ -784,7 +784,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>d68887cb-9c71-4e07-a8a5-2c7b004d7e2d</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.PagedListInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.PagedListInterface#a7568cb0-6a22-4b7d-b36d-aac129677e04</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Domain/Repositories/IPagedList.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IPagedList.cs</ProjectRelativeFilePath>
@@ -800,7 +800,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>d68887cb-9c71-4e07-a8a5-2c7b004d7e2d</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.RepositoryInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.RepositoryInterface#915737a6-7062-4535-90b4-2cd7eb1dd6c5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Domain/Repositories/IRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IRepository.cs</ProjectRelativeFilePath>
@@ -808,7 +808,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>bcf9a9fa-ec71-468b-9e68-be47f815238f</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.MassTransitConfiguration</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.MassTransitConfiguration#dca9fa0d-111c-4858-b3fe-2c78d4aa84c8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Infrastructure/Configuration/MassTransitConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MassTransitConfiguration.cs</ProjectRelativeFilePath>
@@ -816,7 +816,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>fb7214f9-ab4f-4419-ac71-a3f347b74160</ProjectId>
-      <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection</CorrelationId>
+      <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#c2a845c2-3640-41b0-b8c3-39730baecaa9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Infrastructure/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
@@ -824,7 +824,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>cc8f54d8-d3ef-4b4a-816d-ba93be540dcb</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventConsumer</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventConsumer#eecc11e2-f698-4ce9-927f-97d9b2cd7c01</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Infrastructure/Eventing/IntegrationEventConsumer.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IntegrationEventConsumer.cs</ProjectRelativeFilePath>
@@ -840,7 +840,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>dda00c0b-3e5a-4063-941d-2ef0f3fef475</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe#5b4a38a4-53f7-4629-86a2-f0e4705875e4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Infrastructure/Migrations/README.md</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>README.md</ProjectRelativeFilePath>
@@ -904,7 +904,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>1dac7e35-7cb0-4278-ad00-c33a8720086e</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.RepositoryBase</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.RepositoryBase#d943ea02-883f-421d-a0b5-88c9899f3b18</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Infrastructure/Repositories/RepositoryBase.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RepositoryBase.cs</ProjectRelativeFilePath>
@@ -912,7 +912,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>bb99e9b0-0da2-4c17-98d7-d7c31fa4d4fd</ProjectId>
-      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventService</CorrelationId>
+      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventService#3bcb1ecc-33bd-42fc-91bb-2ee4ea99d7f0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Infrastructure/Services/DomainEventService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEventService.cs</ProjectRelativeFilePath>
