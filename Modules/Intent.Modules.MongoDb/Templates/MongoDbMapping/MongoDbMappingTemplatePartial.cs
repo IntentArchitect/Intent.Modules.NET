@@ -26,6 +26,7 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbMapping
                 .AddUsing("MongoDB.Bson.Serialization")
                 .AddUsing("MongoDB.Bson.Serialization.IdGenerators")
                 .AddUsing("MongoDB.Bson.Serialization.Serializers")
+                .AddUsing("MongoDB.Bson")
                 .AddClass($"{Model.Name}Mapping", @class =>
                 {
                     @class.ImplementsInterface($"{GetTypeName(MongoMappingConfigurationInterface.MongoMappingConfigurationInterfaceTemplate.TemplateId)}<{Model.Name}>");
@@ -50,7 +51,7 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbMapping
                                         block.AddInvocationStatement("mapping.MapIdMember", s => s.AddArgument($"x => x.{pkAttribute.Name}")
                                         .AddInvocation("SetIdGenerator", si => si.AddArgument("StringObjectIdGenerator.Instance"))
                                         .AddInvocation("SetSerializer", si => si.AddArgument("new StringSerializer(MongoDB.Bson.BsonType.ObjectId)")));
-                                    }else if (pkType == "guid")
+                                    }else if (pkType == "Guid")
                                     {
                                         block.AddInvocationStatement("mapping.MapIdMember", s => s.AddArgument($"x => x.{pkAttribute.Name}")
                                         .AddInvocation("SetIdGenerator", si => si.AddArgument("CombGuidGenerator.Instance"))
