@@ -59,10 +59,10 @@ namespace Intent.Modules.Entities.BasicAuditing.FactoryExtensions
                 var normalSaveChanges = dbContext.GetSaveChangesMethod();
 
                 asyncSaveChanges?.FindStatement(s => s.HasMetadata("save-changes"))
-                    ?.InsertAbove("SetAuditableFields();");
+                    ?.InsertAbove("await SetAuditableFieldsAsync();");
 
                 normalSaveChanges?.FindStatement(s => s.HasMetadata("save-changes"))
-                    ?.InsertAbove("SetAuditableFields();");
+                    ?.InsertAbove("SetAuditableFieldsAsync().GetAwaiter().GetResult();");
             }, 100);
         }
 
@@ -137,8 +137,9 @@ namespace Intent.Modules.Entities.BasicAuditing.FactoryExtensions
         {
             var auditableTypeName = template.GetAuditableInterfaceName();
 
-            priClass.AddMethod("void", "SetAuditableFields", method =>
+            priClass.AddMethod(template.UseType("System.Threading.Tasks.Task"), "SetAuditableFieldsAsync", method =>
             {
+                method.Async();
                 method.Private();
                 method.AddMethodChainStatement("var auditableEntries = ChangeTracker.Entries()", chain =>
                 {
@@ -164,15 +165,15 @@ namespace Intent.Modules.Entities.BasicAuditing.FactoryExtensions
                 switch (template.ExecutionContext.Settings.GetBasicAuditing().UserIdentityToAudit().AsEnum())
                 {
                     case Settings.BasicAuditing.UserIdentityToAuditOptionsEnum.UserName:
-                        userIdentityProperty = "GetAsync()?.GetAwaiter().GetResult()?.Name";
+                        userIdentityProperty = "Name";
                         break;
                     case Settings.BasicAuditing.UserIdentityToAuditOptionsEnum.UserId:
                     default:
-                        userIdentityProperty = "GetAsync()?.GetAwaiter().GetResult()?.Id";
+                        userIdentityProperty = "Id";
                         break;
                 }
                 method.AddStatement(
-                    $"var userIdentifier = _currentUserService.{userIdentityProperty} ?? throw new InvalidOperationException(\"{userIdentityProperty} is null\");",
+                    $"var userIdentifier = (await _currentUserService.GetAsync())?.{userIdentityProperty} ?? throw new InvalidOperationException(\"{userIdentityProperty} is null\");",
                     s => s.SeparatedFromPrevious());
                 method.AddStatement(
                     "var timestamp = DateTimeOffset.UtcNow;");

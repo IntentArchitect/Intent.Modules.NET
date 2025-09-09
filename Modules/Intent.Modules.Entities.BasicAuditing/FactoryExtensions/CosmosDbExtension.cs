@@ -67,18 +67,18 @@ namespace Intent.Modules.Entities.BasicAuditing.FactoryExtensions
                     switch (template.ExecutionContext.Settings.GetBasicAuditing().UserIdentityToAudit().AsEnum())
                     {
                         case Settings.BasicAuditing.UserIdentityToAuditOptionsEnum.UserName:
-                            userIdentityProperty = "UserName";
+                            userIdentityProperty = "Name";
                             break;
                         case Settings.BasicAuditing.UserIdentityToAuditOptionsEnum.UserId:
                         default:
-                            userIdentityProperty = "UserId";
+                            userIdentityProperty = "Id";
                             break;
                     }
 
                     method.Private();
                     method.AddStatements(new[]
                     {
-                        $"var userIdentifier = _currentUserService.{userIdentityProperty} ?? throw new InvalidOperationException(\"{userIdentityProperty} is null\");",
+                        $"var userIdentifier = _currentUserService.GetAsync().GetAwaiter().GetResult()?.{userIdentityProperty} ?? throw new InvalidOperationException(\"{userIdentityProperty} is null\");",
                         "var timestamp = DateTimeOffset.UtcNow;",
                         "",
                         "return (userIdentifier, timestamp);"
