@@ -16,8 +16,8 @@ using Intent.Templates;
 
 namespace Intent.Modules.EntityFrameworkCore.Templates.DbMigrationsReadMe
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    partial class DbMigrationsReadMeTemplate : IntentTemplateBase<object>
+    [IntentManaged(Mode.Merge)]
+    partial class DbMigrationsReadMeTemplate : IntentTemplateBase<object>, IHasNugetDependencies
     {
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.EntityFrameworkCore.DbMigrationsReadMe";

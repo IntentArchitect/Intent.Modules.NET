@@ -1,3 +1,7 @@
+### Version 5.0.30
+
+- Fixed: Missing required NuGet references now correctly added.
+
 ### Version 5.0.29
 
 - Improvement: Updated NuGet package versions.
