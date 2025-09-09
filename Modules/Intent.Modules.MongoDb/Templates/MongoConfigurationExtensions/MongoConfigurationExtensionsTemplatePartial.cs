@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -9,9 +12,6 @@ using Intent.Modules.MongoDb.Templates.MongoDbMapping;
 using Intent.Modules.MongoDb.Templates.MongoDbRepository;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -27,6 +27,8 @@ namespace Intent.Modules.MongoDb.Templates.MongoConfigurationExtensions
         public MongoConfigurationExtensionsTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddUsing("Microsoft.Extensions.DependencyInjection")
+                .AddUsing("MongoDB.Driver")
                 .AddClass($"MongoConfigurationExtensions", @class =>
                 {
                     @class.Static().Internal();

@@ -36,6 +36,9 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepository
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System.Linq.Expressions")
+                .AddUsing("System.Linq")
+                .AddUsing("System.Threading.Tasks")
+                .AddUsing("System.Collections.Generic")
                 .AddUsing("System")
                 .AddClass($"{Model.Name}MongoRepository", @class =>
                 {

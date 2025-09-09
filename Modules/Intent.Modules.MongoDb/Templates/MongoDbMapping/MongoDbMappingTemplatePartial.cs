@@ -44,15 +44,37 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbMapping
                                     block.AddStatement($"mapping.SetDiscriminator(nameof({Model.Name}));");
 
                                     var pkAttribute = Model.GetPrimaryKeyAttribute();
-
-                                    block.AddInvocationStatement("mapping.MapIdMember", s => s.AddArgument($"x => x.{pkAttribute.Name}")
+                                    var pkType = GetPKType(pkAttribute);
+                                    if (pkType == "string")
+                                    {
+                                        block.AddInvocationStatement("mapping.MapIdMember", s => s.AddArgument($"x => x.{pkAttribute.Name}")
                                         .AddInvocation("SetIdGenerator", si => si.AddArgument("StringObjectIdGenerator.Instance"))
                                         .AddInvocation("SetSerializer", si => si.AddArgument("new StringSerializer(MongoDB.Bson.BsonType.ObjectId)")));
+                                    }else if (pkType == "guid")
+                                    {
+                                        block.AddInvocationStatement("mapping.MapIdMember", s => s.AddArgument($"x => x.{pkAttribute.Name}")
+                                        .AddInvocation("SetIdGenerator", si => si.AddArgument("CombGuidGenerator.Instance"))
+                                        .AddInvocation("SetSerializer", si => si.AddArgument("new GuidSerializer(GuidRepresentation.Standard)")));
+                                    }
+                                    else
+                                    {
+                                        block.AddInvocationStatement("mapping.MapIdMember", s => s.AddArgument($"x => x.{pkAttribute.Name}"));
+                                    }
                                 });
                             });
                         });
                     });
                 });
+        }
+
+        internal string GetPKType(AttributeModel pkAttribute)
+        {
+            if (pkAttribute.Id != pkAttribute.Id)
+            {
+                return $"({GetTypeName(pkAttribute)} {pkAttribute.Name.ToPascalCase()},{GetTypeName(pkAttribute)} {pkAttribute.Name.ToPascalCase()})";
+            }
+
+            return GetTypeName(pkAttribute);
         }
 
         [IntentManaged(Mode.Fully)]

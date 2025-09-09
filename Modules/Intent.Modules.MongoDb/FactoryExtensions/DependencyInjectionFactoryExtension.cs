@@ -11,6 +11,7 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.MongoDb.Settings;
 using Intent.Modules.MongoDb.Templates;
+using Intent.Modules.MongoDb.Templates.MongoConfigurationExtensions;
 using Intent.Modules.MongoDb.Templates.MongoDbUnitOfWorkInterface;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
@@ -40,6 +41,10 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
             dependencyInjection.CSharpFile.AfterBuild(file =>
             {
                 file.AddUsing("MongoDB.Driver");
+                file.AddUsing("Microsoft.Extensions.DependencyInjection.Extensions");
+                file.AddUsing("System");
+
+                dependencyInjection.GetTypeName(MongoConfigurationExtensionsTemplate.TemplateId);
 
                 var method = file.Classes.First().FindMethod("AddInfrastructure");
 
