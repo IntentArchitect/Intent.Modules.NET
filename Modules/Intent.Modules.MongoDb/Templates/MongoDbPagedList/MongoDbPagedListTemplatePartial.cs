@@ -43,7 +43,6 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbPagedList
                     }
 
                     @class
-                        .AddGenericParameter("TDocument", out var tDocument)
                         .WithBaseType($"List<{tDomain}>")
                         .ImplementsInterface($"{this.GetPagedResultInterfaceName()}<{tDomain}>")
                         .AddGenericTypeConstraint(tDomain, c => c
@@ -64,10 +63,6 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbPagedList
                     var tDomainStateConstraint = createEntityInterfaces
                         ? $", {tDomainState}"
                         : string.Empty;
-                    @class
-                        .AddGenericTypeConstraint(tDocument, c => c
-                            .AddType($"{this.GetMongoDbDocumentOfTInterfaceName()}<{tDomain}{tDomainStateConstraint}, {tDocument}, {tIdentifier}>"))
-                        ;
 
                     @class.AddProperty("int", "TotalCount", prop => prop.PrivateSetter());
                     @class.AddProperty("int", "PageCount", prop => prop.PrivateSetter());
@@ -107,7 +102,7 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbPagedList
                     {
                         method.Static().Async();
 
-                        method.AddParameter($"IQueryable<{tDocument}>", "source")
+                        method.AddParameter($"IQueryable<{tDomain}>", "source")
                             .AddParameter("int", "pageNo")
                             .AddParameter("int", "pageSize")
                             .AddParameter("CancellationToken", "cancellationToken", c => c.WithDefaultValue("default"));
@@ -115,7 +110,7 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbPagedList
                         method.AddStatement("var count = await source.CountAsync(cancellationToken);");
                         method.AddStatement("var skip = ((pageNo - 1) * pageSize);");
                         method.AddStatement("var results = await source.Skip(skip).Take(pageSize).ToListAsync(cancellationToken);");
-                        method.AddStatement($"return new MongoPagedList<{tDomain}, {tDocument}, {tIdentifier}>(count, pageNo, pageSize, results.Select(x => x.ToEntity()).ToList());");
+                        method.AddStatement($"return new MongoPagedList<{tDomain}, {tIdentifier}>(count, pageNo, pageSize, results);");
                     });
 
                     @class.AddMethod($"int", "GetPageCount", method =>

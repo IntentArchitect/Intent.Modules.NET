@@ -11,17 +11,17 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel", Version = "1.0")]
 
-namespace Intent.Modules.MongoDb.Templates.ReflectionHelper
+namespace Intent.Modules.MongoDb.Templates.MongoMappingConfigurationInterface
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class ReflectionHelperTemplateRegistration : SingleFileTemplateRegistration
+    public class MongoMappingConfigurationInterfaceTemplateRegistration : SingleFileTemplateRegistration
     {
-        public override string TemplateId => ReflectionHelperTemplate.TemplateId;
+        public override string TemplateId => MongoMappingConfigurationInterfaceTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new ReflectionHelperTemplate(outputTarget);
+            return new MongoMappingConfigurationInterfaceTemplate(outputTarget);
         }
     }
 }

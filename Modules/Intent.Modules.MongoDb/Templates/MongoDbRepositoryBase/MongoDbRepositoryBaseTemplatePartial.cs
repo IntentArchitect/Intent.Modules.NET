@@ -56,12 +56,10 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryBase
                     }
 
                     @class
-                        .AddGenericParameter("TDocument", out var tDocument)
-                        .AddGenericParameter("TDocumentInterface", out var tDocumentInterface)
                         .AddGenericParameter("TIdentifier", out var tIdentifier);
 
                     @class
-                        .ImplementsInterface($"{this.GetMongoDbRepositoryInterfaceName()}<{tDomain}, {tDocumentInterface}, {tIdentifier}>")
+                        .ImplementsInterface($"{this.GetMongoDbRepositoryInterfaceName()}<{tDomain}, {tIdentifier}>")
                         .AddGenericTypeConstraint(tDomain, c => c
                             .AddType("class"));
 
@@ -76,27 +74,33 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryBase
                     var tDomainStateConstraint = createEntityInterfaces
                         ? $", {tDomainState}"
                         : string.Empty;
-                    @class
-                        .AddGenericTypeConstraint(tDocument, c => c
-                            .AddType("class")
-                            .AddType($"{this.GetMongoDbDocumentOfTInterfaceName()}<{tDomain}{tDomainStateConstraint}, {tDocument}, {tIdentifier}>")
-                            .AddType(tDocumentInterface)
-                            .AddType("new()"))
-                        ;
+
+                    @class.AddField($"Func<{tDomain}, {tIdentifier}>", "_getId", f => f.PrivateReadOnly());
 
                     @class.AddConstructor(ctor =>
                     {
                         ctor.Protected();
-                        ctor.AddParameter(UseType($"MongoDB.Driver.IMongoCollection<{tDocument}>"),
+                        ctor.AddParameter(UseType($"MongoDB.Driver.IMongoCollection<{tDomain}>"),
                             "collection", p => p.IntroduceReadonlyField());
                         ctor.AddParameter(this.GetMongoDbUnitOfWorkName(), "unitOfWork",
                             p => p.IntroduceReadonlyField());
+                        ctor.AddParameter($"Expression<Func<{tDomain}, {tIdentifier}>>", "idSelector",
+                            p => p.IntroduceReadonlyField());
+
+                        ctor.AddStatement("_getId = idSelector.Compile();");
                     });
 
                     @class.AddProperty(this.GetMongoDbUnitOfWorkInterfaceName(), "UnitOfWork", p => p
                         .WithoutSetter()
                         .Getter.WithExpressionImplementation("_unitOfWork")
                     );
+
+                    @class.AddMethod($"FilterDefinition<{tDomain}>", "GetIdFilter", getIdFilter =>
+                    {
+                        getIdFilter.Protected();
+                        getIdFilter.AddParameter(tDomain, "entity");
+                        getIdFilter.WithExpressionBody($"Builders<{tDomain}>.Filter.Eq(_idSelector, _getId(entity))");
+                    });
 
                     @class.AddMethod("void", "Add", m => m
                         .Virtual()
@@ -106,9 +110,7 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryBase
                         {
                             invocation
                                 .AddArgument(new CSharpLambdaBlock("async cancellationToken")
-                                    .AddStatement($"var document = new {tDocument}().PopulateFromEntity(entity);")
-                                    .AddStatement("await _collection.InsertOneAsync(document, cancellationToken: cancellationToken);")
-                                    .AddStatement("document.ToEntity(entity);"));
+                                    .AddStatement("await _collection.InsertOneAsync(entity, cancellationToken: cancellationToken);"));
                         })
                     );
 
@@ -121,9 +123,7 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryBase
                             invocation.SeparatedFromPrevious();
                             invocation
                                 .AddArgument(new CSharpLambdaBlock("async cancellationToken")
-                                    .AddStatement($"var document = new {tDocument}().PopulateFromEntity(entity);", c => c.AddMetadata(MetadataNames.DocumentDeclarationStatement, true))
-                                    .AddStatement(
-                                        "await _collection.ReplaceOneAsync(document.GetIdFilter(), document, cancellationToken: cancellationToken);")
+                                    .AddStatement($"await _collection.ReplaceOneAsync(GetIdFilter(entity), entity, cancellationToken: cancellationToken);", c => c.AddMetadata(MetadataNames.DocumentDeclarationStatement, true))
                                 );
                         })
                     );
@@ -137,43 +137,24 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryBase
                             invocation.SeparatedFromPrevious();
                             invocation
                                 .AddArgument(new CSharpLambdaBlock("async cancellationToken")
-                                    .AddStatement($"var document = new {tDocument}().PopulateFromEntity(entity);", c => c.AddMetadata(MetadataNames.DocumentDeclarationStatement, true))
-                                    .AddStatement(
-                                        "await _collection.DeleteOneAsync(document.GetIdFilter(), cancellationToken: cancellationToken);")
+                                    .AddStatement($"await _collection.DeleteOneAsync(GetIdFilter(entity), cancellationToken: cancellationToken);", c => c.AddMetadata(MetadataNames.DocumentDeclarationStatement, true))
                                 );
                         })
-                    );
-
-                    @class.AddMethod($"Task<{tDomain}>", "FindByIdAsync", m => m
-                        .Virtual().Async()
-                        .AddParameter(tIdentifier, "id")
-                        .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"))
-                        .AddStatement($"var result = QueryInternalTDocument(TDocument.GetIdFilterPredicate(id)).SingleOrDefault();")
-                        .AddIfStatement("result == null", @if => @if.AddReturn("null"))
-                        .AddStatement($"return LoadAndTrackDocument(result);")
-                    );
-
-                    @class.AddMethod($"Task<List<{tDomain}>>", "FindByIdsAsync", m => m
-                        .Virtual().Async()
-                        .AddParameter($"{tIdentifier}[]", "ids")
-                        .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"))
-                        .AddStatement($"var result = QueryInternalTDocument(TDocument.GetIdsFilterPredicate(ids));")
-                        .AddStatement($"return LoadAndTrackDocuments(result).ToList();")
                     );
 
                     @class.AddMethod($"List<{tDomain}>", "SearchText", m => m
                         .Virtual()
                         .AddParameter("string", "searchText")
-                        .AddParameter($"Expression<Func<{tDocumentInterface}, bool>>?", "filterExpression", p => p.WithDefaultValue("null"))
+                        .AddParameter($"Expression<Func<{tDomain}, bool>>?", "filterExpression", p => p.WithDefaultValue("null"))
                         .AddStatement(
-                            $"var textFilter = Builders<{tDocument}>.Filter.Text(searchText);"
+                            $"var textFilter = Builders<{tDomain}>.Filter.Text(searchText);"
                             , c => c.AddMetadata(MetadataNames.DocumentsDeclarationStatement, true))
                         .AddStatement(
-                            $"FilterDefinition<{tDocument}> combinedFilter = textFilter;")
+                            $"FilterDefinition<{tDomain}> combinedFilter = textFilter;")
                         .AddIfStatement("filterExpression != null", stmt =>
                         {
-                            stmt.AddStatement($"var adaptedFilter = Builders<{tDocument}>.Filter.Where(AdaptFilterPredicate(filterExpression));");
-                            stmt.AddStatement($"combinedFilter = Builders<{tDocument}>.Filter.And(textFilter, adaptedFilter);");
+                            stmt.AddStatement($"var adaptedFilter = Builders<{tDomain}>.Filter.Where(filterExpression);");
+                            stmt.AddStatement($"combinedFilter = Builders<{tDomain}>.Filter.And(textFilter, adaptedFilter);");
                         })
                         .AddStatement("var documents = _collection.Find(combinedFilter).ToList();")
                         .AddStatement("return documents.Select(LoadAndTrackDocument).ToList();")
@@ -184,7 +165,7 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryBase
                     {
                         method.Virtual();
                         method.Async();
-                        method.AddParameter($"Expression<Func<{tDocumentInterface}, bool>>", "filterExpression")
+                        method.AddParameter($"Expression<Func<{tDomain}, bool>>", "filterExpression")
                             .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
 
                         method
@@ -203,8 +184,8 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryBase
                     {
                         method.Virtual();
                         method.Async();
-                        method.AddParameter($"Expression<Func<{tDocumentInterface}, bool>>", "filterExpression")
-                            .AddParameter($"Func<IQueryable<{tDocumentInterface}>, IQueryable<{tDocumentInterface}>>", "linq")
+                        method.AddParameter($"Expression<Func<{tDomain}, bool>>", "filterExpression")
+                            .AddParameter($"Func<IQueryable<{tDomain}>, IQueryable<{tDomain}>>", "linq")
                             .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
 
                         method
@@ -217,7 +198,7 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryBase
                             {
                                 stmt.AddStatement("return default;");
                             })
-                            .AddStatement("return LoadAndTrackDocument((TDocument)document);");
+                            .AddStatement("return LoadAndTrackDocument(document);");
                     });
 
                     @class.AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", m => m
@@ -232,7 +213,7 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryBase
                     {
                         method.Virtual();
                         method.Async();
-                        method.AddParameter($"Expression<Func<{tDocumentInterface}, bool>>", "filterExpression")
+                        method.AddParameter($"Expression<Func<{tDomain}, bool>>", "filterExpression")
                             .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
 
                         method
@@ -250,8 +231,8 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryBase
                     {
                         method.Virtual();
                         method.Async();
-                        method.AddParameter($"Expression<Func<{tDocumentInterface}, bool>>", "filterExpression")
-                            .AddParameter($"Func<IQueryable<{tDocumentInterface}>, IQueryable<{tDocumentInterface}>>", "linq")
+                        method.AddParameter($"Expression<Func<{tDomain}, bool>>", "filterExpression")
+                            .AddParameter($"Func<IQueryable<{tDomain}>, IQueryable<{tDomain}>>", "linq")
                             .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
 
                         method
@@ -262,7 +243,7 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryBase
                             {
                                 stmt.AddStatement("return default;");
                             })
-                            .AddStatement($"return LoadAndTrackDocuments(documents.Select(d => ({tDocument})d)).ToList();", s => s.SeparatedFromPrevious());
+                            .AddStatement($"return LoadAndTrackDocuments(documents).ToList();", s => s.SeparatedFromPrevious());
                     });
 
                     @class.AddMethod($"Task<{this.GetPagedResultInterfaceName()}<{tDomain}>>", "FindAllAsync", method =>
@@ -274,50 +255,50 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryBase
                             .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
 
                         method.AddStatement("var query = QueryInternal(x => true);");
-                        method.AddStatement("return await MongoPagedList<TDomain, TDocument, TIdentifier>.CreateAsync(query, pageNo, pageSize, cancellationToken);");
+                        method.AddStatement("return await MongoPagedList<TDomain, TIdentifier>.CreateAsync(query, pageNo, pageSize, cancellationToken);");
                     });
 
                     @class.AddMethod($"Task<{this.GetPagedResultInterfaceName()}<{tDomain}>>", "FindAllAsync", method =>
                     {
                         method.Virtual();
                         method.Async();
-                        method.AddParameter($"Expression<Func<{tDocumentInterface}, bool>>", "filterExpression")
+                        method.AddParameter($"Expression<Func<{tDomain}, bool>>", "filterExpression")
                             .AddParameter("int", "pageNo")
                             .AddParameter("int", "pageSize")
-                            .AddParameter($"Func<IQueryable<{tDocumentInterface}>, IQueryable<{tDocumentInterface}>>", "linq")
+                            .AddParameter($"Func<IQueryable<{tDomain}>, IQueryable<{tDomain}>>", "linq")
                             .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
 
                         method.AddStatement("var query = QueryInternal(filterExpression, linq);");
-                        method.AddStatement("return await MongoPagedList<TDomain, TDocument, TIdentifier>.CreateAsync(query, pageNo, pageSize, cancellationToken);");
+                        method.AddStatement("return await MongoPagedList<TDomain, TIdentifier>.CreateAsync(query, pageNo, pageSize, cancellationToken);");
                     });
 
                     @class.AddMethod($"Task<{this.GetPagedResultInterfaceName()}<{tDomain}>>", "FindAllAsync", method =>
                     {
                         method.Virtual();
                         method.Async();
-                        method.AddParameter($"Expression<Func<{tDocumentInterface}, bool>>", "filterExpression")
+                        method.AddParameter($"Expression<Func<{tDomain}, bool>>", "filterExpression")
                             .AddParameter("int", "pageNo")
                             .AddParameter("int", "pageSize")
                             .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
 
                         method.AddStatement("var query = QueryInternal(filterExpression);");
-                        method.AddStatement("return await MongoPagedList<TDomain, TDocument, TIdentifier>.CreateAsync(query, pageNo, pageSize, cancellationToken);");
+                        method.AddStatement("return await MongoPagedList<TDomain, TIdentifier>.CreateAsync(query, pageNo, pageSize, cancellationToken);");
                     });
 
                     @class.AddMethod($"Task<{tDomain}?>", "FindAsync", method => method
                         .Virtual()
                         .Async()
-                        .AddParameter($"Func<IQueryable<{tDocumentInterface}>, IQueryable<{tDocumentInterface}>>", "queryOptions")
+                        .AddParameter($"Func<IQueryable<{tDomain}>, IQueryable<{tDomain}>>", "queryOptions")
                         .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
                         .AddStatement("var documents = QueryInternal(x => true, queryOptions);")
                         .AddStatement("var document = await documents.FirstOrDefaultAsync(cancellationToken);")
                         .AddIfStatement("document == null", ifs => ifs.AddStatement("return default;"))
-                        .AddStatement("return LoadAndTrackDocument((TDocument)document);", s => s.SeparatedFromPrevious())
+                        .AddStatement("return LoadAndTrackDocument(document);", s => s.SeparatedFromPrevious())
                     );
                     @class.AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method => method
                         .Virtual()
                         .Async()
-                        .AddParameter($"Func<IQueryable<{tDocumentInterface}>, IQueryable<{tDocumentInterface}>>", "queryOptions")
+                        .AddParameter($"Func<IQueryable<{tDomain}>, IQueryable<{tDomain}>>", "queryOptions")
                         .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
                         .AddStatement("var query = QueryInternal(x => true, queryOptions);")
                         .AddStatement("var documents = await query.ToListAsync(cancellationToken);")
@@ -334,57 +315,57 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryBase
                             .Async()
                             .AddParameter("int", "pageNo")
                             .AddParameter("int", "pageSize")
-                            .AddParameter($"Func<IQueryable<{tDocumentInterface}>, IQueryable<{tDocumentInterface}>>", "queryOptions")
+                            .AddParameter($"Func<IQueryable<{tDomain}>, IQueryable<{tDomain}>>", "queryOptions")
                             .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
                             .AddStatement("var query = QueryInternal(x => true, queryOptions);")
-                            .AddStatement("return await MongoPagedList<TDomain, TDocument, TIdentifier>.CreateAsync(query, pageNo, pageSize, cancellationToken);");
+                            .AddStatement("return await MongoPagedList<TDomain, TIdentifier>.CreateAsync(query, pageNo, pageSize, cancellationToken);");
                     });
                     @class.AddMethod("Task<int>", "CountAsync", method => method
                         .Virtual()
                         .Async()
-                        .AddParameter($"Expression<Func<{tDocumentInterface}, bool>>", "filterExpression")
+                        .AddParameter($"Expression<Func<{tDomain}, bool>>", "filterExpression")
                         .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
                         .AddStatement("return await QueryInternal(filterExpression).CountAsync(cancellationToken);", s => s.SeparatedFromPrevious())
                     );
                     @class.AddMethod("Task<int>", "CountAsync", method => method
                         .Virtual()
                         .Async()
-                        .AddParameter($"Func<IQueryable<{tDocumentInterface}>, IQueryable<{tDocumentInterface}>>?", "queryOptions", param => param.WithDefaultValue("default"))
+                        .AddParameter($"Func<IQueryable<{tDomain}>, IQueryable<{tDomain}>>?", "queryOptions", param => param.WithDefaultValue("default"))
                         .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
                         .AddStatement("return await QueryInternal(x => true, queryOptions).CountAsync(cancellationToken);", s => s.SeparatedFromPrevious())
                     );
                     @class.AddMethod("bool", "Any", method => method
-                        .AddParameter($"Expression<Func<{tDocumentInterface}, bool>>", "filterExpression")
+                        .AddParameter($"Expression<Func<{tDomain}, bool>>", "filterExpression")
                         .AddStatement("return QueryInternal(filterExpression).Any();", s => s.SeparatedFromPrevious())
                     );
                     @class.AddMethod("Task<bool>", "AnyAsync", method => method
                     .Virtual()
                         .Async()
-                        .AddParameter($"Expression<Func<{tDocumentInterface}, bool>>", "filterExpression")
+                        .AddParameter($"Expression<Func<{tDomain}, bool>>", "filterExpression")
                         .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
                         .AddStatement("return await QueryInternal(filterExpression).AnyAsync(cancellationToken);", s => s.SeparatedFromPrevious())
                     );
                     @class.AddMethod("Task<bool>", "AnyAsync", method => method
                     .Virtual()
                         .Async()
-                        .AddParameter($"Func<IQueryable<{tDocumentInterface}>, IQueryable<{tDocumentInterface}>>?", "queryOptions", param => param.WithDefaultValue("default"))
+                        .AddParameter($"Func<IQueryable<{tDomain}>, IQueryable<{tDomain}>>?", "queryOptions", param => param.WithDefaultValue("default"))
                         .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
                         .AddStatement("return await QueryInternal(x => true, queryOptions).AnyAsync(cancellationToken);", s => s.SeparatedFromPrevious())
                     );
 
-                    @class.AddMethod($"IQueryable<{tDocument}>", "QueryInternal", m => m
+                    @class.AddMethod($"IQueryable<{tDomain}>", "QueryInternal", m => m
                         .Protected().Virtual()
-                        .AddParameter($"Expression<Func<{tDocumentInterface}, bool>>?", "filterExpression")
+                        .AddParameter($"Expression<Func<{tDomain}, bool>>?", "filterExpression")
                         .AddIfStatement("filterExpression != null", @if =>
                         {
-                            @if.AddStatement("return QueryInternalTDocument(AdaptFilterPredicate(filterExpression));");
+                            @if.AddStatement("return QueryInternalTDocument(filterExpression);");
                         })
                         .AddStatement("return QueryInternalTDocument(null);", stmt => stmt.SeparatedFromPrevious())
                     );
 
-                    @class.AddMethod($"IQueryable<{tDocument}>", "QueryInternalTDocument", m => m
+                    @class.AddMethod($"IQueryable<{tDomain}>", "QueryInternalTDocument", m => m
                         .Protected().Virtual()
-                        .AddParameter($"Expression<Func<{tDocument}, bool>>?", "filterExpression")
+                        .AddParameter($"Expression<Func<{tDomain}, bool>>?", "filterExpression")
                         .AddStatement("var queryable = _collection.AsQueryable();")
                         .AddIfStatement("filterExpression != null", @if =>
                         {
@@ -393,41 +374,18 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryBase
                         .AddStatement("return queryable;", stmt => stmt.SeparatedFromPrevious())
                     );
 
-                    @class.AddMethod($"IQueryable<TDocument>", "QueryInternal", m => m
+                    @class.AddMethod($"IQueryable<{tDomain}>", "QueryInternal", m => m
                         .Protected().Virtual()
-                        .AddParameter($"Expression<Func<{tDocumentInterface}, bool>>", "filterExpression")
-                        .AddParameter($"Func<IQueryable<{tDocumentInterface}>, IQueryable<{tDocumentInterface}>>", "linq")
+                        .AddParameter($"Expression<Func<{tDomain}, bool>>", "filterExpression")
+                        .AddParameter($"Func<IQueryable<{tDomain}>, IQueryable<{tDomain}>>", "linq")
                         .AddStatement("var queryable = QueryInternal(filterExpression);")
-                        .AddStatement("var adaptedQueryFunction = QueryableAdapter.AdaptQueryFunction<TDocumentInterface, TDocument>(linq);")
-                        .AddStatement("var result = adaptedQueryFunction(queryable);")
+                        .AddStatement("var result = linq(queryable);")
                         .AddStatement("return result;", stmt => stmt.SeparatedFromPrevious())
                     );
 
-                    @class.AddMethod($"Expression<Func<{tDocument}, bool>>", "AdaptFilterPredicate", method =>
-                    {
-                        method
-                            .Private()
-                            .Static()
-                            .AddParameter($"Expression<Func<{tDocumentInterface}, bool>>", "expression")
-                            .WithComments(new[]
-                            {
-                                "/// <summary>",
-                                $"/// Adapts a <typeparamref name=\"{tDocumentInterface}\"/> predicate to a <typeparamref name=\"{tDocument}\"/> predicate.",
-                                "/// </summary>"
-                            });
-
-                        method.AddStatement("var beforeParameter = expression.Parameters.Single();");
-                        method.AddStatement($"var afterParameter = Expression.Parameter(typeof({tDocument}), beforeParameter.Name);");
-                        method.AddStatement("var visitor = new SubstitutionExpressionVisitor(beforeParameter, afterParameter);");
-                        method.AddStatement($"return Expression.Lambda<Func<{tDocument}, bool>>(visitor.Visit(expression.Body)!, afterParameter);");
-
-                    });
-
                     @class.AddMethod(tDomain, "LoadAndTrackDocument", method =>
                     {
-                        method.AddParameter($"{tDocument}", "document");
-
-                        method.AddStatement("var entity = document.ToEntity();");
+                        method.AddParameter($"{tDomain}", "entity");
 
                         method.AddStatement("_unitOfWork.Track(entity);", s => s.SeparatedFromPrevious());
 
@@ -437,290 +395,9 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryBase
 
                     @class.AddMethod($"IEnumerable<{tDomain}>", "LoadAndTrackDocuments", method =>
                     {
-                        method.AddParameter($"IEnumerable<{tDocument}>", "documents");
+                        method.AddParameter($"IEnumerable<{tDomain}>", "entities");
 
-                        method.AddForEachStatement("document", "documents", stmt => stmt.AddStatement("yield return LoadAndTrackDocument(document);"));
-                    });
-
-                    @class.AddNestedClass("SubstitutionExpressionVisitor", nestClass =>
-                    {
-                        nestClass
-                            .Private()
-                            .WithBaseType("ExpressionVisitor");
-                        nestClass.AddConstructor(ctor =>
-                        {
-                            ctor
-                                .AddParameter("Expression", "before", p => p.IntroduceReadonlyField())
-                                .AddParameter("Expression", "after", p => p.IntroduceReadonlyField());
-                        });
-
-                        nestClass.AddMethod("Expression?", "Visit", method =>
-                        {
-                            method
-                                .Override()
-                                .AddParameter("Expression?", "node");
-
-                            method.AddStatement("return node == _before ? _after : base.Visit(node);");
-                        });
-                    });
-                }).AddClass("QueryableAdapter", @class =>
-                {
-                    @class.Static();
-
-                    @class.AddMethod("Func<IQueryable<TDocument>, IQueryable<TDocument>>", "AdaptQueryFunction", method =>
-                    {
-                        method.Static();
-                        method.AddGenericParameter("TDocumentInterface");
-                        method.AddGenericParameter("TDocument");
-
-                        method.AddParameter("Func<IQueryable<TDocumentInterface>, IQueryable<TDocumentInterface>>", "queryOptions");
-
-                        method.AddGenericTypeConstraint("TDocument", tDocument => tDocument.AddType("class").AddType("TDocumentInterface"));
-
-                        method.AddReturn(@$"sourceQueryable =>
-                        {{
-                            // Create a fake queryable of the interface type
-                            var interfaceQueryable = new InterfaceQueryableAdapter<TDocumentInterface, TDocument>(sourceQueryable);
-
-                            // Apply the user's query function
-                            var resultQueryable = queryOptions(interfaceQueryable);
-
-                            // Extract the adapted queryable
-                            if (resultQueryable is InterfaceQueryableAdapter<TDocumentInterface, TDocument> adapter)
-                            {{
-                                return adapter.UnderlyingQueryable;
-                            }}
-
-                            throw new InvalidOperationException(""Query function returned an unexpected queryable type"");
-                        }}");
-                    });
-                }).AddClass("InterfaceQueryableAdapter", @class =>
-                {
-                    @class.Internal();
-
-                    @class.AddGenericParameter("TInterface", out var tDocument);
-                    @class.AddGenericParameter("TDocument", out var tInterface);
-
-                    @class.ImplementsInterface("IQueryable<TInterface>");
-
-                    @class.AddGenericTypeConstraint(tInterface, c => c.AddType("class").AddType(tDocument));
-
-                    @class.AddField("QueryableMethodAdapter", "_methodAdapter", f => f.PrivateReadOnly());
-
-                    @class.AddConstructor(c =>
-                    {
-                        c.AddParameter("IQueryable<TDocument>", "underlyingQueryable", p => p.IntroduceReadonlyField());
-
-                        c.AddStatement("_methodAdapter = new QueryableMethodAdapter(typeof(TInterface), typeof(TDocument));");
-                    });
-
-                    @class.AddProperty("IQueryable<TDocument>", "UnderlyingQueryable", p => p.ReadOnly().Getter.WithExpressionImplementation("_underlyingQueryable"));
-                    @class.AddProperty("Type", "ElementType", p => p.ReadOnly().Getter.WithExpressionImplementation("typeof(TInterface)"));
-                    @class.AddProperty("Expression", "Expression", p => p.ReadOnly().Getter.WithExpressionImplementation("_methodAdapter.AdaptExpression(_underlyingQueryable.Expression)"));
-                    @class.AddProperty("IQueryProvider", "Provider", p => p.ReadOnly().Getter.WithExpressionImplementation("new InterfaceQueryProvider<TInterface, TDocument>(_underlyingQueryable.Provider, _methodAdapter)"));
-
-                    @class.AddMethod("IEnumerator<TInterface>", "GetEnumerator", m => m.AddReturn("_underlyingQueryable.Cast<TInterface>().GetEnumerator()"));
-
-                    @class.AddMethod("System.Collections.IEnumerator", "System.Collections.IEnumerable.GetEnumerator", m => m.AddReturn("GetEnumerator()").WithoutAccessModifier());
-                }).AddClass("InterfaceQueryProvider", @class =>
-                {
-                    @class.Internal();
-
-                    @class.AddGenericParameter("TInterface", out var tDocument);
-                    @class.AddGenericParameter("TDocument", out var tInterface);
-
-                    @class.ImplementsInterface("IQueryProvider");
-
-                    @class.AddGenericTypeConstraint(tInterface, c => c.AddType("class").AddType(tDocument));
-
-                    @class.AddConstructor(c =>
-                    {
-                        c.AddParameter("IQueryProvider", "underlyingProvider", p => p.IntroduceReadonlyField());
-                        c.AddParameter("QueryableMethodAdapter", "methodAdapter", p => p.IntroduceReadonlyField());
-                    });
-
-                    @class.AddMethod("IQueryable", "CreateQuery", method =>
-                    {
-                        method.AddParameter("Expression", "expression");
-
-                        method.AddStatement("var adaptedExpression = _methodAdapter.AdaptExpressionFromInterface(expression);");
-                        method.AddStatement("var result = _underlyingProvider.CreateQuery(adaptedExpression);");
-
-                        method.AddIfStatement("result is IQueryable<TDocument> typedResult", @if => @if.AddReturn("new InterfaceQueryableAdapter<TInterface, TDocument>(typedResult)"));
-
-                        method.AddReturn("result");
-                    });
-
-                    @class.AddMethod("IQueryable<TElement>", "CreateQuery", method =>
-                    {
-                        method.AddGenericParameter("TElement");
-                        method.AddParameter("Expression", "expression");
-
-                        method.AddIfStatement("typeof(TElement) == typeof(TInterface)", @if =>
-                        {
-                            @if.AddStatement("var adaptedExpression = _methodAdapter.AdaptExpressionFromInterface(expression);");
-                            @if.AddStatement("var result = _underlyingProvider.CreateQuery<TDocument>(adaptedExpression);");
-                            @if.AddReturn("(IQueryable<TElement>)(object)new InterfaceQueryableAdapter<TInterface, TDocument>(result)");
-                        });
-
-                        method.AddStatement("var directAdaptedExpression = _methodAdapter.AdaptExpressionFromInterface(expression);");
-                        method.AddReturn("_underlyingProvider.CreateQuery<TElement>(directAdaptedExpression)");
-                    });
-
-                    @class.AddMethod("object", "Execute", method =>
-                    {
-                        method.AddParameter("Expression", "expression");
-
-                        method.AddStatement("var adaptedExpression = _methodAdapter.AdaptExpressionFromInterface(expression);");
-                        method.AddReturn("_underlyingProvider.Execute(adaptedExpression)");
-                    });
-
-                    @class.AddMethod("TResult", "Execute", method =>
-                    {
-                        method.AddGenericParameter("TResult");
-                        method.AddParameter("Expression", "expression");
-
-                        method.AddStatement("var adaptedExpression = _methodAdapter.AdaptExpressionFromInterface(expression);");
-                        method.AddReturn("_underlyingProvider.Execute<TResult>(adaptedExpression)");
-                    });
-                }).AddClass("QueryableMethodAdapter", @class =>
-                {
-                    @class.Internal();
-
-                    @class.AddConstructor(c =>
-                    {
-                        c.AddParameter("Type", "interfaceType", p => p.IntroduceReadonlyField());
-                        c.AddParameter("Type", "documentType", p => p.IntroduceReadonlyField());
-                    });
-
-                    @class.AddMethod("Expression", "AdaptExpression", method =>
-                    {
-                        method.AddParameter("Expression", "expression");
-
-                        method.AddReturn("new TypeSubstitutionVisitor(_documentType, _interfaceType).Visit(expression)");
-                    });
-
-                    @class.AddMethod("Expression", "AdaptExpressionFromInterface", method =>
-                    {
-                        method.AddParameter("Expression", "expression");
-
-                        method.AddReturn("new TypeSubstitutionVisitor(_interfaceType, _documentType).Visit(expression)");
-                    });
-                }).AddClass("TypeSubstitutionVisitor", @class =>
-                {
-                    @class.Internal();
-
-                    @class.WithBaseType("ExpressionVisitor");
-
-                    @class.AddConstructor(c =>
-                    {
-                        c.AddParameter("Type", "fromType", p => p.IntroduceReadonlyField());
-                        c.AddParameter("Type", "toType", p => p.IntroduceReadonlyField());
-                    });
-
-                    @class.AddMethod("Expression", "VisitParameter", method =>
-                    {
-                        method.Protected().Override();
-                        method.AddParameter("ParameterExpression", "node");
-
-                        method.AddIfStatement("node.Type == _fromType", @if =>
-                        {
-                            @if.AddReturn("Expression.Parameter(_toType, node.Name)");
-                        });
-
-                        method.AddReturn("base.VisitParameter(node)");
-                    });
-
-                    @class.AddMethod("Expression", "VisitMethodCall", method =>
-                    {
-                        method.Protected().Override();
-                        method.AddParameter("MethodCallExpression", "node");
-
-                        method.AddIfStatement("node.Method.IsGenericMethod", @if =>
-                        {
-                            @if.AddStatements(@$"var genericArgs = node.Method.GetGenericArguments();
-                                var newGenericArgs = new Type[genericArgs.Length];
-                                bool hasChanges = false;
-
-                                for (int i = 0; i < genericArgs.Length; i++)
-                                {{
-                                    if (genericArgs[i] == _fromType)
-                                    {{
-                                        newGenericArgs[i] = _toType;
-                                        hasChanges = true;
-                                    }}
-                                    else
-                                    {{
-                                        newGenericArgs[i] = genericArgs[i];
-                                    }}
-                                }}
-
-                                if (hasChanges)
-                                {{
-                                    var newMethod = node.Method.GetGenericMethodDefinition().MakeGenericMethod(newGenericArgs);
-                                    var newObject = Visit(node.Object);
-                                    var newArgs = node.Arguments.Select(Visit).ToArray();
-                                    return Expression.Call(newObject, newMethod, newArgs);
-                                }}".ConvertToStatements());
-                            
-                        });
-
-                        method.AddReturn("base.VisitMethodCall(node)");
-                    });
-
-                    @class.AddMethod("Expression", "VisitLambda", method =>
-                    {
-                        method.Protected().Override();
-                        method.AddGenericParameter("T");
-                        method.AddParameter("Expression<T>", "node");
-
-                        method.AddStatements($@"var newParameters = node.Parameters.Select(p =>
-                            p.Type == _fromType ? Expression.Parameter(_toType, p.Name) : p).ToArray();
-
-                        if (newParameters.SequenceEqual(node.Parameters))
-                        {{
-                            return base.VisitLambda(node);
-                        }}
-
-                        var parameterMap = node.Parameters.Zip(newParameters, (old, @new) => new {{ old, @new }})
-                            .ToDictionary(x => x.old, x => x.@new);
-
-                        var visitor = new ParameterReplacementVisitor(parameterMap);
-                        var newBody = visitor.Visit(node.Body);
-
-                        // Create new lambda with correct delegate type
-                        var delegateType = typeof(T);
-                        if (delegateType.IsGenericType)
-                        {{
-                            var genericArgs = delegateType.GetGenericArguments();
-                            var newGenericArgs = genericArgs.Select(arg => arg == _fromType ? _toType : arg).ToArray();
-
-                            if (!newGenericArgs.SequenceEqual(genericArgs))
-                            {{
-                                var genericDefinition = delegateType.GetGenericTypeDefinition();
-                                delegateType = genericDefinition.MakeGenericType(newGenericArgs);
-                            }}
-                        }}
-
-                        return Expression.Lambda(delegateType, newBody, newParameters);".ConvertToStatements());
-                    });
-                }).AddClass("ParameterReplacementVisitor", @class =>
-                {
-                    @class.Internal();
-
-                    @class.WithBaseType("ExpressionVisitor");
-
-                    @class.AddConstructor(c =>
-                    {
-                        c.AddParameter("Dictionary<ParameterExpression, ParameterExpression>", "parameterMap", p => p.IntroduceReadonlyField());
-                    });
-
-                    @class.AddMethod("Expression", "VisitParameter", method =>
-                    {
-                        method.Protected().Override();
-                        method.AddParameter("ParameterExpression", "node");
-
-                        method.AddReturn("_parameterMap.TryGetValue(node, out var replacement) ? replacement : node");
+                        method.AddForEachStatement("entity", "entities", stmt => stmt.AddStatement("yield return LoadAndTrackDocument(entity);"));
                     });
                 });
         }

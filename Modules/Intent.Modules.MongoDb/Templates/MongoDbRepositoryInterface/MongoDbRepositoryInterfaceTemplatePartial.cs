@@ -10,7 +10,6 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Entities.Repositories.Api.Templates;
 using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
-using Intent.Modules.MongoDb.Templates.MongoDbDocumentInterface;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -42,7 +41,6 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryInterface
 
                     @interface
                         .AddGenericParameter("TDomain", out var tDomain)
-                        .AddGenericParameter("TDocumentInterface", out var tDocumentInterface)
                         .AddGenericParameter("TIdentifier", out var tIdentifier);
 
                     @interface
@@ -51,12 +49,12 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryInterface
                             .WithoutSetter()
                         )
                         .AddMethod($"Task<{tDomain}?>", "FindAsync", method => method
-                            .AddParameter($"Expression<Func<{tDocumentInterface}, bool>>", "filterExpression")
+                            .AddParameter($"Expression<Func<{tDomain}, bool>>", "filterExpression")
                             .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
                         )
                         .AddMethod($"Task<{tDomain}?>", "FindAsync", method => method
-                            .AddParameter($"Expression<Func<{tDocumentInterface}, bool>>", "filterExpression")
-                            .AddParameter($"Func<IQueryable<{tDocumentInterface}>, IQueryable<{tDocumentInterface}>>", "linq")
+                            .AddParameter($"Expression<Func<{tDomain}, bool>>", "filterExpression")
+                            .AddParameter($"Func<IQueryable<{tDomain}>, IQueryable<{tDomain}>>", "linq")
                             .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
                         )
                         .AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method => method
@@ -64,12 +62,12 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryInterface
                                 parameter => parameter.WithDefaultValue("default"))
                         )
                         .AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method => method
-                            .AddParameter($"Expression<Func<{tDocumentInterface}, bool>>", "filterExpression")
+                            .AddParameter($"Expression<Func<{tDomain}, bool>>", "filterExpression")
                             .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
                         )
                         .AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method => method
-                            .AddParameter($"Expression<Func<{tDocumentInterface}, bool>>", "filterExpression")
-                            .AddParameter($"Func<IQueryable<{tDocumentInterface}>, IQueryable<{tDocumentInterface}>>", "linq")
+                            .AddParameter($"Expression<Func<{tDomain}, bool>>", "filterExpression")
+                            .AddParameter($"Func<IQueryable<{tDomain}>, IQueryable<{tDomain}>>", "linq")
                             .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
                         )
                         .AddMethod($"Task<{pagedListInterface}<{tDomain}>>", "FindAllAsync", method => method
@@ -79,58 +77,52 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryInterface
                                 parameter => parameter.WithDefaultValue("default"))
                         )
                         .AddMethod($"Task<{pagedListInterface}<{tDomain}>>", "FindAllAsync", method => method
-                            .AddParameter($"Expression<Func<{tDocumentInterface}, bool>>", "filterExpression")
+                            .AddParameter($"Expression<Func<{tDomain}, bool>>", "filterExpression")
                             .AddParameter($"int", "pageNo")
                             .AddParameter($"int", "pageSize")
                             .AddParameter("CancellationToken", "cancellationToken",
                                 parameter => parameter.WithDefaultValue("default"))
                         )
                         .AddMethod($"Task<{pagedListInterface}<{tDomain}>>", "FindAllAsync", method => method
-                            .AddParameter($"Expression<Func<{tDocumentInterface}, bool>>", "filterExpression")
+                            .AddParameter($"Expression<Func<{tDomain}, bool>>", "filterExpression")
                             .AddParameter($"int", "pageNo")
                             .AddParameter($"int", "pageSize")
-                            .AddParameter($"Func<IQueryable<{tDocumentInterface}>, IQueryable<{tDocumentInterface}>>", "linq")
+                            .AddParameter($"Func<IQueryable<{tDomain}>, IQueryable<{tDomain}>>", "linq")
                             .AddParameter("CancellationToken", "cancellationToken",
                                 parameter => parameter.WithDefaultValue("default"))
                         )
                         .AddMethod($"Task<{tDomain}?>", "FindAsync", method => method
-                            .AddParameter($"Func<IQueryable<{tDocumentInterface}>, IQueryable<{tDocumentInterface}>>", "queryOptions")
+                            .AddParameter($"Func<IQueryable<{tDomain}>, IQueryable<{tDomain}>>", "queryOptions")
                             .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
                         )
                         .AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method => method
-                            .AddParameter($"Func<IQueryable<{tDocumentInterface}>, IQueryable<{tDocumentInterface}>>", "queryOptions")
+                            .AddParameter($"Func<IQueryable<{tDomain}>, IQueryable<{tDomain}>>", "queryOptions")
                             .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
                         )
                         .AddMethod($"Task<{pagedListInterface}<{tDomain}>>", "FindAllAsync", method => method
                             .AddParameter("int", "pageNo")
                             .AddParameter("int", "pageSize")
-                            .AddParameter($"Func<IQueryable<{tDocumentInterface}>, IQueryable<{tDocumentInterface}>>", "queryOptions")
+                            .AddParameter($"Func<IQueryable<{tDomain}>, IQueryable<{tDomain}>>", "queryOptions")
                             .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
                         )
                         .AddMethod("Task<int>", "CountAsync", method => method
-                            .AddParameter($"Expression<Func<{tDocumentInterface}, bool>>", "filterExpression")
+                            .AddParameter($"Expression<Func<{tDomain}, bool>>", "filterExpression")
                             .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
                         )
                         .AddMethod("Task<int>", "CountAsync", method => method
-                            .AddParameter($"Func<IQueryable<{tDocumentInterface}>, IQueryable<{tDocumentInterface}>>?", "queryOptions", param => param.WithDefaultValue("default"))
+                            .AddParameter($"Func<IQueryable<{tDomain}>, IQueryable<{tDomain}>>?", "queryOptions", param => param.WithDefaultValue("default"))
                             .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
                         )
                         .AddMethod("Task<bool>", "AnyAsync", method => method
-                            .AddParameter($"Func<IQueryable<{tDocumentInterface}>, IQueryable<{tDocumentInterface}>>?", "queryOptions", param => param.WithDefaultValue("default"))
+                            .AddParameter($"Func<IQueryable<{tDomain}>, IQueryable<{tDomain}>>?", "queryOptions", param => param.WithDefaultValue("default"))
                             .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
                         )
                         .AddMethod("Task<bool>", "AnyAsync", method => method
-                            .AddParameter($"Expression<Func<{tDocumentInterface}, bool>>", "filterExpression")
-                            .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
-                        ).AddMethod($"Task<{tDomain}>", "FindByIdAsync", method => method
-                            .AddParameter($"{tIdentifier}", "id")
-                            .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
-                        ).AddMethod($"Task<List<{tDomain}>>", "FindByIdsAsync", method => method
-                            .AddParameter($"{tIdentifier}[]", "ids")
+                            .AddParameter($"Expression<Func<{tDomain}, bool>>", "filterExpression")
                             .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
                         ).AddMethod($"List<{tDomain}>", "SearchText", method => method
                             .AddParameter($"string", "searchText")
-                            .AddParameter($"Expression<Func<{tDocumentInterface}, bool>>?", "filterExpression", c => c.WithDefaultValue("null"))
+                            .AddParameter($"Expression<Func<{tDomain}, bool>>?", "filterExpression", c => c.WithDefaultValue("null"))
                         );
                 });
         }
@@ -141,33 +133,30 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryInterface
 
             foreach (var model in Model)
             {
-                if (TryGetTemplate<ICSharpFileBuilderTemplate>(EntityRepositoryInterfaceTemplate.TemplateId, model, out var template))
+                var template = GetTemplate<ICSharpFileBuilderTemplate>(EntityRepositoryInterfaceTemplate.TemplateId, model.Id);
+
+                template.CSharpFile.AfterBuild(file =>
                 {
-                    if (model.GetPrimaryKeyAttribute() == null)
-                    {
-                        return;
-                    }
-                    template.CSharpFile.OnBuild(file => file.Metadata["entity-state-template-id"] = MongoDbDocumentInterfaceTemplate.TemplateId);
-                    template.CSharpFile.AfterBuild(file =>
-                    {
-                        file.AddUsing("System.Linq.Expressions");
-                        var @interface = file.Interfaces.Single();
-                        @interface.Interfaces.Clear();
-                        var genericTypeParameters = model.GenericTypes.Any()
-                            ? $"<{string.Join(", ", model.GenericTypes)}>"
-                            : string.Empty;
-                        var tDomainGenericArgument = template.GetTypeName(TemplateRoles.Domain.Entity.Interface, model);
-                        var tDocumentInterfaceGenericArgument = template.GetTypeName(MongoDbDocumentInterfaceTemplate.TemplateId, model);
-                        @interface.ImplementsInterfaces($"{this.GetMongoDbRepositoryInterfaceName()}<{tDomainGenericArgument}{genericTypeParameters}, {tDocumentInterfaceGenericArgument}{genericTypeParameters}, {GetTypeName(model.GetPrimaryKeyAttribute())}>");
-                        @interface.Methods.Clear();
-                        //@interface.AddMethod($"List<{tDomainGenericArgument}>", "SearchText", method =>
-                        //{
-                        //    method.AddParameter($"string", "searchText");
-                        //    method.AddParameter($"Expression<Func<{tDomainGenericArgument}, bool>>", "filterExpression", p => p.WithDefaultValue("null"));
-                        //});
-                    }, 1000);
-                }
+                    var @interface = file.Interfaces.Single();
+                    
+                    @interface.Interfaces.Clear();
+                    var genericTypeParameters = model.GenericTypes.Any()
+                        ? $"<{string.Join(", ", model.GenericTypes)}>"
+                        : string.Empty;
+                    var tDomainGenericArgument = template.GetTypeName(TemplateRoles.Domain.Entity.Interface, model);
+                    @interface.ImplementsInterfaces($"{this.GetMongoDbRepositoryInterfaceName()}<{tDomainGenericArgument}{genericTypeParameters},{GetPKType(model.GetPrimaryKeyAttribute())}>");
+                }, 1000);
             }
+        }
+
+        internal string GetPKType(AttributeModel pkAttribute)
+        {
+            if (pkAttribute.Id != pkAttribute.Id)
+            {
+                return $"({GetTypeName(pkAttribute)} {pkAttribute.Name.ToPascalCase()},{GetTypeName(pkAttribute)} {pkAttribute.Name.ToPascalCase()})";
+            }
+
+            return GetTypeName(pkAttribute);
         }
 
         [IntentManaged(Mode.Fully)]

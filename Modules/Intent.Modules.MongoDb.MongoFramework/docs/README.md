@@ -1,4 +1,4 @@
-﻿# Intent.MongoDb
+﻿# Intent.MongoDb.MongoFramework
 
 This module provides patterns for working with MongoDB.
 

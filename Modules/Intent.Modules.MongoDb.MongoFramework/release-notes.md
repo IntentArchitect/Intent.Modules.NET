@@ -1,5 +1,9 @@
 ### Version 1.0.27
 
+- Improvement: Updated Docs.
+
+### Version 1.0.27
+
 - Improvement: Updated NuGet package versions.
 
 ### Version 1.0.26

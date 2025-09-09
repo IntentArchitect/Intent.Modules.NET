@@ -48,8 +48,6 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepository
                     var genericTypeParameters = Model.GenericTypes.Any()
                         ? $"<{string.Join(", ", Model.GenericTypes)}>"
                         : string.Empty;
-                    var entityDocumentName = $"{this.GetMongoDbDocumentName()}{genericTypeParameters}";
-                    var entityDocumentInterfaceName = $"{this.GetMongoDbDocumentInterfaceName()}{genericTypeParameters}";
 
                     @class.Internal();
                     foreach (var genericType in Model.GenericTypes)
@@ -63,50 +61,33 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepository
 
                     var pkType = GetPKType(pkAttribute);
 
-                    @class.ExtendsClass($"{this.GetMongoDbRepositoryBaseName()}<{EntityTypeName}{entityStateGenericTypeArgument}, {entityDocumentName}, {entityDocumentInterfaceName}, {pkType}>");
+                    @class.ExtendsClass($"{this.GetMongoDbRepositoryBaseName()}<{EntityTypeName}{entityStateGenericTypeArgument}, {pkType}>");
                     @class.ImplementsInterface($"{this.GetEntityRepositoryInterfaceName()}{genericTypeParameters}");
 
                     @class.AddConstructor(ctor =>
                     {
-                        ctor.AddParameter($"{UseType("MongoDB.Driver.IMongoCollection")}<{entityDocumentName}>", "collection");
+                        ctor.AddParameter($"{UseType("MongoDB.Driver.IMongoCollection")}<{Model.Name}>", "collection");
                         ctor.AddParameter(this.GetMongoDbUnitOfWorkName(), "unitOfWork");
                         ctor.CallsBase(callBase => callBase
                             .AddArgument("collection")
                             .AddArgument("unitOfWork")
+                            .AddArgument($"x => x.{pkAttribute.Name}")
                         );
                     });
 
-                    //var baseQualifier = pkType == "string"
-                    //    ? "base."
-                    //    : string.Empty;
+                    @class.AddMethod($"Task<{Model.Name}?>", "FindByIdAsync", findByIdAsync =>
+                    {
+                        findByIdAsync.AddParameter(pkType, pkAttribute.Name.ToCamelCase());
+                        findByIdAsync.AddOptionalCancellationTokenParameter();
+                        findByIdAsync.WithExpressionBody($"FindAsync(x => x.{pkAttribute.Name} == {pkAttribute.Name.ToCamelCase()}, cancellationToken)");
+                    });
 
-                    //@class.AddMethod($"{UseType("System.Threading.Tasks.Task")}<{EntityTypeName}{nullableChar}>", "FindByIdAsync", method =>
-                    //{
-                    //    method
-                    //        .Async()
-                    //        .AddParameter(pkType, "id")
-                    //        .AddOptionalCancellationTokenParameter(this)
-                    //        .WithExpressionBody($"await {baseQualifier}FindAsync({GetPKUsage(pkAttribute)}, cancellationToken)");
-                    //});
-
-                    //@class.AddMethod($"{UseType("System.Threading.Tasks.Task")}<{UseType("System.Collections.Generic.List")}<{EntityTypeName}>>", "FindByIdsAsync", method =>
-                    //{
-                    //    AddUsing("System.Linq");
-                    //    method
-                    //        .Async()
-                    //        .AddParameter($"{pkType}[]", "ids")
-                    //        .AddOptionalCancellationTokenParameter(this)
-                    //        .WithExpressionBody($"await {baseQualifier}FindAllAsync({GetPKUsages(pkAttribute)}, cancellationToken)");
-                    //});
-
-                    //@class.AddMethod($"{UseType("System.Collections.Generic.List")}<{EntityTypeName}>", "SearchText", method =>
-                    //{
-                    //    AddUsing("System.Linq");
-                    //    method
-                    //        .AddParameter($"string", "searchText")
-                    //        .AddParameter($"Expression<Func<{EntityTypeName}, bool>>", "filterExpression")
-                    //        .AddStatement($"throw new NotImplementedException();");
-                    //});
+                    @class.AddMethod($"Task<List<{Model.Name}>>", "FindByIdsAsync", findByIdsAsync =>
+                    {
+                        findByIdsAsync.AddParameter($"{pkType}[]", pkAttribute.Name.Pluralize().ToCamelCase());
+                        findByIdsAsync.AddOptionalCancellationTokenParameter();
+                        findByIdsAsync.WithExpressionBody($"FindAllAsync(x => {pkAttribute.Name.Pluralize().ToCamelCase()}.Contains(x.{pkAttribute.Name}), cancellationToken)");
+                    });
                 });
         }
 
