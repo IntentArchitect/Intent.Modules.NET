@@ -10,6 +10,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
+using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -19,14 +20,15 @@ using Intent.Templates;
 namespace Intent.Modules.Aws.Lambda.Functions.Templates.Startup
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public partial class StartupTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
+    public partial class StartupTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate, IAppStartupTemplate
     {
         public const string TemplateId = "Intent.Aws.Lambda.Functions.StartupTemplate";
 
         private readonly List<ServiceConfigurationRequest> _serviceConfigurations = new();
+        private readonly IAppStartupFile _startupFile;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public StartupTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
+        public StartupTemplate(IOutputTarget outputTarget, object? model = null) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NugetPackages.AmazonLambdaCore(outputTarget));
             AddNugetDependency(NugetPackages.AmazonLambdaAPIGatewayEvents(outputTarget));
@@ -54,16 +56,9 @@ namespace Intent.Modules.Aws.Lambda.Functions.Templates.Startup
                     @class.AddAttribute(UseType("Amazon.Lambda.Annotations.LambdaStartup"));
                     @class.AddMethod("HostApplicationBuilder", "ConfigureHostBuilder", method =>
                     {
-                        method.AddStatement("var hostBuilder = new HostApplicationBuilder();");
-                        method.AddAssignmentStatement(
-                            new CSharpVariableDeclaration("configuration").ToString(),
-                            new CSharpStatement("hostBuilder.Configuration")
-                                .AddInvocation("AddJsonFile", add => add.AddArgument(@"""appsettings.json""").AddArgument("optional", "true").OnNewLine())
-                                .AddInvocation("AddEnvironmentVariables", add => add.OnNewLine())
-                                .AddInvocation("Build", build => build.OnNewLine()));
                         method.AddStatement("hostBuilder.Logging.AddLambdaLogger();");
                     });
-                })
+                }, int.MinValue)
                 .AfterBuild(file =>
                 {
                     var @class = file.Classes.First();
@@ -89,9 +84,24 @@ namespace Intent.Modules.Aws.Lambda.Functions.Templates.Startup
                         }
                     }
 
+                    configMethod.InsertStatement(0, "var hostBuilder = new HostApplicationBuilder();");
+                    configMethod.InsertStatement(1, new CSharpAssignmentStatement(
+                        new CSharpVariableDeclaration("configuration"),
+                        new CSharpStatement("hostBuilder.Configuration")
+                            .AddInvocation("AddJsonFile", add => add.AddArgument(@"""appsettings.json""").AddArgument("optional", "true").OnNewLine())
+                            .AddInvocation("AddEnvironmentVariables", add => add.OnNewLine())
+                            .AddInvocation("Build", build => build.OnNewLine())));
+
                     configMethod.AddReturn("hostBuilder");
                 });
+
+            // Initialize the IAppStartupFile implementation
+            _startupFile = new AppStartupFile(this);
         }
+
+        public IAppStartupFile StartupFile => _startupFile;
+
+        public bool HasStartupFile => true;
 
         public override void BeforeTemplateExecution()
         {
