@@ -21,7 +21,7 @@
   <targetEnd id="b695b5ed-e3aa-47fd-999c-29e1203f4172" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
     <name>customers</name>
     <display>[query] customers: Customer[*]</display>
-    <order>4</order>
+    <order>3</order>
     <traits>
       <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
     </traits>

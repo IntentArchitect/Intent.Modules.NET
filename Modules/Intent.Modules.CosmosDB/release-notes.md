@@ -1,3 +1,7 @@
+### Version 1.2.20
+
+- Improvement: Added support for Azure Managed Identity
+
 ### Version 1.2.19
 
 - Improvement: Removed internal unused shared project.

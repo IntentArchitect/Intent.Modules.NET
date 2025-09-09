@@ -94,5 +94,34 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="6e36489b-9b98-47b5-9e29-05428cc38180" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+      <name>Migrations</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a2ccfa66-279e-4dbe-9d3a-52b66bc32d2d</parentFolderId>
+      <packageId>2bff1c43-96f9-4edd-9b34-6a2089f58582</packageId>
+      <packageName>SqlDbProject</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="829574da-f597-4869-8d92-3f621de746a6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.EntityFrameworkCore.DbMigrationsReadMe</name>
+          <display>Intent.EntityFrameworkCore.DbMigrationsReadMe</display>
+          <externalReference>Intent.EntityFrameworkCore</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>6e36489b-9b98-47b5-9e29-05428cc38180</parentFolderId>
+          <packageId>2bff1c43-96f9-4edd-9b34-6a2089f58582</packageId>
+          <packageName>SqlDbProject</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>

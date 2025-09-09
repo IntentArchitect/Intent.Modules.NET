@@ -40,5 +40,11 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Domain.Entities
             Quantity = quantity;
             Amount = amount;
         }
+
+        public static OrderItem OrderLineStaticConstructor(Guid productId, int quantity, decimal amount)
+        {
+            // TODO: Implement OrderLineStaticConstructor (OrderItem) functionality
+            throw new NotImplementedException("Replace with your implementation...");
+        }
     }
 }

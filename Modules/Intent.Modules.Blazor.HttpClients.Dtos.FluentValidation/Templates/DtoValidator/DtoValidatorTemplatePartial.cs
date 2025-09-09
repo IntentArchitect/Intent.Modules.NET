@@ -49,6 +49,11 @@ namespace Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.Templates.DtoV
                 ]);
         }
 
+        public override bool CanRunTemplate()
+        {
+            return this.TryGetTypeName(this.ToValidateTemplateId, Model, out var dtoTypeName);
+        }
+
         public string ToValidateTemplateId => DtoContractTemplate.TemplateId;
         public string DtoTemplateId => DtoContractTemplate.TemplateId;
         public string ValidatorProviderTemplateId => "Blazor.Client.Validation.ValidatorProviderInterface";

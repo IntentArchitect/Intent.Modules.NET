@@ -1,3 +1,7 @@
+### Version 2.0.6
+
+- Fixed: Incorrect Nuget package installation under wrong .NET version.
+
 ### Version 2.0.5
 
 - Improvement: Enhanced the OpenApiResponse attributes added to the `Run` method

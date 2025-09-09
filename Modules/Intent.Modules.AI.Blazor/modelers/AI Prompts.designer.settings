@@ -20,6 +20,14 @@ const modelLookup = providerModels.reduce((acc, item) =&gt; {
     return acc;
 }, {});
 
+let promptTemplatesString = await executeModuleTask(
+    "Intent.Modules.AI.Blazor.GetPromptTemplates", 
+    application.id, 
+    element.getParent().getName() + "/" + element.getName());
+    
+let promptTemplates = JSON.parse(promptTemplatesString);
+let defaultPromptTemplate =  promptTemplates.find(t =&gt; t.recommenedDefault);
+
 // Open a dialog for the user to enter an AI prompt
 let promptResult = await dialogService.openForm({
     title: "AI: Implement " + element.getName(),
@@ -30,8 +38,18 @@ let promptResult = await dialogService.openForm({
             fieldType: "textarea",
             label: "Provide any additional context",
             placeholder: "Leave blank if you wish to provide no additional context.",
-            hint: "This additional context will be combined with the pre-engineered prompt to guide the AI Agent."
+            hint: "This additional context will be combined with the pre-engineered prompt to guide the AI Agent.",
+            value: defaultPromptTemplate?.defaultUserPrompt
         },
+        {
+            id: "templateId",
+            fieldType: "select",
+            label: "Prompt Template",
+            placeholder: "Select Template",
+            selectOptions: promptTemplates,
+            hint: "Select a Prompt Template to guide the the LLM.",     
+            value: defaultPromptTemplate?.id
+        },    
         {
             id: "exampleComponentIds",
             fieldType: "multi-select",
@@ -107,15 +125,20 @@ if (!promptResult) {
     return;
 }
 
-const providerId = modelLookup[promptResult.model].providerId;
-const modelId = modelLookup[promptResult.model].modelName;
-const thinkingType = promptResult.thinking;
-
-let result = await launchHostedModuleTask("Intent.Modules.AI.Blazor.Generate", [
-        application.id, element.id, promptResult.prompt ?? "", JSON.stringify(promptResult.exampleComponentIds ?? []) ?? "", providerId, modelId, thinkingType
-    ], {
-    taskName: "AI: Blazor for " + element.getName()
-});</script>
+let result = await launchHostedModuleTask("Intent.Modules.AI.Blazor.Generate", 
+    [
+        application.id, 
+        element.id, 
+        promptResult.prompt ?? "", 
+        JSON.stringify(promptResult.exampleComponentIds ?? []) ?? "",
+        providerId, 
+        modelId, 
+        thinkingType,
+        promptResult.templateId
+    ], 
+    {
+        taskName: "AI: Blazor for " + element.getName()
+    });</script>
         </runScript>
       </contextMenuOptions>
       <creationOptions />
@@ -131,6 +154,14 @@ const modelLookup = providerModels.reduce((acc, item) =&gt; {
     return acc;
 }, {});
 
+let promptTemplatesString = await executeModuleTask(
+    "Intent.Modules.AI.Blazor.GetPromptTemplates", 
+    application.id, 
+    element.getParent().getName() + "/" + element.getName());
+    
+let promptTemplates = JSON.parse(promptTemplatesString);
+let defaultPromptTemplate =  promptTemplates.find(t =&gt; t.recommenedDefault);
+
 // Open a dialog for the user to enter an AI prompt
 let promptResult = await dialogService.openForm({
     title: "AI: Implement " + element.getName(),
@@ -141,8 +172,18 @@ let promptResult = await dialogService.openForm({
             fieldType: "textarea",
             label: "Provide any additional context",
             placeholder: "Leave blank if you wish to provide no additional context.",
-            hint: "This additional context will be combined with the pre-engineered prompt to guide the AI Agent."
+            hint: "This additional context will be combined with the pre-engineered prompt to guide the AI Agent.",
+            value: defaultPromptTemplate?.defaultUserPrompt
         },
+        {
+            id: "templateId",
+            fieldType: "select",
+            label: "Prompt Template",
+            placeholder: "Select Template",
+            selectOptions: promptTemplates,
+            hint: "Select a Prompt Template to guide the the LLM.",     
+            value: defaultPromptTemplate?.id
+        },    
         {
             id: "exampleComponentIds",
             fieldType: "multi-select",
@@ -218,15 +259,20 @@ if (!promptResult) {
     return;
 }
 
-const providerId = modelLookup[promptResult.model].providerId;
-const modelId = modelLookup[promptResult.model].modelName;
-const thinkingType = promptResult.thinking;
-
-let result = await launchHostedModuleTask("Intent.Modules.AI.Blazor.Generate", [
-        application.id, element.id, promptResult.prompt ?? "", JSON.stringify(promptResult.exampleComponentIds ?? []) ?? "", providerId, modelId, thinkingType
-    ], {
-    taskName: "AI: Blazor for " + element.getName()
-});</script>
+let result = await launchHostedModuleTask("Intent.Modules.AI.Blazor.Generate", 
+    [
+        application.id, 
+        element.id, 
+        promptResult.prompt ?? "", 
+        JSON.stringify(promptResult.exampleComponentIds ?? []) ?? "",
+        providerId, 
+        modelId, 
+        thinkingType,
+        promptResult.templateId
+    ], 
+    {
+        taskName: "AI: Blazor for " + element.getName()
+    });</script>
         </option>
       </scriptOptions>
       <mappingOptions />

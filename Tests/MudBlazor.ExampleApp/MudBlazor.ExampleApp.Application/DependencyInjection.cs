@@ -1,8 +1,6 @@
 using System.Reflection;
-using AutoMapper;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
-using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MudBlazor.ExampleApp.Application.Common.Behaviours;

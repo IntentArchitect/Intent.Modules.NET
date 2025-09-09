@@ -1,10 +1,8 @@
 using System.Reflection;
-using AutoMapper;
 using CleanArchitecture.SingleFiles.Application.Common.Behaviours;
 using CleanArchitecture.SingleFiles.Application.Common.Validation;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
-using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

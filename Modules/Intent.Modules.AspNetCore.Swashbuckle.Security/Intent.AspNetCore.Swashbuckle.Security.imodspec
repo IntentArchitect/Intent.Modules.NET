@@ -2,7 +2,7 @@
 <package>
   <id>Intent.AspNetCore.Swashbuckle.Security</id>
   <version>4.0.10</version>
-  <supportedClientVersions>[4.2.4, 5.0.0-a)</supportedClientVersions>
+  <supportedClientVersions>[4.5.15-a, 5.0.0-a)</supportedClientVersions>
   <summary>Supports various Authentications for the Swagger UI</summary>
   <description>Supports various Authentications for the Swagger UI</description>
   <authors>Intent Architect</authors>
@@ -29,7 +29,7 @@
     <dependency id="Intent.AspNetCore" version="6.0.0" />
     <dependency id="Intent.AspNetCore.Swashbuckle" version="4.0.7" />
     <dependency id="Intent.Common" version="3.7.3" />
-    <dependency id="Intent.Common.CSharp" version="3.8.6" />
+    <dependency id="Intent.Common.CSharp" version="3.9.5-pre.3" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
   </dependencies>

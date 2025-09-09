@@ -20,5 +20,11 @@ namespace AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain.Entit
             Quantity = quantity;
             Amount = amount;
         }
+
+        public static OrderItem OrderLineStaticConstructor(Guid productId, int quantity, decimal amount)
+        {
+            // TODO: Implement OrderLineStaticConstructor (OrderItem) functionality
+            throw new NotImplementedException("Replace with your implementation...");
+        }
     }
 }

@@ -20,7 +20,7 @@
   </sourceEnd>
   <targetEnd id="4a384573-1f77-48e3-8d3e-a52b72f26224" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
     <name>result</name>
-    <display>[call] result: GetProductPriceAsync(...): decimal</display>
+    <display>[call] result = GetProductPriceAsync(...): decimal</display>
     <order>2</order>
     <traits>
       <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />

@@ -587,6 +587,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>5d92d9fc-d29f-4d21-ad09-c23788a77d39</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Infrastructure/Migrations/README.md</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>README.md</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>e1b7c2a1-0a11-47ab-9fce-c37ffb96e6cc</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbContext#DefaultConnection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -600,14 +608,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Infrastructure/Persistence/DaprStateStoreUnitOfWork.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DaprStateStoreUnitOfWork.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>e1b7c2a1-0a11-47ab-9fce-c37ffb96e6cc</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Infrastructure/Persistence/MIGRATION_README.txt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MIGRATION_README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

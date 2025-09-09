@@ -37,22 +37,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="5c3ff80e-c7f0-4dd5-9f8c-32df5b97ae2e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.EntityFrameworkCore.DbMigrationsReadMe</name>
-      <display>Intent.EntityFrameworkCore.DbMigrationsReadMe</display>
-      <externalReference>Intent.EntityFrameworkCore</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>8b6c79da-1a9d-4904-a440-6f1909b4144a</parentFolderId>
-      <packageId>b68aedb2-d547-4520-aa0f-90f84365f5a7</packageId>
-      <packageName>Finbuckle.SeparateDatabase.TestApplication</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="d0d176ae-55ad-4e55-bd4c-9cf7240917a6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.EntityFrameworkCore.DesignTimeDbContextFactory.DesignTimeDbContextFactory</name>
       <display>Intent.EntityFrameworkCore.DesignTimeDbContextFactory.DesignTimeDbContextFactory</display>

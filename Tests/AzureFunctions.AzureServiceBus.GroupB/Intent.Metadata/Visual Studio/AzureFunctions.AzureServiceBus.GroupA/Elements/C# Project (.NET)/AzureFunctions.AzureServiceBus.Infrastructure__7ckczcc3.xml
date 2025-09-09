@@ -110,5 +110,34 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="5f05595b-b358-4c77-918c-0fcd63e90fb8" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+      <name>Migrations</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b114ae6a-002b-4cd8-8b99-bb73b2eab228</parentFolderId>
+      <packageId>f9da845b-890d-4e2b-ac46-70d3ca12fd5c</packageId>
+      <packageName>AzureFunctions.AzureServiceBus.GroupA</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="d4744044-522d-4ed3-8032-6ed559612c8e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.EntityFrameworkCore.DbMigrationsReadMe</name>
+          <display>Intent.EntityFrameworkCore.DbMigrationsReadMe</display>
+          <externalReference>Intent.EntityFrameworkCore</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>5f05595b-b358-4c77-918c-0fcd63e90fb8</parentFolderId>
+          <packageId>f9da845b-890d-4e2b-ac46-70d3ca12fd5c</packageId>
+          <packageName>AzureFunctions.AzureServiceBus.GroupA</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>

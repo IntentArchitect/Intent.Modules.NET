@@ -1,5 +1,4 @@
 using System.Reflection;
-using AutoMapper;
 using FluentValidation;
 using GrpcServer.Application.Common.Behaviours;
 using GrpcServer.Application.Common.Validation;
@@ -9,7 +8,6 @@ using GrpcServer.Application.Interfaces;
 using GrpcServer.Application.Interfaces.TypeTestingServices;
 using GrpcServer.Domain.Services;
 using Intent.RoslynWeaver.Attributes;
-using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

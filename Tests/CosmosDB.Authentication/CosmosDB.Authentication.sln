@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{56E10A93-05CC-468B-AD69-57F9C700DD85}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CosmosDB.Authentication.Api", "CosmosDB.Authentication.Api\CosmosDB.Authentication.Api.csproj", "{8CBB067E-A22F-4419-ADC4-2FFC850495E5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{A89DB308-D307-4D19-8D41-DB8AA01F2E82}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CosmosDB.Authentication.Application", "CosmosDB.Authentication.Application\CosmosDB.Authentication.Application.csproj", "{6F1867AF-45EE-4B30-A455-1945FCFFBBA5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{77CC82CC-5E73-42E3-886E-94D9966106B3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CosmosDB.Authentication.Domain", "CosmosDB.Authentication.Domain\CosmosDB.Authentication.Domain.csproj", "{5D8FA2B5-22A1-40C7-BEC0-D65E4BE1E0D1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{CDA23DC3-9056-47AD-855D-E261E63A40BB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CosmosDB.Authentication.Infrastructure", "CosmosDB.Authentication.Infrastructure\CosmosDB.Authentication.Infrastructure.csproj", "{B0AE8797-0E17-495B-9723-BD8FE36EF84F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8CBB067E-A22F-4419-ADC4-2FFC850495E5} = {56E10A93-05CC-468B-AD69-57F9C700DD85}
+		{6F1867AF-45EE-4B30-A455-1945FCFFBBA5} = {A89DB308-D307-4D19-8D41-DB8AA01F2E82}
+		{5D8FA2B5-22A1-40C7-BEC0-D65E4BE1E0D1} = {77CC82CC-5E73-42E3-886E-94D9966106B3}
+		{B0AE8797-0E17-495B-9723-BD8FE36EF84F} = {CDA23DC3-9056-47AD-855D-E261E63A40BB}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8CBB067E-A22F-4419-ADC4-2FFC850495E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CBB067E-A22F-4419-ADC4-2FFC850495E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CBB067E-A22F-4419-ADC4-2FFC850495E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CBB067E-A22F-4419-ADC4-2FFC850495E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F1867AF-45EE-4B30-A455-1945FCFFBBA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F1867AF-45EE-4B30-A455-1945FCFFBBA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F1867AF-45EE-4B30-A455-1945FCFFBBA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F1867AF-45EE-4B30-A455-1945FCFFBBA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D8FA2B5-22A1-40C7-BEC0-D65E4BE1E0D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D8FA2B5-22A1-40C7-BEC0-D65E4BE1E0D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D8FA2B5-22A1-40C7-BEC0-D65E4BE1E0D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D8FA2B5-22A1-40C7-BEC0-D65E4BE1E0D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0AE8797-0E17-495B-9723-BD8FE36EF84F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0AE8797-0E17-495B-9723-BD8FE36EF84F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0AE8797-0E17-495B-9723-BD8FE36EF84F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0AE8797-0E17-495B-9723-BD8FE36EF84F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

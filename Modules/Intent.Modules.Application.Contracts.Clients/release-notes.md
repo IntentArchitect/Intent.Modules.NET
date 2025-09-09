@@ -1,3 +1,7 @@
+### Version 5.1.4
+
+- Improvement: Removed dependency on `Intent.Modelers.ServiceProxies` module.
+
 ### Version 5.1.3
 
 - Improvement: Updated referenced packages.

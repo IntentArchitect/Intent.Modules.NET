@@ -1,11 +1,16 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Threading;
 using Intent.Configuration;
 using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.RoslynWeaver.Attributes;
+using DynamicExpressionParser = System.Linq.Dynamic.Core.DynamicExpressionParser;
+using ParsingConfig = System.Linq.Dynamic.Core.ParsingConfig;
+using static Intent.Modules.VisualStudio.Projects.Api.TemplateOutputModelStereotypeExtensions;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.Api.ApiElementModel", Version = "1.0")]
@@ -15,6 +20,10 @@ namespace Intent.Modules.VisualStudio.Projects.Api
     [IntentManaged(Mode.Merge)]
     public class TemplateOutputModel : IHasStereotypes, IMetadataModel, IOutputTargetTemplate, IHasName, IElementWrapper
     {
+        private static readonly ParsingConfig ParsingConfig = new();
+        private object _cacheableRegistrationFilterLock = new();
+
+        private Func<object, bool> _cacheableRegistrationFilter;
         public const string SpecializationType = "Template Output";
         public const string SpecializationTypeId = "d421c322-7a51-4094-89fa-e5d8a0a97b27";
         protected readonly IElement _element;
@@ -26,7 +35,31 @@ namespace Intent.Modules.VisualStudio.Projects.Api
             {
                 throw new Exception($"Cannot create a '{GetType().Name}' from element with specialization type '{element.SpecializationType}'. Must be of type '{SpecializationType}'");
             }
+
             _element = element;
+        }
+
+        public bool IsApplicableToModel<TModel>(TModel model)
+        {
+            LazyInitializer.EnsureInitialized(ref _cacheableRegistrationFilter, ref _cacheableRegistrationFilterLock, () =>
+            {
+                if (!this.TryGetTemplateOutputSettings(out var settings) ||
+                    string.IsNullOrWhiteSpace(settings.RegistrationFilter()))
+                {
+                    return _ => true;
+                }
+
+                var compiledExpression = DynamicExpressionParser.ParseLambda<TModel, bool>(ParsingConfig, true, settings.RegistrationFilter()).Compile();
+                return _cacheableRegistrationFilter = parameter => compiledExpression((TModel)parameter);
+            });
+
+            return _cacheableRegistrationFilter(model);
+        }
+
+        public bool IsEnabled()
+        {
+            // We don't use the generated API extension in case stereotype or "Is Enabled" property is not in the metadata:
+            return this.GetStereotypeProperty(TemplateOutputSettings.DefinitionId, "Is Enabled", true);
         }
 
         public string Id => _element.Id;
@@ -35,7 +68,11 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         string IOutputTargetTemplate.Id => _element.Name;
 
         [IntentManaged(Mode.Ignore)]
-        public IEnumerable<string> RequiredFrameworks => new string[0];
+        bool IOutputTargetTemplate.TryGetElementId([NotNullWhen(true)] out string id)
+        {
+            id = _element.Id;
+            return true;
+        }
 
         public string Name => _element.Name;
 

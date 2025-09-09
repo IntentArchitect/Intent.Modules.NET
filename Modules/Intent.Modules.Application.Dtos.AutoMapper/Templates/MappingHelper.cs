@@ -47,18 +47,32 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Templates
                                  template.GetFullyQualifiedTypeName(field.TypeReference) != template.GetFullyQualifiedTypeName(field.Mapping.Element.TypeReference));
 
                 var (mappingExpression, methodName) = GetMappingExpression(template, field);
+
+                // get null checks if required
+                var nullChecks = BuildNullChecks(mappingExpression);
+                // build up the ternery alternative value. Empty string if not required
+                var ternaryAlternative = BuildNullCheckAlternative(template, field, nullChecks);
+
                 if ("src." + field.Name != mappingExpression || shouldCast)
                 {
-                    var mapping = $"{leadingWhitespace}{methodName}(d => d.{field.Name.ToPascalCase()}, opt => opt.MapFrom(src => {(shouldCast ? $"({template.GetTypeName(field)})" : string.Empty)}{mappingExpression}))";
+                    var mapping = $"{leadingWhitespace}{methodName}(d => d.{field.Name.ToPascalCase()}, opt => opt.MapFrom(src => {nullChecks}{(shouldCast ? $"({template.GetTypeName(field)})" : string.Empty)}{mappingExpression}{ternaryAlternative}))";
                     AddFieldMapping(statement, field, mapping);
                 }
                 else if (field.TypeReference.IsCollection && field.TypeReference.Element.Name != field.Mapping.Element?.TypeReference?.Element.Name)
                 {
-                    var mapping = $@"{leadingWhitespace}{methodName}(d => d.{field.Name.ToPascalCase()}, opt => opt.MapFrom(src => {mappingExpression}))";
+                    // build up the full expression
+                    // Add the null checks (blank if no checks required)
+                    // Add the mapping expression
+                    // Add the "alternative" portion of the null check ternary 
+                    var fullExpression = $"{nullChecks}{mappingExpression}{ternaryAlternative}";
+
+                    var mapping = $@"{leadingWhitespace}{methodName}(d => d.{field.Name.ToPascalCase()}, opt => opt.MapFrom(src => {fullExpression}))";
                     AddFieldMapping(statement, field, mapping);
                 }
             }
         }
+
+        
 
         //If your persistence layer has different persistence models from the domain models
         //you need them registered with AutoMapper for OData to work.
@@ -178,9 +192,57 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Templates
                     return $"{pathTarget.Name}{operationCall}{nullForgivingOperator}";
                 })).TrimEnd('!');
 
-            return (Path: path, MethodName: path.Contains('!') ? MethodName.ForPath : MethodName.ForMember);
+            return (Path: path, MethodName: MethodName.ForMember);
         }
 
+        public static string BuildNullChecks(string expression)
+        {
+            var rawParts = expression.Split('.');
+            var checks = new List<string>();
 
+            // a bit rudamentary, but basically if the expression already contains a ternary operation
+            // then don't add a null check as we will assume this is performing that. This is for custom mappings
+            if(expression.Contains(" ? ") && expression.Contains(" : "))
+            {
+                return string.Empty;
+            }
+
+            var currentPath = rawParts[0]; // e.g. "src"
+
+            for (int i = 1; i < rawParts.Length - 1; i++)
+            {
+                // Keep clean version of the part for building the path
+                var part = rawParts[i].Replace("!", "");
+                currentPath += "." + part;
+
+                // Only add a check if the original part DID have !
+                if (rawParts[i].Contains("!"))
+                {
+                    checks.Add($"{currentPath} != null");
+                }
+            }
+
+            var joinedCheck = string.Join(" && ", checks);
+            return !string.IsNullOrWhiteSpace(joinedCheck) ? $"{joinedCheck} ?" : string.Empty;
+        }
+
+        private static string BuildNullCheckAlternative(DtoModelTemplate template, DTOFieldModel field, string nullChecks)
+        {
+            // we only need the type if we are doing null checks
+            var type = !string.IsNullOrWhiteSpace(nullChecks) ? template.GetTypeName(field) : string.Empty;
+
+            if(type == string.Empty)
+            {
+                return string.Empty;
+            }
+
+            if(!type.EndsWith("?"))
+            {
+                type = $"{type}?";
+            }
+
+            // only have an explicit cast if its a primitive, otherwise null is fine
+            return template.GetTypeInfo(field.TypeReference).IsPrimitive ? $" : ({type})null" : " : null";
+        }
     }
 }

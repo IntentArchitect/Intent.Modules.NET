@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using Intent.Modules.AspNetCore.Settings;
 using Intent.Modules.AspNetCore.Events;
+using Intent.Modules.AspNetCore.Settings;
 using Intent.Modules.AspNetCore.Templates.Program;
+using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
@@ -11,6 +13,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.VisualStudio.Projects.Api;
+using Intent.Templates;
 
 namespace Intent.Modules.AspNetCore.Templates;
 
@@ -28,6 +31,7 @@ internal class AppStartupFile : IAppStartupFile
     private readonly List<ContainerRegistrationRequest> _containerRegistrationRequests = new();
     private readonly List<ServiceConfigurationRequest> _serviceConfigurationRequests = new();
     private readonly List<ApplicationBuilderRegistrationRequest> _applicationBuilderRegistrationRequests = new();
+    private readonly Lazy<bool> _hasMultipleInstances;
     private IHasCSharpStatements? _configureServicesBlock;
 
     public AppStartupFile(CSharpTemplateBase<object> template)
@@ -36,6 +40,8 @@ internal class AppStartupFile : IAppStartupFile
         {
             throw new Exception($"template must implement {nameof(ICSharpFileBuilderTemplate)}");
         }
+
+        _hasMultipleInstances = new Lazy<bool>(() => template.ExecutionContext.FindTemplateInstances<ITemplate>(template.Id).Count() > 1);
 
         _template = template;
         _template.FulfillsRole(IAppStartupTemplate.RoleName);
@@ -70,7 +76,7 @@ internal class AppStartupFile : IAppStartupFile
         }
 
         var isBuilt = false;
-        template.ExecutionContext.EventDispatcher.Subscribe<ServiceConfigurationRequest>(request =>
+        template.OnEmitOrPublished<ServiceConfigurationRequest>(request =>
         {
             if (isBuilt)
             {
@@ -80,7 +86,7 @@ internal class AppStartupFile : IAppStartupFile
             _serviceConfigurationRequests.Add(request);
         });
 
-        template.ExecutionContext.EventDispatcher.Subscribe<ContainerRegistrationRequest>(request =>
+        template.OnEmitOrPublished<ContainerRegistrationRequest>(request =>
         {
             if (isBuilt)
             {
@@ -90,7 +96,7 @@ internal class AppStartupFile : IAppStartupFile
             _containerRegistrationRequests.Add(request);
         });
 
-        template.ExecutionContext.EventDispatcher.Subscribe<ApplicationBuilderRegistrationRequest>(request =>
+        template.OnEmitOrPublished<ApplicationBuilderRegistrationRequest>(request =>
         {
             if (isBuilt)
             {
@@ -206,9 +212,9 @@ internal class AppStartupFile : IAppStartupFile
                 // handle their subscriptions after this class which will read them all as
                 // unhandled. So we make new subscriptions which we know will process requests
                 // after the other handlers.
-                template.ExecutionContext.EventDispatcher.Subscribe<ServiceConfigurationRequest>(ProcessServiceConfigurationRequest);
-                template.ExecutionContext.EventDispatcher.Subscribe<ContainerRegistrationRequest>(ProcessContainerRegistrationRequest);
-                template.ExecutionContext.EventDispatcher.Subscribe<ApplicationBuilderRegistrationRequest>(ProcessApplicationConfigurationRequest);
+                template.OnEmitOrPublished<ServiceConfigurationRequest>(ProcessServiceConfigurationRequest);
+                template.OnEmitOrPublished<ContainerRegistrationRequest>(ProcessContainerRegistrationRequest);
+                template.OnEmitOrPublished<ApplicationBuilderRegistrationRequest>(ProcessApplicationConfigurationRequest);
             }, int.MinValue + 1);
     }
 
@@ -548,17 +554,39 @@ internal class AppStartupFile : IAppStartupFile
         }
     }
 
+    private bool IsApplicable(
+        IEnumerable<ITemplateDependency> templateDependencies,
+        [NotNullWhen(true)] out List<(ITemplateDependency Dependency, IClassProvider ClassProvider)>? resolvedDependencies)
+    {
+        resolvedDependencies = [];
+
+        foreach (var dependency in templateDependencies)
+        {
+            var classProvider = _template.ExecutionContext.FindTemplateInstance<IClassProvider>(dependency);
+
+            if (_hasMultipleInstances.Value &&
+                !_template.ExecutionContext.IsAccessibleTo(classProvider!, _template.OutputTarget))
+            {
+                resolvedDependencies = null;
+                return false;
+            }
+
+            resolvedDependencies.Add((dependency, classProvider)!);
+        }
+
+        return true;
+    }
+
     private void ProcessServiceConfigurationRequest(ServiceConfigurationRequest request)
     {
-        if (request.IsHandled)
+        if (request.IsHandled ||
+            !IsApplicable(request.TemplateDependencies, out var resolvedDependencies))
         {
             return;
         }
 
-        foreach (var dependency in request.TemplateDependencies)
+        foreach (var (dependency, classProvider) in resolvedDependencies)
         {
-            var classProvider = _template.GetTemplate<IClassProvider>(dependency);
-
             _template.AddTemplateDependency(dependency);
             _template.AddUsing(classProvider.Namespace);
         }
@@ -593,15 +621,14 @@ internal class AppStartupFile : IAppStartupFile
 
     private void ProcessContainerRegistrationRequest(ContainerRegistrationRequest request)
     {
-        if (request.IsHandled)
+        if (request.IsHandled ||
+            !IsApplicable(request.TemplateDependencies, out var resolvedDependencies))
         {
             return;
         }
 
-        foreach (var dependency in request.TemplateDependencies)
+        foreach (var (dependency, classProvider) in resolvedDependencies)
         {
-            var classProvider = _template.GetTemplate<IClassProvider>(dependency);
-
             _template.AddTemplateDependency(dependency);
             _template.AddUsing(classProvider.Namespace);
         }
@@ -641,10 +668,13 @@ internal class AppStartupFile : IAppStartupFile
 
     private void ProcessApplicationConfigurationRequest(ApplicationBuilderRegistrationRequest request)
     {
-        foreach (var dependency in request.TemplateDependencies)
+        if (!IsApplicable(request.TemplateDependencies, out var resolvedDependencies))
         {
-            var classProvider = _template.GetTemplate<IClassProvider>(dependency);
+            return;
+        }
 
+        foreach (var (dependency, classProvider) in resolvedDependencies)
+        {
             _template.AddTemplateDependency(dependency);
             _template.AddUsing(classProvider.Namespace);
         }

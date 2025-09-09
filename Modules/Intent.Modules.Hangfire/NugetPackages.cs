@@ -22,8 +22,8 @@ namespace Intent.Modules.Hangfire
             NugetRegistry.Register(HangfireAspNetCorePackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 2, >= 0) => new PackageVersion("1.8.20")
-                            .WithNugetDependency("Hangfire.NetCore", "1.8.20")
+                        ( >= 2, >= 0) => new PackageVersion("1.8.21")
+                            .WithNugetDependency("Hangfire.NetCore", "1.8.21")
                             .WithNugetDependency("Microsoft.AspNetCore.Antiforgery", "2.0.0")
                             .WithNugetDependency("Microsoft.AspNetCore.Http.Abstractions", "2.0.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{HangfireAspNetCorePackageName}'"),
@@ -32,7 +32,7 @@ namespace Intent.Modules.Hangfire
             NugetRegistry.Register(HangfireCorePackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 2, >= 0) => new PackageVersion("1.8.20")
+                        ( >= 2, >= 0) => new PackageVersion("1.8.21")
                             .WithNugetDependency("Newtonsoft.Json", "11.0.1"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{HangfireCorePackageName}'"),
                     }
@@ -48,16 +48,17 @@ namespace Intent.Modules.Hangfire
             NugetRegistry.Register(HangfireSqlServerPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 2, >= 0) => new PackageVersion("1.8.20")
-                            .WithNugetDependency("Hangfire.Core", "1.8.20"),
+                        ( >= 2, >= 0) => new PackageVersion("1.8.21")
+                            .WithNugetDependency("Hangfire.Core", "1.8.21"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{HangfireSqlServerPackageName}'"),
                     }
                 );
             NugetRegistry.Register(MicrosoftDataSqlClientPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("6.1.0")
-                            .WithNugetDependency("Azure.Identity", "1.13.2")
+                        ( >= 9, >= 0) => new PackageVersion("6.1.1")
+                            .WithNugetDependency("Azure.Core", "1.47.1")
+                            .WithNugetDependency("Azure.Identity", "1.14.2")
                             .WithNugetDependency("Microsoft.Bcl.Cryptography", "9.0.4")
                             .WithNugetDependency("Microsoft.Data.SqlClient.SNI.runtime", "6.0.2")
                             .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "9.0.4")
@@ -67,8 +68,9 @@ namespace Intent.Modules.Hangfire
                             .WithNugetDependency("System.Configuration.ConfigurationManager", "9.0.4")
                             .WithNugetDependency("System.Security.Cryptography.Pkcs", "9.0.4")
                             .WithNugetDependency("System.Text.Json", "9.0.5"),
-                        ( >= 8, >= 0) => new PackageVersion("6.1.0")
-                            .WithNugetDependency("Azure.Identity", "1.13.2")
+                        ( >= 8, >= 0) => new PackageVersion("6.1.1")
+                            .WithNugetDependency("Azure.Core", "1.47.1")
+                            .WithNugetDependency("Azure.Identity", "1.14.2")
                             .WithNugetDependency("Microsoft.Bcl.Cryptography", "8.0.0")
                             .WithNugetDependency("Microsoft.Data.SqlClient.SNI.runtime", "6.0.2")
                             .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "8.0.1")
@@ -78,8 +80,9 @@ namespace Intent.Modules.Hangfire
                             .WithNugetDependency("System.Configuration.ConfigurationManager", "8.0.1")
                             .WithNugetDependency("System.Security.Cryptography.Pkcs", "8.0.1")
                             .WithNugetDependency("System.Text.Json", "8.0.5"),
-                        ( >= 2, >= 0) => new PackageVersion("6.1.0")
-                            .WithNugetDependency("Azure.Identity", "1.13.2")
+                        ( >= 2, >= 0) => new PackageVersion("6.1.1")
+                            .WithNugetDependency("Azure.Core", "1.47.1")
+                            .WithNugetDependency("Azure.Identity", "1.14.2")
                             .WithNugetDependency("Microsoft.Bcl.Cryptography", "9.0.4")
                             .WithNugetDependency("Microsoft.Data.SqlClient.SNI.runtime", "6.0.2")
                             .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "9.0.4")

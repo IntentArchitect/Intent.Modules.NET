@@ -1,5 +1,4 @@
 using System.Reflection;
-using AutoMapper;
 using CleanArchitecture.Comprehensive.Application.Common.Behaviours;
 using CleanArchitecture.Comprehensive.Application.Common.Validation;
 using CleanArchitecture.Comprehensive.Application.Implementation.Comments;
@@ -13,7 +12,6 @@ using CleanArchitecture.Comprehensive.Domain.Services.DDD;
 using CleanArchitecture.Comprehensive.Domain.Services.DefaultDiagram;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
-using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

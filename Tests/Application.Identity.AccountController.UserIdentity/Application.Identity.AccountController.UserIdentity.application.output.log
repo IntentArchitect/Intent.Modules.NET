@@ -339,6 +339,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>282ce283-b235-4dfe-9a9e-01c747f9f895</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Application.Identity.AccountController.UserIdentity.Infrastructure/Migrations/README.md</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>README.md</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>0d148ff4-aafa-4000-8bb8-398c90ece704</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbContext#DefaultConnection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -352,14 +360,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Application.Identity.AccountController.UserIdentity.Infrastructure/Persistence/Configurations/BespokeUserConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>BespokeUserConfiguration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>0d148ff4-aafa-4000-8bb8-398c90ece704</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Application.Identity.AccountController.UserIdentity.Infrastructure/Persistence/MIGRATION_README.txt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MIGRATION_README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

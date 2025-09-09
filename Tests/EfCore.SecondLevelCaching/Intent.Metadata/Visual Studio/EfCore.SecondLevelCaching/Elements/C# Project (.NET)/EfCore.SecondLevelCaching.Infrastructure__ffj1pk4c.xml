@@ -94,5 +94,34 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="b2b251df-7e3f-4cfd-a20f-e204cb0f5c81" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+      <name>Migrations</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>4e8768c2-035d-4a34-aff6-37d3af9abcd2</parentFolderId>
+      <packageId>7ec10013-9d9d-4710-beea-68262a98592f</packageId>
+      <packageName>EfCore.SecondLevelCaching</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="f2af1cdb-389b-4232-98c6-7e00fdce3177" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.EntityFrameworkCore.DbMigrationsReadMe</name>
+          <display>Intent.EntityFrameworkCore.DbMigrationsReadMe</display>
+          <externalReference>Intent.EntityFrameworkCore</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b2b251df-7e3f-4cfd-a20f-e204cb0f5c81</parentFolderId>
+          <packageId>7ec10013-9d9d-4710-beea-68262a98592f</packageId>
+          <packageName>EfCore.SecondLevelCaching</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>

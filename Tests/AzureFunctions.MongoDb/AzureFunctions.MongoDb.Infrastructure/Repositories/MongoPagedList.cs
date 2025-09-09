@@ -3,17 +3,18 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AzureFunctions.MongoDb.Domain.Repositories;
+using AzureFunctions.MongoDb.Infrastructure.Persistence.Documents;
 using Intent.RoslynWeaver.Attributes;
-using MongoFramework;
-using MongoFramework.Linq;
+using MongoDB.Driver.Linq;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.MongoDb.Repositories.PagedList", Version = "1.0")]
+[assembly: IntentTemplate("Intent.MongoDb.MongoDbPagedList", Version = "1.0")]
 
 namespace AzureFunctions.MongoDb.Infrastructure.Repositories
 {
-    public class MongoPagedList<TDomain> : List<TDomain>, IPagedList<TDomain>
+    internal class MongoPagedList<TDomain, TDocument, TIdentifier> : List<TDomain>, IPagedList<TDomain>
         where TDomain : class
+        where TDocument : IMongoDbDocument<TDomain, TDocument, TIdentifier>
     {
         public MongoPagedList(IQueryable<TDomain> source, int pageNo, int pageSize)
         {
@@ -45,7 +46,7 @@ namespace AzureFunctions.MongoDb.Infrastructure.Repositories
         public int PageSize { get; private set; }
 
         public static async Task<IPagedList<TDomain>> CreateAsync(
-            IQueryable<TDomain> source,
+            IQueryable<TDocument> source,
             int pageNo,
             int pageSize,
             CancellationToken cancellationToken = default)
@@ -57,7 +58,7 @@ namespace AzureFunctions.MongoDb.Infrastructure.Repositories
                 .Skip(skip)
                 .Take(pageSize)
                 .ToListAsync(cancellationToken);
-            return new MongoPagedList<TDomain>(count, pageNo, pageSize, results);
+            return new MongoPagedList<TDomain, TDocument, TIdentifier>(count, pageNo, pageSize, results.Select(x => x.ToEntity()).ToList());
         }
 
         private int GetPageCount(int pageSize, int totalCount)

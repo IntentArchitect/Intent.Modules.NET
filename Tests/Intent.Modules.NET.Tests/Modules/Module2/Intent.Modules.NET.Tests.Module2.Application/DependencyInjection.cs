@@ -1,12 +1,10 @@
 using System.Reflection;
-using AutoMapper;
 using FluentValidation;
 using Intent.Modules.NET.Tests.Application.Core.Common.Eventing;
 using Intent.Modules.NET.Tests.Module2.Application.Common.Behaviours;
 using Intent.Modules.NET.Tests.Module2.Application.Common.Validation;
 using Intent.Modules.NET.Tests.Module2.Application.IntegrationEvents.EventHandlers;
 using Intent.RoslynWeaver.Attributes;
-using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Module1.Eventing.Messages;

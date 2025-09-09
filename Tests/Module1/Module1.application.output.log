@@ -839,6 +839,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>dda00c0b-3e5a-4063-941d-2ef0f3fef475</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Infrastructure/Migrations/README.md</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>README.md</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>adb2675f-462d-44cf-8492-f50801274f72</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#f2f592d4-380a-494f-b799-7a74b6cce2f5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -860,14 +868,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Infrastructure/Persistence/Configurations/ProductConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ProductConfiguration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>eba8e8d5-a19f-4716-8c96-12624b38bd91</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Infrastructure/Persistence/MIGRATION_README.txt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MIGRATION_README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

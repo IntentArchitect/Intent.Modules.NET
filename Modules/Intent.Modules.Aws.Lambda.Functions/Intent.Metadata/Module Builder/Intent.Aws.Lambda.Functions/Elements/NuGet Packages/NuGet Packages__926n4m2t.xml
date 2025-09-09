@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="13844183-2032-4052-ac8c-c2eef94da64e" type="NuGet Packages" typeId="4c75c84d-c745-4f0f-b1f4-82eeca01dfc7">
+  <name>NuGet Packages</name>
+  <display>NuGet Packages</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>4741e086-f1fa-4135-88df-1a329c15a271</parentFolderId>
+  <packageId>4741e086-f1fa-4135-88df-1a329c15a271</packageId>
+  <packageName>Intent.Aws.Lambda.Functions</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

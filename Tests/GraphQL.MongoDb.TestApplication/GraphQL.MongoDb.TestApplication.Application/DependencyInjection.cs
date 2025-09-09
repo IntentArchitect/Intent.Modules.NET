@@ -1,10 +1,8 @@
 using System.Reflection;
-using AutoMapper;
 using FluentValidation;
 using GraphQL.MongoDb.TestApplication.Application.Common.Behaviours;
 using GraphQL.MongoDb.TestApplication.Application.Common.Validation;
 using Intent.RoslynWeaver.Attributes;
-using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

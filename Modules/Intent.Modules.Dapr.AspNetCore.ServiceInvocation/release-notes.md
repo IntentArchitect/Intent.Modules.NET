@@ -1,3 +1,7 @@
+### Version 2.2.24
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 2.2.23
 
 - Fixed: Correct variable path used when invoking an external service and mapping to entity

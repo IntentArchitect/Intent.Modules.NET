@@ -571,6 +571,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>4275740c-605e-4117-a0e3-69aa66819638</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/Migrations/README.md</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>README.md</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>ea20b490-bd40-4cfe-b8a3-b2057cb6f552</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbContext#DefaultConnection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -640,14 +648,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/Persistence/Interceptors/SoftDeleteInterceptor.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SoftDeleteInterceptor.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ea20b490-bd40-4cfe-b8a3-b2057cb6f552</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/Persistence/MIGRATION_README.txt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MIGRATION_README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

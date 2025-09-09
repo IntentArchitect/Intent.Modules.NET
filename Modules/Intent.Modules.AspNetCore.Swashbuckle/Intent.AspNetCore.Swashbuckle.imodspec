@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.Swashbuckle</id>
-  <version>5.1.10</version>
-  <supportedClientVersions>[4.2.4, 5.0.0-a)</supportedClientVersions>
+  <version>5.1.11</version>
+  <supportedClientVersions>[4.5.15-a, 5.0.0-a)</supportedClientVersions>
   <summary>Provides Swagger support for using the Swashbuckle library for ASP.NET Core.</summary>
   <description>Provides Swagger support for using the Swashbuckle library for ASP.NET Core.</description>
   <authors>Intent Architect</authors>
@@ -31,8 +31,8 @@
   <decorators />
   <dependencies>
     <dependency id="Intent.AspNetCore" version="6.0.0" />
-    <dependency id="Intent.Common" version="3.7.3" />
-    <dependency id="Intent.Common.CSharp" version="3.8.6" />
+    <dependency id="Intent.Common" version="3.9.0" />
+    <dependency id="Intent.Common.CSharp" version="3.9.5" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Modelers.Services" version="3.9.1" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />

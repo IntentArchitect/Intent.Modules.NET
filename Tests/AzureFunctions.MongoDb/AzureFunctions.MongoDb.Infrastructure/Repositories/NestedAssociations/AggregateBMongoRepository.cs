@@ -1,33 +1,22 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
+using System.Linq.Expressions;
 using AzureFunctions.MongoDb.Domain.Entities.NestedAssociations;
-using AzureFunctions.MongoDb.Domain.Repositories;
+using AzureFunctions.MongoDb.Domain.Repositories.Documents.NestedAssociations;
 using AzureFunctions.MongoDb.Domain.Repositories.NestedAssociations;
 using AzureFunctions.MongoDb.Infrastructure.Persistence;
+using AzureFunctions.MongoDb.Infrastructure.Persistence.Documents.NestedAssociations;
 using Intent.RoslynWeaver.Attributes;
+using MongoDB.Driver;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.MongoDb.Repositories.Repository", Version = "1.0")]
+[assembly: IntentTemplate("Intent.MongoDb.MongoDbRepository", Version = "1.0")]
 
 namespace AzureFunctions.MongoDb.Infrastructure.Repositories.NestedAssociations
 {
-    public class AggregateBMongoRepository : MongoRepositoryBase<AggregateB>, IAggregateBRepository
+    internal class AggregateBMongoRepository : MongoRepositoryBase<AggregateB, AggregateBDocument, IAggregateBDocument, string>, IAggregateBRepository
     {
-        public AggregateBMongoRepository(ApplicationMongoDbContext context) : base(context)
+        public AggregateBMongoRepository(IMongoCollection<AggregateBDocument> collection, MongoDbUnitOfWork unitOfWork) : base(collection, unitOfWork)
         {
-        }
-
-        public async Task<AggregateB?> FindByIdAsync(string id, CancellationToken cancellationToken = default)
-        {
-            return await FindAsync(x => x.Id == id, cancellationToken);
-        }
-
-        public async Task<List<AggregateB>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default)
-        {
-            return await FindAllAsync(x => ids.Contains(x.Id), cancellationToken);
         }
     }
 }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Intent.Engine;
 using Intent.IArchitect.Agent.Persistence.Model;
 using Intent.IArchitect.Agent.Persistence.Model.Common;
+using Intent.IArchitect.CrossPlatform.IO;
 using Intent.Metadata;
 using Intent.Plugins;
 using Intent.RoslynWeaver.Attributes;
@@ -21,8 +22,14 @@ namespace Intent.Modules.Blazor.Migrations
     public class OnInstallMigration : IModuleOnInstallMigration
     {
         private const string VisualStudioDesignerId = "0701433c-36c0-4569-b1f4-9204986b587d";
+        private const string UIDesignerId = "f492faed-0665-4513-9853-5a230721786f";
+        private const string ServicesDesignerId = "81104ae6-2bc5-4bae-b05a-f987b0372d81";
+
         private const string VisualStudioSolutionPackageSpecializationId = "07e7b690-a59d-4b72-8440-4308a121d32c";
+        private const string ServicePackageSpecializationId = "df45eaf6-9202-4c25-8dd5-677e9ba1e906";
+        private const string UIPackageSpecializationId = "911c35b4-4ba3-404c-a0c6-e5258e53333a";
         private const string RoleSpecializationId = "025e933b-b602-4b6d-95ab-0ec36ae940da";
+
         private readonly IApplicationConfigurationProvider _configurationProvider;
 
         public OnInstallMigration(IApplicationConfigurationProvider configurationProvider)
@@ -41,27 +48,38 @@ namespace Intent.Modules.Blazor.Migrations
 
             bool changes = false;
             changes |= EnsureBlazorRoleInVSDesigner(app);
-            changes |= MigrationHelper.InitializeIncludeSamplesSetting(app, "true");
+            changes |= MigrationHelper.InitializeIncludeSamplesSetting(app, "true");            
+            changes |= AddServicePackageReferenceToUIPackages(app);
             if (changes)
             {
                 app.SaveAllChanges();
             }
 
-            /*
-            var visualStudioMetadataInstallationFile = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "../content", "visual-studio.metadata.config");
-            if (File.Exists(visualStudioMetadataInstallationFile))
+        }
+
+        private bool AddServicePackageReferenceToUIPackages(ApplicationPersistable app)
+        {
+            bool result = false;
+            var designerServices = app.TryGetDesigner(ServicesDesignerId);
+            if (designerServices == null)
+                return result;
+            var servicePackages = designerServices.GetPackages().Where(x => x.SpecializationTypeId == ServicePackageSpecializationId);
+            if (!servicePackages.Any())
             {
-                _metadataInstaller.InstallFromFile(app.AbsolutePath, visualStudioMetadataInstallationFile,
-                    fieldDictionary: new Dictionary<string, string>
-                    {
-                        ["application.name"] = _configurationProvider.GetApplicationConfig().Name,
-                        ["solution.name"] = _configurationProvider.GetSolutionConfig().SolutionName
-                    }, s => { return Task.CompletedTask; });
+                return result;
             }
-            else
+            var designerUI = app.GetDesigner(UIDesignerId);
+            var uipackages = designerUI.GetPackages().Where(x => x.SpecializationTypeId == UIPackageSpecializationId);
+
+            foreach (var uiPackage in uipackages)
             {
-                throw new Exception("File not found: " + visualStudioMetadataInstallationFile);
-            }*/
+                foreach (var servicePacakge in servicePackages)
+                {
+                    uiPackage.AddReference(PackageReferenceModel.Create(servicePacakge, true));
+                    result = true;
+                }
+            }
+            return result;
         }
 
         private static bool EnsureBlazorRoleInVSDesigner(ApplicationPersistable app)
@@ -101,21 +119,6 @@ namespace Intent.Modules.Blazor.Migrations
 
         private record StartupDetails(PackageModelPersistable Pacakge, ElementPersistable Role);
 
-        public void OnUninstall()
-        {
-            // TODO: Should uninstall client?
-            //var app = ApplicationPersistable.Load(_configurationProvider.GetApplicationConfig().FilePath);
-            //var designer = app.GetDesigner(VisualStudioDesignerId);
-            //var packages = designer.GetPackages().Where(x => x.SpecializationTypeId == VisualStudioSolutionPackageSpecializationId);
-
-            //foreach (var package in packages)
-            //{
-            //    var elements = package.GetElementsOfType(RoleSpecializationId);
-            //    if (elements.Any(x => x.Name == "Blazor"))
-            //    {
-            //        return;
-            //    }
-            //}
-        }
+        
     }
 }

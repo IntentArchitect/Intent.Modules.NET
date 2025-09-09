@@ -657,6 +657,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>667c14d5-2bde-4eb9-9399-92c5411aee00</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.IdentityService.Infrastructure/Migrations/README.md</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>README.md</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>f5507520-a60d-4c29-a19e-4bdfc1178e15</ProjectId>
       <CorrelationId>Intent.AspNetCore.IdentityService.EmailSenderOptions</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -678,14 +686,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.IdentityService.Infrastructure/Persistence/Configurations/ApplicationIdentityUserConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApplicationIdentityUserConfiguration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>a698616d-4ba9-45b2-b23e-68baf11880f4</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.IdentityService.Infrastructure/Persistence/MIGRATION_README.txt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MIGRATION_README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

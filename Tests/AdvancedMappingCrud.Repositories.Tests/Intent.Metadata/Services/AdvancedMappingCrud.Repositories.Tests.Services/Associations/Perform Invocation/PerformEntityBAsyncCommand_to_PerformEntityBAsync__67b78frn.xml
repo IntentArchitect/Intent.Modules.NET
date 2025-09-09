@@ -19,7 +19,7 @@
     <childElements />
   </sourceEnd>
   <targetEnd id="07773c5a-50ef-4994-8153-46ded91807ab" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
-    <display>[call] : PerformEntityBAsync(...): void</display>
+    <display>[call] PerformEntityBAsync(...): void</display>
     <order>2</order>
     <traits>
       <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />

@@ -1,0 +1,22 @@
+using System;
+using Intent.RoslynWeaver.Attributes;
+
+[assembly: IntentTemplate("Intent.Entities.DomainEntity", Version = "2.0")]
+
+namespace EntityFrameworkCore.SqlServer.PkNoneProvider.Domain.Entities
+{
+    public class SchemaParent
+    {
+        public SchemaParent()
+        {
+            Name = null!;
+            SchemaInLineChild = null!;
+        }
+
+        public Guid Id { get; set; }
+
+        public string Name { get; set; }
+
+        public virtual SchemaInLineChild SchemaInLineChild { get; set; }
+    }
+}

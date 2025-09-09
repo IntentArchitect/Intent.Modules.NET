@@ -26,7 +26,7 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
         public override string Id => "Intent.Blazor.Authentication.CurrentUserServiceImplementation";
 
         [IntentManaged(Mode.Ignore)]
-        public override int Order => 0;
+        public override int Order => 100;
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {            
@@ -82,10 +82,18 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
                 @class.AddField("ClaimsPrincipal?", "_cachedUser", f => f.Private());
 
                 var ctor = @class.Constructors.First();
-                ctor.AddParameter("IHttpContextAccessor", "httpContextAccessor", p => p.IntroduceReadonlyField());
-                ctor.AddParameter("AuthenticationStateProvider", "authStateProvider", p => p.IntroduceReadonlyField());
-                ctor.AddParameter("IAuthorizationService", "authorizationService", p => p.IntroduceReadonlyField());
-
+                if (!ctor.Parameters.Any(p => p.Name == "httpContextAccessor"))
+                {
+                    ctor.AddParameter("IHttpContextAccessor", "httpContextAccessor", p => p.IntroduceReadonlyField());
+                }
+                if (!ctor.Parameters.Any(p => p.Name == "authStateProvider"))
+                {
+                    ctor.AddParameter("AuthenticationStateProvider", "authStateProvider", p => p.IntroduceReadonlyField());
+                }
+                if (!ctor.Parameters.Any(p => p.Name == "authorizationService"))
+                {
+                    ctor.AddParameter("IAuthorizationService", "authorizationService", p => p.IntroduceReadonlyField());
+                }
 
                 var roleMethod = @class.FindMethod("IsInRoleAsync");
                 roleMethod.Statements.Clear();
@@ -106,7 +114,7 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
                 getMethod.Statements.Clear();
 
                 getMethod.AddStatement("var user = await GetPrincipalAsync();");
-                getMethod.AddIfStatement("user is null", ifs => ifs.AddStatement("return null;"));
+                getMethod.AddIfStatement("user is null || !(user?.Identity?.IsAuthenticated == true)", ifs => ifs.AddStatement("return null;"));
                 getMethod.AddStatement("return new CurrentUser(GetUserId(user), GetUserName(user), user);");
 
                 @class.AddMethod("void", "SetContext", method =>
@@ -127,7 +135,14 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
                     method.AddIfStatement("_cachedUser is not null", ifs => ifs.AddStatement("return _cachedUser;"));
                     method.AddStatement("var httpUser = _httpContextAccessor.HttpContext?.User;", s => s.SeparatedFromPrevious());
 
-                    method.AddIfStatement("httpUser?.Identity?.IsAuthenticated == true", ifs => ifs.AddStatement("_cachedUser = httpUser;"));
+                    method.AddIfStatement("httpUser?.Identity is not null", ifs =>
+                    {
+                        ifs.AddIfStatement("httpUser?.Identity?.IsAuthenticated == true", ifs => ifs.AddStatement("_cachedUser = httpUser;"));
+                        ifs.AddElseStatement(e =>
+                        {
+                            e.AddStatement("return null;");
+                        });
+                    });
                     method.AddElseStatement(e =>
                     {
                         e.AddStatement("var authState = await _authStateProvider.GetAuthenticationStateAsync();");
@@ -137,26 +152,57 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
                     method.AddStatement("return _cachedUser;", s => s.SeparatedFromPrevious());
                 });
 
-                @class.AddMethod($"string?", "GetUserName", method =>
+                var getUserNameMethod = @class.FindMethod("GetUserName");
+                if (getUserNameMethod is null)
                 {
-                    method
-                        .Static()
-                        .Private()
-                        .AddParameter("ClaimsPrincipal", "user");
+                    @class.AddMethod($"string?", "GetUserName", method =>
+                    {
+                        method
+                            .Static()
+                            .Private()
+                            .AddParameter("ClaimsPrincipal?", "claimsPrincipal");
 
-                    method.WithExpressionBody("user.Identity?.Name");
-                });
+                        method.WithExpressionBody("claimsPrincipal?.Identity?.Name");
+                    });
 
-
-                @class.AddMethod(userIdProperty.Type.Replace("?", "") + "?", "GetUserId", method =>
+                }
+                else
                 {
-                    method
-                        .Static()
-                        .Private()
-                        .AddParameter("ClaimsPrincipal", "user");
+                    getUserNameMethod.Statements.Clear();
+                    getUserNameMethod.WithExpressionBody("claimsPrincipal?.Identity?.Name");
+                }
 
-                    method.WithExpressionBody(GetUserIdImplimentation(userIdProperty));
-                });
+
+                var getUserIdMethod = @class.FindMethod("GetUserId");
+                if (getUserIdMethod is null)
+                {
+                    @class.AddMethod(userIdProperty.Type.Replace("?", "") + "?", "GetUserId", method =>
+                    {
+                        method
+                            .Static()
+                            .Private()
+                            .AddParameter("ClaimsPrincipal?", "claimsPrincipal");
+
+                        method.WithExpressionBody(GetUserIdImplimentation(userIdProperty));
+                    });
+                }
+                else
+                {
+                    getUserIdMethod.Statements.Clear();
+                    getUserIdMethod.WithExpressionBody(GetUserIdImplimentation(userIdProperty));
+                }
+
+                var toRemove = @class.FindMethod("GetClaimsPrincipal");
+                if (toRemove is not null)
+                {
+                    @class.Methods.Remove(toRemove);
+                }
+                toRemove = @class.FindMethod("GetAuthorizationService");
+                if (toRemove is not null)
+                {
+                    @class.Methods.Remove(toRemove);
+                }
+
 
                 var syncUserIdProperty = @class.Properties.FirstOrDefault(p => p.Name == "UserId");
                 if (syncUserIdProperty is not null)
@@ -179,19 +225,22 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
             GetUserName(_httpContextAccessor.HttpContext.User)");
                 }
 
-                file.AddRecord("CurrentUser", @record =>
+                if (!file.Records.Any(r => r.Name == "CurrentUser"))
                 {
+                    file.AddRecord("CurrentUser", @record =>
+                    {
 
-                    record
-                        .ImplementsInterface(template.GetTypeName(currentUserTemplate))
-                        .AddPrimaryConstructor(ctor =>
-                        {
-                            ctor
-                                .AddParameter(userIdProperty.Type.Replace("?", "") + "?", "Id")
-                                .AddParameter("string?", "Name")
-                                .AddParameter("ClaimsPrincipal", "Principal");
-                        });
-                });
+                        record
+                            .ImplementsInterface(template.GetTypeName(currentUserTemplate))
+                            .AddPrimaryConstructor(ctor =>
+                            {
+                                ctor
+                                    .AddParameter(userIdProperty.Type.Replace("?", "") + "?", "Id")
+                                    .AddParameter("string?", "Name")
+                                    .AddParameter("ClaimsPrincipal", "Principal");
+                            });
+                    });
+                }
             });
         }
 
@@ -200,11 +249,11 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
             var propertyType = p.Type.Replace("?", "");
             if (propertyType == "string")
             {
-                return "user.FindFirst(ClaimTypes.NameIdentifier)?.Value";
+                return "claimsPrincipal?.FindFirst(ClaimTypes.NameIdentifier)?.Value";
             }
             else
             {
-                return $"{propertyType}.TryParse(user.FindFirst(ClaimTypes.NameIdentifier)?.Value, out var parsed) ? parsed : default";
+                return $"{propertyType}.TryParse(claimsPrincipal?.FindFirst(ClaimTypes.NameIdentifier)?.Value, out var parsed) ? parsed : default";
             }
         }
     }

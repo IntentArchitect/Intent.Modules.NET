@@ -27,50 +27,32 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbMultiTenantConnectionFactory
                 .AddUsing("System.Collections.Concurrent")
                 .AddUsing("Finbuckle.MultiTenant")
                 .AddUsing("MongoDB.Driver")
-                .AddUsing("MongoFramework")
-                .AddUsing("MongoFramework.Infrastructure.Diagnostics")
                 .AddClass($"MongoDbMultiTenantConnectionFactory", @class =>
                 {
-                    @class.ImplementsInterface("IDisposable");
-                    @class.AddField("ConcurrentDictionary<string, CacheableMongoDbConnection>", "_connectionCache", f => f.PrivateReadOnly());
+                    @class.AddField("ConcurrentDictionary<string, CacheableMongoDb>", "_connectionCache", f => f.PrivateReadOnly());
                     @class.AddConstructor(ctor =>
                     {
-                        ctor.AddStatement("_connectionCache = new ConcurrentDictionary<string, CacheableMongoDbConnection>();");
+                        ctor.AddStatement("_connectionCache = new ConcurrentDictionary<string, CacheableMongoDb>();");
                     });
 
-                    @class.AddMethod("IMongoDbConnection", "GetConnection", method =>
+                    @class.AddMethod("IMongoDatabase", "GetConnection", method =>
                     {
                         method.AddParameter("string", "connectionString");
-                        method.AddStatement("return _connectionCache.GetOrAdd(connectionString, id => new CacheableMongoDbConnection( MongoDbConnection.FromConnectionString(connectionString)));");
+                        method.AddStatement("var db = new MongoClient(connectionString).GetDatabase(new MongoUrl(connectionString).DatabaseName);");
+                        method.AddStatement("return _connectionCache.GetOrAdd(connectionString, id => new CacheableMongoDb(db)).GetDatabase();");
                     });
 
-                    @class.AddMethod("void", "Dispose", method =>
+                    @class.AddNestedClass("CacheableMongoDb", @class =>
                     {
-                        method.AddForEachStatement("connection", "_connectionCache.Values", stmt => stmt.AddStatement("connection.UnderlyingConnection.Dispose();"));
-                    });
-
-                    @class.AddNestedClass("CacheableMongoDbConnection", @class =>
-                    {
-                        @class
-                            .Private()
-                            .ImplementsInterface("IMongoDbConnection");
+                        @class.Private();
                         @class.AddConstructor(ctor =>
                         {
-                            ctor.AddParameter("IMongoDbConnection", "underlyingConnection", p => p.IntroduceProperty(p => p.ReadOnly()));
+                            ctor.AddParameter("IMongoDatabase", "underlyingConnection", p => p.IntroduceProperty(p => p.ReadOnly()));
                         });
 
                         @class.AddProperty("IMongoClient", "Client", p => p.ReadOnly().Getter.WithExpressionImplementation("UnderlyingConnection.Client"));
-                        @class.AddProperty("IDiagnosticListener", "DiagnosticListener", p =>
-                        {
-                            p.Getter.WithExpressionImplementation("UnderlyingConnection.DiagnosticListener");
-                            p.Setter.WithExpressionImplementation("UnderlyingConnection.DiagnosticListener = value");
-                        });
-                        @class.AddMethod("IMongoDatabase", "GetDatabase", method => method.AddStatement("return UnderlyingConnection.GetDatabase();"));
-                        @class.AddMethod("void", "Dispose", method =>
-                        {
-                            method.AddStatement("//DI is forcing `IMongoDbConnection` to make these scoped, but we want to cache these per tenant");
-                            method.AddStatement("//This stops the container from disposing this on every request");
-                        });
+
+                        @class.AddMethod("IMongoDatabase", "GetDatabase", method => method.AddStatement("return UnderlyingConnection;"));
                     });
                 });
         }

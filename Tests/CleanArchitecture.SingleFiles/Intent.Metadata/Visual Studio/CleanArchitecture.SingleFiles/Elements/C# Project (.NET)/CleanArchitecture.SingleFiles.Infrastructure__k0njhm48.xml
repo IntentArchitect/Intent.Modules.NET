@@ -91,5 +91,34 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="7f6ab3f6-a1a0-421b-8ae2-6efae3d45d17" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+      <name>Migrations</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f0db48f6-7aa9-4e05-91ea-04cc31380034</parentFolderId>
+      <packageId>ca8e7db5-54da-4f00-aa50-68c424acf855</packageId>
+      <packageName>CleanArchitecture.SingleFiles</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="6dfb4af0-80f7-4554-82eb-4dd2cdef0174" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.EntityFrameworkCore.DbMigrationsReadMe</name>
+          <display>Intent.EntityFrameworkCore.DbMigrationsReadMe</display>
+          <externalReference>Intent.EntityFrameworkCore</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>7f6ab3f6-a1a0-421b-8ae2-6efae3d45d17</parentFolderId>
+          <packageId>ca8e7db5-54da-4f00-aa50-68c424acf855</packageId>
+          <packageName>CleanArchitecture.SingleFiles</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>

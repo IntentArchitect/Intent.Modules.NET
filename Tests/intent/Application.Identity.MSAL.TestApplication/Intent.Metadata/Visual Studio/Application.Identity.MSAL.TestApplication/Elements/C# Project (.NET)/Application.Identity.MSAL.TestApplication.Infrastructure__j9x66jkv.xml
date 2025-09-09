@@ -91,5 +91,34 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="505e1a3c-de74-4151-bf89-4a2bdbc8f2bc" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+      <name>Migrations</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a5b221ec-8909-4b59-a6e6-88b124652d62</parentFolderId>
+      <packageId>b7000dca-c61c-4308-b864-74f62d3b2ed8</packageId>
+      <packageName>Application.Identity.MSAL.TestApplication</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="aaad0b9b-5ec7-423a-9fed-ac9dc5de9a3a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.EntityFrameworkCore.DbMigrationsReadMe</name>
+          <display>Intent.EntityFrameworkCore.DbMigrationsReadMe</display>
+          <externalReference>Intent.EntityFrameworkCore</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>505e1a3c-de74-4151-bf89-4a2bdbc8f2bc</parentFolderId>
+          <packageId>b7000dca-c61c-4308-b864-74f62d3b2ed8</packageId>
+          <packageName>Application.Identity.MSAL.TestApplication</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>

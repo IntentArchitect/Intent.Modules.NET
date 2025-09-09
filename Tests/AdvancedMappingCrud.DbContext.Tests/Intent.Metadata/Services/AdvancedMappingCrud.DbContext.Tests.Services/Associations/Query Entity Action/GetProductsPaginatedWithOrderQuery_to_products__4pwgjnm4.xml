@@ -21,7 +21,7 @@
   <targetEnd id="da821744-e8b6-484a-8164-4b59089208d5" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
     <name>products</name>
     <display>[query] products: Product[*]</display>
-    <order>4</order>
+    <order>3</order>
     <traits>
       <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
     </traits>

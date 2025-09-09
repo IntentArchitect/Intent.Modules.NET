@@ -23,5 +23,19 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="b0ccd29b-04af-400a-8397-b488ca7d35ad" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.CosmosDB.CosmosDBConfiguration</name>
+      <display>Intent.CosmosDB.CosmosDBConfiguration</display>
+      <externalReference>Intent.CosmosDB</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>2d9a3764-e12e-4e08-b71a-71abe2d537f9</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

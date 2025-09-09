@@ -4,7 +4,7 @@
 
 ### Version 1.0.5
 
-- Improvement: SQL Lite ambient transaction suppression.
+- Improvement: SQLite ambient transaction suppression.
 
 ### Version 1.0.4
 

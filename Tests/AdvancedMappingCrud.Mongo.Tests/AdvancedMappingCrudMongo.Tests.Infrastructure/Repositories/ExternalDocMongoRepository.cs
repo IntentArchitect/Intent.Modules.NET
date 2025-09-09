@@ -1,32 +1,22 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
+using System.Linq.Expressions;
 using AdvancedMappingCrudMongo.Tests.Domain.Entities;
 using AdvancedMappingCrudMongo.Tests.Domain.Repositories;
+using AdvancedMappingCrudMongo.Tests.Domain.Repositories.Documents;
 using AdvancedMappingCrudMongo.Tests.Infrastructure.Persistence;
+using AdvancedMappingCrudMongo.Tests.Infrastructure.Persistence.Documents;
 using Intent.RoslynWeaver.Attributes;
+using MongoDB.Driver;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.MongoDb.Repositories.Repository", Version = "1.0")]
+[assembly: IntentTemplate("Intent.MongoDb.MongoDbRepository", Version = "1.0")]
 
 namespace AdvancedMappingCrudMongo.Tests.Infrastructure.Repositories
 {
-    public class ExternalDocMongoRepository : MongoRepositoryBase<ExternalDoc>, IExternalDocRepository
+    internal class ExternalDocMongoRepository : MongoRepositoryBase<ExternalDoc, ExternalDocDocument, IExternalDocDocument, long>, IExternalDocRepository
     {
-        public ExternalDocMongoRepository(ApplicationMongoDbContext context) : base(context)
+        public ExternalDocMongoRepository(IMongoCollection<ExternalDocDocument> collection, MongoDbUnitOfWork unitOfWork) : base(collection, unitOfWork)
         {
-        }
-
-        public async Task<ExternalDoc?> FindByIdAsync(long id, CancellationToken cancellationToken = default)
-        {
-            return await FindAsync(x => x.Id == id, cancellationToken);
-        }
-
-        public async Task<List<ExternalDoc>> FindByIdsAsync(long[] ids, CancellationToken cancellationToken = default)
-        {
-            return await FindAllAsync(x => ids.Contains(x.Id), cancellationToken);
         }
     }
 }

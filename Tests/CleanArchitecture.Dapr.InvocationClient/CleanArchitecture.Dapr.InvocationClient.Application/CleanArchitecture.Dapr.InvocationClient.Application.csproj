@@ -11,10 +11,10 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="14.0.0" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.0.0" />
-    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.7" />
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="3.0.0" />
     <PackageReference Include="MediatR" Version="12.5.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="9.0.7" />
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="9.0.7" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="9.0.8" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="9.0.8" />
   </ItemGroup>
 
 </Project>

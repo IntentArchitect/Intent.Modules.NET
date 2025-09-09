@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5833ef36-9276-4680-a3e0-d7429c2d45a7" type="NuGet Packages" typeId="4c75c84d-c745-4f0f-b1f4-82eeca01dfc7">
+  <name>NuGet Packages</name>
+  <display>NuGet Packages</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>45c8da16-507f-4c0c-840f-50f52fc75406</parentFolderId>
+  <packageId>45c8da16-507f-4c0c-840f-50f52fc75406</packageId>
+  <packageName>Intent.MongoDb.MongoFramework</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -9,22 +9,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>cb8297ef-b38d-4123-9766-9830de846643</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#65a28881-3d38-46e8-83dd-2e69e60ffff0</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>FactoryExtensions/MongoRepoFactoryExtension.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MongoRepoFactoryExtension.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>cb8297ef-b38d-4123-9766-9830de846643</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#6dbad6b7-e298-4176-bdba-e2970f5e1dc2</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>FactoryExtensions/PagedListFactoryExtension.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PagedListFactoryExtension.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>2488db36-70db-4d11-a599-2a76c9c2a57d</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#2488db36-70db-4d11-a599-2a76c9c2a57d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -39,78 +23,6 @@
       <ApplicationRelativeFilePath>Intent.MongoDb.Repositories.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.MongoDb.Repositories.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>33548b5e-bc3e-42b4-9747-0f480df6128f</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#78babbf0-6214-4f6b-a1a5-d3382afe42a3</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/MongoRepositoryBase/MongoRepositoryBaseTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MongoRepositoryBase/MongoRepositoryBaseTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>33548b5e-bc3e-42b4-9747-0f480df6128f</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#78babbf0-6214-4f6b-a1a5-d3382afe42a3</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/MongoRepositoryBase/MongoRepositoryBaseTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MongoRepositoryBase/MongoRepositoryBaseTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>33548b5e-bc3e-42b4-9747-0f480df6128f</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#5d39b5dd-867e-4661-bfe3-9ae64f05e3a1</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/MongoRepositoryInterface/MongoRepositoryInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MongoRepositoryInterface/MongoRepositoryInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>33548b5e-bc3e-42b4-9747-0f480df6128f</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#5d39b5dd-867e-4661-bfe3-9ae64f05e3a1</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/MongoRepositoryInterface/MongoRepositoryInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MongoRepositoryInterface/MongoRepositoryInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>33548b5e-bc3e-42b4-9747-0f480df6128f</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#e8b00b82-2337-49a6-aeab-96e85201732a</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/PagedList/PagedListTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PagedList/PagedListTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>33548b5e-bc3e-42b4-9747-0f480df6128f</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.Custom#e8b00b82-2337-49a6-aeab-96e85201732a</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/PagedList/PagedListTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PagedList/PagedListTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>33548b5e-bc3e-42b4-9747-0f480df6128f</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#6e39f618-35c1-42e0-b3db-191b71f8c50c</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/Repository/RepositoryTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Repository/RepositoryTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>33548b5e-bc3e-42b4-9747-0f480df6128f</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#6e39f618-35c1-42e0-b3db-191b71f8c50c</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/Repository/RepositoryTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Repository/RepositoryTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>33548b5e-bc3e-42b4-9747-0f480df6128f</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
     </FileLog>
   </FileLogs>
 </outputLog>

@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="4.1.3-pre.0" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="4.1.6-pre.0" />
   <applications>
     <application id="ad79943a-b771-42b0-9563-9e01f7ea2dbc" name="VisualStudio.Projects" solutionFolder="Developer Tooling" relativePath="Intent.Modules.VisualStudio.Projects\VisualStudio.Projects.application.config" />
     <application id="d0170c2a-3918-4877-bc3c-7ae70a4885e0" name="Intent.Modules.IdentityServer4.X509CertSigning" solutionFolder="Obsolete" relativePath="Intent.Modules.IdentityServer4.X509CertSigning\Intent.Modules.IdentityServer4.X509CertSigning.application.config" />
@@ -72,7 +72,7 @@
     <application id="6d534c85-5115-43f3-83ae-39a819807a2d" name="Intent.Modules.AspNetCore.Identity.UI" solutionFolder="API Frameworks" relativePath="Intent.Modules.AspNetCore.Identity.UI/Intent.Modules.AspNetCore.Identity.UI.application.config" />
     <application id="510a23ce-6417-46e7-bf54-7ff862e535a5" name="AspNetCore.Identity.AccountController" solutionFolder="API Frameworks" relativePath="Intent.Modules.AspNetCore.Identity.AccountController/Intent.Modules.AspNetCore.Identity.AccountController.application.config" />
     <application id="55fab815-1172-48e8-b36a-c34d6468f928" name="Intent.Modules.MongoDb" solutionFolder="Persistence" relativePath="Intent.Modules.MongoDb/Intent.Modules.MongoDb.application.config" />
-    <application id="e406684b-ac67-4f35-8f6c-c02af49695d4" name="Intent.Modules.MongoDb.Repositories" solutionFolder="Persistence" relativePath="Intent.Modules.MongoDb.Repositories/Intent.Modules.MongoDb.Repositories.application.config" />
+    <application id="e406684b-ac67-4f35-8f6c-c02af49695d4" name="Intent.Modules.MongoDb.Repositories" solutionFolder="Obsolete" relativePath="Intent.Modules.MongoDb.Repositories/Intent.Modules.MongoDb.Repositories.application.config" />
     <application id="a69e29bd-a26c-4598-9469-9058cd1f1658" name="Intent.Modules.Application.ServiceImplementations.CRUD.Eventing" solutionFolder="Application" relativePath="Intent.Modules.Application.ServiceImplementations.CRUD.Eventing/Intent.Modules.Application.ServiceImplementations.CRUD.Eventing.application.config" />
     <application id="b4e9c0f4-3f0a-4f58-aabd-dc50a903bc84" name="Intent.Modules.Dapr.AspNetCore.ServiceInvocation" solutionFolder="Dapr" relativePath="Intent.Modules.Dapr.AspNetCore.ServiceInvocation/Intent.Modules.Dapr.AspNetCore.ServiceInvocation.application.config" />
     <application id="e9a258c4-0bf0-4ffc-b31c-0897e5076e02" name="Intent.Modules.Dapr.AspNetCore" solutionFolder="Dapr" relativePath="Intent.Modules.Dapr.AspNetCore/Intent.Modules.Dapr.AspNetCore.application.config" />
@@ -172,5 +172,11 @@
     <application id="aa074ccb-388e-4fde-a585-3ac9e95c6ced" name="Intent.Modules.Blazor.Wasm" solutionFolder="Blazor" relativePath="Intent.Modules.Blazor.Wasm/Intent.Modules.Blazor.Wasm.application.config" />
     <application id="75504337-fcbb-4352-809b-8054f7a6af95" name="Intent.Modules.Aws.Common" solutionFolder="Amazon" relativePath="Intent.Modules.Aws.Common/Intent.Modules.Aws.Common.application.config" />
     <application id="3f08d954-b821-4c2d-871f-ac109217513a" name="Intent.Modules.Blazor.Authentication" solutionFolder="Blazor" relativePath="Intent.Modules.Blazor.Authentication/Intent.Modules.Blazor.Authentication.application.config" />
+    <application id="86b08704-7cea-4f57-a181-759963f12268" name="Intent.Modules.MongoDb.MongoFramework" solutionFolder="Persistence" relativePath="Intent.Modules.MongoDb.MongoFramework/Intent.Modules.MongoDb.MongoFramework.application.config" />
+    <application id="096f70cb-2bbb-43ca-b4e5-f10023eda191" name="Intent.Modules.MongoDb.MongoFramework.Repositories" solutionFolder="Persistence" relativePath="Intent.Modules.MongoDb.MongoFramework.Repositories/Intent.Modules.MongoDb.MongoFramework.Repositories.application.config" />
+    <application id="d0ba3935-538e-43a2-807d-1f07ed23691d" name="Intent.Modules.Aws.Lambda.Functions" solutionFolder="API Frameworks" relativePath="Intent.Modules.Aws.Lambda.Functions/Intent.Modules.Aws.Lambda.Functions.application.config" />
+    <application id="fee9c70c-2e0b-4bc4-a09a-bf6305dbf329" name="Intent.Modules.Aws.Lambda.Functions.Dispatch.Services" solutionFolder="API Frameworks" relativePath="Intent.Modules.Aws.Lambda.Functions.Dispatch.Services/Intent.Modules.Aws.Lambda.Functions.Dispatch.Services.application.config" />
+    <application id="14a0fe52-c0de-479d-bd24-b9cb60a2f7fd" name="Intent.Modules.Aws.Lambda.Functions.Dispatch.MediatR" solutionFolder="API Frameworks" relativePath="Intent.Modules.Aws.Lambda.Functions.Dispatch.MediatR/Intent.Modules.Aws.Lambda.Functions.Dispatch.MediatR.application.config" />
+    <application id="25929a5b-e346-4676-b602-ce00f0d62117" name="Intent.Modules.AspNetCore.Scalar" solutionFolder="API Frameworks" relativePath="Intent.Modules.AspNetCore.Scalar/Intent.Modules.AspNetCore.Scalar.application.config" />
   </applications>
 </solution>

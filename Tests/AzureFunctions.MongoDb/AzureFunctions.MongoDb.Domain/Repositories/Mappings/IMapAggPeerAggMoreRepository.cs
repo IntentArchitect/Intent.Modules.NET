@@ -4,6 +4,7 @@ using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 using AzureFunctions.MongoDb.Domain.Entities.Mappings;
+using AzureFunctions.MongoDb.Domain.Repositories.Documents.Mappings;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -12,15 +13,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace AzureFunctions.MongoDb.Domain.Repositories.Mappings
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IMapAggPeerAggMoreRepository : IMongoRepository<MapAggPeerAggMore>
+    public interface IMapAggPeerAggMoreRepository : IMongoRepository<MapAggPeerAggMore, IMapAggPeerAggMoreDocument, string>
     {
-        [IntentManaged(Mode.Fully)]
-        List<MapAggPeerAggMore> SearchText(string searchText, Expression<Func<MapAggPeerAggMore, bool>> filterExpression = null);
-        [IntentManaged(Mode.Fully)]
-        void Update(MapAggPeerAggMore entity);
-        [IntentManaged(Mode.Fully)]
-        Task<MapAggPeerAggMore?> FindByIdAsync(string id, CancellationToken cancellationToken = default);
-        [IntentManaged(Mode.Fully)]
-        Task<List<MapAggPeerAggMore>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default);
     }
 }

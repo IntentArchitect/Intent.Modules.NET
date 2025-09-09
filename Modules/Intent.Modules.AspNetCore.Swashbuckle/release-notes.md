@@ -1,3 +1,7 @@
+### Version 5.1.11
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 5.1.10
 
 - Improvement: Updated NuGet package versions.

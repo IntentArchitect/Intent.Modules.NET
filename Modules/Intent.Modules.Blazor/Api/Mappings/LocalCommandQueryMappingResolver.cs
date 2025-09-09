@@ -40,13 +40,6 @@ public class LocalCommandQueryMappingResolver : IMappingTypeResolver
             return null;
         }
 
-        //Exposed Services are handled by proxies
-        const string httpSettingsDefinitionId = "b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6";
-        if (mappingModel.Model.HasStereotype(httpSettingsDefinitionId))
-        {
-            return null;
-        }
-
         if ((_template.TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Application.Command, mappingModel.Model.Id, out var templateInstance) ||
              _template.TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Application.Query, mappingModel.Model.Id, out templateInstance)) 
              )
@@ -70,7 +63,7 @@ public class LocalCommandQueryMappingResolver : IMappingTypeResolver
                 return new ConstructorMapping(mappingModel, _template);
             }
         }
-        throw new Exception($"Can't find Query or Command ({mappingModel.Model.Name}).");
+        return null;
     }
 
     private class ParameterlessConstructor(MappingModel model, ICSharpTemplate template, ICSharpFileBuilderTemplate commandOrQuery) : CSharpMappingBase(model, template)

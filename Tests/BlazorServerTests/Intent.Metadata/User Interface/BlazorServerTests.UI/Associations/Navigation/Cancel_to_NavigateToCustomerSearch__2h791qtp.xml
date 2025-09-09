@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="ba9d0c24-cadd-4008-b4c4-856bb24f7993">
+  <sourceEnd id="2e3fe37f-576c-41a3-92aa-93bde7638aad" type="Navigation Source End" typeId="97a3de8a-c9bf-4cf2-bc0a-b8692b02211b">
+    <display>: Cancel</display>
+    <order>0</order>
+    <typeReference id="a30f3506-18ff-4509-8331-410307ee3981">
+      <typeId>4df7b99d-94d9-4440-93d7-19e5253e2fea</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>BlazorServerTests.UI</typePackageName>
+      <typePackageId>5741124d-249d-489b-a8a8-5a68530785ff</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="ba9d0c24-cadd-4008-b4c4-856bb24f7993" type="Navigation Target End" typeId="2b191288-ecae-4743-b069-cbdd927ef349">
+    <name>NavigateToCustomerSearch</name>
+    <display>[navigate] CustomerSearch</display>
+    <order>0</order>
+    <traits>
+      <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+    </traits>
+    <typeReference id="40213b4b-2945-4d21-97ce-2bbc14dc8879">
+      <typeId>c470a7eb-507b-49d2-bb5e-c4dd47017fd3</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>BlazorServerTests.UI</typePackageName>
+      <typePackageId>5741124d-249d-489b-a8a8-5a68530785ff</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Navigation</associationType>
+  <associationTypeId>6d2b2070-c1cb-4cd2-88b4-4e5f8414bd9e</associationTypeId>
+  <stereotypes />
+</association>

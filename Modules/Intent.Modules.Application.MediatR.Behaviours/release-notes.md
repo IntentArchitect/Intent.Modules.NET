@@ -1,3 +1,8 @@
+### Version 4.5.1
+
+- Improvement: Updated NuGet package versions.
+- Fixed: Removed unnecessary `MediatR` using directive for Dependency Injection.
+
 ### Version 4.5.0
 
 - Improvement: Select whether to lock the version of the MediatR Nuget package to the one prior to the commercial version or proceed to use the commercial version accepting its license. Read the article [here](https://www.jimmybogard.com/automapper-and-mediatr-commercial-editions-launch-today/).
@@ -18,7 +23,7 @@
 ### Version 4.3.7
 
 - Improvement: Updated NuGet package versions.
-- Improvement: SQL Lite ambient transaction suppression.
+- Improvement: SQLite ambient transaction suppression.
 
 ### Version 4.3.6
 

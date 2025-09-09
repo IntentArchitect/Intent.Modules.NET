@@ -1,8 +1,6 @@
 using System.Reflection;
-using AutoMapper;
 using EfCoreSoftDelete.Application.Common.Behaviours;
 using Intent.RoslynWeaver.Attributes;
-using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

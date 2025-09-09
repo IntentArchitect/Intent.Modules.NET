@@ -5,7 +5,7 @@
     <order>0</order>
     <typeReference id="ad5b2e70-7a05-407b-9471-7e75333f7a04">
       <typeId>344ea5fd-dbb6-4dce-8153-5dc5d2ac56ac</typeId>
-      <isNavigable>true</isNavigable>
+      <isNavigable>false</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
       <isRequired>true</isRequired>
@@ -22,6 +22,9 @@
     <name>externalDoc</name>
     <display>[update] externalDoc: ExternalDoc</display>
     <order>3</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="a612faa6-6075-4d16-baa7-0630f49d471d">
       <typeId>28874fb1-860d-4952-8441-9631dde3441c</typeId>
       <isNavigable>true</isNavigable>

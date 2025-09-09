@@ -29,7 +29,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         public string Id => _model.Id;
         public string Type => "Folder";
         public string Name => _model.Name;
-        public string RelativeLocation => "";
+        public string RelativeLocation => _model.RelativeLocation;
         public string ParentId => null;
         public IEnumerable<string> SupportedFrameworks => Array.Empty<string>();
         public IEnumerable<IOutputTargetRole> Roles => _model.Roles;

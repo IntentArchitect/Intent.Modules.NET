@@ -28,6 +28,8 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
     {
         public const string TemplateId = "Intent.FastEndpoints.EndpointTemplate";
 
+        private readonly EndpointResponseMapper _responseMapper = new();
+
         [IntentManaged(Mode.Ignore, Body = Mode.Ignore)]
         public EndpointTemplate(IOutputTarget outputTarget, IEndpointModel? model = null) : base(TemplateId, outputTarget, model)
         {
@@ -121,7 +123,7 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
 
         public CSharpStatement? GetReturnStatement()
         {
-            return this.GetReturnStatement(Model);
+            return Utils.GetReturnStatement(this, Model, _responseMapper);
         }
 
         private static IElement? TryGetRequestTemplate(IEndpointModel model)
@@ -273,19 +275,19 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
                 case HttpVerb.Get:
                 case HttpVerb.Delete:
                     lambda.AddInvocationStatement($"b.Produces{producesReturnTypeDefinition}", i => i
-                        .AddArgument($"StatusCodes.{Model.GetSuccessResponseCodeEnumValue("Status200OK")}")
+                        .AddArgument(_responseMapper.GetResponseStatusCodeEnum(Model.InternalElement, "StatusCodes.Status200OK"))
                         .AddArgumentIfNotNull(mediaTypeNamesApplicationJson));
                     break;
                 case HttpVerb.Post:
                     lambda.AddInvocationStatement($"b.Produces{producesReturnTypeDefinition}", i => i
-                        .AddArgument($"StatusCodes.{Model.GetSuccessResponseCodeEnumValue("Status201Created")}")
+                        .AddArgument(_responseMapper.GetResponseStatusCodeEnum(Model.InternalElement, "StatusCodes.Status201Created"))
                         .AddArgumentIfNotNull(mediaTypeNamesApplicationJson));
                     break;
                 case HttpVerb.Put:
                 case HttpVerb.Patch:
-                    var defaultValue = Model.ReturnType != null ? "Status200OK" : "Status204NoContent";
+                    var defaultValue = Model.ReturnType != null ? "StatusCodes.Status200OK" : "StatusCodes.Status204NoContent";
                     lambda.AddInvocationStatement($"b.Produces{producesReturnTypeDefinition}", i => i
-                        .AddArgument($"StatusCodes.{Model.GetSuccessResponseCodeEnumValue(defaultValue)}")
+                        .AddArgument(_responseMapper.GetResponseStatusCodeEnum(Model.InternalElement, defaultValue))
                         .AddArgumentIfNotNull(mediaTypeNamesApplicationJson));
                     break;
                 default:

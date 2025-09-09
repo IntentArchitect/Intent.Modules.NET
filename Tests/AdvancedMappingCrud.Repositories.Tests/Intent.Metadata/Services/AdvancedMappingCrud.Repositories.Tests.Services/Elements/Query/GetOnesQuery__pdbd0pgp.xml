@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="41c6fc09-5bc5-468c-a619-e7512bcd92f8" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetOnesQuery</name>
+  <display>GetOnesQuery: OneDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="f11f7cb3-eecc-4988-a4d3-657588606309">
+    <typeId>4c19f8cf-0824-4797-964a-498059eab57d</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+    <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>d6042a21-0ef1-4165-aedc-4a31fc889119</parentFolderId>
+  <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
+  <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

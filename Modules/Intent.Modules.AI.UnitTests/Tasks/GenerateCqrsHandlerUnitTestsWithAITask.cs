@@ -145,13 +145,14 @@ public class GenerateCqrsHandlerUnitTestsWithAITask : IModuleTask
             2.1. Your test file as pure code (no markdown).
             2.2. The file must have an appropriate path in the appropriate Tests project. Look for a project in the .sln file that would be appropriate and use the following relative path: '{{$slnRelativePath}}'.
 
-            ## Important things to understand
+            ## Important Reminders
             - Repositories will assign an Id to entities when `SaveChangesAsync` is called.
             - Collections on entities cannot be treated like arrays.
             - If an existing file exists, you must read this file and update it according to the 'Code Preservation Requirements' below.
             - If you want to construct a DTO, there is a static constructor called 'Create' that you must use.
             - No FluentValidations happen inside of the handlers so don't test for that.
             - Never add your own [IntentManaged] attributes to the test.
+            - Don't create test cases with input that would be rejected by the Validator.
 
             ## Code Preservation Rules (CRITICAL)
             1. **NEVER remove or modify existing class members, methods, or properties, including their attributes or annotations**

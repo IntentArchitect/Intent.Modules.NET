@@ -130,13 +130,16 @@ namespace Intent.Modules.AspNetCore.Templates.ProblemDetailsConfiguration
 
         public override void BeforeTemplateExecution()
         {
-            if (!CanRunTemplate()) { return; }
+            if (!CanRunTemplate())
+            {
+                return;
+            }
 
-            ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
+            EmitOrPublish(ServiceConfigurationRequest
                 .ToRegister("ConfigureProblemDetails")
                 .HasDependency(this));
 
-            ExecutionContext.EventDispatcher.Publish(ApplicationBuilderRegistrationRequest
+            EmitOrPublish(ApplicationBuilderRegistrationRequest
                 .ToRegister("UseExceptionHandler")
                 .WithPriority(-40));
         }

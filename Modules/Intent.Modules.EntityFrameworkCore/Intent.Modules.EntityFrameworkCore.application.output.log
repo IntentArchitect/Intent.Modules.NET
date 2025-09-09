@@ -98,6 +98,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>ed6d44a2-38f0-4214-bf3a-4f5e0d291fde</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration#364ad0e3-4b2b-46a6-a1e8-7d10dbe2c2a6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Migrations/Migration_05_00_28_Pre_02.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Migration_05_00_28_Pre_02.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ed6d44a2-38f0-4214-bf3a-4f5e0d291fde</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration#9ecdaa03-a716-443d-8826-4712902a9f9a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Migrations/OnInstallMigration.cs</ApplicationRelativeFilePath>
@@ -202,18 +210,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>67ac698c-a53d-4381-8cd6-6d1c947d0e2d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.ProjectItemTemplate.T4Template.PreProcessed#8dca43ad-a912-4d76-aca9-4eaf77d6127a</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation#8dca43ad-a912-4d76-aca9-4eaf77d6127a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DbMigrationsReadMe/DbMigrationsReadMeTemplate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DbMigrationsReadMe/DbMigrationsReadMeTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>67ac698c-a53d-4381-8cd6-6d1c947d0e2d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.FileTemplateT4#8dca43ad-a912-4d76-aca9-4eaf77d6127a</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/DbMigrationsReadMe/DbMigrationsReadMeTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DbMigrationsReadMe/DbMigrationsReadMeTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

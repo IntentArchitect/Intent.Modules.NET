@@ -39,7 +39,8 @@ namespace Intent.Modules.UnitTesting.Templates.CommandHandlerTest
             {
                 var @class = file.Classes.First();
                 var ctor = @class.Constructors.First();
-                var handlerTemplate = ExecutionContext.FindTemplateInstance(TemplateRoles.Application.Handler.Command, model);
+                var handlerTemplates = ExecutionContext.FindTemplateInstances(TemplateRoles.Application.Handler.Command, model);
+                var handlerTemplate = handlerTemplates.FirstOrDefault(t => t.CanRunTemplate());
 
                 if (handlerTemplate != null && handlerTemplate is ICSharpFileBuilderTemplate csharpTemplate)
                 {

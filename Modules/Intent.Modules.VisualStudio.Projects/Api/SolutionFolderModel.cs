@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modules.Common;
@@ -17,13 +18,47 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         protected readonly IElement _element;
 
         [IntentManaged(Mode.Ignore)]
-        public SolutionFolderModel(IElement element, string requiredType = SpecializationType)
+        public SolutionFolderModel(IElement element, string requiredType = SpecializationType) : this(element, requiredType, true)
+        {
+        }
+
+        // Used by GetRelativeLocation() to prevent infinite recursion
+        private SolutionFolderModel(IElement element, string requiredType, bool calculatePaths)
         {
             if (!requiredType.Equals(element.SpecializationType, StringComparison.InvariantCultureIgnoreCase))
             {
                 throw new Exception($"Cannot create a '{GetType().Name}' from element with specialization type '{element.SpecializationType}'. Must be of type '{SpecializationType}'");
             }
             _element = element;
+            RelativeLocation = calculatePaths ? GetRelativeLocation() : string.Empty;
+        }
+
+        private string GetRelativeLocation()
+        {
+            var elements = new List<IElement>();
+            var current = this.InternalElement;
+            while (current != null)
+            {
+                elements.Add(current);
+                current = current.ParentElement;
+            }
+
+            elements.Reverse();
+            var pathParts = new List<string>();
+            foreach (var element in elements)
+            {
+                if (element.IsSolutionFolderModel() && new SolutionFolderModel(element, SpecializationType, false).GetFolderOptions()?.MaterializeFolder() == true)
+                {
+                    pathParts.Add(element.Name);
+                }
+            }
+
+            if (pathParts.Count > 0)
+            {
+                return string.Join(Path.DirectorySeparatorChar, pathParts);
+            }
+
+            return string.Empty;
         }
 
         public SolutionFolderModel ParentFolder => InternalElement.ParentElement.IsSolutionFolderModel()
@@ -42,6 +77,8 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         [IntentManaged(Mode.Fully)]
         public IElement InternalElement => _element;
 
+        public string RelativeLocation { get; }
+        
         [IntentManaged(Mode.Fully)]
         public IList<SolutionFolderModel> Folders => _element.ChildElements
             .GetElementsOfType(SolutionFolderModel.SpecializationTypeId)
@@ -115,6 +152,11 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         public IList<SQLServerDatabaseProjectModel> SQLServerDatabaseProjects => _element.ChildElements
             .GetElementsOfType(SQLServerDatabaseProjectModel.SpecializationTypeId)
             .Select(x => new SQLServerDatabaseProjectModel(x))
+            .ToList();
+
+        public IList<ServiceFabricProjectModel> ServiceFabricProjects => _element.ChildElements
+            .GetElementsOfType(ServiceFabricProjectModel.SpecializationTypeId)
+            .Select(x => new ServiceFabricProjectModel(x))
             .ToList();
 
         public IList<AzureFunctionsProjectModel> AzureFunctionsProjects => _element.ChildElements

@@ -1,10 +1,8 @@
 using System.Reflection;
-using AutoMapper;
 using EntityFrameworkCore.Repositories.TestApplication.Application.Common.Behaviours;
 using EntityFrameworkCore.Repositories.TestApplication.Application.Common.Validation;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
-using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

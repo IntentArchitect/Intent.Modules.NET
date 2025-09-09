@@ -405,8 +405,18 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
             return projectToNugetPackageMapEnriched;
         }
 
-        private Dictionary<string, VersionInfo> GetDependantPackages(IOutputTarget project, Dictionary<string, Dictionary<string, PackageVersionInfo>> projectToNugetPackageMap)
+        private Dictionary<string, VersionInfo> GetDependantPackages(
+            IOutputTarget project,
+            Dictionary<string, Dictionary<string, PackageVersionInfo>> projectToNugetPackageMap,
+            int currentDepth = 0)
         {
+            Logging.Log.Debug($"Processing {project.Name} [{project.Id}]");
+
+            if (currentDepth++ > 1000)
+            {
+                throw new Exception("Possible cyclic reference detected");
+            }
+
             var collectedPackages = new Dictionary<string, VersionInfo>();
 
             if (!project.Dependencies().Any())
@@ -429,7 +439,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                 }
 
                 // Recursively collect packages from the dependent projects of this dependent project
-                var dependentPackages = GetDependantPackages(dependentProject, projectToNugetPackageMap);
+                var dependentPackages = GetDependantPackages(dependentProject, projectToNugetPackageMap, currentDepth);
                 foreach (var package in dependentPackages)
                 {
                     AddUpdatePackageVersion(collectedPackages, package.Key, package.Value);

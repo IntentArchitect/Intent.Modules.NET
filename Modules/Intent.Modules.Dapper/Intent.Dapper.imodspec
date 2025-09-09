@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Dapper</id>
-  <version>1.0.0-beta.8</version>
-  <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
+  <version>1.0.0-beta.9</version>
+  <supportedClientVersions>[4.5.15-a,5.0.0)</supportedClientVersions>
   <summary>Provides basic repository pattern for Dapper.</summary>
   <description>Provides basic repository pattern for Dapper.</description>
   <authors>Intent Architect</authors>
@@ -89,8 +89,8 @@
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.Common" version="3.6.0" />
-    <dependency id="Intent.Common.CSharp" version="3.8.0" />
+    <dependency id="Intent.Common" version="3.9.0-pre.4" />
+    <dependency id="Intent.Common.CSharp" version="3.9.5-pre.3" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Metadata.RDBMS" version="3.6.1" />
     <dependency id="Intent.Modelers.Domain" version="3.11.1" />

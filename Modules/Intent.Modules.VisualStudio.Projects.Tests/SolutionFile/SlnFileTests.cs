@@ -45,7 +45,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.SolutionFile
                 EndGlobal
                 
                 """
-				.ReplaceLineEndings());
+                .ReplaceLineEndings());
         }
 
         /// <summary>
@@ -82,7 +82,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.SolutionFile
                 EndGlobal
 
                 """
-				.ReplaceLineEndings());
+                .ReplaceLineEndings());
         }
 
         [Fact]
@@ -122,27 +122,29 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.SolutionFile
                 """);
             var solutionFolderModels = new[]
             {
-                CreateFolder("RootFolder1", new []
-                {
+                CreateFolder("RootFolder1", [
                     CreateFolder("SubFolder")
-                }),
-                CreateFolder("RootFolder2", new []
-                {
+                ]),
+                CreateFolder("RootFolder2", [
                     CreateFolder("SubFolder")
-                }),
-                CreateFolder("RootFolder3", new []
-                {
+                ]),
+                CreateFolder("RootFolder3", [
                     CreateFolder("SubFolder")
-                })
+                ])
             };
 
             // Act
             var exception = Record.Exception(() => VisualStudioSolutionTemplate.SyncProjectsAndFolders(
                 slnFile: slnFile,
-                currentSlnFolder: default,
-                currentFolderModel: default,
+                currentSlnFolder: null,
+                currentFolderModel: null,
                 childFolderModels: solutionFolderModels,
-                projectModels: Array.Empty<IVisualStudioSolutionProject>()));
+                projectModels: [],
+                configurationPlatforms:
+                [
+                    new("Debug", "Any CPU"),
+                    new("Release", "Any CPU")
+                ]));
 
             // Assert
             exception.ShouldBeNull();
@@ -151,16 +153,24 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.SolutionFile
 
             static SolutionFolderModel CreateFolder(string name, IEnumerable<SolutionFolderModel> subFolders = null)
             {
-                subFolders ??= Enumerable.Empty<SolutionFolderModel>();
-                var childElements = subFolders.Select(x => x.InternalElement).ToArray();
-
                 var element = Substitute.For<IElement>();
+
+                subFolders ??= [];
+                var childElements = subFolders.Select(x =>
+                {
+                    x.InternalElement.ParentElement.Returns(element);
+                    x.InternalElement.ParentId.Returns(element.Id);
+                    return x.InternalElement;
+                }).ToArray();
+
                 var elementId = Guid.NewGuid().ToString();
                 element.Id.Returns(elementId);
                 element.Name.Returns(name);
                 element.ChildElements.Returns(childElements);
                 element.SpecializationType.Returns(SolutionFolderModel.SpecializationType);
                 element.SpecializationTypeId.Returns(SolutionFolderModel.SpecializationTypeId);
+                element.ParentElement.Returns((IElement)null);
+                element.ParentId.Returns((string)null);
 
                 return new SolutionFolderModel(element);
             }
@@ -305,8 +315,9 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.SolutionFile
             // Act
             slnFile.AddSolutionItem(
                 parentProject: null,
-                solutionItemAbsolutePath: "/Subfolder/File.ext",
+                solutionItemPhysicalPath: "/Subfolder/File.ext",
                 relativeOutputPathPrefix: null,
+                hasMaterializedFolder: false,
                 idProvider: () => "ID");
 
             var result = slnFile.Generate();
@@ -326,7 +337,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.SolutionFile
                 EndGlobal
 
                 """
-				.ReplaceLineEndings());
+                .ReplaceLineEndings());
         }
 
         [Fact]
@@ -342,8 +353,9 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.SolutionFile
             // Act
             slnFile.AddSolutionItem(
                 parentProject: null,
-                solutionItemAbsolutePath: "/NewFolder/File.ext",
+                solutionItemPhysicalPath: "/NewFolder/File.ext",
                 relativeOutputPathPrefix: null,
+                hasMaterializedFolder: false,
                 idProvider: () => idCounter++.ToString());
 
             var result = slnFile.Generate();
@@ -365,7 +377,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.SolutionFile
                 EndGlobal
 
                 """
-				.ReplaceLineEndings());
+                .ReplaceLineEndings());
         }
     }
 }

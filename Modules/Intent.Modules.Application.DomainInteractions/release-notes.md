@@ -1,3 +1,12 @@
+### Version 1.1.3
+
+- Improvement: Support for Static Constructor mapping.
+- Fixed: Logic to use AutoMapper would be generated even when the required AutoMapper module was not installed.
+
+### Version 1.1.2
+
+- Fixed: Add handling for Parameter specialization type in CallServiceInteractionStrategy.
+
 ### Version 1.1.1
 
 - Fixed: Value Object update mappings are incorrectly being applied to nested Value Object collections.

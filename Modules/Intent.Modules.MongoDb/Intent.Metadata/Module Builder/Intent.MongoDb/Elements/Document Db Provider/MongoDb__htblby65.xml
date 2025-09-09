@@ -18,7 +18,7 @@
         <property name="0ed664a9-a3c3-4e35-924d-3fc6f1f6555a" display="Cursor Enabled" value="false" isActive="true" />
         <property name="9192a3a1-229f-4618-aecf-a97dd8ce3d96" display="Cursor Filtering" value="None" isActive="false" />
         <property name="d38848e8-b9d7-4d2a-98c1-852bd9478b3d" display="Cursor Sorting" value="false" isActive="false" />
-        <property name="b2e14cac-696d-468b-8ea4-0d96b703d9e8" display="Queryable Source" value="true" isActive="true" />
+        <property name="b2e14cac-696d-468b-8ea4-0d96b703d9e8" display="Queryable Source" value="true" isActive="false" />
       </properties>
     </stereotype>
   </stereotypes>

@@ -23,19 +23,5 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="6c7577bb-c838-42a5-b876-0e5b6b30f34d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.EntityFrameworkCore.DbMigrationsReadMe</name>
-      <display>Intent.EntityFrameworkCore.DbMigrationsReadMe</display>
-      <externalReference>Intent.EntityFrameworkCore</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>c03b9f7d-58ff-4cf5-870a-d362d88d898d</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
   </childElements>
 </class>

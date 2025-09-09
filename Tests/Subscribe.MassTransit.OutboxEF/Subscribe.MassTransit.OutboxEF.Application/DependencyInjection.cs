@@ -1,10 +1,8 @@
 using System.Reflection;
-using AutoMapper;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using MassTransit.Messages.Shared.Orders;
 using MassTransit.Messages.Shared.Users;
-using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Subscribe.MassTransit.OutboxEF.Application.Common.Behaviours;

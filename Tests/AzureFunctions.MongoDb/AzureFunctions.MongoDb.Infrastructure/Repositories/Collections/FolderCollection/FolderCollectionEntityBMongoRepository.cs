@@ -1,35 +1,23 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
+using System.Linq.Expressions;
 using AzureFunctions.MongoDb.Domain.Entities.Collections.FolderCollection;
-using AzureFunctions.MongoDb.Domain.Repositories;
 using AzureFunctions.MongoDb.Domain.Repositories.Collections.FolderCollection;
+using AzureFunctions.MongoDb.Domain.Repositories.Documents.Collections.FolderCollection;
 using AzureFunctions.MongoDb.Infrastructure.Persistence;
+using AzureFunctions.MongoDb.Infrastructure.Persistence.Documents.Collections.FolderCollection;
 using Intent.RoslynWeaver.Attributes;
+using MongoDB.Driver;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.MongoDb.Repositories.Repository", Version = "1.0")]
+[assembly: IntentTemplate("Intent.MongoDb.MongoDbRepository", Version = "1.0")]
 
 namespace AzureFunctions.MongoDb.Infrastructure.Repositories.Collections.FolderCollection
 {
-    public class FolderCollectionEntityBMongoRepository : MongoRepositoryBase<FolderCollectionEntityB>, IFolderCollectionEntityBRepository
+    internal class FolderCollectionEntityBMongoRepository : MongoRepositoryBase<FolderCollectionEntityB, FolderCollectionEntityBDocument, IFolderCollectionEntityBDocument, string>, IFolderCollectionEntityBRepository
     {
-        public FolderCollectionEntityBMongoRepository(ApplicationMongoDbContext context) : base(context)
+        public FolderCollectionEntityBMongoRepository(IMongoCollection<FolderCollectionEntityBDocument> collection,
+            MongoDbUnitOfWork unitOfWork) : base(collection, unitOfWork)
         {
-        }
-
-        public async Task<FolderCollectionEntityB?> FindByIdAsync(string id, CancellationToken cancellationToken = default)
-        {
-            return await FindAsync(x => x.Id == id, cancellationToken);
-        }
-
-        public async Task<List<FolderCollectionEntityB>> FindByIdsAsync(
-            string[] ids,
-            CancellationToken cancellationToken = default)
-        {
-            return await FindAllAsync(x => ids.Contains(x.Id), cancellationToken);
         }
     }
 }

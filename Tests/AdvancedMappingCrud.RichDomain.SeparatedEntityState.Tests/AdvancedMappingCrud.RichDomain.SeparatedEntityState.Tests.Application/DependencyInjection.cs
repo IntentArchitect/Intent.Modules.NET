@@ -2,10 +2,8 @@ using System.Reflection;
 using AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Application.Common.Behaviours;
 using AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Application.Common.Validation;
 using AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain.Services;
-using AutoMapper;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
-using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

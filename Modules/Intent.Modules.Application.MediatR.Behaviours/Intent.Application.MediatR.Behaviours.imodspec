@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.MediatR.Behaviours</id>
-  <version>4.5.0-pre.0</version>
+  <version>4.5.1</version>
   <supportedClientVersions>[4.5.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Additional MediatR middleware pipeline behaviours</summary>
   <description>Additional MediatR middleware pipeline behaviours</description>
@@ -80,9 +80,9 @@
   </interoperability>
   <dependencies>
     <dependency id="Intent.Application.DependencyInjection" version="4.1.8" />
-    <dependency id="Intent.Application.DependencyInjection.MediatR" version="3.6.0-pre.0" />
+    <dependency id="Intent.Application.DependencyInjection.MediatR" version="3.6.0" />
     <dependency id="Intent.Application.Identity" version="3.6.0" />
-    <dependency id="Intent.Application.MediatR" version="4.5.0-pre.0" />
+    <dependency id="Intent.Application.MediatR" version="4.5.0" />
     <dependency id="Intent.Common" version="3.8.0" />
     <dependency id="Intent.Common.CSharp" version="3.9.0" />
     <dependency id="Intent.Common.Types" version="3.4.0" />

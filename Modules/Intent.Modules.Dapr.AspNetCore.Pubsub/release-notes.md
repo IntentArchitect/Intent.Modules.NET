@@ -1,10 +1,14 @@
-﻿### Version 3.0.6
+﻿### Version 3.0.7
+
+- Fixed: A software factory exception would occur when references were used in the Visual Studio designer.
+
+### Version 3.0.6
 
 - Improvement: Added support for DynamoDB unit of work.
 
 ### Version 3.0.5
 
-- Improvement: SQL Lite ambient transaction suppression.
+- Improvement: SQLite ambient transaction suppression.
 
 ### Version 3.0.4
 

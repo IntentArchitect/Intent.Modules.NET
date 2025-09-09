@@ -1,10 +1,8 @@
 using System.Reflection;
-using AutoMapper;
 using FluentValidation;
 using Hangfire.Tests.Application.Common.Behaviours;
 using Hangfire.Tests.Application.Common.Validation;
 using Intent.RoslynWeaver.Attributes;
-using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

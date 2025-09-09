@@ -86,7 +86,7 @@ namespace MudBlazor.ExampleApp.Client.Pages.Products.Components
                     { x => x.ButtonText, "Delete" },
                     { x => x.Color, Color.Error },
                 };
-                var dialog = await DialogService.ShowAsync<ConfirmationDialog>("Delete Product", parameters, new DialogOptions() { FullWidth = true });
+                var dialog = await DialogService.ShowAsync<ConfirmationDialog>("Delete Product", parameters, new DialogOptions() { FullWidth = true, MaxWidth = MaxWidth.Large, BackdropClick = false });
                 var result = await dialog.Result;
 
                 if (result.Canceled)

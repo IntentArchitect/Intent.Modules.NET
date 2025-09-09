@@ -104,7 +104,6 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.Validati
                 .ForInterface("typeof(IPipelineBehavior<,>)")
                 .WithPriority(4)
                 .ForConcern("MediatR")
-                .RequiresUsingNamespaces("MediatR")
                 .HasDependency(this));
         }
     }

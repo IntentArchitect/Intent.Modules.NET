@@ -12,6 +12,16 @@
       <fileHash>E80613B26A7097394B2B70F0AEAE34CC9F7D656B55278E2008C771578CFBC8D8</fileHash>
     </file>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#cd5ec8d4-a454-4644-942f-4923971ac10f</correlationId>
+      <path>Intent.Modules.AI.Blazor/Templates/StaticContentTemplateRegistrations/MudBlazorAIPromptTemplatesStaticContentTemplateRegistration.cs</path>
+      <count>2</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2025-08-17T10:10:30.1279167Z</updatedAt>
+      <deviationsHash>E2EC82870D2F9BD78DD52F4166C7B5AA70E71098C7CD010099E62730609FD0E4</deviationsHash>
+      <fileHash>E9C3F52D418FB4D5D30237D031760CF2B58E4C06878A71A5D20494F78B0F32DD</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#338fdca3-cde3-47ec-9aa9-b164c8ff9cb9</correlationId>
       <path>Intent.Modules.AI.Blazor/Templates/StaticContentTemplateRegistrations/MudBlazorTemplateThemeCSSStaticContentTemplateRegistration.cs</path>
       <count>1</count>
@@ -19,7 +29,7 @@
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
       <updatedAt>2025-08-12T21:32:21.0260933Z</updatedAt>
       <deviationsHash>232134FC21D255551F4738811C57C5A930D8D6890407EEB6DB8A3FC48048D609</deviationsHash>
-      <fileHash>B1D5FAB00EC51C6F6D80A217370FFBA842E87392857E3B3C3FFA28E92C0E510B</fileHash>
+      <fileHash>70A2F753DABD21F7A142099C027388991CBD7315871B4569F361B7B22E5704E6</fileHash>
     </file>
   </files>
 </deviationsLog>

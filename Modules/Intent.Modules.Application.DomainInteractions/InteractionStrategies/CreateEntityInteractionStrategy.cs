@@ -12,6 +12,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Interactions;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Utils;
+using OperationModelExtensions = Intent.Modelers.Domain.Api.OperationModelExtensions;
 
 namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
 {
@@ -35,7 +36,9 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
                 var createAction = interaction.AsCreateEntityActionTargetEndModel();
                 var handlerClass = method.Class;
                 var _csharpMapping = method.GetMappingManager();
-                var entity = createAction.TypeReference.Element.AsClassModel() ?? createAction.TypeReference.Element.AsClassConstructorModel().ParentClass;
+                var entity = createAction.TypeReference.Element.AsClassModel() 
+                             ?? createAction.TypeReference.Element.AsClassConstructorModel()?.ParentClass
+                             ?? OperationModelExtensions.AsOperationModel(createAction.TypeReference.Element)?.ParentClass;
 
                 var entityVariableName = createAction.Name.ToCSharpIdentifier(CapitalizationBehaviour.MakeFirstLetterLower);
                 var dataAccess = method.InjectDataAccessProvider(entity);

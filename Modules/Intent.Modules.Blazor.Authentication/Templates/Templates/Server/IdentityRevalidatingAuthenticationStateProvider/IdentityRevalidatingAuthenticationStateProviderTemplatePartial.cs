@@ -85,11 +85,11 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Identi
                             method.AddStatement("await using var scope = _serviceScopeFactory.CreateAsyncScope();");
 
                             method.AddStatement($"var userManager = scope.ServiceProvider.GetRequiredService<UserManager<{identityUserName}>>();");
-                            method.AddReturn("await ValidateSecurityStampAsync(userManager, authenticationState.User);");
+                            method.AddReturn("await ValidateSecurityStampAsync(userManager, authenticationState.User)");
                         }
                         else
                         {
-                            method.AddReturn("await Task.FromResult(authenticationState.User.Identity.IsAuthenticated);");
+                            method.AddReturn("await Task.FromResult(authenticationState.User.Identity.IsAuthenticated)");
                         }
                     });
 

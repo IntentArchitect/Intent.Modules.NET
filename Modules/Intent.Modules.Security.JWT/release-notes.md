@@ -1,3 +1,11 @@
+### Version 4.3.2
+
+- Improvement: Updated NuGet package versions.
+
+### Version 4.3.1
+
+- Improvement: Upgrades to interplay better with Blazor.Authentication module.
+- 
 ### Version 4.3.0
 
 - Improvement: Supporting async User access.

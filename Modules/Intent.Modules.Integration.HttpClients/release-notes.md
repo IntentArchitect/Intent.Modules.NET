@@ -1,3 +1,8 @@
+### Version 6.0.6
+
+- Improvement: Updated NuGet package versions.
+- Improvement: Removed dependency on `Intent.Modelers.ServiceProxies` module.
+
 ### Version 6.0.5
 
 - Fixed: Correct variable path used when invoking an external service and mapping to entity

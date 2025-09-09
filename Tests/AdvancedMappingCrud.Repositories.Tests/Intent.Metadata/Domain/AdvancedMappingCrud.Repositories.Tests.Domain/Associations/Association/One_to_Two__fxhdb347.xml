@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="884d66c9-fc9d-4a17-aa8d-43f45d6b1a7e">
+  <sourceEnd id="1917e833-e0b6-4448-b6bd-a3dbb24c47cf" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>One</name>
+    <display>One: One</display>
+    <order>0</order>
+    <typeReference id="657e6359-51e1-4014-aecc-679bb266b820">
+      <typeId>6db854b4-638b-425b-8921-8b553e8e73e1</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="884d66c9-fc9d-4a17-aa8d-43f45d6b1a7e" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Two</name>
+    <display>Two: Two</display>
+    <order>3</order>
+    <typeReference id="f0bf254e-7c68-40dd-8fbf-34a7bc67b130">
+      <typeId>00580e7b-d1d3-4026-8aa6-e9e6a561f17f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

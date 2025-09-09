@@ -26,6 +26,9 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.Persistence.Configurati
             builder.Property(x => x.FourId)
                 .IsRequired();
 
+            builder.Property(x => x.Attribute)
+                .IsRequired();
+
             builder.Ignore(e => e.DomainEvents);
         }
     }

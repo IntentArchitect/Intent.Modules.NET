@@ -179,20 +179,6 @@
               </metadata>
               <childElements />
             </childElement>
-            <childElement id="796516b3-49c9-4815-9d40-484cdfd2f9be" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-              <name>Intent.EntityFrameworkCore.DbMigrationsReadMe</name>
-              <display>Intent.EntityFrameworkCore.DbMigrationsReadMe</display>
-              <externalReference>997736ca-99b4-422d-a442-f0080586ce64</externalReference>
-              <isAbstract>false</isAbstract>
-              <genericTypes />
-              <isMapped>false</isMapped>
-              <parentFolderId>39120fcc-02ce-47a7-b8d7-a9c8d3d2bb8f</parentFolderId>
-              <stereotypes />
-              <metadata>
-                <entry key="status" value="assigned" />
-              </metadata>
-              <childElements />
-            </childElement>
           </childElements>
         </childElement>
         <childElement id="cb876e82-3814-49aa-8056-1552b440ac67" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
@@ -396,6 +382,31 @@
             <entry key="status" value="assigned" />
           </metadata>
           <childElements />
+        </childElement>
+        <childElement id="ac7dddf2-9c78-47b9-95b8-c6d0d06dd5c8" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+          <name>Migrations</name>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>bb1223cb-f337-4301-81e3-659a4a1f57a3</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements>
+            <childElement id="796516b3-49c9-4815-9d40-484cdfd2f9be" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+              <name>Intent.EntityFrameworkCore.DbMigrationsReadMe</name>
+              <display>Intent.EntityFrameworkCore.DbMigrationsReadMe</display>
+              <externalReference>997736ca-99b4-422d-a442-f0080586ce64</externalReference>
+              <isAbstract>false</isAbstract>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>ac7dddf2-9c78-47b9-95b8-c6d0d06dd5c8</parentFolderId>
+              <stereotypes />
+              <metadata>
+                <entry key="status" value="assigned" />
+              </metadata>
+              <childElements />
+            </childElement>
+          </childElements>
         </childElement>
       </childElements>
     </childElement>

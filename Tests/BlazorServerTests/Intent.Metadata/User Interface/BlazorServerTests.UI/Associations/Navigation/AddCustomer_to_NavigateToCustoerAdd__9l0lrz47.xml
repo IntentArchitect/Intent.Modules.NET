@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="3003a28a-e627-4a54-a72e-0329f39883a8">
+  <sourceEnd id="dd33fe9f-7f9a-4a1b-b98f-b01fd34bb0ad" type="Navigation Source End" typeId="97a3de8a-c9bf-4cf2-bc0a-b8692b02211b">
+    <display>: AddCustomer</display>
+    <order>0</order>
+    <typeReference id="5b4ed505-baa6-4a59-96aa-247b6e99de65">
+      <typeId>1b607b69-0867-490b-a686-1976a92bcc4f</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>BlazorServerTests.UI</typePackageName>
+      <typePackageId>5741124d-249d-489b-a8a8-5a68530785ff</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="3003a28a-e627-4a54-a72e-0329f39883a8" type="Navigation Target End" typeId="2b191288-ecae-4743-b069-cbdd927ef349">
+    <name>NavigateToCustoerAdd</name>
+    <display>[navigate] CustoerAdd</display>
+    <order>0</order>
+    <traits>
+      <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+    </traits>
+    <typeReference id="6dae7c75-ae8d-44b4-9fd9-950330343c2f">
+      <typeId>652d23ee-b1ac-4feb-9a0e-cf502087631c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>BlazorServerTests.UI</typePackageName>
+      <typePackageId>5741124d-249d-489b-a8a8-5a68530785ff</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Navigation</associationType>
+  <associationTypeId>6d2b2070-c1cb-4cd2-88b4-4e5f8414bd9e</associationTypeId>
+  <stereotypes />
+</association>

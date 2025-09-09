@@ -1,36 +1,24 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
+using System.Linq.Expressions;
 using Intent.RoslynWeaver.Attributes;
+using MongoDB.Driver;
 using MongoDb.TestApplication.Domain.Entities;
 using MongoDb.TestApplication.Domain.Entities.Mappings;
-using MongoDb.TestApplication.Domain.Repositories;
+using MongoDb.TestApplication.Domain.Repositories.Documents.Mappings;
 using MongoDb.TestApplication.Domain.Repositories.Mappings;
 using MongoDb.TestApplication.Infrastructure.Persistence;
+using MongoDb.TestApplication.Infrastructure.Persistence.Documents.Mappings;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.MongoDb.Repositories.Repository", Version = "1.0")]
+[assembly: IntentTemplate("Intent.MongoDb.MongoDbRepository", Version = "1.0")]
 
 namespace MongoDb.TestApplication.Infrastructure.Repositories.Mappings
 {
-    public class MapAggPeerAggMoreMongoRepository : MongoRepositoryBase<MapAggPeerAggMore>, IMapAggPeerAggMoreRepository
+    internal class MapAggPeerAggMoreMongoRepository : MongoRepositoryBase<MapAggPeerAggMore, MapAggPeerAggMoreDocument, IMapAggPeerAggMoreDocument, string>, IMapAggPeerAggMoreRepository
     {
-        public MapAggPeerAggMoreMongoRepository(ApplicationMongoDbContext context) : base(context)
+        public MapAggPeerAggMoreMongoRepository(IMongoCollection<MapAggPeerAggMoreDocument> collection,
+            MongoDbUnitOfWork unitOfWork) : base(collection, unitOfWork)
         {
-        }
-
-        public async Task<MapAggPeerAggMore?> FindByIdAsync(string id, CancellationToken cancellationToken = default)
-        {
-            return await FindAsync(x => x.Id == id, cancellationToken);
-        }
-
-        public async Task<List<MapAggPeerAggMore>> FindByIdsAsync(
-            string[] ids,
-            CancellationToken cancellationToken = default)
-        {
-            return await FindAllAsync(x => ids.Contains(x.Id), cancellationToken);
         }
     }
 }

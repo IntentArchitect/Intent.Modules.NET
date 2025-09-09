@@ -1,6 +1,6 @@
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.DependencyInjection;
-using MongoFramework;
+using MongoDB.Driver;
 using Testcontainers.MongoDb;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -10,6 +10,7 @@ namespace AdvancedMappingCrudMongo.Tests.IntegrationTests
 {
     public class MongoDbContainerFixture
     {
+        private const string DatabaseName = "IntegrationTestDb";
         private readonly MongoDbContainer _dbContainer;
 
         public MongoDbContainerFixture()
@@ -22,7 +23,12 @@ namespace AdvancedMappingCrudMongo.Tests.IntegrationTests
         public void ConfigureTestServices(IServiceCollection services)
         {
             string connectionString = GetTestConnectionString(_dbContainer.GetConnectionString());
-            services.AddSingleton<IMongoDbConnection>((c) => MongoDbConnection.FromConnectionString(connectionString));
+            services.AddSingleton<IMongoClient>(_ => new MongoClient(connectionString));
+            services.AddSingleton(sp =>
+                                        {
+                                            var client = sp.GetRequiredService<IMongoClient>();
+                                            return client.GetDatabase(DatabaseName);
+                                        });
         }
 
         public void OnHostCreation(IServiceProvider services)

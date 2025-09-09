@@ -75,7 +75,8 @@ namespace Intent.Modules.Infrastructure.DependencyInjection.Templates.Dependency
         public override void BeforeTemplateExecution()
         {
             base.BeforeTemplateExecution();
-            ExecutionContext.EventDispatcher.Publish(
+
+            EmitOrPublish(
                 ServiceConfigurationRequest.ToRegister(
                         extensionMethodName: "AddInfrastructure",
                         extensionMethodParameterList: ServiceConfigurationRequest.ParameterType.Configuration)

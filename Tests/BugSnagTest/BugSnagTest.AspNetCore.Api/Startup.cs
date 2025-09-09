@@ -14,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Scalar.AspNetCore;
 using Serilog;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -44,7 +45,7 @@ namespace BugSnagTest.AspNetCore.Api
             services.ConfigureBugsnag(Configuration);
             services.AddInfrastructure(Configuration);
             services.ConfigureQuartz(Configuration);
-            services.ConfigureSwagger(Configuration);
+            services.ConfigureOpenApi();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -61,9 +62,10 @@ namespace BugSnagTest.AspNetCore.Api
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapScalarApiReference();
+                endpoints.MapOpenApi();
                 endpoints.MapControllers();
             });
-            app.UseSwashbuckle(Configuration);
         }
     }
 }

@@ -69,9 +69,9 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.DtoContract
                     includeReturnTypes: true,
                     stereotypeNames: null,
                     getDesigners: [_metadataManager.UserInterface])
-                .Where(x =>
+                .Where(dto =>
                 {
-                    if (x.InternalElement.IsCommandModel() || x.InternalElement.IsQueryModel())
+                    if (dto.InternalElement.IsCommandModel() || dto.InternalElement.IsQueryModel())
                     {
                         // Only generate "used" DTOs. The HttpEndpointFactory in cases will create
                         // some endpoints which don't actually use commands, e.g. for GetById, the
@@ -82,11 +82,11 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.DtoContract
                         // need it either.
 
                         return
-                            referencedElementIds.Contains(x.InternalElement.Id) &&
-                            x.InternalElement.ChildElements.Any(y => y.IsDTOFieldModel());
+                            referencedElementIds.Contains(dto.InternalElement.Id) &&
+                            dto.InternalElement.ChildElements.Any(y => y.IsDTOFieldModel());
                     }
 
-                    if (x.Id == PagedResultTemplateBase.TypeDefinitionElementId)
+                    if (dto.Id == PagedResultTemplateBase.TypeDefinitionElementId)
                     {
                         return false;
                     }

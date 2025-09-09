@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Entities.BasicAuditing</id>
-  <version>1.0.6</version>
+  <version>1.0.7</version>
   <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
   <summary>Applies basic auditing to selected domain entities (i.e. when an entity is created or updated and by who).</summary>
   <description>Applies basic auditing to selected domain entities (i.e. when an entity is created or updated and by who).</description>
@@ -40,7 +40,7 @@
     </group>
   </moduleSettings>
   <dependencies>
-    <dependency id="Intent.Application.Identity" version="3.5.2" />
+    <dependency id="Intent.Application.Identity" version="3.6.0" />
     <dependency id="Intent.Common" version="3.7.2" />
     <dependency id="Intent.Common.CSharp" version="3.8.0" />
     <dependency id="Intent.Common.Types" version="3.4.0" />

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="326dfc1d-830d-4d07-8732-91451cc7777c">
+  <sourceEnd id="f2cc202f-2341-4fba-a132-d9b3f9022a18" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>One</name>
+    <display>One: One</display>
+    <order>0</order>
+    <typeReference id="4059ea3c-70e6-4b87-bd85-c271ada0565e">
+      <typeId>6db854b4-638b-425b-8921-8b553e8e73e1</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="326dfc1d-830d-4d07-8732-91451cc7777c" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Fives</name>
+    <display>Fives: Five[*]</display>
+    <order>5</order>
+    <typeReference id="01921e0c-42d7-4a6e-90f1-c9d412042b8b">
+      <typeId>77a606b4-6955-4627-9d1f-512e7274a8b1</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

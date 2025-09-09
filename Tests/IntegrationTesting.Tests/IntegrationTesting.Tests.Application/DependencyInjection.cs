@@ -1,12 +1,10 @@
 using System.Reflection;
-using AutoMapper;
 using FluentValidation;
 using IntegrationTesting.Tests.Application.Common.Behaviours;
 using IntegrationTesting.Tests.Application.Common.Validation;
 using IntegrationTesting.Tests.Application.Implementation;
 using IntegrationTesting.Tests.Application.Interfaces;
 using Intent.RoslynWeaver.Attributes;
-using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

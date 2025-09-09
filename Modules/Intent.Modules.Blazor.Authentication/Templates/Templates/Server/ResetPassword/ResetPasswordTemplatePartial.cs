@@ -38,7 +38,6 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ResetP
                     file.AddPageDirective($"/Account/ResetPassword");
 
                     file.AddUsing("System.ComponentModel.DataAnnotations");
-                    file.AddUsing("Microsoft.AspNetCore.Identity");
                     file.AddUsing("Microsoft.AspNetCore.WebUtilities");
                     file.AddUsing("System.Text");
                     file.AddInjectDirective(GetTypeName(AuthServiceInterfaceTemplate.TemplateId), "AuthService");
@@ -73,7 +72,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ResetP
 
                     file.AddCodeBlock(code =>
                     {
-                        code.AddField("IEnumerable<IdentityError>?", "identityErrors");
+                        code.AddField($"IEnumerable<{code.Template.UseType("Microsoft.AspNetCore.Identity.IdentityError")}>?", "identityErrors");
 
                         code.AddProperty("InputModel", "Input", input =>
                         {

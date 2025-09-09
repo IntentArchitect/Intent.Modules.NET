@@ -17,6 +17,12 @@ namespace AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain.Entit
             OrderItems = new List<OrderItem>(orderItems);
         }
 
+        public static Order StaticConstructor(string refNo, DateTime orderDate, IEnumerable<OrderItem> orderItems)
+        {
+            // TODO: Implement StaticConstructor (Order) functionality
+            throw new NotImplementedException("Replace with your implementation...");
+        }
+
         public void UpdateOrderItems(IEnumerable<OrderItemUpdateDC> orderItemDetails)
         {
             UpdateHelper.CreateOrUpdateCollection<OrderItemUpdateDC, OrderItem>(

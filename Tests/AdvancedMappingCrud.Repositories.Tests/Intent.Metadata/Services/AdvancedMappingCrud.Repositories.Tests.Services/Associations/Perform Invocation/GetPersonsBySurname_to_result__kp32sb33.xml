@@ -20,7 +20,7 @@
   </sourceEnd>
   <targetEnd id="a1dbd2ff-fcad-4109-b315-ea558986bd88" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
     <name>result</name>
-    <display>[call] result: GetPersonsBySurname(...): PersonDC[*]</display>
+    <display>[call] result = GetPersonsBySurname(...): PersonDC[*]</display>
     <order>1</order>
     <traits>
       <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />

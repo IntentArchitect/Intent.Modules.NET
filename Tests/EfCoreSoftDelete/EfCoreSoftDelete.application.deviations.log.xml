@@ -1,18 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files>
-    <file>
-      <correlationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#152b248f-9941-4342-84c6-d5040bc504fb</correlationId>
-      <path>EfCoreSoftDelete.IntegrationTests/Tests/Customers/UpdateCustomerTests.cs</path>
-      <count>1</count>
-      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
-      <updatedAt>2025-08-02T09:03:35.4781907Z</updatedAt>
-      <approvedByAccountName>gareth.baars@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Gareth Baars</approvedByDisplayName>
-      <approvedAt>2025-08-02T09:05:38.1185143Z</approvedAt>
-      <deviationsHash>922E449C4D14EA734278A258DB7769C5EDA3D1E196877F2B73B0DD9B78616361</deviationsHash>
-      <fileHash>F5054CBD1F87F2BFB770176B4B684D1D77D43844CFD4824029A67D50EE474D1C</fileHash>
-    </file>
-  </files>
+  <files />
 </deviationsLog>

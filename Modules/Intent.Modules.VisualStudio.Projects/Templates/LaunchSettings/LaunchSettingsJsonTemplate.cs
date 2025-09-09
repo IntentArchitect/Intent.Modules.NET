@@ -40,7 +40,10 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
 #pragma warning disable CS0618 // Type or member is obsolete
             ExecutionContext.EventDispatcher.Subscribe(LaunchProfileRegistrationEvent.EventId, Handle);
 #pragma warning restore CS0618 // Type or member is obsolete
+
             ExecutionContext.EventDispatcher.Subscribe<DefaultLaunchUrlPathRequest>(HandleDefaultLaunchUrlRequest);
+            OutputTarget.On<DefaultLaunchUrlPathRequest>(x => HandleDefaultLaunchUrlRequest(x.Data));
+
             ExecutionContext.EventDispatcher.Subscribe(LaunchProfileHttpPortRequired.EventId, _ => _launchProfileHttpPortRequired = true);
             ExecutionContext.EventDispatcher.Subscribe<AddProjectPropertyEvent>(HandleNoDefaultLaunchSettingsFile);
         }
@@ -109,6 +112,9 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
                 UseSsl = request.UseSsl ? null : false, // default value is true
                 InspectUri = request.InspectUri,
                 DotnetRunMessages = request.DotnetRunMessages,
+                CommandLineArgs = request.CommandLineArgs,
+                ExecutablePath = request.ExecutablePath,
+                WorkingDirectory = request.WorkingDirectory
             });
 
             if (request.EnvironmentVariables?.Count > 0)
@@ -254,12 +260,25 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
             return _model is not null && _model.HasNETSettings() && _model.GetNETSettings().SDK().IsMicrosoftNETSdkWorker();
         }
 
+        private bool IsMicrosoftNETSdkWithLaunchSettingGeneration()
+        {
+            return _model is not null && 
+                   _model.HasNETSettings() && 
+                   _model.GetNETSettings().SDK().IsMicrosoftNETSdk() &&
+                   _model.GetNETSettings().GenerateLaunchSettingsFile();
+        }
+
         private LaunchSettings GetDefaultLaunchSettings()
         {
 
             if (IsMicrosoftNETSdkWorker())
             {
                 return GetDefaultMicrosoftNETSdkWorkerLaunchSettings();
+            }
+
+            if (IsMicrosoftNETSdkWithLaunchSettingGeneration())
+            {
+                return new LaunchSettings();
             }
             return GetDefaultWebLaunchSettings();
         }

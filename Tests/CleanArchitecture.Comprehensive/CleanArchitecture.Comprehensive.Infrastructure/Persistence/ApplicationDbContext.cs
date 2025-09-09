@@ -60,6 +60,7 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.Persistence
         }
 
         public DbSet<Final> Finals { get; set; }
+        public DbSet<Four> Fours { get; set; }
         public DbSet<One> Ones { get; set; }
         public DbSet<Second> Seconds { get; set; }
         public DbSet<Three> Threes { get; set; }
@@ -128,6 +129,7 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.Persistence
 
             ConfigureModel(modelBuilder);
             modelBuilder.ApplyConfiguration(new FinalConfiguration());
+            modelBuilder.ApplyConfiguration(new FourConfiguration());
             modelBuilder.ApplyConfiguration(new OneConfiguration());
             modelBuilder.ApplyConfiguration(new SecondConfiguration());
             modelBuilder.ApplyConfiguration(new ThreeConfiguration());

@@ -93,5 +93,34 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="42647f3c-5b61-4081-aaa2-ee5acbae893f" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+      <name>Migrations</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>931f0fb9-48da-478e-a955-fcfcbe6afc93</parentFolderId>
+      <packageId>07842d4d-0659-4f4f-8e98-4c3ed802d4b0</packageId>
+      <packageName>Standard.AspNetCore.TestApplication</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="1195f42c-9ee0-4484-b9db-7102b64e875d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.EntityFrameworkCore.DbMigrationsReadMe</name>
+          <display>Intent.EntityFrameworkCore.DbMigrationsReadMe</display>
+          <externalReference>Intent.EntityFrameworkCore</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>42647f3c-5b61-4081-aaa2-ee5acbae893f</parentFolderId>
+          <packageId>07842d4d-0659-4f4f-8e98-4c3ed802d4b0</packageId>
+          <packageName>Standard.AspNetCore.TestApplication</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>

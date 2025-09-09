@@ -20,7 +20,7 @@
   </sourceEnd>
   <targetEnd id="102694d0-a3e3-432b-b09f-63ceccb250c0" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
     <name>result</name>
-    <display>[call] result: GetCustomerStatistics(...): CustomerStatistics</display>
+    <display>[call] result = GetCustomerStatistics(...): CustomerStatistics</display>
     <order>1</order>
     <traits>
       <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />

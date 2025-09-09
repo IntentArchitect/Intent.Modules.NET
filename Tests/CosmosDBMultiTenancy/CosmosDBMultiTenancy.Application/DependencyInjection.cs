@@ -1,10 +1,8 @@
 using System.Reflection;
-using AutoMapper;
 using CosmosDBMultiTenancy.Application.Common.Behaviours;
 using CosmosDBMultiTenancy.Application.Common.Validation;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
-using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

@@ -5,7 +5,7 @@
     <order>0</order>
     <typeReference id="58b21d04-8a37-4bdc-bd87-a8e1fbac767a">
       <typeId>83c5ee45-ee34-43cc-88af-a70d3f25f223</typeId>
-      <isNavigable>true</isNavigable>
+      <isNavigable>false</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
       <isRequired>true</isRequired>
@@ -22,6 +22,9 @@
     <name>order</name>
     <display>[update] order: Order</display>
     <order>6</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="bf15af1e-f8ed-4303-9187-4fc835eeb13b">
       <typeId>2c0155e5-4d44-476b-b481-a3636c578f2d</typeId>
       <isNavigable>true</isNavigable>

@@ -9,7 +9,6 @@ using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.VisualStudio.Projects.Api;
-using Intent.Modules.VisualStudio.Projects.SolutionFile;
 using Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
@@ -122,23 +121,11 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
 
                 foreach (var item in solution)
                 {
-                    var solutionFolderStack = new Stack<string>();
-                    var currentItem = item.Model;
-                    while (true)
-                    {
-                        solutionFolderStack.Push(currentItem.Name);
-                        if (currentItem.InternalElement.ParentElement?.IsSolutionFolderModel() == true)
-                        {
-                            currentItem = currentItem.InternalElement.ParentElement.AsSolutionFolderModel();
-                            continue;
-                        }
-
-                        break;
-                    }
-
+                    var hasMaterializedFolder = HasMaterializedFolder(item.Model);
                     foreach (var @event in item.Events)
                     {
-                        var absolutePath = @event.GetValue("Path");
+                        var physicalPath = @event.GetValue("Path");
+
                         if (!@event.AdditionalInfo.TryGetValue("RelativeOutputPathPrefix", out var relativeOutputPathPrefix))
                         {
                             relativeOutputPathPrefix = null;
@@ -152,8 +139,9 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                                 {
                                     slnFile.AddSolutionItem(
                                         parentProject: null,
-                                        solutionItemAbsolutePath: absolutePath,
-                                        relativeOutputPathPrefix: relativeOutputPathPrefix);
+                                        solutionItemPhysicalPath: physicalPath,
+                                        relativeOutputPathPrefix: relativeOutputPathPrefix,
+                                        hasMaterializedFolder: hasMaterializedFolder);
                                     break;
                                 }
 
@@ -165,11 +153,12 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
 
                                 slnFile.AddSolutionItem(
                                     parentProject: solutionFolderProject,
-                                    solutionItemAbsolutePath: absolutePath,
-                                    relativeOutputPathPrefix: relativeOutputPathPrefix);
+                                    solutionItemPhysicalPath: physicalPath,
+                                    relativeOutputPathPrefix: relativeOutputPathPrefix,
+                                    hasMaterializedFolder: hasMaterializedFolder);
                                 break;
                             case SoftwareFactoryEvents.FileRemovedEvent:
-                                slnFile.RemoveSolutionItem(absolutePath);
+                                slnFile.RemoveSolutionItem(physicalPath);
                                 break;
                             default:
                                 break;
@@ -185,6 +174,12 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
 
                 change.ChangeContent(updated);
             }
+        }
+
+        private bool HasMaterializedFolder(SolutionFolderModel solutionFolderModel)
+        {
+            var path = GetPath(solutionFolderModel);
+            return path.Any(x => x.GetFolderOptions()?.MaterializeFolder() == true);
         }
 
         private IReadOnlyCollection<SolutionFolderModel> GetPath(SolutionFolderModel solutionFolderModel)

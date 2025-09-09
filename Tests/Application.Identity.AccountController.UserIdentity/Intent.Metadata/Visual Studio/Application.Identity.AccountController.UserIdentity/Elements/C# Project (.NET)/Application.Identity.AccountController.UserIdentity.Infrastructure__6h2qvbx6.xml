@@ -94,5 +94,34 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="282ce283-b235-4dfe-9a9e-01c747f9f895" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+      <name>Migrations</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a876db5d-ac22-48ed-8284-24a83efe792e</parentFolderId>
+      <packageId>47b321f9-5e9d-413f-9115-a63dbdf2982f</packageId>
+      <packageName>Application.Identity.AccountController.UserIdentity</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="01aee955-9b08-45d5-a25b-08ba6cec2116" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.EntityFrameworkCore.DbMigrationsReadMe</name>
+          <display>Intent.EntityFrameworkCore.DbMigrationsReadMe</display>
+          <externalReference>Intent.EntityFrameworkCore</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>282ce283-b235-4dfe-9a9e-01c747f9f895</parentFolderId>
+          <packageId>47b321f9-5e9d-413f-9115-a63dbdf2982f</packageId>
+          <packageName>Application.Identity.AccountController.UserIdentity</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>

@@ -145,5 +145,42 @@ namespace Intent.Modules.EntityFrameworkCore.Settings
         public static string DefaultSchemaName(this DatabaseSettings groupSettings) => groupSettings.GetSetting("7e0f472d-6cf0-423e-872a-cd6b2e0614bc")?.Value;
 
         public static bool MaintainColumnOrdering(this DatabaseSettings groupSettings) => bool.TryParse(groupSettings.GetSetting("1cb44856-03a7-4a0c-88cf-ae9f84b9dd79")?.Value.ToPascalCase(), out var result) && result;
+        public static PrimaryKeyValueProviderOptions PrimaryKeyValueProvider(this DatabaseSettings groupSettings) => new PrimaryKeyValueProviderOptions(groupSettings.GetSetting("af882a31-9a5e-4efc-8666-7059a55ff42d")?.Value);
+
+        public class PrimaryKeyValueProviderOptions
+        {
+            public readonly string Value;
+
+            public PrimaryKeyValueProviderOptions(string value)
+            {
+                Value = value;
+            }
+
+            public PrimaryKeyValueProviderOptionsEnum AsEnum()
+            {
+                return Value switch
+                {
+                    "default" => PrimaryKeyValueProviderOptionsEnum.Default,
+                    "none" => PrimaryKeyValueProviderOptionsEnum.None,
+                    _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
+                };
+            }
+
+            public bool IsDefault()
+            {
+                return Value == "default";
+            }
+
+            public bool IsNone()
+            {
+                return Value == "none";
+            }
+        }
+
+        public enum PrimaryKeyValueProviderOptionsEnum
+        {
+            Default,
+            None,
+        }
     }
 }

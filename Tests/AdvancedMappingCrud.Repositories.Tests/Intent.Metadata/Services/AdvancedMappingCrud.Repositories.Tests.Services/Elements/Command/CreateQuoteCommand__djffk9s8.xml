@@ -189,7 +189,7 @@
     </childElement>
     <childElement id="86f7de48-fe89-4263-b7bd-56704150c977" type="Processing Action" typeId="405a2857-b911-431f-8142-719a0e9f15f3">
       <name>Action</name>
-      <display>Action</display>
+      <display>[execute] Action</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>

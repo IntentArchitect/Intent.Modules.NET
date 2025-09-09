@@ -1,12 +1,10 @@
 using System.Reflection;
-using AutoMapper;
 using CleanArchitecture.Dapr.InvocationClient.Application.Common.Behaviours;
 using CleanArchitecture.Dapr.InvocationClient.Application.Common.Validation;
 using CleanArchitecture.Dapr.InvocationClient.Application.Implementation;
 using CleanArchitecture.Dapr.InvocationClient.Application.Interfaces;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
-using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

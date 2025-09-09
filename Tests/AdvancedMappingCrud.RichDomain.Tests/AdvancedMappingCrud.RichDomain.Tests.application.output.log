@@ -1108,10 +1108,82 @@
     </FileLog>
     <FileLog>
       <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#68f5c8fe-6dda-40e7-9869-a98c8a15daa6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Orders/CreateOrderComboStatic/CreateOrderComboStaticCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/CreateOrderComboStatic/CreateOrderComboStaticCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#68f5c8fe-6dda-40e7-9869-a98c8a15daa6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Orders/CreateOrderComboStatic/CreateOrderComboStaticCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/CreateOrderComboStatic/CreateOrderComboStaticCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#68f5c8fe-6dda-40e7-9869-a98c8a15daa6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Orders/CreateOrderComboStatic/CreateOrderComboStaticCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/CreateOrderComboStatic/CreateOrderComboStaticCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#e1d5c6f0-7d66-40ff-b94a-726f76defd0c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Orders/CreateOrderOrderItemDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Orders/CreateOrderOrderItemDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#534a22b7-2ea1-4fd8-b5c5-7764679754a0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Orders/CreateOrderStatic/CreateOrderStaticCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/CreateOrderStatic/CreateOrderStaticCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#534a22b7-2ea1-4fd8-b5c5-7764679754a0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Orders/CreateOrderStatic/CreateOrderStaticCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/CreateOrderStatic/CreateOrderStaticCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#534a22b7-2ea1-4fd8-b5c5-7764679754a0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Orders/CreateOrderStatic/CreateOrderStaticCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/CreateOrderStatic/CreateOrderStaticCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#b457f102-27d5-46b2-b212-f11df0134e6a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Orders/CreateOrderStaticCombo/CreateOrderStaticComboCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/CreateOrderStaticCombo/CreateOrderStaticComboCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#b457f102-27d5-46b2-b212-f11df0134e6a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Orders/CreateOrderStaticCombo/CreateOrderStaticComboCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/CreateOrderStaticCombo/CreateOrderStaticComboCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#b457f102-27d5-46b2-b212-f11df0134e6a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Orders/CreateOrderStaticCombo/CreateOrderStaticComboCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/CreateOrderStaticCombo/CreateOrderStaticComboCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2739,6 +2811,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>cd0f76ac-532b-4772-80bf-a69fc3d87459</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Infrastructure/Migrations/README.md</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>README.md</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>78cf15ff-e64c-444c-9651-c61c0d8a79c5</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbContext#DefaultConnection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -2864,14 +2944,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Infrastructure/Persistence/Configurations/UserConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UserConfiguration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>78cf15ff-e64c-444c-9651-c61c0d8a79c5</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Infrastructure/Persistence/MIGRATION_README.txt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MIGRATION_README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

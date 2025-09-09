@@ -65,7 +65,7 @@ namespace Intent.Modules.AzureFunctions.Templates.InProcess.Startup
                 .AfterBuild(file =>
                 {
                     var @class = file.Classes.First();
-                    var method = @class.FindMethod("Configure");
+                    var method = @class.FindMethod("Configure")!;
                     method.AddStatements(GetServiceConfigurationStatementList());
 
                     foreach (var request in GetRelevantServiceConfigurationRequests())
@@ -135,7 +135,7 @@ namespace Intent.Modules.AzureFunctions.Templates.InProcess.Startup
             return statementList;
         }
 
-        private string GetExtensionMethodParameterList(ServiceConfigurationRequest request)
+        private static string GetExtensionMethodParameterList(ServiceConfigurationRequest request)
         {
             if (request.ExtensionMethodParameterList?.Any() != true)
             {

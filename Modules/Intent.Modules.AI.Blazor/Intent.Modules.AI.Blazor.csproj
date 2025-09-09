@@ -5,36 +5,28 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Samples\MudBlazor\Add.razor.cs" />
-    <Compile Remove="Samples\MudBlazor\Edit.razor.cs" />
-    <Compile Remove="Samples\MudBlazor\SearchScreenExample.razor.cs" />
-    <Compile Remove="Samples\MudBlazor\View.razor.cs" />
+    <Compile Remove="content\MudBlazorAIPromptTemplates\AddEntityDialog\AddCustomerDialog.razor.cs" />
+    <Compile Remove="content\MudBlazorAIPromptTemplates\AddEntity\CustomerAdd.razor.cs" />
+    <Compile Remove="content\MudBlazorAIPromptTemplates\EditEntityDialog\EditCustomerDialog.razor.cs" />
+    <Compile Remove="content\MudBlazorAIPromptTemplates\EditEntity\CustomerEdit.razor.cs" />
+    <Compile Remove="content\MudBlazorAIPromptTemplates\SearchEntity\CustomerSearch.razor.cs" />
+    <Compile Remove="content\MudBlazorAIPromptTemplates\ViewEntity\ViewCustomer.razor.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Samples\MudBlazor\Add.razor" />
-    <None Remove="Samples\MudBlazor\Edit.razor" />
-    <None Remove="Samples\MudBlazor\SearchScreenExample.razor" />
-    <None Remove="Samples\MudBlazor\View.razor" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="Samples\MudBlazor\Add.razor" />
-    <Content Include="Samples\MudBlazor\Add.razor.cs" />
-    <Content Include="Samples\MudBlazor\Edit.razor" />
-    <Content Include="Samples\MudBlazor\Edit.razor.cs" />
-    <Content Include="Samples\MudBlazor\SearchScreenExample.razor" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="Samples\MudBlazor\SearchScreenExample.razor.cs" />
-    <Content Include="Samples\MudBlazor\View.razor" />
-    <Content Include="Samples\MudBlazor\View.razor.cs" />
+    <None Include="content\MudBlazorAIPromptTemplates\AddEntityDialog\AddCustomerDialog.razor.cs" />
+    <None Include="content\MudBlazorAIPromptTemplates\AddEntity\CustomerAdd.razor.cs" />
+    <None Include="content\MudBlazorAIPromptTemplates\EditEntityDialog\EditCustomerDialog.razor.cs" />
+    <None Include="content\MudBlazorAIPromptTemplates\EditEntity\CustomerEdit.razor.cs" />
+    <None Include="content\MudBlazorAIPromptTemplates\SearchEntity\CustomerSearch.razor.cs" />
+    <None Include="content\MudBlazorAIPromptTemplates\ViewEntity\ViewCustomer.razor.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.7.3" />
     <PackageReference Include="Intent.Modules.Common.AI" Version="1.0.0-beta.8" />
+    <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.9.3" />
+    <PackageReference Include="Intent.Modules.Modelers.Services.CQRS" Version="5.1.1" />
     <PackageReference Include="Intent.Modules.Modelers.UI" Version="1.0.0-beta.6" />
     <PackageReference Include="Intent.Modules.VisualStudio.Projects" Version="3.8.11" />
     <PackageReference Include="Intent.Packager" Version="3.6.0-pre.1">
@@ -48,6 +40,10 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Intent.Modules.AI.Blazor.Samples.MudBlazor\**\*.*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="resources\" />
   </ItemGroup>
 
 </Project>

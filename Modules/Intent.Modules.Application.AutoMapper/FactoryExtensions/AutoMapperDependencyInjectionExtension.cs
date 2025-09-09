@@ -46,8 +46,6 @@ namespace Intent.Modules.Application.AutoMapper.FactoryExtensions
 
                 template.ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent("AutoMapper.Extensions.Microsoft.DependencyInjection", template.OutputTarget));
 
-                template.AddUsing("AutoMapper");
-
                 method.AddInvocationStatement("services.AddAutoMapper", stmt =>
                 {
                     if (!application.Settings.GetAutoMapperSettings().UsePreCommercialVersion())

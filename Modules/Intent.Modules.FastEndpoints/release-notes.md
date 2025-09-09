@@ -1,3 +1,7 @@
+### Version 1.0.8
+
+- Improvement: Internal refactoring.
+
 ### Version 1.0.7
 
 - Improvement: Updated NuGet package versions.

@@ -26,7 +26,10 @@ public static class SimpleValidationRulesExtensions
             .AddUsing("FluentValidation")
             .AddClass($"{dtoModel.Name}Validator", @class =>
             {
-                var toValidateTypeName = ValidationModelResolverHelper.GetDtoTypeName(template, dtoModel);
+                if (!ValidationModelResolverHelper.TryGetDtoTypeName(template, dtoModel, out var toValidateTypeName))
+                {
+                    throw new Exception($"Could not determine DTO type name for '{dtoModel.Name}'");
+                }
 
                 @class.AddMetadata("validator", true);
                 @class.WithBaseType($"AbstractValidator<{toValidateTypeName}>");

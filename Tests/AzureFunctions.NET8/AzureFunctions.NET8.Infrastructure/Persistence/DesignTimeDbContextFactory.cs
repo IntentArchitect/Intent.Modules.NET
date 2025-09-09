@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using System.Linq;
 using Intent.RoslynWeaver.Attributes;
@@ -24,23 +25,7 @@ namespace AzureFunctions.NET8.Infrastructure.Persistence
         /// </param>
         public ApplicationDbContext CreateDbContext(string[] args)
         {
-            var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
-
-            IConfigurationRoot configuration = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json")
-                .AddEnvironmentVariables()
-                .AddUserSecrets(typeof(DesignTimeDbContextFactory).Assembly)
-                .Build();
-            var connStringName = args.FirstOrDefault();
-
-            if (string.IsNullOrEmpty(connStringName))
-            {
-                connStringName = "DefaultConnection";
-            }
-            var connectionString = configuration.GetConnectionString(connStringName);
-            optionsBuilder.UseInMemoryDatabase(connStringName);
-            return new ApplicationDbContext(optionsBuilder.Options);
+            throw new NotSupportedException("Cannot create migration scripts for In-Memory database provider");
         }
     }
 }

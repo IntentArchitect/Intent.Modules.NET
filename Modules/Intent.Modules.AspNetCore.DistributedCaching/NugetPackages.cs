@@ -20,12 +20,12 @@ namespace Intent.Modules.AspNetCore.DistributedCaching
             NugetRegistry.Register(MicrosoftExtensionsCachingAbstractionsPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.Primitives", "9.0.7"),
-                        ( >= 8, >= 0) => new PackageVersion("9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.Primitives", "9.0.7"),
-                        ( >= 2, >= 0) => new PackageVersion("9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.Primitives", "9.0.7")
+                        ( >= 9, >= 0) => new PackageVersion("9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Primitives", "9.0.8"),
+                        ( >= 8, >= 0) => new PackageVersion("9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Primitives", "9.0.8"),
+                        ( >= 2, >= 0) => new PackageVersion("9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Primitives", "9.0.8")
                             .WithNugetDependency("System.Threading.Tasks.Extensions", "4.5.4"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftExtensionsCachingAbstractionsPackageName}'"),
                     }
@@ -33,44 +33,44 @@ namespace Intent.Modules.AspNetCore.DistributedCaching
             NugetRegistry.Register(MicrosoftExtensionsCachingMemoryPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.Options", "9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.Primitives", "9.0.7"),
-                        ( >= 8, >= 0) => new PackageVersion("9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.Options", "9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.Primitives", "9.0.7"),
-                        ( >= 2, >= 0) => new PackageVersion("9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.Options", "9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.Primitives", "9.0.7"),
+                        ( >= 9, >= 0) => new PackageVersion("9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Primitives", "9.0.8"),
+                        ( >= 8, >= 0) => new PackageVersion("9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Primitives", "9.0.8"),
+                        ( >= 2, >= 0) => new PackageVersion("9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Primitives", "9.0.8"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftExtensionsCachingMemoryPackageName}'"),
                     }
                 );
             NugetRegistry.Register(MicrosoftExtensionsCachingStackExchangeRedisPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.Options", "9.0.7")
+                        ( >= 9, >= 0) => new PackageVersion("9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "9.0.8")
                             .WithNugetDependency("StackExchange.Redis", "2.7.27"),
-                        ( >= 8, >= 0) => new PackageVersion("9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.Options", "9.0.7")
+                        ( >= 8, >= 0) => new PackageVersion("9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "9.0.8")
                             .WithNugetDependency("StackExchange.Redis", "2.7.27"),
-                        ( >= 2, >= 0) => new PackageVersion("9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.Options", "9.0.7")
+                        ( >= 2, >= 0) => new PackageVersion("9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "9.0.8")
                             .WithNugetDependency("StackExchange.Redis", "2.7.27"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftExtensionsCachingStackExchangeRedisPackageName}'"),
                     }

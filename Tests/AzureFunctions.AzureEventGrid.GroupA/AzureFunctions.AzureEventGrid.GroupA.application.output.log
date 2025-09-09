@@ -10,7 +10,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>123230fb-082f-488b-8a13-63f10ce34188</ProjectId>
-      <CorrelationId>Intent.AzureFunctions.AzureFunctionClassHelper</CorrelationId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClassHelper#2f57e11a-14d3-4baa-9b10-6362d5bab32f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Api/AzureFunctionHelper.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AzureFunctionHelper.cs</ProjectRelativeFilePath>
@@ -26,7 +26,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>16647e02-cc23-4518-9cde-7e391ed77862</ProjectId>
-      <CorrelationId>Intent.Application.Identity.ApplicationSecurityConfiguration</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.ApplicationSecurityConfiguration#95446b8b-0b7c-4937-b535-bb4632688829</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Api/Configuration/ApplicationSecurityConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApplicationSecurityConfiguration.cs</ProjectRelativeFilePath>
@@ -34,7 +34,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>16647e02-cc23-4518-9cde-7e391ed77862</ProjectId>
-      <CorrelationId>Intent.AzureFunctions.OpenApi.OpenApiConfigurationTemplate</CorrelationId>
+      <CorrelationId>Intent.AzureFunctions.OpenApi.OpenApiConfigurationTemplate#069b2c20-45c7-4349-a885-cc74f7ab0655</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Api/Configuration/OpenApiConfigurationOptions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>OpenApiConfigurationOptions.cs</ProjectRelativeFilePath>
@@ -58,7 +58,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>123230fb-082f-488b-8a13-63f10ce34188</ProjectId>
-      <CorrelationId>Intent.AzureFunctions.Isolated.GlobalExceptionMiddlewareTemplate</CorrelationId>
+      <CorrelationId>Intent.AzureFunctions.Isolated.GlobalExceptionMiddlewareTemplate#293f4bd7-3360-44d6-91bf-01e750ad03d0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Api/GlobalExceptionMiddleware.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>GlobalExceptionMiddleware.cs</ProjectRelativeFilePath>
@@ -82,7 +82,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>123230fb-082f-488b-8a13-63f10ce34188</ProjectId>
-      <CorrelationId>Intent.AzureFunctions.Isolated.Program</CorrelationId>
+      <CorrelationId>Intent.AzureFunctions.Isolated.Program#e397ceb3-7a2b-41fa-abcf-4a9caf8ef3f4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Api/Program.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Program.cs</ProjectRelativeFilePath>
@@ -90,7 +90,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>82b54abe-221e-4bfb-84ff-47848b89c999</ProjectId>
-      <CorrelationId>Intent.AzureFunctions.ReturnTypes.JsonResponse</CorrelationId>
+      <CorrelationId>Intent.AzureFunctions.ReturnTypes.JsonResponse#10267c18-5bde-479a-964c-650a9877b77d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Api/ResponseTypes/JsonResponse.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>JsonResponse.cs</ProjectRelativeFilePath>
@@ -98,7 +98,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>7a14999a-4032-455f-abd0-a01627212056</ProjectId>
-      <CorrelationId>Intent.Application.Identity.CurrentUserService</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserService#327224fb-7f22-4950-aef2-d1df4c5d3806</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Api/Services/CurrentUserService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CurrentUserService.cs</ProjectRelativeFilePath>
@@ -114,7 +114,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5a484fc2-eb94-438e-9fc8-8323b2723e13</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.AssemblyAttributes</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.AssemblyAttributes#176a8a70-675f-4426-999d-7fd388a36c0c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/AssemblyAttributes.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AssemblyAttributes.cs</ProjectRelativeFilePath>
@@ -130,7 +130,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>bb9361f8-2e9e-4cce-97c2-447507f64859</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.AuthorizationBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.AuthorizationBehaviour#413671e5-dd1c-48d4-8f9d-74446fc504f2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/Common/Behaviours/AuthorizationBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AuthorizationBehaviour.cs</ProjectRelativeFilePath>
@@ -138,7 +138,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>bb9361f8-2e9e-4cce-97c2-447507f64859</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.EventBusPublishBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.EventBusPublishBehaviour#bac10d97-69bc-4aba-9ced-8b8ee5626a57</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/Common/Behaviours/EventBusPublishBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>EventBusPublishBehaviour.cs</ProjectRelativeFilePath>
@@ -146,7 +146,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>bb9361f8-2e9e-4cce-97c2-447507f64859</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.LoggingBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.LoggingBehaviour#31960686-3f4c-4566-a09f-1febc3658c26</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/Common/Behaviours/LoggingBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>LoggingBehaviour.cs</ProjectRelativeFilePath>
@@ -154,7 +154,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>bb9361f8-2e9e-4cce-97c2-447507f64859</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.PerformanceBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.PerformanceBehaviour#dfb74f4f-102b-41c8-ad44-321461dc796e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/Common/Behaviours/PerformanceBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PerformanceBehaviour.cs</ProjectRelativeFilePath>
@@ -162,7 +162,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>bb9361f8-2e9e-4cce-97c2-447507f64859</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour#1d2e9c23-c877-442e-9819-f26511409673</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UnhandledExceptionBehaviour.cs</ProjectRelativeFilePath>
@@ -170,7 +170,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>bb9361f8-2e9e-4cce-97c2-447507f64859</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour#087bf1ce-3134-4939-95bb-f13b611a7697</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/Common/Behaviours/UnitOfWorkBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UnitOfWorkBehaviour.cs</ProjectRelativeFilePath>
@@ -178,7 +178,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>bb9361f8-2e9e-4cce-97c2-447507f64859</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.FluentValidation.ValidationBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.ValidationBehaviour#d1104be6-f7ec-4d56-9620-d05ec5fd5d48</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/Common/Behaviours/ValidationBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ValidationBehaviour.cs</ProjectRelativeFilePath>
@@ -186,7 +186,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a5c87525-4c85-4ddb-81f2-735c1e5a60e9</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.EventBusInterface</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.EventBusInterface#f1a89609-0195-4d0b-a3e9-8ae0e41cb0c8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/Common/Eventing/IEventBus.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IEventBus.cs</ProjectRelativeFilePath>
@@ -194,7 +194,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a5c87525-4c85-4ddb-81f2-735c1e5a60e9</ProjectId>
-      <CorrelationId>Intent.Eventing.AzureEventGrid.EventContextInterface</CorrelationId>
+      <CorrelationId>Intent.Eventing.AzureEventGrid.EventContextInterface#ed086ef1-f379-4330-afd8-23bc819325fa</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/Common/Eventing/IEventContext.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IEventContext.cs</ProjectRelativeFilePath>
@@ -202,7 +202,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a5c87525-4c85-4ddb-81f2-735c1e5a60e9</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventHandlerInterface</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventHandlerInterface#d067cc53-5f3e-4245-af2f-35661d2aa37c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/Common/Eventing/IIntegrationEventHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IIntegrationEventHandler.cs</ProjectRelativeFilePath>
@@ -210,7 +210,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ce480121-032d-4897-83e6-01f787bdf531</ProjectId>
-      <CorrelationId>Intent.Application.Identity.ForbiddenAccessException</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.ForbiddenAccessException#d590310b-6926-49b2-af5c-d733d53471a4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/Common/Exceptions/ForbiddenAccessException.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ForbiddenAccessException.cs</ProjectRelativeFilePath>
@@ -218,7 +218,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>334010fc-2ede-40e8-b401-24e3343896a0</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandInterface</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.CommandInterface#255aa7e5-a7c7-4451-8a23-664d4411f5d5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/Common/Interfaces/ICommand.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICommand.cs</ProjectRelativeFilePath>
@@ -226,7 +226,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>334010fc-2ede-40e8-b401-24e3343896a0</ProjectId>
-      <CorrelationId>Intent.Application.Identity.CurrentUserInterface</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserInterface#bff257a8-38f4-4103-9b87-8508a3c23e59</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/Common/Interfaces/ICurrentUser.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICurrentUser.cs</ProjectRelativeFilePath>
@@ -234,7 +234,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>334010fc-2ede-40e8-b401-24e3343896a0</ProjectId>
-      <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface#1378576a-a984-49f6-8e34-6f263e9890a4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/Common/Interfaces/ICurrentUserService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICurrentUserService.cs</ProjectRelativeFilePath>
@@ -242,7 +242,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>334010fc-2ede-40e8-b401-24e3343896a0</ProjectId>
-      <CorrelationId>Intent.DomainEvents.DomainEventServiceInterface</CorrelationId>
+      <CorrelationId>Intent.DomainEvents.DomainEventServiceInterface#ff3619ed-9346-4b0a-918c-10b29fbe393e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/Common/Interfaces/IDomainEventService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IDomainEventService.cs</ProjectRelativeFilePath>
@@ -250,7 +250,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>334010fc-2ede-40e8-b401-24e3343896a0</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.QueryInterface</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.QueryInterface#a7483858-a147-47c3-9892-6752808a2d29</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/Common/Interfaces/IQuery.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IQuery.cs</ProjectRelativeFilePath>
@@ -258,7 +258,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>05a847c5-4350-463b-beed-0e3bc966e892</ProjectId>
-      <CorrelationId>Intent.Application.AutoMapper.MapFromInterface</CorrelationId>
+      <CorrelationId>Intent.Application.AutoMapper.MapFromInterface#6c6bfb3e-f75b-4af3-b188-082c370f739c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/Common/Mappings/IMapFrom.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IMapFrom.cs</ProjectRelativeFilePath>
@@ -266,7 +266,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>05a847c5-4350-463b-beed-0e3bc966e892</ProjectId>
-      <CorrelationId>Intent.Application.AutoMapper.MappingProfile</CorrelationId>
+      <CorrelationId>Intent.Application.AutoMapper.MappingProfile#e00ede5e-95d3-43e9-8be5-9e6da0e24479</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/Common/Mappings/MappingProfile.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MappingProfile.cs</ProjectRelativeFilePath>
@@ -274,7 +274,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>c48a5c9f-bcd3-46f2-be27-e985860a9267</ProjectId>
-      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventNotification</CorrelationId>
+      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventNotification#a448f6b6-6541-4927-9c33-25241ee413a7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/Common/Models/DomainEventNotification.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEventNotification.cs</ProjectRelativeFilePath>
@@ -282,7 +282,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>c48a5c9f-bcd3-46f2-be27-e985860a9267</ProjectId>
-      <CorrelationId>Intent.Application.Identity.ResultModel</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.ResultModel#3cbe68df-e045-48cf-a3ff-7a7cb8133637</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/Common/Models/Result.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Result.cs</ProjectRelativeFilePath>
@@ -290,7 +290,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>45e6e508-d6d6-49df-9e08-024271644e8b</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.PagedList</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.PagedList#d27e73c2-d024-4781-af92-183a1d05026b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/Common/Pagination/PagedList.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedList.cs</ProjectRelativeFilePath>
@@ -298,7 +298,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>45e6e508-d6d6-49df-9e08-024271644e8b</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResult</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResult#69fc95b7-4f1c-482a-83c2-195e2141f329</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/Common/Pagination/PagedResult.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedResult.cs</ProjectRelativeFilePath>
@@ -306,7 +306,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>45e6e508-d6d6-49df-9e08-024271644e8b</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResultMappingExtensions</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResultMappingExtensions#7d0d3e7b-131d-4772-9f4e-0dd713cd51cf</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/Common/Pagination/PagedResultMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedResultMappingExtensions.cs</ProjectRelativeFilePath>
@@ -314,7 +314,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>084c4a5c-9114-41af-bdea-1129261d3d69</ProjectId>
-      <CorrelationId>Intent.Application.Identity.AuthorizeAttribute</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.AuthorizeAttribute#36b31e62-9eaa-4563-80cf-bc014f084db5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/Common/Security/AuthorizeAttribute.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AuthorizeAttribute.cs</ProjectRelativeFilePath>
@@ -322,7 +322,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>1fe17512-a30f-4f67-b395-0222637b7157</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationServiceInterface</CorrelationId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationServiceInterface#10fbf488-9324-4b7f-831d-2af1e4c5fa07</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/Common/Validation/IValidationService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IValidationService.cs</ProjectRelativeFilePath>
@@ -330,7 +330,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>1fe17512-a30f-4f67-b395-0222637b7157</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface</CorrelationId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface#5c22f22a-b385-4e4e-b8a3-5b392c97ae7e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/Common/Validation/IValidatorProvider.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IValidatorProvider.cs</ProjectRelativeFilePath>
@@ -338,7 +338,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>1fe17512-a30f-4f67-b395-0222637b7157</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationService</CorrelationId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationService#a08ea426-b970-4a25-b7d7-3b2f40224053</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/Common/Validation/ValidationService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ValidationService.cs</ProjectRelativeFilePath>
@@ -346,7 +346,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>1fe17512-a30f-4f67-b395-0222637b7157</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProvider</CorrelationId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProvider#3dc7941d-bfc9-457d-a7c7-e4e093950787</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/Common/Validation/ValidatorProvider.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ValidatorProvider.cs</ProjectRelativeFilePath>
@@ -386,7 +386,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5a484fc2-eb94-438e-9fc8-8323b2723e13</ProjectId>
-      <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection</CorrelationId>
+      <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection#7879a829-d1f8-4c53-b4e5-f68562dbe22b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
@@ -442,7 +442,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5a484fc2-eb94-438e-9fc8-8323b2723e13</ProjectId>
-      <CorrelationId>Intent.AzureFunctions.ReturnTypes.ResourceLocationClass</CorrelationId>
+      <CorrelationId>Intent.AzureFunctions.ReturnTypes.ResourceLocationClass#a67a8a7a-37c7-4c84-8164-2054f7f412a1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/ResourceLocation.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ResourceLocation.cs</ProjectRelativeFilePath>
@@ -474,7 +474,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>49a7c697-a2dc-4291-8c15-b5045dba3038</ProjectId>
-      <CorrelationId>Intent.Entities.CollectionExtensions</CorrelationId>
+      <CorrelationId>Intent.Entities.CollectionExtensions#f0a2122e-7b4d-4f4f-be3e-12a87f378fb2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Domain/Common/CollectionExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CollectionExtensions.cs</ProjectRelativeFilePath>
@@ -482,7 +482,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>49a7c697-a2dc-4291-8c15-b5045dba3038</ProjectId>
-      <CorrelationId>Intent.DomainEvents.DomainEventBase</CorrelationId>
+      <CorrelationId>Intent.DomainEvents.DomainEventBase#0d2e2bb5-c400-4729-af61-d383bf874f6c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Domain/Common/DomainEvent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEvent.cs</ProjectRelativeFilePath>
@@ -490,7 +490,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>0f3ddb2b-5d8c-4421-8462-cfe838ad6312</ProjectId>
-      <CorrelationId>Intent.Entities.NotFoundException</CorrelationId>
+      <CorrelationId>Intent.Entities.NotFoundException#dabd9f1b-58ae-4a72-8b01-0a8e25e1dc54</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Domain/Common/Exceptions/NotFoundException.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>NotFoundException.cs</ProjectRelativeFilePath>
@@ -498,7 +498,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>49a7c697-a2dc-4291-8c15-b5045dba3038</ProjectId>
-      <CorrelationId>Intent.DomainEvents.HasDomainEventInterface</CorrelationId>
+      <CorrelationId>Intent.DomainEvents.HasDomainEventInterface#076bb457-5c08-4208-84f9-6b45c03963f6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Domain/Common/IHasDomainEvent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IHasDomainEvent.cs</ProjectRelativeFilePath>
@@ -506,7 +506,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5a8e2dfa-eb66-4736-b8ed-92cdc631757d</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.UnitOfWorkInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.UnitOfWorkInterface#d9bac256-ccd2-4196-b969-fc011cfcea37</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Domain/Common/Interfaces/IUnitOfWork.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IUnitOfWork.cs</ProjectRelativeFilePath>
@@ -514,7 +514,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>49a7c697-a2dc-4291-8c15-b5045dba3038</ProjectId>
-      <CorrelationId>Intent.Entities.UpdateHelper</CorrelationId>
+      <CorrelationId>Intent.Entities.UpdateHelper#6f316a6c-289f-40a5-811c-8985a90543dd</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Domain/Common/UpdateHelper.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UpdateHelper.cs</ProjectRelativeFilePath>
@@ -522,7 +522,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>e2fc3e8b-51af-4792-9e97-b33f30d0b71c</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface#7430ea28-4a1f-43b0-836a-9f8f1b194a91</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Domain/Repositories/IEFRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IEFRepository.cs</ProjectRelativeFilePath>
@@ -530,7 +530,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>e2fc3e8b-51af-4792-9e97-b33f30d0b71c</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.PagedListInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.PagedListInterface#036c4b3e-a2c4-4d43-906e-14875b9d970e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Domain/Repositories/IPagedList.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IPagedList.cs</ProjectRelativeFilePath>
@@ -538,7 +538,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>e2fc3e8b-51af-4792-9e97-b33f30d0b71c</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.RepositoryInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.RepositoryInterface#2defd457-8d4f-4899-a2c8-7d5ca8b77794</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Domain/Repositories/IRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IRepository.cs</ProjectRelativeFilePath>
@@ -552,7 +552,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>53ddaa35-c94d-4f45-a584-723be91d5ea6</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.DesignTimeDbContextFactory.ApplicationSettingsJson</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.DesignTimeDbContextFactory.ApplicationSettingsJson#52587d15-598e-4784-809f-fa26408d6969</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Infrastructure/appsettings.json</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>appsettings.json</ProjectRelativeFilePath>
@@ -568,7 +568,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>d24f1076-b086-431b-bf5f-b6d56a0ad534</ProjectId>
-      <CorrelationId>Intent.Eventing.AzureEventGrid.AzureEventGridConfiguration</CorrelationId>
+      <CorrelationId>Intent.Eventing.AzureEventGrid.AzureEventGridConfiguration#0185c31e-eaa0-4521-92b5-fe411388f51c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Infrastructure/Configuration/AzureEventGridConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AzureEventGridConfiguration.cs</ProjectRelativeFilePath>
@@ -576,7 +576,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>d24f1076-b086-431b-bf5f-b6d56a0ad534</ProjectId>
-      <CorrelationId>Intent.Eventing.AzureEventGrid.AzureEventGridPublisherOptions</CorrelationId>
+      <CorrelationId>Intent.Eventing.AzureEventGrid.AzureEventGridPublisherOptions#d0cda75e-12e4-4d38-b4a0-3beba1114fc0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Infrastructure/Configuration/AzureEventGridPublisherOptions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AzureEventGridPublisherOptions.cs</ProjectRelativeFilePath>
@@ -584,7 +584,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>d24f1076-b086-431b-bf5f-b6d56a0ad534</ProjectId>
-      <CorrelationId>Intent.Eventing.AzureEventGrid.AzureEventGridSubscriptionOptions</CorrelationId>
+      <CorrelationId>Intent.Eventing.AzureEventGrid.AzureEventGridSubscriptionOptions#86882ab4-19cf-44ef-90fe-0023f2ed7f37</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Infrastructure/Configuration/AzureEventGridSubscriptionOptions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AzureEventGridSubscriptionOptions.cs</ProjectRelativeFilePath>
@@ -592,7 +592,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>53ddaa35-c94d-4f45-a584-723be91d5ea6</ProjectId>
-      <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection</CorrelationId>
+      <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#60ad800b-cd59-46f1-b108-b49671bbbf42</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Infrastructure/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
@@ -600,7 +600,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b960579b-be88-4bb7-abb4-14c8deb2f62e</ProjectId>
-      <CorrelationId>Intent.Eventing.AzureEventGrid.AzureEventGridBehavior</CorrelationId>
+      <CorrelationId>Intent.Eventing.AzureEventGrid.AzureEventGridBehavior#15371c2d-bf89-45e6-8c83-6219302e96c6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Infrastructure/Eventing/AzureEventGridBehaviors/AzureEventGridBehavior.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AzureEventGridBehavior.cs</ProjectRelativeFilePath>
@@ -608,7 +608,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b960579b-be88-4bb7-abb4-14c8deb2f62e</ProjectId>
-      <CorrelationId>Intent.Eventing.AzureEventGrid.AzureEventGridPipeline</CorrelationId>
+      <CorrelationId>Intent.Eventing.AzureEventGrid.AzureEventGridPipeline#5575aa4e-c35b-4e43-b663-a479c8791e89</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Infrastructure/Eventing/AzureEventGridBehaviors/AzureEventGridPipeline.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AzureEventGridPipeline.cs</ProjectRelativeFilePath>
@@ -616,7 +616,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b960579b-be88-4bb7-abb4-14c8deb2f62e</ProjectId>
-      <CorrelationId>Intent.Eventing.AzureEventGrid.InboundCloudEventBehavior</CorrelationId>
+      <CorrelationId>Intent.Eventing.AzureEventGrid.InboundCloudEventBehavior#52d39c35-e1ff-4c97-a9b4-ff913a3e2c31</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Infrastructure/Eventing/AzureEventGridBehaviors/InboundCloudEventBehavior.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>InboundCloudEventBehavior.cs</ProjectRelativeFilePath>
@@ -624,7 +624,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a84caf03-590f-4ac6-a81b-d2fa75771f31</ProjectId>
-      <CorrelationId>Intent.Eventing.AzureEventGrid.AzureEventGridEventBus</CorrelationId>
+      <CorrelationId>Intent.Eventing.AzureEventGrid.AzureEventGridEventBus#ff1d7227-3356-4e34-b3ab-ce327f228788</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Infrastructure/Eventing/AzureEventGridEventBus.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AzureEventGridEventBus.cs</ProjectRelativeFilePath>
@@ -632,7 +632,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a84caf03-590f-4ac6-a81b-d2fa75771f31</ProjectId>
-      <CorrelationId>Intent.Eventing.AzureEventGrid.AzureEventGridMessageDispatcher</CorrelationId>
+      <CorrelationId>Intent.Eventing.AzureEventGrid.AzureEventGridMessageDispatcher#a9e00e34-da01-4cbe-9ed7-f1c34d212e1d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Infrastructure/Eventing/AzureEventGridMessageDispatcher.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AzureEventGridMessageDispatcher.cs</ProjectRelativeFilePath>
@@ -640,7 +640,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a84caf03-590f-4ac6-a81b-d2fa75771f31</ProjectId>
-      <CorrelationId>Intent.Eventing.AzureEventGrid.EventContext</CorrelationId>
+      <CorrelationId>Intent.Eventing.AzureEventGrid.EventContext#48719220-4e57-4fb7-9dc0-f6539ae0042a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Infrastructure/Eventing/EventContext.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>EventContext.cs</ProjectRelativeFilePath>
@@ -648,10 +648,18 @@
     </FileLog>
     <FileLog>
       <ProjectId>a84caf03-590f-4ac6-a81b-d2fa75771f31</ProjectId>
-      <CorrelationId>Intent.Eventing.AzureEventGrid.AzureEventGridMessageDispatcherInterface</CorrelationId>
+      <CorrelationId>Intent.Eventing.AzureEventGrid.AzureEventGridMessageDispatcherInterface#aa52201e-557d-4180-af60-230756a986e2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Infrastructure/Eventing/IAzureEventGridMessageDispatcher.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IAzureEventGridMessageDispatcher.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6a7dd98c-2843-4d66-a098-5dbf243a3e54</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe#ddd9c32b-bec3-4a46-98e4-ecd570b88b20</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Infrastructure/Migrations/README.md</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>README.md</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -664,23 +672,15 @@
     </FileLog>
     <FileLog>
       <ProjectId>040cf9d4-56ec-497c-a6ac-9cc4d459dc81</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.DesignTimeDbContextFactory.DesignTimeDbContextFactory</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.DesignTimeDbContextFactory.DesignTimeDbContextFactory#ed588835-ec19-4dad-bade-45a03877c548</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Infrastructure/Persistence/DesignTimeDbContextFactory.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DesignTimeDbContextFactory.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>040cf9d4-56ec-497c-a6ac-9cc4d459dc81</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Infrastructure/Persistence/MIGRATION_README.txt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MIGRATION_README.txt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>bc1b399c-4b58-4279-8590-3f3a4bf5356b</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.RepositoryBase</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.RepositoryBase#5cdbbedf-f927-422b-bd58-9307645cfc7b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Infrastructure/Repositories/RepositoryBase.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RepositoryBase.cs</ProjectRelativeFilePath>
@@ -688,7 +688,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a3904d13-d823-440f-a048-f949c2ff7941</ProjectId>
-      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventService</CorrelationId>
+      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventService#7fc00a82-be90-4d11-b91c-0553e8e135ef</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Infrastructure/Services/DomainEventService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEventService.cs</ProjectRelativeFilePath>

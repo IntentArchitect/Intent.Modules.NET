@@ -116,6 +116,60 @@ In this scenario you can explicitly model an `ETag` attribute of type nullable `
 
 Now you are in full control of how you want to use the `ETag`. Typically making sure you set the `ETag` for updates to the document to be the version you read.
 
+## Authentication Methods
+
+This module supports two authentication methods:
+
+- **Key-based** (default)
+- **Azure Managed Identity**
+
+Your application can be configured with one or both methods in the Application Setting screen. Only one will be used at runtime, but you may configure both if you want different authentication methods for different environments.
+
+If none are selected (the default configuration) then **Key-based** is used.
+
+![Authentication Methods](images/authentication-methods.png)
+
+For example, if both **Managed Identity** and **Key-based** are enabled, the `AuthenticationMethod` must be specified in the [appsettings file](#appsettings-configuration) to indicate which method to use. If this setting is not provided, **Key-based** authentication is used by default.  
+
+If only **Managed Identity** or **Key-based** is enabled, then `AuthenticationMethod` is not required — the selected method will automatically be used.
+
+### Appsettings Configuration
+
+The following options are available under the `RepositoryOptions` section in *appsettings.json*:
+
+| Name                   | Description                                                               | Notes                                                                 | Example                                                                 |
+|------------------------|---------------------------------------------------------------------------|-----------------------------------------------------------------------|-------------------------------------------------------------------------|
+| **AuthenticationMethod** | The authentication method to use when multiple methods are configured      | Optional if only one method is configured. Defaults to Key-based if omitted. | `ManagedIdentity`                                                       |
+| **CosmosConnectionString** | Connection string used for Key-based authentication                      | Ignored if using Managed Identity                                     | `AccountEndpoint=https://localhost:8081/;AccountKey=abc123...==`        |
+| **DatabaseId**         | The name of the Cosmos DB database containing the container(s)            |                                                                       | `MyDatabase`                                                            |
+| **ContainerId**        | The name of the Cosmos DB container inside the database                   |                                                                       | `MyContainer`                                                           |
+| **ManagedIdentityClientId** | The client ID of the managed identity to use for authentication            | Ignored if using Key-based authentication                             | `d3c1b5a0-3f6d-4f9a-9c9e-7a5a7e1e1234`                                  |
+| **AccountEndpoint**    | The URI of your Cosmos DB account                                         | Ignored if using Key-based authentication                             | `https://my-cosmos-db-account.documents.azure.com:443/`                 |
+
+Sample `appsettings.json`:
+
+``` json
+{
+  "RepositoryOptions": {
+    // Choose between "KeyBased" or "ManagedIdentity" if both are configured.
+    // Defaults to "KeyBased" if omitted.
+    "AuthenticationMethod": "ManagedIdentity",
+
+    // Used only for Key-based authentication
+    "CosmosConnectionString": "AccountEndpoint=https://my-cosmos-db-account.documents.azure.com:443/;AccountKey=abc123...==",
+
+    // Used only for Managed Identity authentication
+    "AccountEndpoint": "https://my-cosmos-db-account.documents.azure.com:443/",
+    "ManagedIdentityClientId": "d3c1b5a0-3f6d-4f9a-9c9e-7a5a7e1e1234",
+
+    // Always required
+    "DatabaseId": "MyDatabase",
+    "ContainerId": "MyContainer"
+  }
+}
+
+```
+
 ## JSON Serialization Considerations
 
 ### System.Text.Json and Newtonsoft.Json Conflict

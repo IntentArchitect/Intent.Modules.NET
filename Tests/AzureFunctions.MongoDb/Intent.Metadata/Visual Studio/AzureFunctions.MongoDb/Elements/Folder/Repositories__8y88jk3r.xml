@@ -65,5 +65,47 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="5bd36f7e-e7b4-4725-8697-e7097dee2a15" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.MongoDb.MongoDbPagedList</name>
+      <display>Intent.MongoDb.MongoDbPagedList</display>
+      <externalReference>Intent.MongoDb</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>02d56981-dafb-49dc-8570-73e260f4872b</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="70d574c5-de4e-4eb9-9c42-408c48284ffc" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.MongoDb.MongoDbRepository</name>
+      <display>Intent.MongoDb.MongoDbRepository</display>
+      <externalReference>Intent.MongoDb</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>02d56981-dafb-49dc-8570-73e260f4872b</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="21ee70af-7e27-4d5d-9447-eca265201eda" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.MongoDb.MongoDbRepositoryBase</name>
+      <display>Intent.MongoDb.MongoDbRepositoryBase</display>
+      <externalReference>Intent.MongoDb</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>02d56981-dafb-49dc-8570-73e260f4872b</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

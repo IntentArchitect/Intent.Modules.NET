@@ -1,71 +1,64 @@
-/* ============================================================================
+﻿/* ============================================================================
    SAMPLE COLOR PALETTE
    ============================================================================ */
 
 :root {
-  /* Primary Brand Colors */
-  --ux-primary: #2E5984;          /* Intent Blue - Professional, trustworthy */
-  --ux-primary-dark: #1E3A5F;     /* Darker blue for hover states */
-  --ux-primary-light: #4A7BA7;    /* Lighter blue for backgrounds */
-  --ux-primary-subtle: #E8F1F8;   /* Very light blue for subtle backgrounds */
-  
-  /* Secondary Colors */
-  --ux-secondary: #E67E22;        /* Intent Orange - Energy, innovation */
-  --ux-secondary-dark: #D35400;   /* Darker orange for emphasis */
-  --ux-secondary-light: #F39C12;  /* Lighter orange for accents */
-  --ux-secondary-subtle: #FDF2E9; /* Very light orange for highlights */
-  
-  /* Neutral Grays - Professional palette */
-  --ux-gray-900: #212529;         /* Almost black for primary text */
-  --ux-gray-800: #343A40;         /* Dark gray for headings */
-  --ux-gray-700: #495057;         /* Medium dark gray */
-  --ux-gray-600: #6C757D;         /* Medium gray for secondary text */
-  --ux-gray-500: #ADB5BD;         /* Mid gray for borders */
-  --ux-gray-400: #CED4DA;         /* Light gray for dividers */
-  --ux-gray-300: #DEE2E6;         /* Very light gray */
-  --ux-gray-200: #E9ECEF;         /* Background gray */
-  --ux-gray-100: #F8F9FA;         /* Lightest gray for cards */
-  --ux-white: #FFFFFF;            /* Pure white */
-  
-  /* Status Colors - Accessible and clear */
-  --ux-success: #28A745;          /* Green for success states */
-  --ux-success-light: #D4EDDA;    /* Light green background */
-  --ux-warning: #FFC107;          /* Yellow for warnings */
-  --ux-warning-light: #FFF3CD;    /* Light yellow background */
-  --ux-error: #DC3545;            /* Red for errors */
-  --ux-error-light: #F8D7DA;      /* Light red background */
-  --ux-info: #17A2B8;             /* Teal for information */
-  --ux-info-light: #D1ECF1;       /* Light teal background */
-  
-  /* Shadows and Depth */
-  --ux-shadow-sm: 0 0.125rem 0.25rem rgba(46, 89, 132, 0.075);
-  --ux-shadow: 0 0.5rem 1rem rgba(46, 89, 132, 0.15);
-  --ux-shadow-lg: 0 1rem 3rem rgba(46, 89, 132, 0.175);
-  
-  /* Borders */
-  --ux-border-radius: 0.375rem;
-  --ux-border-radius-lg: 0.5rem;
-  --ux-border-radius-xl: 0.75rem;
-  --ux-border-color: var(--ux-gray-300);
-  
-  /* Typography */
-  --ux-font-family: 'Inter', 'Segoe UI', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
-  --ux-font-size-xs: 0.75rem;
-  --ux-font-size-sm: 0.875rem;
-  --ux-font-size-base: 1rem;
-  --ux-font-size-lg: 1.125rem;
-  --ux-font-size-xl: 1.25rem;
-  --ux-font-size-2xl: 1.5rem;
-  --ux-font-size-3xl: 1.875rem;
-  --ux-font-size-4xl: 2.25rem;
-  
-  /* Spacing */
-  --ux-spacing-xs: 0.25rem;
-  --ux-spacing-sm: 0.5rem;
-  --ux-spacing-md: 1rem;
-  --ux-spacing-lg: 1.5rem;
-  --ux-spacing-xl: 2rem;
-  --ux-spacing-2xl: 3rem;
+    /* Primary Brand Colors */
+    --ux-primary: #2E5984; /* Intent Blue - Professional, trustworthy */
+    --ux-primary-dark: #1E3A5F; /* Darker blue for hover states */
+    --ux-primary-light: #4A7BA7; /* Lighter blue for backgrounds */
+    --ux-primary-subtle: #E8F1F8; /* Very light blue for subtle backgrounds */
+    /* Secondary Colors */
+    --ux-secondary: #E67E22; /* Intent Orange - Energy, innovation */
+    --ux-secondary-dark: #D35400; /* Darker orange for emphasis */
+    --ux-secondary-light: #F39C12; /* Lighter orange for accents */
+    --ux-secondary-subtle: #FDF2E9; /* Very light orange for highlights */
+    /* Neutral Grays - Professional palette */
+    --ux-gray-900: #212529; /* Almost black for primary text */
+    --ux-gray-800: #343A40; /* Dark gray for headings */
+    --ux-gray-700: #495057; /* Medium dark gray */
+    --ux-gray-600: #6C757D; /* Medium gray for secondary text */
+    --ux-gray-500: #ADB5BD; /* Mid gray for borders */
+    --ux-gray-400: #CED4DA; /* Light gray for dividers */
+    --ux-gray-300: #DEE2E6; /* Very light gray */
+    --ux-gray-200: #E9ECEF; /* Background gray */
+    --ux-gray-100: #F8F9FA; /* Lightest gray for cards */
+    --ux-white: #FFFFFF; /* Pure white */
+    /* Status Colors - Accessible and clear */
+    --ux-success: #28A745; /* Green for success states */
+    --ux-success-light: #D4EDDA; /* Light green background */
+    --ux-warning: #FFC107; /* Yellow for warnings */
+    --ux-warning-light: #FFF3CD; /* Light yellow background */
+    --ux-error: #DC3545; /* Red for errors */
+    --ux-error-light: #F8D7DA; /* Light red background */
+    --ux-info: #17A2B8; /* Teal for information */
+    --ux-info-light: #D1ECF1; /* Light teal background */
+    /* Shadows and Depth */
+    --ux-shadow-sm: 0 0.125rem 0.25rem rgba(46, 89, 132, 0.075);
+    --ux-shadow: 0 0.5rem 1rem rgba(46, 89, 132, 0.15);
+    --ux-shadow-lg: 0 1rem 3rem rgba(46, 89, 132, 0.175);
+    /* Borders */
+    --ux-border-radius: 0.375rem;
+    --ux-border-radius-lg: 0.5rem;
+    --ux-border-radius-xl: 0.75rem;
+    --ux-border-color: var(--ux-gray-300);
+    /* Typography */
+    --ux-font-family: 'Inter', 'Segoe UI', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+    --ux-font-size-xs: 0.75rem;
+    --ux-font-size-sm: 0.875rem;
+    --ux-font-size-base: 1rem;
+    --ux-font-size-lg: 1.125rem;
+    --ux-font-size-xl: 1.25rem;
+    --ux-font-size-2xl: 1.5rem;
+    --ux-font-size-3xl: 1.875rem;
+    --ux-font-size-4xl: 2.25rem;
+    /* Spacing */
+    --ux-spacing-xs: 0.25rem;
+    --ux-spacing-sm: 0.5rem;
+    --ux-spacing-md: 1rem;
+    --ux-spacing-lg: 1.5rem;
+    --ux-spacing-xl: 2rem;
+    --ux-spacing-2xl: 3rem;
 }
 
 /* ============================================================================
@@ -73,15 +66,15 @@
    ============================================================================ */
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: var(--ux-font-family);
-  color: var(--ux-gray-800);
-  background-color: var(--ux-gray-100);
-  line-height: 1.6;
-  font-size: var(--ux-font-size-base);
+    font-family: var(--ux-font-family);
+    color: var(--ux-gray-800);
+    background-color: var(--ux-gray-100);
+    line-height: 1.6;
+    font-size: var(--ux-font-size-base);
 }
 
 /* ============================================================================
@@ -89,18 +82,35 @@ body {
    ============================================================================ */
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 600;
-  color: var(--ux-gray-900);
-  margin-bottom: var(--ux-spacing-md);
-  line-height: 1.3;
+    font-weight: 600;
+    color: var(--ux-gray-900);
+    margin-bottom: var(--ux-spacing-md);
+    line-height: 1.3;
 }
 
-h1 { font-size: var(--ux-font-size-4xl); }
-h2 { font-size: var(--ux-font-size-3xl); }
-h3 { font-size: var(--ux-font-size-2xl); }
-h4 { font-size: var(--ux-font-size-xl); }
-h5 { font-size: var(--ux-font-size-lg); }
-h6 { font-size: var(--ux-font-size-base); }
+h1 {
+    font-size: var(--ux-font-size-4xl);
+}
+
+h2 {
+    font-size: var(--ux-font-size-3xl);
+}
+
+h3 {
+    font-size: var(--ux-font-size-2xl);
+}
+
+h4 {
+    font-size: var(--ux-font-size-xl);
+}
+
+h5 {
+    font-size: var(--ux-font-size-lg);
+}
+
+h6 {
+    font-size: var(--ux-font-size-base);
+}
 
 /* ============================================================================
    MUDBLAZOR COMPONENT OVERRIDES
@@ -108,316 +118,256 @@ h6 { font-size: var(--ux-font-size-base); }
 
 /* App Bar Styling */
 .mud-appbar {
-  background: linear-gradient(135deg, var(--ux-primary) 0%, var(--ux-primary-dark) 100%) !important;
-  box-shadow: var(--ux-shadow) !important;
-  border-bottom: 1px solid var(--ux-primary-dark);
+    background: linear-gradient(135deg, var(--ux-primary) 0%, var(--ux-primary-dark) 100%) !important;
+    box-shadow: var(--ux-shadow) !important;
+    border-bottom: 1px solid var(--ux-primary-dark);
 }
 
 .mud-appbar .mud-typography {
-  color: var(--ux-white) !important;
-  font-weight: 600;
+    color: var(--ux-white) !important;
+    font-weight: 600;
 }
 
 .mud-appbar .mud-button {
-  color: var(--ux-white) !important;
+    color: var(--ux-white) !important;
 }
 
 .mud-appbar .mud-button:hover {
-  background-color: rgba(255, 255, 255, 0.1) !important;
+    background-color: rgba(255, 255, 255, 0.1) !important;
 }
 
 /* Drawer Styling */
 .mud-drawer {
-  background-color: var(--ux-white) !important;
-  border-right: 1px solid var(--ux-border-color) !important;
-  box-shadow: var(--ux-shadow-sm) !important;
+    background-color: var(--ux-white) !important;
+    border-right: 1px solid var(--ux-border-color) !important;
+    box-shadow: var(--ux-shadow-sm) !important;
 }
 
 .mud-navmenu .mud-nav-link {
-  color: var(--ux-gray-700) !important;
-  font-weight: 500;
-  padding: var(--ux-spacing-sm) var(--ux-spacing-md) !important;
-  margin: var(--ux-spacing-xs) var(--ux-spacing-sm) !important;
-  border-radius: var(--ux-border-radius) !important;
-  transition: all 0.2s ease !important;
+    color: var(--ux-gray-700) !important;
+    font-weight: 500;
+    padding: var(--ux-spacing-sm) var(--ux-spacing-md) !important;
+    margin: var(--ux-spacing-xs) var(--ux-spacing-sm) !important;
+    border-radius: var(--ux-border-radius) !important;
+    transition: all 0.2s ease !important;
 }
 
 .mud-navmenu .mud-nav-link:hover {
-  background-color: var(--ux-primary-subtle) !important;
-  color: var(--ux-primary) !important;
+    background-color: var(--ux-primary-subtle) !important;
+    color: var(--ux-primary) !important;
 }
 
 .mud-navmenu .mud-nav-link.active {
-  background-color: var(--ux-primary) !important;
-  color: var(--ux-white) !important;
-  font-weight: 600;
+    background-color: var(--ux-primary) !important;
+    color: var(--ux-white) !important;
+    font-weight: 600;
 }
 
 /* Card Styling */
 .mud-card {
-  background-color: var(--ux-white) !important;
-  border: 1px solid var(--ux-border-color) !important;
-  border-radius: var(--ux-border-radius-lg) !important;
-  box-shadow: var(--ux-shadow-sm) !important;
-  transition: box-shadow 0.2s ease !important;
+    background-color: var(--ux-white) !important;
+    border: 1px solid var(--ux-border-color) !important;
+    border-radius: var(--ux-border-radius-lg) !important;
+    box-shadow: var(--ux-shadow-sm) !important;
+    transition: box-shadow 0.2s ease !important;
 }
 
 .mud-card:hover {
-  box-shadow: var(--ux-shadow) !important;
+    box-shadow: var(--ux-shadow) !important;
 }
 
 .mud-card-header {
-  background-color: var(--ux-gray-100) !important;
-  border-bottom: 1px solid var(--ux-border-color) !important;
-  padding: var(--ux-spacing-lg) !important;
+    background-color: var(--ux-gray-100) !important;
+    border-bottom: 1px solid var(--ux-border-color) !important;
+    padding: var(--ux-spacing-lg) !important;
 }
 
 .mud-card-content {
-  padding: var(--ux-spacing-lg) !important;
+    padding: var(--ux-spacing-lg) !important;
 }
 
 .mud-card-header .mud-typography {
-  color: var(--ux-gray-900) !important;
-  font-weight: 600;
+    color: var(--ux-gray-900) !important;
+    font-weight: 600;
 }
 
 /* Button Styling */
 .mud-button-filled.mud-button-filled-primary {
-  background: linear-gradient(135deg, var(--ux-primary) 0%, var(--ux-primary-dark) 100%) !important;
-  border: none !important;
-  color: var(--ux-white) !important;
-  font-weight: 600 !important;
-  padding: var(--ux-spacing-sm) var(--ux-spacing-lg) !important;
-  border-radius: var(--ux-border-radius) !important;
-  transition: all 0.2s ease !important;
-  box-shadow: var(--ux-shadow-sm) !important;
+    background: linear-gradient(135deg, var(--ux-primary) 0%, var(--ux-primary-dark) 100%) !important;
+    border: none !important;
+    color: var(--ux-white) !important;
+    font-weight: 600 !important;
+    padding: var(--ux-spacing-sm) var(--ux-spacing-lg) !important;
+    border-radius: var(--ux-border-radius) !important;
+    transition: all 0.2s ease !important;
+    box-shadow: var(--ux-shadow-sm) !important;
 }
 
-.mud-button-filled.mud-button-filled-primary:hover {
-  transform: translateY(-1px) !important;
-  box-shadow: var(--ux-shadow) !important;
-  background: var(--ux-primary-dark) !important;
-}
+    .mud-button-filled.mud-button-filled-primary:hover {
+        transform: translateY(-1px) !important;
+        box-shadow: var(--ux-shadow) !important;
+        background: var(--ux-primary-dark) !important;
+    }
 
 .mud-button-filled.mud-button-filled-secondary {
-  background: linear-gradient(135deg, var(--ux-secondary) 0%, var(--ux-secondary-dark) 100%) !important;
-  border: none !important;
-  color: var(--ux-white) !important;
-  font-weight: 600 !important;
+    background: linear-gradient(135deg, var(--ux-secondary) 0%, var(--ux-secondary-dark) 100%) !important;
+    border: none !important;
+    color: var(--ux-white) !important;
+    font-weight: 600 !important;
 }
 
-.mud-button-filled.mud-button-filled-secondary:hover {
-  background: var(--ux-secondary-dark) !important;
-  transform: translateY(-1px) !important;
-  box-shadow: var(--ux-shadow) !important;
-}
+    .mud-button-filled.mud-button-filled-secondary:hover {
+        background: var(--ux-secondary-dark) !important;
+        transform: translateY(-1px) !important;
+        box-shadow: var(--ux-shadow) !important;
+    }
 
 .mud-button-outlined {
-  border: 2px solid var(--ux-primary) !important;
-  color: var(--ux-primary) !important;
-  font-weight: 600 !important;
-  background-color: transparent !important;
+    border: 2px solid var(--ux-primary) !important;
+    color: var(--ux-primary) !important;
+    font-weight: 600 !important;
+    background-color: transparent !important;
 }
 
-.mud-button-outlined:hover {
-  background-color: var(--ux-primary) !important;
-  color: var(--ux-white) !important;
-}
+    .mud-button-outlined:hover {
+        background-color: var(--ux-primary) !important;
+        color: var(--ux-white) !important;
+    }
 
 /* Data Grid Styling */
 .mud-table {
-  background-color: var(--ux-white) !important;
-  border-radius: var(--ux-border-radius-lg) !important;
-  overflow: hidden !important;
-  box-shadow: var(--ux-shadow-sm) !important;
+    background-color: var(--ux-white) !important;
+    border-radius: var(--ux-border-radius-lg) !important;
+    overflow: hidden !important;
+    box-shadow: var(--ux-shadow-sm) !important;
 }
 
 .mud-table-head {
-  background-color: var(--ux-gray-100) !important;
+    background-color: var(--ux-gray-100) !important;
 }
 
-.mud-table-head .mud-table-cell {
-  font-weight: 600 !important;
-  color: var(--ux-gray-900) !important;
-  border-bottom: 2px solid var(--ux-border-color) !important;
-  padding: var(--ux-spacing-md) !important;
-}
+    .mud-table-head .mud-table-cell {
+        font-weight: 600 !important;
+        color: var(--ux-gray-900) !important;
+        border-bottom: 2px solid var(--ux-border-color) !important;
+        padding: var(--ux-spacing-md) !important;
+    }
 
 .mud-table-body .mud-table-row {
-  border-bottom: 1px solid var(--ux-gray-200) !important;
-  transition: background-color 0.15s ease !important;
+    border-bottom: 1px solid var(--ux-gray-200) !important;
+    transition: background-color 0.15s ease !important;
 }
 
-.mud-table-body .mud-table-row:hover {
-  background-color: var(--ux-primary-subtle) !important;
-}
+    .mud-table-body .mud-table-row:hover {
+        background-color: var(--ux-primary-subtle) !important;
+    }
 
 .mud-table-body .mud-table-cell {
-  padding: var(--ux-spacing-md) !important;
-  color: var(--ux-gray-700) !important;
+    padding: var(--ux-spacing-md) !important;
+    color: var(--ux-gray-700) !important;
 }
 
-/* Form Controls */
+/* ============================================================================
+   FORM CONTROLS (SAFE OVERRIDES)
+   ============================================================================ */
+
+/* === Form Controls (final version) === */
+
+/* Base input */
 .mud-input-control .mud-input {
-  border: 2px solid var(--ux-border-color) !important;
-  border-radius: var(--ux-border-radius) !important;
-  padding: 1.125rem var(--ux-spacing-md) 0.5rem var(--ux-spacing-md) !important;
-  background-color: var(--ux-white) !important;
-  transition: border-color 0.2s ease !important;
-  font-size: var(--ux-font-size-base) !important;
+    border: 2px solid var(--ux-border-color) !important;
+    border-radius: var(--ux-border-radius) !important;
+    background-color: var(--ux-white) !important;
+    transition: border-color 0.2s ease !important;
+    font-size: var(--ux-font-size-base) !important;
+    min-height: 56px !important;
+    padding: 0 .75rem !important; /* text-only fields safe padding */
 }
 
+/* Adjust spacing for adorned inputs */
+.mud-input-adorned-start .mud-input {
+    padding-left: 2rem !important;
+}
+
+.mud-input-adorned-end .mud-input {
+    padding-right: 2rem !important;
+}
+
+/* Adornment box styling */
+.mud-input-adornment-start,
+.mud-input-adornment-end {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 .25rem !important; /* tighter */
+    width: 1.25rem !important; /* was 2rem → reduced */
+    box-sizing: content-box;
+}
+
+/* Normalize icon size inside adornments */
+.mud-input-adornment-start .mud-svg-icon,
+.mud-input-adornment-end .mud-svg-icon,
+.mud-input-adornment-start .mud-icon-root,
+.mud-input-adornment-end .mud-icon-root {
+    font-size: 1.125rem; /* slightly smaller */
+    line-height: 1;
+}
+
+/* Focused state border highlight */
 .mud-input-control .mud-input:focus {
-  border-color: var(--ux-primary) !important;
-  box-shadow: 0 0 0 0.2rem rgba(46, 89, 132, 0.25) !important;
+    border-color: var(--ux-primary) !important;
+    box-shadow: 0 0 0 0.2rem rgba(46, 89, 132, 0.25) !important;
 }
 
-/* MudBlazor Floating Label Fix */
-.mud-input-control {
-  position: relative !important;
-}
-
-.mud-input-control .mud-input-label {
-  position: absolute !important;
-  left: var(--ux-spacing-md) !important;
-  top: 1rem !important;
-  transform: translateY(-50%) !important;
-  color: var(--ux-gray-600) !important;
-  font-weight: 400 !important;
-  font-size: var(--ux-font-size-base) !important;
-  pointer-events: none !important;
-  transition: all 0.2s cubic-bezier(0.0, 0, 0.2, 1) !important;
-  background-color: var(--ux-white) !important;
-  padding: 0 0.25rem !important;
-  z-index: 1 !important;
-  transform-origin: left top !important;
-}
-
-/* Label positioning when input is focused or has content */
+/* Label color tweaks (let Mud handle positioning) */
 .mud-input-control.mud-focused .mud-input-label,
 .mud-input-control .mud-input-label.mud-shrink {
-  top: 0 !important;
-  transform: translateY(-50%) scale(0.75) !important;
-  color: var(--ux-primary) !important;
-  font-weight: 500 !important;
+    color: var(--ux-primary) !important;
+    font-weight: 500 !important;
 }
 
-/* Label positioning when input has content but not focused */
-.mud-input-control:not(.mud-focused) .mud-input-label.mud-shrink {
-  color: var(--ux-gray-700) !important;
-}
 
-/* Select specific styling */
-.mud-select .mud-input {
-  border: 2px solid var(--ux-border-color) !important;
-  border-radius: var(--ux-border-radius) !important;
-  padding: 1.125rem var(--ux-spacing-md) 0.5rem var(--ux-spacing-md) !important;
-}
+/* ============================================================================
+   DIALOGS AND MODALS
+   ============================================================================ */
 
-.mud-select .mud-input-label {
-  position: absolute !important;
-  left: var(--ux-spacing-md) !important;
-  top: 1rem !important;
-  transform: translateY(-50%) !important;
-  color: var(--ux-gray-600) !important;
-  font-weight: 400 !important;
-  pointer-events: none !important;
-  transition: all 0.2s cubic-bezier(0.0, 0, 0.2, 1) !important;
-  background-color: var(--ux-white) !important;
-  padding: 0 0.25rem !important;
-  z-index: 1 !important;
-  transform-origin: left top !important;
-}
-
-.mud-select.mud-focused .mud-input-label,
-.mud-select .mud-input-label.mud-shrink {
-  top: 0 !important;
-  transform: translateY(-50%) scale(0.75) !important;
-  color: var(--ux-primary) !important;
-  font-weight: 500 !important;
-}
-
-/* Additional MudBlazor Input Styles */
-.mud-input-label-inputcontrol {
-  position: absolute !important;
-  left: var(--ux-spacing-md) !important;
-  top: 1rem !important;
-  transform: translateY(-50%) !important;
-  color: var(--ux-gray-600) !important;
-  font-weight: 400 !important;
-  font-size: var(--ux-font-size-base) !important;
-  pointer-events: none !important;
-  transition: all 0.2s cubic-bezier(0.0, 0, 0.2, 1) !important;
-  background-color: var(--ux-white) !important;
-  padding: 0 0.25rem !important;
-  z-index: 1 !important;
-  transform-origin: left top !important;
-}
-
-/* Ensure floating labels work with different MudBlazor states */
-.mud-input-control:not(.mud-input-control-focused) .mud-input-label:not(.mud-shrink),
-.mud-input-control:not(.mud-focused) .mud-input-label:not(.mud-shrink) {
-  top: 1rem !important;
-  transform: translateY(-50%) scale(1) !important;
-}
-
-/* Fix for datetime and numeric inputs */
-.mud-input-control input[type="number"],
-.mud-input-control input[type="date"],
-.mud-input-control input[type="datetime-local"],
-.mud-input-control input[type="time"] {
-  padding: 1.125rem var(--ux-spacing-md) 0.5rem var(--ux-spacing-md) !important;
-}
-
-/* Status Colors for Problem Cells */
-.problem-cell,
-.problem-cell .mud-table-cell {
-  color: var(--ux-error) !important;
-  font-weight: 600 !important;
-  background-color: var(--ux-error-light) !important;
-}
-
-/* Loading States */
-.mud-progress-circular {
-  color: var(--ux-primary) !important;
-}
-
-/* Dialogs and Modals */
 .mud-dialog {
-  border-radius: var(--ux-border-radius-xl) !important;
-  box-shadow: var(--ux-shadow-lg) !important;
+    border-radius: var(--ux-border-radius-xl) !important;
+    box-shadow: var(--ux-shadow-lg) !important;
+    width: 70%;
 }
 
+/* CHANGED: Deduplicated .mud-dialog-title; use brand header */
 .mud-dialog-title {
-  background-color: var(--ux-gray-100) !important;
-  color: var(--ux-gray-900) !important;
-  font-weight: 600 !important;
-  border-bottom: 1px solid var(--ux-border-color) !important;
-}
-
-.mud-dialog .mud-dialog-title {
-    background-color: var(--ux-warning-light) !important;
-    color: var(--ux-gray-900) !important;
+    background-color: var(--ux-primary) !important;
+    color: var(--ux-white) !important;
     font-weight: 600 !important;
-    border-bottom: 2px solid var(--ux-warning) !important;
+    border-bottom: 1px solid var(--ux-border-color) !important;
 }
 
-/* Snackbar Styling */
+    .mud-dialog-title h6 {
+        color: var(--ux-white) !important;
+    }
+
+/* ============================================================================
+   SNACKBARS
+   ============================================================================ */
+
 .mud-snackbar.mud-snackbar-success {
-  background-color: var(--ux-success) !important;
+    background-color: var(--ux-success) !important;
 }
 
 .mud-snackbar.mud-snackbar-error {
-  background-color: var(--ux-error) !important;
+    background-color: var(--ux-error) !important;
 }
 
 .mud-snackbar.mud-snackbar-warning {
-  background-color: var(--ux-warning) !important;
-  color: var(--ux-gray-900) !important;
+    background-color: var(--ux-warning) !important;
+    color: var(--ux-gray-900) !important;
 }
 
 .mud-snackbar.mud-snackbar-info {
-  background-color: var(--ux-info) !important;
+    background-color: var(--ux-info) !important;
 }
 
 /* ============================================================================
@@ -425,43 +375,86 @@ h6 { font-size: var(--ux-font-size-base); }
    ============================================================================ */
 
 .ux-gradient-primary {
-  background: linear-gradient(135deg, var(--ux-primary) 0%, var(--ux-primary-dark) 100%);
+    background: linear-gradient(135deg, var(--ux-primary) 0%, var(--ux-primary-dark) 100%);
 }
 
 .ux-gradient-secondary {
-  background: linear-gradient(135deg, var(--ux-secondary) 0%, var(--ux-secondary-dark) 100%);
+    background: linear-gradient(135deg, var(--ux-secondary) 0%, var(--ux-secondary-dark) 100%);
 }
 
-.ux-text-primary { color: var(--ux-primary) !important; }
-.ux-text-secondary { color: var(--ux-secondary) !important; }
-.ux-bg-primary { background-color: var(--ux-primary) !important; }
-.ux-bg-secondary { background-color: var(--ux-secondary) !important; }
+.ux-text-primary {
+    color: var(--ux-primary) !important;
+}
 
-.ux-shadow-sm { box-shadow: var(--ux-shadow-sm); }
-.ux-shadow { box-shadow: var(--ux-shadow); }
-.ux-shadow-lg { box-shadow: var(--ux-shadow-lg); }
+.ux-text-secondary {
+    color: var(--ux-secondary) !important;
+}
 
-.ux-rounded { border-radius: var(--ux-border-radius); }
-.ux-rounded-lg { border-radius: var(--ux-border-radius-lg); }
-.ux-rounded-xl { border-radius: var(--ux-border-radius-xl); }
+.ux-bg-primary {
+    background-color: var(--ux-primary) !important;
+}
+
+.ux-bg-secondary {
+    background-color: var(--ux-secondary) !important;
+}
+
+.ux-shadow-sm {
+    box-shadow: var(--ux-shadow-sm);
+}
+
+.ux-shadow {
+    box-shadow: var(--ux-shadow);
+}
+
+.ux-shadow-lg {
+    box-shadow: var(--ux-shadow-lg);
+}
+
+.ux-rounded {
+    border-radius: var(--ux-border-radius);
+}
+
+.ux-rounded-lg {
+    border-radius: var(--ux-border-radius-lg);
+}
+
+.ux-rounded-xl {
+    border-radius: var(--ux-border-radius-xl);
+}
+
+.cursor-pointer {
+    cursor: pointer !important;
+}
+
+    .cursor-pointer:hover {
+        opacity: 0.9;
+        transition: opacity 0.15s ease;
+    }
+
+.text-white {
+    color: var(--ux-white) !important;
+}
 
 /* ============================================================================
    RESPONSIVE DESIGN
    ============================================================================ */
 
 @media (max-width: 768px) {
-  .mud-card-content {
-    padding: var(--ux-spacing-md) !important;
-  }
-  
-  .mud-card-header {
-    padding: var(--ux-spacing-md) !important;
-  }
-  
-  .mud-button {
-    padding: var(--ux-spacing-sm) !important;
-    font-size: var(--ux-font-size-sm) !important;
-  }
+    .mud-card-content {
+        padding: var(--ux-spacing-md) !important;
+    }
+
+    .mud-card-header {
+        padding: var(--ux-spacing-md) !important;
+    }
+
+    .mud-button {
+        padding: var(--ux-spacing-sm) !important;
+        font-size: var(--ux-font-size-sm) !important;
+    }
+
+    /* Slightly reduce standard input height on small screens if you like */
+    /* .mud-input-control .mud-input { min-height: 48px !important; } */
 }
 
 /* ============================================================================
@@ -469,30 +462,17 @@ h6 { font-size: var(--ux-font-size-base); }
    ============================================================================ */
 
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .ux-fade-in-up {
-  animation: fadeInUp 0.3s ease-out;
-}
-
-/* Custom cursor for interactive elements */
-.cursor-pointer {
-  cursor: pointer !important;
-}
-
-.cursor-pointer:hover {
-  opacity: 0.9;
-  transition: opacity 0.15s ease;
-} 
-
-.text-white {
-  color: var(--ux-white) !important;
+    animation: fadeInUp 0.3s ease-out;
 }

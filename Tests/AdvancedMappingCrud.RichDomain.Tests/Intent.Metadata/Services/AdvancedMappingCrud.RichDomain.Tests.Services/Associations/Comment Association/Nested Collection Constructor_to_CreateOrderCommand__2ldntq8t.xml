@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="43d08725-dfe0-4406-8db4-27911c36cd26">
+  <sourceEnd id="2d81b872-38f3-4ac3-ab59-021d56ae5f72" type="Comment Source End" typeId="0952566b-9884-4ed0-92f3-10bc137b8f41">
+    <display>: Nested Collection Constructor</display>
+    <order>0</order>
+    <typeReference id="4a18ccd8-c86c-4241-96d6-e39d4c6ef9d9">
+      <typeId>1e8d6bed-7773-474b-a9f2-c11286d75f8a</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Services</typePackageName>
+      <typePackageId>4cb1decc-0bf9-44b4-86fd-2301923ae3ab</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="43d08725-dfe0-4406-8db4-27911c36cd26" type="Comment Target End" typeId="2c33691a-e912-4d4f-99af-c82ff0fd9756">
+    <display>: CreateOrderCommand</display>
+    <order>0</order>
+    <typeReference id="915756aa-437c-4e5a-9284-0859bb493d66">
+      <typeId>829bd52b-52b8-46a9-b17f-07697e815929</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Services</typePackageName>
+      <typePackageId>4cb1decc-0bf9-44b4-86fd-2301923ae3ab</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Comment Association</associationType>
+  <associationTypeId>eea9b48a-e5e9-48c2-b3ae-cd51d3f7b7bf</associationTypeId>
+  <stereotypes />
+</association>

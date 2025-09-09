@@ -1,12 +1,10 @@
 using System.Reflection;
-using AutoMapper;
 using CleanArchitecture.IdentityService.Application.Common.Behaviours;
 using CleanArchitecture.IdentityService.Application.Common.Validation;
 using CleanArchitecture.IdentityService.Application.Implementation;
 using CleanArchitecture.IdentityService.Application.Interfaces;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
-using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

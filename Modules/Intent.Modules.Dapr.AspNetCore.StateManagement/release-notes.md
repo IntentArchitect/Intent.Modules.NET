@@ -1,3 +1,7 @@
+### Version 1.2.14
+
+- Fixed: A software factory exception would occur when references were used in the Visual Studio designer.
+
 ### Version 1.2.13
 
 - Improvement: Added support for DynamoDB unit of work.

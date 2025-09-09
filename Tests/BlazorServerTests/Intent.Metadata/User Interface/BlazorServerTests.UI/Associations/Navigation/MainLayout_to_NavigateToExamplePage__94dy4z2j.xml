@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="b7bc4884-394f-45e1-aee9-8c1cd7e0ea8d">
+  <sourceEnd id="8613f49d-de62-4dee-9fae-c4fc337953b4" type="Navigation Source End" typeId="97a3de8a-c9bf-4cf2-bc0a-b8692b02211b">
+    <display>: MainLayout</display>
+    <order>0</order>
+    <typeReference id="324f1769-597b-433e-a691-e38ea059ad82">
+      <typeId>7852dcac-7c72-4a20-8414-2cc4ff138147</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>BlazorServerTests.UI</typePackageName>
+      <typePackageId>5741124d-249d-489b-a8a8-5a68530785ff</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="b7bc4884-394f-45e1-aee9-8c1cd7e0ea8d" type="Navigation Target End" typeId="2b191288-ecae-4743-b069-cbdd927ef349">
+    <name>NavigateToExamplePage</name>
+    <display>[navigate] ExamplePage</display>
+    <sort-children>by-type-then-manually</sort-children>
+    <order>4</order>
+    <traits>
+      <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+    </traits>
+    <typeReference id="d930be16-5432-42c5-91c6-66bf4822f48b">
+      <typeId>b379112d-aab0-44fb-990b-9235441c8f5a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>BlazorServerTests.UI</typePackageName>
+      <typePackageId>5741124d-249d-489b-a8a8-5a68530785ff</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Navigation Mapping" typeId="b4777251-a390-48f0-877a-102069e88a22">
+        <source applicationId="f8b54b48-1f06-4e13-a107-2e93c5a3e37b" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="7852dcac-7c72-4a20-8414-2cc4ff138147" location="[BlazorServerTests].[User Interface].[MainLayout]" />
+        <target applicationId="f8b54b48-1f06-4e13-a107-2e93c5a3e37b" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="b379112d-aab0-44fb-990b-9235441c8f5a" location="[BlazorServerTests].[User Interface].[ExamplePage]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{NavigateToExamplePage.title}</expression>
+            <path>
+              <target id="b379112d-aab0-44fb-990b-9235441c8f5a" name="ExamplePage" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+              <target id="053d9e9a-fa5a-42c5-8e65-5c0dfd812908" name="Title" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+            </path>
+            <sources>
+              <source identifier="NavigateToExamplePage.title" mappingType="Data Mapping" mappingTypeId="8363dcb6-416c-4478-a7f4-b7aabad1ec23">
+                <path>
+                  <target id="7852dcac-7c72-4a20-8414-2cc4ff138147" name="MainLayout" type="element" specialization="Layout" specializationId="776a9393-6b23-4a8c-8937-fd7e833fa0ef" />
+                  <target id="b7bc4884-394f-45e1-aee9-8c1cd7e0ea8d" name="NavigateToExamplePage" type="association" specialization="Navigation Target End" specializationId="2b191288-ecae-4743-b069-cbdd927ef349" />
+                  <target id="76b53e06-89cc-4225-b490-a84020fdea47" name="title" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <externalReference>77575ef0-e91a-4ad1-93cc-2f8bbc0208eb</externalReference>
+    <childElements>
+      <childElement id="76b53e06-89cc-4225-b490-a84020fdea47" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+        <name>title</name>
+        <display>in : title: string</display>
+        <externalReference>1c567757-678c-4a39-ba73-c58a43b36b87</externalReference>
+        <isAbstract>false</isAbstract>
+        <genericTypes />
+        <typeReference id="418140a0-eabc-4902-8f4e-6b8c3aea1f85">
+          <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+          <isNavigable>true</isNavigable>
+          <isNullable>false</isNullable>
+          <isCollection>false</isCollection>
+          <isRequired>true</isRequired>
+          <typePackageName>Intent.Common.Types</typePackageName>
+          <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          <stereotypes />
+          <genericTypeParameters />
+        </typeReference>
+        <isMapped>false</isMapped>
+        <parentFolderId>b7bc4884-394f-45e1-aee9-8c1cd7e0ea8d</parentFolderId>
+        <packageId>5741124d-249d-489b-a8a8-5a68530785ff</packageId>
+        <packageName>BlazorServerTests.UI</packageName>
+        <stereotypes />
+        <metadata />
+        <childElements />
+      </childElement>
+    </childElements>
+  </targetEnd>
+  <associationType>Navigation</associationType>
+  <associationTypeId>6d2b2070-c1cb-4cd2-88b4-4e5f8414bd9e</associationTypeId>
+  <externalReference>77575ef0-e91a-4ad1-93cc-2f8bbc0208eb</externalReference>
+  <stereotypes />
+</association>

@@ -6,7 +6,7 @@ using Intent.Modules.EntityFrameworkCore.Repositories.Templates;
 
 namespace Intent.Modules.EntityFrameworkCore.Repositories.DbParameterFactories
 {
-    internal class DefaultDbParameterFactory : IDbParameterFactory
+    internal class DefaultDbParameterFactory : IDbParameterFactory 
     {
         private readonly ICSharpFileBuilderTemplate _template;
 

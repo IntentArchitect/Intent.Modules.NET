@@ -1,0 +1,194 @@
+@page "/page-based/customers/add"
+@using System.ComponentModel.DataAnnotations
+@using UI.AI.Samples.Domain
+
+<MudPaper Class="pa-4 mb-4 ux-gradient-primary" Elevation="0">
+    <MudText Typo="Typo.h4" Class="text-white font-weight-bold mb-2">
+        <MudIcon Icon="@Icons.Material.Filled.PersonAdd" Class="mr-2" />
+        Add Customer
+    </MudText>
+    <MudText Typo="Typo.body1" Class="text-white opacity-90">
+        Capture a new customer and their addresses.
+    </MudText>
+</MudPaper>
+
+<MudCard Class="ux-fade-in-up" Style="animation-delay: 0.1s">
+    <MudCardHeader>
+        <CardHeaderContent>
+            <MudText Typo="Typo.h5">Customer Details</MudText>
+        </CardHeaderContent>
+    </MudCardHeader>
+    <MudCardContent>
+        <MudForm @ref="_form" Model="@Model" Validation="@ValidateAll">
+            <MudGrid>
+                <MudItem xs="12" md="6">
+                    <MudTextField @bind-Value="Model.Name"
+                                  Label="Name"
+                                  Placeholder="Enter name"
+                                  Adornment="Adornment.Start"
+                                  AdornmentIcon="@Icons.Material.Filled.Badge"
+                                  Immediate
+                                  Required
+                                  RequiredError="Name is required" />
+                </MudItem>
+                <MudItem xs="12" md="6">
+                    <MudTextField @bind-Value="Model.Surname"
+                                  Label="Surname"
+                                  Placeholder="Enter surname"
+                                  Adornment="Adornment.Start"
+                                  AdornmentIcon="@Icons.Material.Filled.Person"
+                                  Immediate
+                                  Required
+                                  RequiredError="Surname is required" />
+                </MudItem>
+                <MudItem xs="12" md="6">
+                    <MudTextField @bind-Value="Model.Email"
+                                  Label="Email"
+                                  Placeholder="name@company.com"
+                                  Adornment="Adornment.Start"
+                                  AdornmentIcon="@Icons.Material.Filled.Email"
+                                  Immediate
+                                  Required
+                                  RequiredError="Email is required"
+                                  Validation="@(new Func<string?, IEnumerable<string>>(value =>
+                                      string.IsNullOrWhiteSpace(value)
+                                          ? Array.Empty<string>()
+                                          : (new EmailAddressAttribute().IsValid(value)
+                                              ? Array.Empty<string>()
+                                              : new[] { "Please enter a valid email" })))" />
+                </MudItem>
+                <MudItem xs="12" md="6">
+                    <MudSwitch T="bool" @bind-Value="Model.IsActive" Color="Color.Primary" Label="Active" Class="mt-4" />
+                </MudItem>
+
+                <MudItem xs="12">
+                    <MudDivider Class="my-4" />
+                    <MudText Typo="Typo.h6">Preferences</MudText>
+                </MudItem>
+                <MudItem xs="6" md="3">
+                    <MudSwitch T="bool" @bind-Value="Model.Preference.NewsLetter" Color="Color.Primary" Label="Subscribe to Newsletter" />
+                </MudItem>
+                <MudItem xs="6" md="3">
+                    <MudSwitch T="bool" @bind-Value="Model.Preference.Specials" Color="Color.Primary" Label="Receive Specials" />
+                </MudItem>
+
+                <MudItem xs="12">
+                    <MudDivider Class="my-4" />
+                    <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="2">
+                        <MudText Typo="Typo.h6">Loyalty</MudText>
+                        <MudSwitch T="bool" @bind-Value="HasLoyalty" Color="Color.Primary" Label="Has Loyalty" />
+                    </MudStack>
+                </MudItem>
+
+                @if (HasLoyalty)
+                {
+                    <MudItem xs="12" md="6">
+                        <MudTextField @bind-Value="Model.Loyalty!.LoyaltyNo"
+                                      Label="Loyalty Number"
+                                      Placeholder="Enter loyalty number"
+                                      Adornment="Adornment.Start"
+                                      AdornmentIcon="@Icons.Material.Filled.CardGiftcard"
+                                      Immediate />
+                    </MudItem>
+                    <MudItem xs="12" md="6">
+                        <MudNumericField T="int" @bind-Value="Model.Loyalty!.Points"
+                                         Label="Points"
+                                         Placeholder="0"
+                                         Min="0" Max="1000000"
+                                         Immediate />
+                    </MudItem>
+                }
+
+                <MudItem xs="12">
+                    <MudDivider Class="my-4" />
+                    <MudText Typo="Typo.h6">Addresses</MudText>
+                </MudItem>
+
+                @foreach (var t in Model.Addresses.Select((addr, index) => new { addr, index }))
+                {
+                    <MudItem @key="t.addr" xs="12" Class="mb-4 pb-3" Style="border-bottom: 1px dotted var(--mud-palette-grey-light)">
+                        <MudGrid GutterSize="3">
+                            <MudItem xs="12" md="3">
+                                <MudSelect T="AddressType" @bind-Value="t.addr.AddressType" Label="Type" Required RequiredError="Address type required">
+                                    <MudSelectItem T="AddressType" Value="AddressType.Deliver">Delivery</MudSelectItem>
+                                    <MudSelectItem T="AddressType" Value="AddressType.Billing">Billing</MudSelectItem>
+                                </MudSelect>
+                            </MudItem>
+                            <MudItem xs="12" md="9">
+                                <MudTextField @bind-Value="t.addr.Line1"
+                                              Label="Address line 1"
+                                              Placeholder="Street, number"
+                                              Adornment="Adornment.Start"
+                                              AdornmentIcon="@Icons.Material.Filled.Home"
+                                              Required
+                                              RequiredError="Line 1 is required"
+                                              Immediate />
+                            </MudItem>
+                            <MudItem xs="12" md="4">
+                                <MudTextField @bind-Value="t.addr.Line2"
+                                              Label="Address line 2"
+                                              Placeholder="Apartment / unit (optional)"
+                                              Adornment="Adornment.Start"
+                                              AdornmentIcon="@Icons.Material.Filled.HomeWork" Immediate />
+                            </MudItem>
+                            <MudItem xs="12" md="4">
+                                <MudTextField @bind-Value="t.addr.City"
+                                              Label="City"
+                                              Placeholder="City"
+                                              Adornment="Adornment.Start"
+                                              AdornmentIcon="@Icons.Material.Filled.LocationCity"
+                                              Required
+                                              RequiredError="City is required"
+                                              Immediate />
+                            </MudItem>
+                            <MudItem xs="12" md="4">
+                                <MudTextField @bind-Value="t.addr.Postal"
+                                              Label="Postal code"
+                                              Placeholder="e.g. 2196"
+                                              Adornment="Adornment.Start"
+                                              AdornmentIcon="@Icons.Material.Filled.LocalPostOffice"
+                                              Required
+                                              RequiredError="Postal code is required"
+                                              Immediate
+                                              Validation="@(new Func<string?, IEnumerable<string>>(v => string.IsNullOrWhiteSpace(v) || (v.Length >= 3 && v.Length <= 10) ? Array.Empty<string>() : new[] { "Postal code looks wrong" }))" />
+                            </MudItem>
+                            <MudItem xs="12" Class="mt-2 d-flex justify-end">
+                                <MudButton Variant="Variant.Outlined" Color="Color.Error" StartIcon="@Icons.Material.Filled.Delete" OnClick="@(() => RemoveAddress(t.index))">Remove</MudButton>
+                            </MudItem>
+                        </MudGrid>
+                    </MudItem>
+                }
+                <MudItem xs="12">
+                    <MudButton Variant="Variant.Outlined" Color="Color.Primary" StartIcon="@Icons.Material.Filled.Add" OnClick="AddAddress">Add address</MudButton>
+                </MudItem>
+
+                <MudItem xs="12" Class="mt-4">
+                    <MudStack Row Spacing="2" Justify="Justify.FlexEnd" AlignItems="AlignItems.Center">
+                        <MudButton OnClick="SaveAsync"
+                                   Disabled="@_saving"
+                                   Color="Color.Primary"
+                                   Variant="Variant.Filled"
+                                   StartIcon="@Icons.Material.Filled.Save">
+                            @if (_saving)
+                            {
+                                <MudProgressCircular Size="Size.Small" Indeterminate Class="mr-2" />
+                                <span>Saving…</span>
+                            }
+                            else
+                            {
+                                <span>Save</span>
+                            }
+                        </MudButton>
+                        <MudButton OnClick="Cancel"
+                                   Disabled="@_saving"
+                                   Color="Color.Secondary"
+                                   Variant="Variant.Filled"
+                                   StartIcon="@Icons.Material.Filled.ArrowBack">
+                            Back to list
+                        </MudButton>
+                    </MudStack>
+                </MudItem>
+            </MudGrid>
+        </MudForm>
+    </MudCardContent>
+</MudCard>

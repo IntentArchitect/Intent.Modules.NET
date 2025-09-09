@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using MongoDb.TestApplication.Domain.Entities;
 using MongoDb.TestApplication.Domain.Entities.Indexes;
+using MongoDb.TestApplication.Domain.Repositories.Documents.Indexes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Entities.Repositories.Api.EntityRepositoryInterface", Version = "1.0")]
@@ -14,15 +15,7 @@ using MongoDb.TestApplication.Domain.Entities.Indexes;
 namespace MongoDb.TestApplication.Domain.Repositories.Indexes
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface ISingleIndexEntityRepository : IMongoRepository<SingleIndexEntity>
+    public interface ISingleIndexEntityRepository : IMongoRepository<SingleIndexEntity, ISingleIndexEntityDocument, string>
     {
-        [IntentManaged(Mode.Fully)]
-        List<SingleIndexEntity> SearchText(string searchText, Expression<Func<SingleIndexEntity, bool>> filterExpression = null);
-        [IntentManaged(Mode.Fully)]
-        void Update(SingleIndexEntity entity);
-        [IntentManaged(Mode.Fully)]
-        Task<SingleIndexEntity?> FindByIdAsync(string id, CancellationToken cancellationToken = default);
-        [IntentManaged(Mode.Fully)]
-        Task<List<SingleIndexEntity>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default);
     }
 }

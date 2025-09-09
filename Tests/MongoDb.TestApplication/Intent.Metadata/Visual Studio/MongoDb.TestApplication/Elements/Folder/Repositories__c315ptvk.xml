@@ -111,5 +111,19 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="09c70115-3542-424c-959d-448e9eef75dc" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.MongoDb.MongoDbRepositoryInterface</name>
+      <display>Intent.MongoDb.MongoDbRepositoryInterface</display>
+      <externalReference>Intent.MongoDb</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>1b2394a0-7bbe-4d7d-ac33-8ba98398a50e</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

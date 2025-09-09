@@ -66,5 +66,62 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="e19121ec-5c34-4f43-8c9f-62e0b84b01de" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
+      <name>Authentication Methods</name>
+      <display>Authentication Methods</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>dcfa949a-c512-47c4-a644-0f2b88e44794</parentFolderId>
+      <packageId>b52e75f6-d86b-4c53-b4bd-8a8c2c267865</packageId>
+      <packageName>Intent.CosmosDB</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4805c791-5be3-4049-b929-6046d7be9944" name="Field Configuration">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Multi-Select" isActive="true" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="false" />
+            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Specify which authentication methods to use. Defaults to key-based." isActive="true" />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="" isActive="true" />
+            <property name="c3456e79-0607-41a5-9b85-e0712f4f4834" display="Is Active Function" value="" isActive="true" />
+            <property name="fa54329f-d4e5-48bc-8027-e17206e9fc89" display="Is Required Function" value="" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="8723a4f4-e4f5-4bec-8e43-21f64793c915" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Key-based</name>
+          <display>Key-based = key-based</display>
+          <isAbstract>false</isAbstract>
+          <value>key-based</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>e19121ec-5c34-4f43-8c9f-62e0b84b01de</parentFolderId>
+          <packageId>b52e75f6-d86b-4c53-b4bd-8a8c2c267865</packageId>
+          <packageName>Intent.CosmosDB</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="e3804adc-9b09-4358-85be-247a711979cb" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Managed Identity</name>
+          <display>Managed Identity = managed-identity</display>
+          <isAbstract>false</isAbstract>
+          <value>managed-identity</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>e19121ec-5c34-4f43-8c9f-62e0b84b01de</parentFolderId>
+          <packageId>b52e75f6-d86b-4c53-b4bd-8a8c2c267865</packageId>
+          <packageName>Intent.CosmosDB</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>

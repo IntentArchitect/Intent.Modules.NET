@@ -35,8 +35,13 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Accoun
                 .Configure(file =>
                 {
                     file.AddInheritsDirective("LayoutComponentBase");
+                    string layoutName = "Layout.MainLayout";
+                    if (TryGetTemplate<RazorLayoutTemplate>("Intent.Blazor.Templates.Client.RazorLayoutTemplate", out var layoutTemplate))
+                    {
+                        layoutName = $"{layoutTemplate.Namespace}.MainLayout";
+                    }
 
-                    file.AddChildNode(IRazorCodeDirective.Create(new CSharpStatement($"@layout {GetTemplate<RazorLayoutTemplate>("Intent.Blazor.Templates.Client.RazorLayoutTemplate").Namespace}.MainLayout"), file));
+                    file.AddChildNode(IRazorCodeDirective.Create(new CSharpStatement($"@layout {layoutName}"), file));
                     file.AddInjectDirective("Microsoft.AspNetCore.Components.NavigationManager", "NavigationManager");
                     file.AddEmptyLine();
                     file.AddChildNode(IRazorCodeDirective.Create(new CSharpStatement($"@if(HttpContext is null)"), file));

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.CosmosDB.Templates.CosmosDBConfiguration;
 using Intent.Modules.CosmosDB.Templates.CosmosDBDocument;
 using Intent.Modules.CosmosDB.Templates.CosmosDBDocumentInterface;
 using Intent.Modules.CosmosDB.Templates.CosmosDBDocumentOfTInterface;
@@ -15,6 +16,7 @@ using Intent.Modules.CosmosDB.Templates.CosmosDBMultiTenantRepositoryOptions;
 using Intent.Modules.CosmosDB.Templates.CosmosDBRepository;
 using Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase;
 using Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryInterface;
+using Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryOptions;
 using Intent.Modules.CosmosDB.Templates.CosmosDBUnitOfWork;
 using Intent.Modules.CosmosDB.Templates.CosmosDBUnitOfWorkInterface;
 using Intent.Modules.CosmosDB.Templates.CosmosDBValueObjectDocument;
@@ -32,6 +34,10 @@ namespace Intent.Modules.CosmosDB.Templates
 {
     public static class TemplateExtensions
     {
+        public static string GetCosmosDBConfigurationName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(CosmosDBConfigurationTemplate.TemplateId);
+        }
         public static string GetCosmosDBDocumentName<T>(this IIntentTemplate<T> template) where T : ClassModel
         {
             return template.GetTypeName(CosmosDBDocumentTemplate.TemplateId, template.Model);
@@ -110,6 +116,11 @@ namespace Intent.Modules.CosmosDB.Templates
         public static string GetCosmosDBRepositoryInterfaceName(this IIntentTemplate template)
         {
             return template.GetTypeName(CosmosDBRepositoryInterfaceTemplate.TemplateId);
+        }
+
+        public static string GetCosmosDBRepositoryOptionsName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(CosmosDBRepositoryOptionsTemplate.TemplateId);
         }
 
         public static string GetCosmosDBUnitOfWorkName(this IIntentTemplate template)

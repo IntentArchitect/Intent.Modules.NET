@@ -1,10 +1,8 @@
 using System.Reflection;
-using AutoMapper;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using Kafka.Producer.Application.Common.Behaviours;
 using Kafka.Producer.Application.Common.Validation;
-using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

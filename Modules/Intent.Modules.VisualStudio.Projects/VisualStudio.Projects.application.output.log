@@ -75,6 +75,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>341f2475-429b-48fd-aaaa-3748947e6633</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#3a50f114-9bb7-4f58-98ce-5ecd0089b947</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/DependenciesModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DependenciesModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>5e94c359-e6e5-4b58-a1fc-151de9c10934</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#FFD54A85-9362-48AC-B646-C93AB9AC63D2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -164,6 +172,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>5e94c359-e6e5-4b58-a1fc-151de9c10934</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiAssociationModelExtensions#08ed7993-fa72-4359-aa1e-b4389a32edec</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/Extensions/ProjectReferenceModelAssociationExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProjectReferenceModelAssociationExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5e94c359-e6e5-4b58-a1fc-151de9c10934</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#0b49ae99-c1c2-46c7-a4e3-41591e0118e1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/Extensions/ServiceFabricProjectModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ServiceFabricProjectModelStereotypeExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5e94c359-e6e5-4b58-a1fc-151de9c10934</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#0dc2b846-c968-49eb-99b7-8776919313a8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Api/Extensions/SolutionFolderModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
@@ -176,6 +200,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Api/Extensions/SQLServerDatabaseProjectModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SQLServerDatabaseProjectModelStereotypeExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5e94c359-e6e5-4b58-a1fc-151de9c10934</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#d421c322-7a51-4094-89fa-e5d8a0a97b27</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/Extensions/TemplateOutputModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TemplateOutputModelStereotypeExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -236,6 +268,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>341f2475-429b-48fd-aaaa-3748947e6633</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiAssociationModel#08ed7993-fa72-4359-aa1e-b4389a32edec</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/ProjectReferenceModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProjectReferenceModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>341f2475-429b-48fd-aaaa-3748947e6633</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#025e933b-b602-4b6d-95ab-0ec36ae940da</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Api/RoleModel.cs</ApplicationRelativeFilePath>
@@ -248,6 +288,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Api/RuntimeEnvironmentModel.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RuntimeEnvironmentModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>341f2475-429b-48fd-aaaa-3748947e6633</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#0b49ae99-c1c2-46c7-a4e3-41591e0118e1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/ServiceFabricProjectModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ServiceFabricProjectModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>341f2475-429b-48fd-aaaa-3748947e6633</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#6d5b30e5-37c8-4858-bb9d-0a94f6bd0940</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/ServicesModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ServicesModel.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -336,7 +392,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.VisualStudio.Projects.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.VisualStudio.Projects.csproj</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>f31fb6c6-dbb0-4710-a988-c04e0f43dc36</ProjectId>
@@ -544,6 +600,54 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/GitIgnore/GitIgnoreTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>GitIgnore/GitIgnoreTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3e71bfb0-2184-4de3-b523-7d2cb6dae9a7</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation#6ab663e6-6751-4351-b9ed-15ee3bdd3909</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ServiceFabric/PackagesConfig/PackagesConfigTemplate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ServiceFabric/PackagesConfig/PackagesConfigTemplate.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3e71bfb0-2184-4de3-b523-7d2cb6dae9a7</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#6ab663e6-6751-4351-b9ed-15ee3bdd3909</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ServiceFabric/PackagesConfig/PackagesConfigTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ServiceFabric/PackagesConfig/PackagesConfigTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3e71bfb0-2184-4de3-b523-7d2cb6dae9a7</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.Custom#6ab663e6-6751-4351-b9ed-15ee3bdd3909</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ServiceFabric/PackagesConfig/PackagesConfigTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ServiceFabric/PackagesConfig/PackagesConfigTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3e71bfb0-2184-4de3-b523-7d2cb6dae9a7</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation#489d8e66-7e12-48ec-9290-23f5ac3bf323</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ServiceFabric/ServiceFabricProject/ServiceFabricProjectTemplate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ServiceFabric/ServiceFabricProject/ServiceFabricProjectTemplate.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3e71bfb0-2184-4de3-b523-7d2cb6dae9a7</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#489d8e66-7e12-48ec-9290-23f5ac3bf323</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ServiceFabric/ServiceFabricProject/ServiceFabricProjectTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ServiceFabric/ServiceFabricProject/ServiceFabricProjectTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3e71bfb0-2184-4de3-b523-7d2cb6dae9a7</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.Custom#489d8e66-7e12-48ec-9290-23f5ac3bf323</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ServiceFabric/ServiceFabricProject/ServiceFabricProjectTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ServiceFabric/ServiceFabricProject/ServiceFabricProjectTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

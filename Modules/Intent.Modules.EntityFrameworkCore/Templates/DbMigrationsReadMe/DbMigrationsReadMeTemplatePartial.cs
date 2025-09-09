@@ -8,23 +8,21 @@ using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
-using Intent.Modules.EntityFrameworkCore.Templates.DbContext;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
-[assembly: DefaultIntentManaged(Mode.Merge)]
+[assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.ProjectItemTemplate.Partial", Version = "1.0")]
 
 namespace Intent.Modules.EntityFrameworkCore.Templates.DbMigrationsReadMe
 {
-    [IntentManaged(Mode.Merge)]
-    partial class DbMigrationsReadMeTemplate : IntentTemplateBase<object>, ITemplate, IHasNugetDependencies
+    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+    partial class DbMigrationsReadMeTemplate : IntentTemplateBase<object>
     {
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.EntityFrameworkCore.DbMigrationsReadMe";
-        public const string Identifier = "Intent.EntityFrameworkCore.DbMigrationsReadMe"; // Anything using this?
 
-        [IntentManaged(Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public DbMigrationsReadMeTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             IncludeDbContextArguments = DbContextManager.GetDbContexts(ExecutionContext.GetApplicationConfig().Id, ExecutionContext.MetadataManager).Count > 1;
@@ -98,17 +96,6 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbMigrationsReadMe
             return base.CanRunTemplate() && DbContextManager.GetDbContexts(this.ExecutionContext.GetApplicationConfig().Id, ExecutionContext.MetadataManager).Any();
         }
 
-        [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
-        public override ITemplateFileConfig GetTemplateFileConfig()
-        {
-            return new TemplateFileConfig(
-                overwriteBehaviour: OverwriteBehaviour.Always,
-                codeGenType: CodeGenType.Basic,
-                fileName: "MIGRATION_README",
-                fileExtension: "txt",
-                relativeLocation: "");
-        }
-
         public IEnumerable<INugetPackageInfo> GetNugetDependencies()
         {
             return new[]
@@ -156,14 +143,14 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbMigrationsReadMe
             return " -- " + string.Join(" ", ExtraArguments);
         }
 
-        private string GetExtraComments()
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        public override ITemplateFileConfig GetTemplateFileConfig()
         {
-            if (string.IsNullOrWhiteSpace(ExtraComments))
-            {
-                return string.Empty;
-            }
-
-            return Environment.NewLine + ExtraComments + Environment.NewLine;
+            return new TemplateFileConfig(
+                fileName: $"README",
+                fileExtension: "md"
+            );
         }
+
     }
 }

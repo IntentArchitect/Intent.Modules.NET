@@ -1,5 +1,4 @@
 using System.Reflection;
-using AutoMapper;
 using DtoSettings.Class.Private.Application.Implementation;
 using DtoSettings.Class.Private.Application.Interfaces;
 using Intent.RoslynWeaver.Attributes;

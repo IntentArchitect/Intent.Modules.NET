@@ -11,7 +11,6 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.MongoDb.Settings;
 using Intent.Modules.MongoDb.Templates;
-using Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext;
 using Intent.Modules.MongoDb.Templates.MongoDbUnitOfWorkInterface;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
@@ -32,23 +31,17 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            var dbContext = application.FindTemplateInstance<ICSharpTemplate>(TemplateDependency.OnTemplate(ApplicationMongoDbContextTemplate.TemplateId));
-            if (dbContext == null)
-            {
-                return;
-            }
-
             var dependencyInjection = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateRoles.Infrastructure.DependencyInjection);
             if (dependencyInjection == null)
             {
                 return;
             }
 
-            dependencyInjection.CSharpFile.OnBuild(file =>
+            dependencyInjection.CSharpFile.AfterBuild(file =>
             {
-                file.AddUsing("MongoFramework");
+                file.AddUsing("MongoDB.Driver");
+
                 var method = file.Classes.First().FindMethod("AddInfrastructure");
-                method.AddStatement($"services.AddScoped<{dependencyInjection.GetTypeName(dbContext.Id)}>();");
 
                 if (application.Settings.GetMultitenancySettings()?.MongoDbDataIsolation()?.IsSeparateDatabase() == true)
                 {
@@ -57,7 +50,7 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
 
                     var teneantConnectionsTemplate = dependencyInjection.GetTemplate<ICSharpFileBuilderTemplate>("Intent.Modules.AspNetCore.MultiTenancy.TenantConnectionsInterfaceTemplate");
                     dependencyInjection.AddUsing("Finbuckle.MultiTenant");
-                    method.AddStatement(@$"services.AddScoped<IMongoDbConnection>(provider =>
+                    method.AddStatement(@$"services.AddScoped<IMongoDatabase>(provider =>
                     {{
                         var tenantConnections = provider.GetService<{dependencyInjection.GetTypeName(teneantConnectionsTemplate)}>();
                         if (tenantConnections is null || tenantConnections.MongoDbConnection is null)
@@ -66,10 +59,58 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
                         }}
                         return provider.GetRequiredService<{dependencyInjection.GetMongoDbMultiTenantConnectionFactoryName()}>().GetConnection(tenantConnections.MongoDbConnection);
                     }});");
+
+                    foreach (var model in dependencyInjection.ExecutionContext.FindTemplateInstances<ICSharpFileBuilderTemplate>("Intent.MongoDb.MongoDbDocument"))
+                    {
+                        dependencyInjection.GetTypeName(model);
+                        if (!model.CSharpFile.Classes.First().IsAbstract)
+                        {
+                            if (model.ClassName == "BaseTypeDocument")
+                            {
+                                var p = 1;
+                            }
+                            method.AddStatement(@$"services.AddScoped<IMongoCollection<{model.ClassName}>>(sp =>
+                            {{
+                                var database = sp.GetRequiredService<IMongoDatabase>();
+                                return database.GetCollection<{model.ClassName}>(""{model.ClassName.Replace("Document", "")}"");
+                            }});");
+                        }
+                    }
                 }
                 else
                 {
-                    method.AddStatement("services.AddSingleton<IMongoDbConnection>((c) => MongoDbConnection.FromConnectionString(configuration.GetConnectionString(\"MongoDbConnection\")));");
+                    method.AddStatement(@$"services.AddSingleton<IMongoClient>(sp =>
+                    {{
+                        var connectionString = configuration.GetConnectionString(""MongoDbConnection"");
+                        return new MongoClient(connectionString);
+                    }});");
+                    method.AddStatement(@$"services.AddSingleton(sp =>
+                    {{
+                        var connectionString = configuration.GetConnectionString(""MongoDbConnection"");
+
+                        // Parse connection string to get the database name
+                        var mongoUrl = new MongoUrl(connectionString);
+                        var client = sp.GetRequiredService<IMongoClient>();
+
+                        return client.GetDatabase(mongoUrl.DatabaseName);
+                    }});");
+
+                    foreach (var model in dependencyInjection.ExecutionContext.FindTemplateInstances<ICSharpFileBuilderTemplate>("Intent.MongoDb.MongoDbDocument"))
+                    {
+                        dependencyInjection.GetTypeName(model);
+                        if (!model.CSharpFile.Classes.First().IsAbstract)
+                        {
+                            if (model.ClassName == "BaseTypeDocument")
+                            {
+                                var p = 1;
+                            }
+                            method.AddStatement(@$"services.AddSingleton<IMongoCollection<{model.ClassName}>>(sp =>
+                            {{
+                                var database = sp.GetRequiredService<IMongoDatabase>();
+                                return database.GetCollection<{model.ClassName}>(""{model.ClassName.Replace("Document", "")}"");
+                            }});");
+                        }
+                    }
                 }
             });
 
@@ -85,11 +126,11 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
                     .WithProperty(Infrastructure.MongoDb.Property.ConnectionStringName, "MongoDbConnection"));
 
             }
-            application.EventDispatcher.Publish(ContainerRegistrationRequest
-                .ToRegister(dbContext)
-                .ForInterface(dbContext.GetTemplate<IClassProvider>(MongoDbUnitOfWorkInterfaceTemplate.TemplateId))
-                .ForConcern("Infrastructure")
-                .WithResolveFromContainer());
+            //application.EventDispatcher.Publish(ContainerRegistrationRequest
+            //    .ToRegister(dbContext)
+            //    .ForInterface(dbContext.GetTemplate<IClassProvider>(MongoDbUnitOfWorkInterfaceTemplate.TemplateId))
+            //    .ForConcern("Infrastructure")
+            //    .WithResolveFromContainer());
         }
     }
 }

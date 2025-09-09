@@ -38,9 +38,9 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController
             NugetRegistry.Register(MicrosoftAspNetCoreAuthenticationJwtBearerPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("9.0.7")
+                        ( >= 9, >= 0) => new PackageVersion("9.0.8")
                             .WithNugetDependency("Microsoft.IdentityModel.Protocols.OpenIdConnect", "8.0.1"),
-                        ( >= 8, >= 0) => new PackageVersion("8.0.18")
+                        ( >= 8, >= 0) => new PackageVersion("8.0.19")
                             .WithNugetDependency("Microsoft.IdentityModel.Protocols.OpenIdConnect", "7.1.2"),
                         ( >= 7, >= 0) => new PackageVersion("7.0.20"),
                         ( >= 6, >= 0) => new PackageVersion("6.0.36")

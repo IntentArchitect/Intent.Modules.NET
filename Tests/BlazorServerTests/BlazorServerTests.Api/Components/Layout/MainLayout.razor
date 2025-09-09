@@ -1,0 +1,48 @@
+@inherits LayoutComponentBase
+
+<MudThemeProvider />
+<MudPopoverProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<MudLayout>
+    <MudAppBar>
+        <MudIconButton Icon="@Icons.Material.Filled.Menu"
+                       Color="Color.Inherit"
+                       Edge="Edge.Start"
+                       OnClick="@((e) => DrawerToggle())" />
+        <MudButton Href="/"
+                   Class="my-2 mr-2"
+                   Color="Color.Inherit">
+            <MudText Typo="Typo.h5">Application</MudText>
+        </MudButton>
+        <MudSpacer />
+        <MudMenu Icon="@Icons.Material.Filled.MoreVert">
+            <MudMenuItem Href="@($"/example-page/{"Profile"}")"
+                         Icon="@Icons.Material.Filled.Person">
+                Profile
+            </MudMenuItem>
+            <MudMenuItem Href="@($"/example-page/{"My Account"}")"
+                         Icon="@Icons.Material.Filled.ManageAccounts">
+                My Account
+            </MudMenuItem>
+            <MudMenuItem Href="@($"/example-page/{"Logout"}")"
+                         Icon="@Icons.Material.Filled.Logout">
+                Logout
+            </MudMenuItem>
+        </MudMenu>
+    </MudAppBar>
+    <MudDrawer @bind-Open="_drawerOpen"
+               ClipMode="DrawerClipMode.Always"
+               Elevation="2"
+               Class="pt-2">
+        <MudNavMenu>
+            <MudNavLink Icon="@Icons.Material.Filled.AddCircle"
+                        Href="@($"/example-page/{"Navigation Page"}")">
+                Add Menu Options...
+            </MudNavLink>
+            <MudNavLink Href="/customer-search">Customer Search</MudNavLink>
+        </MudNavMenu>
+    </MudDrawer>
+    <MudMainContent Class="mt-16 pa-4">@Body</MudMainContent>
+</MudLayout>

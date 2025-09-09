@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="2a0be597-fd6c-4deb-a398-410d7a3007f5" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.0.18</name>
+      <name>8.0.19</name>
       <display>8.0.16 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,7 +47,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="34f18d70-3418-4cd0-8d9c-a122b03b4b6d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c1c1ff01-6b68-4169-93e0-377b845b93fc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
           <isAbstract>false</isAbstract>
           <value>8.0.3</value>
@@ -58,7 +58,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="0c35e56d-6be0-48f5-90a9-0b7eb724de45" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="1206dc32-8032-47fc-a027-b49122095a8b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options</name>
           <isAbstract>false</isAbstract>
           <value>8.0.2</value>
@@ -69,7 +69,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="8c6555a9-ac05-4c53-ae3c-0d1201884415" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9ce80ec9-84f0-4607-813e-0f083284a21d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>StackExchange.Redis</name>
           <isAbstract>false</isAbstract>
           <value>2.7.27</value>
@@ -83,7 +83,7 @@
       </childElements>
     </childElement>
     <childElement id="f5fa5821-4e76-46a8-af8e-924ead160a5a" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.7</name>
+      <name>9.0.8</name>
       <display>9.0.5 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -105,10 +105,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="2ce2f5c4-d533-468e-aff5-9cf4b2e4277c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a0a799ca-8c2c-4f5d-ba76-7e1a303f5aec" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.7</value>
+          <value>9.0.8</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f5fa5821-4e76-46a8-af8e-924ead160a5a</parentFolderId>
@@ -116,10 +116,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="bd2bb1cb-81bb-4931-b620-f2ea91f54777" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9e8fd07b-7cdb-4511-8616-c7b249c5c0c6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.7</value>
+          <value>9.0.8</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f5fa5821-4e76-46a8-af8e-924ead160a5a</parentFolderId>
@@ -127,7 +127,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="1dd787ad-2738-4808-bdbb-1be0b4a25d47" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="7eb0e02e-c2e8-41a3-a391-52547972e17b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>StackExchange.Redis</name>
           <isAbstract>false</isAbstract>
           <value>2.7.27</value>

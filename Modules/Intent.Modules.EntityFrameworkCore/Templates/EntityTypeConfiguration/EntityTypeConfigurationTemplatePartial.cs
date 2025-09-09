@@ -733,11 +733,21 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 yield return new EfCoreKeyMappingStatement(model, ownedRelationship);
             }
 
+            var primaryKeyValueProvider = ExecutionContext.Settings.GetDatabaseSettings()
+                                              ?.PrimaryKeyValueProvider()
+                                              ?.AsEnum() ??
+                                          DatabaseSettingsExtensions.PrimaryKeyValueProviderOptionsEnum.Default;
+            
             foreach (var attributeModel in model.GetExplicitPrimaryKey())
             {
-                if (EfCoreKeyColumnPropertyStatement.RequiresConfiguration(attributeModel) || _enforceColumnOrdering)
+                if (EfCoreKeyColumnPropertyStatement.RequiresConfiguration(attributeModel, primaryKeyValueProvider) || _enforceColumnOrdering)
                 {
-                    yield return new EfCoreKeyColumnPropertyStatement(attributeModel, _enforceColumnOrdering ? _columnCurrentOrder++ : null);
+                    yield return new EfCoreKeyColumnPropertyStatement(
+                        model: attributeModel,
+                        implicitOrder: _enforceColumnOrdering
+                            ? _columnCurrentOrder++
+                            : null,
+                        primaryKeyValueProvider: primaryKeyValueProvider);
                 }
             }
         }

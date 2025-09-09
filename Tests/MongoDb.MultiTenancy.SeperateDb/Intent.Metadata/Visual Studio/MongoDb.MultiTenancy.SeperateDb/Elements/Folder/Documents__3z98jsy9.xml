@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="4eab8c39-f30b-4d02-9fd5-f56836387be5" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Documents</name>
+  <display>Documents</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>49bcad2a-3e96-4006-98d3-01e6c1c73660</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="bdee03bf-c662-4d21-845b-ad99aebfbe3c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.MongoDb.MongoDbDocumentInterface</name>
+      <display>Intent.MongoDb.MongoDbDocumentInterface</display>
+      <externalReference>Intent.MongoDb</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>4eab8c39-f30b-4d02-9fd5-f56836387be5</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="6e555f5b-84d6-4629-b7f0-e235d3701740" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.MongoDb.MongoDbValueObjectDocumentInterface</name>
+      <display>Intent.MongoDb.MongoDbValueObjectDocumentInterface</display>
+      <externalReference>Intent.MongoDb</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>4eab8c39-f30b-4d02-9fd5-f56836387be5</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

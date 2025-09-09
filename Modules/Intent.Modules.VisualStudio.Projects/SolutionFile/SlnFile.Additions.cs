@@ -5,6 +5,8 @@ using System.Linq;
 using Microsoft.DotNet.Cli.Sln.Internal.FileManipulation;
 using static System.Collections.Specialized.BitVector32;
 
+#nullable enable
+
 namespace Microsoft.DotNet.Cli.Sln.Internal
 {
     partial class SlnFile
@@ -71,7 +73,7 @@ namespace Microsoft.DotNet.Cli.Sln.Internal
                                   value == slnProject.Id);
         }
 
-        public static void SetParent(this SlnProject slnProject, SlnProject parentProject)
+        public static void SetParent(this SlnProject slnProject, SlnProject? parentProject)
         {
             var slnFile = slnProject.ParentFile;
 
@@ -127,38 +129,43 @@ namespace Microsoft.DotNet.Cli.Sln.Internal
 
         public static void AddSolutionItem(
             this SlnFile slnFile,
-            SlnProject parentProject,
-            string solutionItemAbsolutePath,
-            string relativeOutputPathPrefix,
-            Func<string> idProvider = null)
+            SlnProject? parentProject,
+            string solutionItemPhysicalPath,
+            string? relativeOutputPathPrefix,
+            bool hasMaterializedFolder,
+            Func<string>? idProvider = null)
         {
             idProvider ??= () => Guid.NewGuid().ToString();
 
-            var relativePath = slnFile.GetRelativePath(solutionItemAbsolutePath);
-            var relativePathDirectory = Path.GetDirectoryName(relativePath.Replace('\\', Path.DirectorySeparatorChar));
-            var relativeSolutionFolderPath = relativePathDirectory;
-
-            if (!string.IsNullOrWhiteSpace(relativePathDirectory))
+            if (!hasMaterializedFolder)
             {
-                if (!string.IsNullOrWhiteSpace(relativeOutputPathPrefix))
+                var relativePath = slnFile.GetRelativePhysicalPath(solutionItemPhysicalPath);
+                var relativePathDirectory = Path.GetDirectoryName(relativePath.Replace('\\', Path.DirectorySeparatorChar)) ?? string.Empty;
+                var relativeSolutionFolderPath = relativePathDirectory;
+
+                if (!string.IsNullOrWhiteSpace(relativePathDirectory))
                 {
-                    relativeSolutionFolderPath = Path.GetRelativePath(relativeOutputPathPrefix, relativePathDirectory!);
+                    if (!string.IsNullOrWhiteSpace(relativeOutputPathPrefix))
+                    {
+                        relativeSolutionFolderPath = Path.GetRelativePath(relativeOutputPathPrefix, relativePathDirectory);
+                    }
+
+                    parentProject = relativeSolutionFolderPath
+                        .Split(Path.DirectorySeparatorChar)
+                        .Where(x => x is not "." and not "..")
+                        .Aggregate(
+                            seed: parentProject,
+                            func: (current, path) => current?.GetOrCreateFolder(idProvider(), path) ??
+                                                     slnFile.GetOrCreateFolder(idProvider(), path));
                 }
-
-                parentProject = relativeSolutionFolderPath
-                    .Split(Path.DirectorySeparatorChar)
-                    .Where(x => x is not "." and not "..")
-                    .Aggregate(
-                        seed: parentProject,
-                        func: (current, path) => current?.GetOrCreateFolder(idProvider(), path) ??
-                                                 slnFile.GetOrCreateFolder(idProvider(), path));
             }
-
+            
             var targetSectionsCollection = parentProject?.Sections ??
-                           slnFile.Sections;
+                                           slnFile.Sections;
 
+            var relativePhysicalPath = slnFile.GetRelativePhysicalPath(solutionItemPhysicalPath);
             var targetSection = targetSectionsCollection.GetOrCreateSection(SectionId.SolutionItems, SlnSectionType.PreProcess);
-            targetSection.Properties[relativePath] = relativePath;
+            targetSection.Properties[relativePhysicalPath] = relativePhysicalPath;
 
             var toInsertInOrder = targetSection.Properties
                 .OrderBy(x => x.Key)
@@ -181,12 +188,12 @@ namespace Microsoft.DotNet.Cli.Sln.Internal
             foreach (var otherSection in otherSections)
             {
                 var solutionItems = otherSection.GetSection(SectionId.SolutionItems);
-                if (solutionItems?.Properties.ContainsKey(relativePath) != true)
+                if (solutionItems?.Properties.ContainsKey(relativePhysicalPath) != true)
                 {
                     continue;
                 }
 
-                solutionItems.Properties.Remove(relativePath);
+                solutionItems.Properties.Remove(relativePhysicalPath);
 
                 if (solutionItems.Properties.Count == 0)
                 {
@@ -197,7 +204,7 @@ namespace Microsoft.DotNet.Cli.Sln.Internal
 
         public static void RemoveSolutionItem(this SlnFile slnFile, string solutionItemPath)
         {
-            var relativePath = slnFile.GetRelativePath(solutionItemPath);
+            var relativePath = slnFile.GetRelativePhysicalPath(solutionItemPath);
 
             var section = slnFile.Sections.GetSection(SectionId.SolutionItems);
             section?.Properties.Remove(relativePath);
@@ -244,7 +251,7 @@ namespace Microsoft.DotNet.Cli.Sln.Internal
             public const string Folder = "{2150E333-8FDC-42A3-9474-1A3956D46DE8}";
         }
 
-        public static string GetRelativePath(this SlnFile slnFile, string path)
+        public static string GetRelativePhysicalPath(this SlnFile slnFile, string path)
         {
             return Normalize(Path.GetRelativePath(Path.GetDirectoryName(slnFile.FullPath)!, path));
         }

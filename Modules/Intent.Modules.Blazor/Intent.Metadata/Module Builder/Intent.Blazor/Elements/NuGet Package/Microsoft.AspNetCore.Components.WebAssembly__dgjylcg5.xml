@@ -215,8 +215,8 @@
       </childElements>
     </childElement>
     <childElement id="ccffef45-b7c5-4fac-b8b3-4663d8febca8" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.0.18</name>
-      <display>8.0.18 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <name>8.0.19</name>
+      <display>8.0.19 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -237,11 +237,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="71aabc36-2f44-4ed5-afed-a2c48837779a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c4f5bdfc-639a-4f6b-9368-07a445636153" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Components.Web</name>
-          <display>Microsoft.AspNetCore.Components.Web (8.0.18)</display>
+          <display>Microsoft.AspNetCore.Components.Web (8.0.19)</display>
           <isAbstract>false</isAbstract>
-          <value>8.0.18</value>
+          <value>8.0.19</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ccffef45-b7c5-4fac-b8b3-4663d8febca8</parentFolderId>
@@ -251,7 +251,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="9358f456-f157-4aab-a108-040c97dd46f8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f64f5c4b-2a48-47e9-8419-9f60befa8596" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Binder</name>
           <display>Microsoft.Extensions.Configuration.Binder (8.0.2)</display>
           <isAbstract>false</isAbstract>
@@ -265,7 +265,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="2998d27a-eaa3-42cd-96df-095c451c7088" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="7c0c8972-6f55-42a9-aedd-b811876c61d7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Json</name>
           <display>Microsoft.Extensions.Configuration.Json (8.0.1)</display>
           <isAbstract>false</isAbstract>
@@ -279,7 +279,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="1353959c-574b-4cfb-b603-74dd5332464f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="78283bdc-cc0e-4682-b8b7-ccc69e420744" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging</name>
           <display>Microsoft.Extensions.Logging (8.0.1)</display>
           <isAbstract>false</isAbstract>
@@ -293,11 +293,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="e333cf8f-e16f-4403-b35b-973b95d8da7b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="42ba04a5-06f3-4389-9676-9ead02732f32" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.JSInterop.WebAssembly</name>
-          <display>Microsoft.JSInterop.WebAssembly (8.0.18)</display>
+          <display>Microsoft.JSInterop.WebAssembly (8.0.19)</display>
           <isAbstract>false</isAbstract>
-          <value>8.0.18</value>
+          <value>8.0.19</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ccffef45-b7c5-4fac-b8b3-4663d8febca8</parentFolderId>
@@ -310,8 +310,8 @@
       </childElements>
     </childElement>
     <childElement id="3a735d84-7246-478c-bba6-6555fc2f877b" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.7</name>
-      <display>9.0.7 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <name>9.0.8</name>
+      <display>9.0.8 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -332,11 +332,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="f4abfdee-488b-45fb-9840-de0c95d93500" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a820cf19-47b1-49e2-9c01-dc5da50eac54" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Components.Web</name>
-          <display>Microsoft.AspNetCore.Components.Web (9.0.7)</display>
+          <display>Microsoft.AspNetCore.Components.Web (9.0.8)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.7</value>
+          <value>9.0.8</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3a735d84-7246-478c-bba6-6555fc2f877b</parentFolderId>
@@ -346,11 +346,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="011b1c17-c4ec-4efd-a19d-a907a01884fe" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f4189d13-8915-423c-a0b8-cdfe6ca51001" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Binder</name>
-          <display>Microsoft.Extensions.Configuration.Binder (9.0.7)</display>
+          <display>Microsoft.Extensions.Configuration.Binder (9.0.8)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.7</value>
+          <value>9.0.8</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3a735d84-7246-478c-bba6-6555fc2f877b</parentFolderId>
@@ -360,11 +360,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="eada7acd-f1dd-4a41-8d8a-111311601911" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f50d37e8-b6d9-4c46-84c9-feea050617c1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Json</name>
-          <display>Microsoft.Extensions.Configuration.Json (9.0.7)</display>
+          <display>Microsoft.Extensions.Configuration.Json (9.0.8)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.7</value>
+          <value>9.0.8</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3a735d84-7246-478c-bba6-6555fc2f877b</parentFolderId>
@@ -374,11 +374,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="65450702-af04-4510-a288-60db8a467211" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="8d304bc2-acb6-4c20-a567-7ceab2d7bc1c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging</name>
-          <display>Microsoft.Extensions.Logging (9.0.7)</display>
+          <display>Microsoft.Extensions.Logging (9.0.8)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.7</value>
+          <value>9.0.8</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3a735d84-7246-478c-bba6-6555fc2f877b</parentFolderId>
@@ -388,11 +388,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="8db496a3-3cee-4ede-bd58-86b8d3cc41e0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="72ec26d7-5f96-4c52-8dcd-7637553a0822" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.JSInterop.WebAssembly</name>
-          <display>Microsoft.JSInterop.WebAssembly (9.0.7)</display>
+          <display>Microsoft.JSInterop.WebAssembly (9.0.8)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.7</value>
+          <value>9.0.8</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3a735d84-7246-478c-bba6-6555fc2f877b</parentFolderId>

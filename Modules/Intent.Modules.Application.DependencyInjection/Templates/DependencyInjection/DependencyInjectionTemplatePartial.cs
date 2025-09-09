@@ -73,7 +73,7 @@ public partial class DependencyInjectionTemplate : CSharpTemplateBase<object, De
 
     public override void BeforeTemplateExecution()
     {
-        ExecutionContext.EventDispatcher.Publish(
+        EmitOrPublish(
             ServiceConfigurationRequest
                 .ToRegister(
                     extensionMethodName: "AddApplication",

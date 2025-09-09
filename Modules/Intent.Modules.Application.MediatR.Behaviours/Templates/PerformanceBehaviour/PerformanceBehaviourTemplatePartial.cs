@@ -124,7 +124,6 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.PerformanceBeh
                 .ForInterface("typeof(IPipelineBehavior<,>)")
                 .WithPriority(1)
                 .ForConcern("MediatR")
-                .RequiresUsingNamespaces("MediatR")
                 .HasDependency(this));
         }
     }

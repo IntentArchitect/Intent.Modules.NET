@@ -94,5 +94,34 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="dda00c0b-3e5a-4063-941d-2ef0f3fef475" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+      <name>Migrations</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>fb7214f9-ab4f-4419-ac71-a3f347b74160</parentFolderId>
+      <packageId>8750a0dd-82b4-4aa3-88c9-896ed342ba24</packageId>
+      <packageName>Module1</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="5b4a38a4-53f7-4629-86a2-f0e4705875e4" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.EntityFrameworkCore.DbMigrationsReadMe</name>
+          <display>Intent.EntityFrameworkCore.DbMigrationsReadMe</display>
+          <externalReference>959029c6-b8dd-4d84-87c4-3952fa3968af</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>dda00c0b-3e5a-4063-941d-2ef0f3fef475</parentFolderId>
+          <packageId>8750a0dd-82b4-4aa3-88c9-896ed342ba24</packageId>
+          <packageName>Module1</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>

@@ -36,7 +36,8 @@ namespace Intent.Modules.UnitTesting.Templates.ServiceOperationTest
             {
                 var @class = file.Classes.First();
                 var ctor = @class.Constructors.First();
-                var serviceTemplate = ExecutionContext.FindTemplateInstance("Intent.Application.ServiceImplementations.ServiceImplementation", model);
+                var serviceTemplates = ExecutionContext.FindTemplateInstances("Intent.Application.ServiceImplementations.ServiceImplementation", model);
+                var serviceTemplate = serviceTemplates.FirstOrDefault(t => t.CanRunTemplate());
 
                 if (serviceTemplate != null && serviceTemplate is ICSharpFileBuilderTemplate csharpTemplate)
                 {

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="2866fdac-a0fc-4564-a0f9-a4fb3b1df49c">
+  <sourceEnd id="b34f7a0f-5f86-4fc4-9838-feca5378e5a7" type="Call Service Operation Action Source End" typeId="936e090c-8408-429d-b2f6-2eb8deecc428">
+    <display>: CreateCustomer</display>
+    <order>0</order>
+    <typeReference id="328f1bdf-39b8-4063-928c-a92754aa5ed4">
+      <typeId>3b63ed6f-02ea-4dd8-b4f8-34b1214933ce</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>BlazorServerTests.UI</typePackageName>
+      <typePackageId>5741124d-249d-489b-a8a8-5a68530785ff</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="2866fdac-a0fc-4564-a0f9-a4fb3b1df49c" type="Call Service Operation Action Target End" typeId="475f0810-2b4a-40da-8eb8-697cb62f7dbe">
+    <name>CreateCustomerCommand</name>
+    <display>[call] Customers.CreateCustomerCommand: guid</display>
+    <order>0</order>
+    <traits>
+      <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+    </traits>
+    <typeReference id="7d441543-2154-4cf6-8a36-2b8568177cee">
+      <typeId>05770ab1-b70d-4997-a2f8-c47b5b46156d</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>BlazorServerTests.Services</typePackageName>
+      <typePackageId>b1f28292-95d5-42af-b3ce-f0f1ec22da35</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Call Service Mapping" typeId="e4a4111b-cf13-4efe-8a5d-fea9457ac8ad">
+        <source applicationId="f8b54b48-1f06-4e13-a107-2e93c5a3e37b" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="652d23ee-b1ac-4feb-9a0e-cf502087631c" location="[BlazorServerTests].[User Interface].[CustoerAdd]" />
+        <target applicationId="f8b54b48-1f06-4e13-a107-2e93c5a3e37b" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="05770ab1-b70d-4997-a2f8-c47b5b46156d" location="[BlazorServerTests].[User Interface].[CreateCustomerCommand]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CreateCustomer.CreateCustomerCommand}</expression>
+            <path>
+              <target id="05770ab1-b70d-4997-a2f8-c47b5b46156d" name="CreateCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+            </path>
+            <sources>
+              <source identifier="CreateCustomer.CreateCustomerCommand" mappingType="Invocation Mapping" mappingTypeId="ab447316-1252-49bc-a695-f34cb00a3cdc">
+                <path>
+                  <target id="652d23ee-b1ac-4feb-9a0e-cf502087631c" name="CustoerAdd" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="3b63ed6f-02ea-4dd8-b4f8-34b1214933ce" name="CreateCustomer" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="2866fdac-a0fc-4564-a0f9-a4fb3b1df49c" name="CreateCustomerCommand" type="association" specialization="Call Service Operation Action Target End" specializationId="475f0810-2b4a-40da-8eb8-697cb62f7dbe" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Model.Name}</expression>
+            <path>
+              <target id="05770ab1-b70d-4997-a2f8-c47b5b46156d" name="CreateCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+              <target id="edad64c9-b86f-446b-b321-c0232b0b66c3" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="Model.Name" mappingType="Data Mapping" mappingTypeId="ce70308a-e29d-4644-8410-f9e6bbd214fc">
+                <path>
+                  <target id="652d23ee-b1ac-4feb-9a0e-cf502087631c" name="CustoerAdd" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="ff9dd430-890d-475f-966d-548355008ad0" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                  <target id="8d228075-e689-4481-b0fe-c302a4463e20" name="Name" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Model.Surname}</expression>
+            <path>
+              <target id="05770ab1-b70d-4997-a2f8-c47b5b46156d" name="CreateCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+              <target id="8d596257-e849-49d7-9e21-861a85cf974f" name="Surname" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="Model.Surname" mappingType="Data Mapping" mappingTypeId="ce70308a-e29d-4644-8410-f9e6bbd214fc">
+                <path>
+                  <target id="652d23ee-b1ac-4feb-9a0e-cf502087631c" name="CustoerAdd" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="ff9dd430-890d-475f-966d-548355008ad0" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                  <target id="348f2c48-8fcc-4f22-8149-13936849c3e2" name="Surname" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Model.Email}</expression>
+            <path>
+              <target id="05770ab1-b70d-4997-a2f8-c47b5b46156d" name="CreateCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+              <target id="03dc96c6-f791-4fb4-9e28-6572ae579f17" name="Email" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="Model.Email" mappingType="Data Mapping" mappingTypeId="ce70308a-e29d-4644-8410-f9e6bbd214fc">
+                <path>
+                  <target id="652d23ee-b1ac-4feb-9a0e-cf502087631c" name="CustoerAdd" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="ff9dd430-890d-475f-966d-548355008ad0" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                  <target id="1aa047f6-5eb0-423b-b26e-fc5f1953bc50" name="Email" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Model.IsActive}</expression>
+            <path>
+              <target id="05770ab1-b70d-4997-a2f8-c47b5b46156d" name="CreateCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+              <target id="ede682a3-d5eb-4b5c-9963-c56678c8f365" name="IsActive" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="Model.IsActive" mappingType="Data Mapping" mappingTypeId="ce70308a-e29d-4644-8410-f9e6bbd214fc">
+                <path>
+                  <target id="652d23ee-b1ac-4feb-9a0e-cf502087631c" name="CustoerAdd" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="ff9dd430-890d-475f-966d-548355008ad0" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                  <target id="75ffb66d-1334-4b97-a3d6-c2c857f184da" name="IsActive" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Call Service Operation Action</associationType>
+  <associationTypeId>fe5a5cd8-aabd-472f-8d42-f5c233e658dc</associationTypeId>
+  <stereotypes />
+</association>

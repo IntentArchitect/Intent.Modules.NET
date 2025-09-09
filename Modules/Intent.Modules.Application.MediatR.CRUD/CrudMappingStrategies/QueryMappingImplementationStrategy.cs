@@ -1,24 +1,13 @@
-using System;
 using System.Linq;
-using System.Numerics;
-using Intent.Modelers.Domain.Api;
-using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
-using Intent.Modelers.Services.DomainInteractions.Api;
 using Intent.Modules.Application.DomainInteractions;
 using Intent.Modules.Application.DomainInteractions.Extensions;
 using Intent.Modules.Application.DomainInteractions.Mapping.Resolvers;
 using Intent.Modules.Application.MediatR.CRUD.Decorators;
-using Intent.Modules.Application.MediatR.Templates;
-using Intent.Modules.Application.MediatR.Templates.CommandHandler;
-using Intent.Modules.Application.MediatR.Templates.QueryHandler;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Interactions;
-using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Constants;
-using Intent.Modules.Entities.Settings;
-using Intent.Modules.Modelers.Domain.Settings;
 
 namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
 {
@@ -44,7 +33,6 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
             template.CSharpFile.AfterBuild(_ => ApplyStrategy());
         }
 
-
         public bool IsMatch()
         {
             return _model.HasDomainInteractions();
@@ -53,14 +41,14 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
         public void ApplyStrategy()
         {
             var @class = _template.CSharpFile.Classes.First(x => x.FindMethod("Handle") is not null);
-            var handleMethod = @class.FindMethod("Handle");
+            var handleMethod = @class.FindMethod("Handle")!;
             var csharpMapping = handleMethod.GetMappingManager();
             csharpMapping.AddMappingResolver(new EntityCreationMappingTypeResolver(_template));
             csharpMapping.AddMappingResolver(new EntityUpdateMappingTypeResolver(_template));
             csharpMapping.AddMappingResolver(new StandardDomainMappingTypeResolver(_template));
             csharpMapping.AddMappingResolver(new ValueObjectMappingTypeResolver(_template));
-			csharpMapping.AddMappingResolver(new DataContractMappingTypeResolver(_template));
-			csharpMapping.AddMappingResolver(new ServiceOperationMappingTypeResolver(_template));
+            csharpMapping.AddMappingResolver(new DataContractMappingTypeResolver(_template));
+            csharpMapping.AddMappingResolver(new ServiceOperationMappingTypeResolver(_template));
 
             csharpMapping.SetFromReplacement(_model, "request");
 

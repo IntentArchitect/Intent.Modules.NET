@@ -22,6 +22,9 @@
     <name>externalDoc</name>
     <display>[query] externalDoc: ExternalDoc</display>
     <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="94a6404e-ac5d-40e4-bc23-fdc94a16555d">
       <typeId>28874fb1-860d-4952-8441-9631dde3441c</typeId>
       <isNavigable>true</isNavigable>

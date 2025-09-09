@@ -18,7 +18,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9b3300c7-9300-454d-910a-6b828fc2be3d</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Versioning.ApiVersioningConfiguration</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Versioning.ApiVersioningConfiguration#c2c59227-3875-4ee0-b71e-49a1bbd7051f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.PrivateSetters.Api/Configuration/ApiVersioningConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApiVersioningConfiguration.cs</ProjectRelativeFilePath>
@@ -26,7 +26,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9b3300c7-9300-454d-910a-6b828fc2be3d</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions#20e521b4-01ed-422e-b6cd-a14750619bf4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.PrivateSetters.Api/Configuration/ApiVersionSwaggerGenOptions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApiVersionSwaggerGenOptions.cs</ProjectRelativeFilePath>
@@ -34,7 +34,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9b3300c7-9300-454d-910a-6b828fc2be3d</ProjectId>
-      <CorrelationId>Intent.Application.Identity.ApplicationSecurityConfiguration</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.ApplicationSecurityConfiguration#812c71b2-c312-4db4-95d3-2693b3f5c023</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.PrivateSetters.Api/Configuration/ApplicationSecurityConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApplicationSecurityConfiguration.cs</ProjectRelativeFilePath>
@@ -42,7 +42,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9b3300c7-9300-454d-910a-6b828fc2be3d</ProjectId>
-      <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration#467b3a28-57b2-4972-aeca-eb6855ccfff5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.PrivateSetters.Api/Configuration/ProblemDetailsConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ProblemDetailsConfiguration.cs</ProjectRelativeFilePath>
@@ -50,7 +50,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9b3300c7-9300-454d-910a-6b828fc2be3d</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration#fb1fd21a-485a-4086-a98b-123a56ed81e9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.PrivateSetters.Api/Configuration/SwashbuckleConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SwashbuckleConfiguration.cs</ProjectRelativeFilePath>
@@ -66,7 +66,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>fec85d52-1bc2-449b-a468-56f5019276b1</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.ExceptionFilter</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Controllers.ExceptionFilter#cfaa241e-1dbd-45a8-a705-9aa5e4c83831</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.PrivateSetters.Api/Filters/ExceptionFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ExceptionFilter.cs</ProjectRelativeFilePath>
@@ -74,7 +74,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>fec85d52-1bc2-449b-a468-56f5019276b1</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter#d07c94a3-b140-4e85-9373-9063b90a42e0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.PrivateSetters.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TypeSchemaFilter.cs</ProjectRelativeFilePath>
@@ -82,7 +82,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>64fa5d00-26b0-4d48-b884-029f8f5e8b59</ProjectId>
-      <CorrelationId>Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate</CorrelationId>
+      <CorrelationId>Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate#58f581ba-f9ce-442e-bc0b-75cdeeb96129</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.PrivateSetters.Api/Logging/BoundedLoggingDestructuringPolicy.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>BoundedLoggingDestructuringPolicy.cs</ProjectRelativeFilePath>
@@ -90,7 +90,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>0df64376-4310-409d-b5c0-932af7f077a9</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Program</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Program#bec9dd80-7321-4fc0-a7bb-6b3d013288fa</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.PrivateSetters.Api/Program.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Program.cs</ProjectRelativeFilePath>
@@ -106,7 +106,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>bd0a337b-ba72-45af-ad67-e6e566551ef2</ProjectId>
-      <CorrelationId>Intent.Application.Identity.CurrentUserService</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserService#e9f27a90-3bbc-4de2-99b2-b1d9df10032c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.PrivateSetters.Api/Services/CurrentUserService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CurrentUserService.cs</ProjectRelativeFilePath>
@@ -114,7 +114,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>2d2850dc-d577-4d1e-9706-89d50f260634</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.AuthorizationBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.AuthorizationBehaviour#1e88a516-6f36-4236-9828-fe42487a5a86</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.PrivateSetters.Application/Common/Behaviours/AuthorizationBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AuthorizationBehaviour.cs</ProjectRelativeFilePath>
@@ -122,7 +122,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>2d2850dc-d577-4d1e-9706-89d50f260634</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.LoggingBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.LoggingBehaviour#7bfddd24-395f-42fd-8325-7a5d53543b3d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.PrivateSetters.Application/Common/Behaviours/LoggingBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>LoggingBehaviour.cs</ProjectRelativeFilePath>
@@ -130,7 +130,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>2d2850dc-d577-4d1e-9706-89d50f260634</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.PerformanceBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.PerformanceBehaviour#e3e6b1cd-1b45-4fd5-b722-314cce8efdf7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.PrivateSetters.Application/Common/Behaviours/PerformanceBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PerformanceBehaviour.cs</ProjectRelativeFilePath>
@@ -138,7 +138,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>2d2850dc-d577-4d1e-9706-89d50f260634</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour#8e67a994-2d77-49af-a32e-ac1ccf8a9fcb</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.PrivateSetters.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UnhandledExceptionBehaviour.cs</ProjectRelativeFilePath>
@@ -146,7 +146,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>2d2850dc-d577-4d1e-9706-89d50f260634</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour#d76c1867-9ab8-42cf-aa4d-cc84b9d8632e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.PrivateSetters.Application/Common/Behaviours/UnitOfWorkBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UnitOfWorkBehaviour.cs</ProjectRelativeFilePath>
@@ -154,7 +154,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>2d2850dc-d577-4d1e-9706-89d50f260634</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.FluentValidation.ValidationBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.ValidationBehaviour#b2a40f1a-13db-49fa-8b87-025977ee4230</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.PrivateSetters.Application/Common/Behaviours/ValidationBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ValidationBehaviour.cs</ProjectRelativeFilePath>
@@ -162,7 +162,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>086f639d-3e70-4ef2-afc4-062a52e81866</ProjectId>
-      <CorrelationId>Intent.Application.Identity.ForbiddenAccessException</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.ForbiddenAccessException#06c51b98-2767-4b5a-85a7-6891322f2543</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.PrivateSetters.Application/Common/Exceptions/ForbiddenAccessException.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ForbiddenAccessException.cs</ProjectRelativeFilePath>
@@ -170,7 +170,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>79b77f77-6730-4707-8dd5-902f94618d10</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandInterface</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.CommandInterface#5d42e8f6-4946-4c9b-811d-b2c2557ed537</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.PrivateSetters.Application/Common/Interfaces/ICommand.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICommand.cs</ProjectRelativeFilePath>
@@ -178,7 +178,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>79b77f77-6730-4707-8dd5-902f94618d10</ProjectId>
-      <CorrelationId>Intent.Application.Identity.CurrentUserInterface</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserInterface#4c60315a-df19-49ce-b9b7-ef63894d284b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.PrivateSetters.Application/Common/Interfaces/ICurrentUser.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICurrentUser.cs</ProjectRelativeFilePath>
@@ -186,7 +186,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>79b77f77-6730-4707-8dd5-902f94618d10</ProjectId>
-      <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface#e63ba715-66d5-477a-a605-cb0baab1eed4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.PrivateSetters.Application/Common/Interfaces/ICurrentUserService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICurrentUserService.cs</ProjectRelativeFilePath>
@@ -194,7 +194,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>79b77f77-6730-4707-8dd5-902f94618d10</ProjectId>
-      <CorrelationId>Intent.DomainEvents.DomainEventServiceInterface</CorrelationId>
+      <CorrelationId>Intent.DomainEvents.DomainEventServiceInterface#ce5e436c-0519-4ba1-9817-22406f5234d6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.PrivateSetters.Application/Common/Interfaces/IDomainEventService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IDomainEventService.cs</ProjectRelativeFilePath>
@@ -202,7 +202,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>79b77f77-6730-4707-8dd5-902f94618d10</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.QueryInterface</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.QueryInterface#367cb341-c9ed-4076-b474-5ec719511c56</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.PrivateSetters.Application/Common/Interfaces/IQuery.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IQuery.cs</ProjectRelativeFilePath>
@@ -210,7 +210,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>f421d567-8377-441c-81c6-b7abec67e52d</ProjectId>
-      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventNotification</CorrelationId>
+      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventNotification#48607bd4-1335-49b1-ac86-a796c4f042d0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.PrivateSetters.Application/Common/Models/DomainEventNotification.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEventNotification.cs</ProjectRelativeFilePath>
@@ -218,7 +218,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>f421d567-8377-441c-81c6-b7abec67e52d</ProjectId>
-      <CorrelationId>Intent.Application.Identity.ResultModel</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.ResultModel#7a7a5724-a8b7-4e9e-99ed-2c263fcaeb7d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.PrivateSetters.Application/Common/Models/Result.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Result.cs</ProjectRelativeFilePath>
@@ -226,7 +226,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5c436a09-6477-4207-9cb4-233afa2f7826</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResult</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResult#2844fc5c-810f-45ed-8c4b-b25a0a9cd98c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.PrivateSetters.Application/Common/Pagination/PagedResult.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedResult.cs</ProjectRelativeFilePath>
@@ -234,7 +234,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5c436a09-6477-4207-9cb4-233afa2f7826</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResultMappingExtensions</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResultMappingExtensions#014a03d8-ea4b-4d16-bcca-58db113ad10f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.PrivateSetters.Application/Common/Pagination/PagedResultMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedResultMappingExtensions.cs</ProjectRelativeFilePath>
@@ -242,7 +242,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>f879f5da-818c-4c98-873f-7a041ee8f25c</ProjectId>
-      <CorrelationId>Intent.Application.Identity.AuthorizeAttribute</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.AuthorizeAttribute#9bf484e1-30e5-44f3-a1e6-2197eeb26272</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.PrivateSetters.Application/Common/Security/AuthorizeAttribute.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AuthorizeAttribute.cs</ProjectRelativeFilePath>
@@ -250,7 +250,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ed9a649e-9365-4680-b649-3387c0cfec56</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface</CorrelationId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface#b51a285b-7017-456b-b971-e534f3b2ed24</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.PrivateSetters.Application/Common/Validation/IValidatorProvider.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IValidatorProvider.cs</ProjectRelativeFilePath>
@@ -258,7 +258,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ed9a649e-9365-4680-b649-3387c0cfec56</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProvider</CorrelationId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProvider#5a5662b7-b464-4966-90e2-159eb0a2cdf6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.PrivateSetters.Application/Common/Validation/ValidatorProvider.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ValidatorProvider.cs</ProjectRelativeFilePath>
@@ -266,7 +266,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>10e88fe7-ec08-43fd-bb94-5615f5db182f</ProjectId>
-      <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection</CorrelationId>
+      <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection#15ebae14-727e-4c89-9f60-7a665f1d85fe</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.PrivateSetters.Application/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
@@ -306,7 +306,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>febec1cf-4416-454b-be03-07a890780c9d</ProjectId>
-      <CorrelationId>Intent.Entities.CollectionExtensions</CorrelationId>
+      <CorrelationId>Intent.Entities.CollectionExtensions#e63d5b16-a410-499c-be1b-fc184a13ae70</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.PrivateSetters.Domain/Common/CollectionExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CollectionExtensions.cs</ProjectRelativeFilePath>
@@ -314,7 +314,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>febec1cf-4416-454b-be03-07a890780c9d</ProjectId>
-      <CorrelationId>Intent.DomainEvents.DomainEventBase</CorrelationId>
+      <CorrelationId>Intent.DomainEvents.DomainEventBase#ffcf6d5a-b233-40d6-a050-59098a827bf3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.PrivateSetters.Domain/Common/DomainEvent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEvent.cs</ProjectRelativeFilePath>
@@ -322,7 +322,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a28a3d76-32de-40c7-89ae-b47beac79479</ProjectId>
-      <CorrelationId>Intent.Entities.NotFoundException</CorrelationId>
+      <CorrelationId>Intent.Entities.NotFoundException#da7a2ca7-900d-4ae9-953c-6c6f62d46bec</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.PrivateSetters.Domain/Common/Exceptions/NotFoundException.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>NotFoundException.cs</ProjectRelativeFilePath>
@@ -330,7 +330,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>febec1cf-4416-454b-be03-07a890780c9d</ProjectId>
-      <CorrelationId>Intent.DomainEvents.HasDomainEventInterface</CorrelationId>
+      <CorrelationId>Intent.DomainEvents.HasDomainEventInterface#1830f736-e431-4789-95f2-4b7248a5f123</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.PrivateSetters.Domain/Common/IHasDomainEvent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IHasDomainEvent.cs</ProjectRelativeFilePath>
@@ -338,7 +338,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>339450c5-351a-4d96-8aa0-8291679a115b</ProjectId>
-      <CorrelationId>Intent.Aws.DynamoDB.DynamoDBUnitOfWorkInterface</CorrelationId>
+      <CorrelationId>Intent.Aws.DynamoDB.DynamoDBUnitOfWorkInterface#15ccb172-1f12-4dc1-abae-dfbafe0e0c5b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.PrivateSetters.Domain/Common/Interfaces/IDynamoDBUnitOfWork.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IDynamoDBUnitOfWork.cs</ProjectRelativeFilePath>
@@ -346,7 +346,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>339450c5-351a-4d96-8aa0-8291679a115b</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.UnitOfWorkInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.UnitOfWorkInterface#a15cc073-fdff-4d0a-8947-17e79c4cb874</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.PrivateSetters.Domain/Common/Interfaces/IUnitOfWork.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IUnitOfWork.cs</ProjectRelativeFilePath>
@@ -354,7 +354,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>febec1cf-4416-454b-be03-07a890780c9d</ProjectId>
-      <CorrelationId>Intent.Entities.UpdateHelper</CorrelationId>
+      <CorrelationId>Intent.Entities.UpdateHelper#90b9d40c-72b0-4493-be10-aa539dfb1328</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.PrivateSetters.Domain/Common/UpdateHelper.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UpdateHelper.cs</ProjectRelativeFilePath>
@@ -682,7 +682,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>932e173d-a61e-44db-b4ac-8672eaa716ea</ProjectId>
-      <CorrelationId>Intent.Aws.DynamoDB.DynamoDBRepositoryInterface</CorrelationId>
+      <CorrelationId>Intent.Aws.DynamoDB.DynamoDBRepositoryInterface#9d6d9c09-7bcb-4895-84d6-1157f788c680</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.PrivateSetters.Domain/Repositories/IDynamoDBRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IDynamoDBRepository.cs</ProjectRelativeFilePath>
@@ -738,7 +738,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>932e173d-a61e-44db-b4ac-8672eaa716ea</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.PagedListInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.PagedListInterface#d166e7c1-3738-41eb-b0f1-ebb0f3ac3dc8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.PrivateSetters.Domain/Repositories/IPagedList.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IPagedList.cs</ProjectRelativeFilePath>
@@ -762,7 +762,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>932e173d-a61e-44db-b4ac-8672eaa716ea</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.RepositoryInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.RepositoryInterface#a6b55b6e-c869-4a6c-a696-b3324b7a85f4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.PrivateSetters.Domain/Repositories/IRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IRepository.cs</ProjectRelativeFilePath>
@@ -810,7 +810,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>72d6052d-cc00-434b-90be-7e002a07094e</ProjectId>
-      <CorrelationId>Intent.ValueObjects.ValueObjectBase</CorrelationId>
+      <CorrelationId>Intent.ValueObjects.ValueObjectBase#08a6f3c9-aaa2-4e64-93f0-19337e7d35c1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.PrivateSetters.Domain/ValueObject.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ValueObject.cs</ProjectRelativeFilePath>
@@ -818,7 +818,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>048a8ae4-7dcb-425e-a467-6839b9a0c07b</ProjectId>
-      <CorrelationId>Intent.Aws.Common.AwsConfiguration</CorrelationId>
+      <CorrelationId>Intent.Aws.Common.AwsConfiguration#41ea5624-fb47-492a-ad41-9b612e85ccaf</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.PrivateSetters.Infrastructure/Configuration/AwsConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AwsConfiguration.cs</ProjectRelativeFilePath>
@@ -826,7 +826,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>93f8782d-9b7b-4b20-ad73-0241420d0231</ProjectId>
-      <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection</CorrelationId>
+      <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#ec9f14ec-5a43-4ccd-a24e-7d8bfebf4768</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.PrivateSetters.Infrastructure/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
@@ -962,7 +962,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ae69435c-c663-4b83-996f-a8790ed4ceed</ProjectId>
-      <CorrelationId>Intent.Aws.DynamoDB.DynamoDBDocumentOfTInterface</CorrelationId>
+      <CorrelationId>Intent.Aws.DynamoDB.DynamoDBDocumentOfTInterface#0c1617ff-fbe0-41d4-834d-0bd3858623bf</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.PrivateSetters.Infrastructure/Persistence/Documents/IDynamoDBDocument.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IDynamoDBDocument.cs</ProjectRelativeFilePath>
@@ -1034,7 +1034,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ae69435c-c663-4b83-996f-a8790ed4ceed</ProjectId>
-      <CorrelationId>Intent.Aws.DynamoDB.ReflectionHelper</CorrelationId>
+      <CorrelationId>Intent.Aws.DynamoDB.ReflectionHelper#293229b8-5b56-4bbb-ae74-ebe5154cca64</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.PrivateSetters.Infrastructure/Persistence/Documents/ReflectionHelper.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ReflectionHelper.cs</ProjectRelativeFilePath>
@@ -1090,7 +1090,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>074c6dd8-61ac-48e4-ae2f-2f116caa6ffe</ProjectId>
-      <CorrelationId>Intent.Aws.DynamoDB.DynamoDBTableInitializer</CorrelationId>
+      <CorrelationId>Intent.Aws.DynamoDB.DynamoDBTableInitializer#c93fc866-b4a3-445b-937c-a51d46df73c8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.PrivateSetters.Infrastructure/Persistence/DynamoDBTableInitializer.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DynamoDBTableInitializer.cs</ProjectRelativeFilePath>
@@ -1098,7 +1098,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>074c6dd8-61ac-48e4-ae2f-2f116caa6ffe</ProjectId>
-      <CorrelationId>Intent.Aws.DynamoDB.DynamoDBUnitOfWork</CorrelationId>
+      <CorrelationId>Intent.Aws.DynamoDB.DynamoDBUnitOfWork#e5c10a80-3240-4721-8d28-2069869468e9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.PrivateSetters.Infrastructure/Persistence/DynamoDBUnitOfWork.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DynamoDBUnitOfWork.cs</ProjectRelativeFilePath>
@@ -1178,7 +1178,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>d44fe681-5d1f-4697-bace-78e59cf61b98</ProjectId>
-      <CorrelationId>Intent.Aws.DynamoDB.DynamoDBRepositoryBase</CorrelationId>
+      <CorrelationId>Intent.Aws.DynamoDB.DynamoDBRepositoryBase#031fc85d-07c6-48ee-8df7-226a99099878</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.PrivateSetters.Infrastructure/Repositories/DynamoDBRepositoryBase.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DynamoDBRepositoryBase.cs</ProjectRelativeFilePath>
@@ -1298,7 +1298,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>62a006aa-1bf1-4f65-9318-a77ec5eb5b1f</ProjectId>
-      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventService</CorrelationId>
+      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventService#9f44ca11-34fd-40e0-8516-126d12c6570e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.PrivateSetters.Infrastructure/Services/DomainEventService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEventService.cs</ProjectRelativeFilePath>

@@ -9,6 +9,10 @@ namespace CleanArchitecture.Comprehensive.Domain.Entities
 {
     public class Final : IHasDomainEvent
     {
+        public Final()
+        {
+            Attribute = null!;
+        }
         public Guid Id { get; set; }
 
         public int OneId { get; set; }
@@ -18,6 +22,8 @@ namespace CleanArchitecture.Comprehensive.Domain.Entities
         public int ThreeId { get; set; }
 
         public int FourId { get; set; }
+
+        public string Attribute { get; set; }
 
         public List<DomainEvent> DomainEvents { get; set; } = [];
     }

@@ -58,6 +58,26 @@ steps:
   fetchDepth: '1'
   submodules: 'recursive'
 
+- script: |
+    echo "Checking Intent Architect health endpoint (with timing)..."
+    curl -f -s -o /dev/null -w "HTTP %{http_code}, Time: %{time_total}s\n" https://intentarchitect.com/api/health/online
+  displayName: 'Health check with timing'
+  condition: always()
+
+- script: |
+    echo "Checking Intent ASP.NET Core HealthChecks module artifact..."
+    curl -f -s -o /dev/null -w "HTTP %{http_code}, Time: %{time_total}s\n" \
+      https://intentarchitect.com/artifacts/modules/intent.aspnetcore.healthchecks/2.0.11/intent.aspnetcore.healthchecks.2.0.11.imod
+  displayName: 'Check intentarchitect with timing'
+  condition: always()
+
+- script: |
+    echo "Checking Intent ASP.NET Core HealthChecks module artifact..."
+    curl -f -s -o /dev/null -w "HTTP %{http_code}, Time: %{time_total}s\n" \
+      https://artifacts.intentarchitect.com/modules/intent.aspnetcore.healthchecks/2.0.11/intent.aspnetcore.healthchecks.2.0.11.imod
+  displayName: 'Check artifact with timing'
+  condition: always()
+
 - task: PowerShell@2
   displayName: 'Pre-build validations'
   inputs:
@@ -79,6 +99,16 @@ steps:
   displayName: 'Install latest .NET 9 SDK'
   inputs:
     version: '9.x'
+
+- script: |
+    echo "Increasing Docker HTTP timeouts"
+    echo "##vso[task.setvariable variable=DOCKER_CLIENT_TIMEOUT]300"
+    echo "##vso[task.setvariable variable=COMPOSE_HTTP_TIMEOUT]300"
+  displayName: 'Set Docker timeouts'
+
+- script: |
+    docker pull postgres:14.7
+  displayName: 'Pre-pull test images'
 
 # Required for entry in NuGet.Config that is generated as part of 'dotnet pack'.
 - task: NuGetAuthenticate@1
@@ -142,16 +172,71 @@ steps:
       --no-restore
       -p:IntentModuleOutputPath=$(Build.ArtifactStagingDirectory)
 
+- script: |
+    echo "Checking Intent Architect health endpoint (with timing)..."
+    curl -f -s -o /dev/null -w "HTTP %{http_code}, Time: %{time_total}s\n" https://intentarchitect.com/api/health/online
+  displayName: 'Health check with timing'
+  condition: always()
+
+- script: |
+    echo "Checking Intent ASP.NET Core HealthChecks module artifact..."
+    curl -f -s -o /dev/null -w "HTTP %{http_code}, Time: %{time_total}s\n" \
+      https://intentarchitect.com/artifacts/modules/intent.aspnetcore.healthchecks/2.0.11/intent.aspnetcore.healthchecks.2.0.11.imod
+  displayName: 'Check intentarchitect with timing'
+  condition: always()
+
+- script: |
+    echo "Checking Intent ASP.NET Core HealthChecks module artifact..."
+    curl -f -s -o /dev/null -w "HTTP %{http_code}, Time: %{time_total}s\n" \
+      https://artifacts.intentarchitect.com/modules/intent.aspnetcore.healthchecks/2.0.11/intent.aspnetcore.healthchecks.2.0.11.imod
+  displayName: 'Check artifact with timing'
+  condition: always()
+
 - task: DotNetCoreCLI@2
   displayName: 'dotnet test'
   env:
     DOTNET_NOLOGO: 1
   inputs:
     command: 'test'
+    publishTestResults: false
     projects: $(targetsToBuild)
     arguments: >
-      --no-build
+      --results-directory $(Agent.TempDirectory)/TestResults
+      --diag:$(Agent.TempDirectory)/TestResults/diag.log
+      --logger "trx;LogFileName=test_results.trx"
+      --logger "console;verbosity=detailed"
+      --blame-hang --blame-hang-timeout:10m --blame-crash
+      --no-build 
+      --maxcpucount:1
       --filter Requirement!=CosmosDB
+
+- task: PublishPipelineArtifact@1
+  displayName: 'Publish test logs & results'
+  condition: always()
+  inputs:
+    targetPath: '$(Agent.TempDirectory)/TestResults'
+    artifact: 'test-results'
+    publishLocation: 'pipeline'
+
+- script: |
+    echo "Checking Intent Architect health endpoint (with timing)..."
+    curl -f -s -o /dev/null -w "HTTP %{http_code}, Time: %{time_total}s\n" https://intentarchitect.com/api/health/online
+  displayName: 'Health check with timing'
+  condition: always()
+
+- script: |
+    echo "Checking Intent ASP.NET Core HealthChecks module artifact..."
+    curl -f -s -o /dev/null -w "HTTP %{http_code}, Time: %{time_total}s\n" \
+      https://intentarchitect.com/artifacts/modules/intent.aspnetcore.healthchecks/2.0.11/intent.aspnetcore.healthchecks.2.0.11.imod
+  displayName: 'Check intentarchitect with timing'
+  condition: always()
+
+- script: |
+    echo "Checking Intent ASP.NET Core HealthChecks module artifact..."
+    curl -f -s -o /dev/null -w "HTTP %{http_code}, Time: %{time_total}s\n" \
+      https://artifacts.intentarchitect.com/modules/intent.aspnetcore.healthchecks/2.0.11/intent.aspnetcore.healthchecks.2.0.11.imod
+  displayName: 'Check artifact with timing'
+  condition: always()
 
 - task: PowerShell@2
   displayName: 'Add repositories (modules)'
@@ -189,6 +274,7 @@ steps:
     script: |
       $toolPath = "$(System.DefaultWorkingDirectory)/intent-cli-tool"
       $nightly = '$(Build.SourceBranch)' -like 'refs/heads/development-*' ? '.nightly' : ''
+      $nightly = '.nightly'
 
       if (Test-Path $toolPath)
       {

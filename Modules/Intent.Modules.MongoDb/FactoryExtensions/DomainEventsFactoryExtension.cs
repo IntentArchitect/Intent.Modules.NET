@@ -6,7 +6,6 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
-using Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -42,60 +41,60 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
             if (application.FindTemplateInstance<IClassProvider>(TemplateDependency.OnTemplate(DomainEventServiceInterfaceTemplateId)) == null)
                 return;
 
-            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(ApplicationMongoDbContextTemplate.TemplateId));
-            if (template is null)
-            {
-                return;
-            }
+            //var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(ApplicationMongoDbContextTemplate.TemplateId));
+            //if (template is null)
+            //{
+            //    return;
+            //}
 
-            template.CSharpFile.OnBuild(file =>
-            {
-                file.AddUsing("System.Linq");
-                var @class = file.Classes.First();
-                @class.Constructors.First().AddParameter(template.GetTypeName(DomainEventServiceInterfaceTemplateId), "domainEventService", param =>
-                {
-                    param.IntroduceReadonlyField();
-                });
-                var saveMethod = @class.Methods.SingleOrDefault(x => x.Name == "SaveChangesAsync");
-                if (saveMethod != null)
-                {
-                    saveMethod.InsertStatement(0, $"await DispatchEvents(cancellationToken);");
-                }
-                else
-                {
-                    @class.InsertMethod(0, "Task<int>", "SaveChangesAsync", method =>
-                    {
-                        method.Override().Async()
-                            .AddParameter($"CancellationToken", "cancellationToken",
-                                param =>
-                                {
-                                    param.WithDefaultValue("default(CancellationToken)");
-                                })
-                            .AddStatement("await DispatchEvents(cancellationToken);")
-                            .AddStatement("await base.SaveChangesAsync(cancellationToken);")
-                            .AddStatement("return default;");
-                    });
-                }
+            //template.CSharpFile.OnBuild(file =>
+            //{
+            //    file.AddUsing("System.Linq");
+            //    var @class = file.Classes.First();
+            //    @class.Constructors.First().AddParameter(template.GetTypeName(DomainEventServiceInterfaceTemplateId), "domainEventService", param =>
+            //    {
+            //        param.IntroduceReadonlyField();
+            //    });
+            //    var saveMethod = @class.Methods.SingleOrDefault(x => x.Name == "SaveChangesAsync");
+            //    if (saveMethod != null)
+            //    {
+            //        saveMethod.InsertStatement(0, $"await DispatchEvents(cancellationToken);");
+            //    }
+            //    else
+            //    {
+            //        @class.InsertMethod(0, "Task<int>", "SaveChangesAsync", method =>
+            //        {
+            //            method.Override().Async()
+            //                .AddParameter($"CancellationToken", "cancellationToken",
+            //                    param =>
+            //                    {
+            //                        param.WithDefaultValue("default(CancellationToken)");
+            //                    })
+            //                .AddStatement("await DispatchEvents(cancellationToken);")
+            //                .AddStatement("await base.SaveChangesAsync(cancellationToken);")
+            //                .AddStatement("return default;");
+            //        });
+            //    }
 
-                @class.AddMethod("Task", "DispatchEvents", method =>
-                {
-                    method.Async().AddParameter("CancellationToken", "cancellationToken", parameter => parameter.WithDefaultValue("default"));
+            //    @class.AddMethod("Task", "DispatchEvents", method =>
+            //    {
+            //        method.Async().AddParameter("CancellationToken", "cancellationToken", parameter => parameter.WithDefaultValue("default"));
 
-                    string hasDomainEventsInterface = template.GetTypeName(HasDomainEventInterfaceTemplateId);
-                    method.Private().Async();
-                    method.AddWhileStatement("true", @while => @while
-                        .AddMethodChainStatement("var domainEventEntity = ChangeTracker", chain => chain
-                            .AddChainStatement("Entries()")
-                            .AddChainStatement("Select(x => x.Entity)")
-                            .AddChainStatement($"OfType<{hasDomainEventsInterface}>()")
-                            .AddChainStatement("SelectMany(x => x.DomainEvents)")
-                            .AddChainStatement("FirstOrDefault(domainEvent => !domainEvent.IsPublished)"))
-                        .AddIfStatement("domainEventEntity is null", @if => @if
-                            .AddStatement("break;"))
-                        .AddStatement("domainEventEntity.IsPublished = true;", s => s.SeparatedFromPrevious())
-                        .AddStatement("await _domainEventService.Publish(domainEventEntity, cancellationToken);"));
-                });
-            });
+            //        string hasDomainEventsInterface = template.GetTypeName(HasDomainEventInterfaceTemplateId);
+            //        method.Private().Async();
+            //        method.AddWhileStatement("true", @while => @while
+            //            .AddMethodChainStatement("var domainEventEntity = ChangeTracker", chain => chain
+            //                .AddChainStatement("Entries()")
+            //                .AddChainStatement("Select(x => x.Entity)")
+            //                .AddChainStatement($"OfType<{hasDomainEventsInterface}>()")
+            //                .AddChainStatement("SelectMany(x => x.DomainEvents)")
+            //                .AddChainStatement("FirstOrDefault(domainEvent => !domainEvent.IsPublished)"))
+            //            .AddIfStatement("domainEventEntity is null", @if => @if
+            //                .AddStatement("break;"))
+            //            .AddStatement("domainEventEntity.IsPublished = true;", s => s.SeparatedFromPrevious())
+            //            .AddStatement("await _domainEventService.Publish(domainEventEntity, cancellationToken);"));
+            //    });
+            //});
         }
     }
 }

@@ -14,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Scalar.AspNetCore;
 using Serilog;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -44,7 +45,7 @@ namespace BasicAuditing.CustomUserId.Tests.Api
             services.ConfigureProblemDetails();
             services.ConfigureApiVersioning();
             services.AddInfrastructure(Configuration);
-            services.ConfigureSwagger(Configuration);
+            services.ConfigureOpenApi();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -62,10 +63,12 @@ namespace BasicAuditing.CustomUserId.Tests.Api
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapScalarApiReference();
+                endpoints.MapOpenApi();
+
                 endpoints.MapDefaultHealthChecks();
                 endpoints.MapControllers();
             });
-            app.UseSwashbuckle(Configuration);
         }
     }
 }

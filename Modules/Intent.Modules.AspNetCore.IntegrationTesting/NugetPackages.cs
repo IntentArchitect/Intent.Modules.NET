@@ -79,12 +79,12 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting
             NugetRegistry.Register(MicrosoftAspNetCoreMvcTestingPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("9.0.7")
-                            .WithNugetDependency("Microsoft.AspNetCore.TestHost", "9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyModel", "9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.Hosting", "9.0.7"),
-                        ( >= 8, >= 0) => new PackageVersion("8.0.18")
-                            .WithNugetDependency("Microsoft.AspNetCore.TestHost", "8.0.18")
+                        ( >= 9, >= 0) => new PackageVersion("9.0.8")
+                            .WithNugetDependency("Microsoft.AspNetCore.TestHost", "9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyModel", "9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Hosting", "9.0.8"),
+                        ( >= 8, >= 0) => new PackageVersion("8.0.19")
+                            .WithNugetDependency("Microsoft.AspNetCore.TestHost", "8.0.19")
                             .WithNugetDependency("Microsoft.Extensions.DependencyModel", "8.0.2")
                             .WithNugetDependency("Microsoft.Extensions.Hosting", "8.0.1"),
                         ( >= 7, >= 0) => new PackageVersion("7.0.20"),
@@ -102,10 +102,10 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting
             NugetRegistry.Register(MicrosoftAspNetCoreWebUtilitiesPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("9.0.7")
-                            .WithNugetDependency("Microsoft.Net.Http.Headers", "9.0.7"),
-                        ( >= 8, >= 0) => new PackageVersion("8.0.18")
-                            .WithNugetDependency("Microsoft.Net.Http.Headers", "8.0.18")
+                        ( >= 9, >= 0) => new PackageVersion("9.0.8")
+                            .WithNugetDependency("Microsoft.Net.Http.Headers", "9.0.8"),
+                        ( >= 8, >= 0) => new PackageVersion("8.0.19")
+                            .WithNugetDependency("Microsoft.Net.Http.Headers", "8.0.19")
                             .WithNugetDependency("System.IO.Pipelines", "8.0.0"),
                         ( >= 2, >= 0) => new PackageVersion("2.3.0")
                             .WithNugetDependency("Microsoft.Net.Http.Headers", "2.3.0")
@@ -116,26 +116,26 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting
             NugetRegistry.Register(MicrosoftExtensionsHttpPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.Diagnostics", "9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.Options", "9.0.7"),
-                        ( >= 8, >= 0) => new PackageVersion("9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.Diagnostics", "9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.Options", "9.0.7"),
-                        ( >= 2, >= 0) => new PackageVersion("9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.Options", "9.0.7"),
+                        ( >= 9, >= 0) => new PackageVersion("9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Diagnostics", "9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "9.0.8"),
+                        ( >= 8, >= 0) => new PackageVersion("9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Diagnostics", "9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "9.0.8"),
+                        ( >= 2, >= 0) => new PackageVersion("9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "9.0.8"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftExtensionsHttpPackageName}'"),
                     }
                 );
@@ -151,17 +151,17 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting
             NugetRegistry.Register(SystemTextJsonPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("9.0.7"),
-                        ( >= 8, >= 0) => new PackageVersion("9.0.7")
-                            .WithNugetDependency("System.IO.Pipelines", "9.0.7")
-                            .WithNugetDependency("System.Text.Encodings.Web", "9.0.7"),
-                        ( >= 2, >= 0) => new PackageVersion("9.0.7")
-                            .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "9.0.7")
+                        ( >= 9, >= 0) => new PackageVersion("9.0.8"),
+                        ( >= 8, >= 0) => new PackageVersion("9.0.8")
+                            .WithNugetDependency("System.IO.Pipelines", "9.0.8")
+                            .WithNugetDependency("System.Text.Encodings.Web", "9.0.8"),
+                        ( >= 2, >= 0) => new PackageVersion("9.0.8")
+                            .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "9.0.8")
                             .WithNugetDependency("System.Buffers", "4.5.1")
-                            .WithNugetDependency("System.IO.Pipelines", "9.0.7")
+                            .WithNugetDependency("System.IO.Pipelines", "9.0.8")
                             .WithNugetDependency("System.Memory", "4.5.5")
                             .WithNugetDependency("System.Runtime.CompilerServices.Unsafe", "6.0.0")
-                            .WithNugetDependency("System.Text.Encodings.Web", "9.0.7")
+                            .WithNugetDependency("System.Text.Encodings.Web", "9.0.8")
                             .WithNugetDependency("System.Threading.Tasks.Extensions", "4.5.4"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{SystemTextJsonPackageName}'"),
                     }
@@ -169,63 +169,63 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting
             NugetRegistry.Register(TestcontainersCosmosDbPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("4.6.0")
-                            .WithNugetDependency("Testcontainers", "4.6.0"),
-                        ( >= 8, >= 0) => new PackageVersion("4.6.0")
-                            .WithNugetDependency("Testcontainers", "4.6.0"),
-                        ( >= 2, >= 1) => new PackageVersion("4.6.0")
-                            .WithNugetDependency("Testcontainers", "4.6.0"),
-                        ( >= 2, >= 0) => new PackageVersion("4.6.0")
-                            .WithNugetDependency("Testcontainers", "4.6.0"),
+                        ( >= 9, >= 0) => new PackageVersion("4.7.0")
+                            .WithNugetDependency("Testcontainers", "4.7.0"),
+                        ( >= 8, >= 0) => new PackageVersion("4.7.0")
+                            .WithNugetDependency("Testcontainers", "4.7.0"),
+                        ( >= 2, >= 1) => new PackageVersion("4.7.0")
+                            .WithNugetDependency("Testcontainers", "4.7.0"),
+                        ( >= 2, >= 0) => new PackageVersion("4.7.0")
+                            .WithNugetDependency("Testcontainers", "4.7.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{TestcontainersCosmosDbPackageName}'"),
                     }
                 );
             NugetRegistry.Register(TestcontainersMongoDbPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("4.6.0")
-                            .WithNugetDependency("Testcontainers", "4.6.0"),
-                        ( >= 8, >= 0) => new PackageVersion("4.6.0")
-                            .WithNugetDependency("Testcontainers", "4.6.0"),
-                        ( >= 2, >= 1) => new PackageVersion("4.6.0")
-                            .WithNugetDependency("Testcontainers", "4.6.0"),
-                        ( >= 2, >= 0) => new PackageVersion("4.6.0")
-                            .WithNugetDependency("Testcontainers", "4.6.0"),
+                        ( >= 9, >= 0) => new PackageVersion("4.7.0")
+                            .WithNugetDependency("Testcontainers", "4.7.0"),
+                        ( >= 8, >= 0) => new PackageVersion("4.7.0")
+                            .WithNugetDependency("Testcontainers", "4.7.0"),
+                        ( >= 2, >= 1) => new PackageVersion("4.7.0")
+                            .WithNugetDependency("Testcontainers", "4.7.0"),
+                        ( >= 2, >= 0) => new PackageVersion("4.7.0")
+                            .WithNugetDependency("Testcontainers", "4.7.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{TestcontainersMongoDbPackageName}'"),
                     }
                 );
             NugetRegistry.Register(TestcontainersMsSqlPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("4.6.0")
-                            .WithNugetDependency("Testcontainers", "4.6.0"),
-                        ( >= 8, >= 0) => new PackageVersion("4.6.0")
-                            .WithNugetDependency("Testcontainers", "4.6.0"),
-                        ( >= 2, >= 1) => new PackageVersion("4.6.0")
-                            .WithNugetDependency("Testcontainers", "4.6.0"),
-                        ( >= 2, >= 0) => new PackageVersion("4.6.0")
-                            .WithNugetDependency("Testcontainers", "4.6.0"),
+                        ( >= 9, >= 0) => new PackageVersion("4.7.0")
+                            .WithNugetDependency("Testcontainers", "4.7.0"),
+                        ( >= 8, >= 0) => new PackageVersion("4.7.0")
+                            .WithNugetDependency("Testcontainers", "4.7.0"),
+                        ( >= 2, >= 1) => new PackageVersion("4.7.0")
+                            .WithNugetDependency("Testcontainers", "4.7.0"),
+                        ( >= 2, >= 0) => new PackageVersion("4.7.0")
+                            .WithNugetDependency("Testcontainers", "4.7.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{TestcontainersMsSqlPackageName}'"),
                     }
                 );
             NugetRegistry.Register(TestcontainersPostgreSqlPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("4.6.0")
-                            .WithNugetDependency("Testcontainers", "4.6.0"),
-                        ( >= 8, >= 0) => new PackageVersion("4.6.0")
-                            .WithNugetDependency("Testcontainers", "4.6.0"),
-                        ( >= 2, >= 1) => new PackageVersion("4.6.0")
-                            .WithNugetDependency("Testcontainers", "4.6.0"),
-                        ( >= 2, >= 0) => new PackageVersion("4.6.0")
-                            .WithNugetDependency("Testcontainers", "4.6.0"),
+                        ( >= 9, >= 0) => new PackageVersion("4.7.0")
+                            .WithNugetDependency("Testcontainers", "4.7.0"),
+                        ( >= 8, >= 0) => new PackageVersion("4.7.0")
+                            .WithNugetDependency("Testcontainers", "4.7.0"),
+                        ( >= 2, >= 1) => new PackageVersion("4.7.0")
+                            .WithNugetDependency("Testcontainers", "4.7.0"),
+                        ( >= 2, >= 0) => new PackageVersion("4.7.0")
+                            .WithNugetDependency("Testcontainers", "4.7.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{TestcontainersPostgreSqlPackageName}'"),
                     }
                 );
             NugetRegistry.Register(XunitRunnerVisualstudioPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, >= 0) => new PackageVersion("3.1.3"),
+                        ( >= 8, >= 0) => new PackageVersion("3.1.4"),
                         ( >= 6, >= 0) => new PackageVersion("3.0.2"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{XunitRunnerVisualstudioPackageName}'"),
                     }
@@ -233,10 +233,10 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting
             NugetRegistry.Register(XunitV3PackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, >= 0) => new PackageVersion("3.0.0")
-                            .WithNugetDependency("xunit.analyzers", "1.23.0")
-                            .WithNugetDependency("xunit.v3.assert", "3.0.0")
-                            .WithNugetDependency("xunit.v3.core", "3.0.0"),
+                        ( >= 8, >= 0) => new PackageVersion("3.0.1")
+                            .WithNugetDependency("xunit.analyzers", "1.24.0")
+                            .WithNugetDependency("xunit.v3.assert", "3.0.1")
+                            .WithNugetDependency("xunit.v3.core", "3.0.1"),
                         ( >= 6, >= 0) => new PackageVersion("1.1.0")
                             .WithNugetDependency("xunit.analyzers", "1.20.0")
                             .WithNugetDependency("xunit.v3.assert", "1.1.0")

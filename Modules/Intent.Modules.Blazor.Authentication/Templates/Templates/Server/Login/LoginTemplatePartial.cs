@@ -40,7 +40,6 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Login
 
                     file.AddUsing("System.ComponentModel.DataAnnotations");
                     file.AddUsing("Microsoft.AspNetCore.Authentication");
-                    file.AddUsing("Microsoft.AspNetCore.Identity");
                     file.AddInjectDirective(GetTypeName(AuthServiceInterfaceTemplate.TemplateId), "AuthService");
                     file.AddInjectDirective("Microsoft.AspNetCore.Components.NavigationManager", "NavigationManager");
 
@@ -135,7 +134,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Login
                             {
                                 if (ExecutionContext.GetSettings().GetBlazor().Authentication().IsAspnetcoreIdentity())
                                 {
-                                    @if.AddStatement("await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);");
+                                    @if.AddStatement($"await HttpContext.SignOutAsync({code.Template.UseType("Microsoft.AspNetCore.Identity.IdentityConstants")}.ExternalScheme);");
                                 }
                                 else
                                 {

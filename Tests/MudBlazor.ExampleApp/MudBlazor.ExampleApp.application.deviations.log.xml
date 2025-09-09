@@ -2,15 +2,15 @@
 <deviationsLog>
   <files>
     <file>
-      <correlationId>Intent.Blazor.Templates.Server.AppRazorTemplate</correlationId>
+      <correlationId>Intent.Blazor.Templates.Server.AppRazorTemplate#cfdf78be-ef35-45a3-9245-ab63975fb532</correlationId>
       <path>MudBlazor.ExampleApp.Api/Components/App.razor</path>
       <count>2</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2025-07-09T19:12:25.791194Z</updatedAt>
+      <updatedAt>2025-09-02T22:41:20.6059619Z</updatedAt>
       <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2025-07-09T19:12:25.7914229Z</approvedAt>
+      <approvedAt>2025-09-02T22:41:20.6060966Z</approvedAt>
       <deviationsHash>87AB4612F3F6950F3751F72EA4F9D2B9571B76D70A0F3637EDB53B58FB744402</deviationsHash>
       <fileHash>C9678A21B6E2FD5564CEC3A9BE311B044979ADA6EAB84B96D0C19B3A893689C4</fileHash>
     </file>

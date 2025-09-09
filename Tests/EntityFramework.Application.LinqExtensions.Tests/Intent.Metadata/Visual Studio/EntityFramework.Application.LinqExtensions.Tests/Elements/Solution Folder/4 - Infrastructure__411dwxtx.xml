@@ -97,6 +97,31 @@
           </metadata>
           <childElements />
         </childElement>
+        <childElement id="807e73f8-8239-4cf9-bdc4-047b1e90aa75" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+          <name>Migrations</name>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>41e9b58e-a2dc-4eae-b38b-b71b08fe5c6e</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements>
+            <childElement id="3d002bc5-0ef5-4e38-aa7d-bdaa7fb1317c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+              <name>Intent.EntityFrameworkCore.DbMigrationsReadMe</name>
+              <display>Intent.EntityFrameworkCore.DbMigrationsReadMe</display>
+              <externalReference>Intent.EntityFrameworkCore</externalReference>
+              <isAbstract>false</isAbstract>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>807e73f8-8239-4cf9-bdc4-047b1e90aa75</parentFolderId>
+              <stereotypes />
+              <metadata>
+                <entry key="status" value="assigned" />
+              </metadata>
+              <childElements />
+            </childElement>
+          </childElements>
+        </childElement>
       </childElements>
     </childElement>
   </childElements>

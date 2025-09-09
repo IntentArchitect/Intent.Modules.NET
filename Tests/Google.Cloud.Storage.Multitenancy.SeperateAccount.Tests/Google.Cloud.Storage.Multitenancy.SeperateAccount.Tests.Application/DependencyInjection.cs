@@ -1,10 +1,8 @@
 using System.Reflection;
-using AutoMapper;
 using FluentValidation;
 using Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Application.Common.Behaviours;
 using Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Application.Common.Validation;
 using Intent.RoslynWeaver.Attributes;
-using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

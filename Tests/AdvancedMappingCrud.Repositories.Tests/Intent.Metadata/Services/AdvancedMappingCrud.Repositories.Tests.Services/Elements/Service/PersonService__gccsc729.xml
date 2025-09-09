@@ -14,7 +14,7 @@
   <childElements>
     <childElement id="75164753-0cac-446b-b867-a56b434306f1" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>GetPersonById</name>
-      <display>GetPersonById(personId: guid): PersonDto</display>
+      <display>GetPersonById(personId: guid, quoteId: guid): PersonDto</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
@@ -46,6 +46,30 @@
           <isAbstract>false</isAbstract>
           <genericTypes />
           <typeReference id="6c1a81a8-f8b1-49a5-a737-e55ca3134acd">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>75164753-0cac-446b-b867-a56b434306f1</parentFolderId>
+          <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="9c2a636e-5486-46ad-baf6-03f1d76d9cff" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>quoteId</name>
+          <display>in : quoteId: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="3eaaa6a7-740e-42d2-b687-2543b3b26a1c">
             <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>

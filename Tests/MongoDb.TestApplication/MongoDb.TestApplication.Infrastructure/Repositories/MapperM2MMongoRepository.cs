@@ -1,32 +1,22 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
+using System.Linq.Expressions;
 using Intent.RoslynWeaver.Attributes;
+using MongoDB.Driver;
 using MongoDb.TestApplication.Domain.Entities;
 using MongoDb.TestApplication.Domain.Repositories;
+using MongoDb.TestApplication.Domain.Repositories.Documents;
 using MongoDb.TestApplication.Infrastructure.Persistence;
+using MongoDb.TestApplication.Infrastructure.Persistence.Documents;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.MongoDb.Repositories.Repository", Version = "1.0")]
+[assembly: IntentTemplate("Intent.MongoDb.MongoDbRepository", Version = "1.0")]
 
 namespace MongoDb.TestApplication.Infrastructure.Repositories
 {
-    public class MapperM2MMongoRepository : MongoRepositoryBase<MapperM2M>, IMapperM2MRepository
+    internal class MapperM2MMongoRepository : MongoRepositoryBase<MapperM2M, MapperM2MDocument, IMapperM2MDocument, string>, IMapperM2MRepository
     {
-        public MapperM2MMongoRepository(ApplicationMongoDbContext context) : base(context)
+        public MapperM2MMongoRepository(IMongoCollection<MapperM2MDocument> collection, MongoDbUnitOfWork unitOfWork) : base(collection, unitOfWork)
         {
-        }
-
-        public async Task<MapperM2M?> FindByIdAsync(string id, CancellationToken cancellationToken = default)
-        {
-            return await FindAsync(x => x.Id == id, cancellationToken);
-        }
-
-        public async Task<List<MapperM2M>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default)
-        {
-            return await FindAllAsync(x => ids.Contains(x.Id), cancellationToken);
         }
     }
 }

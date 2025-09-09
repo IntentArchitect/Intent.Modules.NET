@@ -1,3 +1,7 @@
+### Version 6.0.6
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 6.0.5
 
 - Improvement: Updated NuGet package versions.

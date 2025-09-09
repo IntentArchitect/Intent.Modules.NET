@@ -37,21 +37,5 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="2cfcfc1c-e6a8-45cc-bd6f-3acf7894c6ee" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.EntityFrameworkCore.DbMigrationsReadMe</name>
-      <display>Intent.EntityFrameworkCore.DbMigrationsReadMe</display>
-      <externalReference>Intent.EntityFrameworkCore</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>ca92696c-fcb0-4dd5-8347-68fae4df1831</parentFolderId>
-      <packageId>98edc616-5f17-4fce-b93f-fe01230d91c6</packageId>
-      <packageName>Standard.AspNetCore.ServiceCallHandlers</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
   </childElements>
 </class>

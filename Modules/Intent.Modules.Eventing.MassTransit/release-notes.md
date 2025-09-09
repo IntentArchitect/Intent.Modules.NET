@@ -1,3 +1,7 @@
+### Version 7.0.7
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 7.0.6
 
 - Improvement: Added support for DynamoDB unit of work.
@@ -5,7 +9,7 @@
 ### Version 7.0.5
 
 - Improvement: Updated NuGet package versions.
-- Improvement: SQL Lite ambient transaction suppression.
+- Improvement: SQLite ambient transaction suppression.
 
 ### Version 7.0.4
 

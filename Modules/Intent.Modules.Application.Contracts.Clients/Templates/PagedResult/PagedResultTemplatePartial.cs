@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using Intent.Engine;
-using Intent.Modelers.ServiceProxies.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -29,9 +28,10 @@ namespace Intent.Modules.Application.Contracts.Clients.Templates.PagedResult
 
         protected override IEnumerable<IServiceContractModel> GetServiceContractModels(IMetadataManager metadataManager, string applicationId)
         {
+            const string serviceProxiesDesignerId = "2799aa83-e256-46fe-9589-b96f7d6b09f7";
             return metadataManager.GetServiceContractModels(
                 applicationId,
-                metadataManager.ServiceProxies,
+                applicationId => metadataManager.GetDesigner(applicationId, serviceProxiesDesignerId), // for backward compatibility
                 metadataManager.Services);
         }
     }

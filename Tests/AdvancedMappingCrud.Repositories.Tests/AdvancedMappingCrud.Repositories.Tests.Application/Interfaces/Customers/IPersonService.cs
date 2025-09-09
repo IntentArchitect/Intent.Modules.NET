@@ -11,6 +11,6 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Interfaces.Customer
 {
     public interface IPersonService
     {
-        Task<PersonDto> GetPersonById(Guid personId, CancellationToken cancellationToken = default);
+        Task<PersonDto> GetPersonById(Guid personId, Guid quoteId, CancellationToken cancellationToken = default);
     }
 }

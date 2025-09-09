@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5106fa0e-2af9-4283-82fe-52da22b845a1" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Options</name>
+  <display>Options</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>05f8c6ff-d528-408e-ac55-efad1bff6f94</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="13b35cf8-fd9f-4c53-af70-03145129c3e8" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.CosmosDB.CosmosDBRepositoryOptions</name>
+      <display>Intent.CosmosDB.CosmosDBRepositoryOptions</display>
+      <externalReference>Intent.CosmosDB</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>5106fa0e-2af9-4283-82fe-52da22b845a1</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

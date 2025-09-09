@@ -5,6 +5,7 @@ using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 using Entities.PrivateSetters.MongoDb.Domain.Entities;
+using Entities.PrivateSetters.MongoDb.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -13,15 +14,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace Entities.PrivateSetters.MongoDb.Domain.Repositories
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IInvoiceRepository : IMongoRepository<Invoice>
+    public interface IInvoiceRepository : IMongoRepository<Invoice, IInvoiceDocument, string>
     {
-        [IntentManaged(Mode.Fully)]
-        List<Invoice> SearchText(string searchText, Expression<Func<Invoice, bool>> filterExpression = null);
-        [IntentManaged(Mode.Fully)]
-        void Update(Invoice entity);
-        [IntentManaged(Mode.Fully)]
-        Task<Invoice?> FindByIdAsync(string id, CancellationToken cancellationToken = default);
-        [IntentManaged(Mode.Fully)]
-        Task<List<Invoice>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default);
     }
 }

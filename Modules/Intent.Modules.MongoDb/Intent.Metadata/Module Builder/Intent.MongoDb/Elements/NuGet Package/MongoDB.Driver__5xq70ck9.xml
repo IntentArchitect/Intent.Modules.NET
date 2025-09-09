@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="79d0bf55-9b8b-4502-a5cc-7fbb713d3748" type="NuGet Package" typeId="f747cc37-29ee-488a-8dbe-755e856a842d">
+  <name>MongoDB.Driver</name>
+  <display>MongoDB.Driver</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>7f0d9065-b5fe-4023-b1f1-f0a54a687c20</parentFolderId>
+  <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
+  <packageName>Intent.MongoDb</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="265221a5-779c-46c9-a367-8b07b435803b" name="Package Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+      <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+      <properties>
+        <property name="4de9cc21-d4fb-4d52-8dfd-2eb6cf267a9a" display="Friendly Name" isActive="true" />
+        <property name="67c7c4d8-40ed-48f9-a83c-985eedb32141" display="Locked" value="false" isActive="true" />
+        <property name="c166c7cf-45e3-484b-9ec5-f7300951f897" display="Private Assets" isActive="true" />
+        <property name="6bd6430c-8011-435e-bb73-6013477a875d" display="Include Assets" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="7633abe5-78f5-494c-a190-bb1a09589805" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>2.30.0</name>
+      <display>2.30.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>79d0bf55-9b8b-4502-a5cc-7fbb713d3748</parentFolderId>
+      <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
+      <packageName>Intent.MongoDb</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="8602f7b3-3e23-4b57-a9eb-aa09f950e1fa" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.Abstractions</name>
+          <display>Microsoft.Extensions.Logging.Abstractions (2.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>2.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>7633abe5-78f5-494c-a190-bb1a09589805</parentFolderId>
+          <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
+          <packageName>Intent.MongoDb</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="dd3020ed-4106-4c02-b6f4-8cda7d725207" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>MongoDB.Bson</name>
+          <display>MongoDB.Bson (2.30.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>2.30.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>7633abe5-78f5-494c-a190-bb1a09589805</parentFolderId>
+          <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
+          <packageName>Intent.MongoDb</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="f1e704ba-ef0f-4432-8a03-15747c21b340" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>MongoDB.Driver.Core</name>
+          <display>MongoDB.Driver.Core (2.30.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>2.30.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>7633abe5-78f5-494c-a190-bb1a09589805</parentFolderId>
+          <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
+          <packageName>Intent.MongoDb</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="59242a4a-fec3-493a-a08e-119ff26e4874" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>MongoDB.Libmongocrypt</name>
+          <display>MongoDB.Libmongocrypt (1.12.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>1.12.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>7633abe5-78f5-494c-a190-bb1a09589805</parentFolderId>
+          <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
+          <packageName>Intent.MongoDb</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="6d1f19c7-b9f8-4460-a733-6bac2e920560" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>3.4.3</name>
+      <display>3.4.3 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>79d0bf55-9b8b-4502-a5cc-7fbb713d3748</parentFolderId>
+      <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
+      <packageName>Intent.MongoDb</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v6.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="8a950b07-7e8b-44ee-863b-fe43356111dd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>DnsClient</name>
+          <display>DnsClient (1.6.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>1.6.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>6d1f19c7-b9f8-4460-a733-6bac2e920560</parentFolderId>
+          <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
+          <packageName>Intent.MongoDb</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="0c7bcae3-48a3-4405-ba3a-197f1478df3f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.Abstractions</name>
+          <display>Microsoft.Extensions.Logging.Abstractions (2.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>2.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>6d1f19c7-b9f8-4460-a733-6bac2e920560</parentFolderId>
+          <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
+          <packageName>Intent.MongoDb</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="4a20c454-1f1a-4324-862b-c28ccd3d8dee" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>MongoDB.Bson</name>
+          <display>MongoDB.Bson (3.4.3)</display>
+          <isAbstract>false</isAbstract>
+          <value>3.4.3</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>6d1f19c7-b9f8-4460-a733-6bac2e920560</parentFolderId>
+          <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
+          <packageName>Intent.MongoDb</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="03693934-071d-484d-aa4f-1b3b8f76a2c9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>SharpCompress</name>
+          <display>SharpCompress (0.30.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>0.30.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>6d1f19c7-b9f8-4460-a733-6bac2e920560</parentFolderId>
+          <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
+          <packageName>Intent.MongoDb</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="d7c9716c-af82-4f82-b37f-4d9b5a0d8c66" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Snappier</name>
+          <display>Snappier (1.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>1.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>6d1f19c7-b9f8-4460-a733-6bac2e920560</parentFolderId>
+          <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
+          <packageName>Intent.MongoDb</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="d5600d7e-216f-48d5-9599-0aee8e3284c0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Buffers</name>
+          <display>System.Buffers (4.5.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>4.5.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>6d1f19c7-b9f8-4460-a733-6bac2e920560</parentFolderId>
+          <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
+          <packageName>Intent.MongoDb</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="dabc613d-0c24-4567-a390-a0d998a500bc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>ZstdSharp.Port</name>
+          <display>ZstdSharp.Port (0.7.3)</display>
+          <isAbstract>false</isAbstract>
+          <value>0.7.3</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>6d1f19c7-b9f8-4460-a733-6bac2e920560</parentFolderId>
+          <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
+          <packageName>Intent.MongoDb</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="a202da88-be5a-41cb-adbb-4c845657769b" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>3.4.3</name>
+      <display>3.4.3 ( &gt;= .NETStandard,Version=v2.1 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>79d0bf55-9b8b-4502-a5cc-7fbb713d3748</parentFolderId>
+      <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
+      <packageName>Intent.MongoDb</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.1" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="6c45c20b-d73c-4a4d-b479-c8f4579d7ce2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>DnsClient</name>
+          <display>DnsClient (1.6.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>1.6.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a202da88-be5a-41cb-adbb-4c845657769b</parentFolderId>
+          <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
+          <packageName>Intent.MongoDb</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="ae3bf0df-14b8-4e7a-aee5-01d394180d71" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.Abstractions</name>
+          <display>Microsoft.Extensions.Logging.Abstractions (2.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>2.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a202da88-be5a-41cb-adbb-4c845657769b</parentFolderId>
+          <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
+          <packageName>Intent.MongoDb</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="b192f07c-3a48-47fa-ae8e-8fa7ae53eeda" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>MongoDB.Bson</name>
+          <display>MongoDB.Bson (3.4.3)</display>
+          <isAbstract>false</isAbstract>
+          <value>3.4.3</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a202da88-be5a-41cb-adbb-4c845657769b</parentFolderId>
+          <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
+          <packageName>Intent.MongoDb</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="fa1ad7d2-02d6-4754-b938-45337bb38300" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>SharpCompress</name>
+          <display>SharpCompress (0.30.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>0.30.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a202da88-be5a-41cb-adbb-4c845657769b</parentFolderId>
+          <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
+          <packageName>Intent.MongoDb</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="4a634a2d-50e2-41b7-b2e9-e61b4a04b4b9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Snappier</name>
+          <display>Snappier (1.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>1.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a202da88-be5a-41cb-adbb-4c845657769b</parentFolderId>
+          <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
+          <packageName>Intent.MongoDb</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="76ad25b6-46d0-4df8-a0e4-94c3c4a4b079" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Buffers</name>
+          <display>System.Buffers (4.5.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>4.5.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a202da88-be5a-41cb-adbb-4c845657769b</parentFolderId>
+          <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
+          <packageName>Intent.MongoDb</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="c93ecdf8-fd44-4e07-8081-83667e80649f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>ZstdSharp.Port</name>
+          <display>ZstdSharp.Port (0.7.3)</display>
+          <isAbstract>false</isAbstract>
+          <value>0.7.3</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a202da88-be5a-41cb-adbb-4c845657769b</parentFolderId>
+          <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
+          <packageName>Intent.MongoDb</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

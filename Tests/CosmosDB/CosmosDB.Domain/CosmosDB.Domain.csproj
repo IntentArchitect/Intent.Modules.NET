@@ -1,13 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.7" />
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="3.0.0" />
   </ItemGroup>
 
 </Project>

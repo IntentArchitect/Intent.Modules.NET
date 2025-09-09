@@ -106,6 +106,7 @@ public class AutoImplementServiceOperationTask : IModuleTask
                - Apply `[IntentIgnore]` attribute to both declaration and implementation
                - Then call this method from your service method
             5. Repository methods cannot return DTOs and must define their own data contracts alongside the interface if needed.
+            6. Never process in memory that which would be more efficiently processed in the database via an Entity Framework Core Linq query (e.g. calculating aggregate values).
 
             ## Implementation Process
             1. First, analyze all code files provided and understand how the fit together.
@@ -135,6 +136,19 @@ public class AutoImplementServiceOperationTask : IModuleTask
                - Repository interfaces (adding new methods only)
                - Repository concrete classes (implementing new methods only)
             2. Preserve all existing code, attributes, and file paths exactly
+            
+            ## Important Reminders
+            - NEVER remove or modify existing class members.
+            - NEVER access DbContext or use Queryable() directly in handlers.
+            - NEVER invoke repository methods that don't exist.
+            - NEVER do any character escaping in your response.
+            - IF you add a new repository method, you MUST provide BOTH the interface declaration AND concrete implementation.
+            - ALL new repository methods must be marked with `[IntentIgnore]`.
+            - Performance and clean architecture are key priorities.
+            - (IMPORTANT) For handlers that update entities, DO NOT call the `Update` method on the repository, or call `UnitOfWork.SaveChangesAsync()`. These are called implicitly as part of the MediatR behaviour pipeline
+            - Use the same newline characters as the ones provided in the code files.
+            - (IMPORTANT) Ensure that any Linq queries against the DbContext will be valid during execution for Entity Framework Core
+            - You can't access owned entities from the dbContext in EntityFrameworkCore
             
             ## Design and Intent Context
             {{$designContext}}
@@ -192,15 +206,6 @@ public class AutoImplementServiceOperationTask : IModuleTask
             2.3. Any modified repository concrete classes (if you added implementations)
             2.4. All files must maintain their exact original paths
             2.5. All existing code and attributes must be preserved unless explicitly modified
-
-            ## Important Reminders
-            - NEVER remove or modify existing class members
-            - NEVER access DbContext or use Queryable() directly in services
-            - NEVER invoke repository methods that don't exist
-            - IF you add a new repository method, you MUST provide BOTH the interface declaration AND concrete implementation
-            - ALL new repository methods must be marked with `[IntentIgnore]`
-            - Performance and clean architecture are key priorities
-            - You can't access owned entities from the dbContext in EntityFrameworkCore
             """;
 	    
         var requestFunction = kernel.CreateFunctionFromPrompt(promptTemplate, new PromptExecutionSettings

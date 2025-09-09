@@ -45,16 +45,16 @@
           <mappedEnd>
             <expression>{Quote.PersonId}</expression>
             <path>
-              <target id="a7b77563-def1-45b2-889c-91fa833ba330" name="User" type="element" specialization="Class" />
-              <target id="7ec7a457-d0f9-4a20-8f36-2e37acce66b8" name="base" type="association" specialization="Generalization Target End" />
-              <target id="af161e34-0b6a-4257-aaea-141a5d111339" name="Id" type="element" specialization="Attribute" />
+              <target id="a7b77563-def1-45b2-889c-91fa833ba330" name="User" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="7ec7a457-d0f9-4a20-8f36-2e37acce66b8" name="base" type="association" specialization="Generalization Target End" specializationId="4686cc1d-b4d8-4b99-b45b-f77bd5496946" />
+              <target id="af161e34-0b6a-4257-aaea-141a5d111339" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </path>
             <sources>
               <source identifier="Quote.PersonId" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
                 <path>
-                  <target id="52a77343-8971-412c-9fc2-85d4391e7415" name="handler" type="association" specialization="Domain Event Handler Association Target End" />
-                  <target id="93a29e11-774c-477e-ba13-15b4615a22bb" name="Quote" type="element" specialization="Property" />
-                  <target id="abfb5805-665b-409b-9f96-94d9dc6e1e08" name="PersonId" type="element" specialization="Attribute" />
+                  <target id="52a77343-8971-412c-9fc2-85d4391e7415" name="handler" type="association" specialization="Domain Event Handler Association Target End" specializationId="f45dfee9-f62b-45ac-bfce-a3878e04b73f" />
+                  <target id="93a29e11-774c-477e-ba13-15b4615a22bb" name="Quote" type="element" specialization="Property" specializationId="b4d69073-5abb-4968-b41b-545b2f7408ed" />
+                  <target id="abfb5805-665b-409b-9f96-94d9dc6e1e08" name="PersonId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
                 </path>
               </source>
             </sources>

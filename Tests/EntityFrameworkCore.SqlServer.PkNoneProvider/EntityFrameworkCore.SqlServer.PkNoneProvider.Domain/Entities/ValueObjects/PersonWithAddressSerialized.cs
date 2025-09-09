@@ -1,0 +1,23 @@
+using System;
+using EntityFrameworkCore.SqlServer.PkNoneProvider.Domain.ValueObjects;
+using Intent.RoslynWeaver.Attributes;
+
+[assembly: IntentTemplate("Intent.Entities.DomainEntity", Version = "2.0")]
+
+namespace EntityFrameworkCore.SqlServer.PkNoneProvider.Domain.Entities.ValueObjects
+{
+    public class PersonWithAddressSerialized
+    {
+        public PersonWithAddressSerialized()
+        {
+            Name = null!;
+            AddressSerialized = null!;
+        }
+
+        public Guid Id { get; set; }
+
+        public string Name { get; set; }
+
+        public AddressSerialized AddressSerialized { get; set; }
+    }
+}

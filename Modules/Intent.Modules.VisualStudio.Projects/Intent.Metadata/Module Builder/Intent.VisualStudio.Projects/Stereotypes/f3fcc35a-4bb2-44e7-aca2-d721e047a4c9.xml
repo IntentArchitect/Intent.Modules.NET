@@ -9,6 +9,7 @@
     <type id="673AAE96-C9B1-4B7E-9A52-ADE5F9218CFC">Console App (.NET Framework)</type>
     <type id="3CDFF513-03D8-4BAB-9435-160108A086A3">WCF Service Application</type>
     <type id="00D1A9C2-B5F0-4AF3-8072-F6C62B433612">SQL Server Database Project</type>
+    <type id="0b49ae99-c1c2-46c7-a4e3-41591e0118e1">Service Fabric Project</type>
   </targetTypes>
   <targetReferenceTypes />
   <applyMode>always</applyMode>

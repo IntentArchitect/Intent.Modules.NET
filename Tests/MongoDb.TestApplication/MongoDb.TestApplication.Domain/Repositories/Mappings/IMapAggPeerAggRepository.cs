@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using MongoDb.TestApplication.Domain.Entities;
 using MongoDb.TestApplication.Domain.Entities.Mappings;
+using MongoDb.TestApplication.Domain.Repositories.Documents.Mappings;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Entities.Repositories.Api.EntityRepositoryInterface", Version = "1.0")]
@@ -14,15 +15,7 @@ using MongoDb.TestApplication.Domain.Entities.Mappings;
 namespace MongoDb.TestApplication.Domain.Repositories.Mappings
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IMapAggPeerAggRepository : IMongoRepository<MapAggPeerAgg>
+    public interface IMapAggPeerAggRepository : IMongoRepository<MapAggPeerAgg, IMapAggPeerAggDocument, string>
     {
-        [IntentManaged(Mode.Fully)]
-        List<MapAggPeerAgg> SearchText(string searchText, Expression<Func<MapAggPeerAgg, bool>> filterExpression = null);
-        [IntentManaged(Mode.Fully)]
-        void Update(MapAggPeerAgg entity);
-        [IntentManaged(Mode.Fully)]
-        Task<MapAggPeerAgg?> FindByIdAsync(string id, CancellationToken cancellationToken = default);
-        [IntentManaged(Mode.Fully)]
-        Task<List<MapAggPeerAgg>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default);
     }
 }

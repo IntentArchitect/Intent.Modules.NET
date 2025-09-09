@@ -21,5 +21,14 @@ namespace Intent.Modules.MongoDb.Templates
             return setting == null ||
                 setting.Id == Id;
         }
+
+        public static bool FilterDbProvider(IElement x)
+        {
+            if (!x.Package.HasStereotype("Document Database"))
+                return false;
+            var setting = x.Package.GetStereotypeProperty<IElement>("Document Database", "Provider");
+            return setting == null ||
+                setting.Id == Id;
+        }
     }
 }

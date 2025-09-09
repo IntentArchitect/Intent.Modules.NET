@@ -1,3 +1,7 @@
+### Version 1.1.8
+
+- Fixed: Api Version SwaggerGen Options Template will not run if Intent.AspNetCore.Swashbuckle is not installed
+
 ### Version 1.1.7
 
 - Fixed: Updated NuGet package versions.

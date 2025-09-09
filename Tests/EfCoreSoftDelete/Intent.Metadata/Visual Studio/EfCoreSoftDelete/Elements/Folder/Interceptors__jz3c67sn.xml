@@ -3,10 +3,22 @@
   <name>Interceptors</name>
   <display>Interceptors</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>a0c3c2d7-691f-4ecd-92cb-65b842eda668</parentFolderId>
-  <stereotypes />
+  <packageId>529bf4ef-debf-44e2-8afd-7f5e214d14a6</packageId>
+  <packageName>EfCoreSoftDelete</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
   <metadata />
   <childElements>
     <childElement id="bc7e01b0-fd61-41e7-abbf-e5001a257bba" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -17,6 +29,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>03308ff5-f9fe-4764-8863-a12511a2a5b5</parentFolderId>
+      <packageId>529bf4ef-debf-44e2-8afd-7f5e214d14a6</packageId>
+      <packageName>EfCoreSoftDelete</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

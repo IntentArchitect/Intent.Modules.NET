@@ -12,7 +12,7 @@
       <ProjectId>9265daa2-69e5-45a8-8dd7-17bec3411b9b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#381a0b6c-688c-43f5-812e-c6b76c61b0a6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>FactoryExtentions/BinaryContentFilterExtension.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>FactoryExtensions/BinaryContentFilterExtension.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>BinaryContentFilterExtension.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
@@ -20,7 +20,7 @@
       <ProjectId>9265daa2-69e5-45a8-8dd7-17bec3411b9b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#6879086c-8477-4b0a-ae01-8b6dc49d1003</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>FactoryExtentions/ExceptionFilterExtension.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>FactoryExtensions/ExceptionFilterExtension.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ExceptionFilterExtension.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
@@ -28,7 +28,7 @@
       <ProjectId>9265daa2-69e5-45a8-8dd7-17bec3411b9b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#3f12f92a-d670-4abe-b034-0123bfba10da</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>FactoryExtentions/JsonOptionsExtension.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>FactoryExtensions/JsonOptionsExtension.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>JsonOptionsExtension.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>

@@ -12,6 +12,7 @@ namespace Intent.Modules.MongoDb
     public class NugetPackages : INugetPackages
     {
         public const string FinbuckleMultiTenantPackageName = "Finbuckle.MultiTenant";
+        public const string MongoDBDriverPackageName = "MongoDB.Driver";
         public const string MongoFrameworkPackageName = "MongoFramework";
 
         public void RegisterPackages()
@@ -19,15 +20,15 @@ namespace Intent.Modules.MongoDb
             NugetRegistry.Register(FinbuckleMultiTenantPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("9.2.2")
-                            .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration", "9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.Http", "9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.Options", "9.0.7")
-                            .WithNugetDependency("Microsoft.Extensions.Options.ConfigurationExtensions", "9.0.7"),
-                        ( >= 8, >= 0) => new PackageVersion("9.2.2")
+                        ( >= 9, >= 0) => new PackageVersion("9.3.0")
+                            .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration", "9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Http", "9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "9.0.8")
+                            .WithNugetDependency("Microsoft.Extensions.Options.ConfigurationExtensions", "9.0.8"),
+                        ( >= 8, >= 0) => new PackageVersion("9.3.0")
                             .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "8.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Configuration", "8.0.0")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "8.0.1")
@@ -35,7 +36,7 @@ namespace Intent.Modules.MongoDb
                             .WithNugetDependency("Microsoft.Extensions.Logging", "8.0.1")
                             .WithNugetDependency("Microsoft.Extensions.Options", "8.0.2")
                             .WithNugetDependency("Microsoft.Extensions.Options.ConfigurationExtensions", "8.0.0"),
-                        ( >= 7, >= 0) => new PackageVersion("8.1.5")
+                        ( >= 7, >= 0) => new PackageVersion("8.1.6")
                             .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "7.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Configuration", "7.0.0")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "7.0.0")
@@ -54,6 +55,33 @@ namespace Intent.Modules.MongoDb
                             .WithNugetDependency("Microsoft.Extensions.Options.ConfigurationExtensions", "3.1.0")
                             .WithNugetDependency("System.Text.Json", "6.0.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{FinbuckleMultiTenantPackageName}'"),
+                    }
+                );
+            NugetRegistry.Register(MongoDBDriverPackageName,
+                (framework) => (framework.Major, framework.Minor) switch
+                    {
+                        ( >= 6, >= 0) => new PackageVersion("3.4.3")
+                            .WithNugetDependency("DnsClient", "1.6.1")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "2.0.0")
+                            .WithNugetDependency("MongoDB.Bson", "3.4.3")
+                            .WithNugetDependency("SharpCompress", "0.30.1")
+                            .WithNugetDependency("Snappier", "1.0.0")
+                            .WithNugetDependency("System.Buffers", "4.5.1")
+                            .WithNugetDependency("ZstdSharp.Port", "0.7.3"),
+                        ( >= 2, >= 1) => new PackageVersion("3.4.3")
+                            .WithNugetDependency("DnsClient", "1.6.1")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "2.0.0")
+                            .WithNugetDependency("MongoDB.Bson", "3.4.3")
+                            .WithNugetDependency("SharpCompress", "0.30.1")
+                            .WithNugetDependency("Snappier", "1.0.0")
+                            .WithNugetDependency("System.Buffers", "4.5.1")
+                            .WithNugetDependency("ZstdSharp.Port", "0.7.3"),
+                        ( >= 2, >= 0) => new PackageVersion("2.30.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "2.0.0")
+                            .WithNugetDependency("MongoDB.Bson", "2.30.0")
+                            .WithNugetDependency("MongoDB.Driver.Core", "2.30.0")
+                            .WithNugetDependency("MongoDB.Libmongocrypt", "1.12.0"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MongoDBDriverPackageName}'"),
                     }
                 );
             NugetRegistry.Register(MongoFrameworkPackageName,
@@ -83,6 +111,8 @@ namespace Intent.Modules.MongoDb
         }
 
         public static NugetPackageInfo FinbuckleMultiTenant(IOutputTarget outputTarget) => NugetRegistry.GetVersion(FinbuckleMultiTenantPackageName, outputTarget.GetMaxNetAppVersion());
+
+        public static NugetPackageInfo MongoDBDriver(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MongoDBDriverPackageName, outputTarget.GetMaxNetAppVersion());
 
         public static NugetPackageInfo MongoFramework(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MongoFrameworkPackageName, outputTarget.GetMaxNetAppVersion());
     }

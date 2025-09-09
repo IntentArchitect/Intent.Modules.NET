@@ -1,7 +1,6 @@
 using System.Reflection;
 using AspNetCore.AzureServiceBus.GroupA.Application.Common.Behaviours;
 using Intent.RoslynWeaver.Attributes;
-using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

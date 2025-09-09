@@ -1,3 +1,7 @@
+### Version 1.2.8
+
+- Fixed: DTO Validation generation is only generated when valid DTOs are present.
+
 ### Version 1.2.7
 
 - Improvement: Updated referenced packages versions

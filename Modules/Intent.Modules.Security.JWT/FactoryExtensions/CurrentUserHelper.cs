@@ -36,11 +36,12 @@ namespace Intent.Modules.Security.JWT.FactoryExtensions
                 file.AddUsing("Microsoft.AspNetCore.Http");
 
                 var priClass = file.Classes.First();
-                priClass.AddField("IHttpContextAccessor", "_httpContextAccessor", prop => prop.PrivateReadOnly());
 
                 var ctor = priClass.Constructors.First();
-                ctor.AddParameter("IHttpContextAccessor", "httpContextAccessor");
-                ctor.AddStatement($@"_httpContextAccessor = httpContextAccessor;");
+                if (!ctor.Parameters.Any(p => p.Name == "httpContextAccessor"))
+                {
+                    ctor.AddParameter("IHttpContextAccessor", "httpContextAccessor", p => p.IntroduceReadonlyField());
+                }
 
                 var contractedUserIdProperty = currentUserTemplate.CSharpFile.Interfaces.FirstOrDefault()?.Properties?.FirstOrDefault(p => p.Name == "Id");
                 if (contractedUserIdProperty is null)

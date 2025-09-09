@@ -94,5 +94,34 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="5d6a8e44-7914-423b-aead-4512d90ae6b4" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+      <name>Migrations</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8817d69f-712c-4502-a270-f1fd66d469ee</parentFolderId>
+      <packageId>89e7a187-d5fd-43cd-9cf7-e1f823f8f2f2</packageId>
+      <packageName>EntityFrameworkCore.SqlServer.EF8</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="f2417f62-0911-4f67-ad68-8437a81f58d0" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.EntityFrameworkCore.DbMigrationsReadMe</name>
+          <display>Intent.EntityFrameworkCore.DbMigrationsReadMe</display>
+          <externalReference>Intent.EntityFrameworkCore</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>5d6a8e44-7914-423b-aead-4512d90ae6b4</parentFolderId>
+          <packageId>89e7a187-d5fd-43cd-9cf7-e1f823f8f2f2</packageId>
+          <packageName>EntityFrameworkCore.SqlServer.EF8</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>

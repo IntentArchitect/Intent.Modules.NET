@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="003053b7-3f59-4816-abad-1f6a6dfa8dd7" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Documents</name>
+  <display>Documents</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>db8a508d-76a1-4d6f-826d-a804bd7855da</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="bf5e1e3e-89a0-4335-b16a-0565ecbe1d39" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.CosmosDB.CosmosDBDocument</name>
+      <display>Intent.CosmosDB.CosmosDBDocument</display>
+      <externalReference>Intent.CosmosDB</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>003053b7-3f59-4816-abad-1f6a6dfa8dd7</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="61d340c3-b590-43ba-8cd4-3f19336cfbc5" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.CosmosDB.CosmosDBDocumentOfTInterface</name>
+      <display>Intent.CosmosDB.CosmosDBDocumentOfTInterface</display>
+      <externalReference>Intent.CosmosDB</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>003053b7-3f59-4816-abad-1f6a6dfa8dd7</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="051a53b1-0e40-46db-b0b5-fc6ed8f61ae3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.CosmosDB.CosmosDBDocumentTypeExtensionMethods</name>
+      <display>Intent.CosmosDB.CosmosDBDocumentTypeExtensionMethods</display>
+      <externalReference>Intent.CosmosDB</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>003053b7-3f59-4816-abad-1f6a6dfa8dd7</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="400a8f64-004b-423f-bd02-b57368ecdf90" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.CosmosDB.CosmosDBValueObjectDocument</name>
+      <display>Intent.CosmosDB.CosmosDBValueObjectDocument</display>
+      <externalReference>Intent.CosmosDB</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>003053b7-3f59-4816-abad-1f6a6dfa8dd7</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="fa3c9729-4efd-4f2e-a024-72a3cdbb629c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.CosmosDB.EnumJsonConverter</name>
+      <display>Intent.CosmosDB.EnumJsonConverter</display>
+      <externalReference>Intent.CosmosDB</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>003053b7-3f59-4816-abad-1f6a6dfa8dd7</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="791492eb-4c80-4914-8427-f6f9a0273dff" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.CosmosDB.ReflectionHelper</name>
+      <display>Intent.CosmosDB.ReflectionHelper</display>
+      <externalReference>Intent.CosmosDB</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>003053b7-3f59-4816-abad-1f6a6dfa8dd7</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

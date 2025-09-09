@@ -408,6 +408,20 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Amazon", "Amazon", "{5BB799
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Blazor.Authentication", "Intent.Modules.Blazor.Authentication\Intent.Modules.Blazor.Authentication.csproj", "{24706897-5AA1-4842-B13A-BCB948B0FFD0}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.MongoDb.MongoFramework", "Intent.Modules.MongoDb.MongoFramework\Intent.Modules.MongoDb.MongoFramework.csproj", "{E18A801D-8B65-406E-BA1B-4280D754F5D3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.MongoDb.MongoFramework.Repositories", "Intent.Modules.MongoDb.MongoFramework.Repositories\Intent.Modules.MongoDb.MongoFramework.Repositories.csproj", "{74CA1ABE-D04C-4092-9C24-FFE9552AE60C}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intent.Modules.ApiHosting.Shared", "Intent.Modules.ApiHosting.Shared\Intent.Modules.ApiHosting.Shared.shproj", "{83FA2D65-5D3F-433C-A1A4-7C044B4E3A3C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Aws.Lambda.Functions.Dispatch.Services", "Intent.Modules.Aws.Lambda.Functions.Dispatch.Services\Intent.Modules.Aws.Lambda.Functions.Dispatch.Services.csproj", "{48E0FA03-08A9-4D9C-A439-129909ECE486}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Aws.Lambda.Functions.Dispatch.MediatR", "Intent.Modules.Aws.Lambda.Functions.Dispatch.MediatR\Intent.Modules.Aws.Lambda.Functions.Dispatch.MediatR.csproj", "{812B51F1-2971-46B2-BEEA-D533074057DE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Aws.Lambda.Functions", "Intent.Modules.Aws.Lambda.Functions\Intent.Modules.Aws.Lambda.Functions.csproj", "{3480947D-4CCF-40B8-97F1-0AAE4DC904F4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.Scalar", "Intent.Modules.AspNetCore.Scalar\Intent.Modules.AspNetCore.Scalar.csproj", "{63294471-F6D9-43FE-B896-D997A1665BF1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -1074,6 +1088,30 @@ Global
 		{24706897-5AA1-4842-B13A-BCB948B0FFD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24706897-5AA1-4842-B13A-BCB948B0FFD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24706897-5AA1-4842-B13A-BCB948B0FFD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E18A801D-8B65-406E-BA1B-4280D754F5D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E18A801D-8B65-406E-BA1B-4280D754F5D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E18A801D-8B65-406E-BA1B-4280D754F5D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E18A801D-8B65-406E-BA1B-4280D754F5D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74CA1ABE-D04C-4092-9C24-FFE9552AE60C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74CA1ABE-D04C-4092-9C24-FFE9552AE60C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74CA1ABE-D04C-4092-9C24-FFE9552AE60C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74CA1ABE-D04C-4092-9C24-FFE9552AE60C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48E0FA03-08A9-4D9C-A439-129909ECE486}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48E0FA03-08A9-4D9C-A439-129909ECE486}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48E0FA03-08A9-4D9C-A439-129909ECE486}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48E0FA03-08A9-4D9C-A439-129909ECE486}.Release|Any CPU.Build.0 = Release|Any CPU
+		{812B51F1-2971-46B2-BEEA-D533074057DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{812B51F1-2971-46B2-BEEA-D533074057DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{812B51F1-2971-46B2-BEEA-D533074057DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{812B51F1-2971-46B2-BEEA-D533074057DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3480947D-4CCF-40B8-97F1-0AAE4DC904F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3480947D-4CCF-40B8-97F1-0AAE4DC904F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3480947D-4CCF-40B8-97F1-0AAE4DC904F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3480947D-4CCF-40B8-97F1-0AAE4DC904F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63294471-F6D9-43FE-B896-D997A1665BF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63294471-F6D9-43FE-B896-D997A1665BF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63294471-F6D9-43FE-B896-D997A1665BF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63294471-F6D9-43FE-B896-D997A1665BF1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1146,7 +1184,7 @@ Global
 		{DDD2FF2F-CD4E-4D5E-8D8A-A62D572541DB} = {F75494CA-24E5-4CF2-8123-55A41BC20BC6}
 		{E989D79E-D842-4E1F-8CDB-CADC324296DB} = {F75494CA-24E5-4CF2-8123-55A41BC20BC6}
 		{3B8EAB4D-55BA-4AD0-9EC0-3E379ECE02CB} = {CB4522ED-5D9E-4388-8859-20415CC7F7E6}
-		{BF01F56C-FC9F-424A-8BF5-38CA6F65E2BC} = {CB4522ED-5D9E-4388-8859-20415CC7F7E6}
+		{BF01F56C-FC9F-424A-8BF5-38CA6F65E2BC} = {1595E08E-BAD2-4F90-8BD9-65F6A846526B}
 		{4B8347B4-3AC3-49B2-8E72-2C7B10476943} = {BD882ECC-9AA8-4455-AC46-45BD045553EB}
 		{0ADB36A1-6E3E-4F12-A296-6CB695ACCE17} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{84B0552E-7C31-4F40-9023-C2AFB16304E2} = {72E974DA-AFD2-446C-9D03-4AF176931A11}
@@ -1257,6 +1295,13 @@ Global
 		{E515E56C-436E-40D9-B8DA-9FBB3F2D5545} = {CB4522ED-5D9E-4388-8859-20415CC7F7E6}
 		{68073039-FB1C-4A45-AAB3-BB401E1A947D} = {5BB799CC-54A3-440B-B0D3-499DEE424CD8}
 		{24706897-5AA1-4842-B13A-BCB948B0FFD0} = {5F9FE51C-33D0-4FDE-81AF-20FD12C6AF27}
+		{E18A801D-8B65-406E-BA1B-4280D754F5D3} = {CB4522ED-5D9E-4388-8859-20415CC7F7E6}
+		{74CA1ABE-D04C-4092-9C24-FFE9552AE60C} = {CB4522ED-5D9E-4388-8859-20415CC7F7E6}
+		{83FA2D65-5D3F-433C-A1A4-7C044B4E3A3C} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
+		{48E0FA03-08A9-4D9C-A439-129909ECE486} = {F75494CA-24E5-4CF2-8123-55A41BC20BC6}
+		{812B51F1-2971-46B2-BEEA-D533074057DE} = {F75494CA-24E5-4CF2-8123-55A41BC20BC6}
+		{3480947D-4CCF-40B8-97F1-0AAE4DC904F4} = {F75494CA-24E5-4CF2-8123-55A41BC20BC6}
+		{63294471-F6D9-43FE-B896-D997A1665BF1} = {F75494CA-24E5-4CF2-8123-55A41BC20BC6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A00AF88A-EA58-4AEA-B65F-92354533E2CA}
@@ -1270,11 +1315,14 @@ Global
 		Intent.Modules.Integration.IaC.Shared.AzureEventGrid\Intent.Modules.Integration.IaC.Shared.AzureEventGrid.projitems*{1a4e3f23-7491-4da8-ac3a-55451b3abe23}*SharedItemsImports = 5
 		Intent.Modules.UnitOfWork.Persistence.Shared\Intent.Modules.UnitOfWork.Persistence.Shared.projitems*{1a4e3f23-7491-4da8-ac3a-55451b3abe23}*SharedItemsImports = 5
 		Intent.Modules.Contracts.Clients.Http.Shared\Intent.Modules.Contracts.Clients.Http.Shared.projitems*{27fde92a-fe7d-4e94-a888-4758ebe227a6}*SharedItemsImports = 13
+		Intent.Modules.ApiHosting.Shared\Intent.Modules.ApiHosting.Shared.projitems*{3480947d-4ccf-40b8-97f1-0aae4dc904f4}*SharedItemsImports = 5
 		Intent.Modules.DocumentDB.Shared\Intent.Modules.DocumentDB.Shared.projitems*{3b8eab4d-55ba-4ad0-9ec0-3e379ece02cb}*SharedItemsImports = 5
 		Intent.Modules.Enums.Shared\Intent.Modules.Enums.Shared.projitems*{46039f50-4110-455c-8288-22dec8a0d340}*SharedItemsImports = 13
 		Intent.Modules.Integration.HttpClients.Shared\Intent.Modules.Integration.HttpClients.Shared.projitems*{46ad781b-04fc-4d8d-9a46-4dbffe73628d}*SharedItemsImports = 5
+		Intent.Modules.UnitOfWork.Persistence.Shared\Intent.Modules.UnitOfWork.Persistence.Shared.projitems*{48e0fa03-08a9-4d9c-a439-129909ece486}*SharedItemsImports = 5
 		Intent.Modules.UnitOfWork.Persistence.Shared\Intent.Modules.UnitOfWork.Persistence.Shared.projitems*{4f03f39e-aac1-4b43-8cf7-03c4ea2e945f}*SharedItemsImports = 5
 		Intent.Modules.EntityFrameworkCore.Shared\Intent.Modules.EntityFrameworkCore.Shared.projitems*{4faf05b4-370f-4929-9631-c0dd42a63c8b}*SharedItemsImports = 5
+		Intent.Modules.ApiHosting.Shared\Intent.Modules.ApiHosting.Shared.projitems*{558d0e7a-9b9e-4eea-85aa-10c6466425dd}*SharedItemsImports = 5
 		Intent.Modules.Security.Shared\Intent.Modules.Security.Shared.projitems*{558d0e7a-9b9e-4eea-85aa-10c6466425dd}*SharedItemsImports = 5
 		Intent.Modules.DocumentDB.Shared\Intent.Modules.DocumentDB.Shared.projitems*{558f5562-d714-4264-a02d-350300a2c956}*SharedItemsImports = 5
 		Intent.Modules.Eventing.Shared\Intent.Modules.Eventing.Shared.projitems*{57c3c1ad-5cf7-4e51-8b9a-860b11ff7196}*SharedItemsImports = 13
@@ -1290,8 +1338,10 @@ Global
 		Intent.Modules.EntityFrameworkCore.Shared\Intent.Modules.EntityFrameworkCore.Shared.projitems*{7b7833a2-dc67-45e4-9d2f-6b7093ae1dc6}*SharedItemsImports = 5
 		Intent.Modules.Security.Shared\Intent.Modules.Security.Shared.projitems*{80081361-cc7d-430c-8861-8b2ac9d6e8a7}*SharedItemsImports = 5
 		Intent.Modules.Integration.IaC.Shared.AzureEventGrid\Intent.Modules.Integration.IaC.Shared.AzureEventGrid.projitems*{80f5653b-3622-4253-ab64-bb55de49d761}*SharedItemsImports = 13
+		Intent.Modules.ApiHosting.Shared\Intent.Modules.ApiHosting.Shared.projitems*{83fa2d65-5d3f-433c-a1a4-7c044b4e3a3c}*SharedItemsImports = 13
 		Intent.Modules.Dapr.Shared\Intent.Modules.Dapr.Shared.projitems*{84b0552e-7c31-4f40-9023-c2afb16304e2}*SharedItemsImports = 5
 		Intent.Modules.Integration.HttpClients.Shared\Intent.Modules.Integration.HttpClients.Shared.projitems*{84b0552e-7c31-4f40-9023-c2afb16304e2}*SharedItemsImports = 5
+		Intent.Modules.ApiHosting.Shared\Intent.Modules.ApiHosting.Shared.projitems*{863dedbb-b0a4-467e-96ea-f1ee97d7bd10}*SharedItemsImports = 5
 		Intent.Modules.Security.Shared\Intent.Modules.Security.Shared.projitems*{87be90b8-bd52-4284-8fc9-8a38ad6d283c}*SharedItemsImports = 13
 		Intent.Modules.Enums.Shared\Intent.Modules.Enums.Shared.projitems*{8857d329-9cb0-449a-9c01-94eb3dfb73e0}*SharedItemsImports = 5
 		Intent.Modules.UnitOfWork.Persistence.Shared\Intent.Modules.UnitOfWork.Persistence.Shared.projitems*{8857d329-9cb0-449a-9c01-94eb3dfb73e0}*SharedItemsImports = 5
@@ -1331,6 +1381,7 @@ Global
 		Intent.Modules.EntityFrameworkCore.Shared\Intent.Modules.EntityFrameworkCore.Shared.projitems*{d9ee0b15-fa5d-4bad-90c2-cf771e4b80de}*SharedItemsImports = 5
 		Intent.Modules.Security.Shared\Intent.Modules.Security.Shared.projitems*{d9ee0b15-fa5d-4bad-90c2-cf771e4b80de}*SharedItemsImports = 5
 		Intent.Modules.EntityFrameworkCore.Shared\Intent.Modules.EntityFrameworkCore.Shared.projitems*{ded84d15-0d51-44ab-a00d-fbdb739730a7}*SharedItemsImports = 5
+		Intent.Modules.DocumentDB.Shared\Intent.Modules.DocumentDB.Shared.projitems*{e18a801d-8b65-406e-ba1b-4280d754f5d3}*SharedItemsImports = 5
 		Intent.Modules.DocumentDB.Shared\Intent.Modules.DocumentDB.Shared.projitems*{e515e56c-436e-40d9-b8da-9fbb3f2d5545}*SharedItemsImports = 5
 		Intent.Modules.Security.Shared\Intent.Modules.Security.Shared.projitems*{e734455f-4103-4ef0-932c-28948e7f2e94}*SharedItemsImports = 5
 		Intent.Modules.UnitOfWork.Persistence.Shared\Intent.Modules.UnitOfWork.Persistence.Shared.projitems*{e734455f-4103-4ef0-932c-28948e7f2e94}*SharedItemsImports = 5

@@ -42,6 +42,6 @@ if (-not $CheckDeviations) {
 }
 
 intent-cli $params
-# dotnet run --project D:\Dev\Intent\Intent.IntentArchitect\IntentArchitect.ElectronClient\Intent.SoftwareFactory.CLI\Intent.SoftwareFactory.CLI.csproj /p:WarningLevel=0 /p:NoWarn="NU5104" -- $params
+# dotnet run --no-build --project D:\Dev\Intent\Intent.IntentArchitect\IntentArchitect.ElectronClient\Intent.SoftwareFactory.CLI\Intent.SoftwareFactory.CLI.csproj /p:WarningLevel=0 /p:NoWarn="NU5104" -- $params
 
 exit $LASTEXITCODE

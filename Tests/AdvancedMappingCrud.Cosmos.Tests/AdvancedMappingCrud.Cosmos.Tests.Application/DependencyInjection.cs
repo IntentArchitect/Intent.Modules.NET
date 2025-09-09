@@ -1,10 +1,8 @@
 using System.Reflection;
 using AdvancedMappingCrud.Cosmos.Tests.Application.Common.Behaviours;
 using AdvancedMappingCrud.Cosmos.Tests.Application.Common.Validation;
-using AutoMapper;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
-using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

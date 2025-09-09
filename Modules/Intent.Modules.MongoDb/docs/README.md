@@ -12,12 +12,12 @@ For more information on MongoDB, check out their [official site](https://www.mon
 
 This module consumes your `Domain Model`, which you build in the `Domain Designer` and generates the corresponding MongoDB implementation:-
 
-* Database context
-* Unit of Work.
-* `app.settings` configuration.
-* Dependency Injection wiring.
+* Repository pattern
+* Unit of Work
+* `app.settings` configuration
+* Dependency Injection wiring
 
-These MongoDB patterns are realized using [MongoFramework](https://github.com/TurnerSoftware/MongoFramework).
+These MongoDB patterns are realized using the official [MongoDB.Driver](https://www.mongodb.com/docs/drivers/csharp/current/).
 
 ## Domain Designer
 
@@ -29,12 +29,11 @@ When designing domain models for MongoDB your domain package must be annotated w
 
 The module can work in conjunction with the `Intent.Modules.AspNetCore.MultiTenancy`. This module currently only supports the `Separate Databases` Data Isolation option.
 
-In this setup each tenant will connection to their own MongoDB, you simply need to configure your connection strings per tenant.
+In this setup each tenant will connect to their own MongoDB, you simply need to configure your connection strings per tenant.
 
 Here is a sample configuration for the `In Memory` tenant store.
 
 ```csharp
-
 public static void InitializeStore(IServiceProvider sp)
 {
     var scopeServices = sp.CreateScope().ServiceProvider;
@@ -43,8 +42,18 @@ public static void InitializeStore(IServiceProvider sp)
     store.TryAddAsync(new TenantInfo() { Id = "sample-tenant-1", Identifier = "tenant1", Name = "Tenant 1", MongoDbConnection = "mongodb://localhost/MongoDbMultiTenancySeperateDb-tenant1" }).Wait();
     store.TryAddAsync(new TenantInfo() { Id = "sample-tenant-2", Identifier = "tenant2", Name = "Tenant 2", MongoDbConnection = "mongodb://localhost/MongoDbMultiTenancySeperateDb-tenant2" }).Wait();
 }
-
 ```
+
+## Settings
+
+### Persist Primary Key as ObjectId
+
+When enabled, this setting stores the entity’s primary key using MongoDB’s native ObjectId type instead of a string or GUID.
+
+### Always Include Discriminator in Documents
+
+This setting ensures that a discriminator field is always stored in each document, even when the document belongs to the base type. 
+This can make querying and polymorphic deserialization more reliable, particularly in systems where documents of multiple subtypes are stored in the same collection.
 
 ## Related Modules
 
@@ -55,7 +64,3 @@ This module provides Document DB related stereotypes for extending the Domain De
 ### Intent.Entities
 
 This module generated domain entities as C# classes, which are used by this model.
-
-### Intent.MongoDb.Repositories
-
-This module provides a MongoDB repository pattern implementation.

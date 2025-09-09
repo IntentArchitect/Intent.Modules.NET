@@ -1,4 +1,9 @@
-﻿### Version 7.1.5
+﻿### Version 7.1.6
+
+- Improvement: Internal refactoring.
+- Improvement: Added support for having multiple ASP.NET Core projects each with their own controllers, startup files, etc, in the same application.
+
+### Version 7.1.5
 
 - Improvement: `Required` attribute automatically added to qualifying parameter.
 - Improvement: Casing of `route` parameters will now match the casing of the method parameter, so binding is successful.

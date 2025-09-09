@@ -44,7 +44,7 @@ namespace MudBlazor.ExampleApp.Client.Pages.Products
             try
             {
                 _addProductClickProcessing = true;
-                var dialog = await DialogService.ShowAsync<ProductAddDialog>("Add Product", new DialogOptions() { FullWidth = true });
+                var dialog = await DialogService.ShowAsync<ProductAddDialog>("Add Product", new DialogOptions() { FullWidth = true, MaxWidth = MaxWidth.Large, BackdropClick = false });
                 var result = await dialog.Result;
 
                 if (result.Canceled)
@@ -71,7 +71,7 @@ namespace MudBlazor.ExampleApp.Client.Pages.Products
                 {
                     { x => x.ProductId, Guid.Parse(rowId) },
                 };
-                var dialog = await DialogService.ShowAsync<ProductEditDialog>("Edit Product", parameters, new DialogOptions() { FullWidth = true });
+                var dialog = await DialogService.ShowAsync<ProductEditDialog>("Edit Product", parameters, new DialogOptions() { FullWidth = true, MaxWidth = MaxWidth.Large, BackdropClick = false });
                 var result = await dialog.Result;
 
                 if (result.Canceled)

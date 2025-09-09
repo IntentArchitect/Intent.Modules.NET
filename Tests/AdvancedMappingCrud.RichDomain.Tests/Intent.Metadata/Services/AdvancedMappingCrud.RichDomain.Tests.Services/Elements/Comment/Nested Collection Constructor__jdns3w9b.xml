@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1e8d6bed-7773-474b-a9f2-c11286d75f8a" type="Comment" typeId="32cb9020-2896-4dc0-9a6d-2aaae3cb431f">
+  <name>Nested Collection Constructor</name>
+  <display>Nested Collection Constructor</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>6cd5e7e3-1f9e-4bdb-80f0-9deeb4f01fee</parentFolderId>
+  <packageId>4cb1decc-0bf9-44b4-86fd-2301923ae3ab</packageId>
+  <packageName>AdvancedMappingCrud.RichDomain.Tests.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

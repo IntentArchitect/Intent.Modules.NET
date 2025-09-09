@@ -144,6 +144,11 @@ public class CallServiceOperationMappingResolver : IMappingTypeResolver
             return new MethodInvocationMapping(mappingModel, _template);
         }
 
+        if (mappingModel.Model.SpecializationType == "Parameter")
+        {
+            return new ObjectInitializationMapping(mappingModel, _template);
+        }
+
         if (mappingModel.Model.SpecializationType == "DTO-Field")
         {
             return new ObjectInitializationMapping(mappingModel, _template);

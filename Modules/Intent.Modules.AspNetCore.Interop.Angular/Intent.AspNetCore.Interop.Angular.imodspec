@@ -2,7 +2,7 @@
 <package>
   <id>Intent.AspNetCore.Interop.Angular</id>
   <version>4.0.3</version>
-  <supportedClientVersions>[4.2.4, 5.0.0-a)</supportedClientVersions>
+  <supportedClientVersions>[4.5.15-a, 5.0.0-a)</supportedClientVersions>
   <releaseNotes>release-notes.md</releaseNotes>
   <summary>Supplies ASP.NET Core host start-up configuration for Angular SPAs.</summary>
   <description>Supplies ASP.NET Core host start-up configuration for Angular SPAs.</description>
@@ -25,8 +25,8 @@
   </interoperability>
   <dependencies>
     <dependency id="Intent.AspNetCore" version="6.0.0" />
-    <dependency id="Intent.Common" version="3.7.3" />
-    <dependency id="Intent.Common.CSharp" version="3.8.6" />
+    <dependency id="Intent.Common" version="3.9.0-pre.4" />
+    <dependency id="Intent.Common.CSharp" version="3.9.5-pre.3" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
   </dependencies>
   <files>

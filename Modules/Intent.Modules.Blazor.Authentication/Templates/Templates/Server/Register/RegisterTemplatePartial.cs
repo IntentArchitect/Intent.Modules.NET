@@ -39,7 +39,6 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Regist
 
                     file.AddUsing("System.ComponentModel.DataAnnotations");
                     file.AddUsing("Microsoft.AspNetCore.Authentication");
-                    file.AddUsing("Microsoft.AspNetCore.Identity");
                     file.AddInjectDirective(GetTypeName(AuthServiceInterfaceTemplate.TemplateId), "AuthService");
 
                     file.AddHtmlElement("PageTitle", element => element.WithText($"Register"));
@@ -89,7 +88,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Regist
 
                     file.AddCodeBlock(code =>
                     {
-                        code.AddField("IEnumerable<IdentityError>?", "identityErrors");
+                        code.AddField($"IEnumerable<{code.Template.UseType("Microsoft.AspNetCore.Identity.IdentityError")}>?", "identityErrors");
 
                         code.AddProperty("InputModel", "Input", input =>
                         {
