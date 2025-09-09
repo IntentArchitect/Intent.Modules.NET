@@ -101,10 +101,13 @@ namespace Intent.Modules.Aws.Lambda.Functions.Dispatch.Services.FactoryExtension
                         continue;
                     }
 
-                    method.InsertStatement(0, $"""
-                                               // AWSLambda0107: can parameter of type System.Threading.CancellationToken passing is not supported.
-                                               var cancellationToken = {template.UseType("System.Threading.CancellationToken")}.None;
-                                               """);
+                    template.CSharpFile.OnBuild(_ =>
+                    {
+                        method.InsertStatement(0, $"""
+                                                   // AWSLambda0107: can parameter of type System.Threading.CancellationToken passing is not supported.
+                                                   var cancellationToken = {template.UseType("System.Threading.CancellationToken")}.None;
+                                                   """);
+                    }, int.MaxValue);
 
                     var awaitModifier = string.Empty;
                     var arguments = string.Join(", ", operationModel.Parameters

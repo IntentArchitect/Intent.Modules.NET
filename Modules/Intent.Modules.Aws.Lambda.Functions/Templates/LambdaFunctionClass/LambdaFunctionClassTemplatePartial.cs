@@ -119,6 +119,7 @@ public partial class LambdaFunctionClassTemplate : CSharpTemplateBase<ILambdaFun
 
                             method.AddIfStatement($"!Guid.TryParse({guidParam.Name}, out var {guidParamName})", @if =>
                             {
+                                @if.SeparatedFromPrevious(false);
                                 @if.AddReturn($"HttpResults.BadRequest($\"Invalid format for {guidParam.Name}: {{{guidParam.Name}}}\")");
                             });
                         }
