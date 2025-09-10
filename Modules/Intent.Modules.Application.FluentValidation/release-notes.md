@@ -1,10 +1,14 @@
+### Version 3.11.3
+
+- Improvement: Updated interop modules.
+
 ### Version 3.11.2
 
-- Improvement: Updated referenced packages versions
+- Improvement: Updated referenced packages versions.
 
 ### Version 3.11.1
 
-- Improvement: Added stereotype descriptions in preperation for Intent Architect 4.5. 
+- Improvement: Added stereotype descriptions in preparation for Intent Architect 4.5. 
 
 ### Version 3.11.0
 
