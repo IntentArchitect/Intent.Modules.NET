@@ -65,6 +65,8 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
                         return provider.GetRequiredService<{dependencyInjection.GetMongoDbMultiTenantConnectionFactoryName()}>().GetConnection(tenantConnections.MongoDbConnection);
                     }});");
 
+                    method.AddStatement("services.RegisterMongoCollections(typeof(DependencyInjection).Assembly);");
+
                     foreach (var model in dependencyInjection.ExecutionContext.FindTemplateInstances<ICSharpFileBuilderTemplate>("Intent.MongoDb.MongoDbDocument"))
                     {
                         dependencyInjection.GetTypeName(model);
@@ -96,7 +98,7 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
                         return sp.GetRequiredService<IMongoClient>().GetDatabase(dbName);
                     }});");
 
-                    method.AddStatement("services.RegisterMongoCollections();");
+                    method.AddStatement("services.RegisterMongoCollections(typeof(DependencyInjection).Assembly);");
 
                     foreach (var model in dependencyInjection.ExecutionContext.FindTemplateInstances<ICSharpFileBuilderTemplate>("Intent.MongoDb.MongoDbDocument"))
                     {

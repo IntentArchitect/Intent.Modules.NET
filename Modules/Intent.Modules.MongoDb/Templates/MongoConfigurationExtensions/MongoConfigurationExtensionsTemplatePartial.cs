@@ -29,6 +29,9 @@ namespace Intent.Modules.MongoDb.Templates.MongoConfigurationExtensions
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
                 .AddUsing("MongoDB.Driver")
+                .AddUsing("System.Reflection")
+                .AddUsing("System.Linq")
+                .AddUsing("System")
                 .AddClass($"MongoConfigurationExtensions", @class =>
                 {
                     @class.Static().Internal();
@@ -50,23 +53,67 @@ namespace Intent.Modules.MongoDb.Templates.MongoConfigurationExtensions
                         addMongoCollection.AddReturn("services");
                     });
 
+                    var domainEntities = ExecutionContext.FindTemplateInstances<ICSharpFileBuilderTemplate>("Intent.Entities.DomainEntity");
+                    var toExclude = new List<string>();
+                    foreach (var model in domainEntities)
+                    {
+
+                        if (model.CSharpFile.Classes.First().IsAbstract && model.CSharpFile.Classes.First().GenericParameters.Count > 0)
+                        {
+                            GetTypeName(model);
+
+                            toExclude.Add(model.ClassName);
+                            @class.AddMethod("void", $"Register{model.ClassName}Mappings", registerMongoCollections =>
+                            {
+                                registerMongoCollections.Static();
+                                registerMongoCollections.AddParameter("Assembly", "assembly");
+
+                                registerMongoCollections.AddStatement($"var baseType = typeof({model.ClassName}<>);");
+
+                                registerMongoCollections.AddStatements(@$"var derivedTypes = assembly.GetTypes()
+                                    .Where(t => t.BaseType != null &&
+                                                t.BaseType.IsGenericType &&
+                                                t.BaseType.GetGenericTypeDefinition() == baseType);".ConvertToStatements());
+
+                                registerMongoCollections.AddForEachStatement("derivedType", "derivedTypes", @foreach =>
+                                {
+                                    @foreach.AddStatement("var genericArg = derivedType.BaseType!.GetGenericArguments()[0];");
+                                    @foreach.AddStatement($"var closedMappingType = typeof({model.ClassName}Mapping<>).MakeGenericType(genericArg);");
+                                    @foreach.AddStatement("var mappingInstance = Activator.CreateInstance(closedMappingType);");
+                                    @foreach.AddStatement($"var registerMethod = closedMappingType.GetMethod(nameof({model.ClassName}Mapping<object>.RegisterCollectionMap));");
+                                    
+                                    @foreach.AddStatement("registerMethod?.Invoke(mappingInstance, null);");
+                                });
+                            });
+                        }
+                    }
+
                     @class.AddMethod("IServiceCollection", "RegisterMongoCollections", registerMongoCollections =>
                     {
                         registerMongoCollections.Static();
                         registerMongoCollections.AddParameter("IServiceCollection", "services", p => p.WithThisModifier());
+                        registerMongoCollections.AddParameter("Assembly", "assembly");
+
 
                         // Foreach model mapping
                         foreach (var model in ExecutionContext.FindTemplateInstances<ICSharpFileBuilderTemplate>(MongoDbMappingTemplate.TemplateId))
                         {
                             GetTypeName(model);
-                            if (!model.CSharpFile.Classes.First().IsAbstract)
+
+                            if (!toExclude.Contains(model.ClassName.Replace("Mapping", "")))
                             {
                                 registerMongoCollections.AddStatement($"services.AddMongoCollection(new {model.ClassName}());");
+                            }
+                            else
+                            {
+                                registerMongoCollections.AddStatement($"Register{model.ClassName}s(assembly);");
                             }
                         }
 
                         registerMongoCollections.AddReturn("services");
                     });
+
+
                 });
         }
 
