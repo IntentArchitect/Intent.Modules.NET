@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
@@ -7,9 +10,6 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.MongoDb.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -45,7 +45,7 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbMapping
                     @class.AddProperty("string", "CollectionName", p => p.WithoutSetter().Getter.WithExpressionImplementation($"\"{Model.Name.Pluralize()}\""));
                     @class.AddMethod("void", "RegisterCollectionMap", registerCollectionMap =>
                     {
-                        
+
 
                         GetTypeName("Intent.Entities.DomainEntity", model.Id);
                         registerCollectionMap.AddIfStatement($"!BsonClassMap.IsClassMapRegistered(typeof({Model.Name}{genericTypeParameters}))", @if =>
