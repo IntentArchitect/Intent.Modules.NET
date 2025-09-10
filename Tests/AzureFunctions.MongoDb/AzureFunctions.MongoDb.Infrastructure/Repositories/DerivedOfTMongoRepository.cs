@@ -1,10 +1,12 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
+using System.Threading;
+using System.Threading.Tasks;
 using AzureFunctions.MongoDb.Domain.Entities;
 using AzureFunctions.MongoDb.Domain.Repositories;
-using AzureFunctions.MongoDb.Domain.Repositories.Documents;
 using AzureFunctions.MongoDb.Infrastructure.Persistence;
-using AzureFunctions.MongoDb.Infrastructure.Persistence.Documents;
 using Intent.RoslynWeaver.Attributes;
 using MongoDB.Driver;
 
@@ -13,10 +15,14 @@ using MongoDB.Driver;
 
 namespace AzureFunctions.MongoDb.Infrastructure.Repositories
 {
-    internal class DerivedOfTMongoRepository : MongoRepositoryBase<DerivedOfT, DerivedOfTDocument, IDerivedOfTDocument, string>, IDerivedOfTRepository
+    internal class DerivedOfTMongoRepository : MongoRepositoryBase<DerivedOfT, string>, IDerivedOfTRepository
     {
-        public DerivedOfTMongoRepository(IMongoCollection<DerivedOfTDocument> collection, MongoDbUnitOfWork unitOfWork) : base(collection, unitOfWork)
+        public DerivedOfTMongoRepository(IMongoCollection<DerivedOfT> collection, MongoDbUnitOfWork unitOfWork) : base(collection, unitOfWork, x => x.Id)
         {
         }
+
+        public Task<DerivedOfT?> FindByIdAsync(string id, CancellationToken cancellationToken = default) => FindAsync(x => x.Id == id, cancellationToken);
+
+        public Task<List<DerivedOfT>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default) => FindAllAsync(x => ids.Contains(x.Id), cancellationToken);
     }
 }

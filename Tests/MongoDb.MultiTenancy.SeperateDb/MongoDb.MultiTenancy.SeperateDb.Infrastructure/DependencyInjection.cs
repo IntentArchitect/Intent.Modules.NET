@@ -1,14 +1,16 @@
+using System;
 using Finbuckle.MultiTenant;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using MongoDB.Driver;
 using MongoDb.MultiTenancy.SeperateDb.Application.Common.Interfaces;
 using MongoDb.MultiTenancy.SeperateDb.Domain.Common.Interfaces;
 using MongoDb.MultiTenancy.SeperateDb.Domain.Repositories;
+using MongoDb.MultiTenancy.SeperateDb.Infrastructure.Configuration;
 using MongoDb.MultiTenancy.SeperateDb.Infrastructure.MultiTenant;
 using MongoDb.MultiTenancy.SeperateDb.Infrastructure.Persistence;
-using MongoDb.MultiTenancy.SeperateDb.Infrastructure.Persistence.Documents;
 using MongoDb.MultiTenancy.SeperateDb.Infrastructure.Repositories;
 using MongoDb.MultiTenancy.SeperateDb.Infrastructure.Services;
 
@@ -34,11 +36,7 @@ namespace MongoDb.MultiTenancy.SeperateDb.Infrastructure
                         }
                         return provider.GetRequiredService<MongoDbMultiTenantConnectionFactory>().GetConnection(tenantConnections.MongoDbConnection);
                     });
-            services.AddScoped<IMongoCollection<CustomerDocument>>(sp =>
-                            {
-                                var database = sp.GetRequiredService<IMongoDatabase>();
-                                return database.GetCollection<CustomerDocument>("Customer");
-                            });
+            services.RegisterMongoCollections(typeof(DependencyInjection).Assembly);
             services.AddScoped<ICustomerRepository, CustomerMongoRepository>();
             services.AddScoped<IDomainEventService, DomainEventService>();
             services.AddScoped<MongoDbUnitOfWork>();

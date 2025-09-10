@@ -1,11 +1,9 @@
 using System;
 using System.Collections.Generic;
-using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using MongoDb.TestApplication.Domain.Entities.Collections;
-using MongoDb.TestApplication.Domain.Repositories.Documents.Collections;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Entities.Repositories.Api.EntityRepositoryInterface", Version = "1.0")]
@@ -13,7 +11,11 @@ using MongoDb.TestApplication.Domain.Repositories.Documents.Collections;
 namespace MongoDb.TestApplication.Domain.Repositories.Collections
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface ICustomCollectionEntityARepository : IMongoRepository<CustomCollectionEntityA, ICustomCollectionEntityADocument, string>
+    public interface ICustomCollectionEntityARepository : IMongoRepository<CustomCollectionEntityA, string>
     {
+        [IntentManaged(Mode.Fully)]
+        Task<CustomCollectionEntityA?> FindByIdAsync(string id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<List<CustomCollectionEntityA>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default);
     }
 }

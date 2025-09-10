@@ -1,10 +1,12 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
+using System.Threading;
+using System.Threading.Tasks;
 using AzureFunctions.MongoDb.Domain.Entities.Collections.FolderCollection;
 using AzureFunctions.MongoDb.Domain.Repositories.Collections.FolderCollection;
-using AzureFunctions.MongoDb.Domain.Repositories.Documents.Collections.FolderCollection;
 using AzureFunctions.MongoDb.Infrastructure.Persistence;
-using AzureFunctions.MongoDb.Infrastructure.Persistence.Documents.Collections.FolderCollection;
 using Intent.RoslynWeaver.Attributes;
 using MongoDB.Driver;
 
@@ -13,11 +15,17 @@ using MongoDB.Driver;
 
 namespace AzureFunctions.MongoDb.Infrastructure.Repositories.Collections.FolderCollection
 {
-    internal class FolderCollectionEntityBMongoRepository : MongoRepositoryBase<FolderCollectionEntityB, FolderCollectionEntityBDocument, IFolderCollectionEntityBDocument, string>, IFolderCollectionEntityBRepository
+    internal class FolderCollectionEntityBMongoRepository : MongoRepositoryBase<FolderCollectionEntityB, string>, IFolderCollectionEntityBRepository
     {
-        public FolderCollectionEntityBMongoRepository(IMongoCollection<FolderCollectionEntityBDocument> collection,
-            MongoDbUnitOfWork unitOfWork) : base(collection, unitOfWork)
+        public FolderCollectionEntityBMongoRepository(IMongoCollection<FolderCollectionEntityB> collection,
+            MongoDbUnitOfWork unitOfWork) : base(collection, unitOfWork, x => x.Id)
         {
         }
+
+        public Task<FolderCollectionEntityB?> FindByIdAsync(string id, CancellationToken cancellationToken = default) => FindAsync(x => x.Id == id, cancellationToken);
+
+        public Task<List<FolderCollectionEntityB>> FindByIdsAsync(
+            string[] ids,
+            CancellationToken cancellationToken = default) => FindAllAsync(x => ids.Contains(x.Id), cancellationToken);
     }
 }

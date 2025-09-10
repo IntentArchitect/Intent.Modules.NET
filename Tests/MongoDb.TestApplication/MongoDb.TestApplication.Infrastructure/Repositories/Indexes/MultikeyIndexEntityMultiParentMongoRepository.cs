@@ -1,23 +1,33 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
+using System.Threading;
+using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using MongoDB.Driver;
 using MongoDb.TestApplication.Domain.Entities.Indexes;
-using MongoDb.TestApplication.Domain.Repositories.Documents.Indexes;
 using MongoDb.TestApplication.Domain.Repositories.Indexes;
 using MongoDb.TestApplication.Infrastructure.Persistence;
-using MongoDb.TestApplication.Infrastructure.Persistence.Documents.Indexes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.MongoDb.MongoDbRepository", Version = "1.0")]
 
 namespace MongoDb.TestApplication.Infrastructure.Repositories.Indexes
 {
-    internal class MultikeyIndexEntityMultiParentMongoRepository : MongoRepositoryBase<MultikeyIndexEntityMultiParent, MultikeyIndexEntityMultiParentDocument, IMultikeyIndexEntityMultiParentDocument, string>, IMultikeyIndexEntityMultiParentRepository
+    internal class MultikeyIndexEntityMultiParentMongoRepository : MongoRepositoryBase<MultikeyIndexEntityMultiParent, string>, IMultikeyIndexEntityMultiParentRepository
     {
-        public MultikeyIndexEntityMultiParentMongoRepository(IMongoCollection<MultikeyIndexEntityMultiParentDocument> collection,
-            MongoDbUnitOfWork unitOfWork) : base(collection, unitOfWork)
+        public MultikeyIndexEntityMultiParentMongoRepository(IMongoCollection<MultikeyIndexEntityMultiParent> collection,
+            MongoDbUnitOfWork unitOfWork) : base(collection, unitOfWork, x => x.Id)
         {
         }
+
+        public Task<MultikeyIndexEntityMultiParent?> FindByIdAsync(
+            string id,
+            CancellationToken cancellationToken = default) => FindAsync(x => x.Id == id, cancellationToken);
+
+        public Task<List<MultikeyIndexEntityMultiParent>> FindByIdsAsync(
+            string[] ids,
+            CancellationToken cancellationToken = default) => FindAllAsync(x => ids.Contains(x.Id), cancellationToken);
     }
 }

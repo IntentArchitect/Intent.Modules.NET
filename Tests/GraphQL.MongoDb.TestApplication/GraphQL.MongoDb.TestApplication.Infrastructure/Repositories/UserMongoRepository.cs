@@ -1,10 +1,12 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
+using System.Threading;
+using System.Threading.Tasks;
 using GraphQL.MongoDb.TestApplication.Domain.Entities;
 using GraphQL.MongoDb.TestApplication.Domain.Repositories;
-using GraphQL.MongoDb.TestApplication.Domain.Repositories.Documents;
 using GraphQL.MongoDb.TestApplication.Infrastructure.Persistence;
-using GraphQL.MongoDb.TestApplication.Infrastructure.Persistence.Documents;
 using Intent.RoslynWeaver.Attributes;
 using MongoDB.Driver;
 
@@ -13,10 +15,14 @@ using MongoDB.Driver;
 
 namespace GraphQL.MongoDb.TestApplication.Infrastructure.Repositories
 {
-    internal class UserMongoRepository : MongoRepositoryBase<User, UserDocument, IUserDocument, string>, IUserRepository
+    internal class UserMongoRepository : MongoRepositoryBase<User, string>, IUserRepository
     {
-        public UserMongoRepository(IMongoCollection<UserDocument> collection, MongoDbUnitOfWork unitOfWork) : base(collection, unitOfWork)
+        public UserMongoRepository(IMongoCollection<User> collection, MongoDbUnitOfWork unitOfWork) : base(collection, unitOfWork, x => x.Id)
         {
         }
+
+        public Task<User?> FindByIdAsync(string id, CancellationToken cancellationToken = default) => FindAsync(x => x.Id == id, cancellationToken);
+
+        public Task<List<User>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default) => FindAllAsync(x => ids.Contains(x.Id), cancellationToken);
     }
 }

@@ -1,10 +1,12 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
+using System.Threading;
+using System.Threading.Tasks;
 using AzureFunctions.MongoDb.Domain.Entities.Associations;
 using AzureFunctions.MongoDb.Domain.Repositories.Associations;
-using AzureFunctions.MongoDb.Domain.Repositories.Documents.Associations;
 using AzureFunctions.MongoDb.Infrastructure.Persistence;
-using AzureFunctions.MongoDb.Infrastructure.Persistence.Documents.Associations;
 using Intent.RoslynWeaver.Attributes;
 using MongoDB.Driver;
 
@@ -13,11 +15,17 @@ using MongoDB.Driver;
 
 namespace AzureFunctions.MongoDb.Infrastructure.Repositories.Associations
 {
-    internal class H_OptionalAggregateNavMongoRepository : MongoRepositoryBase<H_OptionalAggregateNav, H_OptionalAggregateNavDocument, IH_OptionalAggregateNavDocument, string>, IH_OptionalAggregateNavRepository
+    internal class H_OptionalAggregateNavMongoRepository : MongoRepositoryBase<H_OptionalAggregateNav, string>, IH_OptionalAggregateNavRepository
     {
-        public H_OptionalAggregateNavMongoRepository(IMongoCollection<H_OptionalAggregateNavDocument> collection,
-            MongoDbUnitOfWork unitOfWork) : base(collection, unitOfWork)
+        public H_OptionalAggregateNavMongoRepository(IMongoCollection<H_OptionalAggregateNav> collection,
+            MongoDbUnitOfWork unitOfWork) : base(collection, unitOfWork, x => x.Id)
         {
         }
+
+        public Task<H_OptionalAggregateNav?> FindByIdAsync(string id, CancellationToken cancellationToken = default) => FindAsync(x => x.Id == id, cancellationToken);
+
+        public Task<List<H_OptionalAggregateNav>> FindByIdsAsync(
+            string[] ids,
+            CancellationToken cancellationToken = default) => FindAllAsync(x => ids.Contains(x.Id), cancellationToken);
     }
 }

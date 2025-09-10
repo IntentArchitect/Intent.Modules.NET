@@ -1339,22 +1339,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3fb32d7f-a531-42d2-82cc-c46bd9b5ed02</ProjectId>
-      <CorrelationId>Intent.MongoDb.MongoDbDocumentInterface#ce04f551-7e6b-4d47-9eba-48822fb12b65</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Domain/Repositories/Documents/IMongoInvoiceDocument.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IMongoInvoiceDocument.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>3fb32d7f-a531-42d2-82cc-c46bd9b5ed02</ProjectId>
-      <CorrelationId>Intent.MongoDb.MongoDbDocumentInterface#192560c4-b212-4688-a10c-23ed43800e32</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Domain/Repositories/Documents/IMongoLineDocument.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IMongoLineDocument.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>e99793ef-5c78-4064-8998-162defd96d22</ProjectId>
       <CorrelationId>Intent.CosmosDB.CosmosDBRepositoryInterface#69efd433-c933-4fde-bcb5-a8e76269325c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -1459,6 +1443,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>a1514d06-1e16-41d6-9dcf-f2b04e916bec</ProjectId>
+      <CorrelationId>Intent.MongoDb.MongoConfigurationExtensions#54d77abc-7a92-4285-b13f-de2ede92953f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Infrastructure/Configuration/MongoConfigurationExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MongoConfigurationExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>f0db48f6-7aa9-4e05-91ea-04cc31380034</ProjectId>
       <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#b830fd1c-d25c-4401-9019-2b585f173dc8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -1548,34 +1540,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>9c73e7e6-3523-408a-b2e6-e9ea169f1bf2</ProjectId>
-      <CorrelationId>Intent.MongoDb.MongoDbDocumentOfTInterface#5da957d5-0e3a-4e89-977e-0f4417eeac9c</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Infrastructure/Persistence/Documents/IMongoDbDocument.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IMongoDbDocument.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>9c73e7e6-3523-408a-b2e6-e9ea169f1bf2</ProjectId>
-      <CorrelationId>Intent.MongoDb.MongoDbDocument#ce04f551-7e6b-4d47-9eba-48822fb12b65</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Infrastructure/Persistence/Documents/MongoInvoiceDocument.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MongoInvoiceDocument.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>9c73e7e6-3523-408a-b2e6-e9ea169f1bf2</ProjectId>
-      <CorrelationId>Intent.MongoDb.MongoDbDocument#192560c4-b212-4688-a10c-23ed43800e32</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Infrastructure/Persistence/Documents/MongoLineDocument.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MongoLineDocument.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>9c73e7e6-3523-408a-b2e6-e9ea169f1bf2</ProjectId>
       <CorrelationId>Intent.CosmosDB.CosmosDBDocumentTypeExtensionMethods#9b263d93-cd3b-4cc6-be4f-d839d3e7076b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Infrastructure/Persistence/Documents/TypeExtensionMethods.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TypeExtensionMethods.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3fa5deb2-4bc2-419c-a7d3-6f6275ce061c</ProjectId>
+      <CorrelationId>Intent.MongoDb.MongoMappingConfigurationInterface#d50dc691-206c-46eb-bad7-9c19d0026a5e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Infrastructure/Persistence/Mappings/IMongoMappingConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IMongoMappingConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3fa5deb2-4bc2-419c-a7d3-6f6275ce061c</ProjectId>
+      <CorrelationId>Intent.MongoDb.MongoDbMapping#ce04f551-7e6b-4d47-9eba-48822fb12b65</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Infrastructure/Persistence/Mappings/MongoInvoiceMapping.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MongoInvoiceMapping.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

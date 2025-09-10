@@ -1,11 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 using Entities.PrivateSetters.MongoDb.Domain.Entities;
-using Entities.PrivateSetters.MongoDb.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -14,7 +12,11 @@ using Intent.RoslynWeaver.Attributes;
 namespace Entities.PrivateSetters.MongoDb.Domain.Repositories
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface ITagRepository : IMongoRepository<Tag, ITagDocument, string>
+    public interface ITagRepository : IMongoRepository<Tag, string>
     {
+        [IntentManaged(Mode.Fully)]
+        Task<Tag?> FindByIdAsync(string id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<List<Tag>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default);
     }
 }

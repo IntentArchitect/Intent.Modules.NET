@@ -4,7 +4,6 @@ using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 using AdvancedMappingCrudMongo.Tests.Domain.Entities;
-using AdvancedMappingCrudMongo.Tests.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -13,7 +12,11 @@ using Intent.RoslynWeaver.Attributes;
 namespace AdvancedMappingCrudMongo.Tests.Domain.Repositories
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IOrderRepository : IMongoRepository<Order, IOrderDocument, string>
+    public interface IOrderRepository : IMongoRepository<Order, string>
     {
+        [IntentManaged(Mode.Fully)]
+        Task<Order?> FindByIdAsync(string id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<List<Order>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default);
     }
 }

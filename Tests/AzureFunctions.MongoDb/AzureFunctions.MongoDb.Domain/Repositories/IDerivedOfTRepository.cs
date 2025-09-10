@@ -1,10 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 using AzureFunctions.MongoDb.Domain.Entities;
-using AzureFunctions.MongoDb.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -13,7 +11,11 @@ using Intent.RoslynWeaver.Attributes;
 namespace AzureFunctions.MongoDb.Domain.Repositories
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IDerivedOfTRepository : IMongoRepository<DerivedOfT, IDerivedOfTDocument, string>
+    public interface IDerivedOfTRepository : IMongoRepository<DerivedOfT, string>
     {
+        [IntentManaged(Mode.Fully)]
+        Task<DerivedOfT?> FindByIdAsync(string id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<List<DerivedOfT>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default);
     }
 }

@@ -1,11 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 using GraphQL.MongoDb.TestApplication.Domain.Entities;
-using GraphQL.MongoDb.TestApplication.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -14,7 +12,11 @@ using Intent.RoslynWeaver.Attributes;
 namespace GraphQL.MongoDb.TestApplication.Domain.Repositories
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IUserRepository : IMongoRepository<User, IUserDocument, string>
+    public interface IUserRepository : IMongoRepository<User, string>
     {
+        [IntentManaged(Mode.Fully)]
+        Task<User?> FindByIdAsync(string id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<List<User>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default);
     }
 }

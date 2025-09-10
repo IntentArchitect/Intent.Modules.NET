@@ -4,8 +4,8 @@ using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 using AdvancedMappingCrudMongo.Tests.Domain.Common.Exceptions;
+using AdvancedMappingCrudMongo.Tests.Domain.Entities;
 using AdvancedMappingCrudMongo.Tests.Domain.Repositories;
-using AdvancedMappingCrudMongo.Tests.Domain.Repositories.Documents;
 using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -31,7 +31,7 @@ namespace AdvancedMappingCrudMongo.Tests.Application.Orders.GetOrderByRef
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<OrderDto> Handle(GetOrderByRefQuery request, CancellationToken cancellationToken)
         {
-            IQueryable<IOrderDocument> FilterOrders(IQueryable<IOrderDocument> queryable)
+            IQueryable<Order> FilterOrders(IQueryable<Order> queryable)
             {
                 if (request.RefNo != null)
                 {

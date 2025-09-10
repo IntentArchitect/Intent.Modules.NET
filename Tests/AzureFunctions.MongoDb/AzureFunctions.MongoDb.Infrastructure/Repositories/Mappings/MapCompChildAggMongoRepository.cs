@@ -1,10 +1,12 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
+using System.Threading;
+using System.Threading.Tasks;
 using AzureFunctions.MongoDb.Domain.Entities.Mappings;
-using AzureFunctions.MongoDb.Domain.Repositories.Documents.Mappings;
 using AzureFunctions.MongoDb.Domain.Repositories.Mappings;
 using AzureFunctions.MongoDb.Infrastructure.Persistence;
-using AzureFunctions.MongoDb.Infrastructure.Persistence.Documents.Mappings;
 using Intent.RoslynWeaver.Attributes;
 using MongoDB.Driver;
 
@@ -13,11 +15,14 @@ using MongoDB.Driver;
 
 namespace AzureFunctions.MongoDb.Infrastructure.Repositories.Mappings
 {
-    internal class MapCompChildAggMongoRepository : MongoRepositoryBase<MapCompChildAgg, MapCompChildAggDocument, IMapCompChildAggDocument, string>, IMapCompChildAggRepository
+    internal class MapCompChildAggMongoRepository : MongoRepositoryBase<MapCompChildAgg, string>, IMapCompChildAggRepository
     {
-        public MapCompChildAggMongoRepository(IMongoCollection<MapCompChildAggDocument> collection,
-            MongoDbUnitOfWork unitOfWork) : base(collection, unitOfWork)
+        public MapCompChildAggMongoRepository(IMongoCollection<MapCompChildAgg> collection, MongoDbUnitOfWork unitOfWork) : base(collection, unitOfWork, x => x.Id)
         {
         }
+
+        public Task<MapCompChildAgg?> FindByIdAsync(string id, CancellationToken cancellationToken = default) => FindAsync(x => x.Id == id, cancellationToken);
+
+        public Task<List<MapCompChildAgg>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default) => FindAllAsync(x => ids.Contains(x.Id), cancellationToken);
     }
 }

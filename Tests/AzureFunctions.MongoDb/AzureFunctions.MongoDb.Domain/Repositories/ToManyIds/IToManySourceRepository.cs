@@ -1,10 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 using AzureFunctions.MongoDb.Domain.Entities.ToManyIds;
-using AzureFunctions.MongoDb.Domain.Repositories.Documents.ToManyIds;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -13,7 +11,11 @@ using Intent.RoslynWeaver.Attributes;
 namespace AzureFunctions.MongoDb.Domain.Repositories.ToManyIds
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IToManySourceRepository : IMongoRepository<ToManySource, IToManySourceDocument, string>
+    public interface IToManySourceRepository : IMongoRepository<ToManySource, string>
     {
+        [IntentManaged(Mode.Fully)]
+        Task<ToManySource?> FindByIdAsync(string id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<List<ToManySource>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default);
     }
 }

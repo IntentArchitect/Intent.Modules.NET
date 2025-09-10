@@ -1,10 +1,12 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
+using System.Threading;
+using System.Threading.Tasks;
 using Entities.PrivateSetters.MongoDb.Domain.Entities;
 using Entities.PrivateSetters.MongoDb.Domain.Repositories;
-using Entities.PrivateSetters.MongoDb.Domain.Repositories.Documents;
 using Entities.PrivateSetters.MongoDb.Infrastructure.Persistence;
-using Entities.PrivateSetters.MongoDb.Infrastructure.Persistence.Documents;
 using Intent.RoslynWeaver.Attributes;
 using MongoDB.Driver;
 using Tag = Entities.PrivateSetters.MongoDb.Domain.Entities.Tag;
@@ -14,10 +16,14 @@ using Tag = Entities.PrivateSetters.MongoDb.Domain.Entities.Tag;
 
 namespace Entities.PrivateSetters.MongoDb.Infrastructure.Repositories
 {
-    internal class TagMongoRepository : MongoRepositoryBase<Tag, TagDocument, ITagDocument, string>, ITagRepository
+    internal class TagMongoRepository : MongoRepositoryBase<Tag, string>, ITagRepository
     {
-        public TagMongoRepository(IMongoCollection<TagDocument> collection, MongoDbUnitOfWork unitOfWork) : base(collection, unitOfWork)
+        public TagMongoRepository(IMongoCollection<Tag> collection, MongoDbUnitOfWork unitOfWork) : base(collection, unitOfWork, x => x.Id)
         {
         }
+
+        public Task<Tag?> FindByIdAsync(string id, CancellationToken cancellationToken = default) => FindAsync(x => x.Id == id, cancellationToken);
+
+        public Task<List<Tag>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default) => FindAllAsync(x => ids.Contains(x.Id), cancellationToken);
     }
 }

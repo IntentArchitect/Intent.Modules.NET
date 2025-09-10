@@ -1,23 +1,28 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
+using System.Threading;
+using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using MongoDB.Driver;
 using MongoDb.TestApplication.Domain.Entities.IdTypes;
-using MongoDb.TestApplication.Domain.Repositories.Documents.IdTypes;
 using MongoDb.TestApplication.Domain.Repositories.IdTypes;
 using MongoDb.TestApplication.Infrastructure.Persistence;
-using MongoDb.TestApplication.Infrastructure.Persistence.Documents.IdTypes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.MongoDb.MongoDbRepository", Version = "1.0")]
 
 namespace MongoDb.TestApplication.Infrastructure.Repositories.IdTypes
 {
-    internal class IdTypeOjectIdStrMongoRepository : MongoRepositoryBase<IdTypeOjectIdStr, IdTypeOjectIdStrDocument, IIdTypeOjectIdStrDocument, string>, IIdTypeOjectIdStrRepository
+    internal class IdTypeOjectIdStrMongoRepository : MongoRepositoryBase<IdTypeOjectIdStr, string>, IIdTypeOjectIdStrRepository
     {
-        public IdTypeOjectIdStrMongoRepository(IMongoCollection<IdTypeOjectIdStrDocument> collection,
-            MongoDbUnitOfWork unitOfWork) : base(collection, unitOfWork)
+        public IdTypeOjectIdStrMongoRepository(IMongoCollection<IdTypeOjectIdStr> collection, MongoDbUnitOfWork unitOfWork) : base(collection, unitOfWork, x => x.Id)
         {
         }
+
+        public Task<IdTypeOjectIdStr?> FindByIdAsync(string id, CancellationToken cancellationToken = default) => FindAsync(x => x.Id == id, cancellationToken);
+
+        public Task<List<IdTypeOjectIdStr>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default) => FindAllAsync(x => ids.Contains(x.Id), cancellationToken);
     }
 }
