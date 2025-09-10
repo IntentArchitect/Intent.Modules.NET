@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.DependencyInjection;
@@ -10,7 +11,6 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
-using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -19,7 +19,7 @@ using Intent.Templates;
 
 namespace Intent.Modules.Aws.Lambda.Functions.Templates.Startup
 {
-    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
+    [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
     public partial class StartupTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate, IAppStartupTemplate
     {
         public const string TemplateId = "Intent.Aws.Lambda.Functions.StartupTemplate";
@@ -28,7 +28,7 @@ namespace Intent.Modules.Aws.Lambda.Functions.Templates.Startup
         private readonly IAppStartupFile _startupFile;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public StartupTemplate(IOutputTarget outputTarget, object? model = null) : base(TemplateId, outputTarget, model)
+        public StartupTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NugetPackages.AmazonLambdaCore(outputTarget));
             AddNugetDependency(NugetPackages.AmazonLambdaAPIGatewayEvents(outputTarget));
@@ -38,9 +38,9 @@ namespace Intent.Modules.Aws.Lambda.Functions.Templates.Startup
             AddNugetDependency(NugetPackages.MicrosoftExtensionsLogging(outputTarget));
             AddNugetDependency(NugetPackages.MicrosoftExtensionsDependencyInjection(outputTarget));
             AddNugetDependency(NugetPackages.MicrosoftExtensionsConfigurationBinder(outputTarget));
-            
+
             AddFrameworkDependency("Microsoft.AspNetCore.App");
-            
+
             ExecutionContext.EventDispatcher.Subscribe<ServiceConfigurationRequest>(HandleServiceConfigurationRequest);
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
@@ -114,11 +114,11 @@ namespace Intent.Modules.Aws.Lambda.Functions.Templates.Startup
                 EnvironmentVariables = new Dictionary<string, string>(),
                 WorkingDirectory = "$(ProjectDir)$(OutputPath)"
             });
-            
+
             Project.GetProject().AddProperty("AWSProjectType", "Lambda");
             Project.GetProject().AddProperty("PublishReadyToRun", "true");
         }
-        
+
         private void HandleServiceConfigurationRequest(ServiceConfigurationRequest request)
         {
             _serviceConfigurations.Add(request);

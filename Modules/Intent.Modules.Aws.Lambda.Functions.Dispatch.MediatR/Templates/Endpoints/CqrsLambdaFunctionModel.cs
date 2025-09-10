@@ -4,6 +4,7 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modules.Aws.Lambda.Functions.Api;
+using Intent.Modules.Common.Templates;
 using Intent.Modules.Metadata.WebApi.Models;
 
 namespace Intent.Modules.Aws.Lambda.Functions.Dispatch.MediatR.Templates.Endpoints;
@@ -27,7 +28,7 @@ public class CqrsLambdaFunctionModel : ILambdaFunctionModel
         Comment = endpointElement.Comment;
         TypeReference = endpointElement.TypeReference;
         Verb = httpEndpoint.Verb;
-        Route = $"{httpEndpoint.BaseRoute}/{httpEndpoint.SubRoute}";
+        Route = BuildRoute(httpEndpoint.BaseRoute, httpEndpoint.SubRoute);
         MediaType = httpEndpoint.MediaType;
         Parameters = httpEndpoint.Inputs.Select(GetInput).ToList();
         ReturnType = endpointElement.TypeReference.Element != null ? endpointElement.TypeReference : null;
@@ -50,5 +51,23 @@ public class CqrsLambdaFunctionModel : ILambdaFunctionModel
     private static IEndpointParameterModel GetInput(IHttpEndpointInputModel model)
     {
         return new EndpointParameterModel(model);
+    }
+    
+    private static string BuildRoute(string? baseRoute, string? subRoute)
+    {
+        var route = "";
+        
+        if (!string.IsNullOrEmpty(baseRoute))
+        {
+            route = baseRoute.StartsWith("/") ? baseRoute : "/" + baseRoute;
+        }
+        
+        if (!string.IsNullOrEmpty(subRoute))
+        {
+            var normalizedSubRoute = subRoute.StartsWith("/") ? subRoute : "/" + subRoute;
+            route += normalizedSubRoute;
+        }
+        
+        return string.IsNullOrEmpty(route) ? "/" : route;
     }
 }
