@@ -367,7 +367,7 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Repositories
 
         private (string UserIdentifier, DateTimeOffset TimeStamp) GetAuditDetails()
         {
-            var userIdentifier = _currentUserService.UserId ?? throw new InvalidOperationException("UserId is null");
+            var userIdentifier = _currentUserService.GetAsync().GetAwaiter().GetResult()?.Id ?? throw new InvalidOperationException("Id is null");
             var timestamp = DateTimeOffset.UtcNow;
 
             return (userIdentifier, timestamp);

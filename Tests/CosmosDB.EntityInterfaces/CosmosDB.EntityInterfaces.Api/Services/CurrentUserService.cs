@@ -20,9 +20,6 @@ namespace CosmosDB.EntityInterfaces.Api.Services
             _httpContextAccessor = httpContextAccessor;
         }
 
-        public string? UserId => GetUserId(GetClaimsPrincipal());
-        public string? UserName => GetUserName(GetClaimsPrincipal());
-
         public Task<ICurrentUser?> GetAsync()
         {
             var claimsPrincipal = GetClaimsPrincipal();
