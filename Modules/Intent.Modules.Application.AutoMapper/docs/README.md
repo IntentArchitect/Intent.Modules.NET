@@ -50,7 +50,7 @@ public class CustomerDtoProfile : Profile
 
 Starting with **AutoMapper v15.0**, a [commercial license](https://www.jimmybogard.com/automapper-and-mediatr-commercial-editions-launch-today/) is required. All versions prior to v15.0 remain free to use.
 
-You can control which version is used via the `Use Pre-Commercial Version` application setting:
+From version `5.3.0+` of `Intent.Application.AutoMapper`, you can control which version is used via the `Use Pre-Commercial Version` application setting:
 
 ![Pre-commercial Version](images/license.png)
 

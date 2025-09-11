@@ -113,7 +113,7 @@ The designer will also raise a warning if the Command has been incorrectly confi
 
 Starting with **MediatR v13.0**, a [commercial license](https://www.jimmybogard.com/automapper-and-mediatr-commercial-editions-launch-today/) is required. All versions prior to v13.0 remain free to use.
 
-You can control which version is used via the `Use Pre-Commercial Version` application setting:
+From version `4.5.0+` of `Intent.Application.MediatR`, you can control which version is used via the `Use Pre-Commercial Version` application setting:
 
 ![Pre-commercial Version](images/license.png)
 

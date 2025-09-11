@@ -550,7 +550,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Api/Components/Pages/CustoerAdd.razor</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Pages/CustoerAdd.razor</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>d2816f5c-afe8-4261-8708-24ac1287736e</ProjectId>
@@ -566,7 +566,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Api/Components/Pages/CustomerSearch.razor</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Pages/CustomerSearch.razor</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>d2816f5c-afe8-4261-8708-24ac1287736e</ProjectId>
