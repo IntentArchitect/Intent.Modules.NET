@@ -267,9 +267,9 @@
     </childElement>
     <childElement id="594a2b59-6305-4bf9-9a20-86f133cef157" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Modelers.Domain.Events</name>
-      <display>Intent.Modelers.Domain.Events 4.4.3</display>
+      <display>Intent.Modelers.Domain.Events 4.4.4-pre.4</display>
       <isAbstract>false</isAbstract>
-      <value>4.4.3</value>
+      <value>4.4.4-pre.4</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>1f4cee55-0197-49aa-941a-7d4dba029225</parentFolderId>
