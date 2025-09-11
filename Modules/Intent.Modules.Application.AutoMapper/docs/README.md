@@ -45,3 +45,34 @@ public class CustomerDtoProfile : Profile
     }
 }
 ```
+
+## Commercial License Options
+
+Starting with **AutoMapper v15.0**, a [commercial license](https://www.jimmybogard.com/automapper-and-mediatr-commercial-editions-launch-today/) is required. All versions prior to v15.0 remain free to use.
+
+You can control which version is used via the `Use Pre-Commercial Version` application setting:
+
+![Pre-commercial Version](images/license.png)
+
+- **Enabled** : Locks AutoMapper to the last free version (pre-commercial).
+- **Disabled** : Uses the latest **commercial edition**.
+
+> [!WARNING]  
+> If you choose to use a commercial version, you must obtain and configure a valid license key.  
+> License keys can be requested following the instructions in [Jimmy Bogard's article](https://www.jimmybogard.com/automapper-and-mediatr-commercial-editions-launch-today/).  
+
+Keys should be configured in your `appsettings.json` under:
+
+``` json
+{
+  "AutoMapper": {
+    "LicenseKey": "<your-license-key>"
+  }
+}
+```
+
+Alternatively, you can set it as an environment variable:
+
+```
+ AutoMapper__LicenseKey=<your-license-key>
+```

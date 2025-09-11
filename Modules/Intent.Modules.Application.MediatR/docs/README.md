@@ -108,3 +108,34 @@ public class CreateCustomerCommand : IRequest<Guid>, ICommand
 ```
 
 The designer will also raise a warning if the Command has been incorrectly configured (but will still allow the Software Factory to be executed)
+
+## Commercial License Options
+
+Starting with **MediatR v13.0**, a [commercial license](https://www.jimmybogard.com/automapper-and-mediatr-commercial-editions-launch-today/) is required. All versions prior to v13.0 remain free to use.
+
+You can control which version is used via the `Use Pre-Commercial Version` application setting:
+
+![Pre-commercial Version](images/license.png)
+
+- **Enabled** : Locks MediatR to the last free version (pre-commercial).
+- **Disabled** : Uses the latest **commercial edition**.
+
+> [!WARNING]  
+> If you choose to use a commercial version, you must obtain and configure a valid license key.  
+> License keys can be requested following the instructions in [Jimmy Bogard's article](https://www.jimmybogard.com/automapper-and-mediatr-commercial-editions-launch-today/).  
+
+Keys should be configured in your `appsettings.json` under:
+
+``` json
+{
+  "MediatR": {
+    "LicenseKey": "<your-license-key>"
+  }
+}
+```
+
+Alternatively, you can set it as an environment variable:
+
+```
+ MediatR__LicenseKey=<your-license-key>
+```
