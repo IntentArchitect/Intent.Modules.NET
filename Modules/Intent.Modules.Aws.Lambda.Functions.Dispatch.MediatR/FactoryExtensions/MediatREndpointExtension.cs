@@ -184,9 +184,11 @@ namespace Intent.Modules.Aws.Lambda.Functions.Dispatch.MediatR.FactoryExtensions
             var payload = GetPayloadParameter(operationModel)?.Name
                           ?? GetMappedPayload(template, operationModel);
 
-            return operationModel.ReturnType != null
+            var statementRaw = operationModel.ReturnType != null
                 ? $"var result = await _mediator.Send({payload}, cancellationToken);"
                 : $"await _mediator.Send({payload}, cancellationToken);";
+            
+            return new CSharpStatement(statementRaw).AddMetadata("dispatch-command", "mediatr");
         }
 
         private static IEndpointParameterModel? GetPayloadParameter(ILambdaFunctionModel operationModel)

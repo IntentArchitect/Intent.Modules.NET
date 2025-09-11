@@ -90,6 +90,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>31c48fca-00ff-4da4-8528-a1337c70ce6b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#95a1b55d-bee1-44c3-b790-dc408acce546</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ExceptionHandlerHelper/ExceptionHandlerHelperTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExceptionHandlerHelper/ExceptionHandlerHelperTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>31c48fca-00ff-4da4-8528-a1337c70ce6b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#95a1b55d-bee1-44c3-b790-dc408acce546</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ExceptionHandlerHelper/ExceptionHandlerHelperTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExceptionHandlerHelper/ExceptionHandlerHelperTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>31c48fca-00ff-4da4-8528-a1337c70ce6b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#584d9ed3-fe7f-4401-9b95-5de4a4fa672e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/JsonResponse/JsonResponseTemplatePartial.cs</ApplicationRelativeFilePath>

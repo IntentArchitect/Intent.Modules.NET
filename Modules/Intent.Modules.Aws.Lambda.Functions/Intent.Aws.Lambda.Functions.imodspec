@@ -2,7 +2,7 @@
 <package>
   <id>Intent.Aws.Lambda.Functions</id>
   <version>1.0.0-pre.2</version>
-  <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
+  <supportedClientVersions>[4.5.15-a, 5.0.0-a)</supportedClientVersions>
   <summary>Serverless AWS Lambda Functions in the Services designer.</summary>
   <description>Serverless AWS Lambda Functions in the Services designer.</description>
   <authors>Intent Architect</authors>
@@ -15,6 +15,14 @@
     <template id="Intent.Aws.Lambda.Functions.AwsLambdaToolsDefaultsTemplate" externalReference="08bcd889-32bf-49bc-81e9-ec6cdd2abbde">
       <role>Aws.Lambda.Api</role>
       <location></location>
+    </template>
+    <template id="Intent.Aws.Lambda.Functions.ExceptionHandlerHelper" externalReference="95a1b55d-bee1-44c3-b790-dc408acce546">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Aws.Lambda.Api</role>
+      <location>Helpers</location>
     </template>
     <template id="Intent.Aws.Lambda.Functions.JsonResponse" externalReference="584d9ed3-fe7f-4401-9b95-5de4a4fa672e">
       <config>
@@ -61,8 +69,8 @@
     </detect>
   </interoperability>
   <dependencies>
-    <dependency id="Intent.Common" version="3.8.0" />
-    <dependency id="Intent.Common.CSharp" version="3.9.5-pre.1" />
+    <dependency id="Intent.Common" version="3.9.0" />
+    <dependency id="Intent.Common.CSharp" version="3.9.6-pre.0" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Metadata.WebApi" version="4.7.12" />
     <dependency id="Intent.Modelers.Services" version="4.0.2" />

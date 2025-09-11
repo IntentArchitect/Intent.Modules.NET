@@ -127,12 +127,14 @@ namespace Intent.Modules.Aws.Lambda.Functions.Dispatch.Services.FactoryExtension
 
                         method.AddStatement($"var result = {defaultResultValue};");
                         method.AddStatement($"result = {awaitModifier}_appService.{operationModel.Name}({arguments});",
-                            stmt => stmt.AddMetadata("service-contract-dispatch", true));
+                            stmt => stmt.AddMetadata("service-contract-dispatch", true)
+                                .AddMetadata("dispatch-command", "service-contract"));
                     }
                     else
                     {
                         method.AddStatement($"{awaitModifier}_appService.{operationModel.Name}({arguments});",
-                            stmt => stmt.AddMetadata("service-contract-dispatch", true));
+                            stmt => stmt.AddMetadata("service-contract-dispatch", true)
+                                .AddMetadata("dispatch-command", "service-contract"));
                     }
 
                     var returnStatement = method.Statements.LastOrDefault(x => x.ToString()!.Trim().StartsWith("return "));
