@@ -28,6 +28,14 @@ When the `Must` property checkbox is selected, a `MustAsync(…)` rule is genera
 
 For details on all available validation rules and how they work, refer to the [FluentValidation Docs](https://docs.fluentvalidation.net/en/latest/built-in-validators.html).
 
+#### Message Place Holders
+
+The FluentValidation library supports [message placeholders](https://docs.fluentvalidation.net/en/latest/configuring.html#placeholders), which allow you to insert dynamic values into validation messages. These can be used in [custom validators](#custom-validator) within code, or in [predicate validators](#predicate-validator) via the **Must Message** field.
+
+For example: `{PropertyName} with a value of '{PropertyValue}' already exists`
+
+When validation runs, FluentValidation automatically replaces the placeholders with the actual property name and property value, producing a clear and contextualized error message.
+
 ## Implicit/Inferred Validation Rules
 
 In certain cases, this module automatically generates specific validation rules for fields when they are not explicitly specified in the `Validation` stereotype. These cases include:
