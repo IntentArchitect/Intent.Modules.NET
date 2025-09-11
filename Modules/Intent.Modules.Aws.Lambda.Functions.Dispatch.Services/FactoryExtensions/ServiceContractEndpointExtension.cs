@@ -101,10 +101,13 @@ namespace Intent.Modules.Aws.Lambda.Functions.Dispatch.Services.FactoryExtension
                         continue;
                     }
 
-                    method.InsertStatement(0, $"""
-                                               // AWSLambda0107: can parameter of type System.Threading.CancellationToken passing is not supported.
-                                               var cancellationToken = {template.UseType("System.Threading.CancellationToken")}.None;
-                                               """);
+                    template.CSharpFile.OnBuild(_ =>
+                    {
+                        method.InsertStatement(0, $"""
+                                                   // AWSLambda0107: can parameter of type System.Threading.CancellationToken passing is not supported.
+                                                   var cancellationToken = {template.UseType("System.Threading.CancellationToken")}.None;
+                                                   """);
+                    }, int.MaxValue);
 
                     var awaitModifier = string.Empty;
                     var arguments = string.Join(", ", operationModel.Parameters
@@ -124,12 +127,14 @@ namespace Intent.Modules.Aws.Lambda.Functions.Dispatch.Services.FactoryExtension
 
                         method.AddStatement($"var result = {defaultResultValue};");
                         method.AddStatement($"result = {awaitModifier}_appService.{operationModel.Name}({arguments});",
-                            stmt => stmt.AddMetadata("service-contract-dispatch", true));
+                            stmt => stmt.AddMetadata("service-contract-dispatch", true)
+                                .AddMetadata("dispatch-command", "service-contract"));
                     }
                     else
                     {
                         method.AddStatement($"{awaitModifier}_appService.{operationModel.Name}({arguments});",
-                            stmt => stmt.AddMetadata("service-contract-dispatch", true));
+                            stmt => stmt.AddMetadata("service-contract-dispatch", true)
+                                .AddMetadata("dispatch-command", "service-contract"));
                     }
 
                     var returnStatement = method.Statements.LastOrDefault(x => x.ToString()!.Trim().StartsWith("return "));

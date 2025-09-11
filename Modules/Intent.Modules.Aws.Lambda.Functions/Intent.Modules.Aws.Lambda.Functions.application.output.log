@@ -42,6 +42,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>31c48fca-00ff-4da4-8528-a1337c70ce6b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation#50c45d98-de3f-4be7-b684-c62a0673d64a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/AwsLambdaReadMe/AwsLambdaReadMeTemplate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AwsLambdaReadMe/AwsLambdaReadMeTemplate.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>31c48fca-00ff-4da4-8528-a1337c70ce6b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#50c45d98-de3f-4be7-b684-c62a0673d64a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/AwsLambdaReadMe/AwsLambdaReadMeTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AwsLambdaReadMe/AwsLambdaReadMeTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>31c48fca-00ff-4da4-8528-a1337c70ce6b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#50c45d98-de3f-4be7-b684-c62a0673d64a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/AwsLambdaReadMe/AwsLambdaReadMeTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AwsLambdaReadMe/AwsLambdaReadMeTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>31c48fca-00ff-4da4-8528-a1337c70ce6b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation#08bcd889-32bf-49bc-81e9-ec6cdd2abbde</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/AwsLambdaToolsDefaults/AwsLambdaToolsDefaultsTemplate.cs</ApplicationRelativeFilePath>
@@ -62,6 +86,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/AwsLambdaToolsDefaults/AwsLambdaToolsDefaultsTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AwsLambdaToolsDefaults/AwsLambdaToolsDefaultsTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>31c48fca-00ff-4da4-8528-a1337c70ce6b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#95a1b55d-bee1-44c3-b790-dc408acce546</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ExceptionHandlerHelper/ExceptionHandlerHelperTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExceptionHandlerHelper/ExceptionHandlerHelperTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>31c48fca-00ff-4da4-8528-a1337c70ce6b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#95a1b55d-bee1-44c3-b790-dc408acce546</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ExceptionHandlerHelper/ExceptionHandlerHelperTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExceptionHandlerHelper/ExceptionHandlerHelperTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

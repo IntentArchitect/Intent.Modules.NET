@@ -119,13 +119,37 @@ public partial class LambdaFunctionClassTemplate : CSharpTemplateBase<ILambdaFun
 
                             method.AddIfStatement($"!Guid.TryParse({guidParam.Name}, out var {guidParamName})", @if =>
                             {
+                                @if.SeparatedFromPrevious(false);
                                 @if.AddReturn($"HttpResults.BadRequest($\"Invalid format for {guidParam.Name}: {{{guidParam.Name}}}\")");
                             });
                         }
                         method.AddReturn("HttpResults.Ok()");
                     });
                 }
-            });
+            })
+            .OnBuild(file =>
+            {
+                var @class = file.Classes.First();
+                foreach (var functionModel in Model.Endpoints)
+                {
+                    var method = @class.Methods.FirstOrDefault(x => x.RepresentedModel.Id == functionModel.Id);
+                    if (method is null)
+                    {
+                        continue;
+                    }
+
+                    var existingStatements = method.Statements.ToList();
+                    method.Statements.Clear();
+                    method.AddReturn(new CSharpAwaitExpression(
+                            new CSharpInvocationStatement($"{this.GetExceptionHandlerHelperName()}.ExecuteAsync")
+                                .AddArgument(new CSharpLambdaBlock("async ()")
+                                    .AddStatements(existingStatements)
+                                )
+                                .WithoutSemicolon()
+                        )
+                    );
+                }
+            }, int.MaxValue);
     }
 
     public CSharpStatement GetReturnStatement(ILambdaFunctionModel operationModel)
@@ -203,6 +227,18 @@ public partial class LambdaFunctionClassTemplate : CSharpTemplateBase<ILambdaFun
         }
 
         return new CSharpReturnStatement(returnExpression);
+    }
+
+    private void InjectService(string typeName, string serviceName)
+    {
+        var cls = CSharpFile.Classes.First();
+        var ctor = cls.Constructors.First();
+        if (ctor.Parameters.All(p => p.Name != serviceName))
+        {
+            ctor.AddParameter(UseType(typeName), serviceName.ToParameterName());
+            cls.AddField(UseType(typeName), serviceName.ToPrivateMemberName(), f => f.PrivateReadOnly());
+            ctor.AddStatement($"{serviceName.ToPrivateMemberName()} = {serviceName.ToParameterName()} ?? throw new ArgumentNullException(nameof({serviceName.ToParameterName()}));");
+        }
     }
 
     private string GetHttpStatusCode()
