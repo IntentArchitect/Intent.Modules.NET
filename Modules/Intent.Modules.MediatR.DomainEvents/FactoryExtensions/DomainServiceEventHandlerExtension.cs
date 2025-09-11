@@ -10,7 +10,6 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
-using Intent.Modules.DomainEvents.Templates.DomainEvent;
 using Intent.Modules.MediatR.DomainEvents.Templates;
 using Intent.Modules.MediatR.DomainEvents.Templates.DomainEventNotification;
 using Intent.Plugins.FactoryExtensions;
@@ -44,12 +43,12 @@ namespace Intent.Modules.MediatR.DomainEvents.FactoryExtensions
                         file.AddUsing("System.Threading.Tasks");
 
                         var @class = file.Classes.First();
-                        @class.ImplementsInterface($"{template.UseType("MediatR.INotificationHandler")}<{template.GetTypeName(DomainEventNotificationTemplate.TemplateId)}<{template.GetTypeName(DomainEventTemplate.TemplateId, domainEvent)}>>");
+                        @class.ImplementsInterface($"{template.UseType("MediatR.INotificationHandler")}<{template.GetTypeName(DomainEventNotificationTemplate.TemplateId)}<{template.GetTypeName(TemplateRoles.Domain.Events, domainEvent)}>>");
                         @class.AddMethod("Task", "Handle", method =>
                         {
                             method.Async();
                             method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyMerge());
-                            method.AddParameter($"{template.GetDomainEventNotificationName()}<{template.GetTypeName(DomainEventTemplate.TemplateId, domainEvent)}>", "notification");
+                            method.AddParameter($"{template.GetDomainEventNotificationName()}<{template.GetTypeName(TemplateRoles.Domain.Events, domainEvent)}>", "notification");
                             method.AddParameter($"CancellationToken", "cancellationToken");
 
                             method.AddStatement("// IntentInitialGen");

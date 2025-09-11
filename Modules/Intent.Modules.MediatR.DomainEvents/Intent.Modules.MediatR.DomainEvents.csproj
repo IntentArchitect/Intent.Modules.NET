@@ -65,7 +65,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.Application.DomainInteractions\Intent.Modules.Application.DomainInteractions.csproj" />
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
-    <ProjectReference Include="..\Intent.Modules.DomainEvents\Intent.Modules.DomainEvents.csproj" />
   </ItemGroup>
 
   <ItemGroup>

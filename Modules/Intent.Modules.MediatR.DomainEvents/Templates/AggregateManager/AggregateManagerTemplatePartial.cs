@@ -1,15 +1,15 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Domain.Events.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.DomainEvents.Templates;
+using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -37,7 +37,7 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.AggregateManager
 
         private string GetInterfaces()
         {
-            return string.Join(", ", GetDomainEventModels().Select(e => $"INotificationHandler<{this.GetDomainEventNotificationName()}<{this.GetDomainEventName(e)}>>"));
+            return string.Join(", ", GetDomainEventModels().Select(e => $"INotificationHandler<{this.GetDomainEventNotificationName()}<{this.GetTypeName(TemplateRoles.Domain.Events, e)}>>"));
         }
 
         private IEnumerable<DomainEventModel> GetDomainEventModels()

@@ -1,3 +1,7 @@
+### Version 5.0.9
+
+- Improvement: Improved role names for templates.
+
 ### Version 5.0.8
 
 - Improvement: Updated dependency version and added interop module reference.

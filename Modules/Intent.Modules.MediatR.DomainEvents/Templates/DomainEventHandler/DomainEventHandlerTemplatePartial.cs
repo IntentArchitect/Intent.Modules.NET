@@ -17,7 +17,6 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Constants;
-using Intent.Modules.DomainEvents.Templates.DomainEvent;
 using Intent.Modules.MediatR.DomainEvents.Templates.DomainEventNotification;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -126,7 +125,7 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventHandler
 
         private string GetDomainEventType(DomainEventHandlerAssociationTargetEndModel handledDomainEvent)
         {
-            return GetTypeName(DomainEventTemplate.TemplateId, handledDomainEvent.TypeReference.Element);
+            return GetTypeName(TemplateRoles.Domain.Events, handledDomainEvent.TypeReference.Element);
         }
     }
 }
