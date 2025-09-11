@@ -98,7 +98,7 @@ steps:
 - task: UseDotNet@2
   displayName: 'Install latest .NET 9 SDK'
   inputs:
-    version: '9.x'
+    version: '9.0.203'
 
 - script: |
     echo "Increasing Docker HTTP timeouts"
