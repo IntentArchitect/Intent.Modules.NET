@@ -3,7 +3,6 @@ using Intent.Modules.Application.DomainInteractions.InteractionStrategies;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Interactions;
 using Intent.Modules.Common.Plugins;
-using Intent.Modules.Eventing.Contracts.InteractionStrategies;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 

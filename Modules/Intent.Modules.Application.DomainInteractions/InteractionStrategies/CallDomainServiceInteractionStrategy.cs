@@ -21,9 +21,9 @@ public class CallDomainServiceInteractionStrategy : IInteractionStrategy
 
     public bool IsMatch(IElement interaction)
     {
-        return interaction.IsPerformInvocationTargetEndModel()
-               && (interaction.TypeReference.Element.SpecializationType is "Operation" or "Stored Procedure")
-               && ((IElement)interaction.TypeReference.Element).ParentElement.SpecializationType != "Class"; // This check is a smell. Would rather check for traits?
+        return interaction.IsPerformInvocationTargetEndModel() &&
+               interaction.TypeReference.Element.SpecializationType is "Operation" or "Stored Procedure" &&
+               ((IElement)interaction.TypeReference.Element).ParentElement.SpecializationType != "Class"; // This check is a smell. Would rather check for traits?
     }
 
     public void ImplementInteraction(ICSharpClassMethodDeclaration method, IElement interactionElement)

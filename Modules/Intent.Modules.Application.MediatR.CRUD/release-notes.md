@@ -1,4 +1,8 @@
-﻿### Version 7.1.0
+﻿### Version 7.1.1
+
+- Fixed: Incompatibility with earlier versions of the `Intent.Application.DomainInteractions` module.
+
+### Version 7.1.0
 
 - Improvement: Added support for PATCH implementations of updates. This is currently only available for HTTP exposed Commands with the HTTP `PATCH` Verb
 

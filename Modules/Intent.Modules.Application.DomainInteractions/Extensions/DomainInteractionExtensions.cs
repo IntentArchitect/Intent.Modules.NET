@@ -18,12 +18,12 @@ public static class DomainInteractionExtensions
 {
     public static bool HasDomainInteractions(this IProcessingHandlerModel model)
     {
-        return model.CreateEntityActions().Any()
-               || model.QueryEntityActions().Any()
-               || model.UpdateEntityActions().Any()
-               || model.DeleteEntityActions().Any()
-               || model.PerformInvocationActions().Any()
-               || model.CallServiceOperationActions().Any();
+        return model.CreateEntityActions().Any() ||
+               model.QueryEntityActions().Any() ||
+               model.UpdateEntityActions().Any() ||
+               model.DeleteEntityActions().Any() ||
+               model.PerformInvocationActions().Any() ||
+               model.CallServiceOperationActions().Any();
     }
 
     public static IEnumerable<CSharpStatement> GetReturnStatements(this CSharpClassMethod method, ITypeReference returnType)
@@ -125,56 +125,9 @@ public static class DomainInteractionExtensions
         }
 
         return method.TrackedEntities().Values
-            .Where(x =>x.ElementModel.AsClassModel()?.GetTypesInHierarchy()
+            .Where(x => x.ElementModel.AsClassModel()?.GetTypesInHierarchy()
                 .SelectMany(c => c.Attributes)
                 .Count(a => a.IsPrimaryKey(isUserSupplied) && a.TypeReference.Element.Id == returnType.Element.Id) == 1)
             .ToList();
     }
 }
-
-internal static class AttributeModelExtensions
-{
-    public static bool IsPrimaryKey(this AttributeModel attribute, bool? isUserSupplied = null)
-    {
-        if (!attribute.HasStereotype("Primary Key"))
-        {
-            return false;
-        }
-
-        if (!isUserSupplied.HasValue)
-        {
-            return true;
-        }
-
-        if (!attribute.GetStereotype("Primary Key").TryGetProperty("Data source", out var property))
-        {
-            return isUserSupplied == false;
-        }
-
-        return property.Value == "User supplied" == isUserSupplied.Value;
-    }
-
-    public static bool IsForeignKey(this AttributeModel attribute)
-    {
-        return attribute.HasStereotype("Foreign Key");
-    }
-
-    public static AssociationTargetEndModel? GetForeignKeyAssociation(this AttributeModel attribute)
-    {
-        return attribute.GetStereotype("Foreign Key")?.GetProperty<IElement>("Association")?.AsAssociationTargetEndModel();
-    }
-
-    public static string AsSingleOrTuple(this IEnumerable<CSharpStatement> idFields)
-    {
-        var enumeratedIdFields = idFields as CSharpStatement[] ?? idFields.ToArray();
-
-        return enumeratedIdFields.Length switch
-        {
-            <= 0 => throw new Exception("Expected count of at least 1"),
-            1 => $"{enumeratedIdFields[0]}",
-            > 1 => $"({string.Join(", ", enumeratedIdFields.Select(idField => $"{idField}"))})"
-        };
-    }
-}
-
-internal record AggregateKeyMapping(AttributeModel Key, string? Match);

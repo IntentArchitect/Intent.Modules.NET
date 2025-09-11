@@ -1,3 +1,7 @@
+### Version 1.1.4
+
+- Improvement: Refactored so that can be used as NuGet package in other modules.
+
 ### Version 1.1.3
 
 - Improvement: Support for Static Constructor mapping.

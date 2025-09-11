@@ -14,7 +14,8 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
     {
         public bool IsMatch(IElement interaction)
         {
-            return interaction.IsQueryEntityActionTargetEndModel() && interaction.Mappings?.GetQueryEntityMapping() != null;
+            return interaction.IsQueryEntityActionTargetEndModel() &&
+                   interaction.Mappings?.GetQueryEntityMapping() != null;
         }
 
         public void ImplementInteraction(ICSharpClassMethodDeclaration method, IElement interactionElement)

@@ -521,7 +521,6 @@ public static class DataAccessProviderExtensions
         return statements;
     }
 
-
     private static List<PrimaryKeyFilterMapping> GetAggregatePkFindCriteria(IElement requestElement, ClassModel aggregateEntity, ClassModel compositeEntity)
     {
         //There is no mapping to the aggregate's PK, try to match is heuristically

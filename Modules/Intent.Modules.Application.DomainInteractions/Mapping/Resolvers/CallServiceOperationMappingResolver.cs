@@ -1,11 +1,8 @@
-﻿using System.Text;
-using System.Threading.Tasks;
-using Intent.Modules.Common.CSharp.Mapping;
+﻿using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
-using Intent.Templates;
 using Intent.RoslynWeaver.Attributes;
 
-namespace Intent.Modules.Eventing.Contracts.InteractionStrategies;
+namespace Intent.Modules.Application.DomainInteractions.Mapping.Resolvers;
 
 [IntentManaged(Mode.Ignore)]
 public class CallServiceOperationMappingResolver : IMappingTypeResolver
