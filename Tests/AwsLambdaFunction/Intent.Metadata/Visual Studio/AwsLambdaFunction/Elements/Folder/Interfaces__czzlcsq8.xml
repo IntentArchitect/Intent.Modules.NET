@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e4a49fad-8473-4a23-8086-2ff93bef1226" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Interfaces</name>
+  <display>Interfaces</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>3e0231f2-0841-413a-8f52-a2b61ad87a6d</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="aeba1533-4d6f-4d0b-bb07-a25023b07f77" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Aws.DynamoDB.DynamoDBUnitOfWorkInterface</name>
+      <display>Intent.Aws.DynamoDB.DynamoDBUnitOfWorkInterface</display>
+      <externalReference>Intent.Aws.DynamoDB</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>e4a49fad-8473-4a23-8086-2ff93bef1226</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="24b4145c-e0c9-4cd3-bffc-7cfd05176086" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.Repositories.Api.UnitOfWorkInterface</name>
+      <display>Intent.Entities.Repositories.Api.UnitOfWorkInterface</display>
+      <externalReference>Intent.Entities.Repositories.Api</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>e4a49fad-8473-4a23-8086-2ff93bef1226</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

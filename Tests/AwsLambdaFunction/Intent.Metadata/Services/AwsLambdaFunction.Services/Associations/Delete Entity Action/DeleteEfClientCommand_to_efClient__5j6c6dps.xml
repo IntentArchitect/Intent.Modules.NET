@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="cdd1e84f-77f4-441a-ad85-9fbe4e6758aa">
+  <sourceEnd id="f8b1213f-60e3-4097-b420-4820f93efc69" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : EfClients.DeleteEfClientCommand</display>
+    <order>0</order>
+    <typeReference id="6b67607b-f86f-4f61-97cd-fb7b68a9de89">
+      <typeId>678dd4c7-3ceb-4d5f-b2c6-566b6b71fda3</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AwsLambdaFunction.Services</typePackageName>
+      <typePackageId>2b08d911-4e9c-47f1-9fc1-598b5e03604f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="cdd1e84f-77f4-441a-ad85-9fbe4e6758aa" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>efClient</name>
+    <display>[delete] efClient: EfClient</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="ed1db46c-f4fb-4d03-8145-d5cc8d36beff">
+      <typeId>12c1e06b-4a66-46bc-98e5-ac05727b6069</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AwsLambdaFunction.Domain.EF</typePackageName>
+      <typePackageId>2d08ccbf-d8ae-4638-9af9-534b2d3e57cd</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="a3d5e72b-6cfe-4489-bc5e-6bd915f60cb6" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="678dd4c7-3ceb-4d5f-b2c6-566b6b71fda3" location="[AwsLambdaFunction].[Services].[DeleteEfClientCommand]" />
+        <target applicationId="a3d5e72b-6cfe-4489-bc5e-6bd915f60cb6" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="12c1e06b-4a66-46bc-98e5-ac05727b6069" location="[AwsLambdaFunction].[Services].[EfClient]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="12c1e06b-4a66-46bc-98e5-ac05727b6069" name="EfClient" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="2f6c1447-4e61-437a-9bb7-b02f860a0f89" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="678dd4c7-3ceb-4d5f-b2c6-566b6b71fda3" name="DeleteEfClientCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="e2e0a989-3f16-46a5-bd1b-c482f9b59df6" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

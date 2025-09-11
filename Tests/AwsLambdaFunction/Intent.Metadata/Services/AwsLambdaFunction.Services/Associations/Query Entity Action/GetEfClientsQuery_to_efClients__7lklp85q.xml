@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="1853f36d-bfea-495e-89fa-8d70caf57b6b">
+  <sourceEnd id="94733d48-9e35-4321-a419-e4006fde7f06" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetEfClientsQuery</display>
+    <order>0</order>
+    <typeReference id="dcfa4a21-005b-4a19-878c-e56acf897247">
+      <typeId>ce3e47fc-2148-4c43-9819-27ee43dd0588</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AwsLambdaFunction.Services</typePackageName>
+      <typePackageId>2b08d911-4e9c-47f1-9fc1-598b5e03604f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="1853f36d-bfea-495e-89fa-8d70caf57b6b" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>efClients</name>
+    <display>[query] efClients: EfClient[*]</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="0d3826c8-23d0-4c9a-a5f5-47a03b082eb7">
+      <typeId>12c1e06b-4a66-46bc-98e5-ac05727b6069</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AwsLambdaFunction.Domain.EF</typePackageName>
+      <typePackageId>2d08ccbf-d8ae-4638-9af9-534b2d3e57cd</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="a3d5e72b-6cfe-4489-bc5e-6bd915f60cb6" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="ce3e47fc-2148-4c43-9819-27ee43dd0588" location="[AwsLambdaFunction].[Services].[GetEfClientsQuery]" />
+        <target applicationId="a3d5e72b-6cfe-4489-bc5e-6bd915f60cb6" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="12c1e06b-4a66-46bc-98e5-ac05727b6069" location="[AwsLambdaFunction].[Services].[EfClient]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

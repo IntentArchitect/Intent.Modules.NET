@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="9498413e-e650-4f14-b0fb-ea7b967b9632">
+  <sourceEnd id="9493f317-3ddb-43a5-ab95-8f6dc0dbffac" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : DynClients.DeleteDynClientCommand</display>
+    <order>0</order>
+    <typeReference id="7a240c21-ca70-4d8e-820a-8923ed017483">
+      <typeId>676cd7eb-1434-4aa3-94fe-30b892303572</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AwsLambdaFunction.Services</typePackageName>
+      <typePackageId>2b08d911-4e9c-47f1-9fc1-598b5e03604f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="9498413e-e650-4f14-b0fb-ea7b967b9632" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>dynClient</name>
+    <display>[delete] dynClient: DynClient</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="9dbcdc22-58fa-490c-b016-735f4a192828">
+      <typeId>7834e231-847c-41d4-9358-523f94b3e7a4</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AwsLambdaFunction.Domain.Dynamo</typePackageName>
+      <typePackageId>b4f53221-960e-4b3b-8bf2-f6dd9ff9cdaa</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="a3d5e72b-6cfe-4489-bc5e-6bd915f60cb6" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="676cd7eb-1434-4aa3-94fe-30b892303572" location="[AwsLambdaFunction].[Services].[DeleteDynClientCommand]" />
+        <target applicationId="a3d5e72b-6cfe-4489-bc5e-6bd915f60cb6" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="7834e231-847c-41d4-9358-523f94b3e7a4" location="[AwsLambdaFunction].[Services].[DynClient]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="7834e231-847c-41d4-9358-523f94b3e7a4" name="DynClient" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="bfd98443-bc65-484e-a33f-72dae999c84c" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="676cd7eb-1434-4aa3-94fe-30b892303572" name="DeleteDynClientCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="da4d25b3-ba0a-4cfa-a02e-d4baa8e77f05" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

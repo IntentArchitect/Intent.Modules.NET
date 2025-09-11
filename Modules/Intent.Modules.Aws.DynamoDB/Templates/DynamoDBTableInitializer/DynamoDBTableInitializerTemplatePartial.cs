@@ -1,5 +1,6 @@
 using System.Linq;
 using Intent.Engine;
+using Intent.Metadata.DocumentDB.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -36,7 +37,7 @@ namespace Intent.Modules.Aws.DynamoDB.Templates.DynamoDBTableInitializer
                         method.AddObjectInitializerBlock("var requests = new List<CreateTableRequest>", listBlock =>
                         {
                             var domainDesigner = ExecutionContext.MetadataManager.Domain(ExecutionContext.GetApplicationConfig().Id);
-                            var aggregateRoots = domainDesigner.GetClassModels().Where(x => x.IsAggregateRoot()).ToArray();
+                            var aggregateRoots = domainDesigner.GetClassModels().Where(x => x.IsAggregateRoot() && IsDynamoDbEntity(x)).ToArray();
                             foreach (var aggregateRoot in aggregateRoots
                                          .OrderBy(x => x.Name)
                                          .ThenBy(x => x.InternalElement?.ParentElement?.Name)
@@ -117,6 +118,18 @@ namespace Intent.Modules.Aws.DynamoDB.Templates.DynamoDBTableInitializer
                         });
                     });
                 });
+        }
+
+        private static bool IsDynamoDbEntity(ClassModel classModel)
+        {
+            var db = classModel.InternalElement.Package.AsDomainPackageModel()?.GetDocumentDatabase();
+            if (db is null)
+            {
+                return false;
+            }
+            var provider = db.Provider();
+            
+            return provider == null || provider.Name == "DynamoDB";
         }
 
         [IntentManaged(Mode.Fully)]

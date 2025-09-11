@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="001b5a19-37d7-404f-8fdc-21cbc75ad1df">
+  <sourceEnd id="334df5a2-7806-4552-ab41-8c0b6ba42450" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Client</name>
+    <display>Client: DynClient</display>
+    <order>0</order>
+    <typeReference id="9fd78495-5504-4eb6-9c90-310e188bf864">
+      <typeId>7834e231-847c-41d4-9358-523f94b3e7a4</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AwsLambdaFunction.Domain.Dynamo</typePackageName>
+      <typePackageId>b4f53221-960e-4b3b-8bf2-f6dd9ff9cdaa</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="001b5a19-37d7-404f-8fdc-21cbc75ad1df" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Sites</name>
+    <display>Sites: DynSite[*]</display>
+    <order>3</order>
+    <typeReference id="9b9008d5-f04d-4e27-9502-cfdca1e690ee">
+      <typeId>948bff2f-1487-4729-abe6-1247e499179f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AwsLambdaFunction.Domain.Dynamo</typePackageName>
+      <typePackageId>b4f53221-960e-4b3b-8bf2-f6dd9ff9cdaa</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

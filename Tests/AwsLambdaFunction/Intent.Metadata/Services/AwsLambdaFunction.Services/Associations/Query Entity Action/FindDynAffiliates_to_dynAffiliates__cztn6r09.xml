@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="b3998cad-ba28-424a-87c6-73acc7135911">
+  <sourceEnd id="82583094-c9dc-45e4-a627-4bd624c46bdf" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: FindDynAffiliates</display>
+    <order>0</order>
+    <typeReference id="487764ad-5664-4018-97ab-9276bdee7dba">
+      <typeId>c8b4ddba-6043-4e13-be0b-10f73d211c96</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AwsLambdaFunction.Services</typePackageName>
+      <typePackageId>2b08d911-4e9c-47f1-9fc1-598b5e03604f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="b3998cad-ba28-424a-87c6-73acc7135911" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>dynAffiliates</name>
+    <display>[query] dynAffiliates: DynAffiliate[*]</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="b672a132-dda8-4c34-ac04-432add7dd1c4">
+      <typeId>adf3554c-19fc-4cb9-bfa9-4f903b695ee6</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AwsLambdaFunction.Domain.Dynamo</typePackageName>
+      <typePackageId>b4f53221-960e-4b3b-8bf2-f6dd9ff9cdaa</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="a3d5e72b-6cfe-4489-bc5e-6bd915f60cb6" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="c8b4ddba-6043-4e13-be0b-10f73d211c96" location="[AwsLambdaFunction].[Services].[FindDynAffiliates]" />
+        <target applicationId="a3d5e72b-6cfe-4489-bc5e-6bd915f60cb6" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="adf3554c-19fc-4cb9-bfa9-4f903b695ee6" location="[AwsLambdaFunction].[Services].[DynAffiliate]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

@@ -47,7 +47,7 @@ public partial class LambdaFunctionClassTemplate : CSharpTemplateBase<ILambdaFun
             .AddUsing("Amazon.Lambda.Annotations")
             .AddUsing("Amazon.Lambda.Annotations.APIGateway")
             .AddUsing("Amazon.Lambda.Core")
-            .AddClass($"{Model.Name}Functions", @class =>
+            .AddClass($"{Model.Name.RemoveSuffix("Service")}Functions", @class =>
             {
                 @class.AddConstructor(ctor => { });
                 @class.RepresentsModel(Model);

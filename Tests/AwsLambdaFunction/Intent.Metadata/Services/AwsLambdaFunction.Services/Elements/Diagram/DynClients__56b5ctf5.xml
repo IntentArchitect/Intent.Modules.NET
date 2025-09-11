@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="40a44c4b-a530-412d-9545-05e4ae6b11bf" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>DynClients</name>
+  <display>DynClients</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>48ba97f1-eaa5-44f7-983d-dad517910729</parentFolderId>
+  <packageId>2b08d911-4e9c-47f1-9fc1-598b5e03604f</packageId>
+  <packageName>AwsLambdaFunction.Services</packageName>
+  <diagram>
+    <targetPackageId>40a44c4b-a530-412d-9545-05e4ae6b11bf</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

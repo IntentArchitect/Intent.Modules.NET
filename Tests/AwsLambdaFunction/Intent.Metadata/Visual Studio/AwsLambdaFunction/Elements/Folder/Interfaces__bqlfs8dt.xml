@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3bd23c9b-b3b0-476f-b1ed-8490f65f22d1" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Interfaces</name>
+  <display>Interfaces</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>995d270b-e2ea-47c5-8004-f50202d367d8</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="561809d0-a097-48b1-9c02-3e066ef58180" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Contracts.ServiceContract</name>
+      <display>Intent.Application.Contracts.ServiceContract</display>
+      <externalReference>Intent.Application.Contracts</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>3bd23c9b-b3b0-476f-b1ed-8490f65f22d1</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

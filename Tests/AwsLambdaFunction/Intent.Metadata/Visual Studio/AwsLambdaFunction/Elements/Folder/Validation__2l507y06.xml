@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="46466a25-7bf2-44b7-887f-ae88b3338c8f" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Validation</name>
+  <display>Validation</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>7ca6e7ef-d8b3-4cce-9fae-dc65c2f49e2c</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="73e75fd7-8937-462b-812a-a9a5a9b900bd" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.FluentValidation.Dtos.ValidationService</name>
+      <display>Intent.Application.FluentValidation.Dtos.ValidationService</display>
+      <externalReference>Intent.Application.FluentValidation.Dtos</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>46466a25-7bf2-44b7-887f-ae88b3338c8f</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="a96590c3-594e-4e49-b632-432f9f767354" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.FluentValidation.Dtos.ValidationServiceInterface</name>
+      <display>Intent.Application.FluentValidation.Dtos.ValidationServiceInterface</display>
+      <externalReference>Intent.Application.FluentValidation.Dtos</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>46466a25-7bf2-44b7-887f-ae88b3338c8f</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="3e58a08f-d998-4fa9-86dc-225bc12274bf" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.FluentValidation.Dtos.ValidatorProvider</name>
+      <display>Intent.Application.FluentValidation.Dtos.ValidatorProvider</display>
+      <externalReference>Intent.Application.FluentValidation.Dtos</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>46466a25-7bf2-44b7-887f-ae88b3338c8f</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="21fa67f7-2b70-43f5-b69e-023daba87689" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface</name>
+      <display>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface</display>
+      <externalReference>Intent.Application.FluentValidation.Dtos</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>46466a25-7bf2-44b7-887f-ae88b3338c8f</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

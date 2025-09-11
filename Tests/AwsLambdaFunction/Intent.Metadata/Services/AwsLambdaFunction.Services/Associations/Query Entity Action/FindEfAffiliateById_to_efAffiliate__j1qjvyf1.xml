@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="ddff4fe8-3779-4b7c-a244-e0843827f159">
+  <sourceEnd id="7dd45b9d-0feb-4aa5-b3ab-c86ebccb1a15" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: FindEfAffiliateById</display>
+    <order>0</order>
+    <typeReference id="2d5655cd-7716-4cf1-8378-48f4796f32f1">
+      <typeId>3a81e2ba-b780-48ce-9fce-acca102ecef8</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AwsLambdaFunction.Services</typePackageName>
+      <typePackageId>2b08d911-4e9c-47f1-9fc1-598b5e03604f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="ddff4fe8-3779-4b7c-a244-e0843827f159" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>efAffiliate</name>
+    <display>[query] efAffiliate: EfAffiliate</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="07a04bdf-1c44-49d6-943a-4322de28fb89">
+      <typeId>5b563434-1e11-4540-ba10-6b8defa8e525</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AwsLambdaFunction.Domain.EF</typePackageName>
+      <typePackageId>2d08ccbf-d8ae-4638-9af9-534b2d3e57cd</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="a3d5e72b-6cfe-4489-bc5e-6bd915f60cb6" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="3a81e2ba-b780-48ce-9fce-acca102ecef8" location="[AwsLambdaFunction].[Services].[FindEfAffiliateById]" />
+        <target applicationId="a3d5e72b-6cfe-4489-bc5e-6bd915f60cb6" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="5b563434-1e11-4540-ba10-6b8defa8e525" location="[AwsLambdaFunction].[Services].[EfAffiliate]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{id}</expression>
+            <path>
+              <target id="5b563434-1e11-4540-ba10-6b8defa8e525" name="EfAffiliate" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="39b797c0-2406-467a-8cb1-434db46d172d" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="3a81e2ba-b780-48ce-9fce-acca102ecef8" name="FindEfAffiliateById" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="7d3fa081-0a7a-4150-932a-9dcc79d62651" name="id" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

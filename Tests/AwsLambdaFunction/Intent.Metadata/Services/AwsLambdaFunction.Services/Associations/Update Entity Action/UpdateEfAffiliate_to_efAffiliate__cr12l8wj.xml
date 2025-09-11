@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="177ee9a9-6dab-413e-aa65-6f634344cb69">
+  <sourceEnd id="329ae2b9-9513-44bd-a41d-4478362a84b2" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : EfAffiliatesService.UpdateEfAffiliate</display>
+    <order>0</order>
+    <typeReference id="edbf84d3-e98b-4e42-bf26-41f867bcc2a4">
+      <typeId>09eb6e3b-defb-4817-833a-633a090b4e8e</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AwsLambdaFunction.Services</typePackageName>
+      <typePackageId>2b08d911-4e9c-47f1-9fc1-598b5e03604f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="177ee9a9-6dab-413e-aa65-6f634344cb69" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>efAffiliate</name>
+    <display>[update] efAffiliate: EfAffiliate</display>
+    <order>2</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="2a3ff0db-f9a9-4d07-a90e-7c87c5a8832d">
+      <typeId>5b563434-1e11-4540-ba10-6b8defa8e525</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AwsLambdaFunction.Domain.EF</typePackageName>
+      <typePackageId>2d08ccbf-d8ae-4638-9af9-534b2d3e57cd</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="a3d5e72b-6cfe-4489-bc5e-6bd915f60cb6" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="09eb6e3b-defb-4817-833a-633a090b4e8e" location="[AwsLambdaFunction].[Services].[UpdateEfAffiliate]" />
+        <target applicationId="a3d5e72b-6cfe-4489-bc5e-6bd915f60cb6" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="5b563434-1e11-4540-ba10-6b8defa8e525" location="[AwsLambdaFunction].[Services].[EfAffiliate]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{id}</expression>
+            <path>
+              <target id="5b563434-1e11-4540-ba10-6b8defa8e525" name="EfAffiliate" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="39b797c0-2406-467a-8cb1-434db46d172d" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="09eb6e3b-defb-4817-833a-633a090b4e8e" name="UpdateEfAffiliate" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="e5f679a1-332a-4cdb-becb-af28c756277a" name="id" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="a3d5e72b-6cfe-4489-bc5e-6bd915f60cb6" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="09eb6e3b-defb-4817-833a-633a090b4e8e" location="[AwsLambdaFunction].[Services].[UpdateEfAffiliate]" />
+        <target applicationId="a3d5e72b-6cfe-4489-bc5e-6bd915f60cb6" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="5b563434-1e11-4540-ba10-6b8defa8e525" location="[AwsLambdaFunction].[Services].[EfAffiliate]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{dto.Name}</expression>
+            <path>
+              <target id="5b563434-1e11-4540-ba10-6b8defa8e525" name="EfAffiliate" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="52ff2d2c-a9ac-4b62-aab2-96a3ad7ed167" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="dto.Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="09eb6e3b-defb-4817-833a-633a090b4e8e" name="UpdateEfAffiliate" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="18df560f-20a6-4468-bf5a-f98ecda4dc30" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="49692f1c-f544-4a4a-bd1c-82bb1b06c919" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

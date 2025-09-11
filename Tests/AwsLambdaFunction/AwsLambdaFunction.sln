@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{3871440D-12F3-42DF-B57B-CAAA61E5CF8C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AwsLambdaFunction.Api", "AwsLambdaFunction.Api\AwsLambdaFunction.Api.csproj", "{0DA59ADD-1612-4134-9E19-6D58AFF31D28}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{D533DBCC-3783-49B2-9694-13DC7EE520F5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AwsLambdaFunction.Application", "AwsLambdaFunction.Application\AwsLambdaFunction.Application.csproj", "{995D270B-E2EA-47C5-8004-F50202D367D8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{383656E7-90F6-49C3-84D9-B051E726EAB1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AwsLambdaFunction.Domain", "AwsLambdaFunction.Domain\AwsLambdaFunction.Domain.csproj", "{CCFB7B66-D66F-49B4-BAFA-226B538C3E98}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{5CAAFA48-3832-4D8A-84E9-8E0661CA6A58}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AwsLambdaFunction.Infrastructure", "AwsLambdaFunction.Infrastructure\AwsLambdaFunction.Infrastructure.csproj", "{1418507D-6F95-4BCC-A8C5-50CBD49D78FD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0DA59ADD-1612-4134-9E19-6D58AFF31D28} = {3871440D-12F3-42DF-B57B-CAAA61E5CF8C}
+		{995D270B-E2EA-47C5-8004-F50202D367D8} = {D533DBCC-3783-49B2-9694-13DC7EE520F5}
+		{CCFB7B66-D66F-49B4-BAFA-226B538C3E98} = {383656E7-90F6-49C3-84D9-B051E726EAB1}
+		{1418507D-6F95-4BCC-A8C5-50CBD49D78FD} = {5CAAFA48-3832-4D8A-84E9-8E0661CA6A58}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0DA59ADD-1612-4134-9E19-6D58AFF31D28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DA59ADD-1612-4134-9E19-6D58AFF31D28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DA59ADD-1612-4134-9E19-6D58AFF31D28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DA59ADD-1612-4134-9E19-6D58AFF31D28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{995D270B-E2EA-47C5-8004-F50202D367D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{995D270B-E2EA-47C5-8004-F50202D367D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{995D270B-E2EA-47C5-8004-F50202D367D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{995D270B-E2EA-47C5-8004-F50202D367D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCFB7B66-D66F-49B4-BAFA-226B538C3E98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCFB7B66-D66F-49B4-BAFA-226B538C3E98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCFB7B66-D66F-49B4-BAFA-226B538C3E98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCFB7B66-D66F-49B4-BAFA-226B538C3E98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1418507D-6F95-4BCC-A8C5-50CBD49D78FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1418507D-6F95-4BCC-A8C5-50CBD49D78FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1418507D-6F95-4BCC-A8C5-50CBD49D78FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1418507D-6F95-4BCC-A8C5-50CBD49D78FD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
