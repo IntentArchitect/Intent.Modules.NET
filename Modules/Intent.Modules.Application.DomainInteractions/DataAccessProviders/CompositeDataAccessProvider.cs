@@ -1,31 +1,23 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
-using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Interactions;
 using Intent.Modules.Common.CSharp.Mapping;
-using Intent.Modules.Common.CSharp.Templates;
-using Intent.Modules.Common.Templates;
-using Intent.Templates;
 
-namespace Intent.Modules.Application.DomainInteractions;
+namespace Intent.Modules.Application.DomainInteractions.DataAccessProviders;
 
 public class CompositeDataAccessProvider : IDataAccessProvider
 {
     private readonly string _accessor;
     private readonly string _saveChangesAccessor;
     private readonly string? _explicitUpdateStatement;
-    private readonly ICSharpFileBuilderTemplate _template;
     private readonly CSharpClassMappingManager _mappingManager;
 
     public CompositeDataAccessProvider(string saveChangesAccessor, string accessor, string? explicitUpdateStatement,
         ICSharpClassMethodDeclaration method)
     {
         _explicitUpdateStatement = explicitUpdateStatement;
-        _template = (ICSharpFileBuilderTemplate?)method.File.Template;
         _mappingManager = method.GetMappingManager();
         _saveChangesAccessor = saveChangesAccessor;
         _accessor = accessor;
@@ -158,45 +150,4 @@ public class CompositeDataAccessProvider : IDataAccessProvider
         prerequisiteStatements = new List<CSharpStatement>();
         return new CSharpStatement("");
     }
-
-    // private CSharpStatement CreateQueryFilterExpression(IElementToElementMapping queryMapping, out IList<CSharpStatement> requiredStatements)
-    // {
-    //     requiredStatements = new List<CSharpStatement>();
-    //
-    //     var queryFields = queryMapping.MappedEnds.Where(x => !x.SourceElement.TypeReference.IsNullable)
-    //         .Select(x => x.IsOneToOne()
-    //             ? $"x.{x.TargetElement.Name} == {_mappingManager.GenerateSourceStatementForMapping(queryMapping, x)}"
-    //             : $"x.{x.TargetElement.Name}.{_mappingManager.GenerateSourceStatementForMapping(queryMapping, x)}")
-    //         .ToList();
-    //
-    //     var expression = queryFields.Any() ? $"x => {string.Join(" && ", queryFields)}" : null;
-    //
-    //     if (queryMapping.MappedEnds.All(x => !x.SourceElement.TypeReference.IsNullable))
-    //     {
-    //         return expression;
-    //     }
-    //
-    //     var typeName = _template.GetTypeName((IElement)queryMapping.TargetElement);
-    //     var filterName = $"Filter{typeName.Pluralize()}";
-    //     var block = new CSharpLocalMethod($"{_template.UseType("System.Linq.IQueryable")}<{typeName}>", filterName, _template.CSharpFile);
-    //     block.AddParameter($"{_template.UseType("System.Linq.IQueryable")}<{typeName}>", "queryable");
-    //     if (!string.IsNullOrWhiteSpace(expression))
-    //     {
-    //         block.AddStatement($"queryable = queryable.Where({expression})", x => x.WithSemicolon());
-    //     }
-    //
-    //     foreach (var mappedEnd in queryMapping.MappedEnds.Where(x => x.SourceElement.TypeReference.IsNullable))
-    //     {
-    //         block.AddIfStatement(_mappingManager.GenerateSourceStatementForMapping(queryMapping, mappedEnd) + " != null", inside =>
-    //         {
-    //             inside.AddStatement($"queryable = queryable.Where(x => x.{mappedEnd.TargetElement.Name} == {_mappingManager.GenerateSourceStatementForMapping(queryMapping, mappedEnd)})", x => x.WithSemicolon());
-    //         });
-    //     }
-    //
-    //     block.AddStatement("return await queryable;");
-    //     block.SeparatedFromNext();
-    //     requiredStatements.Add(block);
-    //
-    //     return filterName;
-    // }
 }

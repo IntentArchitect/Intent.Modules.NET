@@ -11,14 +11,12 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Interactions;
 using Intent.Modules.Common.CSharp.Templates;
-using Intent.Utils;
 using OperationModelExtensions = Intent.Modelers.Domain.Api.OperationModelExtensions;
 
 namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
 {
     public class CreateEntityInteractionStrategy : IInteractionStrategy
     {
-        //public Dictionary<string, EntityDetails> TrackedEntities { get; set; } = new();
         public bool IsMatch(IElement interaction)
         {
             return interaction.IsCreateEntityActionTargetEndModel();
@@ -26,42 +24,41 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
 
         public void ImplementInteraction(ICSharpClassMethodDeclaration method, IElement interactionElement)
         {
+            ArgumentNullException.ThrowIfNull(method);
             var interaction = (IAssociationEnd)interactionElement;
-            if (method == null)
-            {
-                throw new ArgumentNullException(nameof(method));
-            }
+
             try
             {
                 var createAction = interaction.AsCreateEntityActionTargetEndModel();
+                var entity = createAction.TypeReference.Element.AsClassModel() ??
+                             createAction.TypeReference.Element.AsClassConstructorModel()?.ParentClass ??
+                             OperationModelExtensions.AsOperationModel(createAction.TypeReference.Element)?.ParentClass ??
+                             throw new InvalidOperationException("Could not determine entity");
                 var handlerClass = method.Class;
-                var _csharpMapping = method.GetMappingManager();
-                var entity = createAction.TypeReference.Element.AsClassModel() 
-                             ?? createAction.TypeReference.Element.AsClassConstructorModel()?.ParentClass
-                             ?? OperationModelExtensions.AsOperationModel(createAction.TypeReference.Element)?.ParentClass;
-
                 var entityVariableName = createAction.Name.ToCSharpIdentifier(CapitalizationBehaviour.MakeFirstLetterLower);
                 var dataAccess = method.InjectDataAccessProvider(entity);
 
+                var csharpMapping = method.GetMappingManager();
+                csharpMapping.SetFromReplacement(interaction, entityVariableName);
+                csharpMapping.SetFromReplacement(entity, entityVariableName);
+                csharpMapping.SetToReplacement(interaction, entityVariableName);
+                csharpMapping.SetToReplacement(entity, entityVariableName);
+
                 method.TrackedEntities().Add(createAction.Id, new EntityDetails(entity.InternalElement, entityVariableName, dataAccess, true));
 
-                var mapping = createAction.Mappings.SingleOrDefault();
+                var mapping = createAction.Mappings.Single();
                 var statements = new List<CSharpStatement>();
 
                 if (dataAccess.MustAccessEntityThroughAggregate())
                 {
-                    if (!method.TryGetFindAggregateStatements(mapping.SourceElement as IElement, entity, out statements))
-                    {
-                        Logging.Log.Warning($"Unable to implement creation logic for handler '{handlerClass.Name}'. See earlier warnings for more information.");
-                        return;
-                    }
+                    statements = method.GetFindAggregateStatements((IElement)mapping.SourceElement, foundEntity: entity);
                 }
 
                 if (mapping != null)
                 {
-                    var constructionStatement = _csharpMapping.GenerateCreationStatement(mapping);
+                    var constructionStatement = csharpMapping.GenerateCreationStatement(mapping);
 
-                    handlerClass.WireupDomainServicesForConstructors(createAction, constructionStatement);
+                    handlerClass.WireUpDomainServicesForConstructors(createAction, constructionStatement);
 
                     statements.Add(new CSharpAssignmentStatement(new CSharpVariableDeclaration(entityVariableName), constructionStatement).WithSemicolon());
                 }
@@ -72,11 +69,6 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
 
                 method.AddStatements(statements);
                 method.AddStatement(ExecutionPhases.Persistence, dataAccess.AddEntity(entityVariableName).SeparatedFromPrevious());
-
-                _csharpMapping.SetFromReplacement(interaction, entityVariableName);
-                _csharpMapping.SetFromReplacement(entity, entityVariableName);
-                _csharpMapping.SetToReplacement(interaction, entityVariableName);
-                _csharpMapping.SetToReplacement(entity, entityVariableName);
 
                 if (interaction.OtherEnd().TypeReference.Element.TypeReference.Element != null)
                 {
@@ -94,14 +86,14 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
         {
 
             // TODO: GCB - This needs to be re-looked at. It's using the tracked entities, which doesn't make sense.
-            var nonUserSuppliedEntitiesReturningPks = GetEntitiesReturningPK(method, returnType, isUserSupplied: false);
+            var nonUserSuppliedEntitiesReturningPks = GetEntitiesReturningPk(method, returnType, isUserSupplied: false);
 
             foreach (var entity in nonUserSuppliedEntitiesReturningPks.Where(x => x.IsNew).GroupBy(x => x.ElementModel.Id).Select(x => x.First()))
             {
                 if (entity.ElementModel.IsClassModel())
                 {
                     var primaryKeys = entity.ElementModel.AsClassModel().GetTypesInHierarchy().SelectMany(c => c.Attributes.Where(a => a.IsPrimaryKey()));
-                    if (primaryKeys.Any(p => HasDBGeneratedPk(p)))
+                    if (primaryKeys.Any(HasDBGeneratedPk))
                     {
                         method.AddStatement(ExecutionPhases.Persistence, new CSharpStatement($"{entity.DataAccessProvider.SaveChangesAsync()}"));
                     }
@@ -114,7 +106,7 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
         }
 
 
-        private static List<EntityDetails> GetEntitiesReturningPK(ICSharpClassMethodDeclaration method, ITypeReference returnType, bool? isUserSupplied = null)
+        private static List<EntityDetails> GetEntitiesReturningPk(ICSharpClassMethodDeclaration method, ITypeReference returnType, bool? isUserSupplied = null)
         {
             if (returnType.Element.IsDTOModel())
             {

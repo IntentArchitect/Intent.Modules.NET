@@ -12,7 +12,6 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
 {
     public class QueryInteractionStrategy : IInteractionStrategy
     {
-        //public Dictionary<string, EntityDetails> TrackedEntities { get; set; } = new();
         public bool IsMatch(IElement interaction)
         {
             return interaction.IsQueryEntityActionTargetEndModel() && interaction.Mappings?.GetQueryEntityMapping() != null;
@@ -20,15 +19,11 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
 
         public void ImplementInteraction(ICSharpClassMethodDeclaration method, IElement interactionElement)
         {
-            if (method == null)
-            {
-                throw new ArgumentNullException(nameof(method));
-            }
-
             var interaction = (IAssociationEnd)interactionElement;
+            ArgumentNullException.ThrowIfNull(method);
+
             try
             {
-                var associationEnd = interaction;
                 var foundEntity = interaction.TypeReference.Element.AsClassModel();
                 var queryMapping = interaction.Mappings.GetQueryEntityMapping();
                 if (queryMapping == null)
@@ -36,20 +31,19 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
                     throw new ElementException(interaction, "Query Entity Mapping has not been specified.");
                 }
 
-                var entityVariableName = associationEnd.Name.ToCSharpIdentifier(CapitalizationBehaviour.MakeFirstLetterLower);
+                var entityVariableName = interaction.Name.ToCSharpIdentifier(CapitalizationBehaviour.MakeFirstLetterLower);
 
-                var _template = method.File.Template;
-                var _csharpMapping = method.GetMappingManager();
+                var csharpMapping = method.GetMappingManager();
                 var queryContext = new QueryActionContext(method, ActionType.Query, interaction);
-                _csharpMapping.SetFromReplacement(foundEntity, entityVariableName);
-                _csharpMapping.SetFromReplacement(associationEnd, entityVariableName);
-                _csharpMapping.SetToReplacement(foundEntity, entityVariableName);
-                _csharpMapping.SetToReplacement(associationEnd, entityVariableName);
+                csharpMapping.SetFromReplacement(foundEntity, entityVariableName);
+                csharpMapping.SetFromReplacement(interaction, entityVariableName);
+                csharpMapping.SetToReplacement(foundEntity, entityVariableName);
+                csharpMapping.SetToReplacement(interaction, entityVariableName);
 
                 var queryStatements = method.GetQueryStatements(interaction, queryContext);
                 method.AddStatements(queryStatements);
             }
-            catch (ElementException ex)
+            catch (ElementException)
             {
                 throw;
             }

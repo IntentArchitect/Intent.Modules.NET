@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Intent.Exceptions;
 using Intent.Metadata.Models;
-using Intent.Modelers.Services.Api;
 using Intent.Modelers.Domain.Api;
+using Intent.Modules.Application.DomainInteractions.DataAccessProviders;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Interactions;
@@ -20,35 +21,35 @@ namespace Intent.Modules.Application.DomainInteractions.Extensions;
 
 public static class DataAccessProviderExtensions
 {
-
     public static IList<CSharpStatement> GetQueryStatements(this ICSharpClassMethodDeclaration method, IAssociationEnd interaction, QueryActionContext queryContext)
     {
         var queryMapping = interaction.Mappings.GetQueryEntityMapping();
+        if (queryMapping == null)
+        {
+            throw new Exception($"{nameof(queryMapping)} is null");
+        }
+
         var foundEntity = interaction.TypeReference.Element.AsClassModel();
         if (queryContext.ActionType == ActionType.Update && foundEntity == null)
         {
-            foundEntity = Intent.Modelers.Domain.Api.OperationModelExtensions.AsOperationModel(interaction.TypeReference.Element).ParentClass;
+            foundEntity = interaction.TypeReference.Element.AsOperationModel().ParentClass;
         }
-        var _template = method.File.Template;
+
+        var template = method.File.Template;
         var entityVariableName = interaction.Name.ToCSharpIdentifier(CapitalizationBehaviour.MakeFirstLetterLower);
 
-        var _csharpMapping = method.GetMappingManager();
-        _csharpMapping.SetFromReplacement(foundEntity, entityVariableName);
-        _csharpMapping.SetFromReplacement(interaction, entityVariableName);
-        _csharpMapping.SetToReplacement(foundEntity, entityVariableName);
-        _csharpMapping.SetToReplacement(interaction, entityVariableName);
+        var csharpMapping = method.GetMappingManager();
+        csharpMapping.SetFromReplacement(foundEntity, entityVariableName);
+        csharpMapping.SetFromReplacement(interaction, entityVariableName);
+        csharpMapping.SetToReplacement(foundEntity, entityVariableName);
+        csharpMapping.SetToReplacement(interaction, entityVariableName);
 
         var dataAccess = method.InjectDataAccessProvider(foundEntity, queryContext);
-        CSharpStatement queryInvocation = null;
+        CSharpStatement queryInvocation;
         var prerequisiteStatement = new List<CSharpStatement>();
         if (dataAccess.MustAccessEntityThroughAggregate())
         {
-            if (!method.TryGetFindAggregateStatements(queryMapping, foundEntity, out var findAggStatements))
-            {
-                return [];
-            }
-
-            prerequisiteStatement.AddRange(findAggStatements);
+            prerequisiteStatement.AddRange(method.GetFindAggregateStatements(queryMapping, foundEntity));
 
             if (interaction.TypeReference.IsCollection)
             {
@@ -89,12 +90,12 @@ public static class DataAccessProviderExtensions
             {
                 //var expression = CreateQueryFilterExpression(queryMapping, out var requiredStatements);
 
-                if (TryGetPaginationValues(interaction, _csharpMapping, out var pageNo, out var pageSize, out var orderBy, out var orderByIsNUllable))
+                if (TryGetPaginationValues(interaction, csharpMapping, out var pageNo, out var pageSize, out var orderBy, out var orderByIsNullable))
                 {
-                    queryInvocation = dataAccess.FindAllAsync(queryMapping, pageNo, pageSize, orderBy, orderByIsNUllable, out var requiredStatements);
+                    queryInvocation = dataAccess.FindAllAsync(queryMapping, pageNo, pageSize, orderBy, orderByIsNullable, out var requiredStatements);
                     prerequisiteStatement.AddRange(requiredStatements);
                 }
-                else if (TryGetCursorPaginationValues(interaction, _csharpMapping, out var cursorPageSize, out var cursorToken))
+                else if (TryGetCursorPaginationValues(interaction, csharpMapping, out var cursorPageSize, out var cursorToken))
                 {
                     queryInvocation = dataAccess.FindAllAsync(queryMapping, cursorPageSize, cursorToken, out var requiredStatements);
                     prerequisiteStatement.AddRange(requiredStatements);
@@ -116,12 +117,12 @@ public static class DataAccessProviderExtensions
         statements.AddRange(prerequisiteStatement);
         statements.Add(new CSharpAssignmentStatement(new CSharpVariableDeclaration(entityVariableName), queryInvocation).SeparatedFromPrevious());
 
-        if (!interaction.TypeReference.IsNullable && !interaction.TypeReference.IsCollection 
+        if (!interaction.TypeReference.IsNullable && !interaction.TypeReference.IsCollection
             && !interaction.OtherEnd().TypeReference.Element.TypeReference.IsResultPaginated()
             && !interaction.OtherEnd().TypeReference.Element.TypeReference.IsResultCursorPaginated())
         {
             var queryFields = queryMapping.MappedEnds
-                .Select(x => new CSharpStatement($"{{{_csharpMapping.GenerateSourceStatementForMapping(queryMapping, x)}}}"))
+                .Select(x => new CSharpStatement($"{{{csharpMapping.GenerateSourceStatementForMapping(queryMapping, x)}}}"))
                 .ToList();
             if (queryFields.Count == 0)
             {
@@ -129,7 +130,7 @@ public static class DataAccessProviderExtensions
             }
 
             statements.Add(CreateIfNullThrowNotFoundStatement(
-                template: _template,
+                template: template,
                 variable: entityVariableName,
                 message: $"Could not find {foundEntity.Name} '{queryFields.AsSingleOrTuple()}'"));
 
@@ -191,7 +192,7 @@ public static class DataAccessProviderExtensions
 
         var pageSizeVar = handler.ChildElements.SingleOrDefault(IsPageSizeParam)?.Name;
         var cursorTokenVar = handler.ChildElements.SingleOrDefault(IsTokenParam)?.Name;
-        
+
         var accessVariable = mappingManager.GetFromReplacement(handler);
 
         if (!returnsPagedResult)
@@ -234,18 +235,14 @@ public static class DataAccessProviderExtensions
             return false;
         }
 
-        switch (param.Name.ToLower())
+        return param.Name.ToLower() switch
         {
-            case "page":
-            case "pageno":
-            case "pagenum":
-            case "pagenumber":
-                return true;
-            default:
-                break;
-        }
-
-        return false;
+            "page" => true,
+            "pageno" => true,
+            "pagenum" => true,
+            "pagenumber" => true,
+            _ => false
+        };
     }
 
     private static bool IsPageIndexParam(IElement param)
@@ -255,13 +252,11 @@ public static class DataAccessProviderExtensions
             return false;
         }
 
-        switch (param.Name.ToLower())
+        return param.Name.ToLower() switch
         {
-            case "pageindex":
-                return true;
-            default:
-                return false;
-        }
+            "pageindex" => true,
+            _ => false
+        };
     }
 
     private static bool IsPageSizeParam(IElement param)
@@ -271,16 +266,12 @@ public static class DataAccessProviderExtensions
             return false;
         }
 
-        switch (param.Name.ToLower())
+        return param.Name.ToLower() switch
         {
-            case "size":
-            case "pagesize":
-                return true;
-            default:
-                break;
-        }
-
-        return false;
+            "size" => true,
+            "pagesize" => true,
+            _ => false
+        };
     }
 
     private static bool IsOrderByParam(IElement param)
@@ -290,13 +281,11 @@ public static class DataAccessProviderExtensions
             return false;
         }
 
-        switch (param.Name.ToLower())
+        return param.Name.ToLower() switch
         {
-            case "orderby":
-                return true;
-            default:
-                return false;
-        }
+            "orderby" => true,
+            _ => false
+        };
     }
 
     private static bool IsTokenParam(IElement param)
@@ -306,55 +295,62 @@ public static class DataAccessProviderExtensions
             return false;
         }
 
-        switch (param.Name.ToLower())
+        return param.Name.ToLower() switch
         {
-            case "token":
-            case "cursortoken":
-                return true;
-            default:
-                return false;
-        }
+            "token" => true,
+            "cursortoken" => true,
+            _ => false
+        };
     }
-    public static IDataAccessProvider InjectDataAccessProvider(this ICSharpClassMethodDeclaration method, ClassModel foundEntity, QueryActionContext queryContext = null)
+    public static IDataAccessProvider InjectDataAccessProvider(this ICSharpClassMethodDeclaration method, ClassModel foundEntity, QueryActionContext? queryContext = null)
     {
-        if (TryInjectRepositoryForEntity(method, foundEntity, queryContext, out var dataAccess))
+        if (TryInjectRepositoryForEntity(method, foundEntity, queryContext, out var dataAccess) ||
+            TryInjectDataAccessForComposite(method, foundEntity, out dataAccess) ||
+            TryInjectDbContext(method, foundEntity, queryContext, out dataAccess))
         {
             return dataAccess;
         }
-        if (TryInjectDataAccessForComposite(method, foundEntity, out dataAccess))
-        {
-            return dataAccess;
-        }
-        if (TryInjectDbContext(method, foundEntity, queryContext, out dataAccess))
-        {
-            return dataAccess;
-        }
+
         throw new Exception("No CRUD Data Access Provider found. Please install a Module with a Repository Pattern or EF Core Module.");
     }
 
-    private static bool TryInjectRepositoryForEntity(ICSharpClassMethodDeclaration method, ClassModel foundEntity, QueryActionContext context, out IDataAccessProvider dataAccessProvider)
+    private static bool TryInjectRepositoryForEntity(
+        ICSharpClassMethodDeclaration method,
+        ClassModel foundEntity,
+        QueryActionContext? context,
+        [NotNullWhen(true)] out IDataAccessProvider? dataAccessProvider)
     {
-        var _template = method.File.Template;
-        if (!_template.TryGetTypeName(TemplateRoles.Repository.Interface.Entity, foundEntity, out var repositoryInterface))
+        var template = method.File.Template;
+        if (!template.TryGetTypeName(TemplateRoles.Repository.Interface.Entity, foundEntity, out var repositoryInterface))
         {
             dataAccessProvider = null;
             return false;
         }
 
         //This is being done for Dapper
-        bool hasUnitOfWork = _template.TryGetTemplate<ITemplate>(UnitOfWork, out _);
+        var hasUnitOfWork = template.TryGetTemplate<ITemplate>(UnitOfWork, out _);
 
-
-        dataAccessProvider = new RepositoryDataAccessProvider(method.Class.InjectService(repositoryInterface), (ICSharpFileBuilderTemplate)_template, method.GetMappingManager(), hasUnitOfWork, context, foundEntity);
+        dataAccessProvider = new RepositoryDataAccessProvider(
+            repositoryFieldName: method.Class.InjectService(repositoryInterface),
+            template: (ICSharpFileBuilderTemplate)template,
+            mappingManager: method.GetMappingManager(),
+            hasUnitOfWork: hasUnitOfWork,
+            queryContext: context,
+            entity: foundEntity);
         return true;
     }
 
-    private static bool TryInjectDbContext(ICSharpClassMethodDeclaration method, ClassModel entity, QueryActionContext queryContext, out IDataAccessProvider dataAccessProvider)
+    private static bool TryInjectDbContext(
+        ICSharpClassMethodDeclaration method,
+        ClassModel entity,
+        QueryActionContext? queryContext,
+        [NotNullWhen(true)] out IDataAccessProvider? dataAccessProvider)
     {
         var handlerClass = method.Class;
-        var _template = handlerClass.File.Template;
-        if (!_template.TryGetTypeName(TemplateRoles.Application.Common.DbContextInterface, out var dbContextInterface) ||
-            !SettingGenerateDbContextInterface())
+        var template = handlerClass.File.Template;
+
+        var dbContextInterfaceTemplate = template.ExecutionContext.FindTemplateInstance<ICSharpTemplate>(TemplateRoles.Application.Common.DbContextInterface);
+        if (dbContextInterfaceTemplate?.CanRunTemplate() != true)
         {
             dataAccessProvider = null;
             return false;
@@ -362,59 +358,64 @@ public static class DataAccessProviderExtensions
 
         if (queryContext?.ImplementWithProjections() == true)
         {
-            handlerClass.InjectService(_template.UseType("AutoMapper.IMapper"));
+            handlerClass.InjectService(template.UseType("AutoMapper.IMapper"));
         }
 
-        var dbContextField = handlerClass.InjectService(dbContextInterface, "dbContext");
-        dataAccessProvider = new DbContextDataAccessProvider(dbContextField, entity, _template, method.GetMappingManager(), queryContext);
+        var dbContextField = handlerClass.InjectService(template.GetTypeName(dbContextInterfaceTemplate), "dbContext");
+        dataAccessProvider = new DbContextDataAccessProvider(dbContextField, entity, template, method.GetMappingManager(), queryContext);
         return true;
     }
 
-    private static bool TryInjectDataAccessForComposite(ICSharpClassMethodDeclaration method, ClassModel foundEntity, out IDataAccessProvider dataAccessProvider)
+    private static bool TryInjectDataAccessForComposite(
+        ICSharpClassMethodDeclaration method,
+        ClassModel foundEntity,
+        [NotNullWhen(true)] out IDataAccessProvider? dataAccessProvider)
     {
-        if (!foundEntity.IsAggregateRoot())
+        if (foundEntity.IsAggregateRoot())
         {
-            var handlerClass = method.Class;
-            var _template = handlerClass.File.Template;
-            _template.AddUsing("System.Linq");
-            //var aggregateAssociations = foundEntity.AssociatedClasses
-            //    .Where(p => p.TypeReference?.Element?.AsClassModel()?.IsAggregateRoot() == true &&
-            //                p.IsSourceEnd() && !p.IsCollection && !p.IsNullable)
-            //    .Distinct()
-            //    .ToList();
-            var aggregateAssociations = foundEntity.GetAssociationsToAggregateRoot();
-            var aggregateEntity = aggregateAssociations.First().Class;
-
-            if (_template.TryGetTypeName(TemplateRoles.Repository.Interface.Entity, aggregateEntity, out var repositoryInterface))
-            {
-                bool requiresExplicitUpdate = RepositoryRequiresExplicitUpdate(_template, aggregateEntity);
-                var repositoryName = handlerClass.InjectService(repositoryInterface);
-                dataAccessProvider = new CompositeDataAccessProvider(
-                    saveChangesAccessor: $"{repositoryName}.UnitOfWork",
-                    accessor: $"{aggregateAssociations.Last().Name.ToLocalVariableName()}.{aggregateAssociations.Last().OtherEnd().Name}",
-                    explicitUpdateStatement: requiresExplicitUpdate ? $"{repositoryName}.Update({aggregateEntity.Name.ToLocalVariableName()});" : null,
-                    method: method
-                );
-
-                return true;
-            }
-            else if (_template.TryGetTypeName(TemplateRoles.Application.Common.DbContextInterface, out var dbContextInterface) &&
-                     SettingGenerateDbContextInterface())
-            {
-                var dbContextField = handlerClass.InjectService(dbContextInterface, "dbContext");
-                dataAccessProvider = new CompositeDataAccessProvider(
-                    saveChangesAccessor: dbContextField,
-                    accessor: $"{aggregateAssociations.Last().Name.ToLocalVariableName()}.{aggregateAssociations.Last().OtherEnd().Name}",
-                    explicitUpdateStatement: null,
-                    method: method
-                );
-                return true;
-            }
+            dataAccessProvider = null;
+            return false;
         }
-        dataAccessProvider = null;
-        return false;
-    }
 
+        var handlerClass = method.Class;
+        var template = handlerClass.File.Template;
+        template.AddUsing("System.Linq");
+        var aggregateAssociations = foundEntity.GetAssociationsToAggregateRoot();
+        var aggregateEntity = aggregateAssociations.First().Class;
+
+        if (template.TryGetTypeName(TemplateRoles.Repository.Interface.Entity, aggregateEntity,
+                out var repositoryInterface))
+        {
+            var requiresExplicitUpdate = RepositoryRequiresExplicitUpdate(template, aggregateEntity);
+            var repositoryName = handlerClass.InjectService(repositoryInterface);
+            dataAccessProvider = new CompositeDataAccessProvider(
+                saveChangesAccessor: $"{repositoryName}.UnitOfWork",
+                accessor:
+                $"{aggregateAssociations.Last().Name.ToLocalVariableName()}.{aggregateAssociations.Last().OtherEnd().Name}",
+                explicitUpdateStatement: requiresExplicitUpdate
+                    ? $"{repositoryName}.Update({aggregateEntity.Name.ToLocalVariableName()});"
+                    : null,
+                method: method
+            );
+
+            return true;
+        }
+
+        var dbContextInterfaceTemplate = template.ExecutionContext.FindTemplateInstance<ICSharpTemplate>(TemplateRoles.Application.Common.DbContextInterface);
+        if (dbContextInterfaceTemplate?.CanRunTemplate() != true)
+        {
+            dataAccessProvider = null;
+            return false;
+        }
+
+        var dbContextField = handlerClass.InjectService(template.GetTypeName(dbContextInterfaceTemplate), "dbContext");
+        dataAccessProvider = new CompositeDataAccessProvider(
+            saveChangesAccessor: dbContextField,
+            accessor: $"{aggregateAssociations.Last().Name.ToLocalVariableName()}.{aggregateAssociations.Last().OtherEnd().Name}",
+            explicitUpdateStatement: null,
+            method: method);
+        return true;
+    }
 
     public static List<AssociationEndModel> GetAssociationsToAggregateRoot(this ClassModel entity)
     {
@@ -423,21 +424,24 @@ public static class DataAccessProviderExtensions
             .Distinct()
             .ToList();
 
-        if (compositionalAssociations.Count == 1)
+        switch (compositionalAssociations.Count)
         {
-            if (compositionalAssociations.Single().Class.IsAggregateRoot())
-            {
-                return compositionalAssociations;
-            }
+            case 1:
+                {
+                    if (compositionalAssociations.Single().Class.IsAggregateRoot())
+                    {
+                        return compositionalAssociations;
+                    }
 
-            var list = compositionalAssociations.Single().Class.GetAssociationsToAggregateRoot();
-            list.AddRange(compositionalAssociations);
-            return list;
+                    var list = compositionalAssociations.Single().Class.GetAssociationsToAggregateRoot();
+                    list.AddRange(compositionalAssociations);
+                    return list;
+                }
+            case > 1:
+                Logging.Log.Warning($"{entity.Name} has multiple owning relationships.");
+                break;
         }
-        if (compositionalAssociations.Count > 1)
-        {
-            Logging.Log.Warning($"{entity.Name} has multiple owning relationships.");
-        }
+
         return [];
     }
 
@@ -446,9 +450,9 @@ public static class DataAccessProviderExtensions
         return dataAccess is CompositeDataAccessProvider;
     }
 
-    private static bool RepositoryRequiresExplicitUpdate(ICSharpTemplate _template, IMetadataModel forEntity)
+    private static bool RepositoryRequiresExplicitUpdate(ICSharpTemplate template, IMetadataModel forEntity)
     {
-        return _template.TryGetTemplate<ICSharpFileBuilderTemplate>(
+        return template.TryGetTemplate<ICSharpFileBuilderTemplate>(
                    TemplateRoles.Repository.Interface.Entity,
                    forEntity,
                    out var repositoryInterfaceTemplate) &&
@@ -456,33 +460,19 @@ public static class DataAccessProviderExtensions
                requiresUpdate;
     }
 
-    // This is likely to cause bugs since it doesn't align exactly with the logic that "enabled/disables" the IApplicationDbContext template
-    private static bool SettingGenerateDbContextInterface()
+    public static List<CSharpStatement> GetFindAggregateStatements(this ICSharpClassMethodDeclaration method, IElementToElementMapping queryMapping, ClassModel foundEntity)
     {
-        return true;
-        //GetDatabaseSettings().GenerateDbContextInterface()
-        //return bool.TryParse(_template.ExecutionContext.Settings.GetGroup("ac0a788e-d8b3-4eea-b56d-538608f1ded9").GetSetting("85dea0e8-8981-4c7b-908e-d99294fc37f1")?.Value.ToPascalCase(), out var result) && result;
+        return method.GetFindAggregateStatements((IElement)queryMapping.SourceElement, foundEntity);
     }
 
-
-    public static bool TryGetFindAggregateStatements(this ICSharpClassMethodDeclaration method, IElementToElementMapping queryMapping, ClassModel foundEntity, out List<CSharpStatement> statements)
+    public static List<CSharpStatement> GetFindAggregateStatements(this ICSharpClassMethodDeclaration method, IElement requestElement, ClassModel foundEntity)
     {
-        return method.TryGetFindAggregateStatements(queryMapping, (IElement)queryMapping.SourceElement, foundEntity, out statements);
-    }
-
-    public static bool TryGetFindAggregateStatements(this ICSharpClassMethodDeclaration method, IElement requestElement, ClassModel foundEntity, out List<CSharpStatement> statements)
-    {
-        return method.TryGetFindAggregateStatements(null, requestElement, foundEntity, out statements);
-    }
-
-    private static bool TryGetFindAggregateStatements(this ICSharpClassMethodDeclaration method, IElementToElementMapping queryMapping, IElement requestElement, ClassModel foundEntity, out List<CSharpStatement> statements)
-    {
-        statements = new List<CSharpStatement>();
+        var statements = new List<CSharpStatement>();
         var aggregateEntity = foundEntity.GetAssociationsToAggregateRoot().First().Class;
         var aggregateVariableName = aggregateEntity.Name.ToLocalVariableName();
         var aggregateDataAccess = method.InjectDataAccessProvider(aggregateEntity);
 
-        var idFields = GetAggregatePKFindCriteria(requestElement, aggregateEntity, foundEntity);
+        var idFields = GetAggregatePkFindCriteria(requestElement, aggregateEntity, foundEntity);
         if (!idFields.Any())
         {
             Logging.Log.Warning($"Unable to determine how to load Aggregate : {aggregateEntity.Name} for {requestElement.Name}. Try adding a '{aggregateEntity.Name}Id' property to your request.");
@@ -499,7 +489,7 @@ public static class DataAccessProviderExtensions
         var currentVariable = aggregateVariableName;
         foreach (var associationEndModel in foundEntity.GetAssociationsToAggregateRoot().SkipLast(1))
         {
-            Func<string, string> formatter = requestElement.SpecializationType == "Operation" ? (x) => x.ToCamelCase()  : (x) => $"request.{x}";
+            Func<string, string> formatter = requestElement.SpecializationType == "Operation" ? (x) => x.ToCamelCase() : (x) => $"request.{x}";
 
             var targetEntity = associationEndModel.OtherEnd().Class;
             var primaryKeys = targetEntity.Attributes.Where(x => x.IsPrimaryKey());
@@ -528,17 +518,17 @@ public static class DataAccessProviderExtensions
                 message: $"Could not find {targetEntity.Name} '{{{requestProperties.Select(x => x.ValueExpression).AsSingleOrTuple()}}}'").SeparatedFromNext());
         }
 
-        return true;
+        return statements;
     }
 
 
-    private static List<PrimaryKeyFilterMapping> GetAggregatePKFindCriteria(IElement requestElement, ClassModel aggregateEntity, ClassModel compositeEntity)
+    private static List<PrimaryKeyFilterMapping> GetAggregatePkFindCriteria(IElement requestElement, ClassModel aggregateEntity, ClassModel compositeEntity)
     {
         //There is no mapping to the aggregate's PK, try to match is heuristically
         var aggPks = aggregateEntity.GetTypesInHierarchy().SelectMany(c => c.Attributes).Where(x => x.IsPrimaryKey()).ToList();
         var keyMappings = new List<AggregateKeyMapping>();
         var aggregatePrefix = aggregateEntity.Name.ToPascalCase();
-        for (int i = 0; i < aggPks.Count; i++)
+        for (var i = 0; i < aggPks.Count; i++)
         {
             var aggPk = aggPks[i];
             var names = new List<string>();
@@ -548,7 +538,7 @@ public static class DataAccessProviderExtensions
             }
             names.Add($"{aggregatePrefix}{aggPk.Name}");
             //May have renamed the FK attribute and as such it maybe a valid name
-            var fkAttributes = compositeEntity.Attributes.Where(a => a.IsForeignKey() == true && a.GetForeignKeyAssociation().OtherEnd().Class.Id == aggregateEntity.Id).ToList();
+            var fkAttributes = compositeEntity.Attributes.Where(a => a.IsForeignKey() && a.GetForeignKeyAssociation()!.OtherEnd().Class.Id == aggregateEntity.Id).ToList();
             if (fkAttributes.Count > i)
             {
                 names.Add(fkAttributes[i].Name);
@@ -560,7 +550,7 @@ public static class DataAccessProviderExtensions
 
         if (keyMappings.All(x => !string.IsNullOrEmpty(x.Match)))
         {
-            string prefix = requestElement.SpecializationType == "Operation" ? "" : "request.";
+            var prefix = requestElement.SpecializationType == "Operation" ? "" : "request.";
             return keyMappings.Select(x => new PrimaryKeyFilterMapping($"{prefix}{x.Match}", $"{x.Key.Name}", new ElementToElementMappedEndStub(requestElement, aggregateEntity.InternalElement))).ToList();
         }
         return new List<PrimaryKeyFilterMapping>();

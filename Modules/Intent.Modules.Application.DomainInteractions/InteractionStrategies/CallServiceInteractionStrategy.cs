@@ -1,27 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Common.CSharp.Builder;
-using Intent.Exceptions;
 using Intent.Modules.Common.CSharp.Interactions;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Constants;
-using Intent.Templates;
-using Intent.RoslynWeaver.Attributes;
 
-namespace Intent.Modules.Application.Contracts.InteractionStrategies;
-
+namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies;
 
 // NOTE THAT THIS DUPLICATES CallServiceInteractionStrategy in the Application.Contracts (need to figure out the structure here)
 public class CallDomainServiceInteractionStrategy : IInteractionStrategy
 {
-    private ICSharpFileBuilderTemplate _template;
-    private CSharpClassMappingManager _csharpMapping;
+    private ICSharpFileBuilderTemplate? _template;
+    private CSharpClassMappingManager? _csharpMapping;
 
     public bool IsMatch(IElement interaction)
     {
@@ -32,7 +28,9 @@ public class CallDomainServiceInteractionStrategy : IInteractionStrategy
 
     public void ImplementInteraction(ICSharpClassMethodDeclaration method, IElement interactionElement)
     {
+        ArgumentNullException.ThrowIfNull(method);
         var interaction = (IAssociationEnd)interactionElement;
+
         var @class = method.Class;
         _template = (ICSharpFileBuilderTemplate)@class.File.Template;
         _csharpMapping = method.GetMappingManager();
@@ -41,7 +39,7 @@ public class CallDomainServiceInteractionStrategy : IInteractionStrategy
         {
             var statements = new List<CSharpStatement>();
             var serviceModel = ((IElement)interaction.TypeReference.Element).ParentElement;
-            if (interaction.Mappings.Any() is false || !HasServiceDependency(serviceModel, out var serviceInterfaceTemplate))
+            if (!interaction.Mappings.Any() || !HasServiceDependency(serviceModel, out var serviceInterfaceTemplate))
             {
                 return;
             }
@@ -49,7 +47,7 @@ public class CallDomainServiceInteractionStrategy : IInteractionStrategy
             // So that the mapping system can resolve the name of the operation from the interface itself:
             _template.AddTypeSource(serviceInterfaceTemplate.Id);
 
-            string? serviceField = @class.InjectService(_template.GetTypeName(serviceInterfaceTemplate));
+            var serviceField = @class.InjectService(_template.GetTypeName(serviceInterfaceTemplate));
 
             var methodInvocation = _csharpMapping.GenerateCreationStatement(interaction.Mappings.First());
             CSharpStatement invoke = new CSharpAccessMemberStatement(serviceField, methodInvocation);
@@ -75,7 +73,7 @@ public class CallDomainServiceInteractionStrategy : IInteractionStrategy
             else if (invStatement?.Expression.Reference is ICSharpMethodDeclaration methodDeclaration &&
                      (methodDeclaration.ReturnTypeInfo.GetTaskGenericType() is CSharpTypeTuple || methodDeclaration.ReturnTypeInfo is CSharpTypeTuple))
             {
-                var tuple = (CSharpTypeTuple)methodDeclaration.ReturnTypeInfo.GetTaskGenericType() ?? (CSharpTypeTuple)methodDeclaration.ReturnTypeInfo;
+                var tuple = (CSharpTypeTuple?)methodDeclaration.ReturnTypeInfo.GetTaskGenericType() ?? (CSharpTypeTuple)methodDeclaration.ReturnTypeInfo;
                 var declaration = new CSharpDeclarationExpression(tuple.Elements.Select(s => s.Name.ToLocalVariableName()).ToList());
                 statements.Add(new CSharpAssignmentStatement(declaration, invoke));
             }
@@ -83,8 +81,6 @@ public class CallDomainServiceInteractionStrategy : IInteractionStrategy
             {
                 statements.Add(invoke);
             }
-
-            //WireupDomainServicesForOperations(handlerClass, callServiceOperation, statements);
 
             method.AddStatements(ExecutionPhases.BusinessLogic, statements);
         }
@@ -101,8 +97,13 @@ public class CallDomainServiceInteractionStrategy : IInteractionStrategy
     private const string ServiceProxySpecializationId = "07d8d1a9-6b9f-4676-b7d3-8db06299e35c";
 
     // TODO: Create a roll called `InjectableService` and lookup templates from this single role:
-    bool HasServiceDependency(IElement serviceModel, out ICSharpFileBuilderTemplate dependencyInfo)
+    private bool HasServiceDependency(IElement serviceModel, [NotNullWhen(true)] out ICSharpFileBuilderTemplate? dependencyInfo)
     {
+        if (_template == null)
+        {
+            throw new InvalidOperationException($"{nameof(_template)} is null");
+        }
+
         switch (serviceModel.SpecializationTypeId)
         {
             case DomainServiceSpecializationId when _template.TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.DomainServices.Interface, serviceModel, out var domainServiceTemplate):
@@ -121,38 +122,8 @@ public class CallDomainServiceInteractionStrategy : IInteractionStrategy
                 dependencyInfo = clientInterfaceTemplate;
                 return true;
             default:
-                dependencyInfo = default;
+                dependencyInfo = null;
                 return false;
         }
-    }
-}
-
-[IntentManaged(Mode.Ignore)]
-public class CallServiceOperationMappingResolver : IMappingTypeResolver
-{
-    private readonly ICSharpFileBuilderTemplate _template;
-
-    public CallServiceOperationMappingResolver(ICSharpFileBuilderTemplate template)
-    {
-        _template = template;
-    }
-
-    public ICSharpMapping ResolveMappings(MappingModel mappingModel)
-    {
-        if (mappingModel.Model.SpecializationType == "Operation")
-        {
-            return new MethodInvocationMapping(mappingModel, _template);
-        }
-
-        if (mappingModel.Model.SpecializationType == "Parameter")
-        {
-            return new ObjectInitializationMapping(mappingModel, _template);
-        }
-
-        if (mappingModel.Model.SpecializationType == "DTO-Field")
-        {
-            return new ObjectInitializationMapping(mappingModel, _template);
-        }
-        return null;
     }
 }

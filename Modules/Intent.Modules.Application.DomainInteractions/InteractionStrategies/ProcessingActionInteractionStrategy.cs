@@ -7,14 +7,12 @@ using Intent.Modules.Application.DomainInteractions.Extensions;
 using Intent.Modules.Application.DomainInteractions.Mapping.Resolvers;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Interactions;
-using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 
 namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
 {
     public class ProcessingActionInteractionStrategy : IInteractionStrategy
     {
-        //public Dictionary<string, EntityDetails> TrackedEntities { get; set; } = new();
         public bool IsMatch(IElement interaction)
         {
             return interaction.IsProcessingActionModel();
@@ -22,10 +20,7 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
 
         public void ImplementInteraction(ICSharpClassMethodDeclaration method, IElement interactionElement)
         {
-            if (method == null)
-            {
-                throw new ArgumentNullException(nameof(method));
-            }
+            ArgumentNullException.ThrowIfNull(method);
 
             var t = (ICSharpFileBuilderTemplate)method.File.Template;
             var csharpMapping = method.GetMappingManager();
@@ -48,7 +43,7 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
                         return x;
                     }).ToList();
 
-                handlerClass.WireupDomainServicesForProcessingAction(actions.InternalElement.Mappings.Single(), processingStatements);
+                handlerClass.WireUpDomainServicesForProcessingAction(actions.InternalElement.Mappings.Single(), processingStatements);
                 processingStatements.FirstOrDefault()?.SeparatedFromPrevious();
                 method.AddStatements(ExecutionPhases.BusinessLogic, processingStatements);
             }

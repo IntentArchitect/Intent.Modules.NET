@@ -5,6 +5,7 @@ using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.DomainInteractions.Api;
+using Intent.Modules.Application.DomainInteractions.DataAccessProviders;
 using Intent.Modules.Application.DomainInteractions.Extensions;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Interactions;
@@ -16,7 +17,6 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
 {
     public class UpdateEntityInteractionStrategy : IInteractionStrategy
     {
-        //public Dictionary<string, EntityDetails> TrackedEntities { get; set; } = new();
         public bool IsMatch(IElement interaction)
         {
             return interaction.IsUpdateEntityActionTargetEndModel();
@@ -24,18 +24,15 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
 
         public void ImplementInteraction(ICSharpClassMethodDeclaration method, IElement interactionElement)
         {
-            if (method == null)
-            {
-                throw new ArgumentNullException(nameof(method));
-            }
-
+            ArgumentNullException.ThrowIfNull(method);
             var interaction = (IAssociationEnd)interactionElement;
+
             method.AddStatements(method.GetQueryStatements(interaction, new QueryActionContext(method, ActionType.Update, interaction)));
             method.AddStatement(string.Empty);
 
             var updateAction = interaction.AsUpdateEntityActionTargetEndModel();
-            var _csharpMapping = method.GetMappingManager();
-            var _template = method.File.Template;
+            var csharpMapping = method.GetMappingManager();
+            var template = method.File.Template;
             try
             {
                 var entityDetails = method.TrackedEntities()[updateAction.Id];
@@ -46,14 +43,14 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
 
                 if (entityDetails.IsCollection)
                 {
-                    _csharpMapping.SetToReplacement(entity, entityDetails.VariableName.Singularize());
+                    csharpMapping.SetToReplacement(entity, entityDetails.VariableName.Singularize());
                     if (updateMapping != null)
                     {
                         statements.Add(new CSharpForEachStatement(entityDetails.VariableName.Singularize(), entityDetails.VariableName)
-                            .AddStatements(_csharpMapping.GenerateUpdateStatements(updateMapping)));
+                            .AddStatements(csharpMapping.GenerateUpdateStatements(updateMapping)));
                     }
 
-                    if (RepositoryRequiresExplicitUpdate(_template, entity))
+                    if (RepositoryRequiresExplicitUpdate(template, entity))
                     {
                         statements.Add(entityDetails.DataAccessProvider.Update(entityDetails.VariableName.Singularize())
                             .SeparatedFromPrevious());
@@ -63,21 +60,21 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
                 {
                     if (updateMapping != null)
                     {
-                        var updateStatements = _csharpMapping.GenerateUpdateStatements(updateMapping);
-                        method.Class.WireupDomainServicesForOperations(updateAction, updateStatements);
+                        var updateStatements = csharpMapping.GenerateUpdateStatements(updateMapping);
+                        method.Class.WireUpDomainServicesForOperations(updateAction, updateStatements);
                         AdjustOperationInvocationForAsyncAndReturn(method, updateMapping, updateStatements);
 
                         statements.AddRange(updateStatements);
                     }
 
-                    if (RepositoryRequiresExplicitUpdate(_template, entity))
+                    if (RepositoryRequiresExplicitUpdate(template, entity))
                     {
                         statements.Add(entityDetails.DataAccessProvider.Update(entityDetails.VariableName)
                             .SeparatedFromPrevious());
                     }
                 }
 
-                if (RequiresAggegateExplicitUpdate(entityDetails))
+                if (RequiresAggregateExplicitUpdate(entityDetails))
                 {
                     statements.Add(entityDetails.DataAccessProvider.Update(entityDetails.VariableName)
                         .SeparatedFromPrevious());
@@ -91,9 +88,9 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
             }
         }
 
-        private bool RepositoryRequiresExplicitUpdate(ICSharpTemplate _template, IMetadataModel forEntity)
+        private static bool RepositoryRequiresExplicitUpdate(ICSharpTemplate template, IMetadataModel forEntity)
         {
-            return _template.TryGetTemplate<ICSharpFileBuilderTemplate>(
+            return template.TryGetTemplate<ICSharpFileBuilderTemplate>(
                        TemplateRoles.Repository.Interface.Entity,
                        forEntity,
                        out var repositoryInterfaceTemplate) &&
@@ -101,7 +98,7 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
                    requiresUpdate;
         }
 
-        private bool RequiresAggegateExplicitUpdate(EntityDetails entityDetails)
+        private static bool RequiresAggregateExplicitUpdate(EntityDetails entityDetails)
         {
             if (entityDetails.DataAccessProvider is CompositeDataAccessProvider cda)
             {
@@ -110,36 +107,49 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
             return false;
         }
 
-        private void AdjustOperationInvocationForAsyncAndReturn(ICSharpClassMethodDeclaration method, IElementToElementMapping updateMapping, IList<CSharpStatement> updateStatements)
+        private static void AdjustOperationInvocationForAsyncAndReturn(ICSharpClassMethodDeclaration method, IElementToElementMapping updateMapping, IList<CSharpStatement> updateStatements)
         {
-
-            if (updateMapping.MappedEnds.Any(me => OperationModelExtensions.IsOperationModel(me.TargetElement)))
+            if (!updateMapping.MappedEnds.Any(me => me.TargetElement.IsOperationModel()))
             {
-                foreach (var invocation in updateMapping.MappedEnds.Where(me => OperationModelExtensions.IsOperationModel(me.TargetElement)))
+                return;
+            }
+
+            foreach (var invocation in updateMapping.MappedEnds.Where(me => me.TargetElement.IsOperationModel()))
+            {
+                var operationName = ((IElement)invocation.TargetElement).Name;
+                var variableName = $"{operationName.ToCamelCase()}Result";
+                var hasReturn = invocation.TargetElement.TypeReference?.Element != null;
+
+                for (var i = 0; i < updateStatements.Count; i++)
                 {
-
-                    var operationName = ((IElement)invocation.TargetElement).Name;
-                    var variableName = $"{operationName.ToCamelCase()}Result";
-                    bool hasReturn = invocation.TargetElement.TypeReference?.Element != null;
-
-                    for (int i = 0; i < updateStatements.Count; i++)
+                    if (updateStatements[i] is not CSharpInvocationStatement s ||
+                        s.Expression.Reference is not ICSharpMethodDeclaration md ||
+                        md.Name != operationName)
                     {
-                        if (updateStatements[i] is CSharpInvocationStatement s && s.Expression.Reference is ICSharpMethodDeclaration md && md.Name == operationName)
-                        {
-                            if (s.IsAsyncInvocation())
-                            {
-                                s.AddArgument("cancellationToken");
-                                updateStatements[i] = new CSharpAwaitExpression(updateStatements[i]);
-                            }
-                            if (hasReturn)
-                            {
-                                updateStatements[i] = new CSharpAssignmentStatement(new CSharpVariableDeclaration(variableName), updateStatements[i]);
-                            }
-                        }
+                        continue;
                     }
 
-                    method.TrackedEntities().Add(invocation.TargetElement.Id, new EntityDetails((IElement)invocation.TargetElement.TypeReference.Element, variableName, null, false, null, invocation.TargetElement.TypeReference.IsCollection));
+                    if (s.IsAsyncInvocation())
+                    {
+                        s.AddArgument("cancellationToken");
+                        updateStatements[i] = new CSharpAwaitExpression(updateStatements[i]);
+                    }
+
+                    if (hasReturn)
+                    {
+                        updateStatements[i] = new CSharpAssignmentStatement(new CSharpVariableDeclaration(variableName), updateStatements[i]);
+                    }
                 }
+
+                method.TrackedEntities().Add(
+                    key: invocation.TargetElement.Id,
+                    value: new EntityDetails(
+                        ElementModel: (IElement)invocation.TargetElement.TypeReference!.Element,
+                        VariableName: variableName,
+                        DataAccessProvider: null,
+                        IsNew: false,
+                        ProjectedType: null,
+                        IsCollection: invocation.TargetElement.TypeReference.IsCollection));
             }
         }
     }

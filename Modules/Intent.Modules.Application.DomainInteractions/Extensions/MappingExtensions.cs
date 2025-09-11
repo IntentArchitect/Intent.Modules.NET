@@ -6,12 +6,12 @@ namespace Intent.Modules.Application.DomainInteractions.Extensions;
 
 public static class MappingExtensions
 {
-    public static IElementToElementMapping GetQueryEntityMapping(this IEnumerable<IElementToElementMapping> mappings)
+    public static IElementToElementMapping? GetQueryEntityMapping(this IEnumerable<IElementToElementMapping> mappings)
     {
         return mappings.SingleOrDefault(x => x.Type == "Query Entity Mapping");
     }
 
-    public static IElementToElementMapping GetUpdateEntityMapping(this IEnumerable<IElementToElementMapping> mappings)
+    public static IElementToElementMapping? GetUpdateEntityMapping(this IEnumerable<IElementToElementMapping> mappings)
     {
         return mappings.SingleOrDefault(x => x.Type == "Update Entity Mapping");
     }

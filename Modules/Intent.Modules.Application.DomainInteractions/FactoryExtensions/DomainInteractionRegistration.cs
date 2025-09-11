@@ -1,5 +1,4 @@
 using Intent.Engine;
-using Intent.Modules.Application.Contracts.InteractionStrategies;
 using Intent.Modules.Application.DomainInteractions.InteractionStrategies;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Interactions;
@@ -25,7 +24,6 @@ namespace Intent.Modules.Application.DomainInteractions.FactoryExtensions
         {
             InteractionStrategyProvider.Instance.Register(new ODataQueryInteractionStrategy());
             InteractionStrategyProvider.Instance.Register(new QueryInteractionStrategy());
-            //InteractionStrategyProvider.Instance.Register(new CallDomainServiceInteractionStrategy());
             InteractionStrategyProvider.Instance.Register(new CallEntityServiceInteractionStrategy());
             InteractionStrategyProvider.Instance.Register(new CreateEntityInteractionStrategy());
             InteractionStrategyProvider.Instance.Register(new UpdateEntityInteractionStrategy());

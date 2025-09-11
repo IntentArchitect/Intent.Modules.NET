@@ -1,8 +1,5 @@
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Security.Cryptography;
 using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
@@ -13,7 +10,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 
-namespace Intent.Modules.Application.DomainInteractions;
+namespace Intent.Modules.Application.DomainInteractions.DataAccessProviders;
 
 public class DbContextDataAccessProvider : IDataAccessProvider
 {
@@ -25,7 +22,12 @@ public class DbContextDataAccessProvider : IDataAccessProvider
     private readonly bool _isUsingProjections;
     private readonly QueryActionContext? _queryContext;
 
-    public DbContextDataAccessProvider(string dbContextField, ClassModel entity, ICSharpTemplate template, CSharpClassMappingManager mappingManager, QueryActionContext queryContext)
+    public DbContextDataAccessProvider(
+        string dbContextField,
+        ClassModel entity,
+        ICSharpTemplate template,
+        CSharpClassMappingManager mappingManager,
+        QueryActionContext? queryContext)
     {
         _dbContextField = dbContextField;
         _template = template;
@@ -313,5 +315,5 @@ public static class CSharpStatementMappingExtensions
         {
             ("bool", "true") => $"x.{mapping.TargetElement.Name}",
             (_, var sourceStatement) => $"x.{mapping.TargetElement.Name} == {sourceStatement}"
-    };
+        };
 }

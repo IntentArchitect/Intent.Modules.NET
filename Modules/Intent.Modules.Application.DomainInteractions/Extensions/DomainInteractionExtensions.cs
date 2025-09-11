@@ -177,4 +177,4 @@ internal static class AttributeModelExtensions
     }
 }
 
-internal record AggregateKeyMapping(AttributeModel Key, string Match);
+internal record AggregateKeyMapping(AttributeModel Key, string? Match);
