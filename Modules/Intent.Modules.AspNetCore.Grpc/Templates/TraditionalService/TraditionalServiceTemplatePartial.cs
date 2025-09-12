@@ -12,7 +12,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
-using Intent.Modules.UnitOfWork.Persistence.Shared;
+using Intent.Modules.Persistence.UnitOfWork.Shared;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 

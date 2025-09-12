@@ -7,7 +7,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Eventing.Contracts.Templates;
-using Intent.Modules.UnitOfWork.Persistence.Shared;
+using Intent.Modules.Persistence.UnitOfWork.Shared;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 

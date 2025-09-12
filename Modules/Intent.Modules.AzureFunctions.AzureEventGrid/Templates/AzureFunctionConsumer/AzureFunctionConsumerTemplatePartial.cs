@@ -14,7 +14,7 @@ using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Constants;
 using Intent.Modules.Eventing.AzureEventGrid.Templates;
 using Intent.Modules.Eventing.Contracts.Templates;
-using Intent.Modules.UnitOfWork.Persistence.Shared;
+using Intent.Modules.Persistence.UnitOfWork.Shared;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 

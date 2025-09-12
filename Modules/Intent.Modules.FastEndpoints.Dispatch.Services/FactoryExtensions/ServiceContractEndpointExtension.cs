@@ -11,7 +11,7 @@ using Intent.Modules.Constants;
 using Intent.Modules.FastEndpoints.Templates.Endpoint;
 using Intent.Modules.FastEndpoints.Templates.Endpoint.Models;
 using Intent.Modules.Metadata.WebApi.Models;
-using Intent.Modules.UnitOfWork.Persistence.Shared;
+using Intent.Modules.Persistence.UnitOfWork.Shared;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
