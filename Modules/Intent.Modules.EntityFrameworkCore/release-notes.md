@@ -1,6 +1,7 @@
 ### Version 5.0.30
 
 - Fixed: Missing required NuGet references now correctly added.
+- Fixed: Enum check validation now correctly handles nullable enum attribute.
 - Fixed: Increased `order` value for some `OnBuild(...)` method invocations to ensure they happen sufficiently after `OnBuild(...)` from other modules have been invoked.
 
 ### Version 5.0.29

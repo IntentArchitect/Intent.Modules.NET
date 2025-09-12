@@ -610,12 +610,20 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     AddUsing("System.Linq");
                     var constraint = new StringBuilder();
                     var enumType = GetTypeName(enumAttribute.TypeReference);
+
+                    var nullCheck = string.Empty;
+                    if(enumAttribute.TypeReference.IsNullable)
+                    {
+                        enumType = enumType.Replace("?", "");
+                        nullCheck = $"\\\"{enumAttribute.Name}\\\" IS NULL OR ";
+                    }
+
                     var constraintValuesExpression = ExecutionContext.Settings.GetDatabaseSettings().StoreEnumsAsStrings()
                         ? $"Enum.GetValues<{enumType}>().Select(e => $\"'{{e}}'\")"
                         : $"Enum.GetValues<{enumType}>().Select(e => $\"{{e:D}}\")";
 
                     constraint.AppendLine();
-                    constraint.AppendLine(@$"builder.ToTable(tb => tb.HasCheckConstraint(""{GetConstraintName(enumAttribute)}"", $""\""{enumAttribute.Name}\"" IN ({{string.Join("","", {constraintValuesExpression})}})""));");
+                    constraint.AppendLine(@$"builder.ToTable(tb => tb.HasCheckConstraint(""{GetConstraintName(enumAttribute)}"", $""{nullCheck}\""{enumAttribute.Name}\"" IN ({{string.Join("","", {constraintValuesExpression})}})""));");
                     yield return constraint.ToString();
                 }
             }
