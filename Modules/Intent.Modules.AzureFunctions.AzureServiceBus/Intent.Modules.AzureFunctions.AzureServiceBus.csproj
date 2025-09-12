@@ -10,7 +10,6 @@
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.8.3" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.10.0" />
     <PackageReference Include="Intent.Modules.Modelers.Services.EventInteractions" Version="1.2.1" />
-    <PackageReference Include="Intent.Modules.Common.UnitOfWork" Version="1.0.0-pre.0" />
     <PackageReference Include="Intent.Packager" Version="3.5.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -22,6 +21,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.AzureFunctions\Intent.Modules.AzureFunctions.csproj" />
     <ProjectReference Include="..\Intent.Modules.Eventing.AzureServiceBus\Intent.Modules.Eventing.AzureServiceBus.csproj" />
+    <ProjectReference Include="..\Intent.Modules.Common.UnitOfWork\Intent.Modules.Common.UnitOfWork.csproj" PrivateAssets="All" />
   </ItemGroup>
 
   <ItemGroup>

@@ -9,7 +9,7 @@
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
       <updatedAt>2025-03-04T13:39:16.8435267Z</updatedAt>
       <deviationsHash>AB9557DA7532EA9929CAC5982B9413D22B7A28256078154F00E76787E0997C73</deviationsHash>
-      <fileHash>815C48F4936FA8792138B1551DCEB0BFF89C0FD8B9B8B410CD5956AA66928F05</fileHash>
+      <fileHash>2E0C0B9BAF887744ED2C614D36A29A41E3A107346A01B350A574BDAF85AF5606</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#21340dca-296f-4ab7-9507-4a7883920527</correlationId>
@@ -19,7 +19,7 @@
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
       <updatedAt>2025-02-26T20:13:02.9146872Z</updatedAt>
       <deviationsHash>304B56B63E59A7A555691BFCEE8BD23AC8B50A8CFCA6055E9CAD3C1B56455B57</deviationsHash>
-      <fileHash>D721B164B9B04B674FFFEC26EE6404249E415BA2B9388BDD56A8ECFA2A44596A</fileHash>
+      <fileHash>C23B5F017BC6531551955DA8BC0F5AFC09258B18995B25D39ED39860C4AA213C</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#27fca00f-e731-44ad-a845-e4b35b5b253a</correlationId>
@@ -29,7 +29,7 @@
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
       <updatedAt>2025-03-04T13:39:16.8465161Z</updatedAt>
       <deviationsHash>74377279BE481368E41C0B038831B62C6CFACDEA0239F1ADD464557AACFDCD68</deviationsHash>
-      <fileHash>A8DCE3E040CCB3299EF2C92881F275F7188A19E0F54BBD7458DFEC70328A5B79</fileHash>
+      <fileHash>0154BE642EDB6058D3EB59552C590059EECCFEE974002CE6CD50CCB86B591766</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#efefd72b-af75-4f08-8525-81dd2061883f</correlationId>
@@ -39,7 +39,7 @@
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
       <updatedAt>2025-02-26T18:38:22.7631053Z</updatedAt>
       <deviationsHash>92B27BF849C2B9B15AF828023E740F4CA9C69AB1EBBB4F15540FC519A4FB4AA3</deviationsHash>
-      <fileHash>FD89FE5D8F739887FA603820210880C1EE362C25E6052482BFA241D6348449DC</fileHash>
+      <fileHash>6F82B1A4C2F655DC1B68A6BF951F56542506905D33034A8E81FB3A126319A92F</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#2714a7e7-3666-40c0-9a44-d8941c5b9e4b</correlationId>
@@ -49,7 +49,7 @@
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
       <updatedAt>2025-02-28T11:53:37.9164656Z</updatedAt>
       <deviationsHash>07274580C0CD5F563BA9DC13C18770185E802089D5C8AB16B6D77FDBCAD14AB7</deviationsHash>
-      <fileHash>0FAA6537C5A248554351D2ED6C69055CE0E9AD749818315A1527F4320C143452</fileHash>
+      <fileHash>31E0BC45949049221C8024D015CAE5DF7EE760D8F09DB26F98FA8BFE04098E7D</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#3fa31cc3-3bac-44f9-8824-48baff54dd17</correlationId>
@@ -59,7 +59,7 @@
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
       <updatedAt>2025-02-27T19:57:39.5507667Z</updatedAt>
       <deviationsHash>A21A443DE254A9EEAE299D3DC3127234C1F077B9BCA660E285A736F9AF277E5E</deviationsHash>
-      <fileHash>CD39173227AAF00DFAFC22022065DEF3C789165B3E5B3110E3C804CB44DAB52F</fileHash>
+      <fileHash>CC7DA1CDF7F4A96D928FFBBE8BC803E30FBB78C064E20361119749497AA23C5F</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#fccc1c59-6f3e-43a1-975b-80a18bb90f97</correlationId>
@@ -69,7 +69,7 @@
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
       <updatedAt>2025-03-04T15:14:48.1497923Z</updatedAt>
       <deviationsHash>067CC790C36F8281DD9872965285F0E5D898C97FC1A905E0CF10F4018F422D11</deviationsHash>
-      <fileHash>8818F82876E97EA30088C38389BFE054654F1F61BB453557DDB38C3A319AB90B</fileHash>
+      <fileHash>FFF65D5DEDC06768A549415B58556ABD4D9E2D30100E2BB79735F823398028A2</fileHash>
     </file>
   </files>
 </deviationsLog>

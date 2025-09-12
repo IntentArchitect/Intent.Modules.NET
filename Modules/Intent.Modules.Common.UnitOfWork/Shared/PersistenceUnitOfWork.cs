@@ -222,7 +222,7 @@ public static class PersistenceUnitOfWork
             next(blockStack);
 
             var fieldOrVariable = shouldAddServiceResolution ? variableName : $"_{variableName}";
-            if (config != null && config.AutomaticallyPersistUnitOfWork)
+            if (config.AutomaticallyPersistUnitOfWork)
             {
                 currentBlock.AddStatement<IHasCSharpStatements, CSharpStatement>($"await {fieldOrVariable}.SaveChangesAsync({config.CancellationTokenExpression});", SeparatedFromPrevious);
             }
@@ -452,7 +452,7 @@ public static class PersistenceUnitOfWork
                 next(blockStack);
                 if (config != null && config.AutomaticallyPersistUnitOfWork)
                 {
-                    currentBlock.AddStatement<IHasCSharpStatements, CSharpStatement>($"await {fieldOrVariable}.SaveChangesAsync({config.CancellationTokenExpression});", SeparatedFromPrevious);
+                    @using.AddStatement<IHasCSharpStatements, CSharpStatement>($"await {fieldOrVariable}.SaveChangesAsync({config.CancellationTokenExpression});", SeparatedFromPrevious);
                 }
             });
         });

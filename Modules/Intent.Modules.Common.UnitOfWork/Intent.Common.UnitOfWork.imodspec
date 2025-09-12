@@ -3,8 +3,8 @@
   <id>Intent.Common.UnitOfWork</id>
   <version>1.0.0-pre.0</version>
   <supportedClientVersions>[4.4.0-a,5.0.0)</supportedClientVersions>
-  <summary>A custom module for Intent.Modules.NET</summary>
-  <description>A custom module for Intent.Modules.NET</description>
+  <summary>Common Unit Of Work Module for Intent.Modules.NET</summary>
+  <description>Common Unit Of Work Module for Intent.Modules.NET</description>
   <authors>Intent Architect</authors>
   <iconUrl>https://img.icons8.com/?size=100&amp;id=13545&amp;format=png&amp;color=000000</iconUrl>
   <tags>csharp dotnet unit of work persistence</tags>
