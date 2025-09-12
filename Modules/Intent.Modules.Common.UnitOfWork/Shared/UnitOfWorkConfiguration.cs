@@ -1,4 +1,5 @@
 ﻿#nullable enable
+using Intent.Modules.Common.UnitOfWork.Shared;
 using System.Collections.Generic;
 
 namespace Intent.Modules.Persistence.UnitOfWork.Shared;
@@ -16,6 +17,7 @@ public class UnitOfWorkConfiguration
     internal string CancellationTokenExpression { get; private set; } = "cancellationToken";
     internal string FieldSuffix { get; private set; } = "unitOfWork";
     internal bool AllowTransactionScope { get; private set; } = true;
+    internal bool AutomaticallyPersistUnitOfWork { get; private set; } = true;
     internal bool IncludeComments { get; private set; } = true;
     internal Dictionary<string, string> VariableOverrides { get; } = new();
     internal UnitOfWorkResolutionStrategy ResolutionStrategy { get; private set; } = UnitOfWorkResolutionStrategy.ConstructorInjection;
@@ -48,6 +50,12 @@ public class UnitOfWorkConfiguration
     public UnitOfWorkConfiguration WithTransactionScope(bool allow = true)
     {
         AllowTransactionScope = allow;
+        return this;
+    }
+
+    public UnitOfWorkConfiguration WithAutomaticPersistUnitOfWork(bool allow = true)
+    {
+        AutomaticallyPersistUnitOfWork = allow;
         return this;
     }
 

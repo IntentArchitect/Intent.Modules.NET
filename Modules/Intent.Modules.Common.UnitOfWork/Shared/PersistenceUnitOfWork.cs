@@ -1,13 +1,15 @@
 ﻿#nullable enable
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.UnitOfWork.Settings;
 using Intent.Modules.Constants;
+using Intent.Modules.Persistence.UnitOfWork.Shared;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
-namespace Intent.Modules.Persistence.UnitOfWork.Shared;
+namespace Intent.Modules.Common.UnitOfWork.Shared;
 
 public static class PersistenceUnitOfWork
 {
@@ -60,6 +62,7 @@ public static class PersistenceUnitOfWork
 
         var chainOfResponsibilities = new Stack<ChainOfResponsibility>();
 
+        config.WithAutomaticPersistUnitOfWork(template.ExecutionContext.GetSettings().GetUnitOfWorkSettings().AutomaticallyPersistUnitOfWork());
         // Auto-detect and add providers to chain
         AddCosmosDbToChain(template, constructor, config, chainOfResponsibilities);
         AddDynamoDbToChain(template, constructor, config, chainOfResponsibilities);
@@ -169,7 +172,11 @@ public static class PersistenceUnitOfWork
             next(blockStack);
 
             var fieldOrVariable = shouldAddServiceResolution ? variableName : $"_{variableName}";
-            currentBlock.AddStatement<IHasCSharpStatements, CSharpStatement>($"await {fieldOrVariable}.SaveChangesAsync({config.CancellationTokenExpression});", SeparatedFromPrevious);
+
+            if (config != null && config.AutomaticallyPersistUnitOfWork)
+            {
+                currentBlock.AddStatement<IHasCSharpStatements, CSharpStatement>($"await {fieldOrVariable}.SaveChangesAsync({config.CancellationTokenExpression});", SeparatedFromPrevious);
+            }
         });
     }
 
@@ -215,7 +222,10 @@ public static class PersistenceUnitOfWork
             next(blockStack);
 
             var fieldOrVariable = shouldAddServiceResolution ? variableName : $"_{variableName}";
-            currentBlock.AddStatement<IHasCSharpStatements, CSharpStatement>($"await {fieldOrVariable}.SaveChangesAsync({config.CancellationTokenExpression});", SeparatedFromPrevious);
+            if (config != null && config.AutomaticallyPersistUnitOfWork)
+            {
+                currentBlock.AddStatement<IHasCSharpStatements, CSharpStatement>($"await {fieldOrVariable}.SaveChangesAsync({config.CancellationTokenExpression});", SeparatedFromPrevious);
+            }
         });
     }
 
@@ -259,7 +269,10 @@ public static class PersistenceUnitOfWork
             next(blockStack);
 
             var fieldOrVariable = shouldAddServiceResolution ? variableName : $"_{variableName}";
-            currentBlock.AddStatement<IHasCSharpStatements, CSharpStatement>($"await {fieldOrVariable}.SaveChangesAsync({config.CancellationTokenExpression});", SeparatedFromPrevious);
+            if (config != null && config.AutomaticallyPersistUnitOfWork)
+            {
+                currentBlock.AddStatement<IHasCSharpStatements, CSharpStatement>($"await {fieldOrVariable}.SaveChangesAsync({config.CancellationTokenExpression});", SeparatedFromPrevious);
+            }
         });
     }
 
@@ -303,7 +316,10 @@ public static class PersistenceUnitOfWork
             next(blockStack);
 
             var fieldOrVariable = shouldAddServiceResolution ? variableName : $"_{variableName}";
-            currentBlock.AddStatement<IHasCSharpStatements, CSharpStatement>($"await {fieldOrVariable}.SaveChangesAsync({config.CancellationTokenExpression});", SeparatedFromPrevious);
+            if (config != null && config.AutomaticallyPersistUnitOfWork)
+            {
+                currentBlock.AddStatement<IHasCSharpStatements, CSharpStatement>($"await {fieldOrVariable}.SaveChangesAsync({config.CancellationTokenExpression});", SeparatedFromPrevious);
+            }
         });
     }
 
@@ -344,7 +360,10 @@ public static class PersistenceUnitOfWork
             next(blockStack);
 
             var fieldOrVariable = shouldAddServiceResolution ? variableName : $"_{variableName}";
-            currentBlock.AddStatement<IHasCSharpStatements, CSharpStatement>($"await {fieldOrVariable}.SaveChangesAsync({config.CancellationTokenExpression});", SeparatedFromPrevious);
+            if (config != null && config.AutomaticallyPersistUnitOfWork)
+            {
+                currentBlock.AddStatement<IHasCSharpStatements, CSharpStatement>($"await {fieldOrVariable}.SaveChangesAsync({config.CancellationTokenExpression});", SeparatedFromPrevious);
+            }
         });
     }
 
@@ -385,7 +404,10 @@ public static class PersistenceUnitOfWork
             next(blockStack);
 
             var fieldOrVariable = shouldAddServiceResolution ? variableName : $"_{variableName}";
-            currentBlock.AddStatement<IHasCSharpStatements, CSharpStatement>($"await {fieldOrVariable}.SaveChangesAsync({config.CancellationTokenExpression});", SeparatedFromPrevious);
+            if (config != null && config.AutomaticallyPersistUnitOfWork)
+            {
+                currentBlock.AddStatement<IHasCSharpStatements, CSharpStatement>($"await {fieldOrVariable}.SaveChangesAsync({config.CancellationTokenExpression});", SeparatedFromPrevious);
+            }
         });
     }
 
@@ -428,7 +450,10 @@ public static class PersistenceUnitOfWork
             {
                 blockStack.Push(@using);
                 next(blockStack);
-                @using.AddStatement<IHasCSharpStatements, CSharpStatement>($"await {fieldOrVariable}.SaveChangesAsync({config.CancellationTokenExpression});", SeparatedFromPrevious);
+                if (config != null && config.AutomaticallyPersistUnitOfWork)
+                {
+                    currentBlock.AddStatement<IHasCSharpStatements, CSharpStatement>($"await {fieldOrVariable}.SaveChangesAsync({config.CancellationTokenExpression});", SeparatedFromPrevious);
+                }
             });
         });
     }
@@ -472,7 +497,7 @@ public static class PersistenceUnitOfWork
                 currentBlock.AddStatement($"var {variableName} = {config.ServiceProviderVariableName}.GetRequiredService<{typeName}>();");
             }
 
-            var doingTransaction = config.AllowTransactionScope && supportsAmbientTransactions;
+            var doingTransaction = config.AllowTransactionScope && supportsAmbientTransactions && template.ExecutionContext.GetSettings().GetUnitOfWorkSettings().UseAmbientTransactions();
 
             if (doingTransaction && config.IncludeComments)
             {
@@ -521,9 +546,12 @@ public static class PersistenceUnitOfWork
             }
 
             var fieldOrVariable = shouldAddServiceResolution ? variableName : $"_{variableName}";
-            currentBlock.AddStatement(
-                $"await {fieldOrVariable}.SaveChangesAsync({config.CancellationTokenExpression});",
-                s => s.AddMetadata("transaction", "save-changes"));
+            if (config != null && config.AutomaticallyPersistUnitOfWork)
+            {
+                currentBlock.AddStatement(
+                    $"await {fieldOrVariable}.SaveChangesAsync({config.CancellationTokenExpression});",
+                    s => s.AddMetadata("transaction", "save-changes"));
+            }
 
             if (doingTransaction && config.IncludeComments)
             {
