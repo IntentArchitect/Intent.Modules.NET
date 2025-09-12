@@ -182,6 +182,38 @@ namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.HttpClients.Customer
             }
         }
 
+        public async Task<PagedResult<CustomerDto>> GetCustomersPagedFilteredAsync(
+            int pageNo,
+            int pageSize,
+            string? orderBy,
+            bool isActive,
+            CancellationToken cancellationToken = default)
+        {
+            var relativeUri = $"api/customer/paged-filtered";
+
+            var queryParams = new Dictionary<string, string?>();
+            queryParams.Add("pageNo", pageNo.ToString());
+            queryParams.Add("pageSize", pageSize.ToString());
+            queryParams.Add("orderBy", orderBy);
+            queryParams.Add("isActive", isActive.ToString().ToLowerInvariant());
+            relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
+            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
+
+            using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
+            {
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, httpRequest, response, cancellationToken).ConfigureAwait(false);
+                }
+
+                using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
+                {
+                    return (await JsonSerializer.DeserializeAsync<PagedResult<CustomerDto>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false))!;
+                }
+            }
+        }
+
         public async Task<PagedResult<CustomerDto>> GetCustomersPagedAsync(
             int pageNo,
             int pageSize,

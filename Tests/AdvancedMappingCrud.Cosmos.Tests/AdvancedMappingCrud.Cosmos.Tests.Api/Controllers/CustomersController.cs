@@ -14,6 +14,7 @@ using AdvancedMappingCrud.Cosmos.Tests.Application.Customers.GetCustomerById;
 using AdvancedMappingCrud.Cosmos.Tests.Application.Customers.GetCustomers;
 using AdvancedMappingCrud.Cosmos.Tests.Application.Customers.GetCustomersLinq;
 using AdvancedMappingCrud.Cosmos.Tests.Application.Customers.GetCustomersPaged;
+using AdvancedMappingCrud.Cosmos.Tests.Application.Customers.GetCustomersPagedFiltered;
 using AdvancedMappingCrud.Cosmos.Tests.Application.Customers.UpdateCustomer;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -166,6 +167,25 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Api.Controllers
         public async Task<ActionResult<List<CustomerDto>>> GetCustomersLinq(CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetCustomersLinqQuery(), cancellationToken);
+            return Ok(result);
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="200">Returns the specified PagedResult&lt;CustomerDto&gt;.</response>
+        /// <response code="400">One or more validation errors have occurred.</response>
+        [HttpGet("api/customer/paged-filtered")]
+        [ProducesResponseType(typeof(PagedResult<CustomerDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<PagedResult<CustomerDto>>> GetCustomersPagedFiltered(
+            [FromQuery] int pageNo,
+            [FromQuery] int pageSize,
+            [FromQuery] string? orderBy,
+            [FromQuery] bool isActive,
+            CancellationToken cancellationToken = default)
+        {
+            var result = await _mediator.Send(new GetCustomersPagedFilteredQuery(pageNo: pageNo, pageSize: pageSize, orderBy: orderBy, isActive: isActive), cancellationToken);
             return Ok(result);
         }
 
