@@ -1,3 +1,7 @@
+### Version 1.2.15
+
+- Improvement: Updated Shared Module.
+
 ### Version 1.2.14
 
 - Fixed: A software factory exception would occur when references were used in the Visual Studio designer.

@@ -1,3 +1,7 @@
+### Version 5.2.18
+
+- Improvement: Updated Shared Module.
+
 ### Version 5.2.17
 
 - Improvement: Added support for MongoDB.Driver unit of work.
