@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
@@ -19,7 +20,7 @@ public partial class ExceptionHandlerHelperTemplate : CSharpTemplateBase<object>
     public const string TemplateId = "Intent.Aws.Lambda.Functions.ExceptionHandlerHelper";
 
     [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-    public ExceptionHandlerHelperTemplate(IOutputTarget outputTarget, object? model = null) : base(TemplateId, outputTarget, model)
+    public ExceptionHandlerHelperTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
     {
         AddTypeSource("Application.ForbiddenAccessException");
         AddTypeSource("Domain.NotFoundException");
@@ -52,7 +53,7 @@ public partial class ExceptionHandlerHelperTemplate : CSharpTemplateBase<object>
                         stmt => stmt.AddMetadata("exception-switch", true));
                 });
 
-                cls.AddNestedRecord("ResponseDetail", rec=>
+                cls.AddNestedRecord("ResponseDetail", rec =>
                 {
                     rec.Private();
                     rec.AddPrimaryConstructor(ctor =>
@@ -63,7 +64,7 @@ public partial class ExceptionHandlerHelperTemplate : CSharpTemplateBase<object>
                         ctor.AddParameter("object", "Detail");
                     });
                 });
-                cls.AddNestedRecord("ResponseErrors", rec=>
+                cls.AddNestedRecord("ResponseErrors", rec =>
                 {
                     rec.Private();
                     rec.AddPrimaryConstructor(ctor =>
@@ -74,7 +75,7 @@ public partial class ExceptionHandlerHelperTemplate : CSharpTemplateBase<object>
                         ctor.AddParameter("List<ValidationError>", "Errors");
                     });
                 });
-                cls.AddNestedRecord("ValidationError", rec=>
+                cls.AddNestedRecord("ValidationError", rec =>
                 {
                     rec.Private();
                     rec.AddPrimaryConstructor(ctor =>
@@ -139,7 +140,8 @@ public partial class ExceptionHandlerHelperTemplate : CSharpTemplateBase<object>
             .FindStatement(p => p.HasMetadata("exception-switch"));
     }
 
-    [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
+    [IntentManaged(Mode.Fully)]
+    public CSharpFile CSharpFile { get; }
 
     [IntentManaged(Mode.Fully)]
     protected override CSharpFileConfig DefineFileConfig()
