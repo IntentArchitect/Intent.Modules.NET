@@ -14,7 +14,7 @@ using static Intent.Modules.Constants.TemplateRoles.Domain;
 
 namespace Intent.Modules.Application.DomainInteractions.Extensions;
 
-public static class DataAccessProviderExtensions
+internal static class DataAccessProviderExtensions
 {
     public static IDataAccessProvider InjectDataAccessProvider(this ICSharpClassMethodDeclaration method, ClassModel foundEntity, QueryActionContext? queryContext = null)
     {

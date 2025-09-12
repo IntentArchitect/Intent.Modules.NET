@@ -14,7 +14,7 @@ using static Intent.Modules.Constants.TemplateRoles.Domain;
 
 namespace Intent.Modules.Application.DomainInteractions.DataAccessProviders;
 
-public class RepositoryDataAccessProvider : IDataAccessProvider
+internal class RepositoryDataAccessProvider : IDataAccessProvider
 {
     private readonly string _repositoryFieldName;
     private readonly ICSharpFileBuilderTemplate _template;

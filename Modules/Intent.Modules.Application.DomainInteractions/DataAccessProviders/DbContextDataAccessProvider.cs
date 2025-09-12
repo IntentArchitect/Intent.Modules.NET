@@ -12,7 +12,7 @@ using Intent.Modules.Constants;
 
 namespace Intent.Modules.Application.DomainInteractions.DataAccessProviders;
 
-public class DbContextDataAccessProvider : IDataAccessProvider
+internal class DbContextDataAccessProvider : IDataAccessProvider
 {
     private readonly string _dbContextField;
     private readonly ICSharpTemplate _template;

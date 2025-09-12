@@ -10,7 +10,7 @@ using OperationModelExtensions = Intent.Modelers.Domain.Api.OperationModelExtens
 
 namespace Intent.Modules.Application.DomainInteractions
 {
-    public class QueryActionContext
+    internal class QueryActionContext
     {
         private readonly IElement _serviceEndPoint;
         private readonly ICSharpTemplate _template;
