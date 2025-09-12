@@ -174,7 +174,14 @@ public static class DomainServiceInjectionExtensions
             }
             var fieldName = handlerClass.InjectService(domainServiceInterface, domainServiceInterface[1..].ToParameterName());
             //Change `default` or `parameterName: default` into `_domainService` (fieldName)
-            invocation.Statements[i].Replace(invocation.Statements[i].GetText("").Replace("default", fieldName));
+            if (invocation.Statements.Count > i)
+            {
+                invocation.Statements[i].Replace(invocation.Statements[i].GetText("").Replace("default", fieldName));
+            }
+            else
+            {
+                invocation.AddStatement(fieldName);
+            }
         }
     }
 }

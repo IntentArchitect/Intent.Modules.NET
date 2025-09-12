@@ -1,6 +1,7 @@
 ### Version 1.1.4
 
 - Improvement: Refactored so that can be used as NuGet package in other modules.
+- Fixed: Exception thrown on invoking operations that accept only one parameter when that parameter is a Domain Service.
 
 ### Version 1.1.3
 
