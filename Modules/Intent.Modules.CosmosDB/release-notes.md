@@ -1,3 +1,7 @@
+### Version 1.2.21
+
+- Improvement: Added additional methods to the base repository
+
 ### Version 1.2.20
 
 - Improvement: Added support for Azure Managed Identity

@@ -282,20 +282,20 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                         .Async()
                         .AddParameter($"Func<IQueryable<{tDocumentInterface}>, IQueryable<{tDocumentInterface}>>", "queryOptions")
                         .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
-                        .AddStatement("var queryable = await CreateQuery(queryOptions);")
-                        .AddStatement("var documents = await ProcessResults(queryable, cancellationToken);")
-                        .AddIfStatement("!documents.Any()", ifs => ifs.AddStatement("return default;"))
-                        .AddStatement("var entity = LoadAndTrackDocument(documents.First());")
-                        .AddStatement("return entity;", s => s.SeparatedFromPrevious())
+                        .AddStatement("return await FindInternalAsync(null, queryOptions, cancellationToken);")
                     );
                     @class.AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method => method
                         .Async()
                         .AddParameter($"Func<IQueryable<{tDocumentInterface}>, IQueryable<{tDocumentInterface}>>", "queryOptions")
                         .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
-                        .AddStatement("var queryable = await CreateQuery(queryOptions);")
-                        .AddStatement("var documents =  await ProcessResults(queryable, cancellationToken);")
-                        .AddStatement("var results = LoadAndTrackDocuments(documents).ToList();")
-                        .AddStatement("return results;", s => s.SeparatedFromPrevious())
+                        .AddStatement("return await FindAllInternalAsync(null, queryOptions, cancellationToken);")
+                    );
+                    @class.AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method => method
+                        .Async()
+                        .AddParameter($"Expression<Func<{tDocumentInterface}, bool>>", "filterExpression")
+                        .AddParameter($"Func<IQueryable<{tDocumentInterface}>, IQueryable<{tDocumentInterface}>>", "queryOptions")
+                        .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
+                        .AddStatement("return await FindAllInternalAsync(filterExpression, queryOptions, cancellationToken);")
                     );
                     @class.AddMethod($"Task<{this.GetPagedResultInterfaceName()}<{tDomain}>>", "FindAllAsync", method =>
                     {
@@ -309,16 +309,22 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                             .AddParameter("int", "pageSize")
                             .AddParameter($"Func<IQueryable<{tDocumentInterface}>, IQueryable<{tDocumentInterface}>>", "queryOptions")
                             .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
-                            .AddStatement("var queryable = await CreateQuery(queryOptions, new QueryRequestOptions(){MaxItemCount = pageSize});")
-                            .AddStatement("var countResponse = await queryable.CountAsync(cancellationToken);")
-                            .AddStatement(@"queryable = queryable
-                    .Skip(pageSize * (pageNo - 1))
-                    .Take(pageSize);")
-                            .AddStatement("var documents = await ProcessResults(queryable, cancellationToken);", s => s.SeparatedFromPrevious())
-                            .AddStatement("var entities = LoadAndTrackDocuments(documents).ToList();")
-                            .AddStatement("var totalCount = countResponse ?? 0;", s => s.SeparatedFromPrevious())
-                            .AddStatement("var pageCount = (int)Math.Abs(Math.Ceiling(totalCount / (double)pageSize));")
-                            .AddStatement($"return new {this.GetCosmosPagedListName()}<{tDomain}{tDomainStateGenericTypeArgument}, {tDocument}>(entities, totalCount, pageCount, pageNo, pageSize);", s => s.SeparatedFromPrevious());
+                            .AddStatement($"return await FindAllInternalAsync(pageNo, pageSize, null, queryOptions, cancellationToken);", s => s.SeparatedFromPrevious());
+                    });
+                    @class.AddMethod($"Task<{this.GetPagedResultInterfaceName()}<{tDomain}>>", "FindAllAsync", method =>
+                    {
+                        var tDomainStateGenericTypeArgument = createEntityInterfaces
+                            ? $", {tDomainState}"
+                            : string.Empty;
+
+                        method
+                            .Async()
+                            .AddParameter($"Expression<Func<{tDocumentInterface}, bool>>", "filterExpression")
+                            .AddParameter("int", "pageNo")
+                            .AddParameter("int", "pageSize")
+                            .AddParameter($"Func<IQueryable<{tDocumentInterface}>, IQueryable<{tDocumentInterface}>>", "queryOptions")
+                            .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
+                            .AddStatement($"return await FindAllInternalAsync(pageNo, pageSize, filterExpression, queryOptions, cancellationToken);", s => s.SeparatedFromPrevious());
                     });
                     @class.AddMethod("Task<int>", "CountAsync", method => method
                         .Async()
@@ -355,6 +361,16 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                         .AddStatement("var entity = LoadAndTrackDocument(documents.First());")
                         .AddStatement("return entity;", s => s.SeparatedFromPrevious())
                     );
+
+                    @class.AddMethod($"Task<{tDomain}?>", "FindAsync", method =>
+                    {
+                        method.Async();
+                        method.AddParameter($"Expression<Func<{tDocumentInterface}, bool>>", "filterExpression")
+                            .AddParameter("Func<IQueryable<TDocumentInterface>, IQueryable<TDocumentInterface>>?", "queryOptions", p => p.WithDefaultValue("default"))
+                            .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
+
+                        method.AddStatement("return await FindInternalAsync(filterExpression, queryOptions, cancellationToken);");
+                    });
 
                     @class.AddMethod($"Task<IQueryable<TDocumentInterface>>", "CreateQuery", m => m
                         .Protected()
@@ -410,6 +426,82 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                         method.AddStatement("var visitor = new SubstitutionExpressionVisitor(beforeParameter, afterParameter);");
                         method.AddStatement($"return Expression.Lambda<Func<{tDocument}, bool>>(visitor.Visit(expression.Body)!, afterParameter);");
 
+                    });
+
+                    @class.AddMethod($"Task<{this.GetPagedResultInterfaceName()}<{tDomain}>>", "FindAllInternalAsync", method =>
+                    {
+                        var tDomainStateGenericTypeArgument = createEntityInterfaces
+                            ? $", {tDomainState}"
+                            : string.Empty;
+                        method.Private();
+                        method
+                            .Async()
+                            .AddParameter("int", "pageNo")
+                            .AddParameter("int", "pageSize")
+                            .AddParameter($"Expression<Func<{tDocumentInterface}, bool>>?", "filterExpression", x => x.WithDefaultValue("default"))
+                            .AddParameter($"Func<IQueryable<{tDocumentInterface}>, IQueryable<{tDocumentInterface}>>?", "queryOptions", x => x.WithDefaultValue("default"))
+                            .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
+
+                            .AddStatement("var queryable = await CreateQuery(queryOptions, new QueryRequestOptions(){MaxItemCount = pageSize});")
+                            .AddStatement("var countResponse = await queryable.CountAsync(cancellationToken);")
+                            .AddIfStatement("filterExpression is not null", @if =>
+                            {
+                                @if.AddStatement(@"queryable = queryable
+                    .Where(filterExpression)
+                    .Skip(pageSize * (pageNo - 1))
+                    .Take(pageSize);");
+                            }).AddElseStatement(@else =>
+                            {
+                                @else.AddStatement(@"queryable = queryable
+                    .Skip(pageSize * (pageNo - 1))
+                    .Take(pageSize);");
+                            })
+                            .AddStatement("var documents = await ProcessResults(queryable, cancellationToken);", s => s.SeparatedFromPrevious())
+                            .AddStatement("var entities = LoadAndTrackDocuments(documents).ToList();")
+                            .AddStatement("var totalCount = countResponse ?? 0;", s => s.SeparatedFromPrevious())
+                            .AddStatement("var pageCount = (int)Math.Abs(Math.Ceiling(totalCount / (double)pageSize));")
+                            .AddStatement($"return new {this.GetCosmosPagedListName()}<{tDomain}{tDomainStateGenericTypeArgument}, {tDocument}>(entities, totalCount, pageCount, pageNo, pageSize);", s => s.SeparatedFromPrevious());
+                    });
+
+                    @class.AddMethod($"Task<List<{tDomain}>>", "FindAllInternalAsync", method =>
+                    {
+                        method.Private();
+                        method.Async();
+                        method.AddParameter($"Expression<Func<{tDocumentInterface}, bool>>?", "filterExpression", p => p.WithDefaultValue("default"))
+                            .AddParameter("Func<IQueryable<TDocumentInterface>, IQueryable<TDocumentInterface>>?", "queryOptions", p => p.WithDefaultValue("default"))
+                            .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
+
+                        method.AddStatement("var queryable = await CreateQuery(queryOptions);")
+                        .AddIfStatement("filterExpression is not null", @if =>
+                        {
+                            @if.AddStatement("queryable = queryable.Where(filterExpression);");
+                        })
+                        .AddStatement("var documents =  await ProcessResults(queryable, cancellationToken);")
+                        .AddStatement("var results = LoadAndTrackDocuments(documents).ToList();")
+                        .AddStatement("return results;", s => s.SeparatedFromPrevious());
+                    });
+
+                    @class.AddMethod($"Task<{tDomain}?>", "FindInternalAsync", method =>
+                    {
+                        method.Private();
+                        method.Async();
+                        method.AddParameter($"Expression<Func<{tDocumentInterface}, bool>>?", "filterExpression", p => p.WithDefaultValue("default"))
+                            .AddParameter("Func<IQueryable<TDocumentInterface>, IQueryable<TDocumentInterface>>?", "queryOptions", p => p.WithDefaultValue("default"))
+                            .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
+
+                        method
+                            .AddStatement("var queryable = await CreateQuery(queryOptions);")
+                            .AddIfStatement("filterExpression is not null", stmt =>
+                            {
+                                stmt.AddStatement("queryable = queryable.Where(filterExpression);");
+                            })
+                            .AddStatement("var documents = await ProcessResults(queryable, cancellationToken);")
+                            .AddIfStatement("!documents.Any()", stmt =>
+                            {
+                                stmt.AddStatement("return default;");
+                            })
+                            .AddStatement("var entity = LoadAndTrackDocument(documents.First());")
+                            .AddStatement("return entity;", s => s.SeparatedFromPrevious());
                     });
 
                     @class.AddMethod(tDomain, "LoadAndTrackDocument", method =>
