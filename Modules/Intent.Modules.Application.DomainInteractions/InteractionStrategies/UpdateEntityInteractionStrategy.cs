@@ -27,7 +27,20 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
             ArgumentNullException.ThrowIfNull(method);
             var interaction = (IAssociationEnd)interactionElement;
 
-            method.AddStatements(method.GetQueryStatements(interaction, new QueryActionContext(method, ActionType.Update, interaction)));
+            var queryContext = new QueryActionContext(method, ActionType.Update, interaction);
+            var foundEntity = interaction.TypeReference.Element.AsClassModel() ??
+                              interaction.TypeReference.Element.AsOperationModel().ParentClass;
+            var dataAccess = method.InjectDataAccessProvider(foundEntity, queryContext);
+            var projectedType = queryContext.ImplementWithProjections() && dataAccess.IsUsingProjections
+                ? queryContext.GetDtoProjectionReturnType()
+                : null;
+
+            method.AddStatements(method.GetQueryStatements(
+                dataAccessProvider: dataAccess,
+                interaction: interaction,
+                foundEntity: foundEntity,
+                projectedType: projectedType));
+
             method.AddStatement(string.Empty);
 
             var updateAction = interaction.AsUpdateEntityActionTargetEndModel();

@@ -35,13 +35,23 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
                 var entityVariableName = interaction.Name.ToCSharpIdentifier(CapitalizationBehaviour.MakeFirstLetterLower);
 
                 var csharpMapping = method.GetMappingManager();
-                var queryContext = new QueryActionContext(method, ActionType.Query, interaction);
                 csharpMapping.SetFromReplacement(foundEntity, entityVariableName);
                 csharpMapping.SetFromReplacement(interaction, entityVariableName);
                 csharpMapping.SetToReplacement(foundEntity, entityVariableName);
                 csharpMapping.SetToReplacement(interaction, entityVariableName);
 
-                var queryStatements = method.GetQueryStatements(interaction, queryContext);
+                var queryContext = new QueryActionContext(method, ActionType.Query, interaction);
+                var dataAccess = method.InjectDataAccessProvider(foundEntity, queryContext);
+                var projectedType = queryContext.ImplementWithProjections() && dataAccess.IsUsingProjections
+                    ? queryContext.GetDtoProjectionReturnType()
+                    : null;
+
+                var queryStatements = method.GetQueryStatements(
+                    dataAccessProvider: dataAccess,
+                    interaction: interaction,
+                    foundEntity: foundEntity,
+                    projectedType: projectedType);
+
                 method.AddStatements(queryStatements);
             }
             catch (ElementException)

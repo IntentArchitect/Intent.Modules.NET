@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Intent.Metadata.Models;
@@ -11,7 +10,6 @@ using Intent.Modules.Common.CSharp.Interactions;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Constants;
 using Intent.Templates;
-using Intent.Utils;
 using static Intent.Modules.Constants.TemplateRoles.Domain;
 
 namespace Intent.Modules.Application.DomainInteractions.Extensions;

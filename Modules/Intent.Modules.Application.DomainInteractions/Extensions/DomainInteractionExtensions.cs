@@ -31,18 +31,20 @@ public static class DomainInteractionExtensions
 
         switch (compositionalAssociations.Count)
         {
+            case 0:
+                break;
             case 1:
-            {
-                if (compositionalAssociations.Single().Class.IsAggregateRoot())
                 {
-                    return compositionalAssociations;
-                }
+                    if (compositionalAssociations.Single().Class.IsAggregateRoot())
+                    {
+                        return compositionalAssociations;
+                    }
 
-                var list = compositionalAssociations.Single().Class.GetAssociationsToAggregateRoot();
-                list.AddRange(compositionalAssociations);
-                return list;
-            }
-            case > 1:
+                    var list = compositionalAssociations.Single().Class.GetAssociationsToAggregateRoot();
+                    list.AddRange(compositionalAssociations);
+                    return list;
+                }
+            default:
                 Logging.Log.Warning($"{entity.Name} has multiple owning relationships.");
                 break;
         }
@@ -104,18 +106,17 @@ public static class DomainInteractionExtensions
         return statements;
     }
 
-    public static IList<CSharpStatement> GetQueryStatements(this ICSharpClassMethodDeclaration method, IAssociationEnd interaction, QueryActionContext queryContext)
+    public static IList<CSharpStatement> GetQueryStatements(
+        this ICSharpClassMethodDeclaration method,
+        IDataAccessProvider dataAccessProvider,
+        IAssociationEnd interaction,
+        ClassModel foundEntity,
+        string? projectedType)
     {
         var queryMapping = interaction.Mappings.GetQueryEntityMapping();
         if (queryMapping == null)
         {
             throw new Exception($"{nameof(queryMapping)} is null");
-        }
-
-        var foundEntity = interaction.TypeReference.Element.AsClassModel();
-        if (queryContext.ActionType == ActionType.Update && foundEntity == null)
-        {
-            foundEntity = interaction.TypeReference.Element.AsOperationModel().ParentClass;
         }
 
         var template = method.File.Template;
@@ -127,21 +128,20 @@ public static class DomainInteractionExtensions
         csharpMapping.SetToReplacement(foundEntity, entityVariableName);
         csharpMapping.SetToReplacement(interaction, entityVariableName);
 
-        var dataAccess = method.InjectDataAccessProvider(foundEntity, queryContext);
         CSharpStatement queryInvocation;
         var prerequisiteStatement = new List<CSharpStatement>();
-        if (dataAccess.MustAccessEntityThroughAggregate())
+        if (dataAccessProvider.MustAccessEntityThroughAggregate())
         {
             prerequisiteStatement.AddRange(method.GetFindAggregateStatements(queryMapping, foundEntity));
 
             if (interaction.TypeReference.IsCollection)
             {
-                queryInvocation = dataAccess.FindAllAsync(queryMapping, out var requiredStatements);
+                queryInvocation = dataAccessProvider.FindAllAsync(queryMapping, out var requiredStatements);
                 prerequisiteStatement.AddRange(requiredStatements);
             }
             else
             {
-                queryInvocation = dataAccess.FindAsync(queryMapping, out var requiredStatements);
+                queryInvocation = dataAccessProvider.FindAsync(queryMapping, out var requiredStatements);
                 prerequisiteStatement.AddRange(requiredStatements);
             }
         }
@@ -161,36 +161,34 @@ public static class DomainInteractionExtensions
 
                 if (interaction.TypeReference.IsCollection && idFields.All(x => x.Mapping.SourceElement.TypeReference.IsCollection))
                 {
-                    queryInvocation = dataAccess.FindByIdsAsync(idFields);
+                    queryInvocation = dataAccessProvider.FindByIdsAsync(idFields);
                 }
                 else
                 {
-                    queryInvocation = dataAccess.FindByIdAsync(idFields);
+                    queryInvocation = dataAccessProvider.FindByIdAsync(idFields);
                 }
             }
             // USE THE FindAllAsync/FindAsync METHODS WITH EXPRESSION:
             else
             {
-                //var expression = CreateQueryFilterExpression(queryMapping, out var requiredStatements);
-
                 if (TryGetPaginationValues(interaction, csharpMapping, out var pageNo, out var pageSize, out var orderBy, out var orderByIsNullable))
                 {
-                    queryInvocation = dataAccess.FindAllAsync(queryMapping, pageNo, pageSize, orderBy, orderByIsNullable, out var requiredStatements);
+                    queryInvocation = dataAccessProvider.FindAllAsync(queryMapping, pageNo, pageSize, orderBy, orderByIsNullable, out var requiredStatements);
                     prerequisiteStatement.AddRange(requiredStatements);
                 }
                 else if (TryGetCursorPaginationValues(interaction, csharpMapping, out var cursorPageSize, out var cursorToken))
                 {
-                    queryInvocation = dataAccess.FindAllAsync(queryMapping, cursorPageSize, cursorToken, out var requiredStatements);
+                    queryInvocation = dataAccessProvider.FindAllAsync(queryMapping, cursorPageSize, cursorToken, out var requiredStatements);
                     prerequisiteStatement.AddRange(requiredStatements);
                 }
                 else if (interaction.TypeReference.IsCollection)
                 {
-                    queryInvocation = dataAccess.FindAllAsync(queryMapping, out var requiredStatements);
+                    queryInvocation = dataAccessProvider.FindAllAsync(queryMapping, out var requiredStatements);
                     prerequisiteStatement.AddRange(requiredStatements);
                 }
                 else
                 {
-                    queryInvocation = dataAccess.FindAsync(queryMapping, out var requiredStatements);
+                    queryInvocation = dataAccessProvider.FindAsync(queryMapping, out var requiredStatements);
                     prerequisiteStatement.AddRange(requiredStatements);
                 }
             }
@@ -200,9 +198,10 @@ public static class DomainInteractionExtensions
         statements.AddRange(prerequisiteStatement);
         statements.Add(new CSharpAssignmentStatement(new CSharpVariableDeclaration(entityVariableName), queryInvocation).SeparatedFromPrevious());
 
-        if (!interaction.TypeReference.IsNullable && !interaction.TypeReference.IsCollection
-                                                  && !interaction.OtherEnd().TypeReference.Element.TypeReference.IsResultPaginated()
-                                                  && !interaction.OtherEnd().TypeReference.Element.TypeReference.IsResultCursorPaginated())
+        if (!interaction.TypeReference.IsNullable &&
+            !interaction.TypeReference.IsCollection &&
+            !interaction.OtherEnd().TypeReference.Element.TypeReference.IsResultPaginated() &&
+            !interaction.OtherEnd().TypeReference.Element.TypeReference.IsResultCursorPaginated())
         {
             var queryFields = queryMapping.MappedEnds
                 .Select(x => new CSharpStatement($"{{{csharpMapping.GenerateSourceStatementForMapping(queryMapping, x)}}}"))
@@ -219,7 +218,13 @@ public static class DomainInteractionExtensions
 
         }
 
-        method.TrackedEntities().Add(interaction.Id, new EntityDetails(foundEntity.InternalElement, entityVariableName, dataAccess, false, queryContext.ImplementWithProjections() && dataAccess.IsUsingProjections ? queryContext.GetDtoProjectionReturnType() : null, interaction.TypeReference.IsCollection));
+        method.TrackedEntities().Add(interaction.Id, new EntityDetails(
+            ElementModel: foundEntity.InternalElement,
+            VariableName: entityVariableName,
+            DataAccessProvider: dataAccessProvider,
+            IsNew: false,
+            ProjectedType: projectedType,
+            IsCollection: interaction.TypeReference.IsCollection));
         return statements;
     }
 
