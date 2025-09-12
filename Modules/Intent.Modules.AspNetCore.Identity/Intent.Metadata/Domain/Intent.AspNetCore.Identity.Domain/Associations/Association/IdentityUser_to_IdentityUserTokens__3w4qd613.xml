@@ -14,7 +14,7 @@
       <typePackageId>d1f3cf7b-cd9a-431f-af26-a86aec1ace6f</typePackageId>
       <stereotypes />
       <genericTypeParameters>
-        <genericTypeParameter id="a8920087-c99b-4543-88f7-185101b3d99a">
+        <genericTypeParameter id="6dffaf1e-cc41-4f7e-b2d5-c10fd867f6a6">
           <isNavigable>true</isNavigable>
           <isNullable>false</isNullable>
           <isCollection>false</isCollection>
@@ -32,7 +32,7 @@
   <targetEnd id="69a81438-e1ae-42b9-9e47-839da1fd73d2" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>IdentityUserTokens</name>
     <display>IdentityUserTokens: IdentityUserToken&lt;string&gt;[*]</display>
-    <order>17</order>
+    <order>18</order>
     <typeReference id="a1df3550-c2f7-4248-a463-dbed75c596f0">
       <typeId>97c7c8e1-ddcf-408b-bb05-a0d99cf323c5</typeId>
       <isNavigable>true</isNavigable>

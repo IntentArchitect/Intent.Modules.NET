@@ -14,7 +14,7 @@
       <typePackageId>d1f3cf7b-cd9a-431f-af26-a86aec1ace6f</typePackageId>
       <stereotypes />
       <genericTypeParameters>
-        <genericTypeParameter id="574e5ab4-0088-4bb5-bea3-3166194cc878">
+        <genericTypeParameter id="e4cebb90-ffe6-44ca-91b7-8df3ebeb9691">
           <isNavigable>true</isNavigable>
           <isNullable>false</isNullable>
           <isCollection>false</isCollection>
@@ -32,7 +32,7 @@
   <targetEnd id="f81c22c7-523d-4b09-9cfb-3879b9c20c8c" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>IdentityUserClaims</name>
     <display>IdentityUserClaims: IdentityUserClaim&lt;string&gt;[*]</display>
-    <order>16</order>
+    <order>17</order>
     <typeReference id="71b066d4-ac87-4b31-8caf-6160815104b1">
       <typeId>a9b0c40c-cb71-4452-957c-9d8d4ed08f7f</typeId>
       <isNavigable>true</isNavigable>

@@ -485,5 +485,44 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="225bf5ef-a039-4379-9d69-a67e333fef74" type="Class Constructor" typeId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b">
+      <name>Constructor</name>
+      <display>IdentityUser(userName: string)</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f6505b15-dced-4beb-9a58-e7b5447a7c73</parentFolderId>
+      <packageId>d1f3cf7b-cd9a-431f-af26-a86aec1ace6f</packageId>
+      <packageName>Intent.AspNetCore.Identity.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="18371493-2c28-4644-8b35-be9665faf630" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>userName</name>
+          <display>in : userName: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="dec6d121-1d0a-4ad2-a005-8451e4c68914">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>225bf5ef-a039-4379-9d69-a67e333fef74</parentFolderId>
+          <packageId>d1f3cf7b-cd9a-431f-af26-a86aec1ace6f</packageId>
+          <packageName>Intent.AspNetCore.Identity.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>
