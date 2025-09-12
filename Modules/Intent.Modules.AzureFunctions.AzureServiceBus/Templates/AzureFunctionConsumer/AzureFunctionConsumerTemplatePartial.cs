@@ -14,7 +14,7 @@ using Intent.Modules.Eventing.AzureServiceBus.Templates;
 using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.Modules.Integration.IaC.Shared;
 using Intent.Modules.Integration.IaC.Shared.AzureServiceBus;
-using Intent.Modules.Persistence.UnitOfWork.Shared;
+using Intent.Modules.Common.UnitOfWork.Shared;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 

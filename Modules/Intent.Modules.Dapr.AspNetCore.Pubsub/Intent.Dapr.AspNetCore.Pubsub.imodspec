@@ -87,7 +87,7 @@
     <dependency id="Intent.Modelers.Services" version="3.7.1" />
     <dependency id="Intent.Modelers.Services.EventInteractions" version="1.2.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.9.10" />
-    <dependency id="Intent.Persistence.UnitOfWork" version="1.0.0-pre.0" />
+    <dependency id="Intent.Common.UnitOfWork" version="1.0.0-pre.0" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

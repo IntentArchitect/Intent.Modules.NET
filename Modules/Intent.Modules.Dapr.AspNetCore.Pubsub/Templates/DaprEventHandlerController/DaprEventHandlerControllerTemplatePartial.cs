@@ -16,7 +16,7 @@ using Intent.Modules.Constants;
 using Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.EventHandler;
 using Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.EventHandlerImplementation;
 using Intent.Modules.Eventing.Contracts.Templates;
-using Intent.Modules.Persistence.UnitOfWork.Shared;
+using Intent.Modules.Common.UnitOfWork.Shared;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 

@@ -12,7 +12,7 @@ using Intent.Modules.Constants;
 using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.Modules.Eventing.Kafka.Templates.KafkaEventDispatcher;
 using Intent.Modules.Eventing.Kafka.Templates.KafkaEventDispatcherInterface;
-using Intent.Modules.Persistence.UnitOfWork.Shared;
+using Intent.Modules.Common.UnitOfWork.Shared;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 

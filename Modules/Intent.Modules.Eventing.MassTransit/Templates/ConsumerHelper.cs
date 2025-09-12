@@ -6,7 +6,7 @@ using Intent.Modules.Constants;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationCommand;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage;
 using Intent.Modules.Eventing.MassTransit.Settings;
-using Intent.Modules.Persistence.UnitOfWork.Shared;
+using Intent.Modules.Common.UnitOfWork.Shared;
 
 using OutboxPatternType = Intent.Modules.Eventing.MassTransit.Settings.EventingSettings.OutboxPatternOptionsEnum;
 

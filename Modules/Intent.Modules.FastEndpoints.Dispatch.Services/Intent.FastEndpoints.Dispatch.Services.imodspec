@@ -19,7 +19,7 @@
     <dependency id="Intent.Common.CSharp" version="3.8.0" />
     <dependency id="Intent.Common.Types" version="4.0.0" />
     <dependency id="Intent.FastEndpoints" version="1.0.0" />
-    <dependency id="Intent.Persistence.UnitOfWork" version="1.0.0-pre.0" />
+    <dependency id="Intent.Common.UnitOfWork" version="1.0.0-pre.0" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />
