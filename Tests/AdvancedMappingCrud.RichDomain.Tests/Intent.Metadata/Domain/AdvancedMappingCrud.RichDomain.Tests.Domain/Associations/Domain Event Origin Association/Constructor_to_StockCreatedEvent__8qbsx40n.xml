@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="b42a2f7e-7a53-40fc-ab44-f00e17831fc7">
+  <sourceEnd id="7f013463-6ca1-4df9-b80c-601f2e3e3a79" type="Domain Event Origin Association Source End" typeId="2495d3ef-f7a2-441d-b749-b51b2546b45e">
+    <display>published by : Stock.Constructor</display>
+    <order>3</order>
+    <typeReference id="60272dfc-7501-4562-90c6-656253b04d95">
+      <typeId>593c1575-0a69-45d9-8bba-3b03a2be90fa</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Domain</typePackageName>
+      <typePackageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="b42a2f7e-7a53-40fc-ab44-f00e17831fc7" type="Domain Event Origin Association Target End" typeId="17046427-14e2-4081-8463-ef16c0fda399">
+    <display>publishes : StockCreatedEvent</display>
+    <order>3</order>
+    <typeReference id="a6ba88c7-800e-4edc-b8e1-9c01c0132550">
+      <typeId>f795458e-fef9-4560-99c3-58014cdcbe1f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Domain</typePackageName>
+      <typePackageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Entity to Domain Event Mapping" typeId="86cb62b5-412d-493b-a901-d6e08cf88059">
+        <source applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="324d1cb5-f694-48bb-b758-494d14ba3b6b" location="[AdvancedMappingCrud.RichDomain.Tests].[Domain].[Stock]" />
+        <target applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="f795458e-fef9-4560-99c3-58014cdcbe1f" location="[AdvancedMappingCrud.RichDomain.Tests].[Domain].[StockCreatedEvent]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Constructor.Name}</expression>
+            <path>
+              <target id="f795458e-fef9-4560-99c3-58014cdcbe1f" name="StockCreatedEvent" type="element" specialization="Domain Event" specializationId="0814e459-fb9b-47db-b7eb-32ce30397e8a" />
+              <target id="00c5ccbf-f226-45fb-ba7b-1396c562bbc8" name="Name" type="element" specialization="Property" specializationId="b4d69073-5abb-4968-b41b-545b2f7408ed" />
+            </path>
+            <sources>
+              <source identifier="Constructor.Name" mappingType="Data Mapping" mappingTypeId="ddfefa35-caf3-48f8-aeed-7beabc8b2f5c">
+                <path>
+                  <target id="324d1cb5-f694-48bb-b758-494d14ba3b6b" name="Stock" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+                  <target id="593c1575-0a69-45d9-8bba-3b03a2be90fa" name="Constructor" type="element" specialization="Class Constructor" specializationId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b" />
+                  <target id="21142064-8b3a-43a8-89fc-d291589b523a" name="Name" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Constructor.Total}</expression>
+            <path>
+              <target id="f795458e-fef9-4560-99c3-58014cdcbe1f" name="StockCreatedEvent" type="element" specialization="Domain Event" specializationId="0814e459-fb9b-47db-b7eb-32ce30397e8a" />
+              <target id="12cf92fa-6549-4e14-aa2a-0ca6b6f0111e" name="Total" type="element" specialization="Property" specializationId="b4d69073-5abb-4968-b41b-545b2f7408ed" />
+            </path>
+            <sources>
+              <source identifier="Constructor.Total" mappingType="Data Mapping" mappingTypeId="ddfefa35-caf3-48f8-aeed-7beabc8b2f5c">
+                <path>
+                  <target id="324d1cb5-f694-48bb-b758-494d14ba3b6b" name="Stock" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+                  <target id="593c1575-0a69-45d9-8bba-3b03a2be90fa" name="Constructor" type="element" specialization="Class Constructor" specializationId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b" />
+                  <target id="bbd47244-4053-4779-af5f-7cd17b6c65fd" name="Total" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Constructor.AddedUser}</expression>
+            <path>
+              <target id="f795458e-fef9-4560-99c3-58014cdcbe1f" name="StockCreatedEvent" type="element" specialization="Domain Event" specializationId="0814e459-fb9b-47db-b7eb-32ce30397e8a" />
+              <target id="99cee8ac-2971-4565-8d7c-3e89283d4168" name="AddedUser" type="element" specialization="Property" specializationId="b4d69073-5abb-4968-b41b-545b2f7408ed" />
+            </path>
+            <sources>
+              <source identifier="Constructor.AddedUser" mappingType="Data Mapping" mappingTypeId="ddfefa35-caf3-48f8-aeed-7beabc8b2f5c">
+                <path>
+                  <target id="324d1cb5-f694-48bb-b758-494d14ba3b6b" name="Stock" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+                  <target id="593c1575-0a69-45d9-8bba-3b03a2be90fa" name="Constructor" type="element" specialization="Class Constructor" specializationId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b" />
+                  <target id="3638153e-fabe-41bb-a864-0f050e3556f5" name="AddedUser" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Domain Event Origin Association</associationType>
+  <associationTypeId>4c0cc50b-8a9d-43cd-b731-9f354f69f3c9</associationTypeId>
+  <stereotypes />
+</association>

@@ -379,5 +379,26 @@
         </childElement>
       </childElements>
     </childElement>
+    <childElement id="7223e693-985d-46d7-bb5c-89250b6dc944" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>Cancel</name>
+      <display>Cancel(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="973106a3-8d68-4e07-b806-9cbd04d5b5c3">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>5a61799b-65bd-41cc-a32b-5312d2dc0734</parentFolderId>
+      <packageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</packageId>
+      <packageName>AdvancedMappingCrud.RichDomain.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
   </childElements>
 </class>

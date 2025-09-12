@@ -1,4 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.MediatR.DomainEvents.DomainEventHandler#0ef6ec29-eab1-4778-a3e0-1ebe559bc6ac</correlationId>
+      <path>AdvancedMappingCrud.RichDomain.Tests.Application/EventHandlers/StockCreatedEventHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
+      <updatedAt>2025-09-11T12:42:56.8800374Z</updatedAt>
+      <deviationsHash>9E921348B557F054183EE25BBE0AB2992BC631AB591E10B20B7F90ADC7E67777</deviationsHash>
+      <fileHash>0B0BF5046CF9511D01AC45893E909E5ABD90B7FEDEFDF25C24118B7EAB027922</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.MediatR.DomainEvents.DomainEventHandler#17e56155-695a-4a81-b493-22b7f4d66f77</correlationId>
+      <path>AdvancedMappingCrud.RichDomain.Tests.Application/EventHandlers/StockLevelUpdatedEventHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
+      <updatedAt>2025-09-11T12:22:11.2025112Z</updatedAt>
+      <deviationsHash>D27DFFAF5C923B5AB10B84DB41CE246F3AA8BE6CC5E9B768090A2B9A695B3783</deviationsHash>
+      <fileHash>B177D3B0EE82C7B909AAE50A72A60CB424786E0C507D85BE6E174DD660D9ACD8</fileHash>
+    </file>
+  </files>
 </deviationsLog>

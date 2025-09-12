@@ -691,6 +691,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>4a2cab43-f9e6-428d-8317-96b5596b9bf8</ProjectId>
+      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventHandler#0ef6ec29-eab1-4778-a3e0-1ebe559bc6ac</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/EventHandlers/StockCreatedEventHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>StockCreatedEventHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4a2cab43-f9e6-428d-8317-96b5596b9bf8</ProjectId>
+      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventHandler#17e56155-695a-4a81-b493-22b7f4d66f77</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/EventHandlers/StockLevelUpdatedEventHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>StockLevelUpdatedEventHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#91194805-fda5-4dd9-8745-979d872156ca</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -2576,6 +2592,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Domain/Entities/User.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>User.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2493f553-d723-47a4-95a6-1917d90c6daf</ProjectId>
+      <CorrelationId>Intent.DomainEvents.DomainEvent#f795458e-fef9-4560-99c3-58014cdcbe1f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Domain/Events/StockCreatedEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>StockCreatedEvent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2493f553-d723-47a4-95a6-1917d90c6daf</ProjectId>
+      <CorrelationId>Intent.DomainEvents.DomainEvent#87405da1-e98f-4577-89d9-2b2b45b2132e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Domain/Events/StockLevelUpdatedEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>StockLevelUpdatedEvent.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

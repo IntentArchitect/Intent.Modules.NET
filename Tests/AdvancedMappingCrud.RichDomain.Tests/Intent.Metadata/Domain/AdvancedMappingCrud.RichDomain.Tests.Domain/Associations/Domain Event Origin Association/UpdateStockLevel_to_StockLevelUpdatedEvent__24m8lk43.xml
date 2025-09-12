@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="3174181f-ed0a-46fe-be1e-082d6b23e867">
+  <sourceEnd id="d22dfe67-7e14-4d15-860a-299207e08fdb" type="Domain Event Origin Association Source End" typeId="2495d3ef-f7a2-441d-b749-b51b2546b45e">
+    <display>published by : Stock.UpdateStockLevel</display>
+    <order>3</order>
+    <typeReference id="68b52be9-d9e6-4eec-8587-682a987d4353">
+      <typeId>c77ffdbc-b4dd-4357-9e5c-a893ef360721</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Domain</typePackageName>
+      <typePackageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="3174181f-ed0a-46fe-be1e-082d6b23e867" type="Domain Event Origin Association Target End" typeId="17046427-14e2-4081-8463-ef16c0fda399">
+    <display>publishes : StockLevelUpdatedEvent</display>
+    <order>3</order>
+    <typeReference id="4c2644a4-85c6-400c-892d-ff88f2ebcc6c">
+      <typeId>87405da1-e98f-4577-89d9-2b2b45b2132e</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Domain</typePackageName>
+      <typePackageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Entity to Domain Event Mapping" typeId="86cb62b5-412d-493b-a901-d6e08cf88059">
+        <source applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="324d1cb5-f694-48bb-b758-494d14ba3b6b" location="[AdvancedMappingCrud.RichDomain.Tests].[Domain].[Stock]" />
+        <target applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="87405da1-e98f-4577-89d9-2b2b45b2132e" location="[AdvancedMappingCrud.RichDomain.Tests].[Domain].[StockLevelUpdatedEvent]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{UpdateStockLevel.Id}</expression>
+            <path>
+              <target id="87405da1-e98f-4577-89d9-2b2b45b2132e" name="StockLevelUpdatedEvent" type="element" specialization="Domain Event" specializationId="0814e459-fb9b-47db-b7eb-32ce30397e8a" />
+              <target id="8b64a0f9-a59c-4d8b-a211-1381c0cea1b9" name="Id" type="element" specialization="Property" specializationId="b4d69073-5abb-4968-b41b-545b2f7408ed" />
+            </path>
+            <sources>
+              <source identifier="UpdateStockLevel.Id" mappingType="Data Mapping" mappingTypeId="ddfefa35-caf3-48f8-aeed-7beabc8b2f5c">
+                <path>
+                  <target id="324d1cb5-f694-48bb-b758-494d14ba3b6b" name="Stock" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+                  <target id="c77ffdbc-b4dd-4357-9e5c-a893ef360721" name="UpdateStockLevel" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+                  <target id="7d5c57e1-107b-4431-b59e-da11f04b0de0" name="Id" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{UpdateStockLevel.Total}</expression>
+            <path>
+              <target id="87405da1-e98f-4577-89d9-2b2b45b2132e" name="StockLevelUpdatedEvent" type="element" specialization="Domain Event" specializationId="0814e459-fb9b-47db-b7eb-32ce30397e8a" />
+              <target id="86a87c09-42ec-49e4-99b8-89e522ba2079" name="Total" type="element" specialization="Property" specializationId="b4d69073-5abb-4968-b41b-545b2f7408ed" />
+            </path>
+            <sources>
+              <source identifier="UpdateStockLevel.Total" mappingType="Data Mapping" mappingTypeId="ddfefa35-caf3-48f8-aeed-7beabc8b2f5c">
+                <path>
+                  <target id="324d1cb5-f694-48bb-b758-494d14ba3b6b" name="Stock" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+                  <target id="c77ffdbc-b4dd-4357-9e5c-a893ef360721" name="UpdateStockLevel" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+                  <target id="e358f1c3-6e7b-4a9b-bad5-1eab136c1d13" name="Total" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{UpdateStockLevel.DateUpdated}</expression>
+            <path>
+              <target id="87405da1-e98f-4577-89d9-2b2b45b2132e" name="StockLevelUpdatedEvent" type="element" specialization="Domain Event" specializationId="0814e459-fb9b-47db-b7eb-32ce30397e8a" />
+              <target id="7045b0a2-c8dd-4393-93b8-550e9f5480a1" name="DateUpdated" type="element" specialization="Property" specializationId="b4d69073-5abb-4968-b41b-545b2f7408ed" />
+            </path>
+            <sources>
+              <source identifier="UpdateStockLevel.DateUpdated" mappingType="Data Mapping" mappingTypeId="ddfefa35-caf3-48f8-aeed-7beabc8b2f5c">
+                <path>
+                  <target id="324d1cb5-f694-48bb-b758-494d14ba3b6b" name="Stock" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+                  <target id="c77ffdbc-b4dd-4357-9e5c-a893ef360721" name="UpdateStockLevel" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+                  <target id="35fda651-6b94-4552-94be-3c303bb064ee" name="DateUpdated" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Domain Event Origin Association</associationType>
+  <associationTypeId>4c0cc50b-8a9d-43cd-b731-9f354f69f3c9</associationTypeId>
+  <stereotypes />
+</association>
