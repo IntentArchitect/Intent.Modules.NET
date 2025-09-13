@@ -54,6 +54,7 @@ steps:
       git config --global core.longpaths true
 
 - checkout: 'self'
+  clean: true
   persistCredentials: 'true'
   fetchDepth: '1'
   submodules: 'recursive'
