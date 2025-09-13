@@ -39,8 +39,7 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Application.EventHandlers
                 throw new NotFoundException($"Could not find Product '{domainEvent.Name}'");
             }
 
-            product.Another(
-                _secondService);
+            product.Another(_secondService);
         }
     }
 }

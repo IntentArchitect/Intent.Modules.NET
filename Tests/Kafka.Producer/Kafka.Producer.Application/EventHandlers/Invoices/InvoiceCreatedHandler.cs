@@ -24,7 +24,7 @@ namespace Kafka.Producer.Application.EventHandlers.Invoices
             _eventBus = eventBus;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(DomainEventNotification<InvoiceCreated> notification, CancellationToken cancellationToken)
         {
             var domainEvent = notification.DomainEvent;
@@ -35,7 +35,7 @@ namespace Kafka.Producer.Application.EventHandlers.Invoices
             });
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(DomainEventNotification<InvoiceUpdated> notification, CancellationToken cancellationToken)
         {
             var domainEvent = notification.DomainEvent;

@@ -39,49 +39,49 @@
         <target applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="f795458e-fef9-4560-99c3-58014cdcbe1f" location="[AdvancedMappingCrud.RichDomain.Tests].[Domain].[StockCreatedEvent]" />
         <mappedEnds>
           <mappedEnd>
-            <expression>{Constructor.Name}</expression>
+            <expression>{Constructor.name}</expression>
             <path>
               <target id="f795458e-fef9-4560-99c3-58014cdcbe1f" name="StockCreatedEvent" type="element" specialization="Domain Event" specializationId="0814e459-fb9b-47db-b7eb-32ce30397e8a" />
               <target id="00c5ccbf-f226-45fb-ba7b-1396c562bbc8" name="Name" type="element" specialization="Property" specializationId="b4d69073-5abb-4968-b41b-545b2f7408ed" />
             </path>
             <sources>
-              <source identifier="Constructor.Name" mappingType="Data Mapping" mappingTypeId="ddfefa35-caf3-48f8-aeed-7beabc8b2f5c">
+              <source identifier="Constructor.name" mappingType="Data Mapping" mappingTypeId="ddfefa35-caf3-48f8-aeed-7beabc8b2f5c">
                 <path>
                   <target id="324d1cb5-f694-48bb-b758-494d14ba3b6b" name="Stock" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
                   <target id="593c1575-0a69-45d9-8bba-3b03a2be90fa" name="Constructor" type="element" specialization="Class Constructor" specializationId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b" />
-                  <target id="21142064-8b3a-43a8-89fc-d291589b523a" name="Name" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+                  <target id="21142064-8b3a-43a8-89fc-d291589b523a" name="name" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
                 </path>
               </source>
             </sources>
           </mappedEnd>
           <mappedEnd>
-            <expression>{Constructor.Total}</expression>
+            <expression>{Constructor.total}</expression>
             <path>
               <target id="f795458e-fef9-4560-99c3-58014cdcbe1f" name="StockCreatedEvent" type="element" specialization="Domain Event" specializationId="0814e459-fb9b-47db-b7eb-32ce30397e8a" />
               <target id="12cf92fa-6549-4e14-aa2a-0ca6b6f0111e" name="Total" type="element" specialization="Property" specializationId="b4d69073-5abb-4968-b41b-545b2f7408ed" />
             </path>
             <sources>
-              <source identifier="Constructor.Total" mappingType="Data Mapping" mappingTypeId="ddfefa35-caf3-48f8-aeed-7beabc8b2f5c">
+              <source identifier="Constructor.total" mappingType="Data Mapping" mappingTypeId="ddfefa35-caf3-48f8-aeed-7beabc8b2f5c">
                 <path>
                   <target id="324d1cb5-f694-48bb-b758-494d14ba3b6b" name="Stock" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
                   <target id="593c1575-0a69-45d9-8bba-3b03a2be90fa" name="Constructor" type="element" specialization="Class Constructor" specializationId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b" />
-                  <target id="bbd47244-4053-4779-af5f-7cd17b6c65fd" name="Total" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+                  <target id="bbd47244-4053-4779-af5f-7cd17b6c65fd" name="total" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
                 </path>
               </source>
             </sources>
           </mappedEnd>
           <mappedEnd>
-            <expression>{Constructor.AddedUser}</expression>
+            <expression>{Constructor.addedUser}</expression>
             <path>
               <target id="f795458e-fef9-4560-99c3-58014cdcbe1f" name="StockCreatedEvent" type="element" specialization="Domain Event" specializationId="0814e459-fb9b-47db-b7eb-32ce30397e8a" />
               <target id="99cee8ac-2971-4565-8d7c-3e89283d4168" name="AddedUser" type="element" specialization="Property" specializationId="b4d69073-5abb-4968-b41b-545b2f7408ed" />
             </path>
             <sources>
-              <source identifier="Constructor.AddedUser" mappingType="Data Mapping" mappingTypeId="ddfefa35-caf3-48f8-aeed-7beabc8b2f5c">
+              <source identifier="Constructor.addedUser" mappingType="Data Mapping" mappingTypeId="ddfefa35-caf3-48f8-aeed-7beabc8b2f5c">
                 <path>
                   <target id="324d1cb5-f694-48bb-b758-494d14ba3b6b" name="Stock" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
                   <target id="593c1575-0a69-45d9-8bba-3b03a2be90fa" name="Constructor" type="element" specialization="Class Constructor" specializationId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b" />
-                  <target id="3638153e-fabe-41bb-a864-0f050e3556f5" name="AddedUser" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+                  <target id="3638153e-fabe-41bb-a864-0f050e3556f5" name="addedUser" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
                 </path>
               </source>
             </sources>

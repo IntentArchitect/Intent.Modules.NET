@@ -507,6 +507,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>b3e7fe5f-1134-44cc-ac09-f190c201d15c</ProjectId>
+      <CorrelationId>Intent.MediatR.DomainEvents.DefaultDomainEventHandler#f795458e-fef9-4560-99c3-58014cdcbe1f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Application/EventHandlers/StockCreatedEventHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>StockCreatedEventHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b3e7fe5f-1134-44cc-ac09-f190c201d15c</ProjectId>
+      <CorrelationId>Intent.MediatR.DomainEvents.DefaultDomainEventHandler#87405da1-e98f-4577-89d9-2b2b45b2132e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Application/EventHandlers/StockLevelUpdatedEventHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>StockLevelUpdatedEventHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>5c87c090-6acc-44fa-b54d-f03ee630de4c</ProjectId>
       <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#e8425dc7-79d4-4901-99b2-fc1e5921cf3b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -1288,6 +1304,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Domain/Entities/User.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>User.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4262bd73-8bd1-4acd-a1ac-7452a65219bb</ProjectId>
+      <CorrelationId>Intent.DomainEvents.DomainEvent#f795458e-fef9-4560-99c3-58014cdcbe1f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Domain/Events/StockCreatedEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>StockCreatedEvent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4262bd73-8bd1-4acd-a1ac-7452a65219bb</ProjectId>
+      <CorrelationId>Intent.DomainEvents.DomainEvent#87405da1-e98f-4577-89d9-2b2b45b2132e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Domain/Events/StockLevelUpdatedEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>StockLevelUpdatedEvent.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

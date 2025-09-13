@@ -25,7 +25,7 @@ namespace MassTransit.AzureServiceBus.Application.EventHandlers.Animals
             _eventBus = eventBus;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(
             DomainEventNotification<AnimalSoundRequestedEvent> notification,
             CancellationToken cancellationToken)

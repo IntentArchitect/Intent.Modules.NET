@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Domain.Common;
+using AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Domain.Events;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: IntentTemplate("Intent.Entities.DomainEntity", Version = "2.0")]
@@ -11,6 +12,7 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Domain.Entities
     {
         public Stock(string name, int total, string addedUser)
         {
+            DomainEvents.Add(new StockCreatedEvent(name: name, total: total, addedUser: addedUser));
         }
 
         /// <summary>
@@ -34,8 +36,7 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Domain.Entities
 
         public void UpdateStockLevel(Guid id, int total, DateTime dateUpdated)
         {
-            // TODO: Implement UpdateStockLevel (Stock) functionality
-            throw new NotImplementedException("Replace with your implementation...");
+            DomainEvents.Add(new StockLevelUpdatedEvent(id: id, total: total, dateUpdated: dateUpdated));
         }
     }
 }

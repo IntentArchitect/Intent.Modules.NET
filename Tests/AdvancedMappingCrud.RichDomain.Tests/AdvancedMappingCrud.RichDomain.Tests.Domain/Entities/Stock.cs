@@ -12,7 +12,7 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Domain.Entities
     {
         public Stock(string name, int total, string addedUser)
         {
-            DomainEvents.Add(new StockCreatedEvent(name: Name, total: Total, addedUser: AddedUser));
+            DomainEvents.Add(new StockCreatedEvent(name: name, total: total, addedUser: addedUser));
         }
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Domain.Entities
 
         public void UpdateStockLevel(Guid id, int total, DateTime dateUpdated)
         {
-            DomainEvents.Add(new StockLevelUpdatedEvent(id: Id, total: Total, dateUpdated: DateUpdated));
+            DomainEvents.Add(new StockLevelUpdatedEvent(id: id, total: total, dateUpdated: dateUpdated));
         }
     }
 }
