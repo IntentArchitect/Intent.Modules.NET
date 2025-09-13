@@ -10,6 +10,7 @@
     <Compile Remove="content\MudBlazorAIPromptTemplates\EditEntityDialog\EditCustomerDialog.razor.cs" />
     <Compile Remove="content\MudBlazorAIPromptTemplates\EditEntity\CustomerEdit.razor.cs" />
     <Compile Remove="content\MudBlazorAIPromptTemplates\SearchEntity\CustomerSearch.razor.cs" />
+    <Compile Remove="content\MudBlazorAIPromptTemplates\ViewEntity\CustomerView.razor.cs" />
     <Compile Remove="content\MudBlazorAIPromptTemplates\ViewEntity\ViewCustomer.razor.cs" />
   </ItemGroup>
 
@@ -19,12 +20,12 @@
     <None Include="content\MudBlazorAIPromptTemplates\EditEntityDialog\EditCustomerDialog.razor.cs" />
     <None Include="content\MudBlazorAIPromptTemplates\EditEntity\CustomerEdit.razor.cs" />
     <None Include="content\MudBlazorAIPromptTemplates\SearchEntity\CustomerSearch.razor.cs" />
-    <None Include="content\MudBlazorAIPromptTemplates\ViewEntity\ViewCustomer.razor.cs" />
+    <None Include="content\MudBlazorAIPromptTemplates\ViewEntity\CustomerView.razor.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.7.3" />
-    <PackageReference Include="Intent.Modules.Common.AI" Version="1.0.0-beta.3" />
+    <PackageReference Include="Intent.Modules.Common.AI" Version="1.0.0-beta.8" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.9.3" />
     <PackageReference Include="Intent.Modules.Modelers.Services.CQRS" Version="5.1.1" />
     <PackageReference Include="Intent.Modules.Modelers.UI" Version="1.0.0-beta.6" />
@@ -34,7 +35,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.7" />
-    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.9.0-alpha.5" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.9.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 

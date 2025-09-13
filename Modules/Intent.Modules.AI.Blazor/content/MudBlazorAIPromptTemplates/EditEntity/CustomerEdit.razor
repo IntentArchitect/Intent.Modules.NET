@@ -1,6 +1,7 @@
-@page "/page-based/customers/edit/{CustomerId:guid}"
 @using System.ComponentModel.DataAnnotations
 @using UI.AI.Samples.Domain
+
+@page "/templates/pages/customers/edit/{CustomerId:guid}"
 
 <MudPaper Class="pa-4 mb-4 ux-gradient-primary" Elevation="0">
     <MudText Typo="Typo.h4" Class="text-white font-weight-bold mb-2">
@@ -21,7 +22,7 @@
     <MudCardContent>
         @if (Model is not null)
         {
-            <MudForm @ref="_form" Model="Model" Validation="ValidateAll">
+            <MudForm @ref="_form" Model="Model">
                 <MudGrid>
                     <MudItem xs="12" md="6">
                         <MudTextField @bind-Value="Model.Name"
@@ -53,11 +54,39 @@
                                       Required
                                       RequiredError="Email is required"
                                       Validation="@(new Func<string?, IEnumerable<string>>(value =>
-                                          string.IsNullOrWhiteSpace(value)
-                                              ? Array.Empty<string>()
-                                              : (new EmailAddressAttribute().IsValid(value)
-                                                  ? Array.Empty<string>()
-                                                  : new[] { "Please enter a valid email" })))" />
+                                        string.IsNullOrWhiteSpace(value)
+                                            ? Array.Empty<string>()
+                                            : (new EmailAddressAttribute().IsValid(value)
+                                                ? Array.Empty<string>()
+                                                : new[] { "Please enter a valid email" })))" />
+                    </MudItem>
+                    <MudItem xs="12" md="6">
+                        <MudSelect T="Guid?"
+                                   Value="Model.CategoryId"
+                                   ValueChanged="@OnCategoryChanged"
+                                   Label="Category"
+                                   Placeholder="Select..."
+                                   Required="true"
+                                   RequiredError="Category is required">
+                            @if (CategoriesLookupModels is { Count: > 0 })
+                            {
+                                @foreach (var cat in CategoriesLookupModels)
+                                {
+                                    <MudSelectItem T="Guid?" Value="@cat.Id">@cat.Name</MudSelectItem>
+                                }
+                            }
+                        </MudSelect>
+                    </MudItem>
+                    <MudItem xs="12" md="6">
+                        <MudSelect T="Guid?" @bind-Value="Model.SubCategoryID" Label="Sub Category" Placeholder="Select..." Required RequiredError="Sub Category is required">
+                            @if (SubCategoriesLookupModels is { Count: > 0 })
+                            {
+                                @foreach (var sub in SubCategoriesLookupModels)
+                                {
+                                    <MudSelectItem T="Guid?" Value="@sub.Id">@sub.Name</MudSelectItem>
+                                }
+                            }
+                        </MudSelect>
                     </MudItem>
                     <MudItem xs="12" md="6">
                         <MudSwitch T="bool" @bind-Value="Model.IsActive" Color="Color.Primary" Label="Active" Class="mt-4" />
@@ -87,13 +116,17 @@
                                           Placeholder="Enter loyalty number"
                                           Adornment="Adornment.Start"
                                           AdornmentIcon="@Icons.Material.Filled.CardGiftcard"
-                                          Immediate/>
+                                          Required
+                                          RequiredError="No Loyalty No Captured"
+                                          Immediate />
                         </MudItem>
                         <MudItem xs="12" md="6">
-                            <MudNumericField T="int" @bind-Value="Model.Loyalty.Points"
+                            <MudNumericField T="int?" @bind-Value="Model.Loyalty.Points"
                                              Label="Points"
                                              Placeholder="0"
                                              Min="0" Max="1000000"
+                                             Required
+                                             RequiredError="No Points Captured"
                                              Immediate/>
                         </MudItem>
                     }

@@ -1,4 +1,4 @@
-@page "/page-based/customers/add"
+@page "/templates/pages/customers/add"
 @using System.ComponentModel.DataAnnotations
 @using UI.AI.Samples.Domain
 
@@ -19,7 +19,7 @@
         </CardHeaderContent>
     </MudCardHeader>
     <MudCardContent>
-        <MudForm @ref="_form" Model="@Model" Validation="@ValidateAll">
+        <MudForm @ref="_form" Model="@Model">
             <MudGrid>
                 <MudItem xs="12" md="6">
                     <MudTextField @bind-Value="Model.Name"
@@ -58,6 +58,39 @@
                                               : new[] { "Please enter a valid email" })))" />
                 </MudItem>
                 <MudItem xs="12" md="6">
+                    <MudSelect T="Guid?"
+                               Value="Model.CategoryId"
+                               ValueChanged="OnCategoryChanged"
+                               Label="Category"
+                               Placeholder="Select..."
+                               Required="true"
+                               RequiredError="Category is required">
+                        @if (CategoriesLookupModels is { Count: > 0 })
+                        {
+                            @foreach (var c in CategoriesLookupModels)
+                            {
+                                <MudSelectItem T="Guid?" Value="@c.Id">@c.Name</MudSelectItem>
+                            }
+                        }
+                    </MudSelect>
+                </MudItem>
+                <MudItem xs="12" md="6">
+                    <MudSelect T="Guid?"
+                               @bind-Value="Model.SubCategoryId"
+                               Label="Sub Category"
+                               Placeholder="Select..."
+                               Required
+                               RequiredError="Sub Category is required">
+                        @if (SubCategoriesLookupModels is { Count: > 0 })
+                        {
+                            @foreach (var s in SubCategoriesLookupModels)
+                            {
+                                <MudSelectItem T="Guid?" Value="@s.Id">@s.Name</MudSelectItem>
+                            }
+                        }
+                    </MudSelect>
+                </MudItem>
+                <MudItem xs="12" md="6">
                     <MudSwitch T="bool" @bind-Value="Model.IsActive" Color="Color.Primary" Label="Active" Class="mt-4" />
                 </MudItem>
 
@@ -91,7 +124,7 @@
                                       Immediate />
                     </MudItem>
                     <MudItem xs="12" md="6">
-                        <MudNumericField T="int" @bind-Value="Model.Loyalty!.Points"
+                        <MudNumericField T="int?" @bind-Value="Model.Loyalty!.Points"
                                          Label="Points"
                                          Placeholder="0"
                                          Min="0" Max="1000000"

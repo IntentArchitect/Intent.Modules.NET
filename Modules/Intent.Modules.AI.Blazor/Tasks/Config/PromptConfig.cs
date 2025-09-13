@@ -1,4 +1,5 @@
-﻿using Intent.Engine;
+﻿using Anthropic.SDK.Messaging;
+using Intent.Engine;
 using Intent.IArchitect.CrossPlatform.IO;
 using Intent.Modules.AI.Blazor.Tasks.Helpers;
 using Intent.Templates;
@@ -32,7 +33,8 @@ namespace Intent.Modules.AI.Blazor.Tasks.Config
 
         [JsonPropertyName("templates")]
         public List<Template> Templates { get; set; } = new List<Template>();
-
+        [JsonPropertyName("mcp-servers")]
+        public List<McpServer> McpServers { get; set; } = new();
 
         internal static string GetTemplatePromptPath(string solutionPath, string applicationName)
         { 
@@ -186,5 +188,49 @@ namespace Intent.Modules.AI.Blazor.Tasks.Config
         public int Priority { get; set; } = 0; // used only to break ties deterministically
     }
 
+    public class McpServer
+    {
+        [JsonPropertyName("name")]
+        public string Name { get; set; } = string.Empty;
 
+        [JsonPropertyName("transport")]
+        [JsonConverter(typeof(JsonStringEnumConverter))]
+        public McpTransport Transport { get; set; } = McpTransport.Process;
+
+        [JsonPropertyName("command")]
+        public string? Command { get; set; }
+
+        [JsonPropertyName("args")]
+        public List<string>? Args { get; set; }
+
+        [JsonPropertyName("workingDirectory")]
+        public string? WorkingDirectory { get; set; }
+
+        [JsonPropertyName("env")]
+        public Dictionary<string, string>? Env { get; set; }
+
+        [JsonPropertyName("url")]
+        public string? Url { get; set; }
+
+        [JsonPropertyName("headers")]
+        public Dictionary<string, string>? Headers { get; set; }
+
+        [JsonPropertyName("enabled")]
+        public bool Enabled { get; set; } = true;
+
+        [JsonPropertyName("group")]
+        public string? Group { get; set; }
+
+        [JsonPropertyName("description")]
+        public string? Description { get; set; }
+
+        [JsonPropertyName("toolFilter")]
+        public List<string>? ToolFilter { get; set; }
+    }
+
+    public enum McpTransport
+    {
+        Process,
+        Sse
+    }
 }

@@ -24,6 +24,40 @@
                     <MudTextField @bind-Value="Model.Email" Label="Email" InputType="InputType.Email" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Email" Required="true" RequiredError="Email is required" Validation="@EmailRule" Immediate DebounceInterval="250" />
                 </MudItem>
                 <MudItem xs="12" md="6">
+                    <MudSelect T="Guid?"
+                               Value="Model.CategoryId"
+                               ValueChanged="OnCategoryChanged"
+                               Label="Category"
+                               Placeholder="Select..."
+                               Required="true"
+                               RequiredError="Category is required">
+
+                        @if (CategoryLookup is { Count: > 0 })
+                        {
+                            @foreach (var pc in CategoryLookup)
+                            {
+                                <MudSelectItem T="Guid?" Value="@pc.Id">@pc.Name</MudSelectItem>
+                            }
+                        }
+                    </MudSelect>
+                </MudItem>
+                <MudItem xs="12" md="6">
+                    <MudSelect Guid T="Guid?"
+                               @bind-Value="Model.SubCategoryId"
+                               Label="Sub Category"
+                               Placeholder="Select..."
+                               Required
+                               RequiredError="Sub Category is required">
+                        @if (SubCategoryLookup is { Count: > 0 })
+                        {
+                            @foreach (var bpt in SubCategoryLookup)
+                            {
+                                <MudSelectItem T="Guid?" Value="@bpt.Id">@bpt.Name</MudSelectItem>
+                            }
+                        }
+                    </MudSelect>
+                </MudItem>
+                <MudItem xs="12" md="6">
                     <MudSwitch T="bool" @bind-Value="Model.IsActive" Color="Color.Primary" Label="Active customer?" Class="mt-4" />
                 </MudItem>
                 <MudItem xs="12">
