@@ -4,15 +4,12 @@
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#34c20673-1032-4d98-baf2-a9d925038db3</correlationId>
       <path>Intent.Modules.MediatR.DomainEvents/Templates/DefaultDomainEventHandler/DefaultDomainEventHandlerTemplatePartial.cs</path>
-      <count>3</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-08-19T10:11:57.6145142Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-08-20T12:25:22.4586444Z</approvedAt>
-      <deviationsHash>2C253C394F0CE7FA2CF4F368CDB1E01895F9EFA2FC0FD827269D8E5B1BFDCDA7</deviationsHash>
-      <fileHash>65716045DA3112781630B9C8CDD66B9D7F660C0A2D7A08774C4A3879E239C97A</fileHash>
+      <count>6</count>
+      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
+      <updatedAt>2025-09-13T06:35:29.1295519Z</updatedAt>
+      <deviationsHash>FAF138549BA5B5640D17327BD80CB0CF7D2BF80BA96E369685AB9F70A120B625</deviationsHash>
+      <fileHash>8114F8DF9B20B0EB397182D977BDBFD51BF9F71D7526A4D387526EDE302AFA02</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#34c20673-1032-4d98-baf2-a9d925038db3</correlationId>
@@ -25,33 +22,27 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T12:25:22.4629057Z</approvedAt>
       <deviationsHash>D9C53325E8AEAAB8649C6F3B9469AC646671C0DB648368E1575572827242A97B</deviationsHash>
-      <fileHash>4D22D23A43659F5EDF1657BB2E7EA064B90744CC448278AEAE9B6761001540C9</fileHash>
+      <fileHash>B21372D4D68E47A01F06A3D0D75CB34FDB2D10C4B09C049ADC8316C562EB7306</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#facf0926-17f5-4e56-b647-5718e15fcbb4</correlationId>
       <path>Intent.Modules.MediatR.DomainEvents/Templates/DomainEventNotification/DomainEventNotificationTemplatePartial.cs</path>
-      <count>3</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-08-19T10:11:57.6145354Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-08-20T12:25:22.4658686Z</approvedAt>
-      <deviationsHash>FAEA54C78A43DD1533FF2507DC59CE8CE2CC998B3C8C7E6B6FD0A7ED139B73FB</deviationsHash>
-      <fileHash>CC5D6A58C12E2F1734BB59D27DD261B0C56E5DDB20B469FF0271C0A4C9E4E53C</fileHash>
+      <count>6</count>
+      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
+      <updatedAt>2025-09-13T06:35:29.129602Z</updatedAt>
+      <deviationsHash>A113A322B10C053123FAAA50E189C562DDB8043DC5F1836B8052D7F0AC31AD3B</deviationsHash>
+      <fileHash>08615DF862D2F9565AC192308746F3698E61CADD8CC6BFB98303AC936D0199FC</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#c5749322-7ef9-4947-95dd-9a9c01131077</correlationId>
       <path>Intent.Modules.MediatR.DomainEvents/Templates/DomainEventService/DomainEventServiceTemplatePartial.cs</path>
-      <count>3</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-11-14T15:58:06.0762828Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-11-14T16:14:47.3862074Z</approvedAt>
-      <deviationsHash>76C6DA05F68F2A85994B2D1078A287999DFAD41A69F9854AC063A8E8854FDAD5</deviationsHash>
-      <fileHash>25EF65A6CC7CB0A10EB62B0FE7A474C7B2BE028AC06C0514EAC9158A4FF64509</fileHash>
+      <count>6</count>
+      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
+      <updatedAt>2025-09-13T06:35:29.1296279Z</updatedAt>
+      <deviationsHash>317A07DBB5882837B1997B132AE6092513C3B302932DC82FFDF16A67451D4553</deviationsHash>
+      <fileHash>8C7D074EC5B777BF8795F0A0DCDD69781C67CEF744F7D4DC8EFFE7E92F752F42</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions</correlationId>
@@ -64,7 +55,7 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T12:25:22.4671599Z</approvedAt>
       <deviationsHash>B7203BFB9686F060DB0ACAA7C53E52041597E3DB8BC78F5BAE12E1FBA6835020</deviationsHash>
-      <fileHash>8A22B64A9FCB9E5368B9E8588C718F2921FC2E6E285BB547D97F13C521570CA3</fileHash>
+      <fileHash>0B0E3EE3D1BA2ECFD705F6C2C3EA8E0FC3445D8F2F4994302FEB6C166389B9DF</fileHash>
     </file>
   </files>
 </deviationsLog>

@@ -142,9 +142,13 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
                         continue;
                     }
 
-                    if (s.IsAsyncInvocation())
+                    if (s.IsAsyncInvocation() == true)
                     {
-                        s.AddArgument("cancellationToken");
+                        if (method.Parameters.Any(x => x.Type == "CancellationToken"))
+                        {
+                            s.AddArgument(method.Parameters.Single(x => x.Type == "CancellationToken").Name);
+                        }
+
                         updateStatements[i] = new CSharpAwaitExpression(updateStatements[i]);
                     }
 

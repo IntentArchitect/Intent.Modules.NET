@@ -1,6 +1,7 @@
 ### Version 1.1.4
 
 - Improvement: Refactored so that can be used as NuGet package in other modules.
+- Improvement: Detects existence and name of `CancellationToken` parameter before adding to Domain Interactions.
 - Fixed: Exception thrown on invoking operations that accept only one parameter when that parameter is a Domain Service.
 
 ### Version 1.1.3

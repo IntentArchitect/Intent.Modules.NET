@@ -50,6 +50,11 @@ namespace Intent.Modules.Application.Contracts.InteractionStrategies
             var statements = new List<CSharpStatement>();
             statements.Add(new CSharpAssignmentStatement(new CSharpVariableDeclaration(requestName), _csharpMapping.GenerateCreationStatement(interaction.Mappings.Single())).WithSemicolon().SeparatedFromPrevious());
             var response = interaction.TypeReference.Element?.TypeReference?.Element;
+            var mediatorSendCall = new CSharpInvocationStatement("await _mediator.Send").AddArgument(requestName);
+            if (method.Parameters.Any(x => x.Type == "CancellationToken"))
+            {
+                mediatorSendCall.AddArgument(method.Parameters.Single(x => x.Type == "CancellationToken").Name);
+            }
             if (response != null && interaction.TypeReference.Element.IsQueryModel())
             {
                 var responseStaticElementId = "9acdd519-a45a-469d-89f1-00896a31ca61";
@@ -57,12 +62,13 @@ namespace Intent.Modules.Application.Contracts.InteractionStrategies
                 _csharpMapping.SetToReplacement(interaction, response.Name.ToLocalVariableName());
                 _csharpMapping.SetFromReplacement(new StaticMetadata(responseStaticElementId), "");
                 _csharpMapping.SetToReplacement(new StaticMetadata(responseStaticElementId), "");
-                statements.Add(new CSharpAssignmentStatement(new CSharpVariableDeclaration(response.Name.ToLocalVariableName()), new CSharpInvocationStatement("await _mediator.Send").AddArgument(requestName).AddArgument("cancellationToken")));
+
+                statements.Add(new CSharpAssignmentStatement(new CSharpVariableDeclaration(response.Name.ToLocalVariableName()), mediatorSendCall));
                 method.TrackedEntities().Add(response.Id, new EntityDetails((IElement)response, response.Name.ToLocalVariableName(), null, false));
             }
             else
             {
-                statements.Add(new CSharpInvocationStatement("await _mediator.Send").AddArgument(requestName).AddArgument("cancellationToken"));
+                statements.Add(mediatorSendCall);
             }
             method.AddStatements(ExecutionPhases.BusinessLogic, statements);
         }

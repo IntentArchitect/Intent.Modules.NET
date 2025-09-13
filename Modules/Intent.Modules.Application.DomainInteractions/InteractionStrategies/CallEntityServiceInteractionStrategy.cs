@@ -58,7 +58,10 @@ internal class CallEntityServiceInteractionStrategy : IInteractionStrategy
             var invStatement = methodInvocation as CSharpInvocationStatement;
             if (invStatement?.IsAsyncInvocation() == true)
             {
-                invStatement.AddArgument("cancellationToken");
+                if (method.Parameters.Any(x => x.Type == "CancellationToken"))
+                {
+                    invStatement.AddArgument(method.Parameters.Single(x => x.Type == "CancellationToken").Name);
+                }
                 invoke = new CSharpAwaitExpression(invoke);
             }
 

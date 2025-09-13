@@ -52,9 +52,9 @@ public class CallServiceInteractionStrategy : IInteractionStrategy
             CSharpStatement invoke = new CSharpAccessMemberStatement(serviceField, methodInvocation);
 
             var invStatement = methodInvocation as CSharpInvocationStatement;
-            if (invStatement?.IsAsyncInvocation() == true)
+            if (invStatement?.IsAsyncInvocation() == true && method.Parameters.Any(x => x.Type == "CancellationToken"))
             {
-                invStatement.AddArgument("cancellationToken");
+                invStatement.AddArgument(method.Parameters.Single(x => x.Type == "CancellationToken").Name);
                 invoke = new CSharpAwaitExpression(invoke);
             }
 

@@ -1,3 +1,7 @@
+### Version 5.1.1
+
+- Improvement: Detects existence and name of `CancellationToken` parameter before adding to `Service Calls Interactions`.
+
 ### Version 5.1.0
 
 - Improvement: Upgraded to support service invocation interactions within the new interaction strategy mechanism.

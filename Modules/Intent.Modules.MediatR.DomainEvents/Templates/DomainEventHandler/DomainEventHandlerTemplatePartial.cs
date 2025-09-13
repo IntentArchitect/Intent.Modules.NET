@@ -58,7 +58,7 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventHandler
                         {
                             method.RepresentsModel(handledDomainEvents);
                             method.RegisterAsProcessingHandlerForModel(handledDomainEvents);
-                            method.AddAttribute(CSharpIntentManagedAttribute.Fully());
+                            method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyMerge());
                             method.Async();
                             method.AddParameter($"{GetDomainEventNotificationType()}<{GetDomainEventType(handledDomainEvents)}>", "notification");
                             method.AddParameter("CancellationToken", "cancellationToken");
