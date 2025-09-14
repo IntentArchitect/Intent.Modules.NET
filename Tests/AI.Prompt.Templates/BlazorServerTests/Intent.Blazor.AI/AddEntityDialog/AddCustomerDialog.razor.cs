@@ -15,6 +15,9 @@ namespace UI.AI.Samples.Api.Components.Pages.Dialogs.Customers
     public partial class AddCustomerDialog
     {
         public CreateCustomerModel2 Model { get; set; } = new();
+        public List<CategoryDto>? CategoryLookup { get; set; }
+        public List<SubCategoryDto>? SubCategoryLookup { get; set; }
+
         [Inject]
         public IScopedMediator Mediator { get; set; } = default!;
         [Inject]
@@ -32,11 +35,54 @@ namespace UI.AI.Samples.Api.Components.Pages.Dialogs.Customers
 
         protected override async Task OnInitializedAsync()
         {
+            await GetCategories();
+
             Model.Preference ??= new CreateCustomerPreferenceModel2();
             Model.Addresses ??= new List<CreateCustomerCommandAddressesModel1>();
             _loyaltyModel = Model.Loyalty ?? new CreateCustomerCommandLoyaltyModel1();
             _showLoyalty = Model.Loyalty is not null;
             await Task.CompletedTask;
+        }
+
+        private async Task GetCategories()
+        {
+            try
+            {
+                CategoryLookup = await Mediator.Send(new GetCategoryLookupQuery());
+            }
+            catch (Exception e)
+            {
+                Snackbar.Add(e.Message, Severity.Error);
+            }
+        }
+
+        private async Task GetSubCategories(Guid categoryId)
+        {
+            try
+            {
+                SubCategoryLookup = await Mediator.Send(new GetSubCategoryLookupQuery(categoryId));
+            }
+            catch (Exception e)
+            {
+                Snackbar.Add(e.Message, Severity.Error);
+            }
+        }
+
+        private async Task OnCategoryChanged(Guid? id)
+        {
+            if (id != null && id.Value != Guid.Empty)
+            {
+                Model.CategoryId = id.Value;
+                await FindSubCategories(id.Value);
+                Model.SubCategoryId = null;
+                StateHasChanged();
+            }
+            else
+            {
+                Model.CategoryId = id.Value;
+                Model.SubCategoryId = null;
+                StateHasChanged();
+            }
         }
 
         private async Task CreateCustomer()
@@ -47,6 +93,8 @@ namespace UI.AI.Samples.Api.Components.Pages.Dialogs.Customers
                     name: Model.Name,
                     surname: Model.Surname,
                     email: Model.Email,
+                    categoryId: Model.CategoryId.Value,
+                    subCategoryId: Model.SubCategoryId.Value,
                     isActive: Model.IsActive,
                     preference: new CreateCustomerPreferenceDto
                     {
@@ -163,6 +211,8 @@ namespace UI.AI.Samples.Api.Components.Pages.Dialogs.Customers
             public string Name { get; set; }
             public string Surname { get; set; }
             public string Email { get; set; }
+            public Guid? CategoryId { get; set; }
+            public Guid? SubCategoryId { get; set; }
             public bool IsActive { get; set; }
             public CreateCustomerPreferenceModel Preference { get; set; }
         }

@@ -2,39 +2,64 @@ using System.ComponentModel.DataAnnotations;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Components;
 using MudBlazor;
+using UI.AI.Samples.Application.Categories;
+using UI.AI.Samples.Application.Categories.GetCategories;
 using UI.AI.Samples.Application.Customers;
 using UI.AI.Samples.Application.Customers.CreateCustomer;
+using UI.AI.Samples.Application.SubCategories;
+using UI.AI.Samples.Application.SubCategories.GetSubCategories;
 using UI.AI.Samples.Domain;
 using UI.AI.Samples.Infrastructure.Services;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate", Version = "1.0")]
 
-namespace UI.AI.Samples.Api.Components.Pages.PageBased.Customers
+namespace UI.AI.Samples.Api.Components.Pages.Templates.Pages
 {
     public partial class CustomerAdd
     {
+        public List<CategoryDto>? CategoriesLookupModels { get; set; }
+        public List<SubCategoryDto>? SubCategoriesLookupModels { get; set; }
         public CreateCustomerModel Model { get; set; } = new();
         [Inject]
-        public NavigationManager NavigationManager { get; set; } = default!;
-        [Inject]
         public IScopedMediator Mediator { get; set; } = default!;
+        [Inject]
+        public NavigationManager NavigationManager { get; set; } = default!;
         [Inject]
         public ISnackbar Snackbar { get; set; } = default!;
 
         private MudForm? _form;
         private bool _saving;
-        private bool _hasLoyalty; 
+        private bool _hasLoyalty;
+        public bool HasLoyalty
+        {
+            get => _hasLoyalty;
+            set
+            {
+                if (_hasLoyalty == value) return;
+                _hasLoyalty = value;
+                if (_hasLoyalty)
+                {
+                    Model.Loyalty ??= new CreateCustomerCommandLoyaltyModel
+                    {
+                        LoyaltyNo = string.Empty,
+                        Points = 0
+                    };
+                }
+                else
+                {
+                    Model.Loyalty = null;
+                }
+            }
+        }
 
         protected override async Task OnInitializedAsync()
         {
+            await LoadCategories();
             Model.Preference ??= new CreateCustomerPreferenceModel();
             Model.Addresses ??= new List<CreateCustomerCommandAddressesModel>();
-
-            // Start with no loyalty by default; toggle will create it on demand
             _hasLoyalty = false;
             Model.Loyalty = null;
-
             if (Model.Addresses.Count == 0)
             {
                 Model.Addresses.Add(new CreateCustomerCommandAddressesModel
@@ -44,10 +69,45 @@ namespace UI.AI.Samples.Api.Components.Pages.PageBased.Customers
             }
         }
 
+        private async Task LoadCategories()
+        {
+            try
+            {
+                CategoriesLookupModels = await Mediator.Send(new GetCategoriesQuery());
+            }
+            catch (Exception e)
+            {
+                Snackbar.Add(e.Message, Severity.Error);
+            }
+        }
+
+        private async Task OnCategoryChanged(Guid? id)
+        {
+            Model.CategoryId = id;
+            Model.SubCategoryId = null;
+            SubCategoriesLookupModels = null;
+            if (id != null)
+            {
+                await LoadSubCategories(id);
+            }
+        }
+
+        private async Task LoadSubCategories(Guid? categoryId)
+        {
+            try
+            {
+                SubCategoriesLookupModels = await Mediator.Send(new GetSubCategoriesQuery(
+                    categoryId: categoryId));
+            }
+            catch (Exception e)
+            {
+                Snackbar.Add(e.Message, Severity.Error);
+            }
+        }
+
         private async Task SaveAsync()
         {
             if (_form is null) return;
-
             await _form.Validate();
             if (!_form.IsValid)
             {
@@ -57,15 +117,13 @@ namespace UI.AI.Samples.Api.Components.Pages.PageBased.Customers
             _saving = true;
             try
             {
-                // Ensure loyalty is null when toggle is off (parity with Edit page)
                 if (!_hasLoyalty)
                 {
                     Model.Loyalty = null;
                 }
-
                 await CreateCustomer();
                 Snackbar.Add("Customer created successfully.", Severity.Success);
-                NavigationManager.NavigateTo("/page-based/customers/search");
+                NavigationManager.NavigateTo("/templates/pages/customers");
             }
             catch (Exception ex)
             {
@@ -79,10 +137,9 @@ namespace UI.AI.Samples.Api.Components.Pages.PageBased.Customers
 
         private void Cancel()
         {
-            NavigationManager.NavigateTo("/page-based/customers/search");
+            NavigationManager.NavigateTo("/templates/pages/customers");
         }
 
-        [IntentIgnore]
         private async Task CreateCustomer()
         {
             try
@@ -91,17 +148,19 @@ namespace UI.AI.Samples.Api.Components.Pages.PageBased.Customers
                     name: Model.Name,
                     surname: Model.Surname,
                     email: Model.Email,
+                    categoryId: Model.CategoryId.Value,
+                    subCategoryId: Model.SubCategoryId.Value,
                     isActive: Model.IsActive,
                     preference: new CreateCustomerPreferenceDto
                     {
                         NewsLetter = Model.Preference.NewsLetter,
                         Specials = Model.Preference.Specials
                     },
-                    loyalty: _hasLoyalty && Model.Loyalty is not null
+                    loyalty: Model.Loyalty is not null
                         ? new CreateCustomerCommandLoyaltyDto
                         {
                             LoyaltyNo = Model.Loyalty.LoyaltyNo,
-                            Points = Model.Loyalty.Points
+                            Points = Model.Loyalty.Points.Value
                         }
                         : null,
                     addresses: Model.Addresses
@@ -126,7 +185,6 @@ namespace UI.AI.Samples.Api.Components.Pages.PageBased.Customers
             var nextType = Model.Addresses.Count(a => a.AddressType == AddressType.Deliver) == 0
                 ? AddressType.Deliver
                 : AddressType.Billing;
-
             Model.Addresses.Add(new CreateCustomerCommandAddressesModel
             {
                 AddressType = nextType
@@ -141,55 +199,13 @@ namespace UI.AI.Samples.Api.Components.Pages.PageBased.Customers
             }
         }
 
-        private IEnumerable<string> ValidateAll(object? _)
-        {
-            foreach (var address in Model.Addresses)
-            {
-                if (string.IsNullOrWhiteSpace(address.Line1))
-                    yield return "Address line 1 is required.";
-                if (string.IsNullOrWhiteSpace(address.City))
-                    yield return "Address city is required.";
-                if (string.IsNullOrWhiteSpace(address.Postal))
-                    yield return "Address postal code is required.";
-            }
-            if (string.IsNullOrWhiteSpace(Model.Name))
-                yield return "Name is required.";
-            if (string.IsNullOrWhiteSpace(Model.Surname))
-                yield return "Surname is required.";
-            if (string.IsNullOrWhiteSpace(Model.Email))
-                yield return "Email is required.";
-            else if (!new EmailAddressAttribute().IsValid(Model.Email))
-                yield return "Please enter a valid email.";
-        }
-
-        // Toggle used by the Razor to show/hide Loyalty and keep Model in sync
-        public bool HasLoyalty
-        {
-            get => _hasLoyalty;
-            set
-            {
-                if (_hasLoyalty == value) return;
-                _hasLoyalty = value;
-                if (_hasLoyalty)
-                {
-                    Model.Loyalty ??= new CreateCustomerCommandLoyaltyModel
-                    {
-                        LoyaltyNo = string.Empty,
-                        Points = 0
-                    };
-                }
-                else
-                {
-                    Model.Loyalty = null;
-                }
-            }
-        }
-
         public class CreateCustomerModel
         {
             public string Name { get; set; } = string.Empty;
             public string Surname { get; set; } = string.Empty;
             public string Email { get; set; } = string.Empty;
+            public Guid? CategoryId { get; set; }
+            public Guid? SubCategoryId { get; set; }
             public bool IsActive { get; set; }
             public CreateCustomerPreferenceModel Preference { get; set; } = new();
             public CreateCustomerCommandLoyaltyModel? Loyalty { get; set; }
@@ -203,7 +219,7 @@ namespace UI.AI.Samples.Api.Components.Pages.PageBased.Customers
         public class CreateCustomerCommandLoyaltyModel
         {
             public string LoyaltyNo { get; set; } = string.Empty;
-            public int Points { get; set; }
+            public int? Points { get; set; }
         }
         public class CreateCustomerCommandAddressesModel
         {

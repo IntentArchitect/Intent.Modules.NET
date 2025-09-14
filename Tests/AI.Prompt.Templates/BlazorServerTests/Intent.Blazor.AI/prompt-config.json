@@ -15,10 +15,11 @@
     "When adding using clause, add them in the right place i.e stick to the convention in the file.",
     "For MudBlazor generics like MudChipSet, MudSelect, MudRadioGroup, MudSwitch declare T explicitly.",
     "When generating MudBlazor components inside conditional Razor blocks, always set the generic T explicitly.",
-    "If you are binding to a input component which expects a nullable type, like MudSelect or MudDatePicker update the backing model field to be nullable.",
     "If you are add multiple forms to isolate validations, make sure they are not nested inside one another.",
     "In Razor pages use foreach statements rather than for statements.",
-    "If you add Dense, Variants or Margins to Form Controls do it consistently across the form controls."
+    "If you add Dense, Variants or Margins to Form Controls do it consistently across the form controls.",
+    "Always add placeholders to MudSelect controls",
+    "When you use ValueChanged attribute use it in conjunction with Value NOT @bind-Value (IMPORTANT)"
   ],
   "input-files": [
   ],
@@ -62,8 +63,7 @@
         "if you implement LoadServerData it must have 2 parameters (TableState state, CancellationToken cancellationToken)",
         "Only add row actions and buttons like Add, View, Edit and Delete, if there are existing methods in the razor.cs code behind which represent them like AddEntity, EditEntity, Delete Entity etc.",
         "Only add search criteria is they are supported on the backing page search mechanism",
-        "if you add scripts like this, OnKeyPress set to @(async e => { ... }), if there are quotes in the lambda function don't escape them with backslashes",
-        "Always add placeholders to search criteria input controls"
+        "if you add scripts like this, OnKeyPress set to @(async e => { ... }), if there are quotes in the lambda function don't escape them with backslashes"
       ]
     },
     {

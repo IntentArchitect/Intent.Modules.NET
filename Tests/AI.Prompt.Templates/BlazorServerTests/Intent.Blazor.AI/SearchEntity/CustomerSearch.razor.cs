@@ -10,18 +10,18 @@ using UI.AI.Samples.Infrastructure.Services;
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate", Version = "1.0")]
 
-namespace UI.AI.Samples.Api.Components.Pages.PageBased.Customers
+namespace UI.AI.Samples.Api.Components.Pages.Templates.Pages
 {
     public partial class CustomerSearch
     {
-        public PagedResult<CustomerSummaryDto> Model { get; set; }
+        public PagedResult<CustomerSummaryDto> CustomersModels { get; set; }
         [Inject]
         public IScopedMediator Mediator { get; set; } = default!;
         [Inject]
+        public ISnackbar Snackbar { get; set; } = default!;
+        [Inject]
         public NavigationManager NavigationManager { get; set; } = default!;
         [Inject]
-        public ISnackbar Snackbar { get; set; } = default!;
-        [Inject] 
         public IDialogService DialogService { get; set; } = default!;
 
         public string? SearchText { get; set; } = string.Empty;
@@ -30,33 +30,6 @@ namespace UI.AI.Samples.Api.Components.Pages.PageBased.Customers
 
         protected override async Task OnInitializedAsync()
         {
-        }
-
-        private async Task LoadCustomers(int pageNo, int pageSize, string? orderBy, string? searchTerm, bool? isActive)
-        {
-            try
-            {
-                Model = await Mediator.Send(new GetCustomersQuery(
-                    pageNo: pageNo,
-                    pageSize: pageSize,
-                    orderBy: orderBy,
-                    searchTerm: searchTerm,
-                    isActive: isActive));
-            }
-            catch (Exception e)
-            {
-                Snackbar.Add(e.Message, Severity.Error);
-            }
-        }
-
-        private void AddCustomer()
-        {
-            NavigationManager.NavigateTo("/page-based/customers/add");
-        }
-
-        private void EditCustomer(Guid customerId)
-        {
-            NavigationManager.NavigateTo($"/page-based/customers/edit/{customerId}");
         }
 
         private async Task DeleteCustomer(Guid customerId)
@@ -73,14 +46,21 @@ namespace UI.AI.Samples.Api.Components.Pages.PageBased.Customers
             }
         }
 
-        private void ViewCustomer(Guid customerId)
+        private async Task LoadCustomers(int pageNo, int pageSize, string? orderBy, string? searchTerm, bool? isActive)
         {
-            NavigationManager.NavigateTo($"/page-based/customers/view/{customerId}");
-        }
-
-        public class DeleteCustomerModel
-        {
-            public Guid Id { get; set; }
+            try
+            {
+                CustomersModels = await Mediator.Send(new GetCustomersQuery(
+                    pageNo: pageNo,
+                    pageSize: pageSize,
+                    orderBy: orderBy,
+                    searchTerm: searchTerm,
+                    isActive: isActive));
+            }
+            catch (Exception e)
+            {
+                Snackbar.Add(e.Message, Severity.Error);
+            }
         }
 
         /// <summary>
@@ -96,8 +76,8 @@ namespace UI.AI.Samples.Api.Components.Pages.PageBased.Customers
             var pageNo = state.Page + 1;
             var pageSize = state.PageSize;
             await LoadCustomers(pageNo, pageSize, orderBy, SearchText, IsActive);
-            var items = Model?.Data ?? new List<CustomerSummaryDto>();
-            var totalItems = Model?.TotalCount ?? 0;
+            var items = CustomersModels?.Data ?? new List<CustomerSummaryDto>();
+            var totalItems = CustomersModels?.TotalCount ?? 0;
             return new TableData<CustomerSummaryDto>
             {
                 Items = items,
@@ -105,10 +85,24 @@ namespace UI.AI.Samples.Api.Components.Pages.PageBased.Customers
             };
         }
 
+        private void AddCustomer()
+        {
+            NavigationManager.NavigateTo("/templates/pages/customers/add");
+        }
+
+        private void EditCustomer(Guid customerId)
+        {
+            NavigationManager.NavigateTo($"/templates/pages/customers/edit/{customerId}");
+        }
+
+        private void ViewCustomer(Guid customerId)
+        {
+            NavigationManager.NavigateTo($"/templates/pages/customers/view/{customerId}");
+        }
+
         /// <summary>
         /// This is how we do confirmation dialogs for example for deletes, using DialogService.ShowMessageBox.(IMPORTANT)
         /// </summary>
-        /// <param name="customerId"></param>
         private async void OnDeleteCustomer(Guid customerId)
         {
             var confirmed = await DialogService.ShowMessageBox(
@@ -124,6 +118,11 @@ namespace UI.AI.Samples.Api.Components.Pages.PageBased.Customers
                 if (_table is not null)
                     await _table.ReloadServerData();
             }
+        }
+
+        public class DeleteCustomerModel
+        {
+            public Guid? Id { get; set; }
         }
     }
 }
