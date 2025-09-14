@@ -2,8 +2,6 @@ using Intent.Modules.NET.Tests.Module1.Domain.Common;
 using Intent.Modules.NET.Tests.Module1.Domain.Events;
 using Intent.RoslynWeaver.Attributes;
 
-[assembly: IntentTemplate("Intent.Entities.DomainEntity", Version = "2.0")]
-
 namespace Intent.Modules.NET.Tests.Module1.Domain.Entities
 {
     public class Customer : IHasDomainEvent
@@ -11,7 +9,8 @@ namespace Intent.Modules.NET.Tests.Module1.Domain.Entities
         public Customer(string name)
         {
             Name = name;
-            DomainEvents.Add(new CustomerCreated(customer: this));
+            DomainEvents.Add(new CustomerCreated(
+                customer: this));
         }
 
         /// <summary>

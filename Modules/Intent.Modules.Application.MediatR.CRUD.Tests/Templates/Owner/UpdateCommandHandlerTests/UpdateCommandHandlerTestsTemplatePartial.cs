@@ -104,7 +104,7 @@ public partial class UpdateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
                 });
 
                 this.AddCommandAssertionMethods(Model);
-            });
+            }, TemplateConstants.AfterBuildOrder);
     }
 
     private bool? _canRunTemplate;

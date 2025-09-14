@@ -4,8 +4,6 @@ using Intent.RoslynWeaver.Attributes;
 using Kafka.Producer.Domain.Common;
 using Kafka.Producer.Domain.Events;
 
-[assembly: IntentTemplate("Intent.Entities.DomainEntity", Version = "2.0")]
-
 namespace Kafka.Producer.Domain.Entities
 {
     public class Invoice : IHasDomainEvent
@@ -13,7 +11,8 @@ namespace Kafka.Producer.Domain.Entities
         public Invoice(string note)
         {
             Note = note;
-            DomainEvents.Add(new InvoiceCreated(invoice: this));
+            DomainEvents.Add(new InvoiceCreated(
+                invoice: this));
         }
 
         /// <summary>
@@ -33,7 +32,8 @@ namespace Kafka.Producer.Domain.Entities
         public void Update(string note)
         {
             Note = note;
-            DomainEvents.Add(new InvoiceUpdated(invoice: this));
+            DomainEvents.Add(new InvoiceUpdated(
+                invoice: this));
         }
     }
 }

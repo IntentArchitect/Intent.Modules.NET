@@ -70,20 +70,26 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                                 method.AddStatements(GetCosmosContainerMapping(Model));
                             }
 
-                            method.AddStatements(GetTypeConfiguration(Model.InternalElement, @class, null));
-                            //Moved this into GetTypeConfiguration as its applicabale for Owned Tables too
-                            //method.AddStatements(GetCheckConstraints(Model));
-                            method.Statements.SeparateAll();
+                            // Needs to happen a little later or builder.ToJson() doesn't generate due to it not yet being able to find the "serialized" metadata key.
+                            CSharpFile.OnBuild(_ =>
+                            {
+                                method.AddStatements(GetTypeConfiguration(Model.InternalElement, @class, null));
 
-                            AddIgnoreForNonPersistent(method, isOwned: false);
+                                method.Statements.SeparateAll();
+
+                                AddIgnoreForNonPersistent(method, isOwned: false);
+                            }, 100);
                         });
 
-                    foreach (var statement in @class.Methods.SelectMany(x => x.Statements.OfType<EfCoreKeyMappingStatement>().Where(y => y.KeyColumns.Any())))
+                    CSharpFile.OnBuild(_ =>
                     {
-                        EnsurePrimaryKeysOnEntity(
-                            statement.KeyColumns.First().Class,
-                            statement.KeyColumns);
-                    }
+                        foreach (var statement in @class.Methods.SelectMany(x => x.Statements.OfType<EfCoreKeyMappingStatement>().Where(y => y.KeyColumns.Any())))
+                        {
+                            EnsurePrimaryKeysOnEntity(
+                                statement.KeyColumns.First().Class,
+                                statement.KeyColumns);
+                        }
+                    }, 100);
                 });
         }
 

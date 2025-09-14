@@ -202,7 +202,7 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
                         method.AddStatement(
                             $@"return new {this.GetValidationBehaviourName()}<{GetTypeName(Model.InternalElement)}, {(isCommandWithReturnId ? domainIdAttr.Type : "Unit")}>(new[] {{ {mainValidatorInstantiation} }});");
                     });
-            });
+            }, TemplateConstants.AfterBuildOrder);
     }
 
     private bool DoesMediatRNeedCancellation(IOutputTarget outputTarget)

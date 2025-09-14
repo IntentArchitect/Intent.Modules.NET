@@ -1,3 +1,7 @@
+### Version 1.0.5
+
+- Fixed: Increased `order` value for some `OnBuild(...)` method invocations to ensure they happen sufficiently after `OnBuild(...)` from other modules have been invoked.
+
 ### Version 1.0.4
 
 - Improvement: Updated to cater for scenario where the `ConfigureValidationRules` method is not present on a validator

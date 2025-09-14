@@ -31,6 +31,7 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class RepositoryFactoryExtension : FactoryExtensionBase
     {
+        private const int AfterBuildOrder = 1;
         public override string Id => "Intent.Ardalis.Repositories.RepositoryFactoryExtension";
 
         [IntentManaged(Mode.Ignore)]
@@ -113,7 +114,7 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
                         method.AddParameter("int", "pageSize");
                         method.AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
                     });
-                });
+                }, AfterBuildOrder);
             }
         }
 
@@ -282,7 +283,7 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
                         method.AddStatement($"return new {PagedListClassName(template)}<T>(count, pageNo, pageSize, results);");
                     });
 
-                });
+                }, AfterBuildOrder);
             }
         }
 
@@ -303,7 +304,7 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
                     @interface.ExtendsInterface($"IRepositoryBase<{GetEntityStateName(template)}>");
                     @interface.ExtendsInterface(template.GetReadRepositoryInterfaceName(model));
                     file.AddUsing("Ardalis.Specification");
-                });
+                }, AfterBuildOrder);
             }
         }
 
@@ -342,7 +343,7 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
                             method.AddStatement($"return GetByIdAsync(id: id, cancellationToken: cancellationToken);");
                         });
                     }
-                });
+                }, AfterBuildOrder);
             }
         }
 

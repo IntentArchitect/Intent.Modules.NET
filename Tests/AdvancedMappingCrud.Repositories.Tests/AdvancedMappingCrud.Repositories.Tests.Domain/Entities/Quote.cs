@@ -4,8 +4,6 @@ using AdvancedMappingCrud.Repositories.Tests.Domain.Common;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Events;
 using Intent.RoslynWeaver.Attributes;
 
-[assembly: IntentTemplate("Intent.Entities.DomainEntity", Version = "2.0")]
-
 namespace AdvancedMappingCrud.Repositories.Tests.Domain.Entities
 {
     public class Quote : IHasDomainEvent
@@ -15,7 +13,8 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Entities
             RefNo = refNo;
             PersonId = personId;
             PersonEmail = personEmail;
-            DomainEvents.Add(new NewQuoteCreated(quote: this));
+            DomainEvents.Add(new NewQuoteCreated(
+                quote: this));
         }
 
         /// <summary>
@@ -40,7 +39,8 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Entities
 
         public void NotifyQuoteCreated()
         {
-            DomainEvents.Add(new NewQuoteCreated(quote: this));
+            DomainEvents.Add(new NewQuoteCreated(
+                quote: this));
         }
     }
 }

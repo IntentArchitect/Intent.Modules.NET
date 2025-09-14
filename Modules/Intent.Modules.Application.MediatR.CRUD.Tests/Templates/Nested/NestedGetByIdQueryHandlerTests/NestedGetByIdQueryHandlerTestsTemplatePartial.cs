@@ -91,7 +91,7 @@ public partial class NestedGetByIdQueryHandlerTestsTemplate : CSharpTemplateBase
                 AddTestForWhenRepoReturnsDefault(priClass, facade);
 
                 AddAssertionMethods();
-            });
+            }, TemplateConstants.AfterBuildOrder);
     }
 
     private void AddTestForWhenRepoReturnsDefault(CSharpClass priClass, QueryHandlerFacade facade)

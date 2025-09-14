@@ -96,7 +96,7 @@ public partial class GetByIdQueryHandlerTestsTemplate : CSharpTemplateBase<Query
                 AddTestForWhenRepoReturnsDefault(priClass, facade);
 
                 AddAssertionMethods();
-            });
+            }, TemplateConstants.AfterBuildOrder);
     }
 
     private void AddTestForWhenRepoReturnsDefault(CSharpClass priClass, QueryHandlerFacade facade)

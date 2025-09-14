@@ -1,18 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files>
-    <file>
-      <correlationId>Intent.MediatR.DomainEvents.DomainEventHandler#17e56155-695a-4a81-b493-22b7f4d66f77</correlationId>
-      <path>AdvancedMappingCrud.RichDomain.Tests.Application/EventHandlers/StockLevelUpdatedEventHandler.cs</path>
-      <count>1</count>
-      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
-      <updatedAt>2025-09-11T12:22:11.2025112Z</updatedAt>
-      <approvedByAccountName>gareth.baars@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Gareth Baars</approvedByDisplayName>
-      <approvedAt>2025-09-13T06:54:22.8161027Z</approvedAt>
-      <deviationsHash>D27DFFAF5C923B5AB10B84DB41CE246F3AA8BE6CC5E9B768090A2B9A695B3783</deviationsHash>
-      <fileHash>B177D3B0EE82C7B909AAE50A72A60CB424786E0C507D85BE6E174DD660D9ACD8</fileHash>
-    </file>
-  </files>
+  <files />
 </deviationsLog>

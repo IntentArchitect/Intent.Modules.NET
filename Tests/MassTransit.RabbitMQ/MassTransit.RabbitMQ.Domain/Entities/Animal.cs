@@ -4,8 +4,6 @@ using Intent.RoslynWeaver.Attributes;
 using MassTransit.RabbitMQ.Domain.Common;
 using MassTransit.RabbitMQ.Domain.Events;
 
-[assembly: IntentTemplate("Intent.Entities.DomainEntity", Version = "2.0")]
-
 namespace MassTransit.RabbitMQ.Domain.Entities
 {
     public class Animal : IHasDomainEvent
@@ -25,7 +23,9 @@ namespace MassTransit.RabbitMQ.Domain.Entities
 
         public void MakeSound()
         {
-            DomainEvents.Add(new AnimalSoundRequestedEvent(name: this.Name, type: this.Type));
+            DomainEvents.Add(new AnimalSoundRequestedEvent(
+                name: this.Name,
+                type: this.Type));
         }
     }
 }

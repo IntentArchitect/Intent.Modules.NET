@@ -99,7 +99,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedG
                     });
 
                     AddAssertionMethods();
-                });
+                }, TemplateConstants.AfterBuildOrder);
         }
 
         private bool? _canRunTemplate;

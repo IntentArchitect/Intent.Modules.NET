@@ -117,7 +117,7 @@ public partial class NestedDeleteCommandHandlerTestsTemplate : CSharpTemplateBas
                     method.AddStatement("// Assert");
                     method.AddStatements(facade.GetThrowsExceptionAssertionStatement(this.GetNotFoundExceptionName()));
                 });
-            });
+            }, TemplateConstants.AfterBuildOrder);
     }
 
     private bool? _canRunTemplate;

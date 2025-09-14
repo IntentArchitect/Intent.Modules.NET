@@ -6,8 +6,6 @@ using SharedKernel.Consumer.Tests.Domain.Events;
 using SharedKernel.Kernel.Tests.Domain.Entities;
 using SharedKernel.Kernel.Tests.Domain.Services;
 
-[assembly: IntentTemplate("Intent.Entities.DomainEntity", Version = "2.0")]
-
 namespace SharedKernel.Consumer.Tests.Domain.Entities
 {
     public class Order : IHasDomainEvent
@@ -17,7 +15,8 @@ namespace SharedKernel.Consumer.Tests.Domain.Entities
             RefNo = refNo;
             CountryId = countryId;
             Currency = service.GetDefaultCurrency(countryId);
-            DomainEvents.Add(new OrderCreated(order: this));
+            DomainEvents.Add(new OrderCreated(
+                order: this));
         }
 
         /// <summary>
