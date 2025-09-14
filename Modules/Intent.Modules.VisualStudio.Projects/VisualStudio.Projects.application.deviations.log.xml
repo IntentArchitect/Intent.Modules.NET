@@ -384,6 +384,16 @@
       <fileHash>235B90B149EF3215C705F9835F7DF08B9654658570D27EE8CB3C7AF60997833F</fileHash>
     </file>
     <file>
+      <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#489d8e66-7e12-48ec-9290-23f5ac3bf323</correlationId>
+      <path>Intent.Modules.VisualStudio.Projects/Templates/ServiceFabric/ServiceFabricProject/ServiceFabricProjectTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
+      <updatedAt>2025-09-14T11:49:44.4601714Z</updatedAt>
+      <deviationsHash>A25B03A6669C9F4E97BBE7332EBCAB60610F9F00B5F1E42B7DB0E65E920DB93C</deviationsHash>
+      <fileHash>76FDF3169754AD4BD6C771C9DC575537D17F3BB1A57DBB0B0F58131AFC82911D</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#90bf72bb-3741-4c8e-8954-2a9a65d37740</correlationId>
       <path>Intent.Modules.VisualStudio.Projects/Templates/SqlServerDatabase/SqlProject/SqlProjectTemplatePartial.cs</path>
       <count>2</count>
