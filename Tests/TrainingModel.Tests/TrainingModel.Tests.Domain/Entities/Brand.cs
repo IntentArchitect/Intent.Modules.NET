@@ -4,6 +4,8 @@ using Intent.RoslynWeaver.Attributes;
 using TrainingModel.Tests.Domain.Common;
 using TrainingModel.Tests.Domain.Events;
 
+[assembly: IntentTemplate("Intent.Entities.DomainEntity", Version = "2.0")]
+
 namespace TrainingModel.Tests.Domain.Entities
 {
     public class Brand : IHasDomainEvent

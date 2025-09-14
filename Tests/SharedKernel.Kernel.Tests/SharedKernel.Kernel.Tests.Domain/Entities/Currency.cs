@@ -4,6 +4,8 @@ using Intent.RoslynWeaver.Attributes;
 using SharedKernel.Kernel.Tests.Domain.Common;
 using SharedKernel.Kernel.Tests.Domain.Events;
 
+[assembly: IntentTemplate("Intent.Entities.DomainEntity", Version = "2.0")]
+
 namespace SharedKernel.Kernel.Tests.Domain.Entities
 {
     public class Currency : IHasDomainEvent

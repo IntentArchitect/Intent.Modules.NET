@@ -6,6 +6,8 @@ using SharedKernel.Consumer.Tests.Domain.Events;
 using SharedKernel.Kernel.Tests.Domain.Entities;
 using SharedKernel.Kernel.Tests.Domain.Services;
 
+[assembly: IntentTemplate("Intent.Entities.DomainEntity", Version = "2.0")]
+
 namespace SharedKernel.Consumer.Tests.Domain.Entities
 {
     public class Order : IHasDomainEvent

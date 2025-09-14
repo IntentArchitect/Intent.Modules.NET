@@ -2,6 +2,8 @@ using Intent.Modules.NET.Tests.Module1.Domain.Common;
 using Intent.Modules.NET.Tests.Module1.Domain.Events;
 using Intent.RoslynWeaver.Attributes;
 
+[assembly: IntentTemplate("Intent.Entities.DomainEntity", Version = "2.0")]
+
 namespace Intent.Modules.NET.Tests.Module1.Domain.Entities
 {
     public class Customer : IHasDomainEvent

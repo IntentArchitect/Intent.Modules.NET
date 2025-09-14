@@ -4,6 +4,8 @@ using Intent.RoslynWeaver.Attributes;
 using Kafka.Producer.Domain.Common;
 using Kafka.Producer.Domain.Events;
 
+[assembly: IntentTemplate("Intent.Entities.DomainEntity", Version = "2.0")]
+
 namespace Kafka.Producer.Domain.Entities
 {
     public class Invoice : IHasDomainEvent

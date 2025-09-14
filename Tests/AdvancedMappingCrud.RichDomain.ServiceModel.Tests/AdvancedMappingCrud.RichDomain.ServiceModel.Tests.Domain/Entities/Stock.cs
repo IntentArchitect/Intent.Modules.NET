@@ -4,6 +4,8 @@ using AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Domain.Common;
 using AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Domain.Events;
 using Intent.RoslynWeaver.Attributes;
 
+[assembly: IntentTemplate("Intent.Entities.DomainEntity", Version = "2.0")]
+
 namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Domain.Entities
 {
     public class Stock : IHasDomainEvent

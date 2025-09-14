@@ -1,6 +1,8 @@
 using Intent.RoslynWeaver.Attributes;
 using RichDomain.Domain.Events;
 
+[assembly: IntentTemplate("Intent.Entities.DomainEntity", Version = "2.0")]
+
 namespace RichDomain.Domain.Entities
 {
     public partial class Person : IPerson

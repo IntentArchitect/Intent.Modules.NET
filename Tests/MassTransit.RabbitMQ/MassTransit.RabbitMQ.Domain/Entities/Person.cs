@@ -4,6 +4,8 @@ using Intent.RoslynWeaver.Attributes;
 using MassTransit.RabbitMQ.Domain.Common;
 using MassTransit.RabbitMQ.Domain.Events;
 
+[assembly: IntentTemplate("Intent.Entities.DomainEntity", Version = "2.0")]
+
 namespace MassTransit.RabbitMQ.Domain.Entities
 {
     public class Person : IHasDomainEvent
