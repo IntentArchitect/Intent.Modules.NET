@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Blazor.FluentValidation</id>
-  <version>1.1.5</version>
+  <version>1.1.6-pre.0</version>
   <supportedClientVersions>[4.5.0-a,5.0.0)</supportedClientVersions>
   <summary>Support for validating Blazor modles with the FluentValidation library.</summary>
   <description>Support for validating Blazor modles with the FluentValidation library.</description>
@@ -51,9 +51,20 @@
     <file src="$outDir$/$id$.pdb" />
   </files>
   <tags />
-  <moduleSettingsExtensions />
+  <moduleSettingsExtensions>
+    <groupExtension id="5140a582-5aeb-4dcd-9eff-fbc82670a0be" groupId="489a67db-31b2-4d51-96d7-52637c3795be" externalReference="5140a582-5aeb-4dcd-9eff-fbc82670a0be">
+      <settings>
+        <setting id="ab557f4a-cd5b-4ae1-bbc2-ba0522503956" title="Create Model Definition Validators" type="switch">
+          <isRequired>false</isRequired>
+          <hint>Create Fluent Validators for your Model Defintions.</hint>
+          <defaultValue>true</defaultValue>
+        </setting>
+      </settings>
+    </groupExtension>
+  </moduleSettingsExtensions>
   <metadata>
     <install target="User Interface" src="Intent.Metadata/Module Builder/Intent.Blazor.FluentValidation/Intent.Blazor.FluentValidation.pkg.config" externalReference="90eb0073-c577-4253-9e76-0039622affa9" />
   </metadata>
   <releaseNotes>release-notes.md</releaseNotes>
+  <migrations has-on-install-migration="true" />
 </package>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="bd72eb12-0b31-4eae-a421-d3ae118fae0c" type="Module Migrations" typeId="8cfd2eab-c1bf-46bc-a86f-3ed0263a380f">
+  <name>Migrations</name>
+  <display>Migrations</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>90eb0073-c577-4253-9e76-0039622affa9</parentFolderId>
+  <packageId>90eb0073-c577-4253-9e76-0039622affa9</packageId>
+  <packageName>Intent.Blazor.FluentValidation</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
