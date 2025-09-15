@@ -76,9 +76,50 @@ public static class PersistenceUnitOfWork
         ExecuteChainOfResponsibilities(
             block,
             template,
-            invocationStatement,
+            new List<CSharpStatement> { invocationStatement },
             config,
             chainOfResponsibilities);
+    }
+
+    public static void ApplyUnitOfWorkImplementations(
+        this IHasCSharpStatements block,
+        ICSharpFileBuilderTemplate template,
+        CSharpConstructor constructor,
+        List<CSharpStatement> invocationStatements,
+        Action<UnitOfWorkConfiguration> configure)
+    {
+        // This is for the ArgumentNullException
+        template.AddUsing("System");
+
+        var config = new UnitOfWorkConfiguration();
+        configure(config);
+
+        // Validation: If using service provider resolution, ensure service provider variable name is provided
+        if (config.ResolutionStrategy == UnitOfWorkResolutionStrategy.ServiceProvider &&
+            string.IsNullOrWhiteSpace(config.ServiceProviderVariableName))
+        {
+            throw new ArgumentException("ServiceProviderVariableName must be provided when using ServiceProvider resolution strategy.");
+        }
+
+        var chainOfResponsibilities = new Stack<ChainOfResponsibility>();
+
+        config.WithAutomaticPersistUnitOfWork(template.ExecutionContext.GetSettings().GetUnitOfWorkSettings().AutomaticallyPersistUnitOfWork());
+        // Auto-detect and add providers to chain
+        AddCosmosDbToChain(template, constructor, config, chainOfResponsibilities);
+        AddDynamoDbToChain(template, constructor, config, chainOfResponsibilities);
+        AddDaprStateStoreToChain(template, constructor, config, chainOfResponsibilities);
+        AddMongoDbToChain(template, constructor, config, chainOfResponsibilities);
+        AddTableStorageToChain(template, constructor, config, chainOfResponsibilities);
+        AddRedisOmToChain(template, constructor, config, chainOfResponsibilities);
+        AddDistributedCacheToChain(template, constructor, config, chainOfResponsibilities);
+        AddEntityFrameworkToChain(template, constructor, config, chainOfResponsibilities);
+
+            ExecuteChainOfResponsibilities(
+                block,
+                template,
+                invocationStatements,
+                config,
+                chainOfResponsibilities);
     }
 
     public static void ApplyUnitOfWorkImplementations(
@@ -97,6 +138,57 @@ public static class PersistenceUnitOfWork
             template,
             constructor,
             invocationStatement,
+            config =>
+            {
+                if (returnType != null)
+                {
+                    config.WithReturnType(returnType);
+                }
+
+                config.WithResultVariableName(resultVariableName)
+                      .UseCancellationToken(cancellationTokenExpression)
+                      .WithFieldSuffix(fieldSuffix)
+                      .WithTransactionScope(allowTransactionScope)
+                      .WithComments(includeComments);
+
+                // Apply variable overrides only if fieldSuffix differs from default
+                if (fieldSuffix == "unitOfWork")
+                {
+                    return;
+                }
+
+                var efVariable = fieldSuffix;
+                var cosmosVariable = $"cosmosDB{fieldSuffix.ToPascalCase()}";
+                var daprVariable = $"daprStateStore{fieldSuffix.ToPascalCase()}";
+                var mongoVariable = $"mongoDb{fieldSuffix.ToPascalCase()}";
+                var tableStorageVariable = $"tableStorage{fieldSuffix.ToPascalCase()}";
+                var redisVariable = $"redisOm{fieldSuffix.ToPascalCase()}";
+
+                config.UseEntityFrameworkVariable(efVariable)
+                    .UseCosmosDbVariable(cosmosVariable)
+                    .UseDaprStateStoreVariable(daprVariable)
+                    .UseMongoDbVariable(mongoVariable)
+                    .UseTableStorageVariable(tableStorageVariable)
+                    .UseRedisOmVariable(redisVariable);
+            });
+    }
+
+    public static void ApplyUnitOfWorkImplementations(
+        this IHasCSharpStatements block,
+        ICSharpFileBuilderTemplate template,
+        CSharpConstructor constructor,
+        List<CSharpStatement> invocationStatements,
+        string? returnType = null,
+        string resultVariableName = "result",
+        string cancellationTokenExpression = "cancellationToken",
+        string fieldSuffix = "unitOfWork",
+        bool allowTransactionScope = true,
+        bool includeComments = true)
+    {
+        block.ApplyUnitOfWorkImplementations(
+            template,
+            constructor,
+            invocationStatements,
             config =>
             {
                 if (returnType != null)
@@ -604,7 +696,7 @@ public static class PersistenceUnitOfWork
     private static void ExecuteChainOfResponsibilities(
         IHasCSharpStatements block,
         ICSharpFileBuilderTemplate template,
-        CSharpStatement invocationStatement,
+        List<CSharpStatement> invocationStatements,
         UnitOfWorkConfiguration config,
         Stack<ChainOfResponsibility> chainOfResponsibilities)
     {
@@ -612,8 +704,11 @@ public static class PersistenceUnitOfWork
         var stackAtDeepest = default(Stack<IHasCSharpStatements>)!;
         chainOfResponsibilities.Push((blockStack, _) =>
         {
-            blockStack.Peek().AddStatement<IHasCSharpStatements, CSharpStatement>(invocationStatement);
-            stackAtDeepest = new Stack<IHasCSharpStatements>(blockStack.Reverse());
+            foreach (var invocationStatement in invocationStatements)
+            {
+                blockStack.Peek().AddStatement<IHasCSharpStatements, CSharpStatement>(invocationStatement);
+                stackAtDeepest = new Stack<IHasCSharpStatements>(blockStack.Reverse());
+            }
         });
 
         var previousAction = default(Next);
@@ -647,18 +742,24 @@ public static class PersistenceUnitOfWork
             if (blockWithReturn == deepestBlock)
             {
                 // Simple case where we don't need to split the variable assignment
-                invocationStatement.FindAndReplace(
-                    find: invocationStatement.ToString(),
-                    replaceWith: $"var {config.ResultVariableName} = {invocationStatement}");
+                foreach (var invocationStatement in invocationStatements)
+                {
+                    invocationStatement.FindAndReplace(
+                        find: invocationStatement.ToString(),
+                        replaceWith: $"var {config.ResultVariableName} = {invocationStatement}");
+                }
             }
             else
             {
                 // We need to split the variable and assignment
                 blockWithReturn.InsertStatement(0, new CSharpStatement($"{template.UseType(config.ReturnType)} {config.ResultVariableName};"));
 
-                invocationStatement.FindAndReplace(
-                    find: invocationStatement.ToString(),
-                    replaceWith: $"{config.ResultVariableName} = {invocationStatement}");
+                foreach (var invocationStatement in invocationStatements)
+                {
+                    invocationStatement.FindAndReplace(
+                        find: invocationStatement.ToString(),
+                        replaceWith: $"{config.ResultVariableName} = {invocationStatement}");
+                }
             }
 
             blockWithReturn.AddStatement<IHasCSharpStatements, CSharpStatement>($"return {config.ResultVariableName};", s => s.SeparatedFromPrevious());
