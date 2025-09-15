@@ -9,6 +9,7 @@ using EntityFrameworkCore.Postgres.Domain.Entities.Accounts;
 using EntityFrameworkCore.Postgres.Domain.Entities.Accounts.NotSchema;
 using EntityFrameworkCore.Postgres.Domain.Entities.Associations;
 using EntityFrameworkCore.Postgres.Domain.Entities.BasicAudit;
+using EntityFrameworkCore.Postgres.Domain.Entities.Enums;
 using EntityFrameworkCore.Postgres.Domain.Entities.ExplicitKeys;
 using EntityFrameworkCore.Postgres.Domain.Entities.Geometry;
 using EntityFrameworkCore.Postgres.Domain.Entities.Indexes;
@@ -31,6 +32,7 @@ using EntityFrameworkCore.Postgres.Infrastructure.Persistence.Configurations.Acc
 using EntityFrameworkCore.Postgres.Infrastructure.Persistence.Configurations.Associations;
 using EntityFrameworkCore.Postgres.Infrastructure.Persistence.Configurations.BasicAudit;
 using EntityFrameworkCore.Postgres.Infrastructure.Persistence.Configurations.Converters;
+using EntityFrameworkCore.Postgres.Infrastructure.Persistence.Configurations.Enums;
 using EntityFrameworkCore.Postgres.Infrastructure.Persistence.Configurations.ExplicitKeys;
 using EntityFrameworkCore.Postgres.Infrastructure.Persistence.Configurations.Geometry;
 using EntityFrameworkCore.Postgres.Infrastructure.Persistence.Configurations.Indexes;
@@ -107,6 +109,7 @@ namespace EntityFrameworkCore.Postgres.Infrastructure.Persistence
         public DbSet<Root> Roots { get; set; }
         public DbSet<Audit_DerivedClass> Audit_DerivedClasses { get; set; }
         public DbSet<Audit_SoloClass> Audit_SoloClasses { get; set; }
+        public DbSet<AddressInfo> AddressInfos { get; set; }
         public DbSet<ChildNonStdId> ChildNonStdIds { get; set; }
         public DbSet<FK_A_CompositeForeignKey> FK_A_CompositeForeignKeys { get; set; }
         public DbSet<FK_B_CompositeForeignKey> FK_B_CompositeForeignKeys { get; set; }
@@ -286,6 +289,7 @@ namespace EntityFrameworkCore.Postgres.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new RootConfiguration());
             modelBuilder.ApplyConfiguration(new Audit_DerivedClassConfiguration());
             modelBuilder.ApplyConfiguration(new Audit_SoloClassConfiguration());
+            modelBuilder.ApplyConfiguration(new AddressInfoConfiguration());
             modelBuilder.ApplyConfiguration(new ChildNonStdIdConfiguration());
             modelBuilder.ApplyConfiguration(new FK_A_CompositeForeignKeyConfiguration());
             modelBuilder.ApplyConfiguration(new FK_B_CompositeForeignKeyConfiguration());

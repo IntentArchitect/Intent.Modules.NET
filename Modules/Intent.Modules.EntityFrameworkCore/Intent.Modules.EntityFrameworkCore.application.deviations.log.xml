@@ -28,6 +28,16 @@
       <fileHash>A27976A84DA17645B785EAB01CB78AA98A3B52D6396B9E505DF45CE15C447D8E</fileHash>
     </file>
     <file>
+      <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#8dca43ad-a912-4d76-aca9-4eaf77d6127a</correlationId>
+      <path>Intent.Modules.EntityFrameworkCore/Templates/DbMigrationsReadMe/DbMigrationsReadMeTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2025-09-15T07:46:37.070051Z</updatedAt>
+      <deviationsHash>0A231C2890C50F2C301427C454F6699516FF286FA8F03AA8B17E6D54F5CBEAA5</deviationsHash>
+      <fileHash>C0911E1A1AE081A7BBE2982CEE9A2D33EEA870ACBDAACA288DF5F6E6C64F1619</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#aba7dad6-c66b-4476-9470-0ab8786b5b4d</correlationId>
       <path>Intent.Modules.EntityFrameworkCore/Templates/EntityTypeConfiguration/EntityTypeConfigurationTemplatePartial.cs</path>
       <count>4</count>
@@ -38,7 +48,7 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T12:20:32.9394616Z</approvedAt>
       <deviationsHash>67712BBD9D92F06392D23CA6C17AC8ED892D2D68519E998F62B6442BF57A4B39</deviationsHash>
-      <fileHash>4FFF0F2CA8ABB0883CD57043013169B5C6817D77FC5B359EFA11EDA6C0246DE6</fileHash>
+      <fileHash>59C8AAEFDAEE3F4B10A4DE06CD2886710F73BCBF93ACA92C7B00FB54B158A049</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#aba7dad6-c66b-4476-9470-0ab8786b5b4d</correlationId>

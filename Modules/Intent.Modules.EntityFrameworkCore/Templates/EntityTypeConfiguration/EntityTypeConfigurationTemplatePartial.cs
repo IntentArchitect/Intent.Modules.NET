@@ -612,7 +612,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     var enumType = GetTypeName(enumAttribute.TypeReference);
 
                     var nullCheck = string.Empty;
-                    if(enumAttribute.TypeReference.IsNullable)
+                    if (enumAttribute.TypeReference.IsNullable)
                     {
                         enumType = enumType.Replace("?", "");
                         nullCheck = $"\\\"{enumAttribute.Name}\\\" IS NULL OR ";
@@ -751,7 +751,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                                               ?.PrimaryKeyValueProvider()
                                               ?.AsEnum() ??
                                           DatabaseSettingsExtensions.PrimaryKeyValueProviderOptionsEnum.Default;
-            
+
             foreach (var attributeModel in model.GetExplicitPrimaryKey())
             {
                 if (EfCoreKeyColumnPropertyStatement.RequiresConfiguration(attributeModel, primaryKeyValueProvider) || _enforceColumnOrdering)

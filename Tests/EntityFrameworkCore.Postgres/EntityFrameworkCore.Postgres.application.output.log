@@ -580,6 +580,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>f14e5807-38a1-4118-bb43-edab9c63e55f</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#a6ce48b8-577c-426d-a85c-c012cf036ceb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Postgres.Domain/Entities/Enums/AddressInfo.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Enums/AddressInfo.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f14e5807-38a1-4118-bb43-edab9c63e55f</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#5baa9bd4-77bb-4c90-b037-8f8d60168326</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Postgres.Domain/Entities/ExplicitKeys/ChildNonStdId.cs</ApplicationRelativeFilePath>
@@ -1531,6 +1539,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>69e7f7f5-dcc6-4b96-92dd-1c59116d87fd</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEnum#6d2520f2-7d88-45dd-93f4-a775f7958169</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Postgres.Domain/Enums/AddressType.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Enums/AddressType.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>69e7f7f5-dcc6-4b96-92dd-1c59116d87fd</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEnum#313c8a2f-8fa5-4daf-848c-2d2773d4b07b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Postgres.Domain/Enums/BuildingType.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Enums/BuildingType.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>626e2e0b-6359-4926-9798-5cb6d78eaea7</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#9987d42e-8e4b-4f60-b98f-8b55b7c51c52</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -1792,6 +1816,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Postgres.Domain/Repositories/BasicAudit/IAudit_SoloClassRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>BasicAudit/IAudit_SoloClassRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>626e2e0b-6359-4926-9798-5cb6d78eaea7</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#a6ce48b8-577c-426d-a85c-c012cf036ceb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Postgres.Domain/Repositories/Enums/IAddressInfoRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Enums/IAddressInfoRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -3020,6 +3052,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>6aaedea6-1f33-4884-b3c8-9314ffce70ff</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#a6ce48b8-577c-426d-a85c-c012cf036ceb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Postgres.Infrastructure/Persistence/Configurations/Enums/AddressInfoConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Enums/AddressInfoConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6aaedea6-1f33-4884-b3c8-9314ffce70ff</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#5baa9bd4-77bb-4c90-b037-8f8d60168326</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Postgres.Infrastructure/Persistence/Configurations/ExplicitKeys/ChildNonStdIdConfiguration.cs</ApplicationRelativeFilePath>
@@ -4152,6 +4192,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Postgres.Infrastructure/Repositories/BasicAudit/Audit_SoloClassRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>BasicAudit/Audit_SoloClassRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e756ec92-4ab6-4c2a-b9f0-77357be95601</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#a6ce48b8-577c-426d-a85c-c012cf036ceb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Postgres.Infrastructure/Repositories/Enums/AddressInfoRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Enums/AddressInfoRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
