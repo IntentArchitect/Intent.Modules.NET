@@ -10,7 +10,7 @@ using MudBlazor;
 
 namespace BlazorServerTests.Api.Components.Pages
 {
-    public partial class CustoerAdd
+    public partial class CustomerAdd
     {
         public CreateCustomerModel Model { get; set; } = new();
         [Inject]

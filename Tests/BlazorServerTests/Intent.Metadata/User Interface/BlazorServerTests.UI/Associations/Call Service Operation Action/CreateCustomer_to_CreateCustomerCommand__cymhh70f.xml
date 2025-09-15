@@ -39,7 +39,7 @@
     <stereotypes />
     <mappings>
       <mapping type="Call Service Mapping" typeId="e4a4111b-cf13-4efe-8a5d-fea9457ac8ad">
-        <source applicationId="f8b54b48-1f06-4e13-a107-2e93c5a3e37b" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="652d23ee-b1ac-4feb-9a0e-cf502087631c" location="[BlazorServerTests].[User Interface].[CustoerAdd]" />
+        <source applicationId="f8b54b48-1f06-4e13-a107-2e93c5a3e37b" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="652d23ee-b1ac-4feb-9a0e-cf502087631c" location="[BlazorServerTests].[User Interface].[CustomerAdd]" />
         <target applicationId="f8b54b48-1f06-4e13-a107-2e93c5a3e37b" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="05770ab1-b70d-4997-a2f8-c47b5b46156d" location="[BlazorServerTests].[User Interface].[CreateCustomerCommand]" />
         <mappedEnds>
           <mappedEnd>
@@ -50,7 +50,7 @@
             <sources>
               <source identifier="CreateCustomer.CreateCustomerCommand" mappingType="Invocation Mapping" mappingTypeId="ab447316-1252-49bc-a695-f34cb00a3cdc">
                 <path>
-                  <target id="652d23ee-b1ac-4feb-9a0e-cf502087631c" name="CustoerAdd" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="652d23ee-b1ac-4feb-9a0e-cf502087631c" name="CustomerAdd" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
                   <target id="3b63ed6f-02ea-4dd8-b4f8-34b1214933ce" name="CreateCustomer" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
                   <target id="2866fdac-a0fc-4564-a0f9-a4fb3b1df49c" name="CreateCustomerCommand" type="association" specialization="Call Service Operation Action Target End" specializationId="475f0810-2b4a-40da-8eb8-697cb62f7dbe" />
                 </path>
@@ -66,7 +66,7 @@
             <sources>
               <source identifier="Model.Name" mappingType="Data Mapping" mappingTypeId="ce70308a-e29d-4644-8410-f9e6bbd214fc">
                 <path>
-                  <target id="652d23ee-b1ac-4feb-9a0e-cf502087631c" name="CustoerAdd" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="652d23ee-b1ac-4feb-9a0e-cf502087631c" name="CustomerAdd" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
                   <target id="ff9dd430-890d-475f-966d-548355008ad0" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
                   <target id="8d228075-e689-4481-b0fe-c302a4463e20" name="Name" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
                 </path>
@@ -82,7 +82,7 @@
             <sources>
               <source identifier="Model.Surname" mappingType="Data Mapping" mappingTypeId="ce70308a-e29d-4644-8410-f9e6bbd214fc">
                 <path>
-                  <target id="652d23ee-b1ac-4feb-9a0e-cf502087631c" name="CustoerAdd" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="652d23ee-b1ac-4feb-9a0e-cf502087631c" name="CustomerAdd" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
                   <target id="ff9dd430-890d-475f-966d-548355008ad0" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
                   <target id="348f2c48-8fcc-4f22-8149-13936849c3e2" name="Surname" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
                 </path>
@@ -98,7 +98,7 @@
             <sources>
               <source identifier="Model.Email" mappingType="Data Mapping" mappingTypeId="ce70308a-e29d-4644-8410-f9e6bbd214fc">
                 <path>
-                  <target id="652d23ee-b1ac-4feb-9a0e-cf502087631c" name="CustoerAdd" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="652d23ee-b1ac-4feb-9a0e-cf502087631c" name="CustomerAdd" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
                   <target id="ff9dd430-890d-475f-966d-548355008ad0" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
                   <target id="1aa047f6-5eb0-423b-b26e-fc5f1953bc50" name="Email" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
                 </path>
@@ -114,7 +114,7 @@
             <sources>
               <source identifier="Model.IsActive" mappingType="Data Mapping" mappingTypeId="ce70308a-e29d-4644-8410-f9e6bbd214fc">
                 <path>
-                  <target id="652d23ee-b1ac-4feb-9a0e-cf502087631c" name="CustoerAdd" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="652d23ee-b1ac-4feb-9a0e-cf502087631c" name="CustomerAdd" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
                   <target id="ff9dd430-890d-475f-966d-548355008ad0" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
                   <target id="75ffb66d-1334-4b97-a3d6-c2c857f184da" name="IsActive" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
                 </path>

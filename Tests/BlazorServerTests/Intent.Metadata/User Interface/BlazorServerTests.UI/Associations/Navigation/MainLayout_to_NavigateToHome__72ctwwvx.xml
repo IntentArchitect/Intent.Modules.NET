@@ -21,7 +21,7 @@
   <targetEnd id="084d6566-e850-4b6b-9962-9957d420762d" type="Navigation Target End" typeId="2b191288-ecae-4743-b069-cbdd927ef349">
     <name>NavigateToHome</name>
     <display>[navigate] Home</display>
-    <order>5</order>
+    <order>3</order>
     <traits>
       <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
     </traits>

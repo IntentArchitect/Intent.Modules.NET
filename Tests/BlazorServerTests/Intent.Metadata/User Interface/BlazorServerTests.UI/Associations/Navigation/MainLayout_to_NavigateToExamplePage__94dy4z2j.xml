@@ -22,7 +22,7 @@
     <name>NavigateToExamplePage</name>
     <display>[navigate] ExamplePage</display>
     <sort-children>by-type-then-manually</sort-children>
-    <order>4</order>
+    <order>5</order>
     <traits>
       <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
     </traits>

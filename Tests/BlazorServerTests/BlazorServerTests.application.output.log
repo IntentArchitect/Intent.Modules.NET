@@ -548,16 +548,16 @@
       <ProjectId>d2816f5c-afe8-4261-8708-24ac1287736e</ProjectId>
       <CorrelationId>Intent.Blazor.Templates.Client.RazorComponentTemplate#652d23ee-b1ac-4feb-9a0e-cf502087631c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>BlazorServerTests.Api/Components/Pages/CustoerAdd.razor</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Pages/CustoerAdd.razor</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <ApplicationRelativeFilePath>BlazorServerTests.Api/Components/Pages/CustomerAdd.razor</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pages/CustomerAdd.razor</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>d2816f5c-afe8-4261-8708-24ac1287736e</ProjectId>
       <CorrelationId>Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate#652d23ee-b1ac-4feb-9a0e-cf502087631c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>BlazorServerTests.Api/Components/Pages/CustoerAdd.razor.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Pages/CustoerAdd.razor.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>BlazorServerTests.Api/Components/Pages/CustomerAdd.razor.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pages/CustomerAdd.razor.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -566,7 +566,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Api/Components/Pages/CustomerSearch.razor</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Pages/CustomerSearch.razor</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>d2816f5c-afe8-4261-8708-24ac1287736e</ProjectId>

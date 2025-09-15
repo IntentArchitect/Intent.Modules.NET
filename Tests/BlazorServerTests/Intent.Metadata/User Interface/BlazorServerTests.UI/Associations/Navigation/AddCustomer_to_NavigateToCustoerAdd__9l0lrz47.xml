@@ -20,7 +20,7 @@
   </sourceEnd>
   <targetEnd id="3003a28a-e627-4a54-a72e-0329f39883a8" type="Navigation Target End" typeId="2b191288-ecae-4743-b069-cbdd927ef349">
     <name>NavigateToCustoerAdd</name>
-    <display>[navigate] CustoerAdd</display>
+    <display>[navigate] CustomerAdd</display>
     <order>0</order>
     <traits>
       <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
