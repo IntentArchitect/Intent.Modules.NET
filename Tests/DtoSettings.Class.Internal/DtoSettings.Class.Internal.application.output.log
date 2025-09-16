@@ -276,6 +276,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>1af1e709-41f3-481a-bae4-96b4190516e4</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#1ef16ffe-b2ba-434e-bc82-5521dd2fd5fe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Class.Internal.Application/Defaults/AllDefaults.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Defaults/AllDefaults.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1af1e709-41f3-481a-bae4-96b4190516e4</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#bec638dc-c798-4dd4-89d6-6766d9926a73</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Class.Internal.Application/Defaults/EndDefaults.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Defaults/EndDefaults.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1af1e709-41f3-481a-bae4-96b4190516e4</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#42952ff6-41b9-41a1-842a-a840a7181b8f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Class.Internal.Application/Defaults/StartDefaults.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Defaults/StartDefaults.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1af1e709-41f3-481a-bae4-96b4190516e4</ProjectId>
       <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection#91ba9e14-fb7a-460b-815f-d1502899eb79</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Class.Internal.Application/DependencyInjection.cs</ApplicationRelativeFilePath>
