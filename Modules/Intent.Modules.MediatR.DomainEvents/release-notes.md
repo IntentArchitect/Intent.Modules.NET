@@ -2,6 +2,7 @@
 
 - Improvement: Decoupling this module from the `Intent.Modules.DomainEvents` module so that teams can combine their own Domain Eventing pattners with this one.
 - Fixed: Interactions with the Domain from Domain Event Handlers not implementing compiling code.
+- Fixed: Using clauses for DTOs and Enums referenced in Interactions not added to Domain Event Handlers.
 
 ### Version 5.2.2
 
