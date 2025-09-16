@@ -1,4 +1,3 @@
-using System.Transactions;
 using AzureFunctions.NET8.Application.CosmosDB.CosmosChange;
 using AzureFunctions.NET8.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
@@ -13,12 +12,10 @@ namespace AzureFunctions.NET8.Api.CosmosDB
     public class CosmosChange
     {
         private readonly IMediator _mediator;
-        private readonly IUnitOfWork _unitOfWork;
 
-        public CosmosChange(IMediator mediator, IUnitOfWork unitOfWork)
+        public CosmosChange(IMediator mediator)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
-            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
         [Function("CosmosDB_CosmosChange")]

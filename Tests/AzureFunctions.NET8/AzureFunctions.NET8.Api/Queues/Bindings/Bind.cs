@@ -1,4 +1,3 @@
-using System.Transactions;
 using AzureFunctions.NET8.Application.Customers;
 using AzureFunctions.NET8.Application.Queues.Bindings.Bind;
 using AzureFunctions.NET8.Domain.Common.Interfaces;
@@ -14,12 +13,10 @@ namespace AzureFunctions.NET8.Api.Queues.Bindings
     public class Bind
     {
         private readonly IMediator _mediator;
-        private readonly IUnitOfWork _unitOfWork;
 
-        public Bind(IMediator mediator, IUnitOfWork unitOfWork)
+        public Bind(IMediator mediator)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
-            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
         [Function("Queues_Bindings_Bind")]

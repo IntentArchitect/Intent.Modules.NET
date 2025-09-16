@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Transactions;
 using Azure.Storage.Queues;
 using AzureFunctions.NET6.Application.Queues.CreateCustomerMessage;
 using AzureFunctions.NET6.Domain.Common.Interfaces;
@@ -17,11 +16,9 @@ namespace AzureFunctions.NET6.Api.Queues.Bindings
 {
     public class QueueClientBinding
     {
-        private readonly IUnitOfWork _unitOfWork;
 
-        public QueueClientBinding(IUnitOfWork unitOfWork)
+        public QueueClientBinding()
         {
-            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
         [FunctionName("Queues_Bindings_QueueClientBinding")]

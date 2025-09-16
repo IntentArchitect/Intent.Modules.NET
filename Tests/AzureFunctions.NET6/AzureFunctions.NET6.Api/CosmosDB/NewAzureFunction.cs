@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Transactions;
 using AzureFunctions.NET6.Application.CosmosDB;
 using AzureFunctions.NET6.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
@@ -17,11 +16,9 @@ namespace AzureFunctions.NET6.Api.CosmosDB
 {
     public class NewAzureFunction
     {
-        private readonly IUnitOfWork _unitOfWork;
 
-        public NewAzureFunction(IUnitOfWork unitOfWork)
+        public NewAzureFunction()
         {
-            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
         [FunctionName("CosmosDB_NewAzureFunction")]

@@ -4,7 +4,6 @@ using System.IO;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Transactions;
 using AzureFunctions.AzureEventGrid.Application.CreateClient;
 using AzureFunctions.AzureEventGrid.Domain.Common.Interfaces;
 using FluentValidation;
@@ -24,12 +23,10 @@ namespace AzureFunctions.AzureEventGrid.Api
     public class CreateClient
     {
         private readonly IMediator _mediator;
-        private readonly IUnitOfWork _unitOfWork;
 
-        public CreateClient(IMediator mediator, IUnitOfWork unitOfWork)
+        public CreateClient(IMediator mediator)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
-            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
         [Function("CreateClient")]

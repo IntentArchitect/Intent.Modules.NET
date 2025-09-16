@@ -5,7 +5,6 @@ using System.Net;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Transactions;
 using AzureFunctions.AzureServiceBus.Application.Client.CreateClient;
 using AzureFunctions.AzureServiceBus.Domain.Common.Exceptions;
 using AzureFunctions.AzureServiceBus.Domain.Common.Interfaces;
@@ -26,12 +25,10 @@ namespace AzureFunctions.AzureServiceBus.Api.Client
     public class CreateClient
     {
         private readonly IMediator _mediator;
-        private readonly IUnitOfWork _unitOfWork;
 
-        public CreateClient(IMediator mediator, IUnitOfWork unitOfWork)
+        public CreateClient(IMediator mediator)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
-            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
         [Function("Client_CreateClient")]

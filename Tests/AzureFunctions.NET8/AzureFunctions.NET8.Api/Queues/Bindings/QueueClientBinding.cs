@@ -1,4 +1,3 @@
-using System.Transactions;
 using AzureFunctions.NET8.Application.Customers;
 using AzureFunctions.NET8.Application.Queues.CreateCustomerMessage;
 using AzureFunctions.NET8.Domain.Common.Interfaces;
@@ -12,11 +11,9 @@ namespace AzureFunctions.NET8.Api.Queues.Bindings
 {
     public class QueueClientBinding
     {
-        private readonly IUnitOfWork _unitOfWork;
 
-        public QueueClientBinding(IUnitOfWork unitOfWork)
+        public QueueClientBinding()
         {
-            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
         [Function("Queues_Bindings_QueueClientBinding")]

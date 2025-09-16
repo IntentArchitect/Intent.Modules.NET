@@ -1,5 +1,4 @@
 using System.Text.Json;
-using System.Transactions;
 using AzureFunctions.NET8.Application.RabbitMQTrigger.CommandForRabbitMQTrigger;
 using AzureFunctions.NET8.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
@@ -13,11 +12,9 @@ namespace AzureFunctions.NET8.Api.RabbitMQTrigger
 {
     public class RabbitMQTriggerFunction
     {
-        private readonly IUnitOfWork _unitOfWork;
 
-        public RabbitMQTriggerFunction(IUnitOfWork unitOfWork)
+        public RabbitMQTriggerFunction()
         {
-            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
         [Function("RabbitMQ Trigger_RabbitMQTriggerFunction")]

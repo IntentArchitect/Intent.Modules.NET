@@ -4,7 +4,6 @@ using System.IO;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Transactions;
 using Azure.Storage.Queues;
 using AzureFunctions.NET6.Application.Queues.Bindings.Bind;
 using AzureFunctions.NET6.Domain.Common.Interfaces;
@@ -20,12 +19,10 @@ namespace AzureFunctions.NET6.Api.Queues.Bindings
     public class Bind
     {
         private readonly IMediator _mediator;
-        private readonly IUnitOfWork _unitOfWork;
 
-        public Bind(IMediator mediator, IUnitOfWork unitOfWork)
+        public Bind(IMediator mediator)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
-            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
         [FunctionName("Queues_Bindings_Bind")]

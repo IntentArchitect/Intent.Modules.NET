@@ -1,6 +1,5 @@
 using System.Net;
 using System.Text.Json;
-using System.Transactions;
 using AzureFunctions.NET8.Application.Customers.CreateCustomer;
 using AzureFunctions.NET8.Domain.Common.Exceptions;
 using AzureFunctions.NET8.Domain.Common.Interfaces;
@@ -22,12 +21,10 @@ namespace AzureFunctions.NET8.Api.Customers
     public class CreateCustomer
     {
         private readonly IMediator _mediator;
-        private readonly IUnitOfWork _unitOfWork;
 
-        public CreateCustomer(IMediator mediator, IUnitOfWork unitOfWork)
+        public CreateCustomer(IMediator mediator)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
-            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
         [Function("Customers_CreateCustomer")]

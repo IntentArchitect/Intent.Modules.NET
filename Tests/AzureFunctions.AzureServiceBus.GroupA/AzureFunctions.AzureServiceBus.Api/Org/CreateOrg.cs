@@ -5,7 +5,6 @@ using System.Net;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Transactions;
 using AzureFunctions.AzureServiceBus.Application.Org.CreateOrg;
 using AzureFunctions.AzureServiceBus.Domain.Common.Exceptions;
 using AzureFunctions.AzureServiceBus.Domain.Common.Interfaces;
@@ -26,12 +25,10 @@ namespace AzureFunctions.AzureServiceBus.Api.Org
     public class CreateOrg
     {
         private readonly IMediator _mediator;
-        private readonly IUnitOfWork _unitOfWork;
 
-        public CreateOrg(IMediator mediator, IUnitOfWork unitOfWork)
+        public CreateOrg(IMediator mediator)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
-            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
         [Function("Org_CreateOrg")]

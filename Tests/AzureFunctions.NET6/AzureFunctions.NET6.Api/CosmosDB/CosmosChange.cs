@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Transactions;
 using AzureFunctions.NET6.Application.CosmosDB.CosmosChange;
 using AzureFunctions.NET6.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
@@ -19,12 +18,10 @@ namespace AzureFunctions.NET6.Api.CosmosDB
     public class CosmosChange
     {
         private readonly IMediator _mediator;
-        private readonly IUnitOfWork _unitOfWork;
 
-        public CosmosChange(IMediator mediator, IUnitOfWork unitOfWork)
+        public CosmosChange(IMediator mediator)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
-            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
         [FunctionName("CosmosDB_CosmosChange")]

@@ -1,4 +1,3 @@
-using System.Transactions;
 using AzureFunctions.NET8.Application.RabbitMQTrigger.CommandForRabbitMQTrigger;
 using AzureFunctions.NET8.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
@@ -13,12 +12,10 @@ namespace AzureFunctions.NET8.Api.RabbitMQTrigger
     public class CommandForRabbitMQTrigger
     {
         private readonly IMediator _mediator;
-        private readonly IUnitOfWork _unitOfWork;
 
-        public CommandForRabbitMQTrigger(IMediator mediator, IUnitOfWork unitOfWork)
+        public CommandForRabbitMQTrigger(IMediator mediator)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
-            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
         [Function("RabbitMQ Trigger_CommandForRabbitMQTrigger")]
