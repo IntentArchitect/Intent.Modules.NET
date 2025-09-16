@@ -27,6 +27,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponentCodeBeh
         {
             AddTypeSource(TemplateId);
             AddTypeSource(TemplateRoles.Domain.Enum);
+            AddTypeSource("Intent.Blazor.HttpClients.EnumContract");
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .WithFileExtension("razor.cs")

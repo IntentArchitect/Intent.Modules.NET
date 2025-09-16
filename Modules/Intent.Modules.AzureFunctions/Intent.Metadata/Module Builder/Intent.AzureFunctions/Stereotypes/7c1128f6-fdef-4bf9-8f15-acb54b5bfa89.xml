@@ -67,7 +67,9 @@
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
       <isActiveFunction>return Trigger === "Service Bus Trigger" || Trigger === "Queue Trigger" || Trigger === "RabbitMQ Trigger";</isActiveFunction>
-      <isRequiredFunction>return true;</isRequiredFunction>
+      <isRequiredFunction>return Trigger === "Queue Trigger" || Trigger === "RabbitMQ Trigger";// Azure Bus its not required as it uses convention
+
+</isRequiredFunction>
     </property>
     <property id="8267af60-0b1f-4394-8148-89b2ef9c16bf">
       <hint>The NCRONTAB  expression for function's schedule</hint>

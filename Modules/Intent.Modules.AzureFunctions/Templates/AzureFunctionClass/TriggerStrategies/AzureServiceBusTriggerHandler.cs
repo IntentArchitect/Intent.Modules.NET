@@ -31,14 +31,15 @@ internal class AzureServiceBusTriggerHandler : IFunctionTriggerHandler
             throw new Exception($"Please specify only one parameter for the ServiceBus triggered Azure Function [{_azureFunctionModel.Name}]");
         }
 
+        string typeName = _template.GetTypeName(_azureFunctionModel.Parameters.Single().TypeReference);
         method.AddParameter(
-            type: _template.GetTypeName(_azureFunctionModel.Parameters.Single().TypeReference),
+            type: typeName,
             name: _azureFunctionModel.Parameters.Single().Name.ToParameterName(),
             configure: param =>
             {
                 param.AddAttribute("ServiceBusTrigger", attr =>
                 {
-                    attr.AddArgument($@"""{_azureFunctionModel.QueueName}""");
+                    attr.AddArgument(string.IsNullOrWhiteSpace(_azureFunctionModel.QueueName) ? $"nameof({typeName})" : $@"""{_azureFunctionModel.QueueName}""");
                     if (!string.IsNullOrEmpty(_azureFunctionModel.Connection))
                     {
                         attr.AddArgument($@"Connection = ""{_azureFunctionModel.Connection}""");

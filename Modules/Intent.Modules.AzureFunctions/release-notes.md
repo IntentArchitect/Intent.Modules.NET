@@ -1,3 +1,7 @@
+### Version 5.0.15
+
+- Improvement: `Queue Name` is no longer a required property for `ServiceBus` and they work conventionally.
+
 ### Version 5.0.14
 
 - Improvement: Updated NuGet package versions.
