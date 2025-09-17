@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <association id="13f40bb3-2f89-441d-aa30-4b69a99669ab">
   <sourceEnd id="7f0fca08-4bd3-4c91-b2bf-d334f121cfc5" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
-    <name>Four</name>
-    <display>Four: Four</display>
+    <name>DifferentFour</name>
+    <display>DifferentFour: Four</display>
     <order>0</order>
     <typeReference id="4d28a1ca-1c1b-4269-9582-22d02cf16234">
       <typeId>22f8255d-219d-43ea-a8e3-0969fd885af7</typeId>

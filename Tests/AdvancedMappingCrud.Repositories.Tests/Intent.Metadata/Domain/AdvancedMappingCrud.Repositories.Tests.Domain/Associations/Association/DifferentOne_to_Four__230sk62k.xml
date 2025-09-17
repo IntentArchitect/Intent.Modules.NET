@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <association id="75b7591e-d230-43e3-9ad4-c48b518bb0ab">
   <sourceEnd id="64a456f2-704a-43bd-9853-b70f46914535" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
-    <name>One</name>
-    <display>One: One</display>
+    <name>DifferentOne</name>
+    <display>DifferentOne: One</display>
     <order>0</order>
     <typeReference id="95e046a0-2f9f-491b-a433-d434042d72f1">
       <typeId>6db854b4-638b-425b-8921-8b553e8e73e1</typeId>
