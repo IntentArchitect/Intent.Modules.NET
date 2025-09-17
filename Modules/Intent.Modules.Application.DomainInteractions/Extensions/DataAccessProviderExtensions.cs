@@ -105,7 +105,7 @@ internal static class DataAccessProviderExtensions
             dataAccessProvider = new CompositeDataAccessProvider(
                 saveChangesAccessor: $"{repositoryName}.UnitOfWork",
                 accessor:
-                $"{aggregateAssociations.Last().Name.ToLocalVariableName()}.{aggregateAssociations.Last().OtherEnd().Name}",
+                $"{aggregateAssociations.Last().Class.Name.ToLocalVariableName()}.{aggregateAssociations.Last().OtherEnd().Name}",
                 explicitUpdateStatement: requiresExplicitUpdate
                     ? $"{repositoryName}.Update({aggregateEntity.Name.ToLocalVariableName()});"
                     : null,
@@ -125,7 +125,8 @@ internal static class DataAccessProviderExtensions
         var dbContextField = handlerClass.InjectService(template.GetTypeName(dbContextInterfaceTemplate), "dbContext");
         dataAccessProvider = new CompositeDataAccessProvider(
             saveChangesAccessor: dbContextField,
-            accessor: $"{aggregateAssociations.Last().Name.ToLocalVariableName()}.{aggregateAssociations.Last().OtherEnd().Name}",
+            //
+            accessor: $"{aggregateAssociations.Last().Class.Name.ToLocalVariableName()}.{aggregateAssociations.Last().OtherEnd().Name}",
             explicitUpdateStatement: null,
             method: method);
         return true;
