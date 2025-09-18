@@ -305,6 +305,30 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>2eec23bf-8d4b-4fe2-9613-9fe4a5495a51</ProjectId>
+      <CorrelationId>Intent.Eventing.AzureServiceBus.IntegrationEventHandler#9464090b-c940-4761-a983-5bb36927ea33</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupB.Application/IntegrationEvents/EventHandlers/PublishAndConsumeEventHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PublishAndConsumeEventHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f0a4a302-b1de-496f-b0bf-e20c2afe1994</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#f98bf05d-f160-4170-98cf-9e19f694a37d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupB.Application/IntegrationEvents/PublishAndConsumeEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PublishAndConsumeEvent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfb15404-f4c1-48f0-aa2e-36d5e4d129f9</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#3a6b52aa-0fe4-49a7-8a9a-2af340b6b6c3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupB.Application/PayloadDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PayloadDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>a3f36de7-fada-4eb9-b83e-6ee122540b13</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#a3f36de7-fada-4eb9-b83e-6ee122540b13</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

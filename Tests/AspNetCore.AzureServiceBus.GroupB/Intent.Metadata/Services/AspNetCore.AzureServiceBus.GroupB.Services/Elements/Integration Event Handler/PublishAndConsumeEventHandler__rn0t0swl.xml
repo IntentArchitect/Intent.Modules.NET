@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="1cc4f22b-ba48-4209-81bf-91d9ab28b443" type="Integration Event Handler" typeId="c0582230-22f5-4f74-8eb0-ec6fc9364900">
-  <name>ClientCreatedEventHandler</name>
-  <display>ClientCreatedEventHandler</display>
+<class id="9464090b-c940-4761-a983-5bb36927ea33" type="Integration Event Handler" typeId="c0582230-22f5-4f74-8eb0-ec6fc9364900">
+  <name>PublishAndConsumeEventHandler</name>
+  <display>PublishAndConsumeEventHandler</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
   <isMapped>false</isMapped>

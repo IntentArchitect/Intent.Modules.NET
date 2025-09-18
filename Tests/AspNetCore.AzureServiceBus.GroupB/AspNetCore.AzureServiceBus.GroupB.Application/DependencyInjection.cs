@@ -3,6 +3,7 @@ using AspNetCore.AzureServiceBus.GroupA.Eventing.Messages;
 using AspNetCore.AzureServiceBus.GroupB.Application.Common.Behaviours;
 using AspNetCore.AzureServiceBus.GroupB.Application.Common.Eventing;
 using AspNetCore.AzureServiceBus.GroupB.Application.IntegrationEvents.EventHandlers;
+using AspNetCore.AzureServiceBus.GroupB.Eventing.Messages;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -26,6 +27,7 @@ namespace AspNetCore.AzureServiceBus.GroupB.Application
                 cfg.AddOpenBehavior(typeof(UnitOfWorkBehaviour<,>));
             });
             services.AddTransient<IIntegrationEventHandler<ClientCreatedEvent>, ClientCreatedEventHandler>();
+            services.AddTransient<IIntegrationEventHandler<PublishAndConsumeEvent>, PublishAndConsumeEventHandler>();
             return services;
         }
     }

@@ -31,6 +31,11 @@ resource "azurerm_servicebus_subscription" "azure_functions_azure_service_bus_gr
   max_delivery_count = 3
 }
 
+resource "azurerm_servicebus_topic" "publish_and_consume" {
+  name         = "publish-and-consume"
+  namespace_id = azurerm_servicebus_namespace.service_bus.id
+}
+
 resource "azurerm_servicebus_subscription" "azure_functions_azure_service_bus_group_b_client_created" {
   name               = "azurefunctions-azureservicebus-groupb"
   topic_id           = azurerm_servicebus_topic.client_created.id

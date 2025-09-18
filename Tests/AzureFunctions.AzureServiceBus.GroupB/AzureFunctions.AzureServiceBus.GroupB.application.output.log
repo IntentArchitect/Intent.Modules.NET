@@ -81,6 +81,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>c1d87bb2-d2e7-473a-9fa2-cc5f3049b0f9</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.AzureServiceBus.AzureFunctionConsumer#d15a73fd-3b19-48d4-b7ce-0d13e595c8c0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.AzureServiceBus.Api/PublishAndConsumeMessageConsumer.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PublishAndConsumeMessageConsumer.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>68d77f7e-6ea9-46ac-b5e5-1c807008b255</ProjectId>
       <CorrelationId>Intent.AzureFunctions.ReturnTypes.JsonResponse#145a6402-7006-471d-8945-966c20f234c0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -378,6 +386,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>57402622-41ba-495e-8853-45471ccb7305</ProjectId>
+      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#09fe67d7-ca7d-4766-a98a-c28f4cdf5fa6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.AzureServiceBus.Application/Implementation/PublishService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PublishService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>57402622-41ba-495e-8853-45471ccb7305</ProjectId>
       <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#15463493-bc23-4ad9-a9d8-91504c6024ed</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureServiceBus.Application/Implementation/SpecificChannelService.cs</ApplicationRelativeFilePath>
@@ -417,11 +433,27 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>6164cffc-ee61-4d1c-ac6a-067c8585c2e8</ProjectId>
+      <CorrelationId>Intent.Eventing.AzureServiceBus.IntegrationEventHandler#d15a73fd-3b19-48d4-b7ce-0d13e595c8c0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.AzureServiceBus.Application/IntegrationEvents/EventHandlers/PublishAndConsumeMessageHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PublishAndConsumeMessageHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>42a1998d-e83e-4a09-842b-595de939995e</ProjectId>
       <CorrelationId>Intent.Eventing.Contracts.IntegrationEventDto#a68dd160-4855-4604-b1e1-28dc0779cacd</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureServiceBus.Application/IntegrationEvents/OrgDepartmentDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>OrgDepartmentDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>42a1998d-e83e-4a09-842b-595de939995e</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#c1a2ca2d-1b51-4ab5-af9d-f80b3951b069</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.AzureServiceBus.Application/IntegrationEvents/PublishAndConsumeMessageEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PublishAndConsumeMessageEvent.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -454,6 +486,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureServiceBus.Application/IntegrationEvents/SpecificTopicTwoMessageEvent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SpecificTopicTwoMessageEvent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c63a0714-2a91-40cf-8ac9-944a138307af</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.ServiceContract#09fe67d7-ca7d-4766-a98a-c28f4cdf5fa6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.AzureServiceBus.Application/Interfaces/IPublishService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IPublishService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

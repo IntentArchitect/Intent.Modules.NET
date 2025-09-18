@@ -1,5 +1,6 @@
 using AspNetCore.AzureServiceBus.GroupA.Eventing.Messages;
 using AspNetCore.AzureServiceBus.GroupB.Application.Common.Eventing;
+using AspNetCore.AzureServiceBus.GroupB.Eventing.Messages;
 using AspNetCore.AzureServiceBus.GroupB.Infrastructure.Eventing;
 using Azure.Messaging.ServiceBus;
 using Intent.RoslynWeaver.Attributes;
@@ -22,9 +23,14 @@ namespace AspNetCore.AzureServiceBus.GroupB.Infrastructure.Configuration
             services.AddScoped<IEventBus, AzureServiceBusEventBus>();
             services.AddSingleton<AzureServiceBusMessageDispatcher>();
             services.AddSingleton<IAzureServiceBusMessageDispatcher, AzureServiceBusMessageDispatcher>();
+            services.Configure<AzureServiceBusPublisherOptions>(options =>
+            {
+                options.Add<PublishAndConsumeEvent>(configuration["AzureServiceBus:PublishAndConsume"]!);
+            });
             services.Configure<AzureServiceBusSubscriptionOptions>(options =>
             {
                 options.Add<ClientCreatedEvent, IIntegrationEventHandler<ClientCreatedEvent>>(configuration["AzureServiceBus:ClientCreated"]!, configuration["AzureServiceBus:ClientCreatedSubscription"]);
+                options.Add<PublishAndConsumeEvent, IIntegrationEventHandler<PublishAndConsumeEvent>>(configuration["AzureServiceBus:PublishAndConsume"]!, configuration["AzureServiceBus:PublishAndConsumeSubscription"]);
             });
             return services;
         }

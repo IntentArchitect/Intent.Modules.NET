@@ -9,6 +9,8 @@
     "AzureServiceBus:ClientCreated": "client-created",
     "AzureServiceBus:ClientCreatedSubscription": "azurefunctions-azureservicebus-groupb",
     "AzureServiceBus:CreateOrg": "create-org",
-    "AzureServiceBus:ConnectionString": ""
+    "AzureServiceBus:ConnectionString": "",
+    "AzureServiceBus:PublishAndConsume": "publish-and-consume",
+    "AzureServiceBus:PublishAndConsumeSubscription": "azurefunctions-azureservicebus-groupb"
   }
 }

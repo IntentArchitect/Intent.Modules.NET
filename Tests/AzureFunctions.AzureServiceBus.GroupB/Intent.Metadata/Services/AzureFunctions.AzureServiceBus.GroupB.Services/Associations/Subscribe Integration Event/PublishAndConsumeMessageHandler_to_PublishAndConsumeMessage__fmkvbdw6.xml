@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<association id="05aae7f4-7f88-4c62-8b3c-e28356e5ee0c">
-  <sourceEnd id="c58aeb99-ead3-4344-8dd5-206cff42e7c6" type="Subscribe Integration Event Source End" typeId="5d8f5c33-f9c9-4629-b637-fad9b0096894">
-    <display>handled by: AzureFunctions.AzureServiceBus.GroupB.Services.ClientCreatedEventHandler</display>
+<association id="965e3cc5-5dfc-4ae6-969f-6f3b695e9bcd">
+  <sourceEnd id="229ebe46-f6dd-4a60-87ca-ef1ad5cb994a" type="Subscribe Integration Event Source End" typeId="5d8f5c33-f9c9-4629-b637-fad9b0096894">
+    <display>handled by: AzureFunctions.AzureServiceBus.GroupB.Services.PublishAndConsumeMessageHandler</display>
     <order>0</order>
-    <typeReference id="b3b06e66-d383-42a2-bf6a-2b76c5471896">
-      <typeId>36242578-736b-43e2-8f4c-573e0be908b8</typeId>
+    <typeReference id="f9a8bf63-766f-4c83-a2ea-3524d68a1fac">
+      <typeId>d15a73fd-3b19-48d4-b7ce-0d13e595c8c0</typeId>
       <isNavigable>false</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
@@ -18,20 +18,20 @@
     <metadata />
     <childElements />
   </sourceEnd>
-  <targetEnd id="05aae7f4-7f88-4c62-8b3c-e28356e5ee0c" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
-    <display>[handles] ClientCreatedEvent</display>
+  <targetEnd id="965e3cc5-5dfc-4ae6-969f-6f3b695e9bcd" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
+    <display>[handles] PublishAndConsumeMessage</display>
     <order>0</order>
     <traits>
       <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
     </traits>
-    <typeReference id="3775f6fb-02d9-4a63-badd-89554cfd0ea9">
-      <typeId>15910849-8a7b-46ed-af6d-4068859bbb31</typeId>
+    <typeReference id="80f4de6b-122f-45b3-af1a-dec13c9fb073">
+      <typeId>c1a2ca2d-1b51-4ab5-af9d-f80b3951b069</typeId>
       <isNavigable>true</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
       <isRequired>true</isRequired>
-      <typePackageName>AzureFunctions.AzureServiceBus.GroupA.Eventing.Messages</typePackageName>
-      <typePackageId>4f999ce2-cab3-4fc5-933f-67cd41301cff</typePackageId>
+      <typePackageName>AzureFunctions.AzureServiceBus.GroupB.Eventing.Messages</typePackageName>
+      <typePackageId>4f999ce2-cab3-4fc5-933f-67cd41301cfe</typePackageId>
       <stereotypes />
       <genericTypeParameters />
     </typeReference>

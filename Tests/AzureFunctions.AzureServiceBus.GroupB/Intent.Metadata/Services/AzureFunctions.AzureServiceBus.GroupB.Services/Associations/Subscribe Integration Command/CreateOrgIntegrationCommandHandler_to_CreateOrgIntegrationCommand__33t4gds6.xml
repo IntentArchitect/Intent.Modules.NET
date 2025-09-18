@@ -19,7 +19,7 @@
     <childElements />
   </sourceEnd>
   <targetEnd id="30ae2f2d-2a91-4e3b-b17c-a382595d6f08" type="Subscribe Integration Command Target End" typeId="efa73bdb-69b7-4f52-aa10-15c19874b394">
-    <display>handles: CreateOrgIntegrationCommand</display>
+    <display>[handles] CreateOrgIntegrationCommand</display>
     <order>0</order>
     <traits>
       <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
