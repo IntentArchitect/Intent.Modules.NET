@@ -6,6 +6,7 @@ using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.DomainInteractions.Api;
 using Intent.Modules.Application.Contracts;
 using Intent.Modules.Application.Dtos.Templates.DtoModel;
+using Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Strategies;
 using Intent.Modules.Application.ServiceImplementations.Templates.ServiceImplementation;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -88,15 +89,19 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
                 ? dtoTemplate.ClassName
                 : dtoModel.Name.ToPascalCase();
             var domainModel = dtoModel.Mapping.Element.AsClassModel();
+            var domainTypeName = _template.TryGetTypeName(TemplateRoles.Domain.Entity.Primary, domainModel, out var result)
+    ? result
+    : domainModel.Name.ToPascalCase();
             var repositoryTypeName = _template.GetTypeName(TemplateRoles.Repository.Interface.Entity, domainModel);
             var repositoryParameterName = repositoryTypeName.Split('.').Last()[1..].ToLocalVariableName();
             var repositoryFieldName = repositoryParameterName.ToPrivateMemberName();
 
             var codeLines = new CSharpStatementAggregator();
+            var mapper = MappingStrategyProvider.Instance.GetMappingStrategy(_template);
             codeLines.Add($@"var element ={(operationModel.IsAsync() ? " await" : "")} {repositoryFieldName}.FindById{(operationModel.IsAsync() ? "Async" : "")}({operationModel.Parameters.First().Name.ToCamelCase()}, cancellationToken);");
             codeLines.Add(new CSharpIfStatement($"element is null")
                 .AddStatement($@"throw new {_template.GetNotFoundExceptionName()}($""Could not find {domainModel.Name.ToPascalCase()} {{{operationModel.Parameters.First().Name.ToCamelCase()}}}"");"));
-            codeLines.Add($@"return element.MapTo{unqualifiedDtoTypeName}(_mapper);");
+            mapper.ImplementGetByIdMappingStatement(codeLines, dtoTemplate.ClassName, unqualifiedDtoTypeName, domainTypeName);
 
             var @class = _template.CSharpFile.Classes.First();
             var method = @class.FindMethod(m => m.TryGetMetadata<OperationModel>("model", out var model) && model.Id == operationModel.Id);
@@ -117,7 +122,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
             {
                 ctor.AddParameter(repositoryTypeName, repositoryParameterName, parameter => parameter.IntroduceReadonlyField());
             }
-            if (ctor.Parameters.All(p => p.Name != "mapper"))
+            if (ctor.Parameters.All(p => p.Name != "mapper") && _template.ExecutionContext.InstalledModules.Any(x => x.ModuleId == "Intent.Application.AutoMapper"))
             {
                 ctor.AddParameter(_template.UseType("AutoMapper.IMapper"), "mapper", parameter => parameter.IntroduceReadonlyField());
             }

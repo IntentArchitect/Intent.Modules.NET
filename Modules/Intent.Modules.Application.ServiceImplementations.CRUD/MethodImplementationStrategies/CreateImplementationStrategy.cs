@@ -1,18 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Intent.Engine;
+﻿using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.DomainInteractions.Api;
+using Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Strategies;
 using Intent.Modules.Application.ServiceImplementations.Templates.ServiceImplementation;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Interactions;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Templates;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using OperationModel = Intent.Modelers.Services.Api.OperationModel;
 
 namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.MethodImplementationStrategies
@@ -99,9 +101,15 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
             {
                 codeLines.Add($@"await {repositoryFieldName}.UnitOfWork.SaveChangesAsync(cancellationToken);");
                 var dtoToReturn = operationModel.TypeReference.Element.AsDTOModel();
-                codeLines.Add(dtoToReturn != null
-                    ? $"return {entityVariableName}.MapTo{_template.GetTypeName(dtoToReturn.InternalElement)}(_mapper);"
-                    : $"return {entityVariableName}.{(domainModel.Attributes).Concat(domainModel.ParentClass?.Attributes ?? new List<AttributeModel>()).FirstOrDefault(x => x.HasPrimaryKey())?.Name.ToPascalCase() ?? "Id"};");
+                var mapper = MappingStrategyProvider.Instance.GetMappingStrategy(_template);
+                if(dtoToReturn != null)
+                {
+                    mapper.ImplementCreateMappingStatement(codeLines, entityVariableName, _template, dtoToReturn, domainTypeName);
+                }
+                else
+                {
+                    codeLines.Add($"return {entityVariableName}.{(domainModel.Attributes).Concat(domainModel.ParentClass?.Attributes ?? new List<AttributeModel>()).FirstOrDefault(x => x.HasPrimaryKey())?.Name.ToPascalCase() ?? "Id"};");
+                }
             }
 
             var @class = _template.CSharpFile.Classes.First();
@@ -121,7 +129,8 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
             {
                 ctor.AddParameter(repositoryTypeName, repositoryParameterName, parameter => parameter.IntroduceReadonlyField());
             }
-            if (operationModel.TypeReference.Element?.IsDTOModel() == true && ctor.Parameters.All(p => p.Name != "mapper"))
+            if (operationModel.TypeReference.Element?.IsDTOModel() == true && ctor.Parameters.All(p => p.Name != "mapper")
+                && _template.ExecutionContext.InstalledModules.Any(x => x.ModuleId == "Intent.Application.AutoMapper"))
             {
                 ctor.AddParameter(_template.UseType("AutoMapper.IMapper"), "mapper", parameter => parameter.IntroduceReadonlyField());
             }

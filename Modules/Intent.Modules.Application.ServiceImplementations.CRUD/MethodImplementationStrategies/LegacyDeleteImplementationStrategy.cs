@@ -119,7 +119,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
                 ctor.AddParameter(repositoryTypeName, repositoryParameterName, parameter => parameter.IntroduceReadonlyField());
             }
 
-            if (ctor.Parameters.All(p => p.Name != "mapper"))
+            if (ctor.Parameters.All(p => p.Name != "mapper") && _template.ExecutionContext.InstalledModules.Any(x => x.ModuleId == "Intent.Application.AutoMapper"))
             {
                 ctor.AddParameter(_template.UseType("AutoMapper.IMapper"), "mapper", parameter => parameter.IntroduceReadonlyField());
             }

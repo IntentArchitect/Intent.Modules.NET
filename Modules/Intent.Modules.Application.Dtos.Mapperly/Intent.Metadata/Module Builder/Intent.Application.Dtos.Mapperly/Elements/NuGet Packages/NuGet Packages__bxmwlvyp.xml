@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="46510f9e-1d7a-4be9-9024-2f41a8afba16" type="NuGet Packages" typeId="4c75c84d-c745-4f0f-b1f4-82eeca01dfc7">
+  <name>NuGet Packages</name>
+  <display>NuGet Packages</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>293a0d57-c148-49d4-b309-297a16f54341</parentFolderId>
+  <packageId>293a0d57-c148-49d4-b309-297a16f54341</packageId>
+  <packageName>Intent.Application.Dtos.Mapperly</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

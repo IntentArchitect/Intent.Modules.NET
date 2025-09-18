@@ -179,5 +179,6 @@
     <application id="14a0fe52-c0de-479d-bd24-b9cb60a2f7fd" name="Intent.Modules.Aws.Lambda.Functions.Dispatch.MediatR" solutionFolder="API Frameworks" relativePath="Intent.Modules.Aws.Lambda.Functions.Dispatch.MediatR/Intent.Modules.Aws.Lambda.Functions.Dispatch.MediatR.application.config" />
     <application id="25929a5b-e346-4676-b602-ce00f0d62117" name="Intent.Modules.AspNetCore.Scalar" solutionFolder="API Frameworks" relativePath="Intent.Modules.AspNetCore.Scalar/Intent.Modules.AspNetCore.Scalar.application.config" />
     <application id="bd495f9c-bc51-4aea-a8a6-664e7e0f125d" name="Intent.Modules.Common.UnitOfWork" solutionFolder="Persistence" relativePath="Intent.Modules.Common.UnitOfWork/Intent.Modules.Common.UnitOfWork.application.config" />
+    <application id="f53d2cd1-2511-40fc-a219-e779127a8ba1" name="Intent.Modules.Application.Dtos.Mapperly" solutionFolder="Application" relativePath="Intent.Modules.Application.Dtos.Mapperly/Intent.Modules.Application.Dtos.Mapperly.application.config" />
   </applications>
 </solution>

@@ -15,6 +15,7 @@ namespace Intent.Modules.Application.DomainInteractions.Extensions;
 using DataAccessProviders;
 using Exceptions;
 using Intent.Modelers.Domain.Api;
+using Intent.Modules.Application.DomainInteractions.Strategies;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -236,13 +237,14 @@ public static class DomainInteractionExtensions
         }
         var statements = new List<CSharpStatement>();
 
-        var autoMapperIsInstalled = method.File.Template.ExecutionContext.InstalledModules.Any(x => x.ModuleId == "Intent.Application.Dtos.AutoMapper");
+        var mapperIsInstalled = method.File.Template.ExecutionContext.InstalledModules.Any(x => x.ModuleId == "Intent.Application.Dtos.AutoMapper"
+        || x.ModuleId == "Intent.Application.Dtos.Mapperly");
 
         var template = method.File.Template;
         var entitiesReturningPk = GetEntitiesReturningPk(method, returnType);
         var nonUserSuppliedEntitiesReturningPks = GetEntitiesReturningPk(method, returnType, isUserSupplied: false);
 
-        if (autoMapperIsInstalled &&
+        if (mapperIsInstalled &&
             returnType.Element.AsDTOModel()?.IsMapped == true &&
             method.TrackedEntities().Values.Any(x => x.ElementModel?.Id == returnType.Element.AsDTOModel().Mapping.ElementId) &&
             template.TryGetTypeName("Application.Contract.Dto", returnType.Element, out var returnDto))
@@ -254,14 +256,11 @@ public static class DomainInteractionExtensions
             }
             else
             {
-                //Adding Using Clause for Extension Methods
-                template.TryGetTypeName("Intent.Application.Dtos.EntityDtoMappingExtensions", returnType.Element, out _);
-                var autoMapperFieldName = method.Class.InjectService(template.UseType("AutoMapper.IMapper"));
-                var nullable = returnType.IsNullable ? "?" : "";
-                statements.Add($"return {entityDetails.VariableName}{nullable}.MapTo{returnDto}{(returnType.IsCollection ? "List" : "")}({autoMapperFieldName});");
+                var mapper = MappingStrategyProvider.Instance.GetMappingStrategy(method);
+                mapper.ImplementMappingStatement(method, statements, entityDetails, template, returnType, returnDto);
             }
         }
-        else if (autoMapperIsInstalled &&
+        else if (mapperIsInstalled &&
                  (returnType.IsResultPaginated() || returnType.IsResultCursorPaginated()) &&
                  returnType.GenericTypeParameters.FirstOrDefault()?.Element.AsDTOModel()?.IsMapped == true &&
                  method.TrackedEntities().Values.Any(x => x.ElementModel?.Id == returnType.GenericTypeParameters.First().Element.AsDTOModel().Mapping.ElementId) &&
@@ -276,8 +275,10 @@ public static class DomainInteractionExtensions
             }
             else
             {
-                var autoMapperFieldName = method.Class.InjectService(template.UseType("AutoMapper.IMapper"));
-                statements.Add($"return {entityDetails.VariableName}.{mappingMethod}(x => x.MapTo{returnDto}({autoMapperFieldName}));");
+                
+                var mapper = MappingStrategyProvider.Instance.GetMappingStrategy(method);
+                mapper.ImplementPagedMappingStatement(method, statements, entityDetails, template, returnType, returnDto, mappingMethod);
+                //statements.Add($"return {entityDetails.VariableName}.{mappingMethod}(x => x.MapTo{returnDto}({autoMapperFieldName}));");
             }
         }
         else if (returnType.Element.IsTypeDefinitionModel() && (nonUserSuppliedEntitiesReturningPks.Count == 1 || entitiesReturningPk.Count == 1)) // No need for TrackedEntities thus no check for it

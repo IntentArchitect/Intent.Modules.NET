@@ -6,6 +6,7 @@ using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.DomainInteractions.Api;
 using Intent.Modules.Application.Contracts;
 using Intent.Modules.Application.Dtos.Templates.DtoModel;
+using Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Strategies;
 using Intent.Modules.Application.ServiceImplementations.Templates.ServiceImplementation;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -84,6 +85,9 @@ public class GetAllPaginationImplementationStrategy : IImplementationStrategy
             ? dtoTemplate.ClassName
             : dtoModel.Name.ToPascalCase();
         var domainModel = dtoModel.Mapping.Element.AsClassModel();
+        var domainTypeName = _template.TryGetTypeName(TemplateRoles.Domain.Entity.Primary, domainModel, out var result)
+    ? result
+    : domainModel.Name.ToPascalCase();
         var repositoryTypeName = _template.GetTypeName(TemplateRoles.Repository.Interface.Entity, domainModel);
         var repositoryParameterName = repositoryTypeName.Split('.').Last()[1..].ToLocalVariableName();
         var repositoryFieldName = repositoryParameterName.ToPrivateMemberName();
@@ -97,7 +101,8 @@ public class GetAllPaginationImplementationStrategy : IImplementationStrategy
             .AddArgument($"pageSize: {pageSizeVar.Name.ToParameterName()}")
             .AddStatement("cancellationToken: cancellationToken")
             .WithArgumentsOnNewLines());
-        codeLines.Add($"return results.MapToPagedResult(x => x.MapTo{unqualifiedDtoTypeName}(_mapper));");
+        var mapper = MappingStrategyProvider.Instance.GetMappingStrategy(_template);
+        mapper.ImplementGetAllPagedMappingStatement(codeLines, dtoTemplate.ClassName, unqualifiedDtoTypeName, domainTypeName);
 
         var @class = _template.CSharpFile.Classes.First();
         var method = @class.FindMethod(m => m.TryGetMetadata<OperationModel>("model", out var model) && model.Id == operationModel.Id);
@@ -117,7 +122,7 @@ public class GetAllPaginationImplementationStrategy : IImplementationStrategy
         {
             ctor.AddParameter(repositoryTypeName, repositoryParameterName, parameter => parameter.IntroduceReadonlyField());
         }
-        if (ctor.Parameters.All(p => p.Name != "mapper"))
+        if (ctor.Parameters.All(p => p.Name != "mapper") && _template.ExecutionContext.InstalledModules.Any(x => x.ModuleId == "Intent.Application.AutoMapper"))
         {
             ctor.AddParameter(_template.UseType("AutoMapper.IMapper"), "mapper", parameter => parameter.IntroduceReadonlyField());
         }
