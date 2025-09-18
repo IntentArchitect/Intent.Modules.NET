@@ -1,5 +1,6 @@
 ### Version 1.1.5
 
+- Fixed: Subscription appsettings will now always be created when they should.
 - Improvement: Updated Shared Module.
 
 ### Version 1.1.4
