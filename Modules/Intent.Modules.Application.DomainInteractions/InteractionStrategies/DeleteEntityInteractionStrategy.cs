@@ -1,13 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using Intent.Exceptions;
+﻿using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
+using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.DomainInteractions.Api;
 using Intent.Modules.Application.DomainInteractions.Extensions;
+using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Interactions;
 using Intent.Modules.Common.Templates;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
+using static Intent.Modules.Constants.TemplateRoles.Domain;
 
 namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
 {
@@ -55,6 +60,14 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
                         .SeparatedFromPrevious());
                 }
                 method.AddStatements(statements);
+                // Unit Of Work Module Auto Save Changes disabled?
+                if (bool.TryParse(method.Class.File.Template.ExecutionContext.GetSettings().GetGroup("c4b7e545-eaac-42bc-8f06-2768ac8dad99").GetSetting("d6338b7c-b0f9-46bd-8dbb-3c745d5f8623").Value, out bool uowAutoSaveOff))
+                {
+                    if (!uowAutoSaveOff)
+                    {
+                        method.AddStatement(ExecutionPhases.Persistence, new CSharpStatement($"{entityDetails.DataAccessProvider.SaveChangesAsync()}"));
+                    }
+                }
             }
             catch (Exception ex)
             {

@@ -92,6 +92,14 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
                     statements.Add(entityDetails.DataAccessProvider.Update(entityDetails.VariableName)
                         .SeparatedFromPrevious());
                 }
+                else // Unit Of Work Module Auto Save Changes disabled?
+                if (bool.TryParse(method.Class.File.Template.ExecutionContext.GetSettings().GetGroup("c4b7e545-eaac-42bc-8f06-2768ac8dad99").GetSetting("d6338b7c-b0f9-46bd-8dbb-3c745d5f8623").Value, out bool uowAutoSaveOff))
+                {
+                    if (!uowAutoSaveOff)
+                    {
+                        method.AddStatement(ExecutionPhases.Persistence, new CSharpStatement($"{entityDetails.DataAccessProvider.SaveChangesAsync()}"));
+                    }
+                }
 
                 method.AddStatements(statements);
             }
