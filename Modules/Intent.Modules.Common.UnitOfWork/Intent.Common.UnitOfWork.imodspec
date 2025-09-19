@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Common.UnitOfWork</id>
-  <version>1.0.0-pre.1</version>
+  <version>1.0.0-pre.2</version>
   <supportedClientVersions>[4.4.0-a,5.0.0)</supportedClientVersions>
   <summary>Common Unit Of Work Module for Intent.Modules.NET</summary>
   <description>Common Unit Of Work Module for Intent.Modules.NET</description>
