@@ -1,5 +1,6 @@
 ### Version 5.0.30
 
+- Improvement: `Default Value Constraint` can now be applied to primary key attributes.
 - Fixed: Missing required NuGet references now correctly added.
 - Fixed: Enum check validation now correctly handles nullable enum attribute.
 - Fixed: Increased `order` value for some `OnBuild(...)` method invocations to ensure they happen sufficiently after `OnBuild(...)` from other modules have been invoked.
