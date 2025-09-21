@@ -1,3 +1,7 @@
+### Version 5.1.14
+
+- Improvement: Updated documentation added help topic.
+
 ### Version 5.1.13
 
 - Improvement: Updated NuGet package versions.

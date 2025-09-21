@@ -18,6 +18,10 @@ This module generates the following as part of the Finbuckle implementation impl
 
 ## Modules Settings
 
+The following settings are available under the `Multitenancy Settings` section in `Application Settings`:
+
+![module settings](images/settings.png)
+
 ### Strategy
 
 This setting configures the Finbuckle MultiTenant Strategy, i.e how the tenant is identified per request.
@@ -88,10 +92,38 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 
 ```
 
+## Tenant Info Injection
+
+The current tenant information, as well as information on all tenants (via the [store](#store)) can be injected into the relevant class, using the dependency injection container:
+
+### Current Tenant Info
+
+`ITenantInfo` can be injected into the relevant class, which will provide access to information about the **current tenant**:
+
+``` csharp
+public CreateProductCommandHandler(IProductRepository productRepository, ITenantInfo tenantInfo)
+{
+    _productRepository = productRepository;
+    _tenantInfo = tenantInfo;
+}
+```
+
+### All Tenants
+
+If access to all tenants is required, then `IMultiTenantStore<TenantInfo>` can be injected:
+
+``` csharp
+public CreateProductCommandHandler(IProductRepository productRepository, IMultiTenantStore<TenantInfo> tenantStore)
+{
+    _productRepository = productRepository;
+    _tenantStore = tenantStore;
+}
+```
+
+
 ## Finbucke configuration
 
 Setup and configure Finbuckle inline with your configured settings.
-
 
 ```csharp
 public static class MultiTenancyConfiguration
