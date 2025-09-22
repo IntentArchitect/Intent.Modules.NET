@@ -25,7 +25,10 @@ namespace MassTransit.RabbitMQ.Domain.Entities
 
         public void Talk(string message)
         {
-            DomainEvents.Add(new TalkToPersonRequested(message: message, firstName: this.FirstName, lastName: this.LastName));
+            DomainEvents.Add(new TalkToPersonRequested(
+                message: message,
+                firstName: this.FirstName,
+                lastName: this.LastName));
         }
     }
 }

@@ -12,7 +12,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f9e5811-85a2-4276-96d0-d8e5aa18eec0</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Versioning.ApiVersioningConfiguration</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Versioning.ApiVersioningConfiguration#67bdb499-8c3f-4a3e-863e-b8a463aa4d1f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Api/Configuration/ApiVersioningConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApiVersioningConfiguration.cs</ProjectRelativeFilePath>
@@ -20,7 +20,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f9e5811-85a2-4276-96d0-d8e5aa18eec0</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions#e62510b2-efad-42f4-b0c0-6984417122e0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Api/Configuration/ApiVersionSwaggerGenOptions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApiVersionSwaggerGenOptions.cs</ProjectRelativeFilePath>
@@ -28,7 +28,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f9e5811-85a2-4276-96d0-d8e5aa18eec0</ProjectId>
-      <CorrelationId>Intent.Application.Identity.ApplicationSecurityConfiguration</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.ApplicationSecurityConfiguration#bce90fab-cf98-4689-a585-668c8f94515a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Api/Configuration/ApplicationSecurityConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApplicationSecurityConfiguration.cs</ProjectRelativeFilePath>
@@ -36,7 +36,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f9e5811-85a2-4276-96d0-d8e5aa18eec0</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Cors.CorsConfiguration</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Cors.CorsConfiguration#8e5f8b53-67fd-43ac-993c-46768860b500</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Api/Configuration/CorsConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CorsConfiguration.cs</ProjectRelativeFilePath>
@@ -44,7 +44,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f9e5811-85a2-4276-96d0-d8e5aa18eec0</ProjectId>
-      <CorrelationId>Intent.AspNetCore.HealthChecks.HealthChecksConfiguration</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.HealthChecks.HealthChecksConfiguration#f9e2d7e8-736c-4f8b-8b2e-fe38b0361370</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Api/Configuration/HealthChecksConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>HealthChecksConfiguration.cs</ProjectRelativeFilePath>
@@ -52,7 +52,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f9e5811-85a2-4276-96d0-d8e5aa18eec0</ProjectId>
-      <CorrelationId>Intent.Modules.AspNetCore.MultiTenancy.MultiTenancyConfiguration</CorrelationId>
+      <CorrelationId>Intent.Modules.AspNetCore.MultiTenancy.MultiTenancyConfiguration#a9f216e9-0c3d-407e-8a37-f0667559906f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Api/Configuration/MultiTenancyConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MultiTenancyConfiguration.cs</ProjectRelativeFilePath>
@@ -60,7 +60,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f9e5811-85a2-4276-96d0-d8e5aa18eec0</ProjectId>
-      <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration#3743b45d-f1b4-43dc-8d3e-ed668b54d260</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Api/Configuration/ProblemDetailsConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ProblemDetailsConfiguration.cs</ProjectRelativeFilePath>
@@ -68,7 +68,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f9e5811-85a2-4276-96d0-d8e5aa18eec0</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration#5cddd0b3-178a-4e05-80b6-1ea8a9f587fa</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Api/Configuration/SwashbuckleConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SwashbuckleConfiguration.cs</ProjectRelativeFilePath>
@@ -76,7 +76,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>01dfb610-b5c5-4b62-85c4-b0e97e33eb7e</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter#2d2c1d3d-d37c-48b9-bcf1-6d83d4848bad</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Api/Filters/AuthorizeCheckOperationFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AuthorizeCheckOperationFilter.cs</ProjectRelativeFilePath>
@@ -84,7 +84,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>01dfb610-b5c5-4b62-85c4-b0e97e33eb7e</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.ExceptionFilter</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Controllers.ExceptionFilter#517a1542-5dd2-4e6b-b3cf-0a393cd0f803</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Api/Filters/ExceptionFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ExceptionFilter.cs</ProjectRelativeFilePath>
@@ -92,7 +92,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>01dfb610-b5c5-4b62-85c4-b0e97e33eb7e</ProjectId>
-      <CorrelationId>Intent.AspNetCore.ODataQuery.ODataQuerySwaggerFilter</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.ODataQuery.ODataQuerySwaggerFilter#2386989e-2a9b-40e2-b2bb-d461dd5d8fca</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Api/Filters/ODataQueryFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ODataQueryFilter.cs</ProjectRelativeFilePath>
@@ -100,7 +100,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>01dfb610-b5c5-4b62-85c4-b0e97e33eb7e</ProjectId>
-      <CorrelationId>Intent.Modules.AspNetCore.MultiTenancy.Swashbuckle.TenantHeaderOperationFilter</CorrelationId>
+      <CorrelationId>Intent.Modules.AspNetCore.MultiTenancy.Swashbuckle.TenantHeaderOperationFilter#022908ff-175f-464a-8ab3-dd25be1bb0d6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Api/Filters/TenantHeaderOperationFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TenantHeaderOperationFilter.cs</ProjectRelativeFilePath>
@@ -108,7 +108,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>01dfb610-b5c5-4b62-85c4-b0e97e33eb7e</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter#7217b966-67b8-4ede-823e-8a33200e4063</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TypeSchemaFilter.cs</ProjectRelativeFilePath>
@@ -116,7 +116,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>82a392c0-aec9-424f-b9ad-44a1e6cb5e4b</ProjectId>
-      <CorrelationId>Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate</CorrelationId>
+      <CorrelationId>Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate#df8c019f-fd0f-43bb-99b4-357e7d3a5342</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Api/Logging/BoundedLoggingDestructuringPolicy.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>BoundedLoggingDestructuringPolicy.cs</ProjectRelativeFilePath>
@@ -132,7 +132,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>06ff362e-48c0-4db7-8d1a-f7502dcab5b5</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Program</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Program#cfab177a-084b-4d86-b980-104fdb78d121</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Api/Program.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Program.cs</ProjectRelativeFilePath>
@@ -148,7 +148,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>0eef0293-5e42-4ce1-89bb-142d4c0f0c66</ProjectId>
-      <CorrelationId>Intent.Application.Identity.CurrentUserService</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserService#d61eb6ec-51b4-43e1-8c72-541e2264398a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Api/Services/CurrentUserService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CurrentUserService.cs</ProjectRelativeFilePath>
@@ -156,7 +156,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>cc39186d-d772-457c-9eb8-329171c1ffc4</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.AuthorizationBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.AuthorizationBehaviour#1071f4ea-8c74-4893-8e94-e39e00f70c2d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Application/Common/Behaviours/AuthorizationBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AuthorizationBehaviour.cs</ProjectRelativeFilePath>
@@ -164,7 +164,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>cc39186d-d772-457c-9eb8-329171c1ffc4</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.EventBusPublishBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.EventBusPublishBehaviour#bbbd3110-a6fc-4431-9e1b-569f1cad53bc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Application/Common/Behaviours/EventBusPublishBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>EventBusPublishBehaviour.cs</ProjectRelativeFilePath>
@@ -172,7 +172,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>cc39186d-d772-457c-9eb8-329171c1ffc4</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.LoggingBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.LoggingBehaviour#cd79ca73-74a2-4730-a50f-11f5e65fcabd</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Application/Common/Behaviours/LoggingBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>LoggingBehaviour.cs</ProjectRelativeFilePath>
@@ -180,7 +180,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>cc39186d-d772-457c-9eb8-329171c1ffc4</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.PerformanceBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.PerformanceBehaviour#2cc70186-7ca2-4521-8aaf-36daa03cc9a7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Application/Common/Behaviours/PerformanceBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PerformanceBehaviour.cs</ProjectRelativeFilePath>
@@ -188,7 +188,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>cc39186d-d772-457c-9eb8-329171c1ffc4</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour#4bb9cad3-7a4c-4309-a682-42121cd15e75</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UnhandledExceptionBehaviour.cs</ProjectRelativeFilePath>
@@ -196,7 +196,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>cc39186d-d772-457c-9eb8-329171c1ffc4</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour#296c63b2-cce3-48ee-953d-2d9c56344909</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Application/Common/Behaviours/UnitOfWorkBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UnitOfWorkBehaviour.cs</ProjectRelativeFilePath>
@@ -204,7 +204,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>cc39186d-d772-457c-9eb8-329171c1ffc4</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.FluentValidation.ValidationBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.ValidationBehaviour#95b6d12d-5d84-4807-a332-5ed3c5ea82fa</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Application/Common/Behaviours/ValidationBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ValidationBehaviour.cs</ProjectRelativeFilePath>
@@ -212,7 +212,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>6f05a879-fd86-4688-99a4-7c10f6e2bcdf</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.EventBusInterface</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.EventBusInterface#57f2892c-57bf-4c69-834a-58c5a1cdf3ad</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Application/Common/Eventing/IEventBus.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IEventBus.cs</ProjectRelativeFilePath>
@@ -220,7 +220,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>6f05a879-fd86-4688-99a4-7c10f6e2bcdf</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventHandlerInterface</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventHandlerInterface#eafb9887-2543-4fa0-b596-6ca23f1171cc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Application/Common/Eventing/IIntegrationEventHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IIntegrationEventHandler.cs</ProjectRelativeFilePath>
@@ -228,7 +228,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>6f1699d9-1606-4c5c-b0d3-50133132b97d</ProjectId>
-      <CorrelationId>Intent.Application.Identity.ForbiddenAccessException</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.ForbiddenAccessException#a5ac2d69-7d0c-4f39-a51a-2c48e770c290</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Application/Common/Exceptions/ForbiddenAccessException.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ForbiddenAccessException.cs</ProjectRelativeFilePath>
@@ -236,7 +236,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>6f1699d9-1606-4c5c-b0d3-50133132b97d</ProjectId>
-      <CorrelationId>Intent.Integration.HttpClients.HttpClientRequestException</CorrelationId>
+      <CorrelationId>Intent.Integration.HttpClients.HttpClientRequestException#df31a2e7-d0f3-4648-84a3-4d947bc2ed96</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Application/Common/Exceptions/HttpClientRequestException.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>HttpClientRequestException.cs</ProjectRelativeFilePath>
@@ -244,7 +244,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>6f1699d9-1606-4c5c-b0d3-50133132b97d</ProjectId>
-      <CorrelationId>Intent.Integration.HttpClients.ProblemDetailsWithErrors</CorrelationId>
+      <CorrelationId>Intent.Integration.HttpClients.ProblemDetailsWithErrors#617f6160-4c3a-4f85-8cc1-a9bc7bcd6c51</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Application/Common/Exceptions/ProblemDetailsWithErrors.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ProblemDetailsWithErrors.cs</ProjectRelativeFilePath>
@@ -252,7 +252,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>8b8994cf-9f49-43e6-a6b7-bebbd41bdda6</ProjectId>
-      <CorrelationId>Intent.AspNetCore.DistributedCaching.IDistributedCacheExtensions</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.DistributedCaching.IDistributedCacheExtensions#472d1529-52af-40c6-9baa-857b40188d19</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Application/Common/Interfaces/DistributedCacheExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DistributedCacheExtensions.cs</ProjectRelativeFilePath>
@@ -260,7 +260,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>8b8994cf-9f49-43e6-a6b7-bebbd41bdda6</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandInterface</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.CommandInterface#ae8c8258-015c-424d-a015-cb1465088957</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Application/Common/Interfaces/ICommand.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICommand.cs</ProjectRelativeFilePath>
@@ -268,7 +268,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>8b8994cf-9f49-43e6-a6b7-bebbd41bdda6</ProjectId>
-      <CorrelationId>Intent.Application.Identity.CurrentUserInterface</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserInterface#97618f2f-568a-40c7-987c-c254daf100e5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Application/Common/Interfaces/ICurrentUser.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICurrentUser.cs</ProjectRelativeFilePath>
@@ -276,7 +276,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>8b8994cf-9f49-43e6-a6b7-bebbd41bdda6</ProjectId>
-      <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface#f242ae19-8c1c-4585-8274-dc45333d7cd3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Application/Common/Interfaces/ICurrentUserService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICurrentUserService.cs</ProjectRelativeFilePath>
@@ -284,7 +284,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>8b8994cf-9f49-43e6-a6b7-bebbd41bdda6</ProjectId>
-      <CorrelationId>Intent.AspNetCore.DistributedCaching.DistributedCacheWithUnitOfWorkInterface</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.DistributedCaching.DistributedCacheWithUnitOfWorkInterface#91450b1c-9b38-49a3-bd86-f558b486bb47</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Application/Common/Interfaces/IDistributedCacheWithUnitOfWork.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IDistributedCacheWithUnitOfWork.cs</ProjectRelativeFilePath>
@@ -292,7 +292,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>8b8994cf-9f49-43e6-a6b7-bebbd41bdda6</ProjectId>
-      <CorrelationId>Intent.DomainEvents.DomainEventServiceInterface</CorrelationId>
+      <CorrelationId>Intent.DomainEvents.DomainEventServiceInterface#ea735d54-110c-488e-a305-62629f9fc9b2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Application/Common/Interfaces/IDomainEventService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IDomainEventService.cs</ProjectRelativeFilePath>
@@ -300,7 +300,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>8b8994cf-9f49-43e6-a6b7-bebbd41bdda6</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.QueryInterface</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.QueryInterface#812677a1-7867-4614-88f0-a9a2abf696f1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Application/Common/Interfaces/IQuery.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IQuery.cs</ProjectRelativeFilePath>
@@ -308,7 +308,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9e9a2d59-b9a2-4022-a767-bdfefbb05969</ProjectId>
-      <CorrelationId>Intent.Application.AutoMapper.MapFromInterface</CorrelationId>
+      <CorrelationId>Intent.Application.AutoMapper.MapFromInterface#932692ce-42e8-4000-b793-c58e3b929857</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Application/Common/Mappings/IMapFrom.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IMapFrom.cs</ProjectRelativeFilePath>
@@ -316,7 +316,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9e9a2d59-b9a2-4022-a767-bdfefbb05969</ProjectId>
-      <CorrelationId>Intent.Application.AutoMapper.MappingProfile</CorrelationId>
+      <CorrelationId>Intent.Application.AutoMapper.MappingProfile#be3186a6-5519-44c1-a6a2-92823db462e3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Application/Common/Mappings/MappingProfile.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MappingProfile.cs</ProjectRelativeFilePath>
@@ -324,7 +324,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>da46db82-cfbd-4bc8-b7f2-c31dc80af338</ProjectId>
-      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventNotification</CorrelationId>
+      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventNotification#11631b71-1d14-48fb-b8e7-43db43557d80</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Application/Common/Models/DomainEventNotification.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEventNotification.cs</ProjectRelativeFilePath>
@@ -332,7 +332,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>da46db82-cfbd-4bc8-b7f2-c31dc80af338</ProjectId>
-      <CorrelationId>Intent.Application.Identity.ResultModel</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.ResultModel#e7e167cf-9517-4395-8bf5-53357b5de669</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Application/Common/Models/Result.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Result.cs</ProjectRelativeFilePath>
@@ -340,7 +340,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b9a8d329-1a2a-4293-940d-95a0866b688a</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.PagedList</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.PagedList#edaf66f1-643a-4093-878b-d4f9877a1cda</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Application/Common/Pagination/PagedList.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedList.cs</ProjectRelativeFilePath>
@@ -348,7 +348,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b9a8d329-1a2a-4293-940d-95a0866b688a</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResult</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResult#1fcf5b41-8b20-4a7f-a21b-4f9a14b75d76</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Application/Common/Pagination/PagedResult.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedResult.cs</ProjectRelativeFilePath>
@@ -356,7 +356,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b9a8d329-1a2a-4293-940d-95a0866b688a</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResultMappingExtensions</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResultMappingExtensions#6f31fa15-322d-4a6b-95da-f8511eedfacb</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Application/Common/Pagination/PagedResultMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedResultMappingExtensions.cs</ProjectRelativeFilePath>
@@ -364,7 +364,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>04e322ee-2065-4f9f-8c86-696aa6f55dd5</ProjectId>
-      <CorrelationId>Intent.Application.Identity.AuthorizeAttribute</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.AuthorizeAttribute#1cf6e50d-ed48-4f60-a7a4-3402451c0ef5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Application/Common/Security/AuthorizeAttribute.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AuthorizeAttribute.cs</ProjectRelativeFilePath>
@@ -372,7 +372,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>28aa1ea5-061a-4550-89c5-1a47caf662ea</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface</CorrelationId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface#9d01a575-aa49-4007-9390-5d029d08de61</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Application/Common/Validation/IValidatorProvider.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IValidatorProvider.cs</ProjectRelativeFilePath>
@@ -380,7 +380,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>28aa1ea5-061a-4550-89c5-1a47caf662ea</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProvider</CorrelationId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProvider#94298870-b961-4329-8fd5-00da364408ff</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Application/Common/Validation/ValidatorProvider.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ValidatorProvider.cs</ProjectRelativeFilePath>
@@ -388,7 +388,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9cd91bc2-ef57-44fd-a6da-a9f974177ddf</ProjectId>
-      <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection</CorrelationId>
+      <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection#afa5706d-9dd7-46a9-bce8-67ea212a678f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Application/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
@@ -420,7 +420,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>8db1a54d-9903-4bc8-950f-baa50a937a08</ProjectId>
-      <CorrelationId>Intent.Blazor.FluentValidation.ValidatorProviderInterface</CorrelationId>
+      <CorrelationId>Intent.Blazor.FluentValidation.ValidatorProviderInterface#945f73d5-7c68-4659-b597-a16ae7a61b82</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.BlazorClient/Client/Common/Validation/IValidatorProvider.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IValidatorProvider.cs</ProjectRelativeFilePath>
@@ -428,7 +428,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>8db1a54d-9903-4bc8-950f-baa50a937a08</ProjectId>
-      <CorrelationId>Intent.Blazor.FluentValidation.ValidatorProvider</CorrelationId>
+      <CorrelationId>Intent.Blazor.FluentValidation.ValidatorProvider#88e6873d-784a-43e6-becc-9ec5041e91d4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.BlazorClient/Client/Common/Validation/ValidatorProvider.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ValidatorProvider.cs</ProjectRelativeFilePath>
@@ -436,7 +436,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>76b794d3-4350-458f-aa25-ef4fb223a588</ProjectId>
-      <CorrelationId>Intent.Blazor.WebAssembly.ProgramTemplate</CorrelationId>
+      <CorrelationId>Intent.Blazor.WebAssembly.ProgramTemplate#814d8866-e0b6-45bb-9dbf-21101d866007</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.BlazorClient/Client/Program.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Program.cs</ProjectRelativeFilePath>
@@ -444,7 +444,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>da3b096c-8d67-4925-b5f6-43178f945468</ProjectId>
-      <CorrelationId>Intent.Blazor.HttpClients.HttpClientRequestException</CorrelationId>
+      <CorrelationId>Intent.Blazor.HttpClients.HttpClientRequestException#996182f0-1a3d-4a85-acf3-5c65a895790c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.BlazorClient/HttpClients/Common/HttpClientRequestException.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>HttpClientRequestException.cs</ProjectRelativeFilePath>
@@ -452,7 +452,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>da3b096c-8d67-4925-b5f6-43178f945468</ProjectId>
-      <CorrelationId>Intent.Blazor.HttpClients.ProblemDetailsWithErrors</CorrelationId>
+      <CorrelationId>Intent.Blazor.HttpClients.ProblemDetailsWithErrors#b1a71b1f-b8ef-4707-966a-7380a9b81461</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.BlazorClient/HttpClients/Common/ProblemDetailsWithErrors.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ProblemDetailsWithErrors.cs</ProjectRelativeFilePath>
@@ -604,7 +604,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5112de09-b5eb-4c2b-932c-c6ec1313abac</ProjectId>
-      <CorrelationId>Intent.Blazor.HttpClients.HttpClientConfiguration</CorrelationId>
+      <CorrelationId>Intent.Blazor.HttpClients.HttpClientConfiguration#4b758ae7-0d09-445d-8d58-636ea9567edc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.BlazorClient/HttpClients/HttpClientConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>HttpClientConfiguration.cs</ProjectRelativeFilePath>
@@ -844,7 +844,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9c9b0a13-0a39-4f71-a83e-5fdd63547ad3</ProjectId>
-      <CorrelationId>Intent.Entities.CollectionExtensions</CorrelationId>
+      <CorrelationId>Intent.Entities.CollectionExtensions#e901a418-4f29-4c68-891a-863b6623dddd</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Domain/Common/CollectionExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CollectionExtensions.cs</ProjectRelativeFilePath>
@@ -852,7 +852,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9c9b0a13-0a39-4f71-a83e-5fdd63547ad3</ProjectId>
-      <CorrelationId>Intent.DomainEvents.DomainEventBase</CorrelationId>
+      <CorrelationId>Intent.DomainEvents.DomainEventBase#c00bc5fb-fcb8-48a6-98c5-37138360f653</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Domain/Common/DomainEvent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEvent.cs</ProjectRelativeFilePath>
@@ -860,7 +860,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>7ccfa77a-0f22-4f61-9405-2ace17550ffe</ProjectId>
-      <CorrelationId>Intent.Entities.NotFoundException</CorrelationId>
+      <CorrelationId>Intent.Entities.NotFoundException#7cf2430e-3bbb-469a-8a71-024f37f05fe0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Domain/Common/Exceptions/NotFoundException.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>NotFoundException.cs</ProjectRelativeFilePath>
@@ -868,7 +868,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9c9b0a13-0a39-4f71-a83e-5fdd63547ad3</ProjectId>
-      <CorrelationId>Intent.DomainEvents.HasDomainEventInterface</CorrelationId>
+      <CorrelationId>Intent.DomainEvents.HasDomainEventInterface#e3e035f3-3907-426e-bc03-ddb7917e6790</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Domain/Common/IHasDomainEvent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IHasDomainEvent.cs</ProjectRelativeFilePath>
@@ -876,7 +876,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>8cf193ad-c514-4d29-b349-9e19e085429e</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.UnitOfWorkInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.UnitOfWorkInterface#d5b443f8-b7de-4052-b5c6-8b3c6b036790</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Domain/Common/Interfaces/IUnitOfWork.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IUnitOfWork.cs</ProjectRelativeFilePath>
@@ -884,7 +884,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9c9b0a13-0a39-4f71-a83e-5fdd63547ad3</ProjectId>
-      <CorrelationId>Intent.Entities.UpdateHelper</CorrelationId>
+      <CorrelationId>Intent.Entities.UpdateHelper#961100b0-679b-4add-bebf-95435d2b6225</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Domain/Common/UpdateHelper.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UpdateHelper.cs</ProjectRelativeFilePath>
@@ -900,7 +900,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>feffff61-d1c3-45c8-bb22-a64e0942d77b</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface#b3a256a2-1504-44fc-b0bb-34a83aa1abc8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Domain/Repositories/IEFRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IEFRepository.cs</ProjectRelativeFilePath>
@@ -908,7 +908,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>feffff61-d1c3-45c8-bb22-a64e0942d77b</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.PagedListInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.PagedListInterface#4019046e-527f-4337-86a7-27c7649a02dc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Domain/Repositories/IPagedList.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IPagedList.cs</ProjectRelativeFilePath>
@@ -916,7 +916,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>feffff61-d1c3-45c8-bb22-a64e0942d77b</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.RepositoryInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.RepositoryInterface#56dc85af-8b7d-4ad6-98cd-79606eae792e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Domain/Repositories/IRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IRepository.cs</ProjectRelativeFilePath>
@@ -924,7 +924,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>f9a42418-3753-4ff8-a160-0166c705c0e6</ProjectId>
-      <CorrelationId>Intent.ValueObjects.ValueObjectBase</CorrelationId>
+      <CorrelationId>Intent.ValueObjects.ValueObjectBase#4cf148c5-b7e4-4b9a-aa83-78d9b03a20a4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Domain/ValueObject.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ValueObject.cs</ProjectRelativeFilePath>
@@ -932,7 +932,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ab446e12-3ba4-46b6-9a71-b649eefab17e</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.DesignTimeDbContextFactory.ApplicationSettingsJson</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.DesignTimeDbContextFactory.ApplicationSettingsJson#b0e73a4c-b537-4b43-bfef-43d71607b07d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Infrastructure/appsettings.json</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>appsettings.json</ProjectRelativeFilePath>
@@ -940,7 +940,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>6a40db2b-bc2e-458b-83d8-ebeae859c886</ProjectId>
-      <CorrelationId>Intent.AspNetCore.DistributedCaching.DistributedCacheWithUnitOfWork</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.DistributedCaching.DistributedCacheWithUnitOfWork#00c6f444-ea13-4e95-a899-e50de2a366a9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Infrastructure/Caching/DistributedCacheWithUnitOfWork.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DistributedCacheWithUnitOfWork.cs</ProjectRelativeFilePath>
@@ -948,7 +948,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>028e8dc9-58eb-4b9a-8bab-af464754ba4d</ProjectId>
-      <CorrelationId>Intent.Integration.HttpClients.HttpClientConfiguration</CorrelationId>
+      <CorrelationId>Intent.Integration.HttpClients.HttpClientConfiguration#2c6a2021-1d51-435a-b038-de40f703f68f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Infrastructure/Configuration/HttpClientConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>HttpClientConfiguration.cs</ProjectRelativeFilePath>
@@ -956,7 +956,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>028e8dc9-58eb-4b9a-8bab-af464754ba4d</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.MassTransitConfiguration</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.MassTransitConfiguration#795dcab1-f07d-4f9d-aa53-c4ad7ae0733f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Infrastructure/Configuration/MassTransitConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MassTransitConfiguration.cs</ProjectRelativeFilePath>
@@ -964,7 +964,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ab446e12-3ba4-46b6-9a71-b649eefab17e</ProjectId>
-      <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection</CorrelationId>
+      <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#a495c092-cbe9-4d27-a059-c2d1cbdedbb5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Infrastructure/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
@@ -972,7 +972,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>de97fc2c-cddf-4284-b3b6-33e6fae0dca8</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.FinbuckleConsumingFilter</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.FinbuckleConsumingFilter#d7734cc2-8fb8-4c63-b39f-956973b026bc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Infrastructure/Eventing/FinbuckleConsumingFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>FinbuckleConsumingFilter.cs</ProjectRelativeFilePath>
@@ -980,7 +980,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>de97fc2c-cddf-4284-b3b6-33e6fae0dca8</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.FinbuckleMessageHeaderStrategy</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.FinbuckleMessageHeaderStrategy#27412dc6-a293-4d99-b3b6-2f462feba405</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Infrastructure/Eventing/FinbuckleMessageHeaderStrategy.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>FinbuckleMessageHeaderStrategy.cs</ProjectRelativeFilePath>
@@ -988,7 +988,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>de97fc2c-cddf-4284-b3b6-33e6fae0dca8</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.FinbucklePublishingFilter</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.FinbucklePublishingFilter#d462ae19-91da-42a7-8c02-d3290c943775</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Infrastructure/Eventing/FinbucklePublishingFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>FinbucklePublishingFilter.cs</ProjectRelativeFilePath>
@@ -996,7 +996,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>de97fc2c-cddf-4284-b3b6-33e6fae0dca8</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.FinbuckleSendingFilter</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.FinbuckleSendingFilter#296fdd13-9295-4b16-b4a4-a3ff379a2bfc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Infrastructure/Eventing/FinbuckleSendingFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>FinbuckleSendingFilter.cs</ProjectRelativeFilePath>
@@ -1004,7 +1004,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>de97fc2c-cddf-4284-b3b6-33e6fae0dca8</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventConsumer</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventConsumer#32686aca-5726-40e8-a4aa-42a055a1cc89</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Infrastructure/Eventing/IntegrationEventConsumer.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IntegrationEventConsumer.cs</ProjectRelativeFilePath>
@@ -1012,7 +1012,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>de97fc2c-cddf-4284-b3b6-33e6fae0dca8</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.MassTransitEventBus</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.MassTransitEventBus#ad806edf-53f9-4d89-9297-5d2c68909e8f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Infrastructure/Eventing/MassTransitEventBus.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MassTransitEventBus.cs</ProjectRelativeFilePath>
@@ -1028,7 +1028,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5a53bdea-6ab0-4f2e-8e24-a4baef2e2bad</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.RepositoryBase</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.RepositoryBase#2a7a18bb-6c79-4758-8d10-9e9aa6c89405</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Infrastructure/Repositories/RepositoryBase.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RepositoryBase.cs</ProjectRelativeFilePath>
@@ -1036,7 +1036,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>e0c022d6-d695-4eb7-a6bc-a10f5a7d2300</ProjectId>
-      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventService</CorrelationId>
+      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventService#b08ddfe8-14e1-426c-8ef0-48f85ab2829d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Infrastructure/Services/DomainEventService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEventService.cs</ProjectRelativeFilePath>
@@ -1050,7 +1050,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>13593b0a-b508-414b-a2ed-b30db193b119</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Extensions.RepositoryExtensions</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Extensions.RepositoryExtensions#420278bb-b783-4278-9fea-85843ac555e0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Tests/Extensions/RepositoryExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RepositoryExtensions.cs</ProjectRelativeFilePath>

@@ -17,7 +17,8 @@ namespace SharedKernel.Consumer.Tests.Domain.Entities
             RefNo = refNo;
             CountryId = countryId;
             Currency = service.GetDefaultCurrency(countryId);
-            DomainEvents.Add(new OrderCreated(order: this));
+            DomainEvents.Add(new OrderCreated(
+                order: this));
         }
 
         /// <summary>

@@ -14,7 +14,8 @@ namespace SharedKernel.Kernel.Tests.Domain.Entities
         {
             Name = name;
             Code = code;
-            DomainEvents.Add(new CountryCreated(country: this));
+            DomainEvents.Add(new CountryCreated(
+                country: this));
         }
 
         /// <summary>

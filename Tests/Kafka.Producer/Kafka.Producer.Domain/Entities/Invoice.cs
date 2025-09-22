@@ -13,7 +13,8 @@ namespace Kafka.Producer.Domain.Entities
         public Invoice(string note)
         {
             Note = note;
-            DomainEvents.Add(new InvoiceCreated(invoice: this));
+            DomainEvents.Add(new InvoiceCreated(
+                invoice: this));
         }
 
         /// <summary>
@@ -33,7 +34,8 @@ namespace Kafka.Producer.Domain.Entities
         public void Update(string note)
         {
             Note = note;
-            DomainEvents.Add(new InvoiceUpdated(invoice: this));
+            DomainEvents.Add(new InvoiceUpdated(
+                invoice: this));
         }
     }
 }

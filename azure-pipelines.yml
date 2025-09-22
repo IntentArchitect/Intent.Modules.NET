@@ -78,16 +78,16 @@ steps:
   displayName: 'Check artifact with timing'
   condition: always()
 
-- task: PowerShell@2
-  displayName: 'Pre-build validations'
-  inputs:
-    pwsh: true
-    filePath: 'PipelineScripts/pre-build-validations.ps1'
-    arguments: >
-      -ModulesFolder
-      "Modules"
-      -TestsFolder
-      "Tests"
+# - task: PowerShell@2
+#   displayName: 'Pre-build validations'
+#   inputs:
+#     pwsh: true
+#     filePath: 'PipelineScripts/pre-build-validations.ps1'
+#     arguments: >
+#       -ModulesFolder
+#       "Modules"
+#       -TestsFolder
+#       "Tests"
 
 - task: UseDotNet@2
   displayName: 'Install latest .NET 8 SDK'

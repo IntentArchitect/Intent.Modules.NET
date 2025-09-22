@@ -11,7 +11,8 @@ namespace Intent.Modules.NET.Tests.Module1.Domain.Entities
         public Customer(string name)
         {
             Name = name;
-            DomainEvents.Add(new CustomerCreated(customer: this));
+            DomainEvents.Add(new CustomerCreated(
+                customer: this));
         }
 
         /// <summary>
