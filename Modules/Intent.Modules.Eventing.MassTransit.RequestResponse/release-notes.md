@@ -1,3 +1,7 @@
+### Version 1.1.10
+
+- Improvement: Service proxies will now generate within any folders they are modelled within.
+
 ### Version 1.1.9
 
 - Improvement: Updated referenced packages.

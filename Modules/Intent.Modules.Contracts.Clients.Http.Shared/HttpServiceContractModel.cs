@@ -2,6 +2,7 @@
 using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modelers.Types.ServiceProxies.Api;
+using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Contracts.Clients.Shared.Templates.ServiceContract;
 using Intent.Modules.Metadata.WebApi.Models;
 
@@ -60,4 +61,6 @@ public class HttpServiceContractModel : IServiceContractModel
         public string Name => input.Name;
         public ITypeReference TypeReference => input.TypeReference;
     }
+
+    public FolderModel Folder => _serviceProxyModel.Folder;
 }

@@ -6,6 +6,7 @@ using Intent.Modelers.Services.Api;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.TypeResolution;
+using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Contracts.Clients.Shared.Templates.ServiceContract;
 
 namespace Intent.Modules.Contracts.Clients.Http.Shared;
@@ -115,4 +116,6 @@ public class ImplicitServiceProxyContractModel : IServiceContractModel
         public string Name { get; }
         public ITypeReference TypeReference { get; }
     }
+
+    public FolderModel Folder => null;
 }

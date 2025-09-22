@@ -1,3 +1,7 @@
+### Version 4.0.16
+
+- Improvement: Service proxies will now generate within any folders they are modelled within.
+
 ### Version 4.0.15
 
 - Improvement: Updated NuGet package versions.
