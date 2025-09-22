@@ -59,7 +59,7 @@ namespace Intent.Modules.Application.DomainInteractions.Strategies
             var nullable = returnType.IsNullable ? "?" : "";
             template.TryGetTypeName("Intent.Application.Dtos.Mapperly.DtoMappingProfile", returnType.Element, out var _);
             statements.Add($"var mapper = new {entity.ElementModel.Name}DtoMapper();");
-            statements.Add($"return mapper.{entity.ElementModel.Name}To{returnDto}{(returnType.IsCollection ? "List" : "")}({entity.VariableName});");
+            statements.Add($"return mapper.{entity.ElementModel.Name}To{returnDto}{(returnType.IsCollection ? "List" : "")}({entity.VariableName}{(returnType.IsCollection ? ".ToList()" : "")});");
         }
 
         public void ImplementPagedMappingStatement(ICSharpClassMethodDeclaration method, List<CSharpStatement> statements, EntityDetails entity,

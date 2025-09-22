@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="756b5c7f-1883-4c5c-a81a-02a28a1ad945" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Mappings</name>
+  <display>Mappings</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>aa08f102-b2e6-4bab-bbc8-1d9b2c838129</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="b83d552b-1fd5-48a6-89bf-f5a2e27ee787" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Dtos.Mapperly.DtoMappingProfile</name>
+      <display>Intent.Application.Dtos.Mapperly.DtoMappingProfile</display>
+      <externalReference>Intent.Application.Dtos.Mapperly</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>756b5c7f-1883-4c5c-a81a-02a28a1ad945</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
