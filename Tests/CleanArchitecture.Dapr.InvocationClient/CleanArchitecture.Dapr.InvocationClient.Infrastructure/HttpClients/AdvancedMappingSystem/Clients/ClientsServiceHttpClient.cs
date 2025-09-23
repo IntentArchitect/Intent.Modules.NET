@@ -36,7 +36,7 @@ namespace CleanArchitecture.Dapr.InvocationClient.Infrastructure.HttpClients.Adv
             CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/advanced-mapping-system/client";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(command, _serializerOptions);
@@ -60,7 +60,7 @@ namespace CleanArchitecture.Dapr.InvocationClient.Infrastructure.HttpClients.Adv
         public async Task DeleteClientAsync(string id, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/advanced-mapping-system/client/{id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Delete, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Delete, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
@@ -75,7 +75,7 @@ namespace CleanArchitecture.Dapr.InvocationClient.Infrastructure.HttpClients.Adv
         public async Task<ClientDto> GetClientByIdAsync(string id, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/advanced-mapping-system/client/{id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
@@ -95,7 +95,7 @@ namespace CleanArchitecture.Dapr.InvocationClient.Infrastructure.HttpClients.Adv
         public async Task<List<ClientDto>> GetClientsAsync(CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/advanced-mapping-system/client";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
@@ -115,7 +115,7 @@ namespace CleanArchitecture.Dapr.InvocationClient.Infrastructure.HttpClients.Adv
         public async Task UpdateClientAsync(UpdateClientCommand command, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/advanced-mapping-system/client/{command.Id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(command, _serializerOptions);

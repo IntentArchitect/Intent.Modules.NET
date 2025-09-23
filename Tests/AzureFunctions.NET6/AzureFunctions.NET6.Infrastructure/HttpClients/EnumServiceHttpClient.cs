@@ -31,7 +31,7 @@ namespace AzureFunctions.NET6.Infrastructure.HttpClients
         public async Task TestRouteEnumAsync(Company testEnum, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"route-enum/{testEnum}/test-route-enum";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
@@ -50,7 +50,7 @@ namespace AzureFunctions.NET6.Infrastructure.HttpClients
             var queryParams = new Dictionary<string, string?>();
             queryParams.Add("testEnum", testEnum.ToString());
             relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
@@ -65,7 +65,7 @@ namespace AzureFunctions.NET6.Infrastructure.HttpClients
         public async Task TestHeaderEnumAsync(Company testEnum, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"enum/test-header-enum";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
             httpRequest.Headers.Add("Company-Id", testEnum.ToString());
 

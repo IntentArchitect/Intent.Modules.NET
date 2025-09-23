@@ -28,7 +28,7 @@ namespace ProxyServiceTests.Proxy.TMS.Infrastructure.HttpClients
         public async Task DeleteClientAsync(Guid id, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/clients/{id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Delete, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Delete, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))

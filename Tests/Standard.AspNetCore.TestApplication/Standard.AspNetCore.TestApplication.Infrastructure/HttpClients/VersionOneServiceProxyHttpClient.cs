@@ -28,7 +28,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
         public async Task OperationForVersionOneAsync(string param, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/v1/version-one/operation-for-version-one/{param}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))

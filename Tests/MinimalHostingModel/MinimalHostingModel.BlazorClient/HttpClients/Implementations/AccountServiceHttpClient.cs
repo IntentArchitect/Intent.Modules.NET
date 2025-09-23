@@ -30,7 +30,7 @@ namespace MinimalHostingModel.BlazorClient.HttpClients.Implementations
         public async Task RegisterAsync(RegisterDto input, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/account/register";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(input, _serializerOptions);
@@ -48,7 +48,7 @@ namespace MinimalHostingModel.BlazorClient.HttpClients.Implementations
         public async Task<TokenResultDto> LoginAsync(LoginDto input, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/account/login";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(input, _serializerOptions);
@@ -71,7 +71,7 @@ namespace MinimalHostingModel.BlazorClient.HttpClients.Implementations
         public async Task<TokenResultDto> RefreshAsync(RefreshTokenDto dto, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/account/refresh";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(dto, _serializerOptions);
@@ -94,7 +94,7 @@ namespace MinimalHostingModel.BlazorClient.HttpClients.Implementations
         public async Task ConfirmEmailAsync(ConfirmEmailDto input, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/account/confirmemail";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(input, _serializerOptions);
@@ -114,7 +114,7 @@ namespace MinimalHostingModel.BlazorClient.HttpClients.Implementations
             CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/account/forgotpassword";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(resetRequest, _serializerOptions);
@@ -132,7 +132,7 @@ namespace MinimalHostingModel.BlazorClient.HttpClients.Implementations
         public async Task ResetPasswordAsync(ResetPasswordDto resetRequest, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/account/resetpassword";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(resetRequest, _serializerOptions);
@@ -150,7 +150,7 @@ namespace MinimalHostingModel.BlazorClient.HttpClients.Implementations
         public async Task<InfoResponseDto> GetInfoAsync(CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/account/manage/info";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
@@ -170,7 +170,7 @@ namespace MinimalHostingModel.BlazorClient.HttpClients.Implementations
         public async Task PostInfoAsync(UpdateInfoDto infoRequest, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/account/manage/info";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(infoRequest, _serializerOptions);
@@ -188,7 +188,7 @@ namespace MinimalHostingModel.BlazorClient.HttpClients.Implementations
         public async Task LogoutAsync(CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/account/logout";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))

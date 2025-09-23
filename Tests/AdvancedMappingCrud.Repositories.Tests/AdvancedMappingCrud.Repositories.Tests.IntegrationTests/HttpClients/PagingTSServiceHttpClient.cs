@@ -31,7 +31,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients
         public async Task<Guid> CreatePagingTSAsync(PagingTSCreateDto dto, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/paging-t-s";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(dto, _serializerOptions);
@@ -60,7 +60,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients
         public async Task<PagingTSDto> FindPagingTSByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/paging-t-s/{id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
@@ -90,7 +90,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients
             queryParams.Add("pageSize", pageSize.ToString());
             queryParams.Add("orderBy", orderBy);
             relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
@@ -110,7 +110,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients
         public async Task UpdatePagingTSAsync(Guid id, PagingTSUpdateDto dto, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/paging-t-s/{id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(dto, _serializerOptions);
@@ -128,7 +128,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients
         public async Task DeletePagingTSAsync(Guid id, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/paging-t-s/{id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Delete, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Delete, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))

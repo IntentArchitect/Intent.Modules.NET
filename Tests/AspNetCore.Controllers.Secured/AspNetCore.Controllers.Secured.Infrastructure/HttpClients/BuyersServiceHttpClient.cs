@@ -36,7 +36,7 @@ namespace AspNetCore.Controllers.Secured.Infrastructure.HttpClients
         public async Task<Guid> CreateBuyerAsync(CreateBuyerCommand command, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/buyers";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(command, _serializerOptions);
@@ -60,7 +60,7 @@ namespace AspNetCore.Controllers.Secured.Infrastructure.HttpClients
         public async Task DeleteBuyerAsync(Guid id, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/buyers/{id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Delete, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Delete, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
@@ -78,7 +78,7 @@ namespace AspNetCore.Controllers.Secured.Infrastructure.HttpClients
             CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/buyers/{id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(command, _serializerOptions);
@@ -96,7 +96,7 @@ namespace AspNetCore.Controllers.Secured.Infrastructure.HttpClients
         public async Task<BuyerDto> GetBuyerByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/buyers/{id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
@@ -116,7 +116,7 @@ namespace AspNetCore.Controllers.Secured.Infrastructure.HttpClients
         public async Task<List<BuyerDto>> GetBuyersAsync(CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/buyers";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))

@@ -35,7 +35,7 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.HttpClients
         public async Task SecureAsync(SecureCommand command, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/secure-services/secure";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(command, _serializerOptions);

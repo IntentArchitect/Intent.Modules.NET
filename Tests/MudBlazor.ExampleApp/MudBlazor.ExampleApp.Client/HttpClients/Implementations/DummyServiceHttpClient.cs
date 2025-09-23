@@ -23,7 +23,7 @@ namespace MudBlazor.ExampleApp.Client.HttpClients.Implementations
         public async Task DummyOperationAsync(Guid id, string name, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/dummy/operation";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))

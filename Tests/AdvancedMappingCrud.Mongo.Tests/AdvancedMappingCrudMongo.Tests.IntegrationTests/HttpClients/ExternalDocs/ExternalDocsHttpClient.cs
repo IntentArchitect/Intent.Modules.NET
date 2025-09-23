@@ -31,7 +31,7 @@ namespace AdvancedMappingCrudMongo.Tests.IntegrationTests.HttpClients.ExternalDo
             CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/external-docs";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(command, _serializerOptions);
@@ -55,7 +55,7 @@ namespace AdvancedMappingCrudMongo.Tests.IntegrationTests.HttpClients.ExternalDo
         public async Task DeleteExternalDocAsync(long id, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/external-docs/{id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Delete, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Delete, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
@@ -73,7 +73,7 @@ namespace AdvancedMappingCrudMongo.Tests.IntegrationTests.HttpClients.ExternalDo
             CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/external-docs/{id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(command, _serializerOptions);
@@ -91,7 +91,7 @@ namespace AdvancedMappingCrudMongo.Tests.IntegrationTests.HttpClients.ExternalDo
         public async Task<ExternalDocDto> GetExternalDocByIdAsync(long id, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/external-docs/{id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
@@ -111,7 +111,7 @@ namespace AdvancedMappingCrudMongo.Tests.IntegrationTests.HttpClients.ExternalDo
         public async Task<List<ExternalDocDto>> GetExternalDocsAsync(CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/external-docs";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))

@@ -39,7 +39,7 @@ namespace SecurityConfig.Tests.Infrastructure.HttpClients
         public async Task<Guid> CreateProductAsync(ProductCreateDto dto, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/products";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(dto, _serializerOptions);
@@ -68,7 +68,7 @@ namespace SecurityConfig.Tests.Infrastructure.HttpClients
         public async Task<ProductDto> FindProductByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/products/{id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
@@ -88,7 +88,7 @@ namespace SecurityConfig.Tests.Infrastructure.HttpClients
         public async Task<List<ProductDto>> FindProductsAsync(CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/products";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
@@ -108,7 +108,7 @@ namespace SecurityConfig.Tests.Infrastructure.HttpClients
         public async Task UpdateProductAsync(Guid id, ProductUpdateDto dto, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/products/{id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(dto, _serializerOptions);
@@ -126,7 +126,7 @@ namespace SecurityConfig.Tests.Infrastructure.HttpClients
         public async Task DeleteProductAsync(Guid id, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/products/{id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Delete, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Delete, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))

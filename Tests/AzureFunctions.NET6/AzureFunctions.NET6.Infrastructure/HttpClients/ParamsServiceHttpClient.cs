@@ -37,7 +37,7 @@ namespace AzureFunctions.NET6.Infrastructure.HttpClients
         public async Task FromBodyTestAsync(List<int> ids, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"from-body-test";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(ids, _serializerOptions);
@@ -55,7 +55,7 @@ namespace AzureFunctions.NET6.Infrastructure.HttpClients
         public async Task<int> GetByIdsHeadersTestAsync(List<int> ids, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"params/by-ids-headers-test";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
             httpRequest.Headers.Add("TestHeader", ids.ToString());
 
@@ -91,7 +91,7 @@ namespace AzureFunctions.NET6.Infrastructure.HttpClients
                 queryParams.Add($"ids[{index++}]", element.ToString());
             }
             relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))

@@ -31,7 +31,7 @@ namespace IntegrationTesting.Tests.IntegrationTests.HttpClients.PartialCruds
             CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/partial-crud";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(command, _serializerOptions);
@@ -58,7 +58,7 @@ namespace IntegrationTesting.Tests.IntegrationTests.HttpClients.PartialCruds
             CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/partial-crud/{id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(command, _serializerOptions);
@@ -76,7 +76,7 @@ namespace IntegrationTesting.Tests.IntegrationTests.HttpClients.PartialCruds
         public async Task<PartialCrudDto> GetPartialCrudByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/partial-crud/{id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))

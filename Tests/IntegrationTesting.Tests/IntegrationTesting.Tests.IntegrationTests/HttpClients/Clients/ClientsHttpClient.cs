@@ -31,7 +31,7 @@ namespace IntegrationTesting.Tests.IntegrationTests.HttpClients.Clients
             CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/clients";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(command, _serializerOptions);
@@ -55,7 +55,7 @@ namespace IntegrationTesting.Tests.IntegrationTests.HttpClients.Clients
         public async Task DeleteClientAsync(Guid id, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/clients/{id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Delete, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Delete, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
@@ -73,7 +73,7 @@ namespace IntegrationTesting.Tests.IntegrationTests.HttpClients.Clients
             CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/clients/{id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(command, _serializerOptions);
@@ -91,7 +91,7 @@ namespace IntegrationTesting.Tests.IntegrationTests.HttpClients.Clients
         public async Task<ClientDto> GetClientByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/clients/{id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
@@ -111,7 +111,7 @@ namespace IntegrationTesting.Tests.IntegrationTests.HttpClients.Clients
         public async Task<List<ClientDto>> GetClientsAsync(CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/clients";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))

@@ -35,7 +35,7 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.HttpClients
         public async Task<TaskNameDto> GetTaskNameAsync(CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/bug-fixes";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))

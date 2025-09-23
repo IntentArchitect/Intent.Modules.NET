@@ -1,4 +1,4 @@
-### Version 2.2.35
+### Version 2.2.25
 
 - Improvement: adding using clause for `HttpRequestMessage` in `HttpCLient`s.
 

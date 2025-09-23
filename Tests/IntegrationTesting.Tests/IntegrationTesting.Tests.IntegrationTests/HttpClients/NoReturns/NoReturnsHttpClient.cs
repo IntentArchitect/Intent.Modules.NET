@@ -29,7 +29,7 @@ namespace IntegrationTesting.Tests.IntegrationTests.HttpClients.NoReturns
         public async Task CreateNoReturnAsync(CreateNoReturnCommand command, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/no-return";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(command, _serializerOptions);
@@ -47,7 +47,7 @@ namespace IntegrationTesting.Tests.IntegrationTests.HttpClients.NoReturns
         public async Task DeleteNoReturnAsync(Guid id, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/no-return/{id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Delete, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Delete, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
@@ -65,7 +65,7 @@ namespace IntegrationTesting.Tests.IntegrationTests.HttpClients.NoReturns
             CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/no-return/{id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(command, _serializerOptions);
@@ -83,7 +83,7 @@ namespace IntegrationTesting.Tests.IntegrationTests.HttpClients.NoReturns
         public async Task<NoReturnDto> GetNoReturnByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/no-return/{id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
@@ -103,7 +103,7 @@ namespace IntegrationTesting.Tests.IntegrationTests.HttpClients.NoReturns
         public async Task<List<NoReturnDto>> GetNoReturnsAsync(CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/no-return";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
