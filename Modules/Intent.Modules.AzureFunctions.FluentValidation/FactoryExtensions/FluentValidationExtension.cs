@@ -1,7 +1,6 @@
-using System;
-using System.Linq;
 using Intent.AzureFunctions.Api;
 using Intent.Engine;
+using Intent.Metadata.Models;
 using Intent.Modules.Application.FluentValidation.Dtos.Templates;
 using Intent.Modules.AzureFunctions.Templates.AzureFunctionClass;
 using Intent.Modules.Common;
@@ -12,6 +11,10 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Templates;
+using System;
+using System.Linq;
+using System.Reflection;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -69,21 +72,37 @@ namespace Intent.Modules.AzureFunctions.FluentValidation.FactoryExtensions
 
         private ICSharpFileBuilderTemplate TryGetValidator(AzureFunctionClassTemplate template)
         {
-            ICSharpFileBuilderTemplate result = null;
-            template.TryGetTemplate(TemplateRoles.Application.Validation.Command, template.Model.InternalElement, out result);
-            if (result is null)
-            {
-                template.TryGetTemplate(TemplateRoles.Application.Validation.Query, template.Model.InternalElement, out result);
-            }
-            if (result is null)
+            if (!TryGetTemplate<ICSharpFileBuilderTemplate>(template, TemplateRoles.Application.Validation.Query, template.Model.InternalElement, t => t.CanRunTemplate(), out var result)
+                && !TryGetTemplate<ICSharpFileBuilderTemplate>(template, TemplateRoles.Application.Validation.Query, template.Model.InternalElement, t => t.CanRunTemplate(), out result))
             {
                 var requestDtoTypeName = template.Model.GetRequestDtoParameter();
                 if (requestDtoTypeName is not null)
                 {
-                    template.TryGetTemplate(TemplateRoles.Application.Validation.Dto, requestDtoTypeName.TypeReference.Element, out result);
+                    TryGetTemplate<ICSharpFileBuilderTemplate>(template, TemplateRoles.Application.Validation.Dto, requestDtoTypeName.TypeReference.Element, t => t.CanRunTemplate(), out result);
                 }
             }
             return result;
+        }
+
+        private bool TryGetTemplate<T>(
+            AzureFunctionClassTemplate template,
+            string templateId,
+            IMetadataModel model,
+            Func<ITemplate, bool> predicate,
+            out T result)
+            where T : class, ITemplate
+        {
+            var templates = template.ExecutionContext.FindTemplateInstances(templateId, model);
+
+            var filtered = predicate is null ? templates : templates.Where(predicate);
+
+            result = filtered.OfType<T>().FirstOrDefault();
+            //Add Type references
+            if (result is not null)
+            {
+                template.GetTypeName(result);
+            }
+            return result is not null;
         }
     }
 }
