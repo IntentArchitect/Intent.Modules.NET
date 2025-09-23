@@ -1,3 +1,7 @@
+### Version 2.0.10
+
+- Improvement: adding using clause for `HttpRequestMessage` in `HttpCLient`s.
+ 
 ### Version 2.0.9
 
 - Improvement: Service proxies will now generate within any folders they are modelled within.
