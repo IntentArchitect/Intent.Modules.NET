@@ -70,21 +70,15 @@ let promptResult = await dialogService.openForm({
             fieldType: "select",
             label: "Model",
             isRequired: true,
-            selectOptions: [
-                // {
-                //     id: "custom",
-                //     description: "(custom model id)",
-                //     additionalInfo: "Custom",
-                // }
-            ].concat(Object.entries(modelLookup)
+            selectOptions: 
+                Object.entries(modelLookup)
                 .map(([key, value]) =&gt; { 
                     return { 
                         id: key, 
                         description: value.modelName, 
                         additionalInfo: value.providerName
                     }; 
-                })
-            ),
+                }),
             onChange: async (config) =&gt; {
                 const curThinkingType = modelLookup[config.getField("model").value].thinkingType;
                 
@@ -95,7 +89,7 @@ let promptResult = await dialogService.openForm({
                         {
                             id: "low",
                             description: "Low",
-                            additionalInfo: "Thinks less, more speed"
+                            additionalInfo: "Thinks less, quicker"
                         },
                         {
                             id: "high",
@@ -204,21 +198,15 @@ let promptResult = await dialogService.openForm({
             fieldType: "select",
             label: "Model",
             isRequired: true,
-            selectOptions: [
-                // {
-                //     id: "custom",
-                //     description: "(custom model id)",
-                //     additionalInfo: "Custom",
-                // }
-            ].concat(Object.entries(modelLookup)
+            selectOptions: 
+                Object.entries(modelLookup)
                 .map(([key, value]) =&gt; { 
                     return { 
                         id: key, 
                         description: value.modelName, 
                         additionalInfo: value.providerName
                     }; 
-                })
-            ),
+                }),
             onChange: async (config) =&gt; {
                 const curThinkingType = modelLookup[config.getField("model").value].thinkingType;
                 
@@ -229,7 +217,7 @@ let promptResult = await dialogService.openForm({
                         {
                             id: "low",
                             description: "Low",
-                            additionalInfo: "Thinks less, more speed"
+                            additionalInfo: "Thinks less, quicker"
                         },
                         {
                             id: "high",

@@ -14,6 +14,7 @@ using Intent.Utils;
 using Microsoft.SemanticKernel;
 using Newtonsoft.Json;
 using Intent.Modules.AI.UnitTests.Tasks.Helpers;
+using Intent.Modules.Common.AI.Settings;
 
 namespace Intent.Modules.AI.Prompts.Tasks;
 
@@ -49,10 +50,13 @@ public class GenerateCqrsHandlerUnitTestsWithAITask : IModuleTask
     {
         var applicationId = args[0];
         var elementId = args[1];
-        var userProvidedContext = args.Length > 2 && !string.IsNullOrWhiteSpace(args[2]) ? args[2] : "None";
+        var userProvidedContext = !string.IsNullOrWhiteSpace(args[2]) ? args[2] : "None";
+        var provider = new AISettings.ProviderOptions(args[3]).AsEnum();
+        var modelId = args[4];
+        var thinkingType = args[5];
 
         Logging.Log.Info($"Args: {string.Join(",", args)}");
-        var kernel = _intentSemanticKernelFactory.BuildSemanticKernel();
+        var kernel = _intentSemanticKernelFactory.BuildSemanticKernel(modelId, provider, null);
         
         var queryModel = _metadataManager.Services(applicationId).Elements.FirstOrDefault(x => x.Id == elementId);
         if (queryModel == null)
@@ -62,7 +66,7 @@ public class GenerateCqrsHandlerUnitTestsWithAITask : IModuleTask
         var inputFiles = GetInputFiles(queryModel);
         var jsonInput = JsonConvert.SerializeObject(inputFiles, Formatting.Indented);
         
-        var requestFunction = CreatePromptFunction(kernel);
+        var requestFunction = CreatePromptFunction(kernel, thinkingType);
         var fileChangesResult = requestFunction.InvokeFileChangesPrompt(kernel, new KernelArguments()
         {
             ["inputFilesJson"] = jsonInput,
@@ -84,7 +88,7 @@ public class GenerateCqrsHandlerUnitTestsWithAITask : IModuleTask
     }
 
 
-    private static KernelFunction CreatePromptFunction(Kernel kernel)
+    private static KernelFunction CreatePromptFunction(Kernel kernel, string thinkingType)
     {
         const string promptTemplate =
             """
@@ -202,7 +206,22 @@ public class GenerateCqrsHandlerUnitTestsWithAITask : IModuleTask
             {{$previousError}}
             """;
         
-        var requestFunction = kernel.CreateFunctionFromPrompt(promptTemplate);
+        var requestFunction = kernel.CreateFunctionFromPrompt(promptTemplate, new PromptExecutionSettings
+        {
+            ExtensionData = new Dictionary<string, object>
+            {
+                // OpenAI equivalent
+                ["reasoning"] = new
+                {
+                    effort = thinkingType
+                },
+                // Anthropic equivalent
+                ["thinking"] = new
+                {
+                    type = thinkingType == "low" ? "disabled" : thinkingType == "high" ? "enabled" : null
+                }
+            }
+        });
         return requestFunction;
     }
 
