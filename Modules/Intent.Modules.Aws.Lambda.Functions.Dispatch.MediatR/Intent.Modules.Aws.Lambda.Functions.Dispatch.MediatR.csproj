@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -7,19 +7,19 @@
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Application.MediatR" Version="4.3.0" />
-    <PackageReference Include="Intent.Modules.Common" Version="3.8.0" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.9.5-pre.1" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.9.1" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.9.6" />
     <PackageReference Include="Intent.Packager" Version="3.6.0-pre.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.7" />
-    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.7.0" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.10.0-pre.2" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.Aws.Lambda.Functions\Intent.Modules.Aws.Lambda.Functions.csproj" />
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
   </ItemGroup>
-  
+
 </Project>

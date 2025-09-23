@@ -12,7 +12,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5ff81d0b-6c92-491e-b923-a439c8556cf0</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Versioning.ApiVersioningConfiguration</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Versioning.ApiVersioningConfiguration#1b2221ac-10b0-4129-9975-8b78920494e2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Api/Configuration/ApiVersioningConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApiVersioningConfiguration.cs</ProjectRelativeFilePath>
@@ -20,7 +20,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5ff81d0b-6c92-491e-b923-a439c8556cf0</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions#aa1ee916-a1fc-4943-a4b6-ed11cf657cf2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Api/Configuration/ApiVersionSwaggerGenOptions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApiVersionSwaggerGenOptions.cs</ProjectRelativeFilePath>
@@ -28,7 +28,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5ff81d0b-6c92-491e-b923-a439c8556cf0</ProjectId>
-      <CorrelationId>Intent.Application.Identity.ApplicationSecurityConfiguration</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.ApplicationSecurityConfiguration#2c2691d4-e4ea-4239-b447-0efc20a31142</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Api/Configuration/ApplicationSecurityConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApplicationSecurityConfiguration.cs</ProjectRelativeFilePath>
@@ -36,7 +36,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5ff81d0b-6c92-491e-b923-a439c8556cf0</ProjectId>
-      <CorrelationId>Intent.AspNetCore.HealthChecks.HealthChecksConfiguration</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.HealthChecks.HealthChecksConfiguration#a8b43783-3247-417c-91ad-309e49e7ea01</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Api/Configuration/HealthChecksConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>HealthChecksConfiguration.cs</ProjectRelativeFilePath>
@@ -44,7 +44,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5ff81d0b-6c92-491e-b923-a439c8556cf0</ProjectId>
-      <CorrelationId>Intent.Modules.AspNetCore.MultiTenancy.MultiTenancyConfiguration</CorrelationId>
+      <CorrelationId>Intent.Modules.AspNetCore.MultiTenancy.MultiTenancyConfiguration#4cc0e534-eef0-4303-9c67-4c42d0772ced</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Api/Configuration/MultiTenancyConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MultiTenancyConfiguration.cs</ProjectRelativeFilePath>
@@ -52,7 +52,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5ff81d0b-6c92-491e-b923-a439c8556cf0</ProjectId>
-      <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration#dc8c80be-8120-424e-8371-a88f35f77045</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Api/Configuration/ProblemDetailsConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ProblemDetailsConfiguration.cs</ProjectRelativeFilePath>
@@ -60,7 +60,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5ff81d0b-6c92-491e-b923-a439c8556cf0</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration#98a47efe-b1e4-4ebf-9530-05568c6d9c68</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Api/Configuration/SwashbuckleConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SwashbuckleConfiguration.cs</ProjectRelativeFilePath>
@@ -76,7 +76,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>bbc4cdac-b702-466f-9b8f-189f94d96741</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.JsonResponse</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Controllers.JsonResponse#11ac9af6-8ad9-40ab-98c0-490eddd94dd4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Api/Controllers/ResponseTypes/JsonResponse.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>JsonResponse.cs</ProjectRelativeFilePath>
@@ -92,7 +92,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>83c37d57-e585-43f9-b6e2-4bc0da144e28</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter#516b9bcf-74ee-4343-9b26-205841da92de</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Api/Filters/AuthorizeCheckOperationFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AuthorizeCheckOperationFilter.cs</ProjectRelativeFilePath>
@@ -100,7 +100,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>83c37d57-e585-43f9-b6e2-4bc0da144e28</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.ExceptionFilter</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Controllers.ExceptionFilter#80a23b45-ba26-4af3-9b09-68ad42c8bc42</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Api/Filters/ExceptionFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ExceptionFilter.cs</ProjectRelativeFilePath>
@@ -108,7 +108,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>83c37d57-e585-43f9-b6e2-4bc0da144e28</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter#60abd488-8ba0-403f-88a5-5672280d0e9e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TypeSchemaFilter.cs</ProjectRelativeFilePath>
@@ -116,7 +116,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>8cd9895e-b06a-419d-ad60-e313d94bff61</ProjectId>
-      <CorrelationId>Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate</CorrelationId>
+      <CorrelationId>Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate#7bf55df3-67ea-48bc-87e9-7f998290a922</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Api/Logging/BoundedLoggingDestructuringPolicy.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>BoundedLoggingDestructuringPolicy.cs</ProjectRelativeFilePath>
@@ -124,7 +124,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>8a052d10-0bdd-46f3-899e-42f690960c62</ProjectId>
-      <CorrelationId>Intent.CosmosDB.CosmosDBMultiTenantMiddleware</CorrelationId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBMultiTenantMiddleware#4f5241b4-0aa5-48ce-850c-72d92c7b0281</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Api/Middleware/CosmosDBMultiTenantMiddleware.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CosmosDBMultiTenantMiddleware.cs</ProjectRelativeFilePath>
@@ -132,7 +132,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>d9a139b9-0f08-49cc-98ed-6f6e7470e887</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Program</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Program#98461a0d-4ff0-4e0b-b875-dc7ada839077</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Api/Program.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Program.cs</ProjectRelativeFilePath>
@@ -148,7 +148,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>777d6fcc-65ab-4c19-9b64-ac746c736f53</ProjectId>
-      <CorrelationId>Intent.Application.Identity.CurrentUserService</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserService#ea1cb978-718d-4c9b-88b2-7bfb454f310a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Api/Services/CurrentUserService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CurrentUserService.cs</ProjectRelativeFilePath>
@@ -156,7 +156,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>d9a139b9-0f08-49cc-98ed-6f6e7470e887</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Startup</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Startup#e7569680-20dc-43c8-866c-cde15f2b0237</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Api/Startup.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Startup.cs</ProjectRelativeFilePath>
@@ -164,7 +164,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>f5e2da58-efe4-4788-81fa-3c4f78819767</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.AuthorizationBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.AuthorizationBehaviour#420b99cc-44d3-4249-9546-97ff0256fcbf</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Application/Common/Behaviours/AuthorizationBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AuthorizationBehaviour.cs</ProjectRelativeFilePath>
@@ -172,7 +172,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>f5e2da58-efe4-4788-81fa-3c4f78819767</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.LoggingBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.LoggingBehaviour#5c32ebbc-cd18-48c2-9727-91aaa4cd2732</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Application/Common/Behaviours/LoggingBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>LoggingBehaviour.cs</ProjectRelativeFilePath>
@@ -180,7 +180,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>f5e2da58-efe4-4788-81fa-3c4f78819767</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.PerformanceBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.PerformanceBehaviour#8e1b7b89-0d0d-4ac7-950f-365d9889b0f3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Application/Common/Behaviours/PerformanceBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PerformanceBehaviour.cs</ProjectRelativeFilePath>
@@ -188,7 +188,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>f5e2da58-efe4-4788-81fa-3c4f78819767</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour#e71f4fc0-bd3b-4972-8cc3-b724f6ef2345</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UnhandledExceptionBehaviour.cs</ProjectRelativeFilePath>
@@ -196,7 +196,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>f5e2da58-efe4-4788-81fa-3c4f78819767</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour#8365e08e-4910-4eb8-a6b8-454904ac500b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Application/Common/Behaviours/UnitOfWorkBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UnitOfWorkBehaviour.cs</ProjectRelativeFilePath>
@@ -204,7 +204,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>f5e2da58-efe4-4788-81fa-3c4f78819767</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.FluentValidation.ValidationBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.ValidationBehaviour#f3b7ca51-6009-43ea-9512-06fc7f504ba1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Application/Common/Behaviours/ValidationBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ValidationBehaviour.cs</ProjectRelativeFilePath>
@@ -212,7 +212,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b4934ca7-23c5-44e6-ba21-6cc1c9c17994</ProjectId>
-      <CorrelationId>Intent.Application.Identity.ForbiddenAccessException</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.ForbiddenAccessException#3050bb33-ac98-41f2-8e62-18a75ea59aa3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Application/Common/Exceptions/ForbiddenAccessException.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ForbiddenAccessException.cs</ProjectRelativeFilePath>
@@ -220,7 +220,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>af57e9b9-90d9-4b78-a17c-9d4dea5cd487</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandInterface</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.CommandInterface#222cd47c-724e-46f6-8364-798cbe2b61bc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Application/Common/Interfaces/ICommand.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICommand.cs</ProjectRelativeFilePath>
@@ -228,7 +228,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>af57e9b9-90d9-4b78-a17c-9d4dea5cd487</ProjectId>
-      <CorrelationId>Intent.Application.Identity.CurrentUserInterface</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserInterface#cc38c267-dce8-4e62-8fa5-afee0ee3df79</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Application/Common/Interfaces/ICurrentUser.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICurrentUser.cs</ProjectRelativeFilePath>
@@ -236,7 +236,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>af57e9b9-90d9-4b78-a17c-9d4dea5cd487</ProjectId>
-      <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface#a44a54c8-9109-474d-9cae-94bf1d78e94e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Application/Common/Interfaces/ICurrentUserService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICurrentUserService.cs</ProjectRelativeFilePath>
@@ -244,7 +244,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>af57e9b9-90d9-4b78-a17c-9d4dea5cd487</ProjectId>
-      <CorrelationId>Intent.DomainEvents.DomainEventServiceInterface</CorrelationId>
+      <CorrelationId>Intent.DomainEvents.DomainEventServiceInterface#b49b2f49-1bdd-4c6a-ab27-ad9c44920d19</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Application/Common/Interfaces/IDomainEventService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IDomainEventService.cs</ProjectRelativeFilePath>
@@ -252,7 +252,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>af57e9b9-90d9-4b78-a17c-9d4dea5cd487</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.QueryInterface</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.QueryInterface#3da832e1-8f80-4334-b749-ee9a83a5f7fa</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Application/Common/Interfaces/IQuery.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IQuery.cs</ProjectRelativeFilePath>
@@ -260,7 +260,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>fb6c560a-da67-4e0f-b846-a5befa756820</ProjectId>
-      <CorrelationId>Intent.Application.AutoMapper.MapFromInterface</CorrelationId>
+      <CorrelationId>Intent.Application.AutoMapper.MapFromInterface#ddc5ab54-a823-4d33-8e1c-645caa8310b0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Application/Common/Mappings/IMapFrom.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IMapFrom.cs</ProjectRelativeFilePath>
@@ -268,7 +268,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>fb6c560a-da67-4e0f-b846-a5befa756820</ProjectId>
-      <CorrelationId>Intent.Application.AutoMapper.MappingProfile</CorrelationId>
+      <CorrelationId>Intent.Application.AutoMapper.MappingProfile#0804f96c-1f58-4eec-8de0-dab6bba093e9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Application/Common/Mappings/MappingProfile.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MappingProfile.cs</ProjectRelativeFilePath>
@@ -276,7 +276,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>18e6dc55-b72d-4b73-b0a9-79a150ce9d70</ProjectId>
-      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventNotification</CorrelationId>
+      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventNotification#f8d23e95-d80a-414d-9589-dfc21f80054f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Application/Common/Models/DomainEventNotification.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEventNotification.cs</ProjectRelativeFilePath>
@@ -284,7 +284,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>18e6dc55-b72d-4b73-b0a9-79a150ce9d70</ProjectId>
-      <CorrelationId>Intent.Application.Identity.ResultModel</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.ResultModel#198f4522-b439-4d79-8512-52facbcc74ca</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Application/Common/Models/Result.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Result.cs</ProjectRelativeFilePath>
@@ -292,7 +292,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>38ab4933-2c5a-4985-9a46-740508aaf319</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResult</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResult#2cbc4f7b-a550-4e28-8d61-aa14a6d5a6b1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Application/Common/Pagination/PagedResult.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedResult.cs</ProjectRelativeFilePath>
@@ -300,7 +300,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>38ab4933-2c5a-4985-9a46-740508aaf319</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResultMappingExtensions</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResultMappingExtensions#b7d6c223-f57f-4bb7-b618-74f67ef05ef0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Application/Common/Pagination/PagedResultMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedResultMappingExtensions.cs</ProjectRelativeFilePath>
@@ -308,7 +308,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>13fa05d9-2d82-4504-bd48-2c461416a21c</ProjectId>
-      <CorrelationId>Intent.Application.Identity.AuthorizeAttribute</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.AuthorizeAttribute#7e17874f-e5ab-4fbf-9b7d-ed758bffaa24</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Application/Common/Security/AuthorizeAttribute.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AuthorizeAttribute.cs</ProjectRelativeFilePath>
@@ -316,7 +316,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>bdabd8e7-4dc3-4974-84fb-341bef07b86c</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface</CorrelationId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface#38728215-afa1-4c86-936d-434452df28b6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Application/Common/Validation/IValidatorProvider.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IValidatorProvider.cs</ProjectRelativeFilePath>
@@ -324,7 +324,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>bdabd8e7-4dc3-4974-84fb-341bef07b86c</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProvider</CorrelationId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProvider#3b97eada-c542-49a9-a9dd-17791648088c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Application/Common/Validation/ValidatorProvider.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ValidatorProvider.cs</ProjectRelativeFilePath>
@@ -476,7 +476,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>40015115-dcf8-4fb3-90cc-fdf77ada70a1</ProjectId>
-      <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection</CorrelationId>
+      <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection#18f16d91-0fcd-4b71-9555-ffd40b1509ff</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Application/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
@@ -484,7 +484,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>83670418-a92c-49c9-b36c-91e7890c6554</ProjectId>
-      <CorrelationId>Intent.Entities.CollectionExtensions</CorrelationId>
+      <CorrelationId>Intent.Entities.CollectionExtensions#d406a4e1-7a85-4a6a-b38f-d0cfef2c4dd0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Domain/Common/CollectionExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CollectionExtensions.cs</ProjectRelativeFilePath>
@@ -492,7 +492,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>83670418-a92c-49c9-b36c-91e7890c6554</ProjectId>
-      <CorrelationId>Intent.DomainEvents.DomainEventBase</CorrelationId>
+      <CorrelationId>Intent.DomainEvents.DomainEventBase#17006678-8656-47e7-afeb-9b0f2724f087</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Domain/Common/DomainEvent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEvent.cs</ProjectRelativeFilePath>
@@ -500,7 +500,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>1aec9694-481d-4231-9abf-9c62b57add81</ProjectId>
-      <CorrelationId>Intent.Entities.NotFoundException</CorrelationId>
+      <CorrelationId>Intent.Entities.NotFoundException#13efa622-2ce5-4adc-ac69-80fb6bfc179a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Domain/Common/Exceptions/NotFoundException.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>NotFoundException.cs</ProjectRelativeFilePath>
@@ -508,7 +508,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>83670418-a92c-49c9-b36c-91e7890c6554</ProjectId>
-      <CorrelationId>Intent.DomainEvents.HasDomainEventInterface</CorrelationId>
+      <CorrelationId>Intent.DomainEvents.HasDomainEventInterface#2ae0f3f9-9120-4bc1-91bb-363360679d75</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Domain/Common/IHasDomainEvent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IHasDomainEvent.cs</ProjectRelativeFilePath>
@@ -516,7 +516,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>aaa80568-daf7-4253-aa3b-d5697e26a80b</ProjectId>
-      <CorrelationId>Intent.CosmosDB.CosmosDBUnitOfWorkInterface</CorrelationId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBUnitOfWorkInterface#d0035328-b7b9-4a54-9cad-014321c88b57</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Domain/Common/Interfaces/ICosmosDBUnitOfWork.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICosmosDBUnitOfWork.cs</ProjectRelativeFilePath>
@@ -524,7 +524,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>aaa80568-daf7-4253-aa3b-d5697e26a80b</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.UnitOfWorkInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.UnitOfWorkInterface#b15f7749-f86d-4e69-a65f-2f3a8905846b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Domain/Common/Interfaces/IUnitOfWork.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IUnitOfWork.cs</ProjectRelativeFilePath>
@@ -532,7 +532,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>83670418-a92c-49c9-b36c-91e7890c6554</ProjectId>
-      <CorrelationId>Intent.Entities.UpdateHelper</CorrelationId>
+      <CorrelationId>Intent.Entities.UpdateHelper#0dbde91f-03b8-4915-88f1-09d578ef8ede</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Domain/Common/UpdateHelper.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UpdateHelper.cs</ProjectRelativeFilePath>
@@ -564,7 +564,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>3953040c-c513-41c6-b3a3-99559ccfcff5</ProjectId>
-      <CorrelationId>Intent.CosmosDB.CosmosDBRepositoryInterface</CorrelationId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBRepositoryInterface#2f3beffe-194a-4d97-bd21-d05efa26c5da</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Domain/Repositories/ICosmosDBRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICosmosDBRepository.cs</ProjectRelativeFilePath>
@@ -580,7 +580,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>3953040c-c513-41c6-b3a3-99559ccfcff5</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.PagedListInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.PagedListInterface#6aee6283-164a-4085-8634-d34d4dfccf9e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Domain/Repositories/IPagedList.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IPagedList.cs</ProjectRelativeFilePath>
@@ -588,7 +588,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>3953040c-c513-41c6-b3a3-99559ccfcff5</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.RepositoryInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.RepositoryInterface#732eb80e-aea6-4ee6-ac0a-a86428c08161</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Domain/Repositories/IRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IRepository.cs</ProjectRelativeFilePath>
@@ -596,7 +596,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>0c6cb3cc-1ea4-4ece-82f4-b300844593ad</ProjectId>
-      <CorrelationId>Intent.CosmosDB.CosmosDBMultiTenancyConfiguration</CorrelationId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBMultiTenancyConfiguration#1157c143-22a8-4f6b-829b-0c63bed3e641</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Infrastructure/Configuration/CosmosDBMultiTenancyConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CosmosDBMultiTenancyConfiguration.cs</ProjectRelativeFilePath>
@@ -612,7 +612,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>d87b2cba-2801-42f5-a6e7-8636e0eb99bf</ProjectId>
-      <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection</CorrelationId>
+      <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#9583b501-a8de-41ad-a062-69f2f40e490e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Infrastructure/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
@@ -620,7 +620,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>4d359348-d57a-4128-92f5-a2c5a4e8f1b4</ProjectId>
-      <CorrelationId>Intent.CosmosDB.CosmosDBMultiTenantClientProvider</CorrelationId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBMultiTenantClientProvider#e1f0182e-5761-4686-97ec-4e041695e227</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Infrastructure/Persistence/CosmosDBMultiTenantClientProvider.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CosmosDBMultiTenantClientProvider.cs</ProjectRelativeFilePath>
@@ -628,7 +628,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>4d359348-d57a-4128-92f5-a2c5a4e8f1b4</ProjectId>
-      <CorrelationId>Intent.CosmosDB.CosmosDBMultitenantContainerProvider</CorrelationId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBMultitenantContainerProvider#595824d3-94f1-414b-b4d2-9b7986cfc1c4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Infrastructure/Persistence/CosmosDBMultitenantContainerProvider.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CosmosDBMultitenantContainerProvider.cs</ProjectRelativeFilePath>
@@ -636,7 +636,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>4d359348-d57a-4128-92f5-a2c5a4e8f1b4</ProjectId>
-      <CorrelationId>Intent.CosmosDB.CosmosDBMultiTenantOptionsMonitor</CorrelationId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBMultiTenantOptionsMonitor#f401e648-f3a1-4ff5-98f3-da5dad73300d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Infrastructure/Persistence/CosmosDBMultiTenantOptionsMonitor.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CosmosDBMultiTenantOptionsMonitor.cs</ProjectRelativeFilePath>
@@ -644,7 +644,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>4d359348-d57a-4128-92f5-a2c5a4e8f1b4</ProjectId>
-      <CorrelationId>Intent.CosmosDB.CosmosDBMultiTenantRepositoryOptions</CorrelationId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBMultiTenantRepositoryOptions#e0f7d6ea-6ac0-439a-9ae0-6d6432bee6ea</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Infrastructure/Persistence/CosmosDBMultiTenantRepositoryOptions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CosmosDBMultiTenantRepositoryOptions.cs</ProjectRelativeFilePath>
@@ -652,7 +652,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>4d359348-d57a-4128-92f5-a2c5a4e8f1b4</ProjectId>
-      <CorrelationId>Intent.CosmosDB.CosmosDBUnitOfWork</CorrelationId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBUnitOfWork#1ad3eb9a-0532-4a2f-9bfd-c826a7e87079</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Infrastructure/Persistence/CosmosDBUnitOfWork.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CosmosDBUnitOfWork.cs</ProjectRelativeFilePath>
@@ -668,7 +668,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>78a203ba-1050-4da6-876d-f9714be3e261</ProjectId>
-      <CorrelationId>Intent.CosmosDB.CosmosDBDocumentOfTInterface</CorrelationId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocumentOfTInterface#17c76e88-c394-4c60-9279-32dcb26d0ca6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Infrastructure/Persistence/Documents/ICosmosDBDocument.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICosmosDBDocument.cs</ProjectRelativeFilePath>
@@ -676,7 +676,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>78a203ba-1050-4da6-876d-f9714be3e261</ProjectId>
-      <CorrelationId>Intent.CosmosDB.CosmosDBDocumentTypeExtensionMethods</CorrelationId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocumentTypeExtensionMethods#b495d2a2-7d69-49f3-89fa-480d7b64621a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Infrastructure/Persistence/Documents/TypeExtensionMethods.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TypeExtensionMethods.cs</ProjectRelativeFilePath>
@@ -684,7 +684,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>3b19465a-3dce-4a57-9a30-3d7e7152a150</ProjectId>
-      <CorrelationId>Intent.CosmosDB.CosmosDBRepositoryBase</CorrelationId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBRepositoryBase#dd09f1d1-2555-4930-bf31-894da20e2703</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Infrastructure/Repositories/CosmosDBRepositoryBase.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CosmosDBRepositoryBase.cs</ProjectRelativeFilePath>
@@ -692,7 +692,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>3b19465a-3dce-4a57-9a30-3d7e7152a150</ProjectId>
-      <CorrelationId>Intent.CosmosDB.CosmosPagedList</CorrelationId>
+      <CorrelationId>Intent.CosmosDB.CosmosPagedList#d723b272-01e7-45e0-ade5-28f32abfa319</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Infrastructure/Repositories/CosmosPagedList.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CosmosPagedList.cs</ProjectRelativeFilePath>
@@ -708,7 +708,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>65fb7ff5-595d-409e-a3b4-78884e959ba8</ProjectId>
-      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventService</CorrelationId>
+      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventService#094002f9-831b-4abe-bc0e-cb8f10958937</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Infrastructure/Services/DomainEventService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEventService.cs</ProjectRelativeFilePath>

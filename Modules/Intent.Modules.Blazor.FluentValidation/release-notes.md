@@ -1,3 +1,8 @@
+### Version 1.1.6
+
+- Improvement: Updated `ModelDefinition` validators namespaces to respect folders.
+- Improvement: Add a setting to opt into  `ModelDefinition` validators, as these are not standard for all component libraries.
+
 ### Version 1.1.5
 
 - Fixed: DTO Validation generation is only generated when valid DTOs are present.
@@ -17,7 +22,7 @@
 
 ### Version 1.1.1
 
-- Improvement: Added stereotype descriptions in preperation for Intent Architect 4.5. 
+- Improvement: Added stereotype descriptions in preparation for Intent Architect 4.5. 
 
 ### Version 1.1.0
 

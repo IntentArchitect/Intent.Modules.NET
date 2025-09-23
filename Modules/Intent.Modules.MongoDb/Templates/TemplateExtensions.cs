@@ -2,9 +2,8 @@ using System.Collections.Generic;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.MongoDb.Templates.MongoDbDocument;
-using Intent.Modules.MongoDb.Templates.MongoDbDocumentInterface;
-using Intent.Modules.MongoDb.Templates.MongoDbDocumentOfTInterface;
+using Intent.Modules.MongoDb.Templates.MongoConfigurationExtensions;
+using Intent.Modules.MongoDb.Templates.MongoDbMapping;
 using Intent.Modules.MongoDb.Templates.MongoDbMultiTenantConnectionFactory;
 using Intent.Modules.MongoDb.Templates.MongoDbPagedList;
 using Intent.Modules.MongoDb.Templates.MongoDbRepository;
@@ -14,7 +13,7 @@ using Intent.Modules.MongoDb.Templates.MongoDbUnitOfWork;
 using Intent.Modules.MongoDb.Templates.MongoDbUnitOfWorkInterface;
 using Intent.Modules.MongoDb.Templates.MongoDbValueObjectDocument;
 using Intent.Modules.MongoDb.Templates.MongoDbValueObjectDocumentInterface;
-using Intent.Modules.MongoDb.Templates.ReflectionHelper;
+using Intent.Modules.MongoDb.Templates.MongoMappingConfigurationInterface;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -25,29 +24,19 @@ namespace Intent.Modules.MongoDb.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetMongoDbDocumentName<T>(this IIntentTemplate<T> template) where T : ClassModel
+        public static string GetMongoConfigurationExtensionsName(this IIntentTemplate template)
         {
-            return template.GetTypeName(MongoDbDocumentTemplate.TemplateId, template.Model);
+            return template.GetTypeName(MongoConfigurationExtensionsTemplate.TemplateId);
         }
 
-        public static string GetMongoDbDocumentName(this IIntentTemplate template, ClassModel model)
+        public static string GetMongoDbMappingName<T>(this IIntentTemplate<T> template) where T : ClassModel
         {
-            return template.GetTypeName(MongoDbDocumentTemplate.TemplateId, model);
+            return template.GetTypeName(MongoDbMappingTemplate.TemplateId, template.Model);
         }
 
-        public static string GetMongoDbDocumentInterfaceName<T>(this IIntentTemplate<T> template) where T : ClassModel
+        public static string GetMongoDbMappingName(this IIntentTemplate template, ClassModel model)
         {
-            return template.GetTypeName(MongoDbDocumentInterfaceTemplate.TemplateId, template.Model);
-        }
-
-        public static string GetMongoDbDocumentInterfaceName(this IIntentTemplate template, ClassModel model)
-        {
-            return template.GetTypeName(MongoDbDocumentInterfaceTemplate.TemplateId, model);
-        }
-
-        public static string GetMongoDbDocumentOfTInterfaceName(this IIntentTemplate template)
-        {
-            return template.GetTypeName(MongoDbDocumentOfTInterfaceTemplate.TemplateId);
+            return template.GetTypeName(MongoDbMappingTemplate.TemplateId, model);
         }
 
         public static string GetMongoDbMultiTenantConnectionFactoryName(this IIntentTemplate template)
@@ -110,9 +99,9 @@ namespace Intent.Modules.MongoDb.Templates
             return template.GetTypeName(MongoDbValueObjectDocumentInterfaceTemplate.TemplateId, model);
         }
 
-        public static string GetReflectionHelperName(this IIntentTemplate template)
+        public static string GetMongoMappingConfigurationInterfaceName(this IIntentTemplate template)
         {
-            return template.GetTypeName(ReflectionHelperTemplate.TemplateId);
+            return template.GetTypeName(MongoMappingConfigurationInterfaceTemplate.TemplateId);
         }
 
     }

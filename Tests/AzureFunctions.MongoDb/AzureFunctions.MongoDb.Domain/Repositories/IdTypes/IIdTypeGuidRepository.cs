@@ -1,10 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 using AzureFunctions.MongoDb.Domain.Entities.IdTypes;
-using AzureFunctions.MongoDb.Domain.Repositories.Documents.IdTypes;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -13,7 +11,11 @@ using Intent.RoslynWeaver.Attributes;
 namespace AzureFunctions.MongoDb.Domain.Repositories.IdTypes
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IIdTypeGuidRepository : IMongoRepository<IdTypeGuid, IIdTypeGuidDocument, Guid>
+    public interface IIdTypeGuidRepository : IMongoRepository<IdTypeGuid, Guid>
     {
+        [IntentManaged(Mode.Fully)]
+        Task<IdTypeGuid?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<List<IdTypeGuid>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }
 }

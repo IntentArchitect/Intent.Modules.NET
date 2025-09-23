@@ -3,7 +3,6 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using GraphQL.MongoDb.TestApplication.Domain.Repositories;
-using GraphQL.MongoDb.TestApplication.Infrastructure.Persistence.Documents;
 using Intent.RoslynWeaver.Attributes;
 using MongoDB.Driver.Linq;
 
@@ -12,9 +11,8 @@ using MongoDB.Driver.Linq;
 
 namespace GraphQL.MongoDb.TestApplication.Infrastructure.Repositories
 {
-    internal class MongoPagedList<TDomain, TDocument, TIdentifier> : List<TDomain>, IPagedList<TDomain>
+    internal class MongoPagedList<TDomain, TIdentifier> : List<TDomain>, IPagedList<TDomain>
         where TDomain : class
-        where TDocument : IMongoDbDocument<TDomain, TDocument, TIdentifier>
     {
         public MongoPagedList(IQueryable<TDomain> source, int pageNo, int pageSize)
         {
@@ -56,7 +54,7 @@ namespace GraphQL.MongoDb.TestApplication.Infrastructure.Repositories
         }
 
         public static async Task<IPagedList<TDomain>> CreateAsync(
-            IQueryable<TDocument> source,
+            IQueryable<TDomain> source,
             int pageNo,
             int pageSize,
             CancellationToken cancellationToken = default)
@@ -68,7 +66,7 @@ namespace GraphQL.MongoDb.TestApplication.Infrastructure.Repositories
                 .Skip(skip)
                 .Take(pageSize)
                 .ToListAsync(cancellationToken);
-            return new MongoPagedList<TDomain, TDocument, TIdentifier>(count, pageNo, pageSize, results.Select(x => x.ToEntity()).ToList());
+            return new MongoPagedList<TDomain, TIdentifier>(count, pageNo, pageSize, results);
         }
     }
 }

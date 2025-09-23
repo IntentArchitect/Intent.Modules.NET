@@ -1,12 +1,14 @@
+using System;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using MongoDB.Driver;
 using MultipleDocumentStores.Application.Common.Interfaces;
 using MultipleDocumentStores.Domain.Common.Interfaces;
 using MultipleDocumentStores.Domain.Repositories;
+using MultipleDocumentStores.Infrastructure.Configuration;
 using MultipleDocumentStores.Infrastructure.Persistence;
-using MultipleDocumentStores.Infrastructure.Persistence.Documents;
 using MultipleDocumentStores.Infrastructure.Repositories;
 using MultipleDocumentStores.Infrastructure.Services;
 
@@ -20,26 +22,16 @@ namespace MultipleDocumentStores.Infrastructure
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddCosmosRepository();
-            services.AddSingleton<IMongoClient>(sp =>
+            var cs = configuration.GetConnectionString("MongoDbConnection");
+            services.TryAddSingleton<IMongoClient>(_ => new MongoClient(cs));
+            services.TryAddSingleton<IMongoDatabase>(sp =>
                     {
-                        var connectionString = configuration.GetConnectionString("MongoDbConnection");
-                        return new MongoClient(connectionString);
+                        var dbName = new MongoUrl(cs).DatabaseName
+                                     ?? throw new InvalidOperationException(
+                                         "MongoDbConnection must include a database name.");
+                        return sp.GetRequiredService<IMongoClient>().GetDatabase(dbName);
                     });
-            services.AddSingleton(sp =>
-                    {
-                        var connectionString = configuration.GetConnectionString("MongoDbConnection");
-
-                        // Parse connection string to get the database name
-                        var mongoUrl = new MongoUrl(connectionString);
-                        var client = sp.GetRequiredService<IMongoClient>();
-
-                        return client.GetDatabase(mongoUrl.DatabaseName);
-                    });
-            services.AddSingleton<IMongoCollection<CustomerMongoDocument>>(sp =>
-                            {
-                                var database = sp.GetRequiredService<IMongoDatabase>();
-                                return database.GetCollection<CustomerMongoDocument>("CustomerMongo");
-                            });
+            services.RegisterMongoCollections(typeof(DependencyInjection).Assembly);
             services.AddScoped<ICustomerCosmosRepository, CustomerCosmosCosmosDBRepository>();
             services.AddScoped<ICustomerDaprRepository, CustomerDaprDaprStateStoreRepository>();
             services.AddScoped<ICustomerMongoRepository, CustomerMongoMongoRepository>();

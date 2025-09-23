@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="652d23ee-b1ac-4feb-9a0e-cf502087631c" type="Component" typeId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b">
+  <name>CustomerAdd</name>
+  <display>CustomerAdd</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>e117e0fb-4f07-40e8-930b-36e9466e0765</parentFolderId>
+  <packageId>5741124d-249d-489b-a8a8-5a68530785ff</packageId>
+  <packageName>BlazorServerTests.UI</packageName>
+  <traits>
+    <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+  </traits>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="ea4adc09-8978-4ede-ba5f-265debb2b60c" name="Page">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Modelers.UI</definitionPackageName>
+      <definitionPackageId>5c4628ec-679e-4f3d-afda-137c978deae0</definitionPackageId>
+      <properties>
+        <property name="9dff9df1-a993-4bf6-9aa7-c16811142228" display="Route" value="/customer-add" isActive="true" />
+        <property name="0a8627ba-ec45-4023-9c36-b0999f43e982" display="Title" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <mappings>
+    <mapping type="View Binding" typeId="c33f86ad-423a-4a6f-a80c-a3206eafe5cd">
+      <source applicationId="f8b54b48-1f06-4e13-a107-2e93c5a3e37b" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="652d23ee-b1ac-4feb-9a0e-cf502087631c" location="[BlazorServerTests].[User Interface].[CustomerAdd]" />
+      <target applicationId="f8b54b48-1f06-4e13-a107-2e93c5a3e37b" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="f2ea2435-b861-4edb-888a-57015371934a" location="[BlazorServerTests].[User Interface].[[view]]" />
+      <mappedEnds />
+    </mapping>
+  </mappings>
+  <metadata />
+  <childElements>
+    <childElement id="ff9dd430-890d-475f-966d-548355008ad0" type="Property" typeId="356fbe17-bc63-4e16-b915-feefbc063cbe">
+      <name>Model</name>
+      <display>Model: CreateCustomerModel = new()</display>
+      <isAbstract>false</isAbstract>
+      <value>new()</value>
+      <genericTypes />
+      <typeReference id="2ee0e5f8-c19e-487b-96ab-67e1e162d210">
+        <typeId>da75d369-42ed-440d-bbf3-6c41a9782b12</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>BlazorServerTests.UI</typePackageName>
+        <typePackageId>5741124d-249d-489b-a8a8-5a68530785ff</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>652d23ee-b1ac-4feb-9a0e-cf502087631c</parentFolderId>
+      <packageId>5741124d-249d-489b-a8a8-5a68530785ff</packageId>
+      <packageName>BlazorServerTests.UI</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="3f689d61-baf5-4ef6-9619-11fb7fd9d79f" type="Component Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>OnInitializedAsync</name>
+      <display>OnInitializedAsync(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="da2e7162-1e4f-4171-ba05-d909c5b95592">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>652d23ee-b1ac-4feb-9a0e-cf502087631c</parentFolderId>
+      <packageId>5741124d-249d-489b-a8a8-5a68530785ff</packageId>
+      <packageName>BlazorServerTests.UI</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="4df7b99d-94d9-4440-93d7-19e5253e2fea" type="Component Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>Cancel</name>
+      <display>Cancel(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="f12b40c1-cfba-4227-97c7-1ad5b7b794c5">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>652d23ee-b1ac-4feb-9a0e-cf502087631c</parentFolderId>
+      <packageId>5741124d-249d-489b-a8a8-5a68530785ff</packageId>
+      <packageName>BlazorServerTests.UI</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="3b63ed6f-02ea-4dd8-b4f8-34b1214933ce" type="Component Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>CreateCustomer</name>
+      <display>CreateCustomer(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="69bf24ac-f9fe-4c75-99a4-3c8ac9aa6083">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>652d23ee-b1ac-4feb-9a0e-cf502087631c</parentFolderId>
+      <packageId>5741124d-249d-489b-a8a8-5a68530785ff</packageId>
+      <packageName>BlazorServerTests.UI</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

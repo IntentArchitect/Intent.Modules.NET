@@ -1,3 +1,7 @@
+### Version 1.0.3
+
+- Fixed: Add type source for `Domain Enums`.
+
 ### Version 1.0.2
 
 - Improvement: Updated NuGet package versions.

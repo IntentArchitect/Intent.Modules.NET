@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9464090b-c940-4761-a983-5bb36927ea33" type="Integration Event Handler" typeId="c0582230-22f5-4f74-8eb0-ec6fc9364900">
+  <name>PublishAndConsumeEventHandler</name>
+  <display>PublishAndConsumeEventHandler</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>5486d1d9-9d8f-4e50-89ee-18e28304d15e</parentFolderId>
+  <packageId>5486d1d9-9d8f-4e50-89ee-18e28304d15e</packageId>
+  <packageName>AspNetCore.AzureServiceBus.GroupB.Services</packageName>
+  <traits>
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

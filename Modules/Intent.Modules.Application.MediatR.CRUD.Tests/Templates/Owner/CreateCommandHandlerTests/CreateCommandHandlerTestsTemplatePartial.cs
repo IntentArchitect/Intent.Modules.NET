@@ -55,7 +55,7 @@ public partial class CreateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
                 AddSuccessfulHandlerTest(priClass, facade);
 
                 this.AddCommandAssertionMethods(Model);
-            }, 1);
+            }, TemplateConstants.AfterBuildOrder);
     }
 
     private bool? _canRunTemplate;

@@ -51,6 +51,12 @@ namespace Intent.Modules.Constants
                 public const string Interface = "Domain.DomainServices.Interface";
                 public const string Implementation = "Domain.DomainServices.Implementation";
             }
+
+            public static class Common
+            {
+                public const string EventBase = "Domain.Common.EventBase";
+                public const string HasDomainEventInterface = "Domain.Common.HasDomainEventInterface";
+            }
         }
 
         public static class Repository
@@ -93,6 +99,7 @@ namespace Intent.Modules.Constants
                 public const string ValidationServiceInterface = "Application.Common.ValidatonServiceInterface";
                 public const string PagedList = "Application.Common.PagedList";
                 public const string CursorPagedList = "Application.Common.CursorPagedList";
+                public const string DomainEventServiceInterface = "Application.Common.DomainEventServiceInterface";
             }
 
             public static class Contracts

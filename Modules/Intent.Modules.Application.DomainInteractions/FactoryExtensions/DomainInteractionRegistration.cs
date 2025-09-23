@@ -1,10 +1,9 @@
 using Intent.Engine;
-using Intent.Modules.Application.Contracts.InteractionStrategies;
 using Intent.Modules.Application.DomainInteractions.InteractionStrategies;
+using Intent.Modules.Application.DomainInteractions.Strategies;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Interactions;
 using Intent.Modules.Common.Plugins;
-using Intent.Modules.Eventing.Contracts.InteractionStrategies;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -25,13 +24,15 @@ namespace Intent.Modules.Application.DomainInteractions.FactoryExtensions
         {
             InteractionStrategyProvider.Instance.Register(new ODataQueryInteractionStrategy());
             InteractionStrategyProvider.Instance.Register(new QueryInteractionStrategy());
-            //InteractionStrategyProvider.Instance.Register(new CallDomainServiceInteractionStrategy());
             InteractionStrategyProvider.Instance.Register(new CallEntityServiceInteractionStrategy());
             InteractionStrategyProvider.Instance.Register(new CreateEntityInteractionStrategy());
             InteractionStrategyProvider.Instance.Register(new UpdateEntityInteractionStrategy());
             InteractionStrategyProvider.Instance.Register(new DeleteEntityInteractionStrategy());
             InteractionStrategyProvider.Instance.Register(new ProcessingActionInteractionStrategy());
             InteractionStrategyProvider.Instance.Register(new CallDomainServiceInteractionStrategy());
+
+            MappingStrategyProvider.Instance.Register(new AutoMapperMappingStrategy());
+            MappingStrategyProvider.Instance.Register(new MapperlyMappingStrategy());
         }
     }
 }

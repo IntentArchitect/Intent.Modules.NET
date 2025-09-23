@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="9b6c7bbb-ca3b-4d8d-af19-635b918b00b9">
+  <sourceEnd id="bff6d4d2-f076-41de-a743-c80fdd8f1632" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : PublishService.PublishEventForConsumption</display>
+    <order>0</order>
+    <typeReference id="1517bdce-d5c4-4341-9c4c-6b7b204dc9c2">
+      <typeId>0939f962-f632-4299-9e4d-171fdf0465ba</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AspNetCore.AzureServiceBus.GroupB.Services</typePackageName>
+      <typePackageId>5486d1d9-9d8f-4e50-89ee-18e28304d15e</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="9b6c7bbb-ca3b-4d8d-af19-635b918b00b9" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] PublishAndConsumeEvent</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="b2fd0d28-99f8-4f6e-b9bb-381bbcb23710">
+      <typeId>f98bf05d-f160-4170-98cf-9e19f694a37d</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AspNetCore.AzureServiceBus.GroupB.Eventing.Messages</typePackageName>
+      <typePackageId>073adced-c5e9-4466-be6c-f8d3e52c42a0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="16bf1a1d-fd8e-4797-a81e-bbe58bf9cc08" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="0939f962-f632-4299-9e4d-171fdf0465ba" location="[AspNetCore.AzureServiceBus.GroupB].[Services].[PublishEventForConsumption]" />
+        <target applicationId="16bf1a1d-fd8e-4797-a81e-bbe58bf9cc08" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="f98bf05d-f160-4170-98cf-9e19f694a37d" location="[AspNetCore.AzureServiceBus.GroupB].[Services].[PublishAndConsumeEvent]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{payload.Data}</expression>
+            <path>
+              <target id="f98bf05d-f160-4170-98cf-9e19f694a37d" name="PublishAndConsumeEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="1334b0c3-15d6-448b-b661-3c3d955f7ec9" name="Data" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="payload.Data" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="0939f962-f632-4299-9e4d-171fdf0465ba" name="PublishEventForConsumption" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="15f7c82e-5856-46e6-a83d-6a50a3166681" name="payload" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="8ec6da54-dfc2-49f4-bba6-ff83a8eec52e" name="Data" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>

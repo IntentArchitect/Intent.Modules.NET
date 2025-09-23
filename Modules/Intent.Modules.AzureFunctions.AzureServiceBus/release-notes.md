@@ -1,3 +1,7 @@
+### Version 1.0.7
+
+- Improvement: Updated Shared Module.
+
 ### Version 1.0.6
 
 - Improvement: Added support for DynamoDB unit of work.

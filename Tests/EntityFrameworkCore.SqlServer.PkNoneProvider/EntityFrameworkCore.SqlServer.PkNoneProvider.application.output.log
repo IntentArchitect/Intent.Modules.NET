@@ -596,6 +596,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>1c0bdbeb-a7b4-44f7-95b2-e3fada7bdc26</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#a6ce48b8-577c-426d-a85c-c012cf036ceb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.PkNoneProvider.Domain/Entities/Enums/AddressInfo.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Enums/AddressInfo.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1c0bdbeb-a7b4-44f7-95b2-e3fada7bdc26</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#5baa9bd4-77bb-4c90-b037-8f8d60168326</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.PkNoneProvider.Domain/Entities/ExplicitKeys/ChildNonStdId.cs</ApplicationRelativeFilePath>
@@ -1555,6 +1563,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>991ed6ba-bf10-4d6a-9097-941eb5db16a5</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEnum#6d2520f2-7d88-45dd-93f4-a775f7958169</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.PkNoneProvider.Domain/Enums/AddressType.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Enums/AddressType.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>991ed6ba-bf10-4d6a-9097-941eb5db16a5</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEnum#313c8a2f-8fa5-4daf-848c-2d2773d4b07b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.PkNoneProvider.Domain/Enums/BuildingType.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Enums/BuildingType.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>66090e18-6d68-447d-96d5-d9bf981d441e</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#9987d42e-8e4b-4f60-b98f-8b55b7c51c52</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -1816,6 +1840,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.PkNoneProvider.Domain/Repositories/BasicAudit/IAudit_SoloClassRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>BasicAudit/IAudit_SoloClassRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>66090e18-6d68-447d-96d5-d9bf981d441e</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#a6ce48b8-577c-426d-a85c-c012cf036ceb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.PkNoneProvider.Domain/Repositories/Enums/IAddressInfoRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Enums/IAddressInfoRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -3044,6 +3076,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>9e5ef83a-2f67-48a3-8ab8-7390bd257820</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#a6ce48b8-577c-426d-a85c-c012cf036ceb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.PkNoneProvider.Infrastructure/Persistence/Configurations/Enums/AddressInfoConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Enums/AddressInfoConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9e5ef83a-2f67-48a3-8ab8-7390bd257820</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#5baa9bd4-77bb-4c90-b037-8f8d60168326</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.PkNoneProvider.Infrastructure/Persistence/Configurations/ExplicitKeys/ChildNonStdIdConfiguration.cs</ApplicationRelativeFilePath>
@@ -4184,6 +4224,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.PkNoneProvider.Infrastructure/Repositories/BasicAudit/Audit_SoloClassRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>BasicAudit/Audit_SoloClassRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>38538c9b-68b9-4436-8b85-d8fe83ab023b</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#a6ce48b8-577c-426d-a85c-c012cf036ceb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.PkNoneProvider.Infrastructure/Repositories/Enums/AddressInfoRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Enums/AddressInfoRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

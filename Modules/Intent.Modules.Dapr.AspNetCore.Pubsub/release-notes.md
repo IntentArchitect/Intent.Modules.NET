@@ -1,4 +1,8 @@
-﻿### Version 3.0.7
+﻿### Version 3.0.8
+
+- Improvement: Updated Shared Module.
+
+### Version 3.0.7
 
 - Fixed: A software factory exception would occur when references were used in the Visual Studio designer.
 

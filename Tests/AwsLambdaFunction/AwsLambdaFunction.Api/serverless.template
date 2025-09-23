@@ -1,0 +1,707 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Transform": "AWS::Serverless-2016-10-31",
+  "Description": "This template is partially managed by Amazon.Lambda.Annotations (v1.7.0.0).",
+  "Resources": {
+    "AwsLambdaFunctionApiDynClientsFunctionsCreateDynClientAsyncGenerated": {
+      "Type": "AWS::Serverless::Function",
+      "Metadata": {
+        "Tool": "Amazon.Lambda.Annotations",
+        "SyncedEvents": [
+          "RootPost"
+        ],
+        "SyncedEventProperties": {
+          "RootPost": [
+            "Path",
+            "Method"
+          ]
+        }
+      },
+      "Properties": {
+        "Runtime": "dotnet8",
+        "CodeUri": ".",
+        "MemorySize": 512,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole"
+        ],
+        "PackageType": "Zip",
+        "Handler": "AwsLambdaFunction.Api::AwsLambdaFunction.Api.DynClientsFunctions_CreateDynClientAsync_Generated::CreateDynClientAsync",
+        "Events": {
+          "RootPost": {
+            "Type": "HttpApi",
+            "Properties": {
+              "Path": "/api/dyn-clients",
+              "Method": "POST"
+            }
+          }
+        }
+      }
+    },
+    "AwsLambdaFunctionApiDynClientsFunctionsDeleteDynClientAsyncGenerated": {
+      "Type": "AWS::Serverless::Function",
+      "Metadata": {
+        "Tool": "Amazon.Lambda.Annotations",
+        "SyncedEvents": [
+          "RootDelete"
+        ],
+        "SyncedEventProperties": {
+          "RootDelete": [
+            "Path",
+            "Method"
+          ]
+        }
+      },
+      "Properties": {
+        "Runtime": "dotnet8",
+        "CodeUri": ".",
+        "MemorySize": 512,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole"
+        ],
+        "PackageType": "Zip",
+        "Handler": "AwsLambdaFunction.Api::AwsLambdaFunction.Api.DynClientsFunctions_DeleteDynClientAsync_Generated::DeleteDynClientAsync",
+        "Events": {
+          "RootDelete": {
+            "Type": "HttpApi",
+            "Properties": {
+              "Path": "/api/dyn-clients/{id}",
+              "Method": "DELETE"
+            }
+          }
+        }
+      }
+    },
+    "AwsLambdaFunctionApiDynClientsFunctionsUpdateDynClientAsyncGenerated": {
+      "Type": "AWS::Serverless::Function",
+      "Metadata": {
+        "Tool": "Amazon.Lambda.Annotations",
+        "SyncedEvents": [
+          "RootPut"
+        ],
+        "SyncedEventProperties": {
+          "RootPut": [
+            "Path",
+            "Method"
+          ]
+        }
+      },
+      "Properties": {
+        "Runtime": "dotnet8",
+        "CodeUri": ".",
+        "MemorySize": 512,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole"
+        ],
+        "PackageType": "Zip",
+        "Handler": "AwsLambdaFunction.Api::AwsLambdaFunction.Api.DynClientsFunctions_UpdateDynClientAsync_Generated::UpdateDynClientAsync",
+        "Events": {
+          "RootPut": {
+            "Type": "HttpApi",
+            "Properties": {
+              "Path": "/api/dyn-clients/{id}",
+              "Method": "PUT"
+            }
+          }
+        }
+      }
+    },
+    "AwsLambdaFunctionApiDynClientsFunctionsGetDynClientByIdAsyncGenerated": {
+      "Type": "AWS::Serverless::Function",
+      "Metadata": {
+        "Tool": "Amazon.Lambda.Annotations",
+        "SyncedEvents": [
+          "RootGet"
+        ],
+        "SyncedEventProperties": {
+          "RootGet": [
+            "Path",
+            "Method"
+          ]
+        }
+      },
+      "Properties": {
+        "Runtime": "dotnet8",
+        "CodeUri": ".",
+        "MemorySize": 512,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole"
+        ],
+        "PackageType": "Zip",
+        "Handler": "AwsLambdaFunction.Api::AwsLambdaFunction.Api.DynClientsFunctions_GetDynClientByIdAsync_Generated::GetDynClientByIdAsync",
+        "Events": {
+          "RootGet": {
+            "Type": "HttpApi",
+            "Properties": {
+              "Path": "/api/dyn-clients/{id}",
+              "Method": "GET"
+            }
+          }
+        }
+      }
+    },
+    "AwsLambdaFunctionApiDynClientsFunctionsGetDynClientsAsyncGenerated": {
+      "Type": "AWS::Serverless::Function",
+      "Metadata": {
+        "Tool": "Amazon.Lambda.Annotations",
+        "SyncedEvents": [
+          "RootGet"
+        ],
+        "SyncedEventProperties": {
+          "RootGet": [
+            "Path",
+            "Method"
+          ]
+        }
+      },
+      "Properties": {
+        "Runtime": "dotnet8",
+        "CodeUri": ".",
+        "MemorySize": 512,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole"
+        ],
+        "PackageType": "Zip",
+        "Handler": "AwsLambdaFunction.Api::AwsLambdaFunction.Api.DynClientsFunctions_GetDynClientsAsync_Generated::GetDynClientsAsync",
+        "Events": {
+          "RootGet": {
+            "Type": "HttpApi",
+            "Properties": {
+              "Path": "/api/dyn-clients",
+              "Method": "GET"
+            }
+          }
+        }
+      }
+    },
+    "AwsLambdaFunctionApiEfClientsFunctionsCreateEfClientAsyncGenerated": {
+      "Type": "AWS::Serverless::Function",
+      "Metadata": {
+        "Tool": "Amazon.Lambda.Annotations",
+        "SyncedEvents": [
+          "RootPost"
+        ],
+        "SyncedEventProperties": {
+          "RootPost": [
+            "Path",
+            "Method"
+          ]
+        }
+      },
+      "Properties": {
+        "Runtime": "dotnet8",
+        "CodeUri": ".",
+        "MemorySize": 512,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole"
+        ],
+        "PackageType": "Zip",
+        "Handler": "AwsLambdaFunction.Api::AwsLambdaFunction.Api.EfClientsFunctions_CreateEfClientAsync_Generated::CreateEfClientAsync",
+        "Events": {
+          "RootPost": {
+            "Type": "HttpApi",
+            "Properties": {
+              "Path": "/api/ef-clients",
+              "Method": "POST"
+            }
+          }
+        }
+      }
+    },
+    "AwsLambdaFunctionApiEfClientsFunctionsDeleteEfClientAsyncGenerated": {
+      "Type": "AWS::Serverless::Function",
+      "Metadata": {
+        "Tool": "Amazon.Lambda.Annotations",
+        "SyncedEvents": [
+          "RootDelete"
+        ],
+        "SyncedEventProperties": {
+          "RootDelete": [
+            "Path",
+            "Method"
+          ]
+        }
+      },
+      "Properties": {
+        "Runtime": "dotnet8",
+        "CodeUri": ".",
+        "MemorySize": 512,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole"
+        ],
+        "PackageType": "Zip",
+        "Handler": "AwsLambdaFunction.Api::AwsLambdaFunction.Api.EfClientsFunctions_DeleteEfClientAsync_Generated::DeleteEfClientAsync",
+        "Events": {
+          "RootDelete": {
+            "Type": "HttpApi",
+            "Properties": {
+              "Path": "/api/ef-clients/{id}",
+              "Method": "DELETE"
+            }
+          }
+        }
+      }
+    },
+    "AwsLambdaFunctionApiEfClientsFunctionsUpdateEfClientAsyncGenerated": {
+      "Type": "AWS::Serverless::Function",
+      "Metadata": {
+        "Tool": "Amazon.Lambda.Annotations",
+        "SyncedEvents": [
+          "RootPut"
+        ],
+        "SyncedEventProperties": {
+          "RootPut": [
+            "Path",
+            "Method"
+          ]
+        }
+      },
+      "Properties": {
+        "Runtime": "dotnet8",
+        "CodeUri": ".",
+        "MemorySize": 512,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole"
+        ],
+        "PackageType": "Zip",
+        "Handler": "AwsLambdaFunction.Api::AwsLambdaFunction.Api.EfClientsFunctions_UpdateEfClientAsync_Generated::UpdateEfClientAsync",
+        "Events": {
+          "RootPut": {
+            "Type": "HttpApi",
+            "Properties": {
+              "Path": "/api/ef-clients/{id}",
+              "Method": "PUT"
+            }
+          }
+        }
+      }
+    },
+    "AwsLambdaFunctionApiEfClientsFunctionsGetEfClientByIdAsyncGenerated": {
+      "Type": "AWS::Serverless::Function",
+      "Metadata": {
+        "Tool": "Amazon.Lambda.Annotations",
+        "SyncedEvents": [
+          "RootGet"
+        ],
+        "SyncedEventProperties": {
+          "RootGet": [
+            "Path",
+            "Method"
+          ]
+        }
+      },
+      "Properties": {
+        "Runtime": "dotnet8",
+        "CodeUri": ".",
+        "MemorySize": 512,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole"
+        ],
+        "PackageType": "Zip",
+        "Handler": "AwsLambdaFunction.Api::AwsLambdaFunction.Api.EfClientsFunctions_GetEfClientByIdAsync_Generated::GetEfClientByIdAsync",
+        "Events": {
+          "RootGet": {
+            "Type": "HttpApi",
+            "Properties": {
+              "Path": "/api/ef-clients/{id}",
+              "Method": "GET"
+            }
+          }
+        }
+      }
+    },
+    "AwsLambdaFunctionApiEfClientsFunctionsGetEfClientsAsyncGenerated": {
+      "Type": "AWS::Serverless::Function",
+      "Metadata": {
+        "Tool": "Amazon.Lambda.Annotations",
+        "SyncedEvents": [
+          "RootGet"
+        ],
+        "SyncedEventProperties": {
+          "RootGet": [
+            "Path",
+            "Method"
+          ]
+        }
+      },
+      "Properties": {
+        "Runtime": "dotnet8",
+        "CodeUri": ".",
+        "MemorySize": 512,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole"
+        ],
+        "PackageType": "Zip",
+        "Handler": "AwsLambdaFunction.Api::AwsLambdaFunction.Api.EfClientsFunctions_GetEfClientsAsync_Generated::GetEfClientsAsync",
+        "Events": {
+          "RootGet": {
+            "Type": "HttpApi",
+            "Properties": {
+              "Path": "/api/ef-clients",
+              "Method": "GET"
+            }
+          }
+        }
+      }
+    },
+    "AwsLambdaFunctionApiDynAffiliatesFunctionsCreateDynAffiliateAsyncGenerated": {
+      "Type": "AWS::Serverless::Function",
+      "Metadata": {
+        "Tool": "Amazon.Lambda.Annotations",
+        "SyncedEvents": [
+          "RootPost"
+        ],
+        "SyncedEventProperties": {
+          "RootPost": [
+            "Path",
+            "Method"
+          ]
+        }
+      },
+      "Properties": {
+        "Runtime": "dotnet8",
+        "CodeUri": ".",
+        "MemorySize": 512,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole"
+        ],
+        "PackageType": "Zip",
+        "Handler": "AwsLambdaFunction.Api::AwsLambdaFunction.Api.DynAffiliatesFunctions_CreateDynAffiliateAsync_Generated::CreateDynAffiliateAsync",
+        "Events": {
+          "RootPost": {
+            "Type": "HttpApi",
+            "Properties": {
+              "Path": "/api/dyn-affiliates",
+              "Method": "POST"
+            }
+          }
+        }
+      }
+    },
+    "AwsLambdaFunctionApiDynAffiliatesFunctionsUpdateDynAffiliateAsyncGenerated": {
+      "Type": "AWS::Serverless::Function",
+      "Metadata": {
+        "Tool": "Amazon.Lambda.Annotations",
+        "SyncedEvents": [
+          "RootPut"
+        ],
+        "SyncedEventProperties": {
+          "RootPut": [
+            "Path",
+            "Method"
+          ]
+        }
+      },
+      "Properties": {
+        "Runtime": "dotnet8",
+        "CodeUri": ".",
+        "MemorySize": 512,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole"
+        ],
+        "PackageType": "Zip",
+        "Handler": "AwsLambdaFunction.Api::AwsLambdaFunction.Api.DynAffiliatesFunctions_UpdateDynAffiliateAsync_Generated::UpdateDynAffiliateAsync",
+        "Events": {
+          "RootPut": {
+            "Type": "HttpApi",
+            "Properties": {
+              "Path": "/api/dyn-affiliates/{id}",
+              "Method": "PUT"
+            }
+          }
+        }
+      }
+    },
+    "AwsLambdaFunctionApiDynAffiliatesFunctionsFindAffiliateByIdAsyncGenerated": {
+      "Type": "AWS::Serverless::Function",
+      "Metadata": {
+        "Tool": "Amazon.Lambda.Annotations",
+        "SyncedEvents": [
+          "RootGet"
+        ],
+        "SyncedEventProperties": {
+          "RootGet": [
+            "Path",
+            "Method"
+          ]
+        }
+      },
+      "Properties": {
+        "Runtime": "dotnet8",
+        "CodeUri": ".",
+        "MemorySize": 512,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole"
+        ],
+        "PackageType": "Zip",
+        "Handler": "AwsLambdaFunction.Api::AwsLambdaFunction.Api.DynAffiliatesFunctions_FindAffiliateByIdAsync_Generated::FindAffiliateByIdAsync",
+        "Events": {
+          "RootGet": {
+            "Type": "HttpApi",
+            "Properties": {
+              "Path": "/api/dyn-affiliates/{id}",
+              "Method": "GET"
+            }
+          }
+        }
+      }
+    },
+    "AwsLambdaFunctionApiDynAffiliatesFunctionsFindDynAffiliatesAsyncGenerated": {
+      "Type": "AWS::Serverless::Function",
+      "Metadata": {
+        "Tool": "Amazon.Lambda.Annotations",
+        "SyncedEvents": [
+          "RootGet"
+        ],
+        "SyncedEventProperties": {
+          "RootGet": [
+            "Path",
+            "Method"
+          ]
+        }
+      },
+      "Properties": {
+        "Runtime": "dotnet8",
+        "CodeUri": ".",
+        "MemorySize": 512,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole"
+        ],
+        "PackageType": "Zip",
+        "Handler": "AwsLambdaFunction.Api::AwsLambdaFunction.Api.DynAffiliatesFunctions_FindDynAffiliatesAsync_Generated::FindDynAffiliatesAsync",
+        "Events": {
+          "RootGet": {
+            "Type": "HttpApi",
+            "Properties": {
+              "Path": "/api/dyn-affiliates",
+              "Method": "GET"
+            }
+          }
+        }
+      }
+    },
+    "AwsLambdaFunctionApiDynAffiliatesFunctionsDeleteDynAffiliateAsyncGenerated": {
+      "Type": "AWS::Serverless::Function",
+      "Metadata": {
+        "Tool": "Amazon.Lambda.Annotations",
+        "SyncedEvents": [
+          "RootDelete"
+        ],
+        "SyncedEventProperties": {
+          "RootDelete": [
+            "Path",
+            "Method"
+          ]
+        }
+      },
+      "Properties": {
+        "Runtime": "dotnet8",
+        "CodeUri": ".",
+        "MemorySize": 512,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole"
+        ],
+        "PackageType": "Zip",
+        "Handler": "AwsLambdaFunction.Api::AwsLambdaFunction.Api.DynAffiliatesFunctions_DeleteDynAffiliateAsync_Generated::DeleteDynAffiliateAsync",
+        "Events": {
+          "RootDelete": {
+            "Type": "HttpApi",
+            "Properties": {
+              "Path": "/api/dyn-affiliates/{id}",
+              "Method": "DELETE"
+            }
+          }
+        }
+      }
+    },
+    "AwsLambdaFunctionApiEfAffiliatesFunctionsCreateEfAffiliateAsyncGenerated": {
+      "Type": "AWS::Serverless::Function",
+      "Metadata": {
+        "Tool": "Amazon.Lambda.Annotations",
+        "SyncedEvents": [
+          "RootPost"
+        ],
+        "SyncedEventProperties": {
+          "RootPost": [
+            "Path",
+            "Method"
+          ]
+        }
+      },
+      "Properties": {
+        "Runtime": "dotnet8",
+        "CodeUri": ".",
+        "MemorySize": 512,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole"
+        ],
+        "PackageType": "Zip",
+        "Handler": "AwsLambdaFunction.Api::AwsLambdaFunction.Api.EfAffiliatesFunctions_CreateEfAffiliateAsync_Generated::CreateEfAffiliateAsync",
+        "Events": {
+          "RootPost": {
+            "Type": "HttpApi",
+            "Properties": {
+              "Path": "/api/ef-affiliates",
+              "Method": "POST"
+            }
+          }
+        }
+      }
+    },
+    "AwsLambdaFunctionApiEfAffiliatesFunctionsUpdateEfAffiliateAsyncGenerated": {
+      "Type": "AWS::Serverless::Function",
+      "Metadata": {
+        "Tool": "Amazon.Lambda.Annotations",
+        "SyncedEvents": [
+          "RootPut"
+        ],
+        "SyncedEventProperties": {
+          "RootPut": [
+            "Path",
+            "Method"
+          ]
+        }
+      },
+      "Properties": {
+        "Runtime": "dotnet8",
+        "CodeUri": ".",
+        "MemorySize": 512,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole"
+        ],
+        "PackageType": "Zip",
+        "Handler": "AwsLambdaFunction.Api::AwsLambdaFunction.Api.EfAffiliatesFunctions_UpdateEfAffiliateAsync_Generated::UpdateEfAffiliateAsync",
+        "Events": {
+          "RootPut": {
+            "Type": "HttpApi",
+            "Properties": {
+              "Path": "/api/ef-affiliates/{id}",
+              "Method": "PUT"
+            }
+          }
+        }
+      }
+    },
+    "AwsLambdaFunctionApiEfAffiliatesFunctionsFindEfAffiliateByIdAsyncGenerated": {
+      "Type": "AWS::Serverless::Function",
+      "Metadata": {
+        "Tool": "Amazon.Lambda.Annotations",
+        "SyncedEvents": [
+          "RootGet"
+        ],
+        "SyncedEventProperties": {
+          "RootGet": [
+            "Path",
+            "Method"
+          ]
+        }
+      },
+      "Properties": {
+        "Runtime": "dotnet8",
+        "CodeUri": ".",
+        "MemorySize": 512,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole"
+        ],
+        "PackageType": "Zip",
+        "Handler": "AwsLambdaFunction.Api::AwsLambdaFunction.Api.EfAffiliatesFunctions_FindEfAffiliateByIdAsync_Generated::FindEfAffiliateByIdAsync",
+        "Events": {
+          "RootGet": {
+            "Type": "HttpApi",
+            "Properties": {
+              "Path": "/api/ef-affiliates/{id}",
+              "Method": "GET"
+            }
+          }
+        }
+      }
+    },
+    "AwsLambdaFunctionApiEfAffiliatesFunctionsFindEfAffiliatesAsyncGenerated": {
+      "Type": "AWS::Serverless::Function",
+      "Metadata": {
+        "Tool": "Amazon.Lambda.Annotations",
+        "SyncedEvents": [
+          "RootGet"
+        ],
+        "SyncedEventProperties": {
+          "RootGet": [
+            "Path",
+            "Method"
+          ]
+        }
+      },
+      "Properties": {
+        "Runtime": "dotnet8",
+        "CodeUri": ".",
+        "MemorySize": 512,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole"
+        ],
+        "PackageType": "Zip",
+        "Handler": "AwsLambdaFunction.Api::AwsLambdaFunction.Api.EfAffiliatesFunctions_FindEfAffiliatesAsync_Generated::FindEfAffiliatesAsync",
+        "Events": {
+          "RootGet": {
+            "Type": "HttpApi",
+            "Properties": {
+              "Path": "/api/ef-affiliates",
+              "Method": "GET"
+            }
+          }
+        }
+      }
+    },
+    "AwsLambdaFunctionApiEfAffiliatesFunctionsDeleteEfAffiliateAsyncGenerated": {
+      "Type": "AWS::Serverless::Function",
+      "Metadata": {
+        "Tool": "Amazon.Lambda.Annotations",
+        "SyncedEvents": [
+          "RootDelete"
+        ],
+        "SyncedEventProperties": {
+          "RootDelete": [
+            "Path",
+            "Method"
+          ]
+        }
+      },
+      "Properties": {
+        "Runtime": "dotnet8",
+        "CodeUri": ".",
+        "MemorySize": 512,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole"
+        ],
+        "PackageType": "Zip",
+        "Handler": "AwsLambdaFunction.Api::AwsLambdaFunction.Api.EfAffiliatesFunctions_DeleteEfAffiliateAsync_Generated::DeleteEfAffiliateAsync",
+        "Events": {
+          "RootDelete": {
+            "Type": "HttpApi",
+            "Properties": {
+              "Path": "/api/ef-affiliates/{id}",
+              "Method": "DELETE"
+            }
+          }
+        }
+      }
+    }
+  }
+}

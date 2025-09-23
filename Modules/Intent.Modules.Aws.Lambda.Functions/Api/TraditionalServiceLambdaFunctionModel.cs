@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
+using Intent.Modules.Common.Templates;
 using Intent.Modules.Metadata.WebApi.Models;
 using OperationModel = Intent.Modelers.Services.Api.OperationModel;
 
@@ -27,7 +28,7 @@ public class TraditionalServiceLambdaFunctionModel : ILambdaFunctionModel
         Comment = operationModel.Comment;
         TypeReference = operationModel.TypeReference;
         Verb = httpEndpoint.Verb;
-        Route = $"{httpEndpoint.BaseRoute}/{httpEndpoint.SubRoute}";
+        Route = BuildRoute(httpEndpoint.BaseRoute, httpEndpoint.SubRoute);
         MediaType = httpEndpoint.MediaType;
         Parameters = httpEndpoint.Inputs.Select(GetInput).ToList();
         ReturnType = operationModel.TypeReference.Element != null ? operationModel.TypeReference : null;
@@ -50,5 +51,23 @@ public class TraditionalServiceLambdaFunctionModel : ILambdaFunctionModel
     private static IEndpointParameterModel GetInput(IHttpEndpointInputModel model)
     {
         return new EndpointParameterModel(model);
+    }
+    
+    private static string BuildRoute(string? baseRoute, string? subRoute)
+    {
+        var route = "";
+        
+        if (!string.IsNullOrEmpty(baseRoute))
+        {
+            route = baseRoute.StartsWith("/") ? baseRoute : "/" + baseRoute;
+        }
+        
+        if (!string.IsNullOrEmpty(subRoute))
+        {
+            var normalizedSubRoute = subRoute.StartsWith("/") ? subRoute : "/" + subRoute;
+            route += normalizedSubRoute;
+        }
+        
+        return string.IsNullOrEmpty(route) ? "/" : route;
     }
 }

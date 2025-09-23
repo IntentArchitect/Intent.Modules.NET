@@ -4,7 +4,7 @@ using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.DomainEvents.Templates.DomainEventBase;
+using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -34,7 +34,7 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventNotification
 
         private string GetDomainEventBaseType()
         {
-            return GetTypeName(DomainEventBaseTemplate.TemplateId);
+            return GetTypeName(TemplateRoles.Domain.Common.EventBase);
         }
     }
 }

@@ -38,7 +38,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.HttpClients
             CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/customer";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(command, _serializerOptions);
@@ -62,7 +62,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.HttpClients
         public async Task DeleteCustomerAsync(Guid id, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/customer/{id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Delete, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Delete, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
@@ -80,7 +80,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.HttpClients
             CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/customer/{id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(command, _serializerOptions);
@@ -98,7 +98,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.HttpClients
         public async Task<CustomerDto> GetCustomerByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/customer/{id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
@@ -118,7 +118,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.HttpClients
         public async Task<List<CustomerDto>> GetCustomersAsync(CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/customer";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))

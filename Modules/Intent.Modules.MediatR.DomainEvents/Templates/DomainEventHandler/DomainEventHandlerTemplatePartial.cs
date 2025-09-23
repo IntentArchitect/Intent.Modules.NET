@@ -13,11 +13,11 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Interactions;
 using Intent.Modules.Common.CSharp.Mapping;
+using Intent.Modules.Common.CSharp.Mapping.Resolvers;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Constants;
-using Intent.Modules.DomainEvents.Templates.DomainEvent;
 using Intent.Modules.MediatR.DomainEvents.Templates.DomainEventNotification;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -36,6 +36,10 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventHandler
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public DomainEventHandlerTemplate(IOutputTarget outputTarget, DomainEventHandlerModel model) : base(TemplateId, outputTarget, model)
         {
+            AddTypeSource(TemplateRoles.Domain.Entity.Primary);
+            AddTypeSource(TemplateRoles.Domain.Enum);
+            AddTypeSource(TemplateRoles.Application.Contracts.Dto);
+            AddTypeSource(TemplateRoles.Application.Contracts.Enum);
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("MediatR")
                 .AddUsing("System")
@@ -57,7 +61,7 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventHandler
                         {
                             method.RepresentsModel(handledDomainEvents);
                             method.RegisterAsProcessingHandlerForModel(handledDomainEvents);
-                            method.AddAttribute(CSharpIntentManagedAttribute.Fully());
+                            method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyMerge());
                             method.Async();
                             method.AddParameter($"{GetDomainEventNotificationType()}<{GetDomainEventType(handledDomainEvents)}>", "notification");
                             method.AddParameter("CancellationToken", "cancellationToken");
@@ -77,10 +81,18 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventHandler
                                 method.AddStatement("var domainEvent = notification.DomainEvent;");
                             }
 
-                            var mappingManager = method.GetMappingManager();
+                            var csharpMapping = method.GetMappingManager();
+                            csharpMapping.AddMappingResolver(new EntityCreationMappingTypeResolver(this));
+                            csharpMapping.AddMappingResolver(new EntityUpdateMappingTypeResolver(this));
+                            csharpMapping.AddMappingResolver(new StandardDomainMappingTypeResolver(this));
+                            csharpMapping.AddMappingResolver(new ValueObjectMappingTypeResolver(this));
+                            csharpMapping.AddMappingResolver(new DataContractMappingTypeResolver(this));
+                            csharpMapping.AddMappingResolver(new ServiceOperationMappingTypeResolver(this));
+                            csharpMapping.AddMappingResolver(new TypeConvertingMappingResolver(this));
+
                             // TODO: These can go to the handler template:
-                            mappingManager.SetFromReplacement(handler.Model, "domainEvent");
-                            mappingManager.SetFromReplacement(handler.Model.InternalElement, "domainEvent");
+                            csharpMapping.SetFromReplacement(handler.Model, "domainEvent");
+                            csharpMapping.SetFromReplacement(handler.Model.InternalElement, "domainEvent");
 
                             //csharpMapping.SetFromReplacement(handledDomainEvents, "notification.DomainEvent");
                             method.ImplementInteractions(interactions);
@@ -126,7 +138,7 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventHandler
 
         private string GetDomainEventType(DomainEventHandlerAssociationTargetEndModel handledDomainEvent)
         {
-            return GetTypeName(DomainEventTemplate.TemplateId, handledDomainEvent.TypeReference.Element);
+            return GetTypeName(TemplateRoles.Domain.Events, handledDomainEvent.TypeReference.Element);
         }
     }
 }

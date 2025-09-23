@@ -3,7 +3,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
-using Intent.Modules.UnitOfWork.Persistence.Shared;
+using Intent.Modules.Common.UnitOfWork.Shared;
 
 namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract;
 

@@ -1,10 +1,12 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
+using System.Threading;
+using System.Threading.Tasks;
 using AzureFunctions.MongoDb.Domain.Entities.Collections;
 using AzureFunctions.MongoDb.Domain.Repositories.Collections;
-using AzureFunctions.MongoDb.Domain.Repositories.Documents.Collections;
 using AzureFunctions.MongoDb.Infrastructure.Persistence;
-using AzureFunctions.MongoDb.Infrastructure.Persistence.Documents.Collections;
 using Intent.RoslynWeaver.Attributes;
 using MongoDB.Driver;
 
@@ -13,11 +15,17 @@ using MongoDB.Driver;
 
 namespace AzureFunctions.MongoDb.Infrastructure.Repositories.Collections
 {
-    internal class CustomCollectionEntityAMongoRepository : MongoRepositoryBase<CustomCollectionEntityA, CustomCollectionEntityADocument, ICustomCollectionEntityADocument, string>, ICustomCollectionEntityARepository
+    internal class CustomCollectionEntityAMongoRepository : MongoRepositoryBase<CustomCollectionEntityA, string>, ICustomCollectionEntityARepository
     {
-        public CustomCollectionEntityAMongoRepository(IMongoCollection<CustomCollectionEntityADocument> collection,
-            MongoDbUnitOfWork unitOfWork) : base(collection, unitOfWork)
+        public CustomCollectionEntityAMongoRepository(IMongoCollection<CustomCollectionEntityA> collection,
+            MongoDbUnitOfWork unitOfWork) : base(collection, unitOfWork, x => x.Id)
         {
         }
+
+        public Task<CustomCollectionEntityA?> FindByIdAsync(string id, CancellationToken cancellationToken = default) => FindAsync(x => x.Id == id, cancellationToken);
+
+        public Task<List<CustomCollectionEntityA>> FindByIdsAsync(
+            string[] ids,
+            CancellationToken cancellationToken = default) => FindAllAsync(x => ids.Contains(x.Id), cancellationToken);
     }
 }

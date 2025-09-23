@@ -21,7 +21,7 @@ namespace Intent.Modules.NET.Tests.Module1.Application.EventHandlers.Customers
             _eventBus = eventBus;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(
             DomainEventNotification<CustomerCreated> notification,
             CancellationToken cancellationToken)

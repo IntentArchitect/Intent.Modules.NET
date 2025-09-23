@@ -29,7 +29,7 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.IntegrationTests.HttpCli
         public async Task<Guid> CreateOrderAsync(CreateOrderCommand command, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/order";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(command, _serializerOptions);
@@ -55,7 +55,7 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.IntegrationTests.HttpCli
             CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/order/order-item";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(command, _serializerOptions);
@@ -79,7 +79,7 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.IntegrationTests.HttpCli
         public async Task DeleteOrderAsync(Guid id, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/order/{id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Delete, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Delete, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
@@ -94,7 +94,7 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.IntegrationTests.HttpCli
         public async Task DeleteOrderOrderItemAsync(Guid orderId, Guid id, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/order/order-item/{id}/{orderId}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Delete, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Delete, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
@@ -112,7 +112,7 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.IntegrationTests.HttpCli
             CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/order/{id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(command, _serializerOptions);
@@ -133,7 +133,7 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.IntegrationTests.HttpCli
             CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/order/order-item/{id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(command, _serializerOptions);
@@ -151,7 +151,7 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.IntegrationTests.HttpCli
         public async Task<OrderDto> GetOrderByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/order/{id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
@@ -174,7 +174,7 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.IntegrationTests.HttpCli
             CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/order/order-item/{orderId}/{id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
@@ -196,7 +196,7 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.IntegrationTests.HttpCli
             CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/order/order-item/{orderId}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
@@ -216,7 +216,7 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.IntegrationTests.HttpCli
         public async Task<List<OrderDto>> GetOrdersAsync(CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/order";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))

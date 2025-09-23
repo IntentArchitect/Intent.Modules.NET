@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="220cb5d0-9c6d-4fba-9e27-b3ec631f51f5" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Helpers</name>
+  <display>Helpers</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>0da59add-1612-4134-9e19-6d58aff31d28</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="59972aeb-cde3-4e7a-aa79-1d9e5e0d857b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Aws.Lambda.Functions.ExceptionHandlerHelper</name>
+      <display>Intent.Aws.Lambda.Functions.ExceptionHandlerHelper</display>
+      <externalReference>Intent.Aws.Lambda.Functions</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>220cb5d0-9c6d-4fba-9e27-b3ec631f51f5</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

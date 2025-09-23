@@ -4,106 +4,106 @@
   <FileLogs>
     <FileLog>
       <ProjectId>23d60d6c-b9c2-47d2-9962-2107504028e2</ProjectId>
-      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.MudBlazorAIPromptTemplatesStaticContentTemplateRegistration#D:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/AddEntity/CustomerAdd.razor</CorrelationId>
+      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.MudBlazorAIPromptTemplatesStaticContentTemplateRegistration#C:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/AddEntity/AddEntityTemplate.razor</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/AddEntity/CustomerAdd.razor</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>D:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/AddEntity/CustomerAdd.razor</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>../AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/AddEntity/AddEntityTemplate.razor</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>C:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/AddEntity/AddEntityTemplate.razor</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>23d60d6c-b9c2-47d2-9962-2107504028e2</ProjectId>
-      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.MudBlazorAIPromptTemplatesStaticContentTemplateRegistration#D:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/AddEntity/CustomerAdd.razor.cs</CorrelationId>
+      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.MudBlazorAIPromptTemplatesStaticContentTemplateRegistration#C:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/AddEntity/AddEntityTemplate.razor.cs</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/AddEntity/CustomerAdd.razor.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>D:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/AddEntity/CustomerAdd.razor.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>../AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/AddEntity/AddEntityTemplate.razor.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>C:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/AddEntity/AddEntityTemplate.razor.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>23d60d6c-b9c2-47d2-9962-2107504028e2</ProjectId>
-      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.MudBlazorAIPromptTemplatesStaticContentTemplateRegistration#D:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/AddEntityDialog/AddCustomerDialog.razor</CorrelationId>
+      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.MudBlazorAIPromptTemplatesStaticContentTemplateRegistration#C:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/AddEntityDialog/AddEntityDialogTemplate.razor</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/AddEntityDialog/AddCustomerDialog.razor</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>D:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/AddEntityDialog/AddCustomerDialog.razor</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>../AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/AddEntityDialog/AddEntityDialogTemplate.razor</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>C:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/AddEntityDialog/AddEntityDialogTemplate.razor</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>23d60d6c-b9c2-47d2-9962-2107504028e2</ProjectId>
-      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.MudBlazorAIPromptTemplatesStaticContentTemplateRegistration#D:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/AddEntityDialog/AddCustomerDialog.razor.cs</CorrelationId>
+      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.MudBlazorAIPromptTemplatesStaticContentTemplateRegistration#C:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/AddEntityDialog/AddEntityDialogTemplate.razor.cs</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/AddEntityDialog/AddCustomerDialog.razor.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>D:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/AddEntityDialog/AddCustomerDialog.razor.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>../AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/AddEntityDialog/AddEntityDialogTemplate.razor.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>C:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/AddEntityDialog/AddEntityDialogTemplate.razor.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>23d60d6c-b9c2-47d2-9962-2107504028e2</ProjectId>
-      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.MudBlazorAIPromptTemplatesStaticContentTemplateRegistration#D:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/EditEntity/CustomerEdit.razor</CorrelationId>
+      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.MudBlazorAIPromptTemplatesStaticContentTemplateRegistration#C:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/EditEntity/EditEntityTemplate.razor</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/EditEntity/CustomerEdit.razor</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>D:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/EditEntity/CustomerEdit.razor</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>../AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/EditEntity/EditEntityTemplate.razor</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>C:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/EditEntity/EditEntityTemplate.razor</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>23d60d6c-b9c2-47d2-9962-2107504028e2</ProjectId>
-      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.MudBlazorAIPromptTemplatesStaticContentTemplateRegistration#D:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/EditEntity/CustomerEdit.razor.cs</CorrelationId>
+      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.MudBlazorAIPromptTemplatesStaticContentTemplateRegistration#C:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/EditEntity/EditEntityTemplate.razor.cs</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/EditEntity/CustomerEdit.razor.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>D:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/EditEntity/CustomerEdit.razor.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>../AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/EditEntity/EditEntityTemplate.razor.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>C:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/EditEntity/EditEntityTemplate.razor.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>23d60d6c-b9c2-47d2-9962-2107504028e2</ProjectId>
-      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.MudBlazorAIPromptTemplatesStaticContentTemplateRegistration#D:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/EditEntityDialog/EditCustomerDialog.razor</CorrelationId>
+      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.MudBlazorAIPromptTemplatesStaticContentTemplateRegistration#C:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/EditEntityDialog/EditEntityDialogTemplate.razor</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/EditEntityDialog/EditCustomerDialog.razor</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>D:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/EditEntityDialog/EditCustomerDialog.razor</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>../AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/EditEntityDialog/EditEntityDialogTemplate.razor</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>C:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/EditEntityDialog/EditEntityDialogTemplate.razor</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>23d60d6c-b9c2-47d2-9962-2107504028e2</ProjectId>
-      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.MudBlazorAIPromptTemplatesStaticContentTemplateRegistration#D:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/EditEntityDialog/EditCustomerDialog.razor.cs</CorrelationId>
+      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.MudBlazorAIPromptTemplatesStaticContentTemplateRegistration#C:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/EditEntityDialog/EditEntityDialogTemplate.razor.cs</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/EditEntityDialog/EditCustomerDialog.razor.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>D:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/EditEntityDialog/EditCustomerDialog.razor.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>../AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/EditEntityDialog/EditEntityDialogTemplate.razor.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>C:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/EditEntityDialog/EditEntityDialogTemplate.razor.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>23d60d6c-b9c2-47d2-9962-2107504028e2</ProjectId>
-      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.MudBlazorAIPromptTemplatesStaticContentTemplateRegistration#D:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/prompt-config.json</CorrelationId>
+      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.MudBlazorAIPromptTemplatesStaticContentTemplateRegistration#C:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/prompt-config.json</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/prompt-config.json</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>D:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/prompt-config.json</ProjectRelativeFilePath>
+      <ProjectRelativeFilePath>C:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/prompt-config.json</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>23d60d6c-b9c2-47d2-9962-2107504028e2</ProjectId>
-      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.MudBlazorAIPromptTemplatesStaticContentTemplateRegistration#D:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/SearchEntity/CustomerSearch.razor</CorrelationId>
+      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.MudBlazorAIPromptTemplatesStaticContentTemplateRegistration#C:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/SearchEntity/SearchEntityTemplate.razor</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/SearchEntity/CustomerSearch.razor</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>D:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/SearchEntity/CustomerSearch.razor</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>../AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/SearchEntity/SearchEntityTemplate.razor</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>C:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/SearchEntity/SearchEntityTemplate.razor</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>23d60d6c-b9c2-47d2-9962-2107504028e2</ProjectId>
-      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.MudBlazorAIPromptTemplatesStaticContentTemplateRegistration#D:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/SearchEntity/CustomerSearch.razor.cs</CorrelationId>
+      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.MudBlazorAIPromptTemplatesStaticContentTemplateRegistration#C:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/SearchEntity/SearchEntityTemplate.razor.cs</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/SearchEntity/CustomerSearch.razor.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>D:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/SearchEntity/CustomerSearch.razor.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>../AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/SearchEntity/SearchEntityTemplate.razor.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>C:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/SearchEntity/SearchEntityTemplate.razor.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>23d60d6c-b9c2-47d2-9962-2107504028e2</ProjectId>
-      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.MudBlazorAIPromptTemplatesStaticContentTemplateRegistration#D:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/ViewEntity/ViewCustomer.razor</CorrelationId>
+      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.MudBlazorAIPromptTemplatesStaticContentTemplateRegistration#C:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/ViewEntity/EntityViewTemplate.cs</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/ViewEntity/ViewCustomer.razor</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>D:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/ViewEntity/ViewCustomer.razor</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>../AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/ViewEntity/EntityViewTemplate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>C:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/ViewEntity/EntityViewTemplate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>23d60d6c-b9c2-47d2-9962-2107504028e2</ProjectId>
-      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.MudBlazorAIPromptTemplatesStaticContentTemplateRegistration#D:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/ViewEntity/ViewCustomer.razor.cs</CorrelationId>
+      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.MudBlazorAIPromptTemplatesStaticContentTemplateRegistration#C:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/ViewEntity/EntityViewTemplate.razor</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/ViewEntity/ViewCustomer.razor.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>D:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/ViewEntity/ViewCustomer.razor.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>../AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/ViewEntity/EntityViewTemplate.razor</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>C:/Dev/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/ViewEntity/EntityViewTemplate.razor</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -130,7 +130,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>0d459c60-ad40-4d33-a8b2-525adcfa9b00</ProjectId>
-      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.AspNetCoreIdentityAuthServiceConcreteTemplate</CorrelationId>
+      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.AspNetCoreIdentityAuthServiceConcreteTemplate#24aaedab-c7ba-4a99-aaf9-1f2f5355c9a9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Api/Common/AspNetCoreIdentityAuthServiceConcrete.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AspNetCoreIdentityAuthServiceConcrete.cs</ProjectRelativeFilePath>
@@ -138,7 +138,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>0d459c60-ad40-4d33-a8b2-525adcfa9b00</ProjectId>
-      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.AuthServiceInterfaceTemplate</CorrelationId>
+      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.AuthServiceInterfaceTemplate#e96320e3-f3ba-46ba-bad0-dc7011151e7c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Api/Common/IAuthService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IAuthService.cs</ProjectRelativeFilePath>
@@ -146,7 +146,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>d2816f5c-afe8-4261-8708-24ac1287736e</ProjectId>
-      <CorrelationId>Intent.Blazor.Templates.Server.ServerImportsRazorTemplate</CorrelationId>
+      <CorrelationId>Intent.Blazor.Templates.Server.ServerImportsRazorTemplate#ead98a8d-fc56-40de-8f5d-1da2cec795ec</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Api/Components/_Imports.razor</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>_Imports.razor</ProjectRelativeFilePath>
@@ -154,7 +154,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b2ad1079-bfc2-42c0-af7b-65b6749f54cd</ProjectId>
-      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.IdentityComponentsEndpointRouteBuilderExtensionsTemplate</CorrelationId>
+      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.IdentityComponentsEndpointRouteBuilderExtensionsTemplate#e70a8cdf-8be8-4d54-b04b-ea721f4aa9ad</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Api/Components/Account/IdentityComponentsEndpointRouteBuilderExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IdentityComponentsEndpointRouteBuilderExtensions.cs</ProjectRelativeFilePath>
@@ -162,7 +162,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b2ad1079-bfc2-42c0-af7b-65b6749f54cd</ProjectId>
-      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.IdentityNoOpEmailSenderTemplate</CorrelationId>
+      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.IdentityNoOpEmailSenderTemplate#1187fd29-59a8-4e46-bea5-237442ab6b49</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Api/Components/Account/IdentityNoOpEmailSender.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IdentityNoOpEmailSender.cs</ProjectRelativeFilePath>
@@ -170,7 +170,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b2ad1079-bfc2-42c0-af7b-65b6749f54cd</ProjectId>
-      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.IdentityRedirectManagerTemplate</CorrelationId>
+      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.IdentityRedirectManagerTemplate#97dd3223-75f2-4459-90f0-bf96ffd056eb</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Api/Components/Account/IdentityRedirectManager.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IdentityRedirectManager.cs</ProjectRelativeFilePath>
@@ -178,7 +178,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b2ad1079-bfc2-42c0-af7b-65b6749f54cd</ProjectId>
-      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.IdentityRevalidatingAuthenticationStateProviderTemplate</CorrelationId>
+      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.IdentityRevalidatingAuthenticationStateProviderTemplate#691e25a9-3342-4b3f-abcc-4c402995a57f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Api/Components/Account/IdentityRevalidatingAuthenticationStateProvider.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IdentityRevalidatingAuthenticationStateProvider.cs</ProjectRelativeFilePath>
@@ -186,7 +186,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b2ad1079-bfc2-42c0-af7b-65b6749f54cd</ProjectId>
-      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.IdentityUserAccessorTemplate</CorrelationId>
+      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.IdentityUserAccessorTemplate#380b74f1-00a4-4ae1-b3dc-72b22d6f14b6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Api/Components/Account/IdentityUserAccessor.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IdentityUserAccessor.cs</ProjectRelativeFilePath>
@@ -210,7 +210,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>7668204a-dad7-4b69-933f-a84441e5111f</ProjectId>
-      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.ConfirmEmailTemplate</CorrelationId>
+      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.ConfirmEmailTemplate#235b9b36-5f36-49d7-9b57-1a3767b15710</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Api/Components/Account/Pages/ConfirmEmail.razor</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ConfirmEmail.razor</ProjectRelativeFilePath>
@@ -234,7 +234,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>7668204a-dad7-4b69-933f-a84441e5111f</ProjectId>
-      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.ForgotPasswordTemplate</CorrelationId>
+      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.ForgotPasswordTemplate#c596c121-9474-4110-ac4a-ec9c66dd5446</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Api/Components/Account/Pages/ForgotPassword.razor</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ForgotPassword.razor</ProjectRelativeFilePath>
@@ -274,7 +274,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>7668204a-dad7-4b69-933f-a84441e5111f</ProjectId>
-      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.LoginTemplate</CorrelationId>
+      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.LoginTemplate#11f9ff79-bc2c-42ae-9d5e-bf31b431e530</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Api/Components/Account/Pages/Login.razor</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Login.razor</ProjectRelativeFilePath>
@@ -402,7 +402,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>7668204a-dad7-4b69-933f-a84441e5111f</ProjectId>
-      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.RegisterTemplate</CorrelationId>
+      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.RegisterTemplate#dab78187-610c-4742-9233-9a12a8cf2294</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Api/Components/Account/Pages/Register.razor</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Register.razor</ProjectRelativeFilePath>
@@ -418,7 +418,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>7668204a-dad7-4b69-933f-a84441e5111f</ProjectId>
-      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.ResendEmailConfirmationTemplate</CorrelationId>
+      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.ResendEmailConfirmationTemplate#be2b3076-feb8-4c30-bddc-e0943d3a6c85</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Api/Components/Account/Pages/ResendEmailConfirmation.razor</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ResendEmailConfirmation.razor</ProjectRelativeFilePath>
@@ -426,7 +426,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>7668204a-dad7-4b69-933f-a84441e5111f</ProjectId>
-      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.ResetPasswordTemplate</CorrelationId>
+      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.ResetPasswordTemplate#2018947e-5036-4f08-9f5b-8bd0649d7685</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Api/Components/Account/Pages/ResetPassword.razor</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ResetPassword.razor</ProjectRelativeFilePath>
@@ -450,7 +450,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>d5c40357-b850-4ebe-981c-ec0208051741</ProjectId>
-      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.AccountLayoutTemplate</CorrelationId>
+      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.AccountLayoutTemplate#3cdd10e3-c9a6-414b-8ff1-2ef13f87ab01</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Api/Components/Account/Shared/AccountLayout.razor</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AccountLayout.razor</ProjectRelativeFilePath>
@@ -482,7 +482,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>d5c40357-b850-4ebe-981c-ec0208051741</ProjectId>
-      <CorrelationId>Intent.Blazor.Authentication.Templates.Client.RedirectToLoginTemplate</CorrelationId>
+      <CorrelationId>Intent.Blazor.Authentication.Templates.Client.RedirectToLoginTemplate#65237371-097a-4a0b-88e3-54a60544525e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Api/Components/Account/Shared/RedirectToLogin.razor</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RedirectToLogin.razor</ProjectRelativeFilePath>
@@ -490,7 +490,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>d5c40357-b850-4ebe-981c-ec0208051741</ProjectId>
-      <CorrelationId>Intent.Blazor.Authentication.Templates.Client.ServerAuthorizationMessageHandlerTemplate</CorrelationId>
+      <CorrelationId>Intent.Blazor.Authentication.Templates.Client.ServerAuthorizationMessageHandlerTemplate#e1ed9198-8028-4bf0-b7bf-365bcf20079d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Api/Components/Account/Shared/ServerAuthorizationMessageHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ServerAuthorizationMessageHandler.cs</ProjectRelativeFilePath>
@@ -514,7 +514,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>d5c40357-b850-4ebe-981c-ec0208051741</ProjectId>
-      <CorrelationId>Intent.Blazor.Authentication.Templates.Client.UserInfoTemplate</CorrelationId>
+      <CorrelationId>Intent.Blazor.Authentication.Templates.Client.UserInfoTemplate#00bf96be-b9da-457e-b8f8-92f1df246707</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Api/Components/Account/Shared/UserInfo.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UserInfo.cs</ProjectRelativeFilePath>
@@ -522,7 +522,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>d2816f5c-afe8-4261-8708-24ac1287736e</ProjectId>
-      <CorrelationId>Intent.Blazor.Templates.Server.AppRazorTemplate</CorrelationId>
+      <CorrelationId>Intent.Blazor.Templates.Server.AppRazorTemplate#5e47cd71-4253-45e8-8c89-3bd0d852a882</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Api/Components/App.razor</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>App.razor</ProjectRelativeFilePath>
@@ -548,16 +548,16 @@
       <ProjectId>d2816f5c-afe8-4261-8708-24ac1287736e</ProjectId>
       <CorrelationId>Intent.Blazor.Templates.Client.RazorComponentTemplate#652d23ee-b1ac-4feb-9a0e-cf502087631c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>BlazorServerTests.Api/Components/Pages/CustoerAdd.razor</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Pages/CustoerAdd.razor</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>BlazorServerTests.Api/Components/Pages/CustomerAdd.razor</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pages/CustomerAdd.razor</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>d2816f5c-afe8-4261-8708-24ac1287736e</ProjectId>
       <CorrelationId>Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate#652d23ee-b1ac-4feb-9a0e-cf502087631c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>BlazorServerTests.Api/Components/Pages/CustoerAdd.razor.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Pages/CustoerAdd.razor.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>BlazorServerTests.Api/Components/Pages/CustomerAdd.razor.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pages/CustomerAdd.razor.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -610,7 +610,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>d2816f5c-afe8-4261-8708-24ac1287736e</ProjectId>
-      <CorrelationId>Intent.Blazor.Templates.Client.RoutesRazorTemplate</CorrelationId>
+      <CorrelationId>Intent.Blazor.Templates.Client.RoutesRazorTemplate#a0c930a6-cc63-4a3e-b1d1-a1f563c70c59</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Api/Components/Routes.razor</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Routes.razor</ProjectRelativeFilePath>
@@ -618,7 +618,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5d2a8757-3cb0-4c3d-ba0b-684519b666af</ProjectId>
-      <CorrelationId>Intent.Application.Identity.ApplicationSecurityConfiguration</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.ApplicationSecurityConfiguration#4d3f4f08-648e-450c-8273-a37e835f2de8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Api/Configuration/ApplicationSecurityConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApplicationSecurityConfiguration.cs</ProjectRelativeFilePath>
@@ -626,7 +626,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5d2a8757-3cb0-4c3d-ba0b-684519b666af</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Identity.AspNetCoreIdentityConfiguration</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Identity.AspNetCoreIdentityConfiguration#08e24730-4e48-4fc3-8c61-669c2a760436</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Api/Configuration/AspNetCoreIdentityConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AspNetCoreIdentityConfiguration.cs</ProjectRelativeFilePath>
@@ -634,7 +634,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5d2a8757-3cb0-4c3d-ba0b-684519b666af</ProjectId>
-      <CorrelationId>Intent.AspNetCore.HealthChecks.HealthChecksConfiguration</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.HealthChecks.HealthChecksConfiguration#175e392e-921e-4644-b226-3ca0ff835d15</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Api/Configuration/HealthChecksConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>HealthChecksConfiguration.cs</ProjectRelativeFilePath>
@@ -642,7 +642,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5d2a8757-3cb0-4c3d-ba0b-684519b666af</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Identity.IdentityServiceCollectionExtensions</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Identity.IdentityServiceCollectionExtensions#bd70ef29-ab5d-4d32-b6f9-19f84951df92</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Api/Configuration/IdentityServiceCollectionExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IdentityServiceCollectionExtensions.cs</ProjectRelativeFilePath>
@@ -650,7 +650,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5d2a8757-3cb0-4c3d-ba0b-684519b666af</ProjectId>
-      <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration#7f18c1f9-1e9a-4e8d-bba2-94027008d4df</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Api/Configuration/ProblemDetailsConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ProblemDetailsConfiguration.cs</ProjectRelativeFilePath>
@@ -658,7 +658,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>21ea38c2-146f-435f-b3ac-564f8e4175d2</ProjectId>
-      <CorrelationId>Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate</CorrelationId>
+      <CorrelationId>Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate#d01dd8dd-c315-4bcf-9753-92b38dc51b36</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Api/Logging/BoundedLoggingDestructuringPolicy.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>BoundedLoggingDestructuringPolicy.cs</ProjectRelativeFilePath>
@@ -666,7 +666,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>23d60d6c-b9c2-47d2-9962-2107504028e2</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Program</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Program#13b41e14-f3f5-478a-9bdf-0f6432807fbf</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Api/Program.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Program.cs</ProjectRelativeFilePath>
@@ -682,7 +682,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b6ebda13-3ff8-4841-9d26-f7bff842c92e</ProjectId>
-      <CorrelationId>Intent.Application.Identity.CurrentUserService</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserService#856d41e6-3b13-4cb5-bd2e-251ff94cb414</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Api/Services/CurrentUserService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CurrentUserService.cs</ProjectRelativeFilePath>
@@ -714,7 +714,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>6d049716-47ad-406d-bce9-bf42dc718615</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.AuthorizationBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.AuthorizationBehaviour#4ed0fac0-c5cb-42e5-aa89-67316923858b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Application/Common/Behaviours/AuthorizationBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AuthorizationBehaviour.cs</ProjectRelativeFilePath>
@@ -722,7 +722,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>6d049716-47ad-406d-bce9-bf42dc718615</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.LoggingBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.LoggingBehaviour#213c7319-ee1a-4e69-baf0-3670750b6f2d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Application/Common/Behaviours/LoggingBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>LoggingBehaviour.cs</ProjectRelativeFilePath>
@@ -730,7 +730,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>6d049716-47ad-406d-bce9-bf42dc718615</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.PerformanceBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.PerformanceBehaviour#969ffb9b-970c-4be4-bc11-4aecf92f349f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Application/Common/Behaviours/PerformanceBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PerformanceBehaviour.cs</ProjectRelativeFilePath>
@@ -738,7 +738,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>6d049716-47ad-406d-bce9-bf42dc718615</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour#1b520cd5-1eb3-4015-adda-239f09d857e4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UnhandledExceptionBehaviour.cs</ProjectRelativeFilePath>
@@ -746,7 +746,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>6d049716-47ad-406d-bce9-bf42dc718615</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour#840714e7-c1a7-4d9b-98d8-953003e6cd94</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Application/Common/Behaviours/UnitOfWorkBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UnitOfWorkBehaviour.cs</ProjectRelativeFilePath>
@@ -754,7 +754,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>dc68c5dd-e41f-4404-8c54-7c636637b614</ProjectId>
-      <CorrelationId>Intent.Application.Identity.ForbiddenAccessException</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.ForbiddenAccessException#b4c4d62c-aa8a-458f-b2e3-bd3be1134828</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Application/Common/Exceptions/ForbiddenAccessException.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ForbiddenAccessException.cs</ProjectRelativeFilePath>
@@ -762,7 +762,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9e1e4c23-8e1e-4ecf-9b31-b7836ac91a27</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandInterface</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.CommandInterface#3ffce1e6-f42b-414e-b571-6d7e145d3a3b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Application/Common/Interfaces/ICommand.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICommand.cs</ProjectRelativeFilePath>
@@ -770,7 +770,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9e1e4c23-8e1e-4ecf-9b31-b7836ac91a27</ProjectId>
-      <CorrelationId>Intent.Application.Identity.CurrentUserInterface</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserInterface#a78a898e-c5cd-4805-a7ce-4316d58ceb26</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Application/Common/Interfaces/ICurrentUser.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICurrentUser.cs</ProjectRelativeFilePath>
@@ -778,7 +778,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9e1e4c23-8e1e-4ecf-9b31-b7836ac91a27</ProjectId>
-      <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface#ce9b9866-b24b-4b92-b5d6-8bbb6f09710a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Application/Common/Interfaces/ICurrentUserService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICurrentUserService.cs</ProjectRelativeFilePath>
@@ -786,7 +786,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9e1e4c23-8e1e-4ecf-9b31-b7836ac91a27</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.QueryInterface</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.QueryInterface#e1450fa3-b549-42f0-99dc-aa5ff8a8127a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Application/Common/Interfaces/IQuery.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IQuery.cs</ProjectRelativeFilePath>
@@ -794,7 +794,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>7187b251-d237-4a61-82b3-142e0975ec5b</ProjectId>
-      <CorrelationId>Intent.Application.Identity.ResultModel</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.ResultModel#b139d752-676c-487d-9ddf-118abea4b524</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Application/Common/Models/Result.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Result.cs</ProjectRelativeFilePath>
@@ -802,7 +802,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>f32c7dc0-64b5-4446-a0cb-415d3c8bcca3</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.PagedList</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.PagedList#528ac12c-7a1e-4645-84f3-aec139d9a257</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Application/Common/Pagination/PagedList.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedList.cs</ProjectRelativeFilePath>
@@ -810,7 +810,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>f32c7dc0-64b5-4446-a0cb-415d3c8bcca3</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResult</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResult#109751c2-4eed-4a57-9b84-d73b7d852526</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Application/Common/Pagination/PagedResult.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedResult.cs</ProjectRelativeFilePath>
@@ -818,7 +818,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>f32c7dc0-64b5-4446-a0cb-415d3c8bcca3</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResultMappingExtensions</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResultMappingExtensions#fddbd7b8-9ed2-4a32-b8be-48147a73374a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Application/Common/Pagination/PagedResultMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedResultMappingExtensions.cs</ProjectRelativeFilePath>
@@ -826,7 +826,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>3b1f353d-2816-44c6-9802-7e66032223f1</ProjectId>
-      <CorrelationId>Intent.Application.Identity.AuthorizeAttribute</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.AuthorizeAttribute#f2353a7a-5fd2-4436-b370-e274cec68279</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Application/Common/Security/AuthorizeAttribute.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AuthorizeAttribute.cs</ProjectRelativeFilePath>
@@ -922,7 +922,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>057db982-e69c-40ad-b050-e2876e091394</ProjectId>
-      <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection</CorrelationId>
+      <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection#b60d5d46-f036-429f-ba70-d74110e3cc3a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Application/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
@@ -946,7 +946,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>7bb832d6-ca83-4591-aa90-bdd1075508dd</ProjectId>
-      <CorrelationId>Intent.Entities.CollectionExtensions</CorrelationId>
+      <CorrelationId>Intent.Entities.CollectionExtensions#e1a5a63c-765a-43e8-b636-cca3a4edc85e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Domain/Common/CollectionExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CollectionExtensions.cs</ProjectRelativeFilePath>
@@ -954,7 +954,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>fecdb8c1-93e3-464a-9f26-147f663323c5</ProjectId>
-      <CorrelationId>Intent.Entities.NotFoundException</CorrelationId>
+      <CorrelationId>Intent.Entities.NotFoundException#02e54a15-8abd-48ae-bd3f-ed0ace6eb178</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Domain/Common/Exceptions/NotFoundException.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>NotFoundException.cs</ProjectRelativeFilePath>
@@ -962,7 +962,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>d8688ace-42c3-4d01-b7f9-a3637fa6fdfb</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.UnitOfWorkInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.UnitOfWorkInterface#e034e183-7cfe-4cb0-8b8a-c472121c56a5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Domain/Common/Interfaces/IUnitOfWork.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IUnitOfWork.cs</ProjectRelativeFilePath>
@@ -970,7 +970,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>7bb832d6-ca83-4591-aa90-bdd1075508dd</ProjectId>
-      <CorrelationId>Intent.Entities.UpdateHelper</CorrelationId>
+      <CorrelationId>Intent.Entities.UpdateHelper#60c8ca64-4fa1-4a05-82ee-ff002afabd3f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Domain/Common/UpdateHelper.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UpdateHelper.cs</ProjectRelativeFilePath>
@@ -994,7 +994,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>2a8278b5-0a7a-49fd-9b90-ac8e036fb26c</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface#dfc2ef67-a3ed-422a-a1eb-63b66bbcc110</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Domain/Repositories/IEFRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IEFRepository.cs</ProjectRelativeFilePath>
@@ -1002,7 +1002,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>2a8278b5-0a7a-49fd-9b90-ac8e036fb26c</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.PagedListInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.PagedListInterface#edf710e6-6314-4ffd-bd0a-dee2ff9d9ed2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Domain/Repositories/IPagedList.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IPagedList.cs</ProjectRelativeFilePath>
@@ -1010,7 +1010,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>2a8278b5-0a7a-49fd-9b90-ac8e036fb26c</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.RepositoryInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.RepositoryInterface#7b4f0321-0bc4-461a-9a44-52bf624fa551</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Domain/Repositories/IRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IRepository.cs</ProjectRelativeFilePath>
@@ -1026,7 +1026,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b612434b-dd53-4075-b29c-35521444f9d9</ProjectId>
-      <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection</CorrelationId>
+      <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#569db260-baf2-4959-ac55-775c8782f9c9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Infrastructure/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
@@ -1034,7 +1034,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ffe0743e-45ba-4583-b50d-ac6e6c651455</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe#d310af09-49fc-4a05-b744-25e086112208</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Infrastructure/Migrations/README.md</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>README.md</ProjectRelativeFilePath>
@@ -1066,7 +1066,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>8df985d1-051a-4a5f-b4c2-51611f3fec47</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.RepositoryBase</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.RepositoryBase#2845cd41-3c25-4e47-91fa-5f5188bbcda3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Infrastructure/Repositories/RepositoryBase.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RepositoryBase.cs</ProjectRelativeFilePath>
@@ -1074,7 +1074,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a7432ed9-2dbc-4e8d-addc-dbc134a1e891</ProjectId>
-      <CorrelationId>Intent.Blazor.Templates.Server.ScopedExecutorInterfaceTemplate</CorrelationId>
+      <CorrelationId>Intent.Blazor.Templates.Server.ScopedExecutorInterfaceTemplate#b7831656-2049-44bd-b175-272da713fc08</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Infrastructure/Services/IScopedExecutor.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IScopedExecutor.cs</ProjectRelativeFilePath>
@@ -1082,7 +1082,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a7432ed9-2dbc-4e8d-addc-dbc134a1e891</ProjectId>
-      <CorrelationId>Intent.Blazor.Templates.Server.ScopedMediatorInterfaceTemplate</CorrelationId>
+      <CorrelationId>Intent.Blazor.Templates.Server.ScopedMediatorInterfaceTemplate#16c5f039-ec4a-4e76-a6a0-890a785abd0a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Infrastructure/Services/IScopedMediator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IScopedMediator.cs</ProjectRelativeFilePath>
@@ -1090,7 +1090,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a7432ed9-2dbc-4e8d-addc-dbc134a1e891</ProjectId>
-      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.SetUserContextInterface</CorrelationId>
+      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.SetUserContextInterface#12596c02-4e91-461a-a096-101aee582bb8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Infrastructure/Services/ISetUserContext.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ISetUserContext.cs</ProjectRelativeFilePath>
@@ -1098,7 +1098,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a7432ed9-2dbc-4e8d-addc-dbc134a1e891</ProjectId>
-      <CorrelationId>Intent.Blazor.Templates.Server.ScopedExecutorTemplate</CorrelationId>
+      <CorrelationId>Intent.Blazor.Templates.Server.ScopedExecutorTemplate#763036fb-171b-4701-80d2-eeca5dd1b2ae</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Infrastructure/Services/ScopedExecutor.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ScopedExecutor.cs</ProjectRelativeFilePath>
@@ -1106,7 +1106,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a7432ed9-2dbc-4e8d-addc-dbc134a1e891</ProjectId>
-      <CorrelationId>Intent.Blazor.Templates.Server.ScopedMediatorTemplate</CorrelationId>
+      <CorrelationId>Intent.Blazor.Templates.Server.ScopedMediatorTemplate#bbd7f49c-2aa3-4224-b7b8-46252ed8a190</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorServerTests.Infrastructure/Services/ScopedMediator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ScopedMediator.cs</ProjectRelativeFilePath>

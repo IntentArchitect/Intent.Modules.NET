@@ -119,14 +119,14 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
             CancellationToken cancellationToken = default)
         {
             await DispatchEventsAsync(cancellationToken);
-            SetAuditableFields();
+            await SetAuditableFieldsAsync();
             return await base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
         }
 
         public override int SaveChanges(bool acceptAllChangesOnSuccess)
         {
             DispatchEventsAsync().GetAwaiter().GetResult();
-            SetAuditableFields();
+            SetAuditableFieldsAsync().GetAwaiter().GetResult();
             return base.SaveChanges(acceptAllChangesOnSuccess);
         }
 
@@ -236,7 +236,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
             }
         }
 
-        private void SetAuditableFields()
+        private async Task SetAuditableFieldsAsync()
         {
             var auditableEntries = ChangeTracker.Entries()
                 .Where(entry => entry.State is EntityState.Added or EntityState.Deleted or EntityState.Modified &&
@@ -254,7 +254,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
                 return;
             }
 
-            var userIdentifier = _currentUserService.GetAsync()?.GetAwaiter().GetResult()?.Id ?? throw new InvalidOperationException("GetAsync()?.GetAwaiter().GetResult()?.Id is null");
+            var userIdentifier = (await _currentUserService.GetAsync())?.Id ?? throw new InvalidOperationException("Id is null");
             var timestamp = DateTimeOffset.UtcNow;
 
             foreach (var entry in auditableEntries)

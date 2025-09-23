@@ -63,22 +63,41 @@ namespace Intent.Modules.Entities.BasicAuditing.FactoryExtensions
 
                 @class.AddMethod($"({template.UseType(userIdType)} UserIdentifier, DateTimeOffset TimeStamp)", "GetAuditDetails", method =>
                 {
+                    // "Identity Settings" => "Keep Async Accessors"
+                    bool.TryParse(template.ExecutionContext.Settings.GetGroup("1045dea6-d28f-4ab8-9b5e-6f360035fdb6")
+                        ?.GetSetting("fb7918a2-c5e5-4eb1-b840-5359765e2392")?.Value, out var syncMethodsAvailable);
+
                     string userIdentityProperty;
                     switch (template.ExecutionContext.Settings.GetBasicAuditing().UserIdentityToAudit().AsEnum())
                     {
                         case Settings.BasicAuditing.UserIdentityToAuditOptionsEnum.UserName:
-                            userIdentityProperty = "UserName";
+                            userIdentityProperty = syncMethodsAvailable ? "UserName" : "Name";
                             break;
                         case Settings.BasicAuditing.UserIdentityToAuditOptionsEnum.UserId:
                         default:
-                            userIdentityProperty = "UserId";
+                            userIdentityProperty = syncMethodsAvailable ? "UserId" : "Id";
                             break;
                     }
 
                     method.Private();
-                    method.AddStatements(new[]
+
+                    if (syncMethodsAvailable)
                     {
-                        $"var userIdentifier = _currentUserService.{userIdentityProperty} ?? throw new InvalidOperationException(\"{userIdentityProperty} is null\");",
+                        method.AddStatements(new[]
+                        {
+                            $"var userIdentifier = _currentUserService.{userIdentityProperty} ?? throw new InvalidOperationException(\"{userIdentityProperty} is null\");"
+                        });
+                    }
+                    else
+                    {
+                        method.AddStatements(new[]
+                        {
+                            $"var userIdentifier = _currentUserService.GetAsync().GetAwaiter().GetResult()?.{userIdentityProperty} ?? throw new InvalidOperationException(\"{userIdentityProperty} is null\");"
+                        });
+                    }
+
+                    method.AddStatements(new[]
+                        {
                         "var timestamp = DateTimeOffset.UtcNow;",
                         "",
                         "return (userIdentifier, timestamp);"

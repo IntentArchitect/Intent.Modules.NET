@@ -1,3 +1,11 @@
+### Version 4.0.17
+
+- Improvement: adding using clause for `HttpRequestMessage` in `HttpCLient`s.
+
+### Version 4.0.16
+
+- Improvement: Service proxies will now generate within any folders they are modelled within.
+
 ### Version 4.0.15
 
 - Improvement: Updated NuGet package versions.

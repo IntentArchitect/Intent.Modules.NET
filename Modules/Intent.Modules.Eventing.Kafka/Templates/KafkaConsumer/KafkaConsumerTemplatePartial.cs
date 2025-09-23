@@ -8,11 +8,11 @@ using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.UnitOfWork.Shared;
 using Intent.Modules.Constants;
 using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.Modules.Eventing.Kafka.Templates.KafkaEventDispatcher;
 using Intent.Modules.Eventing.Kafka.Templates.KafkaEventDispatcherInterface;
-using Intent.Modules.UnitOfWork.Persistence.Shared;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 

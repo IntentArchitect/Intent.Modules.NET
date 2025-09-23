@@ -29,7 +29,7 @@ namespace CleanArchitecture.Dapr.Infrastructure.HttpClients
         public async Task<int> GetSecuredValueAsync(CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/secured-proxy";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))

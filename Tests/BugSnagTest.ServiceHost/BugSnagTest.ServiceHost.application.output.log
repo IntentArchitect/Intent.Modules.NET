@@ -26,7 +26,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>504fb557-6b15-41c7-b6c2-8b1214423d33</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandInterface</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.CommandInterface#b89053db-79dc-45d5-83b8-6589d272b1d1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BugSnagTest.ServiceHost/Common/Interfaces/ICommand.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICommand.cs</ProjectRelativeFilePath>
@@ -34,7 +34,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>504fb557-6b15-41c7-b6c2-8b1214423d33</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.QueryInterface</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.QueryInterface#7430eb15-534d-45bc-9d10-bd9903f2e4bb</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BugSnagTest.ServiceHost/Common/Interfaces/IQuery.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IQuery.cs</ProjectRelativeFilePath>
@@ -42,7 +42,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>29497d2e-d4ff-411d-8518-8fd9cba4a50c</ProjectId>
-      <CorrelationId>Intent.Bugsnag.BugsnagConfiguration</CorrelationId>
+      <CorrelationId>Intent.Bugsnag.BugsnagConfiguration#cdba8998-6767-4358-97ff-60a13bb89fe1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BugSnagTest.ServiceHost/Configuration/BugsnagConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>BugsnagConfiguration.cs</ProjectRelativeFilePath>
@@ -50,7 +50,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>29497d2e-d4ff-411d-8518-8fd9cba4a50c</ProjectId>
-      <CorrelationId>Intent.QuartzScheduler.QuartzConfiguration</CorrelationId>
+      <CorrelationId>Intent.QuartzScheduler.QuartzConfiguration#6ae06c8c-eec5-46d9-86a8-9c218390d136</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BugSnagTest.ServiceHost/Configuration/QuartzConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>QuartzConfiguration.cs</ProjectRelativeFilePath>
@@ -58,7 +58,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b010e961-a456-4294-8fac-64fdd27f23fa</ProjectId>
-      <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection</CorrelationId>
+      <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection#ea661e38-14f7-4a33-a1dc-9fd59e1b7802</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BugSnagTest.ServiceHost/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
@@ -66,7 +66,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b010e961-a456-4294-8fac-64fdd27f23fa</ProjectId>
-      <CorrelationId>Intent.WindowsServiceHost.DeploymentMD</CorrelationId>
+      <CorrelationId>Intent.WindowsServiceHost.DeploymentMD#cdf98c84-c294-4078-acb9-5f3dc17af11d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BugSnagTest.ServiceHost/Deployment.md</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Deployment.md</ProjectRelativeFilePath>
@@ -74,7 +74,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>c2761b0f-0563-45c1-bef0-75a113711a32</ProjectId>
-      <CorrelationId>Intent.Bugsnag.BugSnagQuartzJobListener</CorrelationId>
+      <CorrelationId>Intent.Bugsnag.BugSnagQuartzJobListener#2ac9c1f7-916e-4c25-a72c-0eae797104c8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BugSnagTest.ServiceHost/Jobs/BugSnagQuartzJobListener.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>BugSnagQuartzJobListener.cs</ProjectRelativeFilePath>
@@ -90,7 +90,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b010e961-a456-4294-8fac-64fdd27f23fa</ProjectId>
-      <CorrelationId>Intent.WindowsServiceHost.Program</CorrelationId>
+      <CorrelationId>Intent.WindowsServiceHost.Program#57504089-5581-4f19-acb5-3f4aefd63f1f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BugSnagTest.ServiceHost/Program.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Program.cs</ProjectRelativeFilePath>
@@ -122,7 +122,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b010e961-a456-4294-8fac-64fdd27f23fa</ProjectId>
-      <CorrelationId>Intent.WindowsServiceHost.WindowsBackgroundService</CorrelationId>
+      <CorrelationId>Intent.WindowsServiceHost.WindowsBackgroundService#edf50896-204c-4215-a5ef-2c40da83e580</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BugSnagTest.ServiceHost/WindowsBackgroundService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>WindowsBackgroundService.cs</ProjectRelativeFilePath>

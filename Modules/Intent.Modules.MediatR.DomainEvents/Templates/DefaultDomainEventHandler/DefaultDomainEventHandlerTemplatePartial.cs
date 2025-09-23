@@ -8,7 +8,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.DomainEvents.Templates.DomainEvent;
+using Intent.Modules.Constants;
 using Intent.Modules.MediatR.DomainEvents.Templates.DomainEventNotification;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -87,7 +87,7 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DefaultDomainEventHandle
 
         private string GetDomainEventType()
         {
-            return GetTypeName(DomainEventTemplate.TemplateId, Model);
+            return GetTypeName(TemplateRoles.Domain.Events, Model);
         }
     }
 }

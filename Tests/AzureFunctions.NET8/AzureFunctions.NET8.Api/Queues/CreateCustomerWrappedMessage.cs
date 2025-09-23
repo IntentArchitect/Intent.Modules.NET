@@ -1,5 +1,4 @@
 using System.Text.Json;
-using System.Transactions;
 using Azure.Storage.Queues.Models;
 using AzureFunctions.NET8.Application.Queues.CreateCustomerWrappedMessage;
 using AzureFunctions.NET8.Domain.Common.Interfaces;
@@ -15,12 +14,10 @@ namespace AzureFunctions.NET8.Api.Queues
     public class CreateCustomerWrappedMessage
     {
         private readonly IMediator _mediator;
-        private readonly IUnitOfWork _unitOfWork;
 
-        public CreateCustomerWrappedMessage(IMediator mediator, IUnitOfWork unitOfWork)
+        public CreateCustomerWrappedMessage(IMediator mediator)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
-            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
         [Function("Queues_CreateCustomerWrappedMessage")]

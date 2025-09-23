@@ -1,3 +1,7 @@
+### Version 3.9.1
+
+- Improvement: `Roles` can now disable the creation of sub-folders by `Template Outputs` on installation.
+
 ### Version 3.9.0
 
 - Feature: It is now possible to model dependencies between projects in the Visual Studio designer, allowing for templates to be able to handle more complex solution structures, such as multiple entry assemblies.

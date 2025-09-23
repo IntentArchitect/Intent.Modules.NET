@@ -39,7 +39,7 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.HttpClients
             queryParams.Add("field1", arg.Field1);
             queryParams.Add("field2", arg.Field2);
             relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))

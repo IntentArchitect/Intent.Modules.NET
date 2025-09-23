@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <id>Intent.Common.UnitOfWork</id>
+  <version>1.0.0</version>
+  <supportedClientVersions>[4.4.0-a,5.0.0)</supportedClientVersions>
+  <summary>Common Unit Of Work Module for Intent.Modules.NET</summary>
+  <description>Common Unit Of Work Module for Intent.Modules.NET</description>
+  <authors>Intent Architect</authors>
+  <iconUrl>https://img.icons8.com/?size=100&amp;id=13545&amp;format=png&amp;color=000000</iconUrl>
+  <tags>csharp dotnet unit of work persistence</tags>
+  <projectUrl>https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Common.UnitOfWork/README.md</projectUrl>
+  <releaseNotes>release-notes.md</releaseNotes>
+  <templates></templates>
+  <decorators></decorators>
+  <factoryExtensions></factoryExtensions>
+  <moduleSettings>
+    <group id="c4b7e545-eaac-42bc-8f06-2768ac8dad99" title="Unit Of Work Settings" type="application-settings" externalReference="c4b7e545-eaac-42bc-8f06-2768ac8dad99">
+      <settings>
+        <setting id="f79a4c1d-4f4a-42b2-ad8e-81f974dfb0e2" title="Use ambient transactions" type="switch">
+          <defaultValue>true</defaultValue>
+        </setting>
+        <setting id="d6338b7c-b0f9-46bd-8dbb-3c745d5f8623" title="Automatically persist unit of work" type="switch">
+          <defaultValue>true</defaultValue>
+        </setting>
+      </settings>
+    </group>
+  </moduleSettings>
+  <dependencies>
+    <dependency id="Intent.Common" version="3.7.2" />
+    <dependency id="Intent.Common.Types" version="3.4.0" />
+  </dependencies>
+  <files>
+    <file src="$outDir$/$id$.dll" />
+    <file src="$outDir$/$id$.pdb" />
+  </files>
+  <tags />
+  <moduleSettingsExtensions />
+  <metadata>
+    <install target="*" src="Intent.Metadata/Module Builder/Intent.Common.UnitOfWork/Intent.Common.UnitOfWork.pkg.config" externalReference="371be07c-ba65-4c08-aff6-8c1a9aa1ba4f" />
+  </metadata>
+  <migrations />
+</package>

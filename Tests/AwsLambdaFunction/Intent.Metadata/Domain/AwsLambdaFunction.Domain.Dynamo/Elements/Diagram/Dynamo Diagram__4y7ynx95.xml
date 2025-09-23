@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="aa338847-c52b-4125-b39f-83fc330f5af4" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Dynamo Diagram</name>
+  <display>Dynamo Diagram</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>b4f53221-960e-4b3b-8bf2-f6dd9ff9cdaa</parentFolderId>
+  <packageId>b4f53221-960e-4b3b-8bf2-f6dd9ff9cdaa</packageId>
+  <packageName>AwsLambdaFunction.Domain.Dynamo</packageName>
+  <diagram>
+    <targetPackageId>b4f53221-960e-4b3b-8bf2-f6dd9ff9cdaa</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

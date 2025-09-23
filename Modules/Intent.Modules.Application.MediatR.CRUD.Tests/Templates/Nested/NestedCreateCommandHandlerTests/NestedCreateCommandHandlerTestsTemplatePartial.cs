@@ -87,7 +87,7 @@ public partial class NestedCreateCommandHandlerTestsTemplate : CSharpTemplateBas
                 });
 
                 AddAssertionMethods();
-            });
+            }, TemplateConstants.AfterBuildOrder);
     }
 
     private bool? _canRunTemplate;

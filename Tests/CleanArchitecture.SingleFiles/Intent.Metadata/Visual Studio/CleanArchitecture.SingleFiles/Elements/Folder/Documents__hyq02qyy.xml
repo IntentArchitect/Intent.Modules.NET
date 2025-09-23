@@ -105,51 +105,9 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="ee85e2cd-f852-4be5-991d-ca787a806190" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.MongoDb.MongoDbDocument</name>
-      <display>Intent.MongoDb.MongoDbDocument</display>
-      <externalReference>Intent.MongoDb</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>9c73e7e6-3523-408a-b2e6-e9ea169f1bf2</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="5da957d5-0e3a-4e89-977e-0f4417eeac9c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.MongoDb.MongoDbDocumentOfTInterface</name>
-      <display>Intent.MongoDb.MongoDbDocumentOfTInterface</display>
-      <externalReference>Intent.MongoDb</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>9c73e7e6-3523-408a-b2e6-e9ea169f1bf2</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="dfe24b97-ffa9-418b-84d3-f554c7516fa2" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.MongoDb.MongoDbValueObjectDocument</name>
       <display>Intent.MongoDb.MongoDbValueObjectDocument</display>
-      <externalReference>Intent.MongoDb</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>9c73e7e6-3523-408a-b2e6-e9ea169f1bf2</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="b076f5c4-c625-4969-a3c3-3915b9902235" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.MongoDb.ReflectionHelper</name>
-      <display>Intent.MongoDb.ReflectionHelper</display>
       <externalReference>Intent.MongoDb</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />

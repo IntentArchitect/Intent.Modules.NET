@@ -1,6 +1,5 @@
 using System.Net;
 using System.Text.Json;
-using System.Transactions;
 using AzureFunctions.NET8.Application.Validation.InboundComVal;
 using AzureFunctions.NET8.Domain.Common.Exceptions;
 using AzureFunctions.NET8.Domain.Common.Interfaces;
@@ -21,12 +20,10 @@ namespace AzureFunctions.NET8.Api.Validation
     public class InboundComVal
     {
         private readonly IMediator _mediator;
-        private readonly IUnitOfWork _unitOfWork;
 
-        public InboundComVal(IMediator mediator, IUnitOfWork unitOfWork)
+        public InboundComVal(IMediator mediator)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
-            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
         [Function("Validation_InboundComVal")]

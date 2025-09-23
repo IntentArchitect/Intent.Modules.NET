@@ -10,11 +10,11 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
+using Intent.Modules.Common.UnitOfWork.Shared;
 using Intent.Modules.Eventing.AzureServiceBus.Templates;
 using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.Modules.Integration.IaC.Shared;
 using Intent.Modules.Integration.IaC.Shared.AzureServiceBus;
-using Intent.Modules.UnitOfWork.Persistence.Shared;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -64,7 +64,7 @@ namespace Intent.Modules.AzureFunctions.AzureServiceBus.Templates.AzureFunctionC
                                 {
                                     throw new InvalidOperationException($"Subscription could not be found for IntegrationEventHandler ['{Model.Id}', '{Model.Name}']");
                                 }
-                                
+
                                 attr.AddArgument($@"""%{sub.SubscriptionItem.QueueOrTopicConfigurationName}%""");
                                 if (sub.SubscriptionItem.ChannelType == AzureServiceBusChannelType.Topic)
                                 {

@@ -29,7 +29,7 @@ namespace AzureFunctions.NET8.Infrastructure.HttpClients
         public async Task CommandWithIgnoreInApiAsync(CancellationToken cancellationToken = default)
         {
             var relativeUri = $"ignores/command-with-ignore-in-api";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
@@ -44,7 +44,7 @@ namespace AzureFunctions.NET8.Infrastructure.HttpClients
         public async Task<bool> QueryWithIgnoreInApiAsync(CancellationToken cancellationToken = default)
         {
             var relativeUri = $"ignores/query-with-ignore-in-api";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))

@@ -32,7 +32,7 @@ namespace CleanArchitecture.Comprehensive.BlazorClient.HttpClients.Implementatio
             CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/aggregate-roots";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(command, _serializerOptions);
@@ -59,7 +59,7 @@ namespace CleanArchitecture.Comprehensive.BlazorClient.HttpClients.Implementatio
             CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/aggregate-roots/{aggregateRootId}/compositemanybs";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(command, _serializerOptions);
@@ -83,7 +83,7 @@ namespace CleanArchitecture.Comprehensive.BlazorClient.HttpClients.Implementatio
         public async Task DeleteAggregateRootAsync(Guid id, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/aggregate-roots/{id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Delete, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Delete, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
@@ -101,7 +101,7 @@ namespace CleanArchitecture.Comprehensive.BlazorClient.HttpClients.Implementatio
             CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/aggregate-roots/{aggregateRootId}/compositemanybs/{id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Delete, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Delete, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
@@ -119,7 +119,7 @@ namespace CleanArchitecture.Comprehensive.BlazorClient.HttpClients.Implementatio
             CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/aggregate-roots/{id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(command, _serializerOptions);
@@ -141,7 +141,7 @@ namespace CleanArchitecture.Comprehensive.BlazorClient.HttpClients.Implementatio
             CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/aggregate-roots/{aggregateRootId}/compositemanybs/{id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(command, _serializerOptions);
@@ -161,7 +161,7 @@ namespace CleanArchitecture.Comprehensive.BlazorClient.HttpClients.Implementatio
             CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/aggregate-roots/{id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
@@ -184,7 +184,7 @@ namespace CleanArchitecture.Comprehensive.BlazorClient.HttpClients.Implementatio
             CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/aggregate-roots/{aggregateRootId}/compositemanybs/{id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
@@ -206,7 +206,7 @@ namespace CleanArchitecture.Comprehensive.BlazorClient.HttpClients.Implementatio
             CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/aggregate-roots/{aggregateRootId}/compositemanybs";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
@@ -226,7 +226,7 @@ namespace CleanArchitecture.Comprehensive.BlazorClient.HttpClients.Implementatio
         public async Task<List<AggregateRootDto>> GetAggregateRootsAsync(CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/aggregate-roots";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))

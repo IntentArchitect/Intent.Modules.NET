@@ -25,7 +25,7 @@ namespace MassTransit.AzureServiceBus.Application.EventHandlers.People
             _eventBus = eventBus;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(
             DomainEventNotification<TalkToPersonRequested> notification,
             CancellationToken cancellationToken)

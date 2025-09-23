@@ -1,10 +1,12 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
+using System.Threading;
+using System.Threading.Tasks;
 using AdvancedMappingCrudMongo.Tests.Domain.Entities;
 using AdvancedMappingCrudMongo.Tests.Domain.Repositories;
-using AdvancedMappingCrudMongo.Tests.Domain.Repositories.Documents;
 using AdvancedMappingCrudMongo.Tests.Infrastructure.Persistence;
-using AdvancedMappingCrudMongo.Tests.Infrastructure.Persistence.Documents;
 using Intent.RoslynWeaver.Attributes;
 using MongoDB.Driver;
 
@@ -13,10 +15,14 @@ using MongoDB.Driver;
 
 namespace AdvancedMappingCrudMongo.Tests.Infrastructure.Repositories
 {
-    internal class ExternalDocMongoRepository : MongoRepositoryBase<ExternalDoc, ExternalDocDocument, IExternalDocDocument, long>, IExternalDocRepository
+    internal class ExternalDocMongoRepository : MongoRepositoryBase<ExternalDoc, long>, IExternalDocRepository
     {
-        public ExternalDocMongoRepository(IMongoCollection<ExternalDocDocument> collection, MongoDbUnitOfWork unitOfWork) : base(collection, unitOfWork)
+        public ExternalDocMongoRepository(IMongoCollection<ExternalDoc> collection, MongoDbUnitOfWork unitOfWork) : base(collection, unitOfWork, x => x.Id)
         {
         }
+
+        public Task<ExternalDoc?> FindByIdAsync(long id, CancellationToken cancellationToken = default) => FindAsync(x => x.Id == id, cancellationToken);
+
+        public Task<List<ExternalDoc>> FindByIdsAsync(long[] ids, CancellationToken cancellationToken = default) => FindAllAsync(x => ids.Contains(x.Id), cancellationToken);
     }
 }

@@ -15,7 +15,8 @@ namespace SharedKernel.Kernel.Tests.Domain.Entities
             CountryId = countryId;
             Name = name;
             Symbol = symbol;
-            DomainEvents.Add(new CurrencyCreated(currency: this));
+            DomainEvents.Add(new CurrencyCreated(
+                currency: this));
         }
 
         /// <summary>

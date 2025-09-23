@@ -1,15 +1,16 @@
+using System;
 using CleanArchitecture.SingleFiles.Application.Common.Interfaces;
 using CleanArchitecture.SingleFiles.Domain.Common.Interfaces;
 using CleanArchitecture.SingleFiles.Domain.Repositories;
 using CleanArchitecture.SingleFiles.Infrastructure.Configuration;
 using CleanArchitecture.SingleFiles.Infrastructure.Persistence;
-using CleanArchitecture.SingleFiles.Infrastructure.Persistence.Documents;
 using CleanArchitecture.SingleFiles.Infrastructure.Repositories;
 using CleanArchitecture.SingleFiles.Infrastructure.Services;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using MongoDB.Driver;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -27,31 +28,16 @@ namespace CleanArchitecture.SingleFiles.Infrastructure
                 options.UseInMemoryDatabase("DefaultConnection");
                 options.UseLazyLoadingProxies();
             });
-            services.AddSingleton<IMongoClient>(sp =>
+            var cs = configuration.GetConnectionString("MongoDbConnection");
+            services.TryAddSingleton<IMongoClient>(_ => new MongoClient(cs));
+            services.TryAddSingleton<IMongoDatabase>(sp =>
                     {
-                        var connectionString = configuration.GetConnectionString("MongoDbConnection");
-                        return new MongoClient(connectionString);
+                        var dbName = new MongoUrl(cs).DatabaseName
+                                     ?? throw new InvalidOperationException(
+                                         "MongoDbConnection must include a database name.");
+                        return sp.GetRequiredService<IMongoClient>().GetDatabase(dbName);
                     });
-            services.AddSingleton(sp =>
-                    {
-                        var connectionString = configuration.GetConnectionString("MongoDbConnection");
-
-                        // Parse connection string to get the database name
-                        var mongoUrl = new MongoUrl(connectionString);
-                        var client = sp.GetRequiredService<IMongoClient>();
-
-                        return client.GetDatabase(mongoUrl.DatabaseName);
-                    });
-            services.AddSingleton<IMongoCollection<MongoInvoiceDocument>>(sp =>
-                            {
-                                var database = sp.GetRequiredService<IMongoDatabase>();
-                                return database.GetCollection<MongoInvoiceDocument>("MongoInvoice");
-                            });
-            services.AddSingleton<IMongoCollection<MongoLineDocument>>(sp =>
-                            {
-                                var database = sp.GetRequiredService<IMongoDatabase>();
-                                return database.GetCollection<MongoLineDocument>("MongoLine");
-                            });
+            services.RegisterMongoCollections(typeof(DependencyInjection).Assembly);
             services.AddScoped<ICosmosInvoiceRepository, CosmosInvoiceCosmosDBRepository>();
             services.AddScoped<IDaprInvoiceRepository, DaprInvoiceDaprStateStoreRepository>();
             services.AddScoped<IMongoInvoiceRepository, MongoInvoiceMongoRepository>();

@@ -459,14 +459,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>f14bd1de-7751-4762-abb0-9c408555f5ad</ProjectId>
-      <CorrelationId>Intent.MongoDb.MongoDbDocumentInterface#18c6cccc-4ef7-410c-8c2a-1c605648b39d</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MultipleDocumentStores.Domain/Repositories/Documents/ICustomerMongoDocument.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ICustomerMongoDocument.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>5d7705ac-e4b5-450b-ba34-3d57fe87d53b</ProjectId>
       <CorrelationId>Intent.CosmosDB.CosmosDBRepositoryInterface#35b84cd7-7ec8-498c-82dc-fd382c83bf7a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -547,6 +539,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>b6767225-34db-40d6-a611-3cb7fa551d30</ProjectId>
+      <CorrelationId>Intent.MongoDb.MongoConfigurationExtensions#73e12860-e106-42d8-932b-b230507796c9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MultipleDocumentStores.Infrastructure/Configuration/MongoConfigurationExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MongoConfigurationExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>01f36a81-049b-44ef-87df-7408737258fb</ProjectId>
       <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#4eaf6191-8469-446d-a0bd-74fff07e8c65</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -588,14 +588,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>a25d0ea1-27e0-4839-b532-5a68da89ae4d</ProjectId>
-      <CorrelationId>Intent.MongoDb.MongoDbDocument#18c6cccc-4ef7-410c-8c2a-1c605648b39d</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MultipleDocumentStores.Infrastructure/Persistence/Documents/CustomerMongoDocument.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CustomerMongoDocument.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>a25d0ea1-27e0-4839-b532-5a68da89ae4d</ProjectId>
       <CorrelationId>Intent.CosmosDB.CosmosDBDocumentOfTInterface#9278d612-61b8-4950-a189-f02254a3abc5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MultipleDocumentStores.Infrastructure/Persistence/Documents/ICosmosDBDocument.cs</ApplicationRelativeFilePath>
@@ -604,18 +596,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>a25d0ea1-27e0-4839-b532-5a68da89ae4d</ProjectId>
-      <CorrelationId>Intent.MongoDb.MongoDbDocumentOfTInterface#d4d3d846-9943-4c2b-a18b-1d7ccbab8e3f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MultipleDocumentStores.Infrastructure/Persistence/Documents/IMongoDbDocument.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IMongoDbDocument.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>a25d0ea1-27e0-4839-b532-5a68da89ae4d</ProjectId>
       <CorrelationId>Intent.CosmosDB.CosmosDBDocumentTypeExtensionMethods#f82ab8ae-321c-43e9-8a89-97a336747c00</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MultipleDocumentStores.Infrastructure/Persistence/Documents/TypeExtensionMethods.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TypeExtensionMethods.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b5d5bfda-0517-42dd-b6ea-701316db1d11</ProjectId>
+      <CorrelationId>Intent.MongoDb.MongoDbMapping#18c6cccc-4ef7-410c-8c2a-1c605648b39d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MultipleDocumentStores.Infrastructure/Persistence/Mappings/CustomerMongoMapping.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CustomerMongoMapping.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b5d5bfda-0517-42dd-b6ea-701316db1d11</ProjectId>
+      <CorrelationId>Intent.MongoDb.MongoMappingConfigurationInterface#87a20834-08f4-49ed-add6-568b08de3269</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MultipleDocumentStores.Infrastructure/Persistence/Mappings/IMongoMappingConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IMongoMappingConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

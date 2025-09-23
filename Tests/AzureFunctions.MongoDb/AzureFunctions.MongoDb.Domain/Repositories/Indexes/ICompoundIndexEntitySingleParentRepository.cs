@@ -1,10 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 using AzureFunctions.MongoDb.Domain.Entities.Indexes;
-using AzureFunctions.MongoDb.Domain.Repositories.Documents.Indexes;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -13,7 +11,11 @@ using Intent.RoslynWeaver.Attributes;
 namespace AzureFunctions.MongoDb.Domain.Repositories.Indexes
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface ICompoundIndexEntitySingleParentRepository : IMongoRepository<CompoundIndexEntitySingleParent, ICompoundIndexEntitySingleParentDocument, string>
+    public interface ICompoundIndexEntitySingleParentRepository : IMongoRepository<CompoundIndexEntitySingleParent, string>
     {
+        [IntentManaged(Mode.Fully)]
+        Task<CompoundIndexEntitySingleParent?> FindByIdAsync(string id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<List<CompoundIndexEntitySingleParent>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default);
     }
 }

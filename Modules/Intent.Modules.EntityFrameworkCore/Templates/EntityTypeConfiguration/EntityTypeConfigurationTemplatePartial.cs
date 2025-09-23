@@ -70,20 +70,26 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                                 method.AddStatements(GetCosmosContainerMapping(Model));
                             }
 
-                            method.AddStatements(GetTypeConfiguration(Model.InternalElement, @class, null));
-                            //Moved this into GetTypeConfiguration as its applicabale for Owned Tables too
-                            //method.AddStatements(GetCheckConstraints(Model));
-                            method.Statements.SeparateAll();
+                            // Needs to happen a little later or builder.ToJson() doesn't generate due to it not yet being able to find the "serialized" metadata key.
+                            CSharpFile.OnBuild(_ =>
+                            {
+                                method.AddStatements(GetTypeConfiguration(Model.InternalElement, @class, null));
 
-                            AddIgnoreForNonPersistent(method, isOwned: false);
+                                method.Statements.SeparateAll();
+
+                                AddIgnoreForNonPersistent(method, isOwned: false);
+                            }, 100);
                         });
 
-                    foreach (var statement in @class.Methods.SelectMany(x => x.Statements.OfType<EfCoreKeyMappingStatement>().Where(y => y.KeyColumns.Any())))
+                    CSharpFile.OnBuild(_ =>
                     {
-                        EnsurePrimaryKeysOnEntity(
-                            statement.KeyColumns.First().Class,
-                            statement.KeyColumns);
-                    }
+                        foreach (var statement in @class.Methods.SelectMany(x => x.Statements.OfType<EfCoreKeyMappingStatement>().Where(y => y.KeyColumns.Any())))
+                        {
+                            EnsurePrimaryKeysOnEntity(
+                                statement.KeyColumns.First().Class,
+                                statement.KeyColumns);
+                        }
+                    }, 100);
                 });
         }
 
@@ -604,12 +610,20 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     AddUsing("System.Linq");
                     var constraint = new StringBuilder();
                     var enumType = GetTypeName(enumAttribute.TypeReference);
+
+                    var nullCheck = string.Empty;
+                    if (enumAttribute.TypeReference.IsNullable)
+                    {
+                        enumType = enumType.Replace("?", "");
+                        nullCheck = $"\\\"{enumAttribute.Name}\\\" IS NULL OR ";
+                    }
+
                     var constraintValuesExpression = ExecutionContext.Settings.GetDatabaseSettings().StoreEnumsAsStrings()
                         ? $"Enum.GetValues<{enumType}>().Select(e => $\"'{{e}}'\")"
                         : $"Enum.GetValues<{enumType}>().Select(e => $\"{{e:D}}\")";
 
                     constraint.AppendLine();
-                    constraint.AppendLine(@$"builder.ToTable(tb => tb.HasCheckConstraint(""{GetConstraintName(enumAttribute)}"", $""\""{enumAttribute.Name}\"" IN ({{string.Join("","", {constraintValuesExpression})}})""));");
+                    constraint.AppendLine(@$"builder.ToTable(tb => tb.HasCheckConstraint(""{GetConstraintName(enumAttribute)}"", $""{nullCheck}\""{enumAttribute.Name}\"" IN ({{string.Join("","", {constraintValuesExpression})}})""));");
                     yield return constraint.ToString();
                 }
             }
@@ -737,7 +751,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                                               ?.PrimaryKeyValueProvider()
                                               ?.AsEnum() ??
                                           DatabaseSettingsExtensions.PrimaryKeyValueProviderOptionsEnum.Default;
-            
+
             foreach (var attributeModel in model.GetExplicitPrimaryKey())
             {
                 if (EfCoreKeyColumnPropertyStatement.RequiresConfiguration(attributeModel, primaryKeyValueProvider) || _enforceColumnOrdering)

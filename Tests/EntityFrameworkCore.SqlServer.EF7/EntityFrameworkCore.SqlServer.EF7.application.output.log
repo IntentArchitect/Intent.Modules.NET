@@ -12,7 +12,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ebf074b7-351a-4087-8e62-1b25133d6136</ProjectId>
-      <CorrelationId>Intent.Application.Identity.ApplicationSecurityConfiguration</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.ApplicationSecurityConfiguration#bdfe6bec-0eae-462c-a05e-2e06ff8cd37d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Api/Configuration/ApplicationSecurityConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApplicationSecurityConfiguration.cs</ProjectRelativeFilePath>
@@ -20,7 +20,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ebf074b7-351a-4087-8e62-1b25133d6136</ProjectId>
-      <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration#93698939-8be9-464a-ac78-34e482c2dcf4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Api/Configuration/ProblemDetailsConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ProblemDetailsConfiguration.cs</ProjectRelativeFilePath>
@@ -36,7 +36,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>6e8450f7-77b1-46f1-acb4-78a12ee28033</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.ExceptionFilter</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Controllers.ExceptionFilter#8168a00b-89c9-45ad-82a3-fd33ebdd77b2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Api/Filters/ExceptionFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ExceptionFilter.cs</ProjectRelativeFilePath>
@@ -44,7 +44,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>8e71320f-0b23-4673-b960-93f56bbd07de</ProjectId>
-      <CorrelationId>Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate</CorrelationId>
+      <CorrelationId>Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate#6957f097-bc86-4811-9c37-2c5126f22e0e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Api/Logging/BoundedLoggingDestructuringPolicy.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>BoundedLoggingDestructuringPolicy.cs</ProjectRelativeFilePath>
@@ -52,7 +52,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>8e71320f-0b23-4673-b960-93f56bbd07de</ProjectId>
-      <CorrelationId>Intent.NetTopologySuite.GeoDestructureSerilogPolicy</CorrelationId>
+      <CorrelationId>Intent.NetTopologySuite.GeoDestructureSerilogPolicy#68008584-8227-4869-aa7e-a443a709ba35</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Api/Logging/GeoDestructureSerilogPolicy.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>GeoDestructureSerilogPolicy.cs</ProjectRelativeFilePath>
@@ -60,7 +60,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>504b651e-9eb8-429a-810e-4f301ef7f95f</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Program</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Program#438d27d4-e32d-4e30-b2f3-3dae4c66d74e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Api/Program.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Program.cs</ProjectRelativeFilePath>
@@ -76,7 +76,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>894ccac4-032b-49b3-b401-fa6d40c5cbe2</ProjectId>
-      <CorrelationId>Intent.Application.Identity.CurrentUserService</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserService#535ca9e6-87cc-414a-b706-61d17330b9a2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Api/Services/CurrentUserService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CurrentUserService.cs</ProjectRelativeFilePath>
@@ -84,7 +84,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>504b651e-9eb8-429a-810e-4f301ef7f95f</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Startup</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Startup#b30d0a12-74a4-46e1-882b-c5809d6a8f2b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Api/Startup.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Startup.cs</ProjectRelativeFilePath>
@@ -92,7 +92,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5450060a-22e3-4dd8-9178-8a0cb092b52a</ProjectId>
-      <CorrelationId>Intent.Application.Identity.ForbiddenAccessException</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.ForbiddenAccessException#6847563d-dbb8-49bf-b29f-d838c3772bc3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Application/Common/Exceptions/ForbiddenAccessException.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ForbiddenAccessException.cs</ProjectRelativeFilePath>
@@ -100,7 +100,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b0c9b4fe-fac8-449e-a5a0-0f78e03c8fde</ProjectId>
-      <CorrelationId>Intent.Application.Identity.CurrentUserInterface</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserInterface#211496d3-d4d8-4262-9e25-be7ce134261d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Application/Common/Interfaces/ICurrentUser.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICurrentUser.cs</ProjectRelativeFilePath>
@@ -108,7 +108,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b0c9b4fe-fac8-449e-a5a0-0f78e03c8fde</ProjectId>
-      <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface#d9bf43df-aa23-421d-b990-59c4b622ffa6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Application/Common/Interfaces/ICurrentUserService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICurrentUserService.cs</ProjectRelativeFilePath>
@@ -116,7 +116,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ddbb4a26-b0a8-46e6-83c3-6b89b9fad8b6</ProjectId>
-      <CorrelationId>Intent.Application.Identity.ResultModel</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.ResultModel#db62707c-a6fe-4a35-b90e-25837596e988</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Application/Common/Models/Result.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Result.cs</ProjectRelativeFilePath>
@@ -124,7 +124,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>e6f0f008-d386-452a-95ab-c27b9b2c7d31</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.PagedList</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.PagedList#b26d1fb2-d759-47bd-b99f-a294bf9fd537</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Application/Common/Pagination/PagedList.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedList.cs</ProjectRelativeFilePath>
@@ -132,7 +132,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>dc108ecd-fc63-4119-a3ec-e9aa5d450e21</ProjectId>
-      <CorrelationId>Intent.Application.Identity.AuthorizeAttribute</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.AuthorizeAttribute#9f7bda9f-5f97-4168-a169-07feb6dde916</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Application/Common/Security/AuthorizeAttribute.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AuthorizeAttribute.cs</ProjectRelativeFilePath>
@@ -140,7 +140,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>bf81b756-ee76-467c-9c39-63cd41b1a79c</ProjectId>
-      <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection</CorrelationId>
+      <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection#77b70806-c476-4d08-9614-eb49b0967829</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Application/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
@@ -156,7 +156,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>4efffd6e-e6a2-403c-aecb-c03467a4b8f5</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Permissions</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Permissions#25dc7b9f-5ae5-4527-a9df-16d56e9df5ea</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Application/Security/Permissions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Permissions.cs</ProjectRelativeFilePath>
@@ -164,7 +164,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>cfacc05f-82b5-4878-93ae-36f34fd89ed1</ProjectId>
-      <CorrelationId>Intent.Entities.CollectionExtensions</CorrelationId>
+      <CorrelationId>Intent.Entities.CollectionExtensions#ffd3e370-3806-4852-9b99-d1cc74807f92</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Domain/Common/CollectionExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CollectionExtensions.cs</ProjectRelativeFilePath>
@@ -172,7 +172,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>6200ea18-a3cb-4967-8066-70024a021de7</ProjectId>
-      <CorrelationId>Intent.Entities.NotFoundException</CorrelationId>
+      <CorrelationId>Intent.Entities.NotFoundException#92da494d-8e14-4eea-83d1-8ce6f4a30d75</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Domain/Common/Exceptions/NotFoundException.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>NotFoundException.cs</ProjectRelativeFilePath>
@@ -180,7 +180,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5ac32de0-9496-4e02-83f0-9b4fd6b7c45e</ProjectId>
-      <CorrelationId>Intent.Entities.BasicAuditing.AuditableInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.BasicAuditing.AuditableInterface#af2d28b9-c5ce-48fc-8b2a-2d4dc09cf7a0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Domain/Common/Interfaces/IAuditable.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IAuditable.cs</ProjectRelativeFilePath>
@@ -188,7 +188,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5ac32de0-9496-4e02-83f0-9b4fd6b7c45e</ProjectId>
-      <CorrelationId>Intent.Entities.SoftDelete.SoftDeleteInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.SoftDelete.SoftDeleteInterface#77e85da8-b752-47db-853a-19328c76e7ac</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Domain/Common/Interfaces/ISoftDelete.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ISoftDelete.cs</ProjectRelativeFilePath>
@@ -196,7 +196,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5ac32de0-9496-4e02-83f0-9b4fd6b7c45e</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.UnitOfWorkInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.UnitOfWorkInterface#ab5449eb-7de2-4b00-80f4-c5ecc2c18904</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Domain/Common/Interfaces/IUnitOfWork.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IUnitOfWork.cs</ProjectRelativeFilePath>
@@ -204,7 +204,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>cfacc05f-82b5-4878-93ae-36f34fd89ed1</ProjectId>
-      <CorrelationId>Intent.Entities.UpdateHelper</CorrelationId>
+      <CorrelationId>Intent.Entities.UpdateHelper#d10f76ca-a70d-4c44-923f-b4d1779f5c51</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Domain/Common/UpdateHelper.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UpdateHelper.cs</ProjectRelativeFilePath>
@@ -576,6 +576,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Domain/Entities/BasicAudit/Audit_SoloClass.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>BasicAudit/Audit_SoloClass.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1889c19a-4c9e-4960-81fc-6f57a716e796</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#a6ce48b8-577c-426d-a85c-c012cf036ceb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Domain/Entities/Enums/AddressInfo.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Enums/AddressInfo.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1531,6 +1539,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>52fe9787-13b2-4d6b-ae19-c18a0dd6af1d</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEnum#6d2520f2-7d88-45dd-93f4-a775f7958169</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Domain/Enums/AddressType.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Enums/AddressType.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>52fe9787-13b2-4d6b-ae19-c18a0dd6af1d</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEnum#313c8a2f-8fa5-4daf-848c-2d2773d4b07b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Domain/Enums/BuildingType.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Enums/BuildingType.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>9bd4094d-1dc3-4cd3-87d2-4e7005f2d2a8</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#9987d42e-8e4b-4f60-b98f-8b55b7c51c52</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -1796,6 +1820,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>9bd4094d-1dc3-4cd3-87d2-4e7005f2d2a8</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#a6ce48b8-577c-426d-a85c-c012cf036ceb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Domain/Repositories/Enums/IAddressInfoRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Enums/IAddressInfoRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9bd4094d-1dc3-4cd3-87d2-4e7005f2d2a8</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#54c8aea3-533c-44da-9772-94237f7514ae</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Domain/Repositories/ExplicitKeys/IFK_A_CompositeForeignKeyRepository.cs</ApplicationRelativeFilePath>
@@ -1860,7 +1892,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9bd4094d-1dc3-4cd3-87d2-4e7005f2d2a8</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface#8dde0cd1-ff38-4293-9638-15170c5a71ea</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Domain/Repositories/IEFRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IEFRepository.cs</ProjectRelativeFilePath>
@@ -1948,7 +1980,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9bd4094d-1dc3-4cd3-87d2-4e7005f2d2a8</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.PagedListInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.PagedListInterface#b4abb8a9-2a78-4967-abc6-e6a2fd8e182c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Domain/Repositories/IPagedList.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IPagedList.cs</ProjectRelativeFilePath>
@@ -1956,7 +1988,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9bd4094d-1dc3-4cd3-87d2-4e7005f2d2a8</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.RepositoryInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.RepositoryInterface#cec4b64f-1953-4041-88fd-1041e6c1a6bc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Domain/Repositories/IRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IRepository.cs</ProjectRelativeFilePath>
@@ -2652,7 +2684,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>52fe9787-13b2-4d6b-ae19-c18a0dd6af1d</ProjectId>
-      <CorrelationId>Intent.ValueObjects.ValueObjectBase</CorrelationId>
+      <CorrelationId>Intent.ValueObjects.ValueObjectBase#d09b449f-44f0-41a0-88af-abde6d156b21</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Domain/ValueObject.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ValueObject.cs</ProjectRelativeFilePath>
@@ -2692,7 +2724,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>d2f16710-2299-45e1-8655-c7466f693a06</ProjectId>
-      <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection</CorrelationId>
+      <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#e85e4118-83d4-4c00-8651-349d51b309c1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Infrastructure/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
@@ -2708,7 +2740,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>4627a1d6-63ee-49e3-9305-855742d4e78c</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.DataMasking.DataMaskConverter</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.DataMasking.DataMaskConverter#c622709b-bae1-4722-80c4-67bb07ec83e1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Infrastructure/Interceptors/DataMaskConverter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DataMaskConverter.cs</ProjectRelativeFilePath>
@@ -2716,7 +2748,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>e77d5a4b-cf3f-4159-9531-3d9d3c84d763</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe#c45645c1-03fe-4b25-afbf-53f7a9b1dc56</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Infrastructure/Migrations/README.md</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>README.md</ProjectRelativeFilePath>
@@ -3008,6 +3040,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Infrastructure/Persistence/Configurations/BasicAudit/Audit_SoloClassConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>BasicAudit/Audit_SoloClassConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a3451ed3-3890-4518-8a8b-31b7941f4ec2</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#a6ce48b8-577c-426d-a85c-c012cf036ceb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Infrastructure/Persistence/Configurations/Enums/AddressInfoConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Enums/AddressInfoConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -3876,7 +3916,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>8072d6d7-990c-475e-a9a4-875c2e50ae81</ProjectId>
-      <CorrelationId>Intent.Entities.SoftDelete.SoftDeleteEFCoreInterceptor</CorrelationId>
+      <CorrelationId>Intent.Entities.SoftDelete.SoftDeleteEFCoreInterceptor#08fc6d6e-84e6-4560-a090-b03b8a4ac9f8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Infrastructure/Persistence/Interceptors/SoftDeleteInterceptor.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SoftDeleteInterceptor.cs</ProjectRelativeFilePath>
@@ -4148,6 +4188,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>5aa5f510-6a2e-41d5-8e9c-1acc09cb770e</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#a6ce48b8-577c-426d-a85c-c012cf036ceb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Infrastructure/Repositories/Enums/AddressInfoRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Enums/AddressInfoRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5aa5f510-6a2e-41d5-8e9c-1acc09cb770e</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#54c8aea3-533c-44da-9772-94237f7514ae</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Infrastructure/Repositories/ExplicitKeys/FK_A_CompositeForeignKeyRepository.cs</ApplicationRelativeFilePath>
@@ -4396,7 +4444,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5aa5f510-6a2e-41d5-8e9c-1acc09cb770e</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.RepositoryBase</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.RepositoryBase#b598d4e0-fa2d-4fbf-969a-3c57b0998ee5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Infrastructure/Repositories/RepositoryBase.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RepositoryBase.cs</ProjectRelativeFilePath>

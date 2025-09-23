@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.UI.Api;
+using Intent.Modules.Blazor.FluentValidation.Settings;
+using Intent.Modules.Blazor.Settings;
 using Intent.Modules.Blazor.Templates.Templates.Client.ModelDefinition;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -27,7 +29,7 @@ namespace Intent.Modules.Blazor.FluentValidation.Templates.ModelDefinitionValida
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public ModelDefinitionValidatorTemplate(IOutputTarget outputTarget, ModelDefinitionModel model) : base(TemplateId, outputTarget, model)
         {
-            CSharpFile = new CSharpFile(this.GetNamespace(), ValidationModelResolverHelper.GetFolderPath(this, model));
+            CSharpFile = new CSharpFile(this.GetNamespace(ValidationModelResolverHelper.GetAdditionalFolders(model)), ValidationModelResolverHelper.GetFolderPath(this, model));
             this.ConfigureForValidation(
                 dtoModel: model.InternalElement,
                 configureClassValidations: [],
@@ -40,6 +42,11 @@ namespace Intent.Modules.Blazor.FluentValidation.Templates.ModelDefinitionValida
         public string ToValidateTemplateId => ModelDefinitionTemplate.TemplateId;
         public string DtoTemplateId => TemplateRoles.Blazor.HttpClient.Contracts.Dto;
         public string ValidatorProviderTemplateId => "Blazor.Client.Validation.ValidatorProviderInterface";
+
+        public override bool CanRunTemplate()
+        {
+            return base.CanRunTemplate() && this.ExecutionContext.GetSettings().GetBlazor().CreateModelDefinitionValidators();
+        }
 
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }

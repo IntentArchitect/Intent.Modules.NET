@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3a6b52aa-0fe4-49a7-8a9a-2af340b6b6c3" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+  <name>PayloadDto</name>
+  <display>PayloadDto</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>5486d1d9-9d8f-4e50-89ee-18e28304d15e</parentFolderId>
+  <packageId>5486d1d9-9d8f-4e50-89ee-18e28304d15e</packageId>
+  <packageName>AspNetCore.AzureServiceBus.GroupB.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="8ec6da54-dfc2-49f4-bba6-ff83a8eec52e" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Data</name>
+      <display>Data: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="3da5638d-0322-4fe4-a48f-c284ca51caa6">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>3a6b52aa-0fe4-49a7-8a9a-2af340b6b6c3</parentFolderId>
+      <packageId>5486d1d9-9d8f-4e50-89ee-18e28304d15e</packageId>
+      <packageName>AspNetCore.AzureServiceBus.GroupB.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

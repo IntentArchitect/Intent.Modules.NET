@@ -35,7 +35,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Fi
             CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/file-uploads/restricted-upload";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
             httpRequest.Content = new StreamContent(command.Content);
             httpRequest.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(command.ContentType ?? "application/octet-stream");
@@ -64,7 +64,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Fi
             CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/file-uploads/simple-upload";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
             httpRequest.Content = new StreamContent(command.Content);
             httpRequest.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/octet-stream");
@@ -96,7 +96,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Fi
             CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/file-uploads/upload-file";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
             httpRequest.Content = new StreamContent(command.Content);
             httpRequest.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(command.ContentType ?? "application/octet-stream");
@@ -129,7 +129,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Fi
         public async Task<FileDownloadDto> DownloadFileAsync(Guid id, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/file-upload/{id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
@@ -156,7 +156,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Fi
             var queryParams = new Dictionary<string, string?>();
             queryParams.Add("id", id.ToString("D"));
             relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))

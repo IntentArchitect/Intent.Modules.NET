@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="ad9bbd38-ebc3-4306-8ba2-dccc5880deed">
+  <sourceEnd id="6a274800-a5ba-4701-a06c-768f0b90d524" type="Subscribe Integration Event Source End" typeId="5d8f5c33-f9c9-4629-b637-fad9b0096894">
+    <display>handled by: AspNetCore.AzureServiceBus.GroupB.Services.PublishAndConsumeEventHandler</display>
+    <order>0</order>
+    <typeReference id="e30a630b-f12f-4c2e-a640-a38621bb9175">
+      <typeId>9464090b-c940-4761-a983-5bb36927ea33</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AspNetCore.AzureServiceBus.GroupB.Services</typePackageName>
+      <typePackageId>5486d1d9-9d8f-4e50-89ee-18e28304d15e</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="ad9bbd38-ebc3-4306-8ba2-dccc5880deed" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
+    <display>[handles] PublishAndConsumeEvent</display>
+    <order>0</order>
+    <traits>
+      <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+    </traits>
+    <typeReference id="daab23ed-60f5-4608-953d-38d040930576">
+      <typeId>f98bf05d-f160-4170-98cf-9e19f694a37d</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AspNetCore.AzureServiceBus.GroupB.Eventing.Messages</typePackageName>
+      <typePackageId>073adced-c5e9-4466-be6c-f8d3e52c42a0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Subscribe Integration Event</associationType>
+  <associationTypeId>80aa7f6d-64e5-4d24-a81e-6bc212925ca7</associationTypeId>
+  <stereotypes />
+</association>

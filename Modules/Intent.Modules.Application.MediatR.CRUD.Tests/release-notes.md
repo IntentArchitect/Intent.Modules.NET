@@ -1,3 +1,7 @@
+### Version 1.3.11
+
+- Fixed: Increased `order` value for `AfterBuild(...)` method invocations to ensure they happen sufficiently after `AfterBuild(...)` from other modules have been invoked.
+
 ### Version 1.3.10
 
 - Improvement: Updated for MediatR contract change.

@@ -1,5 +1,4 @@
 using System.Net;
-using System.Transactions;
 using AzureFunctions.NET8.Domain.Common.Exceptions;
 using AzureFunctions.NET8.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
@@ -16,11 +15,9 @@ namespace AzureFunctions.NET8.Api
 {
     public class FunctionWithIgnoreInApi
     {
-        private readonly IUnitOfWork _unitOfWork;
 
-        public FunctionWithIgnoreInApi(IUnitOfWork unitOfWork)
+        public FunctionWithIgnoreInApi()
         {
-            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
         [Function("FunctionWithIgnoreInApi")]

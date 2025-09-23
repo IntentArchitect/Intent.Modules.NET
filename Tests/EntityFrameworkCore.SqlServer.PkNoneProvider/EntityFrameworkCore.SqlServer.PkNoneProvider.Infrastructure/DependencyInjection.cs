@@ -4,6 +4,7 @@ using EntityFrameworkCore.SqlServer.PkNoneProvider.Domain.Repositories.Accounts;
 using EntityFrameworkCore.SqlServer.PkNoneProvider.Domain.Repositories.Accounts.NotSchema;
 using EntityFrameworkCore.SqlServer.PkNoneProvider.Domain.Repositories.Associations;
 using EntityFrameworkCore.SqlServer.PkNoneProvider.Domain.Repositories.BasicAudit;
+using EntityFrameworkCore.SqlServer.PkNoneProvider.Domain.Repositories.Enums;
 using EntityFrameworkCore.SqlServer.PkNoneProvider.Domain.Repositories.ExplicitKeys;
 using EntityFrameworkCore.SqlServer.PkNoneProvider.Domain.Repositories.Geometry;
 using EntityFrameworkCore.SqlServer.PkNoneProvider.Domain.Repositories.Indexes;
@@ -26,6 +27,7 @@ using EntityFrameworkCore.SqlServer.PkNoneProvider.Infrastructure.Repositories.A
 using EntityFrameworkCore.SqlServer.PkNoneProvider.Infrastructure.Repositories.Accounts.NotSchema;
 using EntityFrameworkCore.SqlServer.PkNoneProvider.Infrastructure.Repositories.Associations;
 using EntityFrameworkCore.SqlServer.PkNoneProvider.Infrastructure.Repositories.BasicAudit;
+using EntityFrameworkCore.SqlServer.PkNoneProvider.Infrastructure.Repositories.Enums;
 using EntityFrameworkCore.SqlServer.PkNoneProvider.Infrastructure.Repositories.ExplicitKeys;
 using EntityFrameworkCore.SqlServer.PkNoneProvider.Infrastructure.Repositories.Geometry;
 using EntityFrameworkCore.SqlServer.PkNoneProvider.Infrastructure.Repositories.Indexes;
@@ -111,6 +113,7 @@ namespace EntityFrameworkCore.SqlServer.PkNoneProvider.Infrastructure
             services.AddTransient<IRootRepository, RootRepository>();
             services.AddTransient<IAudit_DerivedClassRepository, Audit_DerivedClassRepository>();
             services.AddTransient<IAudit_SoloClassRepository, Audit_SoloClassRepository>();
+            services.AddTransient<IAddressInfoRepository, AddressInfoRepository>();
             services.AddTransient<IFK_A_CompositeForeignKeyRepository, FK_A_CompositeForeignKeyRepository>();
             services.AddTransient<IFK_B_CompositeForeignKeyRepository, FK_B_CompositeForeignKeyRepository>();
             services.AddTransient<IParentNonStdIdRepository, ParentNonStdIdRepository>();

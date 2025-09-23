@@ -2,6 +2,19 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.MediatR.DomainEvents.DomainEventHandler#dd13015f-0643-4a62-9bc7-2d70eddf3de5</correlationId>
+      <path>AdvancedMappingCrud.Repositories.Tests.Application/EventHandlers/Customers/NewQuoteCreatedHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
+      <updatedAt>2025-09-13T19:51:42.960558Z</updatedAt>
+      <approvedByAccountName>gareth.baars@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Gareth Baars</approvedByDisplayName>
+      <approvedAt>2025-09-13T19:51:42.9608025Z</approvedAt>
+      <deviationsHash>482361486F316E76BDE776CF0DAEED552F1FF72689F2AA9E4577985C64D14572</deviationsHash>
+      <fileHash>CFCFE5705D472D438ABBB2825B3B97AAF3CADFC95AFF69BE8DE25A10F38FFAD8</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.Application.MediatR.QueryHandler#dffb0384-7359-4c03-856d-8a82fb8a8c0b</correlationId>
       <path>AdvancedMappingCrud.Repositories.Tests.Application/FileUploads/DownloadFile/DownloadFileQueryHandler.cs</path>
       <count>1</count>

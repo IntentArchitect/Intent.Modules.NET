@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#b42ececb-e2c8-4d4d-970c-9d51f1e98736</correlationId>
+      <path>Intent.Modules.Aws.Lambda.Functions/Templates/Startup/StartupTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2025-09-10T13:41:20.0087739Z</updatedAt>
+      <deviationsHash>2DC20B33A93788DC6479D22AE95DF93F051735198EB92FA3BEE2E4E921B5E187</deviationsHash>
+      <fileHash>D0B461551174A0EDF823CDD837A0E5A7E42C2B6315EC9A95C90E8B58F8F3346B</fileHash>
+    </file>
+  </files>
 </deviationsLog>

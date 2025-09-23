@@ -1,3 +1,7 @@
+### Version 5.0.3
+
+- Improvement: Remove unnecessary unused using and IUnitOfWork in some scenarios.
+
 ### Version 5.0.2
 
 - Improvement: Enhanced the OpenApiResponse attributes added to the `Run` method

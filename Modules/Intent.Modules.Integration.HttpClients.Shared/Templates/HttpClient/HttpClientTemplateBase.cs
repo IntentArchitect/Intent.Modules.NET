@@ -185,7 +185,7 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
                             method.AddStatement($"relativeUri = {UseType("Microsoft.AspNetCore.WebUtilities.QueryHelpers")}.AddQueryString(relativeUri, queryParams);");
                         }
 
-                        method.AddStatement($"var httpRequest = new HttpRequestMessage(HttpMethod.{endpoint.Verb}, relativeUri);");
+                        method.AddStatement($"using var httpRequest = new HttpRequestMessage(HttpMethod.{endpoint.Verb}, relativeUri);");
                         method.AddStatement("httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));");
 
                         if (inputsBySource.TryGetValue(HttpInputSource.FromHeader, out var headerParams))

@@ -1,3 +1,7 @@
+### Version 4.4.6
+
+- Improvement: Added support for default values on the constructor and `Create` method
+
 ### Version 4.4.5
 
 - Improvement: Updated referenced packages versions

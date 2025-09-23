@@ -9,6 +9,7 @@ using EntityFrameworkCore.MySql.Domain.Entities.Accounts;
 using EntityFrameworkCore.MySql.Domain.Entities.Accounts.NotSchema;
 using EntityFrameworkCore.MySql.Domain.Entities.Associations;
 using EntityFrameworkCore.MySql.Domain.Entities.BasicAudit;
+using EntityFrameworkCore.MySql.Domain.Entities.Enums;
 using EntityFrameworkCore.MySql.Domain.Entities.ExplicitKeys;
 using EntityFrameworkCore.MySql.Domain.Entities.Geometry;
 using EntityFrameworkCore.MySql.Domain.Entities.Indexes;
@@ -30,6 +31,7 @@ using EntityFrameworkCore.MySql.Infrastructure.Persistence.Configurations.Accoun
 using EntityFrameworkCore.MySql.Infrastructure.Persistence.Configurations.Accounts.NotSchema;
 using EntityFrameworkCore.MySql.Infrastructure.Persistence.Configurations.Associations;
 using EntityFrameworkCore.MySql.Infrastructure.Persistence.Configurations.BasicAudit;
+using EntityFrameworkCore.MySql.Infrastructure.Persistence.Configurations.Enums;
 using EntityFrameworkCore.MySql.Infrastructure.Persistence.Configurations.ExplicitKeys;
 using EntityFrameworkCore.MySql.Infrastructure.Persistence.Configurations.Geometry;
 using EntityFrameworkCore.MySql.Infrastructure.Persistence.Configurations.Indexes;
@@ -106,6 +108,7 @@ namespace EntityFrameworkCore.MySql.Infrastructure.Persistence
         public DbSet<Root> Roots { get; set; }
         public DbSet<Audit_DerivedClass> Audit_DerivedClasses { get; set; }
         public DbSet<Audit_SoloClass> Audit_SoloClasses { get; set; }
+        public DbSet<AddressInfo> AddressInfos { get; set; }
         public DbSet<ChildNonStdId> ChildNonStdIds { get; set; }
         public DbSet<FK_A_CompositeForeignKey> FK_A_CompositeForeignKeys { get; set; }
         public DbSet<FK_B_CompositeForeignKey> FK_B_CompositeForeignKeys { get; set; }
@@ -210,7 +213,7 @@ namespace EntityFrameworkCore.MySql.Infrastructure.Persistence
         public override int SaveChanges(bool acceptAllChangesOnSuccess)
         {
             PreventMaskedDataSave();
-            SetAuditableFields();
+            SetAuditableFieldsAsync().GetAwaiter().GetResult();
             return base.SaveChanges(acceptAllChangesOnSuccess);
         }
 
@@ -219,7 +222,7 @@ namespace EntityFrameworkCore.MySql.Infrastructure.Persistence
             CancellationToken cancellationToken = default)
         {
             PreventMaskedDataSave();
-            SetAuditableFields();
+            await SetAuditableFieldsAsync();
             return await base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
         }
 
@@ -284,6 +287,7 @@ namespace EntityFrameworkCore.MySql.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new RootConfiguration());
             modelBuilder.ApplyConfiguration(new Audit_DerivedClassConfiguration());
             modelBuilder.ApplyConfiguration(new Audit_SoloClassConfiguration());
+            modelBuilder.ApplyConfiguration(new AddressInfoConfiguration());
             modelBuilder.ApplyConfiguration(new ChildNonStdIdConfiguration());
             modelBuilder.ApplyConfiguration(new FK_A_CompositeForeignKeyConfiguration());
             modelBuilder.ApplyConfiguration(new FK_B_CompositeForeignKeyConfiguration());
@@ -400,7 +404,7 @@ namespace EntityFrameworkCore.MySql.Infrastructure.Persistence
             */
         }
 
-        private void SetAuditableFields()
+        private async Task SetAuditableFieldsAsync()
         {
             var auditableEntries = ChangeTracker.Entries()
                 .Where(entry => entry.State is EntityState.Added or EntityState.Deleted or EntityState.Modified &&
@@ -418,7 +422,7 @@ namespace EntityFrameworkCore.MySql.Infrastructure.Persistence
                 return;
             }
 
-            var userIdentifier = _currentUserService.GetAsync()?.GetAwaiter().GetResult()?.Id ?? throw new InvalidOperationException("GetAsync()?.GetAwaiter().GetResult()?.Id is null");
+            var userIdentifier = (await _currentUserService.GetAsync())?.Id ?? throw new InvalidOperationException("Id is null");
             var timestamp = DateTimeOffset.UtcNow;
 
             foreach (var entry in auditableEntries)

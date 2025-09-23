@@ -6,8 +6,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.DomainEvents.Templates.DomainEventBase;
-using Intent.Modules.DomainEvents.Templates.DomainEventServiceInterface;
+using Intent.Modules.Constants;
 using Intent.Modules.MediatR.DomainEvents.Templates.DomainEventNotification;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -93,19 +92,19 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventService
         public override void BeforeTemplateExecution()
         {
             ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this)
-                .ForInterface(GetTemplate<IClassProvider>(DomainEventServiceInterfaceTemplate.TemplateId))
+                .ForInterface(GetTemplate<IClassProvider>(TemplateRoles.Application.Common.DomainEventServiceInterface))
                 .ForConcern("Infrastructure")
                 .WithPerServiceCallLifeTime());
         }
 
         private string GetDomainEventBaseType()
         {
-            return GetTypeName(DomainEventBaseTemplate.TemplateId);
+            return GetTypeName(TemplateRoles.Domain.Common.EventBase);
         }
 
         private string GetInterfaceType()
         {
-            return GetTypeName(DomainEventServiceInterfaceTemplate.TemplateId);
+            return GetTypeName(TemplateRoles.Application.Common.DomainEventServiceInterface);
         }
 
         private string GetDomainEventNotificationType()

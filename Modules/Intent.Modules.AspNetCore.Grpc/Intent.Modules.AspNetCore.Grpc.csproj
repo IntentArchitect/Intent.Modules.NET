@@ -14,14 +14,15 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.7" />
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="3.0.0" />
     <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.7.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" />
+    <ProjectReference Include="..\Intent.Modules.Common.UnitOfWork\Intent.Modules.Common.UnitOfWork.csproj" PrivateAssets="All" />
   </ItemGroup>
 
-  <Import Project="..\Intent.Modules.UnitOfWork.Persistence.Shared\Intent.Modules.UnitOfWork.Persistence.Shared.projitems" Label="Shared" />
+  <!--<Import Project="..\Intent.Modules.UnitOfWork.Persistence.Shared\Intent.Modules.UnitOfWork.Persistence.Shared.projitems" Label="Shared" />-->
 
 </Project>

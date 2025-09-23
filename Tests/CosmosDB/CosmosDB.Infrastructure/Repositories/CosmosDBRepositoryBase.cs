@@ -190,27 +190,32 @@ namespace CosmosDB.Infrastructure.Repositories
             Func<IQueryable<TDocumentInterface>, IQueryable<TDocumentInterface>> queryOptions,
             CancellationToken cancellationToken = default)
         {
-            var queryable = await CreateQuery(queryOptions);
-            var documents = await ProcessResults(queryable, cancellationToken);
 
-            if (!documents.Any())
-            {
-                return default;
-            }
-            var entity = LoadAndTrackDocument(documents.First());
+            return await FindInternalAsync(null, queryOptions, cancellationToken);
+        }
 
-            return entity;
+        public async Task<TDomain?> FindAsync(
+            Expression<Func<TDocumentInterface, bool>> filterExpression,
+            Func<IQueryable<TDocumentInterface>, IQueryable<TDocumentInterface>>? queryOptions = default,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindInternalAsync(filterExpression, queryOptions, cancellationToken);
         }
 
         public async Task<List<TDomain>> FindAllAsync(
             Func<IQueryable<TDocumentInterface>, IQueryable<TDocumentInterface>> queryOptions,
             CancellationToken cancellationToken = default)
         {
-            var queryable = await CreateQuery(queryOptions);
-            var documents = await ProcessResults(queryable, cancellationToken);
-            var results = LoadAndTrackDocuments(documents).ToList();
 
-            return results;
+            return await FindAllInternalAsync(null, queryOptions, cancellationToken);
+        }
+
+        public async Task<List<TDomain>> FindAllAsync(
+            Expression<Func<TDocumentInterface, bool>> filterExpression,
+            Func<IQueryable<TDocumentInterface>, IQueryable<TDocumentInterface>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAllInternalAsync(filterExpression, queryOptions, cancellationToken);
         }
 
         public async Task<IPagedList<TDomain>> FindAllAsync(
@@ -219,19 +224,18 @@ namespace CosmosDB.Infrastructure.Repositories
             Func<IQueryable<TDocumentInterface>, IQueryable<TDocumentInterface>> queryOptions,
             CancellationToken cancellationToken = default)
         {
-            var queryable = await CreateQuery(queryOptions, new QueryRequestOptions() { MaxItemCount = pageSize });
-            var countResponse = await queryable.CountAsync(cancellationToken);
-            queryable = queryable
-                    .Skip(pageSize * (pageNo - 1))
-                    .Take(pageSize);
 
-            var documents = await ProcessResults(queryable, cancellationToken);
-            var entities = LoadAndTrackDocuments(documents).ToList();
+            return await FindAllInternalAsync(pageNo, pageSize, null, queryOptions, cancellationToken);
+        }
 
-            var totalCount = countResponse ?? 0;
-            var pageCount = (int)Math.Abs(Math.Ceiling(totalCount / (double)pageSize));
-
-            return new CosmosPagedList<TDomain, TDocument>(entities, totalCount, pageCount, pageNo, pageSize);
+        public async Task<IPagedList<TDomain>> FindAllAsync(
+            Expression<Func<TDocumentInterface, bool>> filterExpression,
+            int pageNo,
+            int pageSize,
+            Func<IQueryable<TDocumentInterface>, IQueryable<TDocumentInterface>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAllInternalAsync(pageNo, pageSize, filterExpression, queryOptions, cancellationToken);
         }
 
         public async Task<int> CountAsync(
@@ -345,6 +349,78 @@ namespace CosmosDB.Infrastructure.Repositories
                 adaptedBody = Expression.AndAlso(adaptedBody, isDeletedCheck);
             }
             return Expression.Lambda<Func<TDocument, bool>>(adaptedBody, afterParameter);
+        }
+
+        private async Task<IPagedList<TDomain>> FindAllInternalAsync(
+            int pageNo,
+            int pageSize,
+            Expression<Func<TDocumentInterface, bool>>? filterExpression = default,
+            Func<IQueryable<TDocumentInterface>, IQueryable<TDocumentInterface>>? queryOptions = default,
+            CancellationToken cancellationToken = default)
+        {
+            var queryable = await CreateQuery(queryOptions, new QueryRequestOptions() { MaxItemCount = pageSize });
+            var countResponse = await queryable.CountAsync(cancellationToken);
+
+            if (filterExpression is not null)
+            {
+                queryable = queryable
+                    .Where(filterExpression)
+                    .Skip(pageSize * (pageNo - 1))
+                    .Take(pageSize);
+            }
+            else
+            {
+                queryable = queryable
+                    .Skip(pageSize * (pageNo - 1))
+                    .Take(pageSize);
+            }
+
+            var documents = await ProcessResults(queryable, cancellationToken);
+            var entities = LoadAndTrackDocuments(documents).ToList();
+
+            var totalCount = countResponse ?? 0;
+            var pageCount = (int)Math.Abs(Math.Ceiling(totalCount / (double)pageSize));
+
+            return new CosmosPagedList<TDomain, TDocument>(entities, totalCount, pageCount, pageNo, pageSize);
+        }
+
+        private async Task<List<TDomain>> FindAllInternalAsync(
+            Expression<Func<TDocumentInterface, bool>>? filterExpression = default,
+            Func<IQueryable<TDocumentInterface>, IQueryable<TDocumentInterface>>? queryOptions = default,
+            CancellationToken cancellationToken = default)
+        {
+            var queryable = await CreateQuery(queryOptions);
+
+            if (filterExpression is not null)
+            {
+                queryable = queryable.Where(filterExpression);
+            }
+            var documents = await ProcessResults(queryable, cancellationToken);
+            var results = LoadAndTrackDocuments(documents).ToList();
+
+            return results;
+        }
+
+        private async Task<TDomain?> FindInternalAsync(
+            Expression<Func<TDocumentInterface, bool>>? filterExpression = default,
+            Func<IQueryable<TDocumentInterface>, IQueryable<TDocumentInterface>>? queryOptions = default,
+            CancellationToken cancellationToken = default)
+        {
+            var queryable = await CreateQuery(queryOptions);
+
+            if (filterExpression is not null)
+            {
+                queryable = queryable.Where(filterExpression);
+            }
+            var documents = await ProcessResults(queryable, cancellationToken);
+
+            if (!documents.Any())
+            {
+                return default;
+            }
+            var entity = LoadAndTrackDocument(documents.First());
+
+            return entity;
         }
 
         public TDomain LoadAndTrackDocument(TDocument document)

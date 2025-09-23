@@ -13,7 +13,7 @@
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.7.3" />
-    <PackageReference Include="Intent.Modules.Common.AI" Version="1.0.0-beta.8" />
+    <PackageReference Include="Intent.Modules.Common.AI" Version="1.0.0-beta.9" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.8.6" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.8.0" />
     <PackageReference Include="Intent.Modules.Modelers.Services.CQRS" Version="5.1.1" />

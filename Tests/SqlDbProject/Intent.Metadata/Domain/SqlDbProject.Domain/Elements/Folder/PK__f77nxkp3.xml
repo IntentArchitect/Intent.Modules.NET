@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="744e7bbf-2eb6-4b5a-95b2-a7313e2912df" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>PK</name>
+  <display>PK</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>79e09ed8-63e8-4f9e-b981-5de86029d61b</parentFolderId>
+  <packageId>79e09ed8-63e8-4f9e-b981-5de86029d61b</packageId>
+  <packageName>SqlDbProject.Domain</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.Common.CSharp</definitionPackageName>
+      <definitionPackageId>730e1275-0c32-44f7-991a-9619d07ca68d</definitionPackageId>
+      <properties>
+        <property name="96df2fa6-7361-4e43-9acf-dbcea23b650a" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements />
+</class>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="501779a9-341f-4629-b2a4-2652db353921" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>1b7fb00b-5ce4-45b8-876c-8f0f1874fdbb</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9804eb76-4b5e-4998-8c95-0116febd73cd</parentFolderId>
+  <packageId>9804eb76-4b5e-4998-8c95-0116febd73cd</packageId>
+  <packageName>AdvancedMapping.Repositories.Mapperly.Tests.Domain</packageName>
+  <diagram>
+    <targetPackageId>9804eb76-4b5e-4998-8c95-0116febd73cd</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

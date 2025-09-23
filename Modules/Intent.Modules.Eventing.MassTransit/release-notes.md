@@ -1,3 +1,7 @@
+### Version 7.0.8
+
+- Improvement: Updated Shared Module.
+
 ### Version 7.0.7
 
 - Improvement: Updated NuGet package versions.

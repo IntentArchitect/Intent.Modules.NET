@@ -1,3 +1,7 @@
+### Version 6.0.7
+
+- Improvement: adding using clause for `HttpRequestMessage` in `HttpCLient`s.
+
 ### Version 6.0.6
 
 - Improvement: Updated NuGet package versions.

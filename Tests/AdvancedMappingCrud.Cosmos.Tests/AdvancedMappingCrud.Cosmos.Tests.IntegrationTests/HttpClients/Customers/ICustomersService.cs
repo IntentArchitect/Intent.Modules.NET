@@ -17,6 +17,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.HttpClients.Customer
         Task<CustomerDto> FindCustomerByNameAsync(string name, CancellationToken cancellationToken = default);
         Task<CustomerDto> GetCustomerByIdAsync(string id, CancellationToken cancellationToken = default);
         Task<List<CustomerDto>> GetCustomersLinqAsync(CancellationToken cancellationToken = default);
+        Task<PagedResult<CustomerDto>> GetCustomersPagedFilteredAsync(int pageNo, int pageSize, string? orderBy, bool isActive, CancellationToken cancellationToken = default);
         Task<PagedResult<CustomerDto>> GetCustomersPagedAsync(int pageNo, int pageSize, CancellationToken cancellationToken = default);
         Task<List<CustomerDto>> GetCustomersAsync(CancellationToken cancellationToken = default);
     }

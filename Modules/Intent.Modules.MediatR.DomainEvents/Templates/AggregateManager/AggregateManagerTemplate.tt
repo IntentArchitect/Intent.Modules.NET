@@ -5,9 +5,9 @@
 <#@ import namespace="Intent.Modules.Common" #>
 <#@ import namespace="Intent.Modules.Common.Templates" #>
 <#@ import namespace="Intent.Modules.Common.CSharp.Templates" #>
+<#@ import namespace="Intent.Modules.Constants" #>
 <#@ import namespace="Intent.Templates" #>
 <#@ import namespace="Intent.Metadata.Models" #>
-<#@ import namespace="Intent.Modules.DomainEvents.Templates" #>
 using MediatR;
 using System;
 using System.Threading;
@@ -27,7 +27,7 @@ namespace <#= Namespace #>
 <#  foreach(var domainEvent in GetDomainEventModels()) {#>
 
         [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-        public async Task Handle(<#= this.GetDomainEventNotificationName() #><<#= this.GetDomainEventName(domainEvent) #>> notification, CancellationToken cancellationToken)
+        public async Task Handle(<#= this.GetDomainEventNotificationName() #><<#= this.GetTypeName(TemplateRoles.Domain.Events, domainEvent) #>> notification, CancellationToken cancellationToken)
         {
             // IntentInitialGen
             // TODO: Implement Handle (<#= ClassName #>) functionality

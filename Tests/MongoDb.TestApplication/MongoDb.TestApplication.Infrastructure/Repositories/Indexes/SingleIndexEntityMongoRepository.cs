@@ -1,24 +1,30 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
+using System.Threading;
+using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using MongoDB.Driver;
 using MongoDb.TestApplication.Domain.Entities;
 using MongoDb.TestApplication.Domain.Entities.Indexes;
-using MongoDb.TestApplication.Domain.Repositories.Documents.Indexes;
 using MongoDb.TestApplication.Domain.Repositories.Indexes;
 using MongoDb.TestApplication.Infrastructure.Persistence;
-using MongoDb.TestApplication.Infrastructure.Persistence.Documents.Indexes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.MongoDb.MongoDbRepository", Version = "1.0")]
 
 namespace MongoDb.TestApplication.Infrastructure.Repositories.Indexes
 {
-    internal class SingleIndexEntityMongoRepository : MongoRepositoryBase<SingleIndexEntity, SingleIndexEntityDocument, ISingleIndexEntityDocument, string>, ISingleIndexEntityRepository
+    internal class SingleIndexEntityMongoRepository : MongoRepositoryBase<SingleIndexEntity, string>, ISingleIndexEntityRepository
     {
-        public SingleIndexEntityMongoRepository(IMongoCollection<SingleIndexEntityDocument> collection,
-            MongoDbUnitOfWork unitOfWork) : base(collection, unitOfWork)
+        public SingleIndexEntityMongoRepository(IMongoCollection<SingleIndexEntity> collection,
+            MongoDbUnitOfWork unitOfWork) : base(collection, unitOfWork, x => x.Id)
         {
         }
+
+        public Task<SingleIndexEntity?> FindByIdAsync(string id, CancellationToken cancellationToken = default) => FindAsync(x => x.Id == id, cancellationToken);
+
+        public Task<List<SingleIndexEntity>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default) => FindAllAsync(x => ids.Contains(x.Id), cancellationToken);
     }
 }

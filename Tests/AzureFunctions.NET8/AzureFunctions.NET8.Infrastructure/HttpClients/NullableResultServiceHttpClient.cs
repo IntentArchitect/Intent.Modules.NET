@@ -36,7 +36,7 @@ namespace AzureFunctions.NET8.Infrastructure.HttpClients
         public async Task<CustomerDto> GetCustomerNullableAsync(CancellationToken cancellationToken = default)
         {
             var relativeUri = $"nullable-result/customer-nullable";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))

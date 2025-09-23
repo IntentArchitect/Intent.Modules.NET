@@ -35,8 +35,10 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbRepositoryInterface
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IList<ClassModel> GetModels(IApplication application)
         {
-            return _metadataManager.Domain(application).GetClassModels().Where(MongoDbProvider.FilterDbProvider)
-.ToArray();
+            return _metadataManager.Domain(application).GetClassModels()
+                .Where(x => MongoDbProvider.FilterDbProvider(x) &&
+                            x.IsAggregateRoot() && !x.IsAbstract)
+                .ToArray();
         }
     }
 }

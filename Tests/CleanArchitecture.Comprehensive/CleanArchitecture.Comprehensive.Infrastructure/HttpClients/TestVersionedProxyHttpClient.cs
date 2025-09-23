@@ -38,7 +38,7 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.HttpClients
         public async Task TestCommandV1Async(TestCommandV1 command, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/v1/versioned/test-command";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(command, _serializerOptions);
@@ -56,7 +56,7 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.HttpClients
         public async Task TestCommandV2Async(TestCommandV2 command, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/v2/versioned/test-command";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(command, _serializerOptions);
@@ -78,7 +78,7 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.HttpClients
             var queryParams = new Dictionary<string, string?>();
             queryParams.Add("value", value);
             relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
@@ -108,7 +108,7 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.HttpClients
             var queryParams = new Dictionary<string, string?>();
             queryParams.Add("value", value);
             relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))

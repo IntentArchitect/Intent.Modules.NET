@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a2e927a5-e04f-44d4-ae5c-7afe81784f61" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <name>PublishService</name>
+  <display>PublishService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>5486d1d9-9d8f-4e50-89ee-18e28304d15e</parentFolderId>
+  <packageId>5486d1d9-9d8f-4e50-89ee-18e28304d15e</packageId>
+  <packageName>AspNetCore.AzureServiceBus.GroupB.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="0939f962-f632-4299-9e4d-171fdf0465ba" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>PublishEventForConsumption</name>
+      <display>PublishEventForConsumption(payload: PayloadDto): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="eba7ed67-393e-4abd-aecf-e5c21ebee2d3">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>a2e927a5-e04f-44d4-ae5c-7afe81784f61</parentFolderId>
+      <packageId>5486d1d9-9d8f-4e50-89ee-18e28304d15e</packageId>
+      <packageName>AspNetCore.AzureServiceBus.GroupB.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="15f7c82e-5856-46e6-a83d-6a50a3166681" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>payload</name>
+          <display>in : payload: PayloadDto</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="b172666b-ee1b-42c7-9065-e0bbc6d9437d">
+            <typeId>3a6b52aa-0fe4-49a7-8a9a-2af340b6b6c3</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AspNetCore.AzureServiceBus.GroupB.Services</typePackageName>
+            <typePackageId>5486d1d9-9d8f-4e50-89ee-18e28304d15e</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>0939f962-f632-4299-9e4d-171fdf0465ba</parentFolderId>
+          <packageId>5486d1d9-9d8f-4e50-89ee-18e28304d15e</packageId>
+          <packageName>AspNetCore.AzureServiceBus.GroupB.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

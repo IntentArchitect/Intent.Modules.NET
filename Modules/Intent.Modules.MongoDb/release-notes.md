@@ -1,3 +1,7 @@
+### Version 2.0.1
+
+- Improvement: Removed document translations, transitioned to using entities.
+
 ### Version 2.0.0
 
 - Improvement: Updated NuGet package versions.

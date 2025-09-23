@@ -5,26 +5,27 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="content\MudBlazorAIPromptTemplates\AddEntityDialog\AddCustomerDialog.razor.cs" />
-    <Compile Remove="content\MudBlazorAIPromptTemplates\AddEntity\CustomerAdd.razor.cs" />
-    <Compile Remove="content\MudBlazorAIPromptTemplates\EditEntityDialog\EditCustomerDialog.razor.cs" />
-    <Compile Remove="content\MudBlazorAIPromptTemplates\EditEntity\CustomerEdit.razor.cs" />
-    <Compile Remove="content\MudBlazorAIPromptTemplates\SearchEntity\CustomerSearch.razor.cs" />
+    <Compile Remove="content\MudBlazorAIPromptTemplates\AddEntityDialog\AddEntityDialogTemplate.razor.cs" />
+    <Compile Remove="content\MudBlazorAIPromptTemplates\AddEntity\AddEntityTemplate.razor.cs" />
+    <Compile Remove="content\MudBlazorAIPromptTemplates\EditEntityDialog\EditEntityDialogTemplate.razor.cs" />
+    <Compile Remove="content\MudBlazorAIPromptTemplates\EditEntity\EditEntityTemplate.razor.cs" />
+    <Compile Remove="content\MudBlazorAIPromptTemplates\SearchEntity\SearchEntityTemplate.razor.cs" />
+    <Compile Remove="content\MudBlazorAIPromptTemplates\ViewEntity\EntityViewTemplate.cs" />
     <Compile Remove="content\MudBlazorAIPromptTemplates\ViewEntity\ViewCustomer.razor.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="content\MudBlazorAIPromptTemplates\AddEntityDialog\AddCustomerDialog.razor.cs" />
-    <None Include="content\MudBlazorAIPromptTemplates\AddEntity\CustomerAdd.razor.cs" />
-    <None Include="content\MudBlazorAIPromptTemplates\EditEntityDialog\EditCustomerDialog.razor.cs" />
-    <None Include="content\MudBlazorAIPromptTemplates\EditEntity\CustomerEdit.razor.cs" />
-    <None Include="content\MudBlazorAIPromptTemplates\SearchEntity\CustomerSearch.razor.cs" />
-    <None Include="content\MudBlazorAIPromptTemplates\ViewEntity\ViewCustomer.razor.cs" />
+    <None Include="content\MudBlazorAIPromptTemplates\AddEntityDialog\AddEntityDialogTemplate.razor.cs" />
+    <None Include="content\MudBlazorAIPromptTemplates\AddEntity\AddEntityTemplate.razor.cs" />
+    <None Include="content\MudBlazorAIPromptTemplates\EditEntityDialog\EditEntityDialogTemplate.razor.cs" />
+    <None Include="content\MudBlazorAIPromptTemplates\EditEntity\EditEntityTemplate.razor.cs" />
+    <None Include="content\MudBlazorAIPromptTemplates\SearchEntity\SearchEntityTemplate.razor.cs" />
+    <None Include="content\MudBlazorAIPromptTemplates\ViewEntity\EntityViewTemplate.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.7.3" />
-    <PackageReference Include="Intent.Modules.Common.AI" Version="1.0.0-beta.8" />
+    <PackageReference Include="Intent.Modules.Common.AI" Version="1.0.0-beta.9" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.9.3" />
     <PackageReference Include="Intent.Modules.Modelers.Services.CQRS" Version="5.1.1" />
     <PackageReference Include="Intent.Modules.Modelers.UI" Version="1.0.0-beta.6" />

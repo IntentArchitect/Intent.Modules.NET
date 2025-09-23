@@ -1,14 +1,16 @@
+using System;
 using System.Reflection;
 using AutoMapper;
 using Entities.PrivateSetters.MongoDb.Application;
 using Entities.PrivateSetters.MongoDb.Domain.Common.Interfaces;
 using Entities.PrivateSetters.MongoDb.Domain.Repositories;
+using Entities.PrivateSetters.MongoDb.Infrastructure.Configuration;
 using Entities.PrivateSetters.MongoDb.Infrastructure.Persistence;
-using Entities.PrivateSetters.MongoDb.Infrastructure.Persistence.Documents;
 using Entities.PrivateSetters.MongoDb.Infrastructure.Repositories;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using MongoDB.Driver;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -20,36 +22,16 @@ namespace Entities.PrivateSetters.MongoDb.Infrastructure
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddSingleton<IMongoClient>(sp =>
+            var cs = configuration.GetConnectionString("MongoDbConnection");
+            services.TryAddSingleton<IMongoClient>(_ => new MongoClient(cs));
+            services.TryAddSingleton<IMongoDatabase>(sp =>
                     {
-                        var connectionString = configuration.GetConnectionString("MongoDbConnection");
-                        return new MongoClient(connectionString);
+                        var dbName = new MongoUrl(cs).DatabaseName
+                                     ?? throw new InvalidOperationException(
+                                         "MongoDbConnection must include a database name.");
+                        return sp.GetRequiredService<IMongoClient>().GetDatabase(dbName);
                     });
-            services.AddSingleton(sp =>
-                    {
-                        var connectionString = configuration.GetConnectionString("MongoDbConnection");
-
-                        // Parse connection string to get the database name
-                        var mongoUrl = new MongoUrl(connectionString);
-                        var client = sp.GetRequiredService<IMongoClient>();
-
-                        return client.GetDatabase(mongoUrl.DatabaseName);
-                    });
-            services.AddSingleton<IMongoCollection<InvoiceDocument>>(sp =>
-                            {
-                                var database = sp.GetRequiredService<IMongoDatabase>();
-                                return database.GetCollection<InvoiceDocument>("Invoice");
-                            });
-            services.AddSingleton<IMongoCollection<LineDocument>>(sp =>
-                            {
-                                var database = sp.GetRequiredService<IMongoDatabase>();
-                                return database.GetCollection<LineDocument>("Line");
-                            });
-            services.AddSingleton<IMongoCollection<TagDocument>>(sp =>
-                            {
-                                var database = sp.GetRequiredService<IMongoDatabase>();
-                                return database.GetCollection<TagDocument>("Tag");
-                            });
+            services.RegisterMongoCollections(typeof(DependencyInjection).Assembly);
             services.AddScoped<IInvoiceRepository, InvoiceMongoRepository>();
             services.AddScoped<ITagRepository, TagMongoRepository>();
             services.AddScoped<MongoDbUnitOfWork>();

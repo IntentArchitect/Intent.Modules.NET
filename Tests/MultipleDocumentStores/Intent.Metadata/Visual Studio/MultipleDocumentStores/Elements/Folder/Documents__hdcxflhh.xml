@@ -37,20 +37,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="d3fb4810-1ab4-43f2-8127-7324ebb75ee2" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.MongoDb.MongoDbDocumentInterface</name>
-      <display>Intent.MongoDb.MongoDbDocumentInterface</display>
-      <externalReference>Intent.MongoDb</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>f14bd1de-7751-4762-abb0-9c408555f5ad</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="33ff24de-2e17-4eb7-aa1d-2f864a7df58a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.MongoDb.MongoDbValueObjectDocumentInterface</name>
       <display>Intent.MongoDb.MongoDbValueObjectDocumentInterface</display>

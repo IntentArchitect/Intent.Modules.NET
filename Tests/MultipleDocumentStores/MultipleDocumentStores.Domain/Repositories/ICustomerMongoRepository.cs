@@ -1,11 +1,9 @@
 using System;
 using System.Collections.Generic;
-using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using MultipleDocumentStores.Domain.Entities;
-using MultipleDocumentStores.Domain.Repositories.Documents;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Entities.Repositories.Api.EntityRepositoryInterface", Version = "1.0")]
@@ -13,7 +11,11 @@ using MultipleDocumentStores.Domain.Repositories.Documents;
 namespace MultipleDocumentStores.Domain.Repositories
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface ICustomerMongoRepository : IMongoRepository<CustomerMongo, ICustomerMongoDocument, string>
+    public interface ICustomerMongoRepository : IMongoRepository<CustomerMongo, string>
     {
+        [IntentManaged(Mode.Fully)]
+        Task<CustomerMongo?> FindByIdAsync(string id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<List<CustomerMongo>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default);
     }
 }

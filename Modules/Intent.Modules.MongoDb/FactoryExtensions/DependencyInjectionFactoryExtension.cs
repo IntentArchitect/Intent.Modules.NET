@@ -11,6 +11,7 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.MongoDb.Settings;
 using Intent.Modules.MongoDb.Templates;
+using Intent.Modules.MongoDb.Templates.MongoConfigurationExtensions;
 using Intent.Modules.MongoDb.Templates.MongoDbUnitOfWorkInterface;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
@@ -40,6 +41,10 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
             dependencyInjection.CSharpFile.AfterBuild(file =>
             {
                 file.AddUsing("MongoDB.Driver");
+                file.AddUsing("Microsoft.Extensions.DependencyInjection.Extensions");
+                file.AddUsing("System");
+
+                dependencyInjection.GetTypeName(MongoConfigurationExtensionsTemplate.TemplateId);
 
                 var method = file.Classes.First().FindMethod("AddInfrastructure");
 
@@ -60,6 +65,8 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
                         return provider.GetRequiredService<{dependencyInjection.GetMongoDbMultiTenantConnectionFactoryName()}>().GetConnection(tenantConnections.MongoDbConnection);
                     }});");
 
+                    method.AddStatement("services.RegisterMongoCollections(typeof(DependencyInjection).Assembly);");
+
                     foreach (var model in dependencyInjection.ExecutionContext.FindTemplateInstances<ICSharpFileBuilderTemplate>("Intent.MongoDb.MongoDbDocument"))
                     {
                         dependencyInjection.GetTypeName(model);
@@ -79,21 +86,19 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
                 }
                 else
                 {
-                    method.AddStatement(@$"services.AddSingleton<IMongoClient>(sp =>
-                    {{
-                        var connectionString = configuration.GetConnectionString(""MongoDbConnection"");
-                        return new MongoClient(connectionString);
-                    }});");
-                    method.AddStatement(@$"services.AddSingleton(sp =>
-                    {{
-                        var connectionString = configuration.GetConnectionString(""MongoDbConnection"");
+                    method.AddStatement("var cs = configuration.GetConnectionString(\"MongoDbConnection\");");
+                    method.AddStatement("services.TryAddSingleton<IMongoClient>(_ => new MongoClient(cs));");
 
-                        // Parse connection string to get the database name
-                        var mongoUrl = new MongoUrl(connectionString);
-                        var client = sp.GetRequiredService<IMongoClient>();
 
-                        return client.GetDatabase(mongoUrl.DatabaseName);
+                    method.AddStatement(@$"services.TryAddSingleton<IMongoDatabase>(sp =>
+                    {{
+                        var dbName = new MongoUrl(cs).DatabaseName
+                                     ?? throw new InvalidOperationException(
+                                         ""MongoDbConnection must include a database name."");
+                        return sp.GetRequiredService<IMongoClient>().GetDatabase(dbName);
                     }});");
+
+                    method.AddStatement("services.RegisterMongoCollections(typeof(DependencyInjection).Assembly);");
 
                     foreach (var model in dependencyInjection.ExecutionContext.FindTemplateInstances<ICSharpFileBuilderTemplate>("Intent.MongoDb.MongoDbDocument"))
                     {

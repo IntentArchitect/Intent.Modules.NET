@@ -4,6 +4,7 @@
 - Improvement: Module now generates Specifications for Aggregate Roots.
 - Improvement: Better interactions with CRUD modules to use Specifications out the box
 - Improvement: Clean up of Repository contracts
+- Fixed: Increased `order` value for `AfterBuild(...)` method invocations to ensure they happen sufficiently after `AfterBuild(...)` from other modules have been invoked.
 
 ### Version 4.1.2
 

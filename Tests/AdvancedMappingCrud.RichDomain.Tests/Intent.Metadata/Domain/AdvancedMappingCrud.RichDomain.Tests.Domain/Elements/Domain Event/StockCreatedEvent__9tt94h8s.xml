@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f795458e-fef9-4560-99c3-58014cdcbe1f" type="Domain Event" typeId="0814e459-fb9b-47db-b7eb-32ce30397e8a">
+  <name>StockCreatedEvent</name>
+  <display>StockCreatedEvent</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>42d31ce9-1395-4a0a-b86c-7af2682124b9</parentFolderId>
+  <packageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</packageId>
+  <packageName>AdvancedMappingCrud.RichDomain.Tests.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="00c5ccbf-f226-45fb-ba7b-1396c562bbc8" type="Property" typeId="b4d69073-5abb-4968-b41b-545b2f7408ed">
+      <name>Name</name>
+      <display>Name: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="eab501bb-b857-45ba-84af-f85e2b965abd">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>f795458e-fef9-4560-99c3-58014cdcbe1f</parentFolderId>
+      <packageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</packageId>
+      <packageName>AdvancedMappingCrud.RichDomain.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="12cf92fa-6549-4e14-aa2a-0ca6b6f0111e" type="Property" typeId="b4d69073-5abb-4968-b41b-545b2f7408ed">
+      <name>Total</name>
+      <display>Total: int</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="28401fb8-bdf7-4806-a6ba-f02011d130d6">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>f795458e-fef9-4560-99c3-58014cdcbe1f</parentFolderId>
+      <packageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</packageId>
+      <packageName>AdvancedMappingCrud.RichDomain.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="99cee8ac-2971-4565-8d7c-3e89283d4168" type="Property" typeId="b4d69073-5abb-4968-b41b-545b2f7408ed">
+      <name>AddedUser</name>
+      <display>AddedUser: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="1fa2e552-2f90-4f89-87a1-effbfc85602c">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>f795458e-fef9-4560-99c3-58014cdcbe1f</parentFolderId>
+      <packageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</packageId>
+      <packageName>AdvancedMappingCrud.RichDomain.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

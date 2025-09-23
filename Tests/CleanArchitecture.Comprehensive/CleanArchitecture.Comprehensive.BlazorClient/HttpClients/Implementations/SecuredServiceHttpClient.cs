@@ -23,7 +23,7 @@ namespace CleanArchitecture.Comprehensive.BlazorClient.HttpClients.Implementatio
         public async Task SecuredAsync(CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/secured-service/secured";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))

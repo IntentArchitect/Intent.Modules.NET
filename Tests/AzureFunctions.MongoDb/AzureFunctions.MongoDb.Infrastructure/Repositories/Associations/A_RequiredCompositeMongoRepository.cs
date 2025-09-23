@@ -1,10 +1,12 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
+using System.Threading;
+using System.Threading.Tasks;
 using AzureFunctions.MongoDb.Domain.Entities.Associations;
 using AzureFunctions.MongoDb.Domain.Repositories.Associations;
-using AzureFunctions.MongoDb.Domain.Repositories.Documents.Associations;
 using AzureFunctions.MongoDb.Infrastructure.Persistence;
-using AzureFunctions.MongoDb.Infrastructure.Persistence.Documents.Associations;
 using Intent.RoslynWeaver.Attributes;
 using MongoDB.Driver;
 
@@ -13,11 +15,15 @@ using MongoDB.Driver;
 
 namespace AzureFunctions.MongoDb.Infrastructure.Repositories.Associations
 {
-    internal class A_RequiredCompositeMongoRepository : MongoRepositoryBase<A_RequiredComposite, A_RequiredCompositeDocument, IA_RequiredCompositeDocument, string>, IA_RequiredCompositeRepository
+    internal class A_RequiredCompositeMongoRepository : MongoRepositoryBase<A_RequiredComposite, string>, IA_RequiredCompositeRepository
     {
-        public A_RequiredCompositeMongoRepository(IMongoCollection<A_RequiredCompositeDocument> collection,
-            MongoDbUnitOfWork unitOfWork) : base(collection, unitOfWork)
+        public A_RequiredCompositeMongoRepository(IMongoCollection<A_RequiredComposite> collection,
+            MongoDbUnitOfWork unitOfWork) : base(collection, unitOfWork, x => x.Id)
         {
         }
+
+        public Task<A_RequiredComposite?> FindByIdAsync(string id, CancellationToken cancellationToken = default) => FindAsync(x => x.Id == id, cancellationToken);
+
+        public Task<List<A_RequiredComposite>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default) => FindAllAsync(x => ids.Contains(x.Id), cancellationToken);
     }
 }

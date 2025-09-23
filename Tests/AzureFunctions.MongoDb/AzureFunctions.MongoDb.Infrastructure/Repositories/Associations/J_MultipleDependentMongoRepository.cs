@@ -1,10 +1,12 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
+using System.Threading;
+using System.Threading.Tasks;
 using AzureFunctions.MongoDb.Domain.Entities.Associations;
 using AzureFunctions.MongoDb.Domain.Repositories.Associations;
-using AzureFunctions.MongoDb.Domain.Repositories.Documents.Associations;
 using AzureFunctions.MongoDb.Infrastructure.Persistence;
-using AzureFunctions.MongoDb.Infrastructure.Persistence.Documents.Associations;
 using Intent.RoslynWeaver.Attributes;
 using MongoDB.Driver;
 
@@ -13,11 +15,15 @@ using MongoDB.Driver;
 
 namespace AzureFunctions.MongoDb.Infrastructure.Repositories.Associations
 {
-    internal class J_MultipleDependentMongoRepository : MongoRepositoryBase<J_MultipleDependent, J_MultipleDependentDocument, IJ_MultipleDependentDocument, string>, IJ_MultipleDependentRepository
+    internal class J_MultipleDependentMongoRepository : MongoRepositoryBase<J_MultipleDependent, string>, IJ_MultipleDependentRepository
     {
-        public J_MultipleDependentMongoRepository(IMongoCollection<J_MultipleDependentDocument> collection,
-            MongoDbUnitOfWork unitOfWork) : base(collection, unitOfWork)
+        public J_MultipleDependentMongoRepository(IMongoCollection<J_MultipleDependent> collection,
+            MongoDbUnitOfWork unitOfWork) : base(collection, unitOfWork, x => x.Id)
         {
         }
+
+        public Task<J_MultipleDependent?> FindByIdAsync(string id, CancellationToken cancellationToken = default) => FindAsync(x => x.Id == id, cancellationToken);
+
+        public Task<List<J_MultipleDependent>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default) => FindAllAsync(x => ids.Contains(x.Id), cancellationToken);
     }
 }

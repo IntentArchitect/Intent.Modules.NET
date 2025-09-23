@@ -34,7 +34,7 @@ namespace CleanArchitecture.Comprehensive.BlazorClient.HttpClients.Implementatio
             CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/validation/inbound-validation";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(command, _serializerOptions);
@@ -86,7 +86,7 @@ namespace CleanArchitecture.Comprehensive.BlazorClient.HttpClients.Implementatio
             queryParams.Add("myEnum", myEnum.ToString());
             queryParams.Add("regexField", regexField);
             relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))

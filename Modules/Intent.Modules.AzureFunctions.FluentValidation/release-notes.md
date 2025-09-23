@@ -1,3 +1,7 @@
+### Version 5.1.2
+
+- Fixed: Fixed an issue where `Consolidate Command/Query associated files into single file` settings caused Software Factory crashes with this module.
+
 ### Version 5.1.1
 
 - Improvement: Improved logic around fluent validators being configured for `Query`s.

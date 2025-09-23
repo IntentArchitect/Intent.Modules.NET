@@ -6,6 +6,7 @@ using AzureFunctions.AzureServiceBus.Application.Implementation;
 using AzureFunctions.AzureServiceBus.Application.IntegrationEvents.EventHandlers;
 using AzureFunctions.AzureServiceBus.Application.Interfaces;
 using AzureFunctions.AzureServiceBus.GroupA.Eventing.Messages;
+using AzureFunctions.AzureServiceBus.GroupB.Eventing.Messages;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
@@ -34,9 +35,11 @@ namespace AzureFunctions.AzureServiceBus.Application
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddScoped<IValidatorProvider, ValidatorProvider>();
             services.AddTransient<IValidationService, ValidationService>();
+            services.AddTransient<IPublishService, PublishService>();
             services.AddTransient<ISpecificChannelService, SpecificChannelService>();
             services.AddTransient<IIntegrationEventHandler<ClientCreatedEvent>, ClientCreatedEventHandler>();
             services.AddTransient<IIntegrationEventHandler<CreateOrgIntegrationCommand>, CreateOrgIntegrationCommandHandler>();
+            services.AddTransient<IIntegrationEventHandler<PublishAndConsumeMessageEvent>, PublishAndConsumeMessageHandler>();
             return services;
         }
     }

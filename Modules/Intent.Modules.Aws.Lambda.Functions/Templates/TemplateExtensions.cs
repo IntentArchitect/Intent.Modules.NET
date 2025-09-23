@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Intent.Modules.Aws.Lambda.Functions.Api;
+using Intent.Modules.Aws.Lambda.Functions.Templates.ExceptionHandlerHelper;
 using Intent.Modules.Aws.Lambda.Functions.Templates.JsonResponse;
 using Intent.Modules.Aws.Lambda.Functions.Templates.LambdaFunctionClass;
 using Intent.Modules.Aws.Lambda.Functions.Templates.Startup;
@@ -14,6 +15,10 @@ namespace Intent.Modules.Aws.Lambda.Functions.Templates
 {
     public static class TemplateExtensions
     {
+        public static string GetExceptionHandlerHelperName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(ExceptionHandlerHelperTemplate.TemplateId);
+        }
         public static string GetJsonResponseName(this IIntentTemplate template)
         {
             return template.GetTypeName(JsonResponseTemplate.TemplateId);

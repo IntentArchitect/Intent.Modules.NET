@@ -43,5 +43,11 @@ namespace AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain.Entit
                             }
                             );
         }
+
+        public void Cancel()
+        {
+            // TODO: Implement Cancel (Order) functionality
+            throw new NotImplementedException("Replace with your implementation...");
+        }
     }
 }

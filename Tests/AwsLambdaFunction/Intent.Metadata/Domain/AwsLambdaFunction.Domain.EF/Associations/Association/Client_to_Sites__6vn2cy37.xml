@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="34a84063-9352-4bd1-ad60-52953b4785a9">
+  <sourceEnd id="87680eb0-065f-43fe-b272-bcd1575654c8" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Client</name>
+    <display>Client: EfClient</display>
+    <order>0</order>
+    <typeReference id="c1dbb0ce-5d00-4979-90c5-dd542a2c50a0">
+      <typeId>12c1e06b-4a66-46bc-98e5-ac05727b6069</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AwsLambdaFunction.Domain.EF</typePackageName>
+      <typePackageId>2d08ccbf-d8ae-4638-9af9-534b2d3e57cd</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="34a84063-9352-4bd1-ad60-52953b4785a9" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Sites</name>
+    <display>Sites: EfSite[*]</display>
+    <order>3</order>
+    <typeReference id="41e5ce7f-9c1e-47f2-b4b4-a7e5825f9cc2">
+      <typeId>f04ab1bc-dd79-4c10-8483-ba7c85a54fc3</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AwsLambdaFunction.Domain.EF</typePackageName>
+      <typePackageId>2d08ccbf-d8ae-4638-9af9-534b2d3e57cd</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

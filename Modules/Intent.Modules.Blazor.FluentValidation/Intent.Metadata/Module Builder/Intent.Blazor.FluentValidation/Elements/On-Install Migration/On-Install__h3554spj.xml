@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="11e483da-f35e-40c2-b9a1-b1bd813cd1f1" type="On-Install Migration" typeId="4ba35747-deea-43a9-acd4-26d57edb5bb9">
+  <name>On-Install</name>
+  <display>On-Install</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>bd72eb12-0b31-4eae-a421-d3ae118fae0c</parentFolderId>
+  <packageId>90eb0073-c577-4253-9e76-0039622affa9</packageId>
+  <packageName>Intent.Blazor.FluentValidation</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

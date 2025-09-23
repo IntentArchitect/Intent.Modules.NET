@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="0ef6ec29-eab1-4778-a3e0-1ebe559bc6ac" type="Domain Event Handler" typeId="d80e61c5-7e4c-4175-9df1-0413f664824c">
+  <name>StockCreatedEventHandler</name>
+  <display>StockCreatedEventHandler</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>4cb1decc-0bf9-44b4-86fd-2301923ae3ab</parentFolderId>
+  <packageId>4cb1decc-0bf9-44b4-86fd-2301923ae3ab</packageId>
+  <packageName>AdvancedMappingCrud.RichDomain.Tests.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

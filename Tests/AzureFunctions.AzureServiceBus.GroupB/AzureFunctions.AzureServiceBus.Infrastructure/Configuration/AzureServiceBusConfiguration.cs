@@ -28,11 +28,13 @@ namespace AzureFunctions.AzureServiceBus.Infrastructure.Configuration
                 options.Add<SpecificTopicOneMessageEvent>(configuration["AzureServiceBus:SpecificTopic"]!);
                 options.Add<SpecificQueueOneMessageEvent>(configuration["AzureServiceBus:SpecificQueue"]!);
                 options.Add<SpecificQueueTwoMessageEvent>(configuration["AzureServiceBus:SpecificQueue"]!);
+                options.Add<PublishAndConsumeMessageEvent>(configuration["AzureServiceBus:PublishAndConsume"]!);
                 options.Add<SpecificTopicTwoMessageEvent>(configuration["AzureServiceBus:SpecificTopic"]!);
             });
             services.Configure<AzureServiceBusSubscriptionOptions>(options =>
             {
                 options.Add<ClientCreatedEvent, IIntegrationEventHandler<ClientCreatedEvent>>(configuration["AzureServiceBus:ClientCreated"]!, configuration["AzureServiceBus:ClientCreatedSubscription"]);
+                options.Add<PublishAndConsumeMessageEvent, IIntegrationEventHandler<PublishAndConsumeMessageEvent>>(configuration["AzureServiceBus:PublishAndConsume"]!, configuration["AzureServiceBus:PublishAndConsumeSubscription"]);
                 options.Add<CreateOrgIntegrationCommand, IIntegrationEventHandler<CreateOrgIntegrationCommand>>(configuration["AzureServiceBus:CreateOrg"]!);
             });
             return services;

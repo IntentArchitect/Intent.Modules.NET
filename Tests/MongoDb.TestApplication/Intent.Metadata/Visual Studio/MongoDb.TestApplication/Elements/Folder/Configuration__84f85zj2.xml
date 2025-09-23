@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="2de2d175-f75f-4676-a060-2e06e1bc140a" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Configuration</name>
+  <display>Configuration</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>63ff75bf-b5a2-463e-9433-17de27f3bb32</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="e97cf398-f8bf-46ed-a5b6-fc64d00d9443" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.MongoDb.MongoConfigurationExtensions</name>
+      <display>Intent.MongoDb.MongoConfigurationExtensions</display>
+      <externalReference>Intent.MongoDb</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>2de2d175-f75f-4676-a060-2e06e1bc140a</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

@@ -121,7 +121,7 @@ public partial class NestedUpdateCommandHandlerTestsTemplate : CSharpTemplateBas
 
                     AddAssertionMethods();
                 });
-            });
+            }, TemplateConstants.AfterBuildOrder);
     }
 
     private bool? _canRunTemplate;

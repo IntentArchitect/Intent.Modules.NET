@@ -12,7 +12,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>cc5b3994-47c9-47e4-a2db-ea5ea6a9f59b</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Versioning.ApiVersioningConfiguration</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Versioning.ApiVersioningConfiguration#d4992455-feba-4f41-a835-67cab127644c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Api/Configuration/ApiVersioningConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApiVersioningConfiguration.cs</ProjectRelativeFilePath>
@@ -20,7 +20,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>cc5b3994-47c9-47e4-a2db-ea5ea6a9f59b</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions#d26ca924-4e50-423f-b793-7a78cc7320d5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Api/Configuration/ApiVersionSwaggerGenOptions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApiVersionSwaggerGenOptions.cs</ProjectRelativeFilePath>
@@ -28,7 +28,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>cc5b3994-47c9-47e4-a2db-ea5ea6a9f59b</ProjectId>
-      <CorrelationId>Intent.Application.Identity.ApplicationSecurityConfiguration</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.ApplicationSecurityConfiguration#3c5a1e4f-e1e5-49f1-9fd7-02e80b5dda18</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Api/Configuration/ApplicationSecurityConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApplicationSecurityConfiguration.cs</ProjectRelativeFilePath>
@@ -36,7 +36,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>cc5b3994-47c9-47e4-a2db-ea5ea6a9f59b</ProjectId>
-      <CorrelationId>Intent.AspNetCore.HealthChecks.HealthChecksConfiguration</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.HealthChecks.HealthChecksConfiguration#5918c85f-6217-4b16-9c20-ebb4460c5f13</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Api/Configuration/HealthChecksConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>HealthChecksConfiguration.cs</ProjectRelativeFilePath>
@@ -44,7 +44,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>cc5b3994-47c9-47e4-a2db-ea5ea6a9f59b</ProjectId>
-      <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration#10d411c8-bc1c-4520-8992-82d08e94ff60</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Api/Configuration/ProblemDetailsConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ProblemDetailsConfiguration.cs</ProjectRelativeFilePath>
@@ -52,7 +52,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>cc5b3994-47c9-47e4-a2db-ea5ea6a9f59b</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration#55dd461e-a1a3-48a7-9a1c-9ccc8b10fab1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Api/Configuration/SwashbuckleConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SwashbuckleConfiguration.cs</ProjectRelativeFilePath>
@@ -84,7 +84,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ef6bee39-7fa5-4395-9cd2-18c38e1c6d14</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.JsonResponse</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Controllers.JsonResponse#f1c17873-f5a0-4d16-83fe-bff11889cfc9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Api/Controllers/ResponseTypes/JsonResponse.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>JsonResponse.cs</ProjectRelativeFilePath>
@@ -92,7 +92,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>7ebec2d0-f9b8-4b95-8268-0eb548c9699f</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter#df8f03e9-49ce-4fe9-ab1c-d311d14c4771</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Api/Filters/AuthorizeCheckOperationFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AuthorizeCheckOperationFilter.cs</ProjectRelativeFilePath>
@@ -100,7 +100,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>7ebec2d0-f9b8-4b95-8268-0eb548c9699f</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.ExceptionFilter</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Controllers.ExceptionFilter#6788529d-14a8-4de3-bbdd-e9b19768e0a7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Api/Filters/ExceptionFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ExceptionFilter.cs</ProjectRelativeFilePath>
@@ -108,7 +108,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>7ebec2d0-f9b8-4b95-8268-0eb548c9699f</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter#092bbda1-0e6b-40e7-9b01-b58dac489afb</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TypeSchemaFilter.cs</ProjectRelativeFilePath>
@@ -116,7 +116,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>caa1049e-62ba-4620-ad1b-7fc48645203e</ProjectId>
-      <CorrelationId>Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate</CorrelationId>
+      <CorrelationId>Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate#535bc77b-0017-4590-a1c5-b10a8bb7a9c3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Api/Logging/BoundedLoggingDestructuringPolicy.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>BoundedLoggingDestructuringPolicy.cs</ProjectRelativeFilePath>
@@ -124,7 +124,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>f52d9a18-55ff-498a-9a2c-7d158098e34a</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Program</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Program#e98ee675-1d13-4ed8-ba1a-c35561ea7078</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Api/Program.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Program.cs</ProjectRelativeFilePath>
@@ -140,7 +140,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>e6ca8e83-a5e4-4f03-a23d-74ed4498e72e</ProjectId>
-      <CorrelationId>Intent.Application.Identity.CurrentUserService</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserService#775767de-61db-4ba4-872e-b9c2a621ee11</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Api/Services/CurrentUserService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CurrentUserService.cs</ProjectRelativeFilePath>
@@ -156,7 +156,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>f52d9a18-55ff-498a-9a2c-7d158098e34a</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Startup</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Startup#1b09b27d-a6e0-432f-b95a-c02eb2960595</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Api/Startup.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Startup.cs</ProjectRelativeFilePath>
@@ -300,7 +300,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b20a2672-f0fe-41aa-ab40-6e220d530595</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.AssemblyAttributes</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.AssemblyAttributes#6d03ed69-b3cf-42a4-bdf0-b460161ab25e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Application/AssemblyAttributes.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AssemblyAttributes.cs</ProjectRelativeFilePath>
@@ -308,7 +308,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b20a2672-f0fe-41aa-ab40-6e220d530595</ProjectId>
-      <CorrelationId>Intent.Eventing.Solace.BaseMessage</CorrelationId>
+      <CorrelationId>Intent.Eventing.Solace.BaseMessage#b6c33d1e-436e-4e22-bcc3-eb7d9a215ffa</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Application/BaseMessage.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>BaseMessage.cs</ProjectRelativeFilePath>
@@ -316,7 +316,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>598ef533-3e48-4008-a4ed-cdc4d4070fbd</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.AuthorizationBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.AuthorizationBehaviour#90ddbfa6-15ef-419f-a901-2f6b6a83ab22</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Application/Common/Behaviours/AuthorizationBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AuthorizationBehaviour.cs</ProjectRelativeFilePath>
@@ -324,7 +324,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>598ef533-3e48-4008-a4ed-cdc4d4070fbd</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.EventBusPublishBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.EventBusPublishBehaviour#46d8fd11-d168-4c27-84de-45561abccedd</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Application/Common/Behaviours/EventBusPublishBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>EventBusPublishBehaviour.cs</ProjectRelativeFilePath>
@@ -332,7 +332,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>598ef533-3e48-4008-a4ed-cdc4d4070fbd</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.LoggingBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.LoggingBehaviour#7aeb3426-03a5-4c8c-9f65-bc6aafcfb79a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Application/Common/Behaviours/LoggingBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>LoggingBehaviour.cs</ProjectRelativeFilePath>
@@ -340,7 +340,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>598ef533-3e48-4008-a4ed-cdc4d4070fbd</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.PerformanceBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.PerformanceBehaviour#f6e7b448-3ce3-4657-97fc-edb466c9031c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Application/Common/Behaviours/PerformanceBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PerformanceBehaviour.cs</ProjectRelativeFilePath>
@@ -348,7 +348,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>598ef533-3e48-4008-a4ed-cdc4d4070fbd</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour#34e8c3f0-18f8-46f2-b756-b2c348d39ec2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UnhandledExceptionBehaviour.cs</ProjectRelativeFilePath>
@@ -356,7 +356,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>598ef533-3e48-4008-a4ed-cdc4d4070fbd</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour#481b6a41-62e8-4414-a372-61d288e2c42f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Application/Common/Behaviours/UnitOfWorkBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UnitOfWorkBehaviour.cs</ProjectRelativeFilePath>
@@ -364,7 +364,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>598ef533-3e48-4008-a4ed-cdc4d4070fbd</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.FluentValidation.ValidationBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.ValidationBehaviour#7ee0af28-9be6-4f4d-aba0-e88ba2499189</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Application/Common/Behaviours/ValidationBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ValidationBehaviour.cs</ProjectRelativeFilePath>
@@ -372,7 +372,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>f4c04ca6-e302-4afa-b358-0555ef90589f</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.EventBusInterface</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.EventBusInterface#6d6ae436-4e55-46e2-81e0-a905916e2b6d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Application/Common/Eventing/IEventBus.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IEventBus.cs</ProjectRelativeFilePath>
@@ -380,7 +380,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>f4c04ca6-e302-4afa-b358-0555ef90589f</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventHandlerInterface</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventHandlerInterface#bf9f0997-9886-4f48-b1a3-c4020aa4f4ac</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Application/Common/Eventing/IIntegrationEventHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IIntegrationEventHandler.cs</ProjectRelativeFilePath>
@@ -388,7 +388,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>90c58120-2bd7-4ad7-a678-a5507cd189d8</ProjectId>
-      <CorrelationId>Intent.Application.Identity.ForbiddenAccessException</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.ForbiddenAccessException#a3e87977-7a2c-400f-9867-c600d41e6016</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Application/Common/Exceptions/ForbiddenAccessException.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ForbiddenAccessException.cs</ProjectRelativeFilePath>
@@ -396,7 +396,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b85616df-74f8-494b-b7e8-2025baa35cc7</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandInterface</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.CommandInterface#da5922f3-057a-4ef3-bb1d-566d92f4ea52</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Application/Common/Interfaces/ICommand.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICommand.cs</ProjectRelativeFilePath>
@@ -404,7 +404,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b85616df-74f8-494b-b7e8-2025baa35cc7</ProjectId>
-      <CorrelationId>Intent.Application.Identity.CurrentUserInterface</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserInterface#acf0ca41-7703-418d-9942-a2ff07943cb0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Application/Common/Interfaces/ICurrentUser.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICurrentUser.cs</ProjectRelativeFilePath>
@@ -412,7 +412,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b85616df-74f8-494b-b7e8-2025baa35cc7</ProjectId>
-      <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface#b265cd52-0499-479e-9add-e30690b1d937</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Application/Common/Interfaces/ICurrentUserService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICurrentUserService.cs</ProjectRelativeFilePath>
@@ -420,7 +420,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b85616df-74f8-494b-b7e8-2025baa35cc7</ProjectId>
-      <CorrelationId>Intent.DomainEvents.DomainEventServiceInterface</CorrelationId>
+      <CorrelationId>Intent.DomainEvents.DomainEventServiceInterface#2b0659d4-5946-4c81-af5c-2dca751e6177</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Application/Common/Interfaces/IDomainEventService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IDomainEventService.cs</ProjectRelativeFilePath>
@@ -428,7 +428,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b85616df-74f8-494b-b7e8-2025baa35cc7</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.QueryInterface</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.QueryInterface#8d3c381e-f8b5-40fb-bcfe-afd901f58a18</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Application/Common/Interfaces/IQuery.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IQuery.cs</ProjectRelativeFilePath>
@@ -436,7 +436,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9bcd58da-03f4-4045-a810-bc0cb09cd155</ProjectId>
-      <CorrelationId>Intent.Application.AutoMapper.MapFromInterface</CorrelationId>
+      <CorrelationId>Intent.Application.AutoMapper.MapFromInterface#cb5f6663-99c1-462f-9b18-32b310412262</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Application/Common/Mappings/IMapFrom.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IMapFrom.cs</ProjectRelativeFilePath>
@@ -444,7 +444,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9bcd58da-03f4-4045-a810-bc0cb09cd155</ProjectId>
-      <CorrelationId>Intent.Application.AutoMapper.MappingProfile</CorrelationId>
+      <CorrelationId>Intent.Application.AutoMapper.MappingProfile#b9b2b5a8-9879-45cb-bdc8-07a75c96832a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Application/Common/Mappings/MappingProfile.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MappingProfile.cs</ProjectRelativeFilePath>
@@ -452,7 +452,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>253f724f-6a00-43da-a96e-23eb8c45f9c5</ProjectId>
-      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventNotification</CorrelationId>
+      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventNotification#2df94e6b-cd5f-4762-8ad4-d4b88d5dd9b8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Application/Common/Models/DomainEventNotification.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEventNotification.cs</ProjectRelativeFilePath>
@@ -460,7 +460,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>253f724f-6a00-43da-a96e-23eb8c45f9c5</ProjectId>
-      <CorrelationId>Intent.Application.Identity.ResultModel</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.ResultModel#432bd4fc-96d3-4f53-836f-4862ab221aa8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Application/Common/Models/Result.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Result.cs</ProjectRelativeFilePath>
@@ -468,7 +468,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>4005df7c-84c3-47e4-9a02-aa3db5096c73</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.PagedList</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.PagedList#504eb934-9a5a-4588-ab69-2d12ae62dcf4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Application/Common/Pagination/PagedList.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedList.cs</ProjectRelativeFilePath>
@@ -476,7 +476,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>4005df7c-84c3-47e4-9a02-aa3db5096c73</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResult</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResult#c61cf4b6-b298-42a1-9394-095d01e8e4da</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Application/Common/Pagination/PagedResult.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedResult.cs</ProjectRelativeFilePath>
@@ -484,7 +484,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>4005df7c-84c3-47e4-9a02-aa3db5096c73</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResultMappingExtensions</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResultMappingExtensions#46cc72fc-af48-4aa9-92d4-d27d7c3007a4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Application/Common/Pagination/PagedResultMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedResultMappingExtensions.cs</ProjectRelativeFilePath>
@@ -492,7 +492,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>6c137d07-228a-43e6-ad08-2d7c239faba6</ProjectId>
-      <CorrelationId>Intent.Application.Identity.AuthorizeAttribute</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.AuthorizeAttribute#979e14a5-a4e0-42e5-ac94-d08dcd5682c5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Application/Common/Security/AuthorizeAttribute.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AuthorizeAttribute.cs</ProjectRelativeFilePath>
@@ -500,7 +500,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>359549ea-859e-4856-bff5-5823ddcec824</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface</CorrelationId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface#c4925eef-ca79-40f8-829c-8e6c702efa8a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Application/Common/Validation/IValidatorProvider.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IValidatorProvider.cs</ProjectRelativeFilePath>
@@ -508,7 +508,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>359549ea-859e-4856-bff5-5823ddcec824</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProvider</CorrelationId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProvider#ba8edc42-decb-4a22-a703-dbdd8aa4fc75</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Application/Common/Validation/ValidatorProvider.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ValidatorProvider.cs</ProjectRelativeFilePath>
@@ -740,7 +740,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b20a2672-f0fe-41aa-ab40-6e220d530595</ProjectId>
-      <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection</CorrelationId>
+      <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection#e2aa4e09-34ea-4b61-9e62-7a2f9ab19734</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Application/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
@@ -980,7 +980,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>27ea057b-2f54-49dd-b7d1-e39f467e19cc</ProjectId>
-      <CorrelationId>Intent.Entities.CollectionExtensions</CorrelationId>
+      <CorrelationId>Intent.Entities.CollectionExtensions#2d621855-ad28-4fbc-a927-ff810834c537</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Domain/Common/CollectionExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CollectionExtensions.cs</ProjectRelativeFilePath>
@@ -988,7 +988,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>27ea057b-2f54-49dd-b7d1-e39f467e19cc</ProjectId>
-      <CorrelationId>Intent.DomainEvents.DomainEventBase</CorrelationId>
+      <CorrelationId>Intent.DomainEvents.DomainEventBase#0497d3ee-fe31-49aa-9c24-bebb8f1c21a4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Domain/Common/DomainEvent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEvent.cs</ProjectRelativeFilePath>
@@ -996,7 +996,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>7734ad5c-995d-40b4-b5c3-52720a194243</ProjectId>
-      <CorrelationId>Intent.Entities.NotFoundException</CorrelationId>
+      <CorrelationId>Intent.Entities.NotFoundException#9a9c39a1-9814-474b-8fb7-f6a301786459</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Domain/Common/Exceptions/NotFoundException.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>NotFoundException.cs</ProjectRelativeFilePath>
@@ -1004,7 +1004,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>27ea057b-2f54-49dd-b7d1-e39f467e19cc</ProjectId>
-      <CorrelationId>Intent.DomainEvents.HasDomainEventInterface</CorrelationId>
+      <CorrelationId>Intent.DomainEvents.HasDomainEventInterface#a809ebff-8ab4-476a-9c17-04a2b32dd556</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Domain/Common/IHasDomainEvent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IHasDomainEvent.cs</ProjectRelativeFilePath>
@@ -1012,7 +1012,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>95c60603-1fca-4c9e-b9d6-e47b7c27c71b</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.UnitOfWorkInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.UnitOfWorkInterface#4044147e-fa21-4f77-bc11-adc7b0866e94</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Domain/Common/Interfaces/IUnitOfWork.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IUnitOfWork.cs</ProjectRelativeFilePath>
@@ -1020,7 +1020,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>27ea057b-2f54-49dd-b7d1-e39f467e19cc</ProjectId>
-      <CorrelationId>Intent.Entities.UpdateHelper</CorrelationId>
+      <CorrelationId>Intent.Entities.UpdateHelper#b6ce9206-00ee-4d16-ba70-618185f9ebaa</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Domain/Common/UpdateHelper.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UpdateHelper.cs</ProjectRelativeFilePath>
@@ -1076,7 +1076,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>6ca2cdbb-127b-4a4b-844a-4478547911bb</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface#268cb2aa-9cff-4683-8712-68aa690278fa</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Domain/Repositories/IEFRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IEFRepository.cs</ProjectRelativeFilePath>
@@ -1084,7 +1084,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>6ca2cdbb-127b-4a4b-844a-4478547911bb</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.PagedListInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.PagedListInterface#4c03ab48-f081-471d-b144-c0491e87482f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Domain/Repositories/IPagedList.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IPagedList.cs</ProjectRelativeFilePath>
@@ -1100,7 +1100,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>6ca2cdbb-127b-4a4b-844a-4478547911bb</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.RepositoryInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.RepositoryInterface#a555fc4a-418d-4393-8f8c-598e0aa33967</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Domain/Repositories/IRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IRepository.cs</ProjectRelativeFilePath>
@@ -1116,7 +1116,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>e3508634-3738-4539-ad9f-cb93a73805c7</ProjectId>
-      <CorrelationId>Intent.Eventing.Solace.SolaceConfiguration</CorrelationId>
+      <CorrelationId>Intent.Eventing.Solace.SolaceConfiguration#8169886b-3a74-4b68-bd21-f30d3337c331</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Infrastructure/Configuration/SolaceConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SolaceConfiguration.cs</ProjectRelativeFilePath>
@@ -1124,7 +1124,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>09a258ac-0d55-4b5b-b63d-9aa3cc8afa0e</ProjectId>
-      <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection</CorrelationId>
+      <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#44a3e13e-bb8d-45af-8e32-cf6dc8b9a233</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Infrastructure/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
@@ -1132,7 +1132,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>abc5bd59-aeaf-406d-a1a4-57012f3d59ba</ProjectId>
-      <CorrelationId>Intent.Eventing.Solace.BaseMessageConverter</CorrelationId>
+      <CorrelationId>Intent.Eventing.Solace.BaseMessageConverter#7e0fd4c1-da07-4594-8878-663ff6fbac7d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Infrastructure/Eventing/BaseMessageConverter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>BaseMessageConverter.cs</ProjectRelativeFilePath>
@@ -1140,7 +1140,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>abc5bd59-aeaf-406d-a1a4-57012f3d59ba</ProjectId>
-      <CorrelationId>Intent.Eventing.Solace.DispatchResolver</CorrelationId>
+      <CorrelationId>Intent.Eventing.Solace.DispatchResolver#668f7670-ce37-4265-a989-c571365e8ce8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Infrastructure/Eventing/DispatchResolver.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DispatchResolver.cs</ProjectRelativeFilePath>
@@ -1148,7 +1148,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>abc5bd59-aeaf-406d-a1a4-57012f3d59ba</ProjectId>
-      <CorrelationId>Intent.Eventing.Solace.SolaceEventDispatcherInterface</CorrelationId>
+      <CorrelationId>Intent.Eventing.Solace.SolaceEventDispatcherInterface#66d28050-3fcd-4556-9dd0-c04d6a5d1665</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Infrastructure/Eventing/ISolaceEventDispatcher.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ISolaceEventDispatcher.cs</ProjectRelativeFilePath>
@@ -1156,7 +1156,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>abc5bd59-aeaf-406d-a1a4-57012f3d59ba</ProjectId>
-      <CorrelationId>Intent.Eventing.Solace.MessageRegistry</CorrelationId>
+      <CorrelationId>Intent.Eventing.Solace.MessageRegistry#c5ef75c9-1e1b-48a2-a76e-ceb501e5fb8e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Infrastructure/Eventing/MessageRegistry.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MessageRegistry.cs</ProjectRelativeFilePath>
@@ -1164,7 +1164,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>abc5bd59-aeaf-406d-a1a4-57012f3d59ba</ProjectId>
-      <CorrelationId>Intent.Eventing.Solace.MessageSerializer</CorrelationId>
+      <CorrelationId>Intent.Eventing.Solace.MessageSerializer#072d4a2d-6c04-4285-85ba-aef86e1f89a6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Infrastructure/Eventing/MessageSerializer.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MessageSerializer.cs</ProjectRelativeFilePath>
@@ -1172,7 +1172,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>abc5bd59-aeaf-406d-a1a4-57012f3d59ba</ProjectId>
-      <CorrelationId>Intent.Eventing.Solace.SolaceConsumer</CorrelationId>
+      <CorrelationId>Intent.Eventing.Solace.SolaceConsumer#62461eb0-dfdc-4718-bd4d-150a00545b23</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Infrastructure/Eventing/SolaceConsumer.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SolaceConsumer.cs</ProjectRelativeFilePath>
@@ -1180,7 +1180,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>abc5bd59-aeaf-406d-a1a4-57012f3d59ba</ProjectId>
-      <CorrelationId>Intent.Eventing.Solace.SolaceConsumingService</CorrelationId>
+      <CorrelationId>Intent.Eventing.Solace.SolaceConsumingService#d7c75a76-cfab-4db0-8b40-7c46de547187</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Infrastructure/Eventing/SolaceConsumingService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SolaceConsumingService.cs</ProjectRelativeFilePath>
@@ -1188,7 +1188,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>abc5bd59-aeaf-406d-a1a4-57012f3d59ba</ProjectId>
-      <CorrelationId>Intent.Eventing.Solace.SolaceEventBus</CorrelationId>
+      <CorrelationId>Intent.Eventing.Solace.SolaceEventBus#acc708d2-a459-43a6-99d8-9a1e08a64fe8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Infrastructure/Eventing/SolaceEventBus.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SolaceEventBus.cs</ProjectRelativeFilePath>
@@ -1196,7 +1196,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>abc5bd59-aeaf-406d-a1a4-57012f3d59ba</ProjectId>
-      <CorrelationId>Intent.Eventing.Solace.SolaceEventDispatcher</CorrelationId>
+      <CorrelationId>Intent.Eventing.Solace.SolaceEventDispatcher#be6baed8-a797-43e9-8a35-e6ef6ea0313e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Infrastructure/Eventing/SolaceEventDispatcher.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SolaceEventDispatcher.cs</ProjectRelativeFilePath>
@@ -1204,7 +1204,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5521b976-b0b7-4575-a275-bc652f32c7d6</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe#b751ec5f-afbe-4323-a466-3432a7f7b01a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Infrastructure/Migrations/README.md</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>README.md</ProjectRelativeFilePath>
@@ -1268,7 +1268,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>e8a358ff-eed4-42bf-86e1-8a7f034f3930</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.RepositoryBase</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.RepositoryBase#fd109999-9830-4078-8e84-d1a8b527f39a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Infrastructure/Repositories/RepositoryBase.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RepositoryBase.cs</ProjectRelativeFilePath>
@@ -1276,7 +1276,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>34f66041-73b3-4502-87ea-79d81d81127b</ProjectId>
-      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventService</CorrelationId>
+      <CorrelationId>Intent.MediatR.DomainEvents.DomainEventService#35d8306d-e090-4484-8bdc-2a7a908c7f2d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Infrastructure/Services/DomainEventService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEventService.cs</ProjectRelativeFilePath>

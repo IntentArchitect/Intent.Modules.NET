@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="2349b1e3-99c2-47c8-86cb-5ed76e24dc13" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Mappings</name>
+  <display>Mappings</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>034ce4e1-222e-4614-9b93-ba5eb3d08243</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="68c5faf4-a56b-4aa7-93d9-514d01fa5ec8" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.MongoDb.MongoDbMapping</name>
+      <display>Intent.MongoDb.MongoDbMapping</display>
+      <externalReference>Intent.MongoDb</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>2349b1e3-99c2-47c8-86cb-5ed76e24dc13</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="c9c14cf5-0dc1-4df0-be03-bf04fd85ab42" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.MongoDb.MongoMappingConfigurationInterface</name>
+      <display>Intent.MongoDb.MongoMappingConfigurationInterface</display>
+      <externalReference>Intent.MongoDb</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>2349b1e3-99c2-47c8-86cb-5ed76e24dc13</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

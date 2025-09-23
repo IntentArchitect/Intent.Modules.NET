@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Intent.Exceptions;
 using Intent.Metadata.Models;
@@ -13,24 +14,27 @@ using Intent.Modules.Constants;
 namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies;
 
 [Obsolete("This is pure evil and should be removed. Should replace with Processing Actions in the designer.")]
-public class CallEntityServiceInteractionStrategy : IInteractionStrategy
+internal class CallEntityServiceInteractionStrategy : IInteractionStrategy
 {
-    private ICSharpFileBuilderTemplate _template;
-    private CSharpClassMappingManager _csharpMapping;
+    private ICSharpFileBuilderTemplate? _template;
+    private CSharpClassMappingManager? _csharpMapping;
 
     public bool IsMatch(IElement interaction)
     {
-        return interaction.IsPerformInvocationTargetEndModel() && interaction.TypeReference.Element.SpecializationType == "Operation"
-                                                               && ((IElement)interaction.TypeReference.Element).ParentElement.SpecializationType == "Class";
+        return interaction.IsPerformInvocationTargetEndModel() &&
+               interaction.TypeReference.Element.SpecializationType == "Operation" &&
+               ((IElement)interaction.TypeReference.Element).ParentElement.SpecializationType == "Class";
     }
 
     public void ImplementInteraction(ICSharpClassMethodDeclaration method, IElement interactionElement)
     {
+        ArgumentNullException.ThrowIfNull(method);
         var interaction = (IAssociationEnd)interactionElement;
+
         var @class = method.Class;
         _template = (ICSharpFileBuilderTemplate)@class.File.Template;
         _csharpMapping = method.GetMappingManager();
-        //_csharpMapping.AddMappingResolver(new CallServiceOperationMappingResolver(_template));
+
         try
         {
             var statements = new List<CSharpStatement>();
@@ -43,7 +47,6 @@ public class CallEntityServiceInteractionStrategy : IInteractionStrategy
             // So that the mapping system can resolve the name of the operation from the interface itself:
             _template.AddTypeSource(serviceInterfaceTemplate.Id);
 
-            //if (serviceInterfaceTemplate.CSharpFile.Interfaces.Count == 1) {
             var serviceField = method.TrackedEntities().Values.LastOrDefault()?.VariableName;
             if (serviceField is null)
             {
@@ -55,7 +58,10 @@ public class CallEntityServiceInteractionStrategy : IInteractionStrategy
             var invStatement = methodInvocation as CSharpInvocationStatement;
             if (invStatement?.IsAsyncInvocation() == true)
             {
-                invStatement.AddArgument("cancellationToken");
+                if (method.Parameters.Any(x => x.Type == "CancellationToken"))
+                {
+                    invStatement.AddArgument(method.Parameters.Single(x => x.Type == "CancellationToken").Name);
+                }
                 invoke = new CSharpAwaitExpression(invoke);
             }
 
@@ -67,13 +73,11 @@ public class CallEntityServiceInteractionStrategy : IInteractionStrategy
                 _csharpMapping.SetToReplacement(interaction, variableName);
 
                 statements.Add(new CSharpAssignmentStatement(new CSharpVariableDeclaration(variableName), invoke));
-
-                //TrackedEntities.Add(interaction.Id, new EntityDetails((IElement)operationModel.TypeReference.Element, variableName, null, false, null, operationModel.TypeReference.IsCollection));
             }
             else if (invStatement?.Expression.Reference is ICSharpMethodDeclaration methodDeclaration &&
                      (methodDeclaration.ReturnTypeInfo.GetTaskGenericType() is CSharpTypeTuple || methodDeclaration.ReturnTypeInfo is CSharpTypeTuple))
             {
-                var tuple = (CSharpTypeTuple)methodDeclaration.ReturnTypeInfo.GetTaskGenericType() ?? (CSharpTypeTuple)methodDeclaration.ReturnTypeInfo;
+                var tuple = (CSharpTypeTuple?)methodDeclaration.ReturnTypeInfo.GetTaskGenericType() ?? (CSharpTypeTuple)methodDeclaration.ReturnTypeInfo;
                 var declaration = new CSharpDeclarationExpression(tuple.Elements.Select(s => s.Name.ToLocalVariableName()).ToList());
                 statements.Add(new CSharpAssignmentStatement(declaration, invoke));
             }
@@ -81,8 +85,6 @@ public class CallEntityServiceInteractionStrategy : IInteractionStrategy
             {
                 statements.Add(invoke);
             }
-
-            //WireupDomainServicesForOperations(handlerClass, callServiceOperation, statements);
 
             method.AddStatements(ExecutionPhases.BusinessLogic, statements);
         }
@@ -98,8 +100,13 @@ public class CallEntityServiceInteractionStrategy : IInteractionStrategy
     private const string RepositorySpecializationId = "96ffceb2-a70a-4b69-869b-0df436c470c3";
     private const string ServiceProxySpecializationId = "07d8d1a9-6b9f-4676-b7d3-8db06299e35c";
 
-    bool HasServiceDependency(IElement serviceModel, out ICSharpFileBuilderTemplate dependencyInfo)
+    private bool HasServiceDependency(IElement serviceModel, [NotNullWhen(true)] out ICSharpFileBuilderTemplate? dependencyInfo)
     {
+        if (_template == null)
+        {
+            throw new InvalidOperationException($"{nameof(_template)} is null");
+        }
+
         switch (serviceModel.SpecializationTypeId)
         {
             case DomainServiceSpecializationId when _template.TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.DomainServices.Interface, serviceModel, out var domainServiceTemplate):
@@ -118,7 +125,7 @@ public class CallEntityServiceInteractionStrategy : IInteractionStrategy
                 dependencyInfo = clientInterfaceTemplate;
                 return true;
             default:
-                dependencyInfo = default;
+                dependencyInfo = null;
                 return false;
         }
     }

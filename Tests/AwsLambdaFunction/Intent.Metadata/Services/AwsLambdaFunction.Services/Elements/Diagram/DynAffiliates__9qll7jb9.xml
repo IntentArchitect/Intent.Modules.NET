@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="4f46c58c-874f-4397-a9e6-6030429effe9" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>DynAffiliates</name>
+  <display>DynAffiliates</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>89c0922d-db98-4bc0-8cc3-7473cc971a9f</parentFolderId>
+  <packageId>2b08d911-4e9c-47f1-9fc1-598b5e03604f</packageId>
+  <packageName>AwsLambdaFunction.Services</packageName>
+  <diagram>
+    <targetPackageId>4f46c58c-874f-4397-a9e6-6030429effe9</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

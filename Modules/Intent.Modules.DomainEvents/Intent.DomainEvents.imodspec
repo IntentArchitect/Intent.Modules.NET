@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.DomainEvents</id>
-  <version>5.0.8</version>
+  <version>5.0.9</version>
   <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Generates C# Domain Events from the Domain and supporting base types and interfaces.</summary>
   <description>Generates C# Domain Events from the Domain and supporting base types and interfaces.</description>
   <authors>Intent Architect</authors>
-  <tags>csharp dotnet domain events ddd domainevents</tags>
+  <tags>csharp dotnet domain events ddd domainevents eventing</tags>
   <releaseNotes>release-notes.md</releaseNotes>
   <iconUrl>data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZpZXdCb3g9IjAgMCA1MCA1MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudGI1NGYzZjUxLWU2ODItNGUyNC1iN2Q5LWVlMDBjMjVkYzEwNCIgeDE9IjI3IiB5MT0iNDcuNyIgeDI9IjI3IiB5Mj0iMi41IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZmNmQyOSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNmNWFkMjQiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyOC43LjIsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiAxLjIuMCBCdWlsZCAxNTQpICAtLT4KICA8Zz4KICAgIDxnIGlkPSJMaWdodG5pbmctdjQiPgogICAgICA8cGF0aCBpZD0iX3gzQ19MaWdodG5pbmdfeDNFXyIgZD0iTTMwLjgsMTdsNy4zLTE0LjVoLTE4LjZMNywyNy4yaDE0LjhsLTEwLjMsMjAuM2gzLjVsMzItMzAuNWgtMTYuMlpNMjcuNCwyMy45aC0xNC44TDIxLjYsNmgxMC45bC03LjMsMTQuNWgxMy4ybC0xOCwxNy4xLDctMTMuN1oiIGZpbGw9InVybCgjbGluZWFyLWdyYWRpZW50YjU0ZjNmNTEtZTY4Mi00ZTI0LWI3ZDktZWUwMGMyNWRjMTA0KSIvPgogICAgPC9nPgogIDwvZz4KPC9zdmc+</iconUrl>
   <templates>
@@ -23,7 +23,7 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Domain.Events</role>
+      <role>Domain.Common.EventBase</role>
       <location>Common</location>
     </template>
     <template id="Intent.DomainEvents.DomainEventServiceInterface" externalReference="13c96091-dafd-4ae7-ba4d-b31396b19956">
@@ -31,7 +31,7 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Application.Common</role>
+      <role>Application.Common.DomainEventServiceInterface</role>
       <location>Common/Interfaces</location>
     </template>
     <template id="Intent.DomainEvents.HasDomainEventInterface" externalReference="7633ea57-224c-4f93-a512-32243d21d216">
@@ -39,7 +39,7 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Domain.Events</role>
+      <role>Domain.Common.HasDomainEventInterface</role>
       <location>Common</location>
     </template>
   </templates>

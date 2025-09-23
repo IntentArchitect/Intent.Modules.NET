@@ -17,6 +17,7 @@ using Intent.Modelers.Services.Api;
 using System.Diagnostics;
 using Intent.Modules.AI.Blazor.Tasks.Config;
 using Intent.Modelers.Services.CQRS.Api;
+using Intent.Modules.Common.AI.Settings;
 using Intent.Modules.Common.Types.Api;
 
 namespace Intent.Modules.AI.Prompts.Tasks;
@@ -77,73 +78,97 @@ public class GenerateBlazorWithAITask : IModuleTask
         }
 
         var promptTemplateConfig = PromptConfig.TryLoad(_solution.SolutionRootLocation, _applicationConfigurationProvider.GetApplicationConfig().Name);
-        if (promptTemplateConfig is null)
+
+        var disposables = new List<IAsyncDisposable>();
+        if (promptTemplateConfig.McpServers.Any())
         {
-            Logging.Log.Warning("No Prompt Templates Found.");
-            promptTemplateConfig = new PromptConfig();
-        }
-        if (templateId is not null && promptTemplateConfig.Templates.FirstOrDefault(t => t.Id == templateId) == null)
-        {
-            throw new Exception($"Could not find Template {templateId}.");
+            var mcpDisposables = McpHelper.WireUpMcpAsync(kernel, promptTemplateConfig.McpServers)
+                .GetAwaiter()
+                .GetResult();
+            disposables.AddRange(mcpDisposables);
         }
 
-        var inputFiles = GetInputFiles(componentModel, out var toModify)
-            .Concat(LoadAdditionalFiles(promptTemplateConfig.GetInputFile(templateId))); 
-        var jsonInput = JsonConvert.SerializeObject(inputFiles, Formatting.Indented);
-        var fileToModifyJson = JsonConvert.SerializeObject(toModify.Select(m => m.FilePath).ToArray());
-
-        var exampleFiles = exampleComponentIds?.SelectMany(componentId =>
+        try
         {
-            var component = _metadataManager.UserInterface(applicationId).Elements.FirstOrDefault(x => x.Id == componentId);
-            if (component == null)
+            if (promptTemplateConfig is null)
             {
-                return [];
+                Logging.Log.Warning("No Prompt Templates Found.");
+                promptTemplateConfig = new PromptConfig();
             }
-            return _fileProvider.GetFilesForMetadata(component);
-        }).ToList() ?? [];
+            if (templateId is not null && promptTemplateConfig.Templates.FirstOrDefault(t => t.Id == templateId) == null)
+            {
+                throw new Exception($"Could not find Template {templateId}.");
+            }
 
-        var applicationConfig = _solution.GetApplicationConfig(args[0]);
+            var inputFiles = GetInputFiles(componentModel, out var toModify)
+                .Concat(LoadAdditionalFiles(promptTemplateConfig.GetInputFile(templateId)));
+            var jsonInput = JsonConvert.SerializeObject(inputFiles, Formatting.Indented);
+            var fileToModifyJson = JsonConvert.SerializeObject(toModify.Select(m => m.FilePath).ToArray());
 
-        var templateFiles = promptTemplateConfig.LoadTemplateFiles(templateId);
-        if (templateFiles.Any())
-        {
-            Logging.Log.Debug($"Adding Template Files ({templateFiles.Count()})");
-            exampleFiles.AddRange(templateFiles);
+            var exampleFiles = exampleComponentIds?.SelectMany(componentId =>
+            {
+                var component = _metadataManager.UserInterface(applicationId).Elements.FirstOrDefault(x => x.Id == componentId);
+                if (component == null)
+                {
+                    return [];
+                }
+                return _fileProvider.GetFilesForMetadata(component);
+            }).ToList() ?? [];
+
+            var applicationConfig = _solution.GetApplicationConfig(args[0]);
+
+            var templateFiles = promptTemplateConfig.LoadTemplateFiles(templateId);
+            if (templateFiles.Any())
+            {
+                Logging.Log.Debug($"Adding Template Files ({templateFiles.Count()})");
+                exampleFiles.AddRange(templateFiles);
+            }
+
+            var environmentMetadata = GetEnvironmentMetadata(applicationConfig, promptTemplateConfig.GetMetadata(templateId));
+            var exampleJson = JsonConvert.SerializeObject(exampleFiles, Formatting.Indented);
+            var additionalRules = promptTemplateConfig.GetAdditionalRules(templateId);
+            var requestFunction = CreatePromptFunction(kernel, thinkingType);
+
+            if (string.IsNullOrEmpty(userProvidedContext))
+            {
+                userProvidedContext = "None";
+            }
+            if (string.IsNullOrEmpty(additionalRules))
+            {
+                additionalRules = "None";
+            }
+
+            var fileChangesResult = requestFunction.InvokeFileChangesPrompt(kernel, new KernelArguments()
+            {
+                ["environmentMetadata"] = environmentMetadata,
+                ["inputFilesJson"] = jsonInput,
+                ["userProvidedContext"] = userProvidedContext,
+                ["targetFileName"] = componentModel.Name + "Handler",
+                ["examples"] = exampleJson,
+                ["filesToModifyJson"] = fileToModifyJson,
+                ["additionalRules"] = additionalRules
+            });
+
+            // Output the updated file changes.
+            var basePath = Path.GetFullPath(Path.Combine(applicationConfig.DirectoryPath, applicationConfig.OutputLocation));
+            foreach (var fileChange in fileChangesResult.FileChanges)
+            {
+                _outputRegistry.Register(Path.Combine(basePath, fileChange.FilePath), fileChange.Content);
+            }
+
+            return "success";
         }
-
-        var environmentMetadata = GetEnvironmentMetadata(applicationConfig, promptTemplateConfig.GetMetadata(templateId));
-        var exampleJson = JsonConvert.SerializeObject(exampleFiles, Formatting.Indented);
-        var additionalRules = promptTemplateConfig.GetAdditionalRules(templateId);
-        var requestFunction = CreatePromptFunction(kernel, thinkingType);
-
-        if (string.IsNullOrEmpty(userProvidedContext))
+        finally
         {
-            userProvidedContext = "None";
+            foreach (var d in disposables)
+            {
+                try
+                {
+                    d.DisposeAsync().AsTask().GetAwaiter().GetResult();
+                }
+                catch { /* log if needed */ }
+            }
         }
-        if (string.IsNullOrEmpty(additionalRules))
-        {
-            additionalRules = "None";
-        }
-
-        var fileChangesResult = requestFunction.InvokeFileChangesPrompt(kernel, new KernelArguments()
-        {
-            ["environmentMetadata"] = environmentMetadata,
-            ["inputFilesJson"] = jsonInput,
-            ["userProvidedContext"] = userProvidedContext,
-            ["targetFileName"] = componentModel.Name + "Handler",
-            ["examples"] = exampleJson,
-            ["filesToModifyJson"] = fileToModifyJson,
-            ["additionalRules"] =  additionalRules
-        });
-
-        // Output the updated file changes.
-        var basePath = Path.GetFullPath(Path.Combine(applicationConfig.DirectoryPath, applicationConfig.OutputLocation));
-        foreach (var fileChange in fileChangesResult.FileChanges)
-        {
-            _outputRegistry.Register(Path.Combine(basePath, fileChange.FilePath), fileChange.Content);
-        }
-
-        return "success";
     }
 
     private IEnumerable<ICodebaseFile> LoadAdditionalFiles(IEnumerable<string> filenames)

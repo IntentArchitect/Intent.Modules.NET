@@ -34,7 +34,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Op
             CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/user/with-task-item";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(subTasks, _serializerOptions);

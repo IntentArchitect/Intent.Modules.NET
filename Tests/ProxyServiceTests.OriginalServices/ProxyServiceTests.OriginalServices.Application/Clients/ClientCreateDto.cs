@@ -13,7 +13,7 @@ namespace ProxyServiceTests.OriginalServices.Application.Clients
 
         public string Name { get; set; } = "n/a";
 
-        public static ClientCreateDto Create(string name)
+        public static ClientCreateDto Create(string name = "n/a")
         {
             return new ClientCreateDto
             {

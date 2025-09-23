@@ -1,0 +1,20 @@
+{
+  "topics": [
+      {
+          "title": "Unit Of Work",
+          "description": "Unit of Work Documentation",
+          "iconUrl": "https://img.icons8.com/?size=100&id=13545&format=png&color=000000",
+          "href": "https://docs.intentarchitect.com/articles/modules-dotnet/intent-common-unitofwork/intent-common-unitofwork.html",
+          "contextIds": [
+              "a1c3dd87-352e-4353-853b-c79853debecb"
+            ],
+          "tags": [
+              "uow",
+              "",
+              "db",
+              "unitofwork",
+              "database"
+            ]
+        }
+    ]
+}

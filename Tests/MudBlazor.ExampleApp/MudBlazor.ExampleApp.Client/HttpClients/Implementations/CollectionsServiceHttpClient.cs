@@ -51,7 +51,7 @@ namespace MudBlazor.ExampleApp.Client.HttpClients.Implementations
             }
             queryParams.Add("intValue", intValue.ToString());
             relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
@@ -84,7 +84,7 @@ namespace MudBlazor.ExampleApp.Client.HttpClients.Implementations
             }
             queryParams.Add("stringValue", stringValue);
             relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))

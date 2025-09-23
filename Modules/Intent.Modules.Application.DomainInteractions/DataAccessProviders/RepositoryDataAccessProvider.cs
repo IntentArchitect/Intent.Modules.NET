@@ -1,4 +1,5 @@
-using Intent.Engine;
+using System.Collections.Generic;
+using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Application.DomainInteractions.Extensions;
@@ -9,38 +10,35 @@ using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
-using Intent.Templates;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
 using static Intent.Modules.Constants.TemplateRoles.Domain;
 
-namespace Intent.Modules.Application.DomainInteractions;
+namespace Intent.Modules.Application.DomainInteractions.DataAccessProviders;
 
-#nullable enable
-
-public class RepositoryDataAccessProvider : IDataAccessProvider
+internal class RepositoryDataAccessProvider : IDataAccessProvider
 {
     private readonly string _repositoryFieldName;
     private readonly ICSharpFileBuilderTemplate _template;
     private readonly CSharpClassMappingManager _mappingManager;
-	private readonly bool _hasUnitOfWork;
+    private readonly bool _hasUnitOfWork;
     private readonly CSharpProperty[] _pks;
-    private readonly ClassModel _entity;
     private readonly bool _isUsingProjections;
-    private IQueryImplementation _queryImplementation;
+    private readonly IQueryImplementation _queryImplementation;
 
-    public RepositoryDataAccessProvider(string repositoryFieldName, ICSharpFileBuilderTemplate template, CSharpClassMappingManager mappingManager, bool hasUnitOfWork, QueryActionContext queryContext, ClassModel entity)
+    public RepositoryDataAccessProvider(
+        string repositoryFieldName,
+        ICSharpFileBuilderTemplate template,
+        CSharpClassMappingManager mappingManager,
+        bool hasUnitOfWork,
+        QueryActionContext? queryContext,
+        ClassModel entity)
     {
         _hasUnitOfWork = hasUnitOfWork;
-		_repositoryFieldName = repositoryFieldName;
+        _repositoryFieldName = repositoryFieldName;
         _template = template;
         _mappingManager = mappingManager;
         var entityTemplate = _template.GetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.Entity.Primary, entity);
         _pks = entityTemplate.CSharpFile.Classes.First().GetPropertiesWithPrimaryKey();
-        _entity = entity;
-        if (_template.TryGetTypeName(TemplateRoles.Domain.Specification, _entity, out var specificationType))
+        if (_template.TryGetTypeName(Specification, entity, out var specificationType))
         {
             _queryImplementation = new SpecificationImplementation(this, _repositoryFieldName, queryContext, specificationType);
         }
@@ -57,13 +55,13 @@ public class RepositoryDataAccessProvider : IDataAccessProvider
     {
         if (_hasUnitOfWork)
         {
-			return $"await {_repositoryFieldName}.UnitOfWork.SaveChangesAsync(cancellationToken);";
-		}
+            return $"await {_repositoryFieldName}.UnitOfWork.SaveChangesAsync(cancellationToken);";
+        }
         else
         {
             return "";
         }
-	}
+    }
 
     public CSharpStatement AddEntity(string entityName)
     {
@@ -74,40 +72,40 @@ public class RepositoryDataAccessProvider : IDataAccessProvider
         }
         else
         {
-			return new CSharpInvocationStatement($"await {_repositoryFieldName}", "AddAsync")
-				.AddArgument(entityName);
-		}
-	}
+            return new CSharpInvocationStatement($"await {_repositoryFieldName}", "AddAsync")
+                .AddArgument(entityName);
+        }
+    }
 
     public CSharpStatement Update(string entityName)
     {
         if (_hasUnitOfWork)
-        { 
+        {
             return new CSharpInvocationStatement(_repositoryFieldName, "Update")
                 .AddArgument(entityName);
-		}
-		else
-		{
-			return new CSharpInvocationStatement($"await {_repositoryFieldName}", "UpdateAsync")
-				.AddArgument(entityName);
-		}
-	}
+        }
+        else
+        {
+            return new CSharpInvocationStatement($"await {_repositoryFieldName}", "UpdateAsync")
+                .AddArgument(entityName);
+        }
+    }
 
-	public CSharpStatement Remove(string entityName)
+    public CSharpStatement Remove(string entityName)
     {
-		if (_hasUnitOfWork)
-		{
-			return new CSharpInvocationStatement(_repositoryFieldName, "Remove")
-				.AddArgument(entityName);
-		}
-		else
-		{
-			return new CSharpInvocationStatement($"await {_repositoryFieldName}", "RemoveAsync")
-				.AddArgument(entityName);
-		}
-	}
+        if (_hasUnitOfWork)
+        {
+            return new CSharpInvocationStatement(_repositoryFieldName, "Remove")
+                .AddArgument(entityName);
+        }
+        else
+        {
+            return new CSharpInvocationStatement($"await {_repositoryFieldName}", "RemoveAsync")
+                .AddArgument(entityName);
+        }
+    }
 
-	public CSharpStatement FindByIdAsync(List<PrimaryKeyFilterMapping> pkMaps)
+    public CSharpStatement FindByIdAsync(List<PrimaryKeyFilterMapping> pkMaps)
     {
         return _queryImplementation.FindByIdAsync(pkMaps);
     }
@@ -226,7 +224,7 @@ public class RepositoryDataAccessProvider : IDataAccessProvider
             var ifBlock = new CSharpIfStatement(_mappingManager.GenerateSourceStatementForMapping(queryMapping, mappedEnd) + " != null");
             ifBlock.AddAssignmentStatement("var requestField", _mappingManager.GenerateSourceStatementForMapping(queryMapping, mappedEnd).WithSemicolon());
             ifBlock.AddAssignmentStatement(filterName, new CSharpStatement($"{filterName}.Combine(entity => entity.{mappedEnd.TargetElement.Name} == requestField);"));
-            
+
             requiredStatements.Add(ifBlock);
         }
 
@@ -252,7 +250,7 @@ public class RepositoryDataAccessProvider : IDataAccessProvider
         // if the provider is not selected, it means only one document db provider installed
         // check if its Table Storage
         // OR Table Storage is explicitly selected
-        if ((string.IsNullOrWhiteSpace(docDbProvider.GetProperty("Provider")?.Value) 
+        if ((string.IsNullOrWhiteSpace(docDbProvider.GetProperty("Provider")?.Value)
             && _template.ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.Azure.TableStorage")) ||
             docDbProvider.GetProperty("Provider")?.Value == "1d05ee8e-747f-4120-9647-29ac784ef633")
         {
@@ -280,9 +278,9 @@ public class RepositoryDataAccessProvider : IDataAccessProvider
     private class SpecificationImplementation : DefaultQueryImplementation
     {
         private string _specificationType;
-        public SpecificationImplementation(RepositoryDataAccessProvider provider, string repositoryFieldName, QueryActionContext queryContext, string specificationType) 
-            : base (provider, repositoryFieldName, queryContext)
-        {  
+        public SpecificationImplementation(RepositoryDataAccessProvider provider, string repositoryFieldName, QueryActionContext queryContext, string specificationType)
+            : base(provider, repositoryFieldName, queryContext)
+        {
             _specificationType = specificationType;
         }
 

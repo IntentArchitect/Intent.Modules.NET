@@ -65,6 +65,19 @@ internal static class ValidationModelResolverHelper
         return results;
     }
 
+    public static string[] GetAdditionalFolders<TModel>(TModel model) where TModel : IElementWrapper
+    {
+        if (model.InternalElement.ParentElement.IsComponentModel())
+        {
+            return model.InternalElement.ParentElement.AsComponentModel().GetParentFolderNames().ToArray();
+        }
+        else
+        {
+            return Enumerable.Empty<string>().ToArray();
+        }
+
+    }
+
     public static string GetFolderPath<TModel>(IIntentTemplate<TModel> template, TModel model) where TModel : IElementWrapper
     {
         string folderPath;

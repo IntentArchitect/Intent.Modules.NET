@@ -78,10 +78,26 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
                                 PopulateDefaultCtor(protectedCtor);
                             });
 
-                            foreach (var field in GetFieldsHierarchally(Model))
+                            var dtoFields = GetFieldsHierarchally(Model);
+                            // get the last property which has no value. All items occuring before this cannot have a default value set in the constructor
+                            var lastNonNullable = dtoFields
+                                .Select((p, i) => new { Item = p, Index = i })
+                                .Where(x => string.IsNullOrEmpty(x.Item.Value))
+                                .Select(x => x.Index)
+                                .LastOrDefault(0);
+
+                            foreach (var field in dtoFields)
                             {
-                                ctor.AddParameter(GetTypeName(field.TypeReference), field.Name.ToParameterName());
+                                ctor.AddParameter(GetTypeName(field.TypeReference), field.Name.ToParameterName(), param =>
+                                {
+                                    // only parameters with a value AFTER the last parameter with a value get the value specified
+                                    if (field.InternalElement.Order >= lastNonNullable && !string.IsNullOrEmpty(field.Value))
+                                    {
+                                        param.WithDefaultValue(field.Value);
+                                    }
+                                });
                             }
+
                             foreach (var field in Model.Fields)
                             {
                                 ctor.AddStatement($"{field.Name.ToPascalCase()} = {field.Name.ToParameterName()};");
@@ -113,9 +129,25 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
                         @class.AddMethod($"{base.GetTypeName(this)}{genericTypes}", "Create", method =>
                         {
                             method.Static();
-                            foreach (var field in GetFieldsHierarchally(Model))
+
+                            var dtoFields = GetFieldsHierarchally(Model);
+                            // get the last property which has no value. All items occuring before this cannot have a default value set in the constructor
+                            var lastNonNullable = dtoFields
+                                .Select((p, i) => new { Item = p, Index = i })
+                                .Where(x => string.IsNullOrEmpty(x.Item.Value))
+                                .Select(x => x.Index)
+                                .LastOrDefault(0); 
+
+                            foreach (var field in dtoFields)
                             {
-                                method.AddParameter(base.GetTypeName(field.TypeReference), field.Name.ToParameterName());
+                                method.AddParameter(GetTypeName(field.TypeReference), field.Name.ToParameterName(), param =>
+                                {
+                                    // only parameters with a value AFTER the last parameter with a value get the value specified
+                                    if (field.InternalElement.Order >= lastNonNullable && !string.IsNullOrEmpty(field.Value))
+                                    {
+                                        param.WithDefaultValue(field.Value);
+                                    }
+                                });
                             }
 
                             if (IsNonPublicPropertyAccessors())

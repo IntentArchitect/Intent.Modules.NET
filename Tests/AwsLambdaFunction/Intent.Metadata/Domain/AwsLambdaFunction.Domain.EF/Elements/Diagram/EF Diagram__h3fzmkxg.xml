@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="dbe4a5da-8b49-43cf-8164-1823fefd0baa" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>EF Diagram</name>
+  <display>EF Diagram</display>
+  <externalReference>d062af63-7b0b-4d5e-9760-1f625aa90f6d</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>2d08ccbf-d8ae-4638-9af9-534b2d3e57cd</parentFolderId>
+  <packageId>2d08ccbf-d8ae-4638-9af9-534b2d3e57cd</packageId>
+  <packageName>AwsLambdaFunction.Domain.EF</packageName>
+  <diagram>
+    <targetPackageId>2d08ccbf-d8ae-4638-9af9-534b2d3e57cd</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

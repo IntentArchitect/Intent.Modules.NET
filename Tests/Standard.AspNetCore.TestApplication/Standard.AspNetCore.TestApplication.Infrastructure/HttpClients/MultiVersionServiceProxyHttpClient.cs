@@ -28,7 +28,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
         public async Task OperationForVersionOneAsync(CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/v1/multi-version/operation-for-version-one";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
@@ -43,7 +43,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
         public async Task OperationForVersionTwoAsync(CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/v2/multi-version/operation-for-version-two";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))

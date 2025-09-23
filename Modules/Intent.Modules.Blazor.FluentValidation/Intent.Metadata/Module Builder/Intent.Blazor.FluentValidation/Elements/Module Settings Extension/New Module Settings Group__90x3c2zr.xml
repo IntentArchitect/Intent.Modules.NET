@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5140a582-5aeb-4dcd-9eff-fbc82670a0be" type="Module Settings Extension" typeId="72044cdf-1f96-4ad2-86be-8d5468725e67">
+  <name>New Module Settings Group</name>
+  <display>New Module Settings Group: Blazor Settings</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>manually</sort-children>
+  <genericTypes />
+  <typeReference id="e6b36e17-7b26-4d1e-8530-0e1d8e6b3324">
+    <typeId>489a67db-31b2-4d51-96d7-52637c3795be</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.Blazor</typePackageName>
+    <typePackageId>3ac5ff1e-5fc9-46a2-95e5-2d9ca579e484</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>90eb0073-c577-4253-9e76-0039622affa9</parentFolderId>
+  <packageId>90eb0073-c577-4253-9e76-0039622affa9</packageId>
+  <packageName>Intent.Blazor.FluentValidation</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="ab557f4a-cd5b-4ae1-bbc2-ba0522503956" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
+      <name>Create Model Definition Validators</name>
+      <display>Create Model Definition Validators</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>5140a582-5aeb-4dcd-9eff-fbc82670a0be</parentFolderId>
+      <packageId>90eb0073-c577-4253-9e76-0039622affa9</packageId>
+      <packageName>Intent.Blazor.FluentValidation</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4805c791-5be3-4049-b929-6046d7be9944" name="Field Configuration">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Switch" isActive="true" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="false" />
+            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Create Fluent Validators for your Model Defintions." isActive="true" />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="true" isActive="true" />
+            <property name="c3456e79-0607-41a5-9b85-e0712f4f4834" display="Is Active Function" value="" isActive="true" />
+            <property name="fa54329f-d4e5-48bc-8027-e17206e9fc89" display="Is Required Function" value="" isActive="true" />
+            <property name="29696a13-bf1d-4fbd-bdf3-adb802430cb4" display="Order Priority" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

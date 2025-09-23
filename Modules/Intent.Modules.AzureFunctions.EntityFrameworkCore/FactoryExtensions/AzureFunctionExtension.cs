@@ -58,15 +58,18 @@ namespace Intent.Modules.AzureFunctions.EntityFrameworkCore.FactoryExtensions
 
                 template.CSharpFile.OnBuild(file =>
                 {
-                    file.AddUsing("System.Transactions");
                     var @class = file.Classes.First();
-                    @class.Constructors.First().AddParameter(GetUnitOfWork(template), "unitOfWork",
-                        param => { param.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException()); });
 
                     var runMethod = @class.FindMethod("Run");
                     var dispatchStatement = runMethod.FindStatement(x => x.HasMetadata("service-dispatch-statement"));
 
                     if (dispatchStatement is null) return;
+
+                    file.AddUsing("System.Transactions");
+                    @class.Constructors.First().AddParameter(GetUnitOfWork(template), "unitOfWork",
+                        param => { param.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException()); });
+
+
                     var returnStatement = runMethod.FindStatement(x => x.HasMetadata("return"));
                     var eventBusStatement = runMethod.FindStatement(x => x.HasMetadata("eventBus"));
 

@@ -6,6 +6,7 @@ using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.DomainInteractions.Api;
+using Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Strategies;
 using Intent.Modules.Application.ServiceImplementations.Templates.ServiceImplementation;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -87,6 +88,9 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
             _template.AddUsing("System.Linq");
 
             var (dtoModel, domainModel) = operationModel.GetUpdateModelPair();
+            var domainTypeName = _template.TryGetTypeName(TemplateRoles.Domain.Entity.Primary, domainModel, out var result)
+    ? result
+    : domainModel.Name.ToPascalCase();
             var repositoryTypeName = _template.GetTypeName(TemplateRoles.Repository.Interface.Entity, domainModel);
             var repositoryParameterName = repositoryTypeName.Split('.').Last()[1..].ToLocalVariableName();
             var repositoryFieldName = repositoryParameterName.ToPrivateMemberName();
@@ -109,7 +113,8 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
             if (operationModel.TypeReference.Element.IsDTOModel())
             {
                 codeLines.Add($"await {repositoryFieldName}.UnitOfWork.SaveChangesAsync(cancellationToken);");
-                codeLines.Add($"return {entityVariableName}.MapTo{_template.GetTypeName((IElement)operationModel.TypeReference.Element)}(_mapper);");
+                var mapper = MappingStrategyProvider.Instance.GetMappingStrategy(_template);
+                mapper.ImplementUpdateMappingStatement(codeLines, entityVariableName, _template, operationModel, domainTypeName);
             }
 
             var @class = _template.CSharpFile.Classes.First();
@@ -129,7 +134,8 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
             {
                 ctor.AddParameter(repositoryTypeName, repositoryParameterName, parameter => parameter.IntroduceReadonlyField());
             }
-            if (operationModel.TypeReference.Element?.IsDTOModel() == true && ctor.Parameters.All(p => p.Name != "mapper"))
+            if (operationModel.TypeReference.Element?.IsDTOModel() == true && ctor.Parameters.All(p => p.Name != "mapper")
+                && _template.ExecutionContext.InstalledModules.Any(x => x.ModuleId == "Intent.Application.AutoMapper"))
             {
                 ctor.AddParameter(_template.UseType("AutoMapper.IMapper"), "mapper", parameter => parameter.IntroduceReadonlyField());
             }

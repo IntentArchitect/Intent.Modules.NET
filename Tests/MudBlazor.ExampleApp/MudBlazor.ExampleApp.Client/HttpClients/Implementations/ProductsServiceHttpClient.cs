@@ -33,7 +33,7 @@ namespace MudBlazor.ExampleApp.Client.HttpClients.Implementations
             CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/products";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(command, _serializerOptions);
@@ -57,7 +57,7 @@ namespace MudBlazor.ExampleApp.Client.HttpClients.Implementations
         public async Task DeleteProductAsync(Guid id, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/products/{id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Delete, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Delete, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
@@ -75,7 +75,7 @@ namespace MudBlazor.ExampleApp.Client.HttpClients.Implementations
             CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/products/{id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(command, _serializerOptions);
@@ -93,7 +93,7 @@ namespace MudBlazor.ExampleApp.Client.HttpClients.Implementations
         public async Task<ProductDto> GetProductByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/products/{id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
@@ -125,7 +125,7 @@ namespace MudBlazor.ExampleApp.Client.HttpClients.Implementations
             queryParams.Add("orderBy", orderBy);
             queryParams.Add("searchText", searchText);
             relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
@@ -145,7 +145,7 @@ namespace MudBlazor.ExampleApp.Client.HttpClients.Implementations
         public async Task<List<ProductDto>> GetProductsLookupAsync(CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/products/lookup";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))

@@ -32,7 +32,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Fa
             CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/farmers/{id}/add-plot";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(command, _serializerOptions);
@@ -53,7 +53,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Fa
             CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/farmers/{id}/change-name";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(command, _serializerOptions);
@@ -75,7 +75,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Fa
             CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/farmers/{farmerId}/machines/{id}/change-name";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(command, _serializerOptions);
@@ -95,7 +95,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Fa
             CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/farmers";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(command, _serializerOptions);
@@ -122,7 +122,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Fa
             CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/farmers/{farmerId}/machines";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(command, _serializerOptions);
@@ -146,7 +146,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Fa
         public async Task DeleteFarmerAsync(Guid id, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/farmers/{id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Delete, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Delete, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
@@ -161,7 +161,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Fa
         public async Task DeleteMachinesAsync(Guid farmerId, Guid id, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/farmers/{farmerId}/machines/{id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Delete, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Delete, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
@@ -179,7 +179,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Fa
             CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/farmers/{id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(command, _serializerOptions);
@@ -201,7 +201,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Fa
             CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/farmers/{farmerId}/machines/{id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(command, _serializerOptions);
@@ -219,7 +219,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Fa
         public async Task<FarmerDto> GetFarmerByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/farmers/{id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
@@ -239,7 +239,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Fa
         public async Task<List<FarmerDto>> GetFarmersAsync(CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/farmers";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
@@ -262,7 +262,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Fa
             CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/farmers/{farmerId}/machines/{id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
@@ -282,7 +282,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Fa
         public async Task<List<MachinesDto>> GetMachinesAsync(Guid farmerId, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/farmers/{farmerId}/machines";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))

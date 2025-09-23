@@ -1,16 +1,18 @@
+using System;
 using System.Reflection;
 using AutoMapper;
 using GraphQL.MongoDb.TestApplication.Application;
 using GraphQL.MongoDb.TestApplication.Application.Common.Interfaces;
 using GraphQL.MongoDb.TestApplication.Domain.Common.Interfaces;
 using GraphQL.MongoDb.TestApplication.Domain.Repositories;
+using GraphQL.MongoDb.TestApplication.Infrastructure.Configuration;
 using GraphQL.MongoDb.TestApplication.Infrastructure.Persistence;
-using GraphQL.MongoDb.TestApplication.Infrastructure.Persistence.Documents;
 using GraphQL.MongoDb.TestApplication.Infrastructure.Repositories;
 using GraphQL.MongoDb.TestApplication.Infrastructure.Services;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using MongoDB.Driver;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -22,36 +24,16 @@ namespace GraphQL.MongoDb.TestApplication.Infrastructure
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddSingleton<IMongoClient>(sp =>
+            var cs = configuration.GetConnectionString("MongoDbConnection");
+            services.TryAddSingleton<IMongoClient>(_ => new MongoClient(cs));
+            services.TryAddSingleton<IMongoDatabase>(sp =>
                     {
-                        var connectionString = configuration.GetConnectionString("MongoDbConnection");
-                        return new MongoClient(connectionString);
+                        var dbName = new MongoUrl(cs).DatabaseName
+                                     ?? throw new InvalidOperationException(
+                                         "MongoDbConnection must include a database name.");
+                        return sp.GetRequiredService<IMongoClient>().GetDatabase(dbName);
                     });
-            services.AddSingleton(sp =>
-                    {
-                        var connectionString = configuration.GetConnectionString("MongoDbConnection");
-
-                        // Parse connection string to get the database name
-                        var mongoUrl = new MongoUrl(connectionString);
-                        var client = sp.GetRequiredService<IMongoClient>();
-
-                        return client.GetDatabase(mongoUrl.DatabaseName);
-                    });
-            services.AddSingleton<IMongoCollection<AssignedPrivilegeDocument>>(sp =>
-                            {
-                                var database = sp.GetRequiredService<IMongoDatabase>();
-                                return database.GetCollection<AssignedPrivilegeDocument>("AssignedPrivilege");
-                            });
-            services.AddSingleton<IMongoCollection<PrivilegeDocument>>(sp =>
-                            {
-                                var database = sp.GetRequiredService<IMongoDatabase>();
-                                return database.GetCollection<PrivilegeDocument>("Privilege");
-                            });
-            services.AddSingleton<IMongoCollection<UserDocument>>(sp =>
-                            {
-                                var database = sp.GetRequiredService<IMongoDatabase>();
-                                return database.GetCollection<UserDocument>("User");
-                            });
+            services.RegisterMongoCollections(typeof(DependencyInjection).Assembly);
             services.AddScoped<IPrivilegeRepository, PrivilegeMongoRepository>();
             services.AddScoped<IUserRepository, UserMongoRepository>();
             services.AddScoped<IDomainEventService, DomainEventService>();

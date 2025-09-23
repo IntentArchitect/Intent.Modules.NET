@@ -15,7 +15,6 @@ using Intent.Modules.Common.CSharp.Interactions;
 using Intent.Modules.Common.CSharp.Mapping.Resolvers;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Constants;
-using Intent.Modules.Eventing.Contracts.InteractionStrategies;
 using Intent.RoslynWeaver.Attributes;
 using static Intent.Modules.Constants.TemplateRoles.Blazor.Client;
 

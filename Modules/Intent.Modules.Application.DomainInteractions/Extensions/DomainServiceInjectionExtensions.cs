@@ -15,48 +15,43 @@ public static class DomainServiceInjectionExtensions
 {
     private const string DomainServiceSpecializationId = "07f936ea-3756-48c8-babd-24ac7271daac";
 
-    public static void WireupDomainServicesForConstructors(this ICSharpClass handlerClass, CreateEntityActionTargetEndModel createAction, CSharpStatement constructionStatement)
+    public static void WireUpDomainServicesForConstructors(this ICSharpClass handlerClass, CreateEntityActionTargetEndModel createAction, CSharpStatement constructionStatement)
     {
         var constructor = createAction.Element.AsClassConstructorModel();
         if (constructor != null)
         {
-            WireupDomainService(handlerClass.File.Template, constructionStatement as CSharpInvocationStatement, constructor.Parameters, handlerClass);
+            WireUpDomainService(handlerClass.File.Template, constructionStatement as CSharpInvocationStatement, constructor.Parameters, handlerClass);
         }
     }
 
-    public static void WireupDomainServicesForOperations(this ICSharpClass handlerClass, UpdateEntityActionTargetEndModel updateAction, IList<CSharpStatement> updateStatements)
+    public static void WireUpDomainServicesForOperations(this ICSharpClass handlerClass, UpdateEntityActionTargetEndModel updateAction, IList<CSharpStatement> updateStatements)
     {
-        Func<CSharpInvocationStatement, OperationModel> getOperation;
+        Func<CSharpInvocationStatement, OperationModel?> getOperation;
         if (updateAction.Element.IsOperationModel())
         {
             var operation = updateAction.Element.AsOperationModel();
-            if (operation == null)
+            if (operation == null ||
+                operation.Parameters.All(p => p.TypeReference.Element.SpecializationTypeId != DomainServiceSpecializationId))
             {
                 return;
             }
-            if (operation.Parameters.All(p => p.TypeReference.Element.SpecializationTypeId != DomainServiceSpecializationId))
-            {
-                return;
-            }
-            getOperation = (x) => operation;
+
+            getOperation = _ => operation;
         }
         else
         {
             var updateMappings = updateAction.Mappings.GetUpdateEntityMapping();
             var mappedOperations = updateMappings.MappedEnds.Where(me => me.TargetElement.IsOperationModel()).Select(me => me.TargetElement.AsOperationModel()).ToList();
 
-            if (!mappedOperations.Any())
-            {
-                return;
-            }
-            if (!mappedOperations.Any(o => o.Parameters.Any(p => p.TypeReference.Element.SpecializationTypeId == DomainServiceSpecializationId)))
+            if (mappedOperations.Count == 0 ||
+                !mappedOperations.Any(o => o.Parameters.Any(p => p.TypeReference.Element.SpecializationTypeId == DomainServiceSpecializationId)))
             {
                 return;
             }
 
-            getOperation = (invocation) =>
+            getOperation = invocation =>
             {
-                string operationName = invocation.Expression.Reference is ICSharpMethodDeclaration iCSharpMethodDeclaration ? iCSharpMethodDeclaration.Name.ToCSharpIdentifier() : null;
+                var operationName = invocation.Expression.Reference is ICSharpMethodDeclaration iCSharpMethodDeclaration ? iCSharpMethodDeclaration.Name.ToCSharpIdentifier() : null;
                 return mappedOperations.FirstOrDefault(operation => operation.Name == operationName);
             };
         }
@@ -67,29 +62,30 @@ public static class DomainServiceInjectionExtensions
             {
                 continue;
             }
-            var operation = getOperation(invocation);
 
+            var operation = getOperation(invocation);
             if (operation == null)
             {
                 continue;
             }
-            WireupDomainService(handlerClass.File.Template, invocation, operation.Parameters, handlerClass);
+
+            WireUpDomainService(handlerClass.File.Template, invocation, operation.Parameters, handlerClass);
         }
     }
 
-    public static void WireupDomainServicesForProcessingAction(this ICSharpClass handlerClass, IElementToElementMapping mapping, IList<CSharpStatement> processingActions)
+    public static void WireUpDomainServicesForProcessingAction(this ICSharpClass handlerClass, IElementToElementMapping mapping, IList<CSharpStatement> processingActions)
     {
         var mappedOperations = mapping.MappedEnds.Where(me => me.TargetElement.IsOperationModel()).Select(me => me.TargetElement.AsOperationModel()).ToList();
 
-        if (!mappedOperations.Any())
+        if (mappedOperations.Count == 0)
         {
             return;
         }
+
         if (!mappedOperations.Any(o => o.Parameters.Any(p => p.TypeReference.Element.SpecializationTypeId == DomainServiceSpecializationId)))
         {
             return;
         }
-
 
         foreach (var updateStatement in processingActions)
         {
@@ -97,63 +93,67 @@ public static class DomainServiceInjectionExtensions
             {
                 continue;
             }
-            string operationName = invocation.Expression.Reference is ICSharpMethodDeclaration iCSharpMethodDeclaration ? iCSharpMethodDeclaration.Name.ToCSharpIdentifier() : null;
-            var operation = mappedOperations.FirstOrDefault(operation => operation.Name == operationName);
 
+            var operationName = invocation.Expression.Reference is ICSharpMethodDeclaration iCSharpMethodDeclaration
+                ? iCSharpMethodDeclaration.Name.ToCSharpIdentifier()
+                : null;
+
+            var operation = mappedOperations.FirstOrDefault(operation => operation.Name == operationName);
             if (operation == null)
             {
                 continue;
             }
-            WireupDomainService(handlerClass.File.Template, invocation, operation.Parameters, handlerClass);
+
+            WireUpDomainService(handlerClass.File.Template, invocation, operation.Parameters, handlerClass);
         }
     }
 
-    private static void WireupDomainServicesForOperations(ICSharpClass handlerClass, IAssociationEnd callServiceOperation, List<CSharpStatement> statements)
-    {
-        var operation = callServiceOperation.TypeReference.Element.AsOperationModel();
-        if (operation == null)
-        {
-            return;
-        }
-        if (operation.Parameters.All(p => p.TypeReference.Element.SpecializationTypeId != DomainServiceSpecializationId))
-        {
-            return;
-        }
+    //private static void WireUpDomainServicesForOperations(ICSharpClass handlerClass, IAssociationEnd callServiceOperation, List<CSharpStatement> statements)
+    //{
+    //    var operation = callServiceOperation.TypeReference.Element.AsOperationModel();
+    //    if (operation == null)
+    //    {
+    //        return;
+    //    }
+    //    if (operation.Parameters.All(p => p.TypeReference.Element.SpecializationTypeId != DomainServiceSpecializationId))
+    //    {
+    //        return;
+    //    }
 
-        foreach (var statement in statements)
-        {
-            SubstituteServiceParameters(statement);
-        }
+    //    foreach (var statement in statements)
+    //    {
+    //        SubstituteServiceParameters(statement);
+    //    }
 
-        return;
+    //    return;
 
-        void SubstituteServiceParameters(CSharpStatement statement)
-        {
-            switch (statement)
-            {
-                case CSharpAssignmentStatement assign:
-                    SubstituteServiceParameters(assign.Rhs);
-                    return;
-                case CSharpAccessMemberStatement access:
-                {
-                    SubstituteServiceParameters(access.Member);
-                    return;
-                }
-                default:
-                    break;
-            }
+    //    void SubstituteServiceParameters(CSharpStatement statement)
+    //    {
+    //        switch (statement)
+    //        {
+    //            case CSharpAssignmentStatement assign:
+    //                SubstituteServiceParameters(assign.Rhs);
+    //                return;
+    //            case CSharpAccessMemberStatement access:
+    //            {
+    //                SubstituteServiceParameters(access.Member);
+    //                return;
+    //            }
+    //            default:
+    //                break;
+    //        }
 
-            var invocation = statement as CSharpInvocationStatement;
-            if (invocation is null)
-            {
-                return;
-            }
+    //        var invocation = statement as CSharpInvocationStatement;
+    //        if (invocation is null)
+    //        {
+    //            return;
+    //        }
 
-            WireupDomainService(handlerClass.File.Template, invocation, operation.Parameters, handlerClass);
-        }
-    }
+    //        WireUpDomainService(handlerClass.File.Template, invocation, operation.Parameters, handlerClass);
+    //    }
+    //}
 
-    private static void WireupDomainService(ICSharpTemplate _template, CSharpInvocationStatement invocation, IList<ParameterModel> parameters, ICSharpClass handlerClass)
+    private static void WireUpDomainService(ICSharpTemplate template, CSharpInvocationStatement? invocation, IList<ParameterModel> parameters, ICSharpClass handlerClass)
     {
         if (invocation is null)
         {
@@ -168,13 +168,20 @@ public static class DomainServiceInjectionExtensions
                 continue;
             }
 
-            if (!_template.TryGetTypeName(TemplateRoles.Domain.DomainServices.Interface, arg.TypeReference.Element.Id, out var domainServiceInterface))
+            if (!template.TryGetTypeName(TemplateRoles.Domain.DomainServices.Interface, arg.TypeReference.Element.Id, out var domainServiceInterface))
             {
                 continue;
             }
-            var fieldName = handlerClass.InjectService(domainServiceInterface, domainServiceInterface.Substring(1).ToParameterName());
+            var fieldName = handlerClass.InjectService(domainServiceInterface, domainServiceInterface[1..].ToParameterName());
             //Change `default` or `parameterName: default` into `_domainService` (fieldName)
-            invocation.Statements[i].Replace(invocation.Statements[i].GetText("").Replace("default", fieldName));
+            if (invocation.Statements.Count > i)
+            {
+                invocation.Statements[i].Replace(invocation.Statements[i].GetText("").Replace("default", fieldName));
+            }
+            else
+            {
+                invocation.AddStatement(fieldName);
+            }
         }
     }
 }

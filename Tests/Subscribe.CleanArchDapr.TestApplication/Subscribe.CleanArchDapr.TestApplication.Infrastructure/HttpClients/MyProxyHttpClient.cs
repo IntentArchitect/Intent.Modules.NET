@@ -35,7 +35,7 @@ namespace Subscribe.CleanArchDapr.TestApplication.Infrastructure.HttpClients
         public async Task OrderConfirmedAsync(Guid id, OrderConfirmed command, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/orders/{id}/confirmed";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(command, _serializerOptions);

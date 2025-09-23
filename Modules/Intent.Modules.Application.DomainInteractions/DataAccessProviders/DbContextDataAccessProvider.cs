@@ -1,8 +1,5 @@
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Security.Cryptography;
 using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
@@ -13,9 +10,9 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 
-namespace Intent.Modules.Application.DomainInteractions;
+namespace Intent.Modules.Application.DomainInteractions.DataAccessProviders;
 
-public class DbContextDataAccessProvider : IDataAccessProvider
+internal class DbContextDataAccessProvider : IDataAccessProvider
 {
     private readonly string _dbContextField;
     private readonly ICSharpTemplate _template;
@@ -25,7 +22,12 @@ public class DbContextDataAccessProvider : IDataAccessProvider
     private readonly bool _isUsingProjections;
     private readonly QueryActionContext? _queryContext;
 
-    public DbContextDataAccessProvider(string dbContextField, ClassModel entity, ICSharpTemplate template, CSharpClassMappingManager mappingManager, QueryActionContext queryContext)
+    public DbContextDataAccessProvider(
+        string dbContextField,
+        ClassModel entity,
+        ICSharpTemplate template,
+        CSharpClassMappingManager mappingManager,
+        QueryActionContext? queryContext)
     {
         _dbContextField = dbContextField;
         _template = template;
@@ -292,26 +294,4 @@ public class DbContextDataAccessProvider : IDataAccessProvider
         prerequisiteStatements = new List<CSharpStatement>();
         return new CSharpStatement("");
     }
-}
-
-public static class CSharpStatementMappingExtensions
-{
-    public static string GetPredicateExpression(this CSharpClassMappingManager mappingManager, IElementToElementMapping queryMapping)
-    {
-        var queryFields = queryMapping.MappedEnds.Where(x => x.SourceElement == null || !x.SourceElement.TypeReference.IsNullable)
-            .Select(x => x.SourceElement == null || x.IsOneToOne()
-                ? GetCalculatedComparisonExpression(x, mappingManager, queryMapping)
-                : $"x.{x.TargetElement.Name}.{mappingManager.GenerateSourceStatementForMapping(queryMapping, x)}")
-            .ToList();
-
-        var expression = queryFields.Any() ? $"x => {string.Join(" && ", queryFields)}" : null;
-        return expression;
-    }
-
-    private static string GetCalculatedComparisonExpression(IElementToElementMappedEnd mapping, CSharpClassMappingManager mappingManager, IElementToElementMapping queryMapping)
-        => (mapping.TargetElement.TypeReference?.Element.Name, mappingManager.GenerateSourceStatementForMapping(queryMapping, mapping).ToString()) switch
-        {
-            ("bool", "true") => $"x.{mapping.TargetElement.Name}",
-            (_, var sourceStatement) => $"x.{mapping.TargetElement.Name} == {sourceStatement}"
-    };
 }

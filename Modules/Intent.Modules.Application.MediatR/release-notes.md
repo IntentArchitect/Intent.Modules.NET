@@ -1,3 +1,7 @@
+### Version 4.5.1
+
+- Improvement: Detects existence and name of `CancellationToken` parameter before adding to the `Send` invocation.
+
 ### Version 4.5.0
 
 - Improvement: Select whether to lock the version of the MediatR Nuget package to the one prior to the commercial version or proceed to use the commercial version accepting its license. Read the article [here](https://www.jimmybogard.com/automapper-and-mediatr-commercial-editions-launch-today/).

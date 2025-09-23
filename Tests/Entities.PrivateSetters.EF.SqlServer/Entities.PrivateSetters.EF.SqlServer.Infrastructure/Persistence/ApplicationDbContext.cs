@@ -34,7 +34,7 @@ namespace Entities.PrivateSetters.EF.SqlServer.Infrastructure.Persistence
 
         public override int SaveChanges(bool acceptAllChangesOnSuccess)
         {
-            SetAuditableFields();
+            SetAuditableFieldsAsync().GetAwaiter().GetResult();
             return base.SaveChanges(acceptAllChangesOnSuccess);
         }
 
@@ -42,7 +42,7 @@ namespace Entities.PrivateSetters.EF.SqlServer.Infrastructure.Persistence
             bool acceptAllChangesOnSuccess,
             CancellationToken cancellationToken = default)
         {
-            SetAuditableFields();
+            await SetAuditableFieldsAsync();
             return await base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
         }
 
@@ -73,7 +73,7 @@ namespace Entities.PrivateSetters.EF.SqlServer.Infrastructure.Persistence
             */
         }
 
-        private void SetAuditableFields()
+        private async Task SetAuditableFieldsAsync()
         {
             var auditableEntries = ChangeTracker.Entries()
                 .Where(entry => entry.State is EntityState.Added or EntityState.Deleted or EntityState.Modified &&
@@ -91,7 +91,7 @@ namespace Entities.PrivateSetters.EF.SqlServer.Infrastructure.Persistence
                 return;
             }
 
-            var userIdentifier = _currentUserService.GetAsync()?.GetAwaiter().GetResult()?.Id ?? throw new InvalidOperationException("GetAsync()?.GetAwaiter().GetResult()?.Id is null");
+            var userIdentifier = (await _currentUserService.GetAsync())?.Id ?? throw new InvalidOperationException("Id is null");
             var timestamp = DateTimeOffset.UtcNow;
 
             foreach (var entry in auditableEntries)

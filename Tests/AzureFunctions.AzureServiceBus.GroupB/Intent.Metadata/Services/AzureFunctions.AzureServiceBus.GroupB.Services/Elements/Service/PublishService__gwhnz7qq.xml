@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="09fe67d7-ca7d-4766-a98a-c28f4cdf5fa6" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <name>PublishService</name>
+  <display>PublishService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>5ff9ca47-8693-4c62-9979-5205e19f177e</parentFolderId>
+  <packageId>5ff9ca47-8693-4c62-9979-5205e19f177e</packageId>
+  <packageName>AzureFunctions.AzureServiceBus.GroupB.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="a3af784e-e9ff-4ce7-b0ac-c5ca2418bd77" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>PublishEvent</name>
+      <display>PublishEvent(payload: PayloadDto): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="d35a9e9f-59fc-41f3-9fd2-1f64f1ec6613">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>09fe67d7-ca7d-4766-a98a-c28f4cdf5fa6</parentFolderId>
+      <packageId>5ff9ca47-8693-4c62-9979-5205e19f177e</packageId>
+      <packageName>AzureFunctions.AzureServiceBus.GroupB.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="cd97b3e0-d38a-4757-be9c-188635e12561" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>payload</name>
+          <display>in : payload: PayloadDto</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="5f85abce-c560-48bf-a600-3ae1c16b9744">
+            <typeId>9a5baa79-3caa-4f8f-b246-010cbc5f22f8</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AzureFunctions.AzureServiceBus.GroupB.Services</typePackageName>
+            <typePackageId>5ff9ca47-8693-4c62-9979-5205e19f177e</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>a3af784e-e9ff-4ce7-b0ac-c5ca2418bd77</parentFolderId>
+          <packageId>5ff9ca47-8693-4c62-9979-5205e19f177e</packageId>
+          <packageName>AzureFunctions.AzureServiceBus.GroupB.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

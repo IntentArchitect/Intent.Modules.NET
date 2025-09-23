@@ -1,3 +1,7 @@
+### Version 5.1.5
+
+- Improvement: Service proxies will now generate within any folders they are modelled within.
+
 ### Version 5.1.4
 
 - Improvement: Removed dependency on `Intent.Modelers.ServiceProxies` module.

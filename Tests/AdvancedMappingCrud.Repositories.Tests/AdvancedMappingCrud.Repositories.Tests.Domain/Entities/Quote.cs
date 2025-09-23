@@ -15,7 +15,8 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Entities
             RefNo = refNo;
             PersonId = personId;
             PersonEmail = personEmail;
-            DomainEvents.Add(new NewQuoteCreated(quote: this));
+            DomainEvents.Add(new NewQuoteCreated(
+                quote: this));
         }
 
         /// <summary>
@@ -40,7 +41,8 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Entities
 
         public void NotifyQuoteCreated()
         {
-            DomainEvents.Add(new NewQuoteCreated(quote: this));
+            DomainEvents.Add(new NewQuoteCreated(
+                quote: this));
         }
     }
 }

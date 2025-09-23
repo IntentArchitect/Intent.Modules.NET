@@ -100,7 +100,7 @@ public partial class DeleteCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
                     method.AddStatement("// Assert");
                     method.AddStatements(facade.GetThrowsExceptionAssertionStatement(this.GetNotFoundExceptionName()));
                 });
-            });
+            }, TemplateConstants.AfterBuildOrder);
     }
 
     private bool? _canRunTemplate;

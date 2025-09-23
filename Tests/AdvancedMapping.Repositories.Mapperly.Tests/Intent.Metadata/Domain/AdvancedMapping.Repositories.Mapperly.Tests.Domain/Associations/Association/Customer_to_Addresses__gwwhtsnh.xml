@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="1a9b95d7-2553-4d74-a63c-b9d69c7f82c9">
+  <sourceEnd id="ee3892f9-8e95-4f04-89da-afd32c9db2bb" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Customer</name>
+    <display>Customer: Customer</display>
+    <order>0</order>
+    <typeReference id="38c3c07b-74f5-40f9-a975-62dfc2586f4b">
+      <typeId>b6caf0f9-4533-458d-9958-5a310a1d2fef</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMapping.Repositories.Mapperly.Tests.Domain</typePackageName>
+      <typePackageId>9804eb76-4b5e-4998-8c95-0116febd73cd</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="1a9b95d7-2553-4d74-a63c-b9d69c7f82c9" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Addresses</name>
+    <display>Addresses: Address[*]</display>
+    <order>4</order>
+    <typeReference id="09186b47-4bad-4119-99f3-0d34b7720d27">
+      <typeId>b4e987fb-921b-46d5-a67e-3c3d89d16609</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMapping.Repositories.Mapperly.Tests.Domain</typePackageName>
+      <typePackageId>9804eb76-4b5e-4998-8c95-0116febd73cd</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

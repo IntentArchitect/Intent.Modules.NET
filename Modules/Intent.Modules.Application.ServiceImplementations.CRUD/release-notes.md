@@ -1,3 +1,7 @@
+### Version 5.2.1
+
+- Improvement: Added support for Mapperly.
+
 ### Version 5.2.0
 
 - Improvement: Added support for PATCH implementations of updates. This is currently only available for HTTP exposed Operations with the HTTP `PATCH` Verb.

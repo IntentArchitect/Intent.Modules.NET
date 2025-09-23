@@ -33,7 +33,7 @@ namespace ProxyServiceTests.Proxy.PTH.Infrastructure.HttpClients
             CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/file/upload";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
             httpRequest.Content = new StreamContent(command.Content);
             httpRequest.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(command.ContentType ?? "application/octet-stream");

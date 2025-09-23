@@ -5,7 +5,6 @@ using System.Net;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Transactions;
 using AzureFunctions.NET6.Application.SampleDomains;
 using AzureFunctions.NET6.Domain.Common.Exceptions;
 using AzureFunctions.NET6.Domain.Common.Interfaces;
@@ -24,11 +23,9 @@ namespace AzureFunctions.NET6.Api
 {
     public class UnMappedAzureFunction
     {
-        private readonly IUnitOfWork _unitOfWork;
 
-        public UnMappedAzureFunction(IUnitOfWork unitOfWork)
+        public UnMappedAzureFunction()
         {
-            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
         [FunctionName("UnMappedAzureFunction")]

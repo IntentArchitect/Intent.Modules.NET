@@ -1,3 +1,8 @@
+### Version 1.0.8
+
+- Fixed: Incorrect `ICurrentUser` method being used for CosmosDB implementation
+- Improvement: Updated `SetAuditableFields` to be `SetAuditableFieldsAsync`
+
 ### Version 1.0.7
 
 - Fixed: Updated template to use the updated `ICurrentUserService` implementation.

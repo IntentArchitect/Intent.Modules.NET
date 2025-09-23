@@ -1,10 +1,12 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
+using System.Threading;
+using System.Threading.Tasks;
 using AzureFunctions.MongoDb.Domain.Entities.Indexes;
-using AzureFunctions.MongoDb.Domain.Repositories.Documents.Indexes;
 using AzureFunctions.MongoDb.Domain.Repositories.Indexes;
 using AzureFunctions.MongoDb.Infrastructure.Persistence;
-using AzureFunctions.MongoDb.Infrastructure.Persistence.Documents.Indexes;
 using Intent.RoslynWeaver.Attributes;
 using MongoDB.Driver;
 
@@ -13,11 +15,15 @@ using MongoDB.Driver;
 
 namespace AzureFunctions.MongoDb.Infrastructure.Repositories.Indexes
 {
-    internal class CompoundIndexEntityMongoRepository : MongoRepositoryBase<CompoundIndexEntity, CompoundIndexEntityDocument, ICompoundIndexEntityDocument, string>, ICompoundIndexEntityRepository
+    internal class CompoundIndexEntityMongoRepository : MongoRepositoryBase<CompoundIndexEntity, string>, ICompoundIndexEntityRepository
     {
-        public CompoundIndexEntityMongoRepository(IMongoCollection<CompoundIndexEntityDocument> collection,
-            MongoDbUnitOfWork unitOfWork) : base(collection, unitOfWork)
+        public CompoundIndexEntityMongoRepository(IMongoCollection<CompoundIndexEntity> collection,
+            MongoDbUnitOfWork unitOfWork) : base(collection, unitOfWork, x => x.Id)
         {
         }
+
+        public Task<CompoundIndexEntity?> FindByIdAsync(string id, CancellationToken cancellationToken = default) => FindAsync(x => x.Id == id, cancellationToken);
+
+        public Task<List<CompoundIndexEntity>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default) => FindAllAsync(x => ids.Contains(x.Id), cancellationToken);
     }
 }

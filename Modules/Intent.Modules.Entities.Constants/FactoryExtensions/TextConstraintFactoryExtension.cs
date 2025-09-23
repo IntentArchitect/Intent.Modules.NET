@@ -147,7 +147,7 @@ namespace Intent.Modules.Entities.Constants.FactoryExtensions
                         statement.Replace(new CSharpStatement($".HasColumnType($\"{columnType}({{{constantExpression}}})\")"));
                     }
                 }
-            });
+            }, 200);
         }
 
         private static string GetSqlColumnType(AttributeModel attributeModel)

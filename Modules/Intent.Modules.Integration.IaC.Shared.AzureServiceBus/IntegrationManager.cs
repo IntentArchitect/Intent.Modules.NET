@@ -147,7 +147,7 @@ internal class IntegrationManager
         var duplicateCheckSet = new HashSet<string>();
         return GetAggregatedPublishedAzureServiceBusItems(applicationId)
             .Concat(GetAggregatedSubscribedAzureServiceBusItems(applicationId))
-            .Where(p => duplicateCheckSet.Add(p.QueueOrTopicName))
+            .Where(p => duplicateCheckSet.Add($"{p.QueueOrTopicName}.{p.MethodType}"))
             .ToList();
     }
 

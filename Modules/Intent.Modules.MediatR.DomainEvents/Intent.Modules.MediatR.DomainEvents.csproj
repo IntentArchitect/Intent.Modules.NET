@@ -48,8 +48,8 @@
   </ItemGroup>
 
   <ItemGroup>
-	<PackageReference Include="Intent.Modules.Common" Version="3.8.0" />
-	<PackageReference Include="Intent.Modules.Common.CSharp" Version="3.9.5-pre.0" />
+	<PackageReference Include="Intent.Modules.Common" Version="3.9.1" />
+	<PackageReference Include="Intent.Modules.Common.CSharp" Version="3.9.6" />
     <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.9.0" />
     <PackageReference Include="Intent.Modules.Modelers.Domain.Events" Version="4.0.1" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="4.0.0" />
@@ -65,7 +65,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.Application.DomainInteractions\Intent.Modules.Application.DomainInteractions.csproj" />
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
-    <ProjectReference Include="..\Intent.Modules.DomainEvents\Intent.Modules.DomainEvents.csproj" />
   </ItemGroup>
 
   <ItemGroup>

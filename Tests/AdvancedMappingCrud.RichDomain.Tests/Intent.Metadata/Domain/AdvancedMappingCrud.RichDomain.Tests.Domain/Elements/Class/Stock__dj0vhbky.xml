@@ -143,7 +143,7 @@
     </childElement>
     <childElement id="593c1575-0a69-45d9-8bba-3b03a2be90fa" type="Class Constructor" typeId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b">
       <name>Constructor</name>
-      <display>Stock(Name: string, Total: int, AddedUser: string)</display>
+      <display>Stock(name: string, total: int, addedUser: string)</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
@@ -155,8 +155,8 @@
       <metadata />
       <childElements>
         <childElement id="21142064-8b3a-43a8-89fc-d291589b523a" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
-          <name>Name</name>
-          <display>in : Name: string</display>
+          <name>name</name>
+          <display>in : name: string</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
           <typeReference id="a01cd12b-ae9a-4c9b-92fb-86cf98b04f7a">
@@ -179,8 +179,8 @@
           <childElements />
         </childElement>
         <childElement id="bbd47244-4053-4779-af5f-7cd17b6c65fd" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
-          <name>Total</name>
-          <display>in : Total: int</display>
+          <name>total</name>
+          <display>in : total: int</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
           <typeReference id="6bdda416-419f-479f-837d-1e514f1c0017">
@@ -203,8 +203,8 @@
           <childElements />
         </childElement>
         <childElement id="3638153e-fabe-41bb-a864-0f050e3556f5" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
-          <name>AddedUser</name>
-          <display>in : AddedUser: string</display>
+          <name>addedUser</name>
+          <display>in : addedUser: string</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
           <typeReference id="816705b9-e2f7-479e-93ae-549d0143c5ce">
@@ -230,7 +230,7 @@
     </childElement>
     <childElement id="c77ffdbc-b4dd-4357-9e5c-a893ef360721" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
       <name>UpdateStockLevel</name>
-      <display>UpdateStockLevel(Id: guid, Total: int, DateUpdated: datetime): void</display>
+      <display>UpdateStockLevel(id: guid, total: int, dateUpdated: datetime): void</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
@@ -250,8 +250,8 @@
       <metadata />
       <childElements>
         <childElement id="7d5c57e1-107b-4431-b59e-da11f04b0de0" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
-          <name>Id</name>
-          <display>in : Id: guid</display>
+          <name>id</name>
+          <display>in : id: guid</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
           <typeReference id="1c7e04c0-8b52-4c45-8454-5ef96c56082a">
@@ -274,8 +274,8 @@
           <childElements />
         </childElement>
         <childElement id="e358f1c3-6e7b-4a9b-bad5-1eab136c1d13" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
-          <name>Total</name>
-          <display>in : Total: int</display>
+          <name>total</name>
+          <display>in : total: int</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
           <typeReference id="1055b1db-98c7-4e89-bdf6-abf517bd48c3">
@@ -298,8 +298,8 @@
           <childElements />
         </childElement>
         <childElement id="35fda651-6b94-4552-94be-3c303bb064ee" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
-          <name>DateUpdated</name>
-          <display>in : DateUpdated: datetime</display>
+          <name>dateUpdated</name>
+          <display>in : dateUpdated: datetime</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
           <typeReference id="c44d605e-5a77-4d01-880f-70f0254e3cef">

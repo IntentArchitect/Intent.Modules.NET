@@ -35,7 +35,8 @@ namespace TrainingModel.Tests.Domain.Entities
         public void Deactivate()
         {
             if (!IsActive) return;
-            DomainEvents.Add(new BrandDeactivationEvent(brand: this));
+            DomainEvents.Add(new BrandDeactivationEvent(
+                brand: this));
             IsActive = false;
         }
     }

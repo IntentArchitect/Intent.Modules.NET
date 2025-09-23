@@ -6,6 +6,7 @@ using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.TypeResolution;
+using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Contracts.Clients.Shared.Templates.ServiceContract;
 
 namespace Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.ClientContracts;
@@ -48,4 +49,6 @@ public class MassTransitServiceContractModel(ServiceProxyModel model) : IService
 
         public ITypeReference TypeReference { get; } = element.AsTypeReference();
     }
+
+    public FolderModel Folder => model.Folder;
 }

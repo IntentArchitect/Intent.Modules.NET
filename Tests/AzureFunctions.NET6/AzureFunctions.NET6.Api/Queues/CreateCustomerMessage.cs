@@ -4,7 +4,6 @@ using System.IO;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Transactions;
 using Azure.Storage.Queues.Models;
 using AzureFunctions.NET6.Application.Queues.CreateCustomerMessage;
 using AzureFunctions.NET6.Domain.Common.Interfaces;
@@ -20,12 +19,10 @@ namespace AzureFunctions.NET6.Api.Queues
     public class CreateCustomerMessage
     {
         private readonly IMediator _mediator;
-        private readonly IUnitOfWork _unitOfWork;
 
-        public CreateCustomerMessage(IMediator mediator, IUnitOfWork unitOfWork)
+        public CreateCustomerMessage(IMediator mediator)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
-            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
         [FunctionName("Queues_CreateCustomerMessage")]

@@ -25,7 +25,9 @@ namespace MassTransit.RabbitMQ.Domain.Entities
 
         public void MakeSound()
         {
-            DomainEvents.Add(new AnimalSoundRequestedEvent(name: this.Name, type: this.Type));
+            DomainEvents.Add(new AnimalSoundRequestedEvent(
+                name: this.Name,
+                type: this.Type));
         }
     }
 }

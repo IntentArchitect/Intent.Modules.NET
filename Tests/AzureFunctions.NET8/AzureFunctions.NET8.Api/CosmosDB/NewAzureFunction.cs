@@ -1,4 +1,3 @@
-using System.Transactions;
 using AzureFunctions.NET8.Application.CosmosDB;
 using AzureFunctions.NET8.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
@@ -11,11 +10,9 @@ namespace AzureFunctions.NET8.Api.CosmosDB
 {
     public class NewAzureFunction
     {
-        private readonly IUnitOfWork _unitOfWork;
 
-        public NewAzureFunction(IUnitOfWork unitOfWork)
+        public NewAzureFunction()
         {
-            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
         [Function("CosmosDB_NewAzureFunction")]

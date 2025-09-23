@@ -5,7 +5,6 @@ using System.Net;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Transactions;
 using AzureFunctions.NET6.Application.Params.FromBodyTest;
 using AzureFunctions.NET6.Domain.Common.Exceptions;
 using AzureFunctions.NET6.Domain.Common.Interfaces;
@@ -27,12 +26,10 @@ namespace AzureFunctions.NET6.Api.Params
     public class FromBodyTest
     {
         private readonly IMediator _mediator;
-        private readonly IUnitOfWork _unitOfWork;
 
-        public FromBodyTest(IMediator mediator, IUnitOfWork unitOfWork)
+        public FromBodyTest(IMediator mediator)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
-            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
         [FunctionName("Params_FromBodyTest")]

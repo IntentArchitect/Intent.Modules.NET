@@ -88,7 +88,7 @@ public partial class GetAllQueryHandlerTestsTemplate : CSharpTemplateBase<QueryM
                 });
 
                 AddAssertionMethods();
-            });
+            }, TemplateConstants.AfterBuildOrder);
     }
 
     private bool? _canRunTemplate;

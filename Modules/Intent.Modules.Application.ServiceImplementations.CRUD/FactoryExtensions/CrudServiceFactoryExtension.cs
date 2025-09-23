@@ -4,6 +4,7 @@ using Intent.Engine;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.CrudMappingStrategies;
 using Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.MethodImplementationStrategies;
+using Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Strategies;
 using Intent.Modules.Application.ServiceImplementations.Templates.ServiceImplementation;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
@@ -68,6 +69,12 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Fac
                     }
                 });
             }
+        }
+
+        protected override void OnBeforeTemplateRegistrations(IApplication application)
+        {
+            MappingStrategyProvider.Instance.Register(new AutoMapperMappingStrategy());
+            MappingStrategyProvider.Instance.Register(new MapperlyMappingStrategy());
         }
     }
 }

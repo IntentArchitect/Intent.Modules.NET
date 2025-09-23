@@ -29,7 +29,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients
             CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/upload-download/upload";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
             httpRequest.Content = new StreamContent(content);
             httpRequest.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(contentType ?? "application/octet-stream");
@@ -71,7 +71,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients
             var queryParams = new Dictionary<string, string?>();
             queryParams.Add("id", id.ToString("D"));
             relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))

@@ -66,14 +66,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>57cc933c-af8a-4d15-b1bd-eecd770e5324</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#f269765c-a166-4830-acfb-5fbfc038e4ef</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>FactoryExtensions/DomainEventsFactoryExtension.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DomainEventsFactoryExtension.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>57cc933c-af8a-4d15-b1bd-eecd770e5324</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#fbce7f40-2eba-4a2a-90f8-8edde9ba6b07</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>FactoryExtensions/EntityFactoryExtension.cs</ApplicationRelativeFilePath>
@@ -138,50 +130,34 @@
     </FileLog>
     <FileLog>
       <ProjectId>e0fcc11c-af8d-4e2d-a3ba-7786b8cdc634</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#63738506-b90b-42be-8834-0f8e3607add1</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#a9b317c6-6a55-4007-8f39-81f2625e794d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/MongoDbDocument/MongoDbDocumentTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MongoDbDocument/MongoDbDocumentTemplatePartial.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/MongoConfigurationExtensions/MongoConfigurationExtensionsTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MongoConfigurationExtensions/MongoConfigurationExtensionsTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e0fcc11c-af8d-4e2d-a3ba-7786b8cdc634</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#63738506-b90b-42be-8834-0f8e3607add1</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#a9b317c6-6a55-4007-8f39-81f2625e794d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/MongoDbDocument/MongoDbDocumentTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MongoDbDocument/MongoDbDocumentTemplateRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/MongoConfigurationExtensions/MongoConfigurationExtensionsTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MongoConfigurationExtensions/MongoConfigurationExtensionsTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e0fcc11c-af8d-4e2d-a3ba-7786b8cdc634</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#74b81499-9614-4a98-9a6b-3bd062a5504d</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#e5f6d78a-846a-4c3a-be0a-82afc443e19b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/MongoDbDocumentInterface/MongoDbDocumentInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MongoDbDocumentInterface/MongoDbDocumentInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/MongoDbMapping/MongoDbMappingTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MongoDbMapping/MongoDbMappingTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e0fcc11c-af8d-4e2d-a3ba-7786b8cdc634</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#74b81499-9614-4a98-9a6b-3bd062a5504d</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#e5f6d78a-846a-4c3a-be0a-82afc443e19b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/MongoDbDocumentInterface/MongoDbDocumentInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MongoDbDocumentInterface/MongoDbDocumentInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>e0fcc11c-af8d-4e2d-a3ba-7786b8cdc634</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#7e8d2f8e-0206-4de7-a912-83685bf6e7dc</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/MongoDbDocumentOfTInterface/MongoDbDocumentOfTInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MongoDbDocumentOfTInterface/MongoDbDocumentOfTInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>e0fcc11c-af8d-4e2d-a3ba-7786b8cdc634</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#7e8d2f8e-0206-4de7-a912-83685bf6e7dc</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/MongoDbDocumentOfTInterface/MongoDbDocumentOfTInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MongoDbDocumentOfTInterface/MongoDbDocumentOfTInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/MongoDbMapping/MongoDbMappingTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MongoDbMapping/MongoDbMappingTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -330,18 +306,18 @@
     </FileLog>
     <FileLog>
       <ProjectId>e0fcc11c-af8d-4e2d-a3ba-7786b8cdc634</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f002f56f-0108-49c6-9555-5a27e21724ec</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#bf297ff6-e680-4564-8685-44d222cfad84</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ReflectionHelper/ReflectionHelperTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ReflectionHelper/ReflectionHelperTemplatePartial.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/MongoMappingConfigurationInterface/MongoMappingConfigurationInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MongoMappingConfigurationInterface/MongoMappingConfigurationInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e0fcc11c-af8d-4e2d-a3ba-7786b8cdc634</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#f002f56f-0108-49c6-9555-5a27e21724ec</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#bf297ff6-e680-4564-8685-44d222cfad84</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ReflectionHelper/ReflectionHelperTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ReflectionHelper/ReflectionHelperTemplateRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/MongoMappingConfigurationInterface/MongoMappingConfigurationInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MongoMappingConfigurationInterface/MongoMappingConfigurationInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

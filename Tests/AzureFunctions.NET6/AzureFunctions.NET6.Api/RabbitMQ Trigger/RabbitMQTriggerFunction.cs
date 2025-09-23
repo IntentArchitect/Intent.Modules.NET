@@ -4,7 +4,6 @@ using System.IO;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Transactions;
 using AzureFunctions.NET6.Application.RabbitMQTrigger.CommandForRabbitMQTrigger;
 using AzureFunctions.NET6.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
@@ -18,11 +17,9 @@ namespace AzureFunctions.NET6.Api.RabbitMQTrigger
 {
     public class RabbitMQTriggerFunction
     {
-        private readonly IUnitOfWork _unitOfWork;
 
-        public RabbitMQTriggerFunction(IUnitOfWork unitOfWork)
+        public RabbitMQTriggerFunction()
         {
-            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
         [FunctionName("RabbitMQ Trigger_RabbitMQTriggerFunction")]

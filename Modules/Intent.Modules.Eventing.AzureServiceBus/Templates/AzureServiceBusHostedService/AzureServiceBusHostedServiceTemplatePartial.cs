@@ -7,8 +7,8 @@ using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.UnitOfWork.Shared;
 using Intent.Modules.Constants;
-using Intent.Modules.UnitOfWork.Persistence.Shared;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -96,20 +96,20 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusHoste
                         {
                             tryBlock.AddStatement("using var scope = _rootServiceProvider.CreateScope();");
                             tryBlock.AddStatement("var scopedServiceProvider = scope.ServiceProvider;");
-                            
+
                             tryBlock.AddStatement(new CSharpAssignmentStatement(
                                 new CSharpVariableDeclaration("eventBus"),
                                 $"scopedServiceProvider.GetRequiredService<{this.GetTypeName(TemplateRoles.Application.Eventing.EventBusInterface)}>()").WithSemicolon());
-                            
+
                             tryBlock.ApplyUnitOfWorkImplementations(
-                                template: this, 
-                                constructor: @class.Constructors.First(), 
+                                template: this,
+                                constructor: @class.Constructors.First(),
                                 invocationStatement: "await _dispatcher.DispatchAsync(scopedServiceProvider, args.Message, cancellationToken);",
                                 configure: config =>
                                 {
                                     config.UseServiceProvider("scopedServiceProvider");
                                 });
-                            
+
                             tryBlock.AddStatement("await eventBus.FlushAllAsync(cancellationToken);");
                             tryBlock.AddStatement("await args.CompleteMessageAsync(args.Message, cancellationToken);");
                         });

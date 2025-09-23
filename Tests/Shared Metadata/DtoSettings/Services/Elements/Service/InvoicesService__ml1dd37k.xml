@@ -42,6 +42,10 @@
       <parentFolderId>25cf2309-04af-435c-9882-8e4637235949</parentFolderId>
       <packageId>24958345-ec60-4d20-9c08-de1c4255fc5d</packageId>
       <packageName>DtoSettings.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
           <addedByDefault>false</addedByDefault>
@@ -115,6 +119,10 @@
       <parentFolderId>25cf2309-04af-435c-9882-8e4637235949</parentFolderId>
       <packageId>24958345-ec60-4d20-9c08-de1c4255fc5d</packageId>
       <packageName>DtoSettings.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
           <addedByDefault>false</addedByDefault>
@@ -187,6 +195,10 @@
       <parentFolderId>25cf2309-04af-435c-9882-8e4637235949</parentFolderId>
       <packageId>24958345-ec60-4d20-9c08-de1c4255fc5d</packageId>
       <packageName>DtoSettings.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
           <addedByDefault>false</addedByDefault>
@@ -221,6 +233,10 @@
       <parentFolderId>25cf2309-04af-435c-9882-8e4637235949</parentFolderId>
       <packageId>24958345-ec60-4d20-9c08-de1c4255fc5d</packageId>
       <packageName>DtoSettings.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
           <addedByDefault>false</addedByDefault>
@@ -326,6 +342,10 @@
       <parentFolderId>25cf2309-04af-435c-9882-8e4637235949</parentFolderId>
       <packageId>24958345-ec60-4d20-9c08-de1c4255fc5d</packageId>
       <packageName>DtoSettings.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
           <addedByDefault>false</addedByDefault>

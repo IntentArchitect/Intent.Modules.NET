@@ -1,10 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 using AzureFunctions.MongoDb.Domain.Entities.Associations;
-using AzureFunctions.MongoDb.Domain.Repositories.Documents.Associations;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -13,7 +11,11 @@ using Intent.RoslynWeaver.Attributes;
 namespace AzureFunctions.MongoDb.Domain.Repositories.Associations
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IB_OptionalDependentRepository : IMongoRepository<B_OptionalDependent, IB_OptionalDependentDocument, string>
+    public interface IB_OptionalDependentRepository : IMongoRepository<B_OptionalDependent, string>
     {
+        [IntentManaged(Mode.Fully)]
+        Task<B_OptionalDependent?> FindByIdAsync(string id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<List<B_OptionalDependent>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default);
     }
 }
