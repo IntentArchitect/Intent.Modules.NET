@@ -36,7 +36,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>f6923f88-0ca2-4e87-8b2b-7798e0c144ce</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Versioning.ApiVersioningConfiguration</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Versioning.ApiVersioningConfiguration#c4648043-f233-4f6f-b398-829d4fce937b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Api/Configuration/ApiVersioningConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApiVersioningConfiguration.cs</ProjectRelativeFilePath>
@@ -44,7 +44,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>f6923f88-0ca2-4e87-8b2b-7798e0c144ce</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions#c118d9ed-7b0e-40cb-a1f6-0fc8a3130603</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Api/Configuration/ApiVersionSwaggerGenOptions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApiVersionSwaggerGenOptions.cs</ProjectRelativeFilePath>
@@ -52,7 +52,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>f6923f88-0ca2-4e87-8b2b-7798e0c144ce</ProjectId>
-      <CorrelationId>Intent.Application.Identity.ApplicationSecurityConfiguration</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.ApplicationSecurityConfiguration#4a742e7d-f5c1-4ace-ac2d-3348049e775b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Api/Configuration/ApplicationSecurityConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApplicationSecurityConfiguration.cs</ProjectRelativeFilePath>
@@ -60,7 +60,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>f6923f88-0ca2-4e87-8b2b-7798e0c144ce</ProjectId>
-      <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration#1c311cdb-cf07-4ec1-8356-ebd098253fbd</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Api/Configuration/ProblemDetailsConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ProblemDetailsConfiguration.cs</ProjectRelativeFilePath>
@@ -68,7 +68,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>f6923f88-0ca2-4e87-8b2b-7798e0c144ce</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration#e0c83279-ea0f-48ad-ad9c-525189ad277c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Api/Configuration/SwashbuckleConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SwashbuckleConfiguration.cs</ProjectRelativeFilePath>
@@ -84,7 +84,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5ef036c0-0e35-42ee-9769-6b03a2f80767</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.ExceptionFilter</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Controllers.ExceptionFilter#a32e362f-b93c-49d4-8556-d01c747e9e43</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Api/Filters/ExceptionFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ExceptionFilter.cs</ProjectRelativeFilePath>
@@ -92,7 +92,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5ef036c0-0e35-42ee-9769-6b03a2f80767</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter#d3842123-5570-4166-b1d6-bc70fd2c798d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TypeSchemaFilter.cs</ProjectRelativeFilePath>
@@ -100,7 +100,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>29875f90-43fd-491a-b9e9-dfa25eb07e5d</ProjectId>
-      <CorrelationId>Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate</CorrelationId>
+      <CorrelationId>Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate#131a0f4a-c137-4192-8389-9de9910257b4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Api/Logging/BoundedLoggingDestructuringPolicy.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>BoundedLoggingDestructuringPolicy.cs</ProjectRelativeFilePath>
@@ -108,7 +108,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5647b8af-7a47-4482-91ba-d04fca2d56bc</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Program</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Program#20fd9aeb-93b7-4a1e-9a4e-7ba8087ab8d1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Api/Program.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Program.cs</ProjectRelativeFilePath>
@@ -124,7 +124,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>94f6f015-91be-4998-81b9-263d33c6f11e</ProjectId>
-      <CorrelationId>Intent.Application.Identity.CurrentUserService</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserService#0232995d-aa6d-40f3-9af9-27ae2d99eaa9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Api/Services/CurrentUserService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CurrentUserService.cs</ProjectRelativeFilePath>
@@ -140,7 +140,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5647b8af-7a47-4482-91ba-d04fca2d56bc</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Startup</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Startup#31210f9f-d9e5-41dc-9406-e4cecaf30691</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Api/Startup.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Startup.cs</ProjectRelativeFilePath>
@@ -148,7 +148,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>738f369d-ba11-40eb-8116-d945684335aa</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.AuthorizationBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.AuthorizationBehaviour#08b12985-c71b-40ba-af05-adff643cd94f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Application/Common/Behaviours/AuthorizationBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AuthorizationBehaviour.cs</ProjectRelativeFilePath>
@@ -156,7 +156,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>738f369d-ba11-40eb-8116-d945684335aa</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.LoggingBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.LoggingBehaviour#5f68b204-f421-4509-b434-eb7d8ac2deb2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Application/Common/Behaviours/LoggingBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>LoggingBehaviour.cs</ProjectRelativeFilePath>
@@ -164,7 +164,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>738f369d-ba11-40eb-8116-d945684335aa</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.PerformanceBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.PerformanceBehaviour#c93dad62-80bd-4776-9028-bc9a539018d9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Application/Common/Behaviours/PerformanceBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PerformanceBehaviour.cs</ProjectRelativeFilePath>
@@ -172,7 +172,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>738f369d-ba11-40eb-8116-d945684335aa</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour#6c77b059-4b8d-487a-a33d-c99ea0056f6a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UnhandledExceptionBehaviour.cs</ProjectRelativeFilePath>
@@ -180,7 +180,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>91f569d2-fb2a-4b98-b419-b2270c1876f7</ProjectId>
-      <CorrelationId>Intent.Application.Identity.ForbiddenAccessException</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.ForbiddenAccessException#d2f76695-0056-440a-8b4f-b5dec1c406ce</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Application/Common/Exceptions/ForbiddenAccessException.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ForbiddenAccessException.cs</ProjectRelativeFilePath>
@@ -188,7 +188,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>709be5be-8069-4120-b6d4-9165ab6388af</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandInterface</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.CommandInterface#5b90a657-46cd-4577-b683-6ff8209b9929</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Application/Common/Interfaces/ICommand.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICommand.cs</ProjectRelativeFilePath>
@@ -196,7 +196,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>709be5be-8069-4120-b6d4-9165ab6388af</ProjectId>
-      <CorrelationId>Intent.Application.Identity.CurrentUserInterface</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserInterface#3db0ab4f-e389-4743-b527-40db4948eff3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Application/Common/Interfaces/ICurrentUser.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICurrentUser.cs</ProjectRelativeFilePath>
@@ -204,7 +204,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>709be5be-8069-4120-b6d4-9165ab6388af</ProjectId>
-      <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface#fa666b49-e158-4dd1-9c48-03d763fa1c28</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Application/Common/Interfaces/ICurrentUserService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICurrentUserService.cs</ProjectRelativeFilePath>
@@ -212,7 +212,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>709be5be-8069-4120-b6d4-9165ab6388af</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.QueryInterface</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.QueryInterface#973258ea-016d-4e7a-a58b-bc6734a3f77d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Application/Common/Interfaces/IQuery.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IQuery.cs</ProjectRelativeFilePath>
@@ -220,7 +220,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>1a0de114-92a3-4d56-8893-f992923d4fc5</ProjectId>
-      <CorrelationId>Intent.Application.AutoMapper.MapFromInterface</CorrelationId>
+      <CorrelationId>Intent.Application.AutoMapper.MapFromInterface#60bb9c45-25e2-4a12-8923-6904c4883af5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Application/Common/Mappings/IMapFrom.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IMapFrom.cs</ProjectRelativeFilePath>
@@ -228,7 +228,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>1a0de114-92a3-4d56-8893-f992923d4fc5</ProjectId>
-      <CorrelationId>Intent.Application.AutoMapper.MappingProfile</CorrelationId>
+      <CorrelationId>Intent.Application.AutoMapper.MappingProfile#eb6a6ff4-3c6d-422d-aa6d-5c93c23dbbc1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Application/Common/Mappings/MappingProfile.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MappingProfile.cs</ProjectRelativeFilePath>
@@ -236,7 +236,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>e6202ef4-47c4-4bfb-9ad8-a4c6654efd88</ProjectId>
-      <CorrelationId>Intent.Application.Identity.ResultModel</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.ResultModel#6403e59c-0de4-49d1-89c2-4b2e53a49d5b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Application/Common/Models/Result.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Result.cs</ProjectRelativeFilePath>
@@ -244,7 +244,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a792cd26-e4fd-42d1-9be1-7f146f656478</ProjectId>
-      <CorrelationId>Intent.Application.Identity.AuthorizeAttribute</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.AuthorizeAttribute#21801e36-6316-4ba7-8d13-435defaa4887</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Application/Common/Security/AuthorizeAttribute.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AuthorizeAttribute.cs</ProjectRelativeFilePath>
@@ -252,7 +252,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>6b33fd3e-9263-4ca8-a555-99e32df4ea03</ProjectId>
-      <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection</CorrelationId>
+      <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection#dd2537e6-379f-437b-baf4-1fe667ef2429</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Application/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
@@ -308,7 +308,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>18eca6ae-2ffe-4f0c-a52f-edec5c9917d0</ProjectId>
-      <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection</CorrelationId>
+      <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#7118527a-43b2-40ad-9ba6-ed27b9c7ed5a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Infrastructure/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>

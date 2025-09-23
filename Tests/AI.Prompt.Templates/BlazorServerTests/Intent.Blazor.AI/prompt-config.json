@@ -19,7 +19,8 @@
     "In Razor pages use foreach statements rather than for statements.",
     "If you add Dense, Variants or Margins to Form Controls do it consistently across the form controls.",
     "Always add placeholders to MudSelect controls",
-    "When you use ValueChanged attribute use it in conjunction with Value NOT @bind-Value (IMPORTANT)"
+    "When you use ValueChanged attribute use it in conjunction with Value NOT @bind-Value (IMPORTANT)",
+    "If there are forms ensure that they are valid when doing saves, creates, updates etc. (IMPORTANT)"
   ],
   "input-files": [
   ],

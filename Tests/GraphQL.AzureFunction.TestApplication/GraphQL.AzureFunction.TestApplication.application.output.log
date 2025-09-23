@@ -4,7 +4,7 @@
   <FileLogs>
     <FileLog>
       <ProjectId>5c72c7f5-5a19-4034-8f19-3d5633ef2694</ProjectId>
-      <CorrelationId>Intent.AzureFunctions.AzureFunctionClassHelper</CorrelationId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClassHelper#a21d602d-2773-471d-ac58-51ab1912b42a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Api/AzureFunctionHelper.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AzureFunctionHelper.cs</ProjectRelativeFilePath>
@@ -12,7 +12,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>290884bf-7850-411f-ae5a-c65e4e6d900b</ProjectId>
-      <CorrelationId>Intent.Application.Identity.ApplicationSecurityConfiguration</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.ApplicationSecurityConfiguration#41f26720-71b9-4ee9-a814-1becc795b288</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Api/Configuration/ApplicationSecurityConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApplicationSecurityConfiguration.cs</ProjectRelativeFilePath>
@@ -20,7 +20,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>290884bf-7850-411f-ae5a-c65e4e6d900b</ProjectId>
-      <CorrelationId>Intent.HotChocolate.GraphQL.AzureFunctions.GraphQLConfigTemplate</CorrelationId>
+      <CorrelationId>Intent.HotChocolate.GraphQL.AzureFunctions.GraphQLConfigTemplate#14e79cac-0d00-4c51-911d-d36c114d21b3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Api/Configuration/GraphQLConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>GraphQLConfiguration.cs</ProjectRelativeFilePath>
@@ -28,7 +28,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>290884bf-7850-411f-ae5a-c65e4e6d900b</ProjectId>
-      <CorrelationId>Intent.AzureFunctions.OpenApi.OpenApiConfigurationTemplate</CorrelationId>
+      <CorrelationId>Intent.AzureFunctions.OpenApi.OpenApiConfigurationTemplate#656a7e8b-6d60-4ff7-95e7-e2e80f70d8d3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Api/Configuration/OpenApiConfigurationOptions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>OpenApiConfigurationOptions.cs</ProjectRelativeFilePath>
@@ -76,7 +76,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5c72c7f5-5a19-4034-8f19-3d5633ef2694</ProjectId>
-      <CorrelationId>Intent.HotChocolate.GraphQL.AzureFunctions.GraphQLFunctionTemplate</CorrelationId>
+      <CorrelationId>Intent.HotChocolate.GraphQL.AzureFunctions.GraphQLFunctionTemplate#46a680e7-001f-4168-9442-7c8136b2218d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Api/GraphQLFunction.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>GraphQLFunction.cs</ProjectRelativeFilePath>
@@ -100,7 +100,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>025504e9-340f-4f59-b9b9-a942679d61bc</ProjectId>
-      <CorrelationId>Intent.AzureFunctions.ReturnTypes.JsonResponse</CorrelationId>
+      <CorrelationId>Intent.AzureFunctions.ReturnTypes.JsonResponse#d622470c-58d6-4431-9b3f-c953e9172e53</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Api/ResponseTypes/JsonResponse.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>JsonResponse.cs</ProjectRelativeFilePath>
@@ -108,7 +108,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>15b0dcbb-43b9-449d-ae9a-aa090f8fa296</ProjectId>
-      <CorrelationId>Intent.Application.Identity.CurrentUserService</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserService#ffd92b93-a62e-4ae0-8c84-c315b37a596b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Api/Services/CurrentUserService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CurrentUserService.cs</ProjectRelativeFilePath>
@@ -116,7 +116,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5c72c7f5-5a19-4034-8f19-3d5633ef2694</ProjectId>
-      <CorrelationId>Intent.AzureFunctions.InProcess.Startup</CorrelationId>
+      <CorrelationId>Intent.AzureFunctions.InProcess.Startup#81463a0f-bd36-428b-b234-abb75ad45376</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Api/Startup.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Startup.cs</ProjectRelativeFilePath>
@@ -124,7 +124,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>506deabe-d263-4ec4-86f3-fc1aaa6be952</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.AuthorizationBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.AuthorizationBehaviour#9d8edb50-1f1a-4261-8981-a7014d8a3346</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Common/Behaviours/AuthorizationBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AuthorizationBehaviour.cs</ProjectRelativeFilePath>
@@ -132,7 +132,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>506deabe-d263-4ec4-86f3-fc1aaa6be952</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.LoggingBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.LoggingBehaviour#bb3b90b9-91f2-45e3-bd89-ebca6d475e8d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Common/Behaviours/LoggingBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>LoggingBehaviour.cs</ProjectRelativeFilePath>
@@ -140,7 +140,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>506deabe-d263-4ec4-86f3-fc1aaa6be952</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.PerformanceBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.PerformanceBehaviour#f06080c8-0db3-41b6-b38c-d660ecbf9939</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Common/Behaviours/PerformanceBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PerformanceBehaviour.cs</ProjectRelativeFilePath>
@@ -148,7 +148,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>506deabe-d263-4ec4-86f3-fc1aaa6be952</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour#03f1b35d-6a4f-4e84-bb9f-28bfb8c0cba8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UnhandledExceptionBehaviour.cs</ProjectRelativeFilePath>
@@ -156,7 +156,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>506deabe-d263-4ec4-86f3-fc1aaa6be952</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour#11d0ad8b-365b-42ed-82bb-d24a55353efc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Common/Behaviours/UnitOfWorkBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UnitOfWorkBehaviour.cs</ProjectRelativeFilePath>
@@ -164,7 +164,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>506deabe-d263-4ec4-86f3-fc1aaa6be952</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.FluentValidation.ValidationBehaviour</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.ValidationBehaviour#22ed2bc6-e33f-45a3-b793-6cd33487f13b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Common/Behaviours/ValidationBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ValidationBehaviour.cs</ProjectRelativeFilePath>
@@ -172,7 +172,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>82b9bec5-99d9-423e-b1b4-b30a927cadfe</ProjectId>
-      <CorrelationId>Intent.Application.Identity.ForbiddenAccessException</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.ForbiddenAccessException#3185c812-2ed2-4529-8934-f1d8425603d6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Common/Exceptions/ForbiddenAccessException.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ForbiddenAccessException.cs</ProjectRelativeFilePath>
@@ -180,7 +180,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>2a8aedc1-db1a-481b-80de-885a4488d644</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandInterface</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.CommandInterface#1ce3cb30-afcb-4d4b-9dd1-0b0db2bdfbc9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Common/Interfaces/ICommand.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICommand.cs</ProjectRelativeFilePath>
@@ -188,7 +188,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>2a8aedc1-db1a-481b-80de-885a4488d644</ProjectId>
-      <CorrelationId>Intent.Application.Identity.CurrentUserInterface</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserInterface#b3c4f95c-e1dc-49ac-9a4f-d66de847d0cf</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Common/Interfaces/ICurrentUser.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICurrentUser.cs</ProjectRelativeFilePath>
@@ -196,7 +196,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>2a8aedc1-db1a-481b-80de-885a4488d644</ProjectId>
-      <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface#a909d03e-577b-4d77-9965-4b7a1cc6bf65</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Common/Interfaces/ICurrentUserService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICurrentUserService.cs</ProjectRelativeFilePath>
@@ -204,7 +204,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>2a8aedc1-db1a-481b-80de-885a4488d644</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.QueryInterface</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.QueryInterface#d3adbb59-122c-429c-9426-58e46f0e0d35</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Common/Interfaces/IQuery.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IQuery.cs</ProjectRelativeFilePath>
@@ -212,7 +212,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ea3f7b11-719f-465c-a3c7-6cc8af0f2bb6</ProjectId>
-      <CorrelationId>Intent.Application.AutoMapper.MapFromInterface</CorrelationId>
+      <CorrelationId>Intent.Application.AutoMapper.MapFromInterface#ad80ea97-eaf1-425f-a33e-d6f0d4d8dc05</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Common/Mappings/IMapFrom.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IMapFrom.cs</ProjectRelativeFilePath>
@@ -220,7 +220,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ea3f7b11-719f-465c-a3c7-6cc8af0f2bb6</ProjectId>
-      <CorrelationId>Intent.Application.AutoMapper.MappingProfile</CorrelationId>
+      <CorrelationId>Intent.Application.AutoMapper.MappingProfile#0ca51a04-7006-44fb-8c41-cbc841d1ddeb</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Common/Mappings/MappingProfile.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MappingProfile.cs</ProjectRelativeFilePath>
@@ -228,7 +228,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>2ee45d27-f1d2-4703-be97-2c38194a02d6</ProjectId>
-      <CorrelationId>Intent.Application.Identity.ResultModel</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.ResultModel#8c803ace-c528-4895-9dac-53413d3faa53</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Common/Models/Result.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Result.cs</ProjectRelativeFilePath>
@@ -236,7 +236,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>70b7a70e-4892-4498-a9e5-06ee8f219ff0</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.PagedList</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.PagedList#2263ec08-7501-411c-92eb-3d88825f0da1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Common/Pagination/PagedList.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedList.cs</ProjectRelativeFilePath>
@@ -244,7 +244,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>70b7a70e-4892-4498-a9e5-06ee8f219ff0</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResult</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResult#64e95057-fa14-462b-a755-d8e746dece20</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Common/Pagination/PagedResult.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedResult.cs</ProjectRelativeFilePath>
@@ -252,7 +252,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>70b7a70e-4892-4498-a9e5-06ee8f219ff0</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResultMappingExtensions</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResultMappingExtensions#a39111f1-d4d5-4bc1-b3c2-c7fa23bde327</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Common/Pagination/PagedResultMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedResultMappingExtensions.cs</ProjectRelativeFilePath>
@@ -260,7 +260,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>421d62b9-5b34-4741-b33e-1a106b807847</ProjectId>
-      <CorrelationId>Intent.Application.Identity.AuthorizeAttribute</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.AuthorizeAttribute#c9603ea1-c111-48c8-91af-c357021c6109</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Common/Security/AuthorizeAttribute.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AuthorizeAttribute.cs</ProjectRelativeFilePath>
@@ -268,7 +268,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9d775cf5-fb6a-474f-916b-b7e241cab127</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface</CorrelationId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface#33039d67-7f8a-40c1-b71c-b6a44b666501</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Common/Validation/IValidatorProvider.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IValidatorProvider.cs</ProjectRelativeFilePath>
@@ -276,7 +276,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9d775cf5-fb6a-474f-916b-b7e241cab127</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProvider</CorrelationId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProvider#d59e0dff-923c-4681-a9da-442e9e99a757</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Common/Validation/ValidatorProvider.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ValidatorProvider.cs</ProjectRelativeFilePath>
@@ -316,7 +316,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>420f0338-67c2-4b08-b5e4-933122198fb5</ProjectId>
-      <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection</CorrelationId>
+      <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection#793fc879-9106-4e7d-ae8c-3b056aca9e1f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
@@ -348,7 +348,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>420f0338-67c2-4b08-b5e4-933122198fb5</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationServiceInterface</CorrelationId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationServiceInterface#5bab8ea7-98a2-473e-aea2-5ef3e042da43</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/IValidationService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IValidationService.cs</ProjectRelativeFilePath>
@@ -452,7 +452,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>420f0338-67c2-4b08-b5e4-933122198fb5</ProjectId>
-      <CorrelationId>Intent.AzureFunctions.ReturnTypes.ResourceLocationClass</CorrelationId>
+      <CorrelationId>Intent.AzureFunctions.ReturnTypes.ResourceLocationClass#af9e74dd-f836-4514-bfce-00c9d84815a5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/ResourceLocation.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ResourceLocation.cs</ProjectRelativeFilePath>
@@ -460,7 +460,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>420f0338-67c2-4b08-b5e4-933122198fb5</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationService</CorrelationId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationService#0e25cb14-0a88-4058-8d49-25da2858211a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/ValidationService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ValidationService.cs</ProjectRelativeFilePath>
@@ -524,7 +524,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9eefb065-44d7-4782-ab0a-38b313e58e13</ProjectId>
-      <CorrelationId>Intent.Entities.CollectionExtensions</CorrelationId>
+      <CorrelationId>Intent.Entities.CollectionExtensions#4057a66b-fb2f-4e82-bc7e-4f832c44877a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Domain/Common/CollectionExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CollectionExtensions.cs</ProjectRelativeFilePath>
@@ -532,7 +532,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a8a86ac7-7e46-4af9-8f86-4f19bea97ae4</ProjectId>
-      <CorrelationId>Intent.Entities.NotFoundException</CorrelationId>
+      <CorrelationId>Intent.Entities.NotFoundException#a7b632f9-74c0-4ee5-88ee-a123a50f6b37</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Domain/Common/Exceptions/NotFoundException.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>NotFoundException.cs</ProjectRelativeFilePath>
@@ -540,7 +540,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>550ecf58-5cd6-4bec-a465-369708ed7594</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.UnitOfWorkInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.UnitOfWorkInterface#0e21e820-ad71-4780-9a11-a53fddf02b10</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Domain/Common/Interfaces/IUnitOfWork.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IUnitOfWork.cs</ProjectRelativeFilePath>
@@ -548,7 +548,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9eefb065-44d7-4782-ab0a-38b313e58e13</ProjectId>
-      <CorrelationId>Intent.Entities.UpdateHelper</CorrelationId>
+      <CorrelationId>Intent.Entities.UpdateHelper#f969c533-4524-43a4-a37a-edb6b9d0388d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Domain/Common/UpdateHelper.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UpdateHelper.cs</ProjectRelativeFilePath>
@@ -588,7 +588,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>096adf41-3159-4774-b87a-fc3f1c5ef054</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface#bba71b6b-762d-4185-92c2-6868a740beec</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Domain/Repositories/IEFRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IEFRepository.cs</ProjectRelativeFilePath>
@@ -596,7 +596,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>096adf41-3159-4774-b87a-fc3f1c5ef054</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.PagedListInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.PagedListInterface#f01c6e02-dab9-4cc3-8e74-7a3f96b79855</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Domain/Repositories/IPagedList.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IPagedList.cs</ProjectRelativeFilePath>
@@ -612,7 +612,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>096adf41-3159-4774-b87a-fc3f1c5ef054</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.RepositoryInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.RepositoryInterface#0b85fb23-c4be-4436-91af-170913408eb1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Domain/Repositories/IRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IRepository.cs</ProjectRelativeFilePath>
@@ -620,7 +620,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>fcfefd1b-d39c-4a8e-9d46-5cb00c02ddfb</ProjectId>
-      <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection</CorrelationId>
+      <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#1d81b261-b13b-4ecb-82b1-6461fdadfdaa</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Infrastructure/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
@@ -636,7 +636,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>1eb26f92-c909-4953-84ee-eedbc912a71a</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe#4213d858-92e4-44bf-bb56-43f3a24cb104</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Infrastructure/Migrations/README.md</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>README.md</ProjectRelativeFilePath>
@@ -684,7 +684,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>e8b76ef8-9a94-4566-9a52-384bc7003fd2</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.RepositoryBase</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.RepositoryBase#1f208888-e795-46bc-861a-1c70ce8cdc03</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Infrastructure/Repositories/RepositoryBase.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RepositoryBase.cs</ProjectRelativeFilePath>

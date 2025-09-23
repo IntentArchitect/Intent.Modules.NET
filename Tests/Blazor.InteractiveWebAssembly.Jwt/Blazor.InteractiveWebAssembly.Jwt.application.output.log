@@ -10,7 +10,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ca78fb4a-e5cb-4bc6-88ac-2b33fa1d7d6f</ProjectId>
-      <CorrelationId>Intent.Blazor.Templates.Client.ClientImportsRazorTemplate</CorrelationId>
+      <CorrelationId>Intent.Blazor.Templates.Client.ClientImportsRazorTemplate#a9fd95b3-3519-4223-971b-63ebcab7fd93</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Blazor.InteractiveWebAssembly.Jwt.Client/_Imports.razor</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>_Imports.razor</ProjectRelativeFilePath>
@@ -26,7 +26,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>7251bd73-95ee-44e4-887f-f66c383d437b</ProjectId>
-      <CorrelationId>Intent.Blazor.HttpClients.HttpClientRequestException</CorrelationId>
+      <CorrelationId>Intent.Blazor.HttpClients.HttpClientRequestException#0efa2d9a-d4a4-445c-ad5c-442e0ac479c6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Blazor.InteractiveWebAssembly.Jwt.Client/Common/HttpClientRequestException.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>HttpClientRequestException.cs</ProjectRelativeFilePath>
@@ -34,7 +34,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>7251bd73-95ee-44e4-887f-f66c383d437b</ProjectId>
-      <CorrelationId>Intent.Blazor.Authentication.Templates.Client.PersistentAuthenticationStateProviderTemplate</CorrelationId>
+      <CorrelationId>Intent.Blazor.Authentication.Templates.Client.PersistentAuthenticationStateProviderTemplate#27f560ad-e24c-48eb-9fbd-4f7953fa9c54</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Blazor.InteractiveWebAssembly.Jwt.Client/Common/PersistentAuthenticationStateProvider.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PersistentAuthenticationStateProvider.cs</ProjectRelativeFilePath>
@@ -42,7 +42,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>7251bd73-95ee-44e4-887f-f66c383d437b</ProjectId>
-      <CorrelationId>Intent.Blazor.HttpClients.ProblemDetailsWithErrors</CorrelationId>
+      <CorrelationId>Intent.Blazor.HttpClients.ProblemDetailsWithErrors#d464a88a-1fe7-4708-8d4c-06dc7188feac</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Blazor.InteractiveWebAssembly.Jwt.Client/Common/ProblemDetailsWithErrors.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ProblemDetailsWithErrors.cs</ProjectRelativeFilePath>
@@ -50,7 +50,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>1545e231-ebe5-41f6-a6ef-56e1af5e3d51</ProjectId>
-      <CorrelationId>Intent.Blazor.FluentValidation.ValidatorProviderInterface</CorrelationId>
+      <CorrelationId>Intent.Blazor.FluentValidation.ValidatorProviderInterface#67bebab8-ab92-4e12-99c8-72554c7aefa7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Blazor.InteractiveWebAssembly.Jwt.Client/Common/Validation/IValidatorProvider.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IValidatorProvider.cs</ProjectRelativeFilePath>
@@ -58,7 +58,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>1545e231-ebe5-41f6-a6ef-56e1af5e3d51</ProjectId>
-      <CorrelationId>Intent.Blazor.FluentValidation.ValidatorProvider</CorrelationId>
+      <CorrelationId>Intent.Blazor.FluentValidation.ValidatorProvider#20bb30bb-f12d-4f19-b9ae-5d0db44c92e7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Blazor.InteractiveWebAssembly.Jwt.Client/Common/Validation/ValidatorProvider.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ValidatorProvider.cs</ProjectRelativeFilePath>
@@ -66,7 +66,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>1545e231-ebe5-41f6-a6ef-56e1af5e3d51</ProjectId>
-      <CorrelationId>Intent.Blazor.Components.MudBlazor.FluentValidationProviderExtensions</CorrelationId>
+      <CorrelationId>Intent.Blazor.Components.MudBlazor.FluentValidationProviderExtensions#941bd840-d383-4fc7-8131-4ff6086d82be</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Blazor.InteractiveWebAssembly.Jwt.Client/Common/Validation/ValidatorProviderExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ValidatorProviderExtensions.cs</ProjectRelativeFilePath>
@@ -74,7 +74,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a12686c4-bf65-4f1d-9efc-c1a9a6a534a3</ProjectId>
-      <CorrelationId>Intent.Blazor.Authentication.Templates.Client.RedirectToLoginTemplate</CorrelationId>
+      <CorrelationId>Intent.Blazor.Authentication.Templates.Client.RedirectToLoginTemplate#aaaac2bd-710b-41e9-a15b-c2692959dbe6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Blazor.InteractiveWebAssembly.Jwt.Client/Components/Account/Shared/RedirectToLogin.razor</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RedirectToLogin.razor</ProjectRelativeFilePath>
@@ -82,7 +82,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a12686c4-bf65-4f1d-9efc-c1a9a6a534a3</ProjectId>
-      <CorrelationId>Intent.Blazor.Authentication.Templates.Client.UserInfoTemplate</CorrelationId>
+      <CorrelationId>Intent.Blazor.Authentication.Templates.Client.UserInfoTemplate#171d63b4-ac82-4eb4-92ac-0fac0709f2c3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Blazor.InteractiveWebAssembly.Jwt.Client/Components/Account/Shared/UserInfo.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UserInfo.cs</ProjectRelativeFilePath>
@@ -90,7 +90,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ca78fb4a-e5cb-4bc6-88ac-2b33fa1d7d6f</ProjectId>
-      <CorrelationId>Intent.Blazor.Templates.Client.DependencyInjection</CorrelationId>
+      <CorrelationId>Intent.Blazor.Templates.Client.DependencyInjection#95a70443-bee0-425b-a51a-d120c43d92dc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Blazor.InteractiveWebAssembly.Jwt.Client/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
@@ -98,7 +98,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ca78fb4a-e5cb-4bc6-88ac-2b33fa1d7d6f</ProjectId>
-      <CorrelationId>Intent.Blazor.HttpClients.HttpClientConfiguration</CorrelationId>
+      <CorrelationId>Intent.Blazor.HttpClients.HttpClientConfiguration#83a56cbb-8b81-4c90-8d68-c2d8324500a5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Blazor.InteractiveWebAssembly.Jwt.Client/HttpClientConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>HttpClientConfiguration.cs</ProjectRelativeFilePath>
@@ -154,7 +154,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ca78fb4a-e5cb-4bc6-88ac-2b33fa1d7d6f</ProjectId>
-      <CorrelationId>Intent.Blazor.Templates.Client.ProgramTemplate</CorrelationId>
+      <CorrelationId>Intent.Blazor.Templates.Client.ProgramTemplate#254aab85-fe0b-4374-83ea-27ca3f15c5e2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Blazor.InteractiveWebAssembly.Jwt.Client/Program.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Program.cs</ProjectRelativeFilePath>
@@ -162,7 +162,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ca78fb4a-e5cb-4bc6-88ac-2b33fa1d7d6f</ProjectId>
-      <CorrelationId>Intent.Blazor.Templates.Client.RoutesRazorTemplate</CorrelationId>
+      <CorrelationId>Intent.Blazor.Templates.Client.RoutesRazorTemplate#eee498f3-c817-44b2-b32c-d722919a16d7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Blazor.InteractiveWebAssembly.Jwt.Client/Routes.razor</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Routes.razor</ProjectRelativeFilePath>
@@ -200,7 +200,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5b98ae65-e67a-49cc-a524-70532fbfa4ec</ProjectId>
-      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.AuthServiceInterfaceTemplate</CorrelationId>
+      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.AuthServiceInterfaceTemplate#cc631f64-1235-49f1-97d7-038298f0f048</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Blazor.InteractiveWebAssembly.Jwt/Common/IAuthService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IAuthService.cs</ProjectRelativeFilePath>
@@ -208,7 +208,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5b98ae65-e67a-49cc-a524-70532fbfa4ec</ProjectId>
-      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.JwtAuthServiceConcreteTemplate</CorrelationId>
+      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.JwtAuthServiceConcreteTemplate#5f345cb0-fae9-4bf1-8b11-9b553fa5e039</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Blazor.InteractiveWebAssembly.Jwt/Common/JwtAuthService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>JwtAuthService.cs</ProjectRelativeFilePath>
@@ -216,7 +216,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>337adbe9-41ab-47db-ba08-ee0f079c6d5a</ProjectId>
-      <CorrelationId>Intent.Blazor.Templates.Server.ServerImportsRazorTemplate</CorrelationId>
+      <CorrelationId>Intent.Blazor.Templates.Server.ServerImportsRazorTemplate#6ed0f948-8f74-4eff-a1cb-8ffa4e377e35</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Blazor.InteractiveWebAssembly.Jwt/Components/_Imports.razor</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>_Imports.razor</ProjectRelativeFilePath>
@@ -224,7 +224,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>803a7ff3-2aa5-4229-a804-7814152987c5</ProjectId>
-      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.IdentityRedirectManagerTemplate</CorrelationId>
+      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.IdentityRedirectManagerTemplate#acbfda68-26a9-47bc-a18c-ec50f38686ff</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Blazor.InteractiveWebAssembly.Jwt/Components/Account/IdentityRedirectManager.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IdentityRedirectManager.cs</ProjectRelativeFilePath>
@@ -232,7 +232,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>1c0203a0-21b1-4fb3-a30d-5283819c063c</ProjectId>
-      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.ConfirmEmailTemplate</CorrelationId>
+      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.ConfirmEmailTemplate#3c74423c-3aee-45db-a654-31ea756ae69f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Blazor.InteractiveWebAssembly.Jwt/Components/Account/Pages/ConfirmEmail.razor</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ConfirmEmail.razor</ProjectRelativeFilePath>
@@ -240,7 +240,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>1c0203a0-21b1-4fb3-a30d-5283819c063c</ProjectId>
-      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.ForgotPasswordTemplate</CorrelationId>
+      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.ForgotPasswordTemplate#6bafb26b-2689-47be-bca6-6b8884a2a95b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Blazor.InteractiveWebAssembly.Jwt/Components/Account/Pages/ForgotPassword.razor</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ForgotPassword.razor</ProjectRelativeFilePath>
@@ -248,7 +248,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>1c0203a0-21b1-4fb3-a30d-5283819c063c</ProjectId>
-      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.LoginTemplate</CorrelationId>
+      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.LoginTemplate#f95abdb2-528b-40e9-81d1-1ca721bc6448</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Blazor.InteractiveWebAssembly.Jwt/Components/Account/Pages/Login.razor</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Login.razor</ProjectRelativeFilePath>
@@ -256,7 +256,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>1c0203a0-21b1-4fb3-a30d-5283819c063c</ProjectId>
-      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.RegisterTemplate</CorrelationId>
+      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.RegisterTemplate#d161094d-35c5-4a11-8211-555b9fadc203</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Blazor.InteractiveWebAssembly.Jwt/Components/Account/Pages/Register.razor</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Register.razor</ProjectRelativeFilePath>
@@ -264,7 +264,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>1c0203a0-21b1-4fb3-a30d-5283819c063c</ProjectId>
-      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.ResendEmailConfirmationTemplate</CorrelationId>
+      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.ResendEmailConfirmationTemplate#4b5d53a7-5daf-42d6-904d-74debbc915b4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Blazor.InteractiveWebAssembly.Jwt/Components/Account/Pages/ResendEmailConfirmation.razor</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ResendEmailConfirmation.razor</ProjectRelativeFilePath>
@@ -272,7 +272,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>1c0203a0-21b1-4fb3-a30d-5283819c063c</ProjectId>
-      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.ResetPasswordTemplate</CorrelationId>
+      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.ResetPasswordTemplate#a9e06ebd-2b1f-44c9-9153-066aba9a475d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Blazor.InteractiveWebAssembly.Jwt/Components/Account/Pages/ResetPassword.razor</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ResetPassword.razor</ProjectRelativeFilePath>
@@ -280,7 +280,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>803a7ff3-2aa5-4229-a804-7814152987c5</ProjectId>
-      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.PersistingServerAuthenticationStateProviderTemplate</CorrelationId>
+      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.PersistingServerAuthenticationStateProviderTemplate#309727a5-4cdb-41bc-8996-14cb40b91c18</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Blazor.InteractiveWebAssembly.Jwt/Components/Account/PersistingServerAuthenticationStateProvider.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PersistingServerAuthenticationStateProvider.cs</ProjectRelativeFilePath>
@@ -288,7 +288,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>07aacbc4-675a-4283-854b-9fed1c6f3272</ProjectId>
-      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.AccountLayoutTemplate</CorrelationId>
+      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.AccountLayoutTemplate#0fec6eae-9740-4417-87b9-807dbf8ce896</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Blazor.InteractiveWebAssembly.Jwt/Components/Account/Shared/AccountLayout.razor</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AccountLayout.razor</ProjectRelativeFilePath>
@@ -296,7 +296,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>337adbe9-41ab-47db-ba08-ee0f079c6d5a</ProjectId>
-      <CorrelationId>Intent.Blazor.Templates.Server.AppRazorTemplate</CorrelationId>
+      <CorrelationId>Intent.Blazor.Templates.Server.AppRazorTemplate#d1d2b9cf-afa1-424a-838f-1a7ed520b64f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Blazor.InteractiveWebAssembly.Jwt/Components/App.razor</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>App.razor</ProjectRelativeFilePath>
@@ -304,7 +304,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9e869d84-4908-402a-a2be-8d483ba60d62</ProjectId>
-      <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration#10ad14a7-ae46-4988-adea-86aced31bb8c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Blazor.InteractiveWebAssembly.Jwt/Configuration/ProblemDetailsConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ProblemDetailsConfiguration.cs</ProjectRelativeFilePath>
@@ -312,7 +312,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>f2f2230e-0d1a-4d50-8e6e-be7fc5459281</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Program</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Program#59fc7772-5aeb-4e9d-b2b2-eb36cd821edf</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Blazor.InteractiveWebAssembly.Jwt/Program.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Program.cs</ProjectRelativeFilePath>
@@ -328,7 +328,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>f2f2230e-0d1a-4d50-8e6e-be7fc5459281</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Startup</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Startup#f3b52eb1-e048-4242-a0ec-ba89406642b5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Blazor.InteractiveWebAssembly.Jwt/Startup.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Startup.cs</ProjectRelativeFilePath>

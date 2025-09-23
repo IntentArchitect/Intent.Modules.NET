@@ -6,7 +6,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using AzureFunctions.AzureEventGrid.Application.CreateOrder;
 using AzureFunctions.AzureEventGrid.Domain.Common.Interfaces;
-using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using Microsoft.AspNetCore.Http;

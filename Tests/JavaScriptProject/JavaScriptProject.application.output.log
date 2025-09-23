@@ -10,7 +10,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>459bcb48-28e5-428f-baa3-8c71804f3070</ProjectId>
-      <CorrelationId>Intent.ContinuousIntegration.AzurePipelines.azure-pipelines</CorrelationId>
+      <CorrelationId>Intent.ContinuousIntegration.AzurePipelines.azure-pipelines#e1c3f611-f8b9-481a-a4a3-2077108b83d4</CorrelationId>
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>JavaScriptProject/Folder1/azure-pipelines.yaml</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>../azure-pipelines.yaml</ProjectRelativeFilePath>

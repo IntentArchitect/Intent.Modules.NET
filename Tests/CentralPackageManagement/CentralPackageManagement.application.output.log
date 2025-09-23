@@ -26,7 +26,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>78e664d1-fa85-4fad-bce3-b30058a056b1</ProjectId>
-      <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration#0439ca92-cd2a-4d36-8723-fe0db0e6143d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CentralPackageManagement/CentralPackageManagement.Api/Configuration/ProblemDetailsConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ProblemDetailsConfiguration.cs</ProjectRelativeFilePath>
@@ -34,7 +34,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>15357d84-6354-4319-b43f-f2e3f3d1f342</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.ExceptionFilter</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Controllers.ExceptionFilter#c59344b4-20f6-4b13-b20c-6648b6038d0c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CentralPackageManagement/CentralPackageManagement.Api/Filters/ExceptionFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ExceptionFilter.cs</ProjectRelativeFilePath>
@@ -42,7 +42,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>bf546896-a1fc-4745-80e9-aaaa9ca720f3</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Program</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Program#a5e807ac-358a-4dcd-9f75-8a7e743a50d7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CentralPackageManagement/CentralPackageManagement.Api/Program.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Program.cs</ProjectRelativeFilePath>
@@ -58,7 +58,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>bf546896-a1fc-4745-80e9-aaaa9ca720f3</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Startup</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Startup#404de729-0312-412c-9dd1-a64a4e3edd4c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CentralPackageManagement/CentralPackageManagement.Api/Startup.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Startup.cs</ProjectRelativeFilePath>
@@ -74,7 +74,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>cde48355-1fbb-4834-bee0-a46fb9dfa5ce</ProjectId>
-      <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection</CorrelationId>
+      <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection#0ad8ac3e-c48c-4c01-9fa8-45c17084ecfc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CentralPackageManagement/CentralPackageManagement.Application/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
@@ -98,7 +98,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>18f7f3ff-1f0e-4114-8816-6633099a2721</ProjectId>
-      <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection</CorrelationId>
+      <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#a0209df2-50fb-499f-b516-09f6e2e35dce</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CentralPackageManagement/CentralPackageManagement.Infrastructure/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>

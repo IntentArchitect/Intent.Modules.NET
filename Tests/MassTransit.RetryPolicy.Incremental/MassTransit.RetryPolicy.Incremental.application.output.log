@@ -12,7 +12,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>1d75405b-d378-4dba-a375-662bee392a77</ProjectId>
-      <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration#0c3c828a-254d-44a2-97e7-16e9f5dbd445</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.RetryPolicy.Incremental.Api/Configuration/ProblemDetailsConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ProblemDetailsConfiguration.cs</ProjectRelativeFilePath>
@@ -28,7 +28,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>234c7b2e-3a63-4c9e-8759-7cdc94f911b5</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Program</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Program#eb03dbcf-b424-4396-a993-d73a9204086b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.RetryPolicy.Incremental.Api/Program.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Program.cs</ProjectRelativeFilePath>
@@ -44,7 +44,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>234c7b2e-3a63-4c9e-8759-7cdc94f911b5</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Startup</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Startup#71879861-1fb3-47f0-9d6e-552576b36b75</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.RetryPolicy.Incremental.Api/Startup.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Startup.cs</ProjectRelativeFilePath>
@@ -52,7 +52,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>3bf226c5-fc57-4d1f-b57c-118a200c0006</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.EventBusInterface</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.EventBusInterface#dc3419e1-5ed1-4bbd-b92e-50b0fdb7a1f4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.RetryPolicy.Incremental.Application/Common/Eventing/IEventBus.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IEventBus.cs</ProjectRelativeFilePath>
@@ -60,7 +60,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>3bf226c5-fc57-4d1f-b57c-118a200c0006</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventHandlerInterface</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventHandlerInterface#2a8b444f-a17b-4a13-8da7-8718a0771899</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.RetryPolicy.Incremental.Application/Common/Eventing/IIntegrationEventHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IIntegrationEventHandler.cs</ProjectRelativeFilePath>
@@ -84,7 +84,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>55136ab7-7e83-408a-93b2-bfaab64214d2</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.MassTransitConfiguration</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.MassTransitConfiguration#af714ec9-03a6-4ccd-ad14-800d1d7d5169</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.RetryPolicy.Incremental.Infrastructure/Configuration/MassTransitConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MassTransitConfiguration.cs</ProjectRelativeFilePath>
@@ -92,7 +92,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>d593113a-2db0-4f23-91b7-32e698e2c8c9</ProjectId>
-      <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection</CorrelationId>
+      <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#d96a2dcd-0cd0-4b81-bb61-afcc1c8f640f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.RetryPolicy.Incremental.Infrastructure/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
@@ -100,7 +100,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>704f5817-9058-4bfb-af45-ac62c910578d</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventConsumer</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventConsumer#3843ef3f-ff91-4ff8-9fd6-823f5b456b41</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.RetryPolicy.Incremental.Infrastructure/Eventing/IntegrationEventConsumer.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IntegrationEventConsumer.cs</ProjectRelativeFilePath>
@@ -108,7 +108,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>704f5817-9058-4bfb-af45-ac62c910578d</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.MassTransitEventBus</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.MassTransitEventBus#0e33435e-e910-4892-8782-ad59d888a068</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.RetryPolicy.Incremental.Infrastructure/Eventing/MassTransitEventBus.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MassTransitEventBus.cs</ProjectRelativeFilePath>

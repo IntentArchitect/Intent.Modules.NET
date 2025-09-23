@@ -12,7 +12,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>04e4875f-04c7-438d-875d-609d001bf8f8</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Versioning.ApiVersioningConfiguration</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Versioning.ApiVersioningConfiguration#ac534c20-262e-4d4f-8378-1bb2657cb871</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SwashbuckleSettings.NonNullableMandatory.Api/Configuration/ApiVersioningConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApiVersioningConfiguration.cs</ProjectRelativeFilePath>
@@ -20,7 +20,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>04e4875f-04c7-438d-875d-609d001bf8f8</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions#9f596b02-7672-4b92-a450-1d3fd598c89f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SwashbuckleSettings.NonNullableMandatory.Api/Configuration/ApiVersionSwaggerGenOptions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApiVersionSwaggerGenOptions.cs</ProjectRelativeFilePath>
@@ -28,7 +28,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>04e4875f-04c7-438d-875d-609d001bf8f8</ProjectId>
-      <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration#042a7c7f-e0a8-4863-9e19-5e7c672ccb74</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SwashbuckleSettings.NonNullableMandatory.Api/Configuration/ProblemDetailsConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ProblemDetailsConfiguration.cs</ProjectRelativeFilePath>
@@ -36,7 +36,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>04e4875f-04c7-438d-875d-609d001bf8f8</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration#694c2445-8d1a-4e27-ad56-fd332947f948</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SwashbuckleSettings.NonNullableMandatory.Api/Configuration/SwashbuckleConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SwashbuckleConfiguration.cs</ProjectRelativeFilePath>
@@ -44,7 +44,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>e60656d1-0464-4a46-adeb-98c7a9660062</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.ExceptionFilter</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Controllers.ExceptionFilter#93b3dc0c-4533-44a3-b6ea-23138cbc038e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SwashbuckleSettings.NonNullableMandatory.Api/Filters/ExceptionFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ExceptionFilter.cs</ProjectRelativeFilePath>
@@ -52,7 +52,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>e60656d1-0464-4a46-adeb-98c7a9660062</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter#b4c800cf-9c39-431f-a6a8-b4511b9c10ba</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SwashbuckleSettings.NonNullableMandatory.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TypeSchemaFilter.cs</ProjectRelativeFilePath>
@@ -60,7 +60,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>aff5d001-2e0d-44db-a040-15cd5560480f</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Program</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Program#fe0589bc-50e8-4bc7-b8e7-c1b18dcb00c1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SwashbuckleSettings.NonNullableMandatory.Api/Program.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Program.cs</ProjectRelativeFilePath>
@@ -76,7 +76,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>aff5d001-2e0d-44db-a040-15cd5560480f</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Startup</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Startup#68405fb2-371e-4752-9397-e5e2efe16113</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SwashbuckleSettings.NonNullableMandatory.Api/Startup.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Startup.cs</ProjectRelativeFilePath>
@@ -92,7 +92,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>caa4da24-b537-4ce4-9838-c99137c5cc96</ProjectId>
-      <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection</CorrelationId>
+      <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection#c87cc657-5dff-41a1-90e7-d87efa420754</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SwashbuckleSettings.NonNullableMandatory.Application/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
@@ -116,7 +116,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>1d9568a5-958b-4acf-88c0-922483bd8c6f</ProjectId>
-      <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection</CorrelationId>
+      <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#b61552af-b1e0-41fc-a5a5-95afbc6d1a1b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SwashbuckleSettings.NonNullableMandatory.Infrastructure/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>

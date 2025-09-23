@@ -1,3 +1,6 @@
+using System;
+using System.Linq;
+using System.Reflection;
 using Intent.AzureFunctions.Api;
 using Intent.Engine;
 using Intent.Metadata.Models;
@@ -12,9 +15,6 @@ using Intent.Modules.Constants;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using System;
-using System.Linq;
-using System.Reflection;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -34,8 +34,7 @@ namespace Intent.Modules.AzureFunctions.FluentValidation.FactoryExtensions
             var templates = application.FindTemplateInstances<AzureFunctionClassTemplate>(TemplateDependency.OnTemplate(AzureFunctionClassTemplate.TemplateId));
             foreach (var template in templates)
             {
-
-                var validator = TryGetValidator(template); 
+                var validator = TryGetValidator(template);
 
                 if (validator == null || template.Model.TriggerType != TriggerType.HttpTrigger)
                 {
@@ -46,7 +45,6 @@ namespace Intent.Modules.AzureFunctions.FluentValidation.FactoryExtensions
 
                 template.CSharpFile.OnBuild(file =>
                 {
-                    file.AddUsing("FluentValidation");
                     var @class = file.Classes.Single();
 
                     var runMethod = @class.FindMethod("Run");
@@ -60,11 +58,12 @@ namespace Intent.Modules.AzureFunctions.FluentValidation.FactoryExtensions
                                 name: "validator",
                                 configure: param => param.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException()));
                         dispatchStatement.InsertAbove($"await _validator.Handle({template.Model.GetRequestDtoParameter().Name.ToParameterName()}, cancellationToken);");
+
                     }
 
-                    runMethod.FindStatement<CSharpTryBlock>(x => true)
-                        ?.InsertBelow(new CSharpCatchBlock("ValidationException", "exception")
-                            .AddStatement("return new BadRequestObjectResult(exception.Errors);"));
+                    runMethod.FindStatement<CSharpTryBlock>(x => true)?
+                        .InsertBelow(new CSharpCatchBlock(template.UseType("FluentValidation.ValidationException"), "exception")
+                        .AddStatement("return new BadRequestObjectResult(exception.Errors);"));
 
                 }, 10);
             }
@@ -72,13 +71,13 @@ namespace Intent.Modules.AzureFunctions.FluentValidation.FactoryExtensions
 
         private ICSharpFileBuilderTemplate TryGetValidator(AzureFunctionClassTemplate template)
         {
-            if (!TryGetTemplate<ICSharpFileBuilderTemplate>(template, TemplateRoles.Application.Validation.Query, template.Model.InternalElement, t => t.CanRunTemplate(), out var result)
-                && !TryGetTemplate<ICSharpFileBuilderTemplate>(template, TemplateRoles.Application.Validation.Query, template.Model.InternalElement, t => t.CanRunTemplate(), out result))
+            if (!TryGetTemplate<ICSharpFileBuilderTemplate>(template, TemplateRoles.Application.Validation.Command, template.Model.InternalElement, t => t.CanRunTemplate(), out var result)
+                && !TryGetTemplate(template, TemplateRoles.Application.Validation.Query, template.Model.InternalElement, t => t.CanRunTemplate(), out result))
             {
                 var requestDtoTypeName = template.Model.GetRequestDtoParameter();
                 if (requestDtoTypeName is not null)
                 {
-                    TryGetTemplate<ICSharpFileBuilderTemplate>(template, TemplateRoles.Application.Validation.Dto, requestDtoTypeName.TypeReference.Element, t => t.CanRunTemplate(), out result);
+                    TryGetTemplate(template, TemplateRoles.Application.Validation.Dto, requestDtoTypeName.TypeReference.Element, t => t.CanRunTemplate(), out result);
                 }
             }
             return result;
@@ -92,16 +91,12 @@ namespace Intent.Modules.AzureFunctions.FluentValidation.FactoryExtensions
             out T result)
             where T : class, ITemplate
         {
-            var templates = template.ExecutionContext.FindTemplateInstances(templateId, model);
+            var templates = template.ExecutionContext.FindTemplateInstances(templateId, model.Id);
 
             var filtered = predicate is null ? templates : templates.Where(predicate);
 
             result = filtered.OfType<T>().FirstOrDefault();
-            //Add Type references
-            if (result is not null)
-            {
-                template.GetTypeName(result);
-            }
+
             return result is not null;
         }
     }
