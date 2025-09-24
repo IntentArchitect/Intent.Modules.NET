@@ -1,3 +1,7 @@
+### Version 4.1.10
+
+- Fixed: Updated module dependencies.
+
 ### Version 4.1.9
 
 - Improvement: Updated NuGet package versions.
