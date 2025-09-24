@@ -119,6 +119,10 @@ if (!promptResult) {
     return;
 }
 
+const providerId = modelLookup[promptResult.model].providerId;
+const modelId = modelLookup[promptResult.model].modelName;
+const thinkingType = promptResult.thinking;
+
 let result = await launchHostedModuleTask("Intent.Modules.AI.Blazor.Generate", 
     [
         application.id, 
@@ -246,6 +250,10 @@ let promptResult = await dialogService.openForm({
 if (!promptResult) {
     return;
 }
+
+const providerId = modelLookup[promptResult.model].providerId;
+const modelId = modelLookup[promptResult.model].modelName;
+const thinkingType = promptResult.thinking;
 
 let result = await launchHostedModuleTask("Intent.Modules.AI.Blazor.Generate", 
     [
