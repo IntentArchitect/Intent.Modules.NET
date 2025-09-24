@@ -94,6 +94,14 @@
   <scripts>
     <script name="Generate Unit Test with AI" id="2b87841e-8eb1-4181-86e6-28e45ccfe84f">
       <script>async function execute(taskId) {
+    const moduleTaskResult = await executeModuleTask("Intent.Modules.Common.AI.Tasks.ProviderModelsTask");
+
+    const providerModels = JSON.parse(moduleTaskResult);
+    const modelLookup = providerModels.reduce((acc, item) =&gt; {
+        acc[`${item.providerId}--${item.modelName}`] = item;
+        return acc;
+    }, {});
+    
     // Open a dialog for the user to enter an AI prompt
     let promptResult = await dialogService.openForm({
         title: "AI: Generate Unit Test for " + element.getName(),
@@ -160,10 +168,23 @@
         return;
     }
 
+    const providerId = modelLookup[promptResult.model].providerId;
+    const modelId = modelLookup[promptResult.model].modelName;
+    const thinkingType = promptResult.thinking;
 
-    let result = await launchHostedModuleTask(taskId, [application.id, element.id, promptResult.prompt], {
-        taskName: "AI: Unit tests for " + element.getName()
-    });
+
+    let result = await launchHostedModuleTask(taskId, 
+        [
+            application.id, 
+            element.id, 
+            promptResult.prompt ?? "",
+            providerId, 
+            modelId, 
+            thinkingType
+        ], 
+        {
+            taskName: "AI: Unit tests for " + element.getName()
+        });
 
     if(!element.hasStereotype("4965bed2-6320-49d1-beba-0fbc6fd4dfe6"))
     {
