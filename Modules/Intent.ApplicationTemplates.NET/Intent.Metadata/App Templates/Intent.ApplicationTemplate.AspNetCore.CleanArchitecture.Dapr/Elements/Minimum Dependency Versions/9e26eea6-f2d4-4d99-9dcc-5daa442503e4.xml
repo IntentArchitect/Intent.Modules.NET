@@ -197,7 +197,7 @@
     </childElement>
     <childElement id="0d996b56-0039-4819-b290-4a38a7f15ce0" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.AspNetCore.Identity</name>
-      <display>Intent.AspNetCore.Identity 4.2.3</display>
+      <display>Intent.AspNetCore.Identity 4.2.4</display>
       <isAbstract>false</isAbstract>
       <value>4.2.4</value>
       <genericTypes />
