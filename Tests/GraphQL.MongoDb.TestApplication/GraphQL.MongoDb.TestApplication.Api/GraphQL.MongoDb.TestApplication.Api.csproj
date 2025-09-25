@@ -17,7 +17,7 @@
     <PackageReference Include="HotChocolate.AspNetCore" Version="15.1.10" />
     <PackageReference Include="HotChocolate.AspNetCore.Authorization" Version="15.1.10" />
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="3.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.19" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.20" />
     <PackageReference Include="Serilog.AspNetCore" Version="9.0.0" />
   </ItemGroup>
 
