@@ -1,5 +1,6 @@
 ### Version 1.1.5
 
+- Improvement: Updated NuGet package versions.
 - Improvement: Updated Shared Module.
 
 ### Version 1.1.4

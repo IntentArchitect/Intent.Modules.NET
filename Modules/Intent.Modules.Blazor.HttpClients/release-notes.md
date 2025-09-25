@@ -1,5 +1,6 @@
 ### Version 4.0.17
 
+- Improvement: Updated NuGet package versions.
 - Improvement: adding using clause for `HttpRequestMessage` in `HttpCLient`s.
 
 ### Version 4.0.16

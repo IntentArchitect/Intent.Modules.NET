@@ -64,7 +64,7 @@
       </childElements>
     </childElement>
     <childElement id="3a219169-0fac-4d98-8b7e-43cdfc076f96" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.0.19</name>
+      <name>8.0.20</name>
       <display>8.0.19 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -86,16 +86,13 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="83a7b508-5c89-4c8e-b2fa-0d589b00b043" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="4bdd121e-1ca9-49ee-8f73-4486f9e4d6f3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.OpenApi</name>
-          <display>Microsoft.OpenApi (1.4.3)</display>
           <isAbstract>false</isAbstract>
           <value>1.4.3</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3a219169-0fac-4d98-8b7e-43cdfc076f96</parentFolderId>
-          <packageId>26ad62ab-3eab-479d-be93-ac6c6cd8046c</packageId>
-          <packageName>Intent.AspNetCore.Scalar</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -103,7 +100,7 @@
       </childElements>
     </childElement>
     <childElement id="5efb9258-95e3-4bb5-aeea-09d90ec7a88a" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.8</name>
+      <name>9.0.9</name>
       <display>9.0.8 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -125,16 +122,13 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="8df07f62-9726-4721-ad09-e601596975ca" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="934ce7d1-d5ef-4b09-8a81-c9194143b9d0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.OpenApi</name>
-          <display>Microsoft.OpenApi (1.6.17)</display>
           <isAbstract>false</isAbstract>
           <value>1.6.17</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5efb9258-95e3-4bb5-aeea-09d90ec7a88a</parentFolderId>
-          <packageId>26ad62ab-3eab-479d-be93-ac6c6cd8046c</packageId>
-          <packageName>Intent.AspNetCore.Scalar</packageName>
           <stereotypes />
           <metadata />
           <childElements />

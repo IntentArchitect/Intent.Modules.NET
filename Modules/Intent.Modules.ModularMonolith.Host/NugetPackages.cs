@@ -32,22 +32,22 @@ namespace Intent.Modules.ModularMonolith.Host
             NugetRegistry.Register(MassTransitPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("8.5.2")
-                            .WithNugetDependency("MassTransit.Abstractions", "8.5.2")
+                        ( >= 9, >= 0) => new PackageVersion("8.5.3")
+                            .WithNugetDependency("MassTransit.Abstractions", "8.5.3")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Diagnostics.HealthChecks", "9.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Hosting.Abstractions", "9.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Options", "9.0.0"),
-                        ( >= 8, >= 0) => new PackageVersion("8.5.2")
-                            .WithNugetDependency("MassTransit.Abstractions", "8.5.2")
+                        ( >= 8, >= 0) => new PackageVersion("8.5.3")
+                            .WithNugetDependency("MassTransit.Abstractions", "8.5.3")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "8.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Diagnostics.HealthChecks", "8.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Hosting.Abstractions", "8.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "8.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Options", "8.0.0"),
-                        ( >= 2, >= 0) => new PackageVersion("8.5.2")
-                            .WithNugetDependency("MassTransit.Abstractions", "8.5.2")
+                        ( >= 2, >= 0) => new PackageVersion("8.5.3")
+                            .WithNugetDependency("MassTransit.Abstractions", "8.5.3")
                             .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "8.0.0")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "8.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Diagnostics.HealthChecks", "8.0.0")

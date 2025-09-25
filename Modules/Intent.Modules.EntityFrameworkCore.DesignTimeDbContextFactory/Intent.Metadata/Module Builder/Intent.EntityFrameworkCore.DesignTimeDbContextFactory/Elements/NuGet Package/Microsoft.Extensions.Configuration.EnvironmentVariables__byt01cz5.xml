@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="b6092551-c9a2-465b-87ec-2a904ba062c6" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.8</name>
+      <name>9.0.9</name>
       <display>9.0.8 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,30 +47,24 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="a7c0dfa5-192d-466c-9041-69d9132a4ac5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration</name>
-          <display>Microsoft.Extensions.Configuration (9.0.8)</display>
+        <childElement id="c2653643-57dc-4d23-a825-70fec4f001d3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.Abstractions</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>b6092551-c9a2-465b-87ec-2a904ba062c6</parentFolderId>
-          <packageId>5d8b794d-4032-489f-ac2b-8a73a23a6bf3</packageId>
-          <packageName>Intent.EntityFrameworkCore.DesignTimeDbContextFactory</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="07a9d58d-fa96-4fbb-b46a-2035fa009c0c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.Abstractions</name>
-          <display>Microsoft.Extensions.Configuration.Abstractions (9.0.8)</display>
+        <childElement id="231d0c7a-bc1d-4b33-a22c-ae743dd596d8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>b6092551-c9a2-465b-87ec-2a904ba062c6</parentFolderId>
-          <packageId>5d8b794d-4032-489f-ac2b-8a73a23a6bf3</packageId>
-          <packageName>Intent.EntityFrameworkCore.DesignTimeDbContextFactory</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -78,7 +72,7 @@
       </childElements>
     </childElement>
     <childElement id="8e7e1dfe-6d64-4d82-bc33-6c80c54d3204" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.8</name>
+      <name>9.0.9</name>
       <display>9.0.8 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -100,30 +94,24 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="280f1edb-c14c-4bab-8271-f4e4d3d5f7e4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration</name>
-          <display>Microsoft.Extensions.Configuration (9.0.8)</display>
+        <childElement id="741f2ef5-0582-4990-89a9-60e9170701de" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.Abstractions</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>8e7e1dfe-6d64-4d82-bc33-6c80c54d3204</parentFolderId>
-          <packageId>5d8b794d-4032-489f-ac2b-8a73a23a6bf3</packageId>
-          <packageName>Intent.EntityFrameworkCore.DesignTimeDbContextFactory</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="4daba802-bb1f-43c7-84ec-04b793b7a466" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.Abstractions</name>
-          <display>Microsoft.Extensions.Configuration.Abstractions (9.0.8)</display>
+        <childElement id="80b939ba-37a3-49f5-a544-3f15bc335f8b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>8e7e1dfe-6d64-4d82-bc33-6c80c54d3204</parentFolderId>
-          <packageId>5d8b794d-4032-489f-ac2b-8a73a23a6bf3</packageId>
-          <packageName>Intent.EntityFrameworkCore.DesignTimeDbContextFactory</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -131,7 +119,7 @@
       </childElements>
     </childElement>
     <childElement id="df726092-2c14-4508-afc4-03f5f2b8582c" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.8</name>
+      <name>9.0.9</name>
       <display>9.0.8 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -153,30 +141,24 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="bd13d918-0268-46b2-8e21-54b429046ca4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration</name>
-          <display>Microsoft.Extensions.Configuration (9.0.8)</display>
+        <childElement id="7ddebe50-9a91-44fc-81f0-eaa255c508e1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.Abstractions</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>df726092-2c14-4508-afc4-03f5f2b8582c</parentFolderId>
-          <packageId>5d8b794d-4032-489f-ac2b-8a73a23a6bf3</packageId>
-          <packageName>Intent.EntityFrameworkCore.DesignTimeDbContextFactory</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="3a3c5ebd-0956-4505-8418-df2db3c3ddd2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.Abstractions</name>
-          <display>Microsoft.Extensions.Configuration.Abstractions (9.0.8)</display>
+        <childElement id="4cea01d0-b742-4584-914a-b2d69ef9dbf4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>df726092-2c14-4508-afc4-03f5f2b8582c</parentFolderId>
-          <packageId>5d8b794d-4032-489f-ac2b-8a73a23a6bf3</packageId>
-          <packageName>Intent.EntityFrameworkCore.DesignTimeDbContextFactory</packageName>
           <stereotypes />
           <metadata />
           <childElements />

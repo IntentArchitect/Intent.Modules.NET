@@ -23,7 +23,7 @@
   <metadata />
   <childElements>
     <childElement id="8eabba86-3d7f-4147-bff2-ca5d0a9606fb" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.8</name>
+      <name>9.0.9</name>
       <display>8.0.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -44,10 +44,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="81b9b1d9-2ae5-4f1c-8283-bf6a4cb20e5c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="0a9191f9-cea5-421f-a4bb-4ff03e105a07" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Primitives</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>8eabba86-3d7f-4147-bff2-ca5d0a9606fb</parentFolderId>
@@ -58,7 +58,7 @@
       </childElements>
     </childElement>
     <childElement id="f167d39d-387b-4d37-8522-1ae0287549ad" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.8</name>
+      <name>9.0.9</name>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -76,10 +76,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="8982f672-6e80-4f6e-8810-3c4117765681" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9b4c009f-976b-4db9-8478-ef4ba3260fc6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Primitives</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f167d39d-387b-4d37-8522-1ae0287549ad</parentFolderId>
@@ -90,7 +90,7 @@
       </childElements>
     </childElement>
     <childElement id="a92b83a5-d2e8-4c6b-bfac-9e0e27df5e53" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.8</name>
+      <name>9.0.9</name>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -108,10 +108,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="3a2a00fa-5e7a-4862-b526-ab9cf041b828" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="2adafd1a-6aa3-4e75-8856-77f16024aad5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Primitives</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a92b83a5-d2e8-4c6b-bfac-9e0e27df5e53</parentFolderId>

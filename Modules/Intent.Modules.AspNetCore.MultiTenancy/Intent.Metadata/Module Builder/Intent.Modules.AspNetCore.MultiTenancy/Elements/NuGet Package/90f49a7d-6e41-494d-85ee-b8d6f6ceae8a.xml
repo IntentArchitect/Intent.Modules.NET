@@ -126,7 +126,7 @@
       <childElements />
     </childElement>
     <childElement id="4b2f7a02-8809-421f-90d5-9e9f0b38d5ff" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.8</name>
+      <name>9.0.9</name>
       <display>9.0.8 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -148,44 +148,35 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="d11ba759-0205-4a55-aa57-c7e2fd43827d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f50c9ce3-3f46-434f-a54b-8e41a8f6a857" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore</name>
-          <display>Microsoft.EntityFrameworkCore (9.0.8)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4b2f7a02-8809-421f-90d5-9e9f0b38d5ff</parentFolderId>
-          <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
-          <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="485550c9-7856-457b-ae84-c2163ee96591" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="8c8cf718-dde4-4f86-81d3-885f12715234" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Caching.Memory</name>
-          <display>Microsoft.Extensions.Caching.Memory (9.0.8)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4b2f7a02-8809-421f-90d5-9e9f0b38d5ff</parentFolderId>
-          <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
-          <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="38842b05-d2c1-4056-889b-7879bb4996aa" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="10547b9c-eb5e-4cb5-a664-690d970b4270" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging</name>
-          <display>Microsoft.Extensions.Logging (9.0.8)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4b2f7a02-8809-421f-90d5-9e9f0b38d5ff</parentFolderId>
-          <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
-          <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
           <stereotypes />
           <metadata />
           <childElements />

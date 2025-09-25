@@ -18,7 +18,7 @@ namespace Intent.Modules.AzureFunctions.AzureEventGrid
             NugetRegistry.Register(MicrosoftAzureFunctionsWorkerExtensionsEventGridPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 2, >= 0) => new PackageVersion("3.5.0")
+                        ( >= 2, >= 0) => new PackageVersion("3.6.0")
                             .WithNugetDependency("Azure.Messaging.EventGrid", "4.29.0")
                             .WithNugetDependency("Microsoft.Azure.Functions.Worker.Core", "1.20.0")
                             .WithNugetDependency("Microsoft.Azure.Functions.Worker.Extensions.Abstractions", "1.3.0"),

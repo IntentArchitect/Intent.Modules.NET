@@ -1,3 +1,7 @@
+### Version 1.2.22
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 1.2.21
 
 - Improvement: Added additional methods to the base repository
