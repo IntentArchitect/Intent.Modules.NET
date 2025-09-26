@@ -1,3 +1,7 @@
+### Version 5.0.10
+
+- Improvement: Improved domain events for deriving classes.
+
 ### Version 5.0.9
 
 - Improvement: Improved role names for templates.

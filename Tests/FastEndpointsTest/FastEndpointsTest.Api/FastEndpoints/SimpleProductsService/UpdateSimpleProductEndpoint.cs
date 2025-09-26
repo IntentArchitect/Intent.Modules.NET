@@ -46,7 +46,6 @@ namespace FastEndpointsTest.Api.FastEndpoints.SimpleProductsService
                 b.ProducesProblemDetails();
                 b.ProducesProblemDetails(StatusCodes.Status500InternalServerError);
             });
-            Validator<SimpleProductUpdateDtoValidator>();
             AllowAnonymous();
             Options(x => x.WithVersionSet(">>Api Version<<").MapToApiVersion(new ApiVersion(1.0)));
         }
