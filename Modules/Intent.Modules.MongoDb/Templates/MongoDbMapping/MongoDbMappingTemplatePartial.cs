@@ -78,7 +78,21 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbMapping
                                         }
                                         else
                                         {
-                                            block.AddInvocationStatement("mapping.MapIdMember", s => s.AddArgument($"x => x.{pkAttribute.Name}"));
+                                            var dataSource = GetPKDataSource(pkAttribute);
+                                            if (string.IsNullOrEmpty(dataSource))
+                                            {
+                                                block.AddInvocationStatement("mapping.MapIdMember", s => s.AddArgument($"x => x.{pkAttribute.Name}"));
+                                            }
+                                            else if(pkType == "string")
+                                            {
+                                                block.AddInvocationStatement("mapping.MapIdMember", s => s.AddArgument($"x => x.{pkAttribute.Name}")
+                                                    .AddInvocation("SetIdGenerator", si => si.AddArgument("StringObjectIdGenerator.Instance")));
+                                            }
+                                            else if (pkType == "Guid")
+                                            {
+                                                block.AddInvocationStatement("mapping.MapIdMember", s => s.AddArgument($"x => x.{pkAttribute.Name}")
+                                                    .AddInvocation("SetIdGenerator", si => si.AddArgument("CombGuidGenerator.Instance")));
+                                            }
                                         }
                                     }
                                 });
@@ -96,6 +110,18 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbMapping
             }
 
             return GetTypeName(pkAttribute);
+        }
+
+        internal string GetPKDataSource(AttributeModel pkAttribute)
+        {
+            try
+            {
+                return pkAttribute.GetStereotype("64f6a994-4909-4a9d-a0a9-afc5adf2ef74").GetProperty("ce12cf69-e97f-401b-9b08-7e2c62171d4e").Value;
+            }
+            catch (Exception)
+            {
+                return string.Empty;
+            }
         }
 
         [IntentManaged(Mode.Fully)]
