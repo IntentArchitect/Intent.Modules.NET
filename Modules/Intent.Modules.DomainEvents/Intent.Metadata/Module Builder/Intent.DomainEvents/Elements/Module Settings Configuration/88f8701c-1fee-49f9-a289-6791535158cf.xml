@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="88f8701c-1fee-49f9-a289-6791535158cf" type="Module Settings Configuration" typeId="37e678f8-370a-4b05-ae44-69bb3d2b39b6">
+  <name>Domain Event Settings</name>
+  <display>Domain Event Settings</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>40ce7dd1-89e1-4505-be73-c89c5bc47d16</parentFolderId>
+  <packageId>40ce7dd1-89e1-4505-be73-c89c5bc47d16</packageId>
+  <packageName>Intent.DomainEvents</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

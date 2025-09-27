@@ -1,15 +1,15 @@
-using System;
-using Intent.Configuration;
+﻿using Intent.Configuration;
 using Intent.Engine;
-using Intent.Modules.Common.Templates;
 using Intent.Modules.Modelers.Domain.Settings;
-using Intent.RoslynWeaver.Attributes;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-[assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions", Version = "1.0")]
-
-namespace Intent.Modules.DomainEvents.Settings
+namespace Intent.Modules.MediatR.DomainEvents.Settings
 {
+    //Manually added this as we dont want a direct dependency here, as this module can work with Event Sourcing Modules too.
     public static class ModuleSettingsExtensions
     {
         public static DomainEventSettings GetDomainEventSettings(this IApplicationSettingsProvider settings)

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.MediatR.DomainEvents</id>
   <version>5.2.3</version>
@@ -74,5 +74,15 @@
   <migrations />
   <metadata />
   <moduleSettings />
-  <moduleSettingsExtensions />
+  <moduleSettingsExtensions>
+    <groupExtension id="1c8b2217-b5a5-46a2-9a6e-71117221bde9" groupId="88f8701c-1fee-49f9-a289-6791535158cf" externalReference="1c8b2217-b5a5-46a2-9a6e-71117221bde9">
+      <settings>
+        <setting id="59ce20f9-0fe5-4c1c-8016-de94bfe1d4a2" title="Create implicit domain event handlers" type="switch">
+          <isRequired>false</isRequired>
+          <hint>Automatically create even handlers, when none are modeled.</hint>
+          <defaultValue>true</defaultValue>
+        </setting>
+      </settings>
+    </groupExtension>
+  </moduleSettingsExtensions>
 </package>

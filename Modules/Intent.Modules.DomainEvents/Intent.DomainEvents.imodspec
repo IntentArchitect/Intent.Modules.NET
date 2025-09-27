@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.DomainEvents</id>
   <version>5.0.10-pre.0</version>
@@ -60,7 +60,11 @@
     <file src="$outDir$/$id$.pdb" />
   </files>
   <metadata />
-  <moduleSettings />
+  <moduleSettings>
+    <group id="88f8701c-1fee-49f9-a289-6791535158cf" title="Domain Event Settings" externalReference="88f8701c-1fee-49f9-a289-6791535158cf">
+      <settings />
+    </group>
+  </moduleSettings>
   <interoperability>
     <detect id="Intent.Application.MediatR">
       <install>
