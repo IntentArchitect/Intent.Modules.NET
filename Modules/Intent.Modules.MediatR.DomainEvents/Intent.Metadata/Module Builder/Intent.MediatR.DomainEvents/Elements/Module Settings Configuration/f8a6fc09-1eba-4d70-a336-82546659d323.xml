@@ -1,21 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="1c8b2217-b5a5-46a2-9a6e-71117221bde9" type="Module Settings Extension" typeId="72044cdf-1f96-4ad2-86be-8d5468725e67">
+<class id="f8a6fc09-1eba-4d70-a336-82546659d323" type="Module Settings Configuration" typeId="37e678f8-370a-4b05-ae44-69bb3d2b39b6">
   <name>Domain Event Settings</name>
-  <display>Domain Event Settings: Domain Event Settings</display>
+  <display>Domain Event Settings</display>
   <isAbstract>false</isAbstract>
   <sort-children>manually</sort-children>
   <genericTypes />
-  <typeReference id="e04f7be2-77f9-4fbc-af8e-4f866bbd14cd">
-    <typeId>88f8701c-1fee-49f9-a289-6791535158cf</typeId>
-    <isNavigable>true</isNavigable>
-    <isNullable>false</isNullable>
-    <isCollection>false</isCollection>
-    <isRequired>true</isRequired>
-    <typePackageName>Intent.DomainEvents</typePackageName>
-    <typePackageId>40ce7dd1-89e1-4505-be73-c89c5bc47d16</typePackageId>
-    <stereotypes />
-    <genericTypeParameters />
-  </typeReference>
   <isMapped>false</isMapped>
   <parentFolderId>d2145ffc-e9ed-4058-994a-8cd923d16a77</parentFolderId>
   <packageId>d2145ffc-e9ed-4058-994a-8cd923d16a77</packageId>
@@ -29,7 +18,7 @@
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>1c8b2217-b5a5-46a2-9a6e-71117221bde9</parentFolderId>
+      <parentFolderId>f8a6fc09-1eba-4d70-a336-82546659d323</parentFolderId>
       <packageId>d2145ffc-e9ed-4058-994a-8cd923d16a77</packageId>
       <packageName>Intent.MediatR.DomainEvents</packageName>
       <stereotypes>

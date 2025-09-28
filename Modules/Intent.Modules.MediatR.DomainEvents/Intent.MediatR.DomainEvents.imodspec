@@ -73,16 +73,15 @@
   </files>
   <migrations />
   <metadata />
-  <moduleSettings />
-  <moduleSettingsExtensions>
-    <groupExtension id="1c8b2217-b5a5-46a2-9a6e-71117221bde9" groupId="88f8701c-1fee-49f9-a289-6791535158cf" externalReference="1c8b2217-b5a5-46a2-9a6e-71117221bde9">
+  <moduleSettings>
+    <group id="f8a6fc09-1eba-4d70-a336-82546659d323" title="Domain Event Settings" externalReference="f8a6fc09-1eba-4d70-a336-82546659d323">
       <settings>
         <setting id="59ce20f9-0fe5-4c1c-8016-de94bfe1d4a2" title="Create implicit domain event handlers" type="switch">
-          <isRequired>false</isRequired>
           <hint>Automatically create even handlers, when none are modeled.</hint>
           <defaultValue>true</defaultValue>
         </setting>
       </settings>
-    </groupExtension>
-  </moduleSettingsExtensions>
+    </group>
+  </moduleSettings>
+  <moduleSettingsExtensions />
 </package>

@@ -1,3 +1,8 @@
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.AzureFunctions.Settings;
 using Intent.Modules.AzureFunctions.Templates.Isolated.GlobalExceptionMiddleware;
@@ -12,11 +17,6 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using static Intent.Modules.Common.CSharp.AppStartup.IAppStartupFile;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]

@@ -10,36 +10,6 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.DomainEvents.Settings
 {
-    public static class ModuleSettingsExtensions
-    {
-        public static DomainEventSettings GetDomainEventSettings(this IApplicationSettingsProvider settings)
-        {
-            return new DomainEventSettings(settings.GetGroup("88f8701c-1fee-49f9-a289-6791535158cf"));
-        }
-    }
-
-    public class DomainEventSettings : IGroupSettings
-    {
-        private readonly IGroupSettings _groupSettings;
-
-        public DomainEventSettings(IGroupSettings groupSettings)
-        {
-            _groupSettings = groupSettings;
-        }
-
-        public string Id => _groupSettings.Id;
-
-        public string Title
-        {
-            get => _groupSettings.Title;
-            set => _groupSettings.Title = value;
-        }
-
-        public ISetting GetSetting(string settingId)
-        {
-            return _groupSettings.GetSetting(settingId);
-        }
-    }
 
     public static class DomainSettingsExtensions
     {
