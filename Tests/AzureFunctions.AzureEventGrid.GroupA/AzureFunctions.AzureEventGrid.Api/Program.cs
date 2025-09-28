@@ -35,10 +35,10 @@ var host = new HostBuilder()
                 options.Rules.Remove(toRemove);
             }
         });
-        services.AddSingleton<GlobalExceptionMiddleware>();
         services.AddApplication(configuration);
         services.ConfigureApplicationSecurity(configuration);
         services.AddInfrastructure(configuration);
+        services.AddSingleton<GlobalExceptionMiddleware>();
     })
     .Build();
 
