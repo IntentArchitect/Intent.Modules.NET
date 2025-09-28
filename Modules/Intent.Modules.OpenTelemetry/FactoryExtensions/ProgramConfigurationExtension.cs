@@ -1,15 +1,17 @@
-using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.OpenTelemetry.Settings;
 using Intent.Modules.OpenTelemetry.Templates.OpenTelemetryConfiguration;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
+using System.Linq;
+using System.Text.RegularExpressions;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -26,23 +28,45 @@ namespace Intent.Modules.OpenTelemetry.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            var programTemplate = application.FindTemplateInstance<IProgramTemplate>("App.Program");
-            if (programTemplate == null)
-            {
-                return;
-            }
-
-            var configTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(OpenTelemetryConfigurationTemplate.TemplateId));
-            if (configTemplate == null)
-            {
-                return;
-            }
-
             if (!application.Settings.GetOpenTelemetry().CaptureLogs() || application.Settings.GetOpenTelemetry().Export().IsAzureMonitorOpentelemetryDistro())
             {
                 return;
             }
 
+
+            var programTemplates = application.FindTemplateInstances<IProgramTemplate>("App.Program");
+            if (programTemplates == null || !programTemplates.Any())
+            {
+                return;
+            }
+
+            var configTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(OpenTelemetryConfigurationTemplate.TemplateId);
+            if (configTemplates == null || !configTemplates.Any())
+            {
+                return;
+            }
+
+            if (programTemplates.Count() == 1 && configTemplates.Count() == 1)
+            {
+                UpdateProgramFile(programTemplates.First(), configTemplates.First());
+            }
+            else
+            {
+                var matches = programTemplates.Join(
+                    configTemplates,
+                    programTemplate => programTemplate.OutputTarget.GetProject().Id,
+                    configTemplate => configTemplate.OutputTarget.GetProject().Id,
+                    (ProgramTemplate, ConfigTemplate) => (ProgramTemplate, ConfigTemplate));
+
+                foreach (var match in matches)
+                {
+                    UpdateProgramFile(match.ProgramTemplate, match.ConfigTemplate);
+                }
+            }
+        }
+
+        private static void UpdateProgramFile(IProgramTemplate programTemplate, ICSharpFileBuilderTemplate configTemplate)
+        {
             programTemplate.CSharpFile.OnBuild(file =>
             {
                 file.AddUsing(configTemplate.Namespace);

@@ -272,7 +272,7 @@ public partial class OpenTelemetryConfigurationTemplate : CSharpTemplateBase<obj
 
     public override void BeforeTemplateExecution()
     {
-        ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
+        EmitOrPublish(ServiceConfigurationRequest
             .ToRegister("AddTelemetryConfiguration", ServiceConfigurationRequest.ParameterType.Configuration)
             .HasDependency(this));
 

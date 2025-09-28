@@ -1,3 +1,7 @@
+### Version 5.2.4
+
+- Improvement: Added a setting for opting out of Implicit domain event handlers, for team who only want to explicitly model these.
+
 ### Version 5.2.3
 
 - Improvement: Decoupling this module from the `Intent.Modules.DomainEvents` module so that teams can combine their own Domain Eventing pattners with this one.

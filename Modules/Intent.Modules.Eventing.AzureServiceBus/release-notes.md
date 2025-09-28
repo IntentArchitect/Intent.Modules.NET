@@ -1,3 +1,7 @@
+### Version 1.1.6
+
+- Improvement: Internally upgraded to Emit and Publish system.
+
 ### Version 1.1.5
 
 - Fixed: Subscription appsettings will now always be created when they should.

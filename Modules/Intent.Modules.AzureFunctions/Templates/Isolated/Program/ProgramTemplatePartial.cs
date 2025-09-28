@@ -89,8 +89,6 @@ namespace Intent.Modules.AzureFunctions.Templates.Isolated.Program
                 .AddUsing("System.Linq")
                 .AddTopLevelStatements(tls =>
                 {
-
-
                     configStatements.AddStatement("var configuration = ctx.Configuration;")
                                 .AddStatement("services.AddApplicationInsightsTelemetryWorkerService();")
                                 .AddStatement("services.ConfigureFunctionsApplicationInsights();")
@@ -407,66 +405,6 @@ namespace Intent.Modules.AzureFunctions.Templates.Isolated.Program
         }
         private record ServiceConfigurationContext(string Configuration, string Services) : IServiceConfigurationContext;
 
-        /*
-        private void HandleServiceConfigurationRequest(ServiceConfigurationRequest request)
-        {
-            _serviceConfigurations.Add(request);
-        }
-
-        private List<ServiceConfigurationRequest> GetRelevantServiceConfigurationRequests()
-        {
-            return _serviceConfigurations
-                .Where(p => !p.IsHandled)
-                .OrderBy(o => o.Priority)
-                .ToList();
-        }
-
-        private List<CSharpStatement> GetServiceConfigurationStatementList()
-        {
-            var statementList = new List<CSharpStatement>();
-
-            statementList.AddRange(GetRelevantServiceConfigurationRequests()
-                .Select(s =>
-                {
-                    foreach (var dependency in s.TemplateDependencies)
-                    {
-                        var classProvider = GetTemplate<IClassProvider>(dependency);
-
-                        AddTemplateDependency(dependency);
-                        AddUsing(classProvider.Namespace);
-                    }
-                    return new CSharpStatement($"services.{s.ExtensionMethodName}({GetExtensionMethodParameterList(s)});");
-                }));
-
-            return statementList;
-        }
-
-        private string GetExtensionMethodParameterList(ServiceConfigurationRequest request)
-        {
-            if (request.ExtensionMethodParameterList?.Any() != true)
-            {
-                return string.Empty;
-            }
-
-            var paramList = new List<string>();
-
-            foreach (var param in request.ExtensionMethodParameterList)
-            {
-                switch (param)
-                {
-                    case ServiceConfigurationRequest.ParameterType.Configuration:
-                        paramList.Add("configuration");
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException(
-                            paramName: nameof(request.ExtensionMethodParameterList),
-                            actualValue: param,
-                            message: "Type specified in parameter list is not known or supported");
-                }
-            }
-
-            return string.Join(", ", paramList);
-        }*/
 
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }
