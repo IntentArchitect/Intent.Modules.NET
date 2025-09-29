@@ -54,4 +54,14 @@ public class RouteManager
 
         return result;
     }
+
+    public void AddParameter(string parameterName, string value)
+    {
+        if (!Route.Contains('?'))
+        {
+            Route = Route.Insert(Route.LastIndexOf("\""), $"?{parameterName}={value}");
+            return;
+        }
+        Route = Route.Insert(Route.LastIndexOf("\""), $"&{parameterName}={value}");
+    }
 }
