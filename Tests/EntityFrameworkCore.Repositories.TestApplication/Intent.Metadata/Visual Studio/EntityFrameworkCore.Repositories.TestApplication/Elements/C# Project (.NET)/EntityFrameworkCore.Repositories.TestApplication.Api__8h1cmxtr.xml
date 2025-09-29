@@ -46,6 +46,14 @@
         <property name="68a31b13-148b-45da-a6ea-5a6883f86438" display="Nullable" value="enable" isActive="true" />
       </properties>
     </stereotype>
+    <stereotype stereotypeDefinitionId="fd52e71a-3810-4ae7-ae40-4e1514903d25" name="Launch Settings">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="1b85d04d-e80a-4640-9fee-558711473fa8" display="Base URL" value="" isActive="true" />
+      </properties>
+    </stereotype>
   </stereotypes>
   <metadata />
   <childElements>
