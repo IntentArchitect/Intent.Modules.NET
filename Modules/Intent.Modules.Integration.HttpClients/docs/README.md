@@ -40,7 +40,21 @@ To get started with the `Intent.Integration.HttpClients` module, follow these st
 
 ### Configuring your service proxies in your `appsettings.json`
 
-Intent Architect will create a configuration section per package involved, by default all proxies for that package will use this configuration.
+Intent Architect will create a configuration section per package involved - the URL is determined using the following settings, in order of priority:
+
+1. **Service URL**  
+   Defined in the `Endpoint Settings` stereotype on the Api Service package in the **Services Designer**.  
+   - Automatically populated when importing an OpenAPI document from an external service.  
+   - Can also be set manually for a modeled service.  
+
+2. **Base URL**  
+   Defined in the `Launch Settings` stereotype on the Api startup project in the **Visual Studio Designer**.  
+   - Automatically populated if the required version of `Intent.VisualStudio.Projects` is installed.  
+
+3. **Default value**  
+   If no value is found in the above settings, a default of `https://localhost:44350/` will be used (as shown below)  
+   - This should be updated to the correct URL for your Api project.  
+   - In development, you can find the URL in the Api project’s `Properties/launchSettings.json` file.
 
 ```json
 {
