@@ -31,7 +31,7 @@
       <name>Intent.Blazor</name>
       <display>Intent.Blazor 1.0.2</display>
       <isAbstract>false</isAbstract>
-      <value>1.0.2</value>
+      <value>1.0.3</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>15d42508-1d91-42ec-b16b-b279cff1d258</parentFolderId>
@@ -59,7 +59,7 @@
       <name>Intent.Blazor.FluentValidation</name>
       <display>Intent.Blazor.FluentValidation 1.1.5</display>
       <isAbstract>false</isAbstract>
-      <value>1.1.5</value>
+      <value>1.1.6</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>15d42508-1d91-42ec-b16b-b279cff1d258</parentFolderId>
@@ -73,7 +73,7 @@
       <name>Intent.Blazor.HttpClients</name>
       <display>Intent.Blazor.HttpClients 4.0.15</display>
       <isAbstract>false</isAbstract>
-      <value>4.0.15</value>
+      <value>4.0.16</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>15d42508-1d91-42ec-b16b-b279cff1d258</parentFolderId>
@@ -101,7 +101,7 @@
       <name>Intent.Code.Weaving.Razor</name>
       <display>Intent.Code.Weaving.Razor 2.0.1</display>
       <isAbstract>false</isAbstract>
-      <value>2.0.1</value>
+      <value>2.0.2</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>15d42508-1d91-42ec-b16b-b279cff1d258</parentFolderId>
@@ -115,7 +115,7 @@
       <name>Intent.Common</name>
       <display>Intent.Common 3.9.0</display>
       <isAbstract>false</isAbstract>
-      <value>3.9.0</value>
+      <value>3.9.1</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>15d42508-1d91-42ec-b16b-b279cff1d258</parentFolderId>
@@ -129,7 +129,7 @@
       <name>Intent.Common.CSharp</name>
       <display>Intent.Common.CSharp 3.9.5</display>
       <isAbstract>false</isAbstract>
-      <value>3.9.5</value>
+      <value>3.9.6</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>15d42508-1d91-42ec-b16b-b279cff1d258</parentFolderId>
@@ -157,7 +157,7 @@
       <name>Intent.Metadata.Security</name>
       <display>Intent.Metadata.Security 1.1.0</display>
       <isAbstract>false</isAbstract>
-      <value>1.1.0</value>
+      <value>1.1.1</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>15d42508-1d91-42ec-b16b-b279cff1d258</parentFolderId>
@@ -171,7 +171,7 @@
       <name>Intent.Metadata.WebApi</name>
       <display>Intent.Metadata.WebApi 4.7.14</display>
       <isAbstract>false</isAbstract>
-      <value>4.7.14</value>
+      <value>4.7.15</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>15d42508-1d91-42ec-b16b-b279cff1d258</parentFolderId>
@@ -185,7 +185,7 @@
       <name>Intent.Modelers.Services</name>
       <display>Intent.Modelers.Services 4.0.4</display>
       <isAbstract>false</isAbstract>
-      <value>4.0.4</value>
+      <value>4.0.5</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>15d42508-1d91-42ec-b16b-b279cff1d258</parentFolderId>
@@ -227,7 +227,7 @@
       <name>Intent.Modelers.UI</name>
       <display>Intent.Modelers.UI 1.0.0</display>
       <isAbstract>false</isAbstract>
-      <value>1.0.0</value>
+      <value>1.0.1</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>15d42508-1d91-42ec-b16b-b279cff1d258</parentFolderId>
@@ -269,7 +269,7 @@
       <name>Intent.OutputManager.RoslynWeaver</name>
       <display>Intent.OutputManager.RoslynWeaver 4.9.12</display>
       <isAbstract>false</isAbstract>
-      <value>4.9.12</value>
+      <value>4.9.13</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>15d42508-1d91-42ec-b16b-b279cff1d258</parentFolderId>
@@ -283,7 +283,7 @@
       <name>Intent.VisualStudio.Projects</name>
       <display>Intent.VisualStudio.Projects 3.9.0</display>
       <isAbstract>false</isAbstract>
-      <value>3.9.0</value>
+      <value>3.9.1</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>15d42508-1d91-42ec-b16b-b279cff1d258</parentFolderId>
