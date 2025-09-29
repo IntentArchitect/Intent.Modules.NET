@@ -1,3 +1,7 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modules.Application.Contracts.Clients.Templates;
@@ -20,10 +24,6 @@ using Intent.Modules.Metadata.WebApi.Models;
 using Intent.Persistence;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]

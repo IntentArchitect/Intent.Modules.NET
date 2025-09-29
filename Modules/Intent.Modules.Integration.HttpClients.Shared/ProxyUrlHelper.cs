@@ -5,6 +5,9 @@ using Intent.Modules.Constants;
 using System.Linq;
 using System.Threading;
 using Intent.Configuration;
+using System.Collections.Generic;
+using System.Runtime.ExceptionServices;
+using System;
 
 public static class ProxyUrlHelper
 {
@@ -44,7 +47,19 @@ public static class ProxyUrlHelper
         if (sourceAppConfig is not null)
         {
             var vsDesigner = executionContext.MetadataManager.GetDesigner(sourceAppConfig.Id, Designers.VisualStudioId);
-            var vsPackages = vsDesigner.Packages;
+
+            IEnumerable<IPackage> vsPackages = [];
+
+            try
+            {
+                vsPackages = vsDesigner.Packages;
+            }
+            // not the best way to handle this, but this occurs if there is an problem loading all of the packages
+            // in the VS designer
+            catch(Exception ex)
+            {
+                return string.Empty;
+            }
 
             if (vsPackages.Count() == 1)
             {

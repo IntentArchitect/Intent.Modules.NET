@@ -256,7 +256,25 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
 
             baseUrlProperty.Value = baseUrl;
 
-            project.Package.Save();
+            if (project.Package is not null)
+            {
+                project.Package.Save();
+                return;
+            }
+
+            var currentElement = project;
+
+            while (currentElement is not null)
+            {
+                var package = currentElement.Package;
+                if (package is not null)
+                {
+                    package.Save();
+                    return;
+                }
+
+                currentElement = currentElement.Parent;
+            }
         }
 
         public override string TransformText()
