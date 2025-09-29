@@ -79,19 +79,19 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbMapping
                                         else
                                         {
                                             var dataSource = GetPKDataSource(pkAttribute);
-                                            if (string.IsNullOrEmpty(dataSource))
-                                            {
-                                                block.AddInvocationStatement("mapping.MapIdMember", s => s.AddArgument($"x => x.{pkAttribute.Name}"));
-                                            }
-                                            else if(pkType == "string")
+                                            if (!string.IsNullOrEmpty(dataSource) && pkType == "string")
                                             {
                                                 block.AddInvocationStatement("mapping.MapIdMember", s => s.AddArgument($"x => x.{pkAttribute.Name}")
                                                     .AddInvocation("SetIdGenerator", si => si.AddArgument("StringObjectIdGenerator.Instance")));
                                             }
-                                            else if (pkType == "Guid")
+                                            else if (!string.IsNullOrEmpty(dataSource) && pkType == "Guid")
                                             {
                                                 block.AddInvocationStatement("mapping.MapIdMember", s => s.AddArgument($"x => x.{pkAttribute.Name}")
                                                     .AddInvocation("SetIdGenerator", si => si.AddArgument("CombGuidGenerator.Instance")));
+                                            }
+                                            else
+                                            {
+                                                block.AddInvocationStatement("mapping.MapIdMember", s => s.AddArgument($"x => x.{pkAttribute.Name}"));
                                             }
                                         }
                                     }
