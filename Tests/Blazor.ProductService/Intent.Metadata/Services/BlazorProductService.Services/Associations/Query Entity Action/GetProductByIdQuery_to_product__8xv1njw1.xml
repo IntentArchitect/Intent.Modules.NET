@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="c7de3681-8f35-4878-a821-555a1ffc9154">
+  <sourceEnd id="aed1b154-cb5c-4286-9839-99a618d61147" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetProductByIdQuery</display>
+    <order>0</order>
+    <typeReference id="6bc58ea3-4361-4239-bc50-b1e9e352414e">
+      <typeId>3edb204f-159d-4c5b-8abc-b4fe2368cb15</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Blazor.ProductService.Services</typePackageName>
+      <typePackageId>4b2609a2-0283-4cd2-a81d-3c2f54aa3f5c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="c7de3681-8f35-4878-a821-555a1ffc9154" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>product</name>
+    <display>[query] product: Product</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="c8b88e16-c725-4c3a-a795-98189f5ca60e">
+      <typeId>7b568c33-eac0-42ad-adf8-c662d747c4fe</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Blazor.ProductService.Domain</typePackageName>
+      <typePackageId>c09cbfc8-bd96-4251-a798-4b1ffb770932</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="16f05361-898d-4ed2-ad51-0e12259508c7" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="3edb204f-159d-4c5b-8abc-b4fe2368cb15" location="[Blazor.ProductService].[Services].[GetProductByIdQuery]" />
+        <target applicationId="16f05361-898d-4ed2-ad51-0e12259508c7" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="7b568c33-eac0-42ad-adf8-c662d747c4fe" location="[Blazor.ProductService].[Services].[Product]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="7b568c33-eac0-42ad-adf8-c662d747c4fe" name="Product" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="191ba428-46f5-4e24-b35d-77845dc7a4bb" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="3edb204f-159d-4c5b-8abc-b4fe2368cb15" name="GetProductByIdQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+                  <target id="cc528d14-3044-4257-b5b0-29a550a88531" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

@@ -1,0 +1,22 @@
+@page "/product"
+@using BlazorStandalone.Client.Contracts.BlazorProductService.Services
+
+
+
+@if (Model is not null)
+{
+    <MudTable T="ProductDto"
+              Items="@Model"
+              Hover="true">
+        <HeaderContent>
+            <MudTh>Name</MudTh>
+            <MudTh>Ref</MudTh>
+            <MudTh>Qty</MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd>@context.Name</MudTd>
+            <MudTd>@context.Ref</MudTd>
+            <MudTd>@context.Qty</MudTd>
+        </RowTemplate>
+    </MudTable>
+}

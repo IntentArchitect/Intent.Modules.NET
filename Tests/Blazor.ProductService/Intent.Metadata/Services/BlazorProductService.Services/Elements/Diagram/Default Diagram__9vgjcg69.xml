@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9492938e-466c-4cfb-8635-dd60b0f4bd45" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>169f3801-8244-4b9e-ac2f-3eaede785048</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>4b2609a2-0283-4cd2-a81d-3c2f54aa3f5c</parentFolderId>
+  <packageId>4b2609a2-0283-4cd2-a81d-3c2f54aa3f5c</packageId>
+  <packageName>BlazorProductService.Services</packageName>
+  <diagram>
+    <targetPackageId>4b2609a2-0283-4cd2-a81d-3c2f54aa3f5c</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
