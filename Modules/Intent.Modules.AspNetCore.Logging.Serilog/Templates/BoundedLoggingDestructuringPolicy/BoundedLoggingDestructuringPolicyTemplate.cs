@@ -23,8 +23,6 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.Templates.BoundedLoggingDest
                      using Serilog.Core;
                      using Serilog.Events;
                      
-                     [assembly: DefaultIntentManaged(Mode.Fully)]
-                     
                      namespace {{Namespace}};
                      
                      /// <summary>
