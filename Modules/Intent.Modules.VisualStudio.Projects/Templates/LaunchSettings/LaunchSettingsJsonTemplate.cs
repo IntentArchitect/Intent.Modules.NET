@@ -1,19 +1,24 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Xml.Linq;
 using Intent.Engine;
 using Intent.Eventing;
+using Intent.Exceptions;
+using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Configuration;
 using Intent.Modules.Common.CSharp.Configuration;
+using Intent.Modules.Common.CSharp.Migrations;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Constants;
 using Intent.Modules.VisualStudio.Projects.Api;
+using Intent.Persistence;
 using Intent.SdkEvolutionHelpers;
 using Intent.Templates;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Xml.Linq;
 
 namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
 {
@@ -23,16 +28,20 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
         private int _randomSslPort;
         private string _defaultLaunchUrlPath = string.Empty;
         private bool _launchProfileHttpPortRequired;
+        private string _defaultApplicationUrl = string.Empty;
         private IVisualStudioProject? _model;
+        private readonly IPersistenceLoader _persistenceLoader;
 
         private readonly List<EnvironmentVariableRegistrationRequest> _environmentVariables = new();
         private bool _noDefaultLaunchSettingsFile;
 
         public const string Identifier = "Intent.VisualStudio.Projects.CoreWeb.LaunchSettings";
 
-        public LaunchSettingsJsonTemplate(IOutputTarget outputTarget, IApplicationEventDispatcher applicationEventDispatcher, IApplication application)
+        public LaunchSettingsJsonTemplate(IOutputTarget outputTarget, IApplicationEventDispatcher applicationEventDispatcher, IApplication application,
+            IPersistenceLoader persistenceLoader)
             : base(Identifier, outputTarget, null)
         {
+            _persistenceLoader = persistenceLoader;
             _model = ExecutionContext.MetadataManager.GetAllProjectModels(application).FirstOrDefault(m => m.Id == OutputTarget.Id);
 
             ExecutionContext.EventDispatcher.Subscribe<EnvironmentVariableRegistrationRequest>(HandleEnvironmentVariable);
@@ -46,6 +55,20 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
 
             ExecutionContext.EventDispatcher.Subscribe(LaunchProfileHttpPortRequired.EventId, _ => _launchProfileHttpPortRequired = true);
             ExecutionContext.EventDispatcher.Subscribe<AddProjectPropertyEvent>(HandleNoDefaultLaunchSettingsFile);
+
+            _defaultApplicationUrl = GetDefaultApplicationUrl();
+        }
+
+        private string GetDefaultApplicationUrl()
+        {
+            var project = OutputTarget.GetProject();
+            // launch settings
+            if(project is null || project.InternalElement is null || !project.InternalElement.HasStereotype(ProjectStereotypes.LaunchSettings.Id))
+            {
+                return string.Empty;
+            }
+
+            return project.InternalElement.GetStereotypeProperty(ProjectStereotypes.LaunchSettings.Id, ProjectStereotypes.LaunchSettings.BaseUrlId, "");
         }
 
         public override string GetCorrelationId()
@@ -170,11 +193,23 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
             {
                 _randomPort = new Random().Next(56600, 65535);
                 _randomSslPort = new Random().Next(44300, 44399);
+
+                if (!string.IsNullOrWhiteSpace(_defaultApplicationUrl))
+                {
+                    _randomSslPort = new Uri(_defaultApplicationUrl).Port;
+                }
+
+                SetBaseUrlSteroetypeValue($"https://localhost:{_randomSslPort}/");
+
                 ExecutionContext.EventDispatcher.Publish(new HostingSettingsCreatedEvent($"http://localhost:{_randomPort}/", _randomPort, _randomSslPort));
                 return;
             }
 
-            var iisExpress = LaunchSettings.FromJson(content).IisSettings?.IisExpress;
+            var launchSettingsParsed = LaunchSettings.FromJson(content);
+            
+            SetBaseUrlSteroetypeValue(launchSettingsParsed?.Profiles?.FirstOrDefault(p => !string.IsNullOrWhiteSpace(p.Value.ApplicationUrl)).Value?.ApplicationUrl);
+
+            var iisExpress = launchSettingsParsed.IisSettings?.IisExpress;
             if (iisExpress?.ApplicationUrl == null ||
                 !iisExpress.SslPort.HasValue)
             {
@@ -188,6 +223,40 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
                 applicationUrl: iisExpress.ApplicationUrl.ToString(),
                 port: _randomPort,
                 sslPort: _randomSslPort));
+        }
+
+        private void SetBaseUrlSteroetypeValue(string baseUrl)
+        {
+            // only if the value is not set
+            if(!string.IsNullOrWhiteSpace(_defaultApplicationUrl))
+            {
+                return;
+            }
+
+            var targetProject = OutputTarget.GetProject();
+
+            var application = _persistenceLoader.LoadCurrentApplication();
+
+            var projects = application
+                .GetDesigners()
+                .Where(d => d.Id == Designers.VisualStudioId)
+                .SelectMany(d => d.GetPackages())
+                .SelectMany(p => p.GetElementsOfType(ASPNETCoreWebApplicationModel.SpecializationTypeId)
+                                  .Concat(p.GetElementsOfType(CSharpProjectNETModel.SpecializationTypeId)));
+
+            var project = projects.FirstOrDefault(p => p.Id == targetProject.Id);
+
+            if (project is null || !project.Stereotypes.Any(s => s.DefinitionId == CSharpProjectNETModelStereotypeExtensions.LaunchSettings.DefinitionId))
+            {
+                return;
+            }
+
+            var baseUrlStereotype = project.Stereotypes.First(s => s.DefinitionId == CSharpProjectNETModelStereotypeExtensions.LaunchSettings.DefinitionId);
+            var baseUrlProperty = baseUrlStereotype.Properties.First(p => p.DefinitionId == ProjectStereotypes.LaunchSettings.BaseUrlId);
+
+            baseUrlProperty.Value = baseUrl;
+
+            project.Package.Save();
         }
 
         public override string TransformText()
@@ -221,7 +290,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
             {
                 // In case has not been set through an event, sets this be default.
                 _environmentVariables.Insert(0, new EnvironmentVariableRegistrationRequest(
-                    "DOTNET_ENVIRONMENT", "Development", new[]{ Project.Name}));
+                    "DOTNET_ENVIRONMENT", "Development", new[] { Project.Name }));
             }
             else
             {
@@ -310,7 +379,9 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
                     AnonymousAuthentication = true,
                     IisExpress = new IisExpressClass
                     {
-                        ApplicationUrl = new Uri($"http://localhost:{_randomPort}/"),
+                        ApplicationUrl = string.IsNullOrEmpty(_defaultApplicationUrl) ? 
+                            new Uri($"http://localhost:{_randomPort}/") :
+                            new Uri(_defaultApplicationUrl),
                         SslPort = _randomSslPort
                     }
                 },
@@ -323,7 +394,9 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
                         {
                             CommandName = CommandName.Project,
                             LaunchBrowser = true,
-                            ApplicationUrl = $"https://localhost:{_randomSslPort}/",
+                            ApplicationUrl = string.IsNullOrEmpty(_defaultApplicationUrl) ? 
+                                $"https://localhost:{_randomSslPort}/" :
+                                _defaultApplicationUrl,
                             LaunchUrl = _defaultLaunchUrlPath == null
                                 ? null
                                 : $"https://localhost:{_randomSslPort}/{_defaultLaunchUrlPath}"

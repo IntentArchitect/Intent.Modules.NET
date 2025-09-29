@@ -1,3 +1,7 @@
+### Version 3.9.2
+
+- Improvement: Added `BaseUrl` stereotype to the relevent project, so that other applications creating proxies can read the URL value.
+
 ### Version 3.9.1
 
 - Improvement: `Roles` can now disable the creation of sub-folders by `Template Outputs` on installation.

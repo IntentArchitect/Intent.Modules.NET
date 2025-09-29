@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e5fe0896-9fae-449b-9131-7c6a229a60cb" type="On-Install Migration" typeId="4ba35747-deea-43a9-acd4-26d57edb5bb9">
+  <name>On-Install</name>
+  <display>On-Install</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9dfa12fc-f80f-48fb-b9dd-6e9e30b1f82d</parentFolderId>
+  <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+  <packageName>Intent.VisualStudio.Projects</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

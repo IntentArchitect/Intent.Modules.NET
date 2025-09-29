@@ -60,6 +60,30 @@ namespace Intent.Modules.VisualStudio.Projects.Api
             return true;
         }
 
+        public static LaunchSettings GetLaunchSettings(this CSharpProjectNETModel model)
+        {
+            var stereotype = model.GetStereotype(LaunchSettings.DefinitionId);
+            return stereotype != null ? new LaunchSettings(stereotype) : null;
+        }
+
+
+        public static bool HasLaunchSettings(this CSharpProjectNETModel model)
+        {
+            return model.HasStereotype(LaunchSettings.DefinitionId);
+        }
+
+        public static bool TryGetLaunchSettings(this CSharpProjectNETModel model, out LaunchSettings stereotype)
+        {
+            if (!HasLaunchSettings(model))
+            {
+                stereotype = null;
+                return false;
+            }
+
+            stereotype = new LaunchSettings(model.GetStereotype(LaunchSettings.DefinitionId));
+            return true;
+        }
+
         public class NETSettings
         {
             private IStereotype _stereotype;
@@ -756,6 +780,25 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 Warnings,
                 Annotations
             }
+        }
+
+        public class LaunchSettings
+        {
+            private IStereotype _stereotype;
+            public const string DefinitionId = "fd52e71a-3810-4ae7-ae40-4e1514903d25";
+
+            public LaunchSettings(IStereotype stereotype)
+            {
+                _stereotype = stereotype;
+            }
+
+            public string Name => _stereotype.Name;
+
+            public string BaseURL()
+            {
+                return _stereotype.GetProperty<string>("Base URL");
+            }
+
         }
 
     }

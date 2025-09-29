@@ -387,9 +387,9 @@
       <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#489d8e66-7e12-48ec-9290-23f5ac3bf323</correlationId>
       <path>Intent.Modules.VisualStudio.Projects/Templates/ServiceFabric/ServiceFabricProject/ServiceFabricProjectTemplatePartial.cs</path>
       <count>1</count>
-      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
-      <updatedAt>2025-09-14T11:49:44.4601714Z</updatedAt>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2025-09-04T10:29:07.7378401Z</updatedAt>
       <deviationsHash>A25B03A6669C9F4E97BBE7332EBCAB60610F9F00B5F1E42B7DB0E65E920DB93C</deviationsHash>
       <fileHash>76FDF3169754AD4BD6C771C9DC575537D17F3BB1A57DBB0B0F58131AFC82911D</fileHash>
     </file>
