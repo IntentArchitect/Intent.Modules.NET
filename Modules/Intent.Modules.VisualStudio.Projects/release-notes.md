@@ -1,6 +1,10 @@
-### Version 3.9.2
+### Version 3.9.3
 
 - Improvement: Added `BaseUrl` stereotype to the relevent project, so that other applications creating proxies can read the URL value.
+
+### Version 3.9.2
+
+- Fixed: Solution `sln` files didn't sync at all when one project didn't have all the right properties defined.
 
 ### Version 3.9.1
 
