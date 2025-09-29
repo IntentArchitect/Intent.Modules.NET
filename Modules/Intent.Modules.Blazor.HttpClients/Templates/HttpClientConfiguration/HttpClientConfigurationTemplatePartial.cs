@@ -128,6 +128,9 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.HttpClientConfiguration
             var url = string.Empty;
 
             var package = proxy.InternalElement?.Package;
+            // this if for if the service is not defined in a folder, then the proxy.InternalElement is null. In which 
+            // case we revert to trying to get the package from the first element on the proxy
+            package = package is null && proxy.Endpoints.Any() ? proxy.Endpoints[0].InternalElement?.Package : package;
 
             if (package == null)
             {

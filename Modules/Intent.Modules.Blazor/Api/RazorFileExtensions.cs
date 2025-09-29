@@ -248,7 +248,9 @@ public static class RazorFileExtensions
                                 }
                                 else
                                 {
-                                    serviceName = block.InjectServiceProperty(block.Template.GetTypeName(parentElement));
+                                    serviceName = parentElement is not null ? block.InjectServiceProperty(block.Template.GetTypeName(parentElement)) :
+                                        block.InjectServiceProperty(block.Template.GetTypeName(serviceCall.Package.AsTypeReference()));
+
 
                                     if (targetElement.SpecializationTypeId is commandSpecializationTypeId or querySpecializationTypeId)
                                     {
@@ -258,7 +260,7 @@ public static class RazorFileExtensions
                                         }
 
                                         var nameOfMethodToInvoke = block.Template
-                                            .GetAllTypeInfo(parentElement.AsTypeReference())
+                                            .GetAllTypeInfo(parentElement.AsTypeReference()?.Element is null ? serviceCall.Package.AsTypeReference() : parentElement.AsTypeReference())
                                             .Select(x => x.Template)
                                             .OfType<ICSharpTemplate>()
                                             .FirstOrDefault(x => x.RootCodeContext.TryGetReferenceForModel(targetElement.Id, out _))
