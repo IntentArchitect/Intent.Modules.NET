@@ -9,16 +9,17 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.ValueObjects
 {
     public class KeyValuePairNormal : ValueObject
     {
-        protected KeyValuePairNormal()
-        {
-            Key = null!;
-            Value = null!;
-        }
-
         public KeyValuePairNormal(string key, string value)
         {
             Key = key;
             Value = value;
+        }
+
+        [IntentMerge]
+        protected KeyValuePairNormal()
+        {
+            Key = null!;
+            Value = null!;
         }
 
         public string Key { get; private set; }

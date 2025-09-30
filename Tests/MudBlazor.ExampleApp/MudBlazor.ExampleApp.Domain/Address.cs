@@ -7,14 +7,6 @@ namespace MudBlazor.ExampleApp.Domain
 {
     public class Address : ValueObject
     {
-        protected Address()
-        {
-            Line1 = null!;
-            City = null!;
-            Country = null!;
-            Postal = null!;
-        }
-
         public Address(string line1, string? line2, string city, string country, string postal)
         {
             Line1 = line1;
@@ -22,6 +14,15 @@ namespace MudBlazor.ExampleApp.Domain
             City = city;
             Country = country;
             Postal = postal;
+        }
+
+        [IntentMerge]
+        protected Address()
+        {
+            Line1 = null!;
+            City = null!;
+            Country = null!;
+            Postal = null!;
         }
 
         public string Line1 { get; private set; }

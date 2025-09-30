@@ -8,15 +8,16 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.ExtensiveDomainServices
 {
     public class SimpleVO : ValueObject
     {
-        protected SimpleVO()
-        {
-            Value1 = null!;
-        }
-
         public SimpleVO(string value1, int value2)
         {
             Value1 = value1;
             Value2 = value2;
+        }
+
+        [IntentMerge]
+        protected SimpleVO()
+        {
+            Value1 = null!;
         }
 
         public string Value1 { get; private set; }

@@ -14,6 +14,7 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Domain
             Email = email;
         }
 
+        [IntentMerge]
         protected ContactDetailsVO()
         {
             Cell = null!;

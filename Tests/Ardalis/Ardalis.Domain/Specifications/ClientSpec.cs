@@ -11,6 +11,7 @@ namespace Ardalis.Domain.Specifications
     [IntentManaged(Mode.Merge)]
     public class ClientSpec : Specification<Client>
     {
+        [IntentManaged(Mode.Merge)]
         public ClientSpec()
         {
         }

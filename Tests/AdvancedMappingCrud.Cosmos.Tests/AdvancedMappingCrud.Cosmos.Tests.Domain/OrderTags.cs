@@ -8,6 +8,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Domain
 {
     public class OrderTags : ValueObject
     {
+        [IntentMerge]
         protected OrderTags()
         {
             Name = null!;

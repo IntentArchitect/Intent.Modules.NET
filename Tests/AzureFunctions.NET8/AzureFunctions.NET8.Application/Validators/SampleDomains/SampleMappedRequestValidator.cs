@@ -11,6 +11,7 @@ namespace AzureFunctions.NET8.Application.Validators.SampleDomains
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class SampleMappedRequestValidator : AbstractValidator<SampleMappedRequest>
     {
+        [IntentManaged(Mode.Merge)]
         public SampleMappedRequestValidator()
         {
             ConfigureValidationRules();

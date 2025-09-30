@@ -13,6 +13,7 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Domain
             Name = name;
         }
 
+        [IntentMerge]
         protected PersonDetails()
         {
             Name = null!;

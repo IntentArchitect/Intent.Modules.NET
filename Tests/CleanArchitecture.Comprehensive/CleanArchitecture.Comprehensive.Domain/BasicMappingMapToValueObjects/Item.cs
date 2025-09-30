@@ -8,16 +8,17 @@ namespace CleanArchitecture.Comprehensive.Domain.BasicMappingMapToValueObjects
 {
     public class Item : ValueObject
     {
-        protected Item()
-        {
-            Key = null!;
-            Value = null!;
-        }
-
         public Item(string key, string value)
         {
             Key = key;
             Value = value;
+        }
+
+        [IntentMerge]
+        protected Item()
+        {
+            Key = null!;
+            Value = null!;
         }
 
         public string Key { get; private set; }

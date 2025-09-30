@@ -8,16 +8,17 @@ namespace EntityFrameworkCore.MaintainColumnOrder.Tests.Domain
 {
     public class InLineColumns : ValueObject
     {
-        protected InLineColumns()
-        {
-            Col1 = null!;
-            Col2 = null!;
-        }
-
         public InLineColumns(string col1, string col2)
         {
             Col1 = col1;
             Col2 = col2;
+        }
+
+        [IntentMerge]
+        protected InLineColumns()
+        {
+            Col1 = null!;
+            Col2 = null!;
         }
 
         public string Col1 { get; private set; }

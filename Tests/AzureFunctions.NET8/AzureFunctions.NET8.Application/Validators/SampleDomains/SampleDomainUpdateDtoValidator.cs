@@ -11,6 +11,7 @@ namespace AzureFunctions.NET8.Application.Validators.SampleDomains
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class SampleDomainUpdateDtoValidator : AbstractValidator<SampleDomainUpdateDto>
     {
+        [IntentManaged(Mode.Merge)]
         public SampleDomainUpdateDtoValidator()
         {
             ConfigureValidationRules();

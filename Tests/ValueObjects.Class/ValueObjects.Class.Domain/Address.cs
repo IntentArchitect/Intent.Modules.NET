@@ -8,14 +8,6 @@ namespace ValueObjects.Class.Domain
 {
     public class Address : ValueObject
     {
-        protected Address()
-        {
-            Line1 = null!;
-            Line2 = null!;
-            City = null!;
-            Country = null!;
-        }
-
         public Address(string line1, string line2, string city, string country, AddressType addressType)
         {
             Line1 = line1;
@@ -23,6 +15,15 @@ namespace ValueObjects.Class.Domain
             City = city;
             Country = country;
             AddressType = addressType;
+        }
+
+        [IntentMerge]
+        protected Address()
+        {
+            Line1 = null!;
+            Line2 = null!;
+            City = null!;
+            Country = null!;
         }
 
         public string Line1 { get; private set; }

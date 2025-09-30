@@ -8,18 +8,19 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.ValueObjects
 {
     public class AddressSerialized : ValueObject
     {
-        protected AddressSerialized()
-        {
-            Line1 = null!;
-            Line2 = null!;
-            City = null!;
-        }
-
         public AddressSerialized(string line1, string line2, string city)
         {
             Line1 = line1;
             Line2 = line2;
             City = city;
+        }
+
+        [IntentMerge]
+        protected AddressSerialized()
+        {
+            Line1 = null!;
+            Line2 = null!;
+            City = null!;
         }
 
         public string Line1 { get; private set; }
