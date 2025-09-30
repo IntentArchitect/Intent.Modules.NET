@@ -1,11 +1,12 @@
-﻿using System;
-using System.Linq;
-using Intent.Exceptions;
+﻿using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
+using Intent.Modules.Application.DomainInteractions.Strategies;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using System;
+using System.Linq;
 using OperationModelExtensions = Intent.Modelers.Domain.Api.OperationModelExtensions;
 
 namespace Intent.Modules.Application.DomainInteractions
@@ -33,6 +34,11 @@ namespace Intent.Modules.Application.DomainInteractions
             {
                 IsPaginated = true;
                 ReturnType = _serviceEndPoint.TypeReference!.GenericTypeParameters.FirstOrDefault()?.Element as IElement;
+            }
+            var mapper = MappingStrategyProvider.Instance.GetMappingStrategy(method);
+            if (!mapper.HasProjectTo())
+            {
+                throw new ElementException(AssociationEnd, "The current mapping strategy does not support Project To, if you require this install a mapping module that supports Project To, i.e Intent.Application.AutoMapper");
             }
             if (IsConfiguredForProjections())
             {
