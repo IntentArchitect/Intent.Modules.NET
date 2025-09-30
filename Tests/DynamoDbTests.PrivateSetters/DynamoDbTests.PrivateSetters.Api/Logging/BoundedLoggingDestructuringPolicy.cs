@@ -6,6 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 using Serilog.Core;
 using Serilog.Events;
 
+[assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate", Version = "1.0")]
 
 namespace DynamoDbTests.PrivateSetters.Api.Logging;
