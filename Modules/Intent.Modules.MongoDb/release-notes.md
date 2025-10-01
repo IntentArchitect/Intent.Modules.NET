@@ -1,6 +1,7 @@
 ### Version 2.0.2
 
 - Improvement: Updated NuGet package versions.
+- Fixed: Adding `Collection` stereotype will now override the Collection assigned to the Entity.
 
 ### Version 2.0.1
 

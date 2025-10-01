@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate#94a673e5-160e-4dd0-b80c-1f3b858911aa</correlationId>
+      <path>MongoDb.TestApplication.Api/Logging/BoundedLoggingDestructuringPolicy.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2025-10-01T08:34:37.5853548Z</updatedAt>
+      <deviationsHash>EFA18AE8B73AD7D5CA224222AA2C24C3191A03FCB4D510459F9EAD21D371946C</deviationsHash>
+      <fileHash>C5A90C88FE87CF6DACDFAC56EEAFA813DCFACA3DF9DC67725BB3C508B31489EF</fileHash>
+    </file>
+  </files>
 </deviationsLog>

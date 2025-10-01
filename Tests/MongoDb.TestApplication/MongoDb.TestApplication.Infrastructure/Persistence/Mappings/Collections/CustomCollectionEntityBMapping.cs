@@ -12,7 +12,7 @@ namespace MongoDb.TestApplication.Infrastructure.Persistence.Mappings.Collection
 {
     public class CustomCollectionEntityBMapping : IMongoMappingConfiguration<CustomCollectionEntityB>
     {
-        public string CollectionName => "CustomCollectionEntityBs";
+        public string CollectionName => "CustomCollection";
 
         public void RegisterCollectionMap()
         {

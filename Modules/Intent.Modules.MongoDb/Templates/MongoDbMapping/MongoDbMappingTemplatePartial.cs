@@ -1,8 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Intent.Engine;
+using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
+using Intent.MongoDb.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -10,9 +13,12 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.MongoDb.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using FolderModel = Intent.Modules.Common.Types.Api.FolderModel;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
+
+#nullable enable
 
 namespace Intent.Modules.MongoDb.Templates.MongoDbMapping
 {
@@ -42,11 +48,15 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbMapping
 
                     @class.ImplementsInterface($"{GetTypeName(MongoMappingConfigurationInterface.MongoMappingConfigurationInterfaceTemplate.TemplateId)}<{Model.Name}{genericTypeParameters}>");
 
-                    @class.AddProperty("string", "CollectionName", p => p.WithoutSetter().Getter.WithExpressionImplementation($"\"{Model.Name.Pluralize()}\""));
+                    var collectionName = $"\"{Model.Name.Pluralize()}\"";
+                    if (TryGetCollection(Model, out var relevantCollectionName))
+                    {
+                        collectionName = relevantCollectionName;
+                    }
+                    
+                    @class.AddProperty("string", "CollectionName", p => p.WithoutSetter().Getter.WithExpressionImplementation(collectionName));
                     @class.AddMethod("void", "RegisterCollectionMap", registerCollectionMap =>
                     {
-
-
                         GetTypeName("Intent.Entities.DomainEntity", model.Id);
                         registerCollectionMap.AddIfStatement($"!BsonClassMap.IsClassMapRegistered(typeof({Model.Name}{genericTypeParameters}))", @if =>
                         {
@@ -100,6 +110,36 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbMapping
                         });
                     });
                 });
+        }
+
+        private static bool TryGetCollection(ClassModel model, [NotNullWhen(true)]out string? relevantCollectionName)
+        {
+            relevantCollectionName = null;
+            
+            // Check the ClassModel itself
+            if (model.TryGetCollection(out var classCollection))
+            {
+                relevantCollectionName = $"\"{classCollection.Name()}\"";
+                return true;
+            }
+            
+            // Check parent folders
+            var currentElement = model.InternalElement.ParentElement;
+            while (currentElement != null)
+            {
+                if (currentElement.SpecializationType == "Folder")
+                {
+                    var folderModel = new FolderModel(currentElement);
+                    if (folderModel.TryGetCollection(out var folderCollection))
+                    {
+                        relevantCollectionName = $"\"{folderCollection.Name()}\"";
+                        return true;
+                    }
+                }
+                currentElement = currentElement.ParentElement;
+            }
+            
+            return false;
         }
 
         internal string GetPKType(AttributeModel pkAttribute)
