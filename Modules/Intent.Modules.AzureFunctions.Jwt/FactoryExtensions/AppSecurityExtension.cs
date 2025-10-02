@@ -53,16 +53,13 @@ namespace Intent.Modules.AzureFunctions.Jwt.FactoryExtensions
                     return;
                 }
                 
-                // Remove the existing return statement
-                configMethod.FindStatement(stmt => stmt.GetText("").Contains("return services"))?.Remove();
-                
-                // Add the new statements as per the requirement
-                configMethod
-                    .AddStatement("services.AddHttpContextAccessor();")
-                    .AddStatement($"services.AddSingleton<{template.GetCurrentUserServiceInterfaceName()}, {template.GetCurrentUserServiceName()}>();")
-                    .AddStatement("services.AddSingleton<JwtSecurityTokenHandler>();")
-                    .AddStatement("services.AddAuthorization();")
-                    .AddStatement("return services;", s => s.SeparatedFromPrevious());
+                var returnStmt = configMethod.FindStatement(stmt => stmt.GetText("").Contains("return services"));
+
+                returnStmt.InsertAbove([
+                    new CSharpStatement("services.AddHttpContextAccessor();"),
+                    new CSharpStatement($"services.AddSingleton<{template.GetCurrentUserServiceInterfaceName()}, {template.GetCurrentUserServiceName()}>();"),
+                    new CSharpStatement("services.AddSingleton<JwtSecurityTokenHandler>();"),
+                ]);
             }, 1);
         }
     }
