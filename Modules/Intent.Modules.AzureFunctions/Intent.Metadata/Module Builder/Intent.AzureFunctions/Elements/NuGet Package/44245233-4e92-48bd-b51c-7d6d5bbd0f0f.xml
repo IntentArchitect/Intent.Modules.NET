@@ -26,7 +26,7 @@
   <childElements>
     <childElement id="d5ad49b7-5bbd-4445-a602-0c8a5f151a2a" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>2.1.0</name>
-      <display>2.0.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <display>2.1.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -49,22 +49,28 @@
       <childElements>
         <childElement id="bc828b4c-8461-4545-9695-f1015b9ae977" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Azure.Functions.Worker.Core</name>
+          <display>Microsoft.Azure.Functions.Worker.Core (2.1.0)</display>
           <isAbstract>false</isAbstract>
           <value>2.1.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d5ad49b7-5bbd-4445-a602-0c8a5f151a2a</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="97f7bb08-772e-419f-8ca3-6ab3e7cf7edf" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Azure.Functions.Worker.Grpc</name>
+          <display>Microsoft.Azure.Functions.Worker.Grpc (2.1.0)</display>
           <isAbstract>false</isAbstract>
           <value>2.1.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d5ad49b7-5bbd-4445-a602-0c8a5f151a2a</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -73,7 +79,7 @@
     </childElement>
     <childElement id="1ade6f2c-03f7-4cb4-8062-e3f058a0deaa" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>2.1.0</name>
-      <display>2.0.0 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <display>2.1.0 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -96,22 +102,28 @@
       <childElements>
         <childElement id="206944d5-2730-4239-baa6-31cdef53fe0e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Azure.Functions.Worker.Core</name>
+          <display>Microsoft.Azure.Functions.Worker.Core (2.1.0)</display>
           <isAbstract>false</isAbstract>
           <value>2.1.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>1ade6f2c-03f7-4cb4-8062-e3f058a0deaa</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="4d346c60-15e1-4021-8a78-75bf17d7bfda" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Azure.Functions.Worker.Grpc</name>
+          <display>Microsoft.Azure.Functions.Worker.Grpc (2.1.0)</display>
           <isAbstract>false</isAbstract>
           <value>2.1.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>1ade6f2c-03f7-4cb4-8062-e3f058a0deaa</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -120,7 +132,7 @@
     </childElement>
     <childElement id="3187957c-c092-4b73-a13e-17f8be281c49" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>2.1.0</name>
-      <display>2.0.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <display>2.1.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -143,22 +155,28 @@
       <childElements>
         <childElement id="8a265d6a-60aa-400b-97c6-c0bd46027df6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Azure.Functions.Worker.Core</name>
+          <display>Microsoft.Azure.Functions.Worker.Core (2.1.0)</display>
           <isAbstract>false</isAbstract>
           <value>2.1.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3187957c-c092-4b73-a13e-17f8be281c49</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="27a134d7-c349-428e-bc96-bc9910859c04" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Azure.Functions.Worker.Grpc</name>
+          <display>Microsoft.Azure.Functions.Worker.Grpc (2.1.0)</display>
           <isAbstract>false</isAbstract>
           <value>2.1.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3187957c-c092-4b73-a13e-17f8be281c49</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -167,7 +185,7 @@
     </childElement>
     <childElement id="a5df32cb-e677-4410-823f-b5aec071b007" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>2.1.0</name>
-      <display>2.0.0 ( &gt;= .NETCoreApp,Version=v7.0 )</display>
+      <display>2.1.0 ( &gt;= .NETCoreApp,Version=v7.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -190,22 +208,28 @@
       <childElements>
         <childElement id="65a21d9c-41a5-498d-80a7-89f032116656" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Azure.Functions.Worker.Core</name>
+          <display>Microsoft.Azure.Functions.Worker.Core (2.1.0)</display>
           <isAbstract>false</isAbstract>
           <value>2.1.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a5df32cb-e677-4410-823f-b5aec071b007</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="37ea0fc1-7f50-4695-80b6-8d83fb036807" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Azure.Functions.Worker.Grpc</name>
+          <display>Microsoft.Azure.Functions.Worker.Grpc (2.1.0)</display>
           <isAbstract>false</isAbstract>
           <value>2.1.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a5df32cb-e677-4410-823f-b5aec071b007</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -214,7 +238,7 @@
     </childElement>
     <childElement id="3958b084-bb08-454a-9917-e0ecce4f689e" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>2.1.0</name>
-      <display>2.0.0 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
+      <display>2.1.0 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -237,22 +261,28 @@
       <childElements>
         <childElement id="f084862c-6634-4210-85cd-e4fc0ab09daf" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Azure.Functions.Worker.Core</name>
+          <display>Microsoft.Azure.Functions.Worker.Core (2.1.0)</display>
           <isAbstract>false</isAbstract>
           <value>2.1.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3958b084-bb08-454a-9917-e0ecce4f689e</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="3c34c476-4899-45ce-93c5-2d9a604f1415" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Azure.Functions.Worker.Grpc</name>
+          <display>Microsoft.Azure.Functions.Worker.Grpc (2.1.0)</display>
           <isAbstract>false</isAbstract>
           <value>2.1.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3958b084-bb08-454a-9917-e0ecce4f689e</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />

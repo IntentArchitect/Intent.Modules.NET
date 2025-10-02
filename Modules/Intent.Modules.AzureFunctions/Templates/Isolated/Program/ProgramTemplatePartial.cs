@@ -32,6 +32,7 @@ namespace Intent.Modules.AzureFunctions.Templates.Isolated.Program
         private readonly Lazy<bool> _hasMultipleInstances;
         private readonly List<ContainerRegistrationRequest> _containerRegistrationRequests = new();
         private readonly List<ServiceConfigurationRequest> _serviceConfigurationRequests = new();
+        private readonly List<ApplicationBuilderRegistrationRequest> _applicationBuilderRegistrationRequests = new();
         private readonly CSharpLambdaBlock _configureServicesBlock;
         private readonly IServiceConfigurationContext _serviceConfigurationContext;
 
@@ -77,6 +78,16 @@ namespace Intent.Modules.AzureFunctions.Templates.Isolated.Program
                 _containerRegistrationRequests.Add(request);
             });
 
+            OnEmitOrPublished<ApplicationBuilderRegistrationRequest>(request =>
+            {
+                if (isBuilt)
+                {
+                    return;
+                }
+
+                _applicationBuilderRegistrationRequests.Add(request);
+            });
+
             var configStatements = new CSharpLambdaBlock("(ctx, services)");
             _configureServicesBlock = configStatements;
             _serviceConfigurationContext = new ServiceConfigurationContext("configuration", "services");
@@ -113,7 +124,11 @@ namespace Intent.Modules.AzureFunctions.Templates.Isolated.Program
                     if (ExecutionContext.Settings.GetAzureFunctionsSettings().UseGlobalExceptionMiddleware())
                     {
                         configStatements.AddStatement($"services.AddSingleton<{GetTypeName(GlobalExceptionMiddlewareTemplate.TemplateId)}>();");
-                        globalExceptionConfigStatement.AddStatement($"builder.UseMiddleware<GlobalExceptionMiddleware>();");
+                        var globalExceptionStatement = new CSharpStatement($"builder.UseMiddleware<GlobalExceptionMiddleware>();");
+                        globalExceptionStatement
+                            .AddMetadata("startup-statement-type", StatementType.AppConfiguration)
+                            .AddMetadata("startup-statement-priority", int.MinValue);
+                        globalExceptionConfigStatement.AddStatement<CSharpLambdaBlock, CSharpStatement>(globalExceptionStatement);
                     }
 
                     var hostConfigStatement = new CSharpStatement("new HostBuilder()")
@@ -140,6 +155,11 @@ namespace Intent.Modules.AzureFunctions.Templates.Isolated.Program
                         ProcessContainerRegistrationRequest(request);
                     }
 
+                    foreach (var request in _applicationBuilderRegistrationRequests)
+                    {
+                        ProcessApplicationBuilderRegistrationRequest(request, globalExceptionConfigStatement);
+                    }
+
                     isBuilt = true;
 
                     // Our previous subscriptions are configured to only process if "isBuilt" is false,
@@ -151,6 +171,8 @@ namespace Intent.Modules.AzureFunctions.Templates.Isolated.Program
                     // after the other handlers.
                     OnEmitOrPublished<ServiceConfigurationRequest>(ProcessServiceConfigurationRequest);
                     OnEmitOrPublished<ContainerRegistrationRequest>(ProcessContainerRegistrationRequest);
+                    OnEmitOrPublished<ApplicationBuilderRegistrationRequest>(request => 
+                        ProcessApplicationBuilderRegistrationRequest(request, globalExceptionConfigStatement));
                 });
 
             if (ExecutionContext.GetSettings().GetAzureFunctionsSettings().UseGlobalExceptionMiddleware())
@@ -297,6 +319,71 @@ namespace Intent.Modules.AzureFunctions.Templates.Isolated.Program
                     };
                 }
             }, priority: request.Priority);
+        }
+
+        private void ProcessApplicationBuilderRegistrationRequest(ApplicationBuilderRegistrationRequest request, CSharpLambdaBlock builderConfigStatement)
+        {
+            if (!IsApplicable(request.TemplateDependencies, out var resolvedDependencies))
+            {
+                return;
+            }
+            
+            // Until we can resolve this better here is a blacklist of common middleware:
+            if (request.ExtensionMethodName == "UseAuthentication")
+            {
+                return;
+            }
+
+            foreach (var (dependency, classProvider) in resolvedDependencies)
+            {
+                AddTemplateDependency(dependency);
+                AddUsing(classProvider.Namespace);
+            }
+
+            foreach (var @namespace in request.RequiredNamespaces)
+            {
+                AddUsing(@namespace);
+            }
+
+            var parameterList = new List<string>();
+
+            foreach (var parameter in request.ExtensionMethodParameterList)
+            {
+                switch (parameter)
+                {
+                    case ApplicationBuilderRegistrationRequest.ParameterType.Configuration:
+                        parameterList.Add("ctx.Configuration");
+                        break;
+                    case ApplicationBuilderRegistrationRequest.ParameterType.HostEnvironment:
+                    case ApplicationBuilderRegistrationRequest.ParameterType.WebHostEnvironment:
+                        parameterList.Add("ctx");
+                        break;
+                    default:
+                        //If its not a "magic string" parameter, use what they gave us.
+                        parameterList.Add(parameter);
+                        break;
+                }
+            }
+
+            var statement = new CSharpStatement($"builder.{request.ExtensionMethodName}({string.Join(", ", parameterList)});");
+            statement
+                .AddMetadata("startup-statement-type", StatementType.AppConfiguration)
+                .AddMetadata("startup-statement-priority", request.Priority);
+
+            var insertBelow = builderConfigStatement.Statements
+                .Where(x => x.TryGetMetadata<StatementType>("startup-statement-type", out var metadataType) &&
+                            metadataType == StatementType.AppConfiguration)
+                .LastOrDefault(x => x.TryGetMetadata<int>("startup-statement-priority", out var metadataPriority) &&
+                                    metadataPriority <= request.Priority);
+
+            if (insertBelow == null)
+            {
+                builderConfigStatement.InsertStatement(0, statement);
+            }
+            else
+            {
+                insertBelow.InsertBelow(statement);
+            }
         }
 
         public void ConfigureServices(Action<IHasCSharpStatements, IServiceConfigurationContext> configure)
