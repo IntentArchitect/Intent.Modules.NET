@@ -1,3 +1,7 @@
+### Version 2.0.7
+
+- Improvement: Updated topic documentation format.
+
 ### Version 2.0.6
 
 - Fixed: Incorrect Nuget package installation under wrong .NET version.
