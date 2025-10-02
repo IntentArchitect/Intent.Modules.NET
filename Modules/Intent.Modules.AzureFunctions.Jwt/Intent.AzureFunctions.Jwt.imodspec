@@ -18,14 +18,16 @@
     </template>
   </templates>
   <decorators></decorators>
-  <factoryExtensions></factoryExtensions>
+  <factoryExtensions>
+    <factoryExtension id="Intent.AzureFunctions.Jwt.AppSecurityExtension" externalReference="3f03ea15-e2e8-421a-acea-f006b08bc4b1" />
+  </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.Common" version="3.7.2" />
-    <dependency id="Intent.Common.CSharp" version="3.8.0" />
+    <dependency id="Intent.AzureFunctions" version="5.0.16-pre.2" />
+    <dependency id="Intent.Common" version="3.7.3" />
+    <dependency id="Intent.Common.CSharp" version="3.8.5" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
-    <dependency id="Intent.AzureFunctions" version="5.0.16-pre.2" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />
