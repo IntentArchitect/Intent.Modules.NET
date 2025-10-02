@@ -12,8 +12,8 @@
             ],
           "tags": [
               "identityservice",
-              "identity
-module",
+              "identity",
+              "module",
               "moduledocumentation",
               "Intent.AspNetCore.IdentityService"
             ]

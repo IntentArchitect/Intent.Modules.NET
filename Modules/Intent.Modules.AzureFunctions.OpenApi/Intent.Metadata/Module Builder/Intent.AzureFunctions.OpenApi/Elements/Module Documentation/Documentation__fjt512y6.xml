@@ -32,7 +32,7 @@
             <property name="207e8583-2ba5-4ea3-84aa-2f65cd5915ca" display="Href" value="https://docs.intentarchitect.com/articles/modules-dotnet/intent-azurefunctions.openapi/intent-azurefunctions.openapi.html" isActive="true" />
             <property name="21d13790-2910-475c-b58f-9d350f2e13c6" display="Designers" value="[&quot;81104ae6-2bc5-4bae-b05a-f987b0372d81&quot;]" isActive="true" />
             <property name="8642b1d1-93f9-4f5f-b5ae-ad5fc20d7a46" display="Elements" value="[&quot;702f57ca-3b5a-413b-a084-9f2d154154e7&quot;,&quot;e030c97a-e066-40a7-8188-808c275df3cb&quot;,&quot;ccf14eb6-3a55-4d81-b5b9-d27311c70cb9&quot;,&quot;e71b0662-e29d-4db2-868b-8a12464b25d0&quot;]" isActive="true" />
-            <property name="f55a1f0c-40dd-48b4-b985-8360933e6a47" display="Tags" value="azurefunction openapi&#xA;module moduledocumentation Intent.AzureFunction.OpenApi&#xA;tags" isActive="true" />
+            <property name="f55a1f0c-40dd-48b4-b985-8360933e6a47" display="Tags" value="azurefunction openapi module moduledocumentation Intent.AzureFunction.OpenApi tags" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>

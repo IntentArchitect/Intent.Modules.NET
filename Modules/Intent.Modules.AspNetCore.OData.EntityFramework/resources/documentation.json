@@ -11,11 +11,11 @@
             ],
           "tags": [
               "odata",
-              "entityframework
-module",
+              "entityframework",
+              "module",
               "moduledocumentation",
-              "Intent.AspNetCore.OData.EntityFramework
-expose"
+              "Intent.AspNetCore.OData.EntityFramework",
+              "expose"
             ]
         }
     ]

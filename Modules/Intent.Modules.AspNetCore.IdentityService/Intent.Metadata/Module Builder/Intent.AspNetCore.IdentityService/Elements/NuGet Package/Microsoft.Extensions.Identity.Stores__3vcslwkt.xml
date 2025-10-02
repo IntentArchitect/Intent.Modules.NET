@@ -26,7 +26,7 @@
   <childElements>
     <childElement id="d0a54d42-5ac4-418a-a9ea-fcf535de76b9" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>9.0.9</name>
-      <display>9.0.6 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <display>9.0.9 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -47,35 +47,44 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="b9daf583-0e22-4aec-a6cb-372c98dbe088" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Identity.Core</name>
+        <childElement id="87666076-554d-48f2-8b1c-2a6e8025aa70" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Caching.Abstractions</name>
+          <display>Microsoft.Extensions.Caching.Abstractions (9.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d0a54d42-5ac4-418a-a9ea-fcf535de76b9</parentFolderId>
+          <packageId>a1a75470-3437-43b1-be57-f2187693929b</packageId>
+          <packageName>Intent.AspNetCore.IdentityService</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="87666076-554d-48f2-8b1c-2a6e8025aa70" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Caching.Abstractions</name>
+        <childElement id="b9daf583-0e22-4aec-a6cb-372c98dbe088" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Identity.Core</name>
+          <display>Microsoft.Extensions.Identity.Core (9.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d0a54d42-5ac4-418a-a9ea-fcf535de76b9</parentFolderId>
+          <packageId>a1a75470-3437-43b1-be57-f2187693929b</packageId>
+          <packageName>Intent.AspNetCore.IdentityService</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="10adf839-3b1e-46ac-8461-e9a1b7732a2a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging</name>
+          <display>Microsoft.Extensions.Logging (9.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d0a54d42-5ac4-418a-a9ea-fcf535de76b9</parentFolderId>
+          <packageId>a1a75470-3437-43b1-be57-f2187693929b</packageId>
+          <packageName>Intent.AspNetCore.IdentityService</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -84,7 +93,7 @@
     </childElement>
     <childElement id="dfca2853-ff97-4482-a083-8d8180affd0c" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>9.0.9</name>
-      <display>9.0.6 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <display>9.0.9 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -105,35 +114,44 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="b55280a8-6f16-4fe7-ba09-141b29748a73" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Identity.Core</name>
+        <childElement id="bd60dd66-2396-4689-8531-c33d2b9a0580" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Caching.Abstractions</name>
+          <display>Microsoft.Extensions.Caching.Abstractions (9.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>dfca2853-ff97-4482-a083-8d8180affd0c</parentFolderId>
+          <packageId>a1a75470-3437-43b1-be57-f2187693929b</packageId>
+          <packageName>Intent.AspNetCore.IdentityService</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="bd60dd66-2396-4689-8531-c33d2b9a0580" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Caching.Abstractions</name>
+        <childElement id="b55280a8-6f16-4fe7-ba09-141b29748a73" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Identity.Core</name>
+          <display>Microsoft.Extensions.Identity.Core (9.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>dfca2853-ff97-4482-a083-8d8180affd0c</parentFolderId>
+          <packageId>a1a75470-3437-43b1-be57-f2187693929b</packageId>
+          <packageName>Intent.AspNetCore.IdentityService</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="511f955c-f027-4f53-982b-f89a9b916193" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging</name>
+          <display>Microsoft.Extensions.Logging (9.0.9)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>dfca2853-ff97-4482-a083-8d8180affd0c</parentFolderId>
+          <packageId>a1a75470-3437-43b1-be57-f2187693929b</packageId>
+          <packageName>Intent.AspNetCore.IdentityService</packageName>
           <stereotypes />
           <metadata />
           <childElements />

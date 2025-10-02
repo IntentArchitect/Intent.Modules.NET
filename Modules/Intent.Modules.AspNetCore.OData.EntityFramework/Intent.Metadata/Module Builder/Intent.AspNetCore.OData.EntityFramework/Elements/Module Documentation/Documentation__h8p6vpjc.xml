@@ -32,7 +32,7 @@
             <property name="207e8583-2ba5-4ea3-84aa-2f65cd5915ca" display="Href" value="https://docs.intentarchitect.com/articles/modules-dotnet/intent-aspnetcore-odata-entityframework/intent-aspnetcore-odata-entityframework.html" isActive="true" />
             <property name="21d13790-2910-475c-b58f-9d350f2e13c6" display="Designers" value="[&quot;6ab29b31-27af-4f56-a67c-986d82097d63&quot;]" isActive="true" />
             <property name="8642b1d1-93f9-4f5f-b5ae-ad5fc20d7a46" display="Elements" value="[&quot;04e12b51-ed12-42a3-9667-a6aa81bb6d10&quot;]" isActive="true" />
-            <property name="f55a1f0c-40dd-48b4-b985-8360933e6a47" display="Tags" value="odata entityframework&#xA;module moduledocumentation Intent.AspNetCore.OData.EntityFramework&#xA;expose" isActive="true" />
+            <property name="f55a1f0c-40dd-48b4-b985-8360933e6a47" display="Tags" value="odata entityframework module moduledocumentation Intent.AspNetCore.OData.EntityFramework expose" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>

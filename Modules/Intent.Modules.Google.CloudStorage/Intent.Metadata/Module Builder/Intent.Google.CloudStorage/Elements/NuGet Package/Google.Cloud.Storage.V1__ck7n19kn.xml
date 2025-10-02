@@ -26,7 +26,7 @@
   <childElements>
     <childElement id="f8c3fc97-1382-4a74-9e0c-ef3bf4237d3d" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>4.13.0</name>
-      <display>4.10.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <display>4.13.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -49,22 +49,28 @@
       <childElements>
         <childElement id="984d1256-b238-47dc-9c81-a15377ce6241" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Google.Api.Gax.Rest</name>
+          <display>Google.Api.Gax.Rest (4.9.0)</display>
           <isAbstract>false</isAbstract>
           <value>4.9.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f8c3fc97-1382-4a74-9e0c-ef3bf4237d3d</parentFolderId>
+          <packageId>1cd103d0-3bec-4144-8795-b5d6066ca528</packageId>
+          <packageName>Intent.Google.CloudStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="57777994-910c-422b-a85f-05bca4a3ac07" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Google.Apis.Storage.v1</name>
+          <display>Google.Apis.Storage.v1 (1.69.0.3707)</display>
           <isAbstract>false</isAbstract>
           <value>1.69.0.3707</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f8c3fc97-1382-4a74-9e0c-ef3bf4237d3d</parentFolderId>
+          <packageId>1cd103d0-3bec-4144-8795-b5d6066ca528</packageId>
+          <packageName>Intent.Google.CloudStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />

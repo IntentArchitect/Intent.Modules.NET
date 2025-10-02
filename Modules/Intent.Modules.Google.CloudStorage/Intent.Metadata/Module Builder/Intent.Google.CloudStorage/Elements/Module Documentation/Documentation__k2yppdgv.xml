@@ -32,7 +32,7 @@
             <property name="207e8583-2ba5-4ea3-84aa-2f65cd5915ca" display="Href" value="https://docs.intentarchitect.com/articles/modules-dotnet/intent-google-cloudstorage/intent-google-cloudstorage.html" isActive="true" />
             <property name="21d13790-2910-475c-b58f-9d350f2e13c6" display="Designers" isActive="true" />
             <property name="8642b1d1-93f9-4f5f-b5ae-ad5fc20d7a46" display="Elements" value="[]" isActive="true" />
-            <property name="f55a1f0c-40dd-48b4-b985-8360933e6a47" display="Tags" value="Intent.Google.CloudStorage&#xA;module moduledocumentation google cloud storage" isActive="true" />
+            <property name="f55a1f0c-40dd-48b4-b985-8360933e6a47" display="Tags" value="Intent.Google.CloudStorage module moduledocumentation google cloud storage" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>

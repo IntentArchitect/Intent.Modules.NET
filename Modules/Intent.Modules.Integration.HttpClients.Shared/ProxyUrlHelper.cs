@@ -8,15 +8,23 @@ using Intent.Configuration;
 using System.Collections.Generic;
 using System.Runtime.ExceptionServices;
 using System;
+using Intent.Modules.Integration.HttpClients.Shared.Templates.Adapters;
+using Intent.Modules.Integration.HttpClients.Shared.Templates;
 
 public static class ProxyUrlHelper
 {
-    public static string GetProxyApplicationtUrl(IElement element, ISoftwareFactoryExecutionContext executionContext)
+    internal static string GetProxyApplicationtUrl(IServiceProxyModel model, ISoftwareFactoryExecutionContext executionContext)
     {
         var url = string.Empty;
 
-        var package = element.MappedElement?.Element?.Package;
-        package ??= element.Package;
+        var element = model.InternalElement;
+        var package = element?.MappedElement?.Element?.Package;
+        package ??= element?.Package;
+
+        if (model.Endpoints.Any() && package is null)
+        {
+            package = model.Endpoints[0].InternalElement?.Package;
+        }
 
         if (package == null)
         {

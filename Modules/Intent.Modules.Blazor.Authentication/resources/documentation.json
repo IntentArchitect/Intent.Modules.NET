@@ -10,8 +10,8 @@
             ],
           "tags": [
               "authentication",
-              "blazor
-module",
+              "blazor",
+              "module",
               "moduledocumentation",
               "Intent.Blazor.Authentication"
             ]
