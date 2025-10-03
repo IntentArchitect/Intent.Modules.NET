@@ -20,15 +20,15 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         protected readonly IElement _element;
 
         [IntentManaged(Mode.Fully)]
-        public JavaScriptProjectModel(IElement element, string requiredType = SpecializationType)
+        public JavaScriptProjectModel(IElement element, string requiredType = SpecializationTypeId)
         {
-            if (!requiredType.Equals(element.SpecializationType, StringComparison.InvariantCultureIgnoreCase))
+            // IntentIgnore
+            ParentFolder = element.ParentElement?.SpecializationType == SolutionFolderModel.SpecializationType ? new SolutionFolderModel(element.ParentElement) : null;
+            if (!requiredType.Equals(element.SpecializationType, StringComparison.InvariantCultureIgnoreCase) && !requiredType.Equals(element.SpecializationTypeId, StringComparison.InvariantCultureIgnoreCase))
             {
                 throw new Exception($"Cannot create a '{GetType().Name}' from element with specialization type '{element.SpecializationType}'. Must be of type '{SpecializationType}'");
             }
             _element = element;
-            // IntentIgnore
-            ParentFolder = element.ParentElement?.SpecializationType == SolutionFolderModel.SpecializationType ? new SolutionFolderModel(element.ParentElement) : null;
         }
 
         public string Id => _element.Id;

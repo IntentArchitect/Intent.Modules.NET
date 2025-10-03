@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.IntegrationTesting</id>
   <version>2.0.10-pre.2</version>
-  <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
+  <supportedClientVersions>[4.5.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>The module adds support for Integration Testing Asp.Net Core applications.</summary>
   <description>The module adds support for Integration Testing Asp.Net Core applications.</description>
   <authors>Intent Architect</authors>
@@ -155,7 +155,7 @@
   <decorators></decorators>
   <factoryExtensions></factoryExtensions>
   <moduleSettings>
-    <group id="d37f669a-8f2c-49ed-8c28-6ad31d836754" title="Integration Test Settings" externalReference="d37f669a-8f2c-49ed-8c28-6ad31d836754">
+    <group id="d37f669a-8f2c-49ed-8c28-6ad31d836754" title="Integration Test Settings" externalReference="d37f669a-8f2c-49ed-8c28-6ad31d836754" type="application-settings">
       <settings>
         <setting id="e3ac09d9-db67-4432-8c77-44d38fe228a9" title="Container Isolation" type="select">
           <defaultValue>shared-container</defaultValue>

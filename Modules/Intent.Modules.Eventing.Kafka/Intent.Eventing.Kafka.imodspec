@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.Kafka</id>
   <version>1.0.0-beta.30</version>
-  <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
+  <supportedClientVersions>[4.4.0-a, 5.0.0)</supportedClientVersions>
   <summary>Provides patterns for using Apache Kafka, a distributed event streaming platform, with events modeled in Intent Architect's designers.</summary>
   <description>Provides patterns for using Apache Kafka, a distributed event streaming platform, with events modeled in Intent Architect's designers.</description>
   <authors>Intent Architect</authors>

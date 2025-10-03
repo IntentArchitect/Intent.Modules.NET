@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ignoredFiles>
   <files>
+    <file relativePath="Intent.Modules.Blazor/content/NoSamplePages/readme.txt" />
+    <file relativePath="Intent.Modules.Blazor/content/SamplePages/readme.txt" />
+    <file relativePath="Intent.Modules.Blazor/content/WasmNoSamplePages/readme.txt" />
+    <file relativePath="Intent.Modules.Blazor/content/WasmSamplePages/readme.txt" />
     <file relativePath="Intent.Modules.Blazor/Settings/ModuleSettingsExtensions.cs" />
-    <file relativePath="Intent.Modules.Blazor/Templates/Templates/Client/ClientImportsRazor/ClientImportsRazorTemplatePartial.cs" />
-    <file relativePath="Intent.Modules.Blazor/Templates/Templates/Client/RazorComponent/RazorComponentTemplatePartial.cs" />
-    <file relativePath="Intent.Modules.Blazor/Templates/Templates/Client/RazorLayout/RazorLayoutTemplatePartial.cs" />
-    <file relativePath="Intent.Modules.Blazor/Templates/Templates/Client/RoutesRazor/RoutesRazorTemplatePartial.cs" />
-    <file relativePath="Intent.Modules.Blazor/Templates/Templates/Server/AppRazor/AppRazorTemplatePartial.cs" />
-    <file relativePath="Intent.Modules.Blazor/Templates/Templates/Server/ServerImportsRazor/ServerImportsRazorTemplatePartial.cs" />
   </files>
 </ignoredFiles>

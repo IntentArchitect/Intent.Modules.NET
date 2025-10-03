@@ -2,7 +2,7 @@
 <package>
   <id>Intent.MediatR.DomainEvents</id>
   <version>5.2.4-pre.0</version>
-  <supportedClientVersions>[4.5.0-pre.0, 5.0.0-a)</supportedClientVersions>
+  <supportedClientVersions>[4.5.15-a, 5.0.0-a)</supportedClientVersions>
   <summary>Generates handlers for Domain Events for MediatR</summary>
   <description>Generates handlers for Domain Events for MediatR</description>
   <authors>Intent Architect</authors>
@@ -71,10 +71,9 @@
     <file src="$outDir$/$id$.dll" />
     <file src="$outDir$/$id$.pdb" />
   </files>
-  <migrations />
   <metadata />
   <moduleSettings>
-    <group id="f8a6fc09-1eba-4d70-a336-82546659d323" title="Domain Event Settings" externalReference="f8a6fc09-1eba-4d70-a336-82546659d323">
+    <group id="f8a6fc09-1eba-4d70-a336-82546659d323" title="Domain Event Settings" externalReference="f8a6fc09-1eba-4d70-a336-82546659d323" type="application-settings">
       <settings>
         <setting id="59ce20f9-0fe5-4c1c-8016-de94bfe1d4a2" title="Create implicit domain event handlers" type="switch">
           <hint>Automatically create even handlers, when none are modeled.</hint>
@@ -84,4 +83,5 @@
     </group>
   </moduleSettings>
   <moduleSettingsExtensions />
+  <migrations />
 </package>

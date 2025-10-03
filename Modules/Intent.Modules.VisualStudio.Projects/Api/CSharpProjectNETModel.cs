@@ -22,7 +22,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         protected readonly IElement _element;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public CSharpProjectNETModel(IElement element, string requiredType = SpecializationType)
+        public CSharpProjectNETModel(IElement element, string requiredType = SpecializationTypeId)
         {
             if (!requiredType.Equals(element.SpecializationType, StringComparison.InvariantCultureIgnoreCase))
             {

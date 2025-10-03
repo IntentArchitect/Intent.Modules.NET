@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Dapr.AspNetCore.Bindings.Cron</id>
   <version>1.0.6</version>
-  <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
+  <supportedClientVersions>[4.4.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Allows execution of Commands by Dapr on a CRON schedule.</summary>
   <description>Allows execution of Commands by Dapr on a CRON schedule.</description>
   <authors>Intent Architect</authors>

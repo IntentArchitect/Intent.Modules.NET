@@ -46,7 +46,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.ClientImportsRazor
 
         public override bool CanRunTemplate()
         {
-            return base.CanRunTemplate() && !ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveServer(); 
+            return base.CanRunTemplate() && !ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveServer();
         }
 
         /// <inheritdoc />

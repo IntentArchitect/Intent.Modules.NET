@@ -1,4 +1,5 @@
-using Intent.Blazor.Api;
+using System;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.UI.Api;
 using Intent.Modules.Blazor.Api;
@@ -10,12 +11,7 @@ using Intent.Modules.Common.CSharp.RazorBuilder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
-using System;
-using System.Linq;
-using System.Security;
-using static Intent.Blazor.Api.ComponentModelStereotypeExtensions;
 using ComponentModel = Intent.Modelers.UI.Api.ComponentModel;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -24,6 +20,7 @@ using ComponentModel = Intent.Modelers.UI.Api.ComponentModel;
 namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
 {
     using Intent.Blazor.Api;
+
     /// <summary>
     /// A Razor template.
     /// </summary>
@@ -60,9 +57,9 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
                         }
                     }
 
-                    if(Model.HasSecured())
+                    if (Model.HasSecured())
                     {
-                        foreach(var secure in Model.GetSecureds())
+                        foreach (var secure in Model.GetSecureds())
                         {
                             file.AddAttributeDirective(secure.AuthorizationAttribute(this));
                         }

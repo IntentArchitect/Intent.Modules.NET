@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Entities.Repositories.Api</id>
   <version>5.1.9</version>
-  <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
+  <supportedClientVersions>[4.4.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Generates interface equivalents for Domain Entity Repositories for the Domain</summary>
   <description>Generates interface equivalents for Domain Entity Repositories for the Domain</description>
   <authors>Intent Architect</authors>

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ignoredFiles>
   <files>
+    <file relativePath="Intent.Modules.Dapr.AspNetCore/content/DaprComponents/readme.txt" />
+    <file relativePath="Intent.Modules.Dapr.AspNetCore/content/DaprFiles/readme.txt" />
     <file relativePath="Intent.Modules.Dapr.AspNetCore/Templates/TemplateExtensions.cs" />
   </files>
 </ignoredFiles>

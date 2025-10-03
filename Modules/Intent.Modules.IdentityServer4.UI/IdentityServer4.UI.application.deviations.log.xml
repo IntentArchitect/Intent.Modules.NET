@@ -12,7 +12,7 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T11:55:12.1115737Z</approvedAt>
       <deviationsHash>2E3DEA3F98E018AEEB451ECACA987A9541C07C10425F643E3327A4A9B0973F75</deviationsHash>
-      <fileHash>AFDC6ED7EB7D48DA1C22BA48808A72903E0C744EEFA992EE8A3963EBA7D2911F</fileHash>
+      <fileHash>4A24C38E6BE417D1571EFCF4BA9D526A929DF26C6902B41E48EE893DD5316FAE</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.TemplateDecorator#a5200d0f-be1c-4792-b365-c804b036c1b6</correlationId>
@@ -25,20 +25,17 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T11:55:12.1173483Z</approvedAt>
       <deviationsHash>4A3721456568B82941E624BDE8ABDD7AF97CC3E8BBA5DDA1223BE084481CAC98</deviationsHash>
-      <fileHash>68A249EDCB52D0E8DEFF1092A83EC9E15219B997B80B865D735E0538D13FE0A9</fileHash>
+      <fileHash>65C32C22D79ED4E7FA1C1DECFC5A62062135BA938413FEF8E156D3CD1328BC2C</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#c2836371-2d1f-4565-ae1a-a29c6c999789</correlationId>
       <path>Intent.Modules.IdentityServer4.UI/FactoryExtensions/IdentityServerQuickstartExtractorFactoryExtension.cs</path>
-      <count>2</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-08-16T15:28:21.2288669Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-08-20T11:55:12.123147Z</approvedAt>
-      <deviationsHash>B1E7679BA7FF35FBAFC54E71F82D3F11DBEF893858F75D8EB9A8E7860EB8D377</deviationsHash>
-      <fileHash>ECAE803F2279AD80C42ECD3F7766AFA837F002BAB59B14699D03068C6AB64E7B</fileHash>
+      <count>3</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2025-10-03T19:47:09.8186758Z</updatedAt>
+      <deviationsHash>DB408AF656EC08F059F6EBA58D79FA2A49F5A3CAC716DE9566C751BFE14A770E</deviationsHash>
+      <fileHash>C7C06902E1E69965EC5021CBB0840B9B497FA551BEEC9214E7590F8B5553D0A5</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.TemplateDecoratorContract#cddac3d6-bb33-4fbd-8a21-00e4fd833225</correlationId>
@@ -51,20 +48,17 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T11:55:12.1194484Z</approvedAt>
       <deviationsHash>95AB2835E13F632CAA2E426C797ABB59F62D265E38246CAF7B13296304CDABAE</deviationsHash>
-      <fileHash>5C1678B0C6D89EF952507450A86C6133ACB38326E5E506A4A2AD704991ACB5AC</fileHash>
+      <fileHash>9114C53464D3F9B52E80A5E64305DEF89ACBDF007DFFB9F0EC8BB1656A443172</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#62c7762a-3091-4e29-bb21-bfea845ef51d</correlationId>
       <path>Intent.Modules.IdentityServer4.UI/Templates/Controllers/AccountController/AccountControllerTemplatePartial.cs</path>
       <count>3</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-08-16T15:28:21.2289169Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-08-20T11:55:12.1253342Z</approvedAt>
-      <deviationsHash>7B1ED92E6709FAD0F2E622CD2C17944F5B498859D347646BEF939666F680A652</deviationsHash>
-      <fileHash>194008CE0A6BB566EA6110017AD1FF1A1FA7E77BE06D2A0872CCDB2420C0C013</fileHash>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2025-10-03T19:47:09.8187926Z</updatedAt>
+      <deviationsHash>4526775DF965EAA05072FACDFA9C257E2631814A025610B76D3A37A286E65E04</deviationsHash>
+      <fileHash>BC977D8B74CFCBD40EBA5D25885598FCDB7399E9B2EE24A95EA2193B1C4EBEDC</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#62c7762a-3091-4e29-bb21-bfea845ef51d</correlationId>
@@ -77,7 +71,7 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T11:55:12.121238Z</approvedAt>
       <deviationsHash>95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B</deviationsHash>
-      <fileHash>8A302138304B1B0DDC57B3F267935005A2FB2A3534FDE0EE0E61D9A79779469F</fileHash>
+      <fileHash>67BDEC4F4F9DE776E7949CB1680966517B21686C75E4A1007751179D173EA5D4</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.TemplateDecoratorContract#cfb67386-2b94-40e7-b2e9-fa47a2148d35</correlationId>
@@ -90,20 +84,17 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T11:55:12.1294837Z</approvedAt>
       <deviationsHash>95AB2835E13F632CAA2E426C797ABB59F62D265E38246CAF7B13296304CDABAE</deviationsHash>
-      <fileHash>4FAF3984455176277F99B2C9CBDCB6E4E14C919FFD14917FCF59FD811913ACFC</fileHash>
+      <fileHash>11B4B8C8C77CA2365BF34FE979DC14022322F694DA226BE74B3223D142EB933A</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f619a9e9-4473-4d03-89d8-1e42adf41e0d</correlationId>
       <path>Intent.Modules.IdentityServer4.UI/Templates/Controllers/ExternalController/ExternalControllerTemplatePartial.cs</path>
       <count>3</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-08-16T15:28:21.2289278Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-08-20T11:55:12.1275848Z</approvedAt>
-      <deviationsHash>570DD4F93CC49313FC576AF9E6D5B42BAB2E3C7D67010D5FA402EDFF7570DA14</deviationsHash>
-      <fileHash>B297223216504DCB9808F53704B6588E4AD1FA379C2D3CC71B9A7775602BC0CF</fileHash>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2025-10-03T19:47:09.8188311Z</updatedAt>
+      <deviationsHash>605D89DD9387236230B14F4FC158C534F24E5D59816A79B867C4D608264B4271</deviationsHash>
+      <fileHash>02BED72DD176953A41DBE455EE4CD29720937A711D402E3E0A172538F8212B04</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#f619a9e9-4473-4d03-89d8-1e42adf41e0d</correlationId>
@@ -116,7 +107,7 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T11:55:12.1331323Z</approvedAt>
       <deviationsHash>95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B</deviationsHash>
-      <fileHash>18790B3ED136522E68C1569ECE21DB2934EA66CC7410D0A2E582B4A38E172897</fileHash>
+      <fileHash>5F8A0B338CBB0DD9EDF99DB23949BB2B15D9E121204E52C2005967D7E36BB742</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#7bcc66d0-4ecc-47c3-87e2-b310dbc750a3</correlationId>
@@ -129,20 +120,17 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T11:55:12.1364205Z</approvedAt>
       <deviationsHash>D9A7AAA2A748670B2E4D4E3AA8D360CB1F708623E9F8D3E90CC8EB4C88C2DBE4</deviationsHash>
-      <fileHash>C81A9DEEE9F6CA745F41E733E675D875CC3B021724D2B2A11C8CA61D1125C291</fileHash>
+      <fileHash>84778168B60A9C7D0F70734C22B7E8676AD7FE95B6D28887533EE3FE1135966C</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.Custom#7bcc66d0-4ecc-47c3-87e2-b310dbc750a3</correlationId>
       <path>Intent.Modules.IdentityServer4.UI/Templates/QuickStartContent/QuickStartContentTemplateRegistration.cs</path>
-      <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-08-16T15:28:21.2289476Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-08-20T11:55:12.1313976Z</approvedAt>
-      <deviationsHash>95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B</deviationsHash>
-      <fileHash>415DB5451382042654E2EFE8DBC64F8B460673C5C669F5872BB8269167C1D01B</fileHash>
+      <count>3</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2025-10-03T19:47:09.8189213Z</updatedAt>
+      <deviationsHash>CBB3E1CA49FC7BF5D88B450E84A6D9B9E2A38BAB46E313A548A7BFE77130962E</deviationsHash>
+      <fileHash>6AB06B7DABB195A8C6677A221B373D2A499E459D8B4D1802FADB90C7B3C4E1E2</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions</correlationId>
@@ -155,7 +143,7 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T11:55:12.1382583Z</approvedAt>
       <deviationsHash>B7203BFB9686F060DB0ACAA7C53E52041597E3DB8BC78F5BAE12E1FBA6835020</deviationsHash>
-      <fileHash>887D1AE70F34CC53E8B6F3996EC3E436FBBF483AE7BE4BE07ABED3142EFB9F7A</fileHash>
+      <fileHash>CFE36CEA4E1376AC66EA98BC8642ECAF73FCD4AC3C3FA4EFC7171C3646716594</fileHash>
     </file>
   </files>
 </deviationsLog>
