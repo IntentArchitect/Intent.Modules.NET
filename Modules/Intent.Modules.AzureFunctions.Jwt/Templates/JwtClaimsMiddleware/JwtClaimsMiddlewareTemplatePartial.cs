@@ -180,7 +180,7 @@ namespace Intent.Modules.AzureFunctions.Jwt.Templates.JwtClaimsMiddleware
                 });
         }
 
-        public override void AfterTemplateRegistration()
+        public override void BeforeTemplateExecution()
         {
             ExecutionContext.EventDispatcher.Publish(ApplicationBuilderRegistrationRequest.ToRegister("UseJwtClaimsMiddleware")
                 .HasDependency(this)

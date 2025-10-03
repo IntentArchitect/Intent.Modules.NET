@@ -337,12 +337,12 @@ namespace Intent.Modules.AzureFunctions.Templates.Isolated.Program
             foreach (var (dependency, classProvider) in resolvedDependencies)
             {
                 AddTemplateDependency(dependency);
-                AddUsing(classProvider.Namespace);
+                CSharpFile.AddUsing(classProvider.Namespace);
             }
 
             foreach (var @namespace in request.RequiredNamespaces)
             {
-                AddUsing(@namespace);
+                CSharpFile.AddUsing(@namespace);
             }
 
             var parameterList = new List<string>();
