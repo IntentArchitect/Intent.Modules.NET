@@ -2,6 +2,7 @@
 
 - Improvement: Updated NuGet package versions.
 - Improvement: Upgrades the Program File template to be more in-line with the ASP.NET core template .
+- Improvement: Host Builder registrations catered for by listening to `ApplicationBuilderRegistrationRequest` when in Isolated Processes.
 
 ### Version 5.0.15
 
