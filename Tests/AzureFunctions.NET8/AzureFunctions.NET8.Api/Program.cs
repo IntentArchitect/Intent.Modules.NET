@@ -1,4 +1,5 @@
 using System.Configuration;
+using AzureFunctions.NET8.Api;
 using AzureFunctions.NET8.Api.Configuration;
 using AzureFunctions.NET8.Application;
 using AzureFunctions.NET8.Infrastructure;
@@ -14,6 +15,7 @@ using Microsoft.Extensions.Logging;
 var host = new HostBuilder()
     .ConfigureFunctionsWebApplication((ctx, builder) =>
     {
+        builder.UseJwtClaimsMiddleware();
     })
     .ConfigureServices((ctx, services) =>
     {

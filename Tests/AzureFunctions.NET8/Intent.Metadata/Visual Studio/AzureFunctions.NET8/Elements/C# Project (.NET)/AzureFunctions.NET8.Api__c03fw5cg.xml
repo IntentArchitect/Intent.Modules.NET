@@ -168,5 +168,19 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="4640431a-ea03-40d6-a1a0-76ee0e2497b6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AzureFunctions.Jwt.JwtClaimsMiddleware</name>
+      <display>Intent.AzureFunctions.Jwt.JwtClaimsMiddleware</display>
+      <externalReference>Intent.AzureFunctions.Jwt</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>9466369f-8619-418f-972f-413e1ba6cf0e</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>
