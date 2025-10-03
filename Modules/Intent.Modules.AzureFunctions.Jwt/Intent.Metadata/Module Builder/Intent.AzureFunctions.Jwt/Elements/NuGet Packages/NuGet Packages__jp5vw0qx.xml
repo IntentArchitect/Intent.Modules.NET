@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e87565f1-6365-4f02-bae5-ca7a8a46a687" type="NuGet Packages" typeId="4c75c84d-c745-4f0f-b1f4-82eeca01dfc7">
+  <name>NuGet Packages</name>
+  <display>NuGet Packages</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>e342fa58-3ccb-4fd7-9278-88797486b93e</parentFolderId>
+  <packageId>e342fa58-3ccb-4fd7-9278-88797486b93e</packageId>
+  <packageName>Intent.AzureFunctions.Jwt</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

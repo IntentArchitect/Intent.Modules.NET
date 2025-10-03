@@ -22,6 +22,8 @@ namespace Intent.Modules.AzureFunctions.Jwt.Templates.JwtClaimsMiddleware
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public JwtClaimsMiddlewareTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            AddNugetDependency(NugetPackages.MicrosoftAspNetCoreAuthenticationJwtBearer(outputTarget));
+            
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("System.IdentityModel.Tokens.Jwt")
@@ -29,7 +31,6 @@ namespace Intent.Modules.AzureFunctions.Jwt.Templates.JwtClaimsMiddleware
                 .AddUsing("System.Net")
                 .AddUsing("System.Threading.Tasks")
                 .AddUsing("System.Security.Claims")
-                .AddUsing("Intent.RoslynWeaver.Attributes")
                 .AddUsing("Microsoft.AspNetCore.Authorization")
                 .AddUsing("Microsoft.AspNetCore.Http")
                 .AddUsing("Microsoft.Azure.Functions.Worker")
@@ -37,6 +38,7 @@ namespace Intent.Modules.AzureFunctions.Jwt.Templates.JwtClaimsMiddleware
                 .AddUsing("Microsoft.Azure.Functions.Worker.Middleware")
                 .AddUsing("Microsoft.Extensions.Logging")
                 .AddUsing("Microsoft.Extensions.Primitives")
+                .AddUsing("Microsoft.Extensions.Hosting")
                 .AddClass("JwtClaimsMiddleware", cls =>
                 {
                     cls.ImplementsInterface("IFunctionsWorkerMiddleware");
@@ -181,7 +183,8 @@ namespace Intent.Modules.AzureFunctions.Jwt.Templates.JwtClaimsMiddleware
         public override void AfterTemplateRegistration()
         {
             ExecutionContext.EventDispatcher.Publish(ApplicationBuilderRegistrationRequest.ToRegister("UseJwtClaimsMiddleware")
-                .HasDependency(this));
+                .HasDependency(this)
+            );
         }
 
         [IntentManaged(Mode.Fully)]

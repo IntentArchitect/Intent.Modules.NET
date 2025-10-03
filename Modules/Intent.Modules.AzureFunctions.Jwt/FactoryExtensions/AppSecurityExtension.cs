@@ -57,7 +57,6 @@ namespace Intent.Modules.AzureFunctions.Jwt.FactoryExtensions
 
                 returnStmt.InsertAbove([
                     new CSharpStatement("services.AddHttpContextAccessor();"),
-                    new CSharpStatement($"services.AddSingleton<{template.GetCurrentUserServiceInterfaceName()}, {template.GetCurrentUserServiceName()}>();"),
                     new CSharpStatement("services.AddSingleton<JwtSecurityTokenHandler>();"),
                 ]);
             }, 1);
