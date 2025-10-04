@@ -2,5 +2,8 @@
 <ignoredFiles>
   <files>
     <file relativePath="Intent.Modules.AzureFunctions/Intent.Modules.AzureFunctions.csproj" />
+    <file relativePath="Intent.Modules.AzureFunctions/modelers/Azure Functions CQRS Extensions.designer.settings" />
+    <file relativePath="Intent.Modules.AzureFunctions/modelers/Azure Functions Services Extensions.designer.settings" />
+    <file relativePath="Intent.Modules.AzureFunctions/modelers/Azure Functions Types.designer.settings" />
   </files>
 </ignoredFiles>

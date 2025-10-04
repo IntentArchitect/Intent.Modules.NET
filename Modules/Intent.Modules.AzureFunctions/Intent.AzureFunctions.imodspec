@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AzureFunctions</id>
   <version>5.0.16-pre.2</version>
-  <supportedClientVersions>[4.2.4, 5.0.0-a)</supportedClientVersions>
+  <supportedClientVersions>[4.5.15-a, 5.0.0-a)</supportedClientVersions>
   <summary>Provides support to describe Azure Functions in the Services designer</summary>
   <description>Provides support to describe Azure Functions in the Services designer</description>
   <authors>Intent Architect</authors>
@@ -93,7 +93,7 @@
   </interoperability>
   <factoryExtensions></factoryExtensions>
   <moduleSettings>
-    <group id="90437e3f-cb10-4e44-b229-cc30c4807bea" title="Azure Functions Settings" externalReference="90437e3f-cb10-4e44-b229-cc30c4807bea">
+    <group id="90437e3f-cb10-4e44-b229-cc30c4807bea" title="Azure Functions Settings" externalReference="90437e3f-cb10-4e44-b229-cc30c4807bea" type="application-settings">
       <settings>
         <setting id="ff298d6c-705b-41d9-9286-be85480a0abd" title="Simple Function Names" type="switch">
           <hint>Simplifies function names (`[FunctionName]`) by only using operation names instead of the full path name.</hint>
