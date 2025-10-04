@@ -2,6 +2,7 @@
 using System.Linq;
 using Intent.Engine;
 using Intent.Modules.VisualStudio.Projects.Api;
+using Intent.Persistence;
 using Intent.Registrations;
 
 namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
@@ -10,11 +11,13 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
     public class LaunchSettingsJsonTemplateRegistration : ITemplateRegistration
     {
         private readonly IMetadataManager _metadataManager;
+        private readonly IPersistenceLoader _persistenceLoader;
         public string TemplateId => LaunchSettingsJsonTemplate.Identifier;
 
-        public LaunchSettingsJsonTemplateRegistration(IMetadataManager metadataManager)
+        public LaunchSettingsJsonTemplateRegistration(IMetadataManager metadataManager, IPersistenceLoader persistenceLoader)
         {
             _metadataManager = metadataManager;
+            _persistenceLoader = persistenceLoader;
         }
 
         public void DoRegistration(ITemplateInstanceRegistry registry, IApplication application)
@@ -31,7 +34,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
             foreach (var modelId in modelIds)
             {
                 var project = application.Projects.Single(x => x.Id == modelId);
-                registry.Register(TemplateId, project, p => new LaunchSettingsJsonTemplate(p, project.Application.EventDispatcher, application));
+                registry.Register(TemplateId, project, p => new LaunchSettingsJsonTemplate(p, project.Application.EventDispatcher, application, _persistenceLoader));
             }
         }
     }

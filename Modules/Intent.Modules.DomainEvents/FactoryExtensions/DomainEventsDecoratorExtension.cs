@@ -72,7 +72,6 @@ namespace Intent.Modules.DomainEvents.FactoryExtensions
                     var @class = file.Classes.FirstOrDefault();
                     if (@class?.TryGetMetadata<ClassModel>("model", out var model) == true &&
                         model.IsAggregateRoot() &&
-                        model.ParentClass == null &&
                         AggregateGetsDomainEventing(application, model)
                        )
                     {

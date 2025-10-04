@@ -8,14 +8,15 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain.Mapping
 {
     public class TestVO : ValueObject
     {
-        protected TestVO()
-        {
-            Name = null!;
-        }
-
         public TestVO(string name)
         {
             Name = name;
+        }
+
+        [IntentMerge]
+        protected TestVO()
+        {
+            Name = null!;
         }
 
         public string Name { get; private set; }

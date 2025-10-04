@@ -32,7 +32,16 @@
       <parentFolderId>b548c263-5e9a-4dca-8d4e-86a6fabecaad</parentFolderId>
       <packageId>7a254ecf-09b1-431f-83b1-ef39009b2028</packageId>
       <packageName>CleanArchitecture.Comprehensive</packageName>
-      <stereotypes />
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="a23c7901-31a5-4cbf-b8bf-1be128977e6d" name="Role Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+          <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+          <properties>
+            <property name="8d79a350-96f1-4d50-bb0a-f65a5c53ec62" display="Create Sub-Folders" value="true" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata />
       <childElements />
     </childElement>

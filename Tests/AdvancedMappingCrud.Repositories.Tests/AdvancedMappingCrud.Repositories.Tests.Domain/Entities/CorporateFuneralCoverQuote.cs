@@ -1,4 +1,5 @@
 using System;
+using AdvancedMappingCrud.Repositories.Tests.Domain.Events;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: IntentTemplate("Intent.Entities.DomainEntity", Version = "2.0")]
@@ -15,6 +16,8 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Entities
         {
             Corporate = corporate;
             Registration = registration;
+            DomainEvents.Add(new NewQuoteCreated(
+                quote: this));
             base.RefNo = refNo;
             base.PersonId = personId;
             base.PersonEmail = personEmail;

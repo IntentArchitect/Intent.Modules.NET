@@ -14,6 +14,7 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Domain
             Last = last;
         }
 
+        [IntentMerge]
         protected Names()
         {
             First = null!;

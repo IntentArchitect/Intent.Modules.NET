@@ -1,3 +1,7 @@
+### Version 5.3.1
+
+- Fixed: Added the missing `[assembly: DefaultIntentManaged(Mode.Fully)]` to the `BoundedLoggingDestructuringPolicy` template.
+
 ### Version 5.3.0
 
 - Improvement: Added logging policy to prevent runaway complex object logging.

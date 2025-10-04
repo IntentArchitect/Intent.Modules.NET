@@ -8,6 +8,7 @@ using Intent.Modelers.Domain.Events.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
+using Intent.Modules.MediatR.DomainEvents.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -38,6 +39,10 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DefaultDomainEventHandle
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<DomainEventModel> GetModels(IApplication application)
         {
+            if (!application.Settings.GetDomainEventSettings().CreateImplicitDomainEventHandlers())
+            { 
+                return Enumerable.Empty<DomainEventModel>();
+            }
             var handledDomainEvents = _metadataManager.Services(application).GetDomainEventHandlerModels()
                 .SelectMany(x => x.HandledDomainEvents()).Select(x => x.TypeReference.Element.AsDomainEventModel()).ToHashSet();
 

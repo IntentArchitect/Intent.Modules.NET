@@ -8,18 +8,19 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.ValueObjects
 {
     public class AddressNormal : ValueObject
     {
-        protected AddressNormal()
-        {
-            Line1 = null!;
-            Line2 = null!;
-            City = null!;
-        }
-
         public AddressNormal(string line1, string line2, string city)
         {
             Line1 = line1;
             Line2 = line2;
             City = city;
+        }
+
+        [IntentMerge]
+        protected AddressNormal()
+        {
+            Line1 = null!;
+            Line2 = null!;
+            City = null!;
         }
 
         public string Line1 { get; private set; }

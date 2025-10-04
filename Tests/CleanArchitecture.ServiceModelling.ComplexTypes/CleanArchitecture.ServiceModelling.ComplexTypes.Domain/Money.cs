@@ -8,15 +8,16 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Domain
 {
     public class Money : ValueObject
     {
-        protected Money()
-        {
-            Currency = null!;
-        }
-
         public Money(decimal amount, string currency)
         {
             Amount = amount;
             Currency = currency;
+        }
+
+        [IntentMerge]
+        protected Money()
+        {
+            Currency = null!;
         }
 
         public decimal Amount { get; private set; }

@@ -1,5 +1,7 @@
 ### Version 4.0.17
 
+- Improvement: Added support for a proxy URL to automatically be set in `appsettings.json`
+- Improvement: Updated NuGet package versions.
 - Improvement: adding using clause for `HttpRequestMessage` in `HttpCLient`s.
 
 ### Version 4.0.16

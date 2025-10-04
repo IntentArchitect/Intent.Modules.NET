@@ -8,16 +8,17 @@ namespace AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain
 {
     public class Names : ValueObject
     {
-        protected Names()
-        {
-            First = null!;
-            Last = null!;
-        }
-
         public Names(string first, string last)
         {
             First = first;
             Last = last;
+        }
+
+        [IntentMerge]
+        protected Names()
+        {
+            First = null!;
+            Last = null!;
         }
 
         public string First { get; private set; }

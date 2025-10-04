@@ -60,8 +60,8 @@ namespace Intent.Modules.CosmosDB
             NugetRegistry.Register(NewtonsoftJsonPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 6, >= 0) => new PackageVersion("13.0.3"),
-                        ( >= 2, >= 0) => new PackageVersion("13.0.3"),
+                        ( >= 6, >= 0) => new PackageVersion("13.0.4"),
+                        ( >= 2, >= 0) => new PackageVersion("13.0.4"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{NewtonsoftJsonPackageName}'"),
                     }
                 );

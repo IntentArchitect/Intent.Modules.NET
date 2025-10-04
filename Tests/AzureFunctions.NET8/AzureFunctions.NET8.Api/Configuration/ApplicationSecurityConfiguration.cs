@@ -1,3 +1,4 @@
+using System.IdentityModel.Tokens.Jwt;
 using AzureFunctions.NET8.Api.Services;
 using AzureFunctions.NET8.Application.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
@@ -16,6 +17,8 @@ namespace AzureFunctions.NET8.Api.Configuration
             IConfiguration configuration)
         {
             services.AddSingleton<ICurrentUserService, CurrentUserService>();
+            services.AddHttpContextAccessor();
+            services.AddSingleton<JwtSecurityTokenHandler>();
             return services;
         }
     }

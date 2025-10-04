@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <NoWarn>1701,1702</NoWarn>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Blazor.ProductService.Domain\Blazor.ProductService.Domain.csproj" />
+    <ProjectReference Include="..\Blazor.ProductService.Application\Blazor.ProductService.Application.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.20" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.20" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.20" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="8.0.20" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.20" />
+  </ItemGroup>
+  </Project>

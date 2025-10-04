@@ -1,3 +1,7 @@
+### Version 1.0.6
+
+- Improvement: Updated topic documentation format.
+
 ### Version 1.0.5
 
 - Improvement: Updated NuGet package versions.

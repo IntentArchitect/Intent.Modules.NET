@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modules.Application.Contracts.Clients.Templates;
@@ -12,6 +13,7 @@ using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
+using Intent.Modules.Constants;
 using Intent.Modules.Contracts.Clients.Shared;
 using Intent.Modules.Integration.HttpClients.Settings;
 using Intent.Modules.Integration.HttpClients.Shared.Templates;
@@ -19,6 +21,7 @@ using Intent.Modules.Integration.HttpClients.Shared.Templates.Adapters;
 using Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientConfiguration;
 using Intent.Modules.Integration.HttpClients.Templates.HttpClient;
 using Intent.Modules.Metadata.WebApi.Models;
+using Intent.Persistence;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -42,7 +45,7 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClientConfigurati
                   HttpClientTemplate.TemplateId,
                   (options, proxy, template) =>
                   {
-                      options.AddStatement($"ApplyAppSettings(http, configuration, \"{GetGroupName(proxy.InternalElement)}\", \"{proxy.Name.ToPascalCase()}\");");
+                      options.AddStatement($"ApplyAppSettings(http, configuration, \"{GetGroupName(proxy)}\", \"{proxy.Name.ToPascalCase()}\");");
                   })
         {
             _typedModels = model;
@@ -53,7 +56,6 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClientConfigurati
         public override void BeforeTemplateExecution()
         {
             base.BeforeTemplateExecution();
-
 
             if (ExecutionContext.Settings.GetIntegrationHttpClientSettings().AuthorizationSetup().IsClientAccessTokenManagement())
             {
@@ -72,17 +74,17 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClientConfigurati
                 ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("IdentityClients:default:Scope", "api"));
             }
 
-
             var proxies = _typedModels.DistinctBy(x => x.Id);
-            var groups = proxies.Select(p => GetGroupName(p.InternalElement)).Distinct();
-            foreach (var groupName in groups)
+            var proxySettings = proxies.Select(p => (GroupName: GetGroupName(p), Url: ProxyUrlHelper.GetProxyApplicationtUrl(p, ExecutionContext))).DistinctBy(d => d.GroupName);
+
+            foreach (var (GroupName, Url) in proxySettings)
             {
-                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(GetConfigKey(groupName, "Uri"), "https://localhost:{app_port}/"));
+                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(GetConfigKey(GroupName, "Uri"), Url));
                 if (ExecutionContext.Settings.GetIntegrationHttpClientSettings().AuthorizationSetup().IsClientAccessTokenManagement())
                 {
-                    ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(GetConfigKey(groupName, "IdentityClientKey"), "default"));
+                    ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(GetConfigKey(GroupName, "IdentityClientKey"), "default"));
                 }
-                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(GetConfigKey(groupName, "Timeout"), "00:01:00"));
+                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(GetConfigKey(GroupName, "Timeout"), "00:01:00"));
 
             }
         }
@@ -92,18 +94,25 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClientConfigurati
             switch (keyType)
             {
                 case KeyType.Group:
-                    return GetConfigKey(GetGroupName(proxy.InternalElement), key);
+                    return GetConfigKey(GetGroupName(proxy), key);
                 case KeyType.Service:
                 default:
                     return GetConfigKey(proxy.Name.ToPascalCase(), key);
             }
         }
 
-        internal static string GetGroupName(IElement element)
+        internal static string GetGroupName(IServiceProxyModel model)
         {
-            var result = element.MappedElement?.Element?.Package?.Name;
-            result ??= element.Package.Name;
-            return result;
+            var element = model.InternalElement;
+            var result = element?.MappedElement?.Element?.Package?.Name;
+            result ??= element?.Package.Name;
+
+            if (model.Endpoints.Any() && string.IsNullOrWhiteSpace(result))
+            {
+                result = model.Endpoints[0].InternalElement?.Package?.Name;
+            }
+
+            return result ?? string.Empty;
         }
 
         private static string GetConfigKey(string groupName, string key)

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a80da56b-b1e4-4ce4-ab06-65c6c5206346" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Migrations</name>
+  <display>Migrations</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>ed56cfba-2260-4a89-9531-a946739e3fe2</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="7b44532c-9f9d-4aa5-9574-3e55d15e7c67" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration</name>
+      <display>Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration</display>
+      <externalReference>Intent.ModuleBuilder</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a80da56b-b1e4-4ce4-ab06-65c6c5206346</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="f4fc0ee4-3c1d-42dc-b1be-757472de12a3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.Templates.Migrations.OnUninstallMigration</name>
+      <display>Intent.ModuleBuilder.Templates.Migrations.OnUninstallMigration</display>
+      <externalReference>Intent.ModuleBuilder</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a80da56b-b1e4-4ce4-ab06-65c6c5206346</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="9a8b8abb-43e8-49a9-b57c-7da91fdff26a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration</name>
+      <display>Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration</display>
+      <externalReference>Intent.ModuleBuilder</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a80da56b-b1e4-4ce4-ab06-65c6c5206346</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

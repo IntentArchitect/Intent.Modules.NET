@@ -32,7 +32,7 @@
             <property name="207e8583-2ba5-4ea3-84aa-2f65cd5915ca" display="Href" value="https://docs.intentarchitect.com/articles/modules-dotnet/intent-aspnetcore-identityservice/intent-aspnetcore-identityservice.html" isActive="true" />
             <property name="21d13790-2910-475c-b58f-9d350f2e13c6" display="Designers" value="[&quot;81104ae6-2bc5-4bae-b05a-f987b0372d81&quot;]" isActive="true" />
             <property name="8642b1d1-93f9-4f5f-b5ae-ad5fc20d7a46" display="Elements" value="[&quot;e030c97a-e066-40a7-8188-808c275df3cb&quot;,&quot;b16578a5-27b1-4047-a8df-f0b783d706bd&quot;]" isActive="true" />
-            <property name="f55a1f0c-40dd-48b4-b985-8360933e6a47" display="Tags" value="identityservice identity&#xA;module moduledocumentation Intent.AspNetCore.IdentityService" isActive="true" />
+            <property name="f55a1f0c-40dd-48b4-b985-8360933e6a47" display="Tags" value="identityservice identity module moduledocumentation Intent.AspNetCore.IdentityService" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>

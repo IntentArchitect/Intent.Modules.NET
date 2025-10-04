@@ -1,3 +1,7 @@
+### Version 1.0.16
+
+- Improvement: Updated referenced projects.
+ 
 ### Version 1.0.15
 
 - Improvement: Updated Tests to support Composite CRUD implementations.

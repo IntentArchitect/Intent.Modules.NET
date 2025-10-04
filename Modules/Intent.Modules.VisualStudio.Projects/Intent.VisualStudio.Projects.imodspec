@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.VisualStudio.Projects</id>
-  <version>3.9.1</version>
+  <version>3.9.3-pre.0</version>
   <supportedClientVersions>[4.5.15-a, 5.0.0-a)</supportedClientVersions>
   <summary>Visual Studio solution and project layout designer</summary>
   <description>Visual Studio solution and project layout designer</description>
@@ -89,6 +89,11 @@
         <package id="Intent.EntityFrameworkCore" version="5.0.1" />
       </install>
     </detect>
+	<detect id="Intent.Common.UnitOfWork">
+	  <install>
+	    <package id="Intent.Common.UnitOfWork" version="1.0.1-pre.0" />
+      </install>
+	</detect>
     <!-- /Minimum Compatible Versions -->
   </interoperability>
   <dependencies>
@@ -131,7 +136,8 @@
     </group>
   </moduleSettings>
   <moduleSettingsExtensions />
-  <migrations>
+  <migrations has-on-install-migration="true">
     <migration version="3.8.10-pre.2" />
+    <migration version="3.9.2-pre.0" />
   </migrations>
 </package>

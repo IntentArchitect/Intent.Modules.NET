@@ -11,6 +11,7 @@ namespace AzureFunctions.NET8.Application.Validators.Queues.Bindings.Bind
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class BindCommandValidator : AbstractValidator<BindCommand>
     {
+        [IntentManaged(Mode.Merge)]
         public BindCommandValidator()
         {
             ConfigureValidationRules();

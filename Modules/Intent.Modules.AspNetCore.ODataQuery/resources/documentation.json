@@ -11,8 +11,8 @@
             ],
           "tags": [
               "odata",
-              "query
-module",
+              "query",
+              "module",
               "moduledocumentation",
               "Intent.AspNetCore.ODataQuery"
             ]

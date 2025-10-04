@@ -15,7 +15,6 @@ namespace AzureFunctions.NET8.Api
 {
     public class FunctionWithIgnoreInApi
     {
-
         public FunctionWithIgnoreInApi()
         {
         }

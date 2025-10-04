@@ -12,7 +12,7 @@ namespace AzureFunctions.MongoDb.Infrastructure.Persistence.Mappings.Collections
 {
     public class FolderCollectionEntityBMapping : IMongoMappingConfiguration<FolderCollectionEntityB>
     {
-        public string CollectionName => "FolderCollectionEntityBs";
+        public string CollectionName => "FolderCollection";
 
         public void RegisterCollectionMap()
         {

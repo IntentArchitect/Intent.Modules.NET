@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d55280d3-5a29-42ee-9775-ca02f4a41893" type="Layout" typeId="776a9393-6b23-4a8c-8937-fd7e833fa0ef">
+  <name>MainLayout</name>
+  <display>MainLayout</display>
+  <externalReference>a178d0e7-8bc2-47a2-9724-fc672ce37c13</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>4a7eff42-25d5-4def-914c-0da82a5173f1</parentFolderId>
+  <packageId>a4cf3b11-2b7b-4a5f-9915-283600108527</packageId>
+  <packageName>Blazor.Standalone.UI</packageName>
+  <stereotypes />
+  <mappings>
+    <mapping type="View Binding" typeId="c33f86ad-423a-4a6f-a80c-a3206eafe5cd">
+      <source applicationId="9bc6f694-7776-4f09-82e7-95232c216357" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="d55280d3-5a29-42ee-9775-ca02f4a41893" location="[Blazor.Standalone].[User Interface].[MainLayout]" />
+      <target applicationId="9bc6f694-7776-4f09-82e7-95232c216357" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="d55280d3-5a29-42ee-9775-ca02f4a41893" location="[Blazor.Standalone].[User Interface].[MainLayout]" />
+      <mappedEnds>
+        <mappedEnd>
+          <expression>{NavigateToHome}</expression>
+          <path>
+            <target id="d55280d3-5a29-42ee-9775-ca02f4a41893" name="MainLayout" type="element" specialization="Layout" specializationId="776a9393-6b23-4a8c-8937-fd7e833fa0ef" />
+            <target id="d41c5f9f-c585-4be7-9917-9a198771367e" name="Header" type="element" specialization="Layout Header" specializationId="a6c3a89e-5932-4ab6-a406-75444f05beee" />
+            <target id="77adc980-84cd-4619-a692-f64f5acd8405" name="Home" type="element" specialization="Button" specializationId="4474d808-f6fd-405f-a9c7-6998cd000ede" />
+            <target id="ddfa6961-1042-4bea-84c7-4b2e9853c80a" name="Link To" type="static-mappable" specialization="Link To" specializationId="ddfa6961-1042-4bea-84c7-4b2e9853c80a" />
+          </path>
+          <sources>
+            <source identifier="NavigateToHome" mappingType="Event Mapping" mappingTypeId="95ce3c3e-ddf4-440b-a9b2-6b152a5fc1b8">
+              <path>
+                <target id="d55280d3-5a29-42ee-9775-ca02f4a41893" name="MainLayout" type="element" specialization="Layout" specializationId="776a9393-6b23-4a8c-8937-fd7e833fa0ef" />
+                <target id="33c98f4a-6bd3-43c9-8587-f8b888ecc8da" name="NavigateToHome" type="association" specialization="Navigation Target End" specializationId="2b191288-ecae-4743-b069-cbdd927ef349" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>#####Application</expression>
+          <path>
+            <target id="d55280d3-5a29-42ee-9775-ca02f4a41893" name="MainLayout" type="element" specialization="Layout" specializationId="776a9393-6b23-4a8c-8937-fd7e833fa0ef" />
+            <target id="d41c5f9f-c585-4be7-9917-9a198771367e" name="Header" type="element" specialization="Layout Header" specializationId="a6c3a89e-5932-4ab6-a406-75444f05beee" />
+            <target id="77adc980-84cd-4619-a692-f64f5acd8405" name="Home" type="element" specialization="Button" specializationId="4474d808-f6fd-405f-a9c7-6998cd000ede" />
+            <target id="38f5bfa8-452c-4583-a8fc-25756c62fced" name="Text" type="element" specialization="Text" specializationId="922150d2-42e6-4805-a002-f9580cdf7f6f" />
+          </path>
+          <sources />
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{NavigateToExamplePage}</expression>
+          <path>
+            <target id="d55280d3-5a29-42ee-9775-ca02f4a41893" name="MainLayout" type="element" specialization="Layout" specializationId="776a9393-6b23-4a8c-8937-fd7e833fa0ef" />
+            <target id="d41c5f9f-c585-4be7-9917-9a198771367e" name="Header" type="element" specialization="Layout Header" specializationId="a6c3a89e-5932-4ab6-a406-75444f05beee" />
+            <target id="122faee7-acb4-4675-91c2-d3fa4683855e" name="Menu" type="element" specialization="Navigation Menu" specializationId="d7282bf2-1626-4b8b-9446-1d530527db06" />
+            <target id="cdee07b6-baaf-4d6b-ab98-fd2cfe68aa1d" name="Profile" type="element" specialization="Menu Item" specializationId="adbf2fa8-6833-4c24-960a-31d8a41fd1ed" />
+            <target id="a4073b81-6ddd-44cb-909f-f2c97d965112" name="Link To" type="static-mappable" specialization="Link To" specializationId="a4073b81-6ddd-44cb-909f-f2c97d965112" />
+          </path>
+          <sources>
+            <source identifier="NavigateToExamplePage" mappingType="Event Mapping" mappingTypeId="95ce3c3e-ddf4-440b-a9b2-6b152a5fc1b8">
+              <path>
+                <target id="d55280d3-5a29-42ee-9775-ca02f4a41893" name="MainLayout" type="element" specialization="Layout" specializationId="776a9393-6b23-4a8c-8937-fd7e833fa0ef" />
+                <target id="d59f9c20-42e9-4baa-900e-e873e39bb608" name="NavigateToExamplePage" type="association" specialization="Navigation Target End" specializationId="2b191288-ecae-4743-b069-cbdd927ef349" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{NavigateToExamplePage}</expression>
+          <path>
+            <target id="d55280d3-5a29-42ee-9775-ca02f4a41893" name="MainLayout" type="element" specialization="Layout" specializationId="776a9393-6b23-4a8c-8937-fd7e833fa0ef" />
+            <target id="d41c5f9f-c585-4be7-9917-9a198771367e" name="Header" type="element" specialization="Layout Header" specializationId="a6c3a89e-5932-4ab6-a406-75444f05beee" />
+            <target id="122faee7-acb4-4675-91c2-d3fa4683855e" name="Menu" type="element" specialization="Navigation Menu" specializationId="d7282bf2-1626-4b8b-9446-1d530527db06" />
+            <target id="b10df3d0-575c-4f2c-9841-cbfa6555a17d" name="My Account" type="element" specialization="Menu Item" specializationId="adbf2fa8-6833-4c24-960a-31d8a41fd1ed" />
+            <target id="a4073b81-6ddd-44cb-909f-f2c97d965112" name="Link To" type="static-mappable" specialization="Link To" specializationId="a4073b81-6ddd-44cb-909f-f2c97d965112" />
+          </path>
+          <sources>
+            <source identifier="NavigateToExamplePage" mappingType="Event Mapping" mappingTypeId="95ce3c3e-ddf4-440b-a9b2-6b152a5fc1b8">
+              <path>
+                <target id="d55280d3-5a29-42ee-9775-ca02f4a41893" name="MainLayout" type="element" specialization="Layout" specializationId="776a9393-6b23-4a8c-8937-fd7e833fa0ef" />
+                <target id="d59f9c20-42e9-4baa-900e-e873e39bb608" name="NavigateToExamplePage" type="association" specialization="Navigation Target End" specializationId="2b191288-ecae-4743-b069-cbdd927ef349" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{NavigateToExamplePage}</expression>
+          <path>
+            <target id="d55280d3-5a29-42ee-9775-ca02f4a41893" name="MainLayout" type="element" specialization="Layout" specializationId="776a9393-6b23-4a8c-8937-fd7e833fa0ef" />
+            <target id="d41c5f9f-c585-4be7-9917-9a198771367e" name="Header" type="element" specialization="Layout Header" specializationId="a6c3a89e-5932-4ab6-a406-75444f05beee" />
+            <target id="122faee7-acb4-4675-91c2-d3fa4683855e" name="Menu" type="element" specialization="Navigation Menu" specializationId="d7282bf2-1626-4b8b-9446-1d530527db06" />
+            <target id="1d1c5bb0-699f-42f8-9721-8400510d165c" name="Logout" type="element" specialization="Menu Item" specializationId="adbf2fa8-6833-4c24-960a-31d8a41fd1ed" />
+            <target id="a4073b81-6ddd-44cb-909f-f2c97d965112" name="Link To" type="static-mappable" specialization="Link To" specializationId="a4073b81-6ddd-44cb-909f-f2c97d965112" />
+          </path>
+          <sources>
+            <source identifier="NavigateToExamplePage" mappingType="Event Mapping" mappingTypeId="95ce3c3e-ddf4-440b-a9b2-6b152a5fc1b8">
+              <path>
+                <target id="d55280d3-5a29-42ee-9775-ca02f4a41893" name="MainLayout" type="element" specialization="Layout" specializationId="776a9393-6b23-4a8c-8937-fd7e833fa0ef" />
+                <target id="d59f9c20-42e9-4baa-900e-e873e39bb608" name="NavigateToExamplePage" type="association" specialization="Navigation Target End" specializationId="2b191288-ecae-4743-b069-cbdd927ef349" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{NavigateToExamplePage}</expression>
+          <path>
+            <target id="d55280d3-5a29-42ee-9775-ca02f4a41893" name="MainLayout" type="element" specialization="Layout" specializationId="776a9393-6b23-4a8c-8937-fd7e833fa0ef" />
+            <target id="30970cc3-e5a1-45f0-afea-5a359e372ddd" name="Sider" type="element" specialization="Layout Sider" specializationId="c505f35f-7148-46a3-a812-d9f53a174490" />
+            <target id="9ca6d73d-85e7-4996-b183-c4d22173a84c" name="Navigation Menu" type="element" specialization="Navigation Menu" specializationId="d7282bf2-1626-4b8b-9446-1d530527db06" />
+            <target id="577563e0-4ddc-4351-a49d-80fb8c34aa08" name="Add Menu Options..." type="element" specialization="Menu Item" specializationId="adbf2fa8-6833-4c24-960a-31d8a41fd1ed" />
+            <target id="a4073b81-6ddd-44cb-909f-f2c97d965112" name="Link To" type="static-mappable" specialization="Link To" specializationId="a4073b81-6ddd-44cb-909f-f2c97d965112" />
+          </path>
+          <sources>
+            <source identifier="NavigateToExamplePage" mappingType="Event Mapping" mappingTypeId="95ce3c3e-ddf4-440b-a9b2-6b152a5fc1b8">
+              <path>
+                <target id="d55280d3-5a29-42ee-9775-ca02f4a41893" name="MainLayout" type="element" specialization="Layout" specializationId="776a9393-6b23-4a8c-8937-fd7e833fa0ef" />
+                <target id="d59f9c20-42e9-4baa-900e-e873e39bb608" name="NavigateToExamplePage" type="association" specialization="Navigation Target End" specializationId="2b191288-ecae-4743-b069-cbdd927ef349" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{NavigateToProduct}</expression>
+          <path>
+            <target id="d55280d3-5a29-42ee-9775-ca02f4a41893" name="MainLayout" type="element" specialization="Layout" specializationId="776a9393-6b23-4a8c-8937-fd7e833fa0ef" />
+            <target id="30970cc3-e5a1-45f0-afea-5a359e372ddd" name="Sider" type="element" specialization="Layout Sider" specializationId="c505f35f-7148-46a3-a812-d9f53a174490" />
+            <target id="9ca6d73d-85e7-4996-b183-c4d22173a84c" name="Navigation Menu" type="element" specialization="Navigation Menu" specializationId="d7282bf2-1626-4b8b-9446-1d530527db06" />
+            <target id="9f61de47-6adc-49a7-ab48-423b512d9913" name="Products" type="element" specialization="Menu Item" specializationId="adbf2fa8-6833-4c24-960a-31d8a41fd1ed" />
+            <target id="a4073b81-6ddd-44cb-909f-f2c97d965112" name="Link To" type="static-mappable" specialization="Link To" specializationId="a4073b81-6ddd-44cb-909f-f2c97d965112" />
+          </path>
+          <sources>
+            <source identifier="NavigateToProduct" mappingType="Event Mapping" mappingTypeId="95ce3c3e-ddf4-440b-a9b2-6b152a5fc1b8">
+              <path>
+                <target id="d55280d3-5a29-42ee-9775-ca02f4a41893" name="MainLayout" type="element" specialization="Layout" specializationId="776a9393-6b23-4a8c-8937-fd7e833fa0ef" />
+                <target id="828fa717-004c-407d-bb76-2d971a09a342" name="NavigateToProduct" type="association" specialization="Navigation Target End" specializationId="2b191288-ecae-4743-b069-cbdd927ef349" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+      </mappedEnds>
+    </mapping>
+  </mappings>
+  <metadata />
+  <childElements>
+    <childElement id="d41c5f9f-c585-4be7-9917-9a198771367e" type="Layout Header" typeId="a6c3a89e-5932-4ab6-a406-75444f05beee">
+      <name>Header</name>
+      <display>Header</display>
+      <externalReference>a7c89270-9de3-40c7-942e-483aea25806f</externalReference>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d55280d3-5a29-42ee-9775-ca02f4a41893</parentFolderId>
+      <packageId>a4cf3b11-2b7b-4a5f-9915-283600108527</packageId>
+      <packageName>Blazor.Standalone.UI</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="77adc980-84cd-4619-a692-f64f5acd8405" type="Button" typeId="4474d808-f6fd-405f-a9c7-6998cd000ede">
+          <name>Home</name>
+          <display>Home</display>
+          <externalReference>248ce27e-85f7-4591-b140-153c8279de0a</externalReference>
+          <isAbstract>false</isAbstract>
+          <sort-children>by-type-then-by-name</sort-children>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d41c5f9f-c585-4be7-9917-9a198771367e</parentFolderId>
+          <packageId>a4cf3b11-2b7b-4a5f-9915-283600108527</packageId>
+          <packageName>Blazor.Standalone.UI</packageName>
+          <traits>
+            <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+          </traits>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="a7de29e5-4bee-4e5d-93f0-740569ac6130" name="Interaction">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.Modelers.UI.Core</definitionPackageName>
+              <definitionPackageId>a2a95421-3e55-43c7-96ad-355610b43c4d</definitionPackageId>
+              <properties>
+                <property name="7cee794d-e1a7-4590-b65a-6e56914a2a97" display="Type" value="Default" isActive="true" />
+                <property name="2265736b-4381-42dc-9dbf-b757188837bc" display="Form" isActive="false" />
+                <property name="d05f7b5b-fe45-4cbb-b938-380a4b68c0df" display="On Click" isActive="true" />
+                <property name="86aeb4ba-54e8-4327-bcb0-166fb9b9968c" display="Link To" value="{NavigateToHome}" isActive="true" />
+                <property name="8bde99c0-4d3e-47d2-92f1-e299b05e5543" display="Disabled" isActive="true" />
+              </properties>
+            </stereotype>
+            <stereotype stereotypeDefinitionId="b218f7cb-d150-401d-a17a-9e22fadf863f" name="Appearance">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.Blazor.Components.MudBlazor</definitionPackageName>
+              <definitionPackageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</definitionPackageId>
+              <properties>
+                <property name="eecbc26c-443b-4d97-a706-a4e21fc13552" display="Icon Only" value="false" isActive="false" />
+                <property name="de8a25d2-a144-4806-b5ad-e6c195abfa43" display="Variant" isActive="true" />
+                <property name="d527d5a7-fd00-4486-a204-5c6fc93099a5" display="Color" value="7d3b2bd9-931f-444b-a478-ad39a98d5d4b" isActive="true" />
+                <property name="9243cf9b-c6de-47d4-a914-382ab7ddf920" display="Class" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements>
+            <childElement id="38f5bfa8-452c-4583-a8fc-25756c62fced" type="Text" typeId="922150d2-42e6-4805-a002-f9580cdf7f6f">
+              <name>Text</name>
+              <display>Text = #####Application</display>
+              <externalReference>ef9c99a7-7b82-41ee-8884-1702ffb5fae4</externalReference>
+              <isAbstract>false</isAbstract>
+              <value>#####Application</value>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>77adc980-84cd-4619-a692-f64f5acd8405</parentFolderId>
+              <packageId>a4cf3b11-2b7b-4a5f-9915-283600108527</packageId>
+              <packageName>Blazor.Standalone.UI</packageName>
+              <traits>
+                <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+              </traits>
+              <stereotypes />
+              <metadata />
+              <childElements />
+            </childElement>
+          </childElements>
+        </childElement>
+        <childElement id="4482bc74-d3ec-43b2-8618-f6d12526398f" type="Spacer" typeId="cfc58280-fe7e-466d-9c00-ddb41b5462e7">
+          <name>Spacer</name>
+          <display>Spacer</display>
+          <externalReference>58869fa2-c4d7-43ca-b0d4-7e0997d001cb</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d41c5f9f-c585-4be7-9917-9a198771367e</parentFolderId>
+          <packageId>a4cf3b11-2b7b-4a5f-9915-283600108527</packageId>
+          <packageName>Blazor.Standalone.UI</packageName>
+          <traits>
+            <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+          </traits>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="122faee7-acb4-4675-91c2-d3fa4683855e" type="Navigation Menu" typeId="d7282bf2-1626-4b8b-9446-1d530527db06">
+          <name>Menu</name>
+          <display>Menu</display>
+          <externalReference>237e592a-d6ae-4bb4-a90d-a927b2d5653c</externalReference>
+          <isAbstract>false</isAbstract>
+          <sort-children>by-type-then-manually</sort-children>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d41c5f9f-c585-4be7-9917-9a198771367e</parentFolderId>
+          <packageId>a4cf3b11-2b7b-4a5f-9915-283600108527</packageId>
+          <packageName>Blazor.Standalone.UI</packageName>
+          <traits>
+            <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+          </traits>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="8e1b7033-fd27-495a-a2a7-36b5168f04f5" name="Icon">
+              <addedByDefault>false</addedByDefault>
+              <definitionPackageName>Intent.Blazor.Components.MudBlazor</definitionPackageName>
+              <definitionPackageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</definitionPackageId>
+              <properties>
+                <property name="7bda044e-8be7-4ac4-98cd-41e97132942f" display="Icon Value" value="e973627f-6106-4763-9459-998016c8c2b3" isActive="true" />
+                <property name="6a70b142-c60d-4015-97aa-be0bcab7d128" display="Icon Color" isActive="true" />
+                <property name="13f1151e-7611-4bde-8374-1598b5d3335c" display="Variant" value="41f2ef78-a358-43bd-9b84-926dc185c8d1" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements>
+            <childElement id="cdee07b6-baaf-4d6b-ab98-fd2cfe68aa1d" type="Menu Item" typeId="adbf2fa8-6833-4c24-960a-31d8a41fd1ed">
+              <name>Profile</name>
+              <display>Profile</display>
+              <externalReference>0aff99a0-8795-4aa7-b728-a6459c61d9c2</externalReference>
+              <isAbstract>false</isAbstract>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>122faee7-acb4-4675-91c2-d3fa4683855e</parentFolderId>
+              <packageId>a4cf3b11-2b7b-4a5f-9915-283600108527</packageId>
+              <packageName>Blazor.Standalone.UI</packageName>
+              <stereotypes>
+                <stereotype stereotypeDefinitionId="8e1b7033-fd27-495a-a2a7-36b5168f04f5" name="Icon">
+                  <addedByDefault>false</addedByDefault>
+                  <definitionPackageName>Intent.Blazor.Components.MudBlazor</definitionPackageName>
+                  <definitionPackageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</definitionPackageId>
+                  <properties>
+                    <property name="7bda044e-8be7-4ac4-98cd-41e97132942f" display="Icon Value" value="9257f134-f2a4-446e-aa94-a37565b130c6" isActive="true" />
+                    <property name="6a70b142-c60d-4015-97aa-be0bcab7d128" display="Icon Color" isActive="true" />
+                    <property name="13f1151e-7611-4bde-8374-1598b5d3335c" display="Variant" value="41f2ef78-a358-43bd-9b84-926dc185c8d1" isActive="true" />
+                  </properties>
+                </stereotype>
+              </stereotypes>
+              <metadata />
+              <childElements />
+            </childElement>
+            <childElement id="b10df3d0-575c-4f2c-9841-cbfa6555a17d" type="Menu Item" typeId="adbf2fa8-6833-4c24-960a-31d8a41fd1ed">
+              <name>My Account</name>
+              <display>My Account</display>
+              <externalReference>5be345b4-8580-48cb-b8bf-2d09362142bd</externalReference>
+              <isAbstract>false</isAbstract>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>122faee7-acb4-4675-91c2-d3fa4683855e</parentFolderId>
+              <packageId>a4cf3b11-2b7b-4a5f-9915-283600108527</packageId>
+              <packageName>Blazor.Standalone.UI</packageName>
+              <stereotypes>
+                <stereotype stereotypeDefinitionId="8e1b7033-fd27-495a-a2a7-36b5168f04f5" name="Icon">
+                  <addedByDefault>false</addedByDefault>
+                  <definitionPackageName>Intent.Blazor.Components.MudBlazor</definitionPackageName>
+                  <definitionPackageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</definitionPackageId>
+                  <properties>
+                    <property name="7bda044e-8be7-4ac4-98cd-41e97132942f" display="Icon Value" value="4f0b64a4-01a2-4ea8-9ee5-5785449f159d" isActive="true" />
+                    <property name="6a70b142-c60d-4015-97aa-be0bcab7d128" display="Icon Color" isActive="true" />
+                    <property name="13f1151e-7611-4bde-8374-1598b5d3335c" display="Variant" value="41f2ef78-a358-43bd-9b84-926dc185c8d1" isActive="true" />
+                  </properties>
+                </stereotype>
+              </stereotypes>
+              <metadata />
+              <childElements />
+            </childElement>
+            <childElement id="1d1c5bb0-699f-42f8-9721-8400510d165c" type="Menu Item" typeId="adbf2fa8-6833-4c24-960a-31d8a41fd1ed">
+              <name>Logout</name>
+              <display>Logout</display>
+              <externalReference>016bf71d-0470-46a2-acfb-59631a6af138</externalReference>
+              <isAbstract>false</isAbstract>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>122faee7-acb4-4675-91c2-d3fa4683855e</parentFolderId>
+              <packageId>a4cf3b11-2b7b-4a5f-9915-283600108527</packageId>
+              <packageName>Blazor.Standalone.UI</packageName>
+              <stereotypes>
+                <stereotype stereotypeDefinitionId="8e1b7033-fd27-495a-a2a7-36b5168f04f5" name="Icon">
+                  <addedByDefault>false</addedByDefault>
+                  <definitionPackageName>Intent.Blazor.Components.MudBlazor</definitionPackageName>
+                  <definitionPackageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</definitionPackageId>
+                  <properties>
+                    <property name="7bda044e-8be7-4ac4-98cd-41e97132942f" display="Icon Value" value="caf1cca8-fa22-4dbe-97e0-8ed3e6c51c38" isActive="true" />
+                    <property name="6a70b142-c60d-4015-97aa-be0bcab7d128" display="Icon Color" isActive="true" />
+                    <property name="13f1151e-7611-4bde-8374-1598b5d3335c" display="Variant" value="41f2ef78-a358-43bd-9b84-926dc185c8d1" isActive="true" />
+                  </properties>
+                </stereotype>
+              </stereotypes>
+              <metadata />
+              <childElements />
+            </childElement>
+          </childElements>
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="30970cc3-e5a1-45f0-afea-5a359e372ddd" type="Layout Sider" typeId="c505f35f-7148-46a3-a812-d9f53a174490">
+      <name>Sider</name>
+      <display>Sider</display>
+      <externalReference>3abb8e62-1ef0-41ff-8a0a-fb4333322e31</externalReference>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d55280d3-5a29-42ee-9775-ca02f4a41893</parentFolderId>
+      <packageId>a4cf3b11-2b7b-4a5f-9915-283600108527</packageId>
+      <packageName>Blazor.Standalone.UI</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="9ca6d73d-85e7-4996-b183-c4d22173a84c" type="Navigation Menu" typeId="d7282bf2-1626-4b8b-9446-1d530527db06">
+          <name>Navigation Menu</name>
+          <display>Navigation Menu</display>
+          <externalReference>e15086df-a61f-4354-ad7f-e04a99b10e16</externalReference>
+          <isAbstract>false</isAbstract>
+          <sort-children>by-type-then-manually</sort-children>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>30970cc3-e5a1-45f0-afea-5a359e372ddd</parentFolderId>
+          <packageId>a4cf3b11-2b7b-4a5f-9915-283600108527</packageId>
+          <packageName>Blazor.Standalone.UI</packageName>
+          <traits>
+            <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+          </traits>
+          <stereotypes />
+          <metadata />
+          <childElements>
+            <childElement id="577563e0-4ddc-4351-a49d-80fb8c34aa08" type="Menu Item" typeId="adbf2fa8-6833-4c24-960a-31d8a41fd1ed">
+              <name>Add Menu Options...</name>
+              <display>Add Menu Options...</display>
+              <externalReference>ae0406db-542c-4d64-9233-5a258a5cf532</externalReference>
+              <isAbstract>false</isAbstract>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>9ca6d73d-85e7-4996-b183-c4d22173a84c</parentFolderId>
+              <packageId>a4cf3b11-2b7b-4a5f-9915-283600108527</packageId>
+              <packageName>Blazor.Standalone.UI</packageName>
+              <stereotypes>
+                <stereotype stereotypeDefinitionId="8e1b7033-fd27-495a-a2a7-36b5168f04f5" name="Icon">
+                  <addedByDefault>false</addedByDefault>
+                  <definitionPackageName>Intent.Blazor.Components.MudBlazor</definitionPackageName>
+                  <definitionPackageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</definitionPackageId>
+                  <properties>
+                    <property name="7bda044e-8be7-4ac4-98cd-41e97132942f" display="Icon Value" value="bcb1ed81-8cfa-47c4-826e-46b2fda60b54" isActive="true" />
+                    <property name="6a70b142-c60d-4015-97aa-be0bcab7d128" display="Icon Color" isActive="true" />
+                    <property name="13f1151e-7611-4bde-8374-1598b5d3335c" display="Variant" value="41f2ef78-a358-43bd-9b84-926dc185c8d1" isActive="true" />
+                  </properties>
+                </stereotype>
+              </stereotypes>
+              <metadata />
+              <childElements />
+            </childElement>
+            <childElement id="9f61de47-6adc-49a7-ab48-423b512d9913" type="Menu Item" typeId="adbf2fa8-6833-4c24-960a-31d8a41fd1ed">
+              <name>Products</name>
+              <display>Products</display>
+              <isAbstract>false</isAbstract>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>9ca6d73d-85e7-4996-b183-c4d22173a84c</parentFolderId>
+              <packageId>a4cf3b11-2b7b-4a5f-9915-283600108527</packageId>
+              <packageName>Blazor.Standalone.UI</packageName>
+              <stereotypes />
+              <metadata />
+              <childElements />
+            </childElement>
+          </childElements>
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="a3147f77-966f-41c5-bb7b-51915f7eec10" type="Layout Body" typeId="11636699-8bad-4693-8c15-8141bd66d04f">
+      <name>Body</name>
+      <display>Body</display>
+      <externalReference>3d941ba4-404d-4233-9465-816e87cb5b25</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d55280d3-5a29-42ee-9775-ca02f4a41893</parentFolderId>
+      <packageId>a4cf3b11-2b7b-4a5f-9915-283600108527</packageId>
+      <packageName>Blazor.Standalone.UI</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

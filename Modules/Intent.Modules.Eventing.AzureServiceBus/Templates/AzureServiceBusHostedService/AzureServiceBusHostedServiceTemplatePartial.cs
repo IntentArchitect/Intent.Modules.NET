@@ -141,13 +141,13 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusHoste
 
         public override bool CanRunTemplate()
         {
-            var appStartup = ExecutionContext.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
+            var appStartup = ExecutionContext.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName, OutputTarget);
             return appStartup != null;
         }
 
         public override void BeforeTemplateExecution()
         {
-            var appStartup = ExecutionContext.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
+            var appStartup = ExecutionContext.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName, OutputTarget);
             appStartup.StartupFile.ConfigureServices((stmt, ctx) =>
             {
                 stmt.AddStatement($@"{ctx.Services}.AddHostedService<{appStartup.GetAzureServiceBusHostedServiceName()}>();");

@@ -1,3 +1,7 @@
+### Version 4.5.3
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 4.5.2
 
 - Improvement: Updated Shared Module.

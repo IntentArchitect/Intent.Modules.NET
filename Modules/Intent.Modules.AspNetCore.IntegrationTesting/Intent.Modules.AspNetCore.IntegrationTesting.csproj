@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -20,12 +20,12 @@
     <PackageReference Include="Intent.Modules.Metadata.WebApi" Version="4.7.2" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.8.2" />
     <PackageReference Include="Intent.Modules.Modelers.Types.ServiceProxies" Version="5.0.1" />
-    <PackageReference Include="Intent.Packager" Version="3.5.0">
+    <PackageReference Include="Intent.Packager" Version="3.6.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.7" />
-    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.7.0" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.9.0" />
   </ItemGroup>
 
   <ItemGroup>

@@ -22,7 +22,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         [IntentManaged(Mode.Merge)]
         public ServiceFabricProjectModel(IElement element, string requiredType = SpecializationType)
         {
-            if (!requiredType.Equals(element.SpecializationType, StringComparison.InvariantCultureIgnoreCase))
+            if (!requiredType.Equals(element.SpecializationType, StringComparison.InvariantCultureIgnoreCase) && !requiredType.Equals(element.SpecializationTypeId, StringComparison.InvariantCultureIgnoreCase))
             {
                 throw new Exception($"Cannot create a '{GetType().Name}' from element with specialization type '{element.SpecializationType}'. Must be of type '{SpecializationType}'");
             }

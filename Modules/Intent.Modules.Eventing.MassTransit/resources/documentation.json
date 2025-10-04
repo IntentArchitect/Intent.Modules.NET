@@ -13,8 +13,8 @@
               "masstransit",
               "eventbus",
               "message",
-              "messaging
-configuration"
+              "messaging",
+              "configuration"
             ]
         },
       {
@@ -30,8 +30,8 @@ configuration"
               "masstransit",
               "eventbus",
               "message",
-              "messaging
-configuration",
+              "messaging",
+              "configuration",
               "multi",
               "multitenancy",
               "finbuckle"

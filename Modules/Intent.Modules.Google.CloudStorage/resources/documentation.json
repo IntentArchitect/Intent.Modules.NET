@@ -6,8 +6,8 @@
           "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAAAz9JREFUeF7t3E1rE1EUBuBzJ1PaNE0wpUZrUVu1oIUKVUFQEF25Ej9w4b8puPGvuNHahYKlWDd+QFxViAvBjQoqrRVDBOmEkWMb0Mm9yemcyaR03tlmTm7vkzM3N5M3NYRDJWBU1SgmACqbAIAAVAooy9GBAFQKKMvRgQBUCijL0YEAVAooy9GBAFQKKMudHXh3sTG39sN7YXv+M8fM9+KQCZRj76ry9XroP6gG49b5Hvev3bs99MT2mBvw8a/zn77Qa1vRxekcFfN76+pfq4d0/9Vm23SNIbp00tyYv1VYBGCHnncBlvKG5iYJgN3WCxfg6Iih2cMA7OZHLsAjYx5N7Q/Rgd0EXYAnDno0UQZgNz9rB+4rGBormuwAVkqGZiZyVC78v0PYaIRU+9ykbz9DJ6StAycrHvkeZQOQ8S5M+8TbDtsRhkQv3wdOxCggw/H652UF8PIpv63zopDcic/f2ff/UcDCoKHx8tarkeoaePX0QNf1ZicnPF1t39za6m+ek4278Mb+fFHA0rAh7urUAaUTkSK6Jhytl44rBZyqeJTztkZJtQOlE9nNgAzHgK0jVcArM77URnTeSk12z0L6wkk6kC9dvoT7AihS6cFJSb6JHCobGh7MGGBS2xjetvD2hbcxmepAnmwSG2mG4w30v0eqa2APrs5UnrK1jeGPbvwRDoA7ZG8B8s2D6IEOFGAy4MPq5t/1D4ACsOgpDLj0NiC+gQrAmIDPagHxLXwAxgSsfmha7+bEWwMf/Z5drzeXbX/L2aO5ryN5I/uUH2My/SjZaIQDqx+bB2xjj5bMnfnr+RXbY3vru8k+yANQiQ5AACoFlOXoQAAqBZTlSGdtAyKdpewkpLN6BIh0lhAW6SwhlOs0pLN6BIh0lhDW1oFIZ23jIZ0l6KKkvtZsDYV0lgUd6awOnZhktIOHQTrLgS3JxnAp0lkKQKSzOlzqkg5EOssBKH0TQTrLAigNmSOdpfyZA9JZgk237RSks2LCtcqQzkoAEOksBSLSWQo8LmVApLMUiAyIdJYCEOksBZ6mFNEOjR4R/gWo0g+AANQKKOuxBgJQKaAsRwcCUCmgLEcHAlApoCxHBwJQKaAs/wOwZSx+rac1AgAAAABJRU5ErkJggg==",
           "href": "https://docs.intentarchitect.com/articles/modules-dotnet/intent-google-cloudstorage/intent-google-cloudstorage.html",
           "tags": [
-              "Intent.Google.CloudStorage
-module",
+              "Intent.Google.CloudStorage",
+              "module",
               "moduledocumentation",
               "google",
               "cloud",

@@ -11,5 +11,6 @@ namespace AzureFunctions.NET8.Application.Common.Interfaces
         string? Id { get; }
         string? Name { get; }
         ClaimsPrincipal Principal { get; }
+        string? AccessToken { get; }
     }
 }

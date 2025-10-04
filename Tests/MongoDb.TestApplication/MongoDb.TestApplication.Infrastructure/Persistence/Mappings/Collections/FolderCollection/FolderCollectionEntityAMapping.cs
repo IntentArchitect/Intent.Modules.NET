@@ -12,7 +12,7 @@ namespace MongoDb.TestApplication.Infrastructure.Persistence.Mappings.Collection
 {
     public class FolderCollectionEntityAMapping : IMongoMappingConfiguration<FolderCollectionEntityA>
     {
-        public string CollectionName => "FolderCollectionEntityAs";
+        public string CollectionName => "FolderCollection";
 
         public void RegisterCollectionMap()
         {

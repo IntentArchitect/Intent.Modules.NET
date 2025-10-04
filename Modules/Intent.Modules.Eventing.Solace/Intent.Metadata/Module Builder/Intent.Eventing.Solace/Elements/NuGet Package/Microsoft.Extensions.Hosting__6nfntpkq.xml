@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="f5814cd8-d75d-4c1f-9f3c-d4a5af06e919" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.8</name>
+      <name>9.0.9</name>
       <display>9.0.5 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,10 +47,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="d00517ae-527a-4363-87b6-884fda61ea0b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9b43e8d4-7cd1-42d1-a559-8e2054805c75" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Abstractions</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f5814cd8-d75d-4c1f-9f3c-d4a5af06e919</parentFolderId>
@@ -58,10 +58,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="035bcd1d-522e-44bb-9fed-8bb1eb5b71f1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="bd77cf14-e043-4ac4-a8fe-df5ca7a60f01" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Binder</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f5814cd8-d75d-4c1f-9f3c-d4a5af06e919</parentFolderId>
@@ -69,10 +69,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="f39f1997-1bc1-45f1-bc34-9fc1e7d36a15" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="79e2d600-775c-4427-a8c6-13f115dcfec3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.CommandLine</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f5814cd8-d75d-4c1f-9f3c-d4a5af06e919</parentFolderId>
@@ -80,10 +80,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="7a57233c-c5da-4131-9350-ea6efc7f8f88" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b8e176f4-6332-420f-a484-8648fcbba8c5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.EnvironmentVariables</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f5814cd8-d75d-4c1f-9f3c-d4a5af06e919</parentFolderId>
@@ -91,10 +91,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="86c52c8c-e805-4c9c-adc5-871beeb410c7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e2af4b66-d5ae-4d8d-9ff0-9afd604a7c3c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.FileExtensions</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f5814cd8-d75d-4c1f-9f3c-d4a5af06e919</parentFolderId>
@@ -102,10 +102,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="47236a2e-4185-49f7-833e-5e4f4728a4f1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="cf897329-8066-4b25-b2dd-2f9f6cda3ea5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Json</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f5814cd8-d75d-4c1f-9f3c-d4a5af06e919</parentFolderId>
@@ -113,10 +113,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="43721417-e514-4c9d-877b-db2d05a1193f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="3cdc6115-b862-4e55-937c-5edc34c6975e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.UserSecrets</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f5814cd8-d75d-4c1f-9f3c-d4a5af06e919</parentFolderId>
@@ -124,10 +124,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="bd730ac8-a4f0-431b-919c-d89df0042aa9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="55ad9b0c-ffad-4048-b55e-e63430464850" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f5814cd8-d75d-4c1f-9f3c-d4a5af06e919</parentFolderId>
@@ -135,10 +135,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="e43fbb82-5f95-417b-b0eb-8470535a192d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a4f2e200-ce46-494b-bbd8-6003d53e65ec" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f5814cd8-d75d-4c1f-9f3c-d4a5af06e919</parentFolderId>
@@ -146,10 +146,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="2c97c560-62d2-47c8-9f6a-b39df2952256" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6e8db2ba-9b8a-4bfe-b7b6-884859aa04b2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f5814cd8-d75d-4c1f-9f3c-d4a5af06e919</parentFolderId>
@@ -157,10 +157,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="859db1b4-410b-444f-9d94-c4b5a70a95ef" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="5c473be3-cfb1-487a-b865-72304a57a671" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f5814cd8-d75d-4c1f-9f3c-d4a5af06e919</parentFolderId>
@@ -168,10 +168,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="0ddd79eb-1b54-4bf1-8a72-7d4e27f69d67" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f617262b-b919-4a46-bcf8-aff3dc935c8c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Abstractions</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f5814cd8-d75d-4c1f-9f3c-d4a5af06e919</parentFolderId>
@@ -179,10 +179,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="2721b0f4-0530-4db8-9e9a-7006d0e087af" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="63466224-820e-457e-b99b-9d9a923e63d5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Physical</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f5814cd8-d75d-4c1f-9f3c-d4a5af06e919</parentFolderId>
@@ -190,10 +190,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="83e5a896-ca60-411b-b420-3a75e020cc1c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="bf3d74f5-4dfc-4b56-aa2c-118ef6ecca9c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Hosting.Abstractions</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f5814cd8-d75d-4c1f-9f3c-d4a5af06e919</parentFolderId>
@@ -201,10 +201,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="1ac12ec4-224c-4852-adba-289f70f48238" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="327aa056-821b-4441-9448-3fe263835f37" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f5814cd8-d75d-4c1f-9f3c-d4a5af06e919</parentFolderId>
@@ -212,10 +212,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="0c2ebb27-ed20-4978-8613-77b3c9cefdb1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f3fbe504-bb2f-4ec2-8b45-16f5d91ba068" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Configuration</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f5814cd8-d75d-4c1f-9f3c-d4a5af06e919</parentFolderId>
@@ -223,10 +223,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="97895f40-6d42-4983-b7e7-5c3ea902e760" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="aa69a9f8-ca8a-4b0b-80bc-4647abc0d7b7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Console</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f5814cd8-d75d-4c1f-9f3c-d4a5af06e919</parentFolderId>
@@ -234,10 +234,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d50c1471-2983-4e8c-a3ec-7d98a5c030f8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b07a1f63-9aff-4f0b-be1a-3dd57619b533" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Debug</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f5814cd8-d75d-4c1f-9f3c-d4a5af06e919</parentFolderId>
@@ -245,10 +245,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="f6aa530c-cca1-4111-b0c9-1ea2433d262b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="1134d4c1-6f81-4e58-82a9-8ad27979bd44" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.EventLog</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f5814cd8-d75d-4c1f-9f3c-d4a5af06e919</parentFolderId>
@@ -256,10 +256,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="5ee2ef71-fbdc-41d3-9e93-aac8984079bc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="66918e9a-aed7-4bc8-b52d-fc4209d07a47" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.EventSource</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f5814cd8-d75d-4c1f-9f3c-d4a5af06e919</parentFolderId>
@@ -267,10 +267,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="21c695a1-54b0-43bf-95ae-ddf7b52ec565" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="57f23905-66fe-49c9-80a3-dc8d36d1dbce" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f5814cd8-d75d-4c1f-9f3c-d4a5af06e919</parentFolderId>
@@ -278,10 +278,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="fbc3f06c-885b-4f71-9305-e08794c6959b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="7e218e77-85f8-43a8-a878-99cb47515b6c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f5814cd8-d75d-4c1f-9f3c-d4a5af06e919</parentFolderId>
@@ -292,7 +292,7 @@
       </childElements>
     </childElement>
     <childElement id="a34671fe-4d21-444b-a547-9f21f2b6a892" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.8</name>
+      <name>9.0.9</name>
       <display>9.0.5 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -314,10 +314,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="a6028801-6b69-4710-9f85-cf2889c3ea81" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6ae2d4da-3bbb-4811-baae-2a862a00f1c6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Bcl.AsyncInterfaces</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a34671fe-4d21-444b-a547-9f21f2b6a892</parentFolderId>
@@ -325,10 +325,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="b4a42f77-7092-4f94-8354-ca02cc810b75" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="36a9bb42-17c3-4665-b954-b59c520ee090" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Abstractions</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a34671fe-4d21-444b-a547-9f21f2b6a892</parentFolderId>
@@ -336,10 +336,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="45e946ca-401b-46af-9c5a-9f327bba7cb2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a22d2797-56cc-4b5e-b3c4-652cfd246d87" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Binder</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a34671fe-4d21-444b-a547-9f21f2b6a892</parentFolderId>
@@ -347,10 +347,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c6a1903d-8c2e-4417-b9c5-0dcafc27daf0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b48a6db6-dbc5-43d1-ae4e-9ab662ec5a6c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.CommandLine</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a34671fe-4d21-444b-a547-9f21f2b6a892</parentFolderId>
@@ -358,10 +358,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="4381ae0b-09ef-47eb-a37d-32a1275c451d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e9b6d82d-989c-400b-9a02-9423a2e01f70" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.EnvironmentVariables</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a34671fe-4d21-444b-a547-9f21f2b6a892</parentFolderId>
@@ -369,10 +369,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="02a17e31-2f73-4eca-b6f6-20e54369beb0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6da576bf-f08d-4db8-9bed-e9794eeb8c1b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.FileExtensions</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a34671fe-4d21-444b-a547-9f21f2b6a892</parentFolderId>
@@ -380,10 +380,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="a5a24abd-8426-497d-af64-1928506233a8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="4540d69a-8139-4d15-ae8e-6ab041eef7e8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Json</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a34671fe-4d21-444b-a547-9f21f2b6a892</parentFolderId>
@@ -391,10 +391,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="1f16149a-10fb-453b-9bbe-3f5897136eb1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a9d8b38b-5f24-4160-95e9-a81824fc4e3d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.UserSecrets</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a34671fe-4d21-444b-a547-9f21f2b6a892</parentFolderId>
@@ -402,10 +402,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="f9bc045e-b549-45e9-ba52-52b8043dc544" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6be3ee50-8c81-4c34-b697-0c8f6c770034" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a34671fe-4d21-444b-a547-9f21f2b6a892</parentFolderId>
@@ -413,10 +413,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="357614a0-df55-4888-9e77-c3c8b53a6a08" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="4738b94d-504d-4ce2-bce7-2e71d7047898" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a34671fe-4d21-444b-a547-9f21f2b6a892</parentFolderId>
@@ -424,10 +424,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="5f539acd-44ed-4638-ac16-e47e237922fc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d5badb41-6350-466f-89d4-2c96eeee3f2a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a34671fe-4d21-444b-a547-9f21f2b6a892</parentFolderId>
@@ -435,10 +435,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="421cccb7-d01d-4ff0-b3dd-e386b77146ca" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a371df62-3747-47f8-87df-f336562f5555" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a34671fe-4d21-444b-a547-9f21f2b6a892</parentFolderId>
@@ -446,10 +446,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="41013c0d-6afc-49d0-80ea-f8dc6cb8f554" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="80904d51-2f90-483e-a901-14f21d571410" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Abstractions</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a34671fe-4d21-444b-a547-9f21f2b6a892</parentFolderId>
@@ -457,10 +457,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="4b849e6a-50aa-4229-8b0e-b0257d1f6fd6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b4b912a3-d0db-4756-9b34-eff26907a5d7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Physical</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a34671fe-4d21-444b-a547-9f21f2b6a892</parentFolderId>
@@ -468,10 +468,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="726a7556-3b19-4b49-994e-a291bbdfa7d1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b7cd054f-5ccd-49c5-b59c-457d5f124ba8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Hosting.Abstractions</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a34671fe-4d21-444b-a547-9f21f2b6a892</parentFolderId>
@@ -479,10 +479,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="0496ec3b-592d-4b29-95aa-94076df3f92a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f4a82702-c6eb-45fc-b3c3-b544c2c2733b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a34671fe-4d21-444b-a547-9f21f2b6a892</parentFolderId>
@@ -490,10 +490,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="fdcbaaea-65ff-4270-afaa-a51550896f63" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="4fe0e389-85c5-452a-8e2d-8204eae13cb3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Configuration</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a34671fe-4d21-444b-a547-9f21f2b6a892</parentFolderId>
@@ -501,10 +501,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="a8a0f89a-9a35-4fc4-8e23-95472128f503" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="281dfbeb-9c97-494a-b468-fec19489fa67" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Console</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a34671fe-4d21-444b-a547-9f21f2b6a892</parentFolderId>
@@ -512,10 +512,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="e44993df-2e72-47a6-a4d0-44971c614899" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="4e9e225f-506e-48ce-b442-47127b28a2f2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Debug</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a34671fe-4d21-444b-a547-9f21f2b6a892</parentFolderId>
@@ -523,10 +523,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="6c0015b6-cf23-4b00-bdc4-b5f61f4ace36" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="502edeb3-6ca1-4b5b-8965-01b06e2d888b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.EventLog</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a34671fe-4d21-444b-a547-9f21f2b6a892</parentFolderId>
@@ -534,10 +534,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="4bb504fa-3df9-47b5-a636-853b93765fd6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f83fcde6-b771-412a-8249-72998403bc28" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.EventSource</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a34671fe-4d21-444b-a547-9f21f2b6a892</parentFolderId>
@@ -545,10 +545,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c902c997-f938-4e83-83b3-fdd111537ee1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9cd0f7e7-ca48-4ee1-8453-06580a81b830" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a34671fe-4d21-444b-a547-9f21f2b6a892</parentFolderId>
@@ -556,10 +556,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c365f50b-8d70-46a1-9df2-724d70a55ab0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="1c540d39-2fce-4c79-acf6-6614e0a5905b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a34671fe-4d21-444b-a547-9f21f2b6a892</parentFolderId>
@@ -567,7 +567,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="e2a6635a-2c69-4920-9d03-6d06b7d88296" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d9db7adc-b1a1-4270-845a-b521653cd29b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Threading.Tasks.Extensions</name>
           <isAbstract>false</isAbstract>
           <value>4.5.4</value>
@@ -581,7 +581,7 @@
       </childElements>
     </childElement>
     <childElement id="5d6efcec-3b1e-4345-9bb0-e7846a741122" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.8</name>
+      <name>9.0.9</name>
       <display>9.0.5 ( &gt;= .NETStandard,Version=v2.1 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -603,10 +603,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="04e43dcb-7939-4bb0-aebe-1b22bd553ae7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b1534644-cfc6-4d82-bfda-92751cabb765" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Abstractions</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5d6efcec-3b1e-4345-9bb0-e7846a741122</parentFolderId>
@@ -614,10 +614,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="72ab3206-3ba8-4188-a7b5-2e64493777c6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="14f58dd6-bfe6-429b-8c31-dd1e10d170e7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Binder</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5d6efcec-3b1e-4345-9bb0-e7846a741122</parentFolderId>
@@ -625,10 +625,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="98b7b491-0f03-4012-8187-2b35a7fcea6c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="5d71fae3-f441-4020-befc-817c5a197e44" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.CommandLine</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5d6efcec-3b1e-4345-9bb0-e7846a741122</parentFolderId>
@@ -636,10 +636,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="1d8c810f-93cc-4c3f-b637-c2e2ba373a3a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="fcbbae33-97c2-4b23-9a69-c5bcabcd113c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.EnvironmentVariables</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5d6efcec-3b1e-4345-9bb0-e7846a741122</parentFolderId>
@@ -647,10 +647,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="306b89b8-8eb6-4f7e-b229-3fd97a83e4ae" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="13a67736-5539-4fb2-bf66-d1effdb3fe32" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.FileExtensions</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5d6efcec-3b1e-4345-9bb0-e7846a741122</parentFolderId>
@@ -658,10 +658,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="e78b4248-f545-479b-94bb-270b63205e1e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="674ced8f-36e5-422d-923c-2f87213b8429" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Json</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5d6efcec-3b1e-4345-9bb0-e7846a741122</parentFolderId>
@@ -669,10 +669,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d81a80e4-1b69-4359-b094-7da0e5034c90" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="441263f2-fb5f-41d0-9b7c-c35bb2725e2b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.UserSecrets</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5d6efcec-3b1e-4345-9bb0-e7846a741122</parentFolderId>
@@ -680,10 +680,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="b59d54f5-cfb9-4cab-b13d-3c76296a879f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="afd5978b-44b8-4d67-bec5-9fffc2df2c83" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5d6efcec-3b1e-4345-9bb0-e7846a741122</parentFolderId>
@@ -691,10 +691,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="6874abd8-1aef-463a-aa08-d8226cf76969" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="3e6de31f-4db7-49fd-81e4-5825b4d8581b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5d6efcec-3b1e-4345-9bb0-e7846a741122</parentFolderId>
@@ -702,10 +702,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="52911449-44be-42ab-a718-1dd462c61c8d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="24b433ba-2d39-4e17-9110-044365c70eb5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5d6efcec-3b1e-4345-9bb0-e7846a741122</parentFolderId>
@@ -713,10 +713,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="bbb0809d-f06d-44f8-8113-c9c5f98d14a0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="680d90c1-b708-4022-8e53-3a7612778874" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5d6efcec-3b1e-4345-9bb0-e7846a741122</parentFolderId>
@@ -724,10 +724,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="2fb9771d-b577-48a2-af96-9b77896e10a7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f8f474d8-28d9-4fc1-aa75-2021fbef8f33" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Abstractions</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5d6efcec-3b1e-4345-9bb0-e7846a741122</parentFolderId>
@@ -735,10 +735,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="133b21f1-fa0c-4045-83a3-a51f7b97ec25" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="14ddc740-b855-4acb-bf2f-2a93b11281ee" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Physical</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5d6efcec-3b1e-4345-9bb0-e7846a741122</parentFolderId>
@@ -746,10 +746,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="506f3840-81c8-4ace-9a4e-3043693fc441" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="034ad5ce-20ef-4ac0-994f-ed638051d1bb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Hosting.Abstractions</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5d6efcec-3b1e-4345-9bb0-e7846a741122</parentFolderId>
@@ -757,10 +757,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="4cedef33-a18b-4ace-bba8-7bcc44140d94" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="50823f60-3233-49e4-bdbe-a2423622fd63" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5d6efcec-3b1e-4345-9bb0-e7846a741122</parentFolderId>
@@ -768,10 +768,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="8ab35c80-1e46-4fdb-a41c-fffe2bf1f4bc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="4dc4776e-3afd-4e2d-a93e-97fe315e6111" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Configuration</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5d6efcec-3b1e-4345-9bb0-e7846a741122</parentFolderId>
@@ -779,10 +779,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="16976479-b7ee-4df7-a70b-e0543af52293" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="803037e3-15ad-4ad1-885e-da2afa96b281" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Console</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5d6efcec-3b1e-4345-9bb0-e7846a741122</parentFolderId>
@@ -790,10 +790,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c8810b92-5545-4313-9421-3fcee73cd652" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b0adcb78-429d-4966-a085-74b83691569e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Debug</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5d6efcec-3b1e-4345-9bb0-e7846a741122</parentFolderId>
@@ -801,10 +801,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="5f6d4050-fad2-4b59-8594-0c938544462a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="819c49b3-2ed0-4bc0-a427-dbd4e745ecb8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.EventLog</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5d6efcec-3b1e-4345-9bb0-e7846a741122</parentFolderId>
@@ -812,10 +812,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="83888f1c-7bc3-49f6-81ca-3a380809d1e2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c972f6d7-ab45-4211-a139-13bdf0e76877" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.EventSource</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5d6efcec-3b1e-4345-9bb0-e7846a741122</parentFolderId>
@@ -823,10 +823,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="539c441b-a7aa-4d2f-839e-5b654959c400" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="743ab0de-cc77-4c60-9d5f-668dd21a63bf" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5d6efcec-3b1e-4345-9bb0-e7846a741122</parentFolderId>
@@ -834,10 +834,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="dd560bbc-ca09-4d4b-9198-8ca8e13c473a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="33b795da-f6c7-4b58-a182-ef8739799be8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5d6efcec-3b1e-4345-9bb0-e7846a741122</parentFolderId>
@@ -848,7 +848,7 @@
       </childElements>
     </childElement>
     <childElement id="cdafa5cd-9d97-4000-a381-2a53c5cce8e7" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.8</name>
+      <name>9.0.9</name>
       <display>9.0.5 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -870,10 +870,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="ca4ec0ba-710b-4937-9611-7b93f28ba92e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="aa41a198-b1d7-4075-b4b5-291d1dbba01b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Abstractions</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cdafa5cd-9d97-4000-a381-2a53c5cce8e7</parentFolderId>
@@ -881,10 +881,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="3fa079e1-6a48-492b-8feb-0d620a2b4d72" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="1f967c03-9c2b-4cbd-87a2-f87d84c6802b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Binder</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cdafa5cd-9d97-4000-a381-2a53c5cce8e7</parentFolderId>
@@ -892,10 +892,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d16ffba9-4a8e-4ad0-b79f-a58b3ebf166f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a35c25e1-fddf-4016-959f-20823734080f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.CommandLine</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cdafa5cd-9d97-4000-a381-2a53c5cce8e7</parentFolderId>
@@ -903,10 +903,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="7685a744-c52c-4e09-9d6e-8df0562c4a1e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="4d34b891-457f-4af0-8996-74f7a781accc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.EnvironmentVariables</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cdafa5cd-9d97-4000-a381-2a53c5cce8e7</parentFolderId>
@@ -914,10 +914,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="dd72ccac-60f5-4e7e-8403-848f0ec9962f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="96b58d5a-0f98-4588-ba5c-264eadd420f7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.FileExtensions</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cdafa5cd-9d97-4000-a381-2a53c5cce8e7</parentFolderId>
@@ -925,10 +925,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="9e62b72a-9801-42d6-bce5-026a91e17227" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="06f5685d-ab12-4f64-ae68-c55efed1e5dd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Json</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cdafa5cd-9d97-4000-a381-2a53c5cce8e7</parentFolderId>
@@ -936,10 +936,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="7c84d1cf-da7b-40cd-9474-e39280582b4b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c0f8cd26-3770-48f1-91cc-dd13ddcd38e1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.UserSecrets</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cdafa5cd-9d97-4000-a381-2a53c5cce8e7</parentFolderId>
@@ -947,10 +947,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="8e023fa2-efbd-4e30-a9f3-e00f7281bd20" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b8d52d3b-3ec3-484d-8858-b4bf3dc7409d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cdafa5cd-9d97-4000-a381-2a53c5cce8e7</parentFolderId>
@@ -958,10 +958,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="baae8f77-01c6-4e6f-a4b3-d314d5ed1656" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9c772120-214f-4426-8ab2-aee24708c4c1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cdafa5cd-9d97-4000-a381-2a53c5cce8e7</parentFolderId>
@@ -969,10 +969,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="0b4be36e-0cc6-43e4-a2a2-6473c92f4660" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e4eaf875-b9d6-4d3c-bd5b-2e85b086d3df" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cdafa5cd-9d97-4000-a381-2a53c5cce8e7</parentFolderId>
@@ -980,10 +980,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="840494c2-563e-49cd-ab61-c6100488a508" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="801eaf27-e89f-4209-b4f4-454c44d6312d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cdafa5cd-9d97-4000-a381-2a53c5cce8e7</parentFolderId>
@@ -991,10 +991,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="edf09390-ea91-4a1e-9121-4157fdcca148" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="befbdb3f-bf4e-4dab-889c-142fdcb021d0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Abstractions</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cdafa5cd-9d97-4000-a381-2a53c5cce8e7</parentFolderId>
@@ -1002,10 +1002,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="0944a63f-ad62-4652-b8b4-50d9f13cb6a3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b4726072-679f-4cd3-a8d6-4f296703e244" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Physical</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cdafa5cd-9d97-4000-a381-2a53c5cce8e7</parentFolderId>
@@ -1013,10 +1013,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="944d5e7c-e0f0-46bc-aeaf-a5495ef9ff60" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ee1c46f6-eb60-4071-aac6-2f0a2b6a8e71" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Hosting.Abstractions</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cdafa5cd-9d97-4000-a381-2a53c5cce8e7</parentFolderId>
@@ -1024,10 +1024,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="3392c778-7c27-464b-8932-e028c629d907" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a11a4072-c457-4c47-b306-49c98c29cc90" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cdafa5cd-9d97-4000-a381-2a53c5cce8e7</parentFolderId>
@@ -1035,10 +1035,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="6fef3eb0-9089-4fbb-affd-03de35ff0c02" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e08f429a-894e-42ca-b525-751f6dbafffd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Configuration</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cdafa5cd-9d97-4000-a381-2a53c5cce8e7</parentFolderId>
@@ -1046,10 +1046,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="3134aa6f-c50e-4612-afdc-6cfd05df6784" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f7aff205-c1e6-4157-b1ba-580ca4b73807" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Console</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cdafa5cd-9d97-4000-a381-2a53c5cce8e7</parentFolderId>
@@ -1057,10 +1057,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="86c2e090-4865-4653-917f-d0aca5a94e60" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6064e2f6-7461-4844-96c4-8aad029abceb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Debug</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cdafa5cd-9d97-4000-a381-2a53c5cce8e7</parentFolderId>
@@ -1068,10 +1068,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="404e16b6-9031-4090-95b4-ff87127394a9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="3791687a-61cd-4929-bf60-f0fb54d78c58" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.EventLog</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cdafa5cd-9d97-4000-a381-2a53c5cce8e7</parentFolderId>
@@ -1079,10 +1079,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="e58d9b8f-a1ac-4be7-a0eb-9d5abd62d82e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f0570e90-c10e-48d5-9fc3-01866dd53388" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.EventSource</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cdafa5cd-9d97-4000-a381-2a53c5cce8e7</parentFolderId>
@@ -1090,10 +1090,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="bc439597-5fb1-4fd1-a98f-1b464207925b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f7fe8b16-2afc-488f-a266-1171057407cb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cdafa5cd-9d97-4000-a381-2a53c5cce8e7</parentFolderId>
@@ -1101,10 +1101,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="b4d6bb51-64dc-4825-951d-de77126b44fc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a4917a38-26b3-4c6c-827e-dd3d380cdb85" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cdafa5cd-9d97-4000-a381-2a53c5cce8e7</parentFolderId>

@@ -11,6 +11,7 @@ namespace AzureFunctions.NET8.Application.Validators.CosmosDB.CosmosChange
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CosmosChangeCommandValidator : AbstractValidator<CosmosChangeCommand>
     {
+        [IntentManaged(Mode.Merge)]
         public CosmosChangeCommandValidator()
         {
             ConfigureValidationRules();

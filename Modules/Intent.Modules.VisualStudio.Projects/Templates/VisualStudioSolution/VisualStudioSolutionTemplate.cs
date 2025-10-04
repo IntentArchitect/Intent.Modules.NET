@@ -157,7 +157,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution
 
                 if (projectConfigurations.All(x => propertySet.ContainsKey(x.Key)))
                 {
-                    return;
+                    continue;
                 }
 
                 var oldValues = propertySet

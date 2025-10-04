@@ -93,7 +93,7 @@ public partial class AzureServiceBusConfigurationTemplate : CSharpTemplateBase<o
 
     public override void BeforeTemplateExecution()
     {
-        ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
+        this.ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
             .ToRegister("ConfigureAzureServiceBus", ServiceConfigurationRequest.ParameterType.Configuration)
             .HasDependency(this)
             .ForConcern("Infrastructure"));

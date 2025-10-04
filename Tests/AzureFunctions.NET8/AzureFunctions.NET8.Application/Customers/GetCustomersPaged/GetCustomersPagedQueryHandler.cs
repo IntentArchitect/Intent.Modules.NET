@@ -18,6 +18,7 @@ namespace AzureFunctions.NET8.Application.Customers.GetCustomersPaged
         private readonly ICustomerRepository _customerRepository;
         private readonly IMapper _mapper;
 
+        [IntentManaged(Mode.Merge)]
         public GetCustomersPagedQueryHandler(ICustomerRepository customerRepository, IMapper mapper)
         {
             _customerRepository = customerRepository;

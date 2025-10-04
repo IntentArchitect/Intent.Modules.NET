@@ -40,7 +40,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RoutesRazor
                     .Elements
                     .Where(e => e.HasStereotype("Secured")).Any();
 
-                if(ExecutionContext.GetInstalledModules().FirstOrDefault(m => m.ModuleId == "Intent.Blazor.Authentication") is not null)
+                if (ExecutionContext.GetInstalledModules().FirstOrDefault(m => m.ModuleId == "Intent.Blazor.Authentication") is not null)
                 {
                     securedComponents = true;
                 }

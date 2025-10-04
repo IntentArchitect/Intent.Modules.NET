@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ignoredFiles>
+  <files>
+    <file relativePath="Intent.Modules.Blazor/content/NoSamplePages/readme.txt" />
+    <file relativePath="Intent.Modules.Blazor/content/SamplePages/readme.txt" />
+    <file relativePath="Intent.Modules.Blazor/content/WasmNoSamplePages/readme.txt" />
+    <file relativePath="Intent.Modules.Blazor/content/WasmSamplePages/readme.txt" />
+    <file relativePath="Intent.Modules.Blazor/Settings/ModuleSettingsExtensions.cs" />
+  </files>
+</ignoredFiles>

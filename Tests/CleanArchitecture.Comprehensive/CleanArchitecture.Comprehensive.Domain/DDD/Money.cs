@@ -8,14 +8,16 @@ namespace CleanArchitecture.Comprehensive.Domain.DDD
 {
     public class Money : ValueObject
     {
-        protected Money()
-        {
-            Currency = null!;
-        }
         public Money(string currency, decimal amount)
         {
             Currency = currency;
             Amount = amount;
+        }
+
+        [IntentMerge]
+        protected Money()
+        {
+            Currency = null!;
         }
 
         public string Currency { get; private set; }

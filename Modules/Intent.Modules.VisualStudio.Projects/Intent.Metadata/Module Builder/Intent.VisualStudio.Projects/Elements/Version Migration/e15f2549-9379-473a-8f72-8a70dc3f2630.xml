@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e15f2549-9379-473a-8f72-8a70dc3f2630" type="Version Migration" typeId="03f24c57-66d8-4868-95a7-6daef900dc7f">
+  <name>3.9.2-pre.0</name>
+  <display>3.9.2-pre.0</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9dfa12fc-f80f-48fb-b9dd-6e9e30b1f82d</parentFolderId>
+  <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+  <packageName>Intent.VisualStudio.Projects</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

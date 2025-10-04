@@ -11,8 +11,8 @@
           "tags": [
               "output",
               "cache",
-              "redis
-module",
+              "redis",
+              "module",
               "moduledocumentation",
               "Intent.AspNetCore.OutputCaching.Redis"
             ]

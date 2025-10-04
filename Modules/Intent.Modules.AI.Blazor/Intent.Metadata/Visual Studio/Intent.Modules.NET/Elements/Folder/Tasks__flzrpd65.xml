@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="30a9f6c4-a604-45da-a62c-e64110fcddcf" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Tasks</name>
+  <display>Tasks</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>6161ed7e-68be-4788-8bdf-9942f39626b5</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="de731c83-0615-4958-97df-b417951282fe" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.Templates.ModuleTask</name>
+      <display>Intent.ModuleBuilder.Templates.ModuleTask</display>
+      <externalReference>Intent.ModuleBuilder</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>30a9f6c4-a604-45da-a62c-e64110fcddcf</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

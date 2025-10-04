@@ -1,3 +1,7 @@
+### Version 4.2.5
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 4.2.4
 
 - Improvement: Added the constructor to the modelled `IdentityUser`

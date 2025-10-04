@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ignoredFiles>
+  <files>
+    <file relativePath="Intent.Modules.AspNetCore.Grpc/Api/CommandModelStereotypeExtensions.cs" />
+    <file relativePath="Intent.Modules.AspNetCore.Grpc/Api/QueryModelStereotypeExtensions.cs" />
+    <file relativePath="Intent.Modules.AspNetCore.Grpc/Intent.AspNetCore.Grpc.imodspec" />
+    <file relativePath="Intent.Modules.AspNetCore.Grpc/Intent.Modules.AspNetCore.Grpc.csproj" />
+  </files>
+</ignoredFiles>

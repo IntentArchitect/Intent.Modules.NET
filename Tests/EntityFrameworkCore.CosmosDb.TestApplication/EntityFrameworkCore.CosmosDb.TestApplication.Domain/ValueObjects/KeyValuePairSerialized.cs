@@ -9,16 +9,17 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.ValueObjects
 {
     public class KeyValuePairSerialized : ValueObject
     {
-        protected KeyValuePairSerialized()
-        {
-            Key = null!;
-            Value = null!;
-        }
-
         public KeyValuePairSerialized(string key, string value)
         {
             Key = key;
             Value = value;
+        }
+
+        [IntentMerge]
+        protected KeyValuePairSerialized()
+        {
+            Key = null!;
+            Value = null!;
         }
 
         public string Key { get; private set; }

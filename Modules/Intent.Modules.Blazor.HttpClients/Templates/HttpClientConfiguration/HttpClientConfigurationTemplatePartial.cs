@@ -105,12 +105,39 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.HttpClientConfiguration
                 })
                 .AfterBuild(file =>
                 {
+                    var template = file.Template as HttpClientConfigurationTemplate;
+
                     foreach (var applicationName in uniqueApplicationNames)
                     {
-                        this.ApplyAppSetting($"Urls:{applicationName}", hostSettings != null ? $"https://localhost:{hostSettings.SslPort}/" : "", null, Frontend.Blazor);
-                        this.ApplyAppSetting($"Urls:{applicationName}", hostSettings != null ? $"https://localhost:{hostSettings.SslPort}/" : "", null, "Startup");
+                        var proxy = template.Model.FirstOrDefault(m => template.GetApplicationName(m) == applicationName);
+                        var proxyUrl = template.GetProxyUrl(proxy);
+
+                        if (string.IsNullOrWhiteSpace(proxyUrl))
+                        {
+                            proxyUrl = $"https://localhost:{hostSettings.SslPort}/";
+                        }
+
+                        this.ApplyAppSetting($"Urls:{applicationName}", hostSettings != null ? proxyUrl : "", null, Frontend.Blazor);
+                        this.ApplyAppSetting($"Urls:{applicationName}", hostSettings != null ? proxyUrl : "", null, "Startup");
                     }
                 });
+        }
+
+        public string GetProxyUrl(IServiceProxyModel proxy)
+        {
+            var url = string.Empty;
+
+            var package = proxy.InternalElement?.Package;
+            // this if for if the service is not defined in a folder, then the proxy.InternalElement is null. In which 
+            // case we revert to trying to get the package from the first element on the proxy
+            package = package is null && proxy.Endpoints.Any() ? proxy.Endpoints[0].InternalElement?.Package : package;
+
+            if (package == null)
+            {
+                return url;
+            }
+
+            return ProxyUrlHelper.GetProxyApplicationtUrl(package, ExecutionContext);
         }
 
         [IntentManaged(Mode.Fully)]
@@ -135,7 +162,7 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.HttpClientConfiguration
             return model.Endpoints.Any(x => x.RequiresAuthorization);
         }
 
-        private static string GetApplicationName(IServiceProxyModel model)
+        public string GetApplicationName(IServiceProxyModel model)
         {
             return string.Concat(model.Endpoints[0].InternalElement.Package.Name
                 .RemoveSuffix(".Services")

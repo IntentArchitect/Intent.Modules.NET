@@ -8,16 +8,17 @@ namespace CosmosDB.EnumStrings.Domain
 {
     public class EmbeddedObject : ValueObject
     {
-        protected EmbeddedObject()
-        {
-            Name = null!;
-        }
-
         public EmbeddedObject(string name, EnumExample enumExample, EnumExample? nullableEnumExample)
         {
             Name = name;
             EnumExample = enumExample;
             NullableEnumExample = nullableEnumExample;
+        }
+
+        [IntentMerge]
+        protected EmbeddedObject()
+        {
+            Name = null!;
         }
 
         public string Name { get; private set; }

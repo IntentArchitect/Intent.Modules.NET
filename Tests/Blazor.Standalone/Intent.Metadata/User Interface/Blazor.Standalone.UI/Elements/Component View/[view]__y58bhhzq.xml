@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8d6f9d0d-b1c0-4357-8139-2ec3732bb7df" type="Component View" typeId="624513a6-cba8-4dde-8ebe-6b19f00f0364">
+  <name>[view]</name>
+  <display>[view]</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>manually</sort-children>
+  <order>0</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>17deb294-7dc5-45b3-b085-cd8cf77cd218</parentFolderId>
+  <packageId>a4cf3b11-2b7b-4a5f-9915-283600108527</packageId>
+  <packageName>Blazor.Standalone.UI</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="53761388-6796-4427-b15e-1bfcc46822ba" type="Table" typeId="eee93c29-3d58-4e42-aea9-c00451d17469">
+      <name>ModelTable</name>
+      <display>ModelTable = {Model}</display>
+      <isAbstract>false</isAbstract>
+      <value>{Model}</value>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8d6f9d0d-b1c0-4357-8139-2ec3732bb7df</parentFolderId>
+      <packageId>a4cf3b11-2b7b-4a5f-9915-283600108527</packageId>
+      <packageName>Blazor.Standalone.UI</packageName>
+      <traits>
+        <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="74533b82-2078-44e1-84bb-4cd34d00ef16" name="Interaction">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.UI.Core</definitionPackageName>
+          <definitionPackageId>a2a95421-3e55-43c7-96ad-355610b43c4d</definitionPackageId>
+          <properties>
+            <property name="fbb0d0b4-effb-4ab1-8ee2-df0d28b21163" display="On Row Click" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="dd548946-ca95-413d-9f3d-eacad1d90507" type="Column" typeId="d372c640-e649-4e67-84a8-4446f45288db">
+          <name>Name</name>
+          <display>Name = {Model.Name}</display>
+          <isAbstract>false</isAbstract>
+          <value>{Model.Name}</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>53761388-6796-4427-b15e-1bfcc46822ba</parentFolderId>
+          <packageId>a4cf3b11-2b7b-4a5f-9915-283600108527</packageId>
+          <packageName>Blazor.Standalone.UI</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="c327ab22-b76c-4e07-bcc7-2c25d357b3b7" type="Column" typeId="d372c640-e649-4e67-84a8-4446f45288db">
+          <name>Ref</name>
+          <display>Ref = {Model.Ref}</display>
+          <isAbstract>false</isAbstract>
+          <value>{Model.Ref}</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>53761388-6796-4427-b15e-1bfcc46822ba</parentFolderId>
+          <packageId>a4cf3b11-2b7b-4a5f-9915-283600108527</packageId>
+          <packageName>Blazor.Standalone.UI</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="b0a9dc16-d8ac-4775-9315-650868e1043a" type="Column" typeId="d372c640-e649-4e67-84a8-4446f45288db">
+          <name>Qty</name>
+          <display>Qty = {Model.Qty}</display>
+          <isAbstract>false</isAbstract>
+          <value>{Model.Qty}</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>53761388-6796-4427-b15e-1bfcc46822ba</parentFolderId>
+          <packageId>a4cf3b11-2b7b-4a5f-9915-283600108527</packageId>
+          <packageName>Blazor.Standalone.UI</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

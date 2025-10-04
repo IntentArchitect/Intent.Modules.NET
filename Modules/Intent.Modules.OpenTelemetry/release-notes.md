@@ -1,3 +1,11 @@
+### Version 2.2.10
+
+- Improvement: Internal changes around better supporting multiple application entry points.
+
+### Version 2.2.9
+
+- Fixed: Made some of the registration logic a little more robust.
+
 ### Version 2.2.9
 
 - Improvement: Updated NuGet package versions.

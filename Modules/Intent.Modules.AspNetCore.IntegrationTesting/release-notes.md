@@ -1,6 +1,8 @@
 ### Version 2.0.10
 
+- Improvement: Updated NuGet package versions.
 - Improvement: adding using clause for `HttpRequestMessage` in `HttpCLient`s.
+- Improvement: Updated referenced projects.
  
 ### Version 2.0.9
 

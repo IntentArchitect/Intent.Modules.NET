@@ -26,7 +26,7 @@
   <childElements>
     <childElement id="5a697c64-4e91-4deb-b23e-b4a1cefab4dc" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>8.14.0</name>
-      <display>8.12.1 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <display>8.14.0 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -49,22 +49,28 @@
       <childElements>
         <childElement id="ac017113-8b4f-4dc5-a896-9196336db4ed" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.JsonWebTokens</name>
+          <display>Microsoft.IdentityModel.JsonWebTokens (8.14.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.14.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5a697c64-4e91-4deb-b23e-b4a1cefab4dc</parentFolderId>
+          <packageId>a1a75470-3437-43b1-be57-f2187693929b</packageId>
+          <packageName>Intent.AspNetCore.IdentityService</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="9822d319-43f9-43c4-af77-b1a40e849be6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.Tokens</name>
+          <display>Microsoft.IdentityModel.Tokens (8.14.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.14.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5a697c64-4e91-4deb-b23e-b4a1cefab4dc</parentFolderId>
+          <packageId>a1a75470-3437-43b1-be57-f2187693929b</packageId>
+          <packageName>Intent.AspNetCore.IdentityService</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -73,7 +79,7 @@
     </childElement>
     <childElement id="8e9068a8-d1ec-4552-8e99-8bbce1cb245d" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>8.14.0</name>
-      <display>8.12.1 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <display>8.14.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -96,22 +102,28 @@
       <childElements>
         <childElement id="4a877821-1c65-4028-866c-29b7c82b96f1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.JsonWebTokens</name>
+          <display>Microsoft.IdentityModel.JsonWebTokens (8.14.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.14.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>8e9068a8-d1ec-4552-8e99-8bbce1cb245d</parentFolderId>
+          <packageId>a1a75470-3437-43b1-be57-f2187693929b</packageId>
+          <packageName>Intent.AspNetCore.IdentityService</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="5065facf-b00d-44b8-9ede-a8527d97c5ac" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.Tokens</name>
+          <display>Microsoft.IdentityModel.Tokens (8.14.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.14.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>8e9068a8-d1ec-4552-8e99-8bbce1cb245d</parentFolderId>
+          <packageId>a1a75470-3437-43b1-be57-f2187693929b</packageId>
+          <packageName>Intent.AspNetCore.IdentityService</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -120,7 +132,7 @@
     </childElement>
     <childElement id="36b143ee-909b-4537-a7a3-4beefc009712" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>8.14.0</name>
-      <display>8.12.1 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
+      <display>8.14.0 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -143,22 +155,28 @@
       <childElements>
         <childElement id="b38e277b-29ea-4f4c-9a8c-dbb8449bfa8c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.JsonWebTokens</name>
+          <display>Microsoft.IdentityModel.JsonWebTokens (8.14.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.14.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>36b143ee-909b-4537-a7a3-4beefc009712</parentFolderId>
+          <packageId>a1a75470-3437-43b1-be57-f2187693929b</packageId>
+          <packageName>Intent.AspNetCore.IdentityService</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="335136d9-8db5-4233-aabf-2cd4d0760b2c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.Tokens</name>
+          <display>Microsoft.IdentityModel.Tokens (8.14.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.14.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>36b143ee-909b-4537-a7a3-4beefc009712</parentFolderId>
+          <packageId>a1a75470-3437-43b1-be57-f2187693929b</packageId>
+          <packageName>Intent.AspNetCore.IdentityService</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -167,7 +185,7 @@
     </childElement>
     <childElement id="e4e6f37d-683a-42bc-9ec9-407d12718fc9" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>8.14.0</name>
-      <display>8.12.1 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <display>8.14.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -190,22 +208,28 @@
       <childElements>
         <childElement id="70542bc2-fdd4-4dbb-a3df-0500116254a3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.JsonWebTokens</name>
+          <display>Microsoft.IdentityModel.JsonWebTokens (8.14.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.14.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e4e6f37d-683a-42bc-9ec9-407d12718fc9</parentFolderId>
+          <packageId>a1a75470-3437-43b1-be57-f2187693929b</packageId>
+          <packageName>Intent.AspNetCore.IdentityService</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="34941344-ff17-475f-8eba-3068e0617fc2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.Tokens</name>
+          <display>Microsoft.IdentityModel.Tokens (8.14.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.14.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e4e6f37d-683a-42bc-9ec9-407d12718fc9</parentFolderId>
+          <packageId>a1a75470-3437-43b1-be57-f2187693929b</packageId>
+          <packageName>Intent.AspNetCore.IdentityService</packageName>
           <stereotypes />
           <metadata />
           <childElements />

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="307149c0-ebde-4ce4-a72b-d4b821662052">
+  <sourceEnd id="d62c49fd-7a34-47e5-8b8a-7067ce9cc5d0" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : Blazor.ProductService.Services.DeleteProductCommand</display>
+    <order>0</order>
+    <typeReference id="c940e972-583b-4e2f-90fe-cbeda09afe2e">
+      <typeId>5c9dc4e9-191c-423e-a0dc-c5d748038bdf</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Blazor.ProductService.Services</typePackageName>
+      <typePackageId>4b2609a2-0283-4cd2-a81d-3c2f54aa3f5c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="307149c0-ebde-4ce4-a72b-d4b821662052" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>product</name>
+    <display>[delete] product: Product</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="4de3e53e-b53f-4f89-9dbe-756e31e5a2b3">
+      <typeId>7b568c33-eac0-42ad-adf8-c662d747c4fe</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Blazor.ProductService.Domain</typePackageName>
+      <typePackageId>c09cbfc8-bd96-4251-a798-4b1ffb770932</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="16f05361-898d-4ed2-ad51-0e12259508c7" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="5c9dc4e9-191c-423e-a0dc-c5d748038bdf" location="[Blazor.ProductService].[Services].[DeleteProductCommand]" />
+        <target applicationId="16f05361-898d-4ed2-ad51-0e12259508c7" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="7b568c33-eac0-42ad-adf8-c662d747c4fe" location="[Blazor.ProductService].[Services].[Product]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="7b568c33-eac0-42ad-adf8-c662d747c4fe" name="Product" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="191ba428-46f5-4e24-b35d-77845dc7a4bb" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="5c9dc4e9-191c-423e-a0dc-c5d748038bdf" name="DeleteProductCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="b233baf0-73be-45ae-b363-2479ea751a50" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

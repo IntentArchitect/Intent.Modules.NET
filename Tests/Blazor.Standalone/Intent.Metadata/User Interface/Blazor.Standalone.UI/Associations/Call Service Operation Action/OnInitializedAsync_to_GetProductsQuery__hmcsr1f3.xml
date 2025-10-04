@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="433f15e2-69ec-4e6e-97d1-421a682fb7f2">
+  <sourceEnd id="029f3bdc-dd2f-4735-9ceb-157fd4b09ad9" type="Call Service Operation Action Source End" typeId="936e090c-8408-429d-b2f6-2eb8deecc428">
+    <display>: OnInitializedAsync</display>
+    <order>0</order>
+    <typeReference id="6cc6114d-e7c7-44a6-b708-e5dc94f18711">
+      <typeId>518b030b-546e-490c-97ca-dcf5618be605</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Blazor.Standalone.UI</typePackageName>
+      <typePackageId>a4cf3b11-2b7b-4a5f-9915-283600108527</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="433f15e2-69ec-4e6e-97d1-421a682fb7f2" type="Call Service Operation Action Target End" typeId="475f0810-2b4a-40da-8eb8-697cb62f7dbe">
+    <name>GetProductsQuery</name>
+    <display>[call] Blazor.ProductService.Services.GetProductsQuery: ProductDto[*]</display>
+    <order>0</order>
+    <traits>
+      <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+    </traits>
+    <typeReference id="6dd5c3bd-b2d4-4361-8862-3429b89ca46f">
+      <typeId>a4d0e7fc-942f-40ab-b4e5-6aa86a4a6440</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Blazor.ProductService.Services</typePackageName>
+      <typePackageId>4b2609a2-0283-4cd2-a81d-3c2f54aa3f5c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Call Service Mapping" typeId="e4a4111b-cf13-4efe-8a5d-fea9457ac8ad">
+        <source applicationId="9bc6f694-7776-4f09-82e7-95232c216357" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="17deb294-7dc5-45b3-b085-cd8cf77cd218" location="[Blazor.Standalone].[User Interface].[Product]" />
+        <target applicationId="16f05361-898d-4ed2-ad51-0e12259508c7" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="a4d0e7fc-942f-40ab-b4e5-6aa86a4a6440" location="[Blazor.Standalone].[User Interface].[GetProductsQuery]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{OnInitializedAsync.GetProductsQuery}</expression>
+            <path>
+              <target id="a4d0e7fc-942f-40ab-b4e5-6aa86a4a6440" name="GetProductsQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+            </path>
+            <sources>
+              <source identifier="OnInitializedAsync.GetProductsQuery" mappingType="Invocation Mapping" mappingTypeId="ab447316-1252-49bc-a695-f34cb00a3cdc">
+                <path>
+                  <target id="17deb294-7dc5-45b3-b085-cd8cf77cd218" name="Product" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="518b030b-546e-490c-97ca-dcf5618be605" name="OnInitializedAsync" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="433f15e2-69ec-4e6e-97d1-421a682fb7f2" name="GetProductsQuery" type="association" specialization="Call Service Operation Action Target End" specializationId="475f0810-2b4a-40da-8eb8-697cb62f7dbe" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Call Service Response Mapping" typeId="e60890c6-7ce7-47be-a0da-dff82b8adc02">
+        <source applicationId="9bc6f694-7776-4f09-82e7-95232c216357" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="17deb294-7dc5-45b3-b085-cd8cf77cd218" location="[Blazor.Standalone].[User Interface].[Product]" />
+        <target applicationId="9bc6f694-7776-4f09-82e7-95232c216357" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="17deb294-7dc5-45b3-b085-cd8cf77cd218" location="[Blazor.Standalone].[User Interface].[Product]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{OnInitializedAsync.GetProductsQuery.response}</expression>
+            <path>
+              <target id="17deb294-7dc5-45b3-b085-cd8cf77cd218" name="Product" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+              <target id="7803a45f-7ce6-4a14-b180-451b7bcb4b57" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+            </path>
+            <sources>
+              <source identifier="OnInitializedAsync.GetProductsQuery.response" mappingType="Data Mapping" mappingTypeId="9cccf6be-31be-4ac0-a026-ed0c4f5578bf">
+                <path>
+                  <target id="17deb294-7dc5-45b3-b085-cd8cf77cd218" name="Product" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="518b030b-546e-490c-97ca-dcf5618be605" name="OnInitializedAsync" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="433f15e2-69ec-4e6e-97d1-421a682fb7f2" name="GetProductsQuery" type="association" specialization="Call Service Operation Action Target End" specializationId="475f0810-2b4a-40da-8eb8-697cb62f7dbe" />
+                  <target id="2f68b1a4-a523-4987-b3da-f35e6e8e146b" name="response" type="static-mappable" specialization="response" specializationId="2f68b1a4-a523-4987-b3da-f35e6e8e146b">
+                    <typeReference>
+                      <typeId>9466ab63-f6e9-42a3-ac8b-3470ba650a1d</typeId>
+                      <isNavigable>true</isNavigable>
+                      <isNullable>false</isNullable>
+                      <isCollection>true</isCollection>
+                      <isRequired>true</isRequired>
+                      <typePackageName>Blazor.ProductService.Services</typePackageName>
+                      <typePackageId>4b2609a2-0283-4cd2-a81d-3c2f54aa3f5c</typePackageId>
+                      <stereotypes />
+                      <genericTypeParameters />
+                    </typeReference>
+                  </target>
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OnInitializedAsync.GetProductsQuery.response.Id}</expression>
+            <path>
+              <target id="17deb294-7dc5-45b3-b085-cd8cf77cd218" name="Product" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+              <target id="7803a45f-7ce6-4a14-b180-451b7bcb4b57" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              <target id="64f19510-09fe-4250-877e-fce48b7d51ea" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="OnInitializedAsync.GetProductsQuery.response.Id" mappingType="Data Mapping" mappingTypeId="9cccf6be-31be-4ac0-a026-ed0c4f5578bf">
+                <path>
+                  <target id="17deb294-7dc5-45b3-b085-cd8cf77cd218" name="Product" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="518b030b-546e-490c-97ca-dcf5618be605" name="OnInitializedAsync" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="433f15e2-69ec-4e6e-97d1-421a682fb7f2" name="GetProductsQuery" type="association" specialization="Call Service Operation Action Target End" specializationId="475f0810-2b4a-40da-8eb8-697cb62f7dbe" />
+                  <target id="2f68b1a4-a523-4987-b3da-f35e6e8e146b" name="response" type="static-mappable" specialization="response" specializationId="2f68b1a4-a523-4987-b3da-f35e6e8e146b">
+                    <typeReference>
+                      <typeId>9466ab63-f6e9-42a3-ac8b-3470ba650a1d</typeId>
+                      <isNavigable>true</isNavigable>
+                      <isNullable>false</isNullable>
+                      <isCollection>true</isCollection>
+                      <isRequired>true</isRequired>
+                      <typePackageName>Blazor.ProductService.Services</typePackageName>
+                      <typePackageId>4b2609a2-0283-4cd2-a81d-3c2f54aa3f5c</typePackageId>
+                      <stereotypes />
+                      <genericTypeParameters />
+                    </typeReference>
+                  </target>
+                  <target id="64f19510-09fe-4250-877e-fce48b7d51ea" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OnInitializedAsync.GetProductsQuery.response.Name}</expression>
+            <path>
+              <target id="17deb294-7dc5-45b3-b085-cd8cf77cd218" name="Product" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+              <target id="7803a45f-7ce6-4a14-b180-451b7bcb4b57" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              <target id="8719d9bc-29d1-42fa-8c4f-c5bc7f121fc1" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="OnInitializedAsync.GetProductsQuery.response.Name" mappingType="Data Mapping" mappingTypeId="9cccf6be-31be-4ac0-a026-ed0c4f5578bf">
+                <path>
+                  <target id="17deb294-7dc5-45b3-b085-cd8cf77cd218" name="Product" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="518b030b-546e-490c-97ca-dcf5618be605" name="OnInitializedAsync" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="433f15e2-69ec-4e6e-97d1-421a682fb7f2" name="GetProductsQuery" type="association" specialization="Call Service Operation Action Target End" specializationId="475f0810-2b4a-40da-8eb8-697cb62f7dbe" />
+                  <target id="2f68b1a4-a523-4987-b3da-f35e6e8e146b" name="response" type="static-mappable" specialization="response" specializationId="2f68b1a4-a523-4987-b3da-f35e6e8e146b">
+                    <typeReference>
+                      <typeId>9466ab63-f6e9-42a3-ac8b-3470ba650a1d</typeId>
+                      <isNavigable>true</isNavigable>
+                      <isNullable>false</isNullable>
+                      <isCollection>true</isCollection>
+                      <isRequired>true</isRequired>
+                      <typePackageName>Blazor.ProductService.Services</typePackageName>
+                      <typePackageId>4b2609a2-0283-4cd2-a81d-3c2f54aa3f5c</typePackageId>
+                      <stereotypes />
+                      <genericTypeParameters />
+                    </typeReference>
+                  </target>
+                  <target id="8719d9bc-29d1-42fa-8c4f-c5bc7f121fc1" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OnInitializedAsync.GetProductsQuery.response.Ref}</expression>
+            <path>
+              <target id="17deb294-7dc5-45b3-b085-cd8cf77cd218" name="Product" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+              <target id="7803a45f-7ce6-4a14-b180-451b7bcb4b57" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              <target id="61757be9-4ca9-482a-984a-401dd7fbdd70" name="Ref" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="OnInitializedAsync.GetProductsQuery.response.Ref" mappingType="Data Mapping" mappingTypeId="9cccf6be-31be-4ac0-a026-ed0c4f5578bf">
+                <path>
+                  <target id="17deb294-7dc5-45b3-b085-cd8cf77cd218" name="Product" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="518b030b-546e-490c-97ca-dcf5618be605" name="OnInitializedAsync" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="433f15e2-69ec-4e6e-97d1-421a682fb7f2" name="GetProductsQuery" type="association" specialization="Call Service Operation Action Target End" specializationId="475f0810-2b4a-40da-8eb8-697cb62f7dbe" />
+                  <target id="2f68b1a4-a523-4987-b3da-f35e6e8e146b" name="response" type="static-mappable" specialization="response" specializationId="2f68b1a4-a523-4987-b3da-f35e6e8e146b">
+                    <typeReference>
+                      <typeId>9466ab63-f6e9-42a3-ac8b-3470ba650a1d</typeId>
+                      <isNavigable>true</isNavigable>
+                      <isNullable>false</isNullable>
+                      <isCollection>true</isCollection>
+                      <isRequired>true</isRequired>
+                      <typePackageName>Blazor.ProductService.Services</typePackageName>
+                      <typePackageId>4b2609a2-0283-4cd2-a81d-3c2f54aa3f5c</typePackageId>
+                      <stereotypes />
+                      <genericTypeParameters />
+                    </typeReference>
+                  </target>
+                  <target id="61757be9-4ca9-482a-984a-401dd7fbdd70" name="Ref" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OnInitializedAsync.GetProductsQuery.response.Qty}</expression>
+            <path>
+              <target id="17deb294-7dc5-45b3-b085-cd8cf77cd218" name="Product" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+              <target id="7803a45f-7ce6-4a14-b180-451b7bcb4b57" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              <target id="1adacede-f586-45af-bb93-a4aa0293464e" name="Qty" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="OnInitializedAsync.GetProductsQuery.response.Qty" mappingType="Data Mapping" mappingTypeId="9cccf6be-31be-4ac0-a026-ed0c4f5578bf">
+                <path>
+                  <target id="17deb294-7dc5-45b3-b085-cd8cf77cd218" name="Product" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="518b030b-546e-490c-97ca-dcf5618be605" name="OnInitializedAsync" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="433f15e2-69ec-4e6e-97d1-421a682fb7f2" name="GetProductsQuery" type="association" specialization="Call Service Operation Action Target End" specializationId="475f0810-2b4a-40da-8eb8-697cb62f7dbe" />
+                  <target id="2f68b1a4-a523-4987-b3da-f35e6e8e146b" name="response" type="static-mappable" specialization="response" specializationId="2f68b1a4-a523-4987-b3da-f35e6e8e146b">
+                    <typeReference>
+                      <typeId>9466ab63-f6e9-42a3-ac8b-3470ba650a1d</typeId>
+                      <isNavigable>true</isNavigable>
+                      <isNullable>false</isNullable>
+                      <isCollection>true</isCollection>
+                      <isRequired>true</isRequired>
+                      <typePackageName>Blazor.ProductService.Services</typePackageName>
+                      <typePackageId>4b2609a2-0283-4cd2-a81d-3c2f54aa3f5c</typePackageId>
+                      <stereotypes />
+                      <genericTypeParameters />
+                    </typeReference>
+                  </target>
+                  <target id="1adacede-f586-45af-bb93-a4aa0293464e" name="Qty" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Call Service Operation Action</associationType>
+  <associationTypeId>fe5a5cd8-aabd-472f-8d42-f5c233e658dc</associationTypeId>
+  <stereotypes />
+</association>

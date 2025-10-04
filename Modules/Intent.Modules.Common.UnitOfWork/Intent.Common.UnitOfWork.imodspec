@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Common.UnitOfWork</id>
-  <version>1.0.0</version>
+  <version>1.0.1-pre.0</version>
   <supportedClientVersions>[4.4.0-a,5.0.0)</supportedClientVersions>
   <summary>Common Unit Of Work Module for Intent.Modules.NET</summary>
   <description>Common Unit Of Work Module for Intent.Modules.NET</description>
@@ -35,8 +35,6 @@
   </files>
   <tags />
   <moduleSettingsExtensions />
-  <metadata>
-    <install target="*" src="Intent.Metadata/Module Builder/Intent.Common.UnitOfWork/Intent.Common.UnitOfWork.pkg.config" externalReference="371be07c-ba65-4c08-aff6-8c1a9aa1ba4f" />
-  </metadata>
+  <metadata />
   <migrations />
 </package>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ignoredFiles>
+  <files>
+    <file relativePath="Intent.Modules.HotChocolate.GraphQL/Templates/MutationType/MutationTypeTemplateRegistration.cs" />
+    <file relativePath="Intent.Modules.HotChocolate.GraphQL/Templates/QueryType/QueryTypeTemplatePartial.cs" />
+    <file relativePath="Intent.Modules.HotChocolate.GraphQL/Templates/QueryType/QueryTypeTemplateRegistration.cs" />
+  </files>
+</ignoredFiles>

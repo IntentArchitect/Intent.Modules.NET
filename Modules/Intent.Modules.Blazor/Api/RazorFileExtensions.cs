@@ -248,7 +248,9 @@ public static class RazorFileExtensions
                                 }
                                 else
                                 {
-                                    serviceName = block.InjectServiceProperty(block.Template.GetTypeName(parentElement));
+                                    serviceName = parentElement is not null ? block.InjectServiceProperty(block.Template.GetTypeName(parentElement)) :
+                                        block.InjectServiceProperty(block.Template.GetTypeName(serviceCall.Package.AsTypeReference()));
+
 
                                     if (targetElement.SpecializationTypeId is commandSpecializationTypeId or querySpecializationTypeId)
                                     {
@@ -258,7 +260,7 @@ public static class RazorFileExtensions
                                         }
 
                                         var nameOfMethodToInvoke = block.Template
-                                            .GetAllTypeInfo(parentElement.AsTypeReference())
+                                            .GetAllTypeInfo(parentElement.AsTypeReference()?.Element is null ? serviceCall.Package.AsTypeReference() : parentElement.AsTypeReference())
                                             .Select(x => x.Template)
                                             .OfType<ICSharpTemplate>()
                                             .FirstOrDefault(x => x.RootCodeContext.TryGetReferenceForModel(targetElement.Id, out _))
@@ -391,41 +393,52 @@ public static class RazorFileExtensions
             }
         }
 
-        //foreach (var associationEnd in componentElement.AssociatedElements)
-        //{
-        //    if (associationEnd.IsNavigationTargetEndModel())
-        //    {
-        //        var navigationModel = associationEnd.AsNavigationTargetEndModel();
-        //        block.AddMethod("void", associationEnd.Name.ToPropertyName(), method =>
-        //        {
-        //            method.Private();
-        //            var routeManager = new RouteManager($"\"{navigationModel.Element.AsComponentModel().GetPage().Route()}\"");
-        //            foreach (var parameter in navigationModel.Parameters)
-        //            {
-        //                method.AddParameter(template.GetTypeName(parameter.TypeReference), parameter.Name.ToParameterName(), param =>
-        //                {
-        //                    if (parameter.Value != null)
-        //                    {
-        //                        param.WithDefaultValue(parameter.Value);
-        //                    }
-        //                });
-        //                if (routeManager.HasParameterExpression(parameter.Name))
-        //                {
-        //                    routeManager.ReplaceParameterExpression(parameter.Name, $"{{{parameter.Name.ToParameterName()}}}");
-        //                }
-        //            }
+        foreach (var associationEnd in componentElement.AssociatedElements)
+        {
+            if (associationEnd.IsNavigationEndModel() && associationEnd.IsNavigable)
+            {
+                if (associationEnd.MappedToElements.Any())
+                {
+                    continue;
+                }
+                var navigationModel = associationEnd.AsNavigationEndModel();
+                var toComponent = navigationModel.Element.AsComponentModel();
+                block.AddMethod("void", associationEnd.Name?.ToPropertyName() ?? $"NavigateTo{toComponent.Name}", method =>
+                {
+                    method.Private();
+                    var routeManager = new RouteManager($"\"{toComponent.GetPage().Route()}\"");
+                    var parameters = toComponent.Properties.Where(x => x.HasRouteParameter() || x.HasQueryParameter());
+                    foreach (var parameter in parameters)
+                    {
+                        method.AddParameter(template.GetTypeName(parameter.TypeReference), parameter.Name.ToParameterName(), param =>
+                        {
+                            if (parameter.Value != null)
+                            {
+                                param.WithDefaultValue(parameter.Value);
+                            }
+                        });
+                        if (routeManager.HasParameterExpression(parameter.Name))
+                        {
+                            routeManager.ReplaceParameterExpression(parameter.Name, $"{{{parameter.Name.ToParameterName()}}}");
+                        }
+                        else
+                        {
+                            routeManager.AddParameter(parameter.Name, $"{{{parameter.Name.ToParameterName()}}}");
+                        }
+                    }
 
-        //            var route = routeManager.Route;
-        //            if (route.Contains("{"))
-        //            {
-        //                route = $"${route}";
-        //            }
+                    var route = routeManager.Route;
+                    if (route.Contains("{"))
+                    {
+                        route = $"${route}";
+                    }
 
-        //            template.RazorFile.AddInjectDirective("NavigationManager");
-        //            method.AddStatement($"NavigationManager.NavigateTo({route});");
-        //        });
-        //    }
-        //}
+                    block.InjectServiceProperty("NavigationManager");
+                    //template.RazorFile.AddInjectDirective("NavigationManager");
+                    method.AddStatement($"NavigationManager.NavigateTo({route});");
+                });
+            }
+        }
     }
 
     static string FixParameterCasing(string route, List<string> localVariableNames)

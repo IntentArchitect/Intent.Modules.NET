@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f8a6fc09-1eba-4d70-a336-82546659d323" type="Module Settings Configuration" typeId="37e678f8-370a-4b05-ae44-69bb3d2b39b6">
+  <name>Domain Event Settings</name>
+  <display>Domain Event Settings</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d2145ffc-e9ed-4058-994a-8cd923d16a77</parentFolderId>
+  <packageId>d2145ffc-e9ed-4058-994a-8cd923d16a77</packageId>
+  <packageName>Intent.MediatR.DomainEvents</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="59ce20f9-0fe5-4c1c-8016-de94bfe1d4a2" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
+      <name>Create implicit domain event handlers</name>
+      <display>Create implicit domain event handlers</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f8a6fc09-1eba-4d70-a336-82546659d323</parentFolderId>
+      <packageId>d2145ffc-e9ed-4058-994a-8cd923d16a77</packageId>
+      <packageName>Intent.MediatR.DomainEvents</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4805c791-5be3-4049-b929-6046d7be9944" name="Field Configuration">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Switch" isActive="true" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="false" />
+            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Automatically create even handlers, when none are modeled." isActive="true" />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="true" isActive="true" />
+            <property name="c3456e79-0607-41a5-9b85-e0712f4f4834" display="Is Active Function" value="" isActive="true" />
+            <property name="fa54329f-d4e5-48bc-8027-e17206e9fc89" display="Is Required Function" value="" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

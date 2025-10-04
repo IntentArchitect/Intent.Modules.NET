@@ -2,7 +2,7 @@
 <package>
   <id>Intent.Application.Dtos.Mapperly</id>
   <version>1.0.0-pre.0</version>
-  <supportedClientVersions>[4.5.15-a,5.0.0)</supportedClientVersions>
+  <supportedClientVersions>[4.5.18-a,5.0.0)</supportedClientVersions>
   <summary>Generates mapping specifications using Mapperly for DTOs that are mapped from Domain Entities</summary>
   <description>Generates mapping specifications using Mapperly for DTOs that are mapped from Domain Entities</description>
   <authors>Intent Architect</authors>

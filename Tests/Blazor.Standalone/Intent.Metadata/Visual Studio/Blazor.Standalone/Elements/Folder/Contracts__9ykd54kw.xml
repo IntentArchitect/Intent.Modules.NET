@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="18130590-e844-402b-a5a1-b6b323a28411" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Contracts</name>
+  <display>Contracts</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>888314ef-6953-4cbb-89d3-9a665b5cd0f0</parentFolderId>
+  <packageId>824d72a1-91a3-4b47-9209-068bba31da2d</packageId>
+  <packageName>Blazor.Standalone</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="5b9b1a47-0274-402b-8146-4529071f8951" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.HttpClients.DtoContract</name>
+      <display>Intent.Blazor.HttpClients.DtoContract</display>
+      <externalReference>Intent.Blazor.HttpClients</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>18130590-e844-402b-a5a1-b6b323a28411</parentFolderId>
+      <packageId>824d72a1-91a3-4b47-9209-068bba31da2d</packageId>
+      <packageName>Blazor.Standalone</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+          <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="fa1b1099-5920-4515-9f1d-e3c08c35c2ca" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator</name>
+      <display>Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator</display>
+      <externalReference>Intent.Blazor.HttpClients.Dtos.FluentValidation</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>18130590-e844-402b-a5a1-b6b323a28411</parentFolderId>
+      <packageId>824d72a1-91a3-4b47-9209-068bba31da2d</packageId>
+      <packageName>Blazor.Standalone</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+          <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="08d6d541-9793-4901-befb-f3b5078f6cee" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.HttpClients.EnumContract</name>
+      <display>Intent.Blazor.HttpClients.EnumContract</display>
+      <externalReference>Intent.Blazor.HttpClients</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>18130590-e844-402b-a5a1-b6b323a28411</parentFolderId>
+      <packageId>824d72a1-91a3-4b47-9209-068bba31da2d</packageId>
+      <packageName>Blazor.Standalone</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+          <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="828fa717-004c-407d-bb76-2d971a09a342">
+  <sourceEnd id="8c5f6669-1699-4810-91e5-b4becacfa593" type="Navigation Source End" typeId="97a3de8a-c9bf-4cf2-bc0a-b8692b02211b">
+    <display>: MainLayout</display>
+    <order>0</order>
+    <typeReference id="d1538726-25f9-4127-acf7-4738108e6cb4">
+      <typeId>d55280d3-5a29-42ee-9775-ca02f4a41893</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Blazor.Standalone.UI</typePackageName>
+      <typePackageId>a4cf3b11-2b7b-4a5f-9915-283600108527</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="828fa717-004c-407d-bb76-2d971a09a342" type="Navigation Target End" typeId="2b191288-ecae-4743-b069-cbdd927ef349">
+    <name>NavigateToProduct</name>
+    <display>[navigate] Product</display>
+    <order>5</order>
+    <traits>
+      <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+    </traits>
+    <typeReference id="f2ec19a4-ab10-493b-bca2-a4468abac132">
+      <typeId>17deb294-7dc5-45b3-b085-cd8cf77cd218</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Blazor.Standalone.UI</typePackageName>
+      <typePackageId>a4cf3b11-2b7b-4a5f-9915-283600108527</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Navigation</associationType>
+  <associationTypeId>6d2b2070-c1cb-4cd2-88b4-4e5f8414bd9e</associationTypeId>
+  <stereotypes />
+</association>

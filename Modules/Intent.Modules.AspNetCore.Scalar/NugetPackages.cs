@@ -19,9 +19,9 @@ namespace Intent.Modules.AspNetCore.Scalar
             NugetRegistry.Register(MicrosoftAspNetCoreOpenApiPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("9.0.8")
+                        ( >= 9, >= 0) => new PackageVersion("9.0.9")
                             .WithNugetDependency("Microsoft.OpenApi", "1.6.17"),
-                        ( >= 8, >= 0) => new PackageVersion("8.0.19")
+                        ( >= 8, >= 0) => new PackageVersion("8.0.20")
                             .WithNugetDependency("Microsoft.OpenApi", "1.4.3"),
                         ( >= 7, >= 0) => new PackageVersion("7.0.20")
                             .WithNugetDependency("Microsoft.OpenApi", "1.4.3"),
@@ -31,8 +31,8 @@ namespace Intent.Modules.AspNetCore.Scalar
             NugetRegistry.Register(ScalarAspNetCorePackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("2.7.2"),
-                        ( >= 8, >= 0) => new PackageVersion("2.7.2"),
+                        ( >= 9, >= 0) => new PackageVersion("2.8.6"),
+                        ( >= 8, >= 0) => new PackageVersion("2.8.6"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{ScalarAspNetCorePackageName}'"),
                     }
                 );

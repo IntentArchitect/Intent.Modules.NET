@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="97fd88f7-7237-4a7b-80fb-8c1c3f4666d3" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>13.0.3</name>
+      <name>13.0.4</name>
       <display>13.0.3 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -48,7 +48,7 @@
       <childElements />
     </childElement>
     <childElement id="9caf8457-acc5-43b0-a7bf-567270d33bef" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>13.0.3</name>
+      <name>13.0.4</name>
       <display>13.0.3 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />

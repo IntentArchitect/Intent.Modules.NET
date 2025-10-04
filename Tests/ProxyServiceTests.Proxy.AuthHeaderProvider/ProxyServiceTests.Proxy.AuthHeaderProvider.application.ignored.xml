@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ignoredFiles>
+  <files>
+    <file relativePath="ProxyServiceTests.Proxy.AuthHeaderProvider.Infrastructure/DependencyInjection.cs" />
+  </files>
+</ignoredFiles>

@@ -1,3 +1,9 @@
+### Version 1.0.4
+
+- Improvement: Updated NuGet package versions.
+- Improvement: Navigations between pages will create methods to encapsulate the navigation.
+- Fixed: When creating proxy services from services not defined in a folder, error no longer occurs.
+
 ### Version 1.0.3
 
 - Fixed: Add type source for `Domain Enums`.

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3f03ea15-e2e8-421a-acea-f006b08bc4b1" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>AppSecurityExtension</name>
+  <display>AppSecurityExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>e342fa58-3ccb-4fd7-9278-88797486b93e</parentFolderId>
+  <packageId>e342fa58-3ccb-4fd7-9278-88797486b93e</packageId>
+  <packageName>Intent.AzureFunctions.Jwt</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

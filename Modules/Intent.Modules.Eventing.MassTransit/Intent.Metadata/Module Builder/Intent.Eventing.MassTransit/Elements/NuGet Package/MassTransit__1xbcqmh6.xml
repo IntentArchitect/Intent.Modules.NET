@@ -25,8 +25,8 @@
   <metadata />
   <childElements>
     <childElement id="e4234bb6-607e-4594-8fce-271f8bd43054" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.5.2</name>
-      <display>8.4.1 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <name>8.5.3</name>
+      <display>8.5.3 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -47,68 +47,86 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="ab066b92-6950-4ce6-95b7-130523293594" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="69e7d8e7-8a57-4e77-9c50-628eb80d0a83" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>MassTransit.Abstractions</name>
+          <display>MassTransit.Abstractions (8.5.3)</display>
           <isAbstract>false</isAbstract>
-          <value>8.5.2</value>
+          <value>8.5.3</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e4234bb6-607e-4594-8fce-271f8bd43054</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="9b1bb347-3697-4d84-b798-c9eb4777068a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="154f48de-08a0-4f9e-84b4-124d0f110df7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
+          <display>Microsoft.Extensions.DependencyInjection.Abstractions (8.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e4234bb6-607e-4594-8fce-271f8bd43054</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="45b86627-9d78-435c-85af-d84e1d1b2ed9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="93a8facd-1448-47bf-ab30-01ecc5b5ab79" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics.HealthChecks</name>
+          <display>Microsoft.Extensions.Diagnostics.HealthChecks (8.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e4234bb6-607e-4594-8fce-271f8bd43054</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="e00c03ad-5713-40dc-a1e9-7ac70add994b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="4bcfbb1c-0286-4ba7-9c14-e6a98262097f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Hosting.Abstractions</name>
+          <display>Microsoft.Extensions.Hosting.Abstractions (8.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e4234bb6-607e-4594-8fce-271f8bd43054</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="5d855c65-50e3-42cb-8bc0-95798555b1c2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="cf3941b1-114a-4737-91ae-f67858f8ffe1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
+          <display>Microsoft.Extensions.Logging.Abstractions (8.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e4234bb6-607e-4594-8fce-271f8bd43054</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="bf4b2d27-6879-452e-9628-c14406c40689" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="950280f3-475d-4e82-b687-cb077b7e24bf" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options</name>
+          <display>Microsoft.Extensions.Options (8.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e4234bb6-607e-4594-8fce-271f8bd43054</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -116,8 +134,8 @@
       </childElements>
     </childElement>
     <childElement id="8558039b-30d9-42ed-9c69-7388dd665dfe" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.5.2</name>
-      <display>8.4.1 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <name>8.5.3</name>
+      <display>8.5.3 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -138,156 +156,198 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="53d22150-b090-4117-969c-7ceae6d36150" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="26d496f2-9dda-478c-add0-579a52452dd4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>MassTransit.Abstractions</name>
+          <display>MassTransit.Abstractions (8.5.3)</display>
           <isAbstract>false</isAbstract>
-          <value>8.5.2</value>
+          <value>8.5.3</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>8558039b-30d9-42ed-9c69-7388dd665dfe</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="0f657006-1af0-4f18-88da-f1dfaa6794d4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="0f34d5de-7094-4f17-a17e-c1ec43f98e07" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Bcl.AsyncInterfaces</name>
+          <display>Microsoft.Bcl.AsyncInterfaces (8.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>8558039b-30d9-42ed-9c69-7388dd665dfe</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="26d6bf61-f5a9-4dc7-ba08-07829d5c2b68" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="17e44919-28a0-4ba3-9cb1-77989303c33f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
+          <display>Microsoft.Extensions.DependencyInjection.Abstractions (8.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>8558039b-30d9-42ed-9c69-7388dd665dfe</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="97d32bb6-c92b-4b7b-9315-0723a5a7a875" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c458e48a-df5a-4939-a4e4-ac3eca8405ad" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics.HealthChecks</name>
+          <display>Microsoft.Extensions.Diagnostics.HealthChecks (8.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>8558039b-30d9-42ed-9c69-7388dd665dfe</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="974f9e20-a7d9-43da-a697-41b5de697098" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="64b9d82e-898b-4321-8189-f8763c92f066" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Hosting.Abstractions</name>
+          <display>Microsoft.Extensions.Hosting.Abstractions (8.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>8558039b-30d9-42ed-9c69-7388dd665dfe</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="97054d26-d2c4-4f07-8c76-f17c86d1b747" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="32a3ab38-5409-4378-a1eb-0dc6ec2d326b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
+          <display>Microsoft.Extensions.Logging.Abstractions (8.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>8558039b-30d9-42ed-9c69-7388dd665dfe</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="14edf48f-dcb2-4a4c-b72b-d7402fcabf7a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="0198a5e5-3cc0-425b-a8a9-cd67b8c5926d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options</name>
+          <display>Microsoft.Extensions.Options (8.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>8558039b-30d9-42ed-9c69-7388dd665dfe</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="96395fa4-1bee-4fb2-8df1-06c18daeaf4e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="aa6986f1-efbe-4da8-8799-3e5324b8ddab" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Diagnostics.DiagnosticSource</name>
+          <display>System.Diagnostics.DiagnosticSource (8.0.1)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>8558039b-30d9-42ed-9c69-7388dd665dfe</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="fc19c508-082e-4246-aab7-fdb3b131ed93" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="3d9fcd8a-4b05-4822-834e-97fafb6a7a23" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Memory</name>
+          <display>System.Memory (4.6.3)</display>
           <isAbstract>false</isAbstract>
           <value>4.6.3</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>8558039b-30d9-42ed-9c69-7388dd665dfe</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d1e45433-c9c1-4da7-bd5e-1b17bfa39107" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="1b9afdb9-83e0-4bfe-ab36-3ab8b0b3220e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Reflection.Emit</name>
+          <display>System.Reflection.Emit (4.7.0)</display>
           <isAbstract>false</isAbstract>
           <value>4.7.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>8558039b-30d9-42ed-9c69-7388dd665dfe</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="87ce6109-389d-4b62-8fc2-d92665efa76e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="343a6f0b-c1c5-44c3-b3f0-35f9f9e2dbee" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Reflection.Emit.Lightweight</name>
+          <display>System.Reflection.Emit.Lightweight (4.7.0)</display>
           <isAbstract>false</isAbstract>
           <value>4.7.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>8558039b-30d9-42ed-9c69-7388dd665dfe</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="f227d795-9582-4592-8581-763ea813b60c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c835696b-5443-4fad-8dbb-0bf7c6a22127" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Text.Json</name>
+          <display>System.Text.Json (8.0.6)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>8558039b-30d9-42ed-9c69-7388dd665dfe</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="18394707-a7e3-439f-b94b-841eaf995993" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="71e86d94-61b2-49a9-be75-0d00f2374224" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Threading.Channels</name>
+          <display>System.Threading.Channels (8.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>8558039b-30d9-42ed-9c69-7388dd665dfe</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="6be34064-6502-41cd-9bab-a7f3f6ca713c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d0e5317c-4baa-4d7f-aa6e-5d7bad1b872b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Threading.Tasks.Extensions</name>
+          <display>System.Threading.Tasks.Extensions (4.6.3)</display>
           <isAbstract>false</isAbstract>
           <value>4.6.3</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>8558039b-30d9-42ed-9c69-7388dd665dfe</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -295,8 +355,8 @@
       </childElements>
     </childElement>
     <childElement id="666496d2-b3f7-4c0a-a5ff-b4beadebdae3" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.5.2</name>
-      <display>8.4.1 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <name>8.5.3</name>
+      <display>8.5.3 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -317,68 +377,86 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="74b98b78-7ae1-4731-ba96-44fe623fe221" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="4b886f94-fa2e-42fc-8fba-dda7087d8db1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>MassTransit.Abstractions</name>
+          <display>MassTransit.Abstractions (8.5.3)</display>
           <isAbstract>false</isAbstract>
-          <value>8.5.2</value>
+          <value>8.5.3</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>666496d2-b3f7-4c0a-a5ff-b4beadebdae3</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="88cf4459-9177-4f68-aede-fcc67c276c06" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="74622bd2-1f00-41ea-aa24-e8e9a0d30d07" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
+          <display>Microsoft.Extensions.DependencyInjection.Abstractions (9.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>666496d2-b3f7-4c0a-a5ff-b4beadebdae3</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="bea4335c-328d-43f8-821f-3bc0bcb6e69e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="df2b006b-cdde-4cf2-92b6-d552788f715f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics.HealthChecks</name>
+          <display>Microsoft.Extensions.Diagnostics.HealthChecks (9.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>666496d2-b3f7-4c0a-a5ff-b4beadebdae3</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="f9ffafe2-ee9f-428e-94b4-e81426750ac9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="15a1265a-29db-4d1c-9667-328d26bec4cb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Hosting.Abstractions</name>
+          <display>Microsoft.Extensions.Hosting.Abstractions (9.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>666496d2-b3f7-4c0a-a5ff-b4beadebdae3</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="9748066b-5a3e-42ce-94f7-5aabc3a34c3f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c7a59b60-5f5c-497c-acfe-e879d7054bff" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
+          <display>Microsoft.Extensions.Logging.Abstractions (9.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>666496d2-b3f7-4c0a-a5ff-b4beadebdae3</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="cfb1b03d-4451-407f-9c1e-af83589ef381" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="86e5dcec-a09f-4f75-95f9-7e21442b5a0c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options</name>
+          <display>Microsoft.Extensions.Options (9.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>666496d2-b3f7-4c0a-a5ff-b4beadebdae3</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />

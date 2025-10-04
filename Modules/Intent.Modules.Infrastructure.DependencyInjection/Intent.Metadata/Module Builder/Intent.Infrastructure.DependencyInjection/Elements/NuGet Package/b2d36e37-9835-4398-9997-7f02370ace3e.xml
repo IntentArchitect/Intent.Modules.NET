@@ -23,7 +23,7 @@
   <metadata />
   <childElements>
     <childElement id="6ee20f63-b56c-4f1d-9f4e-2861ef3f1006" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.8</name>
+      <name>9.0.9</name>
       <display>8.0.2 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -44,10 +44,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="b4819b08-5b01-4031-93cb-275314e17bbd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c3778528-52eb-43be-8a34-1d6fa3937a28" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Abstractions</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>6ee20f63-b56c-4f1d-9f4e-2861ef3f1006</parentFolderId>
@@ -58,7 +58,7 @@
       </childElements>
     </childElement>
     <childElement id="132620da-d7ac-4ca9-a0c2-0b985f8a87c3" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.8</name>
+      <name>9.0.9</name>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -76,10 +76,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="1f4c602f-992e-4be3-9769-0ee6501f7540" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d050938e-0372-406e-9dbc-f6f8d62cf59a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Abstractions</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>132620da-d7ac-4ca9-a0c2-0b985f8a87c3</parentFolderId>
@@ -90,7 +90,7 @@
       </childElements>
     </childElement>
     <childElement id="4757292b-5a03-42f7-8675-8516a609b3cd" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.8</name>
+      <name>9.0.9</name>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -108,10 +108,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="40dbfe22-b6be-41e7-af32-27832540078a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="58c7ab2a-f6e0-4641-8a79-7df5d65f273b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Abstractions</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.8</value>
+          <value>9.0.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4757292b-5a03-42f7-8675-8516a609b3cd</parentFolderId>

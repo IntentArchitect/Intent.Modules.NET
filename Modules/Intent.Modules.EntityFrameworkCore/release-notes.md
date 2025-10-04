@@ -1,3 +1,7 @@
+### Version 5.0.31
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 5.0.30
 
 - Improvement: `Default Value Constraint` can now be applied to primary key attributes.

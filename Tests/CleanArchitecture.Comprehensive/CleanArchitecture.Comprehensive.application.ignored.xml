@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ignoredFiles>
+  <files>
+    <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/wwwroot/css/open-iconic/README.md" />
+  </files>
+</ignoredFiles>

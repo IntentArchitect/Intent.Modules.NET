@@ -14,11 +14,11 @@
             ],
           "tags": [
               "azurefunction",
-              "openapi
-module",
+              "openapi",
+              "module",
               "moduledocumentation",
-              "Intent.AzureFunction.OpenApi
-tags"
+              "Intent.AzureFunction.OpenApi",
+              "tags"
             ]
         }
     ]

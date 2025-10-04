@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="74e74619-f1f0-479e-be90-581c237832c3" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>1 - Api</name>
+  <display>1 - Api</display>
+  <externalReference>2b76d8c9-dd09-40ff-9955-8ab74ee9512a</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>893c768b-cf88-4565-91c0-8fa84157713a</parentFolderId>
+  <packageId>893c768b-cf88-4565-91c0-8fa84157713a</packageId>
+  <packageName>Blazor.ProductService</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

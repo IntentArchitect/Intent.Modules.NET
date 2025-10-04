@@ -14,6 +14,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain
             Value = value;
         }
 
+        [IntentMerge]
         protected Tag()
         {
             Name = null!;

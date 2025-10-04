@@ -20,7 +20,7 @@
     <PackageReference Include="Finbuckle.MultiTenant" Version="6.13.1" />
     <PackageReference Include="Finbuckle.MultiTenant.AspNetCore" Version="6.13.1" />
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="3.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.19" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.20" />
     <PackageReference Include="Serilog.AspNetCore" Version="9.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.4" />
   </ItemGroup>

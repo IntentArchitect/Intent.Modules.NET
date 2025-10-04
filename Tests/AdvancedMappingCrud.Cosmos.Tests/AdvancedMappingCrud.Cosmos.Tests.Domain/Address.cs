@@ -8,6 +8,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Domain
 {
     public class Address : ValueObject
     {
+        [IntentMerge]
         protected Address()
         {
             Line1 = null!;

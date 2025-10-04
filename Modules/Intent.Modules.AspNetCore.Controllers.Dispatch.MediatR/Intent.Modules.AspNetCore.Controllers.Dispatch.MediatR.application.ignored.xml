@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ignoredFiles>
+  <files>
+    <file relativePath="Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR/Api/CommandModelStereotypeExtensions.cs" />
+    <file relativePath="Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR/Api/DTOFieldModelStereotypeExtensions.cs" />
+    <file relativePath="Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR/Api/QueryModelStereotypeExtensions.cs" />
+    <file relativePath="Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR/Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR.csproj" />
+  </files>
+</ignoredFiles>

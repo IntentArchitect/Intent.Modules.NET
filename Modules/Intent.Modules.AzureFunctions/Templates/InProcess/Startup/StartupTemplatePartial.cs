@@ -29,7 +29,7 @@ namespace Intent.Modules.AzureFunctions.Templates.InProcess.Startup
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public StartupTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            ExecutionContext.EventDispatcher.Subscribe<ServiceConfigurationRequest>(HandleServiceConfigurationRequest);
+            OnEmitOrPublished<ServiceConfigurationRequest>(HandleServiceConfigurationRequest);
 
             if (CanRunTemplate())
             {

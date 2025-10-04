@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="ef974254-5163-463e-a062-4905cd14b66d">
+  <sourceEnd id="1e8e9154-1f9c-4718-bd57-8ae9dd4278da" type="Navigation Source End" typeId="97a3de8a-c9bf-4cf2-bc0a-b8692b02211b">
+    <display>: ExamplePage</display>
+    <order>0</order>
+    <typeReference id="6c954b9b-b30a-4446-b50b-63626653f9b1">
+      <typeId>cd6e2232-d85f-4f39-b474-35d721876e23</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Blazor.Standalone.UI</typePackageName>
+      <typePackageId>a4cf3b11-2b7b-4a5f-9915-283600108527</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="ef974254-5163-463e-a062-4905cd14b66d" type="Navigation Target End" typeId="2b191288-ecae-4743-b069-cbdd927ef349">
+    <name>NavigateToHome</name>
+    <display>[navigate] Home</display>
+    <order>3</order>
+    <traits>
+      <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+    </traits>
+    <typeReference id="58f20a79-6f5d-44ad-a476-619a03af9075">
+      <typeId>e4d86c01-b97d-43c2-9f7a-b819a6d6ab9b</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Blazor.Standalone.UI</typePackageName>
+      <typePackageId>a4cf3b11-2b7b-4a5f-9915-283600108527</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <externalReference>e9626fc0-0be4-4af9-91f8-2aaa5919edbf</externalReference>
+    <childElements />
+  </targetEnd>
+  <associationType>Navigation</associationType>
+  <associationTypeId>6d2b2070-c1cb-4cd2-88b4-4e5f8414bd9e</associationTypeId>
+  <externalReference>e9626fc0-0be4-4af9-91f8-2aaa5919edbf</externalReference>
+  <stereotypes />
+</association>
