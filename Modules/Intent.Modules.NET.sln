@@ -50,8 +50,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.DependencyInjection.MediatR", "Intent.Modules.Application.DependencyInjection.MediatR\Intent.Modules.Application.DependencyInjection.MediatR.csproj", "{237C143B-3123-4722-BDF6-24A34537C85B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.ApplicationTemplates.NET", "Intent.ApplicationTemplates.NET\Intent.ApplicationTemplates.NET.csproj", "{54EBD782-E0A1-44F7-9B81-E3F97573F275}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.Dtos", "Intent.Modules.Application.Dtos\Intent.Modules.Application.Dtos.csproj", "{F2270B39-91AA-4126-B3A5-48B2C0CABE0B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.AutoMapper", "Intent.Modules.Application.AutoMapper\Intent.Modules.Application.AutoMapper.csproj", "{34F467F9-4A45-43AD-8FE7-5DCB850E724A}"
@@ -376,8 +374,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.ModularMonol
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.ModularMonolith.Host", "Intent.Modules.ModularMonolith.Host\Intent.Modules.ModularMonolith.Host.csproj", "{B25B64FE-817E-461E-B0CD-D1F4A80FB598}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "App Templates", "App Templates", "{B821781B-1C02-4B38-A22B-116B7525EFE5}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Developer Tooling", "Developer Tooling", "{2B2A8D0F-03B4-4F6B-8A44-267AF99C23CA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.EntityFramework.Application.LinqExtensions", "Intent.Modules.EntityFramework.Application.LinqExtensions\Intent.Modules.EntityFramework.Application.LinqExtensions.csproj", "{46E706DB-FF84-459C-994B-08BC1CF93D64}"
@@ -522,10 +518,6 @@ Global
 		{237C143B-3123-4722-BDF6-24A34537C85B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{237C143B-3123-4722-BDF6-24A34537C85B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{237C143B-3123-4722-BDF6-24A34537C85B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{54EBD782-E0A1-44F7-9B81-E3F97573F275}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{54EBD782-E0A1-44F7-9B81-E3F97573F275}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{54EBD782-E0A1-44F7-9B81-E3F97573F275}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{54EBD782-E0A1-44F7-9B81-E3F97573F275}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F2270B39-91AA-4126-B3A5-48B2C0CABE0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F2270B39-91AA-4126-B3A5-48B2C0CABE0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2270B39-91AA-4126-B3A5-48B2C0CABE0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -1157,7 +1149,6 @@ Global
 		{DEDDB78D-352E-4FE1-B7AF-5F1AC59E4F55} = {BD882ECC-9AA8-4455-AC46-45BD045553EB}
 		{8DE7DB33-7D69-403F-AD45-3B3D753705F2} = {BD882ECC-9AA8-4455-AC46-45BD045553EB}
 		{237C143B-3123-4722-BDF6-24A34537C85B} = {9A9C0579-5019-4E8A-8E41-0E52EB613559}
-		{54EBD782-E0A1-44F7-9B81-E3F97573F275} = {B821781B-1C02-4B38-A22B-116B7525EFE5}
 		{F2270B39-91AA-4126-B3A5-48B2C0CABE0B} = {BD882ECC-9AA8-4455-AC46-45BD045553EB}
 		{34F467F9-4A45-43AD-8FE7-5DCB850E724A} = {BD882ECC-9AA8-4455-AC46-45BD045553EB}
 		{9E1B7E0F-7918-41D9-8C52-0A020A279CAB} = {BD882ECC-9AA8-4455-AC46-45BD045553EB}
