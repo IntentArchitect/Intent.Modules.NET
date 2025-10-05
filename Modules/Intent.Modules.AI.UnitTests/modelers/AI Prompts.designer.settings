@@ -102,6 +102,10 @@
         return acc;
     }, {});
     
+    const globalSettings = await userSettings.loadGlobalAsync();
+    const unitTestsAiModelId = globalSettings.get("AI.UnitTests.ModelId");
+    const unitTestsAiThinkingType = globalSettings.get("AI.UnitTests.ThikingType");
+
     // Open a dialog for the user to enter an AI prompt
     let promptResult = await dialogService.openForm({
         title: "AI: Generate Unit Test for " + element.getName(),
@@ -128,6 +132,7 @@
                             additionalInfo: value.providerName
                         }; 
                     }),
+                value: unitTestsAiModelId,
                 onChange: async (config) =&gt; {
                     const curThinkingType = modelLookup[config.getField("model").value].thinkingType;
                     
@@ -157,7 +162,8 @@
                 id: "thinking",
                 fieldType: "select",
                 label: "Thinking/reasoning mode",
-                isHidden: true
+                isHidden: true,
+                value: unitTestsAiThinkingType
             }
         ],
         submitButtonText: "Execute",
@@ -172,6 +178,8 @@
     const modelId = modelLookup[promptResult.model].modelName;
     const thinkingType = promptResult.thinking;
 
+    globalSettings.set("AI.UnitTests.ModelId", `${providerId}--${modelId}`);
+    globalSettings.set("AI.UnitTests.ThikingType", thinkingType);
 
     let result = await launchHostedModuleTask(taskId, 
         [

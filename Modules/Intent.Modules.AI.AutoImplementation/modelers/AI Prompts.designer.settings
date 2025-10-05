@@ -102,6 +102,10 @@
         return acc;
     }, {});
 
+    const globalSettings = await userSettings.loadGlobalAsync();
+    const autoImplementationAiModelId = globalSettings.get("AI.AutoImplementation.ModelId");
+    const autoImplementationAiThinkingType = globalSettings.get("AI.AutoImplementation.ThikingType");
+
     // Open a dialog for the user to enter an AI prompt
     let promptResult = await dialogService.openForm({
         title: "AI: Auto-Implement Handler for " + element.getName(),
@@ -128,6 +132,7 @@
                             additionalInfo: value.providerName
                         }; 
                     }),
+                value: autoImplementationAiModelId,
                 onChange: async (config) =&gt; {
                     const curThinkingType = modelLookup[config.getField("model").value].thinkingType;
                     
@@ -157,7 +162,8 @@
                 id: "thinking",
                 fieldType: "select",
                 label: "Thinking/reasoning mode",
-                isHidden: true
+                isHidden: true,
+                value: autoImplementationAiThinkingType
             }
         ],
         submitButtonText: "Execute",
@@ -173,9 +179,21 @@
     const modelId = modelLookup[promptResult.model].modelName;
     const thinkingType = promptResult.thinking;
 
-    let result = await launchHostedModuleTask(taskId, [application.id, element.id, promptResult.prompt ?? "", providerId, modelId, thinkingType], {
-        taskName: "AI: Handler for " + element.getName()
-    });
+    globalSettings.set("AI.AutoImplementation.ModelId", `${providerId}--${modelId}`);
+    globalSettings.set("AI.AutoImplementation.ThikingType", thinkingType);
+
+    let result = await launchHostedModuleTask(taskId, 
+        [
+            application.id, 
+            element.id, 
+            promptResult.prompt ?? "", 
+            providerId, 
+            modelId, 
+            thinkingType
+        ], 
+        {
+            taskName: "AI: Handler for " + element.getName()
+        });
 }</script>
     </script>
   </scripts>

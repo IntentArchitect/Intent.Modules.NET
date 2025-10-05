@@ -3,6 +3,5 @@
   <files>
     <file relativePath="Intent.Modules.AI.Blazor/content/MudBlazor/readme.txt" />
     <file relativePath="Intent.Modules.AI.Blazor/content/MudBlazorAIPromptTemplates/readme.txt" />
-    <file relativePath="Intent.Modules.AI.Blazor/modelers/AI Prompts.designer.settings" />
   </files>
 </ignoredFiles>

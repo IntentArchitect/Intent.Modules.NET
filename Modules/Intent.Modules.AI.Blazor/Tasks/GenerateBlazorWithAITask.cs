@@ -80,7 +80,7 @@ public class GenerateBlazorWithAITask : IModuleTask
         var promptTemplateConfig = PromptConfig.TryLoad(_solution.SolutionRootLocation, _applicationConfigurationProvider.GetApplicationConfig().Name);
 
         var disposables = new List<IAsyncDisposable>();
-        if (promptTemplateConfig.McpServers.Any())
+        if (promptTemplateConfig?.McpServers.Any() == true)
         {
             var mcpDisposables = McpHelper.WireUpMcpAsync(kernel, promptTemplateConfig.McpServers)
                 .GetAwaiter()
