@@ -284,22 +284,7 @@ public class GenerateBlazorWithAITask : IModuleTask
             {{$examples}}
             """;
         
-        var requestFunction = kernel.CreateFunctionFromPrompt(promptTemplate, new PromptExecutionSettings
-        {
-            ExtensionData = new Dictionary<string, object>
-            {
-                // OpenAI equivalent
-                ["reasoning"] = new
-                {
-                    effort = thinkingType
-                },
-                // Anthropic equivalent
-                ["thinking"] = new
-                {
-                    type = thinkingType == "low" ? "disabled" : thinkingType == "high" ? "enabled" : null
-                }
-            }
-        });
+        var requestFunction = kernel.CreateFunctionFromPrompt(promptTemplate, kernel.GetRequiredService<IAiProviderService>().GetPromptExecutionSettings(thinkingType));
         return requestFunction;
     }
 
