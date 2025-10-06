@@ -21,10 +21,10 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         public const string SpecializationTypeId = "8e9e6693-2888-4f48-a0d6-0f163baab740";
         protected readonly IElement _element;
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public CSharpProjectNETModel(IElement element, string requiredType = SpecializationTypeId)
         {
-            if (!requiredType.Equals(element.SpecializationType, StringComparison.InvariantCultureIgnoreCase))
+            if (!requiredType.Equals(element.SpecializationType, StringComparison.InvariantCultureIgnoreCase) && !requiredType.Equals(element.SpecializationTypeId, StringComparison.InvariantCultureIgnoreCase))
             {
                 throw new Exception($"Cannot create a '{GetType().Name}' from element with specialization type '{element.SpecializationType}'. Must be of type '{SpecializationType}'");
             }
