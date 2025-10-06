@@ -25,7 +25,7 @@ using static Intent.Modules.Common.CSharp.AppStartup.IAppStartupFile;
 namespace Intent.Modules.AzureFunctions.Templates.Isolated.Program
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public partial class ProgramTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
+    public partial class ProgramTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate, IProgramTemplate, IProgramFile
     {
         public const string TemplateId = "Intent.AzureFunctions.Isolated.Program";
 
@@ -131,16 +131,16 @@ namespace Intent.Modules.AzureFunctions.Templates.Isolated.Program
                         globalExceptionConfigStatement.AddStatement<CSharpLambdaBlock, CSharpStatement>(globalExceptionStatement);
                     }
 
-                    var hostConfigStatement = new CSharpStatement("new HostBuilder()")
-                        .AddInvocation("ConfigureFunctionsWebApplication", i => i
+                    var hostConfigStatement = new CSharpMethodChainStatement("new HostBuilder()")
+                        .AddChainStatement( new CSharpInvocationStatement( "ConfigureFunctionsWebApplication").WithoutSemicolon()
                             .OnNewLine()
                             .AddArgument(globalExceptionConfigStatement)
                             )
-                        .AddInvocation("ConfigureServices", cs => cs
+                        .AddChainStatement(new CSharpInvocationStatement("ConfigureServices").WithoutSemicolon()
                             .OnNewLine()
                             .AddArgument(configStatements)
                         )
-                        .AddInvocation("Build", i => i.OnNewLine());
+                        .AddChainStatement(new CSharpInvocationStatement("Build").OnNewLine());
 
                     tls.AddStatement(new CSharpAssignmentStatement("var host", hostConfigStatement));
                     tls.AddStatement("host.Run();", s => s.SeparatedFromPrevious());
@@ -496,6 +496,10 @@ namespace Intent.Modules.AzureFunctions.Templates.Isolated.Program
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }
 
+        public bool UsesMinimalHostingModel => true;
+
+        public IProgramFile ProgramFile => this;
+
         [IntentManaged(Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()
         {
@@ -507,5 +511,131 @@ namespace Intent.Modules.AzureFunctions.Templates.Isolated.Program
         {
             return CSharpFile.ToString();
         }
+
+        public IProgramFile ConfigureHostBuilderChainStatement(string methodName, IEnumerable<string> parameters, IProgramFile.HostBuilderChainStatementConfiguration configure = null, int priority = 0)
+        {
+            var parametersAsArray = parameters.ToArray();
+
+            var hostBuilder = (IHasCSharpStatements?)CSharpFile.TopLevelStatements.Statements.FirstOrDefault();
+
+            var hostBuilderChain = (CSharpMethodChainStatement)((CSharpAssignmentStatement)hostBuilder).Rhs;
+            var appConfigurationBlock = (CSharpInvocationStatement)hostBuilderChain
+                .FindStatement(stmt => stmt.ToString()!.StartsWith(methodName));
+
+            var lambda = EnsureWeHaveEditableLambdaBlock(appConfigurationBlock);
+
+            if (appConfigurationBlock == null)
+            {
+                lambda = new EditableCSharpLambdaBlock("()");
+
+                appConfigurationBlock = new CSharpInvocationStatement(methodName)
+                    .WithoutSemicolon()
+                    .AddArgument(lambda);
+                appConfigurationBlock.AddMetadata("priority", priority);
+
+
+                var insertAboveStatement = hostBuilderChain.Statements.FirstOrDefault(s => 
+                    { 
+                        if (s.TryGetMetadata<int>("priority", out var statmentPriority))
+                        {
+                            return statmentPriority > priority;
+                        }
+                        else
+                        {
+                            return priority < 0;
+                        }
+                    });
+                if (insertAboveStatement == null)
+                {
+                    insertAboveStatement = hostBuilderChain.Statements.Last();
+                }
+                insertAboveStatement.InsertAbove(appConfigurationBlock);
+            }
+
+            SetParameters(lambda, parametersAsArray);
+            configure?.Invoke(lambda, (IReadOnlyList<string>)lambda.Metadata["parameters"]);
+            return this;
+        }
+
+        static void SetParameters(EditableCSharpLambdaBlock lambda, IReadOnlyList<string> requestedParameters)
+        {
+            if (!lambda.TryGetMetadata<List<string>>("parameters", out var parameters))
+            {
+                parameters = new List<string>();
+                lambda.AddMetadata("parameters", parameters);
+            }
+
+            if (parameters.Count >= requestedParameters.Count)
+            {
+                return;
+            }
+
+            parameters.AddRange(requestedParameters.Skip(parameters.Count));
+
+            lambda.UpdateText(parameters.Count == 1
+                ? parameters[0]
+                : $"({string.Join(", ", parameters)})");
+        }
+
+
+        public IProgramFile AddHostBuilderConfigurationStatement<TStatement>(TStatement statement, Action<TStatement> configure = null, int priority = 0) where TStatement : CSharpStatement
+        {
+            throw new NotImplementedException();
+        }
+
+        public IProgramFile ConfigureMainStatementsBlock(Action<IHasCSharpStatements> configure)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IProgramFile AddMethod(string returnType, string name, Action<IStartupMethod> configure = null, int priority = 0)
+        {
+            throw new NotImplementedException();
+        }
+
+        static EditableCSharpLambdaBlock EnsureWeHaveEditableLambdaBlock(CSharpInvocationStatement appConfigurationBlock)
+        {
+            EditableCSharpLambdaBlock? lambda;
+            var configBlockStatement = appConfigurationBlock?.Statements.First();
+            if (configBlockStatement is CSharpLambdaBlock lambdaConfig and not EditableCSharpLambdaBlock)
+            {
+                lambda = EditableCSharpLambdaBlock.CreateFrom(lambdaConfig);
+                appConfigurationBlock!.Statements.RemoveAt(0);
+                appConfigurationBlock.AddArgument(lambda);
+            }
+            else
+            {
+                lambda = (EditableCSharpLambdaBlock?)appConfigurationBlock?.Statements.First();
+            }
+
+            return lambda;
+        }
+
+
+        private class EditableCSharpLambdaBlock : CSharpLambdaBlock
+        {
+            public EditableCSharpLambdaBlock(string invocation) : base(invocation) { }
+
+            public void UpdateText(string text) => Text = text;
+
+            public static EditableCSharpLambdaBlock CreateFrom(CSharpLambdaBlock original)
+            {
+                var update = new EditableCSharpLambdaBlock(original.Text);
+                if (original.HasExpressionBody)
+                {
+                    update.WithExpressionBody(original.Statements.First());
+                }
+                else
+                {
+                    foreach (var statement in original.Statements)
+                    {
+                        update.Statements.Add(statement);
+                    }
+                }
+
+                return update;
+            }
+        }
+
     }
 }

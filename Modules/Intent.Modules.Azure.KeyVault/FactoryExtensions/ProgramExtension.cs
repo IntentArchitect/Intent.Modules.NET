@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Azure.KeyVault.Templates.AzureKeyVaultConfiguration;
@@ -27,13 +28,51 @@ public class ProgramExtension : FactoryExtensionBase
 
     protected override void OnAfterTemplateRegistrations(IApplication application)
     {
+        DoAspNetCoreProgramFile(application);
+        DoAzureFunctionsProgramFile(application);
+    }
+
+    private void DoAzureFunctionsProgramFile(IApplication application)
+    {
+        var programTemplate = application.FindTemplateInstance<IProgramTemplate>(TemplateDependency.OnTemplate("Intent.AzureFunctions.Isolated.Program"));
+        if (programTemplate == null)
+        {
+            return;
+        }
+
+        var configTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(AzureKeyVaultConfigurationTemplate.TemplateId, programTemplate.OutputTarget);
+        if (configTemplate == null)
+        {
+            return;
+        }
+
+        programTemplate.CSharpFile.OnBuild(file =>
+        {
+            file.AddUsing(configTemplate.Namespace);
+            file.AddUsing("Microsoft.Extensions.Configuration");
+
+            programTemplate.ProgramFile.ConfigureAppConfiguration(true, (statements, parameters) =>
+            {
+                statements.AddStatement($"var built = {parameters[^1]}.Build();");
+                statements.AddIfStatement(@"built.GetValue<bool?>(""KeyVault:Enabled"") == true", @if =>
+                    {
+                        @if.AddStatement($"{parameters[^1]}.ConfigureAzureKeyVault(built);");
+                    });
+            }, -10);
+
+        }, 30);
+
+    }
+
+    private static void DoAspNetCoreProgramFile(IApplication application)
+    {
         var programTemplate = application.FindTemplateInstance<IProgramTemplate>(TemplateDependency.OnTemplate("App.Program"));
         if (programTemplate == null)
         {
             return;
         }
 
-        var configTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(AzureKeyVaultConfigurationTemplate.TemplateId));
+        var configTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(AzureKeyVaultConfigurationTemplate.TemplateId, programTemplate.OutputTarget);
         if (configTemplate == null)
         {
             return;
