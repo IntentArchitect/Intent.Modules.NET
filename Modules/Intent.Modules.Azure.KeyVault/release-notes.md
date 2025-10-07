@@ -1,3 +1,7 @@
+### Version 2.0.15
+
+- Improvement: Now works with `Azure Functions` apps.
+
 ### Version 2.0.14
 
 - Improvement: Updated NuGet package versions.

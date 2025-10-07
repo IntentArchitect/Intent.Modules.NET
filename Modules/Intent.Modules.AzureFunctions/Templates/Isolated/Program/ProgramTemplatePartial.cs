@@ -24,7 +24,7 @@ using static Intent.Modules.Common.CSharp.AppStartup.IAppStartupFile;
 
 namespace Intent.Modules.AzureFunctions.Templates.Isolated.Program
 {
-    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
+    [IntentManaged(Mode.Merge, Body = Mode.Merge)]
     public partial class ProgramTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate, IProgramTemplate, IProgramFile
     {
         public const string TemplateId = "Intent.AzureFunctions.Isolated.Program";
@@ -132,7 +132,7 @@ namespace Intent.Modules.AzureFunctions.Templates.Isolated.Program
                     }
 
                     var hostConfigStatement = new CSharpMethodChainStatement("new HostBuilder()")
-                        .AddChainStatement( new CSharpInvocationStatement( "ConfigureFunctionsWebApplication").WithoutSemicolon()
+                        .AddChainStatement(new CSharpInvocationStatement("ConfigureFunctionsWebApplication").WithoutSemicolon()
                             //.OnNewLine()
                             .AddArgument(globalExceptionConfigStatement)
                             )
@@ -140,7 +140,7 @@ namespace Intent.Modules.AzureFunctions.Templates.Isolated.Program
                             //.OnNewLine()
                             .AddArgument(configStatements)
                         )
-                        .AddChainStatement(new CSharpInvocationStatement("Build").OnNewLine());
+                        .AddChainStatement(new CSharpInvocationStatement("Build").OnNewLine().WithoutSemicolon());
 
                     tls.AddStatement(new CSharpAssignmentStatement("var host", hostConfigStatement));
                     tls.AddStatement("host.Run();", s => s.SeparatedFromPrevious());
@@ -171,7 +171,7 @@ namespace Intent.Modules.AzureFunctions.Templates.Isolated.Program
                     // after the other handlers.
                     OnEmitOrPublished<ServiceConfigurationRequest>(ProcessServiceConfigurationRequest);
                     OnEmitOrPublished<ContainerRegistrationRequest>(ProcessContainerRegistrationRequest);
-                    OnEmitOrPublished<ApplicationBuilderRegistrationRequest>(request => 
+                    OnEmitOrPublished<ApplicationBuilderRegistrationRequest>(request =>
                         ProcessApplicationBuilderRegistrationRequest(request, globalExceptionConfigStatement));
                 });
 
@@ -327,7 +327,7 @@ namespace Intent.Modules.AzureFunctions.Templates.Isolated.Program
             {
                 return;
             }
-            
+
             // Until we can resolve this better here is a blacklist of common middleware:
             if (request.ExtensionMethodName == "UseAuthentication")
             {
@@ -534,8 +534,8 @@ namespace Intent.Modules.AzureFunctions.Templates.Isolated.Program
                 appConfigurationBlock.AddMetadata("priority", priority);
 
 
-                var insertAboveStatement = hostBuilderChain.Statements.FirstOrDefault(s => 
-                    { 
+                var insertAboveStatement = hostBuilderChain.Statements.FirstOrDefault(s =>
+                    {
                         if (s.TryGetMetadata<int>("priority", out var statmentPriority))
                         {
                             return statmentPriority > priority;

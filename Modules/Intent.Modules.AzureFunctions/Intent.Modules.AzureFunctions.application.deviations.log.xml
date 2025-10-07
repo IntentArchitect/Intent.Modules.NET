@@ -34,5 +34,15 @@
       <deviationsHash>4D1CFBFF96BCB3DD54C3DD6A274D6BAAB605ACFE0AA2D40393D1914585EC64D7</deviationsHash>
       <fileHash>48CBF9DCF3CFF11ACFDCFAFE769BCC0689ADADACB69B8F29F4A2B413775CA82E</fileHash>
     </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#3bb69eff-0d9c-43f6-b15d-72022316574e</correlationId>
+      <path>Intent.Modules.AzureFunctions/Templates/Isolated/Program/ProgramTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2025-10-07T15:11:00.5961812Z</updatedAt>
+      <deviationsHash>827BDF19C93D48C7A8EB08EB554C70FF447AEDE80256B15A1346010B078A9E3F</deviationsHash>
+      <fileHash>7DBB03D8F0E1C2E845D9B99260753E50ED41FBC8772DCF06605AD5E694D68294</fileHash>
+    </file>
   </files>
 </deviationsLog>
