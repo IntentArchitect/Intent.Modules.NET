@@ -133,11 +133,11 @@ namespace Intent.Modules.AzureFunctions.Templates.Isolated.Program
 
                     var hostConfigStatement = new CSharpMethodChainStatement("new HostBuilder()")
                         .AddChainStatement( new CSharpInvocationStatement( "ConfigureFunctionsWebApplication").WithoutSemicolon()
-                            .OnNewLine()
+                            //.OnNewLine()
                             .AddArgument(globalExceptionConfigStatement)
                             )
                         .AddChainStatement(new CSharpInvocationStatement("ConfigureServices").WithoutSemicolon()
-                            .OnNewLine()
+                            //.OnNewLine()
                             .AddArgument(configStatements)
                         )
                         .AddChainStatement(new CSharpInvocationStatement("Build").OnNewLine());
