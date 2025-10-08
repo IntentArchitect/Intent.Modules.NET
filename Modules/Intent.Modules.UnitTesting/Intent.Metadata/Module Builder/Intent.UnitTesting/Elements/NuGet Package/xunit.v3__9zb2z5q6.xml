@@ -92,7 +92,7 @@
       </childElements>
     </childElement>
     <childElement id="414a2eab-aa8e-4b11-85df-7a16d0a68483" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>3.0.1</name>
+      <name>3.1.0</name>
       <display>2.0.3 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -114,10 +114,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="4371584f-4c1e-468d-9572-f76df3bc5129" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="45b6f690-fb3f-4860-b76d-c2b2afb4a2d8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>xunit.v3.core</name>
           <isAbstract>false</isAbstract>
-          <value>3.0.1</value>
+          <value>3.1.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>414a2eab-aa8e-4b11-85df-7a16d0a68483</parentFolderId>
@@ -125,10 +125,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="fa2a6d33-73ce-4aff-b1ee-89a3ce5850f8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="16a948ca-e827-436f-af74-aedfee080146" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>xunit.v3.assert</name>
           <isAbstract>false</isAbstract>
-          <value>3.0.1</value>
+          <value>3.1.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>414a2eab-aa8e-4b11-85df-7a16d0a68483</parentFolderId>
@@ -136,7 +136,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="e27f60b7-6137-4afd-8b33-25aa14427ee5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="fa6d9cde-bcaf-4554-a6fd-21dd547e130b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>xunit.analyzers</name>
           <isAbstract>false</isAbstract>
           <value>1.24.0</value>

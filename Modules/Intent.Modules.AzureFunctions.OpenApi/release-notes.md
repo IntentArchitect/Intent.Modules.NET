@@ -1,3 +1,7 @@
+### Version 2.0.8
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 2.0.7
 
 - Improvement: Updated topic documentation format.

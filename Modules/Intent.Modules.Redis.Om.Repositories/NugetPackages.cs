@@ -51,7 +51,7 @@ namespace Intent.Modules.Redis.Om.Repositories
             NugetRegistry.Register(RedisOMPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 2, >= 0) => new PackageVersion("1.0.1")
+                        ( >= 2, >= 0) => new PackageVersion("1.1.0")
                             .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "8.0.0")
                             .WithNugetDependency("Newtonsoft.Json", "13.0.1")
                             .WithNugetDependency("StackExchange.Redis", "2.7.17")

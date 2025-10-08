@@ -218,13 +218,13 @@ namespace Intent.Modules.AzureFunctions
             NugetRegistry.Register(MicrosoftAzureFunctionsWorkerExtensionsServiceBusPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 2, >= 0) => new PackageVersion("5.23.0")
-                            .WithNugetDependency("Azure.Identity", "1.13.1")
-                            .WithNugetDependency("Azure.Messaging.ServiceBus", "7.18.1")
-                            .WithNugetDependency("Google.Protobuf", "3.27.1")
+                        ( >= 2, >= 0) => new PackageVersion("5.24.0")
+                            .WithNugetDependency("Azure.Identity", "1.16.0")
+                            .WithNugetDependency("Azure.Messaging.ServiceBus", "7.20.1")
+                            .WithNugetDependency("Google.Protobuf", "3.32.1")
                             .WithNugetDependency("Microsoft.Azure.Functions.Worker.Extensions.Abstractions", "1.3.0")
                             .WithNugetDependency("Microsoft.Azure.Functions.Worker.Extensions.Rpc", "1.0.1")
-                            .WithNugetDependency("Microsoft.Extensions.Azure", "1.12.0"),
+                            .WithNugetDependency("Microsoft.Extensions.Azure", "1.13.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftAzureFunctionsWorkerExtensionsServiceBusPackageName}'"),
                     }
                 );

@@ -1,5 +1,6 @@
 ### Version 5.0.17
 
+- Improvement: Updated NuGet package versions.
 - Improvement: Isolated Processes program file template upgraded for improved extensibility from other modules.
 
 ### Version 5.0.16
