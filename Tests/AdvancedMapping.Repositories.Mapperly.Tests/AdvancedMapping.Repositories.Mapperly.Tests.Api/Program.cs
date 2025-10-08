@@ -1,6 +1,5 @@
 using AdvancedMapping.Repositories.Mapperly.Tests.Api.Configuration;
 using AdvancedMapping.Repositories.Mapperly.Tests.Api.Filters;
-using AdvancedMapping.Repositories.Mapperly.Tests.Api.Logging;
 using AdvancedMapping.Repositories.Mapperly.Tests.Application;
 using AdvancedMapping.Repositories.Mapperly.Tests.Infrastructure;
 using Intent.RoslynWeaver.Attributes;
@@ -29,8 +28,7 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Api
                 // Add services to the container.
                 builder.Host.UseSerilog((context, services, configuration) => configuration
                     .ReadFrom.Configuration(context.Configuration)
-                    .ReadFrom.Services(services)
-                    .Destructure.With(new BoundedLoggingDestructuringPolicy()));
+                    .ReadFrom.Services(services));
 
                 builder.Services.AddControllers(
                     opt =>
