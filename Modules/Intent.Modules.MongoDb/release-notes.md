@@ -1,3 +1,7 @@
+### Version 2.0.3
+
+- Fixed: App settings now correctly set on install and upgrade. 
+
 ### Version 2.0.2
 
 - Improvement: Updated NuGet package versions.
