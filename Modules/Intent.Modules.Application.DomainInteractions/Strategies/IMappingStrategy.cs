@@ -12,6 +12,7 @@ namespace Intent.Modules.Application.DomainInteractions.Strategies
 {
     public interface IMappingStrategy
     {
+        bool HasProjectTo();
         bool IsMatch(ICSharpClassMethodDeclaration method);
 
         void ImplementMappingStatement(ICSharpClassMethodDeclaration method, List<CSharpStatement> statements,
@@ -44,6 +45,8 @@ namespace Intent.Modules.Application.DomainInteractions.Strategies
             var autoMapperFieldName = method.Class.InjectService(template.UseType("AutoMapper.IMapper"));
             statements.Add($"return {entity.VariableName}.{mappingMethod}(x => x.MapTo{returnDto}({autoMapperFieldName}));");
         }
+
+        public bool HasProjectTo() => true;
     }
 
     public class MapperlyMappingStrategy : IMappingStrategy
@@ -71,5 +74,7 @@ namespace Intent.Modules.Application.DomainInteractions.Strategies
             return;
             throw new NotImplementedException();
         }
+
+        public bool HasProjectTo() => false;
     }
 }

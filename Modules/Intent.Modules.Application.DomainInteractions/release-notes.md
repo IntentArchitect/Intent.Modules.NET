@@ -1,3 +1,7 @@
+### Version 1.1.6
+
+- Improvement: Improved error message when `ProjectTo` is selected as the query strategy with an unsupporting provider (mapperly)
+
 ### Version 1.1.5
 
 - Improvement: Support for Mapperly module
