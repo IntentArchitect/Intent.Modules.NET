@@ -1,3 +1,7 @@
+### Version 5.3.2
+
+- Fixed: Software Factory no longer occurs of the `BoundedLoggingDestructuringPolicyTemplate` is not included.
+
 ### Version 5.3.1
 
 - Fixed: Added the missing `[assembly: DefaultIntentManaged(Mode.Fully)]` to the `BoundedLoggingDestructuringPolicy` template.
