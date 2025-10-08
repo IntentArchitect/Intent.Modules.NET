@@ -12,6 +12,6 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.20" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.3.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.20" />
-    <PackageReference Include="MudBlazor" Version="8.12.0" />
+    <PackageReference Include="MudBlazor" Version="8.13.0" />
   </ItemGroup>
   </Project>

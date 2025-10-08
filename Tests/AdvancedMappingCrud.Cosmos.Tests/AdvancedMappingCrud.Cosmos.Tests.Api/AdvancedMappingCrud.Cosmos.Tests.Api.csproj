@@ -24,7 +24,7 @@
     <PackageReference Include="Microsoft.AspNetCore.OData" Version="9.4.0" />
     <PackageReference Include="Quartz.AspNetCore" Version="3.15.0" />
     <PackageReference Include="Serilog.AspNetCore" Version="9.0.0" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.4" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.6" />
   </ItemGroup>
 
   <ItemGroup>

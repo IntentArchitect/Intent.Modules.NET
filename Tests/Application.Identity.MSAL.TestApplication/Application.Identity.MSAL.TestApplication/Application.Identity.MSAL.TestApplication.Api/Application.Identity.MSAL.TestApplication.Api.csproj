@@ -20,7 +20,7 @@
     <PackageReference Include="Microsoft.Identity.Web.MicrosoftGraph" Version="3.14.1" />
     <PackageReference Include="Microsoft.Identity.Web.UI" Version="3.14.1" />
     <PackageReference Include="Serilog.AspNetCore" Version="9.0.0" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.4" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.6" />
   </ItemGroup>
 
 </Project>
