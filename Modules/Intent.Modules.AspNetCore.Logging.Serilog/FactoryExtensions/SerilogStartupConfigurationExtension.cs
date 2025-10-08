@@ -1,3 +1,7 @@
+using System;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks.Dataflow;
 using Intent.Engine;
 using Intent.Modules.AspNetCore.Logging.Serilog.Settings;
 using Intent.Modules.AspNetCore.Logging.Serilog.Templates;
@@ -13,10 +17,6 @@ using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using System;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks.Dataflow;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
