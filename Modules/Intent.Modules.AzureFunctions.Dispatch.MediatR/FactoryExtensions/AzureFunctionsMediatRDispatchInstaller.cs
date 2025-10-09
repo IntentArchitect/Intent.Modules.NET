@@ -1,3 +1,7 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
 using Intent.AzureFunctions.Api;
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
@@ -14,10 +18,6 @@ using Intent.Modules.Common.TypeResolution;
 using Intent.Modules.Metadata.WebApi.Models;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -116,7 +116,7 @@ namespace Intent.Modules.AzureFunctions.Dispatch.MediatR.FactoryExtensions
             {
                 endpoint = HttpEndpointModelFactory.GetEndpoint(operationModel.InternalElement, string.Empty);
             }
-            
+
             switch (endpoint?.Verb)
             {
                 case HttpVerb.Get:
