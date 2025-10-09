@@ -1,3 +1,7 @@
+### Version 2.0.3
+
+- Fixed: Dispatching not only return REST concepts for HTTP triggers.
+
 ### Version 2.0.2
 
 - Fixed: Nuget package management update.

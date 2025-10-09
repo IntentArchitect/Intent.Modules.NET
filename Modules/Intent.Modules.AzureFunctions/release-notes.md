@@ -2,6 +2,7 @@
 
 - Improvement: Updated NuGet package versions.
 - Improvement: Isolated Processes program file template upgraded for improved extensibility from other modules.
+- Fixed: Script crash when swapping Trigger types for endpoint which has association children.
 
 ### Version 5.0.16
 
