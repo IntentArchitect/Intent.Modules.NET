@@ -1,3 +1,7 @@
+### Version 3.9.4
+
+- Improvement: The NuGet installer now respects `IntentIgnore="true"` on `<PackageReference />` elements in `.csproj` files.
+
 ### Version 3.9.3
 
 - Improvement: Added `BaseUrl` stereotype to the relevent project, so that other applications creating proxies can read the URL value.

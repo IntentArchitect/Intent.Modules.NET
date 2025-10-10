@@ -156,14 +156,26 @@ internal class SdkSchemeProcessor : INuGetSchemeProcessor
             }
 
             var currentVersions = new List<VersionInfo>(2);
-            var projectVersionMetadata = packageReferenceItem.Metadata.SingleOrDefault(x => string.Equals(x.Name, "Version", StringComparison.OrdinalIgnoreCase));
-            if (projectVersionMetadata != null)
+            var packageVersionMetadata = packageReferenceItem.Metadata.SingleOrDefault(x => string.Equals(x.Name, "Version", StringComparison.OrdinalIgnoreCase));
+            if (packageVersionMetadata != null)
             {
-                currentVersions.Add(new VersionInfo( projectVersionMetadata.Value));
+                if (packageReferenceItem.Metadata.Any(x => string.Equals(x.Name, "IntentIgnore", StringComparison.OrdinalIgnoreCase) &&
+                                                           string.Equals(x.Value, "true", StringComparison.OrdinalIgnoreCase)))
+                {
+                    continue;
+                }
+
+                currentVersions.Add(new VersionInfo(packageVersionMetadata.Value));
             }
 
             if (cpmTemplate.TryGetVersion(packageId, out var cpmVersion))
             {
+                if (packageReferenceItem.Metadata.Any(x => string.Equals(x.Name, "IntentIgnore", StringComparison.OrdinalIgnoreCase) &&
+                                                           string.Equals(x.Value, "true", StringComparison.OrdinalIgnoreCase)))
+                {
+                    continue;
+                }
+
                 currentVersions.Add(new VersionInfo(cpmVersion));
             }
 
@@ -171,12 +183,12 @@ internal class SdkSchemeProcessor : INuGetSchemeProcessor
                 ? currentVersions.Max()
                 : null;
 
-            if (!isUsingCpm && projectVersionMetadata == null)
+            if (!isUsingCpm && packageVersionMetadata == null)
             {
                 var toVersion = currentVersion != null && currentVersion > requestedVersion
                     ? currentVersion
                     : requestedVersion;
-                projectVersionMetadata = packageReferenceItem.AddMetadata("Version", toVersion.Version, expressAsAttribute: true);
+                packageVersionMetadata = packageReferenceItem.AddMetadata("Version", toVersion.Version, expressAsAttribute: true);
             }
 
             switch (dependencyVersionOverwriteBehavior)
@@ -192,7 +204,7 @@ internal class SdkSchemeProcessor : INuGetSchemeProcessor
                     else if (!isUsingCpm)
                     {
                         tracing.Info($"Updating {packageId} from \"{currentVersion?.Version}\" to \"{requestedVersion.Version}\" in project \"{projectName}\"");
-                        projectVersionMetadata.Value = requestedVersion.Version;
+                        packageVersionMetadata.Value = requestedVersion.Version;
                     }
 
                     break;
