@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="..\Intent.Modules.Common.UnitOfWork\Settings\ModuleSettingsExtensions.cs" Link="Settings\ModuleSettingsExtensions.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.9.6" />
     <PackageReference Include="Intent.Modules.Common.Types" Version="4.0.0" />
     <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.9.0" />
@@ -22,6 +26,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Settings\" />
   </ItemGroup>
 
 </Project>
