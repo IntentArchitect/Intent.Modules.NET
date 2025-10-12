@@ -36,13 +36,13 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
                 ? queryContext.GetDtoProjectionReturnType()
                 : null;
 
-            method.AddStatements(ExecutionPhases.Retrieval, method.GetQueryStatements(
+            method.AddStatements(ExecutionPhases.BusinessLogic, method.GetQueryStatements(
                 dataAccessProvider: dataAccess,
                 interaction: interaction,
                 foundEntity: foundEntity,
                 projectedType: projectedType));
 
-            method.AddStatement(ExecutionPhases.Retrieval, string.Empty);
+            method.AddStatement(ExecutionPhases.BusinessLogic, string.Empty);
 
             var updateAction = interaction.AsUpdateEntityActionTargetEndModel();
             var csharpMapping = method.GetMappingManager();
