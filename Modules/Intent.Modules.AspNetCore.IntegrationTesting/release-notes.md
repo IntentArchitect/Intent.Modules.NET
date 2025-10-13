@@ -1,6 +1,8 @@
 ### Version 2.0.11
 
 - Improvement: Updated NuGet package versions.
+- Fixed: Nullable primitive return types (non wrapped as json responses) caused un-compilable code.
+
 
 ### Version 2.0.10
 

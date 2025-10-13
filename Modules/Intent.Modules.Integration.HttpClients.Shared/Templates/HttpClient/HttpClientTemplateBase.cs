@@ -381,7 +381,17 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
                                                 stmt.AddStatement("str = str.Substring(1, str.Length - 2);");
                                             }
                                         });
-                                        usingContentStreamBlock.AddStatement($"return {GetTypeName(endpoint.ReturnType)}.Parse(str);");
+
+                                        var nonNullableType = GetTypeInfo(endpoint.ReturnType).WithIsNullable(false);
+                                        if (endpoint.ReturnType.IsNullable)
+                                        {
+                                            usingContentStreamBlock.AddIfStatement("string.IsNullOrEmpty(str)", ifs => ifs.AddStatement("return null;"));
+                                            usingContentStreamBlock.AddStatement($"return {UseType(nonNullableType)}.Parse(str);");
+                                        }
+                                        else
+                                        {
+                                            usingContentStreamBlock.AddStatement($"return {UseType(nonNullableType)}.Parse(str);");
+                                        }
                                     }
                                     else
                                     {

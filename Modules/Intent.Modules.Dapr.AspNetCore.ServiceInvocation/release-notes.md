@@ -1,3 +1,7 @@
+### Version 2.2.26
+
+- Fixed: Nullable primitive return types (non wrapped as json responses) caused un-compilable code.
+
 ### Version 2.2.25
 
 - Improvement: Updated NuGet package versions.
