@@ -9,15 +9,18 @@ namespace CleanArchitecture.Comprehensive.Application.Ones
     {
         public CreateOneCommandFinalsDto()
         {
+            Attribute = null!;
         }
 
         public int FourId { get; set; }
+        public string Attribute { get; set; }
 
-        public static CreateOneCommandFinalsDto Create(int fourId)
+        public static CreateOneCommandFinalsDto Create(int fourId, string attribute)
         {
             return new CreateOneCommandFinalsDto
             {
-                FourId = fourId
+                FourId = fourId,
+                Attribute = attribute
             };
         }
     }

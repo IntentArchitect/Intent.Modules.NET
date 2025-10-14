@@ -1,3 +1,4 @@
+using CleanArchitecture.Comprehensive.Application.Common.Validation;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 
@@ -10,18 +11,22 @@ namespace CleanArchitecture.Comprehensive.Application.QueryDtoParameter
     public class QueryDtoParameterCriteriaValidator : AbstractValidator<QueryDtoParameterCriteria>
     {
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
-        public QueryDtoParameterCriteriaValidator()
+        public QueryDtoParameterCriteriaValidator(IValidatorProvider provider)
         {
-            ConfigureValidationRules();
+            ConfigureValidationRules(provider);
         }
 
-        private void ConfigureValidationRules()
+        private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.Field1)
                 .NotNull();
 
             RuleFor(v => v.Field2)
                 .NotNull();
+
+            RuleFor(v => v.Nested)
+                .NotNull()
+                .SetValidator(provider.GetValidator<NestedQueryDto>()!);
         }
     }
 }

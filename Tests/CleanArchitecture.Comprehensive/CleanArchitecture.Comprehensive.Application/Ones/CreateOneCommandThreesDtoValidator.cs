@@ -1,3 +1,4 @@
+using CleanArchitecture.Comprehensive.Application.Common.Validation;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 
@@ -10,15 +11,16 @@ namespace CleanArchitecture.Comprehensive.Application.Ones
     public class CreateOneCommandThreesDtoValidator : AbstractValidator<CreateOneCommandThreesDto>
     {
         [IntentManaged(Mode.Merge)]
-        public CreateOneCommandThreesDtoValidator()
+        public CreateOneCommandThreesDtoValidator(IValidatorProvider provider)
         {
-            ConfigureValidationRules();
+            ConfigureValidationRules(provider);
         }
 
-        private void ConfigureValidationRules()
+        private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.Finals)
-                .NotNull();
+                .NotNull()
+                .ForEach(x => x.SetValidator(provider.GetValidator<CreateOneCommandFinalsDto>()!));
         }
     }
 }

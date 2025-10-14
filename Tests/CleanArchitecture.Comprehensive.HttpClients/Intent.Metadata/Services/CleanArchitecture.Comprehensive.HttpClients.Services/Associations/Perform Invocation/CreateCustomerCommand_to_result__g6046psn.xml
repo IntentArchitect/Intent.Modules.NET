@@ -20,7 +20,7 @@
   </sourceEnd>
   <targetEnd id="c5dc5ecd-e10b-44bf-8a40-6ff5bf0147b4" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
     <name>result</name>
-    <display>[call] result: CreateCustomerCommand(...): guid</display>
+    <display>[call] result = CreateCustomerCommand(...): guid</display>
     <order>0</order>
     <traits>
       <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />

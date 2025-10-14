@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="9c79f0ab-4d04-4866-9482-da80bec09b71">
+  <sourceEnd id="679eb363-5815-476b-a0f2-b9f411550f68" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : Customers.CallHasDtoParameterQuery</display>
+    <order>0</order>
+    <typeReference id="f8da04df-ced9-4af9-95ed-3f6abb7c40b7">
+      <typeId>dd56b9c6-4788-412b-8e8f-386a347673a7</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.HttpClients.Services</typePackageName>
+      <typePackageId>5d4b36a8-cabe-4268-85ee-239d3b05a77a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="9c79f0ab-4d04-4866-9482-da80bec09b71" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <name>result</name>
+    <display>[call] result = HasDtoParameterQuery(...): int</display>
+    <order>3</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="9d695cbb-2944-4592-85ad-f262cf4a6be1">
+      <typeId>fcdcd0f3-199e-4de2-b9c7-5aaf15d4eeed</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.Services</typePackageName>
+      <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Invocation Mapping" typeId="a4c4c5cc-76df-48ed-9d4e-c35caf44b567">
+        <source applicationId="c3ac2e0f-34c5-4509-9652-5f90a99106e8" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="dd56b9c6-4788-412b-8e8f-386a347673a7" location="[CleanArchitecture.Comprehensive.HttpClients].[Services].[CallHasDtoParameterQuery]" />
+        <target applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="fcdcd0f3-199e-4de2-b9c7-5aaf15d4eeed" location="[CleanArchitecture.Comprehensive.HttpClients].[Services].[HasDtoParameterQuery]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CallHasDtoParameterQuery}</expression>
+            <path>
+              <target id="fcdcd0f3-199e-4de2-b9c7-5aaf15d4eeed" name="HasDtoParameterQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+            </path>
+            <sources>
+              <source identifier="CallHasDtoParameterQuery" mappingType="Invocation Mapping" mappingTypeId="7ca5c18a-bdbe-434b-a68a-421899a077e7">
+                <path>
+                  <target id="dd56b9c6-4788-412b-8e8f-386a347673a7" name="CallHasDtoParameterQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Field1}</expression>
+            <path>
+              <target id="fcdcd0f3-199e-4de2-b9c7-5aaf15d4eeed" name="HasDtoParameterQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+              <target id="15075399-46df-47f8-a87b-a7c1eca7482f" name="Arg" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+              <target id="d5235208-fb7e-40e3-bb3b-301c985f4606" name="Field1" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="Field1" mappingType="Data Mapping" mappingTypeId="1ad97d12-2aa8-4f03-8cb0-3a8a4e71b4d9">
+                <path>
+                  <target id="dd56b9c6-4788-412b-8e8f-386a347673a7" name="CallHasDtoParameterQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+                  <target id="a4c1ecff-52a5-4120-a499-2bb6f94aeac2" name="Field1" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Field2}</expression>
+            <path>
+              <target id="fcdcd0f3-199e-4de2-b9c7-5aaf15d4eeed" name="HasDtoParameterQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+              <target id="15075399-46df-47f8-a87b-a7c1eca7482f" name="Arg" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+              <target id="def865f8-2230-4f36-8b9c-02814ea8dc1b" name="Field2" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="Field2" mappingType="Data Mapping" mappingTypeId="1ad97d12-2aa8-4f03-8cb0-3a8a4e71b4d9">
+                <path>
+                  <target id="dd56b9c6-4788-412b-8e8f-386a347673a7" name="CallHasDtoParameterQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+                  <target id="d15a0705-1250-44d0-b8eb-a0fc83503481" name="Field2" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Nested}</expression>
+            <path>
+              <target id="fcdcd0f3-199e-4de2-b9c7-5aaf15d4eeed" name="HasDtoParameterQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+              <target id="15075399-46df-47f8-a87b-a7c1eca7482f" name="Arg" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+              <target id="aab24e54-5c10-4da8-9a0e-aa933710263a" name="Nested" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="Nested" mappingType="Data Mapping" mappingTypeId="1ad97d12-2aa8-4f03-8cb0-3a8a4e71b4d9">
+                <path>
+                  <target id="dd56b9c6-4788-412b-8e8f-386a347673a7" name="CallHasDtoParameterQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+                  <target id="62293895-1cde-4478-8e77-fbe41fc89627" name="Nested" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Perform Invocation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>

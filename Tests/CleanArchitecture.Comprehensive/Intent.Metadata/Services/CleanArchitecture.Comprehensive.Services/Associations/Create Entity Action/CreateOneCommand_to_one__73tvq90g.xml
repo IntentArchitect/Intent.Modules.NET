@@ -286,6 +286,27 @@
               </source>
             </sources>
           </mappedEnd>
+          <mappedEnd>
+            <expression>{Twos.Threes.Finals.Attribute}</expression>
+            <path>
+              <target id="afc6d94c-f129-48a2-83fb-5f5c5041c3ec" name="One" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="bbd2ec79-38f1-4a50-bfb1-44bb422c7f37" name="Seconds" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="80cb6dee-a0f1-4cb1-9fae-600b7d2895f5" name="Threes" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="41d3c98b-9b72-4d1f-a157-5923d431e209" name="Finals" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="82484574-88cf-47b7-83c7-d18a2f0f3489" name="Attribute" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Twos.Threes.Finals.Attribute" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="9b18acde-9508-472c-b1a0-258e1e7eba86" name="CreateOneCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="c05e0757-5c79-4cad-b9e7-531fe6521f24" name="Twos" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="980b0d4e-a4ed-4f80-ba17-b9af7b542b24" name="Threes" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="16245958-a2ab-4dda-87db-8b7c954337ab" name="Finals" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="e059f46f-59e5-4f2d-8ef7-bb6f4c22de7f" name="Attribute" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
         </mappedEnds>
       </mapping>
     </mappings>

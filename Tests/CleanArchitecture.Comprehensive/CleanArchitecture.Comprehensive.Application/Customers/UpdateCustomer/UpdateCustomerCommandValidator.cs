@@ -18,10 +18,6 @@ namespace CleanArchitecture.Comprehensive.Application.Customers.UpdateCustomer
 
         private void ConfigureValidationRules(IValidatorProvider provider)
         {
-            RuleFor(v => v.Name)
-                .NotNull()
-                .MaximumLength(100);
-
             RuleFor(v => v.Surname)
                 .NotNull()
                 .MaximumLength(100);
@@ -33,6 +29,10 @@ namespace CleanArchitecture.Comprehensive.Application.Customers.UpdateCustomer
             RuleFor(v => v.Address)
                 .NotNull()
                 .SetValidator(provider.GetValidator<UpdateCustomerAddressDto>()!);
+
+            RuleFor(v => v.Name)
+                .NotNull()
+                .MaximumLength(100);
         }
     }
 }

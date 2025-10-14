@@ -155,10 +155,7 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
                                 if (queryParameter.TypeReference.Element.IsDTOModel())
                                 {
                                     var dto = queryParameter.TypeReference.Element.AsDTOModel();
-                                    foreach (var field in dto.Fields)
-                                    {
-                                        method.AddStatement($"queryParams.Add(\"{field.Name.ToCamelCase()}\", {GetSourceExpression(parameterName, endpoint, queryParameter)}.{GetParameterValueExpression(this, field)});");
-                                    }
+                                    AddDtoQueryParams(method, GetSourceExpression(parameterName, endpoint, queryParameter), dto);
                                 }
                                 else if (queryParameter.TypeReference.IsCollection)
                                 {
@@ -579,5 +576,125 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
             conversion = $"ToString()";
         }
         return $"{variableName}{(typeRef.IsNullable ? "?" : "")}.{conversion}";
+    }
+
+    private void AddDtoQueryParams(CSharpClassMethod method, string dtoVar, DTOModel dto)
+    {
+        if (dto == null || string.IsNullOrEmpty(dtoVar))
+        {
+            return;
+        }
+
+        var block = new CSharpStatementBlock();
+        foreach (var field in dto.Fields)
+        {
+            ProcessQueryField(block, dtoVar, field);
+        }
+
+        if (block.Statements.Count > 0)
+        {
+            method.AddStatement($"ArgumentNullException.ThrowIfNull({dtoVar});");
+            method.AddStatements(block.Statements);
+        }
+    }
+
+    private void ProcessQueryField(CSharpStatementBlock block, string dtoVar, DTOFieldModel field)
+    {
+        var fieldAccess = $"{dtoVar}.{field.Name.ToPascalCase()}";
+        var fieldName = field.Name.ToCamelCase();
+
+        // Check if this field is itself a DTO - handle nested DTOs recursively
+        if (field.TypeReference.Element.IsDTOModel())
+        {
+            var nestedDto = field.TypeReference.Element.AsDTOModel();
+            foreach (var nestedField in nestedDto.Fields)
+            {
+                ProcessNestedQueryField(block, fieldAccess, fieldName, nestedField);
+            }
+        }
+        else if (field.TypeReference.IsCollection)
+        {
+            // Handle collection fields - check if collection is not null
+            var variableName = $"{field.Name.ToLocalVariableName()}Index";
+            block.AddIfStatement($"{fieldAccess} != null", collBlock =>
+            {
+                collBlock.AddStatement($"var {variableName} = 0;");
+                collBlock.AddForEachStatement("element", fieldAccess, elementBlock =>
+                {
+                    elementBlock.AddStatement($@"queryParams.Add($""{fieldName}[{{{variableName}++}}]"", element.ToString());");
+                });
+            });
+        }
+        else if (field.TypeReference.IsNullable)
+        {
+            // Handle nullable fields - check if field is not null
+            var valueExpression = !field.TypeReference.HasStringType()
+                ? ConvertToString(this, fieldAccess, field.TypeReference)
+                : fieldAccess;
+            block.AddIfStatement($"{fieldAccess} != null", nullCheckBlock =>
+            {
+                nullCheckBlock.AddStatement($"queryParams.Add(\"{fieldName}\", {valueExpression});");
+            });
+        }
+        else
+        {
+            // Handle non-nullable fields - no null check needed
+            var valueExpression = !field.TypeReference.HasStringType()
+                ? ConvertToString(this, fieldAccess, field.TypeReference)
+                : fieldAccess;
+            block.AddStatement($"queryParams.Add(\"{fieldName}\", {valueExpression});");
+        }
+    }
+
+    private void ProcessNestedQueryField(CSharpStatementBlock block, string parentFieldAccess, string parentFieldName, DTOFieldModel field)
+    {
+        var fieldAccess = $"{parentFieldAccess}.{field.Name.ToPascalCase()}";
+        var fieldAccessWithNullable = $"{parentFieldAccess}?.{field.Name.ToPascalCase()}";
+        var fieldName = $"{parentFieldName}.{field.Name.ToCamelCase()}";
+
+        // Check if this nested field is itself a DTO - handle deeply nested DTOs recursively
+        if (field.TypeReference.Element.IsDTOModel())
+        {
+            var nestedDto = field.TypeReference.Element.AsDTOModel();
+            block.AddIfStatement($"{fieldAccessWithNullable} != null", nestedBlock =>
+            {
+                foreach (var nestedField in nestedDto.Fields)
+                {
+                    ProcessNestedQueryField(nestedBlock, fieldAccess, fieldName, nestedField);
+                }
+            });
+        }
+        else if (field.TypeReference.IsCollection)
+        {
+            // Handle collection fields in nested DTOs
+            var variableName = $"{field.Name.ToLocalVariableName()}Index";
+            block.AddIfStatement($"{fieldAccessWithNullable} != null", collBlock =>
+            {
+                collBlock.AddStatement($"var {variableName} = 0;");
+                collBlock.AddForEachStatement("element", fieldAccess, elementBlock =>
+                {
+                    elementBlock.AddStatement($@"queryParams.Add($""{fieldName}[{{{variableName}++}}]"", element.ToString());");
+                });
+            });
+        }
+        else if (field.TypeReference.IsNullable)
+        {
+            // Handle nullable fields in nested DTOs
+            var valueExpression = !field.TypeReference.HasStringType()
+                ? ConvertToString(this, fieldAccess, field.TypeReference)
+                : fieldAccess;
+            block.AddIfStatement($"{fieldAccessWithNullable} != null", nullCheckBlock =>
+            {
+                nullCheckBlock.AddStatement($"queryParams.Add(\"{fieldName}\", {valueExpression});");
+            });
+        }
+        else
+        {
+            // Handle non-nullable fields in nested DTOs
+            var valueExpression = !field.TypeReference.HasStringType()
+                ? ConvertToString(this, fieldAccess, field.TypeReference)
+                : fieldAccess;
+            block.AddStatement($"queryParams.Add(\"{fieldName}\", {valueExpression});");
+        }
     }
 }

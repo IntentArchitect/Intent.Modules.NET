@@ -19,7 +19,7 @@
     <childElements />
   </sourceEnd>
   <targetEnd id="b570a2e4-2ae8-428b-8235-ed79405c25d5" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
-    <display>[call] : DeleteCustomerCommand(...): void</display>
+    <display>[call] DeleteCustomerCommand(...): void</display>
     <order>1</order>
     <traits>
       <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />

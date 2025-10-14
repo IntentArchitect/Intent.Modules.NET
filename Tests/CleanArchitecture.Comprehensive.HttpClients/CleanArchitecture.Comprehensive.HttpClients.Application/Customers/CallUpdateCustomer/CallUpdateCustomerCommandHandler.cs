@@ -25,7 +25,6 @@ namespace CleanArchitecture.Comprehensive.HttpClients.Application.Customers.Call
             await _customersService.UpdateCustomerAsync(new UpdateCustomerCommand
             {
                 Id = request.Id,
-                Name = request.Name,
                 Surname = request.Surname,
                 Email = request.Email,
                 Address = new UpdateCustomerAddressDto
@@ -35,7 +34,8 @@ namespace CleanArchitecture.Comprehensive.HttpClients.Application.Customers.Call
                     City = request.AddressCity,
                     Postal = request.AddressPostal,
                     Id = request.AddressId
-                }
+                },
+                Name = request.Name
             }, cancellationToken);
         }
     }

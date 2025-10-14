@@ -20,7 +20,7 @@
   </sourceEnd>
   <targetEnd id="c3535354-1af6-47e0-9234-71fb5c27fc91" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
     <name>result</name>
-    <display>[call] result: GetCustomersQuery(...): CustomerDto[*]</display>
+    <display>[call] result = GetCustomersQuery(...): CustomerDto[*]</display>
     <order>0</order>
     <traits>
       <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />

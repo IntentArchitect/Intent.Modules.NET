@@ -23,18 +23,18 @@ namespace CleanArchitecture.Comprehensive.HttpClients.Application.IntegrationSer
 
         public static UpdateCustomerCommand Create(
             Guid id,
-            string name,
             string surname,
             string email,
-            UpdateCustomerAddressDto address)
+            UpdateCustomerAddressDto address,
+            string name = "default")
         {
             return new UpdateCustomerCommand
             {
                 Id = id,
-                Name = name,
                 Surname = surname,
                 Email = email,
-                Address = address
+                Address = address,
+                Name = name
             };
         }
     }

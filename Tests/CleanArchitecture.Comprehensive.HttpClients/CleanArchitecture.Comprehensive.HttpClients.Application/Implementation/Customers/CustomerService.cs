@@ -37,7 +37,6 @@ namespace CleanArchitecture.Comprehensive.HttpClients.Application.Implementation
             await _customersService.UpdateCustomerAsync(new UpdateCustomerCommand
             {
                 Id = default,
-                Name = default,
                 Surname = default,
                 Email = default,
                 Address = new UpdateCustomerAddressDto
@@ -47,7 +46,8 @@ namespace CleanArchitecture.Comprehensive.HttpClients.Application.Implementation
                     City = default,
                     Postal = default,
                     Id = default
-                }
+                },
+                Name = default
             }, cancellationToken);
         }
 

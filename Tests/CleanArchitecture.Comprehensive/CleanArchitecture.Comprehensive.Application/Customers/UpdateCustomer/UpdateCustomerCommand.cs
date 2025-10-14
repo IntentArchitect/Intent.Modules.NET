@@ -10,13 +10,17 @@ namespace CleanArchitecture.Comprehensive.Application.Customers.UpdateCustomer
 {
     public class UpdateCustomerCommand : IRequest, ICommand
     {
-        public UpdateCustomerCommand(Guid id, string name, string surname, string email, UpdateCustomerAddressDto address)
+        public UpdateCustomerCommand(Guid id,
+            string surname,
+            string email,
+            UpdateCustomerAddressDto address,
+            string name = "default")
         {
             Id = id;
-            Name = name;
             Surname = surname;
             Email = email;
             Address = address;
+            Name = name;
         }
 
         public Guid Id { get; set; }

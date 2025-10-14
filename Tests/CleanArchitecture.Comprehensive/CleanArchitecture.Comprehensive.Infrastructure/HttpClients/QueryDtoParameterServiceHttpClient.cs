@@ -36,8 +36,24 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.HttpClients
             var relativeUri = $"api/query-dto-parameter/new";
 
             var queryParams = new Dictionary<string, string?>();
+            ArgumentNullException.ThrowIfNull(arg);
             queryParams.Add("field1", arg.Field1);
             queryParams.Add("field2", arg.Field2);
+
+            if (arg.Nested?.Numbers != null)
+            {
+                var numbersIndex = 0;
+
+                foreach (var element in arg.Nested.Numbers)
+                {
+                    queryParams.Add($"nested.numbers[{numbersIndex++}]", element.ToString());
+                }
+            }
+
+            if (arg.Nested?.NullableProp != null)
+            {
+                queryParams.Add("nested.nullableProp", arg.Nested.NullableProp);
+            }
             relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
             using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));

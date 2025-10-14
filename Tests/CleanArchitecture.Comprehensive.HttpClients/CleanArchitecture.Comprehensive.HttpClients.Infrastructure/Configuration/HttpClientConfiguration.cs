@@ -1,5 +1,6 @@
 using CleanArchitecture.Comprehensive.HttpClients.Application.IntegrationServices;
 using CleanArchitecture.Comprehensive.HttpClients.Infrastructure.HttpClients.Customers;
+using CleanArchitecture.Comprehensive.HttpClients.Infrastructure.HttpClients.QueryDtoParameter;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -23,6 +24,12 @@ namespace CleanArchitecture.Comprehensive.HttpClients.Infrastructure.Configurati
                 .AddHttpClient<ICustomersService, CustomersServiceHttpClient>(http =>
                 {
                     ApplyAppSettings(http, configuration, "CleanArchitecture.Comprehensive.Services", "CustomersService");
+                });
+
+            services
+                .AddHttpClient<IQueryDtoParameterService, QueryDtoParameterServiceHttpClient>(http =>
+                {
+                    ApplyAppSettings(http, configuration, "CleanArchitecture.Comprehensive.Services", "QueryDtoParameterService");
                 });
         }
 

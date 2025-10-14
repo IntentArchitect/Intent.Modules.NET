@@ -46,7 +46,8 @@ namespace CleanArchitecture.Comprehensive.Application.Ones.CreateOne
                                         OneId = request.OneId,
                                         TwoId = s.TwoId,
                                         ThreeId = t.ThreeId,
-                                        FourId = f.FourId
+                                        FourId = f.FourId,
+                                        Attribute = f.Attribute
                                     })
                                     .ToList()
                             })
