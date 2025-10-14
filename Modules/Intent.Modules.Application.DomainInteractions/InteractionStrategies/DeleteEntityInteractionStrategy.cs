@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
+using Intent.Modules.Common.UnitOfWork.Settings;
 using static Intent.Modules.Constants.TemplateRoles.Domain;
 
 namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
@@ -35,13 +36,13 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
                 ? queryContext.GetDtoProjectionReturnType()
                 : null;
 
-            method.AddStatements(method.GetQueryStatements(
+            method.AddStatements(ExecutionPhases.BusinessLogic, method.GetQueryStatements(
                 dataAccessProvider: dataAccess,
-                interaction: interaction, 
+                interaction: interaction,
                 foundEntity: foundEntity,
                 projectedType: projectedType));
 
-            method.AddStatement(string.Empty);
+            method.AddStatement(ExecutionPhases.BusinessLogic, string.Empty);
 
             var deleteAction = interaction.AsDeleteEntityActionTargetEndModel();
             try
@@ -59,14 +60,14 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
                     statements.Add(entityDetails.DataAccessProvider.Remove(entityDetails.VariableName)
                         .SeparatedFromPrevious());
                 }
-                method.AddStatements(statements);
-                // Unit Of Work Module Auto Save Changes disabled?
-                if (bool.TryParse(method.Class.File.Template.ExecutionContext.GetSettings().GetGroup("c4b7e545-eaac-42bc-8f06-2768ac8dad99").GetSetting("d6338b7c-b0f9-46bd-8dbb-3c745d5f8623").Value, out bool uowAutoSaveOff))
+                method.AddStatements(ExecutionPhases.BusinessLogic, statements);
+
+                var automaticallyPersistUnitOfWork = method.Class.File.Template.ExecutionContext.GetSettings()
+                    .GetUnitOfWorkSettings()?.AutomaticallyPersistUnitOfWork() ?? true;
+                var saveAlreadyCalled = method.FindStatement(x => x.ToString().Trim().Contains(entityDetails.DataAccessProvider.SaveChangesAsync().ToString().Trim())) != null;
+                if (!saveAlreadyCalled && !automaticallyPersistUnitOfWork)
                 {
-                    if (!uowAutoSaveOff)
-                    {
-                        method.AddStatement(ExecutionPhases.Persistence, new CSharpStatement($"{entityDetails.DataAccessProvider.SaveChangesAsync()}"));
-                    }
+                    method.AddStatement(ExecutionPhases.Persistence, new CSharpStatement($"{entityDetails.DataAccessProvider.SaveChangesAsync()}"));
                 }
             }
             catch (Exception ex)

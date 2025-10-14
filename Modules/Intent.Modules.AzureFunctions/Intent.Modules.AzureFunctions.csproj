@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <PackageVersion>5.0.16-pre.1</PackageVersion>
+    <PackageVersion>5.0.17-pre.0</PackageVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageIcon>logo.png</PackageIcon>
     <Authors>Intent Architect</Authors>
@@ -26,6 +26,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="modelers\Azure Functions CQRS Extensions.designer.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Azure Functions CQRS Extensions.designer.Designer.cs</LastGenOutput>
+    </None>
     <None Update="Templates\Return Types\ResourceLocationPayload\ResourceLocationPayloadTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ResourceLocationPayloadTemplate.cs</LastGenOutput>

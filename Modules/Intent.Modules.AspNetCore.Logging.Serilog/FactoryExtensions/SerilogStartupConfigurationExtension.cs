@@ -5,6 +5,7 @@ using System.Threading.Tasks.Dataflow;
 using Intent.Engine;
 using Intent.Modules.AspNetCore.Logging.Serilog.Settings;
 using Intent.Modules.AspNetCore.Logging.Serilog.Templates;
+using Intent.Modules.AspNetCore.Logging.Serilog.Templates.BoundedLoggingDestructuringPolicy;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
@@ -85,10 +86,19 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.FactoryExtensions
                 programTemplate.ProgramFile.ConfigureHostBuilderChainStatement("UseSerilog", ["context", "services", "configuration"],
                     (lambdaBlock, parameters) =>
                     {
-                        lambdaBlock.WithExpressionBody(new CSharpMethodChainStatement("configuration")
-                            .AddChainStatement("ReadFrom.Configuration(context.Configuration)")
-                            .AddChainStatement("ReadFrom.Services(services)")
-                            .AddChainStatement($"Destructure.With(new {programTemplate.GetBoundedLoggingDestructuringPolicyTemplateName()}())"));
+                        if (programTemplate.OutputTarget.FindTemplateInstance(BoundedLoggingDestructuringPolicyTemplate.TemplateId) != null)
+                        {
+                            lambdaBlock.WithExpressionBody(new CSharpMethodChainStatement("configuration")
+                                .AddChainStatement("ReadFrom.Configuration(context.Configuration)")
+                                .AddChainStatement("ReadFrom.Services(services)")
+                                .AddChainStatement($"Destructure.With(new {programTemplate.GetBoundedLoggingDestructuringPolicyTemplateName()}())"));
+                        }
+                        else
+                        {
+                            lambdaBlock.WithExpressionBody(new CSharpMethodChainStatement("configuration")
+                                .AddChainStatement("ReadFrom.Configuration(context.Configuration)")
+                                .AddChainStatement("ReadFrom.Services(services)"));
+                        }
                     });
             }, 10);
         }

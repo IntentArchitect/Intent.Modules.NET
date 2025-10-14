@@ -1,11 +1,14 @@
-﻿using System;
-using System.Linq;
-using Intent.Exceptions;
+﻿using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
+using Intent.Modules.Application.DomainInteractions.Strategies;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Modelers.Services.DomainInteractions.Settings;
+using System;
+using System.Linq;
+using static Intent.Modules.Modelers.Services.DomainInteractions.Settings.DomainInteractionSettings;
 using OperationModelExtensions = Intent.Modelers.Domain.Api.OperationModelExtensions;
 
 namespace Intent.Modules.Application.DomainInteractions
@@ -33,6 +36,11 @@ namespace Intent.Modules.Application.DomainInteractions
             {
                 IsPaginated = true;
                 ReturnType = _serviceEndPoint.TypeReference!.GenericTypeParameters.FirstOrDefault()?.Element as IElement;
+            }
+            var mapper = MappingStrategyProvider.Instance.GetMappingStrategy(method);
+            if ((!mapper?.HasProjectTo() ?? true) && (_template.ExecutionContext.Settings.GetDomainInteractionSettings().DefaultQueryImplementation().IsProjectTo()))
+            {
+                throw new ElementException(AssociationEnd, "'ProjectTo' functionality is unavailable with the current mapping provider. Use a supporting module (e.g., Intent.Application.AutoMapper), or change the application setting \"Default Query Implementation\" from 'ProjectTo' to 'Default'.");
             }
             if (IsConfiguredForProjections())
             {

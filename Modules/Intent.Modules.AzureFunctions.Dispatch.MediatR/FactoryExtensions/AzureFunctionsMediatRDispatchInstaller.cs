@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using Intent.AzureFunctions.Api;
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
@@ -110,7 +111,12 @@ namespace Intent.Modules.AzureFunctions.Dispatch.MediatR.FactoryExtensions
 
         private static CSharpStatement GetReturnStatement(IAzureFunctionModel operationModel)
         {
-            var endpoint = HttpEndpointModelFactory.GetEndpoint(operationModel.InternalElement, string.Empty);
+            IHttpEndpointModel? endpoint = null;
+            if (operationModel.TriggerType == TriggerType.HttpTrigger)
+            {
+                endpoint = HttpEndpointModelFactory.GetEndpoint(operationModel.InternalElement, string.Empty);
+            }
+
             switch (endpoint?.Verb)
             {
                 case HttpVerb.Get:

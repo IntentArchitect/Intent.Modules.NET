@@ -63,7 +63,7 @@ namespace Intent.Modules.UnitTesting
             NugetRegistry.Register(XunitRunnerVisualstudioPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, >= 0) => new PackageVersion("3.1.4"),
+                        ( >= 8, >= 0) => new PackageVersion("3.1.5"),
                         ( >= 6, >= 0) => new PackageVersion("3.0.2"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{XunitRunnerVisualstudioPackageName}'"),
                     }
@@ -71,10 +71,10 @@ namespace Intent.Modules.UnitTesting
             NugetRegistry.Register(XunitV3PackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, >= 0) => new PackageVersion("3.0.1")
+                        ( >= 8, >= 0) => new PackageVersion("3.1.0")
                             .WithNugetDependency("xunit.analyzers", "1.24.0")
-                            .WithNugetDependency("xunit.v3.assert", "3.0.1")
-                            .WithNugetDependency("xunit.v3.core", "3.0.1"),
+                            .WithNugetDependency("xunit.v3.assert", "3.1.0")
+                            .WithNugetDependency("xunit.v3.core", "3.1.0"),
                         ( >= 6, >= 0) => new PackageVersion("1.1.0")
                             .WithNugetDependency("xunit.analyzers", "1.20.0")
                             .WithNugetDependency("xunit.v3.assert", "1.1.0")

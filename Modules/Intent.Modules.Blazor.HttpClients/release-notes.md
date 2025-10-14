@@ -1,3 +1,7 @@
+### Version 4.0.18
+
+- Fixed: Nullable primitive return types (non wrapped as json responses) caused un-compilable code.
+
 ### Version 4.0.17
 
 - Improvement: Added support for a proxy URL to automatically be set in `appsettings.json`

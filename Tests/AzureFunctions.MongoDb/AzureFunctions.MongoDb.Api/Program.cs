@@ -5,6 +5,7 @@ using AzureFunctions.MongoDb.Application;
 using AzureFunctions.MongoDb.Infrastructure;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.Functions.Worker;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
@@ -13,6 +14,15 @@ using Microsoft.Extensions.Logging;
 [assembly: IntentTemplate("Intent.AzureFunctions.Isolated.Program", Version = "1.0")]
 
 var host = new HostBuilder()
+    .ConfigureAppConfiguration((context, config) =>
+    {
+        var built = config.Build();
+
+        if (built.GetValue<bool?>("KeyVault:Enabled") == true)
+        {
+            config.ConfigureAzureKeyVault(built);
+        }
+    })
     .ConfigureFunctionsWebApplication((ctx, builder) =>
     {
     })

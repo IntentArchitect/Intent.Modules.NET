@@ -2,10 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <Version>1.1.4</Version>
+    <Version>1.1.6-pre.0</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\Intent.Modules.Common.UnitOfWork\Settings\ModuleSettingsExtensions.cs" Link="Settings\ModuleSettingsExtensions.cs" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.9.6" />
@@ -22,6 +26,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Settings\" />
   </ItemGroup>
 
 </Project>

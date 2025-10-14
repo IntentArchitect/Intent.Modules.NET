@@ -44,14 +44,14 @@ namespace Intent.Modules.MongoDb.Migrations
                             ControlType = ModuleSettingControlType.Switch,
                             Id = "5a17d713-b7f7-45c2-ab23-3614e2f95509",
                             Title = "Persist primary key as ObjectId",
-                            Value = bool.FalseString
+                            Value = "true"
                         },
                         new ModuleSettingPersistable
                         {
                             ControlType = ModuleSettingControlType.Switch,
                             Id = "24bcf37a-a0fe-49f3-8121-bdad543c4fe6",
                             Title = "Always include discriminator in documents",
-                            Value = bool.TrueString
+                            Value = "false"
                         }
                     }
                 };

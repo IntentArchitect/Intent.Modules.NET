@@ -2,16 +2,6 @@
 <deviationsLog>
   <files>
     <file>
-      <correlationId>Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate#83e126f6-f3b6-4e46-9cb4-e5bc1e900c49</correlationId>
-      <path>AdvancedMappingCrudMongo.Tests.Api/Logging/BoundedLoggingDestructuringPolicy.cs</path>
-      <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2025-10-01T08:34:21.6641041Z</updatedAt>
-      <deviationsHash>EFA18AE8B73AD7D5CA224222AA2C24C3191A03FCB4D510459F9EAD21D371946C</deviationsHash>
-      <fileHash>4F8CA4E9EB771562CEDE5C96E0A79988F7B906589273027A2DE3D26B7DE05A7A</fileHash>
-    </file>
-    <file>
       <correlationId>Intent.AspNetCore.IntegrationTests.CRUD.TestDataFactory#5b04ad52-dcc5-4b74-a167-8be647df7522</correlationId>
       <path>AdvancedMappingCrudMongo.Tests.IntegrationTests/TestDataFactory.cs</path>
       <count>1</count>

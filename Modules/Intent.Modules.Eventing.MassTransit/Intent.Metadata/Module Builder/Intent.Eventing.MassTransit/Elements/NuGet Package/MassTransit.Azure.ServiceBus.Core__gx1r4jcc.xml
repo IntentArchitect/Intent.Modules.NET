@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="59606dad-b026-4d55-8491-c717a1335b06" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.5.3</name>
+      <name>8.5.4</name>
       <display>8.5.3 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,44 +47,35 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="63863931-8b94-4a53-8324-7724bcb9d6b7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ea1f4eb2-28d6-4d0d-bb8b-8b8d1ae1fec5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>MassTransit</name>
+          <isAbstract>false</isAbstract>
+          <value>8.5.4</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>59606dad-b026-4d55-8491-c717a1335b06</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="6d790602-08fd-4787-ac6e-00235f8142d8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Identity</name>
-          <display>Azure.Identity (1.16.0)</display>
           <isAbstract>false</isAbstract>
           <value>1.16.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>59606dad-b026-4d55-8491-c717a1335b06</parentFolderId>
-          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
-          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="8f1d6eeb-580f-4aa4-a68d-93283ba278d2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="62cc494f-d4a6-49b3-923d-ed70c2ce9c2f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Messaging.ServiceBus</name>
-          <display>Azure.Messaging.ServiceBus (7.20.1)</display>
           <isAbstract>false</isAbstract>
           <value>7.20.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>59606dad-b026-4d55-8491-c717a1335b06</parentFolderId>
-          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
-          <packageName>Intent.Eventing.MassTransit</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="78198152-d774-4b30-aa08-d17e355e093d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>MassTransit</name>
-          <display>MassTransit (8.5.3)</display>
-          <isAbstract>false</isAbstract>
-          <value>8.5.3</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>59606dad-b026-4d55-8491-c717a1335b06</parentFolderId>
-          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
-          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -92,7 +83,7 @@
       </childElements>
     </childElement>
     <childElement id="f7e77f29-679c-4ded-b367-e1b418a6ba78" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.5.3</name>
+      <name>8.5.4</name>
       <display>8.5.3 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -114,44 +105,35 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="4336d955-2fd2-4611-9bac-808f3fde2b70" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="19c86e91-5847-4098-bff3-24d79c4692d5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>MassTransit</name>
+          <isAbstract>false</isAbstract>
+          <value>8.5.4</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>f7e77f29-679c-4ded-b367-e1b418a6ba78</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="07c551c7-5557-436e-a8d7-53a3dc0dc9a7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Identity</name>
-          <display>Azure.Identity (1.16.0)</display>
           <isAbstract>false</isAbstract>
           <value>1.16.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f7e77f29-679c-4ded-b367-e1b418a6ba78</parentFolderId>
-          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
-          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="b4de9909-4cac-4779-bc42-182553276dcb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="36ca555d-973d-4bea-b742-0cf3304a8eec" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Messaging.ServiceBus</name>
-          <display>Azure.Messaging.ServiceBus (7.20.1)</display>
           <isAbstract>false</isAbstract>
           <value>7.20.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f7e77f29-679c-4ded-b367-e1b418a6ba78</parentFolderId>
-          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
-          <packageName>Intent.Eventing.MassTransit</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="d246d2e8-3f9d-4aa2-aa5d-1f4672d6c917" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>MassTransit</name>
-          <display>MassTransit (8.5.3)</display>
-          <isAbstract>false</isAbstract>
-          <value>8.5.3</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>f7e77f29-679c-4ded-b367-e1b418a6ba78</parentFolderId>
-          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
-          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -159,7 +141,7 @@
       </childElements>
     </childElement>
     <childElement id="e7a7ce92-b51d-4547-a7cd-2e069bf0a3b5" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.5.3</name>
+      <name>8.5.4</name>
       <display>8.5.3 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -181,44 +163,35 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="23ace8fd-79bd-4a7c-a9ae-7ff1cf2a5617" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="457391a9-cea9-48b3-bdac-b8a341bdda29" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>MassTransit</name>
+          <isAbstract>false</isAbstract>
+          <value>8.5.4</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>e7a7ce92-b51d-4547-a7cd-2e069bf0a3b5</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="6680aa7f-53b9-49a1-a7d6-4308ae40c6da" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Identity</name>
-          <display>Azure.Identity (1.16.0)</display>
           <isAbstract>false</isAbstract>
           <value>1.16.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e7a7ce92-b51d-4547-a7cd-2e069bf0a3b5</parentFolderId>
-          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
-          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="5eedf2bd-d496-4518-aff2-2530609a1684" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="7f08c069-466c-402f-b806-9724cd03de21" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Messaging.ServiceBus</name>
-          <display>Azure.Messaging.ServiceBus (7.20.1)</display>
           <isAbstract>false</isAbstract>
           <value>7.20.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e7a7ce92-b51d-4547-a7cd-2e069bf0a3b5</parentFolderId>
-          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
-          <packageName>Intent.Eventing.MassTransit</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="fc6e2325-f329-423f-b460-f7664b9d44ae" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>MassTransit</name>
-          <display>MassTransit (8.5.3)</display>
-          <isAbstract>false</isAbstract>
-          <value>8.5.3</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>e7a7ce92-b51d-4547-a7cd-2e069bf0a3b5</parentFolderId>
-          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
-          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />

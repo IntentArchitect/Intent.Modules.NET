@@ -16,12 +16,12 @@
     <PackageReference Include="Duende.IdentityModel" Version="7.0.0" />
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="3.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.20" />
-    <PackageReference Include="OpenTelemetry" Version="1.12.0" />
-    <PackageReference Include="OpenTelemetry.Exporter.Console" Version="1.12.0" />
-    <PackageReference Include="OpenTelemetry.Extensions.Hosting" Version="1.12.0" />
+    <PackageReference Include="OpenTelemetry" Version="1.13.0" />
+    <PackageReference Include="OpenTelemetry.Exporter.Console" Version="1.13.0" />
+    <PackageReference Include="OpenTelemetry.Extensions.Hosting" Version="1.13.0" />
     <PackageReference Include="OpenTelemetry.Instrumentation.AspNetCore" Version="1.12.0" />
     <PackageReference Include="Serilog.AspNetCore" Version="9.0.0" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.4" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.6" />
   </ItemGroup>
 
 </Project>

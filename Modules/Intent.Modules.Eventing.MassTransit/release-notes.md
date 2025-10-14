@@ -1,3 +1,7 @@
+### Version 7.0.10
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 7.0.9
 
 - Improvement: Updated NuGet package versions.

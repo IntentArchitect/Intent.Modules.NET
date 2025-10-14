@@ -8,6 +8,7 @@ using Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.HelperTypes;
 using Intent.Modules.VisualStudio.Projects.Settings;
 using Intent.Modules.VisualStudio.Projects.Tests.NuGet.Helpers;
 using NuGet.Versioning;
+using Shouldly;
 using VerifyTests;
 using VerifyXunit;
 using Xunit;
@@ -191,6 +192,57 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
 
 </Project>".ReplaceLineEndings(),
                 actual: result.ReplaceLineEndings());
+        }
+
+        [Fact]
+        public void ItShouldRespectIgnore()
+        {
+            // Arrange
+            var sut = TestFixtureHelper.CreateSdkProcessor();
+            var tracing = new TestTracing();
+            var project = TestFixtureHelper.CreateNuGetProject(
+                scheme: VisualStudioProjectScheme.Sdk,
+                processor: sut,
+                testVersion: TestVersion.Low,
+                testPackage: TestPackage.One,
+                nugetPackagesToInstall: new Dictionary<string, string>
+                {
+                    { "TestPackage", "2.0.0" }
+                });
+
+            // Act
+            var result = sut.InstallPackages(
+                solutionModelId: string.Empty,
+                projectStereotypes: Enumerable.Empty<IStereotype>(),
+                projectPath: null,
+                projectContent:
+                    """
+                    <Project Sdk="Microsoft.NET.Sdk">
+
+                      <ItemGroup>
+                        <PackageReference Include="TestPackage" Version="1.0.0" IntentIgnore="true" />
+                      </ItemGroup>
+
+                    </Project>
+                    """,
+                requestedPackages: project.RequestedPackages,
+                installedPackages: project.InstalledPackages,
+                toRemovePackages: new List<string>(),
+                projectName: project.Name,
+                tracing: tracing,
+                dependencyVersionOverwriteBehavior: DependencyVersionOverwriteBehaviorOption.IfNewer);
+
+            // Assert
+            result.ReplaceLineEndings().ShouldBe(
+                """
+                <Project Sdk="Microsoft.NET.Sdk">
+
+                  <ItemGroup>
+                    <PackageReference Include="TestPackage" Version="1.0.0" IntentIgnore="true" />
+                  </ItemGroup>
+
+                </Project>
+                """.ReplaceLineEndings());
         }
     }
 }

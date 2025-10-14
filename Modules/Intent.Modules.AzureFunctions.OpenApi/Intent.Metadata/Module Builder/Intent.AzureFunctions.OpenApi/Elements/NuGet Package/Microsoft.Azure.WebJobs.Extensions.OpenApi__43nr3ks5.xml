@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="dff703be-8aa2-4ba4-8a85-a740e3a70e3a" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>1.5.1</name>
+      <name>1.6.0</name>
       <display>1.5.1 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -45,7 +45,41 @@
         </stereotype>
       </stereotypes>
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="65281207-feb5-43bd-9e03-56cbece0fc7a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Azure.WebJobs.Extensions.OpenApi.Core</name>
+          <isAbstract>false</isAbstract>
+          <value>1.6.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>dff703be-8aa2-4ba4-8a85-a740e3a70e3a</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="9eec2336-88a8-4095-b2ca-7b7651aa1fb5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Azure.WebJobs.Script.Abstractions</name>
+          <isAbstract>false</isAbstract>
+          <value>1.0.0-preview</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>dff703be-8aa2-4ba4-8a85-a740e3a70e3a</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="949219f9-d017-4e03-b747-7a505d51eefa" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>YamlDotNet</name>
+          <isAbstract>false</isAbstract>
+          <value>12.0.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>dff703be-8aa2-4ba4-8a85-a740e3a70e3a</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
   </childElements>
 </class>

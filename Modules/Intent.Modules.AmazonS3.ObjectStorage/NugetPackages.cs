@@ -19,13 +19,13 @@ namespace Intent.Modules.AmazonS3.ObjectStorage
             NugetRegistry.Register(AWSSDKExtensionsNETCoreSetupPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, >= 0) => new PackageVersion("4.0.3.1")
-                            .WithNugetDependency("AWSSDK.Core", "4.0.0.29")
+                        ( >= 8, >= 0) => new PackageVersion("4.0.3.4")
+                            .WithNugetDependency("AWSSDK.Core", "4.0.0.32")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "2.0.0")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "8.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "2.0.0"),
-                        ( >= 2, >= 0) => new PackageVersion("4.0.3.1")
-                            .WithNugetDependency("AWSSDK.Core", "4.0.0.29")
+                        ( >= 2, >= 0) => new PackageVersion("4.0.3.4")
+                            .WithNugetDependency("AWSSDK.Core", "4.0.0.32")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "2.0.0")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "2.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "2.0.0"),
@@ -35,8 +35,8 @@ namespace Intent.Modules.AmazonS3.ObjectStorage
             NugetRegistry.Register(AWSSDKS3PackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 0, >= 0) => new PackageVersion("4.0.7.4")
-                            .WithNugetDependency("AWSSDK.Core", "4.0.0.29"),
+                        ( >= 0, >= 0) => new PackageVersion("4.0.7.7")
+                            .WithNugetDependency("AWSSDK.Core", "4.0.0.32"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AWSSDKS3PackageName}'"),
                     }
                 );

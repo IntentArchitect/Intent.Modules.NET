@@ -19,6 +19,17 @@ This module consumes your `Domain Model`, which you build in the `Domain Designe
 
 These MongoDB patterns are realized using the official [MongoDB.Driver](https://www.mongodb.com/docs/drivers/csharp/current/).
 
+## Settings
+
+### Persist Primary Key as ObjectId
+
+When enabled, this setting stores the entity’s primary key using MongoDB’s native ObjectId type instead of a string or GUID.
+
+### Always Include Discriminator in Documents
+
+This setting ensures that a discriminator field is always stored in each document, even when the document belongs to the base type.
+This can make querying and polymorphic deserialization more reliable, particularly in systems where documents of multiple subtypes are stored in the same collection.
+
 ## Domain Designer
 
 When designing domain models for MongoDB your domain package must be annotated with the `Document Database` stereotype. If you have multiple Document DB technologies modules, you must explicitly indicate which Domain Packages contain MongoDB domain models, by setting `Document Database`'s `Provider` property to MongoDB.
@@ -39,21 +50,10 @@ public static void InitializeStore(IServiceProvider sp)
     var scopeServices = sp.CreateScope().ServiceProvider;
     var store = scopeServices.GetRequiredService<IMultiTenantStore<TenantInfo>>();
 
-    store.TryAddAsync(new TenantInfo() { Id = "sample-tenant-1", Identifier = "tenant1", Name = "Tenant 1", MongoDbConnection = "mongodb://localhost/MongoDbMultiTenancySeperateDb-tenant1" }).Wait();
-    store.TryAddAsync(new TenantInfo() { Id = "sample-tenant-2", Identifier = "tenant2", Name = "Tenant 2", MongoDbConnection = "mongodb://localhost/MongoDbMultiTenancySeperateDb-tenant2" }).Wait();
+    store.TryAddAsync(new TenantInfo() { Id = "sample-tenant-1", Identifier = "tenant1", Name = "Tenant 1", MongoDbConnection = "mongodb://localhost/MongoDbMultiTenancySeparateDb-tenant1" }).Wait();
+    store.TryAddAsync(new TenantInfo() { Id = "sample-tenant-2", Identifier = "tenant2", Name = "Tenant 2", MongoDbConnection = "mongodb://localhost/MongoDbMultiTenancySeparateDb-tenant2" }).Wait();
 }
 ```
-
-## Settings
-
-### Persist Primary Key as ObjectId
-
-When enabled, this setting stores the entity’s primary key using MongoDB’s native ObjectId type instead of a string or GUID.
-
-### Always Include Discriminator in Documents
-
-This setting ensures that a discriminator field is always stored in each document, even when the document belongs to the base type. 
-This can make querying and polymorphic deserialization more reliable, particularly in systems where documents of multiple subtypes are stored in the same collection.
 
 ## Related Modules
 
