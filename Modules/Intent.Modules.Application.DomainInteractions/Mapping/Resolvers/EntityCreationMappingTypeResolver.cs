@@ -1,10 +1,7 @@
-﻿using System.Linq;
-using Intent.Metadata.Models;
+﻿using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
-using Intent.Modelers.Services.DomainInteractions.Api;
-using Intent.Templates;
 
 namespace Intent.Modules.Application.DomainInteractions.Mapping.Resolvers;
 
@@ -20,9 +17,20 @@ public class EntityCreationMappingTypeResolver : IMappingTypeResolver
     public ICSharpMapping? ResolveMappings(MappingModel mappingModel, MappingTypeResolverDelegate next)
     {
         var model = mappingModel.Model;
-        if (mappingModel.MappingTypeId != "5f172141-fdba-426b-980e-163e782ff53e") // Command to Class Creation Mapping
+
+        // Static "factory" methods:
+        const string invocationMappingTypeId = "a4c4c5cc-76df-48ed-9d4e-c35caf44b567";
+        if (mappingModel.MappingTypeId is invocationMappingTypeId &&
+            model.AsOperationModel()?.IsStatic == true &&
+            model.TypeReference.ElementId != null)
         {
-            return next != null ? next(mappingModel) : null;
+            return new StaticMethodInvocationMapping(mappingModel, _sourceTemplate);
+        }
+
+        const string creationMappingTypeId = "5f172141-fdba-426b-980e-163e782ff53e";
+        if (mappingModel.MappingTypeId is not creationMappingTypeId)
+        {
+            return next?.Invoke(mappingModel);
         }
 
         if (model.IsGeneralizationTargetEndModel())
@@ -51,6 +59,6 @@ public class EntityCreationMappingTypeResolver : IMappingTypeResolver
             return new SelectToListMapping(mappingModel, _sourceTemplate);
         }
 
-        return next != null ? next(mappingModel) : null;
+        return next?.Invoke(mappingModel);
     }
 }
