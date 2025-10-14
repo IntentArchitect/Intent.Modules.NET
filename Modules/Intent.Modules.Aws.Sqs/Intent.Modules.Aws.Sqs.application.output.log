@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<outputLog>
+  <ApplicationId>0cdff09c-343d-4e7a-a590-e81e9da7345f</ApplicationId>
+  <FileLogs>
+    <FileLog>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#3f1f3b5f-6cf3-4a5d-bf4f-ee6cc0703f22</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e6a962cc-6864-45d9-ab6a-fcfb19173e82</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.IModSpecFile#7e37b40c-19ea-45f5-9bf2-a2453da12dc2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Intent.Aws.Sqs.imodspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Aws.Sqs.imodspec</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e6a962cc-6864-45d9-ab6a-fcfb19173e82</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#e6a962cc-6864-45d9-ab6a-fcfb19173e82</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Intent.Modules.Aws.Sqs.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.Aws.Sqs.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+  </FileLogs>
+</outputLog>
