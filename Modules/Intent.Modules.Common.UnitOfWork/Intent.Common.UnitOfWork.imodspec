@@ -1,12 +1,12 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Common.UnitOfWork</id>
-  <version>1.0.1</version>
+  <version>1.0.2-pre.0</version>
   <supportedClientVersions>[4.4.0-a,5.0.0)</supportedClientVersions>
   <summary>Common Unit Of Work Module for Intent.Modules.NET</summary>
   <description>Common Unit Of Work Module for Intent.Modules.NET</description>
   <authors>Intent Architect</authors>
-  <iconUrl>https://img.icons8.com/?size=100&amp;id=13545&amp;format=png&amp;color=000000</iconUrl>
+  <iconUrl>data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAEE0lEQVR4AeycwUtUURTGz50Zq7GmFhWF6aAMaEHEQBRuWhrRKohaazuLIKK1C9cSbcpduo/+gVy2kSKQCkphUCaTolrkK6d0Zm7ve8KAz+t4552bb0bPMAfmzb3fd4+/e1bKZ4LkxSIgAFn4iASgAGQSYMplAgUgkwBTLhMoAJkEmHKZwJ0A+KnzRvpjx62+96cG8y4KXvBk9l6Tdz7U6Z4ny33dj3/lXRS84Fk7oM4Hqwn8Xc1kSVVGU0QTLgpegWedxhpZajvgZUmrUaVowkWR7xV4WjRhBbCsqmki1UtEeXJSqnfd03dz8NY6kSaF/rTfn4PyvQJPi96sAFr4tNIWp70KQCZOASgAmQSY8lgmsNyezhQGr/c/er024KIuZVP9+5I6w2QRSR4LwJUTR3Pfz50ZJ1194aKyGRo/sl/lIhFgimIByOy5qeQCkHkdAlAAMgkw5TKBrQiw/euPwrG3H4ZJJS67qKJHwz//6gKTRSR5LBOYWil5ucnn0/cutE25qJfF8vRqRXmRCDBFsQBsvOfmVQhA5t0IQAHIJMCUW01gSidKRHrOP2smXP4vBgrLPZ1kKqyF968/67l1T//JwVupaok0+lN+fxtrX5IKx9sVmQprRBv3B8++V+BJ27+sAB5MeEXSyZEy0VC4Cjevjr27O0imwlp4P57hFXhu35/VjrU/mSIpPaI1DYXrYkfb2EB3ikyFtfB+PJPvFXhanG4FsGvxWen00tPZs58nZ8I1f+1KwevpIlNhLbwfz/CCp0V/VlsW76vS/O3Dswt3Ds2E6/zJ5JYTiLXwfjzDC542h1sBtDHaq3sEIPPmBaAAZBJgymUCBSCTAFP+/yaQ2ViryAUg86YEoABkEmDKZQIFIJMAUy4TKACZBJhymUAByCTAlMsE7gRAZCaQnTBlMN58qeS+rWgyFdZMGnjBk9l7TQ4veJrOQg+m3vAd1kwaeMGzdkCdD1YTGGQmtDmH8Wpp7cHUQplMhTVlyG40ksOo03ttKc7+NgCsdRT6EGQmlDmHsVqhLScQa/5f8/KbyvcKPEPnRH0MvHzPTeeQzqMHTJupsGbSIHMSeFo0ZAXQwmfPbhGAzKsXgAKQSYApj2UCkelAtsNFRgQe8IInk0UkeSwAkelAtoMkJxLp0naVKJYJ3E0EBSDzNgWgAGQSYMpjmUBkOpDtoCbIiTD5xfPf21YrykO2w0VGBB7wgicXRhR9LBMYpdFm1QhA5s0IQAHIJMCUW02gqpPDIFPOYrvvGshhkMUrzv6sAAaZCWXOYSBX0Wg1ksOw4Edx9mcFEJkJZCeQoXBR8IKnDRybPfCCp4ve4AEveNqcbQXQxmiv7hGAzJsXgAKQSYApb8UJZP7IbuUCkMlTAApAJgGm/B8AAAD//6s/CckAAAAGSURBVAMAxABz3bM9lmMAAAAASUVORK5CYII=</iconUrl>
   <tags>csharp dotnet unit of work persistence</tags>
   <projectUrl>https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Common.UnitOfWork/README.md</projectUrl>
   <releaseNotes>release-notes.md</releaseNotes>
