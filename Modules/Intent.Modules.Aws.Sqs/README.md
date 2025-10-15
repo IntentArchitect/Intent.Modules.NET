@@ -1,5 +1,7 @@
 # Intent.Aws.Sqs
 
+> **📚 For Implementation:** See `GETTING_STARTED.md` for workspace navigation and `IMPLEMENTATION_PLAN.md` for complete specifications.
+
 This module provides AWS SQS eventing infrastructure for publishing and consuming messages in Intent Architect applications.
 
 ## Features
