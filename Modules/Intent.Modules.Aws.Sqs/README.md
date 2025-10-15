@@ -98,12 +98,28 @@ This follows the same pattern as the Azure Service Bus modules:
 - Intent.Modelers.Services (3.9.3+)
 - Intent.Modelers.Services.EventInteractions (1.2.1+)
 
+## Metadata Support
+
+### AWS SQS Stereotype
+
+The module provides an `AWS SQS` stereotype that can be applied to message models in the Eventing designer:
+
+- **Queue Name**: The name of the SQS queue (optional - defaults to kebab-case message name)
+- **Queue URL**: The full queue URL (optional - can be configured via appsettings)
+
+### Metadata-Driven Configuration
+
+The `SqsConfiguration` template uses the `IntegrationManager` to automatically:
+- Detect published and subscribed messages in your application
+- Generate appropriate publisher options (message type → queue URL mappings)
+- Generate subscription options (message type → handler mappings)
+- Register all event handlers in the DI container
+
+No manual configuration is needed - the module generates everything based on your Intent Architect models.
+
 ## Future Enhancements
 
-- Metadata-driven configuration (IntegrationManager integration)
-- AWS SQS stereotype for message models
-- Metadata loader extension
-- Bridge module for Lambda function generation
+- Bridge module for Lambda function generation (`Intent.AwsLambda.Sqs`)
 
 ## Related Modules
 

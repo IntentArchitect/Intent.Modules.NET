@@ -15,6 +15,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Eventing.Contracts.Templates;
+using Intent.Modules.Integration.IaC.Shared.AwsSqs;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -83,22 +84,53 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsConfiguration
                             method.AddStatement($"services.AddSingleton<{this.GetTypeName(SqsMessageDispatcherTemplate.TemplateId)}>();");
                             method.AddStatement($"services.AddSingleton<{this.GetTypeName(SqsMessageDispatcherInterfaceTemplate.TemplateId)}, {this.GetTypeName(SqsMessageDispatcherTemplate.TemplateId)}>(sp => sp.GetRequiredService<{this.GetTypeName(SqsMessageDispatcherTemplate.TemplateId)}>());");
 
-                            // Configure publisher options (metadata-driven - placeholder for now)
-                            method.AddStatement("");
-                            method.AddInvocationStatement($"services.Configure<{this.GetTypeName(SqsPublisherOptionsTemplate.TemplateId)}>", inv => inv
-                                .AddArgument(new CSharpLambdaBlock("options"), arg =>
-                                {
-                                    arg.AddStatement("// Publisher options will be configured here based on metadata");
-                                    arg.AddStatement("// Example: options.AddQueue<YourMessageType>(configuration[\"Sqs:Queues:YourMessageType:QueueUrl\"]!);");
-                                }));
+                            // Get metadata from IntegrationManager
+                            var publishers = IntegrationManager.Instance.GetAggregatedPublishedSqsItems(ExecutionContext.GetApplicationConfig().Id);
+                            var subscriptions = IntegrationManager.Instance.GetAggregatedSqsSubscriptions(ExecutionContext.GetApplicationConfig().Id);
 
-                            // Configure subscription options (metadata-driven - placeholder for now)
-                            method.AddInvocationStatement($"services.Configure<{this.GetTypeName(SqsSubscriptionOptionsTemplate.TemplateId)}>", inv => inv
-                                .AddArgument(new CSharpLambdaBlock("options"), arg =>
+                            // Configure publisher options (metadata-driven)
+                            if (publishers.Any())
+                            {
+                                method.AddStatement("");
+                                method.AddInvocationStatement($"services.Configure<{this.GetTypeName(SqsPublisherOptionsTemplate.TemplateId)}>", inv => inv
+                                    .AddArgument(new CSharpLambdaBlock("options"), arg =>
+                                    {
+                                        foreach (var publisher in publishers)
+                                        {
+                                            var messageType = publisher.GetModelTypeName(this);
+                                            var configKey = $"\"{publisher.QueueConfigurationName}:QueueUrl\"";
+                                            arg.AddStatement($"options.AddQueue<{messageType}>(configuration[{configKey}]!);");
+                                        }
+                                    }));
+                            }
+
+                            // Register event handlers (metadata-driven)
+                            if (subscriptions.Any())
+                            {
+                                method.AddStatement("");
+                                foreach (var subscription in subscriptions)
                                 {
-                                    arg.AddStatement("// Subscription options will be configured here based on metadata");
-                                    arg.AddStatement("// Example: options.Add<YourMessageType, YourMessageHandler>();");
-                                }));
+                                    var handlerType = subscription.SubscriptionItem.GetSubscriberTypeName(this);
+                                    var handlerImplementation = this.GetTypeName("Intent.Eventing.Contracts.IntegrationEventHandler", subscription.EventHandlerModel);
+                                    method.AddStatement($"services.AddTransient<{handlerType}, {handlerImplementation}>();");
+                                }
+                            }
+
+                            // Configure subscription options (metadata-driven)
+                            if (subscriptions.Any())
+                            {
+                                method.AddStatement("");
+                                method.AddInvocationStatement($"services.Configure<{this.GetTypeName(SqsSubscriptionOptionsTemplate.TemplateId)}>", inv => inv
+                                    .AddArgument(new CSharpLambdaBlock("options"), arg =>
+                                    {
+                                        foreach (var subscription in subscriptions)
+                                        {
+                                            var messageType = subscription.SubscriptionItem.GetModelTypeName(this);
+                                            var handlerType = subscription.SubscriptionItem.GetSubscriberTypeName(this);
+                                            arg.AddStatement($"options.Add<{messageType}, {handlerType}>();");
+                                        }
+                                    }));
+                            }
 
                             method.AddStatement("return services;", stmt => stmt.SeparatedFromPrevious());
                         });
