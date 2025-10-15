@@ -35,7 +35,7 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsSubscriptionOptions
                              {
                                  _entries.Add(new {{SubscriptionEntry}}(
                                      typeof(TMessage), 
-                                     SqsMessageDispatcher.InvokeDispatchHandler<TMessage, THandler>));
+                                     {{this.GetSqsMessageDispatcherName()}}.InvokeDispatchHandler<TMessage, THandler>));
                              }
                          }
                          

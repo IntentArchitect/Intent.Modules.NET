@@ -51,29 +51,30 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsConfiguration
 
                             // Register SQS client (with LocalStack support)
                             method.AddStatement("""var serviceUrl = configuration["AWS:ServiceURL"];""");
-                            var ifStmt = method.AddIfStatement("!string.IsNullOrEmpty(serviceUrl)");
-                            ifStmt.AddStatement("// LocalStack or custom endpoint");
-                            ifStmt.AddInvocationStatement("services.AddSingleton<IAmazonSQS>", inv => inv
-                                .AddArgument(new CSharpLambdaBlock("sp"), arg =>
-                                {
-                                    arg.AddStatement("""
-                                        var sqsConfig = new AmazonSQSConfig
-                                        {
-                                            ServiceURL = serviceUrl,
-                                            AuthenticationRegion = configuration["AWS:Region"] ?? "us-east-1"
-                                        };
-                                        """);
-                                    arg.AddStatement("""
-                                        return new AmazonSQSClient(
-                                            new BasicAWSCredentials("test", "test"),
-                                            sqsConfig
-                                        );
-                                        """);
-                                }));
+                            method.AddIfStatement("!string.IsNullOrEmpty(serviceUrl)", ifStmt =>
+                            {
+                                ifStmt.AddStatement("// LocalStack or custom endpoint");
+                                ifStmt.AddInvocationStatement("services.AddSingleton<IAmazonSQS>", inv => inv
+                                    .AddArgument(new CSharpLambdaBlock("sp"), arg =>
+                                    {
+                                        arg.AddStatement(new CSharpAssignmentStatement(
+                                            new CSharpVariableDeclaration("sqsConfig"),
+                                            new CSharpObjectInitializerBlock("new AmazonSQSConfig")
+                                                .AddInitStatement("ServiceURL", "serviceUrl")
+                                                .AddInitStatement("AuthenticationRegion", @"configuration[""AWS:Region""] ?? ""us-east-1"""))
+                                            .WithSemicolon());
+                                        arg.AddReturn(new CSharpInvocationStatement("new AmazonSQSClient")
+                                            .AddArgument(@"new BasicAWSCredentials(""test"", ""test"")")
+                                            .AddArgument(@"sqsConfig")
+                                            .WithoutSemicolon());
+                                    }));
+                            });
                             
-                            var elseStmt = ifStmt.AddElseStatement();
-                            elseStmt.AddStatement("// Production AWS");
-                            elseStmt.AddStatement("services.AddAWSService<IAmazonSQS>();");
+                            method.AddElseStatement(elseStmt =>
+                            {
+                                elseStmt.AddStatement("// Production AWS");
+                                elseStmt.AddStatement("services.AddAWSService<IAmazonSQS>();");
+                            });
 
                             // Register event bus
                             method.AddStatement($"services.AddScoped<{this.GetEventBusInterfaceName()}, {this.GetTypeName(SqsEventBusTemplate.TemplateId)}>();", stmt => stmt.SeparatedFromPrevious());
