@@ -21,7 +21,7 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsEventBus
         public const string TemplateId = "Intent.Aws.Sqs.SqsEventBus";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public SqsEventBusTemplate(IOutputTarget outputTarget, object? model = null) : base(TemplateId, outputTarget, model)
+        public SqsEventBusTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NugetPackages.AwsSdkSqs(OutputTarget));
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())

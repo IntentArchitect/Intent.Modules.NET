@@ -18,7 +18,7 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsPublisherOptions
         public const string TemplateId = "Intent.Aws.Sqs.SqsPublisherOptions";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public SqsPublisherOptionsTemplate(IOutputTarget outputTarget, object? model = null) : base(TemplateId, outputTarget, model)
+        public SqsPublisherOptionsTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
         }
 

@@ -22,7 +22,7 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsMessageDispatcher
         public const string TemplateId = "Intent.Aws.Sqs.SqsMessageDispatcher";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public SqsMessageDispatcherTemplate(IOutputTarget outputTarget, object? model = null) : base(TemplateId, outputTarget, model)
+        public SqsMessageDispatcherTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NugetPackages.AmazonLambdaSqsEvents(OutputTarget));
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
@@ -60,7 +60,7 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsMessageDispatcher
                                 ? messageTypeAttr.StringValue
                                 : throw new Exception("MessageType attribute is missing");
                             """, stmt => stmt.SeparatedFromPrevious());
-                        
+
                         method.AddIfStatement("_handlers.TryGetValue(messageTypeName, out var handlerAsync)",
                             block => { block.AddStatement("await handlerAsync(scopedServiceProvider, sqsMessage, cancellationToken);"); });
                     });

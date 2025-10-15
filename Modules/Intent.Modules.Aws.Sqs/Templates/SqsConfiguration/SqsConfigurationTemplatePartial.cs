@@ -29,11 +29,11 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsConfiguration
         public const string TemplateId = "Intent.Aws.Sqs.SqsConfiguration";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public SqsConfigurationTemplate(IOutputTarget outputTarget, object? model = null) : base(TemplateId, outputTarget, model)
+        public SqsConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NugetPackages.AwsSdkSqs(OutputTarget));
             AddNugetDependency(NugetPackages.AwsSdkExtensionsNetCoreSetup(OutputTarget));
-            
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("Microsoft.Extensions.Configuration")
@@ -69,7 +69,7 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsConfiguration
                                             .WithoutSemicolon());
                                     }));
                             });
-                            
+
                             method.AddElseStatement(elseStmt =>
                             {
                                 elseStmt.AddStatement("// Production AWS");
@@ -78,7 +78,7 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsConfiguration
 
                             // Register event bus
                             method.AddStatement($"services.AddScoped<{this.GetEventBusInterfaceName()}, {this.GetTypeName(SqsEventBusTemplate.TemplateId)}>();", stmt => stmt.SeparatedFromPrevious());
-                            
+
                             // Register dispatcher
                             method.AddStatement($"services.AddSingleton<{this.GetTypeName(SqsMessageDispatcherTemplate.TemplateId)}>();");
                             method.AddStatement($"services.AddSingleton<{this.GetTypeName(SqsMessageDispatcherInterfaceTemplate.TemplateId)}, {this.GetTypeName(SqsMessageDispatcherTemplate.TemplateId)}>(sp => sp.GetRequiredService<{this.GetTypeName(SqsMessageDispatcherTemplate.TemplateId)}>());");

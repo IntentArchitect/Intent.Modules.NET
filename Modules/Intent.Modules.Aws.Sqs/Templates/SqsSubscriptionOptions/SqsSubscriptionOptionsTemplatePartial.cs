@@ -19,7 +19,7 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsSubscriptionOptions
         public const string SubscriptionEntry = "SubscriptionEntry";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public SqsSubscriptionOptionsTemplate(IOutputTarget outputTarget, object? model = null) : base(TemplateId, outputTarget, model)
+        public SqsSubscriptionOptionsTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
         }
 

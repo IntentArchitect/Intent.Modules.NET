@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Intent.Modules.Aws.Sqs.Templates.SqsConfiguration;
 using Intent.Modules.Aws.Sqs.Templates.SqsEventBus;
 using Intent.Modules.Aws.Sqs.Templates.SqsMessageDispatcher;

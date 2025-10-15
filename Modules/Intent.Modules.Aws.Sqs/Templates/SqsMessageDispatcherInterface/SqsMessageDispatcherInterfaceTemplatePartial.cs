@@ -19,7 +19,7 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsMessageDispatcherInterface
         public const string TemplateId = "Intent.Aws.Sqs.SqsMessageDispatcherInterface";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public SqsMessageDispatcherInterfaceTemplate(IOutputTarget outputTarget, object? model = null) : base(TemplateId, outputTarget, model)
+        public SqsMessageDispatcherInterfaceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
