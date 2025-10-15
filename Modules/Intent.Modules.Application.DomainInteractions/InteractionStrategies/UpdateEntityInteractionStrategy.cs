@@ -37,10 +37,13 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
                 : null;
 
             method.AddStatements(ExecutionPhases.BusinessLogic, method.GetQueryStatements(
+                dataAccessProviderInjector: DataAccessProviderInjector.Instance,
                 dataAccessProvider: dataAccess,
                 interaction: interaction,
                 foundEntity: foundEntity,
-                projectedType: projectedType));
+                projectedType: projectedType,
+                mustAccessEntityThroughAggregate: dataAccess.MustAccessEntityThroughAggregate(),
+                aggregateDetails: out _));
 
             method.AddStatement(ExecutionPhases.BusinessLogic, string.Empty);
 

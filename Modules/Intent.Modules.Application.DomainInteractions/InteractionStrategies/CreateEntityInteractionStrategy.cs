@@ -6,6 +6,7 @@ using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.DomainInteractions.Api;
+using Intent.Modules.Application.DomainInteractions.DataAccessProviders;
 using Intent.Modules.Application.DomainInteractions.Extensions;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -51,7 +52,11 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
 
                 if (dataAccess.MustAccessEntityThroughAggregate())
                 {
-                    statements = method.GetFindAggregateStatements((IElement)mapping.SourceElement, foundEntity: entity);
+                    statements = method.GetFindAggregateStatements(
+                        dataAccessProviderInjector: DataAccessProviderInjector.Instance,
+                        requestElement: (IElement)mapping.SourceElement,
+                        foundEntity: entity,
+                        aggregateDetails: out _);
                 }
 
                 if (mapping != null)

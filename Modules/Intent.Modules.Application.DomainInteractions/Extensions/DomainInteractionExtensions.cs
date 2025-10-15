@@ -53,12 +53,17 @@ public static class DomainInteractionExtensions
         return [];
     }
 
-    public static List<CSharpStatement> GetFindAggregateStatements(this ICSharpClassMethodDeclaration method, IElement requestElement, ClassModel foundEntity)
+    public static List<CSharpStatement> GetFindAggregateStatements(
+        this ICSharpClassMethodDeclaration method,
+        IDataAccessProviderInjector dataAccessProviderInjector,
+        IElement requestElement,
+        ClassModel foundEntity,
+        out EntityDetails aggregateDetails)
     {
         var statements = new List<CSharpStatement>();
         var aggregateEntity = foundEntity.GetAssociationsToAggregateRoot().First().Class;
         var aggregateVariableName = aggregateEntity.Name.ToLocalVariableName();
-        var aggregateDataAccess = method.InjectDataAccessProvider(aggregateEntity);
+        var aggregateDataAccess = dataAccessProviderInjector.Inject(method, aggregateEntity);
 
         var idFields = GetAggregatePkFindCriteria(requestElement, aggregateEntity, foundEntity);
         if (!idFields.Any())
@@ -71,6 +76,14 @@ public static class DomainInteractionExtensions
         statements.Add(method.File.Template.CreateIfNullThrowNotFoundStatement(
             variable: aggregateVariableName,
             message: $"Could not find {aggregateEntity.Name} '{{{idFields.Select(x => x.ValueExpression).AsSingleOrTuple()}}}'"));
+
+        aggregateDetails = new EntityDetails(
+            ElementModel: aggregateEntity.InternalElement,
+            VariableName: aggregateVariableName,
+            DataAccessProvider: aggregateDataAccess,
+            IsNew: false,
+            ProjectedType: null,
+            IsCollection: false);
 
         // Traverse from aggregate root to target entity collection:
         var currentVariable = aggregateVariableName;
@@ -109,10 +122,13 @@ public static class DomainInteractionExtensions
 
     public static IList<CSharpStatement> GetQueryStatements(
         this ICSharpClassMethodDeclaration method,
+        IDataAccessProviderInjector dataAccessProviderInjector,
         IDataAccessProvider dataAccessProvider,
         IAssociationEnd interaction,
         ClassModel foundEntity,
-        string? projectedType)
+        string? projectedType,
+        bool mustAccessEntityThroughAggregate,
+        out EntityDetails? aggregateDetails)
     {
         var queryMapping = interaction.Mappings.GetQueryEntityMapping();
         if (queryMapping == null)
@@ -131,9 +147,13 @@ public static class DomainInteractionExtensions
 
         CSharpStatement queryInvocation;
         var prerequisiteStatement = new List<CSharpStatement>();
-        if (dataAccessProvider.MustAccessEntityThroughAggregate())
+        if (mustAccessEntityThroughAggregate)
         {
-            prerequisiteStatement.AddRange(method.GetFindAggregateStatements(queryMapping, foundEntity));
+            prerequisiteStatement.AddRange(method.GetFindAggregateStatements(
+                dataAccessProviderInjector: dataAccessProviderInjector,
+                queryMapping: queryMapping,
+                foundEntity: foundEntity,
+                aggregateDetails: out aggregateDetails));
 
             if (interaction.TypeReference.IsCollection)
             {
@@ -226,6 +246,8 @@ public static class DomainInteractionExtensions
             IsNew: false,
             ProjectedType: projectedType,
             IsCollection: interaction.TypeReference.IsCollection));
+
+        aggregateDetails = null;
         return statements;
     }
 
@@ -395,9 +417,14 @@ public static class DomainInteractionExtensions
             .ToList();
     }
 
-    private static List<CSharpStatement> GetFindAggregateStatements(this ICSharpClassMethodDeclaration method, IElementToElementMapping queryMapping, ClassModel foundEntity)
+    private static List<CSharpStatement> GetFindAggregateStatements(
+        this ICSharpClassMethodDeclaration method,
+        IDataAccessProviderInjector dataAccessProviderInjector,
+        IElementToElementMapping queryMapping,
+        ClassModel foundEntity,
+        out EntityDetails aggregateDetails)
     {
-        return method.GetFindAggregateStatements((IElement)queryMapping.SourceElement, foundEntity);
+        return method.GetFindAggregateStatements(dataAccessProviderInjector, (IElement)queryMapping.SourceElement, foundEntity, out aggregateDetails);
     }
 
     private static bool IsOrderByParam(IElement param)

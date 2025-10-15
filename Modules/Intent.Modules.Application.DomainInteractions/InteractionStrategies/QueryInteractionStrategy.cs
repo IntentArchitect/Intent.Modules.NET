@@ -3,6 +3,7 @@ using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.DomainInteractions.Api;
+using Intent.Modules.Application.DomainInteractions.DataAccessProviders;
 using Intent.Modules.Application.DomainInteractions.Extensions;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Interactions;
@@ -47,10 +48,13 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
                     : null;
 
                 var queryStatements = method.GetQueryStatements(
+                    dataAccessProviderInjector: DataAccessProviderInjector.Instance,
                     dataAccessProvider: dataAccess,
                     interaction: interaction,
                     foundEntity: foundEntity,
-                    projectedType: projectedType);
+                    projectedType: projectedType,
+                    mustAccessEntityThroughAggregate: dataAccess.MustAccessEntityThroughAggregate(),
+                    aggregateDetails: out _);
 
                 method.AddStatements(queryStatements);
             }

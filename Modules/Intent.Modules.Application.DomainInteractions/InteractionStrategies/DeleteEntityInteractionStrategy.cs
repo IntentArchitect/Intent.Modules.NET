@@ -1,17 +1,18 @@
-﻿using Intent.Exceptions;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
+using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.DomainInteractions.Api;
+using Intent.Modules.Application.DomainInteractions.DataAccessProviders;
 using Intent.Modules.Application.DomainInteractions.Extensions;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Interactions;
 using Intent.Modules.Common.Templates;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
 using Intent.Modules.Common.UnitOfWork.Settings;
 using static Intent.Modules.Constants.TemplateRoles.Domain;
 
@@ -37,10 +38,13 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
                 : null;
 
             method.AddStatements(ExecutionPhases.BusinessLogic, method.GetQueryStatements(
+                dataAccessProviderInjector: DataAccessProviderInjector.Instance,
                 dataAccessProvider: dataAccess,
                 interaction: interaction,
                 foundEntity: foundEntity,
-                projectedType: projectedType));
+                projectedType: projectedType,
+                mustAccessEntityThroughAggregate: dataAccess.MustAccessEntityThroughAggregate(),
+                aggregateDetails: out _));
 
             method.AddStatement(ExecutionPhases.BusinessLogic, string.Empty);
 
