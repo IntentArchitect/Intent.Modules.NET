@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<association id="4bbf24d0-7ecc-45f1-bf38-2276bc7b46ac">
-  <sourceEnd id="6c0e3a3a-c5d9-462f-a76b-482812a0f437" type="Subscribe Integration Event Source End" typeId="5d8f5c33-f9c9-4629-b637-fad9b0096894">
-    <display>handled by: EnumMessage.EnumSampleHandler</display>
+<association id="0e9eb92b-18ff-4f92-a60b-6b064147911f">
+  <sourceEnd id="5696eb46-21e3-4e49-aec4-6497627ca227" type="Subscribe Integration Event Source End" typeId="5d8f5c33-f9c9-4629-b637-fad9b0096894">
+    <display>handled by: Customers.QuoteCreatedIntegrationEventHandler</display>
     <order>0</order>
-    <typeReference id="b72d8916-1b14-4b7a-8588-8236d6184712">
-      <typeId>a4478a42-c884-4cb8-9059-a2587efd044b</typeId>
+    <typeReference id="dbc0cdc5-b952-461d-9670-8e0557d96235">
+      <typeId>3c699a99-95bd-4bc7-aaa4-4203295be61d</typeId>
       <isNavigable>false</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
@@ -18,14 +18,15 @@
     <metadata />
     <childElements />
   </sourceEnd>
-  <targetEnd id="4bbf24d0-7ecc-45f1-bf38-2276bc7b46ac" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
-    <display>[handles] EnumSample</display>
+  <targetEnd id="0e9eb92b-18ff-4f92-a60b-6b064147911f" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
+    <name>Handler</name>
+    <display>[handles] QuoteCreatedIntegrationEvent</display>
     <order>0</order>
     <traits>
       <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
     </traits>
-    <typeReference id="1990efef-06bb-4972-adea-f41dbf809588">
-      <typeId>0dbd2b09-6a06-49d7-a1f5-1f551534ad0b</typeId>
+    <typeReference id="64b4bf74-b7bc-4b11-b2f8-813236d09188">
+      <typeId>bcb053c5-8b3c-46f1-9b0c-40338ee1c3eb</typeId>
       <isNavigable>true</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
