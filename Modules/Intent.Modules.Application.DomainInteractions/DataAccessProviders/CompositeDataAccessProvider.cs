@@ -9,7 +9,6 @@ namespace Intent.Modules.Application.DomainInteractions.DataAccessProviders;
 
 public class CompositeDataAccessProvider : IDataAccessProvider
 {
-    private readonly string _accessor;
     private readonly string _saveChangesAccessor;
     private readonly string? _explicitUpdateStatement;
     private readonly CSharpClassMappingManager _mappingManager;
@@ -20,8 +19,10 @@ public class CompositeDataAccessProvider : IDataAccessProvider
         _explicitUpdateStatement = explicitUpdateStatement;
         _mappingManager = method.GetMappingManager();
         _saveChangesAccessor = saveChangesAccessor;
-        _accessor = accessor;
+        Accessor = accessor;
     }
+
+    public string Accessor { get;  }
 
     public bool IsUsingProjections => false;
     public bool RequiresExplicitUpdate()
@@ -38,10 +39,10 @@ public class CompositeDataAccessProvider : IDataAccessProvider
     {
         if (_explicitUpdateStatement != null)
         {
-            return new CSharpStatement($@"{_accessor}.Add({entityName});
+            return new CSharpStatement($@"{Accessor}.Add({entityName});
         {_explicitUpdateStatement}");
         }
-        return new CSharpInvocationStatement(_accessor, "Add")
+        return new CSharpInvocationStatement(Accessor, "Add")
             .AddArgument(entityName);
     }
 
@@ -54,16 +55,16 @@ public class CompositeDataAccessProvider : IDataAccessProvider
     {
         if (_explicitUpdateStatement != null)
         {
-            return new CSharpStatement($@"{_accessor}.Remove({entityName});
+            return new CSharpStatement($@"{Accessor}.Remove({entityName});
         {_explicitUpdateStatement}");
         }
-        return new CSharpInvocationStatement(_accessor, "Remove")
+        return new CSharpInvocationStatement(Accessor, "Remove")
             .AddArgument(entityName);
     }
 
     public CSharpStatement FindByIdAsync(List<PrimaryKeyFilterMapping> pkMaps)
     {
-        var invocation = new CSharpInvocationStatement($"{_accessor}", $"SingleOrDefaultAsync");
+        var invocation = new CSharpInvocationStatement($"{Accessor}", $"SingleOrDefaultAsync");
         if (pkMaps.Count == 1)
         {
             invocation.AddArgument($"x => x.{pkMaps[0].Property} == {pkMaps[0].ValueExpression}");
@@ -86,7 +87,7 @@ public class CompositeDataAccessProvider : IDataAccessProvider
         prerequisiteStatements = new List<CSharpStatement>();
         var expression = _mappingManager.GetPredicateExpression(queryMapping);
 
-        var invocation = new CSharpInvocationStatement($"{_accessor}", $"FirstOrDefault");
+        var invocation = new CSharpInvocationStatement($"{Accessor}", $"FirstOrDefault");
         if (expression != null)
         {
             invocation.AddArgument(expression);
@@ -96,7 +97,7 @@ public class CompositeDataAccessProvider : IDataAccessProvider
 
     public CSharpStatement FindAsync(CSharpStatement expression)
     {
-        var invocation = new CSharpInvocationStatement($"{_accessor}", $"FirstOrDefault");
+        var invocation = new CSharpInvocationStatement($"{Accessor}", $"FirstOrDefault");
         if (expression != null)
         {
             invocation.AddArgument(expression);
@@ -110,26 +111,26 @@ public class CompositeDataAccessProvider : IDataAccessProvider
         var expression = _mappingManager.GetPredicateExpression(queryMapping);
         if (expression != null)
         {
-            var invocation = new CSharpInvocationStatement($"{_accessor}", $"Where");
+            var invocation = new CSharpInvocationStatement($"{Accessor}", $"Where");
             {
                 invocation.AddArgument(expression);
             }
             return invocation;
         }
-        return new CSharpStatement($"{_accessor};");
+        return new CSharpStatement($"{Accessor};");
     }
 
     public CSharpStatement FindAllAsync(CSharpStatement expression)
     {
         if (expression != null)
         {
-            var invocation = new CSharpInvocationStatement($"{_accessor}", $"Where");
+            var invocation = new CSharpInvocationStatement($"{Accessor}", $"Where");
             {
                 invocation.AddArgument(expression);
             }
             return invocation;
         }
-        return new CSharpStatement($"{_accessor};");
+        return new CSharpStatement($"{Accessor};");
     }
 
     public CSharpStatement FindAllAsync(IElementToElementMapping queryMapping, string pageNo, string pageSize, string? orderBy, bool orderByIsNUllable, out IList<CSharpStatement> prerequisiteStatements)

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="dee6fb8c-6565-4e43-b3d1-f568617a1497">
+  <sourceEnd id="8795286e-148c-4fde-bbcd-af8e5f16935e" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : Customers.UpdateCustomerPreferencesCommand</display>
+    <order>0</order>
+    <typeReference id="39bc46b6-939c-4c9c-bb86-fe5f41d12a01">
+      <typeId>66dce965-ebce-4d8c-923e-6ba82747717c</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+      <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="dee6fb8c-6565-4e43-b3d1-f568617a1497" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>preferences</name>
+    <display>[update] preferences: Preferences</display>
+    <order>3</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="51218c93-c07e-4000-9b3e-424cd6e013f6">
+      <typeId>b320ee2f-b25b-4429-9ccd-6575b4516ea4</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="66dce965-ebce-4d8c-923e-6ba82747717c" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[UpdateCustomerPreferencesCommand]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="b320ee2f-b25b-4429-9ccd-6575b4516ea4" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[Preferences]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Newsletter}</expression>
+            <path>
+              <target id="b320ee2f-b25b-4429-9ccd-6575b4516ea4" name="Preferences" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="3e49ec15-a213-4425-8344-eea4dcc412e8" name="Newsletter" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Newsletter" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="66dce965-ebce-4d8c-923e-6ba82747717c" name="UpdateCustomerPreferencesCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="ea614334-963e-4ec8-8134-6e4c86907067" name="Newsletter" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Specials}</expression>
+            <path>
+              <target id="b320ee2f-b25b-4429-9ccd-6575b4516ea4" name="Preferences" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="03b0e0ad-cfa3-4fcd-bc1e-60bb0c870e50" name="Specials" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Specials" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="66dce965-ebce-4d8c-923e-6ba82747717c" name="UpdateCustomerPreferencesCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="0bf2ec9a-7841-4eda-b58e-3e6cad680b97" name="Specials" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

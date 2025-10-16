@@ -44,6 +44,7 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
                 foundEntity: foundEntity,
                 projectedType: projectedType,
                 mustAccessEntityThroughAggregate: dataAccess.MustAccessEntityThroughAggregate(),
+                compositeEntityAccessor: (dataAccess as CompositeDataAccessProvider)?.Accessor,
                 aggregateDetails: out _));
 
             method.AddStatement(ExecutionPhases.BusinessLogic, string.Empty);
