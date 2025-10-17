@@ -71,7 +71,7 @@ var firstConn = configuration["ConnectionStrings:0:ConnectionString"]; // "conne
 var conns = configuration.GetSection("ConnectionStrings").Get<List<DbConn>>();
 ```
 
-Where
+Where `DbConn` is defined as:
 
 ``` csharp
 public sealed class DbConn
