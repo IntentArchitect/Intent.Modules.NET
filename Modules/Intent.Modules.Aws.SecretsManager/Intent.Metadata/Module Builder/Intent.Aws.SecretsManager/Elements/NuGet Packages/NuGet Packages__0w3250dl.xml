@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="7c736800-cd62-40b6-8736-d044261ae915" type="NuGet Packages" typeId="4c75c84d-c745-4f0f-b1f4-82eeca01dfc7">
+  <name>NuGet Packages</name>
+  <display>NuGet Packages</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>c4941506-85b6-4b02-a701-57c663245324</parentFolderId>
+  <packageId>c4941506-85b6-4b02-a701-57c663245324</packageId>
+  <packageName>Intent.Aws.SecretsManager</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
