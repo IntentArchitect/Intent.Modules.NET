@@ -1,3 +1,7 @@
+### Version 1.0.6
+
+- Fixed: Compatibility issue with `Intent.Common.CSharp` version 3.9.8.
+
 ### Version 1.0.5
 
 - Fixed: Increased `order` value for some `OnBuild(...)` method invocations to ensure they happen sufficiently after `OnBuild(...)` from other modules have been invoked.
