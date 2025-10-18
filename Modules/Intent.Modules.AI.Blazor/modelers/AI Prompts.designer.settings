@@ -90,21 +90,8 @@ let promptResult = await dialogService.openForm({
                 config.getField("thinking").isHidden = curThinkingType === "None";
 
                 if (curThinkingType === "ToggleThinking" || curThinkingType === "ThinkingLevels") {
-                    config.getField("thinking").selectOptions = [
-                        {
-                            id: "low",
-                            description: "Low",
-                            additionalInfo: "Thinks less, quicker"
-                        },
-                        {
-                            id: "high",
-                            description: "High",
-                            additionalInfo: "Thinks more, slower"
-                        }
-                    ];
                     config.getField("thinking").value = "low";
                 } else {
-                    config.getField("thinking").selectOptions = [];
                     config.getField("thinking").value = null;
                 }
             }
@@ -113,8 +100,20 @@ let promptResult = await dialogService.openForm({
             id: "thinking",
             fieldType: "select",
             label: "Thinking/reasoning mode",
-            isHidden: true,
-            value: blazorAiThinkingType
+            isHidden: blazorAiThinkingType == null,
+            value: blazorAiThinkingType,
+            selectOptions: [
+                {
+                    id: "low",
+                    description: "Low",
+                    additionalInfo: "Thinks less, quicker"
+                },
+                {
+                    id: "high",
+                    description: "High",
+                    additionalInfo: "Thinks more, slower"
+                }
+            ]
         }
     ],
     submitButtonText: "Execute",

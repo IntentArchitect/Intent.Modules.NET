@@ -106,6 +106,8 @@
     const autoImplementationAiModelId = globalSettings.get("AI.AutoImplementation.ModelId");
     const autoImplementationAiThinkingType = globalSettings.get("AI.AutoImplementation.ThikingType");
 
+    console.log(`autoImplementationAiThinkingType = ${autoImplementationAiThinkingType}`);
+
     // Open a dialog for the user to enter an AI prompt
     let promptResult = await dialogService.openForm({
         title: "AI: Auto-Implement Handler for " + element.getName(),
@@ -139,21 +141,8 @@
                     config.getField("thinking").isHidden = curThinkingType === "None";
 
                     if (curThinkingType === "ToggleThinking" || curThinkingType === "ThinkingLevels") {
-                        config.getField("thinking").selectOptions = [
-                            {
-                                id: "low",
-                                description: "Low",
-                                additionalInfo: "Thinks less, quicker"
-                            },
-                            {
-                                id: "high",
-                                description: "High",
-                                additionalInfo: "Thinks more, slower"
-                            }
-                        ];
                         config.getField("thinking").value = "low";
                     } else {
-                        config.getField("thinking").selectOptions = [];
                         config.getField("thinking").value = null;
                     }
                 }
@@ -162,8 +151,20 @@
                 id: "thinking",
                 fieldType: "select",
                 label: "Thinking/reasoning mode",
-                isHidden: true,
-                value: autoImplementationAiThinkingType
+                isHidden: autoImplementationAiThinkingType == null,
+                value: autoImplementationAiThinkingType,
+                selectOptions: [
+                    {
+                        id: "low",
+                        description: "Low",
+                        additionalInfo: "Thinks less, quicker"
+                    },
+                    {
+                        id: "high",
+                        description: "High",
+                        additionalInfo: "Thinks more, slower"
+                    }
+                ]
             }
         ],
         submitButtonText: "Execute",

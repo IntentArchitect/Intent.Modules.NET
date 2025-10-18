@@ -139,21 +139,8 @@
                     config.getField("thinking").isHidden = curThinkingType === "None";
 
                     if (curThinkingType === "ToggleThinking" || curThinkingType === "ThinkingLevels") {
-                        config.getField("thinking").selectOptions = [
-                            {
-                                id: "low",
-                                description: "Low",
-                                additionalInfo: "Thinks less, quicker"
-                            },
-                            {
-                                id: "high",
-                                description: "High",
-                                additionalInfo: "Thinks more, slower"
-                            }
-                        ];
                         config.getField("thinking").value = "low";
                     } else {
-                        config.getField("thinking").selectOptions = [];
                         config.getField("thinking").value = null;
                     }
                 }
@@ -162,8 +149,20 @@
                 id: "thinking",
                 fieldType: "select",
                 label: "Thinking/reasoning mode",
-                isHidden: true,
-                value: unitTestsAiThinkingType
+                isHidden: unitTestsAiThinkingType == null,
+                value: unitTestsAiThinkingType,
+                selectOptions: [
+                    {
+                        id: "low",
+                        description: "Low",
+                        additionalInfo: "Thinks less, quicker"
+                    },
+                    {
+                        id: "high",
+                        description: "High",
+                        additionalInfo: "Thinks more, slower"
+                    }
+                ]
             }
         ],
         submitButtonText: "Execute",
@@ -194,9 +193,10 @@
             taskName: "AI: Unit tests for " + element.getName()
         });
 
-    if(!element.hasStereotype("4965bed2-6320-49d1-beba-0fbc6fd4dfe6"))
+    const unitTestStereotype = "4965bed2-6320-49d1-beba-0fbc6fd4dfe6";
+    if(!element.hasStereotype(unitTestStereotype))
     {
-        element.addStereotype("4965bed2-6320-49d1-beba-0fbc6fd4dfe6"); // Unit Test stereotype
+        element.addStereotype(unitTestStereotype); // Unit Test stereotype
     }
 
     return result;
