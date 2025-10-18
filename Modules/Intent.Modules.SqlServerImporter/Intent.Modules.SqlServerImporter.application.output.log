@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<outputLog>
+  <ApplicationId>6e00a575-a873-4cf4-ab2a-b62721a8bc24</ApplicationId>
+  <FileLogs>
+    <FileLog>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#f26a082d-9708-449d-96d4-797c3a4c7b37</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1c5e20a7-ea37-4fda-9472-c1ea8260c383</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#1c5e20a7-ea37-4fda-9472-c1ea8260c383</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Intent.Modules.SqlServerImporter.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.SqlServerImporter.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1c5e20a7-ea37-4fda-9472-c1ea8260c383</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Intent.SqlServerImporter.imodspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.SqlServerImporter.imodspec</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>39f61245-1acb-47cf-a197-24988bd6c81d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration#9f2555bd-7b8e-40f8-a26a-6d9f7766a8d6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Migrations/Migration_01_02_01_Pre_02.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Migration_01_02_01_Pre_02.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+  </FileLogs>
+</outputLog>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<outputLog>
+  <ApplicationId>1c788aee-6d6a-48e5-93c3-91b686ed2d5e</ApplicationId>
+  <FileLogs>
+    <FileLog>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#ae428900-45be-4645-ba6e-c15ca04384b1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b9150acb-2f41-4ecd-b59a-4f4a1b3f21ac</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#32283d3d-8021-4136-ab4a-e45de7922a1f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/FluentValidationExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FluentValidationExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bacb014f-3bd1-483b-b3b5-cf1fc0451e34</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Intent.AzureFunctions.FluentValidation.imodspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.AzureFunctions.FluentValidation.imodspec</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bacb014f-3bd1-483b-b3b5-cf1fc0451e34</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#bacb014f-3bd1-483b-b3b5-cf1fc0451e34</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Intent.Modules.AzureFunctions.FluentValidation.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.AzureFunctions.FluentValidation.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bacb014f-3bd1-483b-b3b5-cf1fc0451e34</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>NugetPackages.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NugetPackages.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+  </FileLogs>
+</outputLog>

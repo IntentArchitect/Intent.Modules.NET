@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ignoredFiles>
   <files>
+    <file relativePath="MinimalHostingModel.BlazorClient/_Imports.razor" />
     <file relativePath="MinimalHostingModel.BlazorClient/App.razor" />
     <file relativePath="MinimalHostingModel.BlazorClient/Client/Program.cs" />
     <file relativePath="MinimalHostingModel.BlazorClient/Pages/Counter.razor" />
@@ -27,6 +28,5 @@
     <file relativePath="MinimalHostingModel.BlazorClient/wwwroot/icon-192.png" />
     <file relativePath="MinimalHostingModel.BlazorClient/wwwroot/index.html" />
     <file relativePath="MinimalHostingModel.BlazorClient/wwwroot/sample-data/weather.json" />
-    <file relativePath="MinimalHostingModel.BlazorClient/_Imports.razor" />
   </files>
 </ignoredFiles>

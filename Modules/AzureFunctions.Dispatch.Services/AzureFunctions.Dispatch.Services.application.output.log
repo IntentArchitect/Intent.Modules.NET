@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<outputLog>
+  <ApplicationId>dd606e23-930e-465c-bad1-9922641967b0</ApplicationId>
+  <FileLogs>
+    <FileLog>
+      <ProjectId>4c832ff3-49a4-47fa-b114-75b7f37e3d32</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#549d57c1-113f-45c3-85a7-460bc18872f5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.AzureFunctions.Dispatch.Services/FactoryExtensions/ContractDispatchExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ContractDispatchExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a5e2fbde-b680-478d-9dbe-11e798d5fdc3</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.AzureFunctions.Dispatch.Services/Intent.AzureFunctions.Dispatch.Services.imodspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.AzureFunctions.Dispatch.Services.imodspec</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a5e2fbde-b680-478d-9dbe-11e798d5fdc3</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#a5e2fbde-b680-478d-9dbe-11e798d5fdc3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.AzureFunctions.Dispatch.Services/Intent.Modules.AzureFunctions.Dispatch.Services.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.AzureFunctions.Dispatch.Services.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a5e2fbde-b680-478d-9dbe-11e798d5fdc3</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.ReleaseNotes</CorrelationId>
+      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.AzureFunctions.Dispatch.Services/release-notes.md</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>release-notes.md</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#05345d7b-3b4c-4e2d-8fff-07059a542948</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+  </FileLogs>
+</outputLog>

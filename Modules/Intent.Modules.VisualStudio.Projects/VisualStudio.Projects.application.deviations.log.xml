@@ -77,12 +77,9 @@
       <count>3</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-10-06T20:13:16.6230724Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-11-14T16:16:45.0017058Z</approvedAt>
-      <deviationsHash>670E7C085ED9C3BA208F35E309DB637C3582E06E09F240721253C22754B78883</deviationsHash>
-      <fileHash>848AD12197929B6E8417309E5DD1D082ABFB233261F1DE048707B1AF8A171EEC</fileHash>
+      <updatedAt>2025-10-18T13:28:20.9746567Z</updatedAt>
+      <deviationsHash>83994445C2AB8880E72AC86853179B9D16F6AB3EB0A8E3E436D935682BDBC3F1</deviationsHash>
+      <fileHash>0891417EC6047131CE0DFFA8BDA69A07FA0045D75EC8F682E56B145E3E73AC76</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#3407a825-1331-4f3f-89a4-901903ed97ce</correlationId>

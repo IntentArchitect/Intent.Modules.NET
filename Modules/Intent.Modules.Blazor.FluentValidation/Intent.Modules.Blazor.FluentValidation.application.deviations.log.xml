@@ -2,6 +2,16 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions#90eb0073-c577-4253-9e76-0039622affa9</correlationId>
+      <path>Intent.Modules.Blazor.FluentValidation/Settings/ModuleSettingsExtensions.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2025-10-18T13:27:12.353157Z</updatedAt>
+      <deviationsHash>95AB2835E13F632CAA2E426C797ABB59F62D265E38246CAF7B13296304CDABAE</deviationsHash>
+      <fileHash>699A7BF6F0AFAB64BCAA0C413B9C96BF499002F3E26AAA44FC014F3182109112</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#8a34e1a2-e62f-422a-b393-6cfcfe186871</correlationId>
       <path>Intent.Modules.Blazor.FluentValidation/Templates/ModelDefinitionValidator/ModelDefinitionValidatorTemplatePartial.cs</path>
       <count>1</count>
@@ -12,7 +22,7 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-11-14T16:11:20.7832029Z</approvedAt>
       <deviationsHash>5D127A3C090EF415730EAD5C365197860B2B6017DF2E8E5EF3C3C62C3B5D6746</deviationsHash>
-      <fileHash>5F54018C4C76F792CE587E3DA260336BB2B9ABE2BED9F943FAFF5335E77453C7</fileHash>
+      <fileHash>FCBA61AA936B021209CC681A3C0E34D9A9BD50BBC149E827D83E3837D70E6AC6</fileHash>
     </file>
   </files>
 </deviationsLog>

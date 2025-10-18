@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<outputLog>
+  <ApplicationId>14a0fe52-c0de-479d-bd24-b9cb60a2f7fd</ApplicationId>
+  <FileLogs>
+    <FileLog>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#6f247882-eca0-4ae4-a271-20c836de137d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>069d1402-97b0-47c8-a5a3-6c3e01521b58</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#c5b4b485-21c9-4330-af00-bfeb98ec6e2d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/MediatREndpointExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MediatREndpointExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>812b51f1-2971-46b2-beea-d533074057de</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Intent.Aws.Lambda.Functions.Dispatch.MediatR.imodspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Aws.Lambda.Functions.Dispatch.MediatR.imodspec</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>812b51f1-2971-46b2-beea-d533074057de</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#812b51f1-2971-46b2-beea-d533074057de</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Intent.Modules.Aws.Lambda.Functions.Dispatch.MediatR.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.Aws.Lambda.Functions.Dispatch.MediatR.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>812b51f1-2971-46b2-beea-d533074057de</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.ReleaseNotes</CorrelationId>
+      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>release-notes.md</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>release-notes.md</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+  </FileLogs>
+</outputLog>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<outputLog>
+  <ApplicationId>04173526-2384-4828-9f9c-80fdde7c5460</ApplicationId>
+  <FileLogs>
+    <FileLog>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#f17f121e-8cc8-4c24-8f77-bd6838f2c812</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>99cfb6d5-18c2-4220-ab71-ade0cc6baf7b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Intent.AI.ChatDrivenDomain.imodspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.AI.ChatDrivenDomain.imodspec</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>99cfb6d5-18c2-4220-ab71-ade0cc6baf7b</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#99cfb6d5-18c2-4220-ab71-ade0cc6baf7b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Intent.Modules.AI.ChatDrivenDomain.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.AI.ChatDrivenDomain.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4c57d72a-b120-4d4b-9d7e-290fdadabc44</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.DesignerSettings#cb8171ea-c4e4-4118-8534-6d74b8dfa900</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>modelers/Chat Driven Domain Settings.designer.settings</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Chat Driven Domain Settings.designer.settings</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>99cfb6d5-18c2-4220-ab71-ade0cc6baf7b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.ReleaseNotes</CorrelationId>
+      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>release-notes.md</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>release-notes.md</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+  </FileLogs>
+</outputLog>
