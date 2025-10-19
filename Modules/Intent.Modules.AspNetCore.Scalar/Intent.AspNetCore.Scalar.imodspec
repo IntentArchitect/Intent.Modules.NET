@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.Scalar</id>
-  <version>1.0.2-pre.0</version>
+  <version>1.0.2-pre.1</version>
   <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
   <summary>Provides OpenApi support for using the Scalar library for ASP.NET Core.</summary>
   <description>Provides OpenApi support for using the Scalar library for ASP.NET Core.</description>

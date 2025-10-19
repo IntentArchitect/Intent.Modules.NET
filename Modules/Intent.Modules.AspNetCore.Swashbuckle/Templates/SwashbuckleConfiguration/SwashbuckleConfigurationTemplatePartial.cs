@@ -68,9 +68,7 @@ public partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<objec
                                     lambdaBlock.AddStatement("options.SupportNonNullableReferenceTypes();");
                                 }
 
-                                lambdaBlock.AddStatement(useSimpleSchemaIdentifiers
-                                    ? "options.CustomSchemaIds(GetFriendlyName);"
-                                    : "options.CustomSchemaIds(x => x.FullName?.Replace(\"+\", \"_\", StringComparison.OrdinalIgnoreCase));");
+                                lambdaBlock.AddStatement("options.CustomSchemaIds(SchemaIdSelector);");
 
                                 lambdaBlock.AddStatement(
                                     "var apiXmlFile = Path.Combine(AppContext.BaseDirectory, $\"{Assembly.GetExecutingAssembly().GetName().Name}.xml\");",
@@ -131,22 +129,69 @@ public partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<objec
 
                 if (useSimpleSchemaIdentifiers)
                 {
-                    @class.AddMethod("string", "GetFriendlyName", method =>
+                    @class.AddMethod("string", "SchemaIdSelector", method =>
                     {
                         method.Private().Static();
                         method.AddParameter(UseType("System.Type"), "modelType");
 
-                        method.AddIfStatement("!modelType.IsConstructedGenericType", @if =>
+                        method.AddIfStatement("modelType.IsArray", @if =>
                         {
-                            @if.AddStatement("return modelType.Name.Replace(\"[]\", \"Array\");");
+                            @if.AddStatement(@"var elementType = modelType.GetElementType()!;");
+                            @if.AddStatement(@"return $""{SchemaIdSelector(elementType)}Array"";");
                         });
 
-                        method.AddStatement(@"var genericTypeArguments = modelType.GetGenericArguments()
-                .Select(GetFriendlyName);", s => s.SeparatedFromPrevious());
+                        method.AddStatement(@"var modelName = modelType.Name.Replace(""+"", ""."");", s => s.SeparatedFromPrevious());
 
-                        method.AddStatement(
-                            "return $\"{modelType.Name.Split('`')[0]}Of{string.Join(\"And\", genericTypeArguments)}\";",
-                            s => s.SeparatedFromPrevious());
+                        method.AddIfStatement("!modelType.IsConstructedGenericType", @if =>
+                        {
+                            @if.AddStatement("return modelName;");
+                        });
+
+                        method.AddStatement(@"var baseName = modelName.Split('`').First();", s => s.SeparatedFromPrevious());
+
+                        method.AddStatement(new CSharpAssignmentStatement(
+                                new CSharpVariableDeclaration("genericArgs"),
+                                new CSharpInvocationStatement("modelType.GetGenericArguments")
+                                    .AddInvocation("Select", s => s.OnNewLine().AddArgument("SchemaIdSelector"))
+                                    .AddInvocation("ToArray", s => s.OnNewLine())
+                            )
+                            .SeparatedFromPrevious());
+
+                        method.AddStatement(@"return $""{baseName}Of{string.Join(""And"", genericArgs)}"";", s => s.SeparatedFromPrevious());
+                    });
+                }
+                else
+                {
+                    @class.AddMethod("string", "SchemaIdSelector", method =>
+                    {
+                        method.Private().Static();
+                        method.AddParameter(UseType("System.Type"), "modelType");
+
+                        method.AddIfStatement("modelType.IsArray", @if =>
+                        {
+                            @if.AddStatement(@"var elementType = modelType.GetElementType()!;");
+                            @if.AddStatement(@"return $""{SchemaIdSelector(elementType)}Array"";");
+                        });
+
+                        method.AddStatement(@"var typeName = modelType.FullName?.Replace(""+"", ""."") ?? modelType.Name.Replace(""+"", ""."");", s => s.SeparatedFromPrevious());
+
+                        method.AddIfStatement("!modelType.IsConstructedGenericType", @if =>
+                        {
+                            @if.AddStatement("return typeName;");
+                        });
+
+                        method.AddStatement(@"var genericTypeDefName = modelType.GetGenericTypeDefinition().FullName;", s => s.SeparatedFromPrevious());
+                        method.AddStatement(@"var baseName = (genericTypeDefName?.Split('`')[0] ?? modelType.Name.Split('`')[0]).Replace(""+"", ""."");");
+
+                        method.AddStatement(new CSharpAssignmentStatement(
+                                new CSharpVariableDeclaration("genericArgs"),
+                                new CSharpInvocationStatement("modelType.GetGenericArguments")
+                                    .AddInvocation("Select", s => s.OnNewLine().AddArgument("SchemaIdSelector"))
+                                    .AddInvocation("ToArray", s => s.OnNewLine())
+                            )
+                            .SeparatedFromPrevious());
+
+                        method.AddStatement(@"return $""{baseName}_Of_{string.Join(""_And_"", genericArgs)}"";", s => s.SeparatedFromPrevious());
                     });
                 }
             });
