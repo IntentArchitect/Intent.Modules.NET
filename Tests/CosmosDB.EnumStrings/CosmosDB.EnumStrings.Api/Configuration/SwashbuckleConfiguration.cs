@@ -31,7 +31,7 @@ namespace CosmosDB.EnumStrings.Api.Configuration
                 {
                     options.SchemaFilter<RequireNonNullablePropertiesSchemaFilter>();
                     options.SupportNonNullableReferenceTypes();
-                    options.CustomSchemaIds(x => x.FullName?.Replace("+", "_", StringComparison.OrdinalIgnoreCase));
+                    options.CustomSchemaIds(SchemaIdSelector);
 
                     var apiXmlFile = Path.Combine(AppContext.BaseDirectory, $"{Assembly.GetExecutingAssembly().GetName().Name}.xml");
                     if (File.Exists(apiXmlFile))
@@ -66,6 +66,31 @@ namespace CosmosDB.EnumStrings.Api.Configuration
                     options.EnableFilter(string.Empty);
                     AddSwaggerEndpoints(app, options);
                 });
+        }
+
+        private static string SchemaIdSelector(Type modelType)
+        {
+            if (modelType.IsArray)
+            {
+                var elementType = modelType.GetElementType()!;
+                return $"{SchemaIdSelector(elementType)}Array";
+            }
+
+            var typeName = modelType.FullName?.Replace("+", ".") ?? modelType.Name.Replace("+", ".");
+
+            if (!modelType.IsConstructedGenericType)
+            {
+                return typeName;
+            }
+
+            var genericTypeDefName = modelType.GetGenericTypeDefinition().FullName;
+            var baseName = (genericTypeDefName?.Split('`')[0] ?? modelType.Name.Split('`')[0]).Replace("+", ".");
+
+            var genericArgs = modelType.GetGenericArguments()
+                .Select(SchemaIdSelector)
+                .ToArray();
+
+            return $"{baseName}_Of_{string.Join("_And_", genericArgs)}";
         }
 
         private static void AddSwaggerEndpoints(IApplicationBuilder app, SwaggerUIOptions options)
