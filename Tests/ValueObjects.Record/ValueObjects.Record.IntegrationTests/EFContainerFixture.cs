@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Testcontainers.MsSql;
+using ValueObjects.Record.Domain.Common.Interfaces;
 using ValueObjects.Record.Infrastructure.Persistence;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
