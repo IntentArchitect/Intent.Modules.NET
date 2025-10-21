@@ -106,8 +106,6 @@
     const autoImplementationAiModelId = globalSettings.get("AI.AutoImplementation.ModelId");
     const autoImplementationAiThinkingType = globalSettings.get("AI.AutoImplementation.ThikingType");
 
-    console.log(`autoImplementationAiThinkingType = ${autoImplementationAiThinkingType}`);
-
     // Open a dialog for the user to enter an AI prompt
     let promptResult = await dialogService.openForm({
         title: "AI: Auto-Implement Handler for " + element.getName(),
@@ -125,6 +123,7 @@
                 fieldType: "select",
                 label: "Model",
                 isRequired: true,
+                hint: providerModels.length === 0 ? "Not seeing any AI Models? Learn how to configure or add models [here](https://docs.intentarchitect.com/articles/modules-common/intent-common-ai/intent-common-ai.html)." : "",
                 selectOptions: 
                     Object.entries(modelLookup)
                     .map(([key, value]) =&gt; { 
@@ -151,7 +150,7 @@
                 id: "thinking",
                 fieldType: "select",
                 label: "Thinking/reasoning mode",
-                isHidden: autoImplementationAiThinkingType == null,
+                isHidden: autoImplementationAiThinkingType == null || providerModels.length === 0,
                 value: autoImplementationAiThinkingType,
                 selectOptions: [
                     {

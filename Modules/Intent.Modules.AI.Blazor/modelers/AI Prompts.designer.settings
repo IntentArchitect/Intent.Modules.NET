@@ -74,6 +74,7 @@ let promptResult = await dialogService.openForm({
             fieldType: "select",
             label: "Model",
             isRequired: true,
+            hint: providerModels.length === 0 ? "Not seeing any AI Models? Learn how to configure or add models [here](https://docs.intentarchitect.com/articles/modules-common/intent-common-ai/intent-common-ai.html)." : "",
             selectOptions: 
                 Object.entries(modelLookup)
                 .map(([key, value]) =&gt; { 
@@ -100,7 +101,7 @@ let promptResult = await dialogService.openForm({
             id: "thinking",
             fieldType: "select",
             label: "Thinking/reasoning mode",
-            isHidden: blazorAiThinkingType == null,
+            isHidden: blazorAiThinkingType == null || providerModels.length === 0,
             value: blazorAiThinkingType,
             selectOptions: [
                 {
