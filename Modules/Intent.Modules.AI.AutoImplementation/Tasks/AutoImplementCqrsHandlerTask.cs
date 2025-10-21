@@ -16,6 +16,7 @@ using Intent.Utils;
 using Microsoft.SemanticKernel;
 using Newtonsoft.Json;
 using Intent.Modules.AI.AutoImplementation.Tasks.Helpers;
+using Intent.Modules.Common.AI.Settings;
 using ApiMetadataDesignerExtensions = Intent.Modelers.Domain.Api.ApiMetadataDesignerExtensions;
 
 namespace Intent.Modules.AI.AutoImplementation.Tasks;
@@ -52,10 +53,13 @@ public class AutoImplementCqrsHandlerTask : IModuleTask
     {
         var applicationId = args[0];
         var elementId = args[1];
-        var userProvidedContext = args.Length > 2 && !string.IsNullOrWhiteSpace(args[2]) ? args[2] : "None";
+        var userProvidedContext = !string.IsNullOrWhiteSpace(args[2]) ? args[2] : "None";
+        var provider = new AISettings.ProviderOptions(args[3]).AsEnum();
+        var modelId = args[4];
+        var thinkingType = args[5];
 
         Logging.Log.Info($"Args: {string.Join(",", args)}");
-        var kernel = _intentSemanticKernelFactory.BuildSemanticKernel();
+        var kernel = _intentSemanticKernelFactory.BuildSemanticKernel(modelId, provider, null);
 
         var element = _metadataManager.Services(applicationId).Elements.FirstOrDefault(x => x.Id == elementId);
         if (element == null)
@@ -71,7 +75,7 @@ public class AutoImplementCqrsHandlerTask : IModuleTask
 
         var designContext = GetDesignContext(element);
 
-        var requestFunction = CreatePromptFunction(kernel);
+        var requestFunction = CreatePromptFunction(kernel, thinkingType);
         var fileChangesResult = requestFunction.InvokeFileChangesPrompt(kernel, new KernelArguments()
         {
             ["inputFilesJson"] = jsonInput,
@@ -91,7 +95,7 @@ public class AutoImplementCqrsHandlerTask : IModuleTask
         return "success";
     }
 
-    private KernelFunction CreatePromptFunction(Kernel kernel)
+    private KernelFunction CreatePromptFunction(Kernel kernel, string thinkingType)
     {
         const string promptTemplate =
             """
@@ -215,7 +219,7 @@ public class AutoImplementCqrsHandlerTask : IModuleTask
 		    2.6. DO NOT do any character escaping to the code.
 		    """;
 
-        var requestFunction = kernel.CreateFunctionFromPrompt(promptTemplate);
+        var requestFunction = kernel.CreateFunctionFromPrompt(promptTemplate, kernel.GetRequiredService<IAiProviderService>().GetPromptExecutionSettings(thinkingType));
         return requestFunction;
     }
 

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AI.Blazor</id>
-  <version>1.0.0-beta.16</version>
-  <supportedClientVersions>[4.5.0-a,5.0.0)</supportedClientVersions>
+  <version>1.0.0-beta.17</version>
+  <supportedClientVersions>[4.5.18-a,5.0.0)</supportedClientVersions>
   <summary>AI support for auto-implementing unit tests based on existing application service implementations.</summary>
   <description>AI support for auto-implementing unit tests based on existing application service implementations.</description>
   <authors>Intent Architect</authors>
@@ -26,7 +26,7 @@
   <dependencies>
     <dependency id="Intent.Code.Weaving.Json" version="1.0.1" />
     <dependency id="Intent.Common" version="3.7.2" />
-    <dependency id="Intent.Common.AI" version="1.0.0-beta.8" />
+    <dependency id="Intent.Common.AI" version="1.0.0-beta.9" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Modelers.Services" version="3.9.3" />
     <dependency id="Intent.Modelers.Services.CQRS" version="5.1.3" />

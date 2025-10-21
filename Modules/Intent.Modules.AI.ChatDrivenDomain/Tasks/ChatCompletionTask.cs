@@ -46,8 +46,9 @@ public class ChatCompletionTask : IModuleTask
         try
         {
             var inputModel = JsonSerializer.Deserialize<InputModel>(args[0], SerializerOptions)!;
+            var provider = new AISettings.ProviderOptions(inputModel.ProviderId).AsEnum();
             var modelMutationPlugin = new ModelMutationPlugin(inputModel);
-            var kernel = new IntentSemanticKernelFactory(_userSettingsProvider).BuildSemanticKernel((builder) =>
+            var kernel = new IntentSemanticKernelFactory(_userSettingsProvider).BuildSemanticKernel(inputModel.ModelId, provider, (builder) =>
             {
                 builder.Plugins.AddFromObject(modelMutationPlugin);
             });

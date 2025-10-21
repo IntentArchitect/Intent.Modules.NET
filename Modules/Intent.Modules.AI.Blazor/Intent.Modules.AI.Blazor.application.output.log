@@ -54,7 +54,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>modelers/AI Prompts.designer.settings</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AI Prompts.designer.settings</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>6161ed7e-68be-4788-8bdf-9942f39626b5</ProjectId>
