@@ -2,7 +2,7 @@
 <package>
   <id>Intent.AI.ChatDrivenDomain</id>
   <version>0.0.7-beta.1</version>
-  <supportedClientVersions>[4.5.0-a,5.0.0)</supportedClientVersions>
+  <supportedClientVersions>[4.5.18-a,5.0.0)</supportedClientVersions>
   <summary>(EXPERIMENTAL) AI Assistant to model your Domain with chat prompts. By default, uses Open AI and requires an API Key.</summary>
   <description>(EXPERIMENTAL) AI Assistant to model your Domain with chat prompts. By default, uses Open AI and requires an API Key.</description>
   <authors>Intent Architect</authors>

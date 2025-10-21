@@ -2,7 +2,7 @@
 <package>
   <id>Intent.AI.AutoImplementation</id>
   <version>1.0.0-beta.15</version>
-  <supportedClientVersions>[4.5.0-a,5.0.0)</supportedClientVersions>
+  <supportedClientVersions>[4.5.18-a,5.0.0)</supportedClientVersions>
   <summary>AI auto-implementation of business logic capabilities for the Services designer. By default, uses Open AI and requires an API Key.</summary>
   <description>AI auto-implementation of business logic capabilities for the Services designer. By default, uses Open AI and requires an API Key.</description>
   <authors>Intent Architect</authors>
