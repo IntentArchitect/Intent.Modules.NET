@@ -1,3 +1,7 @@
+### Version 3.4.10
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 3.4.9
 
 - Improvement: Updated NuGet package versions.

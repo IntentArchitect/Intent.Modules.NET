@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="92b90efc-aed0-43a1-91d2-35d2ebc7d219" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>1.13.0</name>
+      <name>1.13.1</name>
       <display>1.12.0 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,10 +47,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="db0904ce-4572-462d-9d8a-704686b57033" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="2d569698-51c3-40c6-bf9d-0a04de34d6fd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>OpenTelemetry</name>
           <isAbstract>false</isAbstract>
-          <value>1.13.0</value>
+          <value>1.13.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>92b90efc-aed0-43a1-91d2-35d2ebc7d219</parentFolderId>
@@ -61,7 +61,7 @@
       </childElements>
     </childElement>
     <childElement id="203a0144-cb8d-4248-99c4-80c6f630b4fa" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>1.13.0</name>
+      <name>1.13.1</name>
       <display>1.12.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -83,10 +83,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="3a0c0d8d-4c05-4a49-b154-ac5c248cb706" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f172fe95-c045-4fc9-90f1-c06b87847779" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>OpenTelemetry</name>
           <isAbstract>false</isAbstract>
-          <value>1.13.0</value>
+          <value>1.13.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>203a0144-cb8d-4248-99c4-80c6f630b4fa</parentFolderId>
@@ -94,7 +94,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="f255edd8-b018-4f1b-a2c4-0db003b5e7d5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c56bdedd-e952-4099-b6fd-f9d121ac93da" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Text.Json</name>
           <isAbstract>false</isAbstract>
           <value>8.0.5</value>
@@ -108,7 +108,7 @@
       </childElements>
     </childElement>
     <childElement id="4d7c9224-3870-4126-9541-2677b2a98713" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>1.13.0</name>
+      <name>1.13.1</name>
       <display>1.12.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -130,10 +130,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="0d36ffb8-a2bc-4adb-afe2-b9a7a851c04d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="56a19e08-9e68-4f9b-80fb-bb27566e9f9f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>OpenTelemetry</name>
           <isAbstract>false</isAbstract>
-          <value>1.13.0</value>
+          <value>1.13.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4d7c9224-3870-4126-9541-2677b2a98713</parentFolderId>
@@ -141,7 +141,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d00ced52-df25-4dc6-9837-dd3d054fb170" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="4a829750-5dbf-4cd8-9b06-bdb67ef713a6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Text.Encodings.Web</name>
           <isAbstract>false</isAbstract>
           <value>4.7.2</value>
@@ -152,7 +152,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="3ff01162-6d77-42de-846e-dd25e66cf3f9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f53f1000-cda9-4a2d-8619-6ac6660d04ac" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Text.Json</name>
           <isAbstract>false</isAbstract>
           <value>4.7.2</value>

@@ -34,12 +34,12 @@ namespace Intent.Modules.Azure.KeyVault
             NugetRegistry.Register(AzureIdentityPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, >= 0) => new PackageVersion("1.16.0")
-                            .WithNugetDependency("Azure.Core", "1.47.3")
+                        ( >= 8, >= 0) => new PackageVersion("1.17.0")
+                            .WithNugetDependency("Azure.Core", "1.49.0")
                             .WithNugetDependency("Microsoft.Identity.Client", "4.76.0")
                             .WithNugetDependency("Microsoft.Identity.Client.Extensions.Msal", "4.76.0"),
-                        ( >= 2, >= 0) => new PackageVersion("1.16.0")
-                            .WithNugetDependency("Azure.Core", "1.47.3")
+                        ( >= 2, >= 0) => new PackageVersion("1.17.0")
+                            .WithNugetDependency("Azure.Core", "1.49.0")
                             .WithNugetDependency("Microsoft.Identity.Client", "4.76.0")
                             .WithNugetDependency("Microsoft.Identity.Client.Extensions.Msal", "4.76.0")
                             .WithNugetDependency("System.Memory", "4.5.5"),

@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="a5ab365e-aa3c-45f1-af67-bb52ba527c82" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>1.13.0</name>
+      <name>1.13.1</name>
       <display>1.12.0 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,10 +47,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="46ae4f46-3b6a-4a76-8d52-427f8f552403" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="01ef2e72-1729-49a1-b139-9d951fdf5c88" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>OpenTelemetry.Api.ProviderBuilderExtensions</name>
           <isAbstract>false</isAbstract>
-          <value>1.13.0</value>
+          <value>1.13.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a5ab365e-aa3c-45f1-af67-bb52ba527c82</parentFolderId>
@@ -58,7 +58,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="49c5ea5c-4d86-4fef-8d42-b0b9b4d755fc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="914bb704-ba8e-44fe-8f6c-0f0dd830f320" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics.Abstractions</name>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>
@@ -69,7 +69,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="cb63cebf-7354-4e23-8889-7ec0368bc6c7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="1d21cc13-74b7-430d-a0cb-ed83eab140c0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Configuration</name>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>
@@ -83,7 +83,7 @@
       </childElements>
     </childElement>
     <childElement id="e0619ba1-31b7-44d0-be0f-28316036374a" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>1.13.0</name>
+      <name>1.13.1</name>
       <display>1.12.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -105,10 +105,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="a7be94f6-3049-491a-afef-e37c29cc2e59" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="2923339d-5fb6-40e9-9cc7-c07bdef2cca7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>OpenTelemetry.Api.ProviderBuilderExtensions</name>
           <isAbstract>false</isAbstract>
-          <value>1.13.0</value>
+          <value>1.13.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e0619ba1-31b7-44d0-be0f-28316036374a</parentFolderId>
@@ -116,7 +116,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="8a64eaa4-edca-432f-bcb6-5152dd47cf94" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="bc6567af-83fe-41a4-8cd6-447e96581165" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics.Abstractions</name>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>
@@ -127,7 +127,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="a289c2d6-0759-40c0-9e25-945ecb5ee2bb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d4add74d-f996-48a6-932b-7d7efe505d04" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Configuration</name>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>
@@ -141,7 +141,7 @@
       </childElements>
     </childElement>
     <childElement id="a2983073-c134-465e-8a88-da4596a31a38" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>1.13.0</name>
+      <name>1.13.1</name>
       <display>1.12.0 ( &gt;= .NETStandard,Version=v2.1 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -163,10 +163,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="bba6cafd-14b1-442f-a6d5-c603c044bfd1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="03799735-acc9-4ebe-a347-4ebb7c5967fe" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>OpenTelemetry.Api.ProviderBuilderExtensions</name>
           <isAbstract>false</isAbstract>
-          <value>1.13.0</value>
+          <value>1.13.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a2983073-c134-465e-8a88-da4596a31a38</parentFolderId>
@@ -174,7 +174,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d7b644ea-7172-4f41-8a2d-88da8cfe9200" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e25ffad5-b880-4234-96b0-7a5c000f9d7c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics.Abstractions</name>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>
@@ -185,7 +185,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="0ecb52e7-1b34-49d9-abd2-54dbecec82af" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="2a5f76ed-b039-4823-be75-2bcb54d60e22" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Configuration</name>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>
@@ -199,7 +199,7 @@
       </childElements>
     </childElement>
     <childElement id="ffe110f9-8890-4052-98b7-767943bfa4a1" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>1.13.0</name>
+      <name>1.13.1</name>
       <display>1.12.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -221,10 +221,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="b8df7cdf-01f2-4cdc-9602-516b2aa36ec4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a90f06ee-cc2d-4f50-bb80-92afa63d4f77" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>OpenTelemetry.Api.ProviderBuilderExtensions</name>
           <isAbstract>false</isAbstract>
-          <value>1.13.0</value>
+          <value>1.13.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ffe110f9-8890-4052-98b7-767943bfa4a1</parentFolderId>
@@ -232,7 +232,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="1ae00e22-e47b-40ea-8fda-e410d888fb04" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="93dd521f-5667-4bc6-96c0-ab9d5c10d2d4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics.Abstractions</name>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>
@@ -243,7 +243,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="476a0f5c-15e7-48aa-9d9a-248eca77a4d6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d6b30510-1bea-487f-89ff-cebb4a0623db" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Configuration</name>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>

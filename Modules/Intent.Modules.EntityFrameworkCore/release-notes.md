@@ -1,3 +1,7 @@
+### Version 5.0.32
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 5.0.31
 
 - Improvement: Updated NuGet package versions.

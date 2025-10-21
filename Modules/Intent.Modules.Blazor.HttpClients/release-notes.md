@@ -1,3 +1,7 @@
+### Version 4.0.19
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 4.0.18
 
 - Fixed: Nullable primitive return types (non wrapped as json responses) caused un-compilable code.

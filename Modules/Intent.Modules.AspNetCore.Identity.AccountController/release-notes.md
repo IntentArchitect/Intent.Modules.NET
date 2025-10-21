@@ -1,3 +1,7 @@
+### Version 4.1.12
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 4.1.11
 
 - Improvement: Updated NuGet package versions.

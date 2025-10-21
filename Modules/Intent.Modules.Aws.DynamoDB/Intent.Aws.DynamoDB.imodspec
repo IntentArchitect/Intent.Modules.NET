@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Aws.DynamoDB</id>
-  <version>1.0.0-beta.5</version>
+  <version>1.0.0-beta.6</version>
   <supportedClientVersions>[4.5.15-a,5.0.0)</supportedClientVersions>
   <summary>DynamoDB database provider repository.</summary>
   <description>DynamoDB database provider repository.</description>

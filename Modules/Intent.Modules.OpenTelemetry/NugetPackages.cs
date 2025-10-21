@@ -62,35 +62,35 @@ namespace Intent.Modules.OpenTelemetry
             NugetRegistry.Register(OpenTelemetryPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("1.13.0")
+                        ( >= 9, >= 0) => new PackageVersion("1.13.1")
                             .WithNugetDependency("Microsoft.Extensions.Diagnostics.Abstractions", "9.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Logging.Configuration", "9.0.0")
-                            .WithNugetDependency("OpenTelemetry.Api.ProviderBuilderExtensions", "1.13.0"),
-                        ( >= 8, >= 0) => new PackageVersion("1.13.0")
+                            .WithNugetDependency("OpenTelemetry.Api.ProviderBuilderExtensions", "1.13.1"),
+                        ( >= 8, >= 0) => new PackageVersion("1.13.1")
                             .WithNugetDependency("Microsoft.Extensions.Diagnostics.Abstractions", "9.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Logging.Configuration", "9.0.0")
-                            .WithNugetDependency("OpenTelemetry.Api.ProviderBuilderExtensions", "1.13.0"),
-                        ( >= 2, >= 1) => new PackageVersion("1.13.0")
+                            .WithNugetDependency("OpenTelemetry.Api.ProviderBuilderExtensions", "1.13.1"),
+                        ( >= 2, >= 1) => new PackageVersion("1.13.1")
                             .WithNugetDependency("Microsoft.Extensions.Diagnostics.Abstractions", "9.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Logging.Configuration", "9.0.0")
-                            .WithNugetDependency("OpenTelemetry.Api.ProviderBuilderExtensions", "1.13.0"),
-                        ( >= 2, >= 0) => new PackageVersion("1.13.0")
+                            .WithNugetDependency("OpenTelemetry.Api.ProviderBuilderExtensions", "1.13.1"),
+                        ( >= 2, >= 0) => new PackageVersion("1.13.1")
                             .WithNugetDependency("Microsoft.Extensions.Diagnostics.Abstractions", "9.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Logging.Configuration", "9.0.0")
-                            .WithNugetDependency("OpenTelemetry.Api.ProviderBuilderExtensions", "1.13.0"),
+                            .WithNugetDependency("OpenTelemetry.Api.ProviderBuilderExtensions", "1.13.1"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{OpenTelemetryPackageName}'"),
                     }
                 );
             NugetRegistry.Register(OpenTelemetryExporterConsolePackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("1.13.0")
-                            .WithNugetDependency("OpenTelemetry", "1.13.0"),
-                        ( >= 8, >= 0) => new PackageVersion("1.13.0")
-                            .WithNugetDependency("OpenTelemetry", "1.13.0")
+                        ( >= 9, >= 0) => new PackageVersion("1.13.1")
+                            .WithNugetDependency("OpenTelemetry", "1.13.1"),
+                        ( >= 8, >= 0) => new PackageVersion("1.13.1")
+                            .WithNugetDependency("OpenTelemetry", "1.13.1")
                             .WithNugetDependency("System.Text.Json", "8.0.5"),
-                        ( >= 2, >= 0) => new PackageVersion("1.13.0")
-                            .WithNugetDependency("OpenTelemetry", "1.13.0")
+                        ( >= 2, >= 0) => new PackageVersion("1.13.1")
+                            .WithNugetDependency("OpenTelemetry", "1.13.1")
                             .WithNugetDependency("System.Text.Encodings.Web", "4.7.2")
                             .WithNugetDependency("System.Text.Json", "4.7.2"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{OpenTelemetryExporterConsolePackageName}'"),
@@ -99,29 +99,29 @@ namespace Intent.Modules.OpenTelemetry
             NugetRegistry.Register(OpenTelemetryExporterOpenTelemetryProtocolPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("1.13.0")
-                            .WithNugetDependency("OpenTelemetry", "1.13.0"),
-                        ( >= 8, >= 0) => new PackageVersion("1.13.0")
-                            .WithNugetDependency("OpenTelemetry", "1.13.0"),
-                        ( >= 2, >= 1) => new PackageVersion("1.13.0")
-                            .WithNugetDependency("OpenTelemetry", "1.13.0"),
-                        ( >= 2, >= 0) => new PackageVersion("1.13.0")
-                            .WithNugetDependency("OpenTelemetry", "1.13.0"),
+                        ( >= 9, >= 0) => new PackageVersion("1.13.1")
+                            .WithNugetDependency("OpenTelemetry", "1.13.1"),
+                        ( >= 8, >= 0) => new PackageVersion("1.13.1")
+                            .WithNugetDependency("OpenTelemetry", "1.13.1"),
+                        ( >= 2, >= 1) => new PackageVersion("1.13.1")
+                            .WithNugetDependency("OpenTelemetry", "1.13.1"),
+                        ( >= 2, >= 0) => new PackageVersion("1.13.1")
+                            .WithNugetDependency("OpenTelemetry", "1.13.1"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{OpenTelemetryExporterOpenTelemetryProtocolPackageName}'"),
                     }
                 );
             NugetRegistry.Register(OpenTelemetryExtensionsHostingPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("1.13.0")
+                        ( >= 9, >= 0) => new PackageVersion("1.13.1")
                             .WithNugetDependency("Microsoft.Extensions.Hosting.Abstractions", "9.0.0")
-                            .WithNugetDependency("OpenTelemetry", "1.13.0"),
-                        ( >= 8, >= 0) => new PackageVersion("1.13.0")
+                            .WithNugetDependency("OpenTelemetry", "1.13.1"),
+                        ( >= 8, >= 0) => new PackageVersion("1.13.1")
                             .WithNugetDependency("Microsoft.Extensions.Hosting.Abstractions", "9.0.0")
-                            .WithNugetDependency("OpenTelemetry", "1.13.0"),
-                        ( >= 2, >= 0) => new PackageVersion("1.13.0")
+                            .WithNugetDependency("OpenTelemetry", "1.13.1"),
+                        ( >= 2, >= 0) => new PackageVersion("1.13.1")
                             .WithNugetDependency("Microsoft.Extensions.Hosting.Abstractions", "9.0.0")
-                            .WithNugetDependency("OpenTelemetry", "1.13.0"),
+                            .WithNugetDependency("OpenTelemetry", "1.13.1"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{OpenTelemetryExtensionsHostingPackageName}'"),
                     }
                 );

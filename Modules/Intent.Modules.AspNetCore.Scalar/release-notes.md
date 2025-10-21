@@ -1,5 +1,6 @@
 ### Version 1.0.3
 
+- Improvement: Updated NuGet package versions.
 - Fixed: Aligned with `Intent.AspNetCore.Swashbuckle` so that Schema identifier generation to ensure generated swagger schema is OpenAPI compliant.
 
 ### Version 1.0.2

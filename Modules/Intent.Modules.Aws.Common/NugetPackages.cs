@@ -18,13 +18,13 @@ namespace Intent.Modules.Aws.Common
             NugetRegistry.Register(AWSSDKExtensionsNETCoreSetupPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, >= 0) => new PackageVersion("4.0.3.4")
-                            .WithNugetDependency("AWSSDK.Core", "4.0.0.32")
+                        ( >= 8, >= 0) => new PackageVersion("4.0.3.7")
+                            .WithNugetDependency("AWSSDK.Core", "4.0.1.1")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "2.0.0")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "8.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "2.0.0"),
-                        ( >= 2, >= 0) => new PackageVersion("4.0.3.4")
-                            .WithNugetDependency("AWSSDK.Core", "4.0.0.32")
+                        ( >= 2, >= 0) => new PackageVersion("4.0.3.7")
+                            .WithNugetDependency("AWSSDK.Core", "4.0.1.1")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "2.0.0")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "2.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "2.0.0"),
