@@ -9,6 +9,9 @@
     <Import_RootNamespace>Intent.Modules.Integration.IaC.Shared.AwsSqs</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-
+    <Compile Include="$(MSBuildThisFileDirectory)IntegrationManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SqsItemBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SqsMessage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SqsMethodType.cs" />
   </ItemGroup>
 </Project>
