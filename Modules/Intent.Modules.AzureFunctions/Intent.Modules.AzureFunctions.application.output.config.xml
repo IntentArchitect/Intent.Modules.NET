@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<outputFiles>
+  <files>
+    <file relativePath="Intent.Modules.AzureFunctions/Intent.Modules.AzureFunctions.csproj" state="ignored" />
+    <file relativePath="Intent.Modules.AzureFunctions/modelers/Azure Functions CQRS Extensions.designer.settings" state="ignored" />
+    <file relativePath="Intent.Modules.AzureFunctions/modelers/Azure Functions Services Extensions.designer.settings" state="ignored" />
+    <file relativePath="Intent.Modules.AzureFunctions/modelers/Azure Functions Types.designer.settings" state="ignored" />
+  </files>
+</outputFiles>

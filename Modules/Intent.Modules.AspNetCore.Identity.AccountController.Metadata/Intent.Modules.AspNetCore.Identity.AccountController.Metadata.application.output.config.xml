@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<outputFiles>
+  <files>
+    <file relativePath="Intent.Modules.AspNetCore.Identity.AccountController.Metadata/Intent.AspNetCore.Identity.AccountController.Metadata.imodspec" state="ignored" />
+    <file relativePath="Intent.Modules.AspNetCore.Identity.AccountController.Metadata/release-notes.md" state="once-off-generated" />
+  </files>
+</outputFiles>

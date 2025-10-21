@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<outputFiles>
+  <files>
+    <file relativePath="Intent.Modules.AI.Blazor/content/MudBlazor/readme.txt" state="ignored;once-off-generated" />
+    <file relativePath="Intent.Modules.AI.Blazor/content/MudBlazorAIPromptTemplates/readme.txt" state="ignored;once-off-generated" />
+    <file relativePath="Intent.Modules.AI.Blazor/modelers/AI Prompts.designer.settings" state="ignored" />
+    <file relativePath="Intent.Modules.AI.Blazor/release-notes.md" state="once-off-generated" />
+  </files>
+</outputFiles>

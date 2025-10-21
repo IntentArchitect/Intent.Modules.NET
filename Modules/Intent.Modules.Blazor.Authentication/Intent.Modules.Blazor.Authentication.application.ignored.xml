@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ignoredFiles>
-  <files>
-    <file relativePath="Intent.Modules.Blazor.Authentication/content/Components/Account/Pages/readme.txt" />
-    <file relativePath="Intent.Modules.Blazor.Authentication/content/Components/Account/Shared/readme.txt" />
-    <file relativePath="Intent.Modules.Blazor.Authentication/content/wwwroot/readme.txt" />
-  </files>
-</ignoredFiles>

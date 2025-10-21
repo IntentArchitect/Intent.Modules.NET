@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<outputFiles>
+  <files>
+    <file relativePath="Intent.Modules.MongoDb.MongoFramework.Repositories/Intent.MongoDb.MongoFramework.Repositories.imodspec" state="ignored" />
+    <file relativePath="Intent.Modules.MongoDb.MongoFramework.Repositories/Templates/TemplateExtensions.cs" state="ignored" />
+  </files>
+</outputFiles>

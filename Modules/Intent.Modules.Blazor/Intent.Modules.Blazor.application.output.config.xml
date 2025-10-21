@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<outputFiles>
+  <files>
+    <file relativePath="Intent.Modules.Blazor/content/NoSamplePages/readme.txt" state="ignored;once-off-generated" />
+    <file relativePath="Intent.Modules.Blazor/content/SamplePages/readme.txt" state="ignored;once-off-generated" />
+    <file relativePath="Intent.Modules.Blazor/content/WasmNoSamplePages/readme.txt" state="ignored;once-off-generated" />
+    <file relativePath="Intent.Modules.Blazor/content/WasmSamplePages/readme.txt" state="ignored;once-off-generated" />
+    <file relativePath="Intent.Modules.Blazor/release-notes.md" state="once-off-generated" />
+    <file relativePath="Intent.Modules.Blazor/Settings/ModuleSettingsExtensions.cs" state="ignored" />
+  </files>
+</outputFiles>

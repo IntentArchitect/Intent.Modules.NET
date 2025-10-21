@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ignoredFiles>
-  <files>
-    <file relativePath="CloudBlobStorageClients.Application/Common/Storage/BlobStorageExtensions.cs" />
-    <file relativePath="CloudBlobStorageClients.Infrastructure/BlobStorage/AzureBlobStorage.cs" />
-  </files>
-</ignoredFiles>
