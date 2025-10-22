@@ -1,3 +1,7 @@
+### Version 2.0.4
+
+- Fixed: Can customize success response codes through `HTTP Settings` Stereotype.
+
 ### Version 2.0.3
 
 - Fixed: Dispatching not only return REST concepts for HTTP triggers.

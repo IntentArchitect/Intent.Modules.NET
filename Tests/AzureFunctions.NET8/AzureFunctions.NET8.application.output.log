@@ -315,6 +315,46 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#ef1a68c3-4fe3-4c9f-9ba6-b661d05735d9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.NET8.Api/ResponseCodes/CreateResponseCode.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ResponseCodes/CreateResponseCode.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#82975732-4c16-478e-a2fb-cb2c78735d63</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.NET8.Api/ResponseCodes/DeleteResponseCode.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ResponseCodes/DeleteResponseCode.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#ffa03917-f9af-4f07-b824-631629a0ea6d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.NET8.Api/ResponseCodes/GetResponseCodeById.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ResponseCodes/GetResponseCodeById.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#099025ff-0c03-4d91-a39b-84de139fb12f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.NET8.Api/ResponseCodes/GetResponseCodes.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ResponseCodes/GetResponseCodes.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#435d0a20-3714-4f04-8906-256816c23253</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.NET8.Api/ResponseCodes/UpdateResponseCode.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ResponseCodes/UpdateResponseCode.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>e4830dc4-4a5d-4d28-91a3-837ec04c6337</ProjectId>
       <CorrelationId>Intent.AzureFunctions.ReturnTypes.JsonResponse#d3a60ed4-4ef0-400f-842d-7c7f270705fe</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -1220,6 +1260,102 @@
     </FileLog>
     <FileLog>
       <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#ef1a68c3-4fe3-4c9f-9ba6-b661d05735d9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.NET8.Application/ResponseCodes/CreateResponseCode/CreateResponseCodeCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ResponseCodes/CreateResponseCode/CreateResponseCodeCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#ef1a68c3-4fe3-4c9f-9ba6-b661d05735d9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.NET8.Application/ResponseCodes/CreateResponseCode/CreateResponseCodeCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ResponseCodes/CreateResponseCode/CreateResponseCodeCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#82975732-4c16-478e-a2fb-cb2c78735d63</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.NET8.Application/ResponseCodes/DeleteResponseCode/DeleteResponseCodeCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ResponseCodes/DeleteResponseCode/DeleteResponseCodeCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#82975732-4c16-478e-a2fb-cb2c78735d63</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.NET8.Application/ResponseCodes/DeleteResponseCode/DeleteResponseCodeCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ResponseCodes/DeleteResponseCode/DeleteResponseCodeCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#ffa03917-f9af-4f07-b824-631629a0ea6d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.NET8.Application/ResponseCodes/GetResponseCodeById/GetResponseCodeByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ResponseCodes/GetResponseCodeById/GetResponseCodeByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#ffa03917-f9af-4f07-b824-631629a0ea6d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.NET8.Application/ResponseCodes/GetResponseCodeById/GetResponseCodeByIdQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ResponseCodes/GetResponseCodeById/GetResponseCodeByIdQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#099025ff-0c03-4d91-a39b-84de139fb12f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.NET8.Application/ResponseCodes/GetResponseCodes/GetResponseCodesQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ResponseCodes/GetResponseCodes/GetResponseCodesQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#099025ff-0c03-4d91-a39b-84de139fb12f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.NET8.Application/ResponseCodes/GetResponseCodes/GetResponseCodesQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ResponseCodes/GetResponseCodes/GetResponseCodesQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#0da350e3-663c-4c7c-80af-d36bc38d6125</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.NET8.Application/ResponseCodes/ResponseCodeDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ResponseCodes/ResponseCodeDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#0da350e3-663c-4c7c-80af-d36bc38d6125</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.NET8.Application/ResponseCodes/ResponseCodeDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ResponseCodes/ResponseCodeDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#435d0a20-3714-4f04-8906-256816c23253</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.NET8.Application/ResponseCodes/UpdateResponseCode/UpdateResponseCodeCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ResponseCodes/UpdateResponseCode/UpdateResponseCodeCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#435d0a20-3714-4f04-8906-256816c23253</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.NET8.Application/ResponseCodes/UpdateResponseCode/UpdateResponseCodeCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ResponseCodes/UpdateResponseCode/UpdateResponseCodeCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#d59572ba-0a5c-408c-9793-4dc885a4e347</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.NET8.Application/SampleDomains/SampleDomainCreateDto.cs</ApplicationRelativeFilePath>
@@ -1476,6 +1612,46 @@
     </FileLog>
     <FileLog>
       <ProjectId>0bcdfbdd-9d5c-4ad4-bffe-71991b03c925</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#ef1a68c3-4fe3-4c9f-9ba6-b661d05735d9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.NET8.Application/Validators/ResponseCodes/CreateResponseCode/CreateResponseCodeCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ResponseCodes/CreateResponseCode/CreateResponseCodeCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0bcdfbdd-9d5c-4ad4-bffe-71991b03c925</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#82975732-4c16-478e-a2fb-cb2c78735d63</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.NET8.Application/Validators/ResponseCodes/DeleteResponseCode/DeleteResponseCodeCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ResponseCodes/DeleteResponseCode/DeleteResponseCodeCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0bcdfbdd-9d5c-4ad4-bffe-71991b03c925</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#ffa03917-f9af-4f07-b824-631629a0ea6d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.NET8.Application/Validators/ResponseCodes/GetResponseCodeById/GetResponseCodeByIdQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ResponseCodes/GetResponseCodeById/GetResponseCodeByIdQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0bcdfbdd-9d5c-4ad4-bffe-71991b03c925</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#099025ff-0c03-4d91-a39b-84de139fb12f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.NET8.Application/Validators/ResponseCodes/GetResponseCodes/GetResponseCodesQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ResponseCodes/GetResponseCodes/GetResponseCodesQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0bcdfbdd-9d5c-4ad4-bffe-71991b03c925</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#435d0a20-3714-4f04-8906-256816c23253</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.NET8.Application/Validators/ResponseCodes/UpdateResponseCode/UpdateResponseCodeCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ResponseCodes/UpdateResponseCode/UpdateResponseCodeCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0bcdfbdd-9d5c-4ad4-bffe-71991b03c925</ProjectId>
       <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#d59572ba-0a5c-408c-9793-4dc885a4e347</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.NET8.Application/Validators/SampleDomains/SampleDomainCreateDtoValidator.cs</ApplicationRelativeFilePath>
@@ -1572,6 +1748,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>7b80e27b-3b32-4a5a-9034-4c9086797d5d</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#e03b3456-5702-443d-9fdd-b3dacc7f260e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.NET8.Domain/Entities/ResponseCode.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ResponseCode.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7b80e27b-3b32-4a5a-9034-4c9086797d5d</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#35c4b661-3c5e-433c-9ec8-0a5d86e594fc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.NET8.Domain/Entities/SampleDomain.cs</ApplicationRelativeFilePath>
@@ -1608,6 +1792,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.NET8.Domain/Repositories/IRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6af56d8a-505e-4dba-9538-cf184d053839</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#e03b3456-5702-443d-9fdd-b3dacc7f260e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.NET8.Domain/Repositories/IResponseCodeRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IResponseCodeRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1756,6 +1948,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>8404cfd6-62ac-48f9-a9a1-c2ce851ab290</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#e03b3456-5702-443d-9fdd-b3dacc7f260e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.NET8.Infrastructure/Persistence/Configurations/ResponseCodeConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ResponseCodeConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8404cfd6-62ac-48f9-a9a1-c2ce851ab290</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#35c4b661-3c5e-433c-9ec8-0a5d86e594fc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.NET8.Infrastructure/Persistence/Configurations/SampleDomainConfiguration.cs</ApplicationRelativeFilePath>
@@ -1784,6 +1984,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.NET8.Infrastructure/Repositories/RepositoryBase.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RepositoryBase.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f7b3e029-eed8-4c5e-a3e5-35c8a6513ec6</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#e03b3456-5702-443d-9fdd-b3dacc7f260e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.NET8.Infrastructure/Repositories/ResponseCodeRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ResponseCodeRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

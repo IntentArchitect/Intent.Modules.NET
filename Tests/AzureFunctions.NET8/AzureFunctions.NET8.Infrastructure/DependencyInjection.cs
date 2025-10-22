@@ -30,6 +30,7 @@ namespace AzureFunctions.NET8.Infrastructure
             services.AddSingleton<IDistributedCacheWithUnitOfWork, DistributedCacheWithUnitOfWork>();
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<ICustomerRepository, CustomerRepository>();
+            services.AddTransient<IResponseCodeRepository, ResponseCodeRepository>();
             services.AddTransient<ISampleDomainRepository, SampleDomainRepository>();
             services.AddHttpClients(configuration);
             return services;
