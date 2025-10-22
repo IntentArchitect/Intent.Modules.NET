@@ -56,7 +56,7 @@ public class AutoImplementCqrsHandlerTask : IModuleTask
         var userProvidedContext = !string.IsNullOrWhiteSpace(args[2]) ? args[2] : "None";
         var provider = new AISettings.ProviderOptions(args[3]).AsEnum();
         var modelId = args[4];
-        var thinkingType = args[5];
+        var thinkingLevel = args[5];
 
         Logging.Log.Info($"Args: {string.Join(",", args)}");
         var kernel = _intentSemanticKernelFactory.BuildSemanticKernel(modelId, provider, null);
@@ -75,7 +75,7 @@ public class AutoImplementCqrsHandlerTask : IModuleTask
 
         var designContext = GetDesignContext(element);
 
-        var requestFunction = CreatePromptFunction(kernel, thinkingType);
+        var requestFunction = CreatePromptFunction(kernel, thinkingLevel);
         var fileChangesResult = requestFunction.InvokeFileChangesPrompt(kernel, new KernelArguments()
         {
             ["inputFilesJson"] = jsonInput,
@@ -95,7 +95,7 @@ public class AutoImplementCqrsHandlerTask : IModuleTask
         return "success";
     }
 
-    private KernelFunction CreatePromptFunction(Kernel kernel, string thinkingType)
+    private KernelFunction CreatePromptFunction(Kernel kernel, string thinkingLevel)
     {
         const string promptTemplate =
             """
@@ -219,7 +219,7 @@ public class AutoImplementCqrsHandlerTask : IModuleTask
 		    2.6. DO NOT do any character escaping to the code.
 		    """;
 
-        var requestFunction = kernel.CreateFunctionFromPrompt(promptTemplate, kernel.GetRequiredService<IAiProviderService>().GetPromptExecutionSettings(thinkingType));
+        var requestFunction = kernel.CreateFunctionFromPrompt(promptTemplate, kernel.GetRequiredService<IAiProviderService>().GetPromptExecutionSettings(thinkingLevel));
         return requestFunction;
     }
 

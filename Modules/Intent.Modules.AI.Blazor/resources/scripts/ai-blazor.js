@@ -1,0 +1,173 @@
+async function execute() {
+    var _a, _b, _c;
+    const providerModelsResult = await getAiProviderModels();
+    const settingName = "AI.Blazor";
+    let promptTemplatesString = await executeModuleTask("Intent.Modules.AI.Blazor.GetPromptTemplates", application.id, element.getParent().getName() + "/" + element.getName());
+    let promptTemplates = JSON.parse(promptTemplatesString);
+    let defaultPromptTemplate = promptTemplates.find(t => t.recommenedDefault);
+    // Open a dialog for the user to enter an AI prompt
+    let promptResult = await dialogService.openForm({
+        title: "AI: Implement " + element.getName(),
+        icon: Icons.AiBlazor,
+        fields: [
+            {
+                id: "prompt",
+                fieldType: "textarea",
+                label: "Provide any additional context",
+                placeholder: "Leave blank if you wish to provide no additional context.",
+                hint: "This additional context will be combined with the pre-engineered prompt to guide the AI Agent.",
+                value: defaultPromptTemplate === null || defaultPromptTemplate === void 0 ? void 0 : defaultPromptTemplate.defaultUserPrompt
+            },
+            {
+                id: "templateId",
+                fieldType: "select",
+                label: "Prompt Template",
+                placeholder: "Select Template",
+                selectOptions: promptTemplates,
+                hint: "Select a Prompt Template to guide the the LLM.",
+                value: defaultPromptTemplate === null || defaultPromptTemplate === void 0 ? void 0 : defaultPromptTemplate.id
+            },
+            {
+                id: "exampleComponentIds",
+                fieldType: "multi-select",
+                label: "Example Components",
+                placeholder: "Select components",
+                selectOptions: lookupTypesOf("Component").filter(x => x.id != element.id).map(x => {
+                    return {
+                        id: x.id,
+                        description: x.getName(),
+                        icon: x.getIcon(),
+                        additionalInfo: x.getParents().map(x => x.getName()).join("/")
+                    };
+                }),
+                hint: "Provide the LLM with examples of existing components that it should base its implementation on."
+            },
+            ...await getAiModelSelectionFields(providerModelsResult, settingName)
+        ],
+        submitButtonText: "Execute",
+        minWidth: "750px"
+    });
+    // Check if the user cancelled
+    if (!promptResult) {
+        return;
+    }
+    const { providerId, modelId, thinkingLevel: thinkingLevel } = await collectAndPersistAiSettingsFromPromptResult(promptResult, providerModelsResult, settingName);
+    await launchHostedModuleTask("Intent.Modules.AI.Blazor.Generate", [
+        application.id,
+        element.id,
+        (_a = promptResult.prompt) !== null && _a !== void 0 ? _a : "",
+        (_c = JSON.stringify((_b = promptResult.exampleComponentIds) !== null && _b !== void 0 ? _b : [])) !== null && _c !== void 0 ? _c : "",
+        providerId,
+        modelId,
+        thinkingLevel,
+        promptResult.templateId
+    ], {
+        taskName: "AI: Blazor for " + element.getName()
+    });
+}
+async function getAiProviderModels() {
+    const moduleTaskResult = await executeModuleTask("Intent.Modules.Common.AI.Tasks.ProviderModelsTask");
+    const providerModels = JSON.parse(moduleTaskResult);
+    const modelLookup = providerModels.reduce((acc, item) => {
+        acc[`${item.providerId}--${item.modelName}`] = item;
+        return acc;
+    }, {});
+    return { providerModels, modelLookup };
+}
+async function getAiModelSelectionFields(providerModelsResult, aiSettingKeyPrefix) {
+    const globalSettings = await userSettings.loadGlobalAsync();
+    const autoImplementationAiModelId = globalSettings.get(`${aiSettingKeyPrefix}.ModelId`);
+    const autoImplementationAiThinkingLevel = globalSettings.get(`${aiSettingKeyPrefix}.ThinkingLevel`);
+    const { providerModels, modelLookup } = providerModelsResult;
+    return [
+        {
+            id: "model",
+            fieldType: "select",
+            label: "Model",
+            isRequired: true,
+            hint: providerModels.length === 0 ? "Not seeing any AI Models? Learn how to configure or add models [here](https://docs.intentarchitect.com/articles/modules-common/intent-common-ai/intent-common-ai.html)." : "",
+            selectOptions: Object.entries(modelLookup)
+                .map(([key, value]) => {
+                return {
+                    id: key,
+                    description: value.modelName,
+                    additionalInfo: value.providerName
+                };
+            }),
+            value: autoImplementationAiModelId,
+            onChange: async (config) => {
+                const curThinkingType = modelLookup[config.getField("model").value].thinkingType;
+                const thinkingField = config.getField("thinking");
+                thinkingField.isHidden = curThinkingType === "None";
+                thinkingField.selectOptions = getApplicableThinkingOptions(curThinkingType);
+                if (curThinkingType === "ThinkingLevels") {
+                    thinkingField.value = "low";
+                }
+                else if (curThinkingType === "Unknown") {
+                    thinkingField.value = "none";
+                }
+                else {
+                    thinkingField.value = null;
+                }
+            }
+        },
+        {
+            id: "thinking",
+            fieldType: "select",
+            label: "Thinking/reasoning mode",
+            isHidden: autoImplementationAiThinkingLevel == null || providerModels.length === 0,
+            value: autoImplementationAiThinkingLevel,
+            selectOptions: getApplicableThinkingOptions(modelLookup[autoImplementationAiModelId].thinkingType)
+        }
+    ];
+    function getApplicableThinkingOptions(thinkingType) {
+        if (thinkingType === "ThinkingLevels") {
+            return [
+                {
+                    id: "low",
+                    description: "Low",
+                    additionalInfo: "Thinks less, quicker"
+                },
+                {
+                    id: "high",
+                    description: "High",
+                    additionalInfo: "Thinks more, slower"
+                }
+            ];
+        }
+        else if (thinkingType === "Unknown") {
+            return [
+                {
+                    id: "none",
+                    description: "None",
+                    additionalInfo: "No thinking/reasoning"
+                },
+                {
+                    id: "low",
+                    description: "Low",
+                    additionalInfo: "Thinks less, quicker"
+                },
+                {
+                    id: "high",
+                    description: "High",
+                    additionalInfo: "Thinks more, slower"
+                }
+            ];
+        }
+        else {
+            return [];
+        }
+    }
+}
+async function collectAndPersistAiSettingsFromPromptResult(promptResult, providerModelsResult, aiSettingKeyPrefix) {
+    const providerId = providerModelsResult.modelLookup[promptResult.model].providerId;
+    const modelId = providerModelsResult.modelLookup[promptResult.model].modelName;
+    const thinkingLevel = promptResult.thinking;
+    const globalSettings = await userSettings.loadGlobalAsync();
+    globalSettings.set(`${aiSettingKeyPrefix}.ModelId`, `${providerId}--${modelId}`);
+    globalSettings.set(`${aiSettingKeyPrefix}.ThinkingLevel`, thinkingLevel);
+    return { providerId, modelId, thinkingLevel: thinkingLevel };
+}
+class Icons {
+}
+Icons.AiBlazor = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iYnJhY2tldF9zeW1ib2wtYmx1ZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgNDIuOSA0Mi45Ij4KICA8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMjkuNi4xLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogMi4xLjEgQnVpbGQgOSkgIC0tPgogIDxkZWZzPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJsaW5lYXItZ3JhZGllbnQtNDV5OTg3ZGZnaGRmZ3hkZmJ2c2Z2aHdkZmJkZnJ2ZWZuajIwMzh0aGktZXJnbmkzOTU0eTc4dTIwMzlyZmowLXc0My10OWozMGlidm5lOTg1Ym52ZSIgeDE9Ii0xMTUyMi43IiB5MT0iLTY2NTcuNyIgeDI9Ii0xMTUyMi43IiB5Mj0iLTY2MzkuNCIgZ3JhZGllbnRUcmFuc2Zvcm09InRyYW5zbGF0ZSgtNjYzNiAtMTE0OTUuMikgcm90YXRlKC05MCkgc2NhbGUoMSAtMSkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmZmIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iLjQiIHN0b3AtY29sb3I9IiMwOWM0ZmYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMDA3MGMwIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJsaW5lYXItZ3JhZGllbnQtNDV5OTg3ZGZnaGRmZ3hkZmJ2c2Z2aHdkZmJkZnJ2ZWZuajIwMzh0aGktZXJnbmkzOTU0eTc4dTIwMzlyZmowLXc0My10OWozMGlidm5lOTg1Ym52ZTEiIHgxPSItMTU2MTIuMiIgeTE9Ii0xNTM3IiB4Mj0iLTE1NjEyLjIiIHkyPSItMTUxOC45IiBncmFkaWVudFRyYW5zZm9ybT0idHJhbnNsYXRlKC0xMjA5OS44IC05OTI4LjcpIHJvdGF0ZSgtMTM1KSBzY2FsZSgxIC0xKSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZmYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIuNCIgc3RvcC1jb2xvcj0iIzA5YzRmZiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMwMDcwYzAiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudC00NXk5ODdkZmdoZGZneGRmYnZzZnZod2RmYmRmcnZlZm5qMjAzOHRoaS1lcmduaTM5NTR5Nzh1MjAzOXJmajAtdzQzLXQ5ajMwaWJ2bmU5ODVibnZlMiIgeDE9Ii0xNDg4Mi42IiB5MT0iNDk3NS40IiB4Mj0iLTE0ODgyLjYiIHkyPSI0OTkzLjYiIGdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTE0ODU1LjIgLTQ5NTcuMikgcm90YXRlKC0xODApIHNjYWxlKDEgLTEpIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZmZiIvPgogICAgICA8c3RvcCBvZmZzZXQ9Ii40IiBzdG9wLWNvbG9yPSIjMDljNGZmIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzAwNzBjMCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50LTQ1eTk4N2RmZ2hkZmd4ZGZidnNmdmh3ZGZiZGZydmVmbmoyMDM4dGhpLWVyZ25pMzk1NHk3OHUyMDM5cmZqMC13NDMtdDlqMzBpYnZuZTk4NWJudmUzIiB4MT0iLTk3NjIuMyIgeTE9IjkwNjQuNSIgeDI9Ii05NzYyLjMiIHkyPSI5MDgyLjciIGdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTEzMjg4LjcgNTA2LjcpIHJvdGF0ZSgxMzUpIHNjYWxlKDEgLTEpIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZmZiIvPgogICAgICA8c3RvcCBvZmZzZXQ9Ii40IiBzdG9wLWNvbG9yPSIjMDljNGZmIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzAwNzBjMCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50LTQ1eTk4N2RmZ2hkZmd4ZGZidnNmdmh3ZGZiZGZydmVmbmoyMDM4dGhpLWVyZ25pMzk1NHk3OHUyMDM5cmZqMC13NDMtdDlqMzBpYnZuZTk4NWJudmU0IiB4MT0iLTMyNDkuNSIgeTE9IjgzMzUuNCIgeDI9Ii0zMjQ5LjUiIHkyPSI4MzUzLjYiIGdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTgzMTcuMSAzMjYyLjEpIHJvdGF0ZSg5MCkgc2NhbGUoMSAtMSkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmZmIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iLjQiIHN0b3AtY29sb3I9IiMwOWM0ZmYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMDA3MGMwIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJsaW5lYXItZ3JhZGllbnQtNDV5OTg3ZGZnaGRmZ3hkZmJ2c2Z2aHdkZmJkZnJ2ZWZuajIwMzh0aGktZXJnbmkzOTU0eTc4dTIwMzlyZmowLXc0My10OWozMGlidm5lOTg1Ym52ZTUiIHgxPSI4MzkuNCIgeTE9IjMyMTQuOCIgeDI9IjgzOS40IiB5Mj0iMzIzMyIgZ3JhZGllbnRUcmFuc2Zvcm09InRyYW5zbGF0ZSgtMjg1My4zIDE2OTUuNSkgcm90YXRlKDQ1KSBzY2FsZSgxIC0xKSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZmYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIuNCIgc3RvcC1jb2xvcj0iIzA5YzRmZiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMwMDcwYzAiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudC00NXk5ODdkZmdoZGZneGRmYnZzZnZod2RmYmRmcnZlZm5qMjAzOHRoaS1lcmduaTM5NTR5Nzh1MjAzOXJmajAtdzQzLXQ5ajMwaWJ2bmU5ODVibnZlNiIgeDE9IjExMC41IiB5MT0iLTMyOTcuNyIgeDI9IjExMC41IiB5Mj0iLTMyNzkuNCIgZ3JhZGllbnRUcmFuc2Zvcm09InRyYW5zbGF0ZSgtOTcuOSAtMzI3Nikgc2NhbGUoMSAtMSkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmZmIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iLjQiIHN0b3AtY29sb3I9IiMwOWM0ZmYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMDA3MGMwIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJsaW5lYXItZ3JhZGllbnQtNDV5OTg3ZGZnaGRmZ3hkZmJ2c2Z2aHdkZmJkZnJ2ZWZuajIwMzh0aGktZXJnbmkzOTU0eTc4dTIwMzlyZmowLXc0My10OWozMGlidm5lOTg1Ym52ZTciIHgxPSItNTAxMC42IiB5MT0iLTczODYuNyIgeDI9Ii01MDEwLjYiIHkyPSItNzM2OC42IiBncmFkaWVudFRyYW5zZm9ybT0idHJhbnNsYXRlKC0xNjY0LjUgLTg3MzkuOCkgcm90YXRlKC00NSkgc2NhbGUoMSAtMSkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmZmIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iLjQiIHN0b3AtY29sb3I9IiMwOWM0ZmYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMDA3MGMwIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJsaW5lYXItZ3JhZGllbnQtNDV5OTg3ZGZnaGRmZ3hkZmJ2c2Z2aHdkZmJkZnJ2ZWZuajIwMzh0aGktZXJnbmkzOTU0eTc4dTIwMzlyZmowLXc0My10OWozMGlidm5lOTg1Ym52ZTgiIHgxPSIyOSIgeTE9IjIxLjgiIHgyPSIyOSIgeTI9IjEuMSIgZ3JhZGllbnRUcmFuc2Zvcm09InRyYW5zbGF0ZSgwIDQ0KSBzY2FsZSgxIC0xKSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiM3MDJhZjciLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNWMyZDkxIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJsaW5lYXItZ3JhZGllbnQtNDV5OTg3ZGZnaGRmZ3hkZmJ2c2Z2aHdkZmJkZnJ2ZWZuajIwMzh0aGktZXJnbmkzOTU0eTc4dTIwMzlyZmowLXc0My10OWozMGlidm5lOTg1Ym52ZTkiIHgxPSIyOSIgeTE9IjIxLjgiIHgyPSIyOSIgeTI9IjEuMSIgZ3JhZGllbnRUcmFuc2Zvcm09InRyYW5zbGF0ZSgwIDQ0KSBzY2FsZSgxIC0xKSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiM3MDJhZjciLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNWMyZDkxIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cGF0aCBkPSJNMjEuNywyMS43YzAtLjQuNCwzLjctMS41LDYuOC0xLjgsMy4xLTQuMSw0LTcuNyw0LjgtMiwuNS0zLjIsMC00LjgtLjUtMi4yLS43LTMuMy0yLjUtMy43LTMuMXMtLjgtMS45LS41LTMuMmMuNS0yLjIsMi0zLjMsNC0zLjkuNCwwLDIuMi0uNSwzLjkuNHMyLjIsMS41LDMuNywxLjljMS41LjQsMy4xLDAsMy43LS40LDEuNy0uNiwyLjktMi40LDMuMS0zLjF2LjJoLS4yWiIgZmlsbD0idXJsKCNsaW5lYXItZ3JhZGllbnQtNDV5OTg3ZGZnaGRmZ3hkZmJ2c2Z2aHdkZmJkZnJ2ZWZuajIwMzh0aGktZXJnbmkzOTU0eTc4dTIwMzlyZmowLXc0My10OWozMGlidm5lOTg1Ym52ZSkiLz4KICA8cGF0aCBkPSJNMjIuNCwxOS45Yy0uMy0uMywyLjksMi40LDMuNyw1LjhzLjIsNS44LTIsOC45Yy0xLjIsMS44LTIuMywyLjQtMy44LDMuMi0yLjEsMS00LjIuNi00LjcuNXMtMS45LS43LTIuNi0xLjljLTEuMS0xLjktMS0zLjgsMC01LjYuMy0uMywxLjEtMS45LDMtMi41LDEuOC0uNiwyLjYtLjUsNC0xLjNzMi4xLTIuMSwyLjQtMi45Yy43LTEuNy40LTMuNywwLTQuM2guMi0uMloiIGZpbGw9InVybCgjbGluZWFyLWdyYWRpZW50LTQ1eTk4N2RmZ2hkZmd4ZGZidnNmdmh3ZGZiZGZydmVmbmoyMDM4dGhpLWVyZ25pMzk1NHk3OHUyMDM5cmZqMC13NDMtdDlqMzBpYnZuZTk4NWJudmUxKSIvPgogIDxwYXRoIGQ9Ik0yMS43LDE4LjNjLS40LDAsMy43LS40LDYuOCwxLjUsMy4xLDEuOCw0LjMsNCw0LjgsNy43LjQsMiwwLDMuMi0uNSw0LjgtLjcsMi4yLTIuNSwzLjMtMy4xLDMuN3MtMS45LjgtMy4yLjVjLTIuMi0uNS0zLjMtMi0zLjktNCwwLS40LS41LTIuMi40LTMuOXMxLjUtMi4yLDEuOS0zLjcsMC0zLjEtLjQtMy43Yy0uNi0xLjctMi40LTIuOS0zLjEtMy4xaC4ydi4yaC4xWiIgZmlsbD0idXJsKCNsaW5lYXItZ3JhZGllbnQtNDV5OTg3ZGZnaGRmZ3hkZmJ2c2Z2aHdkZmJkZnJ2ZWZuajIwMzh0aGktZXJnbmkzOTU0eTc4dTIwMzlyZmowLXc0My10OWozMGlidm5lOTg1Ym52ZTIpIi8+CiAgPHBhdGggZD0iTTE5LjksMTcuNmMtLjMuMywyLjQtMi45LDUuOC0zLjdzNS44LS4yLDguOSwyYzEuOCwxLjIsMi40LDIuMywzLjIsMy44LDEsMi4xLjYsNC4yLjUsNC43cy0uNywxLjktMS45LDIuNmMtMS45LDEuMS0zLjgsMS01LjYsMC0uMy0uMy0xLjktMS4xLTIuNS0zcy0uNS0yLjYtMS4zLTQtMi4xLTIuMS0yLjktMi40Yy0xLjctLjctMy43LS40LTQuMywwaDB2LS4yaDB2LjJzLjEsMCwuMSwwWiIgZmlsbD0idXJsKCNsaW5lYXItZ3JhZGllbnQtNDV5OTg3ZGZnaGRmZ3hkZmJ2c2Z2aHdkZmJkZnJ2ZWZuajIwMzh0aGktZXJnbmkzOTU0eTc4dTIwMzlyZmowLXc0My10OWozMGlidm5lOTg1Ym52ZTMpIi8+CiAgPHBhdGggZD0iTTE4LjMsMTguM2MwLC40LS40LTMuNywxLjUtNi44czQtNC4zLDcuNy00LjhjMi0uNCwzLjIsMCw0LjguNSwyLjIuNywzLjMsMi41LDMuNywzLjFzLjgsMS45LjUsMy4yYy0uNSwyLjItMiwzLjMtNCwzLjktLjQsMC0yLjIuNS0zLjktLjRzLTIuMi0xLjUtMy43LTEuOS0zLjEsMC0zLjcuNGMtMS43LjYtMi45LDIuNC0zLjEsMy4xdi0uMmguMloiIGZpbGw9InVybCgjbGluZWFyLWdyYWRpZW50LTQ1eTk4N2RmZ2hkZmd4ZGZidnNmdmh3ZGZiZGZydmVmbmoyMDM4dGhpLWVyZ25pMzk1NHk3OHUyMDM5cmZqMC13NDMtdDlqMzBpYnZuZTk4NWJudmU0KSIvPgogIDxwYXRoIGQ9Ik0xNy42LDE5LjljLjMuMy0yLjktMi40LTMuNy01LjhzLS4yLTUuOCwyLTguOWMxLjItMS44LDIuMy0yLjQsMy44LTMuMiwyLjEtMSw0LjItLjYsNC43LS41czEuOS43LDIuNiwxLjljMS4xLDEuOSwxLDMuOCwwLDUuNi0uMy4zLTEuMSwxLjktMywyLjVzLTIuNi41LTQsMS4zYy0xLjMuOC0yLjEsMi4xLTIuNCwyLjktLjcsMS43LS40LDMuNywwLDQuM2gtLjIuMiwwWiIgZmlsbD0idXJsKCNsaW5lYXItZ3JhZGllbnQtNDV5OTg3ZGZnaGRmZ3hkZmJ2c2Z2aHdkZmJkZnJ2ZWZuajIwMzh0aGktZXJnbmkzOTU0eTc4dTIwMzlyZmowLXc0My10OWozMGlidm5lOTg1Ym52ZTUpIi8+CiAgPHBhdGggZD0iTTE4LjMsMjEuN2MuNCwwLTMuNy40LTYuOC0xLjVzLTQuMy00LTQuOC03LjdjLS40LTIsMC0zLjIuNS00LjguNy0yLjIsMi41LTMuMywzLjEtMy43czEuOS0uOCwzLjItLjVjMi4yLjUsMy4zLDIsMy45LDQsMCwuNC41LDIuMi0uNCwzLjlzLTEuNSwyLjItMS45LDMuN2MtLjQsMS41LDAsMy4xLjQsMy43LjYsMS43LDIuNCwyLjksMy4xLDMuMWgtLjJ2LS4yaC0uMVoiIGZpbGw9InVybCgjbGluZWFyLWdyYWRpZW50LTQ1eTk4N2RmZ2hkZmd4ZGZidnNmdmh3ZGZiZGZydmVmbmoyMDM4dGhpLWVyZ25pMzk1NHk3OHUyMDM5cmZqMC13NDMtdDlqMzBpYnZuZTk4NWJudmU2KSIvPgogIDxwYXRoIGQ9Ik0xOS45LDIyLjRjLjMtLjMtMi40LDIuOS01LjgsMy43cy01LjguMi04LjktMmMtMS44LTEuMi0yLjQtMi4zLTMuMi0zLjgtMS0yLjEtLjYtNC4yLS41LTQuN3MuNy0xLjksMS45LTIuNmMxLjktMS4xLDMuOC0xLDUuNiwwLC4zLjMsMS45LDEuMSwyLjUsMywuNiwxLjguNSwyLjYsMS4zLDQsLjgsMS4zLDIuMSwyLjEsMi45LDIuNCwxLjcuNywzLjcuNCw0LjMsMGgwdi4yaDB2LS4ycy0uMSwwLS4xLDBaIiBmaWxsPSJ1cmwoI2xpbmVhci1ncmFkaWVudC00NXk5ODdkZmdoZGZneGRmYnZzZnZod2RmYmRmcnZlZm5qMjAzOHRoaS1lcmduaTM5NTR5Nzh1MjAzOXJmajAtdzQzLXQ5ajMwaWJ2bmU5ODVibnZlNykiLz4KICA8ZWxsaXBzZSBjeD0iMjgiIGN5PSIzMyIgcng9IjkuNSIgcnk9IjgiIGZpbGw9IiNmZmYiLz4KICA8cGF0aCBkPSJNNDAuMywyNy4zYy0uNSwzLjEtMi4xLDUuOS00LjQsNy45LTIuNCwyLTUuNCwzLjItOC41LDMuMnMtMS4zLDAtMS45LDBjLTIuNy0uNS00LjctMi43LTQuOC01LjUsMC0xLjUuNi0yLjksMS43LTMuOSwyLjItMi4yLDUuNy0yLjIsNy45LDAsMS4xLDEsMS43LDIuNCwxLjcsMy45cy0uNCwxLjgtMS4yLDEuOC0xLjMtLjYtMS4zLTEuNXYtMi40YzAtLjgtLjYtMS41LTEuNC0xLjVoLTJjLTEuMiwwLTIuMy42LTIuOSwxLjYtMS4xLDEuNi0uNiwzLjgsMSw0LjguNC4zLjkuNCwxLjQuNSwxLjIuMiwyLjMtLjIsMy4xLTEuMWgwYzAsMCwwLDAsMCwwLC41LjcsMS4zLDEsMi4xLDEsMS41LDAsMi42LTEuNCwyLjYtMi45czAtMS4yLS4yLTEuOGMtLjQtMS43LTEuNC0zLjItMi44LTQuMi0yLjktMi4xLTctMS43LTkuNCwxLTEuMiwxLjMtMS44LDMtMS44LDQuN3MuOCwzLjYsMi4xLDQuOWMxLjMsMS4zLDMsMi4xLDQuOSwyLjFoMS4xYzIuOSwwLDUuNy0uOSw4LjEtMi40aDBjLTIuNCwyLjUtNS43LDMuOS05LjIsMy44LTIuMywwLTQuNS0uOC02LjEtMi41LTEuNi0xLjYtMi41LTMuOC0yLjQtNi4xLDAtMi43LDEuMy01LjMsMy41LTYuOSwxLjQtMS4xLDMuMi0xLjYsNS0xLjZoMi43YzIuMSwwLDQuMS0uOSw1LjYtMi41aDBjMCwxLjItLjUsMi40LTEuMiwzLjRoMHEwLC4xLDAsLjFjMi41LS42LDQuNi0yLjMsNS42LTQuNmgwYzEsMiwxLjQsNC4zLDEsNi41aDB2LjNaTTI2LDMwLjdjLTEuMSwwLTIsLjgtMiwydi40Yy4yLjguOCwxLjUsMS42LDEuNiwxLjEuMiwyLjItLjUsMi40LTEuNnYtMi4zczAtLjEtLjEtLjFoLTEuOVoiIGZpbGw9InVybCgjbGluZWFyLWdyYWRpZW50LTQ1eTk4N2RmZ2hkZmd4ZGZidnNmdmh3ZGZiZGZydmVmbmoyMDM4dGhpLWVyZ25pMzk1NHk3OHUyMDM5cmZqMC13NDMtdDlqMzBpYnZuZTk4NWJudmU4KSIgc3Ryb2tlPSIjZmZmIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS13aWR0aD0iLjkiLz4KICA8cGF0aCBkPSJNNDAuMywyNy4zYy0uNSwzLjEtMi4xLDUuOS00LjQsNy45LTIuNCwyLTUuNCwzLjItOC41LDMuMnMtMS4zLDAtMS45LDBjLTIuNy0uNS00LjctMi43LTQuOC01LjUsMC0xLjUuNi0yLjksMS43LTMuOSwyLjItMi4yLDUuNy0yLjIsNy45LDAsMS4xLDEsMS43LDIuNCwxLjcsMy45cy0uNCwxLjgtMS4yLDEuOC0xLjMtLjYtMS4zLTEuNXYtMi40YzAtLjgtLjYtMS41LTEuNC0xLjVoLTJjLTEuMiwwLTIuMy42LTIuOSwxLjYtMS4xLDEuNi0uNiwzLjgsMSw0LjguNC4zLjkuNCwxLjQuNSwxLjIuMiwyLjMtLjIsMy4xLTEuMWgwYzAsMCwwLDAsMCwwLC41LjcsMS4zLDEsMi4xLDEsMS41LDAsMi42LTEuNCwyLjYtMi45czAtMS4yLS4yLTEuOGMtLjQtMS43LTEuNC0zLjItMi44LTQuMi0yLjktMi4xLTctMS43LTkuNCwxLTEuMiwxLjMtMS44LDMtMS44LDQuN3MuOCwzLjYsMi4xLDQuOWMxLjMsMS4zLDMsMi4xLDQuOSwyLjFoMS4xYzIuOSwwLDUuNy0uOSw4LjEtMi40aDBjLTIuNCwyLjUtNS43LDMuOS05LjIsMy44LTIuMywwLTQuNS0uOC02LjEtMi41LTEuNi0xLjYtMi41LTMuOC0yLjQtNi4xLDAtMi43LDEuMy01LjMsMy41LTYuOSwxLjQtMS4xLDMuMi0xLjYsNS0xLjZoMi43YzIuMSwwLDQuMS0uOSw1LjYtMi41aDBjMCwxLjItLjUsMi40LTEuMiwzLjRoMHEwLC4xLDAsLjFjMi41LS42LDQuNi0yLjMsNS42LTQuNmgwYzEsMiwxLjQsNC4zLDEsNi41aDB2LjNaTTI2LDMwLjdjLTEuMSwwLTIsLjgtMiwydi40Yy4yLjguOCwxLjUsMS42LDEuNiwxLjEuMiwyLjItLjUsMi40LTEuNnYtMi4zczAtLjEtLjEtLjFoLTEuOVoiIGZpbGw9InVybCgjbGluZWFyLWdyYWRpZW50LTQ1eTk4N2RmZ2hkZmd4ZGZidnNmdmh3ZGZiZGZydmVmbmoyMDM4dGhpLWVyZ25pMzk1NHk3OHUyMDM5cmZqMC13NDMtdDlqMzBpYnZuZTk4NWJudmU5KSIgc3Ryb2tlPSIjZmZmIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS13aWR0aD0iLjIiLz4KPC9zdmc+";

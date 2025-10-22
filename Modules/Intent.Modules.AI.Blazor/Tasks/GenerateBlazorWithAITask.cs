@@ -60,7 +60,7 @@ public class GenerateBlazorWithAITask : IModuleTask
         var exampleComponentIds = !string.IsNullOrWhiteSpace(args[3]) ? JsonConvert.DeserializeObject<string[]>(args[3]) : [];
         var provider = new AISettings.ProviderOptions(args[4]).AsEnum();
         var modelId = args[5];
-        var thinkingType = args[6];
+        var thinkingLevel = args[6];
         var templateId = !string.IsNullOrWhiteSpace(args[7]) ? args[7] : null;
 
         Logging.Log.Info($"Args: {string.Join(",", args)}");
@@ -127,7 +127,7 @@ public class GenerateBlazorWithAITask : IModuleTask
             var environmentMetadata = GetEnvironmentMetadata(applicationConfig, promptTemplateConfig.GetMetadata(templateId));
             var exampleJson = JsonConvert.SerializeObject(exampleFiles, Formatting.Indented);
             var additionalRules = promptTemplateConfig.GetAdditionalRules(templateId);
-            var requestFunction = CreatePromptFunction(kernel, thinkingType);
+            var requestFunction = CreatePromptFunction(kernel, thinkingLevel);
 
             if (string.IsNullOrEmpty(userProvidedContext))
             {
@@ -202,7 +202,7 @@ public class GenerateBlazorWithAITask : IModuleTask
         return JsonConvert.SerializeObject(metadata, Formatting.Indented);
     }
 
-    private static KernelFunction CreatePromptFunction(Kernel kernel, string thinkingType)
+    private static KernelFunction CreatePromptFunction(Kernel kernel, string thinkingLevel)
     {
         const string promptTemplate =
             """
@@ -284,7 +284,7 @@ public class GenerateBlazorWithAITask : IModuleTask
             {{$examples}}
             """;
         
-        var requestFunction = kernel.CreateFunctionFromPrompt(promptTemplate, kernel.GetRequiredService<IAiProviderService>().GetPromptExecutionSettings(thinkingType));
+        var requestFunction = kernel.CreateFunctionFromPrompt(promptTemplate, kernel.GetRequiredService<IAiProviderService>().GetPromptExecutionSettings(thinkingLevel));
         return requestFunction;
     }
 
