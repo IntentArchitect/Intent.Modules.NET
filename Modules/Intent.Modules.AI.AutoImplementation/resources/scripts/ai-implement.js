@@ -126,14 +126,14 @@ async function execute(taskId) {
     if (!promptResult) {
         return;
     }
-    const { providerId, modelId, thinkingLevel: thinkingType } = await collectAndPersistAiSettingsFromPromptResult(promptResult, providerModelsResult, settingName);
+    const { providerId, modelId, thinkingLevel: thinkingLevel } = await collectAndPersistAiSettingsFromPromptResult(promptResult, providerModelsResult, settingName);
     await launchHostedModuleTask(taskId, [
         application.id,
         element.id,
         (_a = promptResult.prompt) !== null && _a !== void 0 ? _a : "",
         providerId,
         modelId,
-        thinkingType
+        thinkingLevel
     ], {
         taskName: "AI: Handler for " + element.getName()
     });

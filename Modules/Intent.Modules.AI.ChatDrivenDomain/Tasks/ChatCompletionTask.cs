@@ -53,7 +53,7 @@ public class ChatCompletionTask : IModuleTask
                 builder.Plugins.AddFromObject(modelMutationPlugin);
             });
 
-            var requestFunction = CreatePromptFunction(kernel);
+            var requestFunction = CreatePromptFunction(kernel, inputModel.ThinkingLevel);
             var result = requestFunction.InvokeAsync(kernel, new KernelArguments
             {
                 ["prompt"] = inputModel.Prompt
@@ -76,7 +76,7 @@ public class ChatCompletionTask : IModuleTask
         }
     }
 
-    private static KernelFunction CreatePromptFunction(Kernel kernel)
+    private static KernelFunction CreatePromptFunction(Kernel kernel, string thinkingLevel)
     {
         const string promptTemplate =
             """
@@ -151,13 +151,8 @@ public class ChatCompletionTask : IModuleTask
 
             DO NOT generate JSON directly. ONLY use the provided functions to modify the domain model.
             """;
-        
-        var requestFunction = kernel.CreateFunctionFromPrompt(
-            promptTemplate,
-            new PromptExecutionSettings
-            {
-                FunctionChoiceBehavior = FunctionChoiceBehavior.Auto()
-            });
+
+        var requestFunction = kernel.CreateFunctionFromPrompt(promptTemplate, kernel.GetRequiredService<IAiProviderService>().GetPromptExecutionSettings(thinkingLevel));
         return requestFunction;
     }
 
