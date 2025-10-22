@@ -20,4 +20,8 @@
     <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.9.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="resources\scripts\" />
+  </ItemGroup>
+
 </Project>

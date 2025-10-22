@@ -32,10 +32,11 @@ async function getAiProviderModels(): Promise<IProviderModelsResult> {
 
 async function getAiModelSelectionFields(providerModelsResult: IProviderModelsResult, aiSettingKeyPrefix: string): Promise<MacroApi.Context.IDynamicFormFieldConfig[]> {
     const globalSettings = await userSettings.loadGlobalAsync();
-    const autoImplementationAiModelId = globalSettings.get(`${aiSettingKeyPrefix}.ModelId`);
-    const autoImplementationAiThinkingLevel = globalSettings.get(`${aiSettingKeyPrefix}.ThinkingLevel`);
+    const settingModelId = globalSettings.get(`${aiSettingKeyPrefix}.ModelId`);
+    const settingThinkingLevel = globalSettings.get(`${aiSettingKeyPrefix}.ThinkingLevel`);
 
     const { providerModels, modelLookup } = providerModelsResult;
+    const initialThinkingType = modelLookup[settingModelId]?.thinkingType;
 
     return [
         {
@@ -43,7 +44,7 @@ async function getAiModelSelectionFields(providerModelsResult: IProviderModelsRe
             fieldType: "select",
             label: "Model",
             isRequired: true,
-            hint: providerModels.length === 0 ? "Not seeing any AI Models? Learn how to configure or add models [here](https://docs.intentarchitect.com/articles/modules-common/intent-common-ai/intent-common-ai.html)." : "",
+            hint: getModelHint(providerModels, initialThinkingType),
             selectOptions: 
                 Object.entries(modelLookup)
                 .map(([key, value]: [string, IModelRecord]) => { 
@@ -53,13 +54,14 @@ async function getAiModelSelectionFields(providerModelsResult: IProviderModelsRe
                         additionalInfo: value.providerName
                     }; 
                 }),
-            value: autoImplementationAiModelId,
+            value: settingModelId,
             onChange: async (config) => {
                 const curThinkingType = modelLookup[config.getField("model").value as string].thinkingType;
                 const thinkingField = config.getField("thinking");
 
                 thinkingField.isHidden = curThinkingType === "None";
                 thinkingField.selectOptions = getApplicableThinkingOptions(curThinkingType);
+                thinkingField.hint = getModelHint(providerModels, curThinkingType);
 
                 if (curThinkingType === "ThinkingLevels") {
                     thinkingField.value = "low";
@@ -74,11 +76,21 @@ async function getAiModelSelectionFields(providerModelsResult: IProviderModelsRe
             id: "thinking",
             fieldType: "select",
             label: "Thinking/reasoning mode",
-            isHidden: autoImplementationAiThinkingLevel == null || providerModels.length === 0,
-            value: autoImplementationAiThinkingLevel,
-            selectOptions: getApplicableThinkingOptions(modelLookup[autoImplementationAiModelId].thinkingType)
+            isHidden: settingThinkingLevel == null || providerModels.length === 0,
+            value: settingThinkingLevel,
+            selectOptions: getApplicableThinkingOptions(initialThinkingType)
         }
     ];
+
+    function getModelHint(providerModels: IModelRecord[], thinkingType: ThinkingType | null): string {
+        if (providerModels.length === 0) { 
+            return "Not seeing any AI Models? Learn how to configure or add models [here](https://docs.intentarchitect.com/articles/modules-common/intent-common-ai/intent-common-ai.html).";
+        } else if (thinkingType == "Unknown") {
+            return "Thinking level for model is unknown; none is selected by default.";
+        } else {
+            return "";
+        }
+    }
 
     function getApplicableThinkingOptions(thinkingType: ThinkingType | null): MacroApi.Context.IDynamicFormFieldSelectOption[] {
         if (thinkingType === "ThinkingLevels") {

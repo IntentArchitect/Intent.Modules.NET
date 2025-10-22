@@ -41,6 +41,8 @@
   <mappableElementPackages />
   <mappableElementPackageExtensions />
   <scripts>
-    <script name="Execute AI" id="9ff1b212-b47e-437b-9994-dcfdeea96c7e" />
+    <script name="Execute AI" id="9ff1b212-b47e-437b-9994-dcfdeea96c7e">
+      <filePath>scripts/ai-chat-driven.js</filePath>
+    </script>
   </scripts>
 </settings>
