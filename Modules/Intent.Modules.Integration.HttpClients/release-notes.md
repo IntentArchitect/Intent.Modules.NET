@@ -1,6 +1,7 @@
 ### Version 6.0.9
 
 - Improvement: Updated NuGet package versions.
+- Fixed: Null-reference exception check added when inspecting service proxy elements for configuration.
 
 ### Version 6.0.8
 

@@ -37,7 +37,7 @@ namespace Intent.Modules.Integration.HttpClients.Shared
                     var proxyModel = proxyConfiguration.GetMetadata<IServiceProxyModel>("model");
 
                     if (proxyModel.Endpoints.Count > 0 && (proxyModel.Endpoints.Any(e => e.RequiresAuthorization) ||
-                                                           (proxyModel.InternalElement.ParentElement?.TryGetSecured(out _) ?? false)))
+                                                           (proxyModel.InternalElement?.ParentElement?.TryGetSecured(out _) ?? false)))
                     {
                         proxyConfiguration.AddChainStatement(new CSharpInvocationStatement("AddHeaders")
                             .AddArgument(new CSharpLambdaBlock("config"), a =>
