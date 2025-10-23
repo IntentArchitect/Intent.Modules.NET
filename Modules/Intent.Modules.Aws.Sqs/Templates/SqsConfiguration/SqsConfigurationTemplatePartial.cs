@@ -54,7 +54,6 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsConfiguration
                             method.AddStatement("""var serviceUrl = configuration["AWS:ServiceURL"];""");
                             method.AddIfStatement("!string.IsNullOrEmpty(serviceUrl)", ifStmt =>
                             {
-                                ifStmt.AddStatement("// LocalStack or custom endpoint");
                                 ifStmt.AddInvocationStatement("services.AddSingleton<IAmazonSQS>", inv => inv
                                     .AddArgument(new CSharpLambdaBlock("sp"), arg =>
                                     {
@@ -91,7 +90,6 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsConfiguration
                             // Configure publisher options (metadata-driven)
                             if (publishers.Any())
                             {
-                                method.AddStatement("");
                                 method.AddInvocationStatement($"services.Configure<{this.GetTypeName(SqsPublisherOptionsTemplate.TemplateId)}>", inv => inv
                                     .AddArgument(new CSharpLambdaBlock("options"), arg =>
                                     {
@@ -107,7 +105,6 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsConfiguration
                             // Register event handlers (metadata-driven)
                             if (subscriptions.Any())
                             {
-                                method.AddStatement("");
                                 foreach (var subscription in subscriptions)
                                 {
                                     var handlerType = subscription.SubscriptionItem.GetSubscriberTypeName(this);
@@ -132,7 +129,7 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsConfiguration
                                     }));
                             }
 
-                            method.AddStatement("return services;", stmt => stmt.SeparatedFromPrevious());
+                            method.AddReturn("services", stmt => stmt.SeparatedFromPrevious());
                         });
                 });
         }
@@ -143,6 +140,11 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsConfiguration
                 .ToRegister("ConfigureSqs", ServiceConfigurationRequest.ParameterType.Configuration)
                 .HasDependency(this)
                 .ForConcern("Infrastructure"));
+            
+            foreach (var message in IntegrationManager.Instance.GetAggregatedSqsItems(ExecutionContext.GetApplicationConfig().Id))
+            {
+                this.ApplyAppSetting(message.QueueConfigurationName, message.QueueName);
+            }
         }
 
         [IntentManaged(Mode.Fully)]
