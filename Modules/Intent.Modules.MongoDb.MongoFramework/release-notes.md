@@ -1,3 +1,7 @@
+### Version 1.0.30
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 1.0.29
 
 - Improvement: Updated NuGet package versions.

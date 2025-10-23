@@ -155,8 +155,8 @@
     </childElement>
     <childElement id="c212e457-2228-4ed3-bebd-f6d97f2e08ff" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <comment>Not all the .net8 providers  (Oracle and MySql) have upgraded to support 9.0.0.</comment>
-      <name>8.0.20</name>
-      <display>8.0.20 ( &gt;= .NETCoreApp,Version=v8.0 ) [locked]</display>
+      <name>8.0.21</name>
+      <display>8.0.21 ( &gt;= .NETCoreApp,Version=v8.0 ) [locked]</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -180,8 +180,8 @@
     <childElement id="c9e7d1ea-eb1d-4168-94d8-0af1f78adf63" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <comment>Not all the .net8 providers  (Oracle and MySql) have upgraded to support 9.0.0.
 Created this entry so .net9 gets 9.0.0</comment>
-      <name>9.0.9</name>
-      <display>9.0.9 ( &gt;= .NETCoreApp,Version=v9.0 ) [locked]</display>
+      <name>9.0.10</name>
+      <display>9.0.10 ( &gt;= .NETCoreApp,Version=v9.0 ) [locked]</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />

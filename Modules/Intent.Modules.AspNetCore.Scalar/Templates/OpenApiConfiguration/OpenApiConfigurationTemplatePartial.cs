@@ -49,6 +49,7 @@ namespace Intent.Modules.AspNetCore.Scalar.Templates.OpenApiConfiguration
                 .AddUsing("Microsoft.OpenApi.Models")
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
                 .AddUsing("System")
+                .AddUsing("System.Linq")
                 .AddUsing("System.Threading.Tasks")
                 .AddUsing("System.Collections.Generic")
                 .AddClass($"OpenApiConfiguration", @class =>
@@ -65,21 +66,19 @@ namespace Intent.Modules.AspNetCore.Scalar.Templates.OpenApiConfiguration
                             .AddArgument(new CSharpLambdaBlock("options"), argument =>
                             {
                                 var lambdaBlock = (CSharpLambdaBlock)argument;
-                                if (ExecutionContext.GetSettings().GetScalarSettings().UseFullyQualifiedSchemaIdentifiers())
-                                {
-                                    lambdaBlock.AddStatement(new CSharpInvocationStatement("options.AddSchemaTransformer")
-                                        .AddArgument(new CSharpLambdaBlock("(schema, context, cancellationToken)"), configure =>
-                                        {
-                                            configure.AddIfStatement("context.JsonTypeInfo.Type.IsValueType || context.JsonTypeInfo.Type == typeof(String) || context.JsonTypeInfo.Type == typeof(string)", @if => @if.AddReturn("Task.CompletedTask"));
-                                            configure.AddIfStatement("schema.Annotations == null || !schema.Annotations.TryGetValue(\"x-schema-id\", out object? _)", @if => @if.AddReturn("Task.CompletedTask"));
+                                
+                                lambdaBlock.AddStatement(new CSharpInvocationStatement("options.AddSchemaTransformer")
+                                    .AddArgument(new CSharpLambdaBlock("(schema, context, cancellationToken)"), configure =>
+                                    {
+                                        configure.AddIfStatement("context.JsonTypeInfo.Type.IsValueType || context.JsonTypeInfo.Type == typeof(String) || context.JsonTypeInfo.Type == typeof(string)", @if => @if.AddReturn("Task.CompletedTask"));
+                                        configure.AddIfStatement("schema.Annotations == null || !schema.Annotations.TryGetValue(\"x-schema-id\", out object? _)", @if => @if.AddReturn("Task.CompletedTask"));
 
-                                            configure.AddStatement("string? transformedTypeName = context.JsonTypeInfo.Type.FullName?.Replace(\"+\", \".\", StringComparison.Ordinal);");
-                                            configure.AddStatement("schema.Annotations[\"x-schema-id\"] = transformedTypeName;");
-                                            configure.AddStatement("schema.Title = transformedTypeName;");
+                                        configure.AddStatement("var schemaId = SchemaIdSelector(context.JsonTypeInfo.Type);", s => s.SeparatedFromPrevious());
+                                        configure.AddStatement("schema.Annotations[\"x-schema-id\"] = schemaId;");
+                                        configure.AddStatement("schema.Title = schemaId;");
 
-                                            configure.AddStatement("return Task.CompletedTask;");
-                                        }).WithArgumentsOnNewLines());
-                                }
+                                        configure.AddStatement("return Task.CompletedTask;", s => s.SeparatedFromPrevious());
+                                    }).WithArgumentsOnNewLines());
 
                                 lambdaBlock.AddStatement(new CSharpInvocationStatement("options.AddDocumentTransformer")
                                         .AddArgument(new CSharpLambdaBlock("(document, context, cancellationToken)"), configure =>
@@ -145,6 +144,66 @@ namespace Intent.Modules.AspNetCore.Scalar.Templates.OpenApiConfiguration
                         );
                         configureOpenApi.AddReturn("services");
                     });
+
+                    if (ExecutionContext.GetSettings().GetScalarSettings().UseFullyQualifiedSchemaIdentifiers())
+                    {
+                        @class.AddMethod("string", "SchemaIdSelector", method =>
+                        {
+                            method.Private().Static();
+                            method.AddParameter(UseType("System.Type"), "modelType");
+
+                            method.AddIfStatement("modelType.IsArray", @if =>
+                            {
+                                @if.AddStatement(@"var elementType = modelType.GetElementType()!;");
+                                @if.AddStatement(@"return $""{SchemaIdSelector(elementType)}Array"";");
+                            });
+
+                            method.AddStatement(@"var typeName = modelType.FullName?.Replace(""+"", ""_"") ?? modelType.Name.Replace(""+"", ""_"");", s => s.SeparatedFromPrevious());
+
+                            method.AddIfStatement("!modelType.IsConstructedGenericType", @if =>
+                            {
+                                @if.AddStatement("return typeName;");
+                            });
+
+                            method.AddStatement(@"var genericTypeDefName = modelType.GetGenericTypeDefinition().FullName;", s => s.SeparatedFromPrevious());
+                            method.AddStatement(@"var baseName = (genericTypeDefName?.Split('`')[0] ?? modelType.Name.Split('`')[0]).Replace(""+"", ""_"");");
+
+                            method.AddStatement(@"var genericArgs = modelType.GetGenericArguments()
+                .Select(SchemaIdSelector)
+                .ToArray();", s => s.SeparatedFromPrevious());
+
+                            method.AddStatement(@"return $""{baseName}_Of_{string.Join(""_And_"", genericArgs)}"";", s => s.SeparatedFromPrevious());
+                        });
+                    }
+                    else
+                    {
+                        @class.AddMethod("string", "SchemaIdSelector", method =>
+                        {
+                            method.Private().Static();
+                            method.AddParameter(UseType("System.Type"), "modelType");
+
+                            method.AddIfStatement("modelType.IsArray", @if =>
+                            {
+                                @if.AddStatement(@"var elementType = modelType.GetElementType()!;");
+                                @if.AddStatement(@"return $""{SchemaIdSelector(elementType)}Array"";");
+                            });
+
+                            method.AddStatement(@"var modelName = modelType.Name.Replace(""+"", ""_"");", s => s.SeparatedFromPrevious());
+
+                            method.AddIfStatement("!modelType.IsConstructedGenericType", @if =>
+                            {
+                                @if.AddStatement("return modelName;");
+                            });
+
+                            method.AddStatement(@"var baseName = modelName.Split('`').First();", s => s.SeparatedFromPrevious());
+
+                            method.AddStatement(@"var genericArgs = modelType.GetGenericArguments()
+                .Select(SchemaIdSelector)
+                .ToArray();", s => s.SeparatedFromPrevious());
+
+                            method.AddStatement(@"return $""{baseName}Of{string.Join(""And"", genericArgs)}"";", s => s.SeparatedFromPrevious());
+                        });
+                    }
                 });
         }
 

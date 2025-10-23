@@ -29,7 +29,7 @@ namespace SwashbuckleSettings.SimpleSchemaId.Api.Configuration
             services.AddSwaggerGen(
                 options =>
                 {
-                    options.CustomSchemaIds(GetFriendlyName);
+                    options.CustomSchemaIds(SchemaIdSelector);
 
                     var apiXmlFile = Path.Combine(AppContext.BaseDirectory, $"{Assembly.GetExecutingAssembly().GetName().Name}.xml");
                     if (File.Exists(apiXmlFile))
@@ -66,17 +66,28 @@ namespace SwashbuckleSettings.SimpleSchemaId.Api.Configuration
                 });
         }
 
-        private static string GetFriendlyName(Type modelType)
+        private static string SchemaIdSelector(Type modelType)
         {
-            if (!modelType.IsConstructedGenericType)
+            if (modelType.IsArray)
             {
-                return modelType.Name.Replace("[]", "Array");
+                var elementType = modelType.GetElementType()!;
+                return $"{SchemaIdSelector(elementType)}Array";
             }
 
-            var genericTypeArguments = modelType.GetGenericArguments()
-                .Select(GetFriendlyName);
+            var modelName = modelType.Name.Replace("+", ".");
 
-            return $"{modelType.Name.Split('`')[0]}Of{string.Join("And", genericTypeArguments)}";
+            if (!modelType.IsConstructedGenericType)
+            {
+                return modelName;
+            }
+
+            var baseName = modelName.Split('`').First();
+
+            var genericArgs = modelType.GetGenericArguments()
+                .Select(SchemaIdSelector)
+                .ToArray();
+
+            return $"{baseName}Of{string.Join("And", genericArgs)}";
         }
 
         private static void AddSwaggerEndpoints(IApplicationBuilder app, SwaggerUIOptions options)

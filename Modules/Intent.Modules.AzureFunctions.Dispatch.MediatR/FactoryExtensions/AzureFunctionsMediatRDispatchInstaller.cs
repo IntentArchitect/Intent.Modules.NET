@@ -8,6 +8,7 @@ using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.Templates.CommandModels;
 using Intent.Modules.Application.MediatR.Templates.QueryModels;
+using Intent.Modules.AzureFunctions.Api;
 using Intent.Modules.AzureFunctions.Templates.AzureFunctionClass;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -109,6 +110,18 @@ namespace Intent.Modules.AzureFunctions.Dispatch.MediatR.FactoryExtensions
             return new CSharpStatement(statement).AddMetadata("return", true).AddMetadata("return-response-type", statusCode);
         }
 
+        private static HttpResponseMapper _httpResponseMapper = new HttpResponseMapper();
+
+        private static string GetResponse(IHttpEndpointModel endpoint, string defautlResult, bool hasResult = false)
+        {
+            return $"{_httpResponseMapper.GetSuccessResponseCodeOperation(endpoint.InternalElement, defautlResult, hasResult ? "result" : null)}";
+        }
+
+        public static string GetEnum(IHttpEndpointModel endpoint, string defaultValue)
+        {
+            return _httpResponseMapper.GetResponseStatusCodeEnum(endpoint.InternalElement, defaultValue);
+        }
+
         private static CSharpStatement GetReturnStatement(IAzureFunctionModel operationModel)
         {
             IHttpEndpointModel? endpoint = null;
@@ -122,15 +135,15 @@ namespace Intent.Modules.AzureFunctions.Dispatch.MediatR.FactoryExtensions
                 case HttpVerb.Get:
                     if (operationModel.ReturnType == null)
                     {
-                        return GetReturnStatement("return new NoContentResult();", "NoContent");
+                        return GetReturnStatement($"return new {GetResponse(endpoint, "NoContentResult()")};", GetEnum(endpoint, "NoContent"));
                     }
 
                     if (operationModel.ReturnType.IsCollection)
                     {
-                        return GetReturnStatement("return new OkObjectResult(result);", "OK");
+                        return GetReturnStatement($"return new {GetResponse(endpoint, "OkObjectResult(result)", true)};", GetEnum(endpoint, "OK"));
                     }
 
-                    return GetReturnStatement(@"return result != null ? new OkObjectResult(result) : new NotFoundResult();", "OK");
+                    return GetReturnStatement($"return result != null ? new {GetResponse(endpoint, "OkObjectResult(result)", true)} : new NotFoundResult();", GetEnum(endpoint, "OK"));
                 case HttpVerb.Post:
                     var getByIdFunction = (operationModel.InternalElement.ParentElement?.ChildElements ?? operationModel.InternalElement.Package.ChildElements)
                             .Where(x => x.IsAzureFunctionModel())
@@ -142,14 +155,14 @@ namespace Intent.Modules.AzureFunctions.Dispatch.MediatR.FactoryExtensions
                                 x.Parameters.FirstOrDefault()?.Name == "id");
                     if (getByIdFunction != null && new[] { "guid", "long", "int" }.Contains(operationModel.ReturnType?.Element.Name))
                     {
-                        return GetReturnStatement($@"return new CreatedResult(new Uri(""{getByIdFunction.GetAzureFunction().Route()}"", UriKind.Relative), new {{ id = result }});", "Created");
+                        return GetReturnStatement($@"return new {GetResponse(endpoint, "CreatedResult(new Uri(\"{getByIdFunction.GetAzureFunction().Route()}\", UriKind.Relative), new { id = result })", true)};", GetEnum(endpoint, "Created"));
                     }
-                    return GetReturnStatement(operationModel.ReturnType == null ? @"return new CreatedResult(string.Empty, null);" : @"return new CreatedResult(string.Empty, result);", "Created");
+                    return GetReturnStatement(operationModel.ReturnType == null ? @$"return new {GetResponse(endpoint, "CreatedResult(string.Empty, null)")};" : @$"return new {GetResponse(endpoint, "CreatedResult(string.Empty, result)", true)};", GetEnum(endpoint, "Created"));
                 case HttpVerb.Put:
                 case HttpVerb.Patch:
-                    return operationModel.ReturnType == null ? GetReturnStatement(@"return new NoContentResult();", "NoContent") : GetReturnStatement(@"return new OkObjectResult(result);", "OK");
+                    return operationModel.ReturnType == null ? GetReturnStatement(@$"return new {GetResponse(endpoint, "NoContentResult()")};", GetEnum(endpoint, "NoContent")) : GetReturnStatement(@$"return new {GetResponse(endpoint, "OkObjectResult(result)", true)};", GetEnum(endpoint, "OK"));
                 case HttpVerb.Delete:
-                    return GetReturnStatement(operationModel.ReturnType == null ? @"return new OkResult();" : @"return new OkObjectResult(result);", "OK");
+                    return GetReturnStatement(operationModel.ReturnType == null ? @$"return new {GetResponse(endpoint, "OkResult()")};" : @$"return new {GetResponse(endpoint, "OkObjectResult(result)", true)};", GetEnum(endpoint, "OK"));
                 case null:
                     if (operationModel.ReturnType != null)
                     {

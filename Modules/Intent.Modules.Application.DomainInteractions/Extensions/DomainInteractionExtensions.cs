@@ -15,10 +15,10 @@ namespace Intent.Modules.Application.DomainInteractions.Extensions;
 using DataAccessProviders;
 using Exceptions;
 using Intent.Modelers.Domain.Api;
-using Intent.Modules.Application.DomainInteractions.Strategies;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Strategies;
 using Utils;
 
 public static class DomainInteractionExtensions
@@ -53,12 +53,19 @@ public static class DomainInteractionExtensions
         return [];
     }
 
-    public static List<CSharpStatement> GetFindAggregateStatements(this ICSharpClassMethodDeclaration method, IElement requestElement, ClassModel foundEntity)
+    public static List<CSharpStatement> GetFindAggregateStatements(
+        this ICSharpClassMethodDeclaration method,
+        IDataAccessProviderInjector dataAccessProviderInjector,
+        IElement requestElement,
+        ClassModel foundEntity,
+        out AggregateDetails aggregateDetails)
     {
         var statements = new List<CSharpStatement>();
-        var aggregateEntity = foundEntity.GetAssociationsToAggregateRoot().First().Class;
+        var associationsToAggregateRoot = foundEntity.GetAssociationsToAggregateRoot();
+
+        var aggregateEntity = associationsToAggregateRoot[0].Class;
         var aggregateVariableName = aggregateEntity.Name.ToLocalVariableName();
-        var aggregateDataAccess = method.InjectDataAccessProvider(aggregateEntity);
+        var aggregateDataAccess = dataAccessProviderInjector.Inject(method, aggregateEntity);
 
         var idFields = GetAggregatePkFindCriteria(requestElement, aggregateEntity, foundEntity);
         if (!idFields.Any())
@@ -72,9 +79,15 @@ public static class DomainInteractionExtensions
             variable: aggregateVariableName,
             message: $"Could not find {aggregateEntity.Name} '{{{idFields.Select(x => x.ValueExpression).AsSingleOrTuple()}}}'"));
 
+        aggregateDetails = new AggregateDetails(
+            ElementModel: aggregateEntity.InternalElement,
+            VariableName: aggregateVariableName,
+            DataAccessProvider: aggregateDataAccess,
+            AssociationToOwnedEntityIsCollection: associationsToAggregateRoot[^1].Association.TargetEnd.IsCollection);
+
         // Traverse from aggregate root to target entity collection:
         var currentVariable = aggregateVariableName;
-        foreach (var associationEndModel in foundEntity.GetAssociationsToAggregateRoot().SkipLast(1))
+        foreach (var associationEndModel in associationsToAggregateRoot.SkipLast(1))
         {
             Func<string, string> formatter = requestElement.SpecializationType == "Operation" ? (x) => x.ToCamelCase() : (x) => $"request.{x}";
 
@@ -109,17 +122,16 @@ public static class DomainInteractionExtensions
 
     public static IList<CSharpStatement> GetQueryStatements(
         this ICSharpClassMethodDeclaration method,
+        IDataAccessProviderInjector dataAccessProviderInjector,
         IDataAccessProvider dataAccessProvider,
         IAssociationEnd interaction,
         ClassModel foundEntity,
-        string? projectedType)
+        string? projectedType,
+        bool mustAccessEntityThroughAggregate,
+        string? compositeEntityAccessor,
+        out AggregateDetails? aggregateDetails)
     {
         var queryMapping = interaction.Mappings.GetQueryEntityMapping();
-        if (queryMapping == null)
-        {
-            throw new Exception($"{nameof(queryMapping)} is null");
-        }
-
         var template = method.File.Template;
         var entityVariableName = interaction.Name.ToCSharpIdentifier(CapitalizationBehaviour.MakeFirstLetterLower);
 
@@ -131,23 +143,60 @@ public static class DomainInteractionExtensions
 
         CSharpStatement queryInvocation;
         var prerequisiteStatement = new List<CSharpStatement>();
-        if (dataAccessProvider.MustAccessEntityThroughAggregate())
+        if (mustAccessEntityThroughAggregate)
         {
-            prerequisiteStatement.AddRange(method.GetFindAggregateStatements(queryMapping, foundEntity));
+            prerequisiteStatement.AddRange(method.GetFindAggregateStatements(
+                dataAccessProviderInjector: dataAccessProviderInjector,
+                requestElement: (IElement)interaction.Mappings.First().SourceElement,
+                foundEntity: foundEntity,
+                aggregateDetails: out aggregateDetails));
 
             if (interaction.TypeReference.IsCollection)
             {
+                if (queryMapping == null)
+                {
+                    throw new Exception($"{nameof(queryMapping)} is null");
+                }
+
                 queryInvocation = dataAccessProvider.FindAllAsync(queryMapping, out var requiredStatements);
                 prerequisiteStatement.AddRange(requiredStatements);
             }
+            else if (!aggregateDetails.AssociationToOwnedEntityIsCollection &&
+                     compositeEntityAccessor != null)
+            {
+                csharpMapping.SetFromReplacement(foundEntity, compositeEntityAccessor);
+                csharpMapping.SetFromReplacement(interaction, compositeEntityAccessor);
+                csharpMapping.SetToReplacement(foundEntity, compositeEntityAccessor);
+                csharpMapping.SetToReplacement(interaction, compositeEntityAccessor);
+
+                method.TrackedEntities().Add(interaction.Id, new EntityDetails(
+                    ElementModel: foundEntity.InternalElement,
+                    VariableName: compositeEntityAccessor,
+                    DataAccessProvider: dataAccessProvider,
+                    IsNew: false,
+                    ProjectedType: null,
+                    IsCollection: interaction.TypeReference.IsCollection));
+
+                return prerequisiteStatement;
+            }
             else
             {
+                if (queryMapping == null)
+                {
+                    throw new Exception($"{nameof(queryMapping)} is null");
+                }
+
                 queryInvocation = dataAccessProvider.FindAsync(queryMapping, out var requiredStatements);
                 prerequisiteStatement.AddRange(requiredStatements);
             }
         }
         else
         {
+            if (queryMapping == null)
+            {
+                throw new Exception($"{nameof(queryMapping)} is null");
+            }
+
             // USE THE FindByIdAsync/FindByIdsAsync METHODS:
             if (queryMapping.MappedEnds.Any() && queryMapping.MappedEnds.All(x => x.TargetElement.AsAttributeModel()?.IsPrimaryKey() == true)
                                               && foundEntity.GetTypesInHierarchy().SelectMany(c => c.Attributes).Count(x => x.IsPrimaryKey()) == queryMapping.MappedEnds.Count)
@@ -200,9 +249,9 @@ public static class DomainInteractionExtensions
         statements.Add(new CSharpAssignmentStatement(new CSharpVariableDeclaration(entityVariableName), queryInvocation).SeparatedFromPrevious());
 
         if (!interaction.TypeReference.IsNullable &&
-            !interaction.TypeReference.IsCollection &&
-            !interaction.OtherEnd().TypeReference.Element.TypeReference.IsResultPaginated() &&
-            !interaction.OtherEnd().TypeReference.Element.TypeReference.IsResultCursorPaginated())
+             !interaction.TypeReference.IsCollection &&
+             !interaction.OtherEnd().TypeReference.Element.TypeReference.IsResultPaginated() &&
+             !interaction.OtherEnd().TypeReference.Element.TypeReference.IsResultCursorPaginated())
         {
             var queryFields = queryMapping.MappedEnds
                 .Select(x => new CSharpStatement($"{{{csharpMapping.GenerateSourceStatementForMapping(queryMapping, x)}}}"))
@@ -226,6 +275,8 @@ public static class DomainInteractionExtensions
             IsNew: false,
             ProjectedType: projectedType,
             IsCollection: interaction.TypeReference.IsCollection));
+
+        aggregateDetails = null;
         return statements;
     }
 
@@ -256,7 +307,7 @@ public static class DomainInteractionExtensions
             }
             else
             {
-                var mapper = MappingStrategyProvider.Instance.GetMappingStrategy(method);
+                var mapper = MappingStrategyProvider.Instance.GetMappingStrategy(method)!;
                 mapper.ImplementMappingStatement(method, statements, entityDetails, template, returnType, returnDto);
             }
         }
@@ -275,8 +326,8 @@ public static class DomainInteractionExtensions
             }
             else
             {
-                
-                var mapper = MappingStrategyProvider.Instance.GetMappingStrategy(method);
+
+                var mapper = MappingStrategyProvider.Instance.GetMappingStrategy(method)!;
                 mapper.ImplementPagedMappingStatement(method, statements, entityDetails, template, returnType, returnDto, mappingMethod);
                 //statements.Add($"return {entityDetails.VariableName}.{mappingMethod}(x => x.MapTo{returnDto}({autoMapperFieldName}));");
             }
@@ -393,11 +444,6 @@ public static class DomainInteractionExtensions
                 .SelectMany(c => c.Attributes)
                 .Count(a => a.IsPrimaryKey(isUserSupplied) && a.TypeReference.Element.Id == returnType.Element.Id) == 1)
             .ToList();
-    }
-
-    private static List<CSharpStatement> GetFindAggregateStatements(this ICSharpClassMethodDeclaration method, IElementToElementMapping queryMapping, ClassModel foundEntity)
-    {
-        return method.GetFindAggregateStatements((IElement)queryMapping.SourceElement, foundEntity);
     }
 
     private static bool IsOrderByParam(IElement param)

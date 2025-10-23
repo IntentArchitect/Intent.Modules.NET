@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.DependencyInjection;
@@ -29,9 +30,11 @@ namespace BugSnagTest.AspNetCore.Api.Configuration
                             {
                                 return Task.CompletedTask;
                             }
-                            string? transformedTypeName = context.JsonTypeInfo.Type.FullName?.Replace("+", ".", StringComparison.Ordinal);
-                            schema.Annotations["x-schema-id"] = transformedTypeName;
-                            schema.Title = transformedTypeName;
+
+                            var schemaId = SchemaIdSelector(context.JsonTypeInfo.Type);
+                            schema.Annotations["x-schema-id"] = schemaId;
+                            schema.Title = schemaId;
+
                             return Task.CompletedTask;
                         });
                     options.AddDocumentTransformer((document, context, cancellationToken) =>
@@ -64,6 +67,31 @@ namespace BugSnagTest.AspNetCore.Api.Configuration
                     });
                 });
             return services;
+        }
+
+        private static string SchemaIdSelector(Type modelType)
+        {
+            if (modelType.IsArray)
+            {
+                var elementType = modelType.GetElementType()!;
+                return $"{SchemaIdSelector(elementType)}Array";
+            }
+
+            var typeName = modelType.FullName?.Replace("+", "_") ?? modelType.Name.Replace("+", "_");
+
+            if (!modelType.IsConstructedGenericType)
+            {
+                return typeName;
+            }
+
+            var genericTypeDefName = modelType.GetGenericTypeDefinition().FullName;
+            var baseName = (genericTypeDefName?.Split('`')[0] ?? modelType.Name.Split('`')[0]).Replace("+", "_");
+
+            var genericArgs = modelType.GetGenericArguments()
+                .Select(SchemaIdSelector)
+                .ToArray();
+
+            return $"{baseName}_Of_{string.Join("_And_", genericArgs)}";
         }
     }
 }

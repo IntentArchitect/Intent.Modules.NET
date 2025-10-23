@@ -184,7 +184,7 @@
       </childElements>
     </childElement>
     <childElement id="66557075-ee01-4afc-9499-a8aa4621befd" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.0.20</name>
+      <name>8.0.21</name>
       <display>8.0.19 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -206,10 +206,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="084ecf5e-aac4-4256-a8fd-7daf1032cfe9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c6d09460-ac7a-432c-9862-77a507afccb2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Components.Authorization</name>
           <isAbstract>false</isAbstract>
-          <value>8.0.20</value>
+          <value>8.0.21</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>66557075-ee01-4afc-9499-a8aa4621befd</parentFolderId>
@@ -217,10 +217,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="0c4249e9-f309-4d37-a53a-b041dad1d6c8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="5dc5916f-4d40-4883-b806-3b76ce8933ce" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Components.Web</name>
           <isAbstract>false</isAbstract>
-          <value>8.0.20</value>
+          <value>8.0.21</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>66557075-ee01-4afc-9499-a8aa4621befd</parentFolderId>
@@ -231,7 +231,7 @@
       </childElements>
     </childElement>
     <childElement id="a3ae2356-2af3-4c98-8479-de2494a9ae48" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.9</name>
+      <name>9.0.10</name>
       <display>9.0.8 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -253,10 +253,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="d7e3c9b3-4f46-4500-8133-11c8f62da442" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c7efe67b-f70f-40c8-8ce9-57964f266fd5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Components.Authorization</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.9</value>
+          <value>9.0.10</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a3ae2356-2af3-4c98-8479-de2494a9ae48</parentFolderId>
@@ -264,10 +264,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="1ce03408-c3f2-4e75-bba8-8b25d81342ef" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e156d4a7-457a-4773-8026-33065d7e9985" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Components.Web</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.9</value>
+          <value>9.0.10</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a3ae2356-2af3-4c98-8479-de2494a9ae48</parentFolderId>

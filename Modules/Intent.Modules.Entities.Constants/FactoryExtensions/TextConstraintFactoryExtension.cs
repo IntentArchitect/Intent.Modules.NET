@@ -99,7 +99,10 @@ namespace Intent.Modules.Entities.Constants.FactoryExtensions
                             var entityTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.Entity.Primary, attributeModel.Class);
                             var entityOutput = entityTemplate.CSharpFile.Classes.First();
 
-                            var constant = entityOutput.Fields.FirstOrDefault(f => f.AccessModifier.Contains(" const") && f.TryGetMetadata<AttributeModel>("model", out var constAttributeModel) && constAttributeModel.Id == attributeModel.Id);
+                            var constant = entityOutput.Fields.FirstOrDefault(f =>
+                                (f.IsConstant || f.AccessModifier.Contains(" const") /* Need the .Contains check for backwards compatibility of older C# file builder */) &&
+                                f.TryGetMetadata<AttributeModel>("model", out var constAttributeModel) &&
+                                constAttributeModel.Id == attributeModel.Id);
                             if (constant != null)
                             {
                                 maxLengthStatement.Replace(new CSharpStatement($"MaximumLength( {entityTypeName}.{constant.Name} )"));

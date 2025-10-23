@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="7ab6f76d-5af6-43dd-b6b5-4fa733a613ed" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>ProgramExtension</name>
+  <display>ProgramExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>c4941506-85b6-4b02-a701-57c663245324</parentFolderId>
+  <packageId>c4941506-85b6-4b02-a701-57c663245324</packageId>
+  <packageName>Intent.Aws.SecretsManager</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

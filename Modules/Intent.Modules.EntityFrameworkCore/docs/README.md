@@ -162,15 +162,17 @@ However, the joining table can also be explicitly modeled if preferred. Both app
 
 #### Implicit Join Table
 
-When not modeling the joining table explicitly, Entity Framework will generate the necessary intermediate table automatically:
+When you don't explicitly model the join table, Entity Framework will automatically create the intermediate join table for many-to-many relationships:
 
 ![Implicit Many-To-Many](images/many-to-many-no-join.png)
 
 #### Explicit Join Table
 
-You can also model the join table directly in the domain:
+You can also model the join table explicitly in the domain:
 
 ![Explicit Many-To-Many](images/many-to-many-with-join.png)
+
+In this approach, the Product entity takes ownership of its relationships with the Category entity.
 
 #### When to Model the Join Table
 

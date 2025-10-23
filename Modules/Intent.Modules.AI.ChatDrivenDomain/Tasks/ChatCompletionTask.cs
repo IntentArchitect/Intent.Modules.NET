@@ -46,13 +46,14 @@ public class ChatCompletionTask : IModuleTask
         try
         {
             var inputModel = JsonSerializer.Deserialize<InputModel>(args[0], SerializerOptions)!;
+            var provider = new AISettings.ProviderOptions(inputModel.ProviderId).AsEnum();
             var modelMutationPlugin = new ModelMutationPlugin(inputModel);
-            var kernel = new IntentSemanticKernelFactory(_userSettingsProvider).BuildSemanticKernel((builder) =>
+            var kernel = new IntentSemanticKernelFactory(_userSettingsProvider).BuildSemanticKernel(inputModel.ModelId, provider, (builder) =>
             {
                 builder.Plugins.AddFromObject(modelMutationPlugin);
             });
 
-            var requestFunction = CreatePromptFunction(kernel);
+            var requestFunction = CreatePromptFunction(kernel, inputModel.ThinkingLevel);
             var result = requestFunction.InvokeAsync(kernel, new KernelArguments
             {
                 ["prompt"] = inputModel.Prompt
@@ -75,7 +76,7 @@ public class ChatCompletionTask : IModuleTask
         }
     }
 
-    private static KernelFunction CreatePromptFunction(Kernel kernel)
+    private static KernelFunction CreatePromptFunction(Kernel kernel, string thinkingLevel)
     {
         const string promptTemplate =
             """
@@ -150,13 +151,8 @@ public class ChatCompletionTask : IModuleTask
 
             DO NOT generate JSON directly. ONLY use the provided functions to modify the domain model.
             """;
-        
-        var requestFunction = kernel.CreateFunctionFromPrompt(
-            promptTemplate,
-            new PromptExecutionSettings
-            {
-                FunctionChoiceBehavior = FunctionChoiceBehavior.Auto()
-            });
+
+        var requestFunction = kernel.CreateFunctionFromPrompt(promptTemplate, kernel.GetRequiredService<IAiProviderService>().GetPromptExecutionSettings(thinkingLevel));
         return requestFunction;
     }
 

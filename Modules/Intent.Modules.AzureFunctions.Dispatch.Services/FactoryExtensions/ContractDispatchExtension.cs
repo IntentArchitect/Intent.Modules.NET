@@ -4,6 +4,7 @@ using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.Contracts.Templates;
+using Intent.Modules.AzureFunctions.Api;
 using Intent.Modules.AzureFunctions.Templates;
 using Intent.Modules.AzureFunctions.Templates.AzureFunctionClass;
 using Intent.Modules.Common;
@@ -111,23 +112,47 @@ namespace Intent.Modules.AzureFunctions.Dispatch.Services.FactoryExtensions
             return (IHasCSharpStatements)runMethod.FindStatement<CSharpTryBlock>(_ => true) ?? runMethod;
         }
 
+        private static HttpResponseMapper _httpResponseMapper = new HttpResponseMapper();
+
+        private static string GetResponse(IHttpEndpointModel endpoint, string defautlResult)
+        {
+            return $"new {_httpResponseMapper.GetSuccessResponseCodeOperation(endpoint.InternalElement, defautlResult, null)}";
+        }
+        private static string GetResponse(IHttpEndpointModel endpoint, string defautlResult, string response)
+        {
+            return $"new {_httpResponseMapper.GetSuccessResponseCodeOperation(endpoint.InternalElement, defautlResult, response)}";
+        }
+
+        public static string GetEnum(IHttpEndpointModel endpoint, string defaultValue)
+        {
+            return _httpResponseMapper.GetResponseStatusCodeEnum(endpoint.InternalElement, defaultValue);
+        }
+
         private static CSharpStatement GetReturnStatement(AzureFunctionClassTemplate template)
         {
             var httpTriggersView = HttpEndpointModelFactory.GetEndpoint(template.Model.InternalElement, "");
             var (result, statusCode) = httpTriggersView?.Verb switch
             {
                 HttpVerb.Get => template.Model.ReturnType == null
-                    ? ($"new NoContentResult()", "NoContent")
-                    : ($"new OkObjectResult({GetResultExpression(template)})", "OK"),
+                    ? (GetResponse(httpTriggersView, "NoContentResult()")
+                        , GetEnum(httpTriggersView, "NoContent"))
+                    : (GetResponse(httpTriggersView, $"OkObjectResult({GetResultExpression(template)})", GetResultExpression(template))
+                        , GetEnum(httpTriggersView, "OK")),
                 HttpVerb.Post => template.Model.ReturnType == null
-                    ? ($"new CreatedResult(string.Empty, null)", "Created")
-                    : ($"new CreatedResult(string.Empty, {GetResultExpression(template)})", "Created"),
+                    ? (GetResponse(httpTriggersView, "CreatedResult(string.Empty, null)")
+                        , GetEnum(httpTriggersView, "Created"))
+                    : (GetResponse(httpTriggersView, $"CreatedResult(string.Empty, {GetResultExpression(template)})", GetResultExpression(template))
+                        , GetEnum(httpTriggersView, "Created")),
                 HttpVerb.Put or HttpVerb.Patch => template.Model.ReturnType == null
-                    ? ($"new NoContentResult()", "NoContent")
-                    : ($"new OkObjectResult({GetResultExpression(template)})", "OK"),
+                    ? (GetResponse(httpTriggersView, "NoContentResult()")
+                        , GetEnum(httpTriggersView, "NoContent"))
+                    : (GetResponse(httpTriggersView, $"OkObjectResult({GetResultExpression(template)})", GetResultExpression(template))
+                        , GetEnum(httpTriggersView, "OK")),
                 HttpVerb.Delete => template.Model.ReturnType == null
-                    ? ($"new OkResult()", "OK")
-                    : ($"new OkObjectResult({GetResultExpression(template)})", "OK"),
+                    ? (GetResponse(httpTriggersView, "OkResult()")
+                        , GetEnum(httpTriggersView, "OK"))
+                    : (GetResponse(httpTriggersView, $"OkObjectResult({GetResultExpression(template)})", GetResultExpression(template))
+                        , GetEnum(httpTriggersView, "OK")),
                 null => template.Model.ReturnType == null
                     ? (string.Empty, "OK")
                     : ($"result", "OK"),

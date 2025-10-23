@@ -9,6 +9,7 @@ using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.AI.UnitTests.Tasks.Helpers;
 using Intent.Modules.Common.AI;
+using Intent.Modules.Common.AI.Settings;
 using Intent.Plugins;
 using Intent.Registrations;
 using Intent.Utils;
@@ -49,10 +50,13 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
     {
         var applicationId = args[0];
         var elementId = args[1];
-        var userProvidedContext = args.Length > 2 && !string.IsNullOrWhiteSpace(args[2]) ? args[2] : "None";
+        var userProvidedContext = !string.IsNullOrWhiteSpace(args[2]) ? args[2] : "None";
+        var provider = new AISettings.ProviderOptions(args[3]).AsEnum();
+        var modelId = args[4];
+        var thinkingType = args[5];
 
         Logging.Log.Info($"Args: {string.Join(",", args)}");
-        var kernel = _intentSemanticKernelFactory.BuildSemanticKernel();
+        var kernel = _intentSemanticKernelFactory.BuildSemanticKernel(modelId, provider, null);
         
         var queryModel = _metadataManager.Services(applicationId).Elements.FirstOrDefault(x => x.Id == elementId);
         if (queryModel == null)
@@ -63,7 +67,7 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
         Logging.Log.Info($@"Input Files: {Environment.NewLine}{string.Join(Environment.NewLine, inputFiles.Select(x => x))}" );
         var jsonInput = JsonConvert.SerializeObject(inputFiles, Formatting.Indented);
 
-        var requestFunction = CreatePromptFunction(kernel);
+        var requestFunction = CreatePromptFunction(kernel, thinkingType);
         var fileChangesResult = requestFunction.InvokeFileChangesPrompt(kernel, new KernelArguments()
         {
             ["inputFilesJson"] = jsonInput,
@@ -85,7 +89,7 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
     }
 
 
-    private static KernelFunction CreatePromptFunction(Kernel kernel)
+    private static KernelFunction CreatePromptFunction(Kernel kernel, string thinkingType)
     {
         const string promptTemplate =
             """
@@ -345,7 +349,7 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
             {{$previousError}}
             """;
         
-        var requestFunction = kernel.CreateFunctionFromPrompt(promptTemplate);
+        var requestFunction = kernel.CreateFunctionFromPrompt(promptTemplate, kernel.GetRequiredService<IAiProviderService>().GetPromptExecutionSettings(thinkingType));
         return requestFunction;
     }
 

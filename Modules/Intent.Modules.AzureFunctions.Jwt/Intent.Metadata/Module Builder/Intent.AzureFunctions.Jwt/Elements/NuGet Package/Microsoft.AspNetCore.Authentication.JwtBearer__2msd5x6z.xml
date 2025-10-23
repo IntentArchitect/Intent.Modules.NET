@@ -156,7 +156,7 @@
       </childElements>
     </childElement>
     <childElement id="5caa5698-38e7-4d1a-90c4-024e2869da10" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.0.20</name>
+      <name>8.0.21</name>
       <display>8.0.20 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -178,16 +178,13 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="cba6fcb2-85e0-4d2c-9edc-331d0cf3ad16" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="4d76ea65-157b-4422-93a7-2c13c2d80c17" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.Protocols.OpenIdConnect</name>
-          <display>Microsoft.IdentityModel.Protocols.OpenIdConnect (7.1.2)</display>
           <isAbstract>false</isAbstract>
           <value>7.1.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5caa5698-38e7-4d1a-90c4-024e2869da10</parentFolderId>
-          <packageId>e342fa58-3ccb-4fd7-9278-88797486b93e</packageId>
-          <packageName>Intent.AzureFunctions.Jwt</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -195,7 +192,7 @@
       </childElements>
     </childElement>
     <childElement id="f00d557c-fbc9-47c6-b2ae-e918a727c9ba" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.9</name>
+      <name>9.0.10</name>
       <display>9.0.9 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -217,16 +214,13 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="6b242850-38d9-4ef7-a45b-03d349296344" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d5256ad3-aa9a-4de8-91eb-a716f49206a0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.Protocols.OpenIdConnect</name>
-          <display>Microsoft.IdentityModel.Protocols.OpenIdConnect (8.0.1)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f00d557c-fbc9-47c6-b2ae-e918a727c9ba</parentFolderId>
-          <packageId>e342fa58-3ccb-4fd7-9278-88797486b93e</packageId>
-          <packageName>Intent.AzureFunctions.Jwt</packageName>
           <stereotypes />
           <metadata />
           <childElements />

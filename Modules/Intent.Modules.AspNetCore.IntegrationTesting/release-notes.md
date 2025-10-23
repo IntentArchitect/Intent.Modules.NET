@@ -1,3 +1,8 @@
+### Version 2.0.12
+
+- Improvement: Updated NuGet package versions.
+- Fixed: Under certain circumstances the `EFContainerFixture` file would be missing a `Microsoft.EntityFrameworkCore.Migrations` using directive.
+
 ### Version 2.0.11
 
 - Improvement: Updated NuGet package versions.

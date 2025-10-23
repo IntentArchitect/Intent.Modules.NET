@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<outputLog>
+  <ApplicationId>e406684b-ac67-4f35-8f6c-c02af49695d4</ApplicationId>
+  <FileLogs>
+    <FileLog>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#5637d6fc-735f-4a5f-abdd-0b99bd35cc92</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2488db36-70db-4d11-a599-2a76c9c2a57d</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#2488db36-70db-4d11-a599-2a76c9c2a57d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Intent.Modules.MongoDb.Repositories.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.MongoDb.Repositories.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2488db36-70db-4d11-a599-2a76c9c2a57d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Intent.MongoDb.Repositories.imodspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.MongoDb.Repositories.imodspec</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+  </FileLogs>
+</outputLog>

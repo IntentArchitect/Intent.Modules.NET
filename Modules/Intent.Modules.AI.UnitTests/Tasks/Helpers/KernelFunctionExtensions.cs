@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Intent.Exceptions;
 using Microsoft.SemanticKernel;
 
 namespace Intent.Modules.AI.UnitTests.Tasks.Helpers;
@@ -17,10 +18,29 @@ internal static class KernelFunctionExtensions
         
         for (var i = 0; i < maxAttempts; i++)
         {
-            arguments ??= new KernelArguments();
+            if (arguments is null)
+            {
+                arguments = new KernelArguments();
+            }
             arguments["previousError"] = previousError;
             
-            var result = kernelFunction.InvokeAsync(kernel, arguments).Result;
+            FunctionResult result;
+            try
+            {
+                result = kernelFunction.InvokeAsync(kernel, arguments).GetAwaiter().GetResult();
+            }
+            catch (Exception ex)
+            {
+                var rootException = GetRootException(ex);
+                var message = rootException.Message;
+
+                if (message.Contains("reasoning_effort", StringComparison.OrdinalIgnoreCase))
+                {
+                    throw new FriendlyException(@"The selected model does not have thinking capabilities. Please choose a different model or set the thinking level to 'None'.");
+                }
+
+                throw;
+            }
 
             if (FileChangesHelper.TryGetFileChangesResult(result, out fileChangesResult))
             {
@@ -36,5 +56,21 @@ internal static class KernelFunctionExtensions
         }
 
         return fileChangesResult;
+    }
+
+    private static Exception GetRootException(Exception exception)
+    {
+        if (exception is AggregateException aggregateException)
+        {
+            var flattened = aggregateException.Flatten();
+            if (flattened.InnerExceptions.Count == 1)
+            {
+                return GetRootException(flattened.InnerExceptions[0]);
+            }
+
+            return flattened;
+        }
+
+        return exception.InnerException is null ? exception : GetRootException(exception.InnerException);
     }
 }

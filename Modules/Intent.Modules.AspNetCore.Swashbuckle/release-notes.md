@@ -1,6 +1,14 @@
-### Version 5.1.12
+### Version 5.2.0
 
 - Improvement: Updated NuGet package versions.
+- Fixed: Schema identifier generation to ensure generated swagger schema is OpenAPI compliant.
+
+> ⚠️ NOTE
+> 
+> Nested types will be separated by `.` and no longer `_` (you can override this in code if you need to).
+> 
+> When using simple schema identifiers, generic types will use `Of` and `And` to separate generic types and parameters.
+> When using full-namespace identifiers, the identifier will use `_Of_` and `_And_` to separate generic types and parameters.
 
 ### Version 5.1.11
 

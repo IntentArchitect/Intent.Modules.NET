@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<outputFiles>
+  <files>
+    <file relativePath="Intent.Modules.NET.sln" state="ignored" />
+    <file relativePath="Intent.Modules.ObsoleteModule/Intent.Modules.ObsoleteModule.csproj" state="ignored" />
+    <file relativePath="Intent.Modules.ObsoleteModule/Intent.Modules.ObsoleteModule.imodspec" state="ignored" />
+  </files>
+</outputFiles>

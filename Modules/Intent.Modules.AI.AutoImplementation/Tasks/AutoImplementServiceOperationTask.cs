@@ -9,6 +9,7 @@ using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.AI.AutoImplementation.Tasks.Helpers;
 using Intent.Modules.Common.AI;
+using Intent.Modules.Common.AI.Settings;
 using Intent.Plugins;
 using Intent.Registrations;
 using Intent.Utils;
@@ -49,10 +50,13 @@ public class AutoImplementServiceOperationTask : IModuleTask
     {
         var applicationId = args[0];
         var elementId = args[1];
-        var userProvidedContext = args.Length > 2 && !string.IsNullOrWhiteSpace(args[2]) ? args[2] : "None";
+        var userProvidedContext = !string.IsNullOrWhiteSpace(args[2]) ? args[2] : "None";
+        var provider = new AISettings.ProviderOptions(args[3]).AsEnum();
+        var modelId = args[4];
+        var thinkingLevel = args[5];
 
         Logging.Log.Info($"Args: {string.Join(",", args)}");
-        var kernel = _intentSemanticKernelFactory.BuildSemanticKernel();
+        var kernel = _intentSemanticKernelFactory.BuildSemanticKernel(modelId, provider, null);
 
         var element = _metadataManager.Services(applicationId).Elements.FirstOrDefault(x => x.Id == elementId);
         if (element == null)
@@ -62,7 +66,7 @@ public class AutoImplementServiceOperationTask : IModuleTask
         var inputFiles = GetInputFiles(element);
         var jsonInput = JsonConvert.SerializeObject(inputFiles, Formatting.Indented);
 
-        var requestFunction = CreatePromptFunction(kernel);
+        var requestFunction = CreatePromptFunction(kernel, thinkingLevel);
         var fileChangesResult = requestFunction.InvokeFileChangesPrompt(kernel, new KernelArguments()
         {
             ["inputFilesJson"] = jsonInput,
@@ -82,7 +86,7 @@ public class AutoImplementServiceOperationTask : IModuleTask
         return "success";
     }
 
-    private static KernelFunction CreatePromptFunction(Kernel kernel)
+    private static KernelFunction CreatePromptFunction(Kernel kernel, string thinkingLevel)
     {
 	    const string promptTemplate =
             """
@@ -204,7 +208,7 @@ public class AutoImplementServiceOperationTask : IModuleTask
             2.5. All existing code and attributes must be preserved unless explicitly modified
             """;
 	    
-	    var requestFunction = kernel.CreateFunctionFromPrompt(promptTemplate);
+        var requestFunction = kernel.CreateFunctionFromPrompt(promptTemplate, kernel.GetRequiredService<IAiProviderService>().GetPromptExecutionSettings(thinkingLevel));
 	    return requestFunction;
     }
     

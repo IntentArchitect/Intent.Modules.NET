@@ -1,3 +1,7 @@
+### Version 5.0.4
+
+- Fixed: Can customize success response codes through `HTTP Settings` Stereotype.
+
 ### Version 5.0.3
 
 - Improvement: Enhanced the OpenApiResponse attributes added to the `Run` method

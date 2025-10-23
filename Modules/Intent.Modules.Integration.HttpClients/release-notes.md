@@ -1,6 +1,11 @@
+### Version 6.0.9
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 6.0.8
 
 - Fixed: Nullable primitive return types (non wrapped as json responses) caused un-compilable code.
+- Fixed: Complex types for Query strings can better deal with nested collection fields.
 
 ### Version 6.0.7
 

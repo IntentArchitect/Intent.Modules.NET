@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ignoredFiles>
-  <files>
-    <file relativePath="CosmosDB.Application/DerivedOfTS/DerivedOfTDto.cs" />
-    <file relativePath="CosmosDB.Domain/Repositories/IEntityOfTRepository.cs" />
-    <file relativePath="CosmosDB.Infrastructure/DependencyInjection.cs" />
-  </files>
-</ignoredFiles>
