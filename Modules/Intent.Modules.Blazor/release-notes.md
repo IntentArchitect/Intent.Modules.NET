@@ -1,6 +1,7 @@
 ### Version 1.0.5
 
 - Improvement: Updated NuGet package versions.
+- Fixed: SF Crash in scenario of remote service with missing mappings.
 
 ### Version 1.0.4
 
