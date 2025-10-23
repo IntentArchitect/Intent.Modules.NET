@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ignoredFiles>
-  <files>
-    <file relativePath="Intent.Modules.VisualStudio.Projects/Intent.Modules.VisualStudio.Projects.csproj" />
-    <file relativePath="Intent.Modules.VisualStudio.Projects/modelers/Visual Studio Types.designer.settings" />
-  </files>
-</ignoredFiles>
