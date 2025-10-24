@@ -2,10 +2,10 @@
 <association id="a6304277-eb16-4444-b545-d878bb3e8486">
   <sourceEnd id="d179334d-3090-47cd-a6fd-485a6a466348" type="Domain Event Origin Association Source End" typeId="2495d3ef-f7a2-441d-b749-b51b2546b45e">
     <display>published by : FuneralCoverQuote.Constructor</display>
-    <order>3</order>
+    <order>0</order>
     <typeReference id="498a2770-1a0f-4707-ace1-c02057c9874f">
       <typeId>594906e7-27f7-43f0-a5aa-0ac3e65be84c</typeId>
-      <isNavigable>true</isNavigable>
+      <isNavigable>false</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
       <isRequired>true</isRequired>

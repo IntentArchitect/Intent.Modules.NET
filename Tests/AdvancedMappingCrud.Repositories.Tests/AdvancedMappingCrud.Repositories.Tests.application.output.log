@@ -92,6 +92,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>0d72f64b-027f-4e29-8567-b43887b0fc08</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#8c80e775-aa03-49b4-a8c6-2532443d436f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Api/Controllers/DBAssignedsController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DBAssignedsController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0d72f64b-027f-4e29-8567-b43887b0fc08</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#14a2f702-c5c2-4718-ad86-a3f09019eac7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Api/Controllers/FarmersController.cs</ApplicationRelativeFilePath>
@@ -1624,6 +1632,118 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Customers/UserDtoMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Customers/UserDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#15b21f4c-852b-42a7-8c94-173d7da40295</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/DBAssigneds/CreateDBAssigned/CreateDBAssignedCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DBAssigneds/CreateDBAssigned/CreateDBAssignedCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#15b21f4c-852b-42a7-8c94-173d7da40295</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/DBAssigneds/CreateDBAssigned/CreateDBAssignedCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DBAssigneds/CreateDBAssigned/CreateDBAssignedCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#15b21f4c-852b-42a7-8c94-173d7da40295</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/DBAssigneds/CreateDBAssigned/CreateDBAssignedCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DBAssigneds/CreateDBAssigned/CreateDBAssignedCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#eb638959-dde4-4ff4-90f8-17e50d375adf</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/DBAssigneds/DBAssignedDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DBAssigneds/DBAssignedDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#eb638959-dde4-4ff4-90f8-17e50d375adf</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/DBAssigneds/DBAssignedDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DBAssigneds/DBAssignedDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#27d40fc9-2e56-46d7-82c3-e1dfc835f150</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/DBAssigneds/DeleteDBAssigned/DeleteDBAssignedCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DBAssigneds/DeleteDBAssigned/DeleteDBAssignedCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#27d40fc9-2e56-46d7-82c3-e1dfc835f150</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/DBAssigneds/DeleteDBAssigned/DeleteDBAssignedCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DBAssigneds/DeleteDBAssigned/DeleteDBAssignedCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#927f6007-e964-403a-b42b-84d7cdc7003f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/DBAssigneds/GetDBAssignedById/GetDBAssignedByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DBAssigneds/GetDBAssignedById/GetDBAssignedByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#927f6007-e964-403a-b42b-84d7cdc7003f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/DBAssigneds/GetDBAssignedById/GetDBAssignedByIdQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DBAssigneds/GetDBAssignedById/GetDBAssignedByIdQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#e1066b9a-f845-479a-8f75-c0ec35cee4ac</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/DBAssigneds/GetDBAssigneds/GetDBAssignedsQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DBAssigneds/GetDBAssigneds/GetDBAssignedsQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#e1066b9a-f845-479a-8f75-c0ec35cee4ac</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/DBAssigneds/GetDBAssigneds/GetDBAssignedsQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DBAssigneds/GetDBAssigneds/GetDBAssignedsQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#bf5a428c-6c86-4a45-ab39-9b2a23efeab1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/DBAssigneds/UpdateDBAssigned/UpdateDBAssignedCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DBAssigneds/UpdateDBAssigned/UpdateDBAssignedCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#bf5a428c-6c86-4a45-ab39-9b2a23efeab1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/DBAssigneds/UpdateDBAssigned/UpdateDBAssignedCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DBAssigneds/UpdateDBAssigned/UpdateDBAssignedCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#bf5a428c-6c86-4a45-ab39-9b2a23efeab1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/DBAssigneds/UpdateDBAssigned/UpdateDBAssignedCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DBAssigneds/UpdateDBAssigned/UpdateDBAssignedCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -4868,6 +4988,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>8f97e5a0-4ddd-4f88-a153-05d97e6a1a0a</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#d5ce26c1-ec87-4f88-89a5-cd233beb1f78</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Entities/ExplicitAutoGenerated/DBAssigned.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExplicitAutoGenerated/DBAssigned.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8f97e5a0-4ddd-4f88-a153-05d97e6a1a0a</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#34526c10-fad8-41c4-ab28-9510ace886b8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Entities/ExtensiveDomainServices/BaseEntityA.cs</ApplicationRelativeFilePath>
@@ -5256,6 +5384,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Repositories/EdgeCompositeHandling/IRootRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>EdgeCompositeHandling/IRootRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>cbc2cd7d-060f-4471-a0db-1b40bcb78d9e</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#d5ce26c1-ec87-4f88-89a5-cd233beb1f78</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Repositories/ExplicitAutoGenerated/IDBAssignedRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExplicitAutoGenerated/IDBAssignedRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -5868,6 +6004,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>fa87b999-904f-4bf0-a0ef-1827702b4630</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#d5ce26c1-ec87-4f88-89a5-cd233beb1f78</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Persistence/Configurations/ExplicitAutoGenerated/DBAssignedConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExplicitAutoGenerated/DBAssignedConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fa87b999-904f-4bf0-a0ef-1827702b4630</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#34526c10-fad8-41c4-ab28-9510ace886b8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Persistence/Configurations/ExtensiveDomainServices/BaseEntityAConfiguration.cs</ApplicationRelativeFilePath>
@@ -6172,6 +6316,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>01139201-fc8d-4081-9e46-6d28709ddebd</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#d5ce26c1-ec87-4f88-89a5-cd233beb1f78</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Repositories/ExplicitAutoGenerated/DBAssignedRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExplicitAutoGenerated/DBAssignedRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>01139201-fc8d-4081-9e46-6d28709ddebd</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#34526c10-fad8-41c4-ab28-9510ace886b8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Repositories/ExtensiveDomainServices/BaseEntityARepository.cs</ApplicationRelativeFilePath>
@@ -6424,6 +6576,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/HttpClients/Customers/ICustomersService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Customers/ICustomersService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f936b0-25d5-4f2b-a48f-62f6ccbbedd9</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.HttpClient#8c80e775-aa03-49b4-a8c6-2532443d436f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/HttpClients/DBAssigneds/DBAssignedsHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DBAssigneds/DBAssignedsHttpClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f936b0-25d5-4f2b-a48f-62f6ccbbedd9</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#8c80e775-aa03-49b4-a8c6-2532443d436f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/HttpClients/DBAssigneds/IDBAssignedsService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DBAssigneds/IDBAssignedsService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -6968,6 +7136,54 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/Customers/UpdateCustomerCommand.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Services/Customers/UpdateCustomerCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#15b21f4c-852b-42a7-8c94-173d7da40295</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/DBAssigneds/CreateDBAssignedCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/DBAssigneds/CreateDBAssignedCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#eb638959-dde4-4ff4-90f8-17e50d375adf</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/DBAssigneds/DBAssignedDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/DBAssigneds/DBAssignedDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#27d40fc9-2e56-46d7-82c3-e1dfc835f150</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/DBAssigneds/DeleteDBAssignedCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/DBAssigneds/DeleteDBAssignedCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#927f6007-e964-403a-b42b-84d7cdc7003f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/DBAssigneds/GetDBAssignedByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/DBAssigneds/GetDBAssignedByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#e1066b9a-f845-479a-8f75-c0ec35cee4ac</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/DBAssigneds/GetDBAssignedsQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/DBAssigneds/GetDBAssignedsQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#bf5a428c-6c86-4a45-ab39-9b2a23efeab1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/DBAssigneds/UpdateDBAssignedCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/DBAssigneds/UpdateDBAssignedCommand.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -7952,6 +8168,46 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/Customers/UpdateCustomerTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Customers/UpdateCustomerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7a8fa5f-5a2f-4da5-9855-1bb027bf566b</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#15b21f4c-852b-42a7-8c94-173d7da40295</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/DBAssigneds/CreateDBAssignedTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DBAssigneds/CreateDBAssignedTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7a8fa5f-5a2f-4da5-9855-1bb027bf566b</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#27d40fc9-2e56-46d7-82c3-e1dfc835f150</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/DBAssigneds/DeleteDBAssignedTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DBAssigneds/DeleteDBAssignedTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7a8fa5f-5a2f-4da5-9855-1bb027bf566b</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#927f6007-e964-403a-b42b-84d7cdc7003f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/DBAssigneds/GetDBAssignedByIdTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DBAssigneds/GetDBAssignedByIdTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7a8fa5f-5a2f-4da5-9855-1bb027bf566b</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#e1066b9a-f845-479a-8f75-c0ec35cee4ac</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/DBAssigneds/GetDBAssignedsTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DBAssigneds/GetDBAssignedsTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7a8fa5f-5a2f-4da5-9855-1bb027bf566b</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#bf5a428c-6c86-4a45-ab39-9b2a23efeab1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/DBAssigneds/UpdateDBAssignedTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DBAssigneds/UpdateDBAssignedTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
