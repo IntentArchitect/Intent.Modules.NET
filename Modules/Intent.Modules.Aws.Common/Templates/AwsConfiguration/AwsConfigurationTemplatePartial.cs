@@ -25,6 +25,8 @@ namespace Intent.Modules.Aws.Common.Templates.AwsConfiguration
             CSharpClassMethod? configureMethod = null;
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddUsing("Microsoft.Extensions.Configuration")
+                .AddUsing("Microsoft.Extensions.DependencyInjection")
                 .AddClass($"AwsConfiguration", @class =>
                 {
                     AddNugetDependency(NugetPackages.AWSSDKExtensionsNETCoreSetup(OutputTarget));

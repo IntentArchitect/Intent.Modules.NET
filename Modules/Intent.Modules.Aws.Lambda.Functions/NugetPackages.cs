@@ -102,20 +102,20 @@ namespace Intent.Modules.Aws.Lambda.Functions
                 (framework) => (framework.Major, framework.Minor) switch
                     {
                         ( >= 9, >= 0) => new PackageVersion("9.0.10")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration", "9.0.10")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.10")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.FileExtensions", "9.0.10")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration", "9.0.10")
                             .WithNugetDependency("Microsoft.Extensions.FileProviders.Abstractions", "9.0.10"),
                         ( >= 8, >= 0) => new PackageVersion("9.0.10")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration", "9.0.10")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.10")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.FileExtensions", "9.0.10")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration", "9.0.10")
                             .WithNugetDependency("Microsoft.Extensions.FileProviders.Abstractions", "9.0.10")
                             .WithNugetDependency("System.Text.Json", "9.0.10"),
                         ( >= 2, >= 1) => new PackageVersion("9.0.10")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration", "9.0.10")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.10")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.FileExtensions", "9.0.10")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration", "9.0.10")
                             .WithNugetDependency("Microsoft.Extensions.FileProviders.Abstractions", "9.0.10")
                             .WithNugetDependency("System.Text.Json", "9.0.10"),
                         ( >= 2, >= 0) => new PackageVersion("8.0.0", locked: true),

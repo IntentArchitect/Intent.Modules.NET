@@ -10,7 +10,7 @@
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.8.3" />
     <PackageReference Include="Intent.Modules.Eventing.Contracts" Version="5.2.0" />
     <PackageReference Include="Intent.Modules.Modelers.Eventing" Version="6.0.2" />
-    <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.9.3" />
+    <PackageReference Include="Intent.Modules.Modelers.Services" Version="4.0.5" />
     <PackageReference Include="Intent.Modules.Modelers.Services.EventInteractions" Version="1.2.1" />
     <PackageReference Include="Intent.Packager" Version="3.6.0">
       <PrivateAssets>all</PrivateAssets>
@@ -19,7 +19,12 @@
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="3.0.0" />
     <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.10.0-pre.2" />
   </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
+  </ItemGroup>
 
   <Import Project="..\Intent.Modules.Integration.IaC.Shared.AwsSqs\Intent.Modules.Integration.IaC.Shared.AwsSqs.projitems" Label="Shared" />
+  <Import Project="..\Intent.Modules.Eventing.Shared\Intent.Modules.Eventing.Shared.projitems" Label="Shared" />
 
 </Project>

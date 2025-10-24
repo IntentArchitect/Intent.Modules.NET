@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using Intent.Modelers.Services.EventInteractions;
+using Intent.Modules.Aws.Sqs.Templates.IntegrationEventHandler;
 using Intent.Modules.Aws.Sqs.Templates.SqsConfiguration;
 using Intent.Modules.Aws.Sqs.Templates.SqsEventBus;
 using Intent.Modules.Aws.Sqs.Templates.SqsMessageDispatcher;
@@ -16,6 +18,15 @@ namespace Intent.Modules.Aws.Sqs.Templates
 {
     public static class TemplateExtensions
     {
+        public static string GetIntegrationEventHandlerName<T>(this IIntentTemplate<T> template) where T : IntegrationEventHandlerModel
+        {
+            return template.GetTypeName(IntegrationEventHandlerTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetIntegrationEventHandlerName(this IIntentTemplate template, IntegrationEventHandlerModel model)
+        {
+            return template.GetTypeName(IntegrationEventHandlerTemplate.TemplateId, model);
+        }
         public static string GetSqsConfigurationName(this IIntentTemplate template)
         {
             return template.GetTypeName(SqsConfigurationTemplate.TemplateId);

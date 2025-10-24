@@ -39,7 +39,6 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsConfiguration
                 .AddUsing("System")
                 .AddUsing("Microsoft.Extensions.Configuration")
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
-                .AddUsing("Amazon.Runtime")
                 .AddUsing("Amazon.SQS")
                 .AddClass($"SqsConfiguration", @class =>
                 {
@@ -50,31 +49,8 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsConfiguration
                             method.AddParameter("IServiceCollection", "services", param => param.WithThisModifier());
                             method.AddParameter("IConfiguration", "configuration");
 
-                            // Register SQS client (with LocalStack support)
-                            method.AddStatement("""var serviceUrl = configuration["AWS:ServiceURL"];""");
-                            method.AddIfStatement("!string.IsNullOrEmpty(serviceUrl)", ifStmt =>
-                            {
-                                ifStmt.AddInvocationStatement("services.AddSingleton<IAmazonSQS>", inv => inv
-                                    .AddArgument(new CSharpLambdaBlock("sp"), arg =>
-                                    {
-                                        arg.AddStatement(new CSharpAssignmentStatement(
-                                            new CSharpVariableDeclaration("sqsConfig"),
-                                            new CSharpObjectInitializerBlock("new AmazonSQSConfig")
-                                                .AddInitStatement("ServiceURL", "serviceUrl")
-                                                .AddInitStatement("AuthenticationRegion", @"configuration[""AWS:Region""] ?? ""us-east-1"""))
-                                            .WithSemicolon());
-                                        arg.AddReturn(new CSharpInvocationStatement("new AmazonSQSClient")
-                                            .AddArgument(@"new BasicAWSCredentials(""test"", ""test"")")
-                                            .AddArgument(@"sqsConfig")
-                                            .WithoutSemicolon());
-                                    }));
-                            });
-
-                            method.AddElseStatement(elseStmt =>
-                            {
-                                elseStmt.AddStatement("// Production AWS");
-                                elseStmt.AddStatement("services.AddAWSService<IAmazonSQS>();");
-                            });
+                            method.AddStatement("services.AddAWSService<AmazonSQSClient>();");
+                            method.AddStatement("services.AddSingleton(typeof(IAmazonSQS), sp => sp.GetRequiredService<AmazonSQSClient>());", stmt => stmt.SeparatedFromPrevious());
 
                             // Register event bus
                             method.AddStatement($"services.AddScoped<{this.GetEventBusInterfaceName()}, {this.GetTypeName(SqsEventBusTemplate.TemplateId)}>();", stmt => stmt.SeparatedFromPrevious());
@@ -100,17 +76,6 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsConfiguration
                                             arg.AddStatement($"options.AddQueue<{messageType}>(configuration[{configKey}]!);");
                                         }
                                     }));
-                            }
-
-                            // Register event handlers (metadata-driven)
-                            if (subscriptions.Any())
-                            {
-                                foreach (var subscription in subscriptions)
-                                {
-                                    var handlerType = subscription.SubscriptionItem.GetSubscriberTypeName(this);
-                                    var handlerImplementation = this.GetTypeName("Intent.Eventing.Contracts.IntegrationEventHandler", subscription.EventHandlerModel);
-                                    method.AddStatement($"services.AddTransient<{handlerType}, {handlerImplementation}>();");
-                                }
                             }
 
                             // Configure subscription options (metadata-driven)
