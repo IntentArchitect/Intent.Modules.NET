@@ -1,3 +1,7 @@
+### Version 1.1.7
+
+- Fixed: CRUD not explicitly calls SaveChanges for EF when modeling Auto-generated primary keys.
+
 ### Version 1.1.6
 
 - Improvement: Improved error message when `ProjectTo` is selected as the query strategy with an unsupported provider (Mapperly).
