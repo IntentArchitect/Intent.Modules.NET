@@ -5,6 +5,7 @@
   <targetMode>of-type</targetMode>
   <targetTypes>
     <type id="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">Message</type>
+    <type id="7f01ca8e-0e3c-4735-ae23-a45169f71625">Integration Command</type>
   </targetTypes>
   <targetReferenceTypes />
   <applyMode>manually</applyMode>

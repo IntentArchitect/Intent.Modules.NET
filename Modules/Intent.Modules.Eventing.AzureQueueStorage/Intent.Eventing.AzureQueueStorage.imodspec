@@ -82,8 +82,23 @@
     </template>
   </templates>
   <decorators></decorators>
-  <factoryExtensions></factoryExtensions>
-  <moduleSettings></moduleSettings>
+  <factoryExtensions>
+    <factoryExtension id="Intent.Eventing.AzureQueueStorage.EventBusInterfaceExtension" externalReference="ba04a154-bf68-41ff-b199-2609ca419a72" />
+  </factoryExtensions>
+  <moduleSettings>
+    <group id="e71edb78-27b4-4326-9def-796a18064e8b" title="Azure Queue Storage Settings" type="application-settings" externalReference="e71edb78-27b4-4326-9def-796a18064e8b">
+      <settings>
+        <setting id="32d8dbd8-c478-48ef-8e1a-cdbed0e9da98" title="Message Encoding" type="select">
+          <hint>The encoding mechanism to use when publishing/consuming messages.</hint>
+          <defaultValue>none</defaultValue>
+          <options>
+            <option value="none" description="None" />
+            <option value="base-64" description="Base64" />
+          </options>
+        </setting>
+      </settings>
+    </group>
+  </moduleSettings>
   <dependencies>
     <dependency id="Intent.Common" version="3.8.0" />
     <dependency id="Intent.Common.CSharp" version="3.8.0" />

@@ -1,6 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
+using Intent.Modelers.Eventing.Api;
+using Intent.Modelers.Services.EventInteractions;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -29,6 +32,22 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageC
                         mth.AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken");
                     });
                 });
+        }
+
+        public override bool CanRunTemplate()
+        {
+            var totalSubscribedMessages =
+                ExecutionContext.MetadataManager
+                    .GetExplicitlySubscribedToMessageModels(OutputTarget.Application)
+                    .Count +
+                ExecutionContext.MetadataManager
+                    .Eventing(ExecutionContext.GetApplicationConfig().Id)
+                    .GetApplicationModels().SelectMany(x => x.SubscribedMessages())
+                    .Select(x => x.TypeReference.Element.AsMessageModel()).Count() +
+                ExecutionContext.MetadataManager
+                        .GetExplicitlySubscribedToIntegrationCommandModels(OutputTarget.Application).Count;
+
+            return base.CanRunTemplate() && totalSubscribedMessages > 0;
         }
 
         [IntentManaged(Mode.Fully)]

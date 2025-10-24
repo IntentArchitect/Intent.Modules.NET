@@ -5,6 +5,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Eventing.AzureQueueStorage.Settings;
 using Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageOptions;
 using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.RoslynWeaver.Attributes;
@@ -47,6 +48,8 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageE
                         });
                         ctor.AddParameter($"{UseType("Microsoft.Extensions.Options.IOptions")}<{this.GetAzureQueueStorageOptionsName()}>", "options");
 
+
+                        AddUsing("System.Linq");
                         ctor.AddObjectInitStatement("_lookup",
                             new CSharpInvocationStatement("options.Value.Entries.ToDictionary")
                                 .AddArgument(new CSharpLambdaBlock("k").WithExpressionBody("k.MessageType.FullName!")));
@@ -102,11 +105,29 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageE
 
                             @foreach.AddForEachStatement("entry", "group", entry =>
                             {
-                                entry.AddInvocationStatement("await queueClient.SendMessageAsync", invoc =>
+                                if (ExecutionContext.Settings.GetAzureQueueStorageSettings().MessageEncoding().AsEnum() == AzureQueueStorageSettings.MessageEncodingOptionsEnum.Base64)
                                 {
-                                    invoc.AddArgument("entry.Message")
-                                        .AddArgument("cancellationToken");
-                                });
+                                    AddUsing("System.Text");
+                                    AddUsing("System");
+                                    entry.AddObjectInitStatement("var bytes", "Encoding.UTF8.GetBytes(entry.Message);");
+
+                                    entry.AddInvocationStatement("await queueClient.SendMessageAsync", invoc =>
+                                    {
+                                        invoc.AddArgument("Convert.ToBase64String(bytes)")
+                                            .AddArgument("cancellationToken");
+                                    });
+                                }
+
+                                if (ExecutionContext.Settings.GetAzureQueueStorageSettings().MessageEncoding().AsEnum() == AzureQueueStorageSettings.MessageEncodingOptionsEnum.None)
+                                {
+                                    entry.AddInvocationStatement("await queueClient.SendMessageAsync", invoc =>
+                                    {
+                                        invoc.AddArgument("entry.Message")
+                                            .AddArgument("cancellationToken");
+                                    });
+                                }
+
+
                             });
                         });
                     });
@@ -127,13 +148,30 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageE
                         });
                     });
 
+                    @class.AddMethod("void", "Send", mth =>
+                    {
+                        mth.AddGenericParameter("T", out var T);
+                        mth.AddGenericTypeConstraint(T, c => c.AddType("class"));
+                        mth.AddParameter(T, "message");
+
+                        mth.AddStatement("ValidateMessage(message);");
+                        mth.AddObjectInitStatement("var jsonMessage", $"{UseType("System.Text.Json.JsonSerializer")}.Serialize(message, _serializerOptions);");
+
+                        mth.AddInvocationStatement("_messageQueue.Add", invoc =>
+                        {
+                            invoc.AddArgument(new CSharpInvocationStatement("new MessageEntry")
+                                   .AddArgument("typeof(T)")
+                                   .AddArgument("jsonMessage").WithoutSemicolon());
+                        });
+                    });
+
                     @class.AddMethod("void", "ValidateMessage", mth =>
                     {
                         mth.AddParameter("object", "message");
 
                         mth.AddIfStatement("!_lookup.TryGetValue(message.GetType().FullName!, out _)", @if =>
                         {
-                            @if.AddStatement("throw new Exception($\"The message type '{message.GetType().FullName}' is not registered.\");");
+                            @if.AddStatement($"throw new {UseType("System.Exception")}($\"The message type '{{message.GetType().FullName}}' is not registered.\");");
                         });
                     });
 

@@ -1,11 +1,16 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text.Json;
 using System.Xml;
 using Intent.Engine;
+using Intent.Modelers.Eventing.Api;
+using Intent.Modelers.Services.EventInteractions;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Eventing.AzureQueueStorage.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -35,13 +40,14 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageC
                     {
                         ctor.AddParameter($"{UseType($"Microsoft.Extensions.Logging.ILogger<{@class.Name}<T>>")}", "logger", @param => param.IntroduceReadonlyField())
                             .AddParameter($"{UseType($"Microsoft.Extensions.Options.IOptions<{this.GetAzureQueueStorageOptionsName()}>")}", "options")
-                            .AddParameter($"IServiceProvider", "serviceProvider", @param => param.IntroduceReadonlyField());
+                            .AddParameter($"{UseType("System.IServiceProvider")}", "serviceProvider", @param => param.IntroduceReadonlyField());
 
                         ctor.AddAssignmentStatement("_serializerOptions", new CSharpObjectInitializerBlock("new JsonSerializerOptions")
                             .WithSemicolon()
                             .AddInitStatement("PropertyNamingPolicy", "JsonNamingPolicy.CamelCase")
                             .AddInitStatement("PropertyNameCaseInsensitive", "true"));
 
+                        AddUsing("System.Linq");
                         ctor.AddIfStatement("!options.Value.Entries.Any(e => e.MessageType.FullName == typeof(T).FullName!)", @if =>
                         {
                             @if.AddStatement("throw new Exception($\"The message type '{typeof(T).FullName}' is not registered.\");");
@@ -134,8 +140,23 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageC
                                     {
                                         @using.AddObjectInitStatement("var dispatcher",
                                             new CSharpInvocationStatement($"scope.ServiceProvider.GetRequiredService<{this.GetAzureQueueStorageEventDispatcherInterfaceName()}<T>>"));
-                                        @using.AddObjectInitStatement("var deSerializedMessage",
-                                            new CSharpInvocationStatement($"message.Body.ToObjectFromJson<T>").AddArgument("_serializerOptions"));
+
+                                        if (ExecutionContext.Settings.GetAzureQueueStorageSettings().MessageEncoding().AsEnum() == AzureQueueStorageSettings.MessageEncodingOptionsEnum.None)
+                                        {
+                                            @using.AddObjectInitStatement("var deSerializedMessage",
+                                                new CSharpInvocationStatement($"message.Body.ToObjectFromJson<T>").AddArgument("_serializerOptions"));
+                                        }
+
+                                        if (ExecutionContext.Settings.GetAzureQueueStorageSettings().MessageEncoding().AsEnum() == AzureQueueStorageSettings.MessageEncodingOptionsEnum.Base64)
+                                        {
+                                            AddUsing("System.Text");
+
+                                            @using.AddObjectInitStatement("var base64Message", "message.Body.ToString();");
+                                            @using.AddObjectInitStatement("var jsonMessage", "Encoding.UTF8.GetString(Convert.FromBase64String(base64Message));");
+
+                                            @using.AddObjectInitStatement("var deSerializedMessage", new CSharpInvocationStatement($"{UseType("System.Text.Json.JsonSerializer")}.Deserialize<T>")
+                                                    .AddArgument("jsonMessage").AddArgument("_serializerOptions"));
+                                        }
 
                                         @using.AddIfStatement("deSerializedMessage is null", @if =>
                                         {
@@ -176,6 +197,22 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageC
                         });
                     });
                 });
+        }
+
+        public override bool CanRunTemplate()
+        {
+            var totalSubscribedMessages =
+                ExecutionContext.MetadataManager
+                    .GetExplicitlySubscribedToMessageModels(OutputTarget.Application)
+                    .Count +
+                ExecutionContext.MetadataManager
+                    .Eventing(ExecutionContext.GetApplicationConfig().Id)
+                    .GetApplicationModels().SelectMany(x => x.SubscribedMessages())
+                    .Select(x => x.TypeReference.Element.AsMessageModel()).Count() +
+                ExecutionContext.MetadataManager
+                        .GetExplicitlySubscribedToIntegrationCommandModels(OutputTarget.Application).Count;
+
+            return base.CanRunTemplate() && totalSubscribedMessages > 0;
         }
 
         [IntentManaged(Mode.Fully)]

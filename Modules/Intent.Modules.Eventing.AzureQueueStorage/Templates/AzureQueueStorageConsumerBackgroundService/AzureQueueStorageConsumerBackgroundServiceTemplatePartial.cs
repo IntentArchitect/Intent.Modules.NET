@@ -1,6 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
+using Intent.Modelers.Eventing.Api;
+using Intent.Modelers.Services.EventInteractions;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -23,6 +26,7 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageC
         public AzureQueueStorageConsumerBackgroundServiceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NugetPackages.MicrosoftExtensionsHosting(outputTarget));
+            AddUsing("System.Linq");
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddClass($"AzureQueueStorageBackgroundService", @class =>
@@ -62,6 +66,22 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageC
                             ).WithoutSemicolon());
                     });
                 });
+        }
+
+        public override bool CanRunTemplate()
+        {
+            var totalSubscribedMessages =
+                ExecutionContext.MetadataManager
+                    .GetExplicitlySubscribedToMessageModels(OutputTarget.Application)
+                    .Count +
+                ExecutionContext.MetadataManager
+                    .Eventing(ExecutionContext.GetApplicationConfig().Id)
+                    .GetApplicationModels().SelectMany(x => x.SubscribedMessages())
+                    .Select(x => x.TypeReference.Element.AsMessageModel()).Count() +
+                ExecutionContext.MetadataManager
+                        .GetExplicitlySubscribedToIntegrationCommandModels(OutputTarget.Application).Count;
+
+            return base.CanRunTemplate() && totalSubscribedMessages > 0;
         }
 
         [IntentManaged(Mode.Fully)]

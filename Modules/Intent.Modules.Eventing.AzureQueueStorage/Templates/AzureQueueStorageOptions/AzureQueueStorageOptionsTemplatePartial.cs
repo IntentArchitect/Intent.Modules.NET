@@ -42,8 +42,8 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageO
                             .AddParameter("bool", "createQueue")
                             .AddParameter("int", "maxMessages");
 
-                        mth.AddInvocationStatement("ArgumentNullException.ThrowIfNull", invoc => invoc.AddArgument("queueName"));
-                        mth.AddInvocationStatement("ArgumentNullException.ThrowIfNull", invoc => invoc.AddArgument("endpoint"));
+                        mth.AddInvocationStatement($"{UseType("System.ArgumentNullException")}.ThrowIfNull", invoc => invoc.AddArgument("queueName"));
+                        mth.AddInvocationStatement($"{UseType("System.ArgumentNullException")}.ThrowIfNull", invoc => invoc.AddArgument("endpoint"));
 
                         mth.AddIfStatement("maxMessages <=0 || maxMessages > 32", @if =>
                         {

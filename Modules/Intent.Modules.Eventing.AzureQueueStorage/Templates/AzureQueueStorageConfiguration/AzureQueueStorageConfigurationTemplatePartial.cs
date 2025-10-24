@@ -4,6 +4,7 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Eventing.AzureQueueStorage.Api;
 using Intent.Modelers.Eventing.Api;
+using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modelers.Services.EventInteractions;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -12,6 +13,7 @@ using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Eventing.Contracts.Templates;
+using Intent.Modules.Eventing.Contracts.Templates.IntegrationCommand;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -27,11 +29,13 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageC
         public const string TemplateId = "Intent.Eventing.AzureQueueStorage.AzureQueueStorageConfiguration";
 
         private readonly Lazy<IReadOnlyCollection<MessageModel>> _messageModels;
+        private readonly Lazy<IReadOnlyCollection<IntegrationCommandModel>> _integrationCommandModels;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public AzureQueueStorageConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             _messageModels = GetAllMessages();
+            _integrationCommandModels = GetAllIntegrationCommands();
 
             AddTypeSource(IntegrationEventMessageTemplate.TemplateId);
 
@@ -64,14 +68,34 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageC
                                         .AddArgument($"\"{messageTypeName}\"");
                                     });
                                 }
+
+                                foreach (var command in _integrationCommandModels.Value)
+                                {
+                                    var messageTypeName = GetFullyQualifiedTypeName(IntegrationCommandTemplate.TemplateId, command);
+
+                                    lambda.AddInvocationStatement($"AddQueue<{GetTypeName(IntegrationCommandTemplate.TemplateId, command)}>", invoc1 =>
+                                    {
+                                        invoc1.AddArgument("configuration")
+                                        .AddArgument("options")
+                                        .AddArgument($"\"{messageTypeName}\"");
+                                    });
+                                }
                             });
                         });
 
                         mth.AddStatement($"services.AddScoped(typeof({this.GetAzureQueueStorageEventDispatcherInterfaceName()}<>), typeof({this.GetAzureQueueStorageEventDispatcherName()}<>));");
-                        mth.AddStatement($"services.AddHostedService<{this.GetAzureQueueStorageConsumerBackgroundServiceName()}>();");
+                        if (GetSubscribedToMessageCount())
+                        {
+                            mth.AddStatement($"services.AddHostedService<{this.GetAzureQueueStorageConsumerBackgroundServiceName()}>();");
+                        }
                         foreach (var messageModel in ExecutionContext.MetadataManager.GetExplicitlySubscribedToMessageModels(outputTarget.Application))
                         {
                             mth.AddStatement($"services.AddTransient<{this.GetAzureQueueStorageConsumerInterfaceName()}, {this.GetAzureQueueStorageConsumerName()}<{GetTypeName(IntegrationEventMessageTemplate.TemplateId, messageModel)}>>();");
+                        }
+
+                        foreach (var integrationCommandModel in ExecutionContext.MetadataManager.GetExplicitlySubscribedToIntegrationCommandModels(outputTarget.Application))
+                        {
+                            mth.AddStatement($"services.AddTransient<{this.GetAzureQueueStorageConsumerInterfaceName()}, {this.GetAzureQueueStorageConsumerName()}<{GetTypeName(IntegrationCommandTemplate.TemplateId, integrationCommandModel)}>>();");
                         }
 
                         mth.AddReturn("services");
@@ -126,7 +150,14 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageC
                     QueueName: GetMessageQueue(model)))
                 .OrderBy(x => x.FullyQualifiedTypeName);
 
-            foreach (var (fullyQualifiedTypeName, queue) in messages)
+            var commands = Enumerable.Empty<IntegrationCommandModel>()
+                .Union(_integrationCommandModels.Value)
+                .Select(model => (
+                    FullyQualifiedTypeName: GetFullyQualifiedTypeName(IntegrationCommandTemplate.TemplateId, model),
+                    QueueName: GetIntegrationCommandQueue(model)))
+                .OrderBy(x => x.FullyQualifiedTypeName);
+
+            foreach (var (fullyQualifiedTypeName, queue) in messages.Union(commands))
             {
                 ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest($"QueueStorage:Queues:{fullyQualifiedTypeName}:QueueName", queue));
                 ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest($"QueueStorage:Queues:{fullyQualifiedTypeName}:Endpoint", string.Empty));
@@ -160,6 +191,44 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageC
             return string.Join('-', stack).ToLower().Replace('.', '-');
         }
 
+        private static string GetIntegrationCommandQueue(IntegrationCommandModel commandMode)
+        {
+            var stack = new Stack<string>();
+            var element = commandMode.InternalElement;
+
+            if (commandMode.HasAzureQueueStorage() && !string.IsNullOrWhiteSpace(commandMode.GetAzureQueueStorage().QueueName()))
+            {
+                return commandMode.GetAzureQueueStorage().QueueName();
+            }
+
+            while (true)
+            {
+                stack.Push(element.Name.ToLower());
+
+                if (element.ParentElement == null)
+                {
+                    stack.Push(element.Package.Name.ToLower());
+                    break;
+                }
+
+                element = element.ParentElement;
+            }
+
+            return string.Join('-', stack).ToLower().Replace('.', '-');
+        }
+
+        private bool GetSubscribedToMessageCount()
+        {
+            return (ExecutionContext.MetadataManager
+                        .GetExplicitlySubscribedToMessageModels(OutputTarget.Application).Count +
+                    ExecutionContext.MetadataManager
+                        .Eventing(ExecutionContext.GetApplicationConfig().Id).GetApplicationModels()
+                        .SelectMany(x => x.SubscribedMessages())
+                        .Select(x => x.TypeReference.Element.AsMessageModel()).Count() +
+                    ExecutionContext.MetadataManager
+                        .GetExplicitlySubscribedToIntegrationCommandModels(OutputTarget.Application).Count) > 0;
+        }
+
         private Lazy<IReadOnlyCollection<MessageModel>> GetAllMessages()
         {
             return new Lazy<IReadOnlyCollection<MessageModel>>(() =>
@@ -185,6 +254,27 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageC
                     .Concat(serviceDesignerPublishedMessages)
                     .Concat(eventingDesignerSubscribedMessages)
                     .Concat(eventingDesignerPublishedMessages)
+                    .OrderBy(x => x.Name)
+                    .Distinct()
+                    .ToArray();
+
+                return messageModels;
+            });
+        }
+
+        private Lazy<IReadOnlyCollection<IntegrationCommandModel>> GetAllIntegrationCommands()
+        {
+            return new Lazy<IReadOnlyCollection<IntegrationCommandModel>>(() =>
+            {
+                var serviceDesignerSubscribeCommands = ExecutionContext.MetadataManager
+                    .GetExplicitlySubscribedToIntegrationCommandModels(OutputTarget.Application);
+
+                var serviceDesignerSendCommands = ExecutionContext.MetadataManager
+                    .GetExplicitlySentIntegrationCommandModels(OutputTarget.Application);
+
+                var messageModels = Enumerable.Empty<IntegrationCommandModel>()
+                    .Concat(serviceDesignerSubscribeCommands)
+                    .Concat(serviceDesignerSendCommands)
                     .OrderBy(x => x.Name)
                     .Distinct()
                     .ToArray();

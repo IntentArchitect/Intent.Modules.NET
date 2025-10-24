@@ -15,7 +15,7 @@ using Intent.Templates;
 
 namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.IntegrationEventHandler
 {
-    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
+    [IntentManaged(Mode.Ignore)]
     public partial class IntegrationEventHandlerTemplate : IntegrationEventHandlerTemplateBase
     {
         public const string TemplateId = "Intent.Eventing.AzureQueueStorage.IntegrationEventHandler";
