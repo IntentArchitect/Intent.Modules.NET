@@ -101,23 +101,9 @@ namespace Intent.Modules.Aws.Lambda.Functions
             NugetRegistry.Register(MicrosoftExtensionsConfigurationJsonPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("9.0.10")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration", "9.0.10")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.10")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration.FileExtensions", "9.0.10")
-                            .WithNugetDependency("Microsoft.Extensions.FileProviders.Abstractions", "9.0.10"),
-                        ( >= 8, >= 0) => new PackageVersion("9.0.10")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration", "9.0.10")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.10")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration.FileExtensions", "9.0.10")
-                            .WithNugetDependency("Microsoft.Extensions.FileProviders.Abstractions", "9.0.10")
-                            .WithNugetDependency("System.Text.Json", "9.0.10"),
-                        ( >= 2, >= 1) => new PackageVersion("9.0.10")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration", "9.0.10")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.10")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration.FileExtensions", "9.0.10")
-                            .WithNugetDependency("Microsoft.Extensions.FileProviders.Abstractions", "9.0.10")
-                            .WithNugetDependency("System.Text.Json", "9.0.10"),
+                        ( >= 9, >= 0) => new PackageVersion("8.0.0", locked: true),
+                        ( >= 8, >= 0) => new PackageVersion("8.0.0", locked: true),
+                        ( >= 2, >= 1) => new PackageVersion("8.0.0", locked: true),
                         ( >= 2, >= 0) => new PackageVersion("8.0.0", locked: true),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftExtensionsConfigurationJsonPackageName}'"),
                     }
@@ -125,16 +111,8 @@ namespace Intent.Modules.Aws.Lambda.Functions
             NugetRegistry.Register(MicrosoftExtensionsConfigurationUserSecretsPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("9.0.10")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.10")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration.Json", "9.0.10")
-                            .WithNugetDependency("Microsoft.Extensions.FileProviders.Abstractions", "9.0.10")
-                            .WithNugetDependency("Microsoft.Extensions.FileProviders.Physical", "9.0.10"),
-                        ( >= 8, >= 0) => new PackageVersion("9.0.10")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.10")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration.Json", "9.0.10")
-                            .WithNugetDependency("Microsoft.Extensions.FileProviders.Abstractions", "9.0.10")
-                            .WithNugetDependency("Microsoft.Extensions.FileProviders.Physical", "9.0.10"),
+                        ( >= 9, >= 0) => new PackageVersion("8.0.0", locked: true),
+                        ( >= 8, >= 0) => new PackageVersion("8.0.0", locked: true),
                         ( >= 2, >= 0) => new PackageVersion("8.0.0", locked: true),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftExtensionsConfigurationUserSecretsPackageName}'"),
                     }

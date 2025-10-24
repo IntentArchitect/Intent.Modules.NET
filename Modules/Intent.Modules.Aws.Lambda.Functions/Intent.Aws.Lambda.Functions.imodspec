@@ -69,12 +69,12 @@
     </detect>
   </interoperability>
   <dependencies>
+    <dependency id="Intent.Aws.Common" version="1.0.4-pre.1" />
     <dependency id="Intent.Common" version="3.9.0" />
     <dependency id="Intent.Common.CSharp" version="3.9.6" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Metadata.WebApi" version="4.7.12" />
     <dependency id="Intent.Modelers.Services" version="4.0.2" />
-    <dependency id="Intent.Aws.Common" version="1.0.3" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
   </dependencies>
   <files>

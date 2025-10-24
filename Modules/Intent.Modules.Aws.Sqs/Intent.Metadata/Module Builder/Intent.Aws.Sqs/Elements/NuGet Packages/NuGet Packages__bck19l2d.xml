@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b10e1596-5dac-4e65-a169-78a3f287577f" type="NuGet Packages" typeId="4c75c84d-c745-4f0f-b1f4-82eeca01dfc7">
+  <name>NuGet Packages</name>
+  <display>NuGet Packages</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>259088af-8612-4dd5-9bd7-b673553c3a6c</parentFolderId>
+  <packageId>259088af-8612-4dd5-9bd7-b673553c3a6c</packageId>
+  <packageName>Intent.Aws.Sqs</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

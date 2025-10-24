@@ -52,6 +52,7 @@ internal record SqsMessage : SqsItemBase
         var resolvedName = message.Name;
         resolvedName = resolvedName.RemoveSuffix("IntegrationEvent", "Event", "Message");
         resolvedName = resolvedName.ToPascalCase();
+        resolvedName = resolvedName + ":QueueUrl";
         return prefix + resolvedName;
     }
 

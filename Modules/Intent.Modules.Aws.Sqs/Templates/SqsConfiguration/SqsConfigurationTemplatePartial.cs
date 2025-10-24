@@ -33,7 +33,6 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsConfiguration
         public SqsConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NugetPackages.AwsSdkSqs(OutputTarget));
-            AddNugetDependency(NugetPackages.AwsSdkExtensionsNetCoreSetup(OutputTarget));
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
@@ -72,7 +71,7 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsConfiguration
                                         foreach (var publisher in publishers)
                                         {
                                             var messageType = publisher.GetModelTypeName(this);
-                                            var configKey = $"\"{publisher.QueueConfigurationName}:QueueUrl\"";
+                                            var configKey = $"\"{publisher.QueueConfigurationName}\"";
                                             arg.AddStatement($"options.AddQueue<{messageType}>(configuration[{configKey}]!);");
                                         }
                                     }));
@@ -108,7 +107,7 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsConfiguration
             
             foreach (var message in IntegrationManager.Instance.GetAggregatedSqsItems(ExecutionContext.GetApplicationConfig().Id))
             {
-                this.ApplyAppSetting(message.QueueConfigurationName, message.QueueName);
+                this.ApplyAppSetting(message.QueueConfigurationName, $"https://{{region}}.amazonaws.com/{{id}}/{message.QueueName}");
             }
         }
 

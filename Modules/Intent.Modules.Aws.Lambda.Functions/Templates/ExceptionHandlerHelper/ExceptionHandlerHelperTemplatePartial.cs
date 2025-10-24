@@ -41,8 +41,13 @@ public partial class ExceptionHandlerHelperTemplate : CSharpTemplateBase<object>
                     m.Async();
                     m.Static();
                     m.AddParameter("Func<Task<IHttpResult>>", "operation");
+                    m.AddParameter("ILogger", "logger");
                     m.AddTryBlock(tryBlock => { tryBlock.AddStatement("return await operation();"); });
-                    m.AddCatchBlock("Exception", "ex", catchBlock => { catchBlock.AddStatement("return HandleException(ex);"); });
+                    m.AddCatchBlock("Exception", "ex", catchBlock =>
+                    {
+                        catchBlock.AddStatement(@"logger.LogError(ex, ""Unhandled exception occurred: {Message}"", ex.Message);");
+                        catchBlock.AddStatement("return HandleException(ex);");
+                    });
                 });
 
                 cls.AddMethod("IHttpResult", "HandleException", m =>

@@ -1,6 +1,7 @@
 ### Version 1.0.4
 
 - Improvement: Updated NuGet package versions.
+- Fixed: Missing using directives in generated code.
 
 ### Version 1.0.3
 

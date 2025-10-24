@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#eb0150f1-b815-4d56-9bd1-81cce6386333</correlationId>
+      <path>Intent.Modules.Aws.Sqs/Templates/IntegrationEventHandler/IntegrationEventHandlerTemplatePartial.cs</path>
+      <count>2</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2025-10-24T18:21:38.6203877Z</updatedAt>
+      <deviationsHash>6CACE7942DE62964007ED74A58069C356D9B319258E5BFDCF57FB71F5EC4D053</deviationsHash>
+      <fileHash>DB203975EB5872472AA946915698A75700250DE8746B9AF043DC57D875AC96B9</fileHash>
+    </file>
+  </files>
 </deviationsLog>

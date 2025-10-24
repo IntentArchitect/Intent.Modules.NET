@@ -428,6 +428,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Aws.Sqs", "I
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Aws.SecretsManager", "Intent.Modules.Aws.SecretsManager\Intent.Modules.Aws.SecretsManager.csproj", "{7DF3FC9C-FBAE-4C18-96D6-6365C30600DF}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intent.Modules.Integration.IaC.Shared.AwsSqs", "Intent.Modules.Integration.IaC.Shared.AwsSqs\Intent.Modules.Integration.IaC.Shared.AwsSqs.shproj", "{992BB1F9-CDD6-4A3D-BF90-6554358DD319}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

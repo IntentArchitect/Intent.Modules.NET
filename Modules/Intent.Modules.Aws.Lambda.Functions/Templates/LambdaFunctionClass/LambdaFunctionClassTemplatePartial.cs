@@ -47,9 +47,13 @@ public partial class LambdaFunctionClassTemplate : CSharpTemplateBase<ILambdaFun
             .AddUsing("Amazon.Lambda.Annotations")
             .AddUsing("Amazon.Lambda.Annotations.APIGateway")
             .AddUsing("Amazon.Lambda.Core")
+            .AddUsing("Microsoft.Extensions.Logging")
             .AddClass($"{Model.Name.RemoveSuffix("Service")}Functions", @class =>
             {
-                @class.AddConstructor(ctor => { });
+                @class.AddConstructor(ctor =>
+                {
+                    ctor.AddParameter($"ILogger<{@class.Name}>", "logger", p => p.IntroduceReadonlyField());
+                });
                 @class.RepresentsModel(Model);
 
                 foreach (var functionModel in Model.Endpoints)
@@ -145,6 +149,7 @@ public partial class LambdaFunctionClassTemplate : CSharpTemplateBase<ILambdaFun
                                 .AddArgument(new CSharpLambdaBlock("async ()")
                                     .AddStatements(existingStatements)
                                 )
+                                .AddArgument("_logger")
                                 .WithoutSemicolon()
                         )
                     );
