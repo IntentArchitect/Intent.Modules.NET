@@ -112,7 +112,9 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
                 .ToListAsync(cancellationToken))
                 .Single();
 
-            return new MappedSpResult(result: result, simpleString: (string)outputParam2Parameter.Value);
+            return new MappedSpResult(
+                result: result,
+                simpleString: (string)outputParam2Parameter.Value);
         }
 
         public async Task<MappedSpResultCollection> MappedOperationWithCollection(
@@ -141,7 +143,9 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
                 .IgnoreQueryFilters()
                 .ToListAsync(cancellationToken);
 
-            return new MappedSpResultCollection(result: results, simpleString: (string)outputParam2Parameter.Value);
+            return new MappedSpResultCollection(
+                result: results,
+                simpleString: (string)outputParam2Parameter.Value);
         }
 
         public async Task<int> MappedOperationCallingScalar(
