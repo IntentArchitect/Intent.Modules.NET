@@ -11,6 +11,8 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Eventing.AzureQueueStorage.Settings;
+using Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageOptions;
+using Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageSubscriptionOptions;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -31,16 +33,18 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageC
                 .AddClass($"AzureQueueStorageConsumer", @class =>
                 {
                     AddNugetDependency(NugetPackages.AzureStorageQueues(outputTarget));
+                    AddTemplateDependency(AzureQueueStorageOptionsTemplate.TemplateId);
+                    AddTemplateDependency(AzureQueueStorageSubscriptionOptionsTemplate.TemplateId);
 
-                    @class.AddGenericParameter("T")
-                        .AddGenericTypeConstraint("T", con => con.AddType("class"));
                     @class.ImplementsInterface(this.GetAzureQueueStorageConsumerInterfaceName());
 
                     @class.AddConstructor(ctor =>
                     {
-                        ctor.AddParameter($"{UseType($"Microsoft.Extensions.Logging.ILogger<{@class.Name}<T>>")}", "logger", @param => param.IntroduceReadonlyField())
-                            .AddParameter($"{UseType($"Microsoft.Extensions.Options.IOptions<{this.GetAzureQueueStorageOptionsName()}>")}", "options")
-                            .AddParameter($"{UseType("System.IServiceProvider")}", "serviceProvider", @param => param.IntroduceReadonlyField());
+                        ctor.AddParameter($"{UseType($"Microsoft.Extensions.Logging.ILogger<{@class.Name}>")}", "logger", @param => param.IntroduceReadonlyField())
+                            .AddParameter($"{UseType("System.IServiceProvider")}", "serviceProvider", @param => param.IntroduceReadonlyField())
+                            .AddParameter($"{UseType($"Microsoft.Extensions.Options.IOptions<{this.GetAzureQueueStorageOptionsName()}>")}", "options", @param => param.IntroduceReadonlyField())
+                            .AddParameter($"{UseType($"Microsoft.Extensions.Options.IOptions<{this.GetAzureQueueStorageSubscriptionOptionsName()}>")}", "subscriptionOptions")
+                            .AddParameter($"{UseType($"QueueDefinition")}", "queueDefinition", @param => param.IntroduceReadonlyField());
 
                         ctor.AddAssignmentStatement("_serializerOptions", new CSharpObjectInitializerBlock("new JsonSerializerOptions")
                             .WithSemicolon()
@@ -48,19 +52,12 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageC
                             .AddInitStatement("PropertyNameCaseInsensitive", "true"));
 
                         AddUsing("System.Linq");
-                        ctor.AddIfStatement("!options.Value.Entries.Any(e => e.MessageType.FullName == typeof(T).FullName!)", @if =>
-                        {
-                            @if.AddStatement("throw new Exception($\"The message type '{typeof(T).FullName}' is not registered.\");");
-                        });
-
-                        var firstInvoc = new CSharpInvocationStatement("options.Value.Entries.First")
-                            .AddArgument(new CSharpLambdaBlock("e")
-                            .WithExpressionBody("e.MessageType.FullName == typeof(T).FullName!"));
-
-                        ctor.AddObjectInitStatement("_messageOptions", firstInvoc);
+                        //_handlers = subscriptionOptions.Value.Entries.ToDictionary(k => k.MessageType.FullName!, v => v.HandlerAsync);
+                        ctor.AddObjectInitStatement("_handlers", new CSharpInvocationStatement("subscriptionOptions.Value.Entries.ToDictionary")
+                            .AddArgument("k => k.MessageType.FullName!").AddArgument("v => v.HandlerAsync"));
                     });
 
-                    @class.AddField("QueueStorageEntry", "_messageOptions", @field => field.PrivateReadOnly());
+                    @class.AddField($"{UseType("System.Collections.Generic.Dictionary")}<string, DispatchHandler>", "_handlers", @field => field.PrivateReadOnly());
                     @class.AddField(UseType("System.Text.Json.JsonSerializerOptions"), "_serializerOptions", @field => field.PrivateReadOnly());
 
                     @class.AddMethod(UseType("System.Threading.Tasks.Task"), "ConsumeAsync", mth =>
@@ -70,18 +67,20 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageC
 
                         mth.AddInvocationStatement("_logger.LogInformation", invoc =>
                         {
-                            invoc.AddArgument("$\"Subscribing to Queue: {_messageOptions.QueueName}\"");
+                            invoc.AddArgument("$\"Subscribing to Queue: {_queueDefinition.QueueName}\"");
                         });
 
                         mth.AddTryBlock(@try =>
                         {
+                            @try.AddObjectInitStatement("var endpoint", "!string.IsNullOrWhiteSpace(_queueDefinition.Endpoint) ? _queueDefinition.Endpoint : _options.Value.DefaultEndpoint;");
+
                             var newClientInvoc = new CSharpInvocationStatement($"new {UseType("Azure.Storage.Queues.QueueClient")}")
-                                .AddArgument("_messageOptions.Endpoint")
-                                .AddArgument("_messageOptions.QueueName");
+                                .AddArgument("_queueDefinition.Endpoint")
+                                .AddArgument("_queueDefinition.QueueName");
 
                             @try.AddObjectInitStatement("var queueClient", newClientInvoc);
 
-                            @try.AddIfStatement("_messageOptions.CreateQueue", @if =>
+                            @try.AddIfStatement("_queueDefinition.CreateQueue", @if =>
                             {
                                 @if.AddInvocationStatement("await queueClient.CreateIfNotExistsAsync", invoc =>
                                 {
@@ -96,7 +95,7 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageC
                                     @if.AddInvocationStatement("_logger.LogError", invoc =>
                                     {
                                         invoc.AddArgument("\"Queue '{QueueName}' does not exist. Unable to consume.\"")
-                                            .AddArgument("_messageOptions.QueueName");
+                                            .AddArgument("_queueDefinition.QueueName");
                                     })
                                     .AddInvocationStatement("await Task.Delay", invoc =>
                                     {
@@ -121,7 +120,7 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageC
 
                                 @while.AddObjectInitStatement($"{UseType("Azure.Storage.Queues.Models.QueueMessage")}[] messages",
                                     new CSharpInvocationStatement("await queueClient.ReceiveMessagesAsync")
-                                        .AddArgument("maxMessages: _messageOptions.MaxMessages"));
+                                        .AddArgument("maxMessages: _queueDefinition.MaxMessages"));
 
                                 @while.AddIfStatement("messages.Length == 0", @if =>
                                 {
@@ -138,54 +137,57 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageC
                                 {
                                     @foreach.AddUsingBlock("var scope = _serviceProvider.CreateScope()", @using =>
                                     {
-                                        @using.AddObjectInitStatement("var dispatcher",
-                                            new CSharpInvocationStatement($"scope.ServiceProvider.GetRequiredService<{this.GetAzureQueueStorageEventDispatcherInterfaceName()}<T>>"));
-
-                                        if (ExecutionContext.Settings.GetAzureQueueStorageSettings().MessageEncoding().AsEnum() == AzureQueueStorageSettings.MessageEncodingOptionsEnum.None)
-                                        {
-                                            @using.AddObjectInitStatement("var deSerializedMessage",
-                                                new CSharpInvocationStatement($"message.Body.ToObjectFromJson<T>").AddArgument("_serializerOptions"));
-                                        }
-
-                                        if (ExecutionContext.Settings.GetAzureQueueStorageSettings().MessageEncoding().AsEnum() == AzureQueueStorageSettings.MessageEncodingOptionsEnum.Base64)
-                                        {
-                                            AddUsing("System.Text");
-
-                                            @using.AddObjectInitStatement("var base64Message", "message.Body.ToString();");
-                                            @using.AddObjectInitStatement("var jsonMessage", "Encoding.UTF8.GetString(Convert.FromBase64String(base64Message));");
-
-                                            @using.AddObjectInitStatement("var deSerializedMessage", new CSharpInvocationStatement($"{UseType("System.Text.Json.JsonSerializer")}.Deserialize<T>")
-                                                    .AddArgument("jsonMessage").AddArgument("_serializerOptions"));
-                                        }
-
-                                        @using.AddIfStatement("deSerializedMessage is null", @if =>
-                                        {
-                                            @if.AddInvocationStatement("_logger.LogWarning", invoc =>
-                                            {
-                                                invoc.AddArgument("\"Skipping message '{Id}'. Null deserialization\"")
-                                                    .AddArgument("message.MessageId");
-                                            })
-                                            .AddStatement("continue;");
-                                        });
-
                                         @using.AddTryBlock(innerTry =>
                                         {
-                                            innerTry.AddInvocationStatement("await dispatcher.Dispatch", invoc =>
+                                            if (ExecutionContext.Settings.GetAzureQueueStorageSettings().MessageEncoding().AsEnum() == AzureQueueStorageSettings.MessageEncodingOptionsEnum.None)
                                             {
-                                                invoc.AddArgument("deSerializedMessage")
-                                                    .AddArgument("cancellationToken");
+                                                innerTry.AddObjectInitStatement("var envelope",
+                                                    new CSharpInvocationStatement($"message.Body.ToObjectFromJson<{this.GetAzureQueueStorageEnvelopeName()}>").AddArgument("_serializerOptions"));
+                                            }
+
+                                            if (ExecutionContext.Settings.GetAzureQueueStorageSettings().MessageEncoding().AsEnum() == AzureQueueStorageSettings.MessageEncodingOptionsEnum.Base64)
+                                            {
+                                                AddUsing("System.Text");
+
+                                                innerTry.AddObjectInitStatement("var base64Message", "message.Body.ToString();");
+                                                innerTry.AddObjectInitStatement("var jsonMessage", "Encoding.UTF8.GetString(Convert.FromBase64String(base64Message));");
+
+                                                innerTry.AddObjectInitStatement("var envelope", new CSharpInvocationStatement($"{UseType("System.Text.Json.JsonSerializer")}.Deserialize<{this.GetAzureQueueStorageEnvelopeName()}>")
+                                                        .AddArgument("jsonMessage").AddArgument("_serializerOptions"));
+                                            }
+
+                                            innerTry.AddIfStatement("envelope is null", @if =>
+                                            {
+                                                @if.AddInvocationStatement("_logger.LogWarning", invoc =>
+                                                {
+                                                    invoc.AddArgument("\"Skipping message '{Id}'. Null deserialization\"")
+                                                        .AddArgument("message.MessageId");
+                                                })
+                                                .AddStatement("continue;");
                                             });
 
-                                            innerTry.AddInvocationStatement("await queueClient.DeleteMessageAsync", invoc =>
-                                            {
-                                                invoc.AddArgument("message.MessageId")
-                                                    .AddArgument("message.PopReceipt")
-                                                    .AddArgument("cancellationToken");
-                                            });
+                                            innerTry.AddObjectInitStatement("var messageTypeName", "envelope.MessageType;");
 
+                                            innerTry.AddIfStatement("_handlers.TryGetValue(messageTypeName, out var handlerAsync)", @if =>
+                                            {
+                                                @if.AddInvocationStatement("await handlerAsync", invoc =>
+                                                {
+                                                    invoc.AddArgument("scope.ServiceProvider")
+                                                        .AddArgument("envelope")
+                                                        .AddArgument("_serializerOptions")
+                                                        .AddArgument("cancellationToken");
+                                                });
+
+                                                @if.AddInvocationStatement("await queueClient.DeleteMessageAsync", invoc =>
+                                                {
+                                                    invoc.AddArgument("message.MessageId")
+                                                        .AddArgument("message.PopReceipt")
+                                                        .AddArgument("cancellationToken");
+                                                });
+                                            });
                                         }).AddCatchBlock("Exception", "handlerEx", @catch =>
                                         {
-                                            @catch.AddStatement("_logger.LogError(handlerEx, \"Error dispatching message '{Id}' from queue '{Queue}'\", message.MessageId, _messageOptions.QueueName);");
+                                            @catch.AddStatement("_logger.LogError(handlerEx, \"Error dispatching message '{Id}' from queue '{Queue}'\", message.MessageId, _queueDefinition.QueueName);");
                                         });
                                     });
                                 });
@@ -193,7 +195,7 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageC
 
                         }).AddCatchBlock("Exception", "exception", @catch =>
                         {
-                            @catch.AddStatement("_logger.LogError(exception, $\"Error consuming for {_messageOptions.MessageType.FullName}\");");
+                            @catch.AddStatement("_logger.LogError(exception, $\"Error consuming for {_queueDefinition.QueueName}\");");
                         });
                     });
                 });
@@ -201,18 +203,7 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageC
 
         public override bool CanRunTemplate()
         {
-            var totalSubscribedMessages =
-                ExecutionContext.MetadataManager
-                    .GetExplicitlySubscribedToMessageModels(OutputTarget.Application)
-                    .Count +
-                ExecutionContext.MetadataManager
-                    .Eventing(ExecutionContext.GetApplicationConfig().Id)
-                    .GetApplicationModels().SelectMany(x => x.SubscribedMessages())
-                    .Select(x => x.TypeReference.Element.AsMessageModel()).Count() +
-                ExecutionContext.MetadataManager
-                        .GetExplicitlySubscribedToIntegrationCommandModels(OutputTarget.Application).Count;
-
-            return base.CanRunTemplate() && totalSubscribedMessages > 0;
+            return base.CanRunTemplate() && this.GetSubscribedMessageCount() > 0;
         }
 
         [IntentManaged(Mode.Fully)]

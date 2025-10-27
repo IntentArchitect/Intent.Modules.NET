@@ -27,30 +27,60 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageE
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddClass($"AzureQueueStorageEventDispatcher", @class =>
                 {
-                    @class.AddGenericParameter("T", out var t);
-                    @class.AddGenericTypeConstraint(t, c => c.AddType("class"));
-                    @class.ImplementsInterface($"{this.GetAzureQueueStorageEventDispatcherInterfaceName()}<{t}>");
+                    @class.ImplementsInterface($"{this.GetAzureQueueStorageEventDispatcherInterfaceName()}");
 
                     @class.AddConstructor(ctor =>
                     {
-                        ctor.AddParameter(this.GetEventBusInterfaceName(), "eventBus", p => p.IntroduceReadonlyField());
-                        ctor.AddParameter($"{this.GetIntegrationEventHandlerInterfaceName()}<{t}>", "handler", p => p.IntroduceReadonlyField());
+                        ctor.AddParameter($"{UseType("Microsoft.Extensions.Options.IOptions")}<{this.GetAzureQueueStorageSubscriptionOptionsName()}>", "options");
+
+                        AddUsing("System.Linq");
+                        ctor.AddObjectInitStatement("_handlers", new CSharpInvocationStatement($"options.Value.Entries.ToDictionary")
+                            .AddArgument("k => k.MessageType.FullName!").AddArgument("v => v.HandlerAsync"));
                     });
 
-                    @class.AddMethod("void", "Dispatch", method =>
+                    @class.AddField($"{UseType("System.Collections.Generic.Dictionary")}<string, DispatchHandler>", "_handlers", @field =>
+                    {
+                        field.PrivateReadOnly();
+                    });
+
+                    @class.AddMethod(UseType("System.Threading.Tasks.Task"), "DispatchAsync", method =>
                     {
                         method.Async();
-                        method.AddParameter(t, "message");
-                        method.AddOptionalCancellationTokenParameter();
 
-                        method.ApplyUnitOfWorkImplementations(
-                            template: this,
-                            constructor: @class.Constructors.First(),
-                            invocationStatement: "await _handler.HandleAsync(message, cancellationToken);",
-                            allowTransactionScope: true,
-                            cancellationTokenExpression: "cancellationToken");
+                        method.AddParameter(UseType("System.IServiceProvider"), "serviceProvider");
+                        method.AddParameter(this.GetAzureQueueStorageEnvelopeName(), "message");
+                        method.AddParameter(UseType("System.Text.Json.JsonSerializerOptions"), "serializerOptions");
+                        method.AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken");
 
-                        method.AddStatement("await _eventBus.FlushAllAsync(cancellationToken);", s => s.SeparatedFromPrevious());
+                        method.AddObjectInitStatement("var messageTypeName", "message.MessageType;");
+
+                        method.AddIfStatement("_handlers.TryGetValue(messageTypeName, out var handlerAsync)", @if =>
+                        {
+                            @if.AddInvocationStatement("await handlerAsync", invoc =>
+                            {
+                                invoc.AddArgument("serviceProvider")
+                                    .AddArgument("message")
+                                    .AddArgument("serializerOptions")
+                                    .AddArgument("cancellationToken");
+                            });
+                        });
+                    });
+
+                    @class.AddMethod(UseType("System.Threading.Tasks.Task"), "InvokeDispatchHandler", method =>
+                    {
+                        method.Static().Async();
+
+                        method.AddGenericParameter("TMessage", out var TMessage).AddGenericTypeConstraint(TMessage, gen => gen.AddType("class"));
+                        method.AddGenericParameter("THandler", out var THandler).AddGenericTypeConstraint(THandler, gen => gen.AddType($"{this.GetIntegrationEventHandlerInterfaceName()}<TMessage>"));
+
+                        method.AddParameter(UseType("System.IServiceProvider"), "serviceProvider");
+                        method.AddParameter(this.GetAzureQueueStorageEnvelopeName(), "message");
+                        method.AddParameter(UseType("System.Text.Json.JsonSerializerOptions"), "serializerOptions");
+                        method.AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken");
+
+                        method.AddObjectInitStatement("var messageObj", "((JsonElement)message.Payload).Deserialize<TMessage>(serializerOptions);");
+                        method.AddObjectInitStatement("var handler", new CSharpInvocationStatement("serviceProvider.GetRequiredService<THandler>"));
+                        method.AddInvocationStatement("await handler.HandleAsync", invoc => invoc.AddArgument("messageObj").AddArgument("cancellationToken"));
                     });
                 });
         }

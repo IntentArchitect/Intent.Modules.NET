@@ -24,52 +24,24 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageO
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddClass($"AzureQueueStorageOptions", @class =>
                 {
-                    @class.AddField($"{UseType("System.Collections.Generic.List")}<QueueStorageEntry>", "_entries", @field =>
+                    @class.AddProperty("string?", "DefaultEndpoint");
+
+                    @class.AddProperty($"{UseType("System.Collections.Generic.Dictionary")}<string, QueueDefinition>", "Queues", prop =>
                     {
-                        @field
-                            .PrivateReadOnly()
-                            .WithAssignment(new CSharpStatement("new List<QueueStorageEntry>()"));
-                    }).AddProperty($"{UseType("System.Collections.Generic.IReadOnlyList")}<QueueStorageEntry>", "Entries", @prop =>
-                    {
-                        @prop.WithoutSetter().Getter.WithExpressionImplementation("_entries");
+                        prop.WithInitialValue("new Dictionary<string, QueueDefinition>()");
                     });
 
-                    @class.AddMethod("void", "AddQueue", mth =>
+                    @class.AddProperty($"{UseType("System.Collections.Generic.Dictionary")}<string, string>", "PublishMap", prop =>
                     {
-                        mth.AddGenericParameter("TMessage");
-                        mth.AddParameter("string", "endpoint")
-                            .AddParameter("string", "queueName")
-                            .AddParameter("bool", "createQueue")
-                            .AddParameter("int", "maxMessages");
-
-                        mth.AddInvocationStatement($"{UseType("System.ArgumentNullException")}.ThrowIfNull", invoc => invoc.AddArgument("queueName"));
-                        mth.AddInvocationStatement($"{UseType("System.ArgumentNullException")}.ThrowIfNull", invoc => invoc.AddArgument("endpoint"));
-
-                        mth.AddIfStatement("maxMessages <=0 || maxMessages > 32", @if =>
-                        {
-                            @if.AddAssignmentStatement("maxMessages", new CSharpStatement("10;"));
-                        });
-
-                        var newEntryStatement = new CSharpInvocationStatement("new QueueStorageEntry")
-                            .AddArgument("typeof(TMessage)")
-                            .AddArgument("endpoint")
-                            .AddArgument("queueName")
-                            .AddArgument("createQueue")
-                            .AddArgument("maxMessages").WithoutSemicolon();
-
-                        mth.AddInvocationStatement("_entries.Add", invoc => invoc.AddArgument(newEntryStatement));
+                        prop.WithInitialValue("new Dictionary<string, string>()");
                     });
-                }).AddRecord("QueueStorageEntry", @record =>
+
+                }).AddClass("QueueDefinition", @class =>
                 {
-                    record.AddPrimaryConstructor(ctor =>
-                     {
-                         ctor
-                             .AddParameter("Type", "MessageType")
-                             .AddParameter("string", "Endpoint")
-                             .AddParameter("string", "QueueName")
-                             .AddParameter("bool", "CreateQueue")
-                             .AddParameter("int", "MaxMessages");
-                     });
+                    @class.AddProperty("string?", "QueueName");
+                    @class.AddProperty("string?", "Endpoint");
+                    @class.AddProperty("bool", "CreateQueue");
+                    @class.AddProperty("int", "MaxMessages", prop => prop.WithInitialValue("10"));
                 });
         }
 

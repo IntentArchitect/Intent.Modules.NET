@@ -31,13 +31,13 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageE
                 {
                     @class.ImplementsInterface(this.GetEventBusInterfaceName());
 
-                    @class.AddField($"{UseType("System.Collections.Generic.List")}<MessageEntry>", "_messageQueue", @field =>
+                    @class.AddField($"{UseType("System.Collections.Generic.List")}<{this.GetAzureQueueStorageEnvelopeName()}>", "_messageQueue", @field =>
                     {
                         field.PrivateReadOnly();
-                        @field.WithAssignment(new CSharpStatement("new List<MessageEntry>()"));
+                        @field.WithAssignment(new CSharpStatement($"new List<{this.GetAzureQueueStorageEnvelopeName()}>()"));
                     });
                     AddTemplateDependency(AzureQueueStorageOptionsTemplate.TemplateId);
-                    @class.AddField($"{UseType("System.Collections.Generic.Dictionary")}<string, QueueStorageEntry>", "_lookup", @field => field.PrivateReadOnly());
+                    @class.AddField($"{UseType("System.Collections.Generic.Dictionary")}<string, QueueDefinition>", "_lookup", @field => field.PrivateReadOnly());
                     @class.AddField($"{UseType("System.Text.Json.JsonSerializerOptions")}", "_serializerOptions", @field => field.PrivateReadOnly());
 
                     @class.AddConstructor(ctor =>
@@ -46,13 +46,26 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageE
                         {
                             param.IntroduceReadonlyField();
                         });
-                        ctor.AddParameter($"{UseType("Microsoft.Extensions.Options.IOptions")}<{this.GetAzureQueueStorageOptionsName()}>", "options");
+                        ctor.AddParameter($"{UseType("Microsoft.Extensions.Options.IOptions")}<{this.GetAzureQueueStorageOptionsName()}>", "options", param =>
+                        {
+                            param.IntroduceReadonlyField();
+                        });
 
 
                         AddUsing("System.Linq");
                         ctor.AddObjectInitStatement("_lookup",
-                            new CSharpInvocationStatement("options.Value.Entries.ToDictionary")
-                                .AddArgument(new CSharpLambdaBlock("k").WithExpressionBody("k.MessageType.FullName!")));
+                            new CSharpInvocationStatement("options.Value.PublishMap.Select")
+                                .AddLambdaBlock("t", lambda =>
+                                {
+                                    lambda.AddIfStatement("!options.Value.Queues.TryGetValue(t.Value, out QueueDefinition? value)", @if =>
+                                    {
+                                        @if.AddStatement("throw new ArgumentNullException($\"No queue name '{t.Value}' found for type '{t.Key}'\");");
+                                    });
+
+                                    lambda.AddObjectInitStatement("value.QueueName", "t.Value;");
+                                    lambda.AddReturn($"new {UseType("System.Collections.Generic.KeyValuePair")}<string, QueueDefinition>(t.Key, value)");
+                                }).AddInvocation("ToDictionary"));
+
 
                         ctor.AddObjectInitStatement("_serializerOptions",
                             new CSharpObjectInitializerBlock("new JsonSerializerOptions")
@@ -73,7 +86,8 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageE
 
                         mth.AddObjectInitStatement("var groupedMessages", new CSharpInvocationStatement("_messageQueue.GroupBy")
                             .AddArgument(new CSharpLambdaBlock("entry")
-                                .AddObjectInitStatement("var publisherEntry", "_lookup[entry.Type.FullName!];")
+                                .AddObjectInitStatement("var publisherEntry", "_lookup[entry.MessageType!];")
+                                .AddObjectInitStatement("publisherEntry.Endpoint", "!string.IsNullOrWhiteSpace(publisherEntry.Endpoint) ? publisherEntry.Endpoint : _options.Value.DefaultEndpoint;")
                                 .AddReturn("(publisherEntry.Endpoint, publisherEntry.QueueName, publisherEntry.CreateQueue)")));
 
                         mth.AddForEachStatement("group", "groupedMessages", @foreach =>
@@ -105,11 +119,14 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageE
 
                             @foreach.AddForEachStatement("entry", "group", entry =>
                             {
+
+                                entry.AddObjectInitStatement("var payload", "JsonSerializer.Serialize(entry, _serializerOptions);");
+
                                 if (ExecutionContext.Settings.GetAzureQueueStorageSettings().MessageEncoding().AsEnum() == AzureQueueStorageSettings.MessageEncodingOptionsEnum.Base64)
                                 {
                                     AddUsing("System.Text");
                                     AddUsing("System");
-                                    entry.AddObjectInitStatement("var bytes", "Encoding.UTF8.GetBytes(entry.Message);");
+                                    entry.AddObjectInitStatement("var bytes", "Encoding.UTF8.GetBytes(payload);");
 
                                     entry.AddInvocationStatement("await queueClient.SendMessageAsync", invoc =>
                                     {
@@ -122,7 +139,7 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageE
                                 {
                                     entry.AddInvocationStatement("await queueClient.SendMessageAsync", invoc =>
                                     {
-                                        invoc.AddArgument("entry.Message")
+                                        invoc.AddArgument("payload")
                                             .AddArgument("cancellationToken");
                                     });
                                 }
@@ -138,13 +155,11 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageE
                         mth.AddParameter(genT, "message");
 
                         mth.AddInvocationStatement("ValidateMessage", invoc => invoc.AddArgument("message"));
-                        mth.AddObjectInitStatement("var jsonMessage", $"{UseType("System.Text.Json.JsonSerializer")}.Serialize(message, _serializerOptions);");
 
                         mth.AddInvocationStatement("_messageQueue.Add", invoc =>
                         {
-                            invoc.AddArgument(new CSharpInvocationStatement("new MessageEntry")
-                                   .AddArgument("typeof(T)")
-                                   .AddArgument("jsonMessage").WithoutSemicolon());
+                            invoc.AddArgument(new CSharpInvocationStatement($"new {this.GetAzureQueueStorageEnvelopeName()}")
+                                   .AddArgument("message").WithoutSemicolon());
                         });
                     });
 
@@ -155,13 +170,11 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageE
                         mth.AddParameter(T, "message");
 
                         mth.AddStatement("ValidateMessage(message);");
-                        mth.AddObjectInitStatement("var jsonMessage", $"{UseType("System.Text.Json.JsonSerializer")}.Serialize(message, _serializerOptions);");
 
                         mth.AddInvocationStatement("_messageQueue.Add", invoc =>
                         {
-                            invoc.AddArgument(new CSharpInvocationStatement("new MessageEntry")
-                                   .AddArgument("typeof(T)")
-                                   .AddArgument("jsonMessage").WithoutSemicolon());
+                            invoc.AddArgument(new CSharpInvocationStatement($"new {this.GetAzureQueueStorageEnvelopeName()}")
+                                    .AddArgument("message").WithoutSemicolon());
                         });
                     });
 
@@ -175,14 +188,6 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageE
                         });
                     });
 
-                }).AddRecord("MessageEntry", record =>
-                {
-                    record
-                        .AddPrimaryConstructor(ctor =>
-                        {
-                            ctor.AddParameter("Type", "Type")
-                                .AddParameter("string", "Message");
-                        });
                 });
         }
 

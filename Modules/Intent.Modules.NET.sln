@@ -428,6 +428,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Aws.SecretsM
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Eventing.AzureQueueStorage", "Intent.Modules.Eventing.AzureQueueStorage\Intent.Modules.Eventing.AzureQueueStorage.csproj", "{04D0EAFC-7CDA-4428-BFE5-77D489EEE5C5}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AzureFunctions.AzureQueueStorage", "Intent.Modules.AzureFunctions.AzureQueueStorage\Intent.Modules.AzureFunctions.AzureQueueStorage.csproj", "{DF6C6263-B4E7-466D-B4B9-69D537045615}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -1134,6 +1136,10 @@ Global
 		{04D0EAFC-7CDA-4428-BFE5-77D489EEE5C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04D0EAFC-7CDA-4428-BFE5-77D489EEE5C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{04D0EAFC-7CDA-4428-BFE5-77D489EEE5C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF6C6263-B4E7-466D-B4B9-69D537045615}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF6C6263-B4E7-466D-B4B9-69D537045615}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF6C6263-B4E7-466D-B4B9-69D537045615}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF6C6263-B4E7-466D-B4B9-69D537045615}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1328,6 +1334,7 @@ Global
 		{5C614B27-C6E5-484D-9845-D6A8B5BED150} = {F75494CA-24E5-4CF2-8123-55A41BC20BC6}
 		{7DF3FC9C-FBAE-4C18-96D6-6365C30600DF} = {3173D488-188F-4E6B-8985-562BA706F5E1}
 		{04D0EAFC-7CDA-4428-BFE5-77D489EEE5C5} = {408AB16B-0F81-405E-A39A-A052297CEF9C}
+		{DF6C6263-B4E7-466D-B4B9-69D537045615} = {F75494CA-24E5-4CF2-8123-55A41BC20BC6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A00AF88A-EA58-4AEA-B65F-92354533E2CA}

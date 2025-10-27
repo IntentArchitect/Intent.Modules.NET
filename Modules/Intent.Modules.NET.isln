@@ -191,5 +191,6 @@
     <application id="863b4eb3-d4db-44d0-9fea-12bda69d4181" name="SqlDatabaseProject.Metadata" solutionFolder="Persistence" relativePath="Intent.Modules.SqlDatabaseProject.Metadata/Intent.Modules.SqlDatabaseProject.Metadata.application.config" />
     <application id="95ba399f-5733-49fd-b2f3-5335a0630af6" name="Intent.Modules.Aws.SecretsManager" solutionFolder="Security" relativePath="Intent.Modules.Aws.SecretsManager/Intent.Modules.Aws.SecretsManager.application.config" />
     <application id="b05c458b-71a3-47f2-b6eb-860f17d64775" name="Intent.Modules.Eventing.AzureQueueStorage" solutionFolder="Eventing Integration" relativePath="Intent.Modules.Eventing.AzureQueueStorage/Intent.Modules.Eventing.AzureQueueStorage.application.config" />
+    <application id="d78fb3f4-7ed2-4562-aa18-f09b10de3afa" name="Intent.Modules.AzureFunctions.AzureQueueStorage" solutionFolder="API Frameworks" relativePath="Intent.Modules.AzureFunctions.AzureQueueStorage/Intent.Modules.AzureFunctions.AzureQueueStorage.application.config" />
   </applications>
 </solution>

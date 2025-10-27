@@ -5,10 +5,12 @@ using Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageConfi
 using Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageConsumer;
 using Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageConsumerBackgroundService;
 using Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageConsumerInterface;
+using Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageEnvelope;
 using Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageEventBus;
 using Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageEventDispatcher;
 using Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageEventDispatcherInterface;
 using Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageOptions;
+using Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageSubscriptionOptions;
 using Intent.Modules.Eventing.AzureQueueStorage.Templates.IntegrationEventHandler;
 using Intent.RoslynWeaver.Attributes;
 
@@ -40,6 +42,11 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates
             return template.GetTypeName(AzureQueueStorageConsumerInterfaceTemplate.TemplateId);
         }
 
+        public static string GetAzureQueueStorageEnvelopeName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(AzureQueueStorageEnvelopeTemplate.TemplateId);
+        }
+
         public static string GetAzureQueueStorageEventBusName(this IIntentTemplate template)
         {
             return template.GetTypeName(AzureQueueStorageEventBusTemplate.TemplateId);
@@ -59,6 +66,11 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates
             return template.GetTypeName(AzureQueueStorageOptionsTemplate.TemplateId);
         }
 
+        public static string GetAzureQueueStorageSubscriptionOptionsName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(AzureQueueStorageSubscriptionOptionsTemplate.TemplateId);
+        }
+
         public static string GetIntegrationEventHandlerName<T>(this IIntentTemplate<T> template) where T : IntegrationEventHandlerModel
         {
             return template.GetTypeName(IntegrationEventHandlerTemplate.TemplateId, template.Model);
@@ -68,6 +80,8 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates
         {
             return template.GetTypeName(IntegrationEventHandlerTemplate.TemplateId, model);
         }
+
+
 
     }
 }
