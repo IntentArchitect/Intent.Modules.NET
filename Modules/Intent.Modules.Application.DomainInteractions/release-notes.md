@@ -1,5 +1,6 @@
 ### Version 1.1.7
 
+- Improvement: Checking for installed mappers are more flexible.
 - Fixed: CRUD not explicitly calls SaveChanges for EF when modeling Auto-generated primary keys.
 
 ### Version 1.1.6
