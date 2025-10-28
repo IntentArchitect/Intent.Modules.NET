@@ -42,7 +42,7 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.Application.Implementati
                 Email = dto.Email
             };
 
-            _dbContext.Users.Add(user);
+            _dbContext.User.Add(user);
             await _dbContext.SaveChangesAsync(cancellationToken);
             return user.Id;
         }
@@ -50,7 +50,7 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.Application.Implementati
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<UserDto> FindUserById(Guid id, CancellationToken cancellationToken = default)
         {
-            var user = await _dbContext.Users.Where(x => x.Id == id).ProjectTo<UserDto>(_mapper.ConfigurationProvider).SingleOrDefaultAsync(cancellationToken);
+            var user = await _dbContext.User.Where(x => x.Id == id).ProjectTo<UserDto>(_mapper.ConfigurationProvider).SingleOrDefaultAsync(cancellationToken);
             if (user is null)
             {
                 throw new NotFoundException($"Could not find User '{id}'");
@@ -61,7 +61,7 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.Application.Implementati
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<List<UserDto>> FindUsers(CancellationToken cancellationToken = default)
         {
-            var users = await _dbContext.Users
+            var users = await _dbContext.User
                 .ProjectTo<UserDto>(_mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);
             return users;
@@ -74,7 +74,7 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.Application.Implementati
             List<NewDTO> addresses,
             CancellationToken cancellationToken = default)
         {
-            var user = await _dbContext.Users.SingleOrDefaultAsync(x => x.Id == id, cancellationToken);
+            var user = await _dbContext.User.SingleOrDefaultAsync(x => x.Id == id, cancellationToken);
             if (user is null)
             {
                 throw new NotFoundException($"Could not find User '{id}'");
@@ -89,13 +89,13 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.Application.Implementati
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task DeleteUser(Guid id, CancellationToken cancellationToken = default)
         {
-            var user = await _dbContext.Users.SingleOrDefaultAsync(x => x.Id == id, cancellationToken);
+            var user = await _dbContext.User.SingleOrDefaultAsync(x => x.Id == id, cancellationToken);
             if (user is null)
             {
                 throw new NotFoundException($"Could not find User '{id}'");
             }
 
-            _dbContext.Users.Remove(user);
+            _dbContext.User.Remove(user);
         }
 
         [IntentManaged(Mode.Fully)]

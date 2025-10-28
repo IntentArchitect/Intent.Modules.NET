@@ -31,7 +31,7 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.Application.Orders.GetOr
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<OrderDto> Handle(GetOrderByIdQuery request, CancellationToken cancellationToken)
         {
-            var order = await _dbContext.Orders.Where(x => x.Id == request.Id).ProjectTo<OrderDto>(_mapper.ConfigurationProvider).SingleOrDefaultAsync(cancellationToken);
+            var order = await _dbContext.Order.Where(x => x.Id == request.Id).ProjectTo<OrderDto>(_mapper.ConfigurationProvider).SingleOrDefaultAsync(cancellationToken);
             if (order is null)
             {
                 throw new NotFoundException($"Could not find Order '{request.Id}'");

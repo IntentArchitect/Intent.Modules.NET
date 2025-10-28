@@ -31,7 +31,7 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.Application.Products.Get
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<ProductDto> Handle(GetProductByIdQuery request, CancellationToken cancellationToken)
         {
-            var product = await _dbContext.Products.Where(x => x.Id == request.Id).ProjectTo<ProductDto>(_mapper.ConfigurationProvider).SingleOrDefaultAsync(cancellationToken);
+            var product = await _dbContext.Product.Where(x => x.Id == request.Id).ProjectTo<ProductDto>(_mapper.ConfigurationProvider).SingleOrDefaultAsync(cancellationToken);
             if (product is null)
             {
                 throw new NotFoundException($"Could not find Product '{request.Id}'");

@@ -33,7 +33,7 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.Application.Products.Get
             GetProductsPaginatedByNameOptionalWithOrderQuery request,
             CancellationToken cancellationToken)
         {
-            var queryable = _dbContext.Products.AsQueryable();
+            var queryable = _dbContext.Product.AsQueryable();
 
             if (request.Name != null)
             {
