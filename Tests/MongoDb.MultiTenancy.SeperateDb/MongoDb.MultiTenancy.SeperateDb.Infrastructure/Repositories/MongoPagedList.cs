@@ -22,11 +22,7 @@ namespace MongoDb.MultiTenancy.SeperateDb.Infrastructure.Repositories
             PageSize = pageSize;
             var skip = ((PageNo - 1) * PageSize);
 
-            AddRange(
-                source
-                    .Skip(skip)
-                    .Take(PageSize)
-                    .ToList());
+            AddRange(source.Skip(skip).Take(PageSize).ToList());
         }
 
         public MongoPagedList(int totalCount, int pageNo, int pageSize, List<TDomain> results)
