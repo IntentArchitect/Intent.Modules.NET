@@ -182,5 +182,43 @@ namespace Intent.Modules.EntityFrameworkCore.Settings
             Default,
             None,
         }
+
+        public static DBSetNamingConventionOptions DBSetNamingConvention(this DatabaseSettings groupSettings) => new DBSetNamingConventionOptions(groupSettings.GetSetting("6010e890-6e2d-4812-9969-ffbdb8f93d87")?.Value);
+
+        public class DBSetNamingConventionOptions
+        {
+            public readonly string Value;
+
+            public DBSetNamingConventionOptions(string value)
+            {
+                Value = value;
+            }
+
+            public DBSetNamingConventionOptionsEnum AsEnum()
+            {
+                return Value switch
+                {
+                    "pluralized" => DBSetNamingConventionOptionsEnum.Pluralized,
+                    "same-as-entity" => DBSetNamingConventionOptionsEnum.SameAsEntity,
+                    _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
+                };
+            }
+
+            public bool IsPluralized()
+            {
+                return Value == "pluralized";
+            }
+
+            public bool IsSameAsEntity()
+            {
+                return Value == "same-as-entity";
+            }
+        }
+
+        public enum DBSetNamingConventionOptionsEnum
+        {
+            Pluralized,
+            SameAsEntity,
+        }
     }
 }

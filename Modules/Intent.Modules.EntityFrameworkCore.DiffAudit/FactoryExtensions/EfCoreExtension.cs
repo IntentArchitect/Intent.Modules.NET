@@ -1,4 +1,3 @@
-using System.Linq;
 using Intent.Engine;
 using Intent.Exceptions;
 using Intent.Modelers.Domain.Api;
@@ -14,6 +13,8 @@ using Intent.Modules.EntityFrameworkCore.DiffAudit.Templates;
 using Intent.Modules.EntityFrameworkCore.Shared;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Templates;
+using System.Linq;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -209,8 +210,20 @@ namespace Intent.Modules.EntityFrameworkCore.DiffAudit.FactoryExtensions
                             .AddStatement("throw new ArgumentOutOfRangeException();")));
                 });
 
-                method.AddStatement($"{logEntityName.Pluralize()}.AddRange(auditEntries);");
+
+
+                method.AddStatement($"{GetDbSetName(template, logEntityName)}.AddRange(auditEntries);");
             });
+        }
+
+        public static string GetDbSetName(ICSharpFileBuilderTemplate template, string logEntityName)
+        {
+            if (template.ExecutionContext.Settings.GetSetting("ac0a788e-d8b3-4eea-b56d-538608f1ded9", "6010e890-6e2d-4812-9969-ffbdb8f93d87")?.Value == "same-as-entity")
+            {
+                return logEntityName.ToPascalCase();
+            }
+
+            return logEntityName.Pluralize();
         }
     }
 }

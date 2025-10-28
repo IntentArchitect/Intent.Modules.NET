@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore</id>
-  <version>5.0.32-pre.0</version>
+  <version>5.0.32-pre.1</version>
   <supportedClientVersions>[4.5.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Provides the Entity Framework Core, Object Relational Mapper framework</summary>
   <description>Provides the Entity Framework Core, Object Relational Mapper framework</description>
@@ -166,6 +166,16 @@
           <options>
             <option value="default" description="Default" />
             <option value="none" description="None" />
+          </options>
+        </setting>
+        <setting id="6010e890-6e2d-4812-9969-ffbdb8f93d87" title="DBSet naming convention" type="select">
+          <isRequired>false</isRequired>
+          <hint>Controls the naming convention of the DBSets created on the DBContext.</hint>
+          <defaultValue>pluralized</defaultValue>
+          <isRequiredFunction>return true;</isRequiredFunction>
+          <options>
+            <option value="pluralized" description="Pluralized" />
+            <option value="same-as-entity" description="Same as entity" />
           </options>
         </setting>
       </settings>

@@ -2,6 +2,7 @@
 
 - Improvement: Checking for installed mappers are more flexible.
 - Fixed: CRUD not explicitly calls SaveChanges for EF when modeling Auto-generated primary keys.
+- Improvement: Added support for singular DBSet names
 
 ### Version 1.1.6
 

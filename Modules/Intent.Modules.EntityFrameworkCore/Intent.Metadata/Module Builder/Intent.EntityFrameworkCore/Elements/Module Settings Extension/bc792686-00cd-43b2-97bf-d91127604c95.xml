@@ -477,5 +477,63 @@
         </childElement>
       </childElements>
     </childElement>
+    <childElement id="6010e890-6e2d-4812-9969-ffbdb8f93d87" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
+      <name>DBSet naming convention</name>
+      <display>DBSet naming convention</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>bc792686-00cd-43b2-97bf-d91127604c95</parentFolderId>
+      <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+      <packageName>Intent.EntityFrameworkCore</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4805c791-5be3-4049-b929-6046d7be9944" name="Field Configuration">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Select" isActive="true" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="false" />
+            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Controls the naming convention of the DBSets created on the DBContext." isActive="true" />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="pluralized" isActive="true" />
+            <property name="c3456e79-0607-41a5-9b85-e0712f4f4834" display="Is Active Function" isActive="true" />
+            <property name="fa54329f-d4e5-48bc-8027-e17206e9fc89" display="Is Required Function" value="return true;" isActive="true" />
+            <property name="29696a13-bf1d-4fbd-bdf3-adb802430cb4" display="Order Priority" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="eaf24d02-3e47-454b-8740-cf20cedd6527" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Pluralized</name>
+          <display>Pluralized = pluralized</display>
+          <isAbstract>false</isAbstract>
+          <value>pluralized</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>6010e890-6e2d-4812-9969-ffbdb8f93d87</parentFolderId>
+          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+          <packageName>Intent.EntityFrameworkCore</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="59773c9e-2eca-42d5-a561-94958a43e5aa" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Same as entity</name>
+          <display>Same as entity = same-as-entity</display>
+          <isAbstract>false</isAbstract>
+          <value>same-as-entity</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>6010e890-6e2d-4812-9969-ffbdb8f93d87</parentFolderId>
+          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+          <packageName>Intent.EntityFrameworkCore</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>
