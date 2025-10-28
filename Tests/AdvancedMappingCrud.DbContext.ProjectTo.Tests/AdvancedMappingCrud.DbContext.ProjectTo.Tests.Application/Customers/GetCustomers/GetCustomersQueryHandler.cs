@@ -30,7 +30,7 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.Application.Customers.Ge
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<List<CustomerDto>> Handle(GetCustomersQuery request, CancellationToken cancellationToken)
         {
-            var customers = await _dbContext.Customers
+            var customers = await _dbContext.Customer
                 .ProjectTo<CustomerDto>(_mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);
             return customers;

@@ -31,7 +31,7 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.Application.Products.Cre
                 Price = request.Price
             };
 
-            _dbContext.Products.Add(product);
+            _dbContext.Product.Add(product);
             await _dbContext.SaveChangesAsync(cancellationToken);
             return product.Id;
         }

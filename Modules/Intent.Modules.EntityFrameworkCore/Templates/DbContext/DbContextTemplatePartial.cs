@@ -130,7 +130,7 @@ modelBuilder.Entity<Car>().HasData(
                     InterfaceDbSetElementType = _interfaceTemplate.Value.IsEnabled
                         ? GetEntityName(_interfaceTemplate.Value, typeConfiguration.Template.Model)
                         : null,
-                    DbSetName = GetEntityNameOnly(typeConfiguration.Template.Model).ToPascalCase().Pluralize(),
+                    DbSetName = GetDbSetName(typeConfiguration.Template.Model),
                     Prefix = string.Concat(((IHasFolder)typeConfiguration.Template.Model).GetParentFolderNames().Select(s => s.ToPascalCase()))
                 });
 
@@ -277,6 +277,16 @@ modelBuilder.Entity<Car>().HasData(
         {
             var typeInfo = this.GetTypeInfo("Domain.Entity", model);
             return typeInfo.Name;
+        }
+
+        public string GetDbSetName(ClassModel model)
+        {
+            if (ExecutionContext.Settings.GetDatabaseSettings().DBSetNamingConvention().IsSameAsEntity())
+            {
+                return GetEntityNameOnly(model).ToPascalCase();
+            }
+
+            return GetEntityNameOnly(model).ToPascalCase().Pluralize();
         }
 
         public override IEnumerable<INugetPackageInfo> GetNugetDependencies()

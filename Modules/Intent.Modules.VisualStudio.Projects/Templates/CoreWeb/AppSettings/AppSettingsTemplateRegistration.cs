@@ -80,7 +80,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
                         x.Id,
                         x.RuntimeEnvironments,
                         Location = "",
-                        RequiresSpecifiedRole = true,
+                        RequiresSpecifiedRole = false,
                         IncludeAllowHosts = false,
                         IncludeAspNetCoreLoggingLevel = false,
                     }));

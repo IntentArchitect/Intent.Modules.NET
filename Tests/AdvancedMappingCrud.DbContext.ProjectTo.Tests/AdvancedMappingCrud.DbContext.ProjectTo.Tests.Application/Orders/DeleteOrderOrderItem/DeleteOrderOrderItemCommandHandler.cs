@@ -27,7 +27,7 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.Application.Orders.Delet
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task Handle(DeleteOrderOrderItemCommand request, CancellationToken cancellationToken)
         {
-            var order = await _dbContext.Orders.SingleOrDefaultAsync(x => x.Id == request.OrderId, cancellationToken);
+            var order = await _dbContext.Order.SingleOrDefaultAsync(x => x.Id == request.OrderId, cancellationToken);
             if (order is null)
             {
                 throw new NotFoundException($"Could not find Order '{request.OrderId}'");

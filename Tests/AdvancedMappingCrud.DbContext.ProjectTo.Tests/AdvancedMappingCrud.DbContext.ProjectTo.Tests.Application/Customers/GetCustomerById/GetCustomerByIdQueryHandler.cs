@@ -31,7 +31,7 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.Application.Customers.Ge
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<CustomerDto> Handle(GetCustomerByIdQuery request, CancellationToken cancellationToken)
         {
-            var customer = await _dbContext.Customers.Where(x => x.Id == request.Id).ProjectTo<CustomerDto>(_mapper.ConfigurationProvider).SingleOrDefaultAsync(cancellationToken);
+            var customer = await _dbContext.Customer.Where(x => x.Id == request.Id).ProjectTo<CustomerDto>(_mapper.ConfigurationProvider).SingleOrDefaultAsync(cancellationToken);
             if (customer is null)
             {
                 throw new NotFoundException($"Could not find Customer '{request.Id}'");

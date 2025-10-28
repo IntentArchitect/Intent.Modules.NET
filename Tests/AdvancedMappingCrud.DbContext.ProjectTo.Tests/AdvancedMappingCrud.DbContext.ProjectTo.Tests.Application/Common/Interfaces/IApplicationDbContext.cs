@@ -11,10 +11,10 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.Application.Common.Inter
 {
     public interface IApplicationDbContext
     {
-        DbSet<Customer> Customers { get; }
-        DbSet<Order> Orders { get; }
-        DbSet<Product> Products { get; }
-        DbSet<User> Users { get; }
+        DbSet<Customer> Customer { get; }
+        DbSet<Order> Order { get; }
+        DbSet<Product> Product { get; }
+        DbSet<User> User { get; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }
 }

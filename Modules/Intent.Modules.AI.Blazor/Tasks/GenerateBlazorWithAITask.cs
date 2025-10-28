@@ -17,6 +17,7 @@ using Intent.Modelers.Services.Api;
 using System.Diagnostics;
 using Intent.Modules.AI.Blazor.Tasks.Config;
 using Intent.Modelers.Services.CQRS.Api;
+using Intent.Modules.Common.AI.Settings;
 using Intent.Modules.Common.Types.Api;
 
 namespace Intent.Modules.AI.Prompts.Tasks;
@@ -55,12 +56,15 @@ public class GenerateBlazorWithAITask : IModuleTask
     {
         var applicationId = args[0];
         var elementId = args[1];
-        var userProvidedContext = args.Length > 2 && !string.IsNullOrWhiteSpace(args[2]) ? args[2] : "";
-        var exampleComponentIds = args.Length > 3 && !string.IsNullOrWhiteSpace(args[3]) ? JsonConvert.DeserializeObject<string[]>(args[3]) : [];
-        var templateId = args.Length > 4 && !string.IsNullOrWhiteSpace(args[4]) ? args[4] : null;
+        var userProvidedContext = !string.IsNullOrWhiteSpace(args[2]) ? args[2] : "None";
+        var exampleComponentIds = !string.IsNullOrWhiteSpace(args[3]) ? JsonConvert.DeserializeObject<string[]>(args[3]) : [];
+        var provider = new AISettings.ProviderOptions(args[4]).AsEnum();
+        var modelId = args[5];
+        var thinkingLevel = args[6];
+        var templateId = !string.IsNullOrWhiteSpace(args[7]) ? args[7] : null;
 
         Logging.Log.Info($"Args: {string.Join(",", args)}");
-        var kernel = _intentSemanticKernelFactory.BuildSemanticKernel();
+        var kernel = _intentSemanticKernelFactory.BuildSemanticKernel(modelId, provider, null);
         var componentModel = _metadataManager.UserInterface(applicationId).Elements.FirstOrDefault(x => x.Id == elementId);
         if (componentModel == null)
         {
@@ -76,7 +80,7 @@ public class GenerateBlazorWithAITask : IModuleTask
         var promptTemplateConfig = PromptConfig.TryLoad(_solution.SolutionRootLocation, _applicationConfigurationProvider.GetApplicationConfig().Name);
 
         var disposables = new List<IAsyncDisposable>();
-        if (promptTemplateConfig.McpServers.Any())
+        if (promptTemplateConfig?.McpServers.Any() == true)
         {
             var mcpDisposables = McpHelper.WireUpMcpAsync(kernel, promptTemplateConfig.McpServers)
                 .GetAwaiter()
@@ -123,7 +127,7 @@ public class GenerateBlazorWithAITask : IModuleTask
             var environmentMetadata = GetEnvironmentMetadata(applicationConfig, promptTemplateConfig.GetMetadata(templateId));
             var exampleJson = JsonConvert.SerializeObject(exampleFiles, Formatting.Indented);
             var additionalRules = promptTemplateConfig.GetAdditionalRules(templateId);
-            var requestFunction = CreatePromptFunction(kernel);
+            var requestFunction = CreatePromptFunction(kernel, thinkingLevel);
 
             if (string.IsNullOrEmpty(userProvidedContext))
             {
@@ -198,8 +202,7 @@ public class GenerateBlazorWithAITask : IModuleTask
         return JsonConvert.SerializeObject(metadata, Formatting.Indented);
     }
 
-
-    private static KernelFunction CreatePromptFunction(Kernel kernel)
+    private static KernelFunction CreatePromptFunction(Kernel kernel, string thinkingLevel)
     {
         const string promptTemplate =
             """
@@ -281,7 +284,7 @@ public class GenerateBlazorWithAITask : IModuleTask
             {{$examples}}
             """;
         
-        var requestFunction = kernel.CreateFunctionFromPrompt(promptTemplate);
+        var requestFunction = kernel.CreateFunctionFromPrompt(promptTemplate, kernel.GetRequiredService<IAiProviderService>().GetPromptExecutionSettings(thinkingLevel));
         return requestFunction;
     }
 

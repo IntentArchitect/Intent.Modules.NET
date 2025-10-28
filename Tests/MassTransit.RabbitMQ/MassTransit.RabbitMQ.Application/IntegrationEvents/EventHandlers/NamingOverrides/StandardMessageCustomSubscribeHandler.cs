@@ -28,7 +28,8 @@ namespace MassTransit.RabbitMQ.Application.IntegrationEvents.EventHandlers.Namin
             StandardMessageCustomSubscribeEvent message,
             CancellationToken cancellationToken = default)
         {
-            var command = new SendFromEventHandlerCommand(message: message.Message);
+            var command = new SendFromEventHandlerCommand(
+                message: message.Message);
             await _mediator.Send(command, cancellationToken);
         }
 

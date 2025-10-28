@@ -39,7 +39,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.AppRazor
                     {
                         html.AddAttribute("lang", "en");
                         html.AddEmptyLine();
-                        html.AddCodeBlock("@Intent.Merge");
+                        html.AddCodeBlock("@Intent.Merge()");
                         html.AddHtmlElement("head", head =>
                         {
                             head.AddHtmlElement("meta", t => t.AddAttribute("charset", "utf-8"));

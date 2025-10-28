@@ -1,14 +1,17 @@
-using System.Collections.Generic;
-using System.Linq;
 using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
+using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Interactions;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
+using static Intent.Modules.Constants.TemplateRoles.Domain;
 
 namespace Intent.Modules.Application.DomainInteractions.DataAccessProviders;
 
@@ -32,7 +35,9 @@ internal class DbContextDataAccessProvider : IDataAccessProvider
         _dbContextField = dbContextField;
         _template = template;
         _mappingManager = mappingManager;
-        _dbSetAccessor = new CSharpAccessMemberStatement(_dbContextField, entity.Name.ToPascalCase().Pluralize());
+
+        _dbSetAccessor = new CSharpAccessMemberStatement(_dbContextField, GetDbSetName(entity));
+
         var entityTemplate = _template.GetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.Entity.Primary, entity);
         _pks = entityTemplate.CSharpFile.Classes.First().GetPropertiesWithPrimaryKey();
         _isUsingProjections = queryContext?.ImplementWithProjections() == true;
@@ -293,5 +298,15 @@ internal class DbContextDataAccessProvider : IDataAccessProvider
         // for now cursor based is not implements with EF
         prerequisiteStatements = new List<CSharpStatement>();
         return new CSharpStatement("");
+    }
+
+    public string GetDbSetName(ClassModel model)
+    {
+        if (_template.ExecutionContext.Settings.GetSetting("ac0a788e-d8b3-4eea-b56d-538608f1ded9", "6010e890-6e2d-4812-9969-ffbdb8f93d87")?.Value == "same-as-entity")
+        {
+            return model.Name.ToPascalCase();
+        }
+
+        return model.Name.ToPascalCase().Pluralize();
     }
 }

@@ -26,13 +26,13 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.Application.Products.Del
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task Handle(DeleteProductCommand request, CancellationToken cancellationToken)
         {
-            var product = await _dbContext.Products.SingleOrDefaultAsync(x => x.Id == request.Id, cancellationToken);
+            var product = await _dbContext.Product.SingleOrDefaultAsync(x => x.Id == request.Id, cancellationToken);
             if (product is null)
             {
                 throw new NotFoundException($"Could not find Product '{request.Id}'");
             }
 
-            _dbContext.Products.Remove(product);
+            _dbContext.Product.Remove(product);
         }
     }
 }

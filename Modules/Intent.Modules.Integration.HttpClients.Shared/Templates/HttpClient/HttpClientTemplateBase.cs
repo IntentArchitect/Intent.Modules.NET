@@ -646,8 +646,13 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
         }
     }
 
-    private void ProcessNestedQueryField(CSharpStatementBlock block, string parentFieldAccess, string parentFieldName, DTOFieldModel field)
+    private void ProcessNestedQueryField(CSharpStatementBlock block, string parentFieldAccess, string parentFieldName, DTOFieldModel field, int count = 0)
     {
+        if (count > 30)
+        {
+            throw new Exception("Stack overflow exception");
+        }
+
         var fieldAccess = $"{parentFieldAccess}.{field.Name.ToPascalCase()}";
         var fieldAccessWithNullable = $"{parentFieldAccess}?.{field.Name.ToPascalCase()}";
         var fieldName = $"{parentFieldName}.{field.Name.ToCamelCase()}";
@@ -660,7 +665,7 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
             {
                 foreach (var nestedField in nestedDto.Fields)
                 {
-                    ProcessNestedQueryField(nestedBlock, fieldAccess, fieldName, nestedField);
+                    ProcessNestedQueryField(nestedBlock, fieldAccess, fieldName, nestedField, count++);
                 }
             });
         }

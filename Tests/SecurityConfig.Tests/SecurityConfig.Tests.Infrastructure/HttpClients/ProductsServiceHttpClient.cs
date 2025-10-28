@@ -32,7 +32,8 @@ namespace SecurityConfig.Tests.Infrastructure.HttpClients
             _serializerOptions = new JsonSerializerOptions
             {
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-                Converters = { new JsonStringEnumConverter() }
+                Converters =
+                { new JsonStringEnumConverter() }
             };
         }
 

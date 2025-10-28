@@ -62,10 +62,7 @@ namespace MongoDb.TestApplication.Infrastructure.Repositories
             var count = await source.CountAsync(cancellationToken);
             var skip = ((pageNo - 1) * pageSize);
 
-            var results = await source
-                .Skip(skip)
-                .Take(pageSize)
-                .ToListAsync(cancellationToken);
+            var results = await source.Skip(skip).Take(pageSize).ToListAsync(cancellationToken);
             return new MongoPagedList<TDomain, TIdentifier>(count, pageNo, pageSize, results);
         }
     }

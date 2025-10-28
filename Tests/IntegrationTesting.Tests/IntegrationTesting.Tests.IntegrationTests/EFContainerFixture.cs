@@ -2,6 +2,7 @@ using System.Reflection;
 using DotNet.Testcontainers.Builders;
 using DotNet.Testcontainers.Configurations;
 using DotNet.Testcontainers.Images;
+using IntegrationTesting.Tests.Domain.Common.Interfaces;
 using IntegrationTesting.Tests.Infrastructure.Persistence;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;

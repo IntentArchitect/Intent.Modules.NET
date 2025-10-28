@@ -1,5 +1,6 @@
 ### Version 5.0.32
 
+- Improvement: Added support for singular DBSet names
 - Improvement: Updated NuGet package versions.
 
 ### Version 5.0.31

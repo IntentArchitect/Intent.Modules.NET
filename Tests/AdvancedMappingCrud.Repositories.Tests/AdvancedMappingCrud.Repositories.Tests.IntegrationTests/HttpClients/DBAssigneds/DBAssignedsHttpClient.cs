@@ -1,0 +1,142 @@
+using System.Net.Http.Headers;
+using System.Text;
+using System.Text.Json;
+using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.DBAssigneds;
+using Intent.RoslynWeaver.Attributes;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]
+[assembly: IntentTemplate("Intent.AspNetCore.IntegrationTesting.HttpClient", Version = "2.0")]
+
+namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.DBAssigneds
+{
+    public class DBAssignedsHttpClient : IDBAssignedsService
+    {
+        private const string JSON_MEDIA_TYPE = "application/json";
+        private readonly HttpClient _httpClient;
+        private readonly JsonSerializerOptions _serializerOptions;
+
+        public DBAssignedsHttpClient(HttpClient httpClient)
+        {
+            _httpClient = httpClient;
+
+            _serializerOptions = new JsonSerializerOptions
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+            };
+        }
+
+        public async Task<Guid> CreateDBAssignedAsync(
+            CreateDBAssignedCommand command,
+            CancellationToken cancellationToken = default)
+        {
+            var relativeUri = $"api/d-b-assigneds";
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
+
+            var content = JsonSerializer.Serialize(command, _serializerOptions);
+            httpRequest.Content = new StringContent(content, Encoding.UTF8, JSON_MEDIA_TYPE);
+
+            using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
+            {
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, httpRequest, response, cancellationToken).ConfigureAwait(false);
+                }
+
+                using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
+                {
+                    var wrappedObj = (await JsonSerializer.DeserializeAsync<JsonResponse<Guid>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false))!;
+                    return wrappedObj!.Value;
+                }
+            }
+        }
+
+        public async Task DeleteDBAssignedAsync(Guid id, CancellationToken cancellationToken = default)
+        {
+            var relativeUri = $"api/d-b-assigneds/{id}";
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Delete, relativeUri);
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
+
+            using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
+            {
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, httpRequest, response, cancellationToken).ConfigureAwait(false);
+                }
+            }
+        }
+
+        public async Task UpdateDBAssignedAsync(
+            Guid id,
+            UpdateDBAssignedCommand command,
+            CancellationToken cancellationToken = default)
+        {
+            var relativeUri = $"api/d-b-assigneds/{id}";
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
+
+            var content = JsonSerializer.Serialize(command, _serializerOptions);
+            httpRequest.Content = new StringContent(content, Encoding.UTF8, JSON_MEDIA_TYPE);
+
+            using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
+            {
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, httpRequest, response, cancellationToken).ConfigureAwait(false);
+                }
+            }
+        }
+
+        public async Task<DBAssignedDto> GetDBAssignedByIdAsync(Guid id, CancellationToken cancellationToken = default)
+        {
+            var relativeUri = $"api/d-b-assigneds/{id}";
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
+
+            using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
+            {
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, httpRequest, response, cancellationToken).ConfigureAwait(false);
+                }
+
+                using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
+                {
+                    return (await JsonSerializer.DeserializeAsync<DBAssignedDto>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false))!;
+                }
+            }
+        }
+
+        public async Task<List<DBAssignedDto>> GetDBAssignedsAsync(CancellationToken cancellationToken = default)
+        {
+            var relativeUri = $"api/d-b-assigneds";
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
+
+            using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
+            {
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, httpRequest, response, cancellationToken).ConfigureAwait(false);
+                }
+
+                using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
+                {
+                    return (await JsonSerializer.DeserializeAsync<List<DBAssignedDto>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false))!;
+                }
+            }
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            // Class cleanup goes here
+        }
+    }
+}

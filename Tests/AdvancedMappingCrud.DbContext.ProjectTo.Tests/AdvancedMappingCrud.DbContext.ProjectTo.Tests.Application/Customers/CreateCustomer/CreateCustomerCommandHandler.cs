@@ -32,7 +32,7 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.Application.Customers.Cr
                 IsActive = request.IsActive
             };
 
-            _dbContext.Customers.Add(customer);
+            _dbContext.Customer.Add(customer);
             await _dbContext.SaveChangesAsync(cancellationToken);
             return customer.Id;
         }

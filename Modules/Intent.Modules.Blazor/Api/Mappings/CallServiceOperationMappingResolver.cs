@@ -54,8 +54,12 @@ public class CallServiceOperationMappingResolver : IMappingTypeResolver
     {
         public override CSharpStatement GetSourceStatement(bool? targetIsNullable = null)
         {
-            var child = Children.First();
-            return child.GetSourceStatement();
+            if (Children.Any())
+            {
+                var child = Children.First();
+                return child.GetSourceStatement();
+            }
+            return new CSharpStatement("default");
         }
     }
 }

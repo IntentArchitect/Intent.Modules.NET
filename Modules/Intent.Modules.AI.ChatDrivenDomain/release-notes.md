@@ -1,3 +1,7 @@
+### Version 0.0.7
+
+- Improvement: Upgraded to use the latest Intent.Common.AI module.
+
 ### Version 0.0.6
 
 - Improvement: Supports Anthropic AI now.

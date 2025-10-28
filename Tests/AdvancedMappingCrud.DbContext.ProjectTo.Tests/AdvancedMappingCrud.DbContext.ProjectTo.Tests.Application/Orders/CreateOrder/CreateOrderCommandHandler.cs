@@ -34,7 +34,7 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.Application.Orders.Creat
                 EntityStatus = request.EntityStatus
             };
 
-            _dbContext.Orders.Add(order);
+            _dbContext.Order.Add(order);
             await _dbContext.SaveChangesAsync(cancellationToken);
             return order.Id;
         }

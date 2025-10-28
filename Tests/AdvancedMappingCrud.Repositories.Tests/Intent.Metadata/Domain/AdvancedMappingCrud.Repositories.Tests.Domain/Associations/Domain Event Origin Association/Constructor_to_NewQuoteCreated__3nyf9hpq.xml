@@ -2,10 +2,10 @@
 <association id="8d7a2f35-865e-40cc-acc7-1632f5466a12">
   <sourceEnd id="22dd2a0b-b98a-4c67-bee0-bd76d923a92c" type="Domain Event Origin Association Source End" typeId="2495d3ef-f7a2-441d-b749-b51b2546b45e">
     <display>published by : Quote.Constructor</display>
-    <order>2</order>
+    <order>0</order>
     <typeReference id="a8126893-e1e3-4c92-8e13-2c1a223a478a">
       <typeId>156cdc02-ec8b-4a8d-8fff-a0018ce22359</typeId>
-      <isNavigable>true</isNavigable>
+      <isNavigable>false</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
       <isRequired>true</isRequired>

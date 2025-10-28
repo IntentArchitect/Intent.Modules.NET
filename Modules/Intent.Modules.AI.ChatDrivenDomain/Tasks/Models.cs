@@ -6,6 +6,9 @@ public class InputModel
 {
     public string Prompt { get; set; }
     public List<ClassModel> Classes { get; set; }
+    public string ProviderId { get; set; }
+    public string ModelId { get; set; }
+    public string ThinkingLevel { get; set; }
 }
 
 public class ClassModel

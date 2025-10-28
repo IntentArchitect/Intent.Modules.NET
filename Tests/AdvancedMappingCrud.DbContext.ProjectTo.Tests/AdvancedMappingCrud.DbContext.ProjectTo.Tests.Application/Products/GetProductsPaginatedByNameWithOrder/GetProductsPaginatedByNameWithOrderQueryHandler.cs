@@ -33,7 +33,7 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.Application.Products.Get
             GetProductsPaginatedByNameWithOrderQuery request,
             CancellationToken cancellationToken)
         {
-            var products = await _dbContext.Products
+            var products = await _dbContext.Product
     .Where(x => x.Name == request.Name)
                 .ProjectTo<ProductDto>(_mapper.ConfigurationProvider)
                 .OrderBy(request.OrderBy)

@@ -16,6 +16,7 @@ namespace AzureFunctions.NET8.Infrastructure.Persistence
         }
 
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<ResponseCode> ResponseCodes { get; set; }
 
         public DbSet<SampleDomain> SampleDomains { get; set; }
 
@@ -25,6 +26,7 @@ namespace AzureFunctions.NET8.Infrastructure.Persistence
 
             ConfigureModel(modelBuilder);
             modelBuilder.ApplyConfiguration(new CustomerConfiguration());
+            modelBuilder.ApplyConfiguration(new ResponseCodeConfiguration());
             modelBuilder.ApplyConfiguration(new SampleDomainConfiguration());
         }
 

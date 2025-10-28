@@ -119,6 +119,14 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.EFContainerFixt
                             }
                         }
 
+                        if (containerTemplate is IDeclareUsings declareUsings)
+                        {
+                            foreach (var @using in declareUsings.DeclareUsings())
+                            {
+                                AddUsing(@using);
+                            }
+                        }
+
                         var connectionStringText = (dbContextStatement as IHasCSharpStatements)?.FindStatement(x => x.HasMetadata("is-connection-string")).GetText("");
                         string dbContextReconfigure = dbContextStatement.GetText("").Replace(connectionStringText, "_dbContainer.GetConnectionString()").Replace("                               ", "            ");
                         method.InsertStatements(method.Statements.IndexOf((CSharpStatement)statement), dbContextReconfigure.ConvertToStatements().ToList());
