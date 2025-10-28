@@ -1,3 +1,4 @@
+using System.Linq;
 using Intent.Engine;
 using Intent.Exceptions;
 using Intent.Modelers.Domain.Api;
@@ -14,7 +15,6 @@ using Intent.Modules.EntityFrameworkCore.Shared;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using System.Linq;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
