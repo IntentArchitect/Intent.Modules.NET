@@ -11,7 +11,7 @@ using Microsoft.Extensions.Logging;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Aws.Lambda.Functions.ExceptionHandlerHelper", Version = "1.0")]
 
-namespace AwsLambdaFunction.Sqs.GroupA.Api.Helpers
+namespace Aws.Sqs.GrpA.Api.Helpers
 {
     public static class ExceptionHandlerHelper
     {

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Amazon.Lambda.Annotations;
 using Amazon.Lambda.Annotations.APIGateway;
 using Amazon.Lambda.Core;
-using AwsLambdaFunction.Sqs.GroupB.Api.Helpers;
+using Aws.Sqs.GrpB.Api.Helpers;
 using AwsLambdaFunction.Sqs.GroupB.Application;
 using AwsLambdaFunction.Sqs.GroupB.Application.Common.Eventing;
 using AwsLambdaFunction.Sqs.GroupB.Application.Common.Validation;
@@ -16,7 +16,7 @@ using Microsoft.Extensions.Logging;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Aws.Lambda.Functions.LambdaFunctionClassTemplate", Version = "1.0")]
 
-namespace AwsLambdaFunction.Sqs.GroupB.Api
+namespace Aws.Sqs.GrpB.Api
 {
     public class SpecificChannelFunctions
     {

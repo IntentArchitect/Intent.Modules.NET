@@ -5,24 +5,24 @@ using System.Threading.Tasks;
 using Amazon.Lambda.Annotations;
 using Amazon.Lambda.Core;
 using Amazon.Lambda.SQSEvents;
-using AwsLambdaFunction.Sqs.GroupB.Application.Common.Eventing;
-using AwsLambdaFunction.Sqs.GroupB.Infrastructure.Eventing;
+using AwsLambdaFunction.Sqs.GroupA.Application.Common.Eventing;
+using AwsLambdaFunction.Sqs.GroupA.Infrastructure.Eventing;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Logging;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Aws.Lambda.Functions.Sqs.LambdaFunctionConsumer", Version = "1.0")]
 
-namespace AwsLambdaFunction.Sqs.GroupB.Api
+namespace Aws.Sqs.GrpA.Api
 {
-    public class CreateOrderCommandConsumer
+    public class SpecificTopicMessageConsumer
     {
-        private readonly ILogger<CreateOrderCommandConsumer> _logger;
+        private readonly ILogger<SpecificTopicMessageConsumer> _logger;
         private readonly ISqsMessageDispatcher _dispatcher;
         private readonly IEventBus _eventBus;
         private readonly IServiceProvider _serviceProvider;
 
-        public CreateOrderCommandConsumer(ILogger<CreateOrderCommandConsumer> logger,
+        public SpecificTopicMessageConsumer(ILogger<SpecificTopicMessageConsumer> logger,
             ISqsMessageDispatcher dispatcher,
             IEventBus eventBus,
             IServiceProvider serviceProvider)
@@ -48,7 +48,7 @@ namespace AwsLambdaFunction.Sqs.GroupB.Api
                 }
                 catch (Exception ex)
                 {
-                    _logger.LogError(ex, "Error processing CreateOrderCommandConsumer message with ID {MessageId}", record.MessageId);
+                    _logger.LogError(ex, "Error processing SpecificTopicMessageConsumer message with ID {MessageId}", record.MessageId);
                     throw;
                 }
             }

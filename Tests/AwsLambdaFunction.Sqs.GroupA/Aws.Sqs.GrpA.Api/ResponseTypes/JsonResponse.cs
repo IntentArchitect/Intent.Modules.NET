@@ -3,7 +3,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Aws.Lambda.Functions.JsonResponse", Version = "1.0")]
 
-namespace AwsLambdaFunction.Sqs.GroupA.Api.ResponseTypes
+namespace Aws.Sqs.GrpA.Api.ResponseTypes
 {
     /// <summary>
     /// Implicit wrapping of types that serialize to non-complex values.

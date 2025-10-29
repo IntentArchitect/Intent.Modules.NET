@@ -4,7 +4,7 @@ VisualStudioVersion = 17.8.34322.80
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{44FDD214-6662-4922-B63D-FA6417D1CA4D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AwsLambdaFunction.Sqs.GroupB.Api", "AwsLambdaFunction.Sqs.GroupB.Api\AwsLambdaFunction.Sqs.GroupB.Api.csproj", "{CC05AD80-394C-4870-BB45-4F9BDB3FE916}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aws.Sqs.GrpB.Api", "Aws.Sqs.GrpB.Api\Aws.Sqs.GrpB.Api.csproj", "{CC05AD80-394C-4870-BB45-4F9BDB3FE916}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{73C90F1A-2127-447A-9981-9055C2441CA7}"
 EndProject

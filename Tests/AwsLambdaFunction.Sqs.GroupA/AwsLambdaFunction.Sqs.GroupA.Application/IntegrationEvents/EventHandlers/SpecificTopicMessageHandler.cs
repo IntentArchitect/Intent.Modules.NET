@@ -22,14 +22,14 @@ namespace AwsLambdaFunction.Sqs.GroupA.Application.IntegrationEvents.EventHandle
         public async Task HandleAsync(SpecificTopicOneMessageEvent message, CancellationToken cancellationToken = default)
         {
             // TODO: Implement HandleAsync (SpecificTopicMessageHandler) functionality
-            throw new NotImplementedException("Implement your handler logic here...");
+            // TODO: Implement HandleAsync (SpecificTopicMsgHandler) functionality                                                                                                                                                                                throw new NotImplementedException("Implement your handler logic here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task HandleAsync(SpecificTopicTwoMessage message, CancellationToken cancellationToken = default)
         {
             // TODO: Implement HandleAsync (SpecificTopicMessageHandler) functionality
-            throw new NotImplementedException("Implement your handler logic here...");
+            // TODO: Implement HandleAsync (SpecificTopicMsgHandler) functionality                                                                                                                                                                                throw new NotImplementedException("Implement your handler logic here...");
         }
     }
 }

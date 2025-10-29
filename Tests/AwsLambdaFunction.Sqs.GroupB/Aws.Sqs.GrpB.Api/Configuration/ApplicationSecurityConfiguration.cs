@@ -1,5 +1,5 @@
-using AwsLambdaFunction.Sqs.GroupA.Api.Services;
-using AwsLambdaFunction.Sqs.GroupA.Application.Common.Interfaces;
+using Aws.Sqs.GrpB.Api.Services;
+using AwsLambdaFunction.Sqs.GroupB.Application.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -7,7 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.Identity.ApplicationSecurityConfiguration", Version = "1.0")]
 
-namespace AwsLambdaFunction.Sqs.GroupA.Api.Configuration
+namespace Aws.Sqs.GrpB.Api.Configuration
 {
     public static class ApplicationSecurityConfiguration
     {

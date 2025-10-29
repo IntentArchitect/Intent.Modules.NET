@@ -1,7 +1,7 @@
 using Amazon.Lambda.Annotations;
 using Amazon.Lambda.Core;
 using Amazon.Lambda.Serialization.SystemTextJson;
-using AwsLambdaFunction.Sqs.GroupB.Api.Configuration;
+using Aws.Sqs.GrpB.Api.Configuration;
 using AwsLambdaFunction.Sqs.GroupB.Application;
 using AwsLambdaFunction.Sqs.GroupB.Infrastructure;
 using Intent.RoslynWeaver.Attributes;
@@ -15,7 +15,7 @@ using Microsoft.Extensions.Logging;
 
 [assembly: LambdaSerializer(typeof(DefaultLambdaJsonSerializer))]
 
-namespace AwsLambdaFunction.Sqs.GroupB.Api
+namespace Aws.Sqs.GrpB.Api
 {
     [LambdaStartup]
     public class Startup

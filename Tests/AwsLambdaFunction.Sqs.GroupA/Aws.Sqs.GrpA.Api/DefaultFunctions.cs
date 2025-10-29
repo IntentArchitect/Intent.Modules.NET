@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Amazon.Lambda.Annotations;
 using Amazon.Lambda.Annotations.APIGateway;
 using Amazon.Lambda.Core;
-using AwsLambdaFunction.Sqs.GroupA.Api.Helpers;
+using Aws.Sqs.GrpA.Api.Helpers;
 using AwsLambdaFunction.Sqs.GroupA.Application.CreateClient;
 using AwsLambdaFunction.Sqs.GroupA.Application.CreateOrder;
 using Intent.RoslynWeaver.Attributes;
@@ -16,7 +16,7 @@ using Microsoft.Extensions.Logging;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Aws.Lambda.Functions.LambdaFunctionClassTemplate", Version = "1.0")]
 
-namespace AwsLambdaFunction.Sqs.GroupA.Api
+namespace Aws.Sqs.GrpA.Api
 {
     public class DefaultFunctions
     {

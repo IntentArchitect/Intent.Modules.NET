@@ -22,7 +22,7 @@ namespace AwsLambdaFunction.Sqs.GroupB.Application.IntegrationEvents.EventHandle
         public async Task HandleAsync(CreateOrderCommand message, CancellationToken cancellationToken = default)
         {
             // TODO: Implement HandleAsync (CreateOrderCommandHandler) functionality
-            throw new NotImplementedException("Implement your handler logic here...");
+            // TODO: Implement HandleAsync (H2) functionality                                                                                                                                      throw new NotImplementedException("Implement your handler logic here...");
         }
     }
 }
