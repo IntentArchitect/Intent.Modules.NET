@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b33d2b59-5994-413a-846a-96fc3de29482" type="Integration Command" typeId="7f01ca8e-0e3c-4735-ae23-a45169f71625">
+  <name>SpecificTopicTwoMessage</name>
+  <display>SpecificTopicTwoMessage</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>4664c881-6421-44e8-ae9b-4a7efb18e29d</parentFolderId>
+  <packageId>4664c881-6421-44e8-ae9b-4a7efb18e29d</packageId>
+  <packageName>AwsLambdaFunction.Sqs.GroupB.Eventing.Messages</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="74fbdee0-4098-4544-8ecf-f7c5787c78c3" name="Aws Sqs">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Aws.Sqs</definitionPackageName>
+      <definitionPackageId>259088af-8612-4dd5-9bd7-b673553c3a6c</definitionPackageId>
+      <properties>
+        <property name="8eae77de-bce3-4e6d-ad5c-23afa3ac651f" display="Queue Name" value="specific-topic" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="9725793f-8aa7-43a4-9bd7-bbe865044fcf" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>FieldB</name>
+      <display>FieldB: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="1ea81c34-22a4-4ef1-b7af-d7869a9688dc">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>b33d2b59-5994-413a-846a-96fc3de29482</parentFolderId>
+      <packageId>4664c881-6421-44e8-ae9b-4a7efb18e29d</packageId>
+      <packageName>AwsLambdaFunction.Sqs.GroupB.Eventing.Messages</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

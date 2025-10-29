@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<association id="c2e97515-2156-4a2b-94bb-3e0f4a8e79aa">
-  <sourceEnd id="1ec3a673-8a9e-4451-8371-cc87536d2ac4" type="Subscribe Integration Event Source End" typeId="5d8f5c33-f9c9-4629-b637-fad9b0096894">
+<association id="43a4632c-3d7c-45a6-a2ae-ea18d5ac70d7">
+  <sourceEnd id="3ca9b5f4-1c38-4519-b9ac-7213e248f2e7" type="Subscribe Integration Event Source End" typeId="5d8f5c33-f9c9-4629-b637-fad9b0096894">
     <display>handled by: AzureFunctions.AzureEventGrid.GroupA.Services.SpecificTopicMessageHandler</display>
     <order>0</order>
-    <typeReference id="8fcb3887-0ad8-496b-9662-26e0de3f2a17">
+    <typeReference id="948288fe-97be-48d7-830a-b9918cd86227">
       <typeId>0dbad813-a470-45ec-8b8f-ead93d749ca0</typeId>
       <isNavigable>false</isNavigable>
       <isNullable>false</isNullable>
@@ -18,14 +18,15 @@
     <metadata />
     <childElements />
   </sourceEnd>
-  <targetEnd id="c2e97515-2156-4a2b-94bb-3e0f4a8e79aa" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
-    <display>handles: SpecificTopicTwoMessage</display>
-    <order>1</order>
+  <targetEnd id="43a4632c-3d7c-45a6-a2ae-ea18d5ac70d7" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
+    <name>Handler</name>
+    <display>[handles] SpecificTopicOneMessage</display>
+    <order>0</order>
     <traits>
       <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
     </traits>
-    <typeReference id="c7bd1aa0-1fd4-4b10-a0a0-c045b4533450">
-      <typeId>dbf559b7-be03-427c-9f16-41a3f76d98b6</typeId>
+    <typeReference id="37795df4-1843-46be-99f8-8f06e78fd48f">
+      <typeId>0b75d2e1-5ba8-4c05-a8d6-b863725ae6ee</typeId>
       <isNavigable>true</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>

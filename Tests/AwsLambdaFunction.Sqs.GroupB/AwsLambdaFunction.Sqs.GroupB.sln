@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{44FDD214-6662-4922-B63D-FA6417D1CA4D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AwsLambdaFunction.Sqs.GroupB.Api", "AwsLambdaFunction.Sqs.GroupB.Api\AwsLambdaFunction.Sqs.GroupB.Api.csproj", "{CC05AD80-394C-4870-BB45-4F9BDB3FE916}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{73C90F1A-2127-447A-9981-9055C2441CA7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AwsLambdaFunction.Sqs.GroupB.Application", "AwsLambdaFunction.Sqs.GroupB.Application\AwsLambdaFunction.Sqs.GroupB.Application.csproj", "{01CC6BB0-3693-48C7-958D-CDBA2D1E61D1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{8FE24DE1-0B78-427D-A3EE-3A35D165F021}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AwsLambdaFunction.Sqs.GroupB.Domain", "AwsLambdaFunction.Sqs.GroupB.Domain\AwsLambdaFunction.Sqs.GroupB.Domain.csproj", "{FB94FEE7-1CFF-4E5A-891C-A925424F13A0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{44D175BB-6F49-416B-A3AD-A083C9F2522B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AwsLambdaFunction.Sqs.GroupB.Infrastructure", "AwsLambdaFunction.Sqs.GroupB.Infrastructure\AwsLambdaFunction.Sqs.GroupB.Infrastructure.csproj", "{80BC6C10-CD5E-430F-8AA7-D4CAE1AFBDDC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CC05AD80-394C-4870-BB45-4F9BDB3FE916} = {44FDD214-6662-4922-B63D-FA6417D1CA4D}
+		{01CC6BB0-3693-48C7-958D-CDBA2D1E61D1} = {73C90F1A-2127-447A-9981-9055C2441CA7}
+		{FB94FEE7-1CFF-4E5A-891C-A925424F13A0} = {8FE24DE1-0B78-427D-A3EE-3A35D165F021}
+		{80BC6C10-CD5E-430F-8AA7-D4CAE1AFBDDC} = {44D175BB-6F49-416B-A3AD-A083C9F2522B}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CC05AD80-394C-4870-BB45-4F9BDB3FE916}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC05AD80-394C-4870-BB45-4F9BDB3FE916}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC05AD80-394C-4870-BB45-4F9BDB3FE916}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC05AD80-394C-4870-BB45-4F9BDB3FE916}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01CC6BB0-3693-48C7-958D-CDBA2D1E61D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01CC6BB0-3693-48C7-958D-CDBA2D1E61D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01CC6BB0-3693-48C7-958D-CDBA2D1E61D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01CC6BB0-3693-48C7-958D-CDBA2D1E61D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB94FEE7-1CFF-4E5A-891C-A925424F13A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB94FEE7-1CFF-4E5A-891C-A925424F13A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB94FEE7-1CFF-4E5A-891C-A925424F13A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB94FEE7-1CFF-4E5A-891C-A925424F13A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80BC6C10-CD5E-430F-8AA7-D4CAE1AFBDDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80BC6C10-CD5E-430F-8AA7-D4CAE1AFBDDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80BC6C10-CD5E-430F-8AA7-D4CAE1AFBDDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80BC6C10-CD5E-430F-8AA7-D4CAE1AFBDDC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

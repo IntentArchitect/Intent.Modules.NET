@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="dcaf0832-e87a-4a99-a2df-6cd653dc131f" type="Message" typeId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">
+  <name>ClientCreatedEvent</name>
+  <display>ClientCreatedEvent</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>86e174e3-50ed-4d81-b516-3c11054e27a6</parentFolderId>
+  <packageId>86e174e3-50ed-4d81-b516-3c11054e27a6</packageId>
+  <packageName>AwsLambdaFunction.Sqs.GroupA.Eventing.Messages</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="74fbdee0-4098-4544-8ecf-f7c5787c78c3" name="Aws Sqs">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Aws.Sqs</definitionPackageName>
+      <definitionPackageId>259088af-8612-4dd5-9bd7-b673553c3a6c</definitionPackageId>
+      <properties>
+        <property name="8eae77de-bce3-4e6d-ad5c-23afa3ac651f" display="Queue Name" value="order-created-event" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="e6a97a09-8705-41b4-9888-b5675deaafb4" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>Name</name>
+      <display>Name: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="31dfb0e0-76a3-4ec8-b602-88211fc9e9a5">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>dcaf0832-e87a-4a99-a2df-6cd653dc131f</parentFolderId>
+      <packageId>86e174e3-50ed-4d81-b516-3c11054e27a6</packageId>
+      <packageName>AwsLambdaFunction.Sqs.GroupA.Eventing.Messages</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

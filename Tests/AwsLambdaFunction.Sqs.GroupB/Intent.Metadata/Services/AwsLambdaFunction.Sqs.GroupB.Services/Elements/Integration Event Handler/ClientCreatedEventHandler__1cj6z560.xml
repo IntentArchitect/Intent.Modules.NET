@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="51ffd813-d0e9-4c4d-81c5-19292cdff0ef" type="Integration Event Handler" typeId="c0582230-22f5-4f74-8eb0-ec6fc9364900">
+  <name>ClientCreatedEventHandler</name>
+  <display>ClientCreatedEventHandler</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>770c2f28-8fe3-473c-b5a3-829ed647cb67</parentFolderId>
+  <packageId>770c2f28-8fe3-473c-b5a3-829ed647cb67</packageId>
+  <packageName>AwsLambdaFunction.Sqs.GroupB.Services</packageName>
+  <traits>
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

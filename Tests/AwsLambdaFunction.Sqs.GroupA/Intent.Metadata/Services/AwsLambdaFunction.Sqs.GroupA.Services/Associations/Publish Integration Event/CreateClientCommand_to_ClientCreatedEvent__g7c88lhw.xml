@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="cc4001ce-a62e-47d4-9e73-435ea69d6bb5">
+  <sourceEnd id="e401a0f8-5410-4969-94e6-05c7faa8af88" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : AwsLambdaFunction.Sqs.GroupA.Services.CreateClientCommand</display>
+    <order>0</order>
+    <typeReference id="b5da27e4-82dd-4137-8038-c7ecad7bd833">
+      <typeId>291bf3d9-238a-454f-a0ae-25c49a1fccb2</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AwsLambdaFunction.Sqs.GroupA.Services</typePackageName>
+      <typePackageId>9e0b24a3-16e9-4513-84a5-80c83eb5d62f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="cc4001ce-a62e-47d4-9e73-435ea69d6bb5" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] ClientCreatedEvent</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="e1afac7a-8572-4988-b9b4-f050a8b42c3c">
+      <typeId>dcaf0832-e87a-4a99-a2df-6cd653dc131f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AwsLambdaFunction.Sqs.GroupA.Eventing.Messages</typePackageName>
+      <typePackageId>86e174e3-50ed-4d81-b516-3c11054e27a6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>

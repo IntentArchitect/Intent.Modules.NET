@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="8b449a10-d7f3-4157-a958-0c4315a6f5f4">
+  <sourceEnd id="59cc3762-eff3-45e8-ac40-2010c007fbf9" type="Subscribe Integration Command Source End" typeId="cdc0ae0a-1199-4450-8e21-2da80e03bc26">
+    <display>handled by: AwsLambdaFunction.Sqs.GroupB.Services.CreateOrderCommandHandler</display>
+    <order>0</order>
+    <typeReference id="b8b9fb10-f4f2-48ea-bed4-b8d234ebab46">
+      <typeId>64edf68e-8a38-4d82-8875-950cc875c16b</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AwsLambdaFunction.Sqs.GroupB.Services</typePackageName>
+      <typePackageId>770c2f28-8fe3-473c-b5a3-829ed647cb67</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="8b449a10-d7f3-4157-a958-0c4315a6f5f4" type="Subscribe Integration Command Target End" typeId="efa73bdb-69b7-4f52-aa10-15c19874b394">
+    <name>Handler</name>
+    <display>[handles] CreateOrderCommand</display>
+    <order>0</order>
+    <traits>
+      <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+    </traits>
+    <typeReference id="c62d6b9f-0d3c-4308-bd2c-d148221640ae">
+      <typeId>375bd728-cded-4c2b-84d2-95a2f670644c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AwsLambdaFunction.Sqs.GroupA.Eventing.Messages</typePackageName>
+      <typePackageId>86e174e3-50ed-4d81-b516-3c11054e27a6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Subscribe Integration Command</associationType>
+  <associationTypeId>f485e4aa-a032-4b9a-aa85-5d2c62d75799</associationTypeId>
+  <stereotypes />
+</association>

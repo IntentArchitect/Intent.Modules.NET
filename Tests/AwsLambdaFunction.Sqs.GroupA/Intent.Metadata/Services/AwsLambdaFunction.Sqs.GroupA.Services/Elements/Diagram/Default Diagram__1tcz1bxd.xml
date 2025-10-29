@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="df69511a-21d3-4a99-b837-165c7fdb5769" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>4afdbf4b-e0dc-4c7e-9265-0c84360ae9f7</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9e0b24a3-16e9-4513-84a5-80c83eb5d62f</parentFolderId>
+  <packageId>9e0b24a3-16e9-4513-84a5-80c83eb5d62f</packageId>
+  <packageName>AwsLambdaFunction.Sqs.GroupA.Services</packageName>
+  <diagram>
+    <targetPackageId>9e0b24a3-16e9-4513-84a5-80c83eb5d62f</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

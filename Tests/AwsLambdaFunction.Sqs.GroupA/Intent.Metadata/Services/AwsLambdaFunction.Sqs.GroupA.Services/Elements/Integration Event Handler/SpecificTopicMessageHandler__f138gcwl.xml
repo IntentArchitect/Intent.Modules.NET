@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c36a9dbc-5874-4916-b37d-d760c136fdd8" type="Integration Event Handler" typeId="c0582230-22f5-4f74-8eb0-ec6fc9364900">
+  <name>SpecificTopicMessageHandler</name>
+  <display>SpecificTopicMessageHandler</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9e0b24a3-16e9-4513-84a5-80c83eb5d62f</parentFolderId>
+  <packageId>9e0b24a3-16e9-4513-84a5-80c83eb5d62f</packageId>
+  <packageName>AwsLambdaFunction.Sqs.GroupA.Services</packageName>
+  <traits>
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

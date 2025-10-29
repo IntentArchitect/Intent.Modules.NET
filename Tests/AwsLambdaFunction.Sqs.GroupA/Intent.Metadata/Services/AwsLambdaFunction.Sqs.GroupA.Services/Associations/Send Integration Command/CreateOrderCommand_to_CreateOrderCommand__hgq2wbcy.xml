@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="ef7de7df-3d6f-48f2-95b1-1521f2d2e234">
+  <sourceEnd id="4783c0d8-59b7-4a3d-983b-173dd2916e18" type="Send Integration Command Source End" typeId="c5f4f98f-e464-48de-b202-c0724bacebb7">
+    <display>sent by : AwsLambdaFunction.Sqs.GroupA.Services.CreateOrderCommand</display>
+    <order>0</order>
+    <typeReference id="ac8fcbdf-8283-4350-963c-a8e238ceb9c1">
+      <typeId>e8f3abb1-9dc8-4509-a620-257eb6629f03</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AwsLambdaFunction.Sqs.GroupA.Services</typePackageName>
+      <typePackageId>9e0b24a3-16e9-4513-84a5-80c83eb5d62f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="ef7de7df-3d6f-48f2-95b1-1521f2d2e234" type="Send Integration Command Target End" typeId="35a14f76-71e0-45f2-a17f-f8d1483510f7">
+    <display>[send] CreateOrderCommand</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="4d481c5e-7f0b-45a3-b04e-f20f6ecbdc05">
+      <typeId>375bd728-cded-4c2b-84d2-95a2f670644c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AwsLambdaFunction.Sqs.GroupA.Eventing.Messages</typePackageName>
+      <typePackageId>86e174e3-50ed-4d81-b516-3c11054e27a6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Send Integration Command</associationType>
+  <associationTypeId>389a7478-a8f1-4acc-adff-a73ce4aa7e6d</associationTypeId>
+  <stereotypes />
+</association>

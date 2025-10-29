@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="93d834b1-714d-4c77-8eea-7164f8c6564a">
+  <sourceEnd id="46f60389-7208-4bc9-90bd-1fe935b77dfe" type="Send Integration Command Source End" typeId="c5f4f98f-e464-48de-b202-c0724bacebb7">
+    <display>sent by : SpecificChannelService.SendSpecificTopicTwo</display>
+    <order>0</order>
+    <typeReference id="3909a777-7dde-49ad-a61f-11e078f70b29">
+      <typeId>5c419d2c-af23-4eda-9de9-6f45bbf1c6c9</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AwsLambdaFunction.Sqs.GroupB.Services</typePackageName>
+      <typePackageId>770c2f28-8fe3-473c-b5a3-829ed647cb67</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="93d834b1-714d-4c77-8eea-7164f8c6564a" type="Send Integration Command Target End" typeId="35a14f76-71e0-45f2-a17f-f8d1483510f7">
+    <display>[send] SpecificTopicTwoMessage</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="0bcf0145-3f6f-46ae-9f96-c6a15d32cd32">
+      <typeId>b33d2b59-5994-413a-846a-96fc3de29482</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AwsLambdaFunction.Sqs.GroupB.Eventing.Messages</typePackageName>
+      <typePackageId>4664c881-6421-44e8-ae9b-4a7efb18e29d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="dc693f0a-0527-436e-b5e7-896a1a85cc21" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="5c419d2c-af23-4eda-9de9-6f45bbf1c6c9" location="[AwsLambdaFunction.Sqs.GroupB].[Services].[SendSpecificTopicTwo]" />
+        <target applicationId="dc693f0a-0527-436e-b5e7-896a1a85cc21" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="b33d2b59-5994-413a-846a-96fc3de29482" location="[AwsLambdaFunction.Sqs.GroupB].[Services].[SpecificTopicTwoMessage]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{dto.Data}</expression>
+            <path>
+              <target id="b33d2b59-5994-413a-846a-96fc3de29482" name="SpecificTopicTwoMessage" type="element" specialization="Integration Command" specializationId="7f01ca8e-0e3c-4735-ae23-a45169f71625" />
+              <target id="9725793f-8aa7-43a4-9bd7-bbe865044fcf" name="FieldB" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="dto.Data" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="5c419d2c-af23-4eda-9de9-6f45bbf1c6c9" name="SendSpecificTopicTwo" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="87467322-f16b-44c7-b33d-f2954b6862b1" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="b0c723b9-fcba-46e0-86a3-a1a595bde10a" name="Data" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Send Integration Command</associationType>
+  <associationTypeId>389a7478-a8f1-4acc-adff-a73ce4aa7e6d</associationTypeId>
+  <stereotypes />
+</association>

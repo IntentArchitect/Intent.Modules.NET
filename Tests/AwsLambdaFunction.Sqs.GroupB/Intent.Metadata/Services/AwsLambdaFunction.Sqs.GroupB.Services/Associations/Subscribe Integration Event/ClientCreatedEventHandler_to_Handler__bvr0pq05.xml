@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="4c6a2c9d-0b2e-45aa-9792-ab8084f543b9">
+  <sourceEnd id="5ac90211-f884-44f2-9fdb-b64a0110a2b0" type="Subscribe Integration Event Source End" typeId="5d8f5c33-f9c9-4629-b637-fad9b0096894">
+    <display>handled by: AwsLambdaFunction.Sqs.GroupB.Services.ClientCreatedEventHandler</display>
+    <order>0</order>
+    <typeReference id="b7291085-f50d-423e-9bb4-0166ab16884e">
+      <typeId>51ffd813-d0e9-4c4d-81c5-19292cdff0ef</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AwsLambdaFunction.Sqs.GroupB.Services</typePackageName>
+      <typePackageId>770c2f28-8fe3-473c-b5a3-829ed647cb67</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="4c6a2c9d-0b2e-45aa-9792-ab8084f543b9" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
+    <name>Handler</name>
+    <display>[handles] ClientCreatedEvent</display>
+    <order>0</order>
+    <traits>
+      <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+    </traits>
+    <typeReference id="e00be3df-5190-48a8-b715-14782da8ab52">
+      <typeId>dcaf0832-e87a-4a99-a2df-6cd653dc131f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AwsLambdaFunction.Sqs.GroupA.Eventing.Messages</typePackageName>
+      <typePackageId>86e174e3-50ed-4d81-b516-3c11054e27a6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Subscribe Integration Event</associationType>
+  <associationTypeId>80aa7f6d-64e5-4d24-a81e-6bc212925ca7</associationTypeId>
+  <stereotypes />
+</association>
