@@ -14,11 +14,17 @@ Modeling Integration Events can be achieved from within the Services designer.
 This module automatically installs the `Intent.Modelers.Eventing` module which provides designer modeling capabilities for integration events and commands. 
 For details on modeling integration events and commands, refer to its [README](https://docs.intentarchitect.com/articles/modules-common/intent-modelers-eventing/intent-modelers-eventing.html).
 
+![Modeled Events and Commands](images/modeling-event-command.png)
+
 You can model Integration Events (orange Message envelope element), and it will automatically configure to work against an SQS Queue with a derived name.
 However, you can customize the name of the Queue by applying an `AWS SQS` stereotype and setting the `Queue Name` to the desired name.
 
+![Customize Queue name](images/message-with-queue-name.png)
+
 Similarly, you can model Integration Commands (green Message envelope element), and it will automatically configure to work against an SQS Queue with a derived name.
 You can customize the name by applying an `AWS SQS` stereotype and setting the `Queue Name` to the desired name.
+
+![Customize Queue name](images/command-with-queue-name.png)
 
 ## AWS SQS Implementation
 
