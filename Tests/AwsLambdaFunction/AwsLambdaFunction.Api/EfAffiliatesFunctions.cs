@@ -14,6 +14,7 @@ using AwsLambdaFunction.Application.EfAffiliates;
 using AwsLambdaFunction.Application.Interfaces;
 using AwsLambdaFunction.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
+using Microsoft.Extensions.Logging;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Aws.Lambda.Functions.LambdaFunctionClassTemplate", Version = "1.0")]
@@ -22,16 +23,19 @@ namespace AwsLambdaFunction.Api
 {
     public class EfAffiliatesFunctions
     {
+        private readonly ILogger<EfAffiliatesFunctions> _logger;
         private readonly IEfAffiliatesService _appService;
         private readonly IValidationService _validationService;
         private readonly IDynamoDBUnitOfWork _dynamoDBUnitOfWork;
         private readonly IUnitOfWork _unitOfWork;
 
-        public EfAffiliatesFunctions(IEfAffiliatesService appService,
+        public EfAffiliatesFunctions(ILogger<EfAffiliatesFunctions> logger,
+            IEfAffiliatesService appService,
             IValidationService validationService,
             IDynamoDBUnitOfWork dynamoDBUnitOfWork,
             IUnitOfWork unitOfWork)
         {
+            _logger = logger;
             _appService = appService ?? throw new ArgumentNullException(nameof(appService));
             _validationService = validationService ?? throw new ArgumentNullException(nameof(validationService));
             _dynamoDBUnitOfWork = dynamoDBUnitOfWork ?? throw new ArgumentNullException(nameof(dynamoDBUnitOfWork));
@@ -59,7 +63,7 @@ namespace AwsLambdaFunction.Api
 
                 await _dynamoDBUnitOfWork.SaveChangesAsync(cancellationToken);
                 return HttpResults.Created($"/api/ef-affiliates/{Uri.EscapeDataString(result.ToString())}", new JsonResponse<Guid>(result));
-            });
+            }, _logger);
         }
 
         [LambdaFunction]
@@ -88,7 +92,7 @@ namespace AwsLambdaFunction.Api
 
                 await _dynamoDBUnitOfWork.SaveChangesAsync(cancellationToken);
                 return HttpResults.NewResult(HttpStatusCode.NoContent);
-            });
+            }, _logger);
         }
 
         [LambdaFunction]
@@ -108,7 +112,7 @@ namespace AwsLambdaFunction.Api
                 var result = default(EfAffiliateDto);
                 result = await _appService.FindEfAffiliateById(idGuid, cancellationToken);
                 return result == null ? HttpResults.NotFound() : HttpResults.Ok(result);
-            });
+            }, _logger);
         }
 
         [LambdaFunction]
@@ -122,7 +126,7 @@ namespace AwsLambdaFunction.Api
                 var result = default(List<EfAffiliateDto>);
                 result = await _appService.FindEfAffiliates(cancellationToken);
                 return HttpResults.Ok(result);
-            });
+            }, _logger);
         }
 
         [LambdaFunction]
@@ -150,7 +154,7 @@ namespace AwsLambdaFunction.Api
 
                 await _dynamoDBUnitOfWork.SaveChangesAsync(cancellationToken);
                 return HttpResults.Ok();
-            });
+            }, _logger);
         }
     }
 }

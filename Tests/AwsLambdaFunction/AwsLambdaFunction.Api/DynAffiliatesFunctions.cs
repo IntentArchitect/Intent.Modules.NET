@@ -14,6 +14,7 @@ using AwsLambdaFunction.Application.DynAffiliates;
 using AwsLambdaFunction.Application.Interfaces;
 using AwsLambdaFunction.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
+using Microsoft.Extensions.Logging;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Aws.Lambda.Functions.LambdaFunctionClassTemplate", Version = "1.0")]
@@ -22,16 +23,19 @@ namespace AwsLambdaFunction.Api
 {
     public class DynAffiliatesFunctions
     {
+        private readonly ILogger<DynAffiliatesFunctions> _logger;
         private readonly IDynAffiliatesService _appService;
         private readonly IValidationService _validationService;
         private readonly IDynamoDBUnitOfWork _dynamoDBUnitOfWork;
         private readonly IUnitOfWork _unitOfWork;
 
-        public DynAffiliatesFunctions(IDynAffiliatesService appService,
+        public DynAffiliatesFunctions(ILogger<DynAffiliatesFunctions> logger,
+            IDynAffiliatesService appService,
             IValidationService validationService,
             IDynamoDBUnitOfWork dynamoDBUnitOfWork,
             IUnitOfWork unitOfWork)
         {
+            _logger = logger;
             _appService = appService ?? throw new ArgumentNullException(nameof(appService));
             _validationService = validationService ?? throw new ArgumentNullException(nameof(validationService));
             _dynamoDBUnitOfWork = dynamoDBUnitOfWork ?? throw new ArgumentNullException(nameof(dynamoDBUnitOfWork));
@@ -59,7 +63,7 @@ namespace AwsLambdaFunction.Api
 
                 await _dynamoDBUnitOfWork.SaveChangesAsync(cancellationToken);
                 return HttpResults.Created($"/api/dyn-affiliates/{Uri.EscapeDataString(result.ToString())}", new JsonResponse<string>(result));
-            });
+            }, _logger);
         }
 
         [LambdaFunction]
@@ -82,7 +86,7 @@ namespace AwsLambdaFunction.Api
 
                 await _dynamoDBUnitOfWork.SaveChangesAsync(cancellationToken);
                 return HttpResults.NewResult(HttpStatusCode.NoContent);
-            });
+            }, _logger);
         }
 
         [LambdaFunction]
@@ -96,7 +100,7 @@ namespace AwsLambdaFunction.Api
                 var result = default(DynAffiliateDto);
                 result = await _appService.FindAffiliateById(id, cancellationToken);
                 return result == null ? HttpResults.NotFound() : HttpResults.Ok(result);
-            });
+            }, _logger);
         }
 
         [LambdaFunction]
@@ -110,7 +114,7 @@ namespace AwsLambdaFunction.Api
                 var result = default(List<DynAffiliateDto>);
                 result = await _appService.FindDynAffiliates(cancellationToken);
                 return HttpResults.Ok(result);
-            });
+            }, _logger);
         }
 
         [LambdaFunction]
@@ -131,7 +135,7 @@ namespace AwsLambdaFunction.Api
 
                 await _dynamoDBUnitOfWork.SaveChangesAsync(cancellationToken);
                 return HttpResults.Ok();
-            });
+            }, _logger);
         }
     }
 }

@@ -16,7 +16,7 @@ namespace AwsLambdaFunction.Api.Helpers
 {
     public static class ExceptionHandlerHelper
     {
-        public static async Task<IHttpResult> ExecuteAsync(Func<Task<IHttpResult>> operation)
+        public static async Task<IHttpResult> ExecuteAsync(Func<Task<IHttpResult>> operation, ILogger logger)
         {
             try
             {
@@ -24,6 +24,7 @@ namespace AwsLambdaFunction.Api.Helpers
             }
             catch (Exception ex)
             {
+                logger.LogError(ex, "Unhandled exception occurred: {Message}", ex.Message);
                 return HandleException(ex);
             }
         }

@@ -16,6 +16,7 @@ using AwsLambdaFunction.Application.EfClients.UpdateEfClient;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Aws.Lambda.Functions.LambdaFunctionClassTemplate", Version = "1.0")]
@@ -24,10 +25,12 @@ namespace AwsLambdaFunction.Api
 {
     public class EfClientsFunctions
     {
+        private readonly ILogger<EfClientsFunctions> _logger;
         private readonly ISender _mediator;
 
-        public EfClientsFunctions(ISender mediator)
+        public EfClientsFunctions(ILogger<EfClientsFunctions> logger, ISender mediator)
         {
+            _logger = logger;
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
 
@@ -41,7 +44,7 @@ namespace AwsLambdaFunction.Api
             {
                 var result = await _mediator.Send(command, cancellationToken);
                 return HttpResults.Created($"/api/ef-clients/{Uri.EscapeDataString(result.ToString())}", new JsonResponse<Guid>(result));
-            });
+            }, _logger);
         }
 
         [LambdaFunction]
@@ -61,7 +64,7 @@ namespace AwsLambdaFunction.Api
 
                 await _mediator.Send(new DeleteEfClientCommand(idGuid), cancellationToken);
                 return HttpResults.Ok();
-            });
+            }, _logger);
         }
 
         [LambdaFunction]
@@ -86,7 +89,7 @@ namespace AwsLambdaFunction.Api
 
                 await _mediator.Send(command, cancellationToken);
                 return HttpResults.NewResult(HttpStatusCode.NoContent);
-            });
+            }, _logger);
         }
 
         [LambdaFunction]
@@ -106,7 +109,7 @@ namespace AwsLambdaFunction.Api
 
                 var result = await _mediator.Send(new GetEfClientByIdQuery(idGuid), cancellationToken);
                 return result == null ? HttpResults.NotFound() : HttpResults.Ok(result);
-            });
+            }, _logger);
         }
 
         [LambdaFunction]
@@ -119,7 +122,7 @@ namespace AwsLambdaFunction.Api
             {
                 var result = await _mediator.Send(new GetEfClientsQuery(), cancellationToken);
                 return HttpResults.Ok(result);
-            });
+            }, _logger);
         }
     }
 }
