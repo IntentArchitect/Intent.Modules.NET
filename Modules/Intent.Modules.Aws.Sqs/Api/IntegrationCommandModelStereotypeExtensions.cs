@@ -11,21 +11,21 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Aws.Sqs.Api
 {
-    public static class MessageModelStereotypeExtensions
+    public static class IntegrationCommandModelStereotypeExtensions
     {
-        public static AwsSqs GetAwsSqs(this MessageModel model)
+        public static AwsSqs GetAwsSqs(this IntegrationCommandModel model)
         {
             var stereotype = model.GetStereotype(AwsSqs.DefinitionId);
             return stereotype != null ? new AwsSqs(stereotype) : null;
         }
 
 
-        public static bool HasAwsSqs(this MessageModel model)
+        public static bool HasAwsSqs(this IntegrationCommandModel model)
         {
             return model.HasStereotype(AwsSqs.DefinitionId);
         }
 
-        public static bool TryGetAwsSqs(this MessageModel model, out AwsSqs stereotype)
+        public static bool TryGetAwsSqs(this IntegrationCommandModel model, out AwsSqs stereotype)
         {
             if (!HasAwsSqs(model))
             {
@@ -53,6 +53,8 @@ namespace Intent.Aws.Sqs.Api
             {
                 return _stereotype.GetProperty<string>("Queue Name");
             }
+
         }
+
     }
 }

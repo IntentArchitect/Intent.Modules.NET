@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="6eb72d72-3b31-4e35-a13d-91a0d31e5b10" type="NuGet Package" typeId="f747cc37-29ee-488a-8dbe-755e856a842d">
   <name>Amazon.Lambda.SQSEvents</name>
-  <display>Amazon.Lambda.SQSEvents</display>
+  <display>AmazonLambdaSqsEvents (Amazon.Lambda.SQSEvents)</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />

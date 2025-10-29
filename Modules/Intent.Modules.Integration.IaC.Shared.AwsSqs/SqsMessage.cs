@@ -28,7 +28,12 @@ internal record SqsMessage : SqsItemBase
         // Check if AWS SQS stereotype is applied
         if (message.HasAwsSqs())
         {
-            return message.GetAwsSqs().QueueName();
+            var stereotypeName = message.GetAwsSqs().QueueName();
+            // Only use stereotype value if it's not empty
+            if (!string.IsNullOrWhiteSpace(stereotypeName))
+            {
+                return stereotypeName;
+            }
         }
         
         // Default naming convention: kebab-case, remove common suffixes
@@ -45,7 +50,11 @@ internal record SqsMessage : SqsItemBase
         if (message.HasAwsSqs())
         {
             var name = message.GetAwsSqs().QueueName();
-            return prefix + name.ToPascalCase();
+            // Only use stereotype value if it's not empty
+            if (!string.IsNullOrWhiteSpace(name))
+            {
+                return prefix + name.ToPascalCase() + ":QueueUrl";
+            }
         }
 
         // Default: PascalCase name

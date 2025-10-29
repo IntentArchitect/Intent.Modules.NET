@@ -69,10 +69,10 @@
   <factoryExtensions />
   <moduleSettings></moduleSettings>
   <dependencies>
+    <dependency id="Intent.Aws.Common" version="1.0.4-pre.1" />
     <dependency id="Intent.Common" version="3.9.0" />
     <dependency id="Intent.Common.CSharp" version="3.8.3" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
-    <dependency id="Intent.Aws.Common" version="1.0.4-pre.1" />
     <dependency id="Intent.Eventing.Contracts" version="5.2.0" />
     <dependency id="Intent.Modelers.Eventing" version="6.0.2" />
     <dependency id="Intent.Modelers.Services" version="4.0.5" />
@@ -85,7 +85,9 @@
   </files>
   <tags>aws sqs queue event messaging</tags>
   <moduleSettingsExtensions />
-  <metadata />
+  <metadata>
+    <install target="Services" src="Intent.Metadata/Module Builder/Intent.Aws.Sqs/Intent.Aws.Sqs.pkg.config" externalReference="259088af-8612-4dd5-9bd7-b673553c3a6c" />
+  </metadata>
   <releaseNotes>release-notes.md</releaseNotes>
   <migrations />
 </package>
