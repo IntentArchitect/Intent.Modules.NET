@@ -12,6 +12,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)IntegrationManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SqsItemBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SqsMessage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SqsCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SqsMethodType.cs" />
   </ItemGroup>
 </Project>
