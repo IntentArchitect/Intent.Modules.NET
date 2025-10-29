@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="74fbdee0-4098-4544-8ecf-f7c5787c78c3" version="3.1.0">
-  <comment>Configures Azure Service Bus message queue/topic name.</comment>
+  <comment>Configures AWS SQS message queue name.</comment>
   <name>Aws Sqs</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
