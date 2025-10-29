@@ -2,7 +2,7 @@
 <package>
   <id>Intent.Aws.Lambda.Functions</id>
   <version>1.0.2-pre.1</version>
-  <supportedClientVersions>[4.5.15-a, 5.0.0-a)</supportedClientVersions>
+  <supportedClientVersions>[4.5.21-a, 5.0.0-a)</supportedClientVersions>
   <summary>Serverless AWS Lambda Functions in the Services designer.</summary>
   <description>Serverless AWS Lambda Functions in the Services designer.</description>
   <authors>Intent Architect</authors>

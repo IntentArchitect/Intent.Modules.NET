@@ -2,7 +2,7 @@
 <package>
   <id>Intent.Aws.Lambda.Functions.Sqs</id>
   <version>1.0.0-pre.0</version>
-  <supportedClientVersions>[4.4.0-a,5.0.0)</supportedClientVersions>
+  <supportedClientVersions>[4.5.21-a,5.0.0)</supportedClientVersions>
   <summary>Use Lambda Functions to receive and dispatch SQS messages to event handlers.</summary>
   <description>Use Lambda Functions to receive and dispatch SQS messages to event handlers.</description>
   <authors>Intent Architect</authors>
@@ -23,17 +23,17 @@
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
+    <dependency id="Intent.Aws.Lambda.Functions" version="1.0.2-pre.1" />
+    <dependency id="Intent.Aws.Sqs" version="1.0.0-pre.0" />
     <dependency id="Intent.Common" version="3.9.1" />
     <dependency id="Intent.Common.CSharp" version="3.9.6" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
+    <dependency id="Intent.Common.UnitOfWork" version="1.0.0" />
     <dependency id="Intent.Modelers.Domain" version="3.12.8" />
     <dependency id="Intent.Modelers.Eventing" version="6.0.2" />
     <dependency id="Intent.Modelers.Services" version="4.0.5" />
     <dependency id="Intent.Modelers.Services.EventInteractions" version="2.0.4" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
-    <dependency id="Intent.Aws.Lambda.Functions" version="1.0.2-pre.1" />
-    <dependency id="Intent.Aws.Sqs" version="1.0.0-pre.0" />
-    <dependency id="Intent.Common.UnitOfWork" version="1.0.0" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

@@ -2,7 +2,7 @@
 <package>
   <id>Intent.Aws.Lambda.Functions.Dispatch.Services</id>
   <version>1.0.0</version>
-  <supportedClientVersions>[4.5.15-a, 5.0.0-a)</supportedClientVersions>
+  <supportedClientVersions>[4.5.21-a, 5.0.0-a)</supportedClientVersions>
   <summary>Instructs AWS Lambda Functions to dispatch requests to a separate handler via Application Contract interfaces.</summary>
   <description>Instructs AWS Lambda Functions to dispatch requests to a separate handler via Application Contract interfaces.</description>
   <authors>Intent Architect</authors>
