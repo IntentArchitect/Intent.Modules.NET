@@ -430,6 +430,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Aws.SecretsM
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intent.Modules.Integration.IaC.Shared.AwsSqs", "Intent.Modules.Integration.IaC.Shared.AwsSqs\Intent.Modules.Integration.IaC.Shared.AwsSqs.shproj", "{992BB1F9-CDD6-4A3D-BF90-6554358DD319}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Aws.Lambda.Functions.Sqs", "Intent.Modules.Aws.Lambda.Functions.Sqs\Intent.Modules.Aws.Lambda.Functions.Sqs.csproj", "{E8EE9F41-D5B2-4A78-B2BB-281A4C60A3AE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -1136,6 +1138,10 @@ Global
 		{7DF3FC9C-FBAE-4C18-96D6-6365C30600DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7DF3FC9C-FBAE-4C18-96D6-6365C30600DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7DF3FC9C-FBAE-4C18-96D6-6365C30600DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8EE9F41-D5B2-4A78-B2BB-281A4C60A3AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8EE9F41-D5B2-4A78-B2BB-281A4C60A3AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8EE9F41-D5B2-4A78-B2BB-281A4C60A3AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8EE9F41-D5B2-4A78-B2BB-281A4C60A3AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1330,6 +1336,7 @@ Global
 		{5C614B27-C6E5-484D-9845-D6A8B5BED150} = {F75494CA-24E5-4CF2-8123-55A41BC20BC6}
 		{E6A962CC-6864-45D9-AB6A-FCFB19173E82} = {408AB16B-0F81-405E-A39A-A052297CEF9C}
 		{7DF3FC9C-FBAE-4C18-96D6-6365C30600DF} = {3173D488-188F-4E6B-8985-562BA706F5E1}
+		{E8EE9F41-D5B2-4A78-B2BB-281A4C60A3AE} = {F75494CA-24E5-4CF2-8123-55A41BC20BC6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A00AF88A-EA58-4AEA-B65F-92354533E2CA}

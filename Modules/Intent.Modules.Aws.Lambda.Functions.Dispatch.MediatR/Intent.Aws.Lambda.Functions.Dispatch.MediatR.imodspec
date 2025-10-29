@@ -16,7 +16,7 @@
   <dependencies>
     <dependency id="Intent.Application.MediatR" version="4.3.0" />
     <dependency id="Intent.Aws.Lambda.Functions" version="1.0.0" />
-    <dependency id="Intent.Common" version="3.9.0" />
+    <dependency id="Intent.Common" version="3.9.1" />
     <dependency id="Intent.Common.CSharp" version="3.9.6" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Modelers.Services" version="4.0.2" />

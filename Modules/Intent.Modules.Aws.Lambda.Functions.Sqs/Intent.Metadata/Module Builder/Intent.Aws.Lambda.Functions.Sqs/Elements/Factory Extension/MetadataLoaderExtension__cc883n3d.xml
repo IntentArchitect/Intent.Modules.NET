@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="cbc84d05-8ff9-4d5e-9f8c-9ac3111a4149" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>MetadataLoaderExtension</name>
+  <display>MetadataLoaderExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>33517c1c-f934-44c0-915c-da3603554010</parentFolderId>
+  <packageId>33517c1c-f934-44c0-915c-da3603554010</packageId>
+  <packageName>Intent.Aws.Lambda.Functions.Sqs</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
