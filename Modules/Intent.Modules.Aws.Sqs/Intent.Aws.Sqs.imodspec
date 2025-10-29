@@ -66,7 +66,9 @@
     </template>
   </templates>
   <decorators></decorators>
-  <factoryExtensions />
+  <factoryExtensions>
+    <factoryExtension id="Intent.Aws.Sqs.EventBusInterfaceExtension" externalReference="0c6e73a6-fb50-4545-83a2-ec6624b3dbb8" />
+  </factoryExtensions>
   <moduleSettings></moduleSettings>
   <interoperability>
     <detect id="Intent.Aws.Lambda.Functions">
@@ -77,6 +79,7 @@
   </interoperability>
   <dependencies>
     <dependency id="Intent.Aws.Common" version="1.0.4-pre.1" />
+    <dependency id="Intent.Aws.Lambda.Functions" version="1.0.2-pre.1" />
     <dependency id="Intent.Common" version="3.9.1" />
     <dependency id="Intent.Common.CSharp" version="3.9.6" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
@@ -85,7 +88,6 @@
     <dependency id="Intent.Modelers.Services" version="4.0.5" />
     <dependency id="Intent.Modelers.Services.EventInteractions" version="1.2.1" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.9.10" />
-    <dependency id="Intent.Aws.Lambda.Functions" version="1.0.2-pre.1" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

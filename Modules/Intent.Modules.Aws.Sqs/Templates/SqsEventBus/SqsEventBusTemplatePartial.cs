@@ -59,6 +59,16 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsEventBus
                         method.AddStatement("ValidateMessage(message);");
                         method.AddStatement("_messageQueue.Add(new MessageEntry(message));");
                     });
+                    
+                    @class.AddMethod("void", "Send", method =>
+                    {
+                        method.AddGenericParameter("T", out var T);
+                        method.AddGenericTypeConstraint(T, c => c.AddType("class"));
+                        method.AddParameter(T, "message");
+
+                        method.AddStatement("ValidateMessage(message);");
+                        method.AddStatement("_messageQueue.Add(new MessageEntry(message));");
+                    });
 
                     @class.AddMethod("Task", "FlushAllAsync", method =>
                     {
