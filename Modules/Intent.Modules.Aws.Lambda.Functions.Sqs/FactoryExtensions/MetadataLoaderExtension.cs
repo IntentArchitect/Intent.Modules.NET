@@ -1,6 +1,7 @@
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Plugins;
+using Intent.Modules.Integration.IaC.Shared.AwsSqs;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -17,30 +18,9 @@ namespace Intent.Modules.Aws.Lambda.Functions.Sqs.FactoryExtensions
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;
 
-        /// <summary>
-        /// This is an example override which would extend the
-        /// <see cref="ExecutionLifeCycleSteps.AfterTemplateRegistrations"/> phase of the Software Factory execution.
-        /// See <see cref="FactoryExtensionBase"/> for all available overrides.
-        /// </summary>
-        /// <remarks>
-        /// It is safe to update or delete this method.
-        /// </remarks>
-        protected override void OnAfterTemplateRegistrations(IApplication application)
+        protected override void OnAfterMetadataLoad(IApplication application)
         {
-            // Your custom logic here.
-        }
-
-        /// <summary>
-        /// This is an example override which would extend the
-        /// <see cref="ExecutionLifeCycleSteps.BeforeTemplateExecution"/> phase of the Software Factory execution.
-        /// See <see cref="FactoryExtensionBase"/> for all available overrides.
-        /// </summary>
-        /// <remarks>
-        /// It is safe to update or delete this method.
-        /// </remarks>
-        protected override void OnBeforeTemplateExecution(IApplication application)
-        {
-            // Your custom logic here.
+            IntegrationManager.Initialize(application);
         }
     }
 }
