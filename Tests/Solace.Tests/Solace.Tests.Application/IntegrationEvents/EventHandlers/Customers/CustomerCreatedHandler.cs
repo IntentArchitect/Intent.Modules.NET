@@ -29,7 +29,8 @@ namespace Solace.Tests.Application.IntegrationEvents.EventHandlers.Customers
             //IntentIgnore
             Console.WriteLine("Received:CustomerCreatedEvent");
 
-            var command = new CreateAccountCommand(customerId: message.Id);
+            var command = new CreateAccountCommand(
+                customerId: message.Id);
             await _mediator.Send(command, cancellationToken);
         }
     }

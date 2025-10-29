@@ -1,3 +1,7 @@
+### Version 1.0.7
+
+- Improvement: Added support for singular DBSet names
+
 ### Version 1.0.6
 
 - Improvement: Updated topic documentation format.

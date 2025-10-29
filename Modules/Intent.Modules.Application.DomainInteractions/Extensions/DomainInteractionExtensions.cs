@@ -288,8 +288,7 @@ public static class DomainInteractionExtensions
         }
         var statements = new List<CSharpStatement>();
 
-        var mapperIsInstalled = method.File.Template.ExecutionContext.InstalledModules.Any(x => x.ModuleId == "Intent.Application.Dtos.AutoMapper"
-        || x.ModuleId == "Intent.Application.Dtos.Mapperly");
+        var mapperIsInstalled = MappingStrategyProvider.Instance.HasMappingStrategy(method);
 
         var template = method.File.Template;
         var entitiesReturningPk = GetEntitiesReturningPk(method, returnType);
@@ -303,7 +302,7 @@ public static class DomainInteractionExtensions
             var entityDetails = method.TrackedEntities().Values.First(x => x.ElementModel?.Id == returnType.Element.AsDTOModel().Mapping.ElementId);
             if (entityDetails.ProjectedType == returnDto)
             {
-                statements.Add($"return {entityDetails.VariableName};");
+                statements.Add(new CSharpReturnStatement(entityDetails.VariableName));
             }
             else
             {
@@ -322,14 +321,13 @@ public static class DomainInteractionExtensions
             var entityDetails = method.TrackedEntities().Values.First(x => x.ElementModel.Id == returnType.GenericTypeParameters.First().Element.AsDTOModel().Mapping.ElementId);
             if (entityDetails.ProjectedType == returnDto)
             {
-                statements.Add($"return {entityDetails.VariableName}.{mappingMethod}();");
+                statements.Add(new CSharpReturnStatement($"{entityDetails.VariableName}.{mappingMethod}()"));
             }
             else
             {
 
                 var mapper = MappingStrategyProvider.Instance.GetMappingStrategy(method)!;
                 mapper.ImplementPagedMappingStatement(method, statements, entityDetails, template, returnType, returnDto, mappingMethod);
-                //statements.Add($"return {entityDetails.VariableName}.{mappingMethod}(x => x.MapTo{returnDto}({autoMapperFieldName}));");
             }
         }
         else if (returnType.Element.IsTypeDefinitionModel() && (nonUserSuppliedEntitiesReturningPks.Count == 1 || entitiesReturningPk.Count == 1)) // No need for TrackedEntities thus no check for it
@@ -338,12 +336,12 @@ public static class DomainInteractionExtensions
                 ? nonUserSuppliedEntitiesReturningPks[0]
                 : entitiesReturningPk[0];
             var entity = entityDetails.ElementModel.AsClassModel();
-            statements.Add($"return {entityDetails.VariableName}.{entity.GetTypesInHierarchy().SelectMany(x => x.Attributes).FirstOrDefault(x => x.IsPrimaryKey(isUserSupplied: false))?.Name ?? "Id"};");
+            statements.Add(new CSharpReturnStatement($"{entityDetails.VariableName}.{entity.GetTypesInHierarchy().SelectMany(x => x.Attributes).FirstOrDefault(x => x.IsPrimaryKey(isUserSupplied: false))?.Name ?? "Id"}"));
         }
         else if (method.TrackedEntities().Values.Any(x => returnType.Element.Id == x.ElementModel.Id))
         {
             var entityDetails = method.TrackedEntities().Values.First(x => returnType.Element.Id == x.ElementModel.Id);
-            statements.Add($"return {entityDetails.VariableName};");
+            statements.Add(new CSharpReturnStatement(entityDetails.VariableName));
         }
         else
         {

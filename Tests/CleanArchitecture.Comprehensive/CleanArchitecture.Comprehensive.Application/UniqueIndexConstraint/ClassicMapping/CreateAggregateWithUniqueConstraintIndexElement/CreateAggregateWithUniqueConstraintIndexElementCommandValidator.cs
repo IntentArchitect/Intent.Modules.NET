@@ -17,8 +17,8 @@ namespace CleanArchitecture.Comprehensive.Application.UniqueIndexConstraint.Clas
         [IntentManaged(Mode.Merge)]
         public CreateAggregateWithUniqueConstraintIndexElementCommandValidator(IAggregateWithUniqueConstraintIndexElementRepository aggregateWithUniqueConstraintIndexElementRepository)
         {
-            _aggregateWithUniqueConstraintIndexElementRepository = aggregateWithUniqueConstraintIndexElementRepository;
             ConfigureValidationRules();
+            _aggregateWithUniqueConstraintIndexElementRepository = aggregateWithUniqueConstraintIndexElementRepository;
         }
 
         private void ConfigureValidationRules()

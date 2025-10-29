@@ -30,7 +30,7 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.Application.Orders.GetOr
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<List<OrderDto>> Handle(GetOrdersQuery request, CancellationToken cancellationToken)
         {
-            var orders = await _dbContext.Orders
+            var orders = await _dbContext.Order
                 .ProjectTo<OrderDto>(_mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);
             return orders;

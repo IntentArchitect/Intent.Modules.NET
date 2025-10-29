@@ -1,6 +1,7 @@
 ### Version 2.2.27
 
 - Improvement: Updated NuGet package versions.
+- Fixed: Null-reference exception check added when inspecting service proxy elements for configuration.
 
 ### Version 2.2.26
 

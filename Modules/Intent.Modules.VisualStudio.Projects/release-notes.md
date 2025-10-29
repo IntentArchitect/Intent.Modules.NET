@@ -1,3 +1,7 @@
+### Version 3.9.5
+
+- Fixed: Standard C# Projects did not receive app settings supplied in general.
+
 ### Version 3.9.4
 
 - Improvement: The NuGet installer now respects `IntentIgnore="true"` on `<PackageReference />` elements in `.csproj` files.

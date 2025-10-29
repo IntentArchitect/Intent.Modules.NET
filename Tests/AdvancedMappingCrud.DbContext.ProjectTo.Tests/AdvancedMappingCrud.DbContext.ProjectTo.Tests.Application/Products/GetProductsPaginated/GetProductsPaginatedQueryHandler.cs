@@ -31,7 +31,7 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.Application.Products.Get
             GetProductsPaginatedQuery request,
             CancellationToken cancellationToken)
         {
-            var products = await _dbContext.Products
+            var products = await _dbContext.Product
                 .ProjectTo<ProductDto>(_mapper.ConfigurationProvider)
                 .ToPagedListAsync(request.PageNo, request.PageSize, cancellationToken);
             return products.MapToPagedResult();

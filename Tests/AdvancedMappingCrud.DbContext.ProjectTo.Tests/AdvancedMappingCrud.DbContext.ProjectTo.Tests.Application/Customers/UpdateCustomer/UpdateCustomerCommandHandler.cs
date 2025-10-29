@@ -26,7 +26,7 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.Application.Customers.Up
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task Handle(UpdateCustomerCommand request, CancellationToken cancellationToken)
         {
-            var customer = await _dbContext.Customers.SingleOrDefaultAsync(x => x.Id == request.Id, cancellationToken);
+            var customer = await _dbContext.Customer.SingleOrDefaultAsync(x => x.Id == request.Id, cancellationToken);
             if (customer is null)
             {
                 throw new NotFoundException($"Could not find Customer '{request.Id}'");

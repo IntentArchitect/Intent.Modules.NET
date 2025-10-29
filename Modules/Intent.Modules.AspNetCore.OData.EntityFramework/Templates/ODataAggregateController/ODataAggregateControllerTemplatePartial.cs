@@ -7,6 +7,7 @@ using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.FileBuilders;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.EntityFrameworkCore.Templates;
@@ -55,13 +56,14 @@ namespace Intent.Modules.AspNetCore.OData.EntityFramework.Templates.ODataAggrega
                         return;
                     }
 
+                    var dbSetName = GetDbSetName(model);
+
                     if (stereotype.GetAll())
                     {
                         @class.AddMethod($"IQueryable<{GetTypeName(Model.InternalElement)}>", "Get", method =>
                         {
                             method.AddAttribute(new CSharpAttribute("[HttpGet]"));
-
-                            method.AddStatement($"return _context.{Model.Name.Pluralize().ToPascalCase()};");
+                            method.AddStatement($"return _context.{dbSetName};");
                         });
                     }
 
@@ -73,7 +75,7 @@ namespace Intent.Modules.AspNetCore.OData.EntityFramework.Templates.ODataAggrega
                             method.AddAttribute(new CSharpAttribute("[HttpGet]"));
 
                             var linqQuery = GeneratePrimaryKeyParameters(model, method, c => c.AddAttribute("[FromODataUri]"));
-                            method.AddStatement($"var {Model.Name.ToCamelCase()} = await _context.{Model.Name.Pluralize().ToPascalCase()}.FirstOrDefaultAsync({linqQuery});");
+                            method.AddStatement($"var {Model.Name.ToCamelCase()} = await _context.{dbSetName}.FirstOrDefaultAsync({linqQuery});");
                             method.AddStatement($"return {Model.Name.ToCamelCase()} == null ? NotFound() : Ok({Model.Name.ToCamelCase()});", s => s.SeparatedFromPrevious());
                         });
                     }
@@ -86,7 +88,7 @@ namespace Intent.Modules.AspNetCore.OData.EntityFramework.Templates.ODataAggrega
                             method.AddAttribute(new CSharpAttribute("[HttpPost]"));
 
                             method.AddParameter($"{GetTypeName(Model.InternalElement)}", $"{Model.Name.ToCamelCase()}", p => p.AddAttribute("[FromBody]"));
-                            method.AddStatement($"await _context.{Model.Name.Pluralize().ToPascalCase()}.AddAsync({Model.Name.ToCamelCase()});");
+                            method.AddStatement($"await _context.{dbSetName}.AddAsync({Model.Name.ToCamelCase()});");
                             method.AddStatement($"await _context.SaveChangesAsync();");
                             method.AddStatement($"return Created({Model.Name.ToCamelCase()});", s => s.SeparatedFromPrevious());
                         });
@@ -101,10 +103,10 @@ namespace Intent.Modules.AspNetCore.OData.EntityFramework.Templates.ODataAggrega
 
                             var linqQuery = GeneratePrimaryKeyParameters(model, method, c => c.AddAttribute("[FromODataUri]"));
 
-                            method.AddStatement($"var {Model.Name.ToCamelCase()} = await _context.{Model.Name.Pluralize().ToPascalCase()}.SingleOrDefaultAsync({linqQuery});");
+                            method.AddStatement($"var {Model.Name.ToCamelCase()} = await _context.{dbSetName}.SingleOrDefaultAsync({linqQuery});");
                             method.AddIfStatement($"{Model.Name.ToCamelCase()} is not null", ifStatement =>
                             {
-                                ifStatement.AddStatement($"_context.{Model.Name.Pluralize().ToPascalCase()}.Remove({Model.Name.ToCamelCase()});");
+                                ifStatement.AddStatement($"_context.{dbSetName}.Remove({Model.Name.ToCamelCase()});");
                             });
                             method.AddStatement("await _context.SaveChangesAsync();");
                             method.AddStatement("return NoContent();", s => s.SeparatedFromPrevious());
@@ -123,7 +125,7 @@ namespace Intent.Modules.AspNetCore.OData.EntityFramework.Templates.ODataAggrega
                                 parameter.AddAttribute("[FromBody]");
                             });
 
-                            method.AddStatement($"var {Model.Name.ToCamelCase()} = await _context.{Model.Name.Pluralize().ToPascalCase()}.SingleOrDefaultAsync({linqQuery});");
+                            method.AddStatement($"var {Model.Name.ToCamelCase()} = await _context.{dbSetName}.SingleOrDefaultAsync({linqQuery});");
                             method.AddIfStatement($"{Model.Name.ToCamelCase()} is null", ifStatement =>
                             {
                                 ifStatement.AddStatement($"return NotFound();");
@@ -148,7 +150,7 @@ namespace Intent.Modules.AspNetCore.OData.EntityFramework.Templates.ODataAggrega
                                 parameter.AddAttribute("[FromBody]");
                             });
 
-                            method.AddStatement($"var {Model.Name.ToCamelCase()} = await _context.{Model.Name.Pluralize().ToPascalCase()}.AsNoTracking().SingleOrDefaultAsync({linqQuery});");
+                            method.AddStatement($"var {Model.Name.ToCamelCase()} = await _context.{dbSetName}.AsNoTracking().SingleOrDefaultAsync({linqQuery});");
                             method.AddIfStatement($"{Model.Name.ToCamelCase()} is null", ifStatement =>
                             {
                                 ifStatement.AddStatement($"return NotFound();");
@@ -208,6 +210,16 @@ namespace Intent.Modules.AspNetCore.OData.EntityFramework.Templates.ODataAggrega
         public override string TransformText()
         {
             return CSharpFile.ToString();
+        }
+
+        private string GetDbSetName(ClassModel model)
+        {
+            if (this.ExecutionContext.Settings.GetSetting("ac0a788e-d8b3-4eea-b56d-538608f1ded9", "6010e890-6e2d-4812-9969-ffbdb8f93d87")?.Value == "same-as-entity")
+            {
+                return model.Name.ToPascalCase();
+            }
+
+            return model.Name.ToPascalCase().Pluralize();
         }
     }
 }

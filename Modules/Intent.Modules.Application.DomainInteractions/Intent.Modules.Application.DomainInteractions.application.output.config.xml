@@ -2,6 +2,6 @@
 <outputFiles>
   <files>
     <file relativePath="Intent.Modules.Application.DomainInteractions/Intent.Modules.Application.DomainInteractions.csproj" state="ignored" />
-    <file relativePath="Intent.Modules.Application.DomainInteractions/release-notes.md" state="once-off-generated" />
+    <file relativePath="Intent.Modules.Application.DomainInteractions/release-notes.md" state="ignored;once-off-generated" />
   </files>
 </outputFiles>
