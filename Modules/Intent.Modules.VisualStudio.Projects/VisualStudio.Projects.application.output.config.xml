@@ -3,6 +3,6 @@
   <files>
     <file relativePath="Intent.Modules.VisualStudio.Projects/Intent.Modules.VisualStudio.Projects.csproj" state="ignored" />
     <file relativePath="Intent.Modules.VisualStudio.Projects/modelers/Visual Studio Types.designer.settings" state="ignored" />
-    <file relativePath="Intent.Modules.VisualStudio.Projects/release-notes.md" state="once-off-generated" />
+    <file relativePath="Intent.Modules.VisualStudio.Projects/release-notes.md" state="ignored;once-off-generated" />
   </files>
 </outputFiles>

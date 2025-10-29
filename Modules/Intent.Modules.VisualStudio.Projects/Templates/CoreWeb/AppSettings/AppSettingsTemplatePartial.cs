@@ -241,11 +241,20 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
                 ? ($".{Model.RuntimeEnvironment.Name.ToPascalCase()}", "appsettings.json")
                 : (null, null);
 
-            return new TemplateFileConfig(
-                fileName: $"appsettings{runtimeEnvironment}",
-                fileExtension: "json",
-                relativeLocation: Model.Location)
-                    .WithDependsOn(dependsOn);
+            var templateConfig = new TemplateFileConfig(
+                    fileName: $"appsettings{runtimeEnvironment}",
+                    fileExtension: "json",
+                    relativeLocation: Model.Location);
+            
+            if (!Model.IncludeAllowHosts && !Model.IncludeAspNetCoreLoggingLevel && !Model.RequiresSpecifiedRole)
+            {
+                templateConfig.WithRemoveItemType("Content");
+                templateConfig.WithCopyToOutputDirectory(CopyToOutputDirectory.CopyIfNewer);
+            }
+
+            templateConfig.WithDependsOn(dependsOn);
+            
+            return templateConfig;
         }
 
         private void HandleAppSetting(AppSettingRegistrationRequest @event)
