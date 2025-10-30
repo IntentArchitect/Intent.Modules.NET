@@ -5,7 +5,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.Identity.CurrentUserService", Version = "1.0")]
 
-namespace Aws.Sqs.GrpB.Api.Services
+namespace AwsLambdaFunction.Sqs.GroupB.Api.Services
 {
     public class CurrentUserService : ICurrentUserService
     {

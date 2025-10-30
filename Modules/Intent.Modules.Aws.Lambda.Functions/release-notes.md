@@ -2,6 +2,7 @@
 
 - Improvement: Updated NuGet package versions.
 - Improvement: Added exception logging.
+- Improvement: Add assembly attributes templates for AWS Lambda functions to alleviate Lambda Annotation error messages about 127 character limits.
 
 ### Version 1.0.1
 

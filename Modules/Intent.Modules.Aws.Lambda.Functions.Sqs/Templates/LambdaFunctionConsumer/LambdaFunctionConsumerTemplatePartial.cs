@@ -5,9 +5,11 @@ using Intent.Engine;
 using Intent.Modelers.Services.EventInteractions;
 using Intent.Modules.Aws.Sqs.Templates;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Api;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Common.UnitOfWork.Shared;
 using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.RoslynWeaver.Attributes;
@@ -33,6 +35,8 @@ namespace Intent.Modules.Aws.Lambda.Functions.Sqs.Templates.LambdaFunctionConsum
             AddNugetDependency(LambdaNugetPackages.AmazonLambdaAnnotations(OutputTarget));
             AddNugetDependency(SqsNugetPackages.AmazonLambdaSqsEvents(OutputTarget));
 
+            FulfillsRole("Aws.Lambda.Function");
+            
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("System.Collections.Generic")
@@ -111,6 +115,30 @@ namespace Intent.Modules.Aws.Lambda.Functions.Sqs.Templates.LambdaFunctionConsum
         private string GetConsumerName()
         {
             return Model.Name.RemoveSuffix("Handler").EnsureSuffixedWith("Consumer");
+        }
+        
+        string GetNamespace(
+            params string[] additionalFolders)
+        {
+            return string.Join(".", new[]
+                {
+                    "Lambda"
+                }
+                .Concat(Model.GetParentFolders()
+                    .Where(x =>
+                    {
+                        if (string.IsNullOrWhiteSpace(x.Name))
+                            return false;
+
+                        if (x is FolderModel fm)
+                        {
+                            return !fm.HasFolderOptions() || fm.GetFolderOptions().NamespaceProvider();
+                        }
+
+                        return true;
+                    })
+                    .Select(x => x.Name))
+                .Concat(additionalFolders));
         }
     }
 }

@@ -18,6 +18,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>0da59add-1612-4134-9e19-6d58aff31d28</ProjectId>
+      <CorrelationId>Intent.Aws.Lambda.Functions.AssemblyAttributes#d74725c3-55a4-4f89-aea5-0371256ceeae</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AwsLambdaFunction.Api/AssemblyAttributes.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AssemblyAttributes.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0da59add-1612-4134-9e19-6d58aff31d28</ProjectId>
       <CorrelationId>Intent.Aws.Lambda.Functions.AwsLambdaToolsDefaultsTemplate#796f2609-ab5b-40d7-be4a-940992f9aba6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AwsLambdaFunction.Api/aws-lambda-tools-defaults.json</ApplicationRelativeFilePath>

@@ -42,6 +42,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>31c48fca-00ff-4da4-8528-a1337c70ce6b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#c8ab9feb-a55e-4a48-8612-5e9aa20d5f73</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/AssemblyAttributes/AssemblyAttributesTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AssemblyAttributes/AssemblyAttributesTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>31c48fca-00ff-4da4-8528-a1337c70ce6b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#c8ab9feb-a55e-4a48-8612-5e9aa20d5f73</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/AssemblyAttributes/AssemblyAttributesTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AssemblyAttributes/AssemblyAttributesTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>31c48fca-00ff-4da4-8528-a1337c70ce6b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation#50c45d98-de3f-4be7-b684-c62a0673d64a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/AwsLambdaReadMe/AwsLambdaReadMeTemplate.cs</ApplicationRelativeFilePath>

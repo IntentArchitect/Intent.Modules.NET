@@ -6,10 +6,12 @@ using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modules.Aws.Lambda.Functions.Api;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Api;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
 using Intent.Modules.Metadata.WebApi.Models;
@@ -40,6 +42,8 @@ public partial class LambdaFunctionClassTemplate : CSharpTemplateBase<ILambdaFun
         AddTypeSource(TemplateRoles.Application.Query);
         AddTypeSource(TemplateRoles.Application.Contracts.Enum);
 
+        FulfillsRole("Aws.Lambda.Function");
+        
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
             .AddUsing("System")
             .AddUsing("System.Collections.Generic")
@@ -295,6 +299,30 @@ public partial class LambdaFunctionClassTemplate : CSharpTemplateBase<ILambdaFun
         }
 
         return stereotype.GetProperty<bool>("Is Collection");
+    }
+    
+    string GetNamespace(
+        params string[] additionalFolders)
+    {
+        return string.Join(".", new[]
+            {
+                "Lambda"
+            }
+            .Concat(Model.GetParentFolders()
+                .Where(x =>
+                {
+                    if (string.IsNullOrWhiteSpace(x.Name))
+                        return false;
+
+                    if (x is FolderModel fm)
+                    {
+                        return !fm.HasFolderOptions() || fm.GetFolderOptions().NamespaceProvider();
+                    }
+
+                    return true;
+                })
+                .Select(x => x.Name))
+            .Concat(additionalFolders));
     }
 
     [IntentManaged(Mode.Fully)]

@@ -3,7 +3,7 @@
   "Transform": "AWS::Serverless-2016-10-31",
   "Description": "This template is partially managed by Amazon.Lambda.Annotations (v1.7.0.0).",
   "Resources": {
-    "AwsLambdaFunctionSqsGroupAApiFFunctionsCreateClientAsyncGenerated": {
+    "LambdaDefaultFunctionsCreateClientAsyncGenerated": {
       "Type": "AWS::Serverless::Function",
       "Metadata": {
         "Tool": "Amazon.Lambda.Annotations",
@@ -26,7 +26,7 @@
           "AWSLambdaBasicExecutionRole"
         ],
         "PackageType": "Zip",
-        "Handler": "AwsLambdaFunction.Sqs.GroupA.Api::AwsLambdaFunction.Sqs.GroupA.Api.FFunctions_CreateClientAsync_Generated::CreateClientAsync",
+        "Handler": "AwsLambdaFunction.Sqs.GroupA.Api::Lambda.DefaultFunctions_CreateClientAsync_Generated::CreateClientAsync",
         "Events": {
           "RootPost": {
             "Type": "HttpApi",
@@ -38,7 +38,7 @@
         }
       }
     },
-    "AwsLambdaFunctionSqsGroupAApiFFunctionsCreateOrderAsyncGenerated": {
+    "LambdaDefaultFunctionsCreateOrderAsyncGenerated": {
       "Type": "AWS::Serverless::Function",
       "Metadata": {
         "Tool": "Amazon.Lambda.Annotations",
@@ -61,7 +61,7 @@
           "AWSLambdaBasicExecutionRole"
         ],
         "PackageType": "Zip",
-        "Handler": "AwsLambdaFunction.Sqs.GroupA.Api::AwsLambdaFunction.Sqs.GroupA.Api.FFunctions_CreateOrderAsync_Generated::CreateOrderAsync",
+        "Handler": "AwsLambdaFunction.Sqs.GroupA.Api::Lambda.DefaultFunctions_CreateOrderAsync_Generated::CreateOrderAsync",
         "Events": {
           "RootPost": {
             "Type": "HttpApi",
@@ -73,7 +73,7 @@
         }
       }
     },
-    "AwsLambdaFunctionSqsGroupAApiSpecTpcMsgHndlrConsumerProcessAsyncGenerated": {
+    "LambdaSpecificTopicMessageConsumerProcessAsyncGenerated": {
       "Type": "AWS::Serverless::Function",
       "Metadata": {
         "Tool": "Amazon.Lambda.Annotations"
@@ -87,7 +87,7 @@
           "AWSLambdaBasicExecutionRole"
         ],
         "PackageType": "Zip",
-        "Handler": "AwsLambdaFunction.Sqs.GroupA.Api::AwsLambdaFunction.Sqs.GroupA.Api.SpecTpcMsgHndlrConsumer_ProcessAsync_Generated::ProcessAsync"
+        "Handler": "AwsLambdaFunction.Sqs.GroupA.Api::Lambda.SpecificTopicMessageConsumer_ProcessAsync_Generated::ProcessAsync"
       }
     }
   }

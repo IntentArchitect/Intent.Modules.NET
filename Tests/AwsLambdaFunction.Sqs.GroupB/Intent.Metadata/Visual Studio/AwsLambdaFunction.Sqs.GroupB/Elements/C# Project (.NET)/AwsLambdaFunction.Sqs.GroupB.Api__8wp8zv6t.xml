@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="6685d6ee-c91e-4025-937c-ac965185d2c5" type="C# Project (.NET)" typeId="8e9e6693-2888-4f48-a0d6-0f163baab740">
-  <name>Aws.Sqs.GrpA.Api</name>
-  <display>Aws.Sqs.GrpA.Api</display>
+<class id="cc05ad80-394c-4870-bb45-4f9bdb3fe916" type="C# Project (.NET)" typeId="8e9e6693-2888-4f48-a0d6-0f163baab740">
+  <name>AwsLambdaFunction.Sqs.GroupB.Api</name>
+  <display>AwsLambdaFunction.Sqs.GroupB.Api</display>
   <externalReference>63e88ca5-bcdc-4e85-aadb-b0d33e8ff604</externalReference>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>c299539f-b664-4e02-b9bb-f8964764177f</parentFolderId>
-  <packageId>a56c5206-e08c-4777-9e62-abbaf860b673</packageId>
-  <packageName>AwsLambdaFunction.Sqs.GroupA</packageName>
+  <parentFolderId>44fdd214-6662-4922-b63d-fa6417d1ca4d</parentFolderId>
+  <packageId>8e852e06-5210-402f-9eca-815be03ce0b7</packageId>
+  <packageName>AwsLambdaFunction.Sqs.GroupB</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
       <addedByDefault>true</addedByDefault>
@@ -54,22 +54,48 @@
       <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
       <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
       <properties>
-        <property name="1b85d04d-e80a-4640-9fee-558711473fa8" display="Base URL" value="https://localhost:44365/" isActive="true" />
+        <property name="1b85d04d-e80a-4640-9fee-558711473fa8" display="Base URL" value="https://localhost:44316/" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="c36411d8-75da-4f04-892e-4ab2ce80d6a1" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="f8246e07-fe2f-4b87-9519-656ff0a64e56" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Aws.Lambda.Functions.AssemblyAttributes</name>
+      <display>Intent.Aws.Lambda.Functions.AssemblyAttributes</display>
+      <externalReference>Intent.Aws.Lambda.Functions</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>cc05ad80-394c-4870-bb45-4f9bdb3fe916</parentFolderId>
+      <packageId>8e852e06-5210-402f-9eca-815be03ce0b7</packageId>
+      <packageName>AwsLambdaFunction.Sqs.GroupB</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+          <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="f3ebdad7-c15d-410d-b466-6c4248d06caf" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Aws.Lambda.Functions.AwsLambdaReadMeTemplate</name>
       <display>Intent.Aws.Lambda.Functions.AwsLambdaReadMeTemplate</display>
       <externalReference>Intent.Aws.Lambda.Functions</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>6685d6ee-c91e-4025-937c-ac965185d2c5</parentFolderId>
-      <packageId>a56c5206-e08c-4777-9e62-abbaf860b673</packageId>
-      <packageName>AwsLambdaFunction.Sqs.GroupA</packageName>
+      <parentFolderId>cc05ad80-394c-4870-bb45-4f9bdb3fe916</parentFolderId>
+      <packageId>8e852e06-5210-402f-9eca-815be03ce0b7</packageId>
+      <packageName>AwsLambdaFunction.Sqs.GroupB</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
           <addedByDefault>true</addedByDefault>
@@ -86,16 +112,16 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="41e91020-e749-424a-b30e-e59276a9e3cc" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="f023f51c-272e-4137-b1bf-a725acd52278" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Aws.Lambda.Functions.AwsLambdaToolsDefaultsTemplate</name>
       <display>Intent.Aws.Lambda.Functions.AwsLambdaToolsDefaultsTemplate</display>
       <externalReference>Intent.Aws.Lambda.Functions</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>6685d6ee-c91e-4025-937c-ac965185d2c5</parentFolderId>
-      <packageId>a56c5206-e08c-4777-9e62-abbaf860b673</packageId>
-      <packageName>AwsLambdaFunction.Sqs.GroupA</packageName>
+      <parentFolderId>cc05ad80-394c-4870-bb45-4f9bdb3fe916</parentFolderId>
+      <packageId>8e852e06-5210-402f-9eca-815be03ce0b7</packageId>
+      <packageName>AwsLambdaFunction.Sqs.GroupB</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
           <addedByDefault>true</addedByDefault>
@@ -112,16 +138,16 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="7a00f323-e71a-4cab-a426-c55842b2209f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="738600d4-6c6e-497a-a509-688b55fa1726" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Aws.Lambda.Functions.LambdaFunctionClassTemplate</name>
       <display>Intent.Aws.Lambda.Functions.LambdaFunctionClassTemplate</display>
       <externalReference>Intent.Aws.Lambda.Functions</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>6685d6ee-c91e-4025-937c-ac965185d2c5</parentFolderId>
-      <packageId>a56c5206-e08c-4777-9e62-abbaf860b673</packageId>
-      <packageName>AwsLambdaFunction.Sqs.GroupA</packageName>
+      <parentFolderId>cc05ad80-394c-4870-bb45-4f9bdb3fe916</parentFolderId>
+      <packageId>8e852e06-5210-402f-9eca-815be03ce0b7</packageId>
+      <packageName>AwsLambdaFunction.Sqs.GroupB</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
           <addedByDefault>true</addedByDefault>
@@ -138,16 +164,16 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="485c80f1-7e3e-4eae-a3e9-540e9528df63" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="bea19c1a-b6a0-4cee-bec7-ae86db9fa79b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Aws.Lambda.Functions.SamConfigTemplate</name>
       <display>Intent.Aws.Lambda.Functions.SamConfigTemplate</display>
       <externalReference>Intent.Aws.Lambda.Functions</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>6685d6ee-c91e-4025-937c-ac965185d2c5</parentFolderId>
-      <packageId>a56c5206-e08c-4777-9e62-abbaf860b673</packageId>
-      <packageName>AwsLambdaFunction.Sqs.GroupA</packageName>
+      <parentFolderId>cc05ad80-394c-4870-bb45-4f9bdb3fe916</parentFolderId>
+      <packageId>8e852e06-5210-402f-9eca-815be03ce0b7</packageId>
+      <packageName>AwsLambdaFunction.Sqs.GroupB</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
           <addedByDefault>true</addedByDefault>
@@ -164,16 +190,16 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="93ef2ef6-37ae-44f6-ab9f-c801794c793b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="90c5e8a6-0ad4-4920-b612-bcb00bb81679" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Aws.Lambda.Functions.Sqs.LambdaFunctionConsumer</name>
       <display>Intent.Aws.Lambda.Functions.Sqs.LambdaFunctionConsumer</display>
       <externalReference>Intent.Aws.Lambda.Functions.Sqs</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>6685d6ee-c91e-4025-937c-ac965185d2c5</parentFolderId>
-      <packageId>a56c5206-e08c-4777-9e62-abbaf860b673</packageId>
-      <packageName>AwsLambdaFunction.Sqs.GroupA</packageName>
+      <parentFolderId>cc05ad80-394c-4870-bb45-4f9bdb3fe916</parentFolderId>
+      <packageId>8e852e06-5210-402f-9eca-815be03ce0b7</packageId>
+      <packageName>AwsLambdaFunction.Sqs.GroupB</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
           <addedByDefault>true</addedByDefault>
@@ -190,16 +216,16 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="81734ce3-53a7-4763-a0de-93af7eb08ba9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="ba0141db-01cf-452d-aad9-5ce72c69fe40" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Aws.Lambda.Functions.StartupTemplate</name>
       <display>Intent.Aws.Lambda.Functions.StartupTemplate</display>
       <externalReference>Intent.Aws.Lambda.Functions</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>6685d6ee-c91e-4025-937c-ac965185d2c5</parentFolderId>
-      <packageId>a56c5206-e08c-4777-9e62-abbaf860b673</packageId>
-      <packageName>AwsLambdaFunction.Sqs.GroupA</packageName>
+      <parentFolderId>cc05ad80-394c-4870-bb45-4f9bdb3fe916</parentFolderId>
+      <packageId>8e852e06-5210-402f-9eca-815be03ce0b7</packageId>
+      <packageName>AwsLambdaFunction.Sqs.GroupB</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
           <addedByDefault>true</addedByDefault>
@@ -216,16 +242,16 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="62500200-9935-462f-8317-bb418f9468fe" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+    <childElement id="d165562b-0ba6-4f50-9f38-37709c314d86" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
       <name>Aws.Lambda.Api</name>
       <display>Aws.Lambda.Api</display>
       <externalReference>55c23bcd-4771-4b15-b62c-7ac502a8ea73</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>6685d6ee-c91e-4025-937c-ac965185d2c5</parentFolderId>
-      <packageId>a56c5206-e08c-4777-9e62-abbaf860b673</packageId>
-      <packageName>AwsLambdaFunction.Sqs.GroupA</packageName>
+      <parentFolderId>cc05ad80-394c-4870-bb45-4f9bdb3fe916</parentFolderId>
+      <packageId>8e852e06-5210-402f-9eca-815be03ce0b7</packageId>
+      <packageName>AwsLambdaFunction.Sqs.GroupB</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="a23c7901-31a5-4cbf-b8bf-1be128977e6d" name="Role Settings">
           <addedByDefault>true</addedByDefault>
@@ -239,16 +265,16 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="da1f0241-afde-4b1a-9b5c-889d968a23e0" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+    <childElement id="4aaf84f6-4792-4472-b289-812f07566c9c" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
       <name>Distribution</name>
       <display>Distribution</display>
       <externalReference>3407d696-2907-425f-a50b-d12eaa31da50</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>6685d6ee-c91e-4025-937c-ac965185d2c5</parentFolderId>
-      <packageId>a56c5206-e08c-4777-9e62-abbaf860b673</packageId>
-      <packageName>AwsLambdaFunction.Sqs.GroupA</packageName>
+      <parentFolderId>cc05ad80-394c-4870-bb45-4f9bdb3fe916</parentFolderId>
+      <packageId>8e852e06-5210-402f-9eca-815be03ce0b7</packageId>
+      <packageName>AwsLambdaFunction.Sqs.GroupB</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="a23c7901-31a5-4cbf-b8bf-1be128977e6d" name="Role Settings">
           <addedByDefault>true</addedByDefault>
@@ -262,16 +288,16 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="6d4cba2c-959b-46ea-8fb9-79bf9ae7af29" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+    <childElement id="fc772998-d26b-4677-a7c6-a0a9b453fb7f" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
       <name>Startup</name>
       <display>Startup</display>
       <externalReference>42415fce-0b82-4117-ab9a-6cfabdb94eac</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>6685d6ee-c91e-4025-937c-ac965185d2c5</parentFolderId>
-      <packageId>a56c5206-e08c-4777-9e62-abbaf860b673</packageId>
-      <packageName>AwsLambdaFunction.Sqs.GroupA</packageName>
+      <parentFolderId>cc05ad80-394c-4870-bb45-4f9bdb3fe916</parentFolderId>
+      <packageId>8e852e06-5210-402f-9eca-815be03ce0b7</packageId>
+      <packageName>AwsLambdaFunction.Sqs.GroupB</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="a23c7901-31a5-4cbf-b8bf-1be128977e6d" name="Role Settings">
           <addedByDefault>true</addedByDefault>

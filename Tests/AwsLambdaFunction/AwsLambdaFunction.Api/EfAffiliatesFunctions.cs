@@ -19,7 +19,7 @@ using Microsoft.Extensions.Logging;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Aws.Lambda.Functions.LambdaFunctionClassTemplate", Version = "1.0")]
 
-namespace AwsLambdaFunction.Api
+namespace Lambda
 {
     public class EfAffiliatesFunctions
     {
