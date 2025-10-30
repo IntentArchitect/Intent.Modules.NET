@@ -13,6 +13,8 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Infrastructure.Persi
     {
         public void Configure(EntityTypeBuilder<User> builder)
         {
+            builder.ToTable("Users");
+
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.CompanyId)
@@ -35,6 +37,8 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Infrastructure.Persi
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.UserId);
+
+            builder.ToTable("Addresses");
 
             builder.HasKey(x => x.Id);
 

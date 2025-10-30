@@ -13,6 +13,8 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Infrastructure.Persi
     {
         public void Configure(EntityTypeBuilder<Person> builder)
         {
+            builder.ToTable("People");
+
             builder.HasKey(x => x.Id);
 
             builder.OwnsOne(x => x.Details, ConfigureDetails)

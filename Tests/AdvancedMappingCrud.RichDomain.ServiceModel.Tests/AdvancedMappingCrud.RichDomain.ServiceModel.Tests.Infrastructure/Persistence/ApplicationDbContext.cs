@@ -23,21 +23,21 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Infrastructure.Persi
             _domainEventService = domainEventService;
         }
 
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<ChildParentExcluded> ChildParentExcludeds { get; set; }
-        public DbSet<ChildSimple> ChildSimples { get; set; }
-        public DbSet<Company> Companies { get; set; }
-        public DbSet<CustomConstructor> CustomConstructors { get; set; }
-        public DbSet<Customer> Customers { get; set; }
-        public DbSet<FamilyComplex> FamilyComplexes { get; set; }
-        public DbSet<FamilyComplexSkipped> FamilyComplexSkippeds { get; set; }
-        public DbSet<FamilySimple> FamilySimples { get; set; }
-        public DbSet<Order> Orders { get; set; }
-        public DbSet<Person> People { get; set; }
-        public DbSet<Product> Products { get; set; }
-        public DbSet<Stock> Stocks { get; set; }
-        public DbSet<Super> Supers { get; set; }
-        public DbSet<User> Users { get; set; }
+        public DbSet<Category> Category { get; set; }
+        public DbSet<ChildParentExcluded> ChildParentExcluded { get; set; }
+        public DbSet<ChildSimple> ChildSimple { get; set; }
+        public DbSet<Company> Company { get; set; }
+        public DbSet<CustomConstructor> CustomConstructor { get; set; }
+        public DbSet<Customer> Customer { get; set; }
+        public DbSet<FamilyComplex> FamilyComplex { get; set; }
+        public DbSet<FamilyComplexSkipped> FamilyComplexSkipped { get; set; }
+        public DbSet<FamilySimple> FamilySimple { get; set; }
+        public DbSet<Order> Order { get; set; }
+        public DbSet<Person> Person { get; set; }
+        public DbSet<Product> Product { get; set; }
+        public DbSet<Stock> Stock { get; set; }
+        public DbSet<Super> Super { get; set; }
+        public DbSet<User> User { get; set; }
 
         public override async Task<int> SaveChangesAsync(
             bool acceptAllChangesOnSuccess,

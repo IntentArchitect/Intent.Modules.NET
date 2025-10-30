@@ -12,6 +12,8 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Infrastructure.Persi
     {
         public void Configure(EntityTypeBuilder<Super> builder)
         {
+            builder.ToTable("Supers");
+
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Name)

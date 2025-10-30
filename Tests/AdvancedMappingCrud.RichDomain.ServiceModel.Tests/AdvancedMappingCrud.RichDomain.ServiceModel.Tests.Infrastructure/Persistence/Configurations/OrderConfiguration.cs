@@ -12,6 +12,8 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Infrastructure.Persi
     {
         public void Configure(EntityTypeBuilder<Order> builder)
         {
+            builder.ToTable("Orders");
+
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.RefNo)
@@ -29,6 +31,8 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Infrastructure.Persi
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.OrderId);
+
+            builder.ToTable("OrderItems");
 
             builder.HasKey(x => x.Id);
 

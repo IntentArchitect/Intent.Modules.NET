@@ -2,10 +2,10 @@
 <association id="3174181f-ed0a-46fe-be1e-082d6b23e867">
   <sourceEnd id="d22dfe67-7e14-4d15-860a-299207e08fdb" type="Domain Event Origin Association Source End" typeId="2495d3ef-f7a2-441d-b749-b51b2546b45e">
     <display>published by : Stock.UpdateStockLevel</display>
-    <order>3</order>
+    <order>0</order>
     <typeReference id="68b52be9-d9e6-4eec-8587-682a987d4353">
       <typeId>c77ffdbc-b4dd-4357-9e5c-a893ef360721</typeId>
-      <isNavigable>true</isNavigable>
+      <isNavigable>false</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
       <isRequired>true</isRequired>

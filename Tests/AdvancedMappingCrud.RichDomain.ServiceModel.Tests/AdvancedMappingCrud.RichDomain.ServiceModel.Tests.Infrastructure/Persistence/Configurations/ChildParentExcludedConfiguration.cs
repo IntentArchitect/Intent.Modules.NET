@@ -12,6 +12,8 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Infrastructure.Persi
     {
         public void Configure(EntityTypeBuilder<ChildParentExcluded> builder)
         {
+            builder.ToTable("ChildParentExcludeds");
+
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.ChildName)

@@ -12,6 +12,8 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Infrastructure.Persi
     {
         public void Configure(EntityTypeBuilder<FamilyComplex> builder)
         {
+            builder.ToTable("FamilyComplexes");
+
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.ChildName)
