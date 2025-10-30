@@ -396,17 +396,28 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
         private bool RequiresToTableStatementForConvention(string className)
         {
-            switch (ExecutionContext.Settings.GetDatabaseSettings().TableNamingConvention().AsEnum())
+            var tableNamingConvention = ExecutionContext.Settings.GetDatabaseSettings().TableNamingConvention().AsEnum();
+            var dbSetNamingConvention = ExecutionContext.Settings.GetDatabaseSettings().DBSetNamingConvention().AsEnum();
+
+            // Compute the expected table name based on the table naming convention
+            string expectedTableName = tableNamingConvention switch
             {
-                case DatabaseSettingsExtensions.TableNamingConventionOptionsEnum.Singularized:
-                    return true;
-                case DatabaseSettingsExtensions.TableNamingConventionOptionsEnum.None:
-                    //Because DBSets are plural table names default to table, we need to add ToTables in the name is not pluralized
-                    return className != className.Pluralize();
-                case DatabaseSettingsExtensions.TableNamingConventionOptionsEnum.Pluralized:
-                default:
-                    return false;
-            }
+                DatabaseSettingsExtensions.TableNamingConventionOptionsEnum.Pluralized => className.Pluralize(),
+                DatabaseSettingsExtensions.TableNamingConventionOptionsEnum.Singularized => className.Singularize(),
+                DatabaseSettingsExtensions.TableNamingConventionOptionsEnum.None => className,
+                _ => className
+            };
+
+            // Compute the DbSet name based on the DBSet naming convention
+            string dbSetName = dbSetNamingConvention switch
+            {
+                DatabaseSettingsExtensions.DBSetNamingConventionOptionsEnum.Pluralized => className.Pluralize(),
+                DatabaseSettingsExtensions.DBSetNamingConventionOptionsEnum.SameAsEntity => className,
+                _ => className
+            };
+
+            // If the DbSet name does not match the expected table name, ToTable is required
+            return dbSetName != expectedTableName;
         }
 
         private string GetTableNameByConvention(string className)
