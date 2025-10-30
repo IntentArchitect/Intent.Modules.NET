@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <association id="93d834b1-714d-4c77-8eea-7164f8c6564a">
   <sourceEnd id="46f60389-7208-4bc9-90bd-1fe935b77dfe" type="Send Integration Command Source End" typeId="c5f4f98f-e464-48de-b202-c0724bacebb7">
-    <display>sent by : SpecificChannelService.SendSpecificTopicTwo</display>
+    <display>sent by : SpecificChannelService.SpecificTopicTwo</display>
     <order>0</order>
     <typeReference id="3909a777-7dde-49ad-a61f-11e078f70b29">
       <typeId>5c419d2c-af23-4eda-9de9-6f45bbf1c6c9</typeId>
@@ -38,7 +38,7 @@
     <stereotypes />
     <mappings>
       <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
-        <source applicationId="dc693f0a-0527-436e-b5e7-896a1a85cc21" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="5c419d2c-af23-4eda-9de9-6f45bbf1c6c9" location="[AwsLambdaFunction.Sqs.GroupB].[Services].[SendSpecificTopicTwo]" />
+        <source applicationId="dc693f0a-0527-436e-b5e7-896a1a85cc21" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="5c419d2c-af23-4eda-9de9-6f45bbf1c6c9" location="[AwsLambdaFunction.Sqs.GroupB].[Services].[SpecificTopicTwo]" />
         <target applicationId="dc693f0a-0527-436e-b5e7-896a1a85cc21" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="b33d2b59-5994-413a-846a-96fc3de29482" location="[AwsLambdaFunction.Sqs.GroupB].[Services].[SpecificTopicTwoMessage]" />
         <mappedEnds>
           <mappedEnd>
@@ -50,7 +50,7 @@
             <sources>
               <source identifier="dto.Data" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
                 <path>
-                  <target id="5c419d2c-af23-4eda-9de9-6f45bbf1c6c9" name="SendSpecificTopicTwo" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="5c419d2c-af23-4eda-9de9-6f45bbf1c6c9" name="SpecificTopicTwo" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
                   <target id="87467322-f16b-44c7-b33d-f2954b6862b1" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
                   <target id="b0c723b9-fcba-46e0-86a3-a1a595bde10a" name="Data" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>

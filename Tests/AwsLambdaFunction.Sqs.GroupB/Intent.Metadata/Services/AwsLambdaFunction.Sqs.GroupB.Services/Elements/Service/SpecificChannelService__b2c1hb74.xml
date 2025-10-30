@@ -22,8 +22,8 @@
   <metadata />
   <childElements>
     <childElement id="e3f59647-3087-4e2c-8640-f74e1a2a842c" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
-      <name>SendSpecificTopicOne</name>
-      <display>SendSpecificTopicOne(dto: PayloadDto): void</display>
+      <name>SpecificTopicOne</name>
+      <display>SpecificTopicOne(dto: PayloadDto): void</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
@@ -96,8 +96,8 @@
       </childElements>
     </childElement>
     <childElement id="5c419d2c-af23-4eda-9de9-6f45bbf1c6c9" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
-      <name>SendSpecificTopicTwo</name>
-      <display>SendSpecificTopicTwo(dto: PayloadDto): void</display>
+      <name>SpecificTopicTwo</name>
+      <display>SpecificTopicTwo(dto: PayloadDto): void</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />

@@ -38,7 +38,7 @@ namespace Lambda
 
         [LambdaFunction]
         [HttpApi(LambdaHttpMethod.Post, "/api/specific-channel/specific-channel/send-specific-topic-one")]
-        public async Task<IHttpResult> SendSpecificTopicOneAsync([FromBody] PayloadDto dto)
+        public async Task<IHttpResult> SpecificTopicOneAsync([FromBody] PayloadDto dto)
         {
             // AWSLambda0107: can parameter of type System.Threading.CancellationToken passing is not supported.
             var cancellationToken = CancellationToken.None;
@@ -46,14 +46,14 @@ namespace Lambda
             return await ExceptionHandlerHelper.ExecuteAsync(async () =>
             {
                 await _validationService.Handle(dto, cancellationToken);
-                await _appService.SendSpecificTopicOne(dto, cancellationToken);
+                await _appService.SpecificTopicOne(dto, cancellationToken);
                 return HttpResults.Created();
             }, _logger);
         }
 
         [LambdaFunction]
         [HttpApi(LambdaHttpMethod.Post, "/api/specific-channel/specific-channel/send-specific-topic-two")]
-        public async Task<IHttpResult> SendSpecificTopicTwoAsync([FromBody] PayloadDto dto)
+        public async Task<IHttpResult> SpecificTopicTwoAsync([FromBody] PayloadDto dto)
         {
             // AWSLambda0107: can parameter of type System.Threading.CancellationToken passing is not supported.
             var cancellationToken = CancellationToken.None;
@@ -61,7 +61,7 @@ namespace Lambda
             return await ExceptionHandlerHelper.ExecuteAsync(async () =>
             {
                 await _validationService.Handle(dto, cancellationToken);
-                await _appService.SendSpecificTopicTwo(dto, cancellationToken);
+                await _appService.SpecificTopicTwo(dto, cancellationToken);
                 return HttpResults.Created();
             }, _logger);
         }

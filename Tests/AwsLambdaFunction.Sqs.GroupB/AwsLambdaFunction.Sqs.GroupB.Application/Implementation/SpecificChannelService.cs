@@ -24,7 +24,7 @@ namespace AwsLambdaFunction.Sqs.GroupB.Application.Implementation
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task SendSpecificTopicOne(PayloadDto dto, CancellationToken cancellationToken = default)
+        public async Task SpecificTopicOne(PayloadDto dto, CancellationToken cancellationToken = default)
         {
             _eventBus.Publish(new SpecificTopicOneMessageEvent
             {
@@ -33,7 +33,7 @@ namespace AwsLambdaFunction.Sqs.GroupB.Application.Implementation
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task SendSpecificTopicTwo(PayloadDto dto, CancellationToken cancellationToken = default)
+        public async Task SpecificTopicTwo(PayloadDto dto, CancellationToken cancellationToken = default)
         {
             _eventBus.Send(new SpecificTopicTwoMessage
             {

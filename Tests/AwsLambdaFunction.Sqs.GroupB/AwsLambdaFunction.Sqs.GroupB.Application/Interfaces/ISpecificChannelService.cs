@@ -9,7 +9,7 @@ namespace AwsLambdaFunction.Sqs.GroupB.Application.Interfaces
 {
     public interface ISpecificChannelService
     {
-        Task SendSpecificTopicOne(PayloadDto dto, CancellationToken cancellationToken = default);
-        Task SendSpecificTopicTwo(PayloadDto dto, CancellationToken cancellationToken = default);
+        Task SpecificTopicOne(PayloadDto dto, CancellationToken cancellationToken = default);
+        Task SpecificTopicTwo(PayloadDto dto, CancellationToken cancellationToken = default);
     }
 }
