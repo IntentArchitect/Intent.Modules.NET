@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Aws.Sqs</id>
-  <version>1.0.0-pre.0</version>
+  <version>1.0.0-pre.1</version>
   <supportedClientVersions>[4.5.15-a,5.0.0)</supportedClientVersions>
   <summary>Provides AWS SQS eventing infrastructure for publishing and consuming messages.</summary>
   <description>Core module for AWS SQS integration. Provides IEventBus implementation, message dispatcher, and configuration for SQS-based eventing patterns. Lambda function generation is handled by the companion Intent.AwsLambda.Sqs module.</description>
@@ -73,13 +73,13 @@
   <interoperability>
     <detect id="Intent.Aws.Lambda.Functions">
       <install>
-        <package id="Intent.Aws.Lambda.Functions.Sqs" version="1.0.0-pre.0" />
+        <package id="Intent.Aws.Lambda.Functions.Sqs" version="1.0.0-pre.2" />
       </install>
     </detect>
   </interoperability>
   <dependencies>
     <dependency id="Intent.Aws.Common" version="1.0.4-pre.1" />
-    <dependency id="Intent.Aws.Lambda.Functions" version="1.0.2-pre.1" />
+    <dependency id="Intent.Aws.Lambda.Functions" version="1.0.2-pre.3" />
     <dependency id="Intent.Common" version="3.9.1" />
     <dependency id="Intent.Common.CSharp" version="3.9.6" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
