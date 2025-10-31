@@ -105,7 +105,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.Program
                         DotnetRunMessages = true,
                         CommandName = "Project",
                         LaunchBrowser = true,
-                        ApplicationUrl = $"https://localhost:{x.SslPort};https://localhost:{x.Port}",
+                        ApplicationUrl = $"https://localhost:{x.SslPort};http://localhost:{x.Port}",
                         PublishAllPorts = false,
                         InspectUri = "{wsProtocol}://{url.hostname}:{url.port}/_framework/debug/ws-proxy?browser={browserInspectUri}",
                         EnvironmentVariables = new Dictionary<string, string> { { "ASPNETCORE_ENVIRONMENT", "Development" } }
@@ -127,7 +127,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.Program
                         CommandName = "Project",
                         DotnetRunMessages = true,
                         LaunchBrowser = true,
-                        ApplicationUrl = $"https://localhost:{x.SslPort};https://localhost:{x.Port}",
+                        ApplicationUrl = $"https://localhost:{x.SslPort};http://localhost:{x.Port}",
                         LaunchUrl = $"https://localhost:{x.SslPort}",
                         PublishAllPorts = false,
                         EnvironmentVariables = new Dictionary<string, string> { { "ASPNETCORE_ENVIRONMENT", "Development" } }

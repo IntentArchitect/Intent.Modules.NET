@@ -1,6 +1,7 @@
 ### Version 3.9.6
 
 - Fixed: Adding `appsettings.json` for a standard C# Class project will make sure that it will output to target output folder during compilation.
+- Fixed: Updated `LaunchSettings.json` parsing to take in account the scheme (http vs https) of the ApplicationUrl
 
 ### Version 3.9.5
 

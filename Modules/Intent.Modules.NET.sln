@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
-VisualStudioVersion = 18.0.11104.47 d18.0
+VisualStudioVersion = 18.0.11104.47
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.Contracts", "Intent.Modules.Application.Contracts\Intent.Modules.Application.Contracts.csproj", "{2972A488-2F67-426D-8762-C85FB36FB32C}"
 EndProject
@@ -428,7 +428,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Aws.Sqs", "I
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Aws.SecretsManager", "Intent.Modules.Aws.SecretsManager\Intent.Modules.Aws.SecretsManager.csproj", "{7DF3FC9C-FBAE-4C18-96D6-6365C30600DF}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intent.Modules.Integration.IaC.Shared.AwsSqs", "Intent.Modules.Integration.IaC.Shared.AwsSqs\Intent.Modules.Integration.IaC.Shared.AwsSqs.shproj", "{992BB1F9-CDD6-4A3D-BF90-6554358DD319}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intent.Modules.Integration.IaC.Shared.AwsSqs", "Intent.Modules.Integration.IaC.Shared.AwsSqs\Intent.Modules.Integration.IaC.Shared.AwsSqs.shproj", "{F9083B8E-7876-4C23-B615-5C75AB49F572}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Aws.Lambda.Functions.Sqs", "Intent.Modules.Aws.Lambda.Functions.Sqs\Intent.Modules.Aws.Lambda.Functions.Sqs.csproj", "{E8EE9F41-D5B2-4A78-B2BB-281A4C60A3AE}"
 EndProject
@@ -1317,7 +1317,6 @@ Global
 		{73A5C654-4BD1-4A47-8FC2-BEE212DD3A0A} = {496D7CE4-4A5B-412F-B3AA-E837E159B974}
 		{6161ED7E-68BE-4788-8BDF-9942F39626B5} = {496D7CE4-4A5B-412F-B3AA-E837E159B974}
 		{6EEC0527-206C-4437-B8D7-8E1D6EDE530F} = {BD882ECC-9AA8-4455-AC46-45BD045553EB}
-		{992BB1F9-CDD6-4A3D-BF90-6554358DD319} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{14629E11-96B5-4050-A853-12D4FC016914} = {F75494CA-24E5-4CF2-8123-55A41BC20BC6}
 		{AC620C37-6585-4E04-B43E-0BAEFAE34E3C} = {5F9FE51C-33D0-4FDE-81AF-20FD12C6AF27}
 		{C46B3DF3-628D-48C6-A8DB-D1AFC2CB7CF5} = {5F9FE51C-33D0-4FDE-81AF-20FD12C6AF27}
@@ -1411,7 +1410,10 @@ Global
 		Intent.Modules.EntityFrameworkCore.Shared\Intent.Modules.EntityFrameworkCore.Shared.projitems*{ded84d15-0d51-44ab-a00d-fbdb739730a7}*SharedItemsImports = 5
 		Intent.Modules.DocumentDB.Shared\Intent.Modules.DocumentDB.Shared.projitems*{e18a801d-8b65-406e-ba1b-4280d754f5d3}*SharedItemsImports = 5
 		Intent.Modules.DocumentDB.Shared\Intent.Modules.DocumentDB.Shared.projitems*{e515e56c-436e-40d9-b8da-9fbb3f2d5545}*SharedItemsImports = 5
+		Intent.Modules.Eventing.Shared\Intent.Modules.Eventing.Shared.projitems*{e6a962cc-6864-45d9-ab6a-fcfb19173e82}*SharedItemsImports = 5
+		Intent.Modules.Integration.IaC.Shared.AwsSqs\Intent.Modules.Integration.IaC.Shared.AwsSqs.projitems*{e6a962cc-6864-45d9-ab6a-fcfb19173e82}*SharedItemsImports = 5
 		Intent.Modules.Security.Shared\Intent.Modules.Security.Shared.projitems*{e734455f-4103-4ef0-932c-28948e7f2e94}*SharedItemsImports = 5
+		Intent.Modules.Integration.IaC.Shared.AwsSqs\Intent.Modules.Integration.IaC.Shared.AwsSqs.projitems*{e8ee9f41-d5b2-4a78-b2bb-281a4c60a3ae}*SharedItemsImports = 5
 		Intent.Modules.EntityFrameworkCore.Shared\Intent.Modules.EntityFrameworkCore.Shared.projitems*{e8fc2c42-6fc9-4a68-8f84-79cea0ea9cab}*SharedItemsImports = 5
 		Intent.Modules.Eventing.Shared\Intent.Modules.Eventing.Shared.projitems*{ea54e3e6-234d-4eb9-b691-39c833b6ecaf}*SharedItemsImports = 5
 		Intent.Modules.Integration.IaC.Shared.AzureServiceBus\Intent.Modules.Integration.IaC.Shared.AzureServiceBus.projitems*{ea54e3e6-234d-4eb9-b691-39c833b6ecaf}*SharedItemsImports = 5
@@ -1419,5 +1421,6 @@ Global
 		Intent.Modules.Contracts.Clients.Shared\Intent.Modules.Contracts.Clients.Shared.projitems*{f2d877d3-cbe3-4165-853e-8dc4461b9b5d}*SharedItemsImports = 13
 		Intent.Modules.Application.Shared\Intent.Modules.Application.Shared.projitems*{f70df819-b1a1-460c-ad99-567cf48a1a99}*SharedItemsImports = 5
 		Intent.Modules.FluentValidation.Shared\Intent.Modules.FluentValidation.Shared.projitems*{f70df819-b1a1-460c-ad99-567cf48a1a99}*SharedItemsImports = 5
+		Intent.Modules.Integration.IaC.Shared.AwsSqs\Intent.Modules.Integration.IaC.Shared.AwsSqs.projitems*{f9083b8e-7876-4c23-b615-5c75ab49f572}*SharedItemsImports = 13
 	EndGlobalSection
 EndGlobal

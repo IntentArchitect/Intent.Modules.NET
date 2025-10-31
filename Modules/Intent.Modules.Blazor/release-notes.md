@@ -4,6 +4,7 @@
 - Improvement: Updated error messaging when Route of a `Page` contains incorrect route parameters.
 - Fixed: SF Crash in scenario of remote service with missing mappings.
 - Fixed: When newer versions of the `Intent.Code.Weaving.Razor` module was installed, ``<>f__AnonymousDelegate0`2[System.String,System.String]`` would appear on the home page.
+- Fixed: Updated duplicate `https` ApplicationUrl entries, to instead have an `https` and `http` entry.
 
 ### Version 1.0.4
 

@@ -189,11 +189,11 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
         {
             base.BeforeTemplateExecution();
 
+            _randomPort = new Random().Next(56600, 65535);
+            _randomSslPort = new Random().Next(44300, 44399);
+
             if (!TryGetExistingFileContent(out var content))
             {
-                _randomPort = new Random().Next(56600, 65535);
-                _randomSslPort = new Random().Next(44300, 44399);
-
                 if (!string.IsNullOrWhiteSpace(_defaultApplicationUrl))
                 {
                     _randomSslPort = new Uri(_defaultApplicationUrl).Port;
@@ -216,7 +216,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
                 return;
             }
 
-            _randomPort = iisExpress.ApplicationUrl.Port;
+            _randomPort = iisExpress.ApplicationUrl.Scheme == Uri.UriSchemeHttps ? _randomPort : iisExpress.ApplicationUrl.Port;
             _randomSslPort = iisExpress.SslPort.Value;
 
             ExecutionContext.EventDispatcher.Publish(new HostingSettingsCreatedEvent(
