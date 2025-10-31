@@ -47,6 +47,12 @@ public class RouteManager
         {
             var fromPos = str.IndexOf("{", StringComparison.Ordinal) + 1;
             var toPos = str.IndexOf("}", StringComparison.Ordinal);
+
+            if (fromPos >= toPos)
+            {
+                throw new FormatException($"Route '{str}' is not formatted corrected. Brace pairing {{ }} is invalid.");
+            }
+
             var expression = str[fromPos..toPos];
             result.Add(expression);
             str = str[(str.IndexOf("}", StringComparison.Ordinal) + 1)..];
