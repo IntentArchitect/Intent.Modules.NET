@@ -1,0 +1,24 @@
+using Intent.RoslynWeaver.Attributes;
+using Microsoft.Extensions.Hosting;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.Eventing.AzureQueueStorage.AzureQueueStorageConsumerBackgroundService", Version = "1.0")]
+
+namespace CleanArchitecture.QueueStorage.Infrastructure.Eventing
+{
+    public class AzureQueueStorageBackgroundService : BackgroundService
+    {
+        private readonly IEnumerable<IAzureQueueStorageConsumer> _consumers;
+
+        public AzureQueueStorageBackgroundService(IEnumerable<IAzureQueueStorageConsumer> consumers)
+        {
+            _consumers = consumers;
+        }
+
+        protected override Task ExecuteAsync(CancellationToken stoppingToken)
+        {
+            return Task.WhenAll(_consumers.Select(
+                x => Task.Run(() => x.ConsumeAsync(stoppingToken), stoppingToken)));
+        }
+    }
+}

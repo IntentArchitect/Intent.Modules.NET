@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="9064882d-68d7-4746-bec5-7e2a0134bf0a">
+  <sourceEnd id="0049b0dc-28a1-4d7d-b8af-257355619cc9" type="Subscribe Integration Command Source End" typeId="cdc0ae0a-1199-4450-8e21-2da80e03bc26">
+    <display>handled by: AzureFunction.QueueStorage.Services.CreateProductCommandHandler</display>
+    <order>0</order>
+    <typeReference id="173a1d25-f04e-43f2-83d1-43e8b1b6e590">
+      <typeId>ef91a593-3671-43ba-98b6-5cf9220e27cb</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunction.QueueStorage.Services</typePackageName>
+      <typePackageId>8ca400a4-649d-4712-9b1d-6d0105a8701e</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="9064882d-68d7-4746-bec5-7e2a0134bf0a" type="Subscribe Integration Command Target End" typeId="efa73bdb-69b7-4f52-aa10-15c19874b394">
+    <name>Handler</name>
+    <display>[handles] CreateProductCommand</display>
+    <order>0</order>
+    <traits>
+      <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+    </traits>
+    <typeReference id="6bb13419-2132-4155-9e44-002c3611902b">
+      <typeId>774101d4-168d-46bd-ae28-b52fc16651e5</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.QueueStorage.Eventing.Messages</typePackageName>
+      <typePackageId>b13441c7-cbc2-4a68-9111-fcc718a8f99a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Subscribe Integration Command</associationType>
+  <associationTypeId>f485e4aa-a032-4b9a-aa85-5d2c62d75799</associationTypeId>
+  <stereotypes />
+</association>

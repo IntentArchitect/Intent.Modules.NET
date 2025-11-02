@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="86340e62-49fd-40c6-b426-2b449759edc2">
+  <sourceEnd id="ec556e67-4e0c-446f-9f18-a3c5a68c17fc" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetProductByIdQuery</display>
+    <order>0</order>
+    <typeReference id="5f057720-31ef-4178-bd6c-b3f8a901ba09">
+      <typeId>1a588eab-8b54-4a7c-b875-920a2b8ec562</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.QueueStorage.Services</typePackageName>
+      <typePackageId>9e091669-9919-4cc0-b0a5-dfc078a3bbc2</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="86340e62-49fd-40c6-b426-2b449759edc2" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>product</name>
+    <display>[query] product: Product</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="c0d71373-4a9c-4cbe-98ad-29266da19335">
+      <typeId>05c0fe2c-7275-40d3-b291-e7d90b7265a6</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.QueueStorage.Domain</typePackageName>
+      <typePackageId>94af962a-66af-48b0-92d2-53e5ede4ea60</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="fac734d9-84f4-4b63-b59b-2b95f286a230" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="1a588eab-8b54-4a7c-b875-920a2b8ec562" location="[CleanArchitecture.QueueStorage].[Services].[GetProductByIdQuery]" />
+        <target applicationId="fac734d9-84f4-4b63-b59b-2b95f286a230" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="05c0fe2c-7275-40d3-b291-e7d90b7265a6" location="[CleanArchitecture.QueueStorage].[Services].[Product]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="05c0fe2c-7275-40d3-b291-e7d90b7265a6" name="Product" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="ea1d0c96-1e9f-4087-8cf1-4e04a17c480f" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="1a588eab-8b54-4a7c-b875-920a2b8ec562" name="GetProductByIdQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+                  <target id="2c30cb73-6ccf-4090-ad5d-81ba9e3f827e" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

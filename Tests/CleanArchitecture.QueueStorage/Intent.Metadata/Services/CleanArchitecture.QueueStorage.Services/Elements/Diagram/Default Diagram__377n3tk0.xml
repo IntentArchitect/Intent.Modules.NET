@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3d32ca2e-2d17-4819-aa5e-ea0dfc1d4e59" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>169f3801-8244-4b9e-ac2f-3eaede785048</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9e091669-9919-4cc0-b0a5-dfc078a3bbc2</parentFolderId>
+  <packageId>9e091669-9919-4cc0-b0a5-dfc078a3bbc2</packageId>
+  <packageName>CleanArchitecture.QueueStorage.Services</packageName>
+  <diagram>
+    <targetPackageId>9e091669-9919-4cc0-b0a5-dfc078a3bbc2</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

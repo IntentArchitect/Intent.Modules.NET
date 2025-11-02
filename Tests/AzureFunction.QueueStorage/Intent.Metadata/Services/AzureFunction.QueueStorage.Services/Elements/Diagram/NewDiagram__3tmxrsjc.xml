@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e04a6037-1016-4dd9-bbb7-dc131abffdb2" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>NewDiagram</name>
+  <display>NewDiagram</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>8ca400a4-649d-4712-9b1d-6d0105a8701e</parentFolderId>
+  <packageId>8ca400a4-649d-4712-9b1d-6d0105a8701e</packageId>
+  <packageName>AzureFunction.QueueStorage.Services</packageName>
+  <diagram>
+    <targetPackageId>e04a6037-1016-4dd9-bbb7-dc131abffdb2</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="0cf8eb47-836a-488a-befe-832160c19e8c" type="Integration Event Handler" typeId="c0582230-22f5-4f74-8eb0-ec6fc9364900">
+  <name>CreateStockForProductCommandHandler</name>
+  <display>CreateStockForProductCommandHandler</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9e091669-9919-4cc0-b0a5-dfc078a3bbc2</parentFolderId>
+  <packageId>9e091669-9919-4cc0-b0a5-dfc078a3bbc2</packageId>
+  <packageName>CleanArchitecture.QueueStorage.Services</packageName>
+  <traits>
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

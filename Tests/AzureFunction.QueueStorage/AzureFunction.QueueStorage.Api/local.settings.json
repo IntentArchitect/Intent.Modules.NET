@@ -1,0 +1,15 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
+    "QueueStorage:DefaultEndpoint": "UseDevelopmentStorage=true",
+    "QueueStorage:Queues:azurefunction-queuestorage-eventing-messages-productcreatedevent:Endpoint": null,
+    "QueueStorage:Queues:azurefunction-queuestorage-eventing-messages-productcreatedevent:CreateQueue": true,
+    "QueueStorage:Queues:cleanarchitecture-queuestorage-eventing-messages-createproductcommand:Endpoint": null,
+    "QueueStorage:Queues:cleanarchitecture-queuestorage-eventing-messages-createproductcommand:CreateQueue": true,
+    "QueueStorage:QueueTypeMap:AzureFunction.QueueStorage.Eventing.Messages.ProductCreatedEvent": "azurefunction-queuestorage-eventing-messages-productcreatedevent",
+    "QueueStorage:QueueTypeMap:CleanArchitecture.QueueStorage.Eventing.Messages.CreateProductCommand": "cleanarchitecture-queuestorage-eventing-messages-createproductcommand",
+    "CqrsSettings:LogRequestPayload": true
+  }
+}

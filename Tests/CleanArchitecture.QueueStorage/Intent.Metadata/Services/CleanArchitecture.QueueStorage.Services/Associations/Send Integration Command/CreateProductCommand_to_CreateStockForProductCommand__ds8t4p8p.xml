@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="efddf6b8-3005-4c2e-bbab-e4dc3e3e973f">
+  <sourceEnd id="c72d279e-7a88-4a19-a1b8-d7e040e1c471" type="Send Integration Command Source End" typeId="c5f4f98f-e464-48de-b202-c0724bacebb7">
+    <display>sent by : Products.CreateProductCommand</display>
+    <order>0</order>
+    <typeReference id="bc276469-450d-443e-a23a-15334e7615b2">
+      <typeId>961b2bc7-e91d-473e-bb5f-5d9d433c525a</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.QueueStorage.Services</typePackageName>
+      <typePackageId>9e091669-9919-4cc0-b0a5-dfc078a3bbc2</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="efddf6b8-3005-4c2e-bbab-e4dc3e3e973f" type="Send Integration Command Target End" typeId="35a14f76-71e0-45f2-a17f-f8d1483510f7">
+    <display>[send] CreateStockForProductCommand</display>
+    <order>4</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="13e30425-6905-4248-9a0a-2655b170fc4d">
+      <typeId>e3b07a3b-b6f3-44dd-8d68-707a4241ec6c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.QueueStorage.Eventing.Messages</typePackageName>
+      <typePackageId>b13441c7-cbc2-4a68-9111-fcc718a8f99a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="fac734d9-84f4-4b63-b59b-2b95f286a230" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="961b2bc7-e91d-473e-bb5f-5d9d433c525a" location="[CleanArchitecture.QueueStorage].[Services].[CreateProductCommand]" />
+        <target applicationId="fac734d9-84f4-4b63-b59b-2b95f286a230" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="e3b07a3b-b6f3-44dd-8d68-707a4241ec6c" location="[CleanArchitecture.QueueStorage].[Services].[CreateStockForProductCommand]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="e3b07a3b-b6f3-44dd-8d68-707a4241ec6c" name="CreateStockForProductCommand" type="element" specialization="Integration Command" specializationId="7f01ca8e-0e3c-4735-ae23-a45169f71625" />
+              <target id="b2d839c2-09ca-4409-b754-7380a8b566fc" name="Name" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="961b2bc7-e91d-473e-bb5f-5d9d433c525a" name="CreateProductCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="bec8f493-14a6-480f-9113-89e5f3083733" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Qty}</expression>
+            <path>
+              <target id="e3b07a3b-b6f3-44dd-8d68-707a4241ec6c" name="CreateStockForProductCommand" type="element" specialization="Integration Command" specializationId="7f01ca8e-0e3c-4735-ae23-a45169f71625" />
+              <target id="48289dc2-8ff5-4804-a407-620930d5a3fd" name="Qty" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="Qty" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="961b2bc7-e91d-473e-bb5f-5d9d433c525a" name="CreateProductCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="21c3c20c-85cb-4151-8bcf-0595de4693c8" name="Qty" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Send Integration Command</associationType>
+  <associationTypeId>389a7478-a8f1-4acc-adff-a73ce4aa7e6d</associationTypeId>
+  <stereotypes />
+</association>

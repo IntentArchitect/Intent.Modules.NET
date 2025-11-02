@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a90b2229-a12f-43bb-8b44-967977e4e6de" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>EventHandlers</name>
+  <display>EventHandlers</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>27d5a5d1-487d-4720-9190-cb4efb1162fd</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="c62a91fa-6633-48bf-9ab9-1ec64e2ce126" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.AzureQueueStorage.IntegrationEventHandler</name>
+      <display>Intent.Eventing.AzureQueueStorage.IntegrationEventHandler</display>
+      <externalReference>Intent.Eventing.AzureQueueStorage</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a90b2229-a12f-43bb-8b44-967977e4e6de</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.Aws.Lambda.Functions" version="1.0.5" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AzureFunctions" version="5.2.13-pre.0" />
   <applications>
     <application id="a3039e69-7ab0-4ab4-8784-54706aa3fcd8" name="Standard.AspNetCore.TestApplication" relativePath="Standard.AspNetCore.TestApplication/Standard.AspNetCore.TestApplication.application.config" />
     <application id="859f5adf-c40e-40fb-9e68-e41da908d768" name="AzureFunctions.TestApplication" relativePath="AzureFunctions.TestApplication/AzureFunctions.TestApplication.application.config" />
@@ -186,5 +186,7 @@
     <application id="bab54172-f442-450b-adcc-c3f83edd7579" name="AwsSecretsManager" solutionFolder="Security" relativePath="AwsSecretsManager/AwsSecretsManager.application.config" />
     <application id="734c7d51-1b2c-43a3-9309-5d07a30c6484" name="AwsLambdaFunction.Sqs.GroupA" relativePath="AwsLambdaFunction.Sqs.GroupA/AwsLambdaFunction.Sqs.GroupA.application.config" />
     <application id="dc693f0a-0527-436e-b5e7-896a1a85cc21" name="AwsLambdaFunction.Sqs.GroupB" relativePath="AwsLambdaFunction.Sqs.GroupB/AwsLambdaFunction.Sqs.GroupB.application.config" />
+    <application id="fac734d9-84f4-4b63-b59b-2b95f286a230" name="CleanArchitecture.QueueStorage" solutionFolder="Eventing/AzureQueueStorage" relativePath="CleanArchitecture.QueueStorage/CleanArchitecture.QueueStorage.application.config" />
+    <application id="31ac754c-9bd6-45cf-9eff-adc02d98f105" name="AzureFunction.QueueStorage" solutionFolder="Eventing/AzureQueueStorage" relativePath="AzureFunction.QueueStorage/AzureFunction.QueueStorage.application.config" />
   </applications>
 </solution>

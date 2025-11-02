@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{1487188E-C32E-4773-A95B-EA308F8439D8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureFunction.QueueStorage.Api", "AzureFunction.QueueStorage.Api\AzureFunction.QueueStorage.Api.csproj", "{4EB39FD6-D964-4449-AA59-CE6B236A8597}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{5253FC16-E05D-4B2D-94D6-8E582E5116EE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureFunction.QueueStorage.Application", "AzureFunction.QueueStorage.Application\AzureFunction.QueueStorage.Application.csproj", "{CFD12A48-5C82-44A2-999F-594E1B6AAC35}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{13A9AE8E-65F3-4B32-9C68-9A01A114E1E7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureFunction.QueueStorage.Domain", "AzureFunction.QueueStorage.Domain\AzureFunction.QueueStorage.Domain.csproj", "{CA7DC446-05A7-4C46-9144-E8F73FB68307}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{F8A1CBB8-2EE7-420B-ADA7-ECCCA5F011F7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureFunction.QueueStorage.Infrastructure", "AzureFunction.QueueStorage.Infrastructure\AzureFunction.QueueStorage.Infrastructure.csproj", "{D6182297-D117-4AF0-993C-2818B081A748}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4EB39FD6-D964-4449-AA59-CE6B236A8597} = {1487188E-C32E-4773-A95B-EA308F8439D8}
+		{CFD12A48-5C82-44A2-999F-594E1B6AAC35} = {5253FC16-E05D-4B2D-94D6-8E582E5116EE}
+		{CA7DC446-05A7-4C46-9144-E8F73FB68307} = {13A9AE8E-65F3-4B32-9C68-9A01A114E1E7}
+		{D6182297-D117-4AF0-993C-2818B081A748} = {F8A1CBB8-2EE7-420B-ADA7-ECCCA5F011F7}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4EB39FD6-D964-4449-AA59-CE6B236A8597}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EB39FD6-D964-4449-AA59-CE6B236A8597}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EB39FD6-D964-4449-AA59-CE6B236A8597}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EB39FD6-D964-4449-AA59-CE6B236A8597}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFD12A48-5C82-44A2-999F-594E1B6AAC35}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFD12A48-5C82-44A2-999F-594E1B6AAC35}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFD12A48-5C82-44A2-999F-594E1B6AAC35}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFD12A48-5C82-44A2-999F-594E1B6AAC35}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA7DC446-05A7-4C46-9144-E8F73FB68307}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA7DC446-05A7-4C46-9144-E8F73FB68307}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA7DC446-05A7-4C46-9144-E8F73FB68307}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA7DC446-05A7-4C46-9144-E8F73FB68307}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6182297-D117-4AF0-993C-2818B081A748}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6182297-D117-4AF0-993C-2818B081A748}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6182297-D117-4AF0-993C-2818B081A748}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6182297-D117-4AF0-993C-2818B081A748}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

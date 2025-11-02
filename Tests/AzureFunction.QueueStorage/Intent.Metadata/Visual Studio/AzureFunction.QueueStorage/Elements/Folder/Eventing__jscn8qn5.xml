@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a83ae2f2-1a10-4284-9f9d-8c093ca4528c" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Eventing</name>
+  <display>Eventing</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d6182297-d117-4af0-993c-2818b081a748</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="b353abfb-6e17-4b51-83f3-08bf2104d6e6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.AzureQueueStorage.AzureQueueStorageConsumer</name>
+      <display>Intent.Eventing.AzureQueueStorage.AzureQueueStorageConsumer</display>
+      <externalReference>Intent.Eventing.AzureQueueStorage</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a83ae2f2-1a10-4284-9f9d-8c093ca4528c</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="57bcbf8e-bc8b-4a30-b15f-58bcdb5977fe" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.AzureQueueStorage.AzureQueueStorageConsumerBackgroundService</name>
+      <display>Intent.Eventing.AzureQueueStorage.AzureQueueStorageConsumerBackgroundService</display>
+      <externalReference>Intent.Eventing.AzureQueueStorage</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a83ae2f2-1a10-4284-9f9d-8c093ca4528c</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="b0814121-3a01-4368-8dfc-c82d31bab643" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.AzureQueueStorage.AzureQueueStorageConsumerInterface</name>
+      <display>Intent.Eventing.AzureQueueStorage.AzureQueueStorageConsumerInterface</display>
+      <externalReference>Intent.Eventing.AzureQueueStorage</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a83ae2f2-1a10-4284-9f9d-8c093ca4528c</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="675e27df-9e3e-4f3e-bbec-07acb9d61ea8" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.AzureQueueStorage.AzureQueueStorageEnvelope</name>
+      <display>Intent.Eventing.AzureQueueStorage.AzureQueueStorageEnvelope</display>
+      <externalReference>Intent.Eventing.AzureQueueStorage</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a83ae2f2-1a10-4284-9f9d-8c093ca4528c</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="6f058104-5a34-48d0-b04f-8dab626ffb5f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.AzureQueueStorage.AzureQueueStorageEventBus</name>
+      <display>Intent.Eventing.AzureQueueStorage.AzureQueueStorageEventBus</display>
+      <externalReference>Intent.Eventing.AzureQueueStorage</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a83ae2f2-1a10-4284-9f9d-8c093ca4528c</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="5f62a06a-a358-480f-ae08-a3bdf87cc991" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.AzureQueueStorage.AzureQueueStorageEventDispatcher</name>
+      <display>Intent.Eventing.AzureQueueStorage.AzureQueueStorageEventDispatcher</display>
+      <externalReference>Intent.Eventing.AzureQueueStorage</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a83ae2f2-1a10-4284-9f9d-8c093ca4528c</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="f7e090ea-6aca-4428-ae6d-cbcd8512fe24" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.AzureQueueStorage.AzureQueueStorageEventDispatcherInterface</name>
+      <display>Intent.Eventing.AzureQueueStorage.AzureQueueStorageEventDispatcherInterface</display>
+      <externalReference>Intent.Eventing.AzureQueueStorage</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a83ae2f2-1a10-4284-9f9d-8c093ca4528c</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

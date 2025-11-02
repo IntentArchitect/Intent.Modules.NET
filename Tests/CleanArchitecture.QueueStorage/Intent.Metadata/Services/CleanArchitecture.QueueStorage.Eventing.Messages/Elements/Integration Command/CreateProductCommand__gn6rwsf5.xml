@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="774101d4-168d-46bd-ae28-b52fc16651e5" type="Integration Command" typeId="7f01ca8e-0e3c-4735-ae23-a45169f71625">
+  <name>CreateProductCommand</name>
+  <display>CreateProductCommand</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>b13441c7-cbc2-4a68-9111-fcc718a8f99a</parentFolderId>
+  <packageId>b13441c7-cbc2-4a68-9111-fcc718a8f99a</packageId>
+  <packageName>CleanArchitecture.QueueStorage.Eventing.Messages</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="ea137ae5-60a0-48f0-98ac-f42985d6c781" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>Name</name>
+      <display>Name: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="dd4cfb31-f547-4f24-ba40-c1e08e1b6bd4">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>774101d4-168d-46bd-ae28-b52fc16651e5</parentFolderId>
+      <packageId>b13441c7-cbc2-4a68-9111-fcc718a8f99a</packageId>
+      <packageName>CleanArchitecture.QueueStorage.Eventing.Messages</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="173fef30-acd5-4132-a305-c83475649ba0" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>Qty</name>
+      <display>Qty: int</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="dd1d0fed-7e57-472e-9349-58e9a5180e2c">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>774101d4-168d-46bd-ae28-b52fc16651e5</parentFolderId>
+      <packageId>b13441c7-cbc2-4a68-9111-fcc718a8f99a</packageId>
+      <packageName>CleanArchitecture.QueueStorage.Eventing.Messages</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

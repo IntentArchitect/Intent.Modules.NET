@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ef91a593-3671-43ba-98b6-5cf9220e27cb" type="Integration Event Handler" typeId="c0582230-22f5-4f74-8eb0-ec6fc9364900">
+  <name>CreateProductCommandHandler</name>
+  <display>CreateProductCommandHandler</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>8ca400a4-649d-4712-9b1d-6d0105a8701e</parentFolderId>
+  <packageId>8ca400a4-649d-4712-9b1d-6d0105a8701e</packageId>
+  <packageName>AzureFunction.QueueStorage.Services</packageName>
+  <traits>
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

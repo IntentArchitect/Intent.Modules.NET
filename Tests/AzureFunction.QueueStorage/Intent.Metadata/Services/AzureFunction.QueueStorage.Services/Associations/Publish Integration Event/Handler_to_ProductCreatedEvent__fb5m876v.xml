@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="65dad9c0-dc7e-481b-926d-016610bbc494">
+  <sourceEnd id="87a44535-62da-4f9f-9dd8-c32820ed963d" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : CreateProductCommandHandler.Handler</display>
+    <order>0</order>
+    <typeReference id="b735d1f8-d073-4f32-92ce-a221bc8add08">
+      <typeId>9064882d-68d7-4746-bec5-7e2a0134bf0a</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunction.QueueStorage.Services</typePackageName>
+      <typePackageId>8ca400a4-649d-4712-9b1d-6d0105a8701e</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="65dad9c0-dc7e-481b-926d-016610bbc494" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] ProductCreatedEvent</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="00db2a3a-3245-4a2f-8061-c527c52bed23">
+      <typeId>ba7ce53b-48ee-473b-9824-5baa95e439c5</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunction.QueueStorage.Eventing.Messages</typePackageName>
+      <typePackageId>8f08c6a2-c743-4ee5-8985-b341988249b4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="31ac754c-9bd6-45cf-9eff-adc02d98f105" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="9064882d-68d7-4746-bec5-7e2a0134bf0a" location="[AzureFunction.QueueStorage].[Services].[Handler]" />
+        <target applicationId="31ac754c-9bd6-45cf-9eff-adc02d98f105" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="ba7ce53b-48ee-473b-9824-5baa95e439c5" location="[AzureFunction.QueueStorage].[Services].[ProductCreatedEvent]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="ba7ce53b-48ee-473b-9824-5baa95e439c5" name="ProductCreatedEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="4603b1d7-78c9-40d2-974a-487ac95809c1" name="Name" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="9064882d-68d7-4746-bec5-7e2a0134bf0a" name="Handler" type="association" specialization="Subscribe Integration Command Target End" specializationId="efa73bdb-69b7-4f52-aa10-15c19874b394" />
+                  <target id="ea137ae5-60a0-48f0-98ac-f42985d6c781" name="Name" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Qty}</expression>
+            <path>
+              <target id="ba7ce53b-48ee-473b-9824-5baa95e439c5" name="ProductCreatedEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="645a2742-3174-4a99-8dab-304e23149ed4" name="Qty" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="Qty" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="9064882d-68d7-4746-bec5-7e2a0134bf0a" name="Handler" type="association" specialization="Subscribe Integration Command Target End" specializationId="efa73bdb-69b7-4f52-aa10-15c19874b394" />
+                  <target id="173fef30-acd5-4132-a305-c83475649ba0" name="Qty" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>

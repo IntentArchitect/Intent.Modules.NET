@@ -12,6 +12,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>74597f83-40fa-4d83-8174-4f31b847175e</ProjectId>
+      <CorrelationId>Intent.IaC.Terraform.Applications.AzureFunctionAppTf#31ac754c-9bd6-45cf-9eff-adc02d98f105</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>01-applications/azure-function-queue-storage.tf</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>azure-function-queue-storage.tf</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>74597f83-40fa-4d83-8174-4f31b847175e</ProjectId>
       <CorrelationId>Intent.IaC.Terraform.Applications.AzureFunctionAppTf#4a338751-91d2-4c13-b0ad-bb2979c82f22</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>01-applications/azure-functions-azure-event-grid-group-a.tf</ApplicationRelativeFilePath>

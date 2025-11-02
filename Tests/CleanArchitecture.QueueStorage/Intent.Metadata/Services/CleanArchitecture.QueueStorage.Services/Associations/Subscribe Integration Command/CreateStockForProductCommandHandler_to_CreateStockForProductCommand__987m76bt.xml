@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="de2d1286-31e2-40f5-be6a-4e23183c76d3">
+  <sourceEnd id="34bd3506-9e22-4f39-865b-8ecc4556c5f4" type="Subscribe Integration Command Source End" typeId="cdc0ae0a-1199-4450-8e21-2da80e03bc26">
+    <display>handled by: CleanArchitecture.QueueStorage.Services.CreateStockForProductCommandHandler</display>
+    <order>0</order>
+    <typeReference id="4fbe9e75-37c3-4f41-8b45-7f78c216f87b">
+      <typeId>0cf8eb47-836a-488a-befe-832160c19e8c</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.QueueStorage.Services</typePackageName>
+      <typePackageId>9e091669-9919-4cc0-b0a5-dfc078a3bbc2</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="de2d1286-31e2-40f5-be6a-4e23183c76d3" type="Subscribe Integration Command Target End" typeId="efa73bdb-69b7-4f52-aa10-15c19874b394">
+    <display>handles: CreateStockForProductCommand</display>
+    <order>0</order>
+    <traits>
+      <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+    </traits>
+    <typeReference id="67806050-7043-497d-942b-53fd4d02417a">
+      <typeId>e3b07a3b-b6f3-44dd-8d68-707a4241ec6c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.QueueStorage.Eventing.Messages</typePackageName>
+      <typePackageId>b13441c7-cbc2-4a68-9111-fcc718a8f99a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Subscribe Integration Command</associationType>
+  <associationTypeId>f485e4aa-a032-4b9a-aa85-5d2c62d75799</associationTypeId>
+  <stereotypes />
+</association>
