@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="4.1.9" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="4.1.10-pre.1" />
   <applications>
     <application id="ad79943a-b771-42b0-9563-9e01f7ea2dbc" name="VisualStudio.Projects" solutionFolder="Developer Tooling" relativePath="Intent.Modules.VisualStudio.Projects\VisualStudio.Projects.application.config" />
     <application id="d0170c2a-3918-4877-bc3c-7ae70a4885e0" name="Intent.Modules.IdentityServer4.X509CertSigning" solutionFolder="Obsolete" relativePath="Intent.Modules.IdentityServer4.X509CertSigning\Intent.Modules.IdentityServer4.X509CertSigning.application.config" />
@@ -191,6 +191,8 @@
     <application id="863b4eb3-d4db-44d0-9fea-12bda69d4181" name="SqlDatabaseProject.Metadata" solutionFolder="Persistence" relativePath="Intent.Modules.SqlDatabaseProject.Metadata/Intent.Modules.SqlDatabaseProject.Metadata.application.config" />
     <application id="0cdff09c-343d-4e7a-a590-e81e9da7345f" name="Intent.Modules.Aws.Sqs" solutionFolder="Eventing Integration" relativePath="Intent.Modules.Aws.Sqs/Intent.Modules.Aws.Sqs.application.config" />
     <application id="95ba399f-5733-49fd-b2f3-5335a0630af6" name="Intent.Modules.Aws.SecretsManager" solutionFolder="Security" relativePath="Intent.Modules.Aws.SecretsManager/Intent.Modules.Aws.SecretsManager.application.config" />
+    <application id="b05c458b-71a3-47f2-b6eb-860f17d64775" name="Intent.Modules.Eventing.AzureQueueStorage" solutionFolder="Eventing Integration" relativePath="Intent.Modules.Eventing.AzureQueueStorage/Intent.Modules.Eventing.AzureQueueStorage.application.config" />
+    <application id="d78fb3f4-7ed2-4562-aa18-f09b10de3afa" name="Intent.Modules.AzureFunctions.AzureQueueStorage" solutionFolder="API Frameworks" relativePath="Intent.Modules.AzureFunctions.AzureQueueStorage/Intent.Modules.AzureFunctions.AzureQueueStorage.application.config" />
     <application id="6a0d6a5d-e77c-4d6c-afbe-9796731b00f2" name="Intent.Modules.Aws.Lambda.Functions.Sqs" solutionFolder="API Frameworks" relativePath="Intent.Modules.Aws.Lambda.Functions.Sqs/Intent.Modules.Aws.Lambda.Functions.Sqs.application.config" />
   </applications>
 </solution>

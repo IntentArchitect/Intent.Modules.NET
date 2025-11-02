@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ba04a154-bf68-41ff-b199-2609ca419a72" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>EventBusInterfaceExtension</name>
+  <display>EventBusInterfaceExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>f924ae65-9274-415c-a1c4-9682f8b463d1</parentFolderId>
+  <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+  <packageName>Intent.Eventing.AzureQueueStorage</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

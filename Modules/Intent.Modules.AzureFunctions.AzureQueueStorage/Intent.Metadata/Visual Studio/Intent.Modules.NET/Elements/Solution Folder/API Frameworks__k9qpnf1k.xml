@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d79784fa-d414-4c04-bf43-59369fe0b087" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>API Frameworks</name>
+  <display>API Frameworks</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>038b7eb1-a5ea-46ef-8e8c-ab8c30adb6cb</parentFolderId>
+  <packageId>038b7eb1-a5ea-46ef-8e8c-ab8c30adb6cb</packageId>
+  <packageName>Intent.Modules.NET</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
