@@ -54,7 +54,7 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageE
 
                         AddUsing("System.Linq");
                         ctor.AddObjectInitStatement("_lookup",
-                            new CSharpInvocationStatement("options.Value.PublishMap.Select")
+                            new CSharpInvocationStatement("options.Value.QueueTypeMap.Select")
                                 .AddLambdaBlock("t", lambda =>
                                 {
                                     lambda.AddIfStatement("!options.Value.Queues.TryGetValue(t.Value, out QueueDefinition? value)", @if =>

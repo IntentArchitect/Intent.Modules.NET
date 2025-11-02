@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="4edee340-8d35-481f-82c9-f1769a94b419" type="Module Documentation" typeId="a869a2c4-bf24-477c-9d19-87fb24d4209f">
+  <name>Documentation</name>
+  <display>Documentation</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>f924ae65-9274-415c-a1c4-9682f8b463d1</parentFolderId>
+  <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+  <packageName>Intent.Eventing.AzureQueueStorage</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="dd90a888-da5e-4f73-a0c2-79f4454f1233" type="Documentation Topic" typeId="5cc56ebc-6b61-41a6-a452-8efd9382da6f">
+      <name>Azure Queue Storage Documentation</name>
+      <display>Azure Queue Storage Documentation</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>4edee340-8d35-481f-82c9-f1769a94b419</parentFolderId>
+      <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+      <packageName>Intent.Eventing.AzureQueueStorage</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="83dfd8ae-5086-4e41-94c2-7110d5a49b4c" name="Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="2792ad9a-2afd-4350-bac6-bdcf4b701ff1" display="Description" value="Information and guidance for using the Intent.Eventing.AzureQueueStorage module." isActive="true" />
+            <property name="4fa553d3-1b96-4f63-bdb9-3237eca31f6b" display="Icon" value="{&quot;type&quot;:0,&quot;source&quot;:&quot;data:image/png;base64,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&quot;}" isActive="true" />
+            <property name="207e8583-2ba5-4ea3-84aa-2f65cd5915ca" display="Href" value="https://docs.intentarchitect.com/articles/modules-dotnet/intent-eventing-azureservicebus/intent-eventing-azurequeuestorage.html" isActive="true" />
+            <property name="21d13790-2910-475c-b58f-9d350f2e13c6" display="Designers" isActive="true" />
+            <property name="8642b1d1-93f9-4f5f-b5ae-ad5fc20d7a46" display="Elements" value="[]" isActive="true" />
+            <property name="f55a1f0c-40dd-48b4-b985-8360933e6a47" display="Tags" value="azure queue eventing storage queuestorage message command integration" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="29f7bc22-73bd-40c4-98fd-28578c227379" type="Documentation Topic" typeId="5cc56ebc-6b61-41a6-a452-8efd9382da6f">
+      <name>Configurating Azure Queue Storage</name>
+      <display>Configurating Azure Queue Storage</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>4edee340-8d35-481f-82c9-f1769a94b419</parentFolderId>
+      <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+      <packageName>Intent.Eventing.AzureQueueStorage</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="83dfd8ae-5086-4e41-94c2-7110d5a49b4c" name="Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="2792ad9a-2afd-4350-bac6-bdcf4b701ff1" display="Description" value="How to configure Azure Queue Storage  in your application." isActive="true" />
+            <property name="4fa553d3-1b96-4f63-bdb9-3237eca31f6b" display="Icon" value="{&quot;type&quot;:0,&quot;source&quot;:&quot;data:image/png;base64,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&quot;}" isActive="true" />
+            <property name="207e8583-2ba5-4ea3-84aa-2f65cd5915ca" display="Href" value="https://docs.intentarchitect.com/articles/modules-dotnet/intent-eventing-azureservicebus/intent-eventing-azurequeuestorage.html#configuring-azure-queue-storage" isActive="true" />
+            <property name="21d13790-2910-475c-b58f-9d350f2e13c6" display="Designers" isActive="true" />
+            <property name="8642b1d1-93f9-4f5f-b5ae-ad5fc20d7a46" display="Elements" value="[]" isActive="true" />
+            <property name="f55a1f0c-40dd-48b4-b985-8360933e6a47" display="Tags" value="azure queue eventing storage queuestorage message command integration configuration" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

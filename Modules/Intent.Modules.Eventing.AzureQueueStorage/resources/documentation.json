@@ -1,0 +1,37 @@
+{
+  "topics": [
+      {
+          "title": "Azure Queue Storage Documentation",
+          "description": "Information and guidance for using the Intent.Eventing.AzureQueueStorage module.",
+          "iconUrl": "data:image/png;base64,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",
+          "href": "https://docs.intentarchitect.com/articles/modules-dotnet/intent-eventing-azureservicebus/intent-eventing-azurequeuestorage.html",
+          "tags": [
+              "azure",
+              "queue",
+              "eventing",
+              "storage",
+              "queuestorage",
+              "message",
+              "command",
+              "integration"
+            ]
+        },
+      {
+          "title": "Configurating Azure Queue Storage",
+          "description": "How to configure Azure Queue Storage  in your application.",
+          "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAFrklEQVR4AeyZz4scRRTHX8+P3U02B1FQ4kH8A/wRL4asehBRz0EIouJRz54WvYkgQvSuf4LXgAjiURZPCopEjXgSXATRJLCbzezM5H1ru6urX29X99Sb2d3JvqVe16/3vvXq09XTTdIj+1MRMIAqfEQG0AAqCSjD7QQaQCUBZbidQAOoJKAMtxM4b4AfXPzzkc1L1580qzMAG8nbn8D3n73+0ObGH9+O+5NtyoY/mdUZgM3mxo1v3rv0y4MFSA9w3B+8w4MvsVmJEsheHtLKu4WLB0gZrRaD93mt317AqqdXO90KBlB5/w2gAVQSUIbbCTSASgLKcDuBBlBJQBluJ9AAKgkow/0JXDvbo5UzfbMODMCK8j8P8OLlR2njNbMuDMAq57cs/61ZpHvyan8CT15qy5GRAVTep5kBrq5nlGrD1Xq2GBuuESXZIXr9AdFgmG71DOMjvfh0dXa4ltGLbw+T7fnXeWdVSbrwyoCeeTXNnuZYIUePPdGnxy+kW78vFeP9mQCu8EmJy8VnV89mNYdspgyq4b1DYvv1e1QNaun1hvUcYyGHpBBztzlJwABKIjP2DeCMwKR7BeB0OqU2kwKz9qU+TVlBYYvWk/roc8a+lAAnfswabQQCViVADuIDyCeQGs2dFvbTlNoaLKY4gPVc563HycmceQlfPMAJqLKzgxSrfWhiQ2onyvgwqXcEfccqT8ADRF+SPqwPv07W4CQ1G9w6Dy9aT+qjHyZXAbjw04eVj+CEtO5DmwP2kVsJEI9wPthUYd2muVM1HrDyADGGV3TM3J1VkpL6Sjl+iYhPL06SR9Kv/IzKHGUfrIq8PUDiX0aO5YSa38KYLwJTa2iElqpTxIVaaDM53gDP4nFJNOjEDKx4BVdKgOh2WRB+GpNraLQQO2c9gGu9CVg3t+MHKAEsQz+Hh8oD5Ce4FTz2hiCNQWPZDawKBh6gG+iyM+eouMg1FFIudN56EJWasg+f3EqA/GrB8x+1PEhTSX2NFmJrenKzCX2pKfvErLA2rASIXpfF4KcxuYZGC7GL1pP66GPd3DxAQJXfO7LvvnHywNSqrslKSCrRpJ48LbP3+SuSg+q65ThYcdaueIDhsXQzdmkmEBAsARIRg3eHLFY3q3abkdrdopq9Fq0n9dEPs6kAPJbvmDCblHbio99pr03aQZ4eIL5tmvzD8SA2qRlqncg2J8Ulyhesis17gG6gLRLzzlFxgUZoCikXGmqh7QaVF+jELJAvAeKHMRbEc/weCkITm6wTvb3HPO9+49pyAKt8+yVAfg3HXt2YcxvPA1Mr6ISm/aeTUAttrR7eotCJGTGrYv8BQEJsqxWBqTXucGipOkVcqDWPNg5Jm06xNmoPMPxhxMRpNTy9bXsPWXmACGojj3n4aQwaoWm0EBtqoY0xlTFB6MQs1C8B4oeRg3GEoxZGp7S7rHGMPgAX3T9yA6t87yVADGAyZvDRmtQ/aXrIR+Yo+/DJzQMEVOkn+6M9jOSRiRUUFmosjlOUauN9fpny3lim8SCCFbu44gEeeHNYZOXdWxPavTWl3dtp9vv3I86uusbNfya0tzNNMsTKz4Z//xrTPt/orhb64YDs7zGeCIOD9Rw7dykBcrc1jvd+7bMduvZpmv349d2D9VmnWOuHr+7S1pd7SYbYQqeo/74xpl+3Rkn2G8cVOrGaUflSAmTwB6eQ53iD1o5wACueRikBci9G3ebKXx9G5YsH6KDayWNKzKaFg2PFbigeYDbN7rTE2VPNxMAIrLjpigc4He9/QdNsi+BhFjmJ2XdnBuufO3p88QDf/OSB/974eP25wYjOT/r0lFmdwWC0c54ZvXD5w+x/ZueKB+h6fLly9dz2Wx+d+9mszuDK1Ye3GVGl1ABWZq3TSsAAtiKKOxjAOJ/WWQPYiijusIwA4zs64lkDqARuAA2gkoAy/B4AAAD//7SZOuoAAAAGSURBVAMADO9PRrZU9CQAAAAASUVORK5CYII=",
+          "href": "https://docs.intentarchitect.com/articles/modules-dotnet/intent-eventing-azureservicebus/intent-eventing-azurequeuestorage.html#configuring-azure-queue-storage",
+          "tags": [
+              "azure",
+              "queue",
+              "eventing",
+              "storage",
+              "queuestorage",
+              "message",
+              "command",
+              "integration",
+              "configuration"
+            ]
+        }
+    ]
+}

@@ -78,6 +78,8 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageE
                         method.AddParameter(UseType("System.Text.Json.JsonSerializerOptions"), "serializerOptions");
                         method.AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken");
 
+                        AddUsing("Microsoft.Extensions.DependencyInjection");
+
                         method.AddObjectInitStatement("var messageObj", "((JsonElement)message.Payload).Deserialize<TMessage>(serializerOptions);");
                         method.AddObjectInitStatement("var handler", new CSharpInvocationStatement("serviceProvider.GetRequiredService<THandler>"));
                         method.AddInvocationStatement("await handler.HandleAsync", invoc => invoc.AddArgument("messageObj").AddArgument("cancellationToken"));

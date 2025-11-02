@@ -31,7 +31,7 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageO
                         prop.WithInitialValue("new Dictionary<string, QueueDefinition>()");
                     });
 
-                    @class.AddProperty($"{UseType("System.Collections.Generic.Dictionary")}<string, string>", "PublishMap", prop =>
+                    @class.AddProperty($"{UseType("System.Collections.Generic.Dictionary")}<string, string>", "QueueTypeMap", prop =>
                     {
                         prop.WithInitialValue("new Dictionary<string, string>()");
                     });

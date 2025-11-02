@@ -1,9 +1,13 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.Eventing.AzureQueueStorage.Api;
 using Intent.Modelers.Eventing.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modelers.Services.EventInteractions;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.DependencyInjection;
@@ -15,9 +19,6 @@ using Intent.Modules.Eventing.Contracts.Templates.IntegrationCommand;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using static Intent.Modules.Constants.TemplateRoles.Blazor.Client;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -46,6 +47,9 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageC
                 {
                     @class.Static();
 
+                    var subMessages = this.GetSubscribedMessages();
+                    var subCommands = this.GetSubscribedIntegrationCommands();
+
                     @class.AddMethod(UseType("Microsoft.Extensions.DependencyInjection.IServiceCollection"), "AddQueueStorageConfiguration", mth =>
                     {
                         mth.Static();
@@ -71,8 +75,7 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageC
 
                         mth.AddInvocationStatement($"services.Configure<{this.GetAzureQueueStorageSubscriptionOptionsName()}>", invoc =>
                         {
-                            var subMessages = this.GetSubscribedMessages();
-                            var subCommands = this.GetSubscribedIntegrationCommands();
+
 
                             if (subMessages.Count() + subCommands.Count() == 0)
                             {
@@ -102,53 +105,68 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageC
                             }
                         });
 
-                        if (GetSubscribedToMessageCount())
+                        if (this.GetSubscribedMessageCount() > 0 && ExecutionContext.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName) != null)
                         {
                             mth.AddStatement($"services.AddHostedService<{this.GetAzureQueueStorageConsumerBackgroundServiceName()}>();");
+                        }
+
+                        if (this.GetSubscribedMessageCount() > 0 && ExecutionContext.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName) == null)
+                        {
+                            mth.AddStatement($"services.AddSingleton<{this.GetAzureQueueStorageEventDispatcherInterfaceName()}, {this.GetAzureQueueStorageEventDispatcherName()}>();");
                         }
 
                         mth.AddReturn("services");
                     });
 
-                    @class.AddMethod("string", "GetQueueName", mth =>
+                    if (subMessages.Count() + subCommands.Count() > 0)
                     {
-                        mth.Static().Private();
-                        mth.AddGenericParameter("T")
-                            .AddParameter(UseType("Microsoft.Extensions.Configuration.IConfiguration"), "configuration");
+                        @class.AddMethod("string", "GetQueueName", mth =>
+                        {
+                            mth.Static().Private();
+                            mth.AddGenericParameter("T")
+                                .AddParameter(UseType("Microsoft.Extensions.Configuration.IConfiguration"), "configuration");
 
-                        mth.AddReturn("configuration[$\"QueueStorage:PublishMap:{typeof(T).FullName}\"] ?? throw new ArgumentNullException($\"No type -> queue mapping for '{typeof(T).FullName}'\")");
-                    });
+                            AddUsing("System");
+                            mth.AddReturn("configuration[$\"QueueStorage:QueueTypeMap:{typeof(T).FullName}\"] ?? throw new ArgumentNullException($\"No type -> queue mapping for '{typeof(T).FullName}'\")");
+                        });
+                    }
 
-                    @class.AddMethod("void", "RegisterQueueStorageConsumers", mth =>
+                    if (subMessages.Count() + subCommands.Count() > 0)
                     {
-                        mth.Static().Private();
-                        mth.AddParameter(UseType("Microsoft.Extensions.DependencyInjection.IServiceCollection"), "services", @param => param.WithThisModifier())
-                            .AddParameter(UseType("Microsoft.Extensions.Configuration.IConfiguration"), "configuration")
-                            .AddParameter("string", "queueName");
-
-                        AddTemplateDependency(AzureQueueStorageOptionsTemplate.TemplateId);
-                        mth.AddObjectInitStatement("var queue", "new QueueDefinition();");
-                        mth.AddInvocationStatement("configuration.GetSection", invoc =>
+                        @class.AddMethod("void", "RegisterQueueStorageConsumers", mth =>
                         {
-                            invoc.AddArgument("$\"QueueStorage:Queues:{queueName}\"");
-                            invoc.AddInvocation("Bind", bindInvoc => bindInvoc.AddArgument("queue"));
+                            mth.Static().Private();
+                            mth.AddParameter(UseType("Microsoft.Extensions.DependencyInjection.IServiceCollection"), "services", @param => param.WithThisModifier())
+                                .AddParameter(UseType("Microsoft.Extensions.Configuration.IConfiguration"), "configuration")
+                                .AddParameter("string", "queueName");
+
+                            AddTemplateDependency(AzureQueueStorageOptionsTemplate.TemplateId);
+                            mth.AddObjectInitStatement("var queue", "new QueueDefinition();");
+                            mth.AddInvocationStatement("configuration.GetSection", invoc =>
+                            {
+                                invoc.AddArgument("$\"QueueStorage:Queues:{queueName}\"");
+                                invoc.AddInvocation("Bind", bindInvoc => bindInvoc.AddArgument("queue"));
+                            });
+
+                            mth.AddInvocationStatement("ArgumentNullException.ThrowIfNull", invoc => invoc.AddArgument("queue"));
+
+                            mth.AddObjectInitStatement("queue.QueueName", "queueName;");
+                            mth.AddObjectInitStatement("queue.Endpoint", "string.IsNullOrWhiteSpace(queue.Endpoint) ? configuration[\"QueueStorage:DefaultEndpoint\"] : queue.Endpoint;");
+
+                            if (ExecutionContext.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName) != null)
+                            {
+                                mth.AddInvocationStatement($"services.AddTransient<{this.GetAzureQueueStorageConsumerInterfaceName()}>", invoc =>
+                                {
+                                    AddUsing("Microsoft.Extensions.DependencyInjection");
+
+                                    var ciInvoc = new CSharpInvocationStatement($"ActivatorUtilities.CreateInstance<{this.GetAzureQueueStorageConsumerName()}>")
+                                        .AddArgument("sp").AddArgument("queue").WithoutSemicolon();
+
+                                    invoc.AddArgument(new CSharpLambdaBlock("sp").WithExpressionBody(ciInvoc));
+                                });
+                            }
                         });
-
-                        mth.AddInvocationStatement("ArgumentNullException.ThrowIfNull", invoc => invoc.AddArgument("queue"));
-
-                        mth.AddObjectInitStatement("queue.QueueName", "queueName;");
-                        mth.AddObjectInitStatement("queue.Endpoint", "string.IsNullOrWhiteSpace(queue.Endpoint) ? configuration[\"QueueStorage:DefaultEndpoint\"] : queue.Endpoint;");
-
-                        mth.AddInvocationStatement($"services.AddTransient<{this.GetAzureQueueStorageConsumerInterfaceName()}>", invoc =>
-                        {
-                            AddUsing("Microsoft.Extensions.DependencyInjection");
-
-                            var ciInvoc = new CSharpInvocationStatement($"ActivatorUtilities.CreateInstance<{this.GetAzureQueueStorageConsumerName()}>")
-                                .AddArgument("sp").AddArgument("queue").WithoutSemicolon();
-
-                            invoc.AddArgument(new CSharpLambdaBlock("sp").WithExpressionBody(ciInvoc));
-                        });
-                    });
+                    }
                 });
         }
 
@@ -191,35 +209,36 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageC
                     QueueName: HelperExtensions.GetMessageQueue(model)))
                 .OrderBy(x => x.FullyQualifiedTypeName);
 
+            var subscribedMessages = this.GetSubscribedMessages()
+                .Select(model => (
+                    FullyQualifiedTypeName: GetFullyQualifiedTypeName(IntegrationEventMessageTemplate.TemplateId, model),
+                    QueueName: HelperExtensions.GetMessageQueue(model)))
+                .OrderBy(x => x.FullyQualifiedTypeName);
+
             var sentCommands = this.GetSentIntegrationCommands()
                 .Select(model => (
                     FullyQualifiedTypeName: GetFullyQualifiedTypeName(IntegrationCommandTemplate.TemplateId, model),
                     QueueName: HelperExtensions.GetIntegrationCommandQueue(model)))
                 .OrderBy(x => x.FullyQualifiedTypeName);
 
-            ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("QueueStorage:PublishMap",
+            var subscribedCommands = this.GetSubscribedIntegrationCommands()
+                .Select(model => (
+                    FullyQualifiedTypeName: GetFullyQualifiedTypeName(IntegrationCommandTemplate.TemplateId, model),
+                    QueueName: HelperExtensions.GetIntegrationCommandQueue(model)))
+                .OrderBy(x => x.FullyQualifiedTypeName);
+
+            ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("QueueStorage:QueueTypeMap",
                new
                {
                }));
 
-            foreach (var (fullyQualifiedTypeName, queueName) in publishedMessages.Union(sentCommands).DistinctBy(d => d.FullyQualifiedTypeName))
+            var allMessages = publishedMessages.Union(sentCommands).Union(subscribedMessages).Union(subscribedCommands).DistinctBy(d => d.FullyQualifiedTypeName);
+
+            foreach (var (fullyQualifiedTypeName, queueName) in allMessages)
             {
-                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest($"QueueStorage:PublishMap:{fullyQualifiedTypeName}", queueName));
+                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest($"QueueStorage:QueueTypeMap:{fullyQualifiedTypeName}", queueName));
             }
         }
-
-        private bool GetSubscribedToMessageCount()
-        {
-            return (ExecutionContext.MetadataManager
-                        .GetExplicitlySubscribedToMessageModels(OutputTarget.Application).Count +
-                    ExecutionContext.MetadataManager
-                        .Eventing(ExecutionContext.GetApplicationConfig().Id).GetApplicationModels()
-                        .SelectMany(x => x.SubscribedMessages())
-                        .Select(x => x.TypeReference.Element.AsMessageModel()).Count() +
-                    ExecutionContext.MetadataManager
-                        .GetExplicitlySubscribedToIntegrationCommandModels(OutputTarget.Application).Count) > 0;
-        }
-
         private Lazy<IReadOnlyCollection<MessageModel>> GetAllMessages()
         {
             return new Lazy<IReadOnlyCollection<MessageModel>>(() =>

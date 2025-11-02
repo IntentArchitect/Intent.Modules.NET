@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e0383871-d928-4234-ad42-c50cd97dd03c" type="NuGet Packages" typeId="4c75c84d-c745-4f0f-b1f4-82eeca01dfc7">
+  <name>NuGet Packages</name>
+  <display>NuGet Packages</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>02ce5521-0b0c-4796-918d-4638bdcc8062</parentFolderId>
+  <packageId>02ce5521-0b0c-4796-918d-4638bdcc8062</packageId>
+  <packageName>Intent.AzureFunctions.AzureQueueStorage</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

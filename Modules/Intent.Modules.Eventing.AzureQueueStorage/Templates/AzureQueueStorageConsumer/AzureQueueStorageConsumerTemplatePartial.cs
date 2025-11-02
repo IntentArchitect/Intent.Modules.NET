@@ -7,6 +7,7 @@ using Intent.Engine;
 using Intent.Modelers.Eventing.Api;
 using Intent.Modelers.Services.EventInteractions;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -203,7 +204,9 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageC
 
         public override bool CanRunTemplate()
         {
-            return base.CanRunTemplate() && this.GetSubscribedMessageCount() > 0;
+            var appStartup = ExecutionContext.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
+
+            return base.CanRunTemplate() && this.GetSubscribedMessageCount() > 0 && appStartup != null;
         }
 
         [IntentManaged(Mode.Fully)]

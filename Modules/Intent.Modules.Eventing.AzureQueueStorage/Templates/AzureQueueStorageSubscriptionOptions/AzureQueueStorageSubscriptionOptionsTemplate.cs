@@ -35,7 +35,7 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageS
                             }
                         }
 
-                        public delegate Task DispatchHandler(IServiceProvider serviceProvider, {{this.GetAzureQueueStorageEnvelopeName()}} message, {{UseType("System.Text.Json.JsonSerializerOptions")}} serializationOptions, {{UseType("System.Threading.CancellationToken")}} cancellationToken);
+                        public delegate {{UseType("System.Threading.Tasks.Task")}} DispatchHandler(IServiceProvider serviceProvider, {{this.GetAzureQueueStorageEnvelopeName()}} message, {{UseType("System.Text.Json.JsonSerializerOptions")}} serializationOptions, {{UseType("System.Threading.CancellationToken")}} cancellationToken);
 
                         public record SubscriptionEntry(Type MessageType, DispatchHandler HandlerAsync, string QueueName);
                      }
