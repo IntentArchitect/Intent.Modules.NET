@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Eventing.Api;
 using Intent.Modelers.Services.Api;
@@ -18,9 +21,6 @@ using Intent.Modules.Eventing.AzureQueueStorage.Templates;
 using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using static System.Net.Mime.MediaTypeNames;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
