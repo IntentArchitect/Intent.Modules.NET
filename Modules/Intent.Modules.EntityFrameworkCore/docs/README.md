@@ -191,6 +191,19 @@ When using an implicit many-to-many relationship, you can still customize the ge
 
 > For more information on configuring the join table using the `Join Table` stereotype, refer to the [Intent.Metadata.RDBMS module documentation](https://docs.intentarchitect.com/articles/modules-common/intent-metadata-rdbms/intent-metadata-rdbms.html#create-join-table-constraint).
 
+### Self-Referencing Relationships
+
+When modeling parent-child hierarchies, you may need to create a self-referencing association where an entity has a relationship to itself. This is common for organizational structures, category hierarchies, file systems, and similar scenarios.
+
+![Self reference association](images/many-to-one-self-reference.png)
+
+When creating a self-referencing relationship in Intent Architect, it is important to use an **Aggregational relationship** (indicated by a white diamond) rather than a Compositional relationship (black diamond). 
+
+- **Many-to-One self-reference**: Create a `New Association → Many to One` relationship from the entity to itself.
+- **Optional self-reference**: Create a `New Association → Many to Zero-or-One` relationship if the relationship is optional.
+
+
+
 ### Modeling Inheritance
 
 In Entity Framework Core there are 3 ways to model inheritance, namely:

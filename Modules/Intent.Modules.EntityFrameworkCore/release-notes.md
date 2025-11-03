@@ -2,6 +2,7 @@
 
 - Improvement: Added support for singular DBSet names
 - Improvement: Updated NuGet package versions.
+- Improvement: Doc on self-referencing.
 
 ### Version 5.0.31
 
