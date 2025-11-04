@@ -1,3 +1,7 @@
+### Version 1.1.8
+
+- Internal Improvement: Preparing for future support for result pattern in mapping system.
+
 ### Version 1.1.7
 
 - Improvement: Checking for installed mappers are more flexible.

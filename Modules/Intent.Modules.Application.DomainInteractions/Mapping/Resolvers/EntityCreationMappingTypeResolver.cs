@@ -1,4 +1,6 @@
-﻿using Intent.Metadata.Models;
+﻿using System;
+using System.Linq;
+using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
@@ -39,7 +41,7 @@ public class EntityCreationMappingTypeResolver : IMappingTypeResolver
             return mapping;
         }
 
-        if (model.AsOperationModel()?.IsStatic == true && model.TypeReference.ElementId == ((IElement)model).ParentId)
+        if (IsStaticConstructor(model))
         {
             return new StaticMethodInvocationMapping(mappingModel, _sourceTemplate);
         }
@@ -60,5 +62,26 @@ public class EntityCreationMappingTypeResolver : IMappingTypeResolver
         }
 
         return next?.Invoke(mappingModel);
+    }
+
+    private static bool IsStaticConstructor(ICanBeReferencedType model)
+    {
+        if (model.AsOperationModel()?.IsStatic != true)
+        {
+            return false;
+        }
+
+        var entityId = ((IElement)model).ParentId;
+        var operationReturnTypeRef = model.TypeReference;
+
+        // Check for generics
+        var genericParams = operationReturnTypeRef.GenericTypeParameters.ToList();
+        if (genericParams.Count == 1 && genericParams[0].ElementId == entityId)
+        {
+            // return true if we want to support this result-pattern scenario in the future
+            throw new NotSupportedException("Wrapping the entity in a generic type is not supported for static constructor creation mappings.");
+        }
+
+        return operationReturnTypeRef?.ElementId == entityId;
     }
 }
