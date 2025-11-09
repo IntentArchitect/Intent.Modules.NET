@@ -1,4 +1,8 @@
-﻿### Version 7.1.1
+﻿### Version 7.1.2
+
+- Improvement: Migrated from Decorators to Factory Extensions to enhance the Command and Query handlers for CRUD implementations.
+
+### Version 7.1.1
 
 - Fixed: Incompatibility with earlier versions of the `Intent.Application.DomainInteractions` module.
 

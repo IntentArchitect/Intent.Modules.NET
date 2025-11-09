@@ -12,7 +12,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
 
 internal static class StrategyFactory
 {
-    public static ICrudImplementationStrategy GetMatchedCommandStrategy(CSharpTemplateBase<CommandModel> template)
+    public static ICrudImplementationStrategy? GetMatchedCommandStrategy(CSharpTemplateBase<CommandModel> template)
     {
         var strategies = new ICrudImplementationStrategy[]
         {
@@ -38,7 +38,7 @@ internal static class StrategyFactory
         return null;
     }
 
-    public static ICrudImplementationStrategy GetMatchedQueryStrategy(CSharpTemplateBase<QueryModel> template, IApplication application)
+    public static ICrudImplementationStrategy? GetMatchedQueryStrategy(CSharpTemplateBase<QueryModel> template, IApplication application)
     {
         var strategies = new ICrudImplementationStrategy[]
         {
