@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="36d9fd68-415f-45f9-aca2-b3c076f6cc25" type="Data Contract" typeId="4464fabe-c59e-4d90-81fc-c9245bdd1afd">
+  <name>UdttDataEntityModel</name>
+  <display>UdttDataEntityModel</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</parentFolderId>
+  <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+  <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="6249ceab-e126-4b6d-9cdd-3d3768b8ff8a" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>DataEntityID</name>
+      <display>DataEntityID: long</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="1a60ade4-c9e7-4051-a555-bd6fca22087b">
+        <typeId>33013006-E404-48C2-AC46-24EF5A5774FD</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>36d9fd68-415f-45f9-aca2-b3c076f6cc25</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

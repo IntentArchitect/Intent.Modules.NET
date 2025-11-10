@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6ed1a8e4-652f-4d12-8c17-2b30eabd054c" type="Repository" typeId="96ffceb2-a70a-4b69-869b-0df436c470c3">
+  <name>BespokeRepository</name>
+  <display>BespokeRepository</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>manually</sort-children>
+  <genericTypes />
+  <typeReference id="65bce3d9-479c-48eb-8001-68a6945b197e">
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</parentFolderId>
+  <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+  <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="546db09a-d4b9-4ae6-b05f-a38fa56cf986" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>SpUpdateDataEntries</name>
+      <display>SpUpdateDataEntries(supplierID: int?, dataEntity: UdttDataEntityModel[*]?, userID: int?): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="a333ae48-6812-46a3-800c-28e263a24b2a">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>6ed1a8e4-652f-4d12-8c17-2b30eabd054c</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="f40ff84c-68ad-405f-bda0-1237dd15fc92" name="Stored Procedure">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Modules.Modelers.Domain.StoredProcedures</definitionPackageName>
+          <definitionPackageId>e3eb7873-c66f-4636-a7c8-8cb1f7b34d71</definitionPackageId>
+          <properties>
+            <property name="4e2a3f58-6b6e-43c5-9398-f9c3fde593f6" display="Name in Schema" value="spCacheSupplierPrice" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="cbee6ce7-d3c0-447d-90ae-16cbb78f30e9" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>supplierID</name>
+          <display>in : supplierID: int?</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="45d9e53a-b529-4ba8-9ef2-d0252b084212">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>true</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>546db09a-d4b9-4ae6-b05f-a38fa56cf986</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="6ac91fd5-206c-49da-b4a2-b6ea2cad11f7" name="Stored Procedure Parameter Settings">
+              <addedByDefault>false</addedByDefault>
+              <definitionPackageName>Intent.Modules.Modelers.Domain.StoredProcedures</definitionPackageName>
+              <definitionPackageId>e3eb7873-c66f-4636-a7c8-8cb1f7b34d71</definitionPackageId>
+              <properties>
+                <property name="714a95a6-c3ef-4117-a66c-24876c675cd5" display="Name" value="@SupplierID" isActive="true" />
+                <property name="39491728-8327-4b94-b9a2-9851dd4b4a01" display="Direction" value="In" isActive="true" />
+                <property name="8ba486d3-853c-42b8-acfb-bafb1e2cdb6e" display="SQL String Type" isActive="false" />
+                <property name="a2df34af-2fb9-49e3-ab6e-caff7a27bf99" display="Size" isActive="false" />
+                <property name="ed35ae5c-a708-457d-a22a-145b3b2f1148" display="Precision" isActive="false" />
+                <property name="38d3c607-ac3b-41ea-86b2-b43fa81e101c" display="Scale" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="36fe2de5-7a7c-4117-a1fe-3a4e31e28986" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>dataEntity</name>
+          <display>in : dataEntity: UdttDataEntityModel[*]?</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="ca9c26ea-75a9-436d-ab0a-ddc191eb5aa7">
+            <typeId>36d9fd68-415f-45f9-aca2-b3c076f6cc25</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>true</isNullable>
+            <isCollection>true</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+            <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>546db09a-d4b9-4ae6-b05f-a38fa56cf986</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="6ac91fd5-206c-49da-b4a2-b6ea2cad11f7" name="Stored Procedure Parameter Settings">
+              <addedByDefault>false</addedByDefault>
+              <definitionPackageName>Intent.Modules.Modelers.Domain.StoredProcedures</definitionPackageName>
+              <definitionPackageId>e3eb7873-c66f-4636-a7c8-8cb1f7b34d71</definitionPackageId>
+              <properties>
+                <property name="714a95a6-c3ef-4117-a66c-24876c675cd5" display="Name" value="@DataEntity" isActive="true" />
+                <property name="39491728-8327-4b94-b9a2-9851dd4b4a01" display="Direction" value="In" isActive="true" />
+                <property name="8ba486d3-853c-42b8-acfb-bafb1e2cdb6e" display="SQL String Type" isActive="false" />
+                <property name="a2df34af-2fb9-49e3-ab6e-caff7a27bf99" display="Size" isActive="false" />
+                <property name="ed35ae5c-a708-457d-a22a-145b3b2f1148" display="Precision" isActive="false" />
+                <property name="38d3c607-ac3b-41ea-86b2-b43fa81e101c" display="Scale" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="2da9e983-538c-41ce-a1c0-64fc34f04bd2" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>userID</name>
+          <display>in : userID: int?</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="c19b6118-e0cf-4ab0-841c-f22e330a8b7d">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>true</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>546db09a-d4b9-4ae6-b05f-a38fa56cf986</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="6ac91fd5-206c-49da-b4a2-b6ea2cad11f7" name="Stored Procedure Parameter Settings">
+              <addedByDefault>false</addedByDefault>
+              <definitionPackageName>Intent.Modules.Modelers.Domain.StoredProcedures</definitionPackageName>
+              <definitionPackageId>e3eb7873-c66f-4636-a7c8-8cb1f7b34d71</definitionPackageId>
+              <properties>
+                <property name="714a95a6-c3ef-4117-a66c-24876c675cd5" display="Name" value="@UserID" isActive="true" />
+                <property name="39491728-8327-4b94-b9a2-9851dd4b4a01" display="Direction" value="In" isActive="true" />
+                <property name="8ba486d3-853c-42b8-acfb-bafb1e2cdb6e" display="SQL String Type" isActive="false" />
+                <property name="a2df34af-2fb9-49e3-ab6e-caff7a27bf99" display="Size" isActive="false" />
+                <property name="ed35ae5c-a708-457d-a22a-145b3b2f1148" display="Precision" isActive="false" />
+                <property name="38d3c607-ac3b-41ea-86b2-b43fa81e101c" display="Scale" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

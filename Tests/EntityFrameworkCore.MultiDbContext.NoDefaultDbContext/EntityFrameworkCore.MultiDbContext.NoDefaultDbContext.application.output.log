@@ -1027,6 +1027,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>3fb0d576-4f71-4a57-9445-2fd9be9234d4</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.DataContractExtensionMethods#d0ebbd80-27c5-4b47-92fd-a530e61b8c6a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Infrastructure/Repositories/ExtensionMethods/ProductExtensionMethods.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProductExtensionMethods.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3fb0d576-4f71-4a57-9445-2fd9be9234d4</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.DataContractExtensionMethods#0bcb89da-5aac-47ef-9f0e-8e4bf983789e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Infrastructure/Repositories/ExtensionMethods/ProductInMemoryExtensionMethods.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProductInMemoryExtensionMethods.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>26ca10a3-119a-4001-bc86-23093e30d1cd</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.Repositories.RepositoryBase#52816faa-ec1b-4876-9d7e-d2293c629785</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

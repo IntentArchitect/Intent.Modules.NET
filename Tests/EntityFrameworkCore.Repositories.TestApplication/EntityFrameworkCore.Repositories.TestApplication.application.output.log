@@ -1099,6 +1099,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>d4f5bdd7-e97d-4495-8a9e-159a181af582</ProjectId>
+      <CorrelationId>Intent.Entities.DataContract#36d9fd68-415f-45f9-aca2-b3c076f6cc25</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain/Contracts/UdttDataEntityModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UdttDataEntityModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>7da345b1-0a5f-4ef4-8c6c-b34852ba3e3e</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#d1e93e93-a0fc-41bd-9509-2bcbbc534fc9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -1440,6 +1448,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain/Repositories/IAsyncRepositoryTestRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IAsyncRepositoryTestRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a78255f8-a7d1-49f7-a1bb-ab1ff20e7bb8</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.CustomRepositoryInterface#6ed1a8e4-652f-4d12-8c17-2b30eabd054c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain/Repositories/IBespokeRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IBespokeRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1972,6 +1988,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>7d4af5f9-2a30-4530-b610-3928716ca2a4</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.CustomRepository#6ed1a8e4-652f-4d12-8c17-2b30eabd054c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Repositories/BespokeRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BespokeRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7d4af5f9-2a30-4530-b610-3928716ca2a4</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#24505add-1596-426a-af05-9618eac22d67</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Repositories/CustomPkName/CustomPkCompRepository.cs</ApplicationRelativeFilePath>
@@ -2012,6 +2036,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>e36f0b6b-6494-45ea-b053-1fbe3801155b</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.DataContractExtensionMethods#c47f5017-635c-4ac9-ac1b-3a8d5eeb79f2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Repositories/ExtensionMethods/MappableStoredProcs/MappedSpCollectionPassthroughResultExtensionMethods.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/MappedSpCollectionPassthroughResultExtensionMethods.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e36f0b6b-6494-45ea-b053-1fbe3801155b</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.DataContractExtensionMethods#dc5425b9-511f-4b4f-bb3e-4eeb7a7e3df9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Repositories/ExtensionMethods/MappableStoredProcs/MappedSpResultItemExtensionMethods.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/MappedSpResultItemExtensionMethods.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e36f0b6b-6494-45ea-b053-1fbe3801155b</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.DataContractExtensionMethods#961240b3-a1a6-4983-9ae5-e9f38925ba3a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Repositories/ExtensionMethods/SpOpResultExtensionMethods.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SpOpResultExtensionMethods.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e36f0b6b-6494-45ea-b053-1fbe3801155b</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.Repositories.DataContractExtensionMethods#bb0e978c-48ce-41eb-a41f-a9ea73ec2d05</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Repositories/ExtensionMethods/SpParameterExtensionMethods.cs</ApplicationRelativeFilePath>
@@ -2024,6 +2072,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Repositories/ExtensionMethods/SpParameterWithNameExtensionMethods.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SpParameterWithNameExtensionMethods.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e36f0b6b-6494-45ea-b053-1fbe3801155b</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.DataContractExtensionMethods#ac220ea1-4718-4f07-986f-bc72141bb099</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Repositories/ExtensionMethods/SpResultExtensionMethods.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SpResultExtensionMethods.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e36f0b6b-6494-45ea-b053-1fbe3801155b</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.DataContractExtensionMethods#36d9fd68-415f-45f9-aca2-b3c076f6cc25</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Repositories/ExtensionMethods/UdttDataEntityModelExtensionMethods.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UdttDataEntityModelExtensionMethods.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
