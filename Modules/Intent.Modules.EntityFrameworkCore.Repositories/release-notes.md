@@ -1,3 +1,7 @@
+### Version 4.7.17
+
+- Fixed: Handling stored procedure operations which have UDTs.
+
 ### Version 4.7.16
 
 - Fixed: A software factory exception would occur when references were used in the Visual Studio designer.

@@ -36,12 +36,19 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.DataContract
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<DataContractModel> GetModels(IApplication application)
         {
-            return _metadataManager.Domain(application).GetRepositoryModels()
+            var spModels = _metadataManager.Domain(application).GetRepositoryModels()
                 .SelectMany(repository => repository.GetStoredProcedureModels())
-                .SelectMany(storedProcedure => storedProcedure.StoredProcedureModel.Parameters
-                    .Where(parameter => parameter.TypeReference.Element.IsDataContractModel())
-                    .Select(parameter => parameter.TypeReference.Element.AsDataContractModel()))
-                .Distinct();
+                .ToArray();
+            var dcModels = spModels
+                .SelectMany(storedProcedure => storedProcedure.Parameters
+                    .Where(parameter => parameter.ParameterType?.Element.IsDataContractModel() == true)
+                    .Select(parameter => parameter.ParameterType.Element.AsDataContractModel()))
+                .Concat(spModels
+                    .Where(m => m.ReturnType?.Element.IsDataContractModel() == true)
+                    .Select(m => m.ReturnType.Element.AsDataContractModel()))
+                .Distinct()
+                .ToList();
+            return dcModels;
         }
     }
 }
