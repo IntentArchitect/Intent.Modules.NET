@@ -40,7 +40,7 @@ namespace Intent.Modules.MongoDb.Templates.MongoConfigurationExtensions
                     {
                         addMongoCollection.Static();
                         addMongoCollection.AddParameter("IServiceCollection", "services", p => p.WithThisModifier());
-                        addMongoCollection.AddParameter("IMongoMappingConfiguration<T>", "mongoConfiguration");
+                        addMongoCollection.AddParameter($"{this.GetMongoMappingConfigurationInterfaceName()}<T>", "mongoConfiguration");
 
                         addMongoCollection.AddStatement("mongoConfiguration.RegisterCollectionMap();");
 

@@ -1,3 +1,7 @@
+### Version 5.0.19
+
+- Fixed: Introducing ConfigureAppConfiguration will ensure the AddEnvironmentVariables is still invoked.
+
 ### Version 5.0.18
 
 - Improvement: Updated NuGet package versions.
