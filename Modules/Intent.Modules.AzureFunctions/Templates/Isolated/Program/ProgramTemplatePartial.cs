@@ -209,6 +209,30 @@ namespace Intent.Modules.AzureFunctions.Templates.Isolated.Program
             OutputTarget.GetProject().AddFrameworkDependency("Microsoft.AspNetCore.App");
         }
 
+        public IProgramFile ConfigureAppConfiguration(
+            bool requiresContext,
+            IProgramFile.HostBuilderChainStatementConfiguration configure = null,
+            int priority = 0)
+        {
+            string[] parameters;
+            if (!requiresContext)
+                parameters = new string[1] { "config" };
+            else
+                parameters = new string[2] { "context", "config" };
+            // For Azure Functions, it is important to add environment variables first
+            // so that the original local.settings.json and application settings from Azure Portal
+            // can be overridden by other configuration sources added later (e.g. Key Vault).
+            return this.ConfigureHostBuilderChainStatement(
+                methodName: nameof(ConfigureAppConfiguration),
+                parameters: parameters,
+                configure: (block, @params) =>
+                {
+                    block.AddStatement("config.AddEnvironmentVariables();");
+                    configure?.Invoke(block, @params);
+                },
+                priority: priority);
+        }
+
         private bool IsApplicable(
             IEnumerable<ITemplateDependency> templateDependencies,
             [NotNullWhen(true)] out List<(ITemplateDependency Dependency, IClassProvider ClassProvider)>? resolvedDependencies)

@@ -16,6 +16,7 @@ using Microsoft.Extensions.Logging;
 var host = new HostBuilder()
     .ConfigureAppConfiguration((context, config) =>
     {
+        config.AddEnvironmentVariables();
         var built = config.Build();
 
         if (built.GetValue<bool?>("KeyVault:Enabled") == true)
