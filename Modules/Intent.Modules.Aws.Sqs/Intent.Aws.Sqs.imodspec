@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Aws.Sqs</id>
-  <version>1.0.0</version>
+  <version>1.0.1-pre.0</version>
   <supportedClientVersions>[4.5.15-a,5.0.0)</supportedClientVersions>
   <summary>Provides AWS SQS eventing infrastructure for publishing and consuming messages.</summary>
   <description>Core module for AWS SQS integration. Provides IEventBus implementation, message dispatcher, and configuration for SQS-based eventing patterns. Lambda function generation is handled by the companion Intent.AwsLambda.Sqs module.</description>
@@ -93,6 +93,7 @@
     <file src="$outDir$/$id$.pdb" />
   </files>
   <tags>aws sqs queue event messaging</tags>
+  <projectUrl>https://docs.intentarchitect.com/articles/modules-dotnet/intent-aws-sqs/intent-aws-sqs.html</projectUrl>
   <moduleSettingsExtensions />
   <metadata>
     <install target="Services" src="Intent.Metadata/Module Builder/Intent.Aws.Sqs/Intent.Aws.Sqs.pkg.config" externalReference="259088af-8612-4dd5-9bd7-b673553c3a6c" />

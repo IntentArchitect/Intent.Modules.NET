@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.AzureQueueStorage</id>
-  <version>1.0.0-beta.1</version>
+  <version>1.0.0-beta.2</version>
   <supportedClientVersions>[4.4.0-a,5.0.0)</supportedClientVersions>
   <summary>Provides patterns for using Azure Queue Storage, which can be modeled in Intent Architect's designers.</summary>
   <description>Provides patterns for using Azure Queue Storage, which can be modeled in Intent Architect's designers.</description>
@@ -130,6 +130,7 @@
     <file src="$outDir$/$id$.pdb" />
   </files>
   <tags>azure queue storage bus eventing topic queue</tags>
+  <projectUrl>https://docs.intentarchitect.com/articles/modules-dotnet/intent-eventing-azurequeuestorage/intent-eventing-azurequeuestorage.html</projectUrl>
   <releaseNotes>release-notes.md</releaseNotes>
   <moduleSettingsExtensions />
   <metadata>

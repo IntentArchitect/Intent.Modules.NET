@@ -1,3 +1,7 @@
+### Version 3.6.1
+
+- Improvement: Updated module documentation to use centralized documentation site.
+
 ### Version 3.6.0
 
 - Improvement: Select whether to lock the version of the MediatR Nuget package to the one prior to the commercial version or proceed to use the commercial version accepting its license. Read the article [here](https://www.jimmybogard.com/automapper-and-mediatr-commercial-editions-launch-today/).

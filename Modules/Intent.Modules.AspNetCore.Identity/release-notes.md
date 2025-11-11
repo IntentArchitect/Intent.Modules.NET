@@ -1,3 +1,7 @@
+### Version 4.2.7
+
+- Improvement: Updated module documentation to use centralized documentation site.
+
 ### Version 4.2.6
 
 - Improvement: Updated NuGet package versions.

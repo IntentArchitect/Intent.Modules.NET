@@ -1,3 +1,7 @@
+### Version 1.0.3
+
+- Improvement: Updated module documentation to use centralized documentation site.
+
 ### Version 1.0.2
 
 - Updated: Module icon

@@ -1,3 +1,7 @@
+### Version 1.2.1
+
+- Improvement: Updated module documentation to use centralized documentation site.
+
 ﻿### Version 1.2.0
 
 - Improvement: Moved this pattern over to a `SoftDeleteInterceptor` for better separation and a cleaner implementation.

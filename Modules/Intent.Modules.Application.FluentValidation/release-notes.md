@@ -1,3 +1,7 @@
+### Version 3.11.4
+
+- Improvement: Updated module documentation to use centralized documentation site.
+
 ### Version 3.11.3
 
 - Improvement: Updated interop modules.

@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.IdentityService</id>
-  <version>1.0.8</version>
+  <version>1.0.9-pre.0</version>
   <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
   <summary>Provides the ability to add ASP.NET Core Identity Services to your application.</summary>
   <description>Provides the ability to add ASP.NET Core Identity Services to your application.</description>
@@ -118,6 +118,7 @@
     <file src="$outDir$/$id$.pdb" />
   </files>
   <tags>csharp dotnet aspnet identityservice identity entityframework services</tags>
+  <projectUrl>https://docs.intentarchitect.com/articles/modules-dotnet/intent-aspnetcore-identityservice/intent-aspnetcore-identityservice.html</projectUrl>
   <releaseNotes>release-notes.md</releaseNotes>
   <moduleSettingsExtensions />
   <metadata>

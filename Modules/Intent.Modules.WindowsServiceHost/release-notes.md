@@ -1,3 +1,7 @@
+### Version 1.0.14
+
+- Improvement: Updated module documentation to use centralized documentation site.
+
 ### Version 1.0.13
 
 - Improvement: Updated NuGet package versions.

@@ -1,3 +1,7 @@
+### Version 5.2.1
+
+- Improvement: Updated module documentation to use centralized documentation site.
+
 ### Version 5.2.0
 
 - Improvement: Updated NuGet package versions.

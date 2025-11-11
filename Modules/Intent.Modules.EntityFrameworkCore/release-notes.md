@@ -1,3 +1,7 @@
+### Version 5.0.33
+
+- Improvement: Updated module documentation to use centralized documentation site.
+
 ### Version 5.0.32
 
 - Improvement: Added support for singular DBSet names

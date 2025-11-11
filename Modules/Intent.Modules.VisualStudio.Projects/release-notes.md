@@ -1,3 +1,7 @@
+### Version 3.9.7
+
+- Improvement: Updated module documentation to use centralized documentation site.
+
 ### Version 3.9.6
 
 - Fixed: Adding `appsettings.json` for a standard C# Class project will make sure that it will output to target output folder during compilation.

@@ -1,3 +1,7 @@
+### Version 1.0.17
+
+- Improvement: Updated module documentation to use centralized documentation site.
+
 ### Version 1.0.16
 
 - Improvement: Updated topic documentation format.

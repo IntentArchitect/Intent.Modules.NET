@@ -1,3 +1,7 @@
+### Version 7.1.7
+
+- Improvement: Updated module documentation to use centralized documentation site.
+
 ﻿### Version 7.1.6
 
 - Improvement: Internal refactoring.

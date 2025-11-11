@@ -1,3 +1,7 @@
+### Version 1.1.7
+
+- Improvement: Updated module documentation to use centralized documentation site.
+
 ### Version 1.1.6
 
 - Improvement: Internally upgraded to Emit and Publish system.

@@ -1,3 +1,7 @@
+### Version 4.0.11
+
+- Improvement: Updated module documentation to use centralized documentation site.
+
 ### Version 4.0.10
 
 - Improvement: Swashbuckle interface no longer shows the lock icon for unsecure endpoints.
