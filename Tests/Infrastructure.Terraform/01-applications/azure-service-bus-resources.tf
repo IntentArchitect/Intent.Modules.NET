@@ -42,8 +42,20 @@ resource "azurerm_servicebus_subscription" "azure_functions_azure_service_bus_gr
   max_delivery_count = 3
 }
 
+resource "azurerm_servicebus_subscription" "azure_functions_azure_service_bus_group_b_publish_and_consume" {
+  name               = "azurefunctions-azureservicebus-groupb"
+  topic_id           = azurerm_servicebus_topic.publish_and_consume.id
+  max_delivery_count = 3
+}
+
 resource "azurerm_servicebus_subscription" "asp_net_core_azure_service_bus_group_b_client_created" {
   name               = "aspnetcore-azureservicebus-groupb"
   topic_id           = azurerm_servicebus_topic.client_created.id
+  max_delivery_count = 3
+}
+
+resource "azurerm_servicebus_subscription" "asp_net_core_azure_service_bus_group_b_publish_and_consume" {
+  name               = "aspnetcore-azureservicebus-groupb"
+  topic_id           = azurerm_servicebus_topic.publish_and_consume.id
   max_delivery_count = 3
 }
