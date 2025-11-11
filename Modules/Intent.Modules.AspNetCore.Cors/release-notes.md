@@ -1,3 +1,7 @@
+### Version 3.3.15
+
+- Improvement: Updated module documentation to use centralized documentation site.
+
 ### Version 3.3.14
 
 - Improvement: Made the default `appsetting.json` include "ExposedHeaders" to allow all, inline with how the other setting work. 

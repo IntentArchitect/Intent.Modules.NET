@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <package>
   <id>Intent.Application.MediatR.FluentValidation</id>
-  <version>4.9.3</version>
+  <version>4.9.4-pre.0</version>
   <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Provides support for specifying fluent validation on Commands and Queries</summary>
   <description>Provides support for specifying fluent validation on Commands and Queries</description>
@@ -9,7 +9,7 @@
   <iconUrl>data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZpZXdCb3g9IjAgMCA1MCA1MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudGYwYTQ1ZGNiLWRjNzAtNDRjNS1hZWQ2LTk3NDE3ZWI1NzVhYSIgeDE9IjI0LjkiIHkxPSI0OC4yIiB4Mj0iMjQuOSIgeTI9IjEuNyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNjNTFlMTYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZjMzZDM2Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJsaW5lYXItZ3JhZGllbnQtMmYwYTQ1ZGNiLWRjNzAtNDRjNS1hZWQ2LTk3NDE3ZWI1NzVhYSIgeDE9IjQ2LjYiIHkxPSIxNi42IiB4Mj0iNDYuNiIgeTI9IjE2IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2YzM2QzNiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNjNTFlMTYiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyOC43LjIsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiAxLjIuMCBCdWlsZCAxNTQpICAtLT4KICA8Zz4KICAgIDxnIGlkPSJMYXllcl8xIj4KICAgICAgPHBhdGggZD0iTTQyLjgsMzEuN2MxLjkuOSwzLjIsMS4zLDQsMS41LTEsMi42LTIuNCw1LTQuMyw3LjEtLjUtLjYtMS4yLTEuMi0yLjctMi4yLTMuOS0yLjktOC01LjYtMTIuMS04LjEsMCw0LjYuMyw5LjMuOCwxMy45LjIsMi4xLjQsMy4yLjYsNC0xLjMuMi0yLjcuNC00LjEuNHMtMi45LS4xLTQuMi0uNGMuMi0uNy4zLTEuNi41LTMuMy41LTQuOS44LTkuOC45LTE0LjYtNC4yLDIuNS04LjIsNS4yLTEyLjEsOC4xLTEuMywxLTIuMSwxLjctMi42LDIuMS0xLjktMi4xLTMuMy00LjYtNC4zLTcuMy44LS4yLDEuOC0uNiwzLjgtMS41LDQuMi0xLjksOC40LTQuMSwxMi41LTYuNC00LjEtMi4zLTguMi00LjUtMTIuNS02LjQtMS45LS45LTMtMS4zLTMuOC0xLjUuOS0yLjcsMi40LTUuMiw0LjItNy4zLjUuNiwxLjIsMS4yLDIuNywyLjIsMy45LDIuOSw4LDUuNiwxMi4xLDguMiwwLTQuNy0uMy05LjMtLjgtMTMuOS0uMi0yLjMtLjQtMy40LS43LTQuMi4yLDAsLjQsMCwuNi0uMSwwLDAsLjIsMCwuMiwwLC4zLDAsLjYsMCwuOS0uMS45LS4xLDEuNy0uMiwyLjYtLjJzMS44LDAsMi42LjJoMGMuNCwwLC44LDAsMS4yLjJoMGMuMSwwLC4yLDAsLjMuMS0uMi43LS40LDEuNi0uNiwzLjUtLjUsNC44LS44LDkuNi0uOSwxNC41LDQuMi0yLjUsOC4yLTUuMiwxMi4xLTguMSwxLjUtMS4xLDIuMy0xLjgsMi44LTIuMywwLDAsLjEsMCwuMi4yLjQuNC43LjksMS4xLDEuMywxLDEuNCwxLjksMywyLjYsNC43LDAsMCwwLDAsMCwwLDAsLjIuMi40LjIuNiwwLC4yLjEuNC4xLjYtLjguMi0xLjguNi00LDEuNS00LjMsMS45LTguNSw0LjEtMTIuNiw2LjUsNC4xLDIuNCw4LjMsNC41LDEyLjYsNi41WiIgZmlsbD0idXJsKCNsaW5lYXItZ3JhZGllbnRmMGE0NWRjYi1kYzcwLTQ0YzUtYWVkNi05NzQxN2ViNTc1YWEpIi8+CiAgICAgIDxnIGlkPSJMYXllcl8xLTIiIGRhdGEtbmFtZT0iTGF5ZXJfMSI+CiAgICAgICAgPHBhdGggZD0iTTQ2LjcsMTYuNmMwLS4yLS4yLS40LS4yLS42LjEuMi4yLjQuMi42WiIgZmlsbD0idXJsKCNsaW5lYXItZ3JhZGllbnQtMmYwYTQ1ZGNiLWRjNzAtNDRjNS1hZWQ2LTk3NDE3ZWI1NzVhYSkiLz4KICAgICAgPC9nPgogICAgPC9nPgogIDwvZz4KPC9zdmc+</iconUrl>
   <releaseNotes>release-notes.md</releaseNotes>
   <tags>csharp dotnet mediatr validation</tags>
-  <projectUrl>https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Application.MediatR.FluentValidation/README.md</projectUrl>
+  <projectUrl>https://docs.intentarchitect.com/articles/modules-dotnet/intent-application-mediatr-fluentvalidation/intent-application-mediatr-fluentvalidation.html</projectUrl>
   <templates>
     <template id="Intent.Application.MediatR.FluentValidation.CommandValidator" externalReference="499883b5-ee38-4e92-8c12-436eef8b2c0d">
       <config>
@@ -17,7 +17,7 @@
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
       <role>Application.Validation</role>
-      <location></location>
+      <location />
     </template>
     <template id="Intent.Application.MediatR.FluentValidation.QueryValidator" externalReference="2a07c7a7-23a6-4f1b-8f6b-328726764628">
       <config>
@@ -25,7 +25,7 @@
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
       <role>Application.Validation</role>
-      <location></location>
+      <location />
     </template>
     <template id="Intent.Application.MediatR.FluentValidation.ValidationBehaviour" externalReference="fe0ca012-306a-407d-9622-4ccbdca8706d">
       <config>
@@ -42,7 +42,6 @@
     <factoryExtension id="Intent.Application.MediatR.FluentValidation.UnhandledExceptionBahaviorExtension" externalReference="20d51a9e-95cd-4345-ae85-1d90fbdac190" />
   </factoryExtensions>
   <interoperability>
-    <!-- Minimum Compatible Versions -->
     <detect id="Intent.Entities.Constants">
       <install>
         <package id="Intent.Entities.Constants" version="1.0.2" />
@@ -53,7 +52,6 @@
         <package id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
       </install>
     </detect>
-    <!-- /Minimum Compatible Versions -->
   </interoperability>
   <dependencies>
     <dependency id="Intent.Application.FluentValidation" version="3.10.1" />

@@ -1,4 +1,8 @@
-﻿### Version 4.9.3
+﻿### Version 4.9.4
+
+- Improvement: Updated module documentation to use centralized documentation site.
+
+### Version 4.9.3
 
 - Fixed: Removed unnecessary `MediatR` using directive for Dependency Injection.
 
