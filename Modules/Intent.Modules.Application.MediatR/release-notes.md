@@ -1,3 +1,7 @@
+### Version 4.5.2
+
+- Improvement: Updated projectUrl to reference external documentation instead of local README.
+
 ### Version 4.5.1
 
 - Improvement: Detects existence and name of `CancellationToken` parameter before adding to the `Send` invocation.
