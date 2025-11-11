@@ -1,3 +1,7 @@
+### Version 1.2.9
+
+- Improvement: Updated module documentation to use centralized documentation site.
+
 ### Version 1.2.8
 
 - Fixed: DTO Validation generation is only generated when valid DTOs are present.

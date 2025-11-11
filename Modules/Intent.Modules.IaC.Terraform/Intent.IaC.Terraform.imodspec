@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.IaC.Terraform</id>
-  <version>1.0.0-beta.7</version>
+  <version>1.0.0-beta.8</version>
   <supportedClientVersions>[4.5.0-a,5.0.0)</supportedClientVersions>
   <summary>Introduce Infrastructure As Code (IaC) to help build your Cloud resources programmatically for the whole Intent Architect solution.</summary>
   <description>Introduce Infrastructure As Code (IaC) to help build your Cloud resources programmatically for the whole Intent Architect solution.</description>
@@ -49,6 +49,7 @@
     <file src="$outDir$/$id$.pdb" />
   </files>
   <tags>infrastructure as code iac azure terraform</tags>
+  <projectUrl>https://docs.intentarchitect.com/articles/modules-dotnet/intent-iac-terraform/intent-iac-terraform.html</projectUrl>
   <releaseNotes>release-notes.md</releaseNotes>
   <moduleSettingsExtensions />
   <metadata />

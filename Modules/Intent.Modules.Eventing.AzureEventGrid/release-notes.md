@@ -1,3 +1,7 @@
+### Version 1.2.3
+
+- Improvement: Updated module documentation to use centralized documentation site.
+
 ### Version 1.2.2
 
 - Fixed: Removed requirement of published messages for `AzureEventGridPublisherOptions` to be generated.

@@ -1,3 +1,7 @@
+### Version 5.0.20
+
+- Improvement: Updated module documentation to use centralized documentation site.
+
 ### Version 5.0.19
 
 - Fixed: Introducing ConfigureAppConfiguration will ensure the AddEnvironmentVariables is still invoked.

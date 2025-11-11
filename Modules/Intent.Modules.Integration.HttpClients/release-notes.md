@@ -1,3 +1,7 @@
+### Version 6.0.10
+
+- Improvement: Updated module documentation to use centralized documentation site.
+
 ### Version 6.0.9
 
 - Improvement: Updated NuGet package versions.

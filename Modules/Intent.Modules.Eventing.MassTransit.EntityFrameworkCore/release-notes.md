@@ -1,3 +1,7 @@
+### Version 5.2.5
+
+- Improvement: Updated module documentation to use centralized documentation site.
+
 ### Version 5.2.4
 
 - Improvement: Included module help topic.

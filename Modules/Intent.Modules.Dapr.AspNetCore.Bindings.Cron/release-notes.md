@@ -1,3 +1,7 @@
+### Version 1.0.7
+
+- Improvement: Updated module documentation to use centralized documentation site.
+
 ### Version 1.0.6
 
 - Improvement: Added stereotype descriptions in preperation for Intent Architect 4.5. 

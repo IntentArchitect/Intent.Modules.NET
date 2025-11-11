@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.AzureEventGrid</id>
-  <version>1.2.2</version>
+  <version>1.2.3-pre.0</version>
   <supportedClientVersions>[4.5.0-a,5.0.0)</supportedClientVersions>
   <summary>Provides patterns for using Azure Event Grid, which can be modeled in Intent Architect's designers.</summary>
   <description>Provides patterns for using Azure Event Grid, which can be modeled in Intent Architect's designers.</description>
@@ -132,6 +132,7 @@
     <file src="$outDir$/$id$.pdb" />
   </files>
   <tags>azure event grid messaging</tags>
+  <projectUrl>https://docs.intentarchitect.com/articles/modules-dotnet/intent-eventing-azureeventgrid/intent-eventing-azureeventgrid.html</projectUrl>
   <releaseNotes>release-notes.md</releaseNotes>
   <moduleSettingsExtensions />
   <metadata>

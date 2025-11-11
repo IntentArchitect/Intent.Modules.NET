@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.SignalR</id>
-  <version>1.0.7</version>
+  <version>1.0.8-pre.0</version>
   <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Server to Client side communication using SignalR.</summary>
   <description>Server to Client side communication using SignalR.</description>
@@ -9,7 +9,7 @@
   <iconUrl>data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZpZXdCb3g9IjAgMCA1MCA1MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudC1kYTBjMTZkNi1lM2M1LTRkNDEtYTE5Yy02ZjI5NDk4M2U4M2QiIHgxPSIyNSIgeTE9Ii43IiB4Mj0iMjUiIHkyPSI0OC4xIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2E4ZTdmZiIvPgogICAgICA8c3RvcCBvZmZzZXQ9Ii41IiBzdG9wLWNvbG9yPSIjMDBhYmVjIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzAwNzI5ZSIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI4LjcuMiwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDEuMi4wIEJ1aWxkIDE1NCkgIC0tPgogIDxnPgogICAgPGcgaWQ9IkxheWVyXzEiPgogICAgICA8ZyBpZD0idXVpZC1iYmMwZmM0Mi1jZmY1LTQ4ZDgtOGE2Zi0zYTA1YTNlNGIxYjUiPgogICAgICAgIDxwYXRoIGQ9Ik00OC43LDI1YzAsOC00LDE1LjEtMTAuMiwxOS41bC04LjgtOC44YzUuNy0uMiwxMC4zLTQuNywxMC4zLTEwLjdzLTQuOC0xMC44LTEwLjgtMTAuOGgtOC42di00LjNsLTEwLjgsMTAuOGgxOS40YzIuNCwwLDQuMywxLjksNC4zLDQuM3MtMS45LDQuMy00LjMsNC4zaC02bC0yLjcsNi41LDEwLjYsMTAuNiwyLjIsMi4yYy0xLjgsMC00LjYuMS04LjUuMS0xMy4xLDAtMjMuNy0xMC42LTIzLjctMjMuN1MxMS45LDEuMywyNSwxLjNzMjMuNywxMC42LDIzLjcsMjMuN1oiIGZpbGw9InVybCgjbGluZWFyLWdyYWRpZW50LWRhMGMxNmQ2LWUzYzUtNGQ0MS1hMTljLTZmMjk0OTgzZTgzZCkiLz4KICAgICAgPC9nPgogICAgICA8cG9seWxpbmUgcG9pbnRzPSIzNC40IDQ5LjQgMzMuNSA0OC41IDMyLjQgNDcuNSAzMS4zIDQ2LjMiIGZpbGw9Im5vbmUiLz4KICAgIDwvZz4KICA8L2c+Cjwvc3ZnPg==</iconUrl>
   <tags>csharp dotnet aspnetcore signalr</tags>
   <releaseNotes>release-notes.md</releaseNotes>
-  <projectUrl>https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.AspNetCore.SignalR/README.md</projectUrl>
+  <projectUrl>https://docs.intentarchitect.com/articles/modules-dotnet/intent-aspnetcore-signalr/intent-aspnetcore-signalr.html</projectUrl>
   <templates>
     <template id="Intent.AspNetCore.SignalR.Hub" externalReference="db93ed59-9670-45d2-891f-116b680a517c">
       <config>

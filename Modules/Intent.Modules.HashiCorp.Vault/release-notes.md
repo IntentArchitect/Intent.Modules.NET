@@ -1,3 +1,7 @@
+### Version 1.0.6
+
+- Improvement: Updated module documentation to use centralized documentation site.
+
 ### Version 1.0.5
 
 - Fixed: Using statements not being added correctly.

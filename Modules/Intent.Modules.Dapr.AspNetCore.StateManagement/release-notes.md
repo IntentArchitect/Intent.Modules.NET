@@ -1,3 +1,7 @@
+### Version 1.2.16
+
+- Improvement: Updated module documentation to use centralized documentation site.
+
 ### Version 1.2.15
 
 - Improvement: Updated Shared Module.

@@ -1,3 +1,7 @@
+### Version 2.0.6
+
+- Improvement: Updated module documentation to use centralized documentation site.
+
 ### Version 2.0.5
 
 - Fixed: Missing using directive for MongoConfigurationExtensions.

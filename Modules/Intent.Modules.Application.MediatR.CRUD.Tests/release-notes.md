@@ -1,3 +1,7 @@
+### Version 1.3.12
+
+- Improvement: Updated module documentation to use centralized documentation site.
+
 ### Version 1.3.11
 
 - Fixed: Increased `order` value for `AfterBuild(...)` method invocations to ensure they happen sufficiently after `AfterBuild(...)` from other modules have been invoked.

@@ -1,3 +1,7 @@
+### Version 6.1.4
+
+- Improvement: Updated module documentation to use centralized documentation site.
+
 ### Version 6.1.3
 
 - Improvement: Preliminary support for multiple ASP.NET Core projects in the same Intent Architect application.
