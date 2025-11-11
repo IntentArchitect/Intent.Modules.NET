@@ -7,8 +7,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>bbd2c56f-b591-4434-ac25-2b08337570c3</parentFolderId>
-  <packageId>e88ff2fe-05a9-4981-8cd5-e1d28f0524f1</packageId>
-  <packageName>Intent.Application.DependencyInjection.AutoMapper</packageName>
+  <packageId>bbd2c56f-b591-4434-ac25-2b08337570c3</packageId>
+  <packageName>Intent.Application.AutoMapper</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -19,7 +19,7 @@
       <sort-children>manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>72a942e7-4a9f-452b-acd4-a9cc52f328c5</parentFolderId>
+      <parentFolderId>137e5f2f-8432-4ade-b797-9a8e5e703e6d</parentFolderId>
       <packageId>bbd2c56f-b591-4434-ac25-2b08337570c3</packageId>
       <packageName>Intent.Application.AutoMapper</packageName>
       <stereotypes>
@@ -76,8 +76,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>137e5f2f-8432-4ade-b797-9a8e5e703e6d</parentFolderId>
-      <packageId>e88ff2fe-05a9-4981-8cd5-e1d28f0524f1</packageId>
-      <packageName>Intent.Application.DependencyInjection.AutoMapper</packageName>
+      <packageId>bbd2c56f-b591-4434-ac25-2b08337570c3</packageId>
+      <packageName>Intent.Application.AutoMapper</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="4805c791-5be3-4049-b929-6046d7be9944" name="Field Configuration">
           <addedByDefault>true</addedByDefault>
