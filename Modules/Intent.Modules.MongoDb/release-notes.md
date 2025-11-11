@@ -1,3 +1,7 @@
+### Version 2.0.5
+
+- Fixed: Missing using directive for MongoConfigurationExtensions.
+
 ### Version 2.0.4
 
 - Improvement: Updated NuGet package versions.
