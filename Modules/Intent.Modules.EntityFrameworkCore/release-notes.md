@@ -1,6 +1,7 @@
 ### Version 5.0.33
 
 - Improvement: Updated module documentation to use centralized documentation site.
+- Fixed: String escaping quotes better supported for default values in Entity Type Configuration classes.
 
 ### Version 5.0.32
 

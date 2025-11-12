@@ -106,19 +106,9 @@ public class EfCoreFieldConfigStatement : CSharpStatement, IHasCSharpStatements
         {
             var treatAsSqlExpression = attribute.GetDefaultConstraint().TreatAsSQLExpression();
             var defaultValue = attribute.GetDefaultConstraint()?.Value() ?? string.Empty;
-
-            if (!treatAsSqlExpression &&
-                !defaultValue.TrimStart().StartsWith("\"") &&
-                attribute.Type.Element.Name == "string")
-            {
-                defaultValue = $"\"{defaultValue}\"";
-            }
-
-            if (treatAsSqlExpression &&
-                !defaultValue.TrimStart().StartsWith("\""))
-            {
-                defaultValue = $"\"{defaultValue}\"";
-            }
+            var isStringType = attribute.Type.Element.Name == "string";
+            
+            defaultValue = EscapeHelper.EscapeValueForCSharpStringLiteral(defaultValue, treatAsSqlExpression, isStringType);
 
             var method = treatAsSqlExpression
                 ? "HasDefaultValueSql"

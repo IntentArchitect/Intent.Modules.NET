@@ -62,19 +62,9 @@ public class EfCoreKeyColumnPropertyStatement : CSharpStatement
         {
             var treatAsSqlExpression = _model.GetDefaultConstraint().TreatAsSQLExpression();
             var defaultValue = _model.GetDefaultConstraint()?.Value() ?? string.Empty;
+            var isStringType = _model.Type.Element.Name == "string";
 
-            if (!treatAsSqlExpression &&
-                !defaultValue.TrimStart().StartsWith("\"") &&
-                _model.Type.Element.Name == "string")
-            {
-                defaultValue = $"\"{defaultValue}\"";
-            }
-
-            if (treatAsSqlExpression &&
-                !defaultValue.TrimStart().StartsWith("\""))
-            {
-                defaultValue = $"\"{defaultValue}\"";
-            }
+            defaultValue = EscapeHelper.EscapeValueForCSharpStringLiteral(defaultValue, treatAsSqlExpression, isStringType);
 
             var method = treatAsSqlExpression
                 ? "HasDefaultValueSql"
