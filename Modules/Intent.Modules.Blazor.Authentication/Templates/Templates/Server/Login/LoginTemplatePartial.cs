@@ -39,6 +39,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Login
                     file.AddPageDirective($"/Account/Login");
 
                     file.AddUsing("System.ComponentModel.DataAnnotations");
+                    file.AddUsing("Microsoft.AspNetCore.Mvc");
                     file.AddUsing("Microsoft.AspNetCore.Authentication");
                     file.AddInjectDirective(GetTypeName(AuthServiceInterfaceTemplate.TemplateId), "AuthService");
                     file.AddInjectDirective("Microsoft.AspNetCore.Components.NavigationManager", "NavigationManager");
@@ -126,25 +127,10 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Login
                             input.AddAttribute("SupplyParameterFromQuery");
                         });
 
-                        code.AddMethod("Task", "OnInitializedAsync", onValidSubmitAsync =>
-                        {
-                            onValidSubmitAsync.Protected().Async().Override();
-
-                            onValidSubmitAsync.AddIfStatement("HttpMethods.IsGet(HttpContext.Request.Method)", @if =>
-                            {
-                                if (ExecutionContext.GetSettings().GetBlazor().Authentication().IsAspnetcoreIdentity())
-                                {
-                                    @if.AddStatement($"await HttpContext.SignOutAsync({code.Template.UseType("Microsoft.AspNetCore.Identity.IdentityConstants")}.ExternalScheme);");
-                                }
-                                else
-                                {
-                                    @if.AddStatement("await HttpContext.SignOutAsync();");
-                                }
-                            });
-                        });
 
                         code.AddMethod("Task", "LoginUser", onValidSubmitAsync =>
                         {
+                            onValidSubmitAsync.AddAttribute("[IgnoreAntiforgeryToken]");
                             onValidSubmitAsync.Async();
 
                             onValidSubmitAsync.AddStatement("await AuthService.Login(Input.Email, Input.Password, Input.RememberMe, ReturnUrl);");

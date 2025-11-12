@@ -1,6 +1,7 @@
 ### Version 1.0.6
 
 - Improvement: Updated module documentation to use centralized documentation site.
+- Improvement: Improved WASM configuration for debugging.
 
 ### Version 1.0.5
 

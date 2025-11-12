@@ -93,6 +93,11 @@ namespace Intent.Modules.Blazor.FactoryExtensions
 
                     if (ifDevelopmentStatement is not null)
                     {
+                        if (startup.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveWebAssembly() || startup.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveAuto())
+                        {
+                            ifDevelopmentStatement.AddStatement("app.UseWebAssemblyDebugging();");                            
+                        }
+                            
                         ifDevelopmentStatement.InsertBelow(new CSharpElseStatement(), statement =>
                         {
                             var elseStatement = (CSharpElseStatement)statement;

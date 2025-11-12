@@ -1,5 +1,6 @@
 ### Version 1.0.5
 
+- Improvement: Fixed AntiForgery exception when re-logging in.
 - Improvement: Updated module documentation to use centralized documentation site.
 
 ### Version 1.0.4

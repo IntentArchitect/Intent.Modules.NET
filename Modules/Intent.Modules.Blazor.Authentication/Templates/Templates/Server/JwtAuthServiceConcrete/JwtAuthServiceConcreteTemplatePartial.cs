@@ -91,6 +91,10 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.JwtAut
                         method.AddParameter("bool", "rememberMe");
                         method.AddParameter("string", "returnUrl");
 
+
+                        method.AddStatement("var httpContext = _httpContextAccessor.HttpContext ?? throw new InvalidOperationException(\"No active HttpContext found.\");");
+                        method.AddStatement("await httpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);", s => s.SeparatedFromNext());                       
+
                         method.AddAssignmentStatement("var tokenResponse", new CSharpStatement("await _httpClient.PostAsJsonAsync(\"/login\", new { Email = username, Password = password });"));
 
                         method.AddIfStatement("tokenResponse.IsSuccessStatusCode", @if =>
@@ -107,7 +111,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.JwtAut
                             };".ConvertToStatements());
                             @if.AddAssignmentStatement("var claimsIdentity", new CSharpStatement("new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);"));
                             @if.AddAssignmentStatement("var claimsPrincipal", new CSharpStatement("new ClaimsPrincipal(claimsIdentity);"));
-                            @if.AddStatement("await _httpContextAccessor.HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,claimsPrincipal, new AuthenticationProperties { IsPersistent = rememberMe });");
+                            @if.AddStatement("await httpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,claimsPrincipal, new AuthenticationProperties { IsPersistent = rememberMe });");
                             @if.AddStatement("_redirectManager.RedirectTo(returnUrl);");
                         }).AddElseStatement(@else =>
                         {

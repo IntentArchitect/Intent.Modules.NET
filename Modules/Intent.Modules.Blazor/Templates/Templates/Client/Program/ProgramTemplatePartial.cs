@@ -106,7 +106,6 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.Program
                         CommandName = "Project",
                         LaunchBrowser = true,
                         ApplicationUrl = $"https://localhost:{x.SslPort};http://localhost:{x.Port}",
-                        PublishAllPorts = false,
                         InspectUri = "{wsProtocol}://{url.hostname}:{url.port}/_framework/debug/ws-proxy?browser={browserInspectUri}",
                         EnvironmentVariables = new Dictionary<string, string> { { "ASPNETCORE_ENVIRONMENT", "Development" } }
                     });
