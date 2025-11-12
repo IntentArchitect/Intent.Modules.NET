@@ -1,12 +1,16 @@
 # Intent.Aws.Sqs
 
-This module provides patterns for working with AWS SQS directly.
+This module provides patterns for publishing messages to AWS SQS from any .NET application architecture. For message consumption, it currently supports AWS Lambda Functions through the related `Intent.Aws.Lambda.Functions.Sqs` module.
 
 ## What is AWS SQS?
 
-Amazon Simple Queue Service (AWS SQS) is a fully managed message queuing service that enables you to decouple and scale microservices, distributed systems, and serverless applications. It provides reliable, scalable, and cost-effective message delivery between independent application components, offering features like message ordering, message deduplication, visibility timeouts, and dead-letter queues.
+AWS SQS is a fully managed message queuing service that decouples and scales microservices, distributed systems, and serverless applications. It offers reliable, scalable, and cost-effective message delivery with features like message ordering, deduplication, visibility timeouts, and dead-letter queues.
 
-For more information on AWS SQS, check out their [official docs](https://docs.aws.amazon.com/sqs/).
+For more information, see the [official docs](https://docs.aws.amazon.com/sqs/).
+
+## Why use AWS SQS?
+
+AWS SQS integrates seamlessly with the AWS ecosystem, enabling easy inter-application communication through robust, asynchronous messaging. It ensures high availability and fault tolerance for reliable message delivery.
 
 ## Modeling Integration Events and Commands
 
@@ -112,4 +116,3 @@ This module handles the consumer code for AWS SQS when AWS Lambda is selected as
 > [!NOTE]
 >
 > Currently, this module only supports AWS Lambda Functions as the hosting technology through the `Intent.Aws.Lambda.Functions.Sqs` module. Support for other hosting technologies may be added in future releases. If you need support for a different hosting platform, please reach out to us on [GitHub](https://github.com/IntentArchitect/Support) or email us at [support@intentarchitect.com](mailto://support@intentarchitect.com).
-
