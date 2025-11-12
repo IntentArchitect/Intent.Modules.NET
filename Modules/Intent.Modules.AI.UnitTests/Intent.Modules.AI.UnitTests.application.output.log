@@ -14,7 +14,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.AI.UnitTests.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.AI.UnitTests.imodspec</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>73a5c654-4bd1-4a47-8fc2-bee212dd3a0a</ProjectId>

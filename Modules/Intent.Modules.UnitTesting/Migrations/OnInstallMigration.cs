@@ -76,15 +76,58 @@ namespace Intent.Modules.UnitTesting.Migrations
         }
         private static IElementPersistable CreateTestFolder(IPackageModelPersistable package)
         {
-            var testFolderName = "5 - Tests";
-            var elements = package.GetElementsOfType(SolutionFolderSpecializationId);
+            var solutionFolders = package.GetElementsOfType(SolutionFolderSpecializationId).ToList();
+            
+            // Condition 1: Check if folders use number prefixes (e.g., "5 - Tests")
+            var numberedFolders = solutionFolders
+                .Select(f => new
+                {
+                    Element = f,
+                    Match = System.Text.RegularExpressions.Regex.Match(f.Name, @"^(\d+)\s*-\s*(.+)$")
+                })
+                .Where(x => x.Match.Success)
+                .ToList();
 
-            if (!elements.Any(x => x.Name == testFolderName))
+            if (numberedFolders.Any())
             {
-                package.Classes.Add(Guid.NewGuid().ToString(), SolutionFolderSpecializationType, SolutionFolderSpecializationId, testFolderName, package.Id);
+                // Check if a numbered "Tests" folder already exists
+                var existingTestFolder = numberedFolders.FirstOrDefault(x => 
+                    x.Match.Groups[2].Value.Equals("Tests", StringComparison.OrdinalIgnoreCase));
+                
+                if (existingTestFolder != null)
+                {
+                    return existingTestFolder.Element;
+                }
+
+                // Find the highest number and increment it
+                var highestNumber = numberedFolders.Max(x => int.Parse(x.Match.Groups[1].Value));
+                var newTestFolderName = $"{highestNumber + 1} - Tests";
+                
+                package.Classes.Add(Guid.NewGuid().ToString(), SolutionFolderSpecializationType, SolutionFolderSpecializationId, newTestFolderName, package.Id);
+                return package.GetElementsOfType(SolutionFolderSpecializationId).First(n => n.Name == newTestFolderName);
             }
 
-            return package.GetElementsOfType(SolutionFolderSpecializationId).First(n => n.Name == testFolderName);
+            // Condition 2: Check if there's a folder matching the solution name
+            var solutionNameFolder = solutionFolders.FirstOrDefault(f => 
+                f.Name.Equals(package.Name, StringComparison.OrdinalIgnoreCase));
+            
+            if (solutionNameFolder != null)
+            {
+                return solutionNameFolder;
+            }
+
+            // Condition 3: Look for or create a "Tests" folder (without number prefix)
+            var testFolderName = "Tests";
+            var existingFolder = solutionFolders.FirstOrDefault(f => 
+                f.Name.Equals(testFolderName, StringComparison.OrdinalIgnoreCase));
+
+            if (existingFolder == null)
+            {
+                package.Classes.Add(Guid.NewGuid().ToString(), SolutionFolderSpecializationType, SolutionFolderSpecializationId, testFolderName, package.Id);
+                existingFolder = package.GetElementsOfType(SolutionFolderSpecializationId).First(n => n.Name == testFolderName);
+            }
+
+            return existingFolder;
         }
 
         private static ExistingProjectSettings GetApplicationProjectSettings(IPackageModelPersistable package)
