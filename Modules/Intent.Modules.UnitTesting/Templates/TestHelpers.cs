@@ -10,25 +10,21 @@ using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.UnitTesting.Settings;
 using Intent.Templates;
-using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static Intent.Modules.Constants.TemplateRoles.Application;
-using static Intent.Modules.Constants.TemplateRoles.Blazor.Client;
+using Intent.Modelers.Services.EventInteractions;
 using static Intent.Modules.UnitTesting.Settings.UnitTestSettings;
+using OperationModel = Intent.Modelers.Services.Api.OperationModel;
 
 namespace Intent.Modules.UnitTesting.Templates;
 internal static class TestHelpers
 {
-    public static string GetCommandQueryNormalizedPath<TModel>(this CSharpTemplateBase<TModel> template)
+    public static string GetTestElementNormalizedPath<TModel>(this CSharpTemplateBase<TModel> template)
     {
         var model = template.Model as IElementWrapper;
 
-        var additionalFolders = model?.InternalElement?.ParentElement?.Name == null ?
-            model.InternalElement.Name.RemoveSuffix("Command").RemoveSuffix("Query").RemoveSuffix("Service") :
+        var additionalFolders = model?.InternalElement != null && model.InternalElement.ParentElement?.Name == null ?
+            model.InternalElement.Name.RemoveSuffix("Command", "Query", "Service", "EventHandler") :
             string.Empty;
 
         return template.GetFolderPath(additionalFolders);
@@ -36,23 +32,22 @@ internal static class TestHelpers
 
     public static string GetOperationNormalizedPath<TModel>(this CSharpTemplateBase<TModel> template)
     {
-        var parentService = template.Model as ServiceModel;
-
-        if (parentService != null)
+        if (template.Model is not ServiceModel parentService)
         {
-            // these have to be done as two seperate join calls, otherwise the incorrect overloaded Join method is called
-            if(parentService.GetParentFolderNames().Count > 0)
-            {
-                return string.Join("/", parentService.GetParentFolderNames());
-            }
-            return string.Join("/", parentService.Name.Replace("Service", ""));
+            return template.GetFolderPath();
         }
-
-        return template.GetFolderPath();
+        
+        // these have to be done as two seperate join calls, otherwise the incorrect overloaded Join method is called
+        if(parentService.GetParentFolderNames().Count > 0)
+        {
+            return string.Join("/", parentService.GetParentFolderNames());
+        }
+        
+        return string.Join("/", parentService.Name.Replace("Service", string.Empty));
     }
 
-    public static void PopulateTestConstructor(ICSharpTemplate template, CSharpConstructor ctor, ITemplate handlerTemplate, ICSharpFileBuilderTemplate csharpTemplate,
-        bool isCQRS = true)
+    public static void PopulateTestConstructor(ICSharpTemplate template, CSharpConstructor ctor, ITemplate handlerTemplate, 
+        ICSharpFileBuilderTemplate csharpTemplate, bool isCQRS = true)
     {
         var handlerCtorParams = GetHandlerConstructorParameters(csharpTemplate);
 
@@ -79,16 +74,62 @@ internal static class TestHelpers
         ctor.AddStatement($"// {(isCQRS ? "_handler" : "_service")} = new {template.GetTypeName(handlerTemplate)}({ctorParams});");
     }
 
-    public static void AddDefaultSuccessTest(ICSharpTemplate template, IElementWrapper model, CSharpClass @class, bool isCQRS = true)
+    public record SuccessTestDetails(IAssociationEnd AssociationEnd, string MethodName, string ArrangeType, string ActMethod)
     {
-        var association = model.InternalElement.AssociatedElements?.FirstOrDefault();
+        public static SuccessTestDetails CreateCommandDetails(CommandModel model)
+        {
+            var association = model.InternalElement.AssociatedElements?.FirstOrDefault();
+            
+            var entityName = association?.TypeReference?.Element?.Name ?? "Entity";
+            var action = GetAssociationAction(association);
+            var querySuffix = GetQuerySuffix(action, model);
+            var methodName = $"Handle_Should_{action}_{entityName}{querySuffix}_Successfully";
 
-        var entityName = association?.TypeReference?.Element?.Name == null ? "Entity" : association.TypeReference.Element.Name;
-        var action = GetAssociationAction(association);
-        var querySuffix = GetQuerySuffix(action, model);
-        var methodName = $"{(isCQRS ? "Handle" : "Operation")}_Should_{action}_{entityName}{querySuffix}_Successfully";
+            return new SuccessTestDetails(association, methodName, "command", "Handle method");
+        }
+        
+        public static SuccessTestDetails CreateQueryDetails(QueryModel model)
+        {
+            var association = model.InternalElement.AssociatedElements?.FirstOrDefault();
+            
+            var entityName = association?.TypeReference?.Element?.Name ?? "Entity";
+            var action = GetAssociationAction(association);
+            var querySuffix = GetQuerySuffix(action, model);
+            var methodName = $"Handle_Should_{action}_{entityName}{querySuffix}_Successfully";
 
-        if (association != null && !@class.Methods.Any(m => m.Name == methodName))
+            return new SuccessTestDetails(association, methodName, "query", "Handle method");
+        }
+        
+        public static SuccessTestDetails CreateServiceDetails(OperationModel model)
+        {
+            var association = model.InternalElement.AssociatedElements?.FirstOrDefault();
+            
+            var entityName = association?.TypeReference?.Element?.Name ?? "Entity";
+            var action = GetAssociationAction(association);
+            var querySuffix = GetQuerySuffix(action, model);
+            var methodName = $"Operation_Should_{action}_{entityName}{querySuffix}_Successfully";
+
+            return new SuccessTestDetails(association, methodName, "service operation parameter(s)", "relevant service method");
+        }
+
+        public static SuccessTestDetails CreateIntegrationEventDetails( IntegrationEventHandlerModel model)
+        {
+            var association = model.InternalElement.AssociatedElements?.FirstOrDefault();
+            
+            var entityName = association?.TypeReference?.Element?.Name ?? "Entity";
+            var action = GetAssociationAction(association);
+            var querySuffix = GetQuerySuffix(action, model);
+            var methodName = $"Handle_Should_{action}_{entityName}{querySuffix}_Successfully";
+
+            return new SuccessTestDetails(association, methodName, "event message", "Handle method");
+        }
+    }
+
+    public static void AddDefaultSuccessTest(ICSharpTemplate template, CSharpClass @class, SuccessTestDetails details)
+    {
+        var methodName = details.MethodName;
+
+        if (details.AssociationEnd != null && @class.Methods.All(m => m.Name != methodName))
         {
             @class.AddMethod(template.UseType("System.Threading.Tasks.Task"), methodName, method =>
             {
@@ -97,11 +138,11 @@ internal static class TestHelpers
                 method.Async();
 
                 method.AddStatement("// Arrange");
-                method.AddStatement($"// Create an instance of the {(isCQRS ? "command/query" : "service operation parameter(s)")} here with relevant data for the test");
+                method.AddStatement($"// Create an instance of the {details.ArrangeType} here with relevant data for the test");
                 method.AddStatement("");
 
                 method.AddStatement("// Act");
-                method.AddStatement($"// Invoke the {(isCQRS ? "Handle method" : "relevant service method")}");
+                method.AddStatement($"// Invoke the {details.ActMethod}");
                 method.AddStatement("");
 
                 method.AddStatement("// Assert");
@@ -138,7 +179,7 @@ internal static class TestHelpers
         }
 
         // if its an operation AND it has parameters
-        if(model is Modelers.Services.Api.OperationModel operation && operation.Parameters.Any())
+        if(model is Intent.Modelers.Services.Api.OperationModel operation && operation.Parameters.Any())
         {
             var topParams = operation.Parameters.Take(3).Select(p => p.Name.ToPascalCase());
             return $"_By{string.Join("", topParams)}";

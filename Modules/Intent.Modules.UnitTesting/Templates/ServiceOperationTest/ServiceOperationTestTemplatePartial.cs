@@ -52,7 +52,7 @@ namespace Intent.Modules.UnitTesting.Templates.ServiceOperationTest
                         .Where(o => model.HasStereotype(ServiceModelStereotypeExtensions.UnitTest.DefinitionId) ||
                             o.HasStereotype(OperationModelStereotypeExtensions.UnitTest.DefinitionId)))
                     {
-                        TestHelpers.AddDefaultSuccessTest(this, operation, @class, false);
+                        TestHelpers.AddDefaultSuccessTest(this, @class, TestHelpers.SuccessTestDetails.CreateServiceDetails(operation));
                     }
                 }
             }), 9999);
