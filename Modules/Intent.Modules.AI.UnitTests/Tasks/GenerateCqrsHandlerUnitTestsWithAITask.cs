@@ -17,6 +17,7 @@ using Intent.RoslynWeaver.Attributes;
 using Intent.Utils;
 using Microsoft.SemanticKernel;
 using Newtonsoft.Json;
+using Intent.Modules.AI.UnitTests.Utilities;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.ModuleTask", Version = "1.0")]
@@ -87,7 +88,7 @@ public class GenerateCqrsHandlerUnitTestsWithAITask : IModuleTask
             ["inputFilesJson"] = jsonInput,
             ["userProvidedContext"] = userProvidedContext,
             ["targetFileName"] = queryModel.Name + "Handler",
-            ["mockFramework"] = GetMockFramework(),
+            ["mockFramework"] = UnitTestHelpers.GetMockFramework(_applicationConfigurationProvider),
             ["slnRelativePath"] = "/" + string.Join('/', queryModel.GetParentPath().Select(x => x.Name)),
             ["fileChangesSchema"] = FileChangesSchema.GetPromptInstructions()
         });
@@ -890,17 +891,4 @@ public class GenerateCqrsHandlerUnitTestsWithAITask : IModuleTask
         return relatedClasses;
     }
 
-    private string GetMockFramework()
-    {
-        const string defaultMock = "Moq";
-
-        var unitTestGroup = _applicationConfigurationProvider.GetSettings().GetGroup("d62269ea-8e64-44a0-8392-e1a69da7c960");
-
-        if (unitTestGroup is null)
-        {
-            return defaultMock;
-        }
-
-        return unitTestGroup.GetSetting("115c28bc-a4c8-4b30-bd00-2e320fee77dc")?.Value ?? defaultMock;
-    }
 }
