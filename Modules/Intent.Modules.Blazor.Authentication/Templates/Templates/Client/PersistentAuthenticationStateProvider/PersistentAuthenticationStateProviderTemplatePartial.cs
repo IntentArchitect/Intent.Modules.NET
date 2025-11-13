@@ -53,7 +53,6 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Client.Persis
                         ctor.AddStatements(@"Claim[] claims = [
                             new Claim(ClaimTypes.NameIdentifier, userInfo.UserId),
                             new Claim(ClaimTypes.Email, userInfo.Email),
-                            new Claim(ClaimTypes.Email, userInfo.Email),
                             new Claim(""access_token"", userInfo.AccessToken == null ? """" : userInfo.AccessToken) ];".ConvertToStatements());
 
                         ctor.AddStatements(@"authenticationStateTask = Task.FromResult(

@@ -12,6 +12,33 @@
   <stereotypes />
   <metadata />
   <childElements>
+    <childElement id="94045da0-177e-4d2f-af6c-579b4d401dae" type="Documentation Topic" typeId="5cc56ebc-6b61-41a6-a452-8efd9382da6f">
+      <name>Adding Route parameters to Pages</name>
+      <display>Adding Route parameters to Pages</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>5e4d4e0f-d769-4be1-b95c-f5d11f59132f</parentFolderId>
+      <packageId>3ac5ff1e-5fc9-46a2-95e5-2d9ca579e484</packageId>
+      <packageName>Intent.Blazor</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="83dfd8ae-5086-4e41-94c2-7110d5a49b4c" name="Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="2792ad9a-2afd-4350-bac6-bdcf4b701ff1" display="Description" value="How to model / add route parameters to your page route" isActive="true" />
+            <property name="4fa553d3-1b96-4f63-bdb9-3237eca31f6b" display="Icon" value="{&quot;source&quot;:&quot;data:image/png;base64,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&quot;,&quot;type&quot;:0,&quot;absolutePathRelativeTo&quot;:null}" isActive="true" />
+            <property name="207e8583-2ba5-4ea3-84aa-2f65cd5915ca" display="Href" value="https://docs.intentarchitect.com/articles/application-development/modelling/ui-designer/blazor-modeling/blazor-modeling.html#adding-route-parameters-to-your-page" isActive="true" />
+            <property name="21d13790-2910-475c-b58f-9d350f2e13c6" display="Designers" value="[&quot;f492faed-0665-4513-9853-5a230721786f&quot;]" isActive="true" />
+            <property name="8642b1d1-93f9-4f5f-b5ae-ad5fc20d7a46" display="Elements" value="[]" isActive="true" />
+            <property name="f55a1f0c-40dd-48b4-b985-8360933e6a47" display="Tags" value="route parameter url uri page" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
     <childElement id="852cd1e8-fbb3-421f-81d5-5d53d22ef88b" type="Documentation Topic" typeId="5cc56ebc-6b61-41a6-a452-8efd9382da6f">
       <name>How to Model a Dialog</name>
       <display>How to Model a Dialog</display>
