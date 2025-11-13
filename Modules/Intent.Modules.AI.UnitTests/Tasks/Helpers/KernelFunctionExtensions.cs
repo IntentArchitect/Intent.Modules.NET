@@ -1,5 +1,7 @@
 using System;
+using System.Threading.Tasks;
 using Intent.Exceptions;
+using Intent.Modules.Common.AI;
 using Intent.Utils;
 using Microsoft.SemanticKernel;
 
@@ -11,7 +13,47 @@ internal static class KernelFunctionExtensions
 {
     private const int MaxAttempts = 2;
     
-    public static FileChangesResult InvokeFileChangesPrompt(this KernelFunction kernelFunction, Kernel kernel, KernelArguments? arguments = null, int maxAttempts = MaxAttempts)
+    /// <summary>
+    /// Executes a prompt and returns file changes, automatically handling function-based
+    /// or agent-based execution based on the kernel configuration.
+    /// </summary>
+    public static async Task<FileChangesResult> InvokeFileChangesPromptAsync(
+        this Kernel kernel,
+        string promptTemplate,
+        string thinkingType,
+        KernelArguments? arguments = null,
+        int maxAttempts = MaxAttempts)
+    {
+        // Get execution settings for this thinking type
+        var aiProviderService = kernel.GetRequiredService<IAiProviderService>();
+        var executionSettings = aiProviderService.GetPromptExecutionSettings(thinkingType);
+        
+        // Create the kernel function from the prompt template
+        var kernelFunction = kernel.CreateFunctionFromPrompt(promptTemplate, executionSettings);
+        
+        // Execute with retry logic
+        return await ExecuteWithFunctionAsync(kernelFunction, kernel, arguments, maxAttempts);
+    }
+
+    /// <summary>
+    /// Executes a prompt and returns file changes, automatically handling function-based
+    /// or agent-based execution based on the kernel configuration.
+    /// </summary>
+    public static FileChangesResult InvokeFileChangesPrompt(
+        this Kernel kernel,
+        string promptTemplate,
+        string thinkingType,
+        KernelArguments? arguments = null,
+        int maxAttempts = MaxAttempts)
+    {
+        return InvokeFileChangesPromptAsync(kernel, promptTemplate, thinkingType, arguments, maxAttempts).GetAwaiter().GetResult();
+    }
+    
+    private static async Task<FileChangesResult> ExecuteWithFunctionAsync(
+        KernelFunction kernelFunction,
+        Kernel kernel,
+        KernelArguments? arguments,
+        int maxAttempts)
     {
         FileChangesResult? fileChangesResult = null;
         var previousError = string.Empty;
@@ -26,11 +68,16 @@ internal static class KernelFunctionExtensions
                 arguments = new KernelArguments();
             }
             arguments["previousError"] = previousError;
+
+            if (!arguments.ContainsKey("fileChangesSchema"))
+            {
+                throw new Exception("Kernel Arguments missing 'fileChangesSchema'. Possible that the prompt template is missing it as well. The AI should be briefed on how the output should be presented. Argument should be initialized with 'FileChangesSchema.GetPromptInstructions()'.");
+            }
             
             FunctionResult result;
             try
             {
-                result = kernelFunction.InvokeAsync(kernel, arguments).GetAwaiter().GetResult();
+                result = await kernelFunction.InvokeAsync(kernel, arguments);
             }
             catch (Exception ex)
             {
@@ -94,11 +141,10 @@ internal static class KernelFunctionExtensions
         message += """
                    Expected schema format:
                    {
-                     "fileChanges": [
+                     "FileChanges": [
                        {
-                         "filePath": "path/to/file",
-                         "fileExplanation": "description",
-                         "content": "file content"
+                         "FilePath": "path/to/file",
+                         "Content": "file content"
                        }
                      ]
                    }
