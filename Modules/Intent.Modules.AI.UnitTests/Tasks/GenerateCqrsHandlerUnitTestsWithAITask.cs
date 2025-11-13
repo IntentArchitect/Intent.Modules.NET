@@ -13,12 +13,19 @@ using Intent.Modules.Common.AI.Extensions;
 using Intent.Modules.Common.AI.Settings;
 using Intent.Plugins;
 using Intent.Registrations;
+using Intent.RoslynWeaver.Attributes;
 using Intent.Utils;
 using Microsoft.SemanticKernel;
 using Newtonsoft.Json;
 
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.ModuleBuilder.Templates.ModuleTask", Version = "1.0")]
+
 namespace Intent.Modules.AI.UnitTests.Tasks;
 
+#nullable enable
+
+[IntentManaged(Mode.Merge)]
 #nullable enable
 
 public class GenerateCqrsHandlerUnitTestsWithAITask : IModuleTask
@@ -29,6 +36,7 @@ public class GenerateCqrsHandlerUnitTestsWithAITask : IModuleTask
     private readonly IOutputRegistry _outputRegistry;
     private readonly IntentSemanticKernelFactory _intentSemanticKernelFactory;
 
+    [IntentManaged(Mode.Merge)]
     public GenerateCqrsHandlerUnitTestsWithAITask(
         IApplicationConfigurationProvider applicationConfigurationProvider,
         IMetadataManager metadataManager,
@@ -43,10 +51,13 @@ public class GenerateCqrsHandlerUnitTestsWithAITask : IModuleTask
         _intentSemanticKernelFactory = new IntentSemanticKernelFactory(userSettingsProvider);
     }
 
-    public string TaskTypeId => "Intent.Modules.AI.UnitTests.Cqrs.Generate";
+    public string TaskTypeId => "Intent.AI.UnitTests.GenerateCqrsHandlerUnitTestsWithAITask";
+    [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
     public string TaskTypeName => "Auto-Implement Unit Tests with AI Task (CQRS Handler)";
+    [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
     public int Order => 0;
 
+    [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
     public string Execute(params string[] args)
     {
         var applicationId = args[0];
@@ -58,7 +69,7 @@ public class GenerateCqrsHandlerUnitTestsWithAITask : IModuleTask
 
         Logging.Log.Info($"Args: {string.Join(",", args)}");
         var kernel = _intentSemanticKernelFactory.BuildSemanticKernel(modelId, provider, null);
-        
+
         var queryModel = _metadataManager.Services(applicationId).Elements.FirstOrDefault(x => x.Id == elementId);
         if (queryModel == null)
         {
@@ -67,9 +78,9 @@ public class GenerateCqrsHandlerUnitTestsWithAITask : IModuleTask
         var inputFiles = GetInputFiles(queryModel);
         Logging.Log.Info($"Context files included: {inputFiles.Count} files");
         Logging.Log.Debug($"Files: {string.Join(", ", inputFiles.Select(f => Path.GetFileName(f.FilePath)))}");
-        
+
         var jsonInput = JsonConvert.SerializeObject(inputFiles, Formatting.Indented);
-        
+
         var promptTemplate = GetPromptTemplate();
         var fileChangesResult = kernel.InvokeFileChangesPrompt(promptTemplate, thinkingType, new KernelArguments()
         {
@@ -801,14 +812,14 @@ public class GenerateCqrsHandlerUnitTestsWithAITask : IModuleTask
             ## Previous Error Message
             {{$previousError}}
             """;
-        
+
         return promptTemplate;
     }
 
     private List<ICodebaseFile> GetInputFiles(IElement element)
     {
         var filesProvider = _applicationConfigurationProvider.GeneratedFilesProvider();
-        
+
         // PRIMARY: Handler/Command and its DTOs (the code we're testing)
         var inputFiles = filesProvider.GetFilesForMetadata(element).ToList();
         if (element.TypeReference.ElementId != null)
@@ -826,26 +837,26 @@ public class GenerateCqrsHandlerUnitTestsWithAITask : IModuleTask
         // For unit tests, we only need to know method signatures to create mocks
         var handlerFiles = filesProvider.GetFilesForMetadata(element);
         var handlerContent = string.Join("\n", handlerFiles.Select(f => f.Content));
-        
+
         // Only include repository interface if handler uses it
         if (handlerContent.Contains("Repository", StringComparison.OrdinalIgnoreCase))
         {
             inputFiles.AddRange(filesProvider.GetFilesForTemplate("Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface"));
         }
-        
+
         // Only include pagination if handler returns paged results
         if (handlerContent.Contains("PagedResult") || handlerContent.Contains("PagedList"))
         {
             inputFiles.AddRange(filesProvider.GetFilesForTemplate("Intent.Application.Dtos.Pagination.PagedResult"));
             inputFiles.AddRange(filesProvider.GetFilesForTemplate("Intent.Entities.Repositories.Api.PagedListInterface"));
         }
-        
+
         // Only include NotFoundException if handler throws it
         if (handlerContent.Contains("NotFoundException"))
         {
             inputFiles.AddRange(filesProvider.GetFilesForTemplate("Intent.Entities.NotFoundException"));
         }
-        
+
         // Only include UnitOfWork if handler saves changes
         if (handlerContent.Contains("SaveChangesAsync") || handlerContent.Contains("IUnitOfWork"))
         {

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e3a523ef-ffeb-470d-b70d-994d05a83dc6" type="Module Task" typeId="ad38ef37-45b8-4a6a-96de-f8d41da3cfe0">
+  <name>GenerateServiceUnitTestsWithAITask</name>
+  <display>GenerateServiceUnitTestsWithAITask</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d7c7c7b3-1faa-4ea9-b9d4-25291fc2447e</parentFolderId>
+  <packageId>d7c7c7b3-1faa-4ea9-b9d4-25291fc2447e</packageId>
+  <packageName>Intent.AI.UnitTests</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

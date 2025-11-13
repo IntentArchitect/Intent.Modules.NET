@@ -13,12 +13,19 @@ using Intent.Modules.Common.AI.Extensions;
 using Intent.Modules.Common.AI.Settings;
 using Intent.Plugins;
 using Intent.Registrations;
+using Intent.RoslynWeaver.Attributes;
 using Intent.Utils;
 using Microsoft.SemanticKernel;
 using Newtonsoft.Json;
 
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.ModuleBuilder.Templates.ModuleTask", Version = "1.0")]
+
 namespace Intent.Modules.AI.UnitTests.Tasks;
 
+#nullable enable
+
+[IntentManaged(Mode.Merge)]
 #nullable enable
 
 public class GenerateServiceUnitTestsWithAITask : IModuleTask
@@ -29,6 +36,7 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
     private readonly IOutputRegistry _outputRegistry;
     private readonly IntentSemanticKernelFactory _intentSemanticKernelFactory;
 
+    [IntentManaged(Mode.Merge)]
     public GenerateServiceUnitTestsWithAITask(
         IApplicationConfigurationProvider applicationConfigurationProvider,
         IMetadataManager metadataManager,
@@ -43,10 +51,13 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
         _intentSemanticKernelFactory = new IntentSemanticKernelFactory(userSettingsProvider);
     }
 
-    public string TaskTypeId => "Intent.Modules.AI.UnitTests.Service.Generate";
+    public string TaskTypeId => "Intent.AI.UnitTests.GenerateServiceUnitTestsWithAITask";
+    [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
     public string TaskTypeName => "Auto-Implement Unit Tests with AI Task (Service)";
+    [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
     public int Order => 0;
 
+    [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
     public string Execute(params string[] args)
     {
         var applicationId = args[0];
@@ -58,7 +69,7 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
 
         Logging.Log.Info($"Args: {string.Join(",", args)}");
         var kernel = _intentSemanticKernelFactory.BuildSemanticKernel(modelId, provider, null);
-        
+
         var queryModel = _metadataManager.Services(applicationId).Elements.FirstOrDefault(x => x.Id == elementId);
         if (queryModel == null)
         {
@@ -67,7 +78,7 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
         var inputFiles = GetInputFiles(queryModel);
         Logging.Log.Info($"Context files included: {inputFiles.Count} files");
         Logging.Log.Debug($"Files: {string.Join(", ", inputFiles.Select(f => Path.GetFileName(f.FilePath)))}");
-        
+
         var jsonInput = JsonConvert.SerializeObject(inputFiles, Formatting.Indented);
 
         var promptTemplate = GetPromptTemplate();
@@ -687,19 +698,19 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
             ## Previous Error Message
             {{$previousError}}
             """;
-        
+
         return promptTemplate;
     }
 
     private List<ICodebaseFile> GetInputFiles(IElement service)
     {
         var filesProvider = _applicationConfigurationProvider.GeneratedFilesProvider();
-        
+
         // PRIMARY: Service implementation and its DTOs (the code we're testing)
         var inputFiles = filesProvider.GetFilesForMetadata(service).ToList();
         foreach (var operation in service.ChildElements)
         {
-            
+
             if (operation.TypeReference.ElementId != null)
             {
                 inputFiles.AddRange(filesProvider.GetFilesForMetadata(operation.TypeReference.Element));
@@ -716,26 +727,26 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
         // For unit tests, we only need to know method signatures to create mocks
         var serviceFiles = filesProvider.GetFilesForMetadata(service);
         var serviceContent = string.Join("\n", serviceFiles.Select(f => f.Content));
-        
+
         // Only include repository interface if service uses it
         if (serviceContent.Contains("Repository", StringComparison.OrdinalIgnoreCase))
         {
             inputFiles.AddRange(filesProvider.GetFilesForTemplate("Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface"));
         }
-        
+
         // Only include pagination if service returns paged results
         if (serviceContent.Contains("PagedResult") || serviceContent.Contains("PagedList"))
         {
             inputFiles.AddRange(filesProvider.GetFilesForTemplate("Intent.Application.Dtos.Pagination.PagedResult"));
             inputFiles.AddRange(filesProvider.GetFilesForTemplate("Intent.Entities.Repositories.Api.PagedListInterface"));
         }
-        
+
         // Only include NotFoundException if service throws it
         if (serviceContent.Contains("NotFoundException"))
         {
             inputFiles.AddRange(filesProvider.GetFilesForTemplate("Intent.Entities.NotFoundException"));
         }
-        
+
         // Only include UnitOfWork if service saves changes
         if (serviceContent.Contains("SaveChangesAsync") || serviceContent.Contains("IUnitOfWork"))
         {
