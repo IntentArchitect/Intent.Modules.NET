@@ -33,7 +33,7 @@
   <tags />
   <moduleSettingsExtensions />
   <metadata>
-    <install target="Services" src="modelers/AI Prompts.designer.settings" externalReference="1cd14547-8efc-4adc-a653-7fc17d8206a4" />
+    <install target="Services;Domain" src="modelers/AI Prompts.designer.settings" externalReference="1cd14547-8efc-4adc-a653-7fc17d8206a4" />
   </metadata>
   <releaseNotes>release-notes.md</releaseNotes>
   <migrations />
