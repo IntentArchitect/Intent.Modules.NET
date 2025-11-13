@@ -68,8 +68,6 @@ public class GenerateCqrsHandlerUnitTestsWithAITask : IModuleTask
         Logging.Log.Debug($"Files: {string.Join(", ", inputFiles.Select(f => Path.GetFileName(f.FilePath)))}");
         
         var jsonInput = JsonConvert.SerializeObject(inputFiles, Formatting.Indented);
-        var estimatedTokens = jsonInput.Length / 4; // Rough estimate: 1 token ≈ 4 chars
-        Logging.Log.Info($"Estimated context tokens: ~{estimatedTokens:N0}");
         
         var requestFunction = CreatePromptFunction(kernel, thinkingType);
         var fileChangesResult = requestFunction.InvokeFileChangesPrompt(kernel, new KernelArguments()
@@ -129,7 +127,22 @@ public class GenerateCqrsHandlerUnitTestsWithAITask : IModuleTask
             4. Focus on the handler implementation - all infrastructure types (repositories, mappers, etc.) should be mocked.
 
             ## Input Code Files (Organized by Priority):
-            The files below are organized with PRIMARY files (the code under test) first, followed by INFRASTRUCTURE files (interfaces to mock).
+            The files below include various types of code files. Understand their purpose:
+            
+            **PRIMARY FILES** (Code under test):
+            - Handler/Command/Query classes - the implementation you're testing
+            - DTOs (Data Transfer Objects) - input/output types used by the handler
+            
+            **DOMAIN FILES** (For understanding, NOT for implementation):
+            - Entity classes (e.g., Transaction, Client) - domain models referenced by the handler
+            - Entity repository interfaces (e.g., ITransactionRepository) - contain method signatures including domain-specific query methods
+            
+            **INFRASTRUCTURE FILES** (For mocking):
+            - Generic interfaces (IEFRepository, IMapper, IUnitOfWork) - mock these in tests
+            - Utility types (PagedResult, NotFoundException) - reference for test assertions
+            
+            **SOLUTION FILE**:
+            - .sln file - use to determine the correct test project path
             
             {{$inputFilesJson}}
 
@@ -180,16 +193,25 @@ public class GenerateCqrsHandlerUnitTestsWithAITask : IModuleTask
             - **Infrastructure files are for reference only**: Use them to understand interface signatures for mocking, NOT for implementation.
             - **Repository behavior**: Repositories assign an Id to entities when `SaveChangesAsync` is called - use Callback to simulate this.
             - **Entity collections**: Collections on entities cannot be treated like arrays in tests.
-            - **DTO construction**: DTOs have a static `Create` factory method that you must use when constructing DTOs in tests.
+            - **DTO construction**: DTOs MAY have a static `Create` factory method (if configured in Intent settings) OR use property initialization. Check the DTO file in the input context to determine which pattern to use:
+              * If DTO has `public static TDto Create(...)` method: Use `TransactionDto.Create(param1, param2, ...)`
+              * If DTO has public properties with setters: Use `new TransactionDto { Property1 = value1, Property2 = value2 }`
             - **AutoMapper mocking (CRITICAL)**: 
               * Mock the SINGULAR `Map<TDto>(entity)` method, NOT `Map<List<TDto>>(list)`
               * Extension methods like `.MapToTransactionDtoList()` call `Map<TDto>` for each item individually
               * Setup: `_mapperMock.Setup(x => x.Map<TransactionDto>(It.IsAny<Transaction>())).Returns((Transaction t) => ...)`
-            - **Predicate testing for filtered queries (CRITICAL)**:
-              * When testing queries with predicates (Where clauses), setup repository to ACTUALLY APPLY the predicate
-              * Compile the expression and filter test data: `predicate.Compile()` then `testData.Where(compiled)`
-              * This tests that the handler's filter logic is correct, not just that it returns something
-              * See Example 6 for the complete pattern
+            - **Filtered query testing (CRITICAL - TWO SCENARIOS)**:
+              * **Scenario 1 - Generic FindAllAsync with predicate**: Handler calls `repository.FindAllAsync(x => x.Status == "Completed", ...)` 
+                - Setup repository to ACTUALLY APPLY the predicate by compiling it
+                - Pattern: `predicate.Compile()` then `testData.Where(compiled)`
+                - This tests that the handler's filter logic is correct
+                - See Example 6A for the complete pattern
+              * **Scenario 2 - Domain-specific repository method**: Handler calls `repository.FindCompletedTransactionsAsync(fromDate, toDate, ...)`
+                - Mock the domain-specific method directly with its parameters
+                - Don't use predicate compilation
+                - Add comment explaining the method filters internally
+                - See Example 6B for the complete pattern
+              * **How to choose**: Inspect the handler code to see which repository method it calls
             - **NotFoundException pattern**: Always test both success path AND NotFoundException for FindByIdAsync operations.
             - **Validation**: No FluentValidations happen inside handlers - don't test for validation errors.
             - **Test naming**: Use concise pattern `{MethodName}_{ExpectedBehavior}_When{Condition}` (e.g., `Handle_ReturnsTransaction_WhenFound`, `Handle_ThrowsNotFoundException_WhenNotFound`). Omit "When" clause if obvious from context. Follow user-specified naming convention if provided in their context.
@@ -258,6 +280,9 @@ public class GenerateCqrsHandlerUnitTestsWithAITask : IModuleTask
             ```
 
             ## Test Examples (Follow These Patterns)
+            
+            **Note on DTO Construction in Examples:** 
+            The examples below use `TDto.Create(...)` factory method pattern. If the DTO in your context uses property initialization instead, adapt the pattern to `new TDto { Property1 = value1, Property2 = value2 }`. Check the DTO file provided in the input context to determine which pattern to use.
             
             ### Example 1: CREATE Command Handler
             ```csharp
@@ -468,17 +493,19 @@ public class GenerateCqrsHandlerUnitTestsWithAITask : IModuleTask
                     new Transaction { Id = Guid.NewGuid() },
                     new Transaction { Id = Guid.NewGuid() }
                 };
-                var expectedDtos = transactions.Select(t => TransactionDto.Create(
-                    DateTime.MinValue, 0, "", 0, "", Guid.Empty, Guid.Empty, Guid.Empty, Guid.Empty,
-                    "", "", "", ""
-                )).ToList();
 
                 _transactionRepositoryMock
                     .Setup(x => x.FindAllAsync(It.IsAny<CancellationToken>()))
                     .ReturnsAsync(transactions);
+                
+                // IMPORTANT: Mock singular Map<TDto>, NOT Map<List<TDto>>
+                // The extension method .MapToTransactionDtoList() calls Map<TDto> for each item
                 _mapperMock
-                    .Setup(x => x.Map<List<TransactionDto>>(transactions))
-                    .Returns(expectedDtos);
+                    .Setup(x => x.Map<TransactionDto>(It.IsAny<Transaction>()))
+                    .Returns((Transaction t) => TransactionDto.Create(
+                        DateTime.MinValue, 0, "", 0, "", Guid.Empty, Guid.Empty, Guid.Empty, Guid.Empty,
+                        "", "", "", ""
+                    ));
 
                 // Act
                 var result = await _handler.Handle(query, CancellationToken.None);
@@ -487,12 +514,18 @@ public class GenerateCqrsHandlerUnitTestsWithAITask : IModuleTask
                 Assert.NotNull(result);
                 Assert.Equal(2, result.Count);
                 _transactionRepositoryMock.Verify(x => x.FindAllAsync(It.IsAny<CancellationToken>()), Times.Once);
-                _mapperMock.Verify(x => x.Map<List<TransactionDto>>(transactions), Times.Once);
             }
             ```
 
-            ### Example 6: FILTERED Query with Predicate Testing (IMPORTANT for complex queries)
+            ### Example 6A: FILTERED Query - Scenario 1 (Generic FindAllAsync with Predicate)
+            **Use this pattern when the handler builds a predicate and passes it to a generic FindAllAsync method**
             ```csharp
+            // Handler code example:
+            // var transactions = await _repository.FindAllAsync(
+            //     x => x.Status == "Completed" && x.TransactionDate >= request.FromDate && x.TransactionDate <= request.ToDate,
+            //     query => query.OrderBy(x => x.TransactionDate),
+            //     cancellationToken);
+            
             [Fact]
             public async Task Handle_ReturnsCompletedTransactionsWithinDateRange()
             {
@@ -526,11 +559,10 @@ public class GenerateCqrsHandlerUnitTestsWithAITask : IModuleTask
                         // Compile and apply the predicate to test data
                         var compiled = predicate.Compile();
                         var filtered = allTransactions.Where(compiled).AsQueryable();
-                        var ordered = orderBy(filtered);
+                        var ordered = orderBy != null ? orderBy(filtered) : filtered;
                         return ordered.ToList();
                     });
 
-                // IMPORTANT: Use simple, direct DTO creation in mapper mock
                 _mapperMock
                     .Setup(x => x.Map<TransactionDto>(It.IsAny<Transaction>()))
                     .Returns((Transaction t) => TransactionDto.Create(
@@ -582,33 +614,107 @@ public class GenerateCqrsHandlerUnitTestsWithAITask : IModuleTask
                 // Assert
                 Assert.Empty(result);
             }
+            ```
 
+            ### Example 6B: FILTERED Query - Scenario 2 (Domain-Specific Repository Method)
+            **Use this pattern when the handler calls a domain-specific repository method that encapsulates the filtering logic**
+            ```csharp
+            // Handler code example:
+            // var transactions = await _repository.FindCompletedTransactionsAsync(request.FromDate, request.ToDate, cancellationToken);
+            
             [Fact]
-            public async Task Handle_ReturnsEmpty_WhenNoTransactionsExist()
+            public async Task Handle_ReturnsCompletedTransactions_WhenTransactionsMatchCriteria()
             {
                 // Arrange
-                var query = new GetCompletedTransactionsQuery(new DateTime(2024, 6, 1), new DateTime(2024, 6, 30));
-                var allTransactions = new List<Transaction>(); // Truly empty
+                var fromDate = new DateTime(2024, 6, 1);
+                var toDate = new DateTime(2024, 6, 30);
+                var query = new GetCompletedTransactionsQuery(fromDate, toDate);
+                
+                // Only need matching data since repository method handles filtering internally
+                var transactions = new List<Transaction>
+                {
+                    new Transaction { Status = "Completed", TransactionDate = new DateTime(2024, 6, 15) },
+                    new Transaction { Status = "Completed", TransactionDate = new DateTime(2024, 6, 20) }
+                };
 
+                // Mock the domain-specific method directly - no predicate compilation needed
                 _transactionRepositoryMock
-                    .Setup(x => x.FindAllAsync(
-                        It.IsAny<Expression<Func<Transaction, bool>>>(),
-                        It.IsAny<Func<IQueryable<Transaction>, IQueryable<Transaction>>>(),
-                        It.IsAny<CancellationToken>()))
-                    .ReturnsAsync((
-                        Expression<Func<Transaction, bool>> predicate,
-                        Func<IQueryable<Transaction>, IQueryable<Transaction>> orderBy,
-                        CancellationToken ct) =>
-                    {
-                        var compiled = predicate.Compile();
-                        return allTransactions.Where(compiled).ToList();
-                    });
+                    .Setup(x => x.FindCompletedTransactionsAsync(fromDate, toDate, It.IsAny<CancellationToken>()))
+                    .ReturnsAsync(transactions);
+
+                _mapperMock
+                    .Setup(x => x.Map<TransactionDto>(It.IsAny<Transaction>()))
+                    .Returns((Transaction t) => TransactionDto.Create(
+                        t.TransactionDate, 0, t.Status, 0, "", Guid.Empty, Guid.Empty, Guid.Empty, Guid.Empty,
+                        "", "", "", ""
+                    ));
 
                 // Act
                 var result = await _handler.Handle(query, CancellationToken.None);
 
                 // Assert
+                Assert.NotNull(result);
+                Assert.Equal(2, result.Count);
+                Assert.All(result, dto => Assert.Equal("Completed", dto.Status));
+                _transactionRepositoryMock.Verify(
+                    x => x.FindCompletedTransactionsAsync(fromDate, toDate, It.IsAny<CancellationToken>()), 
+                    Times.Once);
+            }
+
+            [Fact]
+            public async Task Handle_ReturnsEmpty_WhenNoTransactionsMatchCriteria()
+            {
+                // Arrange
+                var fromDate = new DateTime(2024, 6, 1);
+                var toDate = new DateTime(2024, 6, 30);
+                var query = new GetCompletedTransactionsQuery(fromDate, toDate);
+                
+                // EDGE CASE: Repository method filters internally, returns empty when criteria not met
+                // This could mean: no transactions exist, OR transactions exist but don't match filters
+                _transactionRepositoryMock
+                    .Setup(x => x.FindCompletedTransactionsAsync(fromDate, toDate, It.IsAny<CancellationToken>()))
+                    .ReturnsAsync(new List<Transaction>());
+
+                // Act
+                var result = await _handler.Handle(query, CancellationToken.None);
+
+                // Assert
+                Assert.NotNull(result);
                 Assert.Empty(result);
+            }
+
+            [Fact]
+            public async Task Handle_ReturnsTransaction_WhenDateMatchesBoundary()
+            {
+                // Arrange
+                // EDGE CASE: Test boundary condition where fromDate = toDate = transaction date
+                var boundaryDate = new DateTime(2024, 6, 15);
+                var query = new GetCompletedTransactionsQuery(boundaryDate, boundaryDate);
+                
+                var transactions = new List<Transaction>
+                {
+                    new Transaction { Status = "Completed", TransactionDate = boundaryDate }
+                };
+
+                _transactionRepositoryMock
+                    .Setup(x => x.FindCompletedTransactionsAsync(boundaryDate, boundaryDate, It.IsAny<CancellationToken>()))
+                    .ReturnsAsync(transactions);
+
+                _mapperMock
+                    .Setup(x => x.Map<TransactionDto>(It.IsAny<Transaction>()))
+                    .Returns((Transaction t) => TransactionDto.Create(
+                        t.TransactionDate, 0, t.Status, 0, "", Guid.Empty, Guid.Empty, Guid.Empty, Guid.Empty,
+                        "", "", "", ""
+                    ));
+
+                // Act
+                var result = await _handler.Handle(query, CancellationToken.None);
+
+                // Assert
+                Assert.NotNull(result);
+                Assert.Single(result);
+                Assert.Equal(boundaryDate, result[0].TransactionDate);
+                Assert.Equal("Completed", result[0].Status);
             }
             ```
 
@@ -673,6 +779,9 @@ public class GenerateCqrsHandlerUnitTestsWithAITask : IModuleTask
         return inputFiles;
     }
 
+    /// <summary>
+    /// Takes the Command/Query and enumerates related elements including associations to help Intent know which files to include as input.
+    /// </summary>
     private static List<ICanBeReferencedType> GetRelatedElements(IElement element)
     {
         var relatedElements = element.AssociatedElements.Where(x => x.TypeReference.Element != null)

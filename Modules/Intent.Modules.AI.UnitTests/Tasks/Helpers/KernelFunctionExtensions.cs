@@ -1,6 +1,6 @@
 using System;
-using System.Collections.Generic;
 using Intent.Exceptions;
+using Intent.Utils;
 using Microsoft.SemanticKernel;
 
 namespace Intent.Modules.AI.UnitTests.Tasks.Helpers;
@@ -18,6 +18,9 @@ internal static class KernelFunctionExtensions
         
         for (var i = 0; i < maxAttempts; i++)
         {
+            var attemptNumber = i + 1;
+            Logging.Log.Info($"AI invocation attempt {attemptNumber}/{maxAttempts}");
+            
             if (arguments is null)
             {
                 arguments = new KernelArguments();
@@ -42,20 +45,66 @@ internal static class KernelFunctionExtensions
                 throw;
             }
 
-            if (FileChangesHelper.TryGetFileChangesResult(result, out fileChangesResult))
+            if (FileChangesHelper.TryGetFileChangesResult(result, out fileChangesResult, out var errorDetails))
             {
+                Logging.Log.Info($"Attempt {attemptNumber} succeeded");
                 break;
             }
 
-            previousError = "The previous prompt execution failed. You need to return ONLY the JSON response in the defined schema format!";
+            // Provide specific error feedback for the retry
+            previousError = BuildRetryErrorMessage(result.ToString(), errorDetails);
+            Logging.Log.Warning($"Attempt {attemptNumber} failed: {errorDetails}");
         }
 
         if (fileChangesResult is null)
         {
-            throw new Exception("AI Prompt failed to return a valid response.");
+            throw new Exception("AI Prompt failed to return a valid response after all retry attempts.");
         }
 
         return fileChangesResult;
+    }
+
+    private static string BuildRetryErrorMessage(string aiResponse, string? errorDetails)
+    {
+        if (string.IsNullOrWhiteSpace(errorDetails))
+        {
+            return "The previous prompt execution failed. You need to return ONLY the JSON response in the defined schema format!";
+        }
+
+        var message = $"""
+                       The previous prompt execution failed with the following error:
+
+                       {errorDetails}
+
+                       """;
+
+        // Add specific guidance based on the error type
+        if (errorDetails.Contains("JSON parsing failed", StringComparison.OrdinalIgnoreCase))
+        {
+            message += """
+                       Common JSON errors to avoid:
+                       - Trailing commas in arrays or objects
+                       - Unescaped quotes or backslashes in strings
+                       - Comments (JSON does not support comments)
+                       - Single quotes instead of double quotes
+                       
+                       """;
+        }
+
+        message += """
+                   Expected schema format:
+                   {
+                     "fileChanges": [
+                       {
+                         "filePath": "path/to/file",
+                         "fileExplanation": "description",
+                         "content": "file content"
+                       }
+                     ]
+                   }
+                   """;
+
+        return message;
     }
 
     private static Exception GetRootException(Exception exception)
