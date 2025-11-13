@@ -1,0 +1,48 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Intent.Engine;
+using Intent.Metadata.Models;
+using Intent.Modelers.Services.Api;
+using Intent.Modelers.Services.EventInteractions;
+using Intent.Modules.Common;
+using Intent.Modules.Common.Registrations;
+using Intent.Modules.UnitTesting.Settings;
+using Intent.RoslynWeaver.Attributes;
+using Intent.Templates;
+using Intent.UnitTesting.Api;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.FilePerModel", Version = "1.0")]
+
+namespace Intent.Modules.UnitTesting.Templates.IntegrationEventHandlerTest
+{
+    [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
+    public class IntegrationEventHandlerTestTemplateRegistration : FilePerModelTemplateRegistration<IntegrationEventHandlerModel>
+    {
+        private readonly IMetadataManager _metadataManager;
+
+        public IntegrationEventHandlerTestTemplateRegistration(IMetadataManager metadataManager)
+        {
+            _metadataManager = metadataManager;
+        }
+
+        public override string TemplateId => IntegrationEventHandlerTestTemplate.TemplateId;
+
+        [IntentManaged(Mode.Fully)]
+        public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, IntegrationEventHandlerModel model)
+        {
+            return new IntegrationEventHandlerTestTemplate(outputTarget, model);
+        }
+
+        [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
+        public override IEnumerable<IntegrationEventHandlerModel> GetModels(IApplication application)
+        {
+            var generationMode = application.Settings.GetUnitTestSettings().UnitTestGenerationMode().AsEnum();
+
+            return _metadataManager.Services(application).GetIntegrationEventHandlerModels()
+                .Where(c => generationMode == UnitTestSettings.UnitTestGenerationModeOptionsEnum.All ||
+                            c.HasUnitTest());
+        }
+    }
+}
