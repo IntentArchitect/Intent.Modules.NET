@@ -75,7 +75,7 @@ public class GenerateIntegrationEventHandlerUnitTestsWithAITask : IModuleTask
             throw new Exception($"An element was selected to be executed upon but could not be found. Please ensure you have saved your designer and try again.");
         }
 
-        var inputFiles = GetInputFiles(eventHandlerElement);
+        var inputFiles = GetInputFiles(applicationId, eventHandlerElement);
         Logging.Log.Info($"Context files included: {inputFiles.Count} files");
         Logging.Log.Debug($"Files: {string.Join(", ", inputFiles.Select(f => Path.GetFileName(f.FilePath)))}");
 
@@ -532,7 +532,7 @@ public class GenerateIntegrationEventHandlerUnitTestsWithAITask : IModuleTask
         return promptTemplate;
     }
 
-    private List<ICodebaseFile> GetInputFiles(IElement eventHandlerElement)
+    private List<ICodebaseFile> GetInputFiles(string applicationId, IElement eventHandlerElement)
     {
         var filesProvider = _applicationConfigurationProvider.GeneratedFilesProvider();
 
@@ -544,7 +544,7 @@ public class GenerateIntegrationEventHandlerUnitTestsWithAITask : IModuleTask
         var handlerContent = string.Join("\n", handlerFiles.Select(f => f.Content));
 
         // PRIMARY: Integration event message (the incoming message type)
-        if (eventHandlerElement.TypeReference.ElementId != null)
+        if (eventHandlerElement.TypeReference?.ElementId != null)
         {
             inputFiles.AddRange(filesProvider.GetFilesForMetadata(eventHandlerElement.TypeReference.Element));
         }
@@ -584,7 +584,7 @@ public class GenerateIntegrationEventHandlerUnitTestsWithAITask : IModuleTask
         foreach (var messageTypeName in publishedMessageTypes)
         {
             // Try to find the message by scanning for matching elements in Services metadata
-            var allElements = _metadataManager.Services(eventHandlerElement.Package.Id).Elements;
+            var allElements = _metadataManager.Services(applicationId).Elements;
             var messageElement = allElements.FirstOrDefault(e => e.Name.Equals(messageTypeName, StringComparison.Ordinal));
             if (messageElement != null)
             {
