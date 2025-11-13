@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="fb0da69d-7702-487c-88a3-1dc0be225866" type="Module Task" typeId="ad38ef37-45b8-4a6a-96de-f8d41da3cfe0">
+  <name>GenerateCqrsHandlerUnitTestsWithAITask</name>
+  <display>GenerateCqrsHandlerUnitTestsWithAITask</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d7c7c7b3-1faa-4ea9-b9d4-25291fc2447e</parentFolderId>
+  <packageId>d7c7c7b3-1faa-4ea9-b9d4-25291fc2447e</packageId>
+  <packageName>Intent.AI.UnitTests</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

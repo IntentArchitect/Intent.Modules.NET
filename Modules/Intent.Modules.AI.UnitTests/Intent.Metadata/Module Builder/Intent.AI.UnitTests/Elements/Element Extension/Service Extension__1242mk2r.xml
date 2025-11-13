@@ -87,7 +87,7 @@
               <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
               <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
               <properties>
-                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="await execute(&quot;Intent.Modules.AI.UnitTests.Service.Generate&quot;);" isActive="true" />
+                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="await execute(&quot;Intent.AI.UnitTests.GenerateServiceUnitTestsWithAITask&quot;);" isActive="true" />
                 <property name="7df9c3b9-91a0-4cb7-bc3a-15d72f160054" display="Dependencies" value="[&quot;2b87841e-8eb1-4181-86e6-28e45ccfe84f&quot;]" isActive="true" />
               </properties>
             </stereotype>
