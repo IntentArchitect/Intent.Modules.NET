@@ -115,10 +115,11 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
             2. **Entity Not Found**: Test NotFoundException when FindByIdAsync returns null (for Update/Delete/GetById operations)
             3. **Empty Results**: Test behavior when queries return empty collections
             4. **Edge Cases** (CRITICAL):
-               * For filtered queries: Test when data exists but doesn't match filter criteria (e.g., wrong category, outside price range)
+               * For filtered queries with predicates: Test when data exists but doesn't match ALL filter criteria (e.g., right price range but wrong category)
+               * For domain-specific repository methods: Add comment explaining the method filters internally, mock returns empty when criteria not met
                * For date range queries: Test boundary dates (startDate = entityDate, endDate = entityDate)
                * For single entity operations: Test not found scenario
-               * For collection operations: Test empty, single item, multiple items
+               * Avoid trivial variations: Don't test 1 item, 2 items, 4 items separately - one happy path with multiple items is sufficient
             5. **State Changes**: Assert that entity properties are updated correctly (for Update operations)
             6. **Return Values**: Verify correct return values (Guid for Create, DTO for Query, void for Delete)
             
@@ -213,6 +214,12 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
               * GOOD: Test 1 verifies repository + mapper + result correctness (all in one), Test 2 tests empty results, Test 3 tests edge cases
               * Create separate tests for: NotFoundException, empty results, boundary conditions, different logical scenarios
               * Don't create separate tests for: re-verifying the same mock calls, testing the same code path with trivial variations
+              * Avoid multiple tests that only differ in data quantity (e.g., 2 items vs 4 items) - one happy path is sufficient
+            
+            - **Mapper Mock Simplicity**:
+              * BAD: `.Returns((Product p) => expectedDtos.First(dto => dto.Id == p.Id))` - Fragile matching logic
+              * GOOD: `.Returns((Product p) => ProductDto.Create(p.Name, p.Price, ...))` - Direct creation
+              * Use simple, inline DTO creation in mapper mocks rather than pre-creating DTOs and matching them
             
             - **Code preservation**: If an existing test file exists, update it according to 'Code Preservation Requirements' below.
             - **Attributes**: Never add your own [IntentManaged] attributes to tests.
@@ -462,7 +469,7 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
                         return allProducts.Where(compiled).ToList();
                     });
 
-                // Minimal DTO properties
+                // Use simple, direct DTO creation
                 _mapperMock
                     .Setup(x => x.Map<ProductDto>(It.IsAny<Product>()))
                     .Returns((Product p) => ProductDto.Create("", "", 0, "", Guid.NewGuid()));
@@ -473,9 +480,6 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
                 // Assert - This single test verifies: predicate logic, repository call, mapper call, result correctness
                 Assert.NotNull(result);
                 Assert.Equal(2, result.Count); // Only 2 match the category
-                
-                // NOTE: No need for separate tests to verify repository.FindAllAsync() or mapper.Map() calls
-                // Those are already exercised by this test - avoid redundant tests!
             }
 
             [Fact]
@@ -484,6 +488,7 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
                 // Arrange
                 var categoryId = Guid.NewGuid();
                 // CRITICAL EDGE CASE: Products exist but don't match filter criteria
+                // This validates the service's predicate logic correctly filters out non-matching data
                 var allProducts = new List<Product>
                 {
                     new Product { CategoryId = Guid.NewGuid() }, // Different category
@@ -499,10 +504,6 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
                         var compiled = predicate.Compile();
                         return allProducts.Where(compiled).ToList();
                     });
-
-                _mapperMock
-                    .Setup(x => x.Map<ProductDto>(It.IsAny<Product>()))
-                    .Returns((Product p) => ProductDto.Create("", "", 0, "", Guid.NewGuid()));
 
                 // Act
                 var result = await _sut.FindProductsByCategory(categoryId);
