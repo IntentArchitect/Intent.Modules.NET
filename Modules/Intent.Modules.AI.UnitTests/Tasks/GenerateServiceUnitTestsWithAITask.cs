@@ -16,7 +16,7 @@ using Intent.Utils;
 using Microsoft.SemanticKernel;
 using Newtonsoft.Json;
 
-namespace Intent.Modules.AI.Prompts.Tasks;
+namespace Intent.Modules.AI.UnitTests.Tasks;
 
 #nullable enable
 
@@ -69,14 +69,15 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
         
         var jsonInput = JsonConvert.SerializeObject(inputFiles, Formatting.Indented);
 
-        var requestFunction = CreatePromptFunction(kernel, thinkingType);
-        var fileChangesResult = requestFunction.InvokeFileChangesPrompt(kernel, new KernelArguments()
+        var promptTemplate = GetPromptTemplate();
+        var fileChangesResult = kernel.InvokeFileChangesPrompt(promptTemplate, thinkingType, new KernelArguments()
         {
             ["inputFilesJson"] = jsonInput,
             ["userProvidedContext"] = userProvidedContext,
             ["targetFileName"] = queryModel.Name,
             ["mockFramework"] = GetMockFramework(),
-            ["slnRelativePath"] = "/" + string.Join('/', queryModel.GetParentPath().Select(x => x.Name))
+            ["slnRelativePath"] = "/" + string.Join('/', queryModel.GetParentPath().Select(x => x.Name)),
+            ["fileChangesSchema"] = FileChangesSchema.GetPromptInstructions()
         });
 
         // Output the updated file changes.
@@ -90,8 +91,7 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
         return "success";
     }
 
-
-    private static KernelFunction CreatePromptFunction(Kernel kernel, string thinkingType)
+    private static string GetPromptTemplate()
     {
         const string promptTemplate =
             """
@@ -104,7 +104,10 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
             ## Code File Modification Rules
             1. PRESERVE all [IntentManaged] Attributes on the existing test file's constructor, class or file.
             2. You may only create or update the test file
-            3. Add using clauses for ALL classes that you use in your test (IMPORTANT)
+            3. Add using clauses for ALL classes that you use in your test (CRITICAL):
+               * Include the entity namespace (e.g., `using CleanArch1.Domain.Entities;`) when using domain entities in test data
+               * Include repository namespaces when mocking repositories
+               * Include DTO namespaces for DTOs used in assertions
             4. Focus on the service implementation - all infrastructure types (repositories, mappers, etc.) should be mocked.
 
             ## Test Coverage Requirements
@@ -133,9 +136,10 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
             - Service classes - the implementation you're testing
             - DTOs (Data Transfer Objects) - input/output types used by the service
             
-            **DOMAIN FILES** (For understanding, NOT for implementation):
-            - Entity classes (e.g., Product, Category) - domain models referenced by the service
-            - Entity repository interfaces (e.g., IProductRepository) - contain method signatures including domain-specific query methods
+            **DOMAIN FILES** (CRITICAL - Use for test data):
+            - Entity classes (e.g., Product, Category) - **USE THESE TYPES** when creating test data (e.g., `new Product { ... }`)
+            - Entity repository interfaces (e.g., `IProductRepository : IEFRepository<Product, Product>`) - identify the entity type from the interface signature
+            - **NEVER use anonymous objects** for entities - always use the actual entity class
             
             **INFRASTRUCTURE FILES** (For mocking):
             - Generic interfaces (IEFRepository, IMapper, IUnitOfWork) - mock these in tests
@@ -145,49 +149,13 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
             - .sln file - use to determine the correct test project path
             
             {{$inputFilesJson}}
+            
+            {{$fileChangesSchema}}
 
-            ## Required Output Format
-            Your response MUST include:
-            1. Respond ONLY with deserializable JSON that matches the following schema:
-            {
-                "type": "object",
-                "properties": {
-                    "FileChanges": {
-                        "type": "array",
-                        "items": {
-                            "type": "object",
-                            "properties": {
-                                "FilePath": { "type": "string" },
-                                "Content": { "type": "string" }
-                            },
-                            "required": ["FilePath", "Content"],
-                            "additionalProperties": false
-                        }
-                    }
-                },
-                "required": ["FileChanges"],
-                "additionalProperties": false
-            }
-            
-            EXAMPLE RESPONSE BEGIN
-            {
-                "FileChanges": [
-                    {
-                        "FilePath": <some-file-path_1>,
-                        "Content": <some-file-content_1>
-                    },
-                    {
-                        "FilePath": <some-file-path_2>,
-                        "Content": <some-file-content_2>
-                    }
-                ]
-            }
-            EXAMPLE RESPONSE END
-            
             2. The Content must contain:
             2.1. Your test file as pure code (no markdown).
             2.2. The file must have an appropriate path in the appropriate Tests project. Look for a project in the .sln file that would be appropriate and use the following relative path: '{{$slnRelativePath}}'.
-
+            
             ## Important Reminders for Unit Testing
             - **You are writing UNIT tests**: Mock ALL external dependencies (repositories, DbContext, external services, IMapper).
             - **Infrastructure files are for reference only**: Use them to understand interface signatures for mocking, NOT for implementation.
@@ -200,6 +168,14 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
               * Mock the SINGULAR `Map<TDto>(entity)` method, NOT `Map<List<TDto>>(list)`
               * Extension methods like `.MapToProductDtoList()` call `Map<TDto>` for each item individually
               * Setup: `_mapperMock.Setup(x => x.Map<ProductDto>(It.IsAny<Product>())).Returns((Product p) => ...)`
+            - **Entity types in repository mocks (CRITICAL)**:
+              * **ALWAYS use the actual domain entity type** (e.g., `Transaction`, `Product`) when creating test data and mocking repository methods
+              * **NEVER use anonymous objects** (e.g., `new { Id = ..., Status = ... }`) for test entity data
+              * **Find the entity type**: Look at the repository interface (e.g., `ITransactionRepository : IEFRepository<Transaction, Transaction>`) to identify the entity type
+              * **Include entity namespace**: Always add `using` statement for the entity namespace (e.g., `using CleanArch1.Domain.Entities;`)
+              * **Correct generic types in mocks**: When mocking `FindAllProjectToAsync<TDto>`, use `Expression<Func<EntityType, bool>>`, NOT `Expression<Func<object, bool>>`
+              * Example BAD: `new { Status = "Active" }` with `It.IsAny<Expression<Func<object, bool>>>()`
+              * Example GOOD: `new Product { Status = "Active" }` with `It.IsAny<Expression<Func<Product, bool>>>()`
             - **Filtered query testing (CRITICAL - TWO SCENARIOS)**:
               * **Scenario 1 - Generic FindAllAsync with predicate**: Service calls `repository.FindAllAsync(x => x.Status == "Active", ...)` 
                 - Setup repository to ACTUALLY APPLY the predicate by compiling it
@@ -604,14 +580,114 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
             }
             ```
 
+            ### Example 6C: PROJECTION Query with FindAllProjectToAsync (CRITICAL PATTERN)
+            **Use this pattern when the service calls FindAllProjectToAsync<TDto> with a filter expression**
+            ```csharp
+            // Service code example:
+            // var transactions = await _transactionRepository.FindAllProjectToAsync<TransactionDto>(
+            //     filterExpression: t => t.Status == "Completed" && t.TransactionDate >= fromDate && t.TransactionDate <= toDate,
+            //     queryOptions: q => q.OrderBy(t => t.TransactionDate),
+            //     cancellationToken: cancellationToken);
+            
+            [Fact]
+            public async Task GetCompletedTransactions_ReturnsTransactions_WhenTransactionsMatchCriteria()
+            {
+                // Arrange
+                var fromDate = new DateTime(2023, 1, 1);
+                var toDate = new DateTime(2023, 1, 31);
+                
+                // CRITICAL: Use actual entity type (Transaction), NOT anonymous objects
+                // Only set properties used in filter or assertions
+                var allTransactions = new List<Transaction>
+                {
+                    new Transaction { Status = "Completed", TransactionDate = new DateTime(2023, 1, 15) },
+                    new Transaction { Status = "Completed", TransactionDate = new DateTime(2023, 1, 20) },
+                    new Transaction { Status = "Pending", TransactionDate = new DateTime(2023, 1, 10) },
+                    new Transaction { Status = "Completed", TransactionDate = new DateTime(2023, 2, 1) }
+                };
+
+                // CRITICAL: Use correct generic type - Expression<Func<Transaction, bool>>, NOT Expression<Func<object, bool>>
+                _transactionRepositoryMock
+                    .Setup(x => x.FindAllProjectToAsync<TransactionDto>(
+                        It.IsAny<Expression<Func<Transaction, bool>>>(),
+                        It.IsAny<Func<IQueryable<Transaction>, IQueryable<Transaction>>>(),
+                        It.IsAny<CancellationToken>()))
+                    .ReturnsAsync((Expression<Func<Transaction, bool>> filterExpression, Func<IQueryable<Transaction>, IQueryable<Transaction>> queryOptions, CancellationToken ct) =>
+                    {
+                        var compiled = filterExpression.Compile();
+                        var filtered = allTransactions.Where(compiled).ToList();
+                        
+                        // Create DTOs from filtered entities
+                        var dtos = filtered.Select(t => new TransactionDto
+                        {
+                            TransactionDate = t.TransactionDate,
+                            Status = t.Status,
+                            // Only set other properties if needed for assertions
+                            SalePrice = 0,
+                            CommissionRate = 0,
+                            ClosingAgent = "",
+                            ClientId = Guid.Empty,
+                            BuyerId = Guid.Empty,
+                            SellerId = Guid.Empty,
+                            AssetId = Guid.Empty
+                        }).OrderBy(dto => dto.TransactionDate).ToList();
+                        
+                        return dtos;
+                    });
+
+                // Act
+                var result = await _sut.GetCompletedTransactions(fromDate, toDate);
+
+                // Assert
+                Assert.NotNull(result);
+                Assert.Equal(2, result.Count);
+                Assert.All(result, dto => Assert.Equal("Completed", dto.Status));
+                Assert.True(result.All(dto => dto.TransactionDate >= fromDate && dto.TransactionDate <= toDate));
+            }
+
+            [Fact]
+            public async Task GetCompletedTransactions_ReturnsEmpty_WhenNoTransactionsMatchCriteria()
+            {
+                // Arrange
+                var fromDate = new DateTime(2023, 1, 1);
+                var toDate = new DateTime(2023, 1, 31);
+                
+                // EDGE CASE: Transactions exist but don't match ALL filter criteria
+                var allTransactions = new List<Transaction>
+                {
+                    new Transaction { Status = "Pending", TransactionDate = new DateTime(2023, 1, 15) },
+                    new Transaction { Status = "Completed", TransactionDate = new DateTime(2023, 2, 15) },
+                    new Transaction { Status = "Cancelled", TransactionDate = new DateTime(2023, 1, 20) }
+                };
+
+                _transactionRepositoryMock
+                    .Setup(x => x.FindAllProjectToAsync<TransactionDto>(
+                        It.IsAny<Expression<Func<Transaction, bool>>>(),
+                        It.IsAny<Func<IQueryable<Transaction>, IQueryable<Transaction>>>(),
+                        It.IsAny<CancellationToken>()))
+                    .ReturnsAsync((Expression<Func<Transaction, bool>> filterExpression, Func<IQueryable<Transaction>, IQueryable<Transaction>> queryOptions, CancellationToken ct) =>
+                    {
+                        var compiled = filterExpression.Compile();
+                        var filtered = allTransactions.Where(compiled).ToList();
+                        return new List<TransactionDto>();
+                    });
+
+                // Act
+                var result = await _sut.GetCompletedTransactions(fromDate, toDate);
+
+                // Assert
+                Assert.NotNull(result);
+                Assert.Empty(result);
+            }
+            ```
+
 
 
             ## Previous Error Message
             {{$previousError}}
             """;
         
-        var requestFunction = kernel.CreateFunctionFromPrompt(promptTemplate, kernel.GetRequiredService<IAiProviderService>().GetPromptExecutionSettings(thinkingType));
-        return requestFunction;
+        return promptTemplate;
     }
 
     private List<ICodebaseFile> GetInputFiles(IElement service)
