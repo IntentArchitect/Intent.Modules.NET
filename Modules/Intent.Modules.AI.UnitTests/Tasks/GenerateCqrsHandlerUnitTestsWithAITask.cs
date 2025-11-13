@@ -109,10 +109,11 @@ public class GenerateCqrsHandlerUnitTestsWithAITask : IModuleTask
             2. **Entity Not Found**: Test NotFoundException when FindByIdAsync returns null (for Update/Delete/GetById operations)
             3. **Empty Results**: Test behavior when queries return empty collections
             4. **Edge Cases** (CRITICAL):
-               * For filtered queries: Test when data exists but doesn't match filter criteria (e.g., wrong status, outside date range)
+               * For filtered queries with predicates: Test when data exists but doesn't match ALL filter criteria (e.g., right date range but wrong status)
+               * For domain-specific repository methods: Add comment explaining the method filters internally, mock returns empty when criteria not met
                * For date range queries: Test boundary dates (startDate = entityDate, endDate = entityDate)
                * For single entity operations: Test not found scenario
-               * For collection operations: Test empty, single item, multiple items
+               * Avoid trivial variations: Don't test 1 item, 2 items, 4 items separately - one happy path with multiple items is sufficient
             5. **State Changes**: Assert that entity properties are updated correctly (for Update operations)
             6. **Return Values**: Verify correct return values (Guid for Create, DTO for Query, void for Delete)
             
@@ -213,6 +214,12 @@ public class GenerateCqrsHandlerUnitTestsWithAITask : IModuleTask
               * GOOD: Test 1 verifies repository + mapper + result correctness (all in one), Test 2 tests empty results, Test 3 tests edge cases
               * Create separate tests for: NotFoundException, empty results, boundary conditions, different logical scenarios
               * Don't create separate tests for: re-verifying the same mock calls, testing the same code path with trivial variations
+              * Avoid multiple tests that only differ in data quantity (e.g., 2 items vs 4 items) - one happy path is sufficient
+            
+            - **Mapper Mock Simplicity**:
+              * BAD: `.Returns((Transaction t) => expectedDtos.First(dto => dto.Id == t.Id))` - Fragile matching logic
+              * GOOD: `.Returns((Transaction t) => TransactionDto.Create(t.Property1, t.Property2, ...))` - Direct creation
+              * Use simple, inline DTO creation in mapper mocks rather than pre-creating DTOs and matching them
             
             - **Code preservation**: If an existing test file exists, update it according to 'Code Preservation Requirements' below.
             - **Attributes**: Never add your own [IntentManaged] attributes to tests.
@@ -523,9 +530,7 @@ public class GenerateCqrsHandlerUnitTestsWithAITask : IModuleTask
                         return ordered.ToList();
                     });
 
-                // IMPORTANT: Mock the SINGULAR Map<TDto> method, not Map<List<TDto>>
-                // Extension methods like .MapToTransactionDtoList() call Map<TDto> for each item
-                // Minimal DTO properties - only what we assert on
+                // IMPORTANT: Use simple, direct DTO creation in mapper mock
                 _mapperMock
                     .Setup(x => x.Map<TransactionDto>(It.IsAny<Transaction>()))
                     .Returns((Transaction t) => TransactionDto.Create(
@@ -541,9 +546,6 @@ public class GenerateCqrsHandlerUnitTestsWithAITask : IModuleTask
                 Assert.Equal(2, result.Count); // Only 2 match: Completed AND within date range
                 Assert.All(result, dto => Assert.Equal("Completed", dto.Status));
                 Assert.True(result[0].TransactionDate <= result[1].TransactionDate, "Results should be ordered by date");
-                
-                // NOTE: No need for separate tests to verify repository.FindAllAsync() or mapper.Map() calls
-                // Those are already exercised by this test - avoid redundant tests!
             }
 
             [Fact]
@@ -552,6 +554,7 @@ public class GenerateCqrsHandlerUnitTestsWithAITask : IModuleTask
                 // Arrange
                 var query = new GetCompletedTransactionsQuery(new DateTime(2024, 6, 1), new DateTime(2024, 6, 30));
                 // CRITICAL EDGE CASE: Transactions exist but don't match ALL filter criteria
+                // This validates the handler's predicate logic correctly filters out non-matching data
                 var allTransactions = new List<Transaction>
                 {
                     new Transaction { Status = "Pending", TransactionDate = new DateTime(2024, 6, 15) },    // Wrong status
@@ -572,13 +575,6 @@ public class GenerateCqrsHandlerUnitTestsWithAITask : IModuleTask
                         var compiled = predicate.Compile();
                         return allTransactions.Where(compiled).ToList();
                     });
-
-                _mapperMock
-                    .Setup(x => x.Map<TransactionDto>(It.IsAny<Transaction>()))
-                    .Returns((Transaction t) => TransactionDto.Create(
-                        DateTime.MinValue, 0, "", 0, "", Guid.Empty, Guid.Empty, Guid.Empty, Guid.Empty,
-                        "", "", "", ""
-                    ));
 
                 // Act
                 var result = await _handler.Handle(query, CancellationToken.None);
