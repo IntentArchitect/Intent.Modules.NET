@@ -13,7 +13,7 @@ internal static class FileChangesHelper
     /// AI Models / APIs that doesn't support JSON Schema Formatting (like OpenAI) will not completely give you a "clean result".
     /// This will attempt to cut through the thoughts it writes out to get to the payload.
     /// </summary>
-    public static bool TryGetFileChangesResult(FunctionResult aiInvocationResponse, [NotNullWhen(true)] out FileChangesResult? fileChanges)
+    public static bool TryGetFileChangesResult(FunctionResult aiInvocationResponse, [NotNullWhen(true)] out FileChangesResult? fileChanges, out string? errorDetails)
     {
         try
         {
@@ -36,15 +36,24 @@ internal static class FileChangesHelper
             if (fileChangesResult is null)
             {
                 fileChanges = null;
+                errorDetails = "JSON deserialization returned null. Response may be empty or invalid.";
                 return false;
             }
 
             fileChanges = fileChangesResult;
+            errorDetails = null;
             return true;
         }
-        catch
+        catch (JsonException jsonEx)
         {
             fileChanges = null;
+            errorDetails = $"JSON parsing failed: {jsonEx.Message}";
+            return false;
+        }
+        catch (Exception ex)
+        {
+            fileChanges = null;
+            errorDetails = $"Unexpected error: {ex.Message}";
             return false;
         }
     }

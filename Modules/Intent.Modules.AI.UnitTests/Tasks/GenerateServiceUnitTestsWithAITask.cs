@@ -68,15 +68,13 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
         Logging.Log.Debug($"Files: {string.Join(", ", inputFiles.Select(f => Path.GetFileName(f.FilePath)))}");
         
         var jsonInput = JsonConvert.SerializeObject(inputFiles, Formatting.Indented);
-        var estimatedTokens = jsonInput.Length / 4; // Rough estimate: 1 token ≈ 4 chars
-        Logging.Log.Info($"Estimated context tokens: ~{estimatedTokens:N0}");
 
         var requestFunction = CreatePromptFunction(kernel, thinkingType);
         var fileChangesResult = requestFunction.InvokeFileChangesPrompt(kernel, new KernelArguments()
         {
             ["inputFilesJson"] = jsonInput,
             ["userProvidedContext"] = userProvidedContext,
-            ["targetFileName"] = queryModel.Name + "Handler",
+            ["targetFileName"] = queryModel.Name,
             ["mockFramework"] = GetMockFramework(),
             ["slnRelativePath"] = "/" + string.Join('/', queryModel.GetParentPath().Select(x => x.Name))
         });
@@ -129,7 +127,22 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
             - **Don't create multiple tests for trivial variations** - Combine related scenarios or use Theory/InlineData if needed
 
             ## Input Code Files (Organized by Priority):
-            The files below are organized with PRIMARY files (the code under test) first, followed by INFRASTRUCTURE files (interfaces to mock).
+            The files below include various types of code files. Understand their purpose:
+            
+            **PRIMARY FILES** (Code under test):
+            - Service classes - the implementation you're testing
+            - DTOs (Data Transfer Objects) - input/output types used by the service
+            
+            **DOMAIN FILES** (For understanding, NOT for implementation):
+            - Entity classes (e.g., Product, Category) - domain models referenced by the service
+            - Entity repository interfaces (e.g., IProductRepository) - contain method signatures including domain-specific query methods
+            
+            **INFRASTRUCTURE FILES** (For mocking):
+            - Generic interfaces (IEFRepository, IMapper, IUnitOfWork) - mock these in tests
+            - Utility types (PagedResult, NotFoundException) - reference for test assertions
+            
+            **SOLUTION FILE**:
+            - .sln file - use to determine the correct test project path
             
             {{$inputFilesJson}}
 
@@ -180,16 +193,25 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
             - **Infrastructure files are for reference only**: Use them to understand interface signatures for mocking, NOT for implementation.
             - **Repository behavior**: Repositories assign an Id to entities when `SaveChangesAsync` is called - use Callback to simulate this.
             - **Entity collections**: Collections on entities cannot be treated like arrays in tests.
-            - **DTO construction**: DTOs have a static `Create` factory method that you must use when constructing DTOs in tests.
+            - **DTO construction**: DTOs MAY have a static `Create` factory method (if configured in Intent settings) OR use property initialization. Check the DTO file in the input context to determine which pattern to use:
+              * If DTO has `public static TDto Create(...)` method: Use `ProductDto.Create(param1, param2, ...)`
+              * If DTO has public properties with setters: Use `new ProductDto { Property1 = value1, Property2 = value2 }`
             - **AutoMapper mocking (CRITICAL)**: 
               * Mock the SINGULAR `Map<TDto>(entity)` method, NOT `Map<List<TDto>>(list)`
               * Extension methods like `.MapToProductDtoList()` call `Map<TDto>` for each item individually
               * Setup: `_mapperMock.Setup(x => x.Map<ProductDto>(It.IsAny<Product>())).Returns((Product p) => ...)`
-            - **Predicate testing for filtered queries (CRITICAL)**:
-              * When testing methods with predicates (Where clauses), setup repository to ACTUALLY APPLY the predicate
-              * Compile the expression and filter test data: `predicate.Compile()` then `testData.Where(compiled)`
-              * This tests that the service's filter logic is correct, not just that it returns something
-              * See Example 6 for the complete pattern
+            - **Filtered query testing (CRITICAL - TWO SCENARIOS)**:
+              * **Scenario 1 - Generic FindAllAsync with predicate**: Service calls `repository.FindAllAsync(x => x.Status == "Active", ...)` 
+                - Setup repository to ACTUALLY APPLY the predicate by compiling it
+                - Pattern: `predicate.Compile()` then `testData.Where(compiled)`
+                - This tests that the service's filter logic is correct
+                - See Example 6A for the complete pattern
+              * **Scenario 2 - Domain-specific repository method**: Service calls `repository.FindActiveProductsAsync(...)`
+                - Mock the domain-specific method directly with its parameters
+                - Don't use predicate compilation
+                - Add comment explaining the method filters internally
+                - See Example 6B for the complete pattern
+              * **How to choose**: Inspect the service code to see which repository method it calls
             - **NotFoundException pattern**: Always test both success path AND NotFoundException for FindByIdAsync operations.
             - **Validation**: No FluentValidations happen inside services - don't test for validation errors.
             - **Test naming**: Use concise pattern `{MethodName}_{ExpectedBehavior}_When{Condition}` (e.g., `FindProductById_ReturnsDto_WhenFound`, `FindProductById_ThrowsNotFoundException_WhenNotFound`). Omit "When" clause if obvious from context. Follow user-specified naming convention if provided in their context.
@@ -258,6 +280,9 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
             ```
 
             ## Test Examples (Follow These Patterns)
+            
+            **Note on DTO Construction in Examples:** 
+            The examples below use `TDto.Create(...)` factory method pattern. If the DTO in your context uses property initialization instead, adapt the pattern to `new TDto { Property1 = value1, Property2 = value2 }`. Check the DTO file provided in the input context to determine which pattern to use.
             
             ### Example 1: CREATE Method
             ```csharp
@@ -427,6 +452,8 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
                     .Setup(x => x.FindAllAsync(It.IsAny<CancellationToken>()))
                     .ReturnsAsync(products);
                 
+                // IMPORTANT: Mock singular Map<TDto>, NOT Map<List<TDto>>
+                // The extension method .MapToProductDtoList() calls Map<TDto> for each item
                 _mapperMock
                     .Setup(x => x.Map<ProductDto>(It.IsAny<Product>()))
                     .Returns((Product p) => ProductDto.Create("", "", 0, "", p.Id));
@@ -441,8 +468,12 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
             }
             ```
 
-            ### Example 6: FILTERED Query with Predicate Testing (IMPORTANT)
+            ### Example 6A: FILTERED Query - Scenario 1 (Generic FindAllAsync with Predicate)
+            **Use this pattern when the service builds a predicate and passes it to a generic FindAllAsync method**
             ```csharp
+            // Service code example:
+            // var products = await _repository.FindAllAsync(x => x.CategoryId == categoryId, cancellationToken);
+            
             [Fact]
             public async Task FindProductsByCategory_ReturnsOnlyMatchingProducts()
             {
@@ -469,7 +500,6 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
                         return allProducts.Where(compiled).ToList();
                     });
 
-                // Use simple, direct DTO creation
                 _mapperMock
                     .Setup(x => x.Map<ProductDto>(It.IsAny<Product>()))
                     .Returns((Product p) => ProductDto.Create("", "", 0, "", Guid.NewGuid()));
@@ -511,28 +541,65 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
                 // Assert
                 Assert.Empty(result);
             }
+            ```
 
+            ### Example 6B: FILTERED Query - Scenario 2 (Domain-Specific Repository Method)
+            **Use this pattern when the service calls a domain-specific repository method that encapsulates the filtering logic**
+            ```csharp
+            // Service code example:
+            // var products = await _repository.FindActiveProductsInCategoryAsync(categoryId, cancellationToken);
+            
             [Fact]
-            public async Task FindProductsByCategory_ReturnsEmpty_WhenNoProductsExist()
+            public async Task FindActiveProducts_ReturnsProducts_WhenProductsMatchCriteria()
             {
                 // Arrange
                 var categoryId = Guid.NewGuid();
-                var allProducts = new List<Product>(); // Truly empty
+                
+                // Only need matching data since repository method handles filtering internally
+                var products = new List<Product>
+                {
+                    new Product { CategoryId = categoryId, Status = "Active" },
+                    new Product { CategoryId = categoryId, Status = "Active" }
+                };
 
+                // Mock the domain-specific method directly - no predicate compilation needed
                 _productRepositoryMock
-                    .Setup(x => x.FindAllAsync(
-                        It.IsAny<Expression<Func<Product, bool>>>(),
-                        It.IsAny<CancellationToken>()))
-                    .ReturnsAsync((Expression<Func<Product, bool>> predicate, CancellationToken ct) =>
-                    {
-                        var compiled = predicate.Compile();
-                        return allProducts.Where(compiled).ToList();
-                    });
+                    .Setup(x => x.FindActiveProductsInCategoryAsync(categoryId, It.IsAny<CancellationToken>()))
+                    .ReturnsAsync(products);
+
+                _mapperMock
+                    .Setup(x => x.Map<ProductDto>(It.IsAny<Product>()))
+                    .Returns((Product p) => ProductDto.Create("", "", 0, "", p.Id));
 
                 // Act
-                var result = await _sut.FindProductsByCategory(categoryId);
+                var result = await _sut.FindActiveProducts(categoryId);
 
                 // Assert
+                Assert.NotNull(result);
+                Assert.Equal(2, result.Count);
+                Assert.All(result, dto => Assert.NotEqual(Guid.Empty, dto.Id));
+                _productRepositoryMock.Verify(
+                    x => x.FindActiveProductsInCategoryAsync(categoryId, It.IsAny<CancellationToken>()), 
+                    Times.Once);
+            }
+
+            [Fact]
+            public async Task FindActiveProducts_ReturnsEmpty_WhenNoProductsMatchCriteria()
+            {
+                // Arrange
+                var categoryId = Guid.NewGuid();
+                
+                // EDGE CASE: Repository method filters internally, returns empty when criteria not met
+                // This could mean: no products exist, OR products exist but don't match filters
+                _productRepositoryMock
+                    .Setup(x => x.FindActiveProductsInCategoryAsync(categoryId, It.IsAny<CancellationToken>()))
+                    .ReturnsAsync(new List<Product>());
+
+                // Act
+                var result = await _sut.FindActiveProducts(categoryId);
+
+                // Assert
+                Assert.NotNull(result);
                 Assert.Empty(result);
             }
             ```
