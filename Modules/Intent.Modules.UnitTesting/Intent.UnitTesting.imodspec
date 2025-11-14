@@ -19,6 +19,14 @@
       <role>UnitTests.Tests</role>
       <location></location>
     </template>
+    <template id="Intent.UnitTesting.DomainEventHandlerTest" externalReference="9e0cd4b9-4605-4689-b9f7-c50806b3d33a">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>UnitTests.Tests</role>
+      <location></location>
+    </template>
     <template id="Intent.UnitTesting.IntegrationEventHandlerTest" externalReference="0715c3ad-9207-4239-9e04-5c29a7e9644a">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
@@ -75,9 +83,10 @@
     <dependency id="Intent.Common.Types" version="4.1.1" />
     <dependency id="Intent.Metadata.Security" version="1.0.0" includeAssets="designerMetadata" />
     <dependency id="Intent.Metadata.WebApi" version="4.7.7" includeAssets="designerMetadata" />
-    <dependency id="Intent.Modelers.Domain" version="3.11.1" includeAssets="designerMetadata" />
+    <dependency id="Intent.Modelers.Domain" version="3.12.2" includeAssets="designerMetadata" />
+    <dependency id="Intent.Modelers.Domain.Events" version="4.4.5" includeAssets="designerMetadata" />
     <dependency id="Intent.Modelers.Eventing" version="6.0.2" includeAssets="designerMetadata" />
-    <dependency id="Intent.Modelers.Services" version="4.0.0" includeAssets="designerMetadata" />
+    <dependency id="Intent.Modelers.Services" version="4.0.5" includeAssets="designerMetadata" />
     <dependency id="Intent.Modelers.Services.CQRS" version="5.0.1" includeAssets="designerMetadata" />
     <dependency id="Intent.Modelers.Services.EventInteractions" version="2.0.4" includeAssets="designerMetadata" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />

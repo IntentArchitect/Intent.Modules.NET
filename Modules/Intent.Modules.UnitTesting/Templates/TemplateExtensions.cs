@@ -1,9 +1,11 @@
 using System.Collections.Generic;
+using Intent.Modelers.Domain.Events.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modelers.Services.EventInteractions;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.UnitTesting.Templates.CommandHandlerTest;
+using Intent.Modules.UnitTesting.Templates.DomainEventHandlerTest;
 using Intent.Modules.UnitTesting.Templates.IntegrationEventHandlerTest;
 using Intent.Modules.UnitTesting.Templates.QueryHandlerTest;
 using Intent.Modules.UnitTesting.Templates.ServiceOperationTest;
@@ -25,6 +27,16 @@ namespace Intent.Modules.UnitTesting.Templates
         public static string GetCommandHandlerTestName(this IIntentTemplate template, CommandModel model)
         {
             return template.GetTypeName(CommandHandlerTestTemplate.TemplateId, model);
+        }
+
+        public static string GetDomainEventHandlerTestName<T>(this IIntentTemplate<T> template) where T : DomainEventHandlerModel
+        {
+            return template.GetTypeName(DomainEventHandlerTestTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetDomainEventHandlerTestName(this IIntentTemplate template, DomainEventHandlerModel model)
+        {
+            return template.GetTypeName(DomainEventHandlerTestTemplate.TemplateId, model);
         }
 
         public static string GetIntegrationEventHandlerTestName<T>(this IIntentTemplate<T> template) where T : IntegrationEventHandlerModel

@@ -18,6 +18,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>6256d34d-1762-452f-934c-388e604058d3</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#d80e61c5-7e4c-4175-9df1-0413f664824c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/DomainEventHandlerModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DomainEventHandlerModelStereotypeExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6256d34d-1762-452f-934c-388e604058d3</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#c0582230-22f5-4f74-8eb0-ec6fc9364900</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Api/IntegrationEventHandlerModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
@@ -126,6 +134,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/CommandHandlerTest/CommandHandlerTestTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CommandHandlerTest/CommandHandlerTestTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>03a5cb16-987e-444f-9c32-4c83cdd35f0d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#9e0cd4b9-4605-4689-b9f7-c50806b3d33a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/DomainEventHandlerTest/DomainEventHandlerTestTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DomainEventHandlerTest/DomainEventHandlerTestTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>03a5cb16-987e-444f-9c32-4c83cdd35f0d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#9e0cd4b9-4605-4689-b9f7-c50806b3d33a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/DomainEventHandlerTest/DomainEventHandlerTestTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DomainEventHandlerTest/DomainEventHandlerTestTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
