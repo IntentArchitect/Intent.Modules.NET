@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
+using Intent.Modelers.Domain.Api;
+using Intent.Modelers.Services.Api;
 
 namespace Intent.Modules.AI.UnitTests.Utilities;
 
