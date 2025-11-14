@@ -12,6 +12,7 @@ using Intent.Modules.UnitTesting.Settings;
 using Intent.Templates;
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Modelers.Domain.Events.Api;
 using Intent.Modelers.Services.EventInteractions;
 using static Intent.Modules.UnitTesting.Settings.UnitTestSettings;
 using OperationModel = Intent.Modelers.Services.Api.OperationModel;
@@ -112,16 +113,28 @@ internal static class TestHelpers
             return new SuccessTestDetails(association, methodName, "service operation parameter(s)", "relevant service method");
         }
 
-        public static SuccessTestDetails CreateIntegrationEventDetails( IntegrationEventHandlerModel model)
+        public static SuccessTestDetails CreateIntegrationEventDetails(IntegrationEventHandlerModel model)
         {
             var association = model.InternalElement.AssociatedElements?.FirstOrDefault();
             
-            var entityName = association?.TypeReference?.Element?.Name ?? "Entity";
+            var entityName = association?.TypeReference?.Element?.Name ?? "Message";
             var action = GetAssociationAction(association);
             var querySuffix = GetQuerySuffix(action, model);
             var methodName = $"Handle_Should_{action}_{entityName}{querySuffix}_Successfully";
 
             return new SuccessTestDetails(association, methodName, "event message", "Handle method");
+        }
+
+        public static SuccessTestDetails CreateDomainEventDetails(DomainEventHandlerModel model)
+        {
+            var association = model.InternalElement.AssociatedElements?.FirstOrDefault();
+            
+            var entityName = association?.TypeReference?.Element?.Name ?? "Domain Event";
+            var action = GetAssociationAction(association);
+            var querySuffix = GetQuerySuffix(action, model);
+            var methodName = $"Handle_Should_{action}_{entityName}{querySuffix}_Successfully";
+
+            return new SuccessTestDetails(association, methodName, "domain event", "Handle method");
         }
     }
 
