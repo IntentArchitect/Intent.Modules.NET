@@ -28,25 +28,23 @@ internal static class TestHelpers
 
     public static string GetOperationNormalizedPath<TModel>(this CSharpTemplateBase<TModel> template)
     {
-        var model = template.Model as IElementWrapper;
-        if (model?.InternalElement == null || model.InternalElement.SpecializationTypeId != SpecializationTypeIds.Service)
+        var model = template.Model as IElement;
+        if (model == null || model.SpecializationTypeId != SpecializationTypeIds.Service)
         {
             return template.GetFolderPath();
         }
 
-        var parentService = model as IHasFolder;
-        if (parentService == null)
-        {
-            return template.GetFolderPath();
-        }
+        // Wrap the element to get IHasFolder functionality
+        var wrapper = new ElementWrapper(model);
         
         // these have to be done as two seperate join calls, otherwise the incorrect overloaded Join method is called
-        if(parentService.GetParentFolderNames().Count > 0)
+        var parentFolders = wrapper.GetParentFolderNames().ToList();
+        if(parentFolders.Count > 0)
         {
-            return string.Join("/", parentService.GetParentFolderNames());
+            return string.Join("/", parentFolders);
         }
         
-        return string.Join("/", model.InternalElement.Name.Replace("Service", string.Empty));
+        return string.Join("/", model.Name.Replace("Service", string.Empty));
     }
 
     public static void PopulateTestConstructor(ICSharpTemplate template, CSharpConstructor ctor, ITemplate handlerTemplate, 
