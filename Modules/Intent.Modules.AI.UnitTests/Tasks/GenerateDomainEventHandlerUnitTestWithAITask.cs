@@ -8,16 +8,16 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Modules.AI.UnitTests.Tasks
 {
     [IntentManaged(Mode.Merge)]
-    public class GenerateEntityUnitTestsWithAITask : IModuleTask
+    public class GenerateDomainEventHandlerUnitTestWithAITask : IModuleTask
     {
         [IntentManaged(Mode.Merge)]
-        public GenerateEntityUnitTestsWithAITask()
+        public GenerateDomainEventHandlerUnitTestWithAITask()
         {
         }
 
-        public string TaskTypeId => "Intent.AI.UnitTests.GenerateEntityUnitTestsWithAITask";
+        public string TaskTypeId => "Intent.AI.UnitTests.GenerateDomainEventHandlerUnitTestWithAITask";
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public string TaskTypeName => "Generate entity unit tests with AI";
+        public string TaskTypeName => "Auto-Implement Unit Tests with AI Task (Domain Event Handler)";
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public int Order => 0;
 
@@ -25,7 +25,7 @@ namespace Intent.Modules.AI.UnitTests.Tasks
         public string Execute(params string[] args)
         {
             // IntentInitialGen
-            // TODO: Implement GenerateEntityUnitTestsWithAITask.Execute(...) functionality
+            // TODO: Implement GenerateDomainEventHandlerUnitTestWithAITask.Execute(...) functionality
             throw new NotImplementedException("Implement your handler logic here...");
         }
     }

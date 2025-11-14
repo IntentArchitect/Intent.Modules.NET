@@ -50,10 +50,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>128bf46d-9b55-4ce1-8d5d-d5ce2fc124ba</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.ModuleTask#8ea939ab-8406-4f36-8068-e872330009c3</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.ModuleTask#ade4a1a4-5e40-4bbe-be87-b997fffb365a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Tasks/GenerateEntityUnitTestsWithAITask.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>GenerateEntityUnitTestsWithAITask.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Tasks/GenerateDomainEventHandlerUnitTestWithAITask.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>GenerateDomainEventHandlerUnitTestWithAITask.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

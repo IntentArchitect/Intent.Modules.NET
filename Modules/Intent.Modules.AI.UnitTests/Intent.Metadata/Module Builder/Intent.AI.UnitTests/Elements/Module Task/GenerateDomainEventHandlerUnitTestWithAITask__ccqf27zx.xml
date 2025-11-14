@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="8ea939ab-8406-4f36-8068-e872330009c3" type="Module Task" typeId="ad38ef37-45b8-4a6a-96de-f8d41da3cfe0">
-  <name>GenerateEntityUnitTestsWithAITask</name>
-  <display>GenerateEntityUnitTestsWithAITask</display>
+<class id="ade4a1a4-5e40-4bbe-be87-b997fffb365a" type="Module Task" typeId="ad38ef37-45b8-4a6a-96de-f8d41da3cfe0">
+  <name>GenerateDomainEventHandlerUnitTestWithAITask</name>
+  <display>GenerateDomainEventHandlerUnitTestWithAITask</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
   <isMapped>false</isMapped>
