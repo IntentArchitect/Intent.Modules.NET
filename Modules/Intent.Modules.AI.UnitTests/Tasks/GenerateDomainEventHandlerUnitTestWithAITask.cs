@@ -546,13 +546,14 @@ namespace Intent.Modules.AI.UnitTests.Tasks
             var handlerContent = string.Join("\n", handlerFiles.Select(f => f.Content));
 
             // PRIMARY: Domain Event class (the event being handled)
-            // Domain event handlers handle INotification<DomainEventNotification<TEvent>>
-            // We need to find the associated domain event via element associations
-            var domainEventAssociations = eventHandlerElement.AssociatedElements
-                .Where(a => a.SpecializationType == "Domain Event" || a.Name.EndsWith("DomainEvent"));
+            // Domain event handlers are connected to domain events via associations
+            // The association has a targetEnd with a typeReference pointing to the domain event
+            var domainEventAssociation = eventHandlerElement.AssociatedElements
+                .FirstOrDefault(a => a.SpecializationType == "Domain Event Handler Association Target End");
             
-            foreach (var domainEvent in domainEventAssociations)
+            if (domainEventAssociation != null && domainEventAssociation.TypeReference?.Element != null)
             {
+                var domainEvent = domainEventAssociation.TypeReference.Element;
                 inputFiles.AddRange(filesProvider.GetFilesForMetadata(domainEvent));
             }
 
