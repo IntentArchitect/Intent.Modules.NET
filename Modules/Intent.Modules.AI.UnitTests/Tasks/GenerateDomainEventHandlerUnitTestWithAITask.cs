@@ -6,8 +6,7 @@ using System.Text.RegularExpressions;
 using Intent.Configuration;
 using Intent.Engine;
 using Intent.Metadata.Models;
-using Intent.Modelers.Domain.Events.Api;
-using Intent.Modelers.Services.Api;
+using Intent.Modules.AI.UnitTests;
 using Intent.Modules.AI.UnitTests.Utilities;
 using Intent.Modules.Common.AI;
 using Intent.Modules.Common.AI.CodeGeneration;
@@ -70,7 +69,9 @@ namespace Intent.Modules.AI.UnitTests.Tasks
             Logging.Log.Info($"Args: {string.Join(",", args)}");
             var kernel = _intentSemanticKernelFactory.BuildSemanticKernel(modelId, provider, null);
 
-            var eventHandlerElement = _metadataManager.Services(applicationId).Elements.FirstOrDefault(x => x.Id == elementId);
+            var servicesDesigner = _metadataManager.GetDesigner(applicationId, "Services");
+            var eventHandlerElement = servicesDesigner.GetElementsOfType(SpecializationTypeIds.DomainEventHandler)
+                .FirstOrDefault(x => x.Id == elementId);
             if (eventHandlerElement == null)
             {
                 throw new Exception($"An element was selected to be executed upon but could not be found. Please ensure you have saved your designer and try again.");
@@ -594,7 +595,8 @@ namespace Intent.Modules.AI.UnitTests.Tasks
                     var entityName = match.Groups[1].Value; // Entity name like Store
                     
                     // Try to find the entity in metadata - search across all designers
-                    var servicesElements = _metadataManager.Services(applicationId).Elements;
+                    var servicesDesigner = _metadataManager.GetDesigner(applicationId, "Services");
+                    var servicesElements = servicesDesigner.GetElementsOfType(SpecializationTypeIds.Service);
                     var entityElement = servicesElements.FirstOrDefault(e => e.Name.Equals(entityName, StringComparison.Ordinal));
                     if (entityElement != null)
                     {
@@ -622,7 +624,8 @@ namespace Intent.Modules.AI.UnitTests.Tasks
                 var serviceName = match.Groups[0].Value;
                 
                 // Try to find the service interface in metadata
-                var servicesElements = _metadataManager.Services(applicationId).Elements;
+                var servicesDesigner = _metadataManager.GetDesigner(applicationId, "Services");
+                var servicesElements = servicesDesigner.GetElementsOfType(SpecializationTypeIds.Service);
                 var serviceElement = servicesElements.FirstOrDefault(e => e.Name.Equals(serviceName.Substring(1), StringComparison.Ordinal) ||
                                                                       e.Name.Equals(serviceName, StringComparison.Ordinal));
                 if (serviceElement != null)
@@ -635,7 +638,11 @@ namespace Intent.Modules.AI.UnitTests.Tasks
             var publishedMessageTypes = DetectPublishedMessageTypes(handlerContent);
             foreach (var messageTypeName in publishedMessageTypes)
             {
-                var servicesElements = _metadataManager.Services(applicationId).Elements;
+                var servicesDesigner = _metadataManager.GetDesigner(applicationId, "Services");
+                var servicesElements = servicesDesigner.GetElementsOfType(SpecializationTypeIds.Service)
+                    .Concat(servicesDesigner.GetElementsOfType(SpecializationTypeIds.Command))
+                    .Concat(servicesDesigner.GetElementsOfType(SpecializationTypeIds.Query))
+                    .ToList();
                 var messageElement = servicesElements.FirstOrDefault(e => e.Name.Equals(messageTypeName, StringComparison.Ordinal));
                 if (messageElement != null)
                 {
@@ -657,7 +664,8 @@ namespace Intent.Modules.AI.UnitTests.Tasks
                 }
                 
                 // Try to find the entity
-                var servicesElements = _metadataManager.Services(applicationId).Elements;
+                var servicesDesigner = _metadataManager.GetDesigner(applicationId, "Services");
+                var servicesElements = servicesDesigner.GetElementsOfType(SpecializationTypeIds.Service);
                 var entityElement = servicesElements.FirstOrDefault(e => e.Name.Equals(entityName, StringComparison.Ordinal));
                 if (entityElement != null)
                 {

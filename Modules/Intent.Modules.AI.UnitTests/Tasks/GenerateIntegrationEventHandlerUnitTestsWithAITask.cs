@@ -6,8 +6,7 @@ using System.Text.RegularExpressions;
 using Intent.Configuration;
 using Intent.Engine;
 using Intent.Metadata.Models;
-using Intent.Modelers.Services.Api;
-using Intent.Modelers.Services.EventInteractions;
+using Intent.Modules.AI.UnitTests;
 using Intent.Modules.AI.UnitTests.Utilities;
 using Intent.Modules.Common.AI;
 using Intent.Modules.Common.AI.CodeGeneration;
@@ -70,7 +69,9 @@ public class GenerateIntegrationEventHandlerUnitTestsWithAITask : IModuleTask
         Logging.Log.Info($"Args: {string.Join(",", args)}");
         var kernel = _intentSemanticKernelFactory.BuildSemanticKernel(modelId, provider, null);
 
-        var eventHandlerElement = _metadataManager.Services(applicationId).Elements.FirstOrDefault(x => x.Id == elementId);
+        var servicesDesigner = _metadataManager.GetDesigner(applicationId, "Services");
+        var eventHandlerElement = servicesDesigner.GetElementsOfType(SpecializationTypeIds.IntegrationEventHandler)
+            .FirstOrDefault(x => x.Id == elementId);
         if (eventHandlerElement == null)
         {
             throw new Exception($"An element was selected to be executed upon but could not be found. Please ensure you have saved your designer and try again.");
@@ -585,7 +586,11 @@ public class GenerateIntegrationEventHandlerUnitTestsWithAITask : IModuleTask
         foreach (var messageTypeName in publishedMessageTypes)
         {
             // Try to find the message by scanning for matching elements in Services metadata
-            var allElements = _metadataManager.Services(applicationId).Elements;
+            var servicesDesigner = _metadataManager.GetDesigner(applicationId, "Services");
+            var allElements = servicesDesigner.GetElementsOfType(SpecializationTypeIds.Service)
+                .Concat(servicesDesigner.GetElementsOfType(SpecializationTypeIds.Command))
+                .Concat(servicesDesigner.GetElementsOfType(SpecializationTypeIds.Query))
+                .ToList();
             var messageElement = allElements.FirstOrDefault(e => e.Name.Equals(messageTypeName, StringComparison.Ordinal));
             if (messageElement != null)
             {
