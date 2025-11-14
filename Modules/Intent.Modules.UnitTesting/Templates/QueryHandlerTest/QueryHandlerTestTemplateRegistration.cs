@@ -4,7 +4,6 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
-using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
 using Intent.Modules.UnitTesting.Settings;
@@ -18,7 +17,7 @@ using Intent.UnitTesting.Api;
 namespace Intent.Modules.UnitTesting.Templates.QueryHandlerTest
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class QueryHandlerTestTemplateRegistration : FilePerModelTemplateRegistration<QueryModel>
+    public class QueryHandlerTestTemplateRegistration : FilePerModelTemplateRegistration<IElement>
     {
         private readonly IMetadataManager _metadataManager;
 
@@ -30,19 +29,19 @@ namespace Intent.Modules.UnitTesting.Templates.QueryHandlerTest
         public override string TemplateId => QueryHandlerTestTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully)]
-        public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, QueryModel model)
+        public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, IElement model)
         {
             return new QueryHandlerTestTemplate(outputTarget, model);
         }
 
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
-        public override IEnumerable<QueryModel> GetModels(IApplication application)
+        public override IEnumerable<IElement> GetModels(IApplication application)
         {
             var generationMode = application.Settings.GetUnitTestSettings().UnitTestGenerationMode().AsEnum();
 
-            return _metadataManager.Services(application).GetQueryModels()
-                .Where(q => generationMode == UnitTestSettings.UnitTestGenerationModeOptionsEnum.All || 
-                    q.HasUnitTest());
+            return _metadataManager.GetDesigner(application.Id, "Services").GetElementsOfType(SpecializationTypeIds.Query)
+                .Where(q => generationMode == UnitTestSettings.UnitTestGenerationModeOptionsEnum.All ||
+                    q.HasUnitTestStereotype());
         }
     }
 }

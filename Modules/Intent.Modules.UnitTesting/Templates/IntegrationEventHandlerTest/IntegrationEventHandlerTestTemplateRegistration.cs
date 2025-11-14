@@ -4,7 +4,6 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
-using Intent.Modelers.Services.EventInteractions;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
 using Intent.Modules.UnitTesting.Settings;
@@ -18,7 +17,7 @@ using Intent.UnitTesting.Api;
 namespace Intent.Modules.UnitTesting.Templates.IntegrationEventHandlerTest
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class IntegrationEventHandlerTestTemplateRegistration : FilePerModelTemplateRegistration<IntegrationEventHandlerModel>
+    public class IntegrationEventHandlerTestTemplateRegistration : FilePerModelTemplateRegistration<IElement>
     {
         private readonly IMetadataManager _metadataManager;
 
@@ -30,19 +29,19 @@ namespace Intent.Modules.UnitTesting.Templates.IntegrationEventHandlerTest
         public override string TemplateId => IntegrationEventHandlerTestTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully)]
-        public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, IntegrationEventHandlerModel model)
+        public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, IElement model)
         {
             return new IntegrationEventHandlerTestTemplate(outputTarget, model);
         }
 
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
-        public override IEnumerable<IntegrationEventHandlerModel> GetModels(IApplication application)
+        public override IEnumerable<IElement> GetModels(IApplication application)
         {
             var generationMode = application.Settings.GetUnitTestSettings().UnitTestGenerationMode().AsEnum();
 
-            return _metadataManager.Services(application).GetIntegrationEventHandlerModels()
+            return _metadataManager.GetDesigner(application.Id, "Services").GetElementsOfType(SpecializationTypeIds.IntegrationEventHandler)
                 .Where(c => generationMode == UnitTestSettings.UnitTestGenerationModeOptionsEnum.All ||
-                            c.HasUnitTest());
+                            c.HasUnitTestStereotype());
         }
     }
 }

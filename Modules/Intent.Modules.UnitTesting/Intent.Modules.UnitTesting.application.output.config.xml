@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <outputFiles>
-  <files />
+  <files>
+    <file relativePath="Intent.Modules.UnitTesting/Intent.Modules.UnitTesting.csproj" state="ignored">
+      <isIgnoredNotes><![CDATA[Prevent these dependencies from being installed]]></isIgnoredNotes>
+    </file>
+    <file relativePath="Intent.Modules.UnitTesting/Intent.UnitTesting.imodspec" state="ignored">
+      <isIgnoredNotes><![CDATA[Prevent these dependencies from being installed]]></isIgnoredNotes>
+    </file>
+    <file relativePath="Intent.Modules.UnitTesting/Templates/TemplateExtensions.cs" state="ignored">
+      <isIgnoredNotes><![CDATA[I don't know what the implications will be to have these generated]]></isIgnoredNotes>
+    </file>
+  </files>
 </outputFiles>

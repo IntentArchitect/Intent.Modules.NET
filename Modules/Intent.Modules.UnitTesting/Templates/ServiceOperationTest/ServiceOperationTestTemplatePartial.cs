@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
-using Intent.Modelers.Services.Api;
+using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -18,12 +18,12 @@ using Intent.UnitTesting.Api;
 namespace Intent.Modules.UnitTesting.Templates.ServiceOperationTest
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public partial class ServiceOperationTestTemplate : CSharpTemplateBase<ServiceModel>, ICSharpFileBuilderTemplate
+    public partial class ServiceOperationTestTemplate : CSharpTemplateBase<IElement>, ICSharpFileBuilderTemplate
     {
         public const string TemplateId = "Intent.UnitTesting.ServiceOperationTest";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public ServiceOperationTestTemplate(IOutputTarget outputTarget, ServiceModel model) : base(TemplateId, outputTarget, model)
+        public ServiceOperationTestTemplate(IOutputTarget outputTarget, IElement model) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetOperationNormalizedPath())
                .AddClass($"{Model.Name}Tests", @class =>
@@ -48,9 +48,9 @@ namespace Intent.Modules.UnitTesting.Templates.ServiceOperationTest
                     });
 
                     // for each operation which is either flagged with the unit test stereo, or if the service is flagged with it
-                    foreach (var operation in Model.Operations
-                        .Where(o => model.HasStereotype(ServiceModelStereotypeExtensions.UnitTest.DefinitionId) ||
-                            o.HasStereotype(OperationModelStereotypeExtensions.UnitTest.DefinitionId)))
+                    foreach (var operation in Model.GetOperations()
+                        .Where(o => model.HasUnitTestStereotype() ||
+                            o.HasUnitTestStereotype()))
                     {
                         TestHelpers.AddDefaultSuccessTest(this, @class, TestHelpers.SuccessTestDetails.CreateServiceDetails(operation));
                     }

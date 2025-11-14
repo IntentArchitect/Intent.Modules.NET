@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
-using Intent.Modelers.Services.CQRS.Api;
+using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -10,6 +10,7 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using Intent.UnitTesting.Api;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -17,12 +18,12 @@ using Intent.Templates;
 namespace Intent.Modules.UnitTesting.Templates.CommandHandlerTest
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public partial class CommandHandlerTestTemplate : CSharpTemplateBase<CommandModel>, ICSharpFileBuilderTemplate
+    public partial class CommandHandlerTestTemplate : CSharpTemplateBase<IElement>, ICSharpFileBuilderTemplate
     {
         public const string TemplateId = "Intent.UnitTesting.CommandHandlerTest";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public CommandHandlerTestTemplate(IOutputTarget outputTarget, CommandModel model) : base(TemplateId, outputTarget, model)
+        public CommandHandlerTestTemplate(IOutputTarget outputTarget, IElement model) : base(TemplateId, outputTarget, model)
         {
             AddTypeSource(TemplateRoles.Repository.Interface.Entity);
             AddTypeSource(TemplateRoles.Repository.Implementation.Entity);
@@ -71,6 +72,6 @@ namespace Intent.Modules.UnitTesting.Templates.CommandHandlerTest
             return CSharpFile.ToString();
         }
 
-        
+
     }
 }

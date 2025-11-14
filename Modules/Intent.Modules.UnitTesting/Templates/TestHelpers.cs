@@ -1,7 +1,5 @@
 ﻿using Intent.Engine;
 using Intent.Metadata.Models;
-using Intent.Modelers.Services.Api;
-using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -12,10 +10,7 @@ using Intent.Modules.UnitTesting.Settings;
 using Intent.Templates;
 using System.Collections.Generic;
 using System.Linq;
-using Intent.Modelers.Domain.Events.Api;
-using Intent.Modelers.Services.EventInteractions;
 using static Intent.Modules.UnitTesting.Settings.UnitTestSettings;
-using OperationModel = Intent.Modelers.Services.Api.OperationModel;
 
 namespace Intent.Modules.UnitTesting.Templates;
 internal static class TestHelpers
@@ -33,7 +28,14 @@ internal static class TestHelpers
 
     public static string GetOperationNormalizedPath<TModel>(this CSharpTemplateBase<TModel> template)
     {
-        if (template.Model is not ServiceModel parentService)
+        var model = template.Model as IElementWrapper;
+        if (model?.InternalElement == null || model.InternalElement.SpecializationTypeId != SpecializationTypeIds.Service)
+        {
+            return template.GetFolderPath();
+        }
+
+        var parentService = model as IHasFolder;
+        if (parentService == null)
         {
             return template.GetFolderPath();
         }
@@ -44,7 +46,7 @@ internal static class TestHelpers
             return string.Join("/", parentService.GetParentFolderNames());
         }
         
-        return string.Join("/", parentService.Name.Replace("Service", string.Empty));
+        return string.Join("/", model.InternalElement.Name.Replace("Service", string.Empty));
     }
 
     public static void PopulateTestConstructor(ICSharpTemplate template, CSharpConstructor ctor, ITemplate handlerTemplate, 
@@ -77,9 +79,9 @@ internal static class TestHelpers
 
     public record SuccessTestDetails(IAssociationEnd AssociationEnd, string MethodName, string ArrangeType, string ActMethod)
     {
-        public static SuccessTestDetails CreateCommandDetails(CommandModel model)
+        public static SuccessTestDetails CreateCommandDetails(IElement model)
         {
-            var association = model.InternalElement.AssociatedElements?.FirstOrDefault();
+            var association = model.AssociatedElements?.FirstOrDefault();
             
             var entityName = association?.TypeReference?.Element?.Name ?? "Entity";
             var action = GetAssociationAction(association);
@@ -89,9 +91,9 @@ internal static class TestHelpers
             return new SuccessTestDetails(association, methodName, "command", "Handle method");
         }
         
-        public static SuccessTestDetails CreateQueryDetails(QueryModel model)
+        public static SuccessTestDetails CreateQueryDetails(IElement model)
         {
-            var association = model.InternalElement.AssociatedElements?.FirstOrDefault();
+            var association = model.AssociatedElements?.FirstOrDefault();
             
             var entityName = association?.TypeReference?.Element?.Name ?? "Entity";
             var action = GetAssociationAction(association);
@@ -101,9 +103,9 @@ internal static class TestHelpers
             return new SuccessTestDetails(association, methodName, "query", "Handle method");
         }
         
-        public static SuccessTestDetails CreateServiceDetails(OperationModel model)
+        public static SuccessTestDetails CreateServiceDetails(IElement model)
         {
-            var association = model.InternalElement.AssociatedElements?.FirstOrDefault();
+            var association = model.AssociatedElements?.FirstOrDefault();
             
             var entityName = association?.TypeReference?.Element?.Name ?? "Entity";
             var action = GetAssociationAction(association);
@@ -113,9 +115,9 @@ internal static class TestHelpers
             return new SuccessTestDetails(association, methodName, "service operation parameter(s)", "relevant service method");
         }
 
-        public static SuccessTestDetails CreateIntegrationEventDetails(IntegrationEventHandlerModel model)
+        public static SuccessTestDetails CreateIntegrationEventDetails(IElement model)
         {
-            var association = model.InternalElement.AssociatedElements?.FirstOrDefault();
+            var association = model.AssociatedElements?.FirstOrDefault();
             
             var entityName = association?.TypeReference?.Element?.Name ?? "Message";
             var action = GetAssociationAction(association);
@@ -125,9 +127,9 @@ internal static class TestHelpers
             return new SuccessTestDetails(association, methodName, "event message", "Handle method");
         }
 
-        public static SuccessTestDetails CreateDomainEventDetails(DomainEventHandlerModel model)
+        public static SuccessTestDetails CreateDomainEventDetails(IElement model)
         {
-            var association = model.InternalElement.AssociatedElements?.FirstOrDefault();
+            var association = model.AssociatedElements?.FirstOrDefault();
             
             var entityName = association?.TypeReference?.Element?.Name ?? "Domain Event";
             var action = GetAssociationAction(association);
@@ -183,7 +185,7 @@ internal static class TestHelpers
         _ => "Perform_Action_On"
     };
 
-    private static string GetQuerySuffix(string associationAction, IElementWrapper model)
+    private static string GetQuerySuffix(string associationAction, IElement model)
     {
         // if not a query, then no suffix
         if(associationAction != "Query")
@@ -192,16 +194,25 @@ internal static class TestHelpers
         }
 
         // if its an operation AND it has parameters
-        if(model is Intent.Modelers.Services.Api.OperationModel operation && operation.Parameters.Any())
+        if(model.SpecializationTypeId == SpecializationTypeIds.Operation)
         {
-            var topParams = operation.Parameters.Take(3).Select(p => p.Name.ToPascalCase());
-            return $"_By{string.Join("", topParams)}";
+            var parameters = model.GetParameters();
+            if(parameters.Any())
+            {
+                var topParams = parameters.Take(3).Select(p => p.Name.ToPascalCase());
+                return $"_By{string.Join("", topParams)}";
+            }
         }
 
-        if (model is QueryModel query && query.Properties.Any())
+        // if its a query AND it has properties
+        if (model.SpecializationTypeId == SpecializationTypeIds.Query)
         {
-            var topParams = query.Properties.Take(3).Select(p => p.Name.ToPascalCase());
-            return $"_By{string.Join("", topParams)}";
+            var properties = model.GetProperties();
+            if(properties.Any())
+            {
+                var topParams = properties.Take(3).Select(p => p.Name.ToPascalCase());
+                return $"_By{string.Join("", topParams)}";
+            }
         }
 
         return string.Empty;
