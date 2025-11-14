@@ -7,6 +7,7 @@ using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
+using Intent.Modules.AI.UnitTests.Utilities;
 using Intent.Modules.Common.AI;
 using Intent.Modules.Common.AI.CodeGeneration;
 using Intent.Modules.Common.AI.Extensions;
@@ -17,7 +18,6 @@ using Intent.RoslynWeaver.Attributes;
 using Intent.Utils;
 using Microsoft.SemanticKernel;
 using Newtonsoft.Json;
-using Intent.Modules.AI.UnitTests.Utilities;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.ModuleTask", Version = "1.0")]
