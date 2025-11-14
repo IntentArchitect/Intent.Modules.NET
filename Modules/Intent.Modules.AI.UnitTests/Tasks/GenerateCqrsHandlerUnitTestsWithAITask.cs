@@ -5,8 +5,7 @@ using System.Linq;
 using Intent.Configuration;
 using Intent.Engine;
 using Intent.Metadata.Models;
-using Intent.Modelers.Domain.Api;
-using Intent.Modelers.Services.Api;
+using Intent.Modules.AI.UnitTests;
 using Intent.Modules.AI.UnitTests.Utilities;
 using Intent.Modules.Common.AI;
 using Intent.Modules.Common.AI.CodeGeneration;
@@ -18,6 +17,7 @@ using Intent.RoslynWeaver.Attributes;
 using Intent.Utils;
 using Microsoft.SemanticKernel;
 using Newtonsoft.Json;
+using static Intent.Modules.AI.UnitTests.Utilities.UnitTestHelpers;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.ModuleTask", Version = "1.0")]
@@ -71,7 +71,10 @@ public class GenerateCqrsHandlerUnitTestsWithAITask : IModuleTask
         Logging.Log.Info($"Args: {string.Join(",", args)}");
         var kernel = _intentSemanticKernelFactory.BuildSemanticKernel(modelId, provider, null);
 
-        var queryModel = _metadataManager.Services(applicationId).Elements.FirstOrDefault(x => x.Id == elementId);
+        var servicesDesigner = _metadataManager.GetDesigner(applicationId, "Services");
+        var queryModel = servicesDesigner.GetElementsOfType(SpecializationTypeIds.Command)
+            .Concat(servicesDesigner.GetElementsOfType(SpecializationTypeIds.Query))
+            .FirstOrDefault(x => x.Id == elementId);
         if (queryModel == null)
         {
             throw new Exception($"An element was selected to be executed upon but could not be found. Please ensure you have saved your designer and try again.");
@@ -827,7 +830,7 @@ public class GenerateCqrsHandlerUnitTestsWithAITask : IModuleTask
         {
             inputFiles.AddRange(filesProvider.GetFilesForMetadata(element.TypeReference.Element));
         }
-        foreach (var dto in element.ChildElements.Where(x => x.TypeReference.Element.IsDTOModel()).Select(x => x.TypeReference.Element))
+        foreach (var dto in element.ChildElements.Where(x => x.TypeReference?.Element?.SpecializationTypeId == "a5e74323-9b24-48c8-9802-f8684e0aaa70").Select(x => x.TypeReference.Element))
         {
             inputFiles.AddRange(filesProvider.GetFilesForMetadata(dto));
         }
@@ -870,25 +873,6 @@ public class GenerateCqrsHandlerUnitTestsWithAITask : IModuleTask
         return inputFiles;
     }
 
-    /// <summary>
-    /// Takes the Command/Query and enumerates related elements including associations to help Intent know which files to include as input.
-    /// </summary>
-    private static List<ICanBeReferencedType> GetRelatedElements(IElement element)
-    {
-        var relatedElements = element.AssociatedElements.Where(x => x.TypeReference.Element != null)
-            .Select(x => x.TypeReference.Element)
-            .ToList();
-        if (relatedElements.Count == 0)
-        {
-            return [];
-        }
-        var relatedClasses = relatedElements
-            .Concat(relatedElements.Where(x => x.TypeReference?.Element?.IsDTOModel() == true).Select(x => x.TypeReference.Element))
-            .Concat(relatedElements.Where(Intent.Modelers.Services.Api.OperationModelExtensions.IsOperationModel).Select(x => Intent.Modelers.Services.Api.OperationModelExtensions.AsOperationModel(x).ParentService.InternalElement))
-            .Concat(relatedElements.Where(Intent.Modules.Common.Types.Api.OperationModelExtensions.IsOperationModel).Select(x => Intent.Modules.Common.Types.Api.OperationModelExtensions.AsOperationModel(x).InternalElement.ParentElement))
-            .Concat(relatedElements.Where(x => x.IsClassModel()).Select(x => x.AsClassModel()).SelectMany(x => x.AssociatedClasses.Select(y => y.TypeReference.Element)))
-            .ToList();
-        return relatedClasses;
-    }
+
 
 }

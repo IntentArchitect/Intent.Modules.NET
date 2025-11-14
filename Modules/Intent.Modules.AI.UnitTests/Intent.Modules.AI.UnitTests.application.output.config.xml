@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <outputFiles>
-  <files />
+  <files>
+    <file relativePath="Intent.Modules.AI.UnitTests/Intent.AI.UnitTests.imodspec" state="ignored">
+      <isIgnoredNotes><![CDATA[Prevent these dependencies from being installed]]></isIgnoredNotes>
+    </file>
+  </files>
 </outputFiles>
