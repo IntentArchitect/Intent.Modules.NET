@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
-using Intent.Modelers.Services.CQRS.Api;
+using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -10,6 +10,7 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using Intent.UnitTesting.Api;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -17,12 +18,12 @@ using Intent.Templates;
 namespace Intent.Modules.UnitTesting.Templates.QueryHandlerTest
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public partial class QueryHandlerTestTemplate : CSharpTemplateBase<QueryModel>, ICSharpFileBuilderTemplate
+    public partial class QueryHandlerTestTemplate : CSharpTemplateBase<IElement>, ICSharpFileBuilderTemplate
     {
         public const string TemplateId = "Intent.UnitTesting.QueryHandlerTest";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public QueryHandlerTestTemplate(IOutputTarget outputTarget, QueryModel model) : base(TemplateId, outputTarget, model)
+        public QueryHandlerTestTemplate(IOutputTarget outputTarget, IElement model) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetTestElementNormalizedPath())
                 .AddClass($"{Model.Name}HandlerTests", @class =>

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
-using Intent.Modelers.Domain.Events.Api;
+using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -10,6 +10,7 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using Intent.UnitTesting.Api;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -17,12 +18,12 @@ using Intent.Templates;
 namespace Intent.Modules.UnitTesting.Templates.DomainEventHandlerTest
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public partial class DomainEventHandlerTestTemplate : CSharpTemplateBase<DomainEventHandlerModel>, ICSharpFileBuilderTemplate
+    public partial class DomainEventHandlerTestTemplate : CSharpTemplateBase<IElement>, ICSharpFileBuilderTemplate
     {
         public const string TemplateId = "Intent.UnitTesting.DomainEventHandlerTest";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public DomainEventHandlerTestTemplate(IOutputTarget outputTarget, DomainEventHandlerModel model) : base(TemplateId, outputTarget, model)
+        public DomainEventHandlerTestTemplate(IOutputTarget outputTarget, IElement model) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddClass($"{Model.Name}Tests", @class =>
@@ -30,7 +31,7 @@ namespace Intent.Modules.UnitTesting.Templates.DomainEventHandlerTest
                     @class.AddAttribute(CSharpIntentManagedAttribute.Merge());
                     @class.AddConstructor(ctor => ctor.AddAttribute(CSharpIntentManagedAttribute.Ignore()));
                 });
-            
+
             CSharpFile.AfterBuild((@file =>
             {
                 var @class = file.Classes.First();

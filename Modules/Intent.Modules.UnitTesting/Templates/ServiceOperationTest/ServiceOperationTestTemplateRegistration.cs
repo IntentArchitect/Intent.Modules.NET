@@ -17,7 +17,7 @@ using Intent.UnitTesting.Api;
 namespace Intent.Modules.UnitTesting.Templates.ServiceOperationTest
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class ServiceOperationTestTemplateRegistration : FilePerModelTemplateRegistration<ServiceModel>
+    public class ServiceOperationTestTemplateRegistration : FilePerModelTemplateRegistration<IElement>
     {
         private readonly IMetadataManager _metadataManager;
 
@@ -29,17 +29,17 @@ namespace Intent.Modules.UnitTesting.Templates.ServiceOperationTest
         public override string TemplateId => ServiceOperationTestTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully)]
-        public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, ServiceModel model)
+        public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, IElement model)
         {
             return new ServiceOperationTestTemplate(outputTarget, model);
         }
 
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
-        public override IEnumerable<ServiceModel> GetModels(IApplication application)
+        public override IEnumerable<IElement> GetModels(IApplication application)
         {
-            return _metadataManager.Services(application).GetServiceModels()
-                .Where(s => s.HasStereotype(ServiceModelStereotypeExtensions.UnitTest.DefinitionId) ||
-                s.Operations.Any(o => o.HasStereotype(OperationModelStereotypeExtensions.UnitTest.DefinitionId)));
+            return _metadataManager.GetDesigner(application.Id, "Services").GetElementsOfType(SpecializationTypeIds.Service)
+                .Where(s => s.HasUnitTestStereotype() ||
+                s.GetOperations().Any(o => o.HasUnitTestStereotype()));
         }
     }
 }

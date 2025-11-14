@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
-using Intent.Modelers.Domain.Events.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
@@ -18,7 +17,7 @@ using Intent.UnitTesting.Api;
 namespace Intent.Modules.UnitTesting.Templates.DomainEventHandlerTest
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class DomainEventHandlerTestTemplateRegistration : FilePerModelTemplateRegistration<DomainEventHandlerModel>
+    public class DomainEventHandlerTestTemplateRegistration : FilePerModelTemplateRegistration<IElement>
     {
         private readonly IMetadataManager _metadataManager;
 
@@ -30,19 +29,19 @@ namespace Intent.Modules.UnitTesting.Templates.DomainEventHandlerTest
         public override string TemplateId => DomainEventHandlerTestTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully)]
-        public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, DomainEventHandlerModel model)
+        public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, IElement model)
         {
             return new DomainEventHandlerTestTemplate(outputTarget, model);
         }
 
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
-        public override IEnumerable<DomainEventHandlerModel> GetModels(IApplication application)
+        public override IEnumerable<IElement> GetModels(IApplication application)
         {
             var generationMode = application.Settings.GetUnitTestSettings().UnitTestGenerationMode().AsEnum();
 
-            return _metadataManager.Services(application).GetDomainEventHandlerModels()
+            return _metadataManager.GetDesigner(application.Id, "Services").GetElementsOfType(SpecializationTypeIds.DomainEventHandler)
                 .Where(c => generationMode == UnitTestSettings.UnitTestGenerationModeOptionsEnum.All ||
-                            c.HasUnitTest());
+                            c.HasUnitTestStereotype());
         }
     }
 }
