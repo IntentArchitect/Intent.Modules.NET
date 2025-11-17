@@ -15,21 +15,33 @@ using static Intent.Modules.UnitTesting.Settings.UnitTestSettings;
 namespace Intent.Modules.UnitTesting.Templates;
 internal static class TestHelpers
 {
-    public static string GetTestElementNormalizedPath<TModel>(this CSharpTemplateBase<TModel> template)
+    public static string GetElementNamespace(this CSharpTemplateBase<IElement> template)
     {
-        var model = template.Model as IElementWrapper;
-
-        var additionalFolders = model?.InternalElement != null && model.InternalElement.ParentElement?.Name == null ?
-            model.InternalElement.Name.RemoveSuffix("Command", "Query", "Service", "EventHandler") :
+        var wrapper = new ElementWrapper(template.Model);
+        
+        var additionalFolders = wrapper.ParentElement?.Name == null ?
+            wrapper.Name.RemoveSuffix("Command", "Query", "Service", "EventHandler") :
             string.Empty;
 
-        return template.GetFolderPath(additionalFolders);
+        var extra = string.Join(".", wrapper.GetParentFolderNames(additionalFolders));
+        
+        return template.GetNamespace() + (string.IsNullOrWhiteSpace(extra) ? string.Empty : $".{extra}");
     }
 
-    public static string GetOperationNormalizedPath<TModel>(this CSharpTemplateBase<TModel> template)
+    public static string GetTestElementNormalizedPath(this CSharpTemplateBase<IElement> template)
     {
-        var model = template.Model as IElement;
-        if (model == null || model.SpecializationTypeId != SpecializationTypeIds.Service)
+        var wrapper = new ElementWrapper(template.Model);
+
+        var additionalFolders = wrapper.ParentElement?.Name == null ?
+            wrapper.Name.RemoveSuffix("Command", "Query", "Service", "EventHandler") :
+            string.Empty;
+
+        return string.Join("/", wrapper.GetParentFolderNames(additionalFolders));
+    }
+
+    public static string GetOperationNormalizedPath(this CSharpTemplateBase<IElement> template)
+    {
+        if (template.Model is not IElement model || model.SpecializationTypeId != SpecializationTypeIds.Service)
         {
             return template.GetFolderPath();
         }
@@ -48,13 +60,13 @@ internal static class TestHelpers
     }
 
     public static void PopulateTestConstructor(ICSharpTemplate template, CSharpConstructor ctor, ITemplate handlerTemplate, 
-        ICSharpFileBuilderTemplate csharpTemplate, bool isCQRS = true)
+        ICSharpFileBuilderTemplate csharpTemplate, SuccessTestDetails details)
     {
         var handlerCtorParams = GetHandlerConstructorParameters(csharpTemplate);
 
         if (handlerCtorParams.Count != 0)
         {
-            ctor.AddStatement($"// Mock the parameters to the {(isCQRS ? "Handler" : "Service")} constructor");
+            ctor.AddStatement($"// Mock the parameters to the {details.SutType} constructor");
         }
 
         List<string> handleArguments = [];
@@ -72,70 +84,7 @@ internal static class TestHelpers
         }
 
         var ctorParams = string.Join(", ", handleArguments);
-        ctor.AddStatement($"// {(isCQRS ? "_handler" : "_service")} = new {template.GetTypeName(handlerTemplate)}({ctorParams});");
-    }
-
-    public record SuccessTestDetails(IAssociationEnd AssociationEnd, string MethodName, string ArrangeType, string ActMethod)
-    {
-        public static SuccessTestDetails CreateCommandDetails(IElement model)
-        {
-            var association = model.AssociatedElements?.FirstOrDefault();
-            
-            var entityName = association?.TypeReference?.Element?.Name ?? "Entity";
-            var action = GetAssociationAction(association);
-            var querySuffix = GetQuerySuffix(action, model);
-            var methodName = $"Handle_Should_{action}_{entityName}{querySuffix}_Successfully";
-
-            return new SuccessTestDetails(association, methodName, "command", "Handle method");
-        }
-        
-        public static SuccessTestDetails CreateQueryDetails(IElement model)
-        {
-            var association = model.AssociatedElements?.FirstOrDefault();
-            
-            var entityName = association?.TypeReference?.Element?.Name ?? "Entity";
-            var action = GetAssociationAction(association);
-            var querySuffix = GetQuerySuffix(action, model);
-            var methodName = $"Handle_Should_{action}_{entityName}{querySuffix}_Successfully";
-
-            return new SuccessTestDetails(association, methodName, "query", "Handle method");
-        }
-        
-        public static SuccessTestDetails CreateServiceDetails(IElement model)
-        {
-            var association = model.AssociatedElements?.FirstOrDefault();
-            
-            var entityName = association?.TypeReference?.Element?.Name ?? "Entity";
-            var action = GetAssociationAction(association);
-            var querySuffix = GetQuerySuffix(action, model);
-            var methodName = $"Operation_Should_{action}_{entityName}{querySuffix}_Successfully";
-
-            return new SuccessTestDetails(association, methodName, "service operation parameter(s)", "relevant service method");
-        }
-
-        public static SuccessTestDetails CreateIntegrationEventDetails(IElement model)
-        {
-            var association = model.AssociatedElements?.FirstOrDefault();
-            
-            var entityName = association?.TypeReference?.Element?.Name ?? "Message";
-            var action = GetAssociationAction(association);
-            var querySuffix = GetQuerySuffix(action, model);
-            var methodName = $"Handle_Should_{action}_{entityName}{querySuffix}_Successfully";
-
-            return new SuccessTestDetails(association, methodName, "event message", "Handle method");
-        }
-
-        public static SuccessTestDetails CreateDomainEventDetails(IElement model)
-        {
-            var association = model.AssociatedElements?.FirstOrDefault();
-            
-            var entityName = association?.TypeReference?.Element?.Name ?? "Domain Event";
-            var action = GetAssociationAction(association);
-            var querySuffix = GetQuerySuffix(action, model);
-            var methodName = $"Handle_Should_{action}_{entityName}{querySuffix}_Successfully";
-
-            return new SuccessTestDetails(association, methodName, "domain event", "Handle method");
-        }
+        ctor.AddStatement($"// {details.VariableName} = new {template.GetTypeName(handlerTemplate)}({ctorParams});");
     }
 
     public static void AddDefaultSuccessTest(ICSharpTemplate template, CSharpClass @class, SuccessTestDetails details)
@@ -167,6 +116,81 @@ internal static class TestHelpers
             });
         }
     }
+    
+    public record SuccessTestDetails(IAssociationEnd AssociationEnd, string MethodName, string ArrangeType, string ActMethod, string SutType, string VariableName)
+    {
+        public static SuccessTestDetails CreateCommandDetails(IElement model)
+        {
+            var association = model.AssociatedElements?.FirstOrDefault();
+            
+            var entityName = association?.TypeReference?.Element?.Name ?? "Entity";
+            var action = GetAssociationAction(association);
+            var querySuffix = GetQuerySuffix(action, model);
+            var methodName = $"Handle_Should_{action}_{entityName}{querySuffix}_Successfully";
+
+            return new SuccessTestDetails(association, methodName, "command", "Handle method", "Handler", "_handler");
+        }
+        
+        public static SuccessTestDetails CreateQueryDetails(IElement model)
+        {
+            var association = model.AssociatedElements?.FirstOrDefault();
+            
+            var entityName = association?.TypeReference?.Element?.Name ?? "Entity";
+            var action = GetAssociationAction(association);
+            var querySuffix = GetQuerySuffix(action, model);
+            var methodName = $"Handle_Should_{action}_{entityName}{querySuffix}_Successfully";
+
+            return new SuccessTestDetails(association, methodName, "query", "Handle method", "Handler", "_handler");
+        }
+
+        public static SuccessTestDetails CreateIntegrationEventDetails(IElement model)
+        {
+            var association = model.AssociatedElements?.FirstOrDefault();
+            
+            var entityName = association?.TypeReference?.Element?.Name ?? "Message";
+            var action = GetAssociationAction(association);
+            var querySuffix = GetQuerySuffix(action, model);
+            var methodName = $"Handle_Should_{action}_{entityName}{querySuffix}_Successfully";
+
+            return new SuccessTestDetails(association, methodName, "event message", "Handle method", "Handler", "_handler");
+        }
+
+        public static SuccessTestDetails CreateDomainEventDetails(IElement model)
+        {
+            var association = model.AssociatedElements?.FirstOrDefault();
+            
+            var entityName = association?.TypeReference?.Element?.Name ?? "Domain Event";
+            var action = GetAssociationAction(association);
+            var querySuffix = GetQuerySuffix(action, model);
+            var methodName = $"Handle_Should_{action}_{entityName}{querySuffix}_Successfully";
+
+            return new SuccessTestDetails(association, methodName, "domain event", "Handle method", "Handler", "_handler");
+        }
+
+        public static SuccessTestDetails CreateServiceDetails(IElement model)
+        {
+            var association = model.AssociatedElements?.FirstOrDefault();
+            
+            var entityName = association?.TypeReference?.Element?.Name ?? "Entity";
+            var action = GetAssociationAction(association);
+            var querySuffix = GetQuerySuffix(action, model);
+            var methodName = $"Operation_Should_{action}_{entityName}{querySuffix}_Successfully";
+
+            return new SuccessTestDetails(association, methodName, "service operation parameter(s)", "relevant service method", "Service", "_service");
+        }
+        
+        public static SuccessTestDetails CreateDomainServiceDetails(IElement model)
+        {
+            var association = model.AssociatedElements?.FirstOrDefault();
+            
+            var entityName = association?.TypeReference?.Element?.Name ?? "Entity";
+            var action = GetAssociationAction(association);
+            var querySuffix = GetQuerySuffix(action, model);
+            var methodName = $"Operation_Should_{action}_{entityName}{querySuffix}_Successfully";
+
+            return new SuccessTestDetails(association, methodName, "domain service operation parameter(s)", "relevant service method", "Service", "_service");
+        }
+    }
 
     public static INugetPackageInfo GetMockFramework(MockFrameworkOptionsEnum mockFramework, IOutputTarget outputTarget) => mockFramework switch
     {
@@ -192,7 +216,7 @@ internal static class TestHelpers
         }
 
         // if its an operation AND it has parameters
-        if(model.SpecializationTypeId == SpecializationTypeIds.Operation)
+        if(model.SpecializationTypeId == SpecializationTypeIds.ServiceOperation)
         {
             var parameters = model.GetParameters();
             if(parameters.Any())

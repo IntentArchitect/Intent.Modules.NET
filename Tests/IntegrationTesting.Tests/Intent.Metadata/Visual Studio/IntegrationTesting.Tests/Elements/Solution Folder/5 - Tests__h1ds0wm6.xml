@@ -87,6 +87,48 @@
           </metadata>
           <childElements />
         </childElement>
+        <childElement id="69f39e54-7834-4cac-af58-fbec19e70628" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.UnitTesting.DomainEventHandlerTest</name>
+          <display>Intent.UnitTesting.DomainEventHandlerTest</display>
+          <externalReference>Intent.UnitTesting</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>5902594c-1365-4d6a-8a13-3045c5ef03f7</parentFolderId>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="ef641b01-aebf-4b31-b2e9-a64df9a39cb7" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.UnitTesting.DomainServiceTest</name>
+          <display>Intent.UnitTesting.DomainServiceTest</display>
+          <externalReference>Intent.UnitTesting</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>5902594c-1365-4d6a-8a13-3045c5ef03f7</parentFolderId>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="e90039ca-d2d5-4041-988d-3790dfd04455" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.UnitTesting.IntegrationEventHandlerTest</name>
+          <display>Intent.UnitTesting.IntegrationEventHandlerTest</display>
+          <externalReference>Intent.UnitTesting</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>5902594c-1365-4d6a-8a13-3045c5ef03f7</parentFolderId>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
       </childElements>
     </childElement>
   </childElements>

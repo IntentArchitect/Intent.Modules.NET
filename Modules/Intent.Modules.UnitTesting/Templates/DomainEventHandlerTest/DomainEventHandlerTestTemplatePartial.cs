@@ -41,14 +41,15 @@ namespace Intent.Modules.UnitTesting.Templates.DomainEventHandlerTest
 
                 if (handlerTemplate != null && handlerTemplate is ICSharpFileBuilderTemplate csharpTemplate)
                 {
-                    TestHelpers.PopulateTestConstructor(this, ctor, handlerTemplate, csharpTemplate);
+                    var details = TestHelpers.SuccessTestDetails.CreateDomainEventDetails(model);
+                    TestHelpers.PopulateTestConstructor(this, ctor, handlerTemplate, csharpTemplate, details);
 
                     @class.AddField(GetTypeName(handlerTemplate), "_handler", @field =>
                     {
                         @field.PrivateReadOnly();
                     });
 
-                    TestHelpers.AddDefaultSuccessTest(this, @class, TestHelpers.SuccessTestDetails.CreateDomainEventDetails(model));
+                    TestHelpers.AddDefaultSuccessTest(this, @class, details);
                 }
             }), 9999);
         }

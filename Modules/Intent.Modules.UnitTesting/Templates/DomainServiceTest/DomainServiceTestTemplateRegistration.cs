@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
-using Intent.Modelers.Services.Api;
+using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
 using Intent.Modules.UnitTesting.Settings;
@@ -14,24 +14,24 @@ using Intent.UnitTesting.Api;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.FilePerModel", Version = "1.0")]
 
-namespace Intent.Modules.UnitTesting.Templates.ServiceOperationTest
+namespace Intent.Modules.UnitTesting.Templates.DomainServiceTest
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class ServiceOperationTestTemplateRegistration : FilePerModelTemplateRegistration<IElement>
+    public class DomainServiceTestTemplateRegistration : FilePerModelTemplateRegistration<IElement>
     {
         private readonly IMetadataManager _metadataManager;
 
-        public ServiceOperationTestTemplateRegistration(IMetadataManager metadataManager)
+        public DomainServiceTestTemplateRegistration(IMetadataManager metadataManager)
         {
             _metadataManager = metadataManager;
         }
 
-        public override string TemplateId => ServiceOperationTestTemplate.TemplateId;
+        public override string TemplateId => DomainServiceTestTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, IElement model)
         {
-            return new ServiceOperationTestTemplate(outputTarget, model);
+            return new DomainServiceTestTemplate(outputTarget, model);
         }
 
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
@@ -39,10 +39,12 @@ namespace Intent.Modules.UnitTesting.Templates.ServiceOperationTest
         {
             var generationMode = application.Settings.GetUnitTestSettings().UnitTestGenerationMode().AsEnum();
 
-            return _metadataManager.GetDesigner(application.Id, "Services").GetElementsOfType(SpecializationTypeIds.Service)
+            var domainServiceElements = _metadataManager.GetDesigner(application.Id, "Domain").GetElementsOfType(SpecializationTypeIds.DomainService);
+            
+            return domainServiceElements
                 .Where(s => generationMode == UnitTestSettings.UnitTestGenerationModeOptionsEnum.All ||
                             s.HasUnitTestStereotype() ||
-                            s.GetServiceOperations().Any(o => o.HasUnitTestStereotype()));
+                            s.GetDomainServiceOperations().Any(o => o.HasUnitTestStereotype()));
         }
     }
 }

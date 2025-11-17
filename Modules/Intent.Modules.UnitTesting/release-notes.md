@@ -2,6 +2,7 @@
 
 - Improvement: Updated module documentation to use centralized documentation site.
 - Improvement: Installing `Tests` folder in VS Designer will be more intelligent with placement.
+- Improvement: Additional support given for: Domain Event Handlers, Domain Services and Integration Event Handlers.
 
 ### Version 1.0.1
 

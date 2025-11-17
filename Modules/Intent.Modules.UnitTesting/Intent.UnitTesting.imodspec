@@ -27,6 +27,14 @@
       <role>UnitTests.Tests</role>
       <location></location>
     </template>
+    <template id="Intent.UnitTesting.DomainServiceTest" externalReference="4de8da81-e087-4185-b7c2-f67432d2c91d">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>UnitTests.Tests</role>
+      <location></location>
+    </template>
     <template id="Intent.UnitTesting.IntegrationEventHandlerTest" externalReference="0715c3ad-9207-4239-9e04-5c29a7e9644a">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
@@ -90,7 +98,7 @@
   <tags />
   <moduleSettingsExtensions />
   <metadata>
-    <install target="Services" src="Intent.Metadata/Module Builder/Intent.UnitTesting/Intent.UnitTesting.pkg.config" externalReference="eb78a52a-4926-4c8e-b4c8-776cd2a3a91d" />
+    <install target="Services;Domain" src="Intent.Metadata/Module Builder/Intent.UnitTesting/Intent.UnitTesting.pkg.config" externalReference="eb78a52a-4926-4c8e-b4c8-776cd2a3a91d" />
   </metadata>
   <migrations has-on-install-migration="true" has-on-uninstall-migration="true" />
 </package>

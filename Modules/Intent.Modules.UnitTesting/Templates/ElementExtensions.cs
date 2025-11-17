@@ -11,7 +11,7 @@ namespace Intent.Modules.UnitTesting.Templates
     /// <summary>
     /// Generic extension methods for IElement to replace model-specific operations.
     /// </summary>
-    public static class ElementExtensions
+    internal static class ElementExtensions
     {
         /// <summary>
         /// Gets parameter child elements for Operations.
@@ -34,10 +34,16 @@ namespace Intent.Modules.UnitTesting.Templates
         /// <summary>
         /// Gets operation child elements for Services.
         /// </summary>
-        public static IEnumerable<IElement> GetOperations(this IElement element)
+        public static IEnumerable<IElement> GetServiceOperations(this IElement element)
         {
             return element.ChildElements
-                .Where(c => c.SpecializationTypeId == SpecializationTypeIds.Operation);
+                .Where(c => c.SpecializationTypeId == SpecializationTypeIds.ServiceOperation);
+        }
+
+        public static IEnumerable<IElement> GetDomainServiceOperations(this IElement element)
+        {
+            return element.ChildElements
+                .Where(c => c.SpecializationTypeId == SpecializationTypeIds.DomainServiceOperation);
         }
 
         /// <summary>

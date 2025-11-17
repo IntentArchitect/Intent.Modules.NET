@@ -11,6 +11,7 @@ using Intent.Modules.Common.AI;
 using Intent.Modules.Common.AI.CodeGeneration;
 using Intent.Modules.Common.AI.Extensions;
 using Intent.Modules.Common.AI.Settings;
+using Intent.Modules.Common.Types.Api;
 using Intent.Plugins;
 using Intent.Registrations;
 using Intent.RoslynWeaver.Attributes;
@@ -813,7 +814,6 @@ public class GenerateCqrsHandlerUnitTestsWithAITask : IModuleTask
             }
             ```
 
-            ## Previous Error Message
             {{$previousError}}
             """;
 
@@ -830,12 +830,12 @@ public class GenerateCqrsHandlerUnitTestsWithAITask : IModuleTask
         {
             inputFiles.AddRange(filesProvider.GetFilesForMetadata(element.TypeReference.Element));
         }
-        foreach (var dto in element.ChildElements.Where(x => x.TypeReference?.Element?.SpecializationTypeId == "a5e74323-9b24-48c8-9802-f8684e0aaa70").Select(x => x.TypeReference.Element))
+        foreach (var dto in element.ChildElements.Where(x => x.TypeReference?.Element?.SpecializationTypeId == SpecializationTypeIds.Dto).Select(x => x.TypeReference.Element))
         {
             inputFiles.AddRange(filesProvider.GetFilesForMetadata(dto));
         }
 
-        inputFiles.AddRange(GetRelatedElements(element).SelectMany(x => filesProvider.GetFilesForMetadata(x)));
+        inputFiles.AddRange(UnitTestHelpers.GetRelatedElements(element).SelectMany(x => filesProvider.GetFilesForMetadata(x)));
 
         // INFRASTRUCTURE: Only include interfaces we'll mock (not implementations)
         // For unit tests, we only need to know method signatures to create mocks
@@ -849,7 +849,8 @@ public class GenerateCqrsHandlerUnitTestsWithAITask : IModuleTask
         }
 
         // Only include pagination if handler returns paged results
-        if (handlerContent.Contains("PagedResult") || handlerContent.Contains("PagedList"))
+        // More reliable detection: check if the element has a TypeReference to a PagedResult
+        if (element.TypeReference?.Element?.SpecializationTypeId == SpecializationTypeIds.PagedResult)
         {
             inputFiles.AddRange(filesProvider.GetFilesForTemplate("Intent.Application.Dtos.Pagination.PagedResult"));
             inputFiles.AddRange(filesProvider.GetFilesForTemplate("Intent.Entities.Repositories.Api.PagedListInterface"));

@@ -25,7 +25,7 @@ namespace Intent.Modules.UnitTesting.Templates.QueryHandlerTest
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public QueryHandlerTestTemplate(IOutputTarget outputTarget, IElement model) : base(TemplateId, outputTarget, model)
         {
-            CSharpFile = new CSharpFile(this.GetNamespace(), this.GetTestElementNormalizedPath())
+            CSharpFile = new CSharpFile(this.GetElementNamespace(), this.GetTestElementNormalizedPath())
                 .AddClass($"{Model.Name}HandlerTests", @class =>
                 {
                     @class.AddAttribute(CSharpIntentManagedAttribute.Merge());
@@ -41,14 +41,15 @@ namespace Intent.Modules.UnitTesting.Templates.QueryHandlerTest
 
                 if (handlerTemplate != null && handlerTemplate is ICSharpFileBuilderTemplate csharpTemplate)
                 {
-                    TestHelpers.PopulateTestConstructor(this, ctor, handlerTemplate, csharpTemplate);
+                    var details = TestHelpers.SuccessTestDetails.CreateQueryDetails(model);
+                    TestHelpers.PopulateTestConstructor(this, ctor, handlerTemplate, csharpTemplate, details);
 
                     @class.AddField(GetTypeName(handlerTemplate), "_handler", @field =>
                     {
                         @field.PrivateReadOnly();
                     });
 
-                    TestHelpers.AddDefaultSuccessTest(this, @class, TestHelpers.SuccessTestDetails.CreateQueryDetails(model));
+                    TestHelpers.AddDefaultSuccessTest(this, @class, details);
                 }
             }), 9999);
         }

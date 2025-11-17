@@ -41,14 +41,14 @@ namespace Intent.Modules.UnitTesting.Templates.ServiceOperationTest
 
                 if (serviceTemplate != null && serviceTemplate is ICSharpFileBuilderTemplate csharpTemplate)
                 {
-                    TestHelpers.PopulateTestConstructor(this, ctor, serviceTemplate, csharpTemplate, false);
+                    TestHelpers.PopulateTestConstructor(this, ctor, serviceTemplate, csharpTemplate, TestHelpers.SuccessTestDetails.CreateServiceDetails(model));
                     @class.AddField(GetTypeName(serviceTemplate), "_service", @field =>
                     {
                         @field.PrivateReadOnly();
                     });
 
                     // for each operation which is either flagged with the unit test stereo, or if the service is flagged with it
-                    foreach (var operation in Model.GetOperations()
+                    foreach (var operation in Model.GetServiceOperations()
                         .Where(o => model.HasUnitTestStereotype() ||
                             o.HasUnitTestStereotype()))
                     {

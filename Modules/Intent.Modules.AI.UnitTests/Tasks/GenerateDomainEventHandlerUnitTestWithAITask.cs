@@ -158,14 +158,10 @@ namespace Intent.Modules.AI.UnitTests.Tasks
                 1. PRESERVE all [IntentManaged] Attributes on the existing test file's constructor, class or file.
                 2. You may only create or update the test file
                 3. Add using clauses for ALL classes that you use in your test (CRITICAL):
-                   * Include domain event namespace (e.g., `using CleanArch1.Domain.Events;`)
-                   * Include `DomainEventNotification<T>` namespace
-                   * Include entity namespaces for domain entities being tested
-                   * Include service interface namespaces when mocking services
-                   * Include repository interface namespaces for repository mocking
-                   * Include event bus namespace for `IEventBus` mocking
-                   * Include any integration event/command message types that are published/sent
-                4. Focus on the handler implementation - all services, repositories, event buses, and external dependencies should be mocked.
+                   * Include the entity namespace (e.g., `using CleanArch1.Domain.Entities;`) when using domain entities in test data
+                   * Include repository namespaces when mocking repositories
+                   * Include DTO namespaces for DTOs used in assertions
+                4. Focus on the handler implementation - all infrastructure types (repositories, mappers, etc.) should be mocked.
 
                 ## Input Code Files (Organized by Priority):
                 The files below include various types of code files. Understand their purpose:
@@ -220,14 +216,27 @@ namespace Intent.Modules.AI.UnitTests.Tasks
                 - **Code Preservation**: If an existing test file exists, update it according to 'Code Preservation Requirements' below.
                 - **Attributes**: Never add your own [IntentManaged] attributes to tests.
 
-                ## Code Preservation Rules (CRITICAL)
-                1. **NEVER remove or modify existing class members, methods, or properties, including their attributes or annotations**
-                2. **NEVER change existing method signatures or implementations**
-                3. **ONLY add new test methods when necessary**
-                4. **DO NOT REMOVE OR ALTER any existing Class Attributes or Method Attributes in the existing code (CRITICAL)**
-                5. **NEVER add comments to existing code**
-                6. **NEVER remove any existing using clauses (CRITICAL)**
-                7. **Ensure that `using Intent.RoslynWeaver.Attributes;` using clause is always present.**
+                ## Test Data Quality Rules
+                - **Test Data Minimalism (HIGHEST PRIORITY)**:
+                  * BAD: Setting ALL properties on test data when only 1-2 are relevant to the test
+                  * GOOD: Only set properties that are directly used in assertions or affect test behavior
+                  * Use minimal identifiers or empty strings when property value doesn't matter: "", Guid.Empty, 0
+                  * Only use meaningful values when the actual value is relevant to the test
+                
+                - **Avoid Meaningless Placeholders**:
+                  * Don't use placeholder strings like "Name 1", "Test Value", "Description Here"
+                  * Keep test data focused on what matters for the specific test scenario
+                
+                - **Avoid Redundant Tests**:
+                  * Don't create separate tests ONLY to verify mock interactions if they're already verified in the happy path
+                  * Create separate tests for: exceptions, empty results, edge cases, different logical scenarios
+                  * Don't create separate tests for: re-verifying the same mock calls, testing the same code path with trivial variations
+                
+                - **Code preservation**: If an existing test file exists, update it according to 'Code Preservation Requirements' below.
+                - **Attributes**: Never add your own [IntentManaged] attributes to tests.
+
+                **Note on DTO Construction in Examples:** 
+                The examples below use `TDto.Create(...)` factory method pattern. If the DTO in your context uses property initialization instead, adapt the pattern to `new TDto { Property1 = value1, Property2 = value2 }`. Check the DTO file provided in the input context to determine which pattern to use.
 
                 ## Additional User Context (Optional)
                 {{$userProvidedContext}}
@@ -528,7 +537,6 @@ namespace Intent.Modules.AI.UnitTests.Tasks
                 }
                 ```
 
-                ## Previous Error Message
                 {{$previousError}}
                 """;
 
@@ -566,7 +574,7 @@ namespace Intent.Modules.AI.UnitTests.Tasks
 
             // DOMAIN ENTITIES: Check associations for ClassModels (domain entities)
             var entityAssociations = eventHandlerElement.AssociatedElements
-                .Where(a => a.SpecializationTypeId == "04e12b51-ed12-42a3-9667-a6aa81bb6d10"); // Class specialization
+                .Where(a => a.SpecializationTypeId == SpecializationTypeIds.Class); // Class specialization
             
             foreach (var entity in entityAssociations)
             {

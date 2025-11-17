@@ -124,7 +124,7 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
                * Include the entity namespace (e.g., `using CleanArch1.Domain.Entities;`) when using domain entities in test data
                * Include repository namespaces when mocking repositories
                * Include DTO namespaces for DTOs used in assertions
-            4. Focus on the service implementation - all infrastructure types (repositories, mappers, etc.) should be mocked.
+            4. Focus on the handler implementation - all infrastructure types (repositories, mappers, etc.) should be mocked.
 
             ## Test Coverage Requirements
             Generate tests that cover these scenarios (where applicable to the service method):
@@ -142,19 +142,19 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
             
             ## Tests to AVOID (Anti-Patterns)
             - **Don't create separate tests ONLY for parameter verification** - Parameters are already verified in functional tests
-            - **Don't test cancellationToken propagation** - Unless service has specific cancellation logic, this is implicitly tested
+            - **Don't test cancellationToken propagation** - Unless handler has specific cancellation logic, this is implicitly tested
             - **Don't create multiple tests for trivial variations** - Combine related scenarios or use Theory/InlineData if needed
 
             ## Input Code Files (Organized by Priority):
             The files below include various types of code files. Understand their purpose:
             
             **PRIMARY FILES** (Code under test):
-            - Service classes - the implementation you're testing
-            - DTOs (Data Transfer Objects) - input/output types used by the service
+            - Handler/Command/Query classes - the implementation you're testing
+            - DTOs (Data Transfer Objects) - input/output types used by the handler
             
             **DOMAIN FILES** (CRITICAL - Use for test data):
-            - Entity classes (e.g., Product, Category) - **USE THESE TYPES** when creating test data (e.g., `new Product { ... }`)
-            - Entity repository interfaces (e.g., `IProductRepository : IEFRepository<Product, Product>`) - identify the entity type from the interface signature
+            - Entity classes (e.g., Transaction, Client) - **USE THESE TYPES** when creating test data (e.g., `new Transaction { ... }`)
+            - Entity repository interfaces (e.g., `ITransactionRepository : IEFRepository<Transaction, Transaction>`) - identify the entity type from the interface signature
             - **NEVER use anonymous objects** for entities - always use the actual entity class
             
             **INFRASTRUCTURE FILES** (For mocking):
@@ -178,12 +178,12 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
             - **Repository behavior**: Repositories assign an Id to entities when `SaveChangesAsync` is called - use Callback to simulate this.
             - **Entity collections**: Collections on entities cannot be treated like arrays in tests.
             - **DTO construction**: DTOs MAY have a static `Create` factory method (if configured in Intent settings) OR use property initialization. Check the DTO file in the input context to determine which pattern to use:
-              * If DTO has `public static TDto Create(...)` method: Use `ProductDto.Create(param1, param2, ...)`
-              * If DTO has public properties with setters: Use `new ProductDto { Property1 = value1, Property2 = value2 }`
+              * If DTO has `public static TDto Create(...)` method: Use `TransactionDto.Create(param1, param2, ...)`
+              * If DTO has public properties with setters: Use `new TransactionDto { Property1 = value1, Property2 = value2 }`
             - **AutoMapper mocking (CRITICAL)**: 
               * Mock the SINGULAR `Map<TDto>(entity)` method, NOT `Map<List<TDto>>(list)`
-              * Extension methods like `.MapToProductDtoList()` call `Map<TDto>` for each item individually
-              * Setup: `_mapperMock.Setup(x => x.Map<ProductDto>(It.IsAny<Product>())).Returns((Product p) => ...)`
+              * Extension methods like `.MapToTransactionDtoList()` call `Map<TDto>` for each item individually
+              * Setup: `_mapperMock.Setup(x => x.Map<TransactionDto>(It.IsAny<Transaction>())).Returns((Transaction t) => ...)`
             - **Entity types in repository mocks (CRITICAL)**:
               * **ALWAYS use the actual domain entity type** (e.g., `Transaction`, `Product`) when creating test data and mocking repository methods
               * **NEVER use anonymous objects** (e.g., `new { Id = ..., Status = ... }`) for test entity data
@@ -191,34 +191,34 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
               * **Include entity namespace**: Always add `using` statement for the entity namespace (e.g., `using CleanArch1.Domain.Entities;`)
               * **Correct generic types in mocks**: When mocking `FindAllProjectToAsync<TDto>`, use `Expression<Func<EntityType, bool>>`, NOT `Expression<Func<object, bool>>`
               * Example BAD: `new { Status = "Active" }` with `It.IsAny<Expression<Func<object, bool>>>()`
-              * Example GOOD: `new Product { Status = "Active" }` with `It.IsAny<Expression<Func<Product, bool>>>()`
+              * Example GOOD: `new Transaction { Status = "Active" }` with `It.IsAny<Expression<Func<Transaction, bool>>>()`
             - **Filtered query testing (CRITICAL - TWO SCENARIOS)**:
-              * **Scenario 1 - Generic FindAllAsync with predicate**: Service calls `repository.FindAllAsync(x => x.Status == "Active", ...)` 
+              * **Scenario 1 - Generic FindAllAsync with predicate**: Handler calls `repository.FindAllAsync(x => x.Status == "Completed", ...)` 
                 - Setup repository to ACTUALLY APPLY the predicate by compiling it
                 - Pattern: `predicate.Compile()` then `testData.Where(compiled)`
-                - This tests that the service's filter logic is correct
+                - This tests that the handler's filter logic is correct
                 - See Example 6A for the complete pattern
-              * **Scenario 2 - Domain-specific repository method**: Service calls `repository.FindActiveProductsAsync(...)`
+              * **Scenario 2 - Domain-specific repository method**: Handler calls `repository.FindCompletedTransactionsAsync(fromDate, toDate, ...)`
                 - Mock the domain-specific method directly with its parameters
                 - Don't use predicate compilation
                 - Add comment explaining the method filters internally
                 - See Example 6B for the complete pattern
-              * **How to choose**: Inspect the service code to see which repository method it calls
+              * **How to choose**: Inspect the handler code to see which repository method it calls
             - **NotFoundException pattern**: Always test both success path AND NotFoundException for FindByIdAsync operations.
-            - **Validation**: No FluentValidations happen inside services - don't test for validation errors.
-            - **Test naming**: Use concise pattern `{MethodName}_{ExpectedBehavior}_When{Condition}` (e.g., `FindProductById_ReturnsDto_WhenFound`, `FindProductById_ThrowsNotFoundException_WhenNotFound`). Omit "When" clause if obvious from context. Follow user-specified naming convention if provided in their context.
+            - **Validation**: No FluentValidations happen inside handlers - don't test for validation errors.
+            - **Test naming**: Use concise pattern `{MethodName}_{ExpectedBehavior}_When{Condition}` (e.g., `Handle_ReturnsTransaction_WhenFound`, `Handle_ThrowsNotFoundException_WhenNotFound`). Omit "When" clause if obvious from context. Follow user-specified naming convention if provided in their context.
             - **AAA pattern**: Clearly separate Arrange, Act, Assert sections with comments.
             
             ## Test Data Quality Rules (CRITICAL)
             - **Test Data Minimalism (HIGHEST PRIORITY)**:
               * BAD: Setting ALL properties on test entities when only 1-2 are relevant to the test
               * GOOD: Only set properties that are directly used in assertions or affect test behavior
-              * Example BAD: `new Product { Id = guid, Name = "Product A", Description = "A description", Price = 100m, ImageUrl = "img.jpg", CategoryId = guid2, Stock = 50 }` when testing price filter
-              * Example GOOD: `new Product { Price = 100m }` when testing price filter
+              * Example BAD: `new Transaction { Id = guid, TransactionDate = date, SalePrice = 100m, Status = "Pending", CommissionRate = 0.03m, ClosingAgent = "Agent Name", ClientId = guid1, BuyerId = guid2, SellerId = guid3, AssetId = guid4 }` when testing Status filter
+              * Example GOOD: `new Transaction { Status = "Completed", TransactionDate = date }` when testing Status filter
               * Exception: If testing entity creation (Add), set all required properties to ensure valid entity construction
             
             - **Avoid Meaningless Placeholders**:
-              * Don't use placeholder strings like "Product Name", "Description Here", "Item 1", "Test Value"
+              * Don't use placeholder strings like "Asset Name", "Buyer Name", "Transaction 1", "Description Here"
               * Use minimal identifiers or empty strings when property value doesn't matter: "", Guid.Empty, 0
               * Only use meaningful values when the actual value is relevant to the test
             
@@ -231,8 +231,8 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
               * Avoid multiple tests that only differ in data quantity (e.g., 2 items vs 4 items) - one happy path is sufficient
             
             - **Mapper Mock Simplicity**:
-              * BAD: `.Returns((Product p) => expectedDtos.First(dto => dto.Id == p.Id))` - Fragile matching logic
-              * GOOD: `.Returns((Product p) => ProductDto.Create(p.Name, p.Price, ...))` - Direct creation
+              * BAD: `.Returns((Transaction t) => expectedDtos.First(dto => dto.Id == t.Id))` - Fragile matching logic
+              * GOOD: `.Returns((Transaction t) => TransactionDto.Create(t.Property1, t.Property2, ...))` - Direct creation
               * Use simple, inline DTO creation in mapper mocks rather than pre-creating DTOs and matching them
             
             - **Code preservation**: If an existing test file exists, update it according to 'Code Preservation Requirements' below.
@@ -696,10 +696,7 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
                 Assert.Empty(result);
             }
             ```
-
-
-
-            ## Previous Error Message
+            
             {{$previousError}}
             """;
 
@@ -719,12 +716,12 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
             {
                 inputFiles.AddRange(filesProvider.GetFilesForMetadata(operation.TypeReference.Element));
             }
-            foreach (var paramType in operation.ChildElements.Where(x => x.TypeReference?.Element?.SpecializationTypeId == "a5e74323-9b24-48c8-9802-f8684e0aaa70").Select(x => x.TypeReference.Element))
+            foreach (var paramType in operation.ChildElements.Where(x => x.TypeReference?.Element?.SpecializationTypeId == SpecializationTypeIds.Dto).Select(x => x.TypeReference.Element))
             {
                 inputFiles.AddRange(filesProvider.GetFilesForMetadata(paramType));
             }
 
-            inputFiles.AddRange(GetRelatedElements(operation).SelectMany(x => filesProvider.GetFilesForMetadata(x)));
+            inputFiles.AddRange(UnitTestHelpers.GetRelatedElements(operation).SelectMany(x => filesProvider.GetFilesForMetadata(x)));
         }
 
         // INFRASTRUCTURE: Only include interfaces we'll mock (not implementations)
@@ -739,7 +736,7 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
         }
 
         // Only include pagination if service returns paged results
-        if (serviceContent.Contains("PagedResult") || serviceContent.Contains("PagedList"))
+        if (service.TypeReference?.Element?.SpecializationTypeId == SpecializationTypeIds.PagedResult)
         {
             inputFiles.AddRange(filesProvider.GetFilesForTemplate("Intent.Application.Dtos.Pagination.PagedResult"));
             inputFiles.AddRange(filesProvider.GetFilesForTemplate("Intent.Entities.Repositories.Api.PagedListInterface"));

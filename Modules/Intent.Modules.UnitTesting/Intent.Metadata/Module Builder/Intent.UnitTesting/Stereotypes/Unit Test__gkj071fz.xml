@@ -11,7 +11,8 @@
     "Service",
     "Operation",
     "Integration Event Handler",
-    "Domain Event Handler"
+    "Domain Event Handler",
+    "Domain Service"
 ];
 return targetElements.indexOf(element.specialization) &gt;= 0;</targetFilterFunction>
   <applyMode>manually</applyMode>

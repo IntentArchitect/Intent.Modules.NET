@@ -6,6 +6,8 @@ using System.Linq;
 
 namespace Intent.Modules.UnitTesting.Templates;
 
+#nullable enable
+
 /// <summary>
 /// Wrapper class to provide IHasFolder functionality for IElement instances.
 /// This mimics the behavior of the old strongly-typed model classes.
@@ -13,14 +15,13 @@ namespace Intent.Modules.UnitTesting.Templates;
 internal class ElementWrapper : IHasFolder
 {
     private readonly IElement _element;
-    private readonly FolderModel _folder;
 
     public ElementWrapper(IElement element)
     {
         _element = element ?? throw new ArgumentNullException(nameof(element));
         
         // Initialize folder if parent is a folder
-        _folder = _element.ParentElement?.SpecializationTypeId == FolderModel.SpecializationTypeId 
+        Folder = _element.ParentElement?.SpecializationTypeId == FolderModel.SpecializationTypeId 
             ? new FolderModel(_element.ParentElement) 
             : null;
     }
@@ -29,18 +30,22 @@ internal class ElementWrapper : IHasFolder
     
     public string Name => _element.Name;
     
-    public FolderModel Folder => _folder;
+    public FolderModel? Folder { get; }
+
+    public IElement? ParentElement => _element.ParentElement;
     
-    public IEnumerable<string> GetParentFolderNames()
+    public IEnumerable<string> GetParentFolderNames(params string[] folderNames)
     {
         var folders = new List<string>();
-        var currentFolder = _folder;
+        var currentFolder = Folder;
         
         while (currentFolder != null)
         {
             folders.Insert(0, currentFolder.Name);
             currentFolder = currentFolder.Folder;
         }
+
+        folders.AddRange(folderNames.Where(x => !string.IsNullOrWhiteSpace(x)));
         
         return folders;
     }

@@ -15,15 +15,15 @@ using Intent.UnitTesting.Api;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.UnitTesting.Templates.IntegrationEventHandlerTest
+namespace Intent.Modules.UnitTesting.Templates.DomainServiceTest
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public partial class IntegrationEventHandlerTestTemplate : CSharpTemplateBase<IElement>, ICSharpFileBuilderTemplate
+    public partial class DomainServiceTestTemplate : CSharpTemplateBase<IElement>, ICSharpFileBuilderTemplate
     {
-        public const string TemplateId = "Intent.UnitTesting.IntegrationEventHandlerTest";
+        public const string TemplateId = "Intent.UnitTesting.DomainServiceTest";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public IntegrationEventHandlerTestTemplate(IOutputTarget outputTarget, IElement model) : base(TemplateId, outputTarget, model)
+        public DomainServiceTestTemplate(IOutputTarget outputTarget, IElement model) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddClass($"{Model.Name}Tests", @class =>
@@ -36,20 +36,25 @@ namespace Intent.Modules.UnitTesting.Templates.IntegrationEventHandlerTest
             {
                 var @class = file.Classes.First();
                 var ctor = @class.Constructors.First();
-                var handlerTemplates = ExecutionContext.FindTemplateInstances(TemplateRoles.Application.Eventing.EventHandler, model);
+                var handlerTemplates = ExecutionContext.FindTemplateInstances(TemplateRoles.Domain.DomainServices.Implementation, model);
                 var handlerTemplate = handlerTemplates.FirstOrDefault(t => t.CanRunTemplate());
 
                 if (handlerTemplate != null && handlerTemplate is ICSharpFileBuilderTemplate csharpTemplate)
                 {
-                    var details = TestHelpers.SuccessTestDetails.CreateIntegrationEventDetails(model);
+                    var details = TestHelpers.SuccessTestDetails.CreateDomainServiceDetails(model);
                     TestHelpers.PopulateTestConstructor(this, ctor, handlerTemplate, csharpTemplate, details);
 
-                    @class.AddField(GetTypeName(handlerTemplate), "_handler", @field =>
+                    @class.AddField(GetTypeName(handlerTemplate), "_service", @field =>
                     {
                         @field.PrivateReadOnly();
                     });
 
-                    TestHelpers.AddDefaultSuccessTest(this, @class, details);
+                    foreach (var operation in Model.GetDomainServiceOperations()
+                                 .Where(o => model.HasUnitTestStereotype() ||
+                                             o.HasUnitTestStereotype()))
+                    {
+                        TestHelpers.AddDefaultSuccessTest(this, @class, TestHelpers.SuccessTestDetails.CreateDomainServiceDetails(operation));
+                    }
                 }
             }), 9999);
         }

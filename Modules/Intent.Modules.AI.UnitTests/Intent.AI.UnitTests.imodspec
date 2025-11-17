@@ -17,7 +17,7 @@
     <dependency id="Intent.Common" version="3.8.0" />
     <dependency id="Intent.Common.AI" version="1.0.0-beta.12" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
-    <dependency id="Intent.UnitTesting" version="1.0.2-pre.1" />
+    <dependency id="Intent.UnitTesting" version="1.0.2-pre.2" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

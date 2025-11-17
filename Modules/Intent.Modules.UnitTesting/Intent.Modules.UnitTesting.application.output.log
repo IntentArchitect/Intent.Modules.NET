@@ -108,6 +108,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>03a5cb16-987e-444f-9c32-4c83cdd35f0d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#4de8da81-e087-4185-b7c2-f67432d2c91d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/DomainServiceTest/DomainServiceTestTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DomainServiceTest/DomainServiceTestTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>03a5cb16-987e-444f-9c32-4c83cdd35f0d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#4de8da81-e087-4185-b7c2-f67432d2c91d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/DomainServiceTest/DomainServiceTestTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DomainServiceTest/DomainServiceTestTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>03a5cb16-987e-444f-9c32-4c83cdd35f0d</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#0715c3ad-9207-4239-9e04-5c29a7e9644a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/IntegrationEventHandlerTest/IntegrationEventHandlerTestTemplatePartial.cs</ApplicationRelativeFilePath>

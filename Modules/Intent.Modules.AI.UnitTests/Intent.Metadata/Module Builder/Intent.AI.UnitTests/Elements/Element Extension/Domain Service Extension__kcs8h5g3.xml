@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8aa379fb-084c-48f3-93e4-27958dba34c8" type="Element Extension" typeId="e3c7b1ca-f080-45c1-b56f-8d44226c8e20">
+  <name>Domain Service Extension</name>
+  <display>Domain Service Extension: Domain Service</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <typeReference id="873876c4-0e41-48d5-8d1d-f46129beeabe">
+    <typeId>07f936ea-3756-48c8-babd-24ac7271daac</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.Modelers.Domain.Services</typePackageName>
+    <typePackageId>e4367515-b72d-4530-81a8-28c7970f057d</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>1cd14547-8efc-4adc-a653-7fc17d8206a4</parentFolderId>
+  <packageId>d7c7c7b3-1faa-4ea9-b9d4-25291fc2447e</packageId>
+  <packageName>Intent.AI.UnitTests</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="159cbc8e-a910-40f7-8e45-3edadbb863c2" name="Type Reference Extension Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+      <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+      <properties>
+        <property name="35226a83-3965-4224-8aef-20c68a0c5180" display="Mode" value="Inherit" isActive="true" />
+        <property name="7d3859d4-084d-4ff0-8b31-850b4a8f8cd0" display="Display Name" isActive="false" />
+        <property name="17223dbd-8df0-4700-8b81-02274ca3ed7f" display="Hint" isActive="false" />
+        <property name="b2cef034-5706-45d2-8554-f4dc582a18ff" display="Target Types" isActive="false" />
+        <property name="08ec0581-c90a-489b-858f-ee265327c948" display="Target Traits" isActive="true" />
+        <property name="93e4efa9-186d-4e88-ae0a-491bcd6e6f5e" display="Default Type Id" isActive="false" />
+        <property name="7a0c4185-1c08-4d3e-9185-14683d7a3bd0" display="Allow Collection" value="Inherit" isActive="false" />
+        <property name="e3dc90ec-4f5f-4f20-b271-e28a5094dc91" display="Allow Nullable" value="Inherit" isActive="false" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="312eab00-f6db-492e-bbb4-e41383c8d3d8" name="Extension Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+      <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+      <properties>
+        <property name="8c964307-9d03-4a14-9fd3-40ea2607955a" display="Display Text Function" isActive="true" />
+        <property name="996ed45f-2318-4587-9618-73db3d7cfed0" display="Validate Function" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="5cba6024-5259-4ea8-bd63-f1e81dadb123" type="Context Menu" typeId="d45e383d-90ba-4b64-aca7-34ca100cea21">
+      <name>[context menu]</name>
+      <display>[context menu]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8aa379fb-084c-48f3-93e4-27958dba34c8</parentFolderId>
+      <packageId>d7c7c7b3-1faa-4ea9-b9d4-25291fc2447e</packageId>
+      <packageName>Intent.AI.UnitTests</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="2e8f6e18-1312-4294-bb3a-b7d989561fcf" type="Run Script Option" typeId="345d46fb-c500-409a-88c7-26720572c9af">
+          <name>Generate Unit Tests with AI</name>
+          <display>Generate Unit Tests with AI: Inline Script</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="79f80177-fc26-44e4-b274-23a85d1ee260">
+            <typeId>043eee26-1591-42ac-9f2c-fc911b070eb1</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.ModuleBuilder</typePackageName>
+            <typePackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>5cba6024-5259-4ea8-bd63-f1e81dadb123</parentFolderId>
+          <packageId>d7c7c7b3-1faa-4ea9-b9d4-25291fc2447e</packageId>
+          <packageName>Intent.AI.UnitTests</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="56bc0465-c1fe-4bca-9493-2a3ce88a4047" name="Script Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+              <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+              <properties>
+                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="await execute(&quot;Intent.AI.UnitTests.GenerateDomainServiceUnitTestsWithAITask&quot;);" isActive="true" />
+                <property name="7df9c3b9-91a0-4cb7-bc3a-15d72f160054" display="Dependencies" value="[&quot;2b87841e-8eb1-4181-86e6-28e45ccfe84f&quot;]" isActive="true" />
+              </properties>
+            </stereotype>
+            <stereotype stereotypeDefinitionId="cbe77364-d1d0-400b-a8c4-646a4c869612" name="Option Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+              <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+              <properties>
+                <property name="b2c3a117-23d3-47e5-8b83-5b902c55a226" display="Icon" value="{&quot;type&quot;:0,&quot;source&quot;:&quot;data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iYnJhY2tldF9zeW1ib2wtYmx1ZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgNDIuOSA0Mi45Ij4KICA8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMjkuNi4xLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogMi4xLjEgQnVpbGQgOSkgIC0tPgogIDxkZWZzPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJsaW5lYXItZ3JhZGllbnQiIHgxPSItMTE1MjIuNyIgeTE9Ii02NjU3LjciIHgyPSItMTE1MjIuNyIgeTI9Ii02NjM5LjQiIGdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTY2MzYgLTExNDk1LjIpIHJvdGF0ZSgtOTApIHNjYWxlKDEgLTEpIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZmZiIvPgogICAgICA8c3RvcCBvZmZzZXQ9Ii40IiBzdG9wLWNvbG9yPSIjMDljNGZmIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzAwNzBjMCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50MSIgeDE9Ii0xNTYxMi4yIiB5MT0iLTE1MzciIHgyPSItMTU2MTIuMiIgeTI9Ii0xNTE4LjkiIGdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTEyMDk5LjggLTk5MjguNykgcm90YXRlKC0xMzUpIHNjYWxlKDEgLTEpIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZmZiIvPgogICAgICA8c3RvcCBvZmZzZXQ9Ii40IiBzdG9wLWNvbG9yPSIjMDljNGZmIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzAwNzBjMCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50MiIgeDE9Ii0xNDg4Mi42IiB5MT0iNDk3NS40IiB4Mj0iLTE0ODgyLjYiIHkyPSI0OTkzLjYiIGdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTE0ODU1LjIgLTQ5NTcuMikgcm90YXRlKC0xODApIHNjYWxlKDEgLTEpIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZmZiIvPgogICAgICA8c3RvcCBvZmZzZXQ9Ii40IiBzdG9wLWNvbG9yPSIjMDljNGZmIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzAwNzBjMCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50MyIgeDE9Ii05NzYyLjMiIHkxPSI5MDY0LjUiIHgyPSItOTc2Mi4zIiB5Mj0iOTA4Mi43IiBncmFkaWVudFRyYW5zZm9ybT0idHJhbnNsYXRlKC0xMzI4OC43IDUwNi43KSByb3RhdGUoMTM1KSBzY2FsZSgxIC0xKSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZmYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIuNCIgc3RvcC1jb2xvcj0iIzA5YzRmZiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMwMDcwYzAiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudDQiIHgxPSItMzI0OS41IiB5MT0iODMzNS40IiB4Mj0iLTMyNDkuNSIgeTI9IjgzNTMuNiIgZ3JhZGllbnRUcmFuc2Zvcm09InRyYW5zbGF0ZSgtODMxNy4xIDMyNjIuMSkgcm90YXRlKDkwKSBzY2FsZSgxIC0xKSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZmYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIuNCIgc3RvcC1jb2xvcj0iIzA5YzRmZiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMwMDcwYzAiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudDUiIHgxPSI4MzkuNCIgeTE9IjMyMTQuOCIgeDI9IjgzOS40IiB5Mj0iMzIzMyIgZ3JhZGllbnRUcmFuc2Zvcm09InRyYW5zbGF0ZSgtMjg1My4zIDE2OTUuNSkgcm90YXRlKDQ1KSBzY2FsZSgxIC0xKSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZmYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIuNCIgc3RvcC1jb2xvcj0iIzA5YzRmZiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMwMDcwYzAiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudDYiIHgxPSIxMTAuNSIgeTE9Ii0zMjk3LjciIHgyPSIxMTAuNSIgeTI9Ii0zMjc5LjQiIGdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTk3LjkgLTMyNzYpIHNjYWxlKDEgLTEpIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZmZiIvPgogICAgICA8c3RvcCBvZmZzZXQ9Ii40IiBzdG9wLWNvbG9yPSIjMDljNGZmIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzAwNzBjMCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50NyIgeDE9Ii01MDEwLjYiIHkxPSItNzM4Ni43IiB4Mj0iLTUwMTAuNiIgeTI9Ii03MzY4LjYiIGdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTE2NjQuNSAtODczOS44KSByb3RhdGUoLTQ1KSBzY2FsZSgxIC0xKSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZmYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIuNCIgc3RvcC1jb2xvcj0iIzA5YzRmZiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMwMDcwYzAiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudDgiIHgxPSIzMS4yIiB5MT0iLTIwNjgiIHgyPSIzMS4yIiB5Mj0iLTIwNTAuNiIgZ3JhZGllbnRUcmFuc2Zvcm09InRyYW5zbGF0ZSgwIC0yMDI4KSBzY2FsZSgxIC0xKSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiM0YTk5MjQiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjODZkZTMzIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cGF0aCBkPSJNMjEuNywyMS43YzAtLjQuNCwzLjctMS41LDYuOC0xLjgsMy4xLTQuMSw0LTcuNyw0LjgtMiwuNS0zLjIsMC00LjgtLjUtMi4yLS43LTMuMy0yLjUtMy43LTMuMXMtLjgtMS45LS41LTMuMmMuNS0yLjIsMi0zLjMsNC0zLjkuNCwwLDIuMi0uNSwzLjkuNHMyLjIsMS41LDMuNywxLjljMS41LjQsMy4xLDAsMy43LS40LDEuNy0uNiwyLjktMi40LDMuMS0zLjF2LjJoLS4yWiIgZmlsbD0idXJsKCNsaW5lYXItZ3JhZGllbnQpIi8+CiAgPHBhdGggZD0iTTIyLjQsMTkuOWMtLjMtLjMsMi45LDIuNCwzLjcsNS44cy4yLDUuOC0yLDguOWMtMS4yLDEuOC0yLjMsMi40LTMuOCwzLjItMi4xLDEtNC4yLjYtNC43LjVzLTEuOS0uNy0yLjYtMS45Yy0xLjEtMS45LTEtMy44LDAtNS42LjMtLjMsMS4xLTEuOSwzLTIuNSwxLjgtLjYsMi42LS41LDQtMS4zczIuMS0yLjEsMi40LTIuOWMuNy0xLjcuNC0zLjcsMC00LjNoLjItLjJaIiBmaWxsPSJ1cmwoI2xpbmVhci1ncmFkaWVudDEpIi8+CiAgPHBhdGggZD0iTTIxLjcsMTguM2MtLjQsMCwzLjctLjQsNi44LDEuNSwzLjEsMS44LDQuMyw0LDQuOCw3LjcuNCwyLDAsMy4yLS41LDQuOC0uNywyLjItMi41LDMuMy0zLjEsMy43cy0xLjkuOC0zLjIuNWMtMi4yLS41LTMuMy0yLTMuOS00LDAtLjQtLjUtMi4yLjQtMy45czEuNS0yLjIsMS45LTMuNywwLTMuMS0uNC0zLjdjLS42LTEuNy0yLjQtMi45LTMuMS0zLjFoLjJ2LjJoLjFaIiBmaWxsPSJ1cmwoI2xpbmVhci1ncmFkaWVudDIpIi8+CiAgPHBhdGggZD0iTTE5LjksMTcuNmMtLjMuMywyLjQtMi45LDUuOC0zLjdzNS44LS4yLDguOSwyYzEuOCwxLjIsMi40LDIuMywzLjIsMy44LDEsMi4xLjYsNC4yLjUsNC43cy0uNywxLjktMS45LDIuNmMtMS45LDEuMS0zLjgsMS01LjYsMC0uMy0uMy0xLjktMS4xLTIuNS0zcy0uNS0yLjYtMS4zLTQtMi4xLTIuMS0yLjktMi40Yy0xLjctLjctMy43LS40LTQuMywwaDB2LS4yaDB2LjJzLjEsMCwuMSwwWiIgZmlsbD0idXJsKCNsaW5lYXItZ3JhZGllbnQzKSIvPgogIDxwYXRoIGQ9Ik0xOC4zLDE4LjNjMCwuNC0uNC0zLjcsMS41LTYuOHM0LTQuMyw3LjctNC44YzItLjQsMy4yLDAsNC44LjUsMi4yLjcsMy4zLDIuNSwzLjcsMy4xcy44LDEuOS41LDMuMmMtLjUsMi4yLTIsMy4zLTQsMy45LS40LDAtMi4yLjUtMy45LS40cy0yLjItMS41LTMuNy0xLjktMy4xLDAtMy43LjRjLTEuNy42LTIuOSwyLjQtMy4xLDMuMXYtLjJoLjJaIiBmaWxsPSJ1cmwoI2xpbmVhci1ncmFkaWVudDQpIi8+CiAgPHBhdGggZD0iTTE3LjYsMTkuOWMuMy4zLTIuOS0yLjQtMy43LTUuOHMtLjItNS44LDItOC45YzEuMi0xLjgsMi4zLTIuNCwzLjgtMy4yLDIuMS0xLDQuMi0uNiw0LjctLjVzMS45LjcsMi42LDEuOWMxLjEsMS45LDEsMy44LDAsNS42LS4zLjMtMS4xLDEuOS0zLDIuNXMtMi42LjUtNCwxLjNjLTEuMy44LTIuMSwyLjEtMi40LDIuOS0uNywxLjctLjQsMy43LDAsNC4zaC0uMi4yLDBaIiBmaWxsPSJ1cmwoI2xpbmVhci1ncmFkaWVudDUpIi8+CiAgPHBhdGggZD0iTTE4LjMsMjEuN2MuNCwwLTMuNy40LTYuOC0xLjVzLTQuMy00LTQuOC03LjdjLS40LTIsMC0zLjIuNS00LjguNy0yLjIsMi41LTMuMywzLjEtMy43czEuOS0uOCwzLjItLjVjMi4yLjUsMy4zLDIsMy45LDQsMCwuNC41LDIuMi0uNCwzLjlzLTEuNSwyLjItMS45LDMuN2MtLjQsMS41LDAsMy4xLjQsMy43LjYsMS43LDIuNCwyLjksMy4xLDMuMWgtLjJ2LS4yaC0uMVoiIGZpbGw9InVybCgjbGluZWFyLWdyYWRpZW50NikiLz4KICA8cGF0aCBkPSJNMTkuOSwyMi40Yy4zLS4zLTIuNCwyLjktNS44LDMuN3MtNS44LjItOC45LTJjLTEuOC0xLjItMi40LTIuMy0zLjItMy44LTEtMi4xLS42LTQuMi0uNS00LjdzLjctMS45LDEuOS0yLjZjMS45LTEuMSwzLjgtMSw1LjYsMCwuMy4zLDEuOSwxLjEsMi41LDMsLjYsMS44LjUsMi42LDEuMyw0LC44LDEuMywyLjEsMi4xLDIuOSwyLjQsMS43LjcsMy43LjQsNC4zLDBoMHYuMmgwdi0uMnMtLjEsMC0uMSwwWiIgZmlsbD0idXJsKCNsaW5lYXItZ3JhZGllbnQ3KSIvPgogIDxyZWN0IHg9IjI4LjQiIHk9IjE4LjkiIHdpZHRoPSI2IiBoZWlnaHQ9IjE1LjkiIGZpbGw9IiNmZmYiLz4KICA8cGF0aCBkPSJNMzQuNywzMC4zdi05LjhjLjgsMCwuOC0uMy44LS44di0uOGMwLS40LS4yLS44LS43LS44aC02LjhjLS40LDAtLjguMy0uOC44di44YzAsLjguOC44LjguOHY5LjhsLTUuOCw4LjdjLS4zLjUtLjQsMS4yLDAsMS43cy45LjksMS41LjloMTUuMWMuNiwwLDEuMS0uMywxLjQtLjhzLjItLjYuMi0uOCwwLS41LS4zLS44bC01LjQtOC44aDBaTTI4LjQsMzMuMmwxLjYtMi41di0xMC4yaDIuNnYxMC4xbDEuNSwyLjZzLTUuNywwLTUuNywwWiIgZmlsbD0idXJsKCNsaW5lYXItZ3JhZGllbnQ4KSIgc3Ryb2tlPSIjZmZmIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS13aWR0aD0iLjgiLz4KPC9zdmc+&quot;}" isActive="true" />
+                <property name="0abff08a-3986-40b1-a28f-4cc03c4fc1ec" display="Shortcut" isActive="true" />
+                <property name="79f6973f-5e3a-4618-9d4c-d7cc604bffe0" display="Shortcut (macOS)" isActive="true" />
+                <property name="6087e660-9599-47fb-9ff4-1ad901ce2a00" display="Trigger On Double-Click" value="false" isActive="true" />
+                <property name="c03841e5-a1e9-4e95-b699-5a466dde7d7d" display="Is Option Visible Function" isActive="true" />
+                <property name="e034a0ca-0101-4594-8384-43048b714578" display="Order" isActive="true" />
+                <property name="c37d8704-0003-4886-b6c2-4e51aa22a8f9" display="Menu Group" isActive="true" />
+                <property name="3e93529e-2110-414e-aec1-2656e1a99b22" display="Top Divider" value="false" isActive="true" />
+                <property name="d2572c08-f02e-40b2-8a06-4d5251bb3352" display="Bottom Divider" value="false" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>
