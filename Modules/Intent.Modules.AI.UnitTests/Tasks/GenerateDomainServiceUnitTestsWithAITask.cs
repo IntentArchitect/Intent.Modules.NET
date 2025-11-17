@@ -122,8 +122,15 @@ namespace Intent.Modules.AI.UnitTests.Tasks
                 Domain services:
                 - Coordinate business logic that doesn't naturally fit within a single aggregate
                 - Work with repositories to load and manipulate domain entities
-                - May call methods on domain entities to maintain domain invariants
+                - Call methods on domain entities to maintain domain invariants and modify their state
                 - Should maintain transactional consistency through Unit of Work
+                
+                **CRITICAL for Testing**: Domain services orchestrate behavior by calling entity methods. Your tests MUST verify:
+                1. The service loaded the correct entities (repository interaction)
+                2. The entities' STATE changed correctly after calling their methods (property/collection assertions)
+                3. The changes will be persisted (SaveChangesAsync called if needed)
+                
+                Verifying ONLY repository calls without inspecting entity state is an INCOMPLETE test.
 
                 ## Test Coverage Requirements
                 Generate tests that cover these scenarios (where applicable to the domain service operation):
@@ -134,7 +141,11 @@ namespace Intent.Modules.AI.UnitTests.Tasks
                    * Boundary values for value objects (e.g., zero amounts, min/max dates)
                    * Null or invalid input parameters
                    * Entity state preconditions (e.g., entity must be in certain state before operation)
-                5. **Entity State Changes**: Verify that entities are modified correctly through their methods
+                5. **Entity State Changes (CRITICAL)**: 
+                   * ALWAYS verify that domain entities' state was actually modified by inspecting their properties/collections after the operation
+                   * Use Callback to capture entities OR directly inspect the entity reference passed to the service
+                   * Example: After calling `service.RevalueAsset(...)`, assert that `asset.CurrentValuation == expectedValue`
+                   * Don't just verify repository methods were called - verify the entity's state changed correctly
                 6. **Repository Interactions**: Verify correct repository method calls (Find, Add, Update, Remove)
                 7. **Unit of Work**: Verify SaveChangesAsync is called when state changes occur
                 
@@ -292,24 +303,29 @@ namespace Intent.Modules.AI.UnitTests.Tasks
                         AppraiserName = "John Appraiser"
                     };
                     
-                    // Create minimal test entity - only set what's needed
+                    // CRITICAL: Create test entity and ensure we can verify state changes
                     var client = new Client { Id = clientId };
+                    var asset = new Asset { Id = assetId, CurrentValuation = 100000m };
+                    client.AddAsset(asset); // Set up initial state
                     
                     _clientRepositoryMock
                         .Setup(x => x.FindByIdAsync(clientId, It.IsAny<CancellationToken>()))
                         .ReturnsAsync(client);
 
                     // Act
-                    await _sut.RevalueAssetAsync(clientId, assetId, newValuation);
+                    await _service.RevalueAssetAsync(clientId, assetId, newValuation);
 
-                    // Assert - Verify repository was called and entity method was invoked
+                    // Assert - CRITICAL: Verify domain entity STATE was actually modified
                     _clientRepositoryMock.Verify(
                         x => x.FindByIdAsync(clientId, It.IsAny<CancellationToken>()), 
                         Times.Once);
                     
-                    // Note: If Client.UpdateAssetValuation modifies state, verify that state here
-                    // The Unit of Work will save changes, so no explicit SaveChanges verification needed
-                    // unless the domain service explicitly calls it
+                    // Verify the asset's valuation was updated through the client aggregate
+                    var updatedAsset = client.Assets.FirstOrDefault(a => a.Id == assetId);
+                    Assert.NotNull(updatedAsset);
+                    Assert.Equal(250000m, updatedAsset.CurrentValuation);
+                    Assert.Equal(newValuation.ValuationDate, updatedAsset.ValuationDate);
+                    Assert.Equal(newValuation.AppraiserName, updatedAsset.AppraiserName);
                 }
 
                 [Fact]
@@ -401,9 +417,11 @@ namespace Intent.Modules.AI.UnitTests.Tasks
                     var toClientId = Guid.NewGuid();
                     var assetId = Guid.NewGuid();
                     
+                    var asset = new Asset { Id = assetId, ClientId = fromClientId, Value = 500000m };
                     var fromClient = new Client { Id = fromClientId, IsActive = true };
+                    fromClient.AddAsset(asset); // Establish ownership
+                    
                     var toClient = new Client { Id = toClientId, IsActive = true };
-                    var asset = new Asset { Id = assetId, ClientId = fromClientId };
                     
                     _clientRepositoryMock
                         .Setup(x => x.FindByIdAsync(fromClientId, It.IsAny<CancellationToken>()))
@@ -418,10 +436,17 @@ namespace Intent.Modules.AI.UnitTests.Tasks
                         .ReturnsAsync(asset);
 
                     // Act
-                    await _sut.TransferAssetAsync(fromClientId, toClientId, assetId);
+                    await _service.TransferAssetAsync(fromClientId, toClientId, assetId);
 
-                    // Assert
+                    // Assert - Verify BOTH domain state changes AND repository interactions
+                    // CRITICAL: Verify the asset ownership actually changed
                     Assert.Equal(toClientId, asset.ClientId);
+                    
+                    // Verify asset was removed from source client and added to destination
+                    Assert.DoesNotContain(asset, fromClient.Assets);
+                    Assert.Contains(asset, toClient.Assets);
+                    
+                    // Repository verifications (secondary to state assertions)
                     _clientRepositoryMock.Verify(
                         x => x.FindByIdAsync(fromClientId, It.IsAny<CancellationToken>()), 
                         Times.Once);
@@ -523,7 +548,12 @@ namespace Intent.Modules.AI.UnitTests.Tasks
                 ## Critical Domain Service Testing Reminders
                 - **Mock ALL repositories**: Domain services should not touch real databases
                 - **Focus on coordination logic**: Test how the service orchestrates between entities and repositories
-                - **Verify entity method calls**: Use Callback to capture entities and verify their state changes
+                - **ALWAYS verify domain entity state changes (HIGHEST PRIORITY)**: 
+                  * Domain services coordinate behavior across aggregates by calling methods on domain entities
+                  * After the service executes, ALWAYS inspect the entity's properties/collections to verify state changed correctly
+                  * Example: If service calls `client.UpdateAssetValuation(...)`, assert `client.Assets[x].CurrentValuation == expectedValue`
+                  * Repository verification alone (e.g., `Verify(x => x.FindByIdAsync(...))`) is INSUFFICIENT - you must prove the entity's state changed
+                  * Use the entity reference returned from repository mock to inspect its final state in assertions
                 - **Test business rule enforcement**: Ensure domain invariants are maintained
                 - **Test all exception paths**: Domain services often have multiple failure scenarios
                 - **Minimal test data**: Only set properties relevant to the specific test scenario
