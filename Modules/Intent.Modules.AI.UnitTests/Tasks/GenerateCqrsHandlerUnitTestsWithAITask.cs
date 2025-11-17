@@ -91,7 +91,7 @@ public class GenerateCqrsHandlerUnitTestsWithAITask : IModuleTask
         {
             ["inputFilesJson"] = jsonInput,
             ["userProvidedContext"] = userProvidedContext,
-            ["targetFileName"] = queryModel.Name + "Handler",
+            ["targetFileName"] = queryModel.Name + "HandlerTests",
             ["mockFramework"] = UnitTestHelpers.GetMockFramework(_applicationConfigurationProvider),
             ["slnRelativePath"] = "/" + string.Join('/', queryModel.GetParentPath().Select(x => x.Name)),
             ["fileChangesSchema"] = FileChangesSchema.GetPromptInstructions()

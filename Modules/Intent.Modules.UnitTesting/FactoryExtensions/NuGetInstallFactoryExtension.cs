@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.VisualStudio;
@@ -48,6 +49,12 @@ namespace Intent.Modules.UnitTesting.FactoryExtensions
                 List<INugetPackageInfo> packages = [NugetPackages.XunitV3(target), NugetPackages.CoverletCollector(target),
                    NugetPackages.XunitRunnerVisualstudio(target), NugetPackages.MicrosoftNETTestSdk(target), mockNuget];
                 project.AddNugetPackages(packages);
+                
+                var templates = application.FindTemplateInstances<ICSharpTemplate>("UnitTests.Tests");
+                foreach (var template in templates)
+                {
+                    template.AddUsing("Xunit");
+                }
             }
         }
     }

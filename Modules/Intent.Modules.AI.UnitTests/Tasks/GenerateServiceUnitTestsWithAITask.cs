@@ -72,14 +72,28 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
         var kernel = _intentSemanticKernelFactory.BuildSemanticKernel(modelId, provider, null);
 
         var servicesDesigner = _metadataManager.GetDesigner(applicationId, "Services");
-        var queryModel = servicesDesigner.GetElementsOfType(SpecializationTypeIds.Service)
-            .SelectMany(s => s.ChildElements.Where(o => o.SpecializationTypeId == SpecializationTypeIds.Operation))
-            .FirstOrDefault(x => x.Id == elementId);
-        if (queryModel == null)
+        // Attempt to resolve the element ID as a Service first.
+        var serviceModel = servicesDesigner.GetElementsOfType(SpecializationTypeIds.Service)
+            .FirstOrDefault(s => s.Id == elementId);
+        IElement? selectedOperation = null;
+        if (serviceModel == null)
         {
-            throw new Exception($"An element was selected to be executed upon but could not be found. Please ensure you have saved your designer and try again.");
+            // If not a Service, attempt to resolve as an Operation belonging to any Service.
+            selectedOperation = servicesDesigner.GetElementsOfType(SpecializationTypeIds.Service)
+                .SelectMany(s => s.ChildElements.Where(o => o.SpecializationTypeId == SpecializationTypeIds.Operation))
+                .FirstOrDefault(o => o.Id == elementId);
+            if (selectedOperation != null)
+            {
+                serviceModel = selectedOperation.ParentElement;
+            }
         }
-        var inputFiles = GetInputFiles(queryModel);
+        if (serviceModel == null)
+        {
+            throw new Exception("An element was selected to be executed upon but could not be found. Please ensure you have saved your designer and try again.");
+        }
+
+        var inputFiles = GetInputFiles(serviceModel);
+        Logging.Log.Info($"Resolved service: {serviceModel.Name} (Selected operation: {selectedOperation?.Name ?? "All"})");
         Logging.Log.Info($"Context files included: {inputFiles.Count} files");
         Logging.Log.Debug($"Files: {string.Join(", ", inputFiles.Select(f => Path.GetFileName(f.FilePath)))}");
 
@@ -90,9 +104,9 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
         {
             ["inputFilesJson"] = jsonInput,
             ["userProvidedContext"] = userProvidedContext,
-            ["targetFileName"] = queryModel.Name,
+            ["targetFileName"] = serviceModel.Name + "Tests",
             ["mockFramework"] = UnitTestHelpers.GetMockFramework(_applicationConfigurationProvider),
-            ["slnRelativePath"] = "/" + string.Join('/', queryModel.GetParentPath().Select(x => x.Name)),
+            ["slnRelativePath"] = "/" + string.Join('/', serviceModel.GetParentPath().Select(x => x.Name)),
             ["fileChangesSchema"] = FileChangesSchema.GetPromptInstructions()
         });
 
@@ -258,13 +272,13 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
             {
                 private readonly Mock<IRepository> _repositoryMock;
                 private readonly Mock<IMapper> _mapperMock; // Only if service uses IMapper
-                private readonly {ServiceName} _sut;
+                private readonly {ServiceName} _service;
 
                 public {ServiceName}Tests()
                 {
                     _repositoryMock = new Mock<IRepository>();
                     _mapperMock = new Mock<IMapper>(); // Only if needed
-                    _sut = new {ServiceName}(_repositoryMock.Object, _mapperMock.Object);
+                    _service = new {ServiceName}(_repositoryMock.Object, _mapperMock.Object);
                 }
 
                 // Test methods follow...
@@ -296,7 +310,7 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
                     .ReturnsAsync(1);
 
                 // Act
-                var result = await _sut.CreateProduct(dto);
+                var result = await _service.CreateProduct(dto);
 
                 // Assert
                 Assert.Equal(expectedId, result);
@@ -324,7 +338,7 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
                     .ReturnsAsync(existingProduct);
 
                 // Act
-                await _sut.UpdateProduct(productId, dto);
+                await _service.UpdateProduct(productId, dto);
 
                 // Assert
                 Assert.Equal("NewName", existingProduct.Name);
@@ -342,7 +356,7 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
                     .ReturnsAsync((Product)null);
 
                 // Act & Assert
-                await Assert.ThrowsAsync<NotFoundException>(() => _sut.UpdateProduct(dto.Id, dto));
+                await Assert.ThrowsAsync<NotFoundException>(() => _service.UpdateProduct(dto.Id, dto));
             }
             ```
 
@@ -360,7 +374,7 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
                     .ReturnsAsync(product);
 
                 // Act
-                await _sut.DeleteProduct(productId);
+                await _service.DeleteProduct(productId);
 
                 // Assert
                 _productRepositoryMock.Verify(x => x.FindByIdAsync(productId, It.IsAny<CancellationToken>()), Times.Once);
@@ -377,7 +391,7 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
                     .ReturnsAsync((Product)null);
 
                 // Act & Assert
-                await Assert.ThrowsAsync<NotFoundException>(() => _sut.DeleteProduct(productId));
+                await Assert.ThrowsAsync<NotFoundException>(() => _service.DeleteProduct(productId));
             }
             ```
 
@@ -402,7 +416,7 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
                     .Returns(expectedDto);
 
                 // Act
-                var result = await _sut.FindProductById(productId);
+                var result = await _service.FindProductById(productId);
 
                 // Assert
                 Assert.NotNull(result);
@@ -423,7 +437,7 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
                     .ReturnsAsync((Product)null);
 
                 // Act & Assert
-                await Assert.ThrowsAsync<NotFoundException>(() => _sut.FindProductById(productId));
+                await Assert.ThrowsAsync<NotFoundException>(() => _service.FindProductById(productId));
             }
             ```
 
@@ -451,7 +465,7 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
                     .Returns((Product p) => ProductDto.Create("", "", 0, "", p.Id));
 
                 // Act
-                var result = await _sut.FindProducts();
+                var result = await _service.FindProducts();
 
                 // Assert
                 Assert.NotNull(result);
@@ -497,7 +511,7 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
                     .Returns((Product p) => ProductDto.Create("", "", 0, "", Guid.NewGuid()));
 
                 // Act
-                var result = await _sut.FindProductsByCategory(categoryId);
+                var result = await _service.FindProductsByCategory(categoryId);
 
                 // Assert - This single test verifies: predicate logic, repository call, mapper call, result correctness
                 Assert.NotNull(result);
@@ -528,7 +542,7 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
                     });
 
                 // Act
-                var result = await _sut.FindProductsByCategory(categoryId);
+                var result = await _service.FindProductsByCategory(categoryId);
 
                 // Assert
                 Assert.Empty(result);
@@ -564,7 +578,7 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
                     .Returns((Product p) => ProductDto.Create("", "", 0, "", p.Id));
 
                 // Act
-                var result = await _sut.FindActiveProducts(categoryId);
+                var result = await _service.FindActiveProducts(categoryId);
 
                 // Assert
                 Assert.NotNull(result);
@@ -588,7 +602,7 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
                     .ReturnsAsync(new List<Product>());
 
                 // Act
-                var result = await _sut.FindActiveProducts(categoryId);
+                var result = await _service.FindActiveProducts(categoryId);
 
                 // Assert
                 Assert.NotNull(result);
@@ -652,7 +666,7 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
                     });
 
                 // Act
-                var result = await _sut.GetCompletedTransactions(fromDate, toDate);
+                var result = await _service.GetCompletedTransactions(fromDate, toDate);
 
                 // Assert
                 Assert.NotNull(result);
@@ -689,7 +703,7 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
                     });
 
                 // Act
-                var result = await _sut.GetCompletedTransactions(fromDate, toDate);
+                var result = await _service.GetCompletedTransactions(fromDate, toDate);
 
                 // Assert
                 Assert.NotNull(result);
@@ -716,9 +730,15 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
             {
                 inputFiles.AddRange(filesProvider.GetFilesForMetadata(operation.TypeReference.Element));
             }
+            // Include DTO parameter types
             foreach (var paramType in operation.ChildElements.Where(x => x.TypeReference?.Element?.SpecializationTypeId == SpecializationTypeIds.Dto).Select(x => x.TypeReference.Element))
             {
                 inputFiles.AddRange(filesProvider.GetFilesForMetadata(paramType));
+            }
+            // Include Class (domain entity / value object) parameter types
+            foreach (var paramClass in operation.ChildElements.Where(x => x.TypeReference?.Element?.SpecializationTypeId == SpecializationTypeIds.Class).Select(x => x.TypeReference.Element))
+            {
+                inputFiles.AddRange(filesProvider.GetFilesForMetadata(paramClass));
             }
 
             inputFiles.AddRange(UnitTestHelpers.GetRelatedElements(operation).SelectMany(x => filesProvider.GetFilesForMetadata(x)));

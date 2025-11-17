@@ -88,7 +88,7 @@ namespace Intent.Modules.AI.UnitTests.Tasks
             {
                 ["inputFilesJson"] = jsonInput,
                 ["userProvidedContext"] = userProvidedContext,
-                ["targetFileName"] = eventHandlerElement.Name,
+                ["targetFileName"] = eventHandlerElement.Name + "Tests",
                 ["mockFramework"] = UnitTestHelpers.GetMockFramework(_applicationConfigurationProvider),
                 ["slnRelativePath"] = "/" + string.Join('/', eventHandlerElement.GetParentPath().Select(x => x.Name)),
                 ["fileChangesSchema"] = FileChangesSchema.GetPromptInstructions()

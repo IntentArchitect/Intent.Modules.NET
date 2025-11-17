@@ -125,8 +125,9 @@ internal static class TestHelpers
             
             var entityName = association?.TypeReference?.Element?.Name ?? "Entity";
             var action = GetAssociationAction(association);
+            var actionVerb = GetActionVerb(action);
             var querySuffix = GetQuerySuffix(action, model);
-            var methodName = $"Handle_Should_{action}_{entityName}{querySuffix}_Successfully";
+            var methodName = $"Handle_{actionVerb}{entityName}{querySuffix}_Successfully";
 
             return new SuccessTestDetails(association, methodName, "command", "Handle method", "Handler", "_handler");
         }
@@ -137,8 +138,9 @@ internal static class TestHelpers
             
             var entityName = association?.TypeReference?.Element?.Name ?? "Entity";
             var action = GetAssociationAction(association);
+            var actionVerb = GetActionVerb(action);
             var querySuffix = GetQuerySuffix(action, model);
-            var methodName = $"Handle_Should_{action}_{entityName}{querySuffix}_Successfully";
+            var methodName = $"Handle_{actionVerb}{entityName}{querySuffix}_Successfully";
 
             return new SuccessTestDetails(association, methodName, "query", "Handle method", "Handler", "_handler");
         }
@@ -149,20 +151,22 @@ internal static class TestHelpers
             
             var entityName = association?.TypeReference?.Element?.Name ?? "Message";
             var action = GetAssociationAction(association);
+            var actionVerb = GetActionVerb(action);
             var querySuffix = GetQuerySuffix(action, model);
-            var methodName = $"Handle_Should_{action}_{entityName}{querySuffix}_Successfully";
+            var methodName = $"HandleAsync_{actionVerb}{entityName}{querySuffix}_Successfully";
 
-            return new SuccessTestDetails(association, methodName, "event message", "Handle method", "Handler", "_handler");
+            return new SuccessTestDetails(association, methodName, "event message", "HandleAsync method", "Handler", "_handler");
         }
 
         public static SuccessTestDetails CreateDomainEventDetails(IElement model)
         {
             var association = model.AssociatedElements?.FirstOrDefault();
             
-            var entityName = association?.TypeReference?.Element?.Name ?? "Domain Event";
+            var entityName = association?.TypeReference?.Element?.Name ?? "DomainEvent";
             var action = GetAssociationAction(association);
+            var actionVerb = GetActionVerb(action);
             var querySuffix = GetQuerySuffix(action, model);
-            var methodName = $"Handle_Should_{action}_{entityName}{querySuffix}_Successfully";
+            var methodName = $"Handle_{actionVerb}{entityName}{querySuffix}_Successfully";
 
             return new SuccessTestDetails(association, methodName, "domain event", "Handle method", "Handler", "_handler");
         }
@@ -173,8 +177,9 @@ internal static class TestHelpers
             
             var entityName = association?.TypeReference?.Element?.Name ?? "Entity";
             var action = GetAssociationAction(association);
+            var actionVerb = GetActionVerb(action);
             var querySuffix = GetQuerySuffix(action, model);
-            var methodName = $"Operation_Should_{action}_{entityName}{querySuffix}_Successfully";
+            var methodName = $"{model.Name}_{actionVerb}{entityName}{querySuffix}_Successfully";
 
             return new SuccessTestDetails(association, methodName, "service operation parameter(s)", "relevant service method", "Service", "_service");
         }
@@ -185,8 +190,9 @@ internal static class TestHelpers
             
             var entityName = association?.TypeReference?.Element?.Name ?? "Entity";
             var action = GetAssociationAction(association);
+            var actionVerb = GetActionVerb(action);
             var querySuffix = GetQuerySuffix(action, model);
-            var methodName = $"Operation_Should_{action}_{entityName}{querySuffix}_Successfully";
+            var methodName = $"{model.Name}_{actionVerb}{entityName}{querySuffix}_Successfully";
 
             return new SuccessTestDetails(association, methodName, "domain service operation parameter(s)", "relevant service method", "Service", "_service");
         }
@@ -205,6 +211,15 @@ internal static class TestHelpers
         "516069f6-09cc-4de8-8e31-3c71ca823452" => "Update",
         "93ef6675-cba4-4998-adff-cb22d5343ed4" => "Query",
         _ => "Perform_Action_On"
+    };
+
+    private static string GetActionVerb(string action) => action switch
+    {
+        "Create" => "Creates",
+        "Delete" => "Deletes",
+        "Update" => "Updates",
+        "Query" => "Returns",
+        _ => "ProcessesActionOn"
     };
 
     private static string GetQuerySuffix(string associationAction, IElement model)

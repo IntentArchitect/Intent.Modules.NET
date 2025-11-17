@@ -68,51 +68,10 @@ namespace Intent.Modules.AI.UnitTests.Tasks
             var kernel = _intentSemanticKernelFactory.BuildSemanticKernel(modelId, provider, null);
 
             var domainDesigner = _metadataManager.GetDesigner(applicationId, "Domain");
-            
-            // Try to find the domain service operation
-            var domainServiceOperation = domainDesigner.GetElementsOfType(SpecializationTypeIds.DomainServiceOperation)
+            var domainService = domainDesigner.GetElementsOfType(SpecializationTypeIds.DomainService)
                 .FirstOrDefault(x => x.Id == elementId);
-            
-            // If not found as operation, try finding it as a domain service
-            if (domainServiceOperation == null)
-            {
-                var domainService = domainDesigner.GetElementsOfType(SpecializationTypeIds.DomainService)
-                    .FirstOrDefault(x => x.Id == elementId);
-                
-                if (domainService != null)
-                {
-                    // Element ID is the service itself, find its operations
-                    domainServiceOperation = domainService.ChildElements
-                        .FirstOrDefault(o => o.SpecializationTypeId == SpecializationTypeIds.DomainServiceOperation);
-                }
-            }
-            
-            if (domainServiceOperation == null)
-            {
-                // Diagnostic logging
-                Logging.Log.Warning($"Looking for element ID: {elementId}");
-                var domainServices = domainDesigner.GetElementsOfType(SpecializationTypeIds.DomainService).ToList();
-                Logging.Log.Warning($"DomainService elements found: {domainServices.Count}");
-                foreach (var ds in domainServices)
-                {
-                    Logging.Log.Warning($"  - {ds.Name} (ID: {ds.Id}, Type: {ds.SpecializationTypeId})");
-                    foreach (var child in ds.ChildElements)
-                    {
-                        Logging.Log.Warning($"    - Child: {child.Name} (ID: {child.Id}, Type: {child.SpecializationTypeId})");
-                    }
-                }
-                
-                var operations = domainDesigner.GetElementsOfType(SpecializationTypeIds.DomainServiceOperation).ToList();
-                Logging.Log.Warning($"DomainServiceOperation elements found: {operations.Count}");
-                foreach (var op in operations)
-                {
-                    Logging.Log.Warning($"  - {op.Name} (ID: {op.Id})");
-                }
-                
-                throw new Exception($"An element was selected to be executed upon but could not be found. Please ensure you have saved your designer and try again.");
-            }
 
-            var inputFiles = GetInputFiles(applicationId, domainServiceOperation);
+            var inputFiles = GetInputFiles(applicationId, domainService);
             Logging.Log.Info($"Context files included: {inputFiles.Count} files");
             Logging.Log.Debug($"Files: {string.Join(", ", inputFiles.Select(f => Path.GetFileName(f.FilePath)))}");
 
@@ -123,9 +82,9 @@ namespace Intent.Modules.AI.UnitTests.Tasks
             {
                 ["inputFilesJson"] = jsonInput,
                 ["userProvidedContext"] = userProvidedContext,
-                ["targetFileName"] = domainServiceOperation.Name,
+                ["targetFileName"] = domainService.Name + "Tests",
                 ["mockFramework"] = UnitTestHelpers.GetMockFramework(_applicationConfigurationProvider),
-                ["slnRelativePath"] = "/" + string.Join('/', domainServiceOperation.GetParentPath().Select(x => x.Name)),
+                ["slnRelativePath"] = "/" + string.Join('/', domainService.GetParentPath().Select(x => x.Name)),
                 ["fileChangesSchema"] = FileChangesSchema.GetPromptInstructions()
             });
 
@@ -297,13 +256,13 @@ namespace Intent.Modules.AI.UnitTests.Tasks
                 {
                     private readonly Mock<IRepository1> _repository1Mock;
                     private readonly Mock<IRepository2> _repository2Mock; // If service uses multiple repositories
-                    private readonly {DomainServiceName} _sut;
+                    private readonly {DomainServiceName} _service;
 
                     public {DomainServiceName}Tests()
                     {
                         _repository1Mock = new Mock<IRepository1>();
                         _repository2Mock = new Mock<IRepository2>(); // Only if needed
-                        _sut = new {DomainServiceName}(_repository1Mock.Object, _repository2Mock.Object);
+                        _service = new {DomainServiceName}(_repository1Mock.Object, _repository2Mock.Object);
                     }
 
                     // Test methods follow...
@@ -576,17 +535,32 @@ namespace Intent.Modules.AI.UnitTests.Tasks
             return promptTemplate;
         }
 
-        private List<ICodebaseFile> GetInputFiles(string applicationId, IElement domainServiceOperation)
+        private List<ICodebaseFile> GetInputFiles(string applicationId, IElement domainService)
         {
             var filesProvider = _applicationConfigurationProvider.GeneratedFilesProvider();
 
             // PRIMARY: Domain service implementation and interface
-            var domainService = domainServiceOperation.ParentElement;
             var inputFiles = filesProvider.GetFilesForMetadata(domainService).ToList();
-            inputFiles.AddRange(filesProvider.GetFilesForMetadata(domainServiceOperation));
+            inputFiles.AddRange(filesProvider.GetFilesForMetadata(domainService));
+
+            // Include each domain service operation and its parameter types (DTO + Class)
+            foreach (var operation in domainService.ChildElements.Where(x => x.SpecializationTypeId == SpecializationTypeIds.DomainServiceOperation))
+            {
+                inputFiles.AddRange(filesProvider.GetFilesForMetadata(operation));
+                // DTO parameters
+                foreach (var paramDto in operation.ChildElements.Where(p => p.TypeReference?.Element?.SpecializationTypeId == SpecializationTypeIds.Dto).Select(p => p.TypeReference.Element))
+                {
+                    inputFiles.AddRange(filesProvider.GetFilesForMetadata(paramDto));
+                }
+                // Class (domain entity/value object) parameters
+                foreach (var paramClass in operation.ChildElements.Where(p => p.TypeReference?.Element?.SpecializationTypeId == SpecializationTypeIds.Class).Select(p => p.TypeReference.Element))
+                {
+                    inputFiles.AddRange(filesProvider.GetFilesForMetadata(paramClass));
+                }
+            }
 
             // DOMAIN: Include related entities, value objects, and their repositories
-            var relatedElements = UnitTestHelpers.GetRelatedElements(domainServiceOperation);
+            var relatedElements = UnitTestHelpers.GetRelatedElements(domainService);
             foreach (var relatedElement in relatedElements)
             {
                 inputFiles.AddRange(filesProvider.GetFilesForMetadata(relatedElement));
