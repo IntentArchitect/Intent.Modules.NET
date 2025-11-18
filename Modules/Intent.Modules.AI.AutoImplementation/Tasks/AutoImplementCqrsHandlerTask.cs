@@ -10,12 +10,13 @@ using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.DomainInteractions.Api;
 using Intent.Modules.Common.AI;
+using Intent.Modules.Common.AI.CodeGeneration;
 using Intent.Plugins;
 using Intent.Registrations;
 using Intent.Utils;
 using Microsoft.SemanticKernel;
 using Newtonsoft.Json;
-using Intent.Modules.AI.AutoImplementation.Tasks.Helpers;
+using Intent.Modules.Common.AI.Extensions;
 using Intent.Modules.Common.AI.Settings;
 using ApiMetadataDesignerExtensions = Intent.Modelers.Domain.Api.ApiMetadataDesignerExtensions;
 
@@ -75,14 +76,18 @@ public class AutoImplementCqrsHandlerTask : IModuleTask
 
         var designContext = GetDesignContext(element);
 
-        var requestFunction = CreatePromptFunction(kernel, thinkingLevel);
-        var fileChangesResult = requestFunction.InvokeFileChangesPrompt(kernel, new KernelArguments()
-        {
-            ["inputFilesJson"] = jsonInput,
-            ["designContext"] = designContext,
-            ["userProvidedContext"] = userProvidedContext,
-            ["targetFileName"] = element.Name + "Handler"
-        });
+        var promptTemplate = GetPromptTemplate();
+        var fileChangesResult = kernel.InvokeFileChangesPrompt(
+	        promptTemplate: promptTemplate,
+	        thinkingLevel: thinkingLevel,
+	        arguments: new KernelArguments()
+	        {
+		        ["inputFilesJson"] = jsonInput,
+		        ["designContext"] = designContext,
+		        ["userProvidedContext"] = userProvidedContext,
+		        ["targetFileName"] = element.Name + "Handler",
+		        ["fileChangesSchema"] = FileChangesSchema.GetPromptInstructions()
+	        });
 
         // Output the updated file changes.
         var applicationConfig = _solution.GetApplicationConfig(args[0]);
@@ -95,7 +100,7 @@ public class AutoImplementCqrsHandlerTask : IModuleTask
         return "success";
     }
 
-    private KernelFunction CreatePromptFunction(Kernel kernel, string thinkingLevel)
+    private static string GetPromptTemplate()
     {
         const string promptTemplate =
             """
@@ -169,9 +174,6 @@ public class AutoImplementCqrsHandlerTask : IModuleTask
 		    ## Input Code Files
 		    {{$inputFilesJson}}
 
-		    ## Previous Error Message
-		    {{$previousError}}
-
 		    ## Required Output Format
 		    Your response MUST include:
 		    1. Respond ONLY with deserializable JSON that matches the following schema:
@@ -217,10 +219,11 @@ public class AutoImplementCqrsHandlerTask : IModuleTask
 		    2.4. All files must maintain their exact original paths (CRITICAL)
 		    2.5. All existing code and attributes must be preserved unless explicitly modified
 		    2.6. DO NOT do any character escaping to the code.
+		    
+		    {{$previousError}}
 		    """;
 
-        var requestFunction = kernel.CreateFunctionFromPrompt(promptTemplate, kernel.GetRequiredService<IAiProviderService>().GetPromptExecutionSettings(thinkingLevel));
-        return requestFunction;
+        return promptTemplate;
     }
 
     /// <summary>

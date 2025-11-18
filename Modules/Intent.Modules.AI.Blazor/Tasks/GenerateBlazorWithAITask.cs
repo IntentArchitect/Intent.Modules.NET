@@ -17,6 +17,8 @@ using Intent.Modelers.Services.Api;
 using System.Diagnostics;
 using Intent.Modules.AI.Blazor.Tasks.Config;
 using Intent.Modelers.Services.CQRS.Api;
+using Intent.Modules.Common.AI.CodeGeneration;
+using Intent.Modules.Common.AI.Extensions;
 using Intent.Modules.Common.AI.Settings;
 using Intent.Modules.Common.Types.Api;
 
@@ -127,7 +129,7 @@ public class GenerateBlazorWithAITask : IModuleTask
             var environmentMetadata = GetEnvironmentMetadata(applicationConfig, promptTemplateConfig.GetMetadata(templateId));
             var exampleJson = JsonConvert.SerializeObject(exampleFiles, Formatting.Indented);
             var additionalRules = promptTemplateConfig.GetAdditionalRules(templateId);
-            var requestFunction = CreatePromptFunction(kernel, thinkingLevel);
+            var promptTemplate = GetPromptTemplate();
 
             if (string.IsNullOrEmpty(userProvidedContext))
             {
@@ -138,16 +140,20 @@ public class GenerateBlazorWithAITask : IModuleTask
                 additionalRules = "None";
             }
 
-            var fileChangesResult = requestFunction.InvokeFileChangesPrompt(kernel, new KernelArguments()
-            {
-                ["environmentMetadata"] = environmentMetadata,
-                ["inputFilesJson"] = jsonInput,
-                ["userProvidedContext"] = userProvidedContext,
-                ["targetFileName"] = componentModel.Name + "Handler",
-                ["examples"] = exampleJson,
-                ["filesToModifyJson"] = fileToModifyJson,
-                ["additionalRules"] = additionalRules
-            });
+            var fileChangesResult = kernel.InvokeFileChangesPrompt(
+                promptTemplate: promptTemplate,
+                thinkingLevel: thinkingLevel,
+                arguments: new KernelArguments()
+                {
+                    ["environmentMetadata"] = environmentMetadata,
+                    ["inputFilesJson"] = jsonInput,
+                    ["userProvidedContext"] = userProvidedContext,
+                    ["targetFileName"] = componentModel.Name + "Handler",
+                    ["examples"] = exampleJson,
+                    ["filesToModifyJson"] = fileToModifyJson,
+                    ["additionalRules"] = additionalRules,
+                    ["fileChangesSchema"] = FileChangesSchema.GetPromptInstructions()
+                });
 
             // Output the updated file changes.
             var basePath = Path.GetFullPath(Path.Combine(applicationConfig.DirectoryPath, applicationConfig.OutputLocation));
@@ -202,7 +208,7 @@ public class GenerateBlazorWithAITask : IModuleTask
         return JsonConvert.SerializeObject(metadata, Formatting.Indented);
     }
 
-    private static KernelFunction CreatePromptFunction(Kernel kernel, string thinkingLevel)
+    private static string GetPromptTemplate()
     {
         const string promptTemplate =
             """
@@ -244,9 +250,6 @@ public class GenerateBlazorWithAITask : IModuleTask
             ## User Context
             {{$userProvidedContext}}
 
-            ## Previous Error Message:
-            {{$previousError}}
-
             ## Validation Checklist (perform before output)
             - [ ] Every `FileChanges[i].FilePath` exists in "Files Allowed To Modify".
             - [ ] All `@bind` and event handlers in `.razor` are defined in `.razor.cs`.
@@ -282,10 +285,11 @@ public class GenerateBlazorWithAITask : IModuleTask
             
             ## Example Components:
             {{$examples}}
+            
+            {{$previousError}}
             """;
-        
-        var requestFunction = kernel.CreateFunctionFromPrompt(promptTemplate, kernel.GetRequiredService<IAiProviderService>().GetPromptExecutionSettings(thinkingLevel));
-        return requestFunction;
+
+        return promptTemplate;
     }
 
     private List<ICodebaseFile> GetInputFiles(IElement element, out List<ICodebaseFile> filesToModify)

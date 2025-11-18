@@ -7,8 +7,9 @@ using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
-using Intent.Modules.AI.AutoImplementation.Tasks.Helpers;
 using Intent.Modules.Common.AI;
+using Intent.Modules.Common.AI.CodeGeneration;
+using Intent.Modules.Common.AI.Extensions;
 using Intent.Modules.Common.AI.Settings;
 using Intent.Plugins;
 using Intent.Registrations;
@@ -66,14 +67,18 @@ public class AutoImplementServiceOperationTask : IModuleTask
         var inputFiles = GetInputFiles(element);
         var jsonInput = JsonConvert.SerializeObject(inputFiles, Formatting.Indented);
 
-        var requestFunction = CreatePromptFunction(kernel, thinkingLevel);
-        var fileChangesResult = requestFunction.InvokeFileChangesPrompt(kernel, new KernelArguments()
-        {
-            ["inputFilesJson"] = jsonInput,
-            ["userProvidedContext"] = userProvidedContext,
-            ["targetFileName"] = element.Name + "Handler",
-            ["modelName"] = element.Name
-        });
+        var promptTemplate = GetPromptTemplate();
+        var fileChangesResult = kernel.InvokeFileChangesPrompt(
+            promptTemplate: promptTemplate,
+            thinkingLevel: thinkingLevel,
+            arguments: new KernelArguments()
+            {
+                ["inputFilesJson"] = jsonInput,
+                ["userProvidedContext"] = userProvidedContext,
+                ["targetFileName"] = element.Name + "Handler",
+                ["modelName"] = element.Name,
+                ["fileChangesSchema"] = FileChangesSchema.GetPromptInstructions()
+            });
 
         // Output the updated file changes.
         var applicationConfig = _solution.GetApplicationConfig(args[0]);
@@ -86,7 +91,7 @@ public class AutoImplementServiceOperationTask : IModuleTask
         return "success";
     }
 
-    private static KernelFunction CreatePromptFunction(Kernel kernel, string thinkingLevel)
+    private static string GetPromptTemplate()
     {
 	    const string promptTemplate =
             """
@@ -159,9 +164,6 @@ public class AutoImplementServiceOperationTask : IModuleTask
             ## Input Code Files
             {{$inputFilesJson}}
 
-            ## Previous Error Message
-            {{$previousError}}
-
             ## Required Output Format
             Your response MUST include:
             1. Respond ONLY with deserializable JSON that matches the following schema:
@@ -206,10 +208,11 @@ public class AutoImplementServiceOperationTask : IModuleTask
             2.3. Any modified repository concrete classes (if you added implementations)
             2.4. All files must maintain their exact original paths
             2.5. All existing code and attributes must be preserved unless explicitly modified
+            
+            {{$previousError}}
             """;
-	    
-        var requestFunction = kernel.CreateFunctionFromPrompt(promptTemplate, kernel.GetRequiredService<IAiProviderService>().GetPromptExecutionSettings(thinkingLevel));
-	    return requestFunction;
+
+        return promptTemplate;
     }
     
     private List<ICodebaseFile> GetInputFiles(IElement element)

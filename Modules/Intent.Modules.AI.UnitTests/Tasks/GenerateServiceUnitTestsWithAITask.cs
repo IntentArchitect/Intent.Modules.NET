@@ -66,7 +66,7 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
         var userProvidedContext = !string.IsNullOrWhiteSpace(args[2]) ? args[2] : "None";
         var provider = new AISettings.ProviderOptions(args[3]).AsEnum();
         var modelId = args[4];
-        var thinkingType = args[5];
+        var thinkingLevel = args[5];
 
         Logging.Log.Info($"Args: {string.Join(",", args)}");
         var kernel = _intentSemanticKernelFactory.BuildSemanticKernel(modelId, provider, null);
@@ -100,15 +100,18 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
         var jsonInput = JsonConvert.SerializeObject(inputFiles, Formatting.Indented);
 
         var promptTemplate = GetPromptTemplate();
-        var fileChangesResult = kernel.InvokeFileChangesPrompt(promptTemplate, thinkingType, new KernelArguments()
-        {
-            ["inputFilesJson"] = jsonInput,
-            ["userProvidedContext"] = userProvidedContext,
-            ["targetFileName"] = serviceModel.Name + "Tests",
-            ["mockFramework"] = UnitTestHelpers.GetMockFramework(_applicationConfigurationProvider),
-            ["slnRelativePath"] = "/" + string.Join('/', serviceModel.GetParentPath().Select(x => x.Name)),
-            ["fileChangesSchema"] = FileChangesSchema.GetPromptInstructions()
-        });
+        var fileChangesResult = kernel.InvokeFileChangesPrompt(
+            promptTemplate: promptTemplate,
+            thinkingLevel: thinkingLevel,
+            arguments: new KernelArguments()
+            {
+                ["inputFilesJson"] = jsonInput,
+                ["userProvidedContext"] = userProvidedContext,
+                ["targetFileName"] = serviceModel.Name + "Tests",
+                ["mockFramework"] = UnitTestHelpers.GetMockFramework(_applicationConfigurationProvider),
+                ["slnRelativePath"] = "/" + string.Join('/', serviceModel.GetParentPath().Select(x => x.Name)),
+                ["fileChangesSchema"] = FileChangesSchema.GetPromptInstructions()
+            });
 
         // Output the updated file changes.
         var applicationConfig = _solution.GetApplicationConfig(args[0]);
