@@ -34,19 +34,26 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Client.Persis
                 {
                     @class.WithBaseType("AuthenticationStateProvider");
                     @class.ImplementsInterface("IAccessTokenProvider");
-                    @class.AddField("Task<AuthenticationState>", "defaultUnauthenticatedTask", f =>
+                    @class.AddField("Task<AuthenticationState>", "_defaultUnauthenticatedTask", f =>
                     {
                         f.PrivateReadOnly().Static();
                         f.WithAssignment(new CSharpStatement("Task.FromResult(new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity())))"));
                     });
-                    @class.AddField("Task<AuthenticationState>", "authenticationStateTask", f =>
+                    @class.AddField("Task<AuthenticationState>", "_authenticationStateTask", f =>
                     {
                         f.PrivateReadOnly();
-                        f.WithAssignment(new CSharpStatement("defaultUnauthenticatedTask"));
+                        f.WithAssignment(new CSharpStatement("_defaultUnauthenticatedTask"));
                     });
+                    @class.AddField("Uri?", "_identityUrl", p => p.PrivateReadOnly());
+                    @class.AddField("HttpClient", "_refreshClient", p => p.PrivateReadOnly().WithAssignment("new HttpClient()"));
+                    @class.AddField("string?", "_accessToken", p => p.Private());
+                    @class.AddField("string?", "_refreshToken", p => p.Private());
+                    @class.AddField("DateTimeOffset", "_accessTokenExpiresAt", p => p.Private().WithAssignment("DateTimeOffset.MinValue"));
+
                     @class.AddConstructor(ctor =>
                     {
                         ctor.AddParameter("PersistentComponentState", "state");
+                        ctor.AddParameter("NavigationManager", "nav", p => p.IntroduceReadonlyField());
 
                         ctor.AddIfStatement($"!state.TryTakeFromJson<{GetTypeName(UserInfoTemplate.TemplateId)}>(nameof(UserInfo), out var userInfo) || userInfo is null", @if => @if.AddReturn(""));
 
@@ -55,35 +62,114 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Client.Persis
                             new Claim(ClaimTypes.Email, userInfo.Email),
                             new Claim(""access_token"", userInfo.AccessToken == null ? """" : userInfo.AccessToken) ];".ConvertToStatements());
 
-                        ctor.AddStatements(@"authenticationStateTask = Task.FromResult(
+                        ctor.AddStatements(@"_authenticationStateTask = Task.FromResult(
                             new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity(claims,
                                 authenticationType: nameof(PersistentAuthenticationStateProvider)))));".ConvertToStatements());
+
+                        ctor.AddIfStatement("!string.IsNullOrWhiteSpace(userInfo.AccessToken)", ifs =>
+                        {
+                            ifs.AddStatement("_accessToken = userInfo.AccessToken;");
+                            ifs.AddStatement("_refreshToken = userInfo.RefreshToken;");
+                            ifs.AddIfStatement("userInfo.AccessTokenExpiresAt.HasValue", i => i.AddStatement("_accessTokenExpiresAt = userInfo.AccessTokenExpiresAt.Value;"));
+                            ifs.AddIfStatement("!string.IsNullOrEmpty(userInfo.RefreshUrl)", i => i.AddStatement("_identityUrl = new Uri(userInfo.RefreshUrl, UriKind.Absolute);"));
+                        });
                     });
 
-                    @class.AddMethod("Task<AuthenticationState>", "GetAuthenticationStateAsync", method => method.Override().AddReturn("authenticationStateTask"));
+                    @class.AddMethod("Task<AuthenticationState>", "GetAuthenticationStateAsync", method => method.Override().AddReturn("_authenticationStateTask"));
+
+                    @class.AddMethod("ValueTask<AccessTokenResult>", "RequestAccessToken", method =>
+                    {
+                        method.WithReturnType("ValueTask<AccessTokenResult>");
+                        method.WithExpressionBody("RequestAccessToken(new AccessTokenRequestOptions())");
+                    });
 
                     @class.AddMethod("ValueTask<AccessTokenResult>", "RequestAccessToken", method =>
                     {
                         method.Async().WithReturnType("ValueTask<AccessTokenResult>");
-                        method.AddAssignmentStatement("var state", new CSharpStatement("await this.GetAuthenticationStateAsync();"));
-                        method.AddAssignmentStatement("var token", new CSharpStatement("state.User.FindFirst(\"access_token\");"));
-
-                        method.AddIfStatement($"token == null", @if => @if.AddReturn("new AccessTokenResult(AccessTokenResultStatus.RequiresRedirect, null, \"auth/login\", null)"));
-
-                        method.AddAssignmentStatement("var accessToken", new CSharpStatement("new AccessToken { Expires = DateTimeOffset.MaxValue, Value = token.Value };"));
-
-                        method.AddAssignmentStatement("var result", new CSharpStatement("new AccessTokenResult(AccessTokenResultStatus.Success, accessToken, null, null);"));
-
-                        method.AddReturn("result");
-                    });
-
-                    @class.AddMethod("ValueTask<AccessTokenResult>", "RequestAccessToken", method =>
-                    {
-                        method.Async().WithReturnType("ValueTask<AccessTokenResult>");
-
                         method.AddParameter("AccessTokenRequestOptions", "options");
 
-                        method.AddReturn("await RequestAccessToken()");
+                        method.AddStatements(@"var missingToken = string.IsNullOrWhiteSpace(_accessToken);
+            var expired = _accessTokenExpiresAt > DateTimeOffset.MinValue && _accessTokenExpiresAt <= DateTimeOffset.UtcNow;
+
+            if (missingToken || expired)
+            {
+                // Try to refresh if we have a refresh token
+                if (!string.IsNullOrWhiteSpace(_refreshToken))
+                {
+                    var refreshed = await TryRefreshAccessTokenAsync();
+                    if (refreshed)
+                    {
+                        // we now have a new _accessToken / _accessTokenExpiresAt
+                        var at = new AccessToken
+                        {
+                            Value = _accessToken!,
+                            Expires = _accessTokenExpiresAt
+                        };
+
+                        return new AccessTokenResult(AccessTokenResultStatus.Success, at, null, null);
+                    }
+                }
+
+                // No refresh token OR refresh failed → send user to login
+                var current = _nav.ToBaseRelativePath(_nav.Uri);
+                var returnUrl = ""/"" + current;
+                var loginUrl = $""/account/login?returnUrl={Uri.EscapeDataString(returnUrl)}"";
+
+                _nav.NavigateTo(loginUrl, forceLoad: true);
+
+                return new AccessTokenResult(
+                    AccessTokenResultStatus.RequiresRedirect, null, loginUrl, null);
+            }
+
+            // Token present and we consider it valid
+            var expires = _accessTokenExpiresAt > DateTimeOffset.MinValue
+                ? _accessTokenExpiresAt
+                : DateTimeOffset.UtcNow.AddMinutes(5);
+
+            var accessToken = new AccessToken
+            {
+                Value = _accessToken!,
+                Expires = expires
+            };".ConvertToStatements());
+                        method.AddStatement("return new AccessTokenResult(AccessTokenResultStatus.Success, accessToken, null, null);");
+
+
+                    });
+                    @class.AddMethod("Task<bool>", "TryRefreshAccessTokenAsync", method =>
+                    {
+                        method.Private().Async();
+                        method.AddStatements($@"if (string.IsNullOrWhiteSpace(_refreshToken) || _identityUrl == null)
+                return false;
+
+            try
+            {{
+                var refreshUri = new Uri(_identityUrl, ""refresh""); // e.g. https://ids.example.com/refresh
+
+                var response = await _refreshClient.PostAsJsonAsync(refreshUri, new
+                {{
+                    refreshToken = _refreshToken
+                }});
+
+                if (!response.IsSuccessStatusCode)
+                    return false;
+
+                var dto = await response.Content.ReadFromJsonAsync<{this.GetAccessTokenResponseTemplateName()}>();
+                if (dto is null || string.IsNullOrWhiteSpace(dto.AccessToken))
+                    return false;
+
+                _accessToken = dto.AccessToken;
+                _refreshToken = string.IsNullOrWhiteSpace(dto.RefreshToken)
+                    ? _refreshToken // keep old if not rotated
+                    : dto.RefreshToken;
+
+                // compute expiry
+                _accessTokenExpiresAt = new DateTimeOffset(dto.ExpiresIn!.Value, TimeSpan.Zero);
+                return true;
+            }}
+            catch
+            {{
+                return false;
+            }}".ConvertToStatements());
                     });
                 });
         }

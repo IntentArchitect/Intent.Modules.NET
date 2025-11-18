@@ -22,11 +22,15 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Client.UserIn
         public UserInfoTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddUsing("System")
                 .AddClass($"UserInfo", @class =>
                 {
                     @class.AddProperty("string", "UserId", p => p.Required());
                     @class.AddProperty("string", "Email", p => p.Required());
                     @class.AddProperty("string?", "AccessToken");
+                    @class.AddProperty("string?", "RefreshToken");
+                    @class.AddProperty("string?", "RefreshUrl");
+                    @class.AddProperty("DateTime?", "AccessTokenExpiresAt");
                 });
         }
 

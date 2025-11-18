@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Intent.Modules.Blazor.Authentication.Templates.Templates.Client.AccessTokenResponse;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Client.PersistentAuthenticationStateProvider;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Client.RedirectToLogin;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Client.ServerAuthorizationMessageHandler;
@@ -36,6 +37,10 @@ namespace Intent.Modules.Blazor.Authentication.Templates
 {
     public static class TemplateExtensions
     {
+        public static string GetAccessTokenResponseTemplateName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(AccessTokenResponseTemplate.TemplateId);
+        }
         public static string GetPersistentAuthenticationStateProviderTemplateName(this IIntentTemplate template)
         {
             return template.GetTypeName(PersistentAuthenticationStateProviderTemplate.TemplateId);

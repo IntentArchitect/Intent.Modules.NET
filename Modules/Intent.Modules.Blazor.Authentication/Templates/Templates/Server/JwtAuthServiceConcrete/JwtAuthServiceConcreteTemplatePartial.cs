@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Metadata.Models;
@@ -93,22 +93,22 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.JwtAut
 
 
                         method.AddStatement("var httpContext = _httpContextAccessor.HttpContext ?? throw new InvalidOperationException(\"No active HttpContext found.\");");
-                        method.AddStatement("await httpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);", s => s.SeparatedFromNext());                       
+                        method.AddStatement("await httpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);", s => s.SeparatedFromNext());
 
                         method.AddAssignmentStatement("var tokenResponse", new CSharpStatement("await _httpClient.PostAsJsonAsync(\"/login\", new { Email = username, Password = password });"));
 
                         method.AddIfStatement("tokenResponse.IsSuccessStatusCode", @if =>
                         {
-                            @if.AddAssignmentStatement("var tokens", new CSharpStatement("await tokenResponse.Content.ReadFromJsonAsync<AccessTokenResponse>();"));
-                            @if.AddStatements(@"var claims = new List<Claim>
-                            {
+                            @if.AddAssignmentStatement("var loginResponse", new CSharpStatement($"await tokenResponse.Content.ReadFromJsonAsync<{this.GetAccessTokenResponseTemplateName()}>();"));
+                            @if.AddStatements($@"var claims = new List<Claim>
+                            {{
                                 new Claim(ClaimTypes.NameIdentifier, username),
                                 new Claim(ClaimTypes.Email, username),
-                                new Claim(""access_token"", tokens.AccessToken),
-                                new Claim(""refresh_token"", tokens.RefreshToken),
-                                new Claim(""token_type"", tokens.TokenType),
-                                new Claim(""expires_at"", tokens.ExpiresIn.ToString())
-                            };".ConvertToStatements());
+                                new Claim(""access_token"", loginResponse.AccessToken),
+                                new Claim(""refresh_token"", loginResponse.RefreshToken),
+                                new Claim(""token_type"", loginResponse.TokenType ?? ""Bearer""),
+                                new Claim(""expires_at"", (loginResponse.ExpiresIn ?? DateTime.UtcNow.AddHours(1)).ToString(""o""))
+                            }};".ConvertToStatements());
                             @if.AddAssignmentStatement("var claimsIdentity", new CSharpStatement("new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);"));
                             @if.AddAssignmentStatement("var claimsPrincipal", new CSharpStatement("new ClaimsPrincipal(claimsIdentity);"));
                             @if.AddStatement("await httpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,claimsPrincipal, new AuthenticationProperties { IsPersistent = rememberMe });");
@@ -159,13 +159,6 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.JwtAut
                         });
                     });
 
-                    @class.AddNestedClass("AccessTokenResponse", nested =>
-                    {
-                        nested.AddProperty("string", "AccessToken");
-                        nested.AddProperty("string", "RefreshToken");
-                        nested.AddProperty("string", "TokenType");
-                        nested.AddProperty("DateTime", "ExpiresIn");
-                    });
                 });
         }
 

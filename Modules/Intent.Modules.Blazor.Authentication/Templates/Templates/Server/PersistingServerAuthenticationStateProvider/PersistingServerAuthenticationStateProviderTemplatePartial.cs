@@ -36,7 +36,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Persis
                 .AddUsing("System.Threading.Tasks")
                 .AddUsing("System.Threading")
                 .AddUsing("System.Security.Claims")
-                .AddUsing("System")
+                .AddUsing("System")                
                 .AddUsing("System.Diagnostics")
                 .AddUsing("Microsoft.AspNetCore.Components.WebAssembly.Authentication")
                 .AddClass($"PersistingServerAuthenticationStateProvider", @class =>
@@ -54,6 +54,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Persis
                             param.IntroduceReadonlyField();
                         });
                         ctor.AddParameter("IOptions<IdentityOptions>", "optionsAccessor");
+                        ctor.AddParameter(this.UseType("Microsoft.Extensions.Configuration.IConfiguration"), "config", p => p.IntroduceReadonlyField());
 
                         ctor.AddStatement("options = optionsAccessor.Value;");
                         ctor.AddStatement("AuthenticationStateChanged += OnAuthenticationStateChanged;");
@@ -84,10 +85,24 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Persis
                             @if.AddStatement("var userId = principal.FindFirst(options.ClaimsIdentity.UserIdClaimType)?.Value;");
                             @if.AddStatement("var email = principal.FindFirst(options.ClaimsIdentity.EmailClaimType)?.Value;");
                             @if.AddStatement("var accessToken = principal.FindFirst(\"access_token\")?.Value;");
+                            @if.AddStatement("var refreshToken = principal.FindFirst(\"refresh_token\")?.Value;");
+                            @if.AddStatement("var expiresAtClaim = principal.FindFirst(\"expires_at\")?.Value;");
+                            @if.AddStatement("var refreshUrl = _config.GetValue<string?>(\"TokenEndpoint:Uri\");");
 
-                            @if.AddIfStatement("userId != null && email != null", @iif =>
+                            @if.AddIfStatement($"!DateTime.TryParse(expiresAtClaim, null, {UseType("System.Globalization.DateTimeStyles")}.RoundtripKind, out var expiresAt)", iif =>
                             {
-                                @iif.AddStatement("var userInfo = new UserInfo {UserId = userId, Email = email, AccessToken = accessToken};");
+                                iif.AddStatement("expiresAt = DateTime.UtcNow.AddHours(1);");
+                            });
+
+@if.AddIfStatement("userId != null && email != null", @iif =>
+                            {
+                                @iif.AddStatement(@"var userInfo = new UserInfo {
+                        UserId = userId, 
+                        Email = email, 
+                        AccessToken = accessToken, 
+                        RefreshToken = refreshToken, 
+                        AccessTokenExpiresAt = expiresAt, 
+                        RefreshUrl = refreshUrl};");
                                 @iif.AddStatement($"_persistentComponentState.PersistAsJson(nameof({GetTypeName(UserInfoTemplate.TemplateId)}), userInfo);");
                             });
                         });
