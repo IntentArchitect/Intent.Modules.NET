@@ -1,7 +1,11 @@
+### Version 1.0.7
+
+- Improvement: Improved WASM configuration for debugging.
+- Improvement: Help Topic around routing parameters..
+
 ### Version 1.0.6
 
 - Improvement: Updated module documentation to use centralized documentation site.
-- Improvement: Improved WASM configuration for debugging.
 
 ### Version 1.0.5
 

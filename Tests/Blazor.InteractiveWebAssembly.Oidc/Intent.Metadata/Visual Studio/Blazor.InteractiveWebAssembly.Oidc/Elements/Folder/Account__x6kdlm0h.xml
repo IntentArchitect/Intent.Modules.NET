@@ -8,5 +8,20 @@
   <parentFolderId>98db7130-d127-4cbe-a5e4-bc437e802a7b</parentFolderId>
   <stereotypes />
   <metadata />
-  <childElements />
+  <childElements>
+    <childElement id="1d1bde5a-9a40-4878-a86b-07af3de09659" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Authentication.Templates.Client.AccessTokenResponseTemplate</name>
+      <display>Intent.Blazor.Authentication.Templates.Client.AccessTokenResponseTemplate</display>
+      <externalReference>Intent.Blazor.Authentication</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>35ee2a0d-bf0a-4f44-81c3-dcc7ad5cb5e6</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
 </class>

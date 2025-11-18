@@ -1,3 +1,4 @@
+using System;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -10,5 +11,8 @@ namespace Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Client.Components.Acc
         public required string UserId { get; set; }
         public required string Email { get; set; }
         public string? AccessToken { get; set; }
+        public string? RefreshToken { get; set; }
+        public string? RefreshUrl { get; set; }
+        public DateTime? AccessTokenExpiresAt { get; set; }
     }
 }

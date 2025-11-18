@@ -2,6 +2,7 @@
 @using System.ComponentModel.DataAnnotations
 @using BlazorServerTests.Api.Common
 @using Microsoft.AspNetCore.Authentication
+@using Microsoft.AspNetCore.Mvc
 @inject IAuthService AuthService
 @inject NavigationManager NavigationManager
 
@@ -97,17 +98,10 @@
     [SupplyParameterFromQuery]
     private string? ReturnUrl { get; set; }
 
+    [IgnoreAntiforgeryToken]
     public async Task LoginUser()
     {
         await AuthService.Login(Input.Email, Input.Password, Input.RememberMe, ReturnUrl);
-    }
-
-    protected override async Task OnInitializedAsync()
-    {
-        if (HttpMethods.IsGet(HttpContext.Request.Method))
-        {
-            await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
-        }
     }
 
     private sealed class InputModel

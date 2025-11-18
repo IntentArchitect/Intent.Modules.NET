@@ -1,4 +1,6 @@
-﻿using Intent.Engine;
+using System;
+using System.Collections.Generic;
+using Intent.Engine;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Settings;
 using Intent.Modules.Common;
@@ -7,8 +9,6 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using System;
-using System.Collections.Generic;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -113,10 +113,11 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Client.Access
 
         public override bool CanRunTemplate()
         {
-            //2 Template need this
-            //JWT Service 
-            //PersistentAuthenticationStateProviderTemplate
-            return base.CanRunTemplate() && (!ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveServer() || ExecutionContext.GetSettings().GetBlazor().Authentication().IsJwt());
+            //3 Templates need this
+            // JWT Auth Service 
+            // OICD Auth Service
+            // PersistentAuthenticationStateProviderTemplate
+            return base.CanRunTemplate() && (!ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveServer() || ExecutionContext.GetSettings().GetBlazor().Authentication().IsJwt() || ExecutionContext.GetSettings().GetBlazor().Authentication().IsOidc());
         }
 
         [IntentManaged(Mode.Fully)]

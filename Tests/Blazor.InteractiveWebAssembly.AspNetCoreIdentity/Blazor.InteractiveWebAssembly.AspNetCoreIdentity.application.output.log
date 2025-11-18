@@ -73,6 +73,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>0e0959a9-4db6-4887-a722-594d8fedf604</ProjectId>
+      <CorrelationId>Intent.Blazor.Authentication.Templates.Client.AccessTokenResponseTemplate#e70efc66-a15e-4921-8bd9-b0567203ecd1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Client/Components/Account/AccessTokenResponse.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AccessTokenResponse.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>8c21f0b9-d267-432b-9ae2-b4124435a0d5</ProjectId>
       <CorrelationId>Intent.Blazor.Authentication.Templates.Client.RedirectToLoginTemplate#58ef643a-2bc6-4b3b-979e-131c0e15ff7c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

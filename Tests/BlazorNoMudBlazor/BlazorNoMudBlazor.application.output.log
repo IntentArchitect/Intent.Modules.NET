@@ -430,7 +430,7 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorNoMudBlazor.Api/Components/Layout/MainLayout.razor</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Components/Layout/MainLayout.razor</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>02d4e2ed-0776-4cbb-af22-2eefef5f2f21</ProjectId>
@@ -438,7 +438,7 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorNoMudBlazor.Api/Components/Layout/MainLayout.razor.css</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Components/Layout/MainLayout.razor.css</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>02d4e2ed-0776-4cbb-af22-2eefef5f2f21</ProjectId>
@@ -446,7 +446,7 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorNoMudBlazor.Api/Components/Layout/NavMenu.razor</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Components/Layout/NavMenu.razor</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>02d4e2ed-0776-4cbb-af22-2eefef5f2f21</ProjectId>
@@ -454,7 +454,7 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorNoMudBlazor.Api/Components/Layout/NavMenu.razor.css</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Components/Layout/NavMenu.razor.css</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>02d4e2ed-0776-4cbb-af22-2eefef5f2f21</ProjectId>
@@ -462,7 +462,7 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorNoMudBlazor.Api/Components/Pages/Counter.razor</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Components/Pages/Counter.razor</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>02d4e2ed-0776-4cbb-af22-2eefef5f2f21</ProjectId>
@@ -470,7 +470,7 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorNoMudBlazor.Api/Components/Pages/Error.razor</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Components/Pages/Error.razor</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>02d4e2ed-0776-4cbb-af22-2eefef5f2f21</ProjectId>
@@ -478,7 +478,7 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorNoMudBlazor.Api/Components/Pages/Home.razor</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Components/Pages/Home.razor</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>02d4e2ed-0776-4cbb-af22-2eefef5f2f21</ProjectId>
@@ -486,7 +486,7 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorNoMudBlazor.Api/Components/Pages/Weather.razor</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Components/Pages/Weather.razor</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>0d8bd5d1-7d06-4365-add8-2b00f539a184</ProjectId>
@@ -582,7 +582,7 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorNoMudBlazor.Api/wwwroot/app.css</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>wwwroot/app.css</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>02d4e2ed-0776-4cbb-af22-2eefef5f2f21</ProjectId>
@@ -590,7 +590,7 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorNoMudBlazor.Api/wwwroot/bootstrap/bootstrap.min.css</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>wwwroot/bootstrap/bootstrap.min.css</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>02d4e2ed-0776-4cbb-af22-2eefef5f2f21</ProjectId>
@@ -598,7 +598,7 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorNoMudBlazor.Api/wwwroot/bootstrap/bootstrap.min.css.map</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>wwwroot/bootstrap/bootstrap.min.css.map</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>02d4e2ed-0776-4cbb-af22-2eefef5f2f21</ProjectId>
@@ -606,7 +606,7 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorNoMudBlazor.Api/wwwroot/favicon.png</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>wwwroot/favicon.png</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>5c1355f6-1b73-4b92-9566-4b518c38b630</ProjectId>

@@ -76,6 +76,10 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.OidcAu
                 throw new InvalidOperationException(""OIDC authentication options are not configured correctly."");
             }", s => s.SeparatedFromNext());
 
+                        method.AddStatement("var httpContext = _httpContextAccessor.HttpContext ?? throw new InvalidOperationException(\"No active HttpContext found.\");");
+                        method.AddStatement("await httpContext.SignOutAsync();", s => s.SeparatedFromNext());
+
+
                         method.AddStatements(@"var tokenRequest = new Dictionary<string, string>
                         {
                             { ""grant_type"", ""password"" },
@@ -90,13 +94,16 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.OidcAu
 
                         method.AddIfStatement("tokenResponse.IsSuccessStatusCode", @if =>
                         {
-                            @if.AddAssignmentStatement("var tokens", new CSharpStatement("await tokenResponse.Content.ReadFromJsonAsync<AccessTokenResponse>();"));
+                            @if.AddAssignmentStatement("var loginResponse", new CSharpStatement($"await tokenResponse.Content.ReadFromJsonAsync<{this.GetAccessTokenResponseTemplateName()}>();"));
                             @if.AddStatements(@"var claims = new List<Claim>
                             {
                                 new Claim(ClaimTypes.NameIdentifier, username),
                                 new Claim(ClaimTypes.Email, username),
-                                new Claim(""access_token"", tokens.AccessToken),
-                                new Claim(""refresh_token"", tokens.RefreshToken)
+                                new Claim(""access_token"", loginResponse.AccessToken),
+                                new Claim(""refresh_token"", loginResponse.RefreshToken),
+                                new Claim(""token_type"", loginResponse.TokenType ?? ""Bearer""),
+                                new Claim(""expires_at"", (loginResponse.ExpiresIn ?? DateTime.UtcNow.AddHours(1)).ToString(""o""))
+
                             };".ConvertToStatements());
                             @if.AddAssignmentStatement("var claimsIdentity", new CSharpStatement("new ClaimsIdentity(claims);"));
                             @if.AddAssignmentStatement("var claimsPrincipal", new CSharpStatement("new ClaimsPrincipal(claimsIdentity);"));
@@ -106,14 +113,6 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.OidcAu
                         {
                             @else.AddStatement("throw new Exception(\"Error: Invalid login attempt.\");");
                         });
-                    });
-
-                    @class.AddNestedClass("AccessTokenResponse", nested =>
-                    {
-                        nested.AddProperty("string", "AccessToken");
-                        nested.AddProperty("string", "RefreshToken");
-                        nested.AddProperty("string", "TokenType");
-                        nested.AddProperty("DateTime", "ExpiresIn");
                     });
                 });
         }

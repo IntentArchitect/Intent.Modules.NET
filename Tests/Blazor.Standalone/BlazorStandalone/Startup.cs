@@ -48,6 +48,7 @@ namespace BlazorStandalone
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseWebAssemblyDebugging();
             }
             else
             {

@@ -30,6 +30,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Client.Persis
                 .AddUsing("System.Threading.Tasks")
                 .AddUsing("Microsoft.AspNetCore.Components.WebAssembly.Authentication")
                 .AddUsing("System")
+                .AddUsing("System.Net.Http.Json")
                 .AddClass($"PersistentAuthenticationStateProvider", @class =>
                 {
                     @class.WithBaseType("AuthenticationStateProvider");
@@ -45,7 +46,8 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Client.Persis
                         f.WithAssignment(new CSharpStatement("_defaultUnauthenticatedTask"));
                     });
                     @class.AddField("Uri?", "_identityUrl", p => p.PrivateReadOnly());
-                    @class.AddField("HttpClient", "_refreshClient", p => p.PrivateReadOnly().WithAssignment("new HttpClient()"));
+
+                    @class.AddField(UseType("System.Net.Http.HttpClient"), "_refreshClient", p => p.PrivateReadOnly().WithAssignment("new HttpClient()"));
                     @class.AddField("string?", "_accessToken", p => p.Private());
                     @class.AddField("string?", "_refreshToken", p => p.Private());
                     @class.AddField("DateTimeOffset", "_accessTokenExpiresAt", p => p.Private().WithAssignment("DateTimeOffset.MinValue"));

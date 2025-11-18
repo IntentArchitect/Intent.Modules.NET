@@ -203,5 +203,19 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="37578d64-f509-4616-8a69-f6e737ac4a27" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Authentication.Templates.Client.AccessTokenResponseTemplate</name>
+      <display>Intent.Blazor.Authentication.Templates.Client.AccessTokenResponseTemplate</display>
+      <externalReference>Intent.Blazor.Authentication</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b2ad1079-bfc2-42c0-af7b-65b6749f54cd</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

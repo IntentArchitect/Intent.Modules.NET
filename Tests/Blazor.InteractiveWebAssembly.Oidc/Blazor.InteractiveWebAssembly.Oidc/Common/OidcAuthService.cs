@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Blazor.InteractiveWebAssembly.Oidc.Client.Components.Account;
 using Blazor.InteractiveWebAssembly.Oidc.Components.Account;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authentication;
@@ -43,6 +44,9 @@ namespace Blazor.InteractiveWebAssembly.Oidc.Common
                 throw new InvalidOperationException("OIDC authentication options are not configured correctly.");
             }
 
+            var httpContext = _httpContextAccessor.HttpContext ?? throw new InvalidOperationException("No active HttpContext found.");
+            await httpContext.SignOutAsync();
+
             var tokenRequest = new Dictionary<string, string>
                                     {
                                         { "grant_type", "password" },
@@ -56,13 +60,16 @@ namespace Blazor.InteractiveWebAssembly.Oidc.Common
 
             if (tokenResponse.IsSuccessStatusCode)
             {
-                var tokens = await tokenResponse.Content.ReadFromJsonAsync<AccessTokenResponse>();
+                var loginResponse = await tokenResponse.Content.ReadFromJsonAsync<AccessTokenResponse>();
                 var claims = new List<Claim>
                                             {
                                                 new Claim(ClaimTypes.NameIdentifier, username),
                                                 new Claim(ClaimTypes.Email, username),
-                                                new Claim("access_token", tokens.AccessToken),
-                                                new Claim("refresh_token", tokens.RefreshToken)
+                                                new Claim("access_token", loginResponse.AccessToken),
+                                                new Claim("refresh_token", loginResponse.RefreshToken),
+                                                new Claim("token_type", loginResponse.TokenType ?? "Bearer"),
+                                                new Claim("expires_at", (loginResponse.ExpiresIn ?? DateTime.UtcNow.AddHours(1)).ToString("o"))
+
                                             };
                 var claimsIdentity = new ClaimsIdentity(claims);
                 var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
@@ -73,14 +80,6 @@ namespace Blazor.InteractiveWebAssembly.Oidc.Common
             {
                 throw new Exception("Error: Invalid login attempt.");
             }
-        }
-
-        public class AccessTokenResponse
-        {
-            public string AccessToken { get; set; }
-            public string RefreshToken { get; set; }
-            public string TokenType { get; set; }
-            public DateTime ExpiresIn { get; set; }
         }
     }
 }

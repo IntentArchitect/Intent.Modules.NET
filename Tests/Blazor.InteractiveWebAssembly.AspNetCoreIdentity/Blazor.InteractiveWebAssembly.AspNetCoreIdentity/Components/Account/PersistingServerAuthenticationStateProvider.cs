@@ -1,5 +1,6 @@
 using System;
 using System.Diagnostics;
+using System.Globalization;
 using System.Security.Claims;
 using System.Threading;
 using System.Threading.Tasks;
@@ -11,6 +12,7 @@ using Microsoft.AspNetCore.Components.Server;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -25,12 +27,15 @@ namespace Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Components.Account
         private readonly IdentityOptions options;
         private readonly PersistingComponentStateSubscription subscription;
         private readonly PersistentComponentState _persistentComponentState;
+        private readonly IConfiguration _config;
         private Task<AuthenticationState>? authenticationStateTask;
 
         public PersistingServerAuthenticationStateProvider(PersistentComponentState persistentComponentState,
-            IOptions<IdentityOptions> optionsAccessor)
+            IOptions<IdentityOptions> optionsAccessor,
+            IConfiguration config)
         {
             _persistentComponentState = persistentComponentState;
+            _config = config;
             options = optionsAccessor.Value;
             AuthenticationStateChanged += OnAuthenticationStateChanged;
             subscription = _persistentComponentState.RegisterOnPersisting(OnPersistingAsync, RenderMode.InteractiveWebAssembly);
@@ -80,6 +85,14 @@ namespace Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Components.Account
                 var userId = principal.FindFirst(options.ClaimsIdentity.UserIdClaimType)?.Value;
                 var email = principal.FindFirst(options.ClaimsIdentity.EmailClaimType)?.Value;
                 var accessToken = principal.FindFirst("access_token")?.Value;
+                var refreshToken = principal.FindFirst("refresh_token")?.Value;
+                var expiresAtClaim = principal.FindFirst("expires_at")?.Value;
+                var refreshUrl = _config.GetValue<string?>("TokenEndpoint:Uri");
+
+                if (!DateTime.TryParse(expiresAtClaim, null, DateTimeStyles.RoundtripKind, out var expiresAt))
+                {
+                    expiresAt = DateTime.UtcNow.AddHours(1);
+                }
 
                 if (userId != null && email != null)
                 {

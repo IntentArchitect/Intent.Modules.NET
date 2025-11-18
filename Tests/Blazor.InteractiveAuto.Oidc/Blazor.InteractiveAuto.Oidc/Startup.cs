@@ -56,6 +56,7 @@ namespace Blazor.InteractiveAuto.Oidc
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseWebAssemblyDebugging();
             }
             else
             {

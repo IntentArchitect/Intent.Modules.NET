@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <outputFiles>
   <files>
-    <file relativePath="BlazorNoMudBlazor.Api/Components/Layout/MainLayout.razor" state="once-off-generated" />
-    <file relativePath="BlazorNoMudBlazor.Api/Components/Layout/MainLayout.razor.css" state="once-off-generated" />
-    <file relativePath="BlazorNoMudBlazor.Api/Components/Layout/NavMenu.razor" state="once-off-generated" />
-    <file relativePath="BlazorNoMudBlazor.Api/Components/Layout/NavMenu.razor.css" state="once-off-generated" />
-    <file relativePath="BlazorNoMudBlazor.Api/Components/Pages/Counter.razor" state="once-off-generated" />
-    <file relativePath="BlazorNoMudBlazor.Api/Components/Pages/Error.razor" state="once-off-generated" />
-    <file relativePath="BlazorNoMudBlazor.Api/Components/Pages/Home.razor" state="once-off-generated" />
-    <file relativePath="BlazorNoMudBlazor.Api/Components/Pages/Weather.razor" state="once-off-generated" />
-    <file relativePath="BlazorNoMudBlazor.Api/wwwroot/app.css" state="once-off-generated" />
-    <file relativePath="BlazorNoMudBlazor.Api/wwwroot/bootstrap/bootstrap.min.css" state="once-off-generated" />
-    <file relativePath="BlazorNoMudBlazor.Api/wwwroot/bootstrap/bootstrap.min.css.map" state="once-off-generated" />
-    <file relativePath="BlazorNoMudBlazor.Api/wwwroot/favicon.png" state="once-off-generated" />
+    <file relativePath="BlazorNoMudBlazor.Api/Components/Layout/MainLayout.razor" state="ignored;once-off-generated" />
+    <file relativePath="BlazorNoMudBlazor.Api/Components/Layout/MainLayout.razor.css" state="ignored;once-off-generated" />
+    <file relativePath="BlazorNoMudBlazor.Api/Components/Layout/NavMenu.razor" state="ignored;once-off-generated" />
+    <file relativePath="BlazorNoMudBlazor.Api/Components/Layout/NavMenu.razor.css" state="ignored;once-off-generated" />
+    <file relativePath="BlazorNoMudBlazor.Api/Components/Pages/Counter.razor" state="ignored;once-off-generated" />
+    <file relativePath="BlazorNoMudBlazor.Api/Components/Pages/Error.razor" state="ignored;once-off-generated" />
+    <file relativePath="BlazorNoMudBlazor.Api/Components/Pages/Home.razor" state="ignored;once-off-generated" />
+    <file relativePath="BlazorNoMudBlazor.Api/Components/Pages/Weather.razor" state="ignored;once-off-generated" />
+    <file relativePath="BlazorNoMudBlazor.Api/wwwroot/app.css" state="ignored;once-off-generated" />
+    <file relativePath="BlazorNoMudBlazor.Api/wwwroot/bootstrap/bootstrap.min.css" state="ignored;once-off-generated" />
+    <file relativePath="BlazorNoMudBlazor.Api/wwwroot/bootstrap/bootstrap.min.css.map" state="ignored;once-off-generated" />
+    <file relativePath="BlazorNoMudBlazor.Api/wwwroot/favicon.png" state="ignored;once-off-generated" />
   </files>
 </outputFiles>

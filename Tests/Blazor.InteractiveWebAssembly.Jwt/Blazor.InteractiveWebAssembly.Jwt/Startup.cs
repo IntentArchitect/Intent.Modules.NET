@@ -64,6 +64,7 @@ namespace Blazor.InteractiveWebAssembly.Jwt
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseWebAssemblyDebugging();
             }
             else
             {

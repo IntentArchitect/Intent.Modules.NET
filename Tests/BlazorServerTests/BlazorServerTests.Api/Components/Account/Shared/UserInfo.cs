@@ -10,5 +10,8 @@ namespace BlazorServerTests.Api.Components.Account.Shared
         public required string UserId { get; set; }
         public required string Email { get; set; }
         public string? AccessToken { get; set; }
+        public string? RefreshToken { get; set; }
+        public string? RefreshUrl { get; set; }
+        public DateTime? AccessTokenExpiresAt { get; set; }
     }
 }
