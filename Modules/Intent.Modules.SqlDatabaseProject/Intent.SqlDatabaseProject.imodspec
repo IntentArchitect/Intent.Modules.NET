@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.SqlDatabaseProject</id>
-  <version>1.0.2-pre.0</version>
+  <version>1.0.2</version>
   <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
   <summary>Generate SQL Database Project objects through models being designed in the Domain designer.</summary>
   <description>Generate SQL Database Project objects through models being designed in the Domain designer.</description>

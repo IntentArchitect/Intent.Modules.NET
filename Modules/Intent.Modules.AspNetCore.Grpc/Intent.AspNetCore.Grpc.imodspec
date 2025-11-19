@@ -1,7 +1,7 @@
-<?xml version='1.0' encoding='utf-8'?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.Grpc</id>
-  <version>1.0.1-pre.0</version>
+  <version>1.0.1</version>
   <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
   <summary>Generates gRPC services based off the Services Designer.</summary>
   <description>Generates gRPC services based off the Services Designer.</description>
@@ -88,12 +88,12 @@
   <moduleSettings />
   <dependencies>
     <dependency id="Intent.Common" version="3.7.3" />
-    <dependency id="Intent.Common.CSharp" version="3.8.10-pre.5" />
+    <dependency id="Intent.Common.CSharp" version="3.9.10" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Metadata.Security" version="1.0.2" />
     <dependency id="Intent.Modelers.Services" version="3.9.2" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.9.10" />
-    <dependency id="Intent.Common.UnitOfWork" version="1.0.0-pre.0" />
+    <dependency id="Intent.Common.UnitOfWork" version="1.0.3" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />
