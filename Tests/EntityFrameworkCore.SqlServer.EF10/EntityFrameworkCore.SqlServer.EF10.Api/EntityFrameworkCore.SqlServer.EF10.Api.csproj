@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EntityFrameworkCore.SqlServer.EF10.Application\EntityFrameworkCore.SqlServer.EF10.Application.csproj" />
+    <ProjectReference Include="..\EntityFrameworkCore.SqlServer.EF10.Infrastructure\EntityFrameworkCore.SqlServer.EF10.Infrastructure.csproj" />
+    <ProjectReference Include="..\EntityFrameworkCore.SqlServer.EF10.Domain\EntityFrameworkCore.SqlServer.EF10.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="3.0.0" />
+    <PackageReference Include="NetTopologySuite" Version="2.6.0" />
+    <PackageReference Include="NetTopologySuite.IO.GeoJSON4STJ" Version="4.0.0" />
+    <PackageReference Include="Serilog.AspNetCore" Version="9.0.0" />
+  </ItemGroup>
+
+</Project>

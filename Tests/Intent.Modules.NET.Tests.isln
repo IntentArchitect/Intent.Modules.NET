@@ -188,5 +188,6 @@
     <application id="dc693f0a-0527-436e-b5e7-896a1a85cc21" name="AwsLambdaFunction.Sqs.GroupB" relativePath="AwsLambdaFunction.Sqs.GroupB/AwsLambdaFunction.Sqs.GroupB.application.config" />
     <application id="fac734d9-84f4-4b63-b59b-2b95f286a230" name="CleanArchitecture.QueueStorage" solutionFolder="Eventing/AzureQueueStorage" relativePath="CleanArchitecture.QueueStorage/CleanArchitecture.QueueStorage.application.config" />
     <application id="31ac754c-9bd6-45cf-9eff-adc02d98f105" name="AzureFunction.QueueStorage" solutionFolder="Eventing/AzureQueueStorage" relativePath="AzureFunction.QueueStorage/AzureFunction.QueueStorage.application.config" />
+    <application id="71645763-b306-4429-971a-8567d89d3b14" name="EntityFrameworkCore.SqlServer.EF10" relativePath="EntityFrameworkCore.SqlServer.EF10/EntityFrameworkCore.SqlServer.EF10.application.config" />
   </applications>
 </solution>
