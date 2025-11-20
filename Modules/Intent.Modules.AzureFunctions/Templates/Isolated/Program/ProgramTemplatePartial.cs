@@ -227,7 +227,11 @@ namespace Intent.Modules.AzureFunctions.Templates.Isolated.Program
                 parameters: parameters,
                 configure: (block, @params) =>
                 {
-                    block.AddStatement("config.AddEnvironmentVariables();");
+                    var existing = block.FindStatement(s => s.GetText("").StartsWith("config.AddEnvironmentVariables"));
+                    if (existing is null)
+                    {
+                        block.AddStatement("config.AddEnvironmentVariables();");
+                    }
                     configure?.Invoke(block, @params);
                 },
                 priority: priority);
