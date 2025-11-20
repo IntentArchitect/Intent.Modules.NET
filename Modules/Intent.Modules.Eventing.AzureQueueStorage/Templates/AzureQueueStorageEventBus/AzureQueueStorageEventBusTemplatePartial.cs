@@ -29,7 +29,7 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageE
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddClass($"AzureQueueStorageEventBus", @class =>
                 {
-                    @class.ImplementsInterface(this.GetEventBusInterfaceName());
+                    @class.ImplementsInterface(this.GetMessageBusInterfaceName());
 
                     @class.AddField($"{UseType("System.Collections.Generic.List")}<{this.GetAzureQueueStorageEnvelopeName()}>", "_messageQueue", @field =>
                     {
@@ -163,19 +163,33 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageE
                         });
                     });
 
+                    @class.AddMethod("void", "Publish", mth =>
+                    {
+                        mth.AddGenericParameter("T", out var genT).AddGenericTypeConstraint(genT, gen => gen.AddType("class"));
+                        mth.AddParameter(genT, "message");
+                        mth.AddParameter($"{UseType("System.Collections.Generic.IDictionary")}<string, object>", "additionalData");
+
+                        mth.AddStatement("// Note: Azure Queue Storage does not support additional data, ignoring parameter");
+                        mth.AddInvocationStatement("Publish", invoc => invoc.AddArgument("message"));
+                    });
+
                     @class.AddMethod("void", "Send", mth =>
                     {
                         mth.AddGenericParameter("T", out var T);
                         mth.AddGenericTypeConstraint(T, c => c.AddType("class"));
                         mth.AddParameter(T, "message");
 
-                        mth.AddStatement("ValidateMessage(message);");
+                        mth.AddStatement("Publish(message);");
+                    });
+                    
+                    @class.AddMethod("void", "Send", mth =>
+                    {
+                        mth.AddGenericParameter("T", out var T);
+                        mth.AddGenericTypeConstraint(T, c => c.AddType("class"));
+                        mth.AddParameter(T, "message");
+                        mth.AddParameter($"{UseType("System.Collections.Generic.IDictionary")}<string, object>", "additionalData");
 
-                        mth.AddInvocationStatement("_messageQueue.Add", invoc =>
-                        {
-                            invoc.AddArgument(new CSharpInvocationStatement($"new {this.GetAzureQueueStorageEnvelopeName()}")
-                                    .AddArgument("message").WithoutSemicolon());
-                        });
+                        mth.AddStatement("Publish(message, additionalData);");
                     });
 
                     @class.AddMethod("void", "ValidateMessage", mth =>

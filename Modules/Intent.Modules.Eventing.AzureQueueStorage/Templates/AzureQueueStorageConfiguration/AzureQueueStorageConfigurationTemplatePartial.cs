@@ -57,7 +57,25 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageC
                         mth.AddParameter(UseType("Microsoft.Extensions.DependencyInjection.IServiceCollection"), "services", @param => param.WithThisModifier())
                            .AddParameter(UseType("Microsoft.Extensions.Configuration.IConfiguration"), "configuration");
 
-                        mth.AddStatement($"services.AddScoped<{this.GetEventBusInterfaceName()}, {this.GetAzureQueueStorageEventBusName()}>();");
+                        var compositeTemplate = GetTemplate<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Intent.Eventing.Contracts.CompositeMessageBusConfiguration"));
+                        var isCompositeMode = compositeTemplate != null;
+                        
+                        if (isCompositeMode)
+                        {
+                            mth.AddParameter(this.GetMessageBrokerRegistryName(), "registry");
+                        }
+
+                        if (isCompositeMode)
+                        {
+                            mth.AddStatement($"// Register as concrete type for composite message bus");
+                            mth.AddStatement($"services.AddScoped<{this.GetAzureQueueStorageEventBusName()}>();");
+                        }
+                        else
+                        {
+                            mth.AddStatement($"// Register as IMessageBus and IEventBus for standalone mode");
+                            mth.AddStatement($"services.AddScoped<{this.GetMessageBusInterfaceName()}, {this.GetAzureQueueStorageEventBusName()}>();");
+                            mth.AddStatement($"services.AddScoped<{this.GetEventBusInterfaceName()}, {this.GetAzureQueueStorageEventBusName()}>();");
+                        }
 
                         mth.AddInvocationStatement($"services.AddOptions<{this.GetAzureQueueStorageOptionsName()}>", invoc =>
                         {
@@ -104,6 +122,28 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageC
                                 invoc.AddArgument(optionsLambda);
                             }
                         });
+
+                        if (isCompositeMode)
+                        {
+                            var publishedMessages = this.GetPublishedMessages();
+                            var sentCommands = this.GetSentIntegrationCommands();
+                            
+                            if (publishedMessages.Any() || sentCommands.Any())
+                            {
+                                mth.AddStatement("");
+                                mth.AddStatement("// Register message types with the composite message bus registry");
+                                
+                                foreach (var message in publishedMessages)
+                                {
+                                    mth.AddStatement($"registry.Register<{GetTypeName(IntegrationEventMessageTemplate.TemplateId, message)}, {this.GetAzureQueueStorageEventBusName()}>();");
+                                }
+                                
+                                foreach (var command in sentCommands)
+                                {
+                                    mth.AddStatement($"registry.Register<{GetTypeName(IntegrationCommandTemplate.TemplateId, command)}, {this.GetAzureQueueStorageEventBusName()}>();");
+                                }
+                            }
+                        }
 
                         if (this.GetSubscribedMessageCount() > 0 && ExecutionContext.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName) != null)
                         {
