@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1440c208-f7d7-40fd-a1dd-881d2ade6efb" type="Message" typeId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">
+  <name>ClientCreatedEvent</name>
+  <display>ClientCreatedEvent</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9d446019-de25-4bf2-a9e2-0704bdf77de4</parentFolderId>
+  <packageId>9d446019-de25-4bf2-a9e2-0704bdf77de4</packageId>
+  <packageName>CompositePublishTest.Eventing.Messages</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="dca28d4b-c277-4fb3-afe0-17f35ea8b59b" name="Azure Event Grid">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Eventing.AzureEventGrid</definitionPackageName>
+      <definitionPackageId>484120b4-6231-4c94-aa60-61efe5c783a7</definitionPackageId>
+      <properties>
+        <property name="5f7b74d7-5fea-4618-b30d-5a3ee30e15e8" display="Topic Name" value="client-created-event" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="3ed90610-4e50-4bdd-ad9d-479d83d24805" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>Name</name>
+      <display>Name: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="32fc4920-29d5-4804-a47f-5acf85fda482">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>1440c208-f7d7-40fd-a1dd-881d2ade6efb</parentFolderId>
+      <packageId>9d446019-de25-4bf2-a9e2-0704bdf77de4</packageId>
+      <packageName>CompositePublishTest.Eventing.Messages</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="6f1a21c4-3db3-4334-9476-1adc237df73c" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>Location</name>
+      <display>Location: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="0e8fa704-e291-4f82-8a31-aca6aaa6cdee">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>1440c208-f7d7-40fd-a1dd-881d2ade6efb</parentFolderId>
+      <packageId>9d446019-de25-4bf2-a9e2-0704bdf77de4</packageId>
+      <packageName>CompositePublishTest.Eventing.Messages</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="30954d96-2ab0-4087-9f0c-483d35869de9" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>Description</name>
+      <display>Description: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="da234562-81a1-461f-807f-09269b636a03">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>1440c208-f7d7-40fd-a1dd-881d2ade6efb</parentFolderId>
+      <packageId>9d446019-de25-4bf2-a9e2-0704bdf77de4</packageId>
+      <packageName>CompositePublishTest.Eventing.Messages</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

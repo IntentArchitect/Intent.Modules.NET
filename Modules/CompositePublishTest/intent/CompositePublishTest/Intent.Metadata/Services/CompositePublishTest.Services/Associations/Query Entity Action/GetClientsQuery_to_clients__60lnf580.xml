@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="97861857-09cb-4615-bcb0-83bd5ab0470a">
+  <sourceEnd id="14cecadc-cd9d-4dd7-8e5d-e1769a5daf1d" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetClientsQuery</display>
+    <order>0</order>
+    <typeReference id="7ea26d34-faef-4915-8d02-fe026ed4b6b3">
+      <typeId>f132ebf2-400f-43d1-81ba-fc5385c0cf00</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CompositePublishTest.Services</typePackageName>
+      <typePackageId>3a7ce83b-04f2-470c-bff7-ad602b80f91b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="97861857-09cb-4615-bcb0-83bd5ab0470a" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>clients</name>
+    <display>[query] clients: Client[*]</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="5a12c006-eede-44da-9ce2-b793b07f3d69">
+      <typeId>7b191fe4-56b4-4fff-aac0-688627d78663</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CompositePublishTest.Domain</typePackageName>
+      <typePackageId>f0f67d48-d4ea-45d7-9934-aaf8568180c0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="89cae3fc-56fb-4c15-bb60-dfb256677307" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="f132ebf2-400f-43d1-81ba-fc5385c0cf00" location="[CompositePublishTest].[Services].[GetClientsQuery]" />
+        <target applicationId="89cae3fc-56fb-4c15-bb60-dfb256677307" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="7b191fe4-56b4-4fff-aac0-688627d78663" location="[CompositePublishTest].[Services].[Client]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

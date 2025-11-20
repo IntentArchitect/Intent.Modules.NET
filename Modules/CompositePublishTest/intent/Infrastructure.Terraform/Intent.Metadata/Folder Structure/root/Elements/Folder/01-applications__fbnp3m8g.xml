@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="4fe613c1-4501-439c-afef-f8c2cbebfe94" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>01-applications</name>
+  <display>01-applications</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>3154463a-f872-42f1-814b-8d826eb9d1bf</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="3fd3d8aa-43ae-43b0-87b9-c4b0d9167c5b" type="Template Output" typeId="09de2192-2507-41a2-8044-286c7ecadec2">
+      <name>Intent.IaC.Terraform.Applications.AzureEventGridResourcesTf</name>
+      <display>Intent.IaC.Terraform.Applications.AzureEventGridResourcesTf</display>
+      <externalReference>Intent.IaC.Terraform</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>4fe613c1-4501-439c-afef-f8c2cbebfe94</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="bff46b8d-bec6-4211-870b-ac9883652c0e" type="Template Output" typeId="09de2192-2507-41a2-8044-286c7ecadec2">
+      <name>Intent.IaC.Terraform.Applications.AzureFunctionAppTf</name>
+      <display>Intent.IaC.Terraform.Applications.AzureFunctionAppTf</display>
+      <externalReference>Intent.IaC.Terraform</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>4fe613c1-4501-439c-afef-f8c2cbebfe94</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="2d711f85-9c59-4f19-b78b-9ef75ce26c25" type="Template Output" typeId="09de2192-2507-41a2-8044-286c7ecadec2">
+      <name>Intent.IaC.Terraform.Applications.AzureMainTf</name>
+      <display>Intent.IaC.Terraform.Applications.AzureMainTf</display>
+      <externalReference>Intent.IaC.Terraform</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>4fe613c1-4501-439c-afef-f8c2cbebfe94</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="a490bb25-4288-455d-a6c9-e8e3fefb3dca" type="Template Output" typeId="09de2192-2507-41a2-8044-286c7ecadec2">
+      <name>Intent.IaC.Terraform.Applications.AzureServiceBusResourcesTf</name>
+      <display>Intent.IaC.Terraform.Applications.AzureServiceBusResourcesTf</display>
+      <externalReference>Intent.IaC.Terraform</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>4fe613c1-4501-439c-afef-f8c2cbebfe94</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

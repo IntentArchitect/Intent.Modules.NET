@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="cf5825d5-e3c2-49eb-83cd-966b2b901a5c" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>02-subscriptions</name>
+  <display>02-subscriptions</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>3154463a-f872-42f1-814b-8d826eb9d1bf</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="eea7048d-b909-4844-a10d-216371aedadf" type="Template Output" typeId="09de2192-2507-41a2-8044-286c7ecadec2">
+      <name>Intent.IaC.Terraform.Subscriptions.AzureEventGridTf</name>
+      <display>Intent.IaC.Terraform.Subscriptions.AzureEventGridTf</display>
+      <externalReference>Intent.IaC.Terraform</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>cf5825d5-e3c2-49eb-83cd-966b2b901a5c</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="630e7abd-a834-45fb-82df-9814ffddf795" type="Template Output" typeId="09de2192-2507-41a2-8044-286c7ecadec2">
+      <name>Intent.IaC.Terraform.Subscriptions.AzureMainTf</name>
+      <display>Intent.IaC.Terraform.Subscriptions.AzureMainTf</display>
+      <externalReference>Intent.IaC.Terraform</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>cf5825d5-e3c2-49eb-83cd-966b2b901a5c</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

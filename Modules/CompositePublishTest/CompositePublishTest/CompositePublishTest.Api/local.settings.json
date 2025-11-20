@@ -1,0 +1,15 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
+    "CqrsSettings:LogRequestPayload": true,
+    "EventGrid:Topics:ClientCreatedEvent:Source": "client-created-event",
+    "EventGrid:Topics:ClientCreatedEvent:Key": "",
+    "EventGrid:Topics:ClientCreatedEvent:Endpoint": "https://client-created-event.southafricanorth-1.eventgrid.azure.net/api/events",
+    "AzureServiceBus:ConnectionString": "Endpoint=sb://localhost:5672/",
+    "AzureServiceBus:ClientCreated": "client-created-queue",
+    "AzureQueueStorage:ConnectionString": "DefaultEndpointsProtocol=http://;AccountName=devstoreaccount1;AccountKey=;QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1;",
+    "AzureQueueStorage:ClientCreated": "client-created-queue"
+  }
+}

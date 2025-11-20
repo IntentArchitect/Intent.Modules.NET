@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="6636aa9f-bd48-405b-95f2-4f3c47a844aa">
+  <sourceEnd id="b1667fc2-f9b5-4a98-9f07-8c401c0cdbd1" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : Clients.DeleteClientCommand</display>
+    <order>0</order>
+    <typeReference id="2cbc3ef3-a6b9-4e55-b82a-be0f80b3d055">
+      <typeId>0417c49c-0b8b-4cc8-9fdc-b14e9ffc2ce8</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CompositePublishTest.Services</typePackageName>
+      <typePackageId>3a7ce83b-04f2-470c-bff7-ad602b80f91b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="6636aa9f-bd48-405b-95f2-4f3c47a844aa" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>client</name>
+    <display>[delete] client: Client</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="06a793b9-8117-498e-a7bf-7edf2bd8f1e9">
+      <typeId>7b191fe4-56b4-4fff-aac0-688627d78663</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CompositePublishTest.Domain</typePackageName>
+      <typePackageId>f0f67d48-d4ea-45d7-9934-aaf8568180c0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="89cae3fc-56fb-4c15-bb60-dfb256677307" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="0417c49c-0b8b-4cc8-9fdc-b14e9ffc2ce8" location="[CompositePublishTest].[Services].[DeleteClientCommand]" />
+        <target applicationId="89cae3fc-56fb-4c15-bb60-dfb256677307" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="7b191fe4-56b4-4fff-aac0-688627d78663" location="[CompositePublishTest].[Services].[Client]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="7b191fe4-56b4-4fff-aac0-688627d78663" name="Client" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="23b22dbe-13aa-4d81-b020-7ce6feae9d7a" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="0417c49c-0b8b-4cc8-9fdc-b14e9ffc2ce8" name="DeleteClientCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="83ebacf8-b574-4365-aba2-cb334b11293d" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

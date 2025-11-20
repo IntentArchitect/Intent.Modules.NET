@@ -1,0 +1,62 @@
+resource "random_string" "composite-publish-test" {
+  length  = 3
+  special = false
+  upper   = false
+}
+
+locals {
+  composite-publish-test_app_name     = "composite-publish-test"
+  composite_publish_test_storage_name = "compositepubl${random_string.composite-publish-test.result}storage"
+}
+
+# Hosting Plan (App Service Plan)
+resource "azurerm_service_plan" "composite-publish-test_function_plan" {
+  name                = "asp-${local.composite-publish-test_app_name}"
+  location            = azurerm_resource_group.main_rg.location
+  resource_group_name = azurerm_resource_group.main_rg.name
+  os_type             = "Windows"
+  sku_name            = "Y1"
+}
+
+# Storage Account
+resource "azurerm_storage_account" "composite_publish_test_storage_name" {
+  name                     = local.composite_publish_test_storage_name
+  location                 = azurerm_resource_group.main_rg.location
+  resource_group_name      = azurerm_resource_group.main_rg.name
+  account_tier             = "Standard"
+  account_replication_type = "LRS"
+  account_kind             = "StorageV2"
+}
+
+# Function App
+resource "azurerm_windows_function_app" "composite-publish-test_function_app" {
+  name                       = local.composite-publish-test_app_name
+  location                   = azurerm_resource_group.main_rg.location
+  resource_group_name        = azurerm_resource_group.main_rg.name
+  service_plan_id            = azurerm_service_plan.composite-publish-test_function_plan.id
+  storage_account_name       = azurerm_storage_account.composite_publish_test_storage_name.name
+  storage_account_access_key = azurerm_storage_account.composite_publish_test_storage_name.primary_access_key
+
+  site_config {
+    application_stack {
+      dotnet_version = "v8.0"
+    }
+    cors {
+      allowed_origins = [ "https://portal.azure.com" ]
+    }
+  }
+
+  app_settings = {
+    "APPINSIGHTS_INSTRUMENTATIONKEY"               = azurerm_application_insights.app_insights.instrumentation_key
+    "AzureWebJobsStorage"                          = "DefaultEndpointsProtocol=https;AccountName=${azurerm_storage_account.composite_publish_test_storage_name.name};AccountKey=${azurerm_storage_account.composite_publish_test_storage_name.primary_access_key};EndpointSuffix=core.windows.net"
+    "FUNCTIONS_WORKER_RUNTIME"                     = "dotnet-isolated"
+    "EventGrid:Topics:ClientCreatedEvent:Source"   = "client-created-event"
+    "EventGrid:Topics:ClientCreatedEvent:Key"      = azurerm_eventgrid_topic.client_created_event.primary_access_key
+    "EventGrid:Topics:ClientCreatedEvent:Endpoint" = azurerm_eventgrid_topic.client_created_event.endpoint
+  }
+}
+
+# Output variables
+output "composite-publish-test_function_app_id" {
+  value = azurerm_windows_function_app.composite-publish-test_function_app.id
+}
