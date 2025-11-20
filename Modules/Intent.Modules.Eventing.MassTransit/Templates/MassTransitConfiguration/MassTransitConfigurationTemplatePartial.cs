@@ -75,11 +75,25 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
                     method.Static();
                     method.AddParameter("IServiceCollection", "services", param => param.WithThisModifier());
                     method.AddParameter("IConfiguration", "configuration");
-                    method.AddStatements(GetContainerRegistrationStatements());
+                    
+                    var compositeTemplate = GetTemplate<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Intent.Eventing.Contracts.CompositeMessageBusConfiguration"));
+                    var isCompositeMode = compositeTemplate != null;
+                    
+                    if (isCompositeMode)
+                    {
+                        method.AddParameter(this.GetMessageBrokerRegistryName(), "registry");
+                    }
+                    
+                    method.AddStatements(GetContainerRegistrationStatements(isCompositeMode));
                     method.AddInvocationStatement("services.AddMassTransit", stmt => stmt
                         .AddArgument(GetConfigurationForAddMassTransit("configuration"))
                         .AddMetadata("configure-masstransit", true)
                         .SeparatedFromPrevious());
+                        
+                    if (isCompositeMode)
+                    {
+                        AddRegistryRegistrations(method);
+                    }
                 });
                 AddMessageTopologyConfiguration(@class);
                 AddConsumers(@class);
@@ -190,14 +204,41 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
         return result;
     }
 
-    private IEnumerable<CSharpStatement> GetContainerRegistrationStatements()
+    private IEnumerable<CSharpStatement> GetContainerRegistrationStatements(bool isCompositeMode = false)
     {
         var statements = new List<CSharpStatement>();
 
-        statements.Add($@"services.AddScoped<{this.GetMassTransitEventBusName()}>();");
-        statements.Add($@"services.AddScoped<{this.GetEventBusInterfaceName()}>(provider => provider.GetRequiredService<{this.GetMassTransitEventBusName()}>());");
+        if (isCompositeMode)
+        {
+            statements.Add("// Register as concrete type for composite message bus");
+            statements.Add($@"services.AddScoped<{this.GetMassTransitEventBusName()}>();");
+        }
+        else
+        {
+            statements.Add("// Register as IMessageBus and IEventBus for standalone mode");
+            statements.Add($@"services.AddScoped<{this.GetMassTransitEventBusName()}>();");
+            statements.Add($@"services.AddScoped<{this.GetMessageBusInterfaceName()}>(provider => provider.GetRequiredService<{this.GetMassTransitEventBusName()}>());");
+            statements.Add($@"services.AddScoped<{this.GetEventBusInterfaceName()}>(provider => provider.GetRequiredService<{this.GetMassTransitEventBusName()}>());");
+        }
 
         return statements;
+    }
+    
+    private void AddRegistryRegistrations(CSharpClassMethod method)
+    {
+        var publishedMessages = _applicableMessages.Where(m => 
+            m.InternalElement.GetStereotypeProperty<string>("Eventing Settings", "Publish To") == "MassTransit"
+        ).ToList();
+        
+        if (publishedMessages.Any())
+        {
+            method.AddStatement("");
+            method.AddStatement("// Register message types with the composite message bus registry");
+            foreach (var message in publishedMessages)
+            {
+                method.AddStatement($"registry.Register<{GetTypeName(IntegrationEventMessageTemplate.TemplateId, message)}, {this.GetMassTransitEventBusName()}>();");
+            }
+        }
     }
 
     private CSharpLambdaBlock GetConfigurationForAddMassTransit(string configurationVarName)

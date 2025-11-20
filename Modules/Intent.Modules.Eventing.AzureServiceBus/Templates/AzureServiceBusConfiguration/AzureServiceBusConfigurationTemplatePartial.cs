@@ -47,9 +47,27 @@ public partial class AzureServiceBusConfigurationTemplate : CSharpTemplateBase<o
                         method.AddParameter("IServiceCollection", "services", param => param.WithThisModifier());
                         method.AddParameter("IConfiguration", "configuration");
 
+                        var compositeTemplate = GetTemplate<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Intent.Eventing.Contracts.CompositeMessageBusConfiguration"));
+                        var isCompositeMode = compositeTemplate != null;
+                        
+                        if (isCompositeMode)
+                        {
+                            method.AddParameter(this.GetMessageBrokerRegistryName(), "registry");
+                        }
+
                         method.AddStatement($@"services.AddSingleton<ServiceBusClient>(sp => new ServiceBusClient(configuration[""AzureServiceBus:ConnectionString""]));");
                             
-                        method.AddStatement($"services.AddScoped<{this.GetEventBusInterfaceName()}, {this.GetAzureServiceBusEventBusName()}>();");
+                        if (isCompositeMode)
+                        {
+                            method.AddStatement($"// Register as concrete type for composite message bus");
+                            method.AddStatement($"services.AddScoped<{this.GetAzureServiceBusEventBusName()}>();");
+                        }
+                        else
+                        {
+                            method.AddStatement($"// Register as IMessageBus and IEventBus for standalone mode");
+                            method.AddStatement($"services.AddScoped<{this.GetMessageBusInterfaceName()}, {this.GetAzureServiceBusEventBusName()}>();");
+                            method.AddStatement($"services.AddScoped<{this.GetEventBusInterfaceName()}, {this.GetAzureServiceBusEventBusName()}>();");
+                        }
                         method.AddStatement($"services.AddSingleton<{this.GetAzureServiceBusMessageDispatcherName()}>();");
                         method.AddStatement($"services.AddSingleton<{this.GetAzureServiceBusMessageDispatcherInterfaceName()}, {this.GetAzureServiceBusMessageDispatcherName()}>();");
                             
@@ -84,6 +102,16 @@ public partial class AzureServiceBusConfigurationTemplate : CSharpTemplateBase<o
                                         arg.AddStatement(inv);
                                     }
                                 }));
+                        }
+
+                        if (isCompositeMode && publishers.Count != 0)
+                        {
+                            method.AddStatement("");
+                            method.AddStatement("// Register message types with the composite message bus registry");
+                            foreach (var item in publishers)
+                            {
+                                method.AddStatement($"registry.Register<{item.GetModelTypeName(this)}, {this.GetAzureServiceBusEventBusName()}>();");
+                            }
                         }
 
                         method.AddStatement("return services;");
