@@ -30,12 +30,12 @@ namespace Intent.Modules.Blazor.Authentication
                 (framework) => (framework.Major, framework.Minor) switch
                     {
                         ( >= 10, >= 0) => new PackageVersion("10.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Identity.Stores", "10.0.0")
-                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "10.0.0"),
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "10.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Identity.Stores", "10.0.0"),
                         ( >= 9, >= 0) => new PackageVersion("9.0.11")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "9.0.11")
                             .WithNugetDependency("Microsoft.Extensions.Identity.Stores", "9.0.11"),
-                        ( >= 8, >= 0) => new PackageVersion("8.0.22")
+                        ( >= 8, >= 0) => new PackageVersion("8.0.21", locked: true)
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "8.0.22")
                             .WithNugetDependency("Microsoft.Extensions.Identity.Stores", "8.0.22"),
                         ( >= 7, >= 0) => new PackageVersion("7.0.20")
@@ -58,8 +58,8 @@ namespace Intent.Modules.Blazor.Authentication
                 (framework) => (framework.Major, framework.Minor) switch
                     {
                         ( >= 10, >= 0) => new PackageVersion("10.0.0")
-                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "10.0.0")
                             .WithNugetDependency("Microsoft.Data.SqlClient", "6.1.1")
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "10.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "10.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "10.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Logging", "10.0.0"),
