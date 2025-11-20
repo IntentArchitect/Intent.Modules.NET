@@ -1,3 +1,7 @@
+### Version 5.0.21
+
+- Fixed: Program config would under some scenarios duplicate `config.AddEnvironmentVariables();`.
+
 ### Version 5.0.20
 
 - Improvement: Updated module documentation to use centralized documentation site.
