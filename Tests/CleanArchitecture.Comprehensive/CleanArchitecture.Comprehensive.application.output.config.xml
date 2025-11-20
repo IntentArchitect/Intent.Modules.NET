@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <outputFiles>
   <files>
-    <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/_Imports.razor" state="once-off-generated" />
-    <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/App.razor" state="once-off-generated" />
-    <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/Pages/Counter.razor" state="once-off-generated" />
-    <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/Pages/FetchData.razor" state="once-off-generated" />
-    <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/Pages/Index.razor" state="once-off-generated" />
-    <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/Shared/MainLayout.razor" state="once-off-generated" />
-    <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/Shared/MainLayout.razor.css" state="once-off-generated" />
-    <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/Shared/NavMenu.razor" state="once-off-generated" />
-    <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/Shared/NavMenu.razor.css" state="once-off-generated" />
-    <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/Shared/SurveyPrompt.razor" state="once-off-generated" />
-    <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/wwwroot/css/app.css" state="once-off-generated" />
-    <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/wwwroot/css/bootstrap/bootstrap.min.css" state="once-off-generated" />
-    <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/wwwroot/css/bootstrap/bootstrap.min.css.map" state="once-off-generated" />
-    <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/wwwroot/css/open-iconic/FONT-LICENSE" state="once-off-generated" />
-    <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/wwwroot/css/open-iconic/font/css/open-iconic-bootstrap.min.css" state="once-off-generated" />
-    <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/wwwroot/css/open-iconic/font/fonts/open-iconic.eot" state="once-off-generated" />
-    <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/wwwroot/css/open-iconic/font/fonts/open-iconic.otf" state="once-off-generated" />
-    <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/wwwroot/css/open-iconic/font/fonts/open-iconic.svg" state="once-off-generated" />
-    <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/wwwroot/css/open-iconic/font/fonts/open-iconic.ttf" state="once-off-generated" />
-    <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/wwwroot/css/open-iconic/font/fonts/open-iconic.woff" state="once-off-generated" />
-    <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/wwwroot/css/open-iconic/ICON-LICENSE" state="once-off-generated" />
+    <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/_Imports.razor" state="ignored;once-off-generated" />
+    <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/App.razor" state="ignored;once-off-generated" />
+    <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/Pages/Counter.razor" state="ignored;once-off-generated" />
+    <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/Pages/FetchData.razor" state="ignored;once-off-generated" />
+    <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/Pages/Index.razor" state="ignored;once-off-generated" />
+    <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/Shared/MainLayout.razor" state="ignored;once-off-generated" />
+    <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/Shared/MainLayout.razor.css" state="ignored;once-off-generated" />
+    <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/Shared/NavMenu.razor" state="ignored;once-off-generated" />
+    <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/Shared/NavMenu.razor.css" state="ignored;once-off-generated" />
+    <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/Shared/SurveyPrompt.razor" state="ignored;once-off-generated" />
+    <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/wwwroot/css/app.css" state="ignored;once-off-generated" />
+    <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/wwwroot/css/bootstrap/bootstrap.min.css" state="ignored;once-off-generated" />
+    <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/wwwroot/css/bootstrap/bootstrap.min.css.map" state="ignored;once-off-generated" />
+    <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/wwwroot/css/open-iconic/FONT-LICENSE" state="ignored;once-off-generated" />
+    <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/wwwroot/css/open-iconic/font/css/open-iconic-bootstrap.min.css" state="ignored;once-off-generated" />
+    <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/wwwroot/css/open-iconic/font/fonts/open-iconic.eot" state="ignored;once-off-generated" />
+    <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/wwwroot/css/open-iconic/font/fonts/open-iconic.otf" state="ignored;once-off-generated" />
+    <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/wwwroot/css/open-iconic/font/fonts/open-iconic.svg" state="ignored;once-off-generated" />
+    <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/wwwroot/css/open-iconic/font/fonts/open-iconic.ttf" state="ignored;once-off-generated" />
+    <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/wwwroot/css/open-iconic/font/fonts/open-iconic.woff" state="ignored;once-off-generated" />
+    <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/wwwroot/css/open-iconic/ICON-LICENSE" state="ignored;once-off-generated" />
     <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/wwwroot/css/open-iconic/README.md" state="ignored;once-off-generated" />
-    <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/wwwroot/favicon.png" state="once-off-generated" />
-    <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/wwwroot/icon-192.png" state="once-off-generated" />
-    <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/wwwroot/index.html" state="once-off-generated" />
-    <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/wwwroot/sample-data/weather.json" state="once-off-generated" />
+    <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/wwwroot/favicon.png" state="ignored;once-off-generated" />
+    <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/wwwroot/icon-192.png" state="ignored;once-off-generated" />
+    <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/wwwroot/index.html" state="ignored;once-off-generated" />
+    <file relativePath="CleanArchitecture.Comprehensive.BlazorClient/wwwroot/sample-data/weather.json" state="ignored;once-off-generated" />
   </files>
 </outputFiles>
