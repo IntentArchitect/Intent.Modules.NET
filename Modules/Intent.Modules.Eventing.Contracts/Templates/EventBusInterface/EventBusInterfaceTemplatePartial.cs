@@ -26,14 +26,8 @@ namespace Intent.Modules.Eventing.Contracts.Templates.EventBusInterface
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
                 .AddInterface("IEventBus", @interface => @interface
-                    .AddMethod("void", "Publish", m => m
-                        .AddGenericParameter("T")
-                        .AddParameter("T", "message")
-                        .AddGenericTypeConstraint("T", c => c.AddType("class"))
-                    )
-                    .AddMethod("Task", "FlushAllAsync", m => m
-                        .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"))
-                    )
+                    .ExtendsInterface(this.GetMessageBusInterfaceName())
+                    .AddAttribute($"[Obsolete(\"Use {this.GetMessageBusInterfaceName()} instead\")]")
                 );
         }
 

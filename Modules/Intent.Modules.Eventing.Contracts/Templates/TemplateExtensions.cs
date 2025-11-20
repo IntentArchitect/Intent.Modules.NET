@@ -1,12 +1,17 @@
 using System.Collections.Generic;
 using Intent.Modelers.Eventing.Api;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Eventing.Contracts.Templates.CompositeMessageBus;
+using Intent.Modules.Eventing.Contracts.Templates.CompositeMessageBusConfiguration;
 using Intent.Modules.Eventing.Contracts.Templates.EventBusInterface;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationCommand;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventDto;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventEnum;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventHandlerInterface;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage;
+using Intent.Modules.Eventing.Contracts.Templates.MessageBrokerRegistry;
+using Intent.Modules.Eventing.Contracts.Templates.MessageBrokerResolver;
+using Intent.Modules.Eventing.Contracts.Templates.MessageBusInterface;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -20,6 +25,11 @@ namespace Intent.Modules.Eventing.Contracts.Templates
         public static string GetEventBusInterfaceName<T>(this IntentTemplateBase<T> template)
         {
             return template.GetTypeName(EventBusInterfaceTemplate.TemplateId);
+        }
+
+        public static string GetMessageBusInterfaceName<T>(this IntentTemplateBase<T> template)
+        {
+            return template.GetTypeName(MessageBusInterfaceTemplate.TemplateId);
         }
 
         public static string GetIntegrationCommandName<T>(this IIntentTemplate<T> template) where T : IntegrationCommandModel
@@ -67,5 +77,24 @@ namespace Intent.Modules.Eventing.Contracts.Templates
             return template.GetTypeName(IntegrationEventMessageTemplate.TemplateId, model);
         }
 
+        public static string GetCompositeMessageBusName<T>(this IntentTemplateBase<T> template)
+        {
+            return template.GetTypeName(CompositeMessageBusTemplate.TemplateId);
+        }
+
+        public static string GetMessageBrokerRegistryName<T>(this IntentTemplateBase<T> template)
+        {
+            return template.GetTypeName(MessageBrokerRegistryTemplate.TemplateId);
+        }
+
+        public static string GetMessageBrokerResolverName<T>(this IntentTemplateBase<T> template)
+        {
+            return template.GetTypeName(MessageBrokerResolverTemplate.TemplateId);
+        }
+
+        public static string GetCompositeMessageBusConfigurationName<T>(this IntentTemplateBase<T> template)
+        {
+            return template.GetTypeName(CompositeMessageBusConfigurationTemplate.TemplateId);
+        }
     }
 }
