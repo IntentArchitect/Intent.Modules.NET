@@ -1,3 +1,7 @@
+### Version 5.3.3
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 5.3.2
 
 - Fixed: Software Factory no longer occurs of the `BoundedLoggingDestructuringPolicyTemplate` is not included.

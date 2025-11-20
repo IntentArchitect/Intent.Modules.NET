@@ -1,3 +1,7 @@
+### Version 5.1.18
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 5.1.17
 
 - Improvement: Updated module documentation to use centralized documentation site.

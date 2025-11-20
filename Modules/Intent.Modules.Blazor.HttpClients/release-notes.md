@@ -1,3 +1,7 @@
+### Version 4.0.21
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 4.0.20
 
 - Improvement: Updated module documentation to use centralized documentation site.

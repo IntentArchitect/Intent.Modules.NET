@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="0e7383c3-7fa4-431c-a6f5-4c17444d08d7" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>11.11.0</name>
+      <name>11.12.0</name>
       <display>11.11.0 ( &gt;= .NETCoreApp,Version=v7.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -48,7 +48,7 @@
       <childElements />
     </childElement>
     <childElement id="ab594b30-83a0-4565-915c-dfa0d134c94e" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>11.11.0</name>
+      <name>11.12.0</name>
       <display>11.11.0 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -71,7 +71,7 @@
       <childElements />
     </childElement>
     <childElement id="bc29041a-259a-4aa0-8e28-093689fff1ff" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>12.0.0</name>
+      <name>12.1.0</name>
       <display>11.11.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -94,7 +94,7 @@
       <childElements />
     </childElement>
     <childElement id="f18448ba-c4e4-4d10-9098-ad9b46f5011c" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>11.11.0</name>
+      <name>11.12.0</name>
       <display>11.11.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -116,16 +116,13 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="bf8d387c-f42f-4295-a106-1b000ecc36c3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ba4bb63f-48b7-402a-93d5-4e71fd9dbe5c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Threading.Tasks.Extensions</name>
-          <display>System.Threading.Tasks.Extensions (4.5.4)</display>
           <isAbstract>false</isAbstract>
           <value>4.5.4</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f18448ba-c4e4-4d10-9098-ad9b46f5011c</parentFolderId>
-          <packageId>31c500b7-66f0-46fc-8748-23ac58a8c375</packageId>
-          <packageName>Intent.Application.FluentValidation.Dtos</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -133,7 +130,7 @@
       </childElements>
     </childElement>
     <childElement id="6e80b20a-95c2-440c-810d-578015d119d1" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>11.11.0</name>
+      <name>11.12.0</name>
       <display>11.11.0 ( &gt;= .NETStandard,Version=v2.1 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />

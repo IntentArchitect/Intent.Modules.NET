@@ -29,12 +29,15 @@ namespace Intent.Modules.Blazor.Authentication
             NugetRegistry.Register(MicrosoftAspNetCoreIdentityEntityFrameworkCorePackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("9.0.10")
-                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "9.0.10")
-                            .WithNugetDependency("Microsoft.Extensions.Identity.Stores", "9.0.10"),
-                        ( >= 8, >= 0) => new PackageVersion("8.0.21")
-                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "8.0.21")
-                            .WithNugetDependency("Microsoft.Extensions.Identity.Stores", "8.0.21"),
+                        ( >= 10, >= 0) => new PackageVersion("10.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Identity.Stores", "10.0.0")
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "10.0.0"),
+                        ( >= 9, >= 0) => new PackageVersion("9.0.11")
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "9.0.11")
+                            .WithNugetDependency("Microsoft.Extensions.Identity.Stores", "9.0.11"),
+                        ( >= 8, >= 0) => new PackageVersion("8.0.22")
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "8.0.22")
+                            .WithNugetDependency("Microsoft.Extensions.Identity.Stores", "8.0.22"),
                         ( >= 7, >= 0) => new PackageVersion("7.0.20")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "7.0.20")
                             .WithNugetDependency("Microsoft.Extensions.Identity.Stores", "7.0.20"),
@@ -54,14 +57,20 @@ namespace Intent.Modules.Blazor.Authentication
             NugetRegistry.Register(MicrosoftEntityFrameworkCoreSqlServerPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, >= 0) => new PackageVersion("9.0.10")
+                        ( >= 10, >= 0) => new PackageVersion("10.0.0")
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "10.0.0")
+                            .WithNugetDependency("Microsoft.Data.SqlClient", "6.1.1")
+                            .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "10.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "10.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "10.0.0"),
+                        ( >= 8, >= 0) => new PackageVersion("9.0.11")
                             .WithNugetDependency("Microsoft.Data.SqlClient", "5.1.6")
-                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "9.0.10")
-                            .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "9.0.10")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.10")
-                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.10")
-                            .WithNugetDependency("System.Formats.Asn1", "9.0.10")
-                            .WithNugetDependency("System.Text.Json", "9.0.10"),
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "9.0.11")
+                            .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "9.0.11")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.11")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.11")
+                            .WithNugetDependency("System.Formats.Asn1", "9.0.11")
+                            .WithNugetDependency("System.Text.Json", "9.0.11"),
                         ( >= 6, >= 0) => new PackageVersion("7.0.20")
                             .WithNugetDependency("Microsoft.Data.SqlClient", "5.1.5")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "7.0.20"),

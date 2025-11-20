@@ -50,8 +50,8 @@
       <childElements />
     </childElement>
     <childElement id="e53a5ad5-a7c0-4775-9e45-631d565c9009" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>13.0.0</name>
-      <display>13.0.0 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <name>13.1.0</name>
+      <display>13.1.0 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -72,7 +72,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="0bcb2516-5cd9-4ae8-9f63-8c9affce2abc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="77fb0e44-d279-4333-9173-77cf15b0119d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>MediatR.Contracts</name>
           <display>MediatR.Contracts (2.0.1)</display>
           <isAbstract>false</isAbstract>
@@ -86,7 +86,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="a484a9dc-dab3-4139-8ece-9c2641c6f713" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="0d88347a-33cf-48a5-845e-fc83a285bf20" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
           <display>Microsoft.Extensions.DependencyInjection.Abstractions (8.0.0)</display>
           <isAbstract>false</isAbstract>
@@ -100,9 +100,9 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="e2c48f42-f30d-4831-88d4-44abf2bb78b6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging</name>
-          <display>Microsoft.Extensions.Logging (8.0.0)</display>
+        <childElement id="98474778-0a3c-4b10-b2e3-20110c809270" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.Abstractions</name>
+          <display>Microsoft.Extensions.Logging.Abstractions (8.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
           <genericTypes />
@@ -114,11 +114,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="a6156e79-be46-4628-a314-298a6a4d196e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="2ff21ca0-ab53-4262-832b-9d5b1e8ec3e1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.JsonWebTokens</name>
-          <display>Microsoft.IdentityModel.JsonWebTokens (8.0.1)</display>
+          <display>Microsoft.IdentityModel.JsonWebTokens (8.14.0)</display>
           <isAbstract>false</isAbstract>
-          <value>8.0.1</value>
+          <value>8.14.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e53a5ad5-a7c0-4775-9e45-631d565c9009</parentFolderId>
@@ -131,8 +131,8 @@
       </childElements>
     </childElement>
     <childElement id="19e76c23-fbca-44a0-bed0-84f28ee63a38" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>13.0.0</name>
-      <display>13.0.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <name>13.1.0</name>
+      <display>13.1.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -153,7 +153,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="52cdb779-ec3e-484b-920a-cefb7d4fb8b0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="95673fd0-1696-47bd-9c45-2575aa1bb76a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>MediatR.Contracts</name>
           <display>MediatR.Contracts (2.0.1)</display>
           <isAbstract>false</isAbstract>
@@ -167,7 +167,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c64e93b9-82d2-4019-9d0c-6b162b7cfa24" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="24650639-cf17-4c9b-91d3-a9f4b22153d5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
           <display>Microsoft.Extensions.DependencyInjection.Abstractions (8.0.0)</display>
           <isAbstract>false</isAbstract>
@@ -181,9 +181,9 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="3f60f790-9405-4c16-b570-1d45d00d32df" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging</name>
-          <display>Microsoft.Extensions.Logging (8.0.0)</display>
+        <childElement id="d505f6b0-db59-4d4c-8525-bc97740cd304" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.Abstractions</name>
+          <display>Microsoft.Extensions.Logging.Abstractions (8.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
           <genericTypes />
@@ -195,11 +195,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="e115c695-24e3-466b-9739-8c8b46393a1d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a6a2e277-c814-4bd9-8b3b-f7f12cebd342" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.JsonWebTokens</name>
-          <display>Microsoft.IdentityModel.JsonWebTokens (8.0.1)</display>
+          <display>Microsoft.IdentityModel.JsonWebTokens (8.14.0)</display>
           <isAbstract>false</isAbstract>
-          <value>8.0.1</value>
+          <value>8.14.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>19e76c23-fbca-44a0-bed0-84f28ee63a38</parentFolderId>
@@ -212,8 +212,8 @@
       </childElements>
     </childElement>
     <childElement id="8bb59f88-f673-4467-a1f5-e48283bc3c80" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>13.0.0</name>
-      <display>13.0.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <name>13.1.0</name>
+      <display>13.1.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -234,7 +234,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="7a33175d-4d39-424e-9e31-96da3d5ef490" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ec63eb02-1481-4f52-b753-6526375c4dd8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>MediatR.Contracts</name>
           <display>MediatR.Contracts (2.0.1)</display>
           <isAbstract>false</isAbstract>
@@ -248,7 +248,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="1ea85476-b30e-4338-abe1-2eb0884ca0ca" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b536c266-9e2b-4e8f-85ed-9a3658c0cefc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Bcl.AsyncInterfaces</name>
           <display>Microsoft.Bcl.AsyncInterfaces (8.0.0)</display>
           <isAbstract>false</isAbstract>
@@ -262,7 +262,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="89ca3797-aa90-4e39-87f7-2f1cbc957092" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="dee6dc27-57fd-4795-94b2-d5a226a5b22a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
           <display>Microsoft.Extensions.DependencyInjection.Abstractions (8.0.0)</display>
           <isAbstract>false</isAbstract>
@@ -276,9 +276,9 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="445aa88f-6300-4b19-a011-99a729bd73af" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging</name>
-          <display>Microsoft.Extensions.Logging (8.0.0)</display>
+        <childElement id="2a0c0236-e2fb-4a96-8c77-c97cc35a662e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.Abstractions</name>
+          <display>Microsoft.Extensions.Logging.Abstractions (8.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
           <genericTypes />
@@ -290,11 +290,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="ab45206a-2438-40f2-84c4-c59ede68fb0e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="602a728b-2561-4899-a583-f89df15d84c3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.JsonWebTokens</name>
-          <display>Microsoft.IdentityModel.JsonWebTokens (8.0.1)</display>
+          <display>Microsoft.IdentityModel.JsonWebTokens (8.14.0)</display>
           <isAbstract>false</isAbstract>
-          <value>8.0.1</value>
+          <value>8.14.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>8bb59f88-f673-4467-a1f5-e48283bc3c80</parentFolderId>

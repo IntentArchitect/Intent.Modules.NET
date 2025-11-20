@@ -20,15 +20,24 @@ namespace Intent.Modules.MongoDb
             NugetRegistry.Register(FinbuckleMultiTenantPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("9.4.1")
-                            .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "9.0.10")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration", "9.0.10")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "9.0.10")
-                            .WithNugetDependency("Microsoft.Extensions.Http", "9.0.10")
-                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.10")
-                            .WithNugetDependency("Microsoft.Extensions.Options", "9.0.10")
-                            .WithNugetDependency("Microsoft.Extensions.Options.ConfigurationExtensions", "9.0.10"),
-                        ( >= 8, >= 0) => new PackageVersion("9.4.1")
+                        ( >= 10, >= 0) => new PackageVersion("10.0.0")
+                            .WithNugetDependency("Finbuckle.MultiTenant.Abstractions", "10.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "10.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration", "10.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "10.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Http", "10.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "10.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "10.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Options.ConfigurationExtensions", "10.0.0"),
+                        ( >= 9, >= 0) => new PackageVersion("9.4.3")
+                            .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "9.0.11")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration", "9.0.11")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "9.0.11")
+                            .WithNugetDependency("Microsoft.Extensions.Http", "9.0.11")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.11")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "9.0.11")
+                            .WithNugetDependency("Microsoft.Extensions.Options.ConfigurationExtensions", "9.0.11"),
+                        ( >= 8, >= 0) => new PackageVersion("9.4.3")
                             .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "8.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Configuration", "8.0.0")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "8.0.1")
@@ -36,7 +45,7 @@ namespace Intent.Modules.MongoDb
                             .WithNugetDependency("Microsoft.Extensions.Logging", "8.0.1")
                             .WithNugetDependency("Microsoft.Extensions.Options", "8.0.2")
                             .WithNugetDependency("Microsoft.Extensions.Options.ConfigurationExtensions", "8.0.0"),
-                        ( >= 7, >= 0) => new PackageVersion("8.1.8")
+                        ( >= 7, >= 0) => new PackageVersion("8.1.9")
                             .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "7.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Configuration", "7.0.0")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "7.0.0")
@@ -60,18 +69,18 @@ namespace Intent.Modules.MongoDb
             NugetRegistry.Register(MongoDBDriverPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 6, >= 0) => new PackageVersion("3.5.0")
+                        ( >= 6, >= 0) => new PackageVersion("3.5.1")
                             .WithNugetDependency("DnsClient", "1.6.1")
                             .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "2.0.0")
-                            .WithNugetDependency("MongoDB.Bson", "3.5.0")
+                            .WithNugetDependency("MongoDB.Bson", "3.5.1")
                             .WithNugetDependency("SharpCompress", "0.30.1")
                             .WithNugetDependency("Snappier", "1.0.0")
                             .WithNugetDependency("System.Buffers", "4.5.1")
                             .WithNugetDependency("ZstdSharp.Port", "0.7.3"),
-                        ( >= 2, >= 1) => new PackageVersion("3.5.0")
+                        ( >= 2, >= 1) => new PackageVersion("3.5.1")
                             .WithNugetDependency("DnsClient", "1.6.1")
                             .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "2.0.0")
-                            .WithNugetDependency("MongoDB.Bson", "3.5.0")
+                            .WithNugetDependency("MongoDB.Bson", "3.5.1")
                             .WithNugetDependency("SharpCompress", "0.30.1")
                             .WithNugetDependency("Snappier", "1.0.0")
                             .WithNugetDependency("System.Buffers", "4.5.1")

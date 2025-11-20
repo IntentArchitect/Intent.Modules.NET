@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="f3ed221e-faf2-4d94-8ee5-ac3d04f1bfb4" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>4.8.0</name>
+      <name>4.8.1</name>
       <display>4.6.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,10 +47,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="42e327fb-a972-4cd7-a1a0-2412f1ae4da2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="4501b3a2-eadd-4979-8824-3a3145c47574" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Testcontainers</name>
           <isAbstract>false</isAbstract>
-          <value>4.8.0</value>
+          <value>4.8.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f3ed221e-faf2-4d94-8ee5-ac3d04f1bfb4</parentFolderId>
@@ -61,7 +61,7 @@
       </childElements>
     </childElement>
     <childElement id="00dfb96d-86fe-44ae-9b4b-57d8634b4eed" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>4.8.0</name>
+      <name>4.8.1</name>
       <display>4.6.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -83,10 +83,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="447cc661-6597-494d-84cb-8a387878cbff" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f192f8bb-b6bd-4c3f-9af0-3c9a30d2a86f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Testcontainers</name>
           <isAbstract>false</isAbstract>
-          <value>4.8.0</value>
+          <value>4.8.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>00dfb96d-86fe-44ae-9b4b-57d8634b4eed</parentFolderId>
@@ -97,7 +97,7 @@
       </childElements>
     </childElement>
     <childElement id="baa156a6-4dcd-480b-9375-315c118a2cb8" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>4.8.0</name>
+      <name>4.8.1</name>
       <display>4.6.0 ( &gt;= .NETStandard,Version=v2.1 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -119,10 +119,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="d48c81a4-cdcc-492b-bffa-a3528a1f9219" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f0d30fcf-28cd-48a0-9d44-94fa750a455b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Testcontainers</name>
           <isAbstract>false</isAbstract>
-          <value>4.8.0</value>
+          <value>4.8.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>baa156a6-4dcd-480b-9375-315c118a2cb8</parentFolderId>
@@ -133,7 +133,7 @@
       </childElements>
     </childElement>
     <childElement id="4717c871-d0f6-47ff-910d-e77b74267be0" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>4.8.0</name>
+      <name>4.8.1</name>
       <display>4.6.0 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -155,10 +155,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="0258e2bc-4380-4ad9-b67e-a618ca2a28c9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="93d5ca15-38f1-4331-bcdc-41afc9556f04" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Testcontainers</name>
           <isAbstract>false</isAbstract>
-          <value>4.8.0</value>
+          <value>4.8.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4717c871-d0f6-47ff-910d-e77b74267be0</parentFolderId>

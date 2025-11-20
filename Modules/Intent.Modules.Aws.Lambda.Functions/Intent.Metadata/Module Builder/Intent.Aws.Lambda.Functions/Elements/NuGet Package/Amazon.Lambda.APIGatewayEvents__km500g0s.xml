@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="870935d8-6c7a-403c-b5bb-0d4ed11b1228" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>2.7.1</name>
+      <name>2.7.2</name>
       <display>2.7.1 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -48,7 +48,7 @@
       <childElements />
     </childElement>
     <childElement id="2d74b820-649e-4dcc-96b2-ade2efaaa204" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>2.7.1</name>
+      <name>2.7.2</name>
       <display>2.7.1 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -70,16 +70,13 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="5fa0cbbc-d9ce-4d74-8dda-564a680569e1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="842a30d4-b5d6-47cb-8ec7-f03f5294c7eb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Newtonsoft.Json</name>
-          <display>Newtonsoft.Json (13.0.1)</display>
           <isAbstract>false</isAbstract>
           <value>13.0.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>2d74b820-649e-4dcc-96b2-ade2efaaa204</parentFolderId>
-          <packageId>4741e086-f1fa-4135-88df-1a329c15a271</packageId>
-          <packageName>Intent.Aws.Lambda.Functions</packageName>
           <stereotypes />
           <metadata />
           <childElements />

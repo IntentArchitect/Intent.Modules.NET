@@ -1,5 +1,6 @@
 ### Version 5.0.21
 
+- Improvement: Updated NuGet package versions.
 - Fixed: Program config would under some scenarios duplicate `config.AddEnvironmentVariables();`.
 
 ### Version 5.0.20

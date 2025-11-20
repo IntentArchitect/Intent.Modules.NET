@@ -1,3 +1,7 @@
+### Version 7.0.12
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 7.0.11
 
 - Improvement: Updated module documentation to use centralized documentation site.

@@ -92,7 +92,7 @@
       </childElements>
     </childElement>
     <childElement id="e09fb8aa-41db-4aa0-8be9-580161ae619a" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>3.1.0</name>
+      <name>3.2.0</name>
       <display>3.0.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -114,32 +114,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="345b3489-57cf-4fd1-be90-4d1a48e5082e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>xunit.v3.core</name>
+        <childElement id="e7d64651-86f1-44e9-9599-81fbbc6cc481" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>xunit.v3.mtp-v1</name>
           <isAbstract>false</isAbstract>
-          <value>3.1.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>e09fb8aa-41db-4aa0-8be9-580161ae619a</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="7f44d5dd-06f7-4d83-8f43-87b5bc9299de" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>xunit.v3.assert</name>
-          <isAbstract>false</isAbstract>
-          <value>3.1.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>e09fb8aa-41db-4aa0-8be9-580161ae619a</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="d9302c95-98c9-4a7f-a744-0435a6054b59" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>xunit.analyzers</name>
-          <isAbstract>false</isAbstract>
-          <value>1.24.0</value>
+          <value>3.2.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e09fb8aa-41db-4aa0-8be9-580161ae619a</parentFolderId>

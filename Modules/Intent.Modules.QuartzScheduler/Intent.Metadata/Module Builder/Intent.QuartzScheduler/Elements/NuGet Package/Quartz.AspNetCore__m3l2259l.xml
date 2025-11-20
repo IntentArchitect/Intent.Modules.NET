@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="c9f8a35d-344e-4d0a-b9e2-49bd170169d9" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>3.15.0</name>
+      <name>3.15.1</name>
       <display>3.14.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,10 +47,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="4f3d83a9-65cc-484f-99b7-6c1e19548ad1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="92883a31-bf01-4e13-9613-3a55cac1373b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Quartz.Extensions.Hosting</name>
           <isAbstract>false</isAbstract>
-          <value>3.15.0</value>
+          <value>3.15.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>c9f8a35d-344e-4d0a-b9e2-49bd170169d9</parentFolderId>
@@ -58,7 +58,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="10144109-cf82-45b4-bc01-4c18062b5d2a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="bd775cff-dfb4-4185-8eba-367edbebc8d9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
@@ -69,7 +69,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="30996a99-c115-4983-b4af-2be9f930d31c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="8149575f-a97d-47be-bc86-8c076bcb3e6e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics.HealthChecks</name>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
@@ -83,7 +83,7 @@
       </childElements>
     </childElement>
     <childElement id="0d0d4c1d-d6f7-48fd-a059-1c607d45008d" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>3.15.0</name>
+      <name>3.15.1</name>
       <display>3.14.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -105,10 +105,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="c4c53ca3-bade-4525-8b83-afa02e780c0c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="83e3ff7a-4e96-4431-93d0-02cdf411feda" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Quartz.Extensions.Hosting</name>
           <isAbstract>false</isAbstract>
-          <value>3.15.0</value>
+          <value>3.15.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0d0d4c1d-d6f7-48fd-a059-1c607d45008d</parentFolderId>
@@ -116,7 +116,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="50f79a56-c57d-4f1c-a4dd-6c2a903f63c3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="5a1c6753-d744-4553-8f9e-847a788e2b58" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
           <isAbstract>false</isAbstract>
           <value>2.1.1</value>
@@ -130,7 +130,7 @@
       </childElements>
     </childElement>
     <childElement id="b36f3eb7-dd5a-4b3a-8f74-7789b75db36d" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>3.15.0</name>
+      <name>3.15.1</name>
       <display>3.14.0 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -152,10 +152,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="3935ca23-0652-4cac-b3b5-74af6ab28b6b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="7b3eed41-db6d-43c6-b8f9-b9a6104d67c2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Quartz.Extensions.Hosting</name>
           <isAbstract>false</isAbstract>
-          <value>3.15.0</value>
+          <value>3.15.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>b36f3eb7-dd5a-4b3a-8f74-7789b75db36d</parentFolderId>
@@ -163,7 +163,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="724212e8-c714-425b-bd2e-887a4010cd03" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="10f3b40b-ce55-4dff-9950-734b5670cd26" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>
@@ -174,7 +174,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="6d70134d-8e84-4303-b088-a52c4f83b067" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="1988faee-f7eb-4280-89e1-721122e912d9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics.HealthChecks</name>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>

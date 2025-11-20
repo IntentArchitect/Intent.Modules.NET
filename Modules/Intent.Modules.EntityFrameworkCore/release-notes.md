@@ -1,3 +1,7 @@
+### Version 5.0.34
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 5.0.33
 
 - Improvement: Updated module documentation to use centralized documentation site.

@@ -185,7 +185,7 @@
       </childElements>
     </childElement>
     <childElement id="13a9250b-8d76-402a-ad5a-d6f72748a2c1" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.1.8</name>
+      <name>8.1.9</name>
       <display>8.1.8 ( &gt;= .NETCoreApp,Version=v7.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -207,100 +207,79 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="86ad411e-cf66-4d0c-84a6-692d1f003394" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="2323694a-cee8-4119-9254-65c04d9fc411" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Caching.Abstractions</name>
-          <display>Microsoft.Extensions.Caching.Abstractions (7.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>7.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>13a9250b-8d76-402a-ad5a-d6f72748a2c1</parentFolderId>
-          <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
-          <packageName>Intent.MongoDb</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="90dc9609-5544-408f-863d-4b01350aa525" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="4a0216d1-0bf3-4d37-9f6e-0a38afd349f5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration</name>
-          <display>Microsoft.Extensions.Configuration (7.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>7.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>13a9250b-8d76-402a-ad5a-d6f72748a2c1</parentFolderId>
-          <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
-          <packageName>Intent.MongoDb</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="9c2bb7fa-4d07-4bca-a5b4-813d7f6456c3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="af99b4e8-3b1b-4ee8-9b7f-f3992d95927c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection</name>
-          <display>Microsoft.Extensions.DependencyInjection (7.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>7.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>13a9250b-8d76-402a-ad5a-d6f72748a2c1</parentFolderId>
-          <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
-          <packageName>Intent.MongoDb</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="33674733-849a-4b4d-8b04-389f02022d6e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="18075617-9436-483c-8811-1c772b591619" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Http</name>
-          <display>Microsoft.Extensions.Http (7.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>7.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>13a9250b-8d76-402a-ad5a-d6f72748a2c1</parentFolderId>
-          <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
-          <packageName>Intent.MongoDb</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="32bcd575-ec0b-409e-9a41-c955a40a501d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="aaa49ab3-8556-41c6-80f1-1ef79c78e688" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging</name>
-          <display>Microsoft.Extensions.Logging (7.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>7.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>13a9250b-8d76-402a-ad5a-d6f72748a2c1</parentFolderId>
-          <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
-          <packageName>Intent.MongoDb</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="3dbf764e-7ded-41cf-a365-931938a07a6a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c0bb5531-ef66-46fb-a3de-bc2b8e93b93e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options</name>
-          <display>Microsoft.Extensions.Options (7.0.1)</display>
           <isAbstract>false</isAbstract>
           <value>7.0.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>13a9250b-8d76-402a-ad5a-d6f72748a2c1</parentFolderId>
-          <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
-          <packageName>Intent.MongoDb</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="fc669a36-d107-4b7c-9031-fd09df7dee6e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d655b201-4398-4fd0-a4e1-433917652891" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options.ConfigurationExtensions</name>
-          <display>Microsoft.Extensions.Options.ConfigurationExtensions (7.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>7.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>13a9250b-8d76-402a-ad5a-d6f72748a2c1</parentFolderId>
-          <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
-          <packageName>Intent.MongoDb</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -308,7 +287,7 @@
       </childElements>
     </childElement>
     <childElement id="7d172547-2497-4e99-85ce-c1f95963dc6e" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.4.1</name>
+      <name>9.4.3</name>
       <display>9.4.1 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -330,100 +309,79 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="c6101e00-66f0-48a4-b1dd-a54772784229" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="775172fc-5002-4583-812b-f7c2e6ca3931" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Caching.Abstractions</name>
-          <display>Microsoft.Extensions.Caching.Abstractions (8.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7d172547-2497-4e99-85ce-c1f95963dc6e</parentFolderId>
-          <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
-          <packageName>Intent.MongoDb</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="960563f2-2adf-46ac-b2b0-7dbedccdb29c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="89bdb433-36ba-44c1-8571-b3a5ad6ee89b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration</name>
-          <display>Microsoft.Extensions.Configuration (8.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7d172547-2497-4e99-85ce-c1f95963dc6e</parentFolderId>
-          <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
-          <packageName>Intent.MongoDb</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="2e9c46cf-01df-47c4-ab5a-3bfa7c20776e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="5ff4475d-b21d-44f5-8030-0ffca9ef2b96" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection</name>
-          <display>Microsoft.Extensions.DependencyInjection (8.0.1)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7d172547-2497-4e99-85ce-c1f95963dc6e</parentFolderId>
-          <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
-          <packageName>Intent.MongoDb</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="bb04a8e5-54a2-42a9-acfa-85d271ed40c2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9680c654-b1e4-438b-b6b3-14243677d452" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Http</name>
-          <display>Microsoft.Extensions.Http (8.0.1)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7d172547-2497-4e99-85ce-c1f95963dc6e</parentFolderId>
-          <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
-          <packageName>Intent.MongoDb</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="9d539b9b-2a8b-4bd5-ac10-845896f7f798" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="1f3474e9-7622-4fda-a0a0-79360d25bf8f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging</name>
-          <display>Microsoft.Extensions.Logging (8.0.1)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7d172547-2497-4e99-85ce-c1f95963dc6e</parentFolderId>
-          <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
-          <packageName>Intent.MongoDb</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="890af5a1-88a4-4495-bf5c-ae2ac02d11a9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="173fd659-31cd-433a-91bf-29b9b9ef8d57" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options</name>
-          <display>Microsoft.Extensions.Options (8.0.2)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7d172547-2497-4e99-85ce-c1f95963dc6e</parentFolderId>
-          <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
-          <packageName>Intent.MongoDb</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="11da8b86-836f-4b5b-8768-b6ac88992290" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6227fead-b069-459f-b862-a73f9fafce34" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options.ConfigurationExtensions</name>
-          <display>Microsoft.Extensions.Options.ConfigurationExtensions (8.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7d172547-2497-4e99-85ce-c1f95963dc6e</parentFolderId>
-          <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
-          <packageName>Intent.MongoDb</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -431,7 +389,7 @@
       </childElements>
     </childElement>
     <childElement id="63484b7a-124f-4f88-92df-6bea21bcea80" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.4.1</name>
+      <name>9.4.3</name>
       <display>9.4.1 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -453,100 +411,188 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="2222740c-7b09-4ebc-af97-0d60bde8a686" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="683f876e-69c7-4b5a-b6ce-f2bb974a6d48" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Caching.Abstractions</name>
-          <display>Microsoft.Extensions.Caching.Abstractions (9.0.10)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.10</value>
+          <value>9.0.11</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>63484b7a-124f-4f88-92df-6bea21bcea80</parentFolderId>
-          <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
-          <packageName>Intent.MongoDb</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="15870d0f-15b4-4c1c-9b22-7b2a69f226d9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="bf283d2e-b206-4bca-ad1c-e7478d4cf676" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration</name>
-          <display>Microsoft.Extensions.Configuration (9.0.10)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.10</value>
+          <value>9.0.11</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>63484b7a-124f-4f88-92df-6bea21bcea80</parentFolderId>
-          <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
-          <packageName>Intent.MongoDb</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="a8918698-a60f-4380-88df-81dc852d47a4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b4fdf98f-f5e4-47fa-be03-ec09ed1355c8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection</name>
-          <display>Microsoft.Extensions.DependencyInjection (9.0.10)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.10</value>
+          <value>9.0.11</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>63484b7a-124f-4f88-92df-6bea21bcea80</parentFolderId>
-          <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
-          <packageName>Intent.MongoDb</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="324a2ce8-430f-4b8b-83b9-8538bdd557ff" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="0a8def84-b696-4664-8131-10bfbdfaa6e1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Http</name>
-          <display>Microsoft.Extensions.Http (9.0.10)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.10</value>
+          <value>9.0.11</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>63484b7a-124f-4f88-92df-6bea21bcea80</parentFolderId>
-          <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
-          <packageName>Intent.MongoDb</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="25e70e94-7339-4355-8fd3-648681d387c7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="92a913fb-7467-4e07-a7e1-82d042d4301d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging</name>
-          <display>Microsoft.Extensions.Logging (9.0.10)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.10</value>
+          <value>9.0.11</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>63484b7a-124f-4f88-92df-6bea21bcea80</parentFolderId>
-          <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
-          <packageName>Intent.MongoDb</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="843b1f63-13b1-43a7-92d5-bce29068b8f0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="7ea76955-f614-4574-90fb-24df3698b718" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options</name>
-          <display>Microsoft.Extensions.Options (9.0.10)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.10</value>
+          <value>9.0.11</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>63484b7a-124f-4f88-92df-6bea21bcea80</parentFolderId>
-          <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
-          <packageName>Intent.MongoDb</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="75c4c25b-2332-4899-8e0d-073427ef2581" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="879a92a0-ee89-4659-9c69-642a5e73795b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options.ConfigurationExtensions</name>
-          <display>Microsoft.Extensions.Options.ConfigurationExtensions (9.0.10)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.10</value>
+          <value>9.0.11</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>63484b7a-124f-4f88-92df-6bea21bcea80</parentFolderId>
-          <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
-          <packageName>Intent.MongoDb</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="2c6c7320-6dbe-4e62-8e40-f25102967c9e" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>10.0.0</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c410faa3-5f31-491a-b9c8-1bc01197f8ea</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v10.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="9f40a831-9de8-43f9-bf49-955d4e281f09" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Finbuckle.MultiTenant.Abstractions</name>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2c6c7320-6dbe-4e62-8e40-f25102967c9e</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="76552fc2-5928-4d59-98a1-77961dd70a1a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Caching.Abstractions</name>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2c6c7320-6dbe-4e62-8e40-f25102967c9e</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="c5793f30-ef55-4376-836d-54b87f6050d1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration</name>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2c6c7320-6dbe-4e62-8e40-f25102967c9e</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="84549d00-4249-46cb-80e4-e856ff443d27" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.DependencyInjection</name>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2c6c7320-6dbe-4e62-8e40-f25102967c9e</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="f913c608-0b4e-4858-aac2-650a994a6c01" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Http</name>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2c6c7320-6dbe-4e62-8e40-f25102967c9e</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="7b420137-4a31-4627-812b-7c43193b80a6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging</name>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2c6c7320-6dbe-4e62-8e40-f25102967c9e</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="f8fd9890-598e-4b92-96cb-3a4c2166ba53" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Options</name>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2c6c7320-6dbe-4e62-8e40-f25102967c9e</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="e6afb086-e46d-4e3e-8fae-c144c96958a9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Options.ConfigurationExtensions</name>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2c6c7320-6dbe-4e62-8e40-f25102967c9e</parentFolderId>
           <stereotypes />
           <metadata />
           <childElements />

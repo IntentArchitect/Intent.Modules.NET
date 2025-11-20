@@ -71,10 +71,8 @@ namespace Intent.Modules.UnitTesting
             NugetRegistry.Register(XunitV3PackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, >= 0) => new PackageVersion("3.1.0")
-                            .WithNugetDependency("xunit.analyzers", "1.24.0")
-                            .WithNugetDependency("xunit.v3.assert", "3.1.0")
-                            .WithNugetDependency("xunit.v3.core", "3.1.0"),
+                        ( >= 8, >= 0) => new PackageVersion("3.2.0")
+                            .WithNugetDependency("xunit.v3.mtp-v1", "3.2.0"),
                         ( >= 6, >= 0) => new PackageVersion("1.1.0")
                             .WithNugetDependency("xunit.analyzers", "1.20.0")
                             .WithNugetDependency("xunit.v3.assert", "1.1.0")

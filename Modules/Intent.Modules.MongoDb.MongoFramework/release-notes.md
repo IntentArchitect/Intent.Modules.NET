@@ -1,3 +1,7 @@
+### Version 1.0.32
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 1.0.31
 
 - Improvement: Updated module documentation to use centralized documentation site.

@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="bd32cb35-22c9-47dc-931c-e8da480e3566" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>11.11.0</name>
+      <name>11.12.0</name>
       <display>11.9.2 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -48,7 +48,7 @@
       <childElements />
     </childElement>
     <childElement id="a7d937a2-5362-45ae-86f2-cf34a708264d" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>12.0.0</name>
+      <name>12.1.0</name>
       <display>11.9.2 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -71,7 +71,7 @@
       <childElements />
     </childElement>
     <childElement id="7ce122e1-fa9d-40de-90fb-3fc4b5e4a47c" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>11.11.0</name>
+      <name>11.12.0</name>
       <display>11.9.2 ( &gt;= .NETCoreApp,Version=v7.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -94,7 +94,7 @@
       <childElements />
     </childElement>
     <childElement id="9fdd8af8-94f0-4a8d-ae59-b431b54d65de" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>11.11.0</name>
+      <name>11.12.0</name>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -112,7 +112,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="7a4dd770-15dd-4baf-8ea9-12d37742fb30" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="7c8372d8-9e1f-468e-b959-2fc3b3e98b83" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Threading.Tasks.Extensions</name>
           <isAbstract>false</isAbstract>
           <value>4.5.4</value>
@@ -126,7 +126,7 @@
       </childElements>
     </childElement>
     <childElement id="8b2bd2e4-0b1b-4f8b-906e-d216806b6ac3" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>11.11.0</name>
+      <name>11.12.0</name>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>

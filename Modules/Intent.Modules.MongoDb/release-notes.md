@@ -1,3 +1,7 @@
+### Version 2.0.7
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 2.0.6
 
 - Improvement: Updated module documentation to use centralized documentation site.

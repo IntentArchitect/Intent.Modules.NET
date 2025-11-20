@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="44b08124-cbea-48b1-9e9b-10383a1c4789" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>11.11.0</name>
+      <name>11.12.0</name>
       <display>11.11.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,30 +47,24 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="eea9def5-2b4e-41bd-b0a6-ce54d7b09dc7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="79f957de-3803-4877-bfc4-404a19337e33" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>FluentValidation</name>
-          <display>FluentValidation (11.11.0)</display>
           <isAbstract>false</isAbstract>
-          <value>11.11.0</value>
+          <value>11.12.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>44b08124-cbea-48b1-9e9b-10383a1c4789</parentFolderId>
-          <packageId>55856e5d-8217-4c17-8fbb-082ac75baaf5</packageId>
-          <packageName>Intent.Application.FluentValidation</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="f91980be-6c50-4ce8-86a1-843ee397ad8a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="fabbb916-2798-4a8f-a6cf-adbbced7b2c7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Dependencyinjection.Abstractions</name>
-          <display>Microsoft.Extensions.Dependencyinjection.Abstractions (2.1.0)</display>
           <isAbstract>false</isAbstract>
           <value>2.1.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>44b08124-cbea-48b1-9e9b-10383a1c4789</parentFolderId>
-          <packageId>55856e5d-8217-4c17-8fbb-082ac75baaf5</packageId>
-          <packageName>Intent.Application.FluentValidation</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -78,7 +72,7 @@
       </childElements>
     </childElement>
     <childElement id="60788b3f-77aa-4071-ae60-3b7cfe9570d2" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>11.11.0</name>
+      <name>11.12.0</name>
       <display>11.11.0 ( &gt;= .NETStandard,Version=v2.1 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -100,30 +94,24 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="1f772d2c-fc9d-49fe-b51d-2533f179a0a5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="2357254e-a6ce-4485-b8b3-8c05f5438b39" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>FluentValidation</name>
-          <display>FluentValidation (11.11.0)</display>
           <isAbstract>false</isAbstract>
-          <value>11.11.0</value>
+          <value>11.12.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>60788b3f-77aa-4071-ae60-3b7cfe9570d2</parentFolderId>
-          <packageId>55856e5d-8217-4c17-8fbb-082ac75baaf5</packageId>
-          <packageName>Intent.Application.FluentValidation</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="4bc6c01b-3dba-4af4-8fa8-a467f02f292c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="1c65ca63-63f4-4cf5-837c-73af148697ac" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Dependencyinjection.Abstractions</name>
-          <display>Microsoft.Extensions.Dependencyinjection.Abstractions (2.1.0)</display>
           <isAbstract>false</isAbstract>
           <value>2.1.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>60788b3f-77aa-4071-ae60-3b7cfe9570d2</parentFolderId>
-          <packageId>55856e5d-8217-4c17-8fbb-082ac75baaf5</packageId>
-          <packageName>Intent.Application.FluentValidation</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -131,7 +119,7 @@
       </childElements>
     </childElement>
     <childElement id="b499642e-dc3f-4de9-a784-37c9b571b9ef" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>12.0.0</name>
+      <name>12.1.0</name>
       <display>12.0.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -153,30 +141,24 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="dd14697c-3c6e-45dd-9bfc-37f35fb85aae" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e56a55b7-cdbd-4b63-bd6c-2b76e4241757" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>FluentValidation</name>
-          <display>FluentValidation (12.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>12.0.0</value>
+          <value>12.1.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>b499642e-dc3f-4de9-a784-37c9b571b9ef</parentFolderId>
-          <packageId>55856e5d-8217-4c17-8fbb-082ac75baaf5</packageId>
-          <packageName>Intent.Application.FluentValidation</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="2356b029-b6d4-4291-ab8d-acb8e1a67781" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="91239d9c-c3e3-4039-a362-779809513dfd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Dependencyinjection.Abstractions</name>
-          <display>Microsoft.Extensions.Dependencyinjection.Abstractions (2.1.0)</display>
           <isAbstract>false</isAbstract>
           <value>2.1.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>b499642e-dc3f-4de9-a784-37c9b571b9ef</parentFolderId>
-          <packageId>55856e5d-8217-4c17-8fbb-082ac75baaf5</packageId>
-          <packageName>Intent.Application.FluentValidation</packageName>
           <stereotypes />
           <metadata />
           <childElements />

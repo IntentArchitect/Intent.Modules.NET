@@ -214,7 +214,7 @@
     </childElement>
     <childElement id="e8c1514a-7083-432d-b3dd-3e3ffc053468" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <comment />
-      <name>8.13.0</name>
+      <name>8.14.0</name>
       <display>8.11.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -236,7 +236,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="92803254-b198-4230-8a57-c7df0f37391f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="24c03d74-8333-4195-9a37-305604ce7c9b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Components</name>
           <isAbstract>false</isAbstract>
           <value>8.0.12</value>
@@ -247,7 +247,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c35a1b6c-1fb3-4e57-89cd-b02c460e5502" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="00c0ce09-7479-4c9c-9877-8003dbd0c18b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Components.Web</name>
           <isAbstract>false</isAbstract>
           <value>8.0.12</value>
@@ -258,7 +258,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c641dabe-2cf8-47f4-959c-d2e76d50a3b1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="1c778fbc-f4ed-454a-8019-8e74b85a92cb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Localization</name>
           <isAbstract>false</isAbstract>
           <value>8.0.12</value>
@@ -272,7 +272,7 @@
       </childElements>
     </childElement>
     <childElement id="d8480efb-395e-4ed9-b226-f020ed3567b9" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.13.0</name>
+      <name>8.14.0</name>
       <display>8.11.0 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -294,7 +294,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="3010dda2-3b95-4143-9dfa-9d35b3ef4f5f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a0c12b48-e18a-4c1d-8990-e28e7a06fa6d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Components</name>
           <isAbstract>false</isAbstract>
           <value>9.0.1</value>
@@ -305,7 +305,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="53fce42f-e523-4eca-916c-581168511900" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="51b9a4d8-c535-4762-9b39-1384332ce4aa" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Components.Web</name>
           <isAbstract>false</isAbstract>
           <value>9.0.1</value>
@@ -316,7 +316,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="0e841fac-3c2d-461d-b66b-cfcbc9fd676e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d0ae4f51-cd3e-4355-898c-4c3950b44c05" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Localization</name>
           <isAbstract>false</isAbstract>
           <value>9.0.1</value>
