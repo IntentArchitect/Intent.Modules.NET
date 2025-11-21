@@ -42,8 +42,26 @@ public partial class AzureEventGridConfigurationTemplate : CSharpTemplateBase<ob
                         method.Static()
                             .AddParameter("IServiceCollection", "services", param => param.WithThisModifier())
                             .AddParameter("IConfiguration", "configuration");
+                        
+                        var compositeTemplate = GetTemplate<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Intent.Eventing.Contracts.CompositeMessageBusConfiguration"));
+                        var isCompositeMode = compositeTemplate != null;
+                        
+                        if (isCompositeMode)
+                        {
+                            method.AddParameter(this.GetMessageBrokerRegistryName(), "registry");
+                        }
 
-                        method.AddStatement($"services.AddScoped<{this.GetEventBusInterfaceName()}, {this.GetAzureEventGridEventBusName()}>();");
+                        if (isCompositeMode)
+                        {
+                            method.AddStatement($"// Register as concrete type for composite message bus");
+                            method.AddStatement($"services.AddScoped<{this.GetAzureEventGridEventBusName()}>();");
+                        }
+                        else
+                        {
+                            method.AddStatement($"// Register as IMessageBus and IEventBus for standalone mode");
+                            method.AddStatement($"services.AddScoped<{this.GetMessageBusInterfaceName()}, {this.GetAzureEventGridEventBusName()}>();");
+                            method.AddStatement($"services.AddScoped<{this.GetEventBusInterfaceName()}, {this.GetAzureEventGridEventBusName()}>();");
+                        }
                         method.AddStatement($"services.AddSingleton<{this.GetAzureEventGridMessageDispatcherName()}>();");
                         method.AddStatement($"services.AddSingleton<{this.GetAzureEventGridMessageDispatcherInterfaceName()}, {this.GetAzureEventGridMessageDispatcherName()}>();");
 
@@ -58,6 +76,16 @@ public partial class AzureEventGridConfigurationTemplate : CSharpTemplateBase<ob
                         if (publishMessages.Count != 0)
                         {
                             ConfigurePublisherOptions(method, publishMessages);
+                            
+                            if (isCompositeMode)
+                            {
+                                method.AddStatement("", s => s.SeparatedFromPrevious());
+                                method.AddStatement("// Register message types with the composite message bus registry");
+                                foreach (var publishMessage in publishMessages)
+                                {
+                                    method.AddStatement($"registry.Register<{publishMessage.GetModelTypeName(this)}, {this.GetAzureEventGridEventBusName()}>();");
+                                }
+                            }
                         }
                             
                         var eventHandlers = IntegrationManager.Instance.GetSubscribedAzureEventGridMessages(ExecutionContext.GetApplicationConfig().Id);

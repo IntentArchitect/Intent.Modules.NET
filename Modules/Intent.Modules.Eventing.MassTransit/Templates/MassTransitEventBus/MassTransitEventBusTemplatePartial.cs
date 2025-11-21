@@ -33,7 +33,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitEventBus
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
                 .AddClass("MassTransitEventBus", @class =>
                 {
-                    @class.ImplementsInterface(this.GetEventBusInterfaceName());
+                    @class.ImplementsInterface(this.GetMessageBusInterfaceName());
                     @class.AddNestedClass("MessageToSend", nested =>
                     {
                         nested
@@ -72,12 +72,32 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitEventBus
                             .AddStatement("_messagesToPublish.Add(message);");
                     });
 
+                    @class.AddMethod("void", "Publish", method =>
+                    {
+                        method.AddGenericParameter("T", out var T)
+                            .AddGenericTypeConstraint(T, c => c.AddType("class"))
+                            .AddParameter(T, "message")
+                            .AddParameter("IDictionary<string, object>", "additionalData")
+                            .AddStatement("// Note: MassTransit does not support additional data in this implementation, ignoring parameter")
+                            .AddStatement("Publish(message);");
+                    });
+
                     @class.AddMethod("void", "Send", method =>
                     {
                         method.AddGenericParameter("T", out var T)
                             .AddGenericTypeConstraint(T, c => c.AddType("class"))
                             .AddParameter(T, "message")
                             .AddStatement("_messagesToSend.Add(new MessageToSend(message, null));");
+                    });
+
+                    @class.AddMethod("void", "Send", method =>
+                    {
+                        method.AddGenericParameter("T", out var T)
+                            .AddGenericTypeConstraint(T, c => c.AddType("class"))
+                            .AddParameter(T, "message")
+                            .AddParameter("IDictionary<string, object>", "additionalData")
+                            .AddStatement("// Note: MassTransit does not support additional data in this implementation, ignoring parameter")
+                            .AddStatement("Send(message);");
                     });
 
                     @class.AddMethod("void", "Send", method =>

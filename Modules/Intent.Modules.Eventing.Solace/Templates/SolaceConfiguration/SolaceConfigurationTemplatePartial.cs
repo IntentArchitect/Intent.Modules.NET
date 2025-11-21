@@ -43,6 +43,14 @@ namespace Intent.Modules.Eventing.Solace.Templates.SolaceConfiguration
                         method.AddParameter("IServiceCollection", "services", p => p.WithThisModifier());
                         method.AddParameter("IConfiguration", "configuration");
 
+                        var compositeTemplate = GetTemplate<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Intent.Eventing.Contracts.CompositeMessageBusConfiguration"));
+                        var isCompositeMode = compositeTemplate != null;
+                        
+                        if (isCompositeMode)
+                        {
+                            method.AddParameter(this.GetMessageBrokerRegistryName(), "registry");
+                        }
+
                         method.AddStatements(@"var config = configuration.GetSection(""Solace"").Get<SolaceConfig>();
 			if (config == null)
 			{
@@ -85,7 +93,19 @@ namespace Intent.Modules.Eventing.Solace.Templates.SolaceConfiguration
                         method.AddStatement($"services.AddSingleton<{this.GetMessageRegistryName()}>();");
                         method.AddStatement($"services.AddHostedService<{this.GetSolaceConsumingServiceName()}>();");
                         method.AddStatement($"services.AddScoped(typeof({this.GetSolaceEventDispatcherInterfaceName()}<>),typeof({this.GetSolaceEventDispatcherName()}<>) );");
-                        method.AddStatement($"services.AddScoped<{this.GetEventBusInterfaceName()},{this.GetSolaceEventBusName()}>();");
+                        
+                        if (isCompositeMode)
+                        {
+                            method.AddStatement("// Register as concrete type for composite message bus");
+                            method.AddStatement($"services.AddScoped<{this.GetSolaceEventBusName()}>();");
+                        }
+                        else
+                        {
+                            method.AddStatement("// Register as IMessageBus and IEventBus for standalone mode");
+                            method.AddStatement($"services.AddScoped<{this.GetMessageBusInterfaceName()}, {this.GetSolaceEventBusName()}>();");
+                            method.AddStatement($"services.AddScoped<{this.GetEventBusInterfaceName()}, {this.GetSolaceEventBusName()}>();");
+                        }
+                        
                         method.AddStatement($"services.AddTransient<{this.GetSolaceConsumerName()}>();");
 
                         @class.AddMethod("void", "HandleSessionMessageEvent", method =>

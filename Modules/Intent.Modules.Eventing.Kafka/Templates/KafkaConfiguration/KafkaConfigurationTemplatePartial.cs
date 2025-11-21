@@ -87,6 +87,14 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaConfiguration
                         method.Static();
                         method.AddParameter("IServiceCollection", "services", p => p.WithThisModifier());
 
+                        var compositeTemplate = GetTemplate<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Intent.Eventing.Contracts.CompositeMessageBusConfiguration"));
+                        var isCompositeMode = compositeTemplate != null;
+                        
+                        if (isCompositeMode)
+                        {
+                            method.AddParameter(this.GetMessageBrokerRegistryName(), "registry");
+                        }
+
                         method.AddInvocationStatement("services.AddSingleton<ISchemaRegistryClient>", invocation =>
                         {
                             invocation.AddArgument(new CSharpLambdaBlock("serviceProvider"), statement =>
@@ -101,7 +109,18 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaConfiguration
                                 block.AddStatement("return new CachedSchemaRegistryClient(schemaRegistryConfig);", s => s.SeparatedFromPrevious());
                             });
                         });
-                        method.AddStatement($"services.AddScoped<{this.GetEventBusInterfaceName()}, {this.GetKafkaEventBusName()}>();");
+                        
+                        if (isCompositeMode)
+                        {
+                            method.AddStatement("// Register as concrete type for composite message bus");
+                            method.AddStatement($"services.AddScoped<{this.GetKafkaEventBusName()}>();");
+                        }
+                        else
+                        {
+                            method.AddStatement("// Register as IMessageBus and IEventBus for standalone mode");
+                            method.AddStatement($"services.AddScoped<{this.GetMessageBusInterfaceName()}, {this.GetKafkaEventBusName()}>();");
+                            method.AddStatement($"services.AddScoped<{this.GetEventBusInterfaceName()}, {this.GetKafkaEventBusName()}>();");
+                        }
                         method.AddStatement($"services.AddScoped(typeof({this.GetKafkaEventDispatcherInterfaceName()}<>), typeof({this.GetKafkaEventDispatcherName()}<>));");
                         method.AddStatement($"services.AddHostedService<{this.GetKafkaConsumerBackgroundServiceName()}>();");
 
@@ -115,6 +134,16 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaConfiguration
                         foreach (var message in _publishedMessageModels.Value)
                         {
                             method.AddStatement($"services.AddSingleton(serviceProvider => {GetProducerFactoryStatement(message)});");
+                        }
+                        
+                        if (isCompositeMode && _publishedMessageModels.Value.Any())
+                        {
+                            method.AddStatement("");
+                            method.AddStatement("// Register message types with the composite message bus registry");
+                            foreach (var message in _publishedMessageModels.Value)
+                            {
+                                method.AddStatement($"registry.Register<{this.GetIntegrationEventMessageName(message)}, {this.GetKafkaEventBusName()}>();");
+                            }
                         }
                     });
 

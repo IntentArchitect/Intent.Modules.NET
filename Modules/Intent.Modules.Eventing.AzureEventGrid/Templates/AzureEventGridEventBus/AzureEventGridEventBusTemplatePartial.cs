@@ -37,7 +37,7 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridEventBu
                 .AddUsing("Microsoft.Extensions.Options")
                 .AddClass($"AzureEventGridEventBus", @class =>
                 {
-                    @class.ImplementsInterface(this.GetEventBusInterfaceName());
+                    @class.ImplementsInterface(this.GetMessageBusInterfaceName());
                     @class.AddField("List<MessageEntry>", "_messageQueue", field => field.PrivateReadOnly().WithAssignment(new CSharpStatement("[]")));
                     @class.AddField("Dictionary<string, PublisherEntry>", "_lookup", field => field.PrivateReadOnly());
 
@@ -76,6 +76,25 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridEventBu
 
                         method.AddStatement("ValidateMessage(message);");
                         method.AddStatement("_messageQueue.Add(new MessageEntry(message, additionalData));");
+                    });
+
+                    @class.AddMethod("void", "Send", method =>
+                    {
+                        method.AddGenericParameter("T", out var T);
+                        method.AddGenericTypeConstraint(T, c => c.AddType("class"));
+                        method.AddParameter(T, "message");
+
+                        method.AddStatement("Publish(message);");
+                    });
+                    
+                    @class.AddMethod("void", "Send", method =>
+                    {
+                        method.AddGenericParameter("T", out var T);
+                        method.AddGenericTypeConstraint(T, c => c.AddType("class"));
+                        method.AddParameter(T, "message");
+                        method.AddParameter("IDictionary<string, object>", "additionalData");
+
+                        method.AddStatement("Publish(message, additionalData);");
                     });
 
                     @class.AddMethod("Task", "FlushAllAsync", method =>

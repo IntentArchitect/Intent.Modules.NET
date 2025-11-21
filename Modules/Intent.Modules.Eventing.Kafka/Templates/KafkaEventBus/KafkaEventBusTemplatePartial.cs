@@ -32,7 +32,7 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaEventBus
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
                 .AddClass($"KafkaEventBus", @class =>
                 {
-                    @class.ImplementsInterface(this.GetEventBusInterfaceName());
+                    @class.ImplementsInterface(this.GetMessageBusInterfaceName());
                     @class.AddField($"ConcurrentDictionary<Type, IProducer>", "_producersByMessageType", f => f
                         .PrivateReadOnly()
                         .WithAssignment(new CSharpStatement("new ConcurrentDictionary<Type, IProducer>()")));
@@ -50,6 +50,36 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaEventBus
 
                         method.AddStatement($"var producer = _producersByMessageType.GetOrAdd(typeof({t}), _ => new Producer<{t}>(_serviceProvider.GetRequiredService<{this.GetKafkaProducerInterfaceName()}<{t}>>()));");
                         method.AddStatement("producer.EnqueueMessage(message);");
+                    });
+
+                    @class.AddMethod("void", "Publish", method =>
+                    {
+                        method.AddGenericParameter("T", out var t);
+                        method.AddGenericTypeConstraint(t, c => c.AddType("class"));
+                        method.AddParameter(t, "message");
+                        method.AddParameter("IDictionary<string, object>", "additionalData");
+
+                        method.AddStatement("// Note: Kafka does not support additional data in this implementation, ignoring parameter");
+                        method.AddStatement("Publish(message);");
+                    });
+
+                    @class.AddMethod("void", "Send", method =>
+                    {
+                        method.AddGenericParameter("T", out var t);
+                        method.AddGenericTypeConstraint(t, c => c.AddType("class"));
+                        method.AddParameter(t, "message");
+
+                        method.AddStatement("Publish(message);");
+                    });
+                    
+                    @class.AddMethod("void", "Send", method =>
+                    {
+                        method.AddGenericParameter("T", out var t);
+                        method.AddGenericTypeConstraint(t, c => c.AddType("class"));
+                        method.AddParameter(t, "message");
+                        method.AddParameter("IDictionary<string, object>", "additionalData");
+
+                        method.AddStatement("Publish(message, additionalData);");
                     });
 
                     @class.AddMethod("void", "FlushAllAsync", method =>
