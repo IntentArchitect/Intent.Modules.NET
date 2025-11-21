@@ -29,7 +29,7 @@ namespace Intent.Modules.Eventing.MassTransit.EntityFrameworkCore.FactoryExtensi
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            if (!application.Settings.GetEventingSettings().OutboxPattern().IsEntityFramework())
+            if (!application.Settings.GetMassTransitMessageBusSettings().OutboxPattern().IsEntityFramework())
             {
                 return;
             }

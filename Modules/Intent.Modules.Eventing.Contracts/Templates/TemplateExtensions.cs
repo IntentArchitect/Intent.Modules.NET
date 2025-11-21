@@ -28,14 +28,20 @@ namespace Intent.Modules.Eventing.Contracts.Templates
         {
             return template.GetTypeName(AssemblyAttributesTemplate.TemplateId);
         }
+
+        public static string GetCompositeMessageBusName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(CompositeMessageBusTemplate.TemplateId);
+        }
+
+        public static string GetCompositeMessageBusConfigurationName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(CompositeMessageBusConfigurationTemplate.TemplateId);
+        }
+
         public static string GetEventBusInterfaceName(this IIntentTemplate template)
         {
             return template.GetTypeName(EventBusInterfaceTemplate.TemplateId);
-        }
-
-        public static string GetMessageBusInterfaceName(this IIntentTemplate template)
-        {
-            return template.GetTypeName(MessageBusInterfaceTemplate.TemplateId);
         }
 
         public static string GetIntegrationCommandName<T>(this IIntentTemplate<T> template) where T : IntegrationCommandModel
@@ -83,11 +89,6 @@ namespace Intent.Modules.Eventing.Contracts.Templates
             return template.GetTypeName(IntegrationEventMessageTemplate.TemplateId, model);
         }
 
-        public static string GetCompositeMessageBusName(this IIntentTemplate template)
-        {
-            return template.GetTypeName(CompositeMessageBusTemplate.TemplateId);
-        }
-
         public static string GetMessageBrokerRegistryName(this IIntentTemplate template)
         {
             return template.GetTypeName(MessageBrokerRegistryTemplate.TemplateId);
@@ -98,9 +99,37 @@ namespace Intent.Modules.Eventing.Contracts.Templates
             return template.GetTypeName(MessageBrokerResolverTemplate.TemplateId);
         }
 
-        public static string GetCompositeMessageBusConfigurationName(this IIntentTemplate template)
+        public static string GetMessageBusInterfaceName(this IIntentTemplate template)
         {
-            return template.GetTypeName(CompositeMessageBusConfigurationTemplate.TemplateId);
+            return template.GetTypeName(MessageBusInterfaceTemplate.TemplateId);
         }
+
+
+        /// <summary>
+        /// Returns the appropriate bus interface name based on the UseLegacyInterfaceName setting.
+        /// If true, returns IEventBus; if false, returns IMessageBus.
+        /// </summary>
+        [IntentIgnore]
+        public static string GetBusInterfaceName(this IIntentTemplate template)
+        {
+            var useLegacy = Settings.ModuleSettingsExtensions.GetEventingSettings(template.ExecutionContext.Settings).UseLegacyInterfaceName();
+            return useLegacy
+                ? template.GetTypeName(EventBusInterfaceTemplate.TemplateId)
+                : template.GetTypeName(MessageBusInterfaceTemplate.TemplateId);
+        }
+
+        /// <summary>
+        /// Returns the appropriate bus interface template ID based on the UseLegacyInterfaceName setting.
+        /// If true, returns EventBusInterface template ID; if false, returns MessageBusInterface template ID.
+        /// </summary>
+        [IntentIgnore]
+        public static string GetBusInterfaceTemplateId(this IIntentTemplate template)
+        {
+            var useLegacy = Settings.ModuleSettingsExtensions.GetEventingSettings(template.ExecutionContext.Settings).UseLegacyInterfaceName();
+            return useLegacy
+                ? EventBusInterfaceTemplate.TemplateId
+                : MessageBusInterfaceTemplate.TemplateId;
+        }
+
     }
 }

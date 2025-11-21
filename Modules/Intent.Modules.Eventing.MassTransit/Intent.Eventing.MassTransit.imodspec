@@ -86,7 +86,12 @@
   <interoperability>
     <detect id="Intent.EntityFrameworkCore">
       <install>
-        <package id="Intent.Eventing.MassTransit.EntityFrameworkCore" version="5.2.3" />
+        <package id="Intent.Eventing.MassTransit.EntityFrameworkCore" version="5.3.0-pre.0" />
+      </install>
+    </detect>
+    <detect id="Intent.Eventing.MassTransit.EntityFrameworkCore">
+      <install>
+        <package id="Intent.Eventing.MassTransit.EntityFrameworkCore" version="5.3.0-pre.0" />
       </install>
     </detect>
     <detect id="Intent.Application.MediatR.CRUD">
@@ -99,13 +104,6 @@
         <package id="Intent.Application.ServiceImplementations.CRUD.Eventing" version="1.0.11" />
       </install>
     </detect>
-    <!-- Remove after 1 January 2025 -->
-    <detect id="Intent.OpenTelemetry">
-      <install>
-        <package id="Intent.OpenTelemetry" version="2.2.1" />
-      </install>
-    </detect>
-    <!-- Remove after 1 January 2025 -->
   </interoperability>
   <moduleSettings>
     <group id="b1c11f3f-63ce-4917-8ffb-b6c7698346c7" title="MassTransit Message Bus Settings" externalReference="b1c11f3f-63ce-4917-8ffb-b6c7698346c7">

@@ -8,6 +8,7 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.EntityFrameworkCore.Shared;
 using Intent.Modules.Eventing.Contracts.Settings;
+using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.Modules.Eventing.MassTransit.Settings;
 using Intent.Modules.Eventing.MassTransit.Templates.FinbucklePublishingFilter;
 using Intent.Plugins.FactoryExtensions;
@@ -111,25 +112,32 @@ namespace Intent.Modules.Eventing.MassTransit.FactoryExtensions
             template.CSharpFile.OnBuild(file =>
             {
                 var @class = file.Classes.First();
-                var messageBusInterface = template.GetTypeName("Intent.Eventing.Contracts.MessageBusInterface");
+                var busInterface = template.GetBusInterfaceName();
+                var busParameterName = template.ExecutionContext.Settings.GetEventingSettings().UseLegacyInterfaceName() 
+                    ? "eventBus" 
+                    : "messageBus";
                 var constructor = @class.Constructors.First();
-                if (!constructor.Parameters.Any(p => p.Type == messageBusInterface))
+                if (!constructor.Parameters.Any(p => p.Type == busInterface))
                 {
-                    constructor.AddParameter(messageBusInterface, "messageBus", p => p.IntroduceReadonlyField());
+                    constructor.AddParameter(busInterface, busParameterName, p => p.IntroduceReadonlyField());
                 }
+
+                var busFieldName = template.ExecutionContext.Settings.GetEventingSettings().UseLegacyInterfaceName() 
+                    ? "_eventBus" 
+                    : "_messageBus";
 
                 var method = template.GetSaveChangesMethod();
                 var statement = method.FindStatement(stmt => stmt.GetText("") == "DispatchEventsAsync().GetAwaiter().GetResult();");
                 if (statement != null)
                 {
-                    statement.InsertBelow((CSharpStatement)"_messageBus.FlushAllAsync().GetAwaiter().GetResult();");
+                    statement.InsertBelow((CSharpStatement)$"{busFieldName}.FlushAllAsync().GetAwaiter().GetResult();");
                 }
                 else
                 {
                     statement = method.FindStatement(stmt => stmt.GetText("").Contains("base.SaveChanges"));
                     if (statement != null)
                     {
-                        statement.InsertAbove("_messageBus.FlushAllAsync().GetAwaiter().GetResult();");
+                        statement.InsertAbove($"{busFieldName}.FlushAllAsync().GetAwaiter().GetResult();");
                     }
                 }
 
@@ -138,14 +146,14 @@ namespace Intent.Modules.Eventing.MassTransit.FactoryExtensions
                 statement = method.FindStatement(stmt => stmt.GetText("") == "await DispatchEventsAsync(cancellationToken);");
                 if (statement != null)
                 {
-                    statement.InsertBelow((CSharpStatement)"await _messageBus.FlushAllAsync(cancellationToken);");
+                    statement.InsertBelow((CSharpStatement)$"await {busFieldName}.FlushAllAsync(cancellationToken);");
                 }
                 else
                 {
                     statement = method.FindStatement(stmt => stmt.GetText("").Contains("base.SaveChanges"));
                     if (statement != null)
                     {
-                        statement.InsertAbove("await _messageBus.FlushAllAsync(cancellationToken);");
+                        statement.InsertAbove($"await {busFieldName}.FlushAllAsync(cancellationToken);");
                     }
                 }
 

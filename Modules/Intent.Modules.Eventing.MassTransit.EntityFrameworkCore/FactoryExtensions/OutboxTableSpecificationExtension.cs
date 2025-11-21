@@ -56,7 +56,7 @@ namespace Intent.Modules.Eventing.MassTransit.EntityFrameworkCore.FactoryExtensi
 
         private static bool IsTransactionalOutboxPatternAndDatabaseProviderSelected(IApplication application)
         {
-            return application.Settings.GetEventingSettings().OutboxPattern().IsEntityFramework() &&
+            return application.Settings.GetMassTransitMessageBusSettings().OutboxPattern().IsEntityFramework() &&
                    (application.Settings.GetDatabaseSettings().DatabaseProvider().IsSqlServer() ||
                     application.Settings.GetDatabaseSettings().DatabaseProvider().IsPostgresql() ||
                     application.Settings.GetDatabaseSettings().DatabaseProvider().IsMySql());

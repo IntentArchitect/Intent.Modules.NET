@@ -216,10 +216,14 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
         }
         else
         {
-            statements.Add("// Register as IMessageBus and IEventBus for standalone mode");
+            var useLegacy = ExecutionContext.Settings.GetEventingSettings().UseLegacyInterfaceName();
+            var primaryInterface = this.GetBusInterfaceName();
+            var secondaryInterface = useLegacy ? this.GetMessageBusInterfaceName() : this.GetEventBusInterfaceName();
+            
+            statements.Add($"// Register as {(useLegacy ? "IEventBus" : "IMessageBus")} (primary) and {(useLegacy ? "IMessageBus" : "IEventBus")} (secondary) for standalone mode");
             statements.Add($@"services.AddScoped<{this.GetMassTransitEventBusName()}>();");
-            statements.Add($@"services.AddScoped<{this.GetMessageBusInterfaceName()}>(provider => provider.GetRequiredService<{this.GetMassTransitEventBusName()}>());");
-            statements.Add($@"services.AddScoped<{this.GetEventBusInterfaceName()}>(provider => provider.GetRequiredService<{this.GetMassTransitEventBusName()}>());");
+            statements.Add($@"services.AddScoped<{primaryInterface}>(provider => provider.GetRequiredService<{this.GetMassTransitEventBusName()}>());");
+            statements.Add($@"services.AddScoped<{secondaryInterface}>(provider => provider.GetRequiredService<{this.GetMassTransitEventBusName()}>());");
         }
 
         return statements;
