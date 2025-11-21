@@ -1,3 +1,7 @@
+### Version 6.0.1
+
+- New Feature: Added `IMessageBus` interface as the primary eventing contract with `Publish`, `Send`, and `FlushAllAsync` methods, along with composite message bus infrastructure to support multiple provider coexistence.
+
 ### Version 6.0.0
 
 - Improvement: Provides a `_eventBus.Publish(...)` & `_eventBus.Send(...)` implmentation strategies for the new interactions system.

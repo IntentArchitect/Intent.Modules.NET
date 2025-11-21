@@ -1,3 +1,7 @@
+### Version 7.0.12
+
+- New Feature: EventBus now implements `IMessageBus` and supports composite message bus architecture for multi-provider scenarios.
+
 ### Version 7.0.11
 
 - Improvement: Updated module documentation to use centralized documentation site.
