@@ -10,7 +10,7 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Eventing.Contracts.DomainMapping.Templates;
 using Intent.Modules.Eventing.Contracts.DomainMapping.Templates.MessageExtensions;
-using Intent.Modules.Eventing.Contracts.Templates.EventBusInterface;
+using Intent.Modules.Eventing.Contracts.Templates.MessageBusInterface;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -42,10 +42,10 @@ namespace Intent.Modules.Eventing.Contracts.DomainMapping.FactoryExtensions
                         {
                             var @class = file.Classes.First();
                             @class.Constructors.First()
-                                .AddParameter(template.GetTypeName(EventBusInterfaceTemplate.TemplateId), "eventBus", param => param.IntroduceReadonlyField());
+                                .AddParameter(template.GetTypeName(MessageBusInterfaceTemplate.TemplateId), "messageBus", param => param.IntroduceReadonlyField());
                             @class.FindMethod("Handle")
                                 .AddStatement($"var integrationEvent = notification.DomainEvent.MapTo{messageModel.Name.ToPascalCase()}();")
-                                .AddStatement("_eventBus.Publish(integrationEvent);");
+                                .AddStatement("_messageBus.Publish(integrationEvent);");
                         }
                     });
                 }

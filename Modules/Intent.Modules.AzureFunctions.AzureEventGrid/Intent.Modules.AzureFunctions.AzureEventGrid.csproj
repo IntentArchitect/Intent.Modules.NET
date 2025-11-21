@@ -7,7 +7,7 @@
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.9.0" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.8.3" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.9.0" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.10.0" />
     <PackageReference Include="Intent.Modules.Modelers.Services.EventInteractions" Version="1.2.1" />
     <PackageReference Include="Intent.Packager" Version="3.6.0-pre.1">
@@ -21,6 +21,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.AzureFunctions\Intent.Modules.AzureFunctions.csproj" />
     <ProjectReference Include="..\Intent.Modules.Eventing.AzureEventGrid\Intent.Modules.Eventing.AzureEventGrid.csproj" />
+    <ProjectReference Include="..\Intent.Modules.Eventing.Contracts\Intent.Modules.Eventing.Contracts.csproj" />
     <ProjectReference Include="..\Intent.Modules.Common.UnitOfWork\Intent.Modules.Common.UnitOfWork.csproj" PrivateAssets="All" />
   </ItemGroup>
 

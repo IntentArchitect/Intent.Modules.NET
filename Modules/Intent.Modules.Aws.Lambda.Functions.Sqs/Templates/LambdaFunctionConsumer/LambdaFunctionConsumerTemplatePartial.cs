@@ -54,7 +54,7 @@ namespace Intent.Modules.Aws.Lambda.Functions.Sqs.Templates.LambdaFunctionConsum
                     {
                         ctor.AddParameter($"ILogger<{@class.Name}>", "logger", param => param.IntroduceReadonlyField((_, statement) => statement.ThrowArgumentNullException()));
                         ctor.AddParameter(this.GetSqsMessageDispatcherInterfaceName(), "dispatcher", param => param.IntroduceReadonlyField((_, statement) => statement.ThrowArgumentNullException()));
-                        ctor.AddParameter(this.GetEventBusInterfaceName(), "eventBus", param => param.IntroduceReadonlyField((_, statement) => statement.ThrowArgumentNullException()));
+                        ctor.AddParameter(this.GetMessageBusInterfaceName(), "messageBus", param => param.IntroduceReadonlyField((_, statement) => statement.ThrowArgumentNullException()));
                         ctor.AddParameter("IServiceProvider", "serviceProvider", param => param.IntroduceReadonlyField((_, statement) => statement.ThrowArgumentNullException()));
                     });
 
@@ -84,7 +84,7 @@ namespace Intent.Modules.Aws.Lambda.Functions.Sqs.Templates.LambdaFunctionConsum
                                     invocationStatement: dispatch,
                                     cancellationTokenExpression: "cancellationToken");
 
-                                tryBlock.AddStatement("await _eventBus.FlushAllAsync(cancellationToken);");
+                                tryBlock.AddStatement("await _messageBus.FlushAllAsync(cancellationToken);");
                             });
 
                             loop.AddCatchBlock(UseType("System.Exception"), "ex", catchBlock =>

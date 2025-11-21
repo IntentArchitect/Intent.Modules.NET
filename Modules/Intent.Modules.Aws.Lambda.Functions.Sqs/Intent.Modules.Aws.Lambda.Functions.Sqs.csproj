@@ -21,6 +21,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.Aws.Lambda.Functions\Intent.Modules.Aws.Lambda.Functions.csproj" />
     <ProjectReference Include="..\Intent.Modules.Aws.Sqs\Intent.Modules.Aws.Sqs.csproj" />
+    <ProjectReference Include="..\Intent.Modules.Eventing.Contracts\Intent.Modules.Eventing.Contracts.csproj" />
     <ProjectReference Include="..\Intent.Modules.Common.UnitOfWork\Intent.Modules.Common.UnitOfWork.csproj" PrivateAssets="All" />
   </ItemGroup>
 

@@ -110,25 +110,25 @@ namespace Intent.Modules.Eventing.MassTransit.FactoryExtensions
             template.CSharpFile.OnBuild(file =>
             {
                 var @class = file.Classes.First();
-                var eventBusInterface = template.GetTypeName("Intent.Eventing.Contracts.EventBusInterface");
+                var messageBusInterface = template.GetTypeName("Intent.Eventing.Contracts.MessageBusInterface");
                 var constructor = @class.Constructors.First();
-                if (!constructor.Parameters.Any(p => p.Type == eventBusInterface))
+                if (!constructor.Parameters.Any(p => p.Type == messageBusInterface))
                 {
-                    constructor.AddParameter(eventBusInterface, "eventBus", p => p.IntroduceReadonlyField());
+                    constructor.AddParameter(messageBusInterface, "messageBus", p => p.IntroduceReadonlyField());
                 }
 
                 var method = template.GetSaveChangesMethod();
                 var statement = method.FindStatement(stmt => stmt.GetText("") == "DispatchEventsAsync().GetAwaiter().GetResult();");
                 if (statement != null)
                 {
-                    statement.InsertBelow((CSharpStatement)"_eventBus.FlushAllAsync().GetAwaiter().GetResult();");
+                    statement.InsertBelow((CSharpStatement)"_messageBus.FlushAllAsync().GetAwaiter().GetResult();");
                 }
                 else
                 {
                     statement = method.FindStatement(stmt => stmt.GetText("").Contains("base.SaveChanges"));
                     if (statement != null)
                     {
-                        statement.InsertAbove("_eventBus.FlushAllAsync().GetAwaiter().GetResult();");
+                        statement.InsertAbove("_messageBus.FlushAllAsync().GetAwaiter().GetResult();");
                     }
                 }
 
@@ -137,14 +137,14 @@ namespace Intent.Modules.Eventing.MassTransit.FactoryExtensions
                 statement = method.FindStatement(stmt => stmt.GetText("") == "await DispatchEventsAsync(cancellationToken);");
                 if (statement != null)
                 {
-                    statement.InsertBelow((CSharpStatement)"await _eventBus.FlushAllAsync(cancellationToken);");
+                    statement.InsertBelow((CSharpStatement)"await _messageBus.FlushAllAsync(cancellationToken);");
                 }
                 else
                 {
                     statement = method.FindStatement(stmt => stmt.GetText("").Contains("base.SaveChanges"));
                     if (statement != null)
                     {
-                        statement.InsertAbove("await _eventBus.FlushAllAsync(cancellationToken);");
+                        statement.InsertAbove("await _messageBus.FlushAllAsync(cancellationToken);");
                     }
                 }
 
