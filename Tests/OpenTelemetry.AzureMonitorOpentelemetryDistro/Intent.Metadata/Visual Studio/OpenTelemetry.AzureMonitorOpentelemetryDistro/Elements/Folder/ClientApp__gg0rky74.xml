@@ -32,7 +32,16 @@
       <parentFolderId>58e0be06-2799-403b-8caa-f6ab2754d579</parentFolderId>
       <packageId>6407e5e4-2aa2-4019-b042-cadd5c6ae80f</packageId>
       <packageName>OpenTelemetry.AzureMonitorOpentelemetryDistro</packageName>
-      <stereotypes />
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="a23c7901-31a5-4cbf-b8bf-1be128977e6d" name="Role Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+          <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+          <properties>
+            <property name="8d79a350-96f1-4d50-bb0a-f65a5c53ec62" display="Create Sub-Folders" value="true" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata />
       <childElements />
     </childElement>

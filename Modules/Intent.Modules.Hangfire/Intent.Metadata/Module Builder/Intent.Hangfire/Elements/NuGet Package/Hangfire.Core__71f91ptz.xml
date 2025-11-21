@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="4ff08158-0736-4cad-b1df-0b42b6f6456b" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>1.8.21</name>
+      <name>1.8.22</name>
       <display>1.8.20 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,7 +47,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="ca172dca-edae-463c-bbde-d4b5d9508ed1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="645fb3c0-0214-49c9-92e2-8cc39d31a1cd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Newtonsoft.Json</name>
           <isAbstract>false</isAbstract>
           <value>11.0.1</value>

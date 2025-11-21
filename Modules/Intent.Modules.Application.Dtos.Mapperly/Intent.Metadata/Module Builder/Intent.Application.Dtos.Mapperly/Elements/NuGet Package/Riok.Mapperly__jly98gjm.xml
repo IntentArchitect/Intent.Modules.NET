@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="2496d79d-bda4-4e15-8b79-0eb234d0abd2" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>4.2.1</name>
+      <name>4.3.0</name>
       <display>4.2.1 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />

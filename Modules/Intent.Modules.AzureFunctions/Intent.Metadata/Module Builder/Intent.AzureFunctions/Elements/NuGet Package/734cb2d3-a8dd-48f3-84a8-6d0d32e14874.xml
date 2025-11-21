@@ -25,8 +25,8 @@
   <metadata />
   <childElements>
     <childElement id="20357fa9-f135-4627-8112-72950137d82a" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>2.0.2</name>
-      <display>2.0.2 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
+      <name>2.1.0</name>
+      <display>2.1.0 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -47,11 +47,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="f6505448-b24a-4586-8c55-ab72d385c261" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="79a0e55c-822f-4862-be28-e82ae8a49ddf" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Azure.Functions.Worker</name>
-          <display>Microsoft.Azure.Functions.Worker (2.0.0)</display>
+          <display>Microsoft.Azure.Functions.Worker (2.1.0)</display>
           <isAbstract>false</isAbstract>
-          <value>2.0.0</value>
+          <value>2.1.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>20357fa9-f135-4627-8112-72950137d82a</parentFolderId>
@@ -61,7 +61,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="67b1f3f8-371a-4d0a-9fe2-511872661ae4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="69f91722-903d-4c32-9773-d806d7965d10" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Azure.Functions.Worker.Extensions.Abstractions</name>
           <display>Microsoft.Azure.Functions.Worker.Extensions.Abstractions (1.3.0)</display>
           <isAbstract>false</isAbstract>
@@ -75,7 +75,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="1426a06c-5d13-462c-8354-5da2f4b827f3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d129321f-b194-477c-97c2-e1518ef9e18a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Azure.Functions.Worker.Extensions.Http</name>
           <display>Microsoft.Azure.Functions.Worker.Extensions.Http (3.3.0)</display>
           <isAbstract>false</isAbstract>
@@ -89,7 +89,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="3c14634a-4b0b-4a0a-a2d7-cdd64edb895b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c52cb94e-c7ff-4b70-9b19-3da78aaadd25" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore.Analyzers</name>
           <display>Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore.Analyzers (1.0.4)</display>
           <isAbstract>false</isAbstract>
@@ -106,8 +106,8 @@
       </childElements>
     </childElement>
     <childElement id="733d8567-b2d2-4544-b538-5b07464d493e" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>2.0.2</name>
-      <display>2.0.2 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <name>2.1.0</name>
+      <display>2.1.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -128,11 +128,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="0ccdeea0-6b63-484a-b62c-f6a3fcc96787" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6afea2cd-fb86-49bf-af9e-dba89f7b5940" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Azure.Functions.Worker</name>
-          <display>Microsoft.Azure.Functions.Worker (2.0.0)</display>
+          <display>Microsoft.Azure.Functions.Worker (2.1.0)</display>
           <isAbstract>false</isAbstract>
-          <value>2.0.0</value>
+          <value>2.1.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>733d8567-b2d2-4544-b538-5b07464d493e</parentFolderId>
@@ -142,7 +142,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="5d195f36-c91d-430d-b7b2-55485ebb2474" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="7f4a28b3-e6f8-40c5-beec-9ab077cc6094" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Azure.Functions.Worker.Extensions.Abstractions</name>
           <display>Microsoft.Azure.Functions.Worker.Extensions.Abstractions (1.3.0)</display>
           <isAbstract>false</isAbstract>
@@ -156,7 +156,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="ec352dcb-2a5f-444a-9264-5501c4f0474a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a3582100-9fec-4cdb-81e6-412100150538" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Azure.Functions.Worker.Extensions.Http</name>
           <display>Microsoft.Azure.Functions.Worker.Extensions.Http (3.3.0)</display>
           <isAbstract>false</isAbstract>
@@ -170,7 +170,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="078d0352-df23-4e6a-9aa1-2d14b139bc19" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="7ccf2524-77d3-4f21-be29-9a482a88931f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore.Analyzers</name>
           <display>Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore.Analyzers (1.0.4)</display>
           <isAbstract>false</isAbstract>

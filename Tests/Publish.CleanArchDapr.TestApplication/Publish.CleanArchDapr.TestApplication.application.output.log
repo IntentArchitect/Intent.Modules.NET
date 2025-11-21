@@ -8,7 +8,7 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>dapr/components/pubsub.yaml</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>dapr/components/pubsub.yaml</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>4a4c6fe0-4600-43b5-ae64-30068da42d1e</ProjectId>
@@ -16,7 +16,7 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>dapr/components/statestore.yaml</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>dapr/components/statestore.yaml</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>d01e990e-39d9-4e6f-85b8-a63327af36ca</ProjectId>
@@ -24,7 +24,7 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>dapr/config.yaml</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>dapr/config.yaml</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>b504f7fc-775c-4dc1-af48-fb1c6924692e</ProjectId>

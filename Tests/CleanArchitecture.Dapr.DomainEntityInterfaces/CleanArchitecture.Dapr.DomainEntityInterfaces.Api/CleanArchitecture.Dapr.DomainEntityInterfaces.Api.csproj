@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Dapr.AspNetCore" Version="1.16.0" />
+    <PackageReference Include="Dapr.AspNetCore" Version="1.16.1" />
     <PackageReference Include="Man.Dapr.Sidekick.AspNetCore" Version="1.2.2" />
   </ItemGroup>
   </Project>

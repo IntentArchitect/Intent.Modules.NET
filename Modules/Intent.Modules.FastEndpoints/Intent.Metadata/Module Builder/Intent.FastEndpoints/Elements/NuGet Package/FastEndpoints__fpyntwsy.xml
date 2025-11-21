@@ -159,7 +159,7 @@
       </childElements>
     </childElement>
     <childElement id="7d67f05b-8078-476c-a343-51cd410a2891" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>7.0.1</name>
+      <name>7.1.1</name>
       <display>6.0.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -181,10 +181,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="954d5617-bdc7-4ed0-8496-3c95fdbba969" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="69e7a6f0-8b2b-4c2d-aa06-2666ad80e42d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>FastEndpoints.Attributes</name>
           <isAbstract>false</isAbstract>
-          <value>7.0.1</value>
+          <value>7.1.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7d67f05b-8078-476c-a343-51cd410a2891</parentFolderId>
@@ -192,10 +192,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="1939aff3-d5a4-4adc-9927-71f1da497b62" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ed4880e1-87a4-4856-9742-8dce34763135" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>FastEndpoints.Messaging.Core</name>
           <isAbstract>false</isAbstract>
-          <value>7.0.1</value>
+          <value>7.1.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7d67f05b-8078-476c-a343-51cd410a2891</parentFolderId>
@@ -203,10 +203,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="748e0305-4518-433a-a7a9-f6ec8eb74bd8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="88532bdb-dc45-43cf-8e3c-74954364edf1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>FluentValidation</name>
           <isAbstract>false</isAbstract>
-          <value>12.0.0</value>
+          <value>12.1.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7d67f05b-8078-476c-a343-51cd410a2891</parentFolderId>
@@ -217,7 +217,7 @@
       </childElements>
     </childElement>
     <childElement id="857b2e05-eebf-4b73-a769-ab49fd966ea3" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>7.0.1</name>
+      <name>7.1.1</name>
       <display>6.0.0 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -239,10 +239,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="3c3ad3e0-3d3c-45c4-b0c2-952b95559e1b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="7f965e22-e71b-4bbe-adc0-7c51e9d96bbc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>FastEndpoints.Attributes</name>
           <isAbstract>false</isAbstract>
-          <value>7.0.1</value>
+          <value>7.1.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>857b2e05-eebf-4b73-a769-ab49fd966ea3</parentFolderId>
@@ -250,10 +250,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="8ea8d7eb-921c-43b7-856d-cca6fbaede2f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a640a06f-9913-48c3-960d-4615607f67e3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>FastEndpoints.Messaging.Core</name>
           <isAbstract>false</isAbstract>
-          <value>7.0.1</value>
+          <value>7.1.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>857b2e05-eebf-4b73-a769-ab49fd966ea3</parentFolderId>
@@ -261,13 +261,67 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="18d163db-cc80-4d15-b36b-54b2dafc2e65" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="383cce1c-92c7-4e50-81a9-5404aede12ac" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>FluentValidation</name>
           <isAbstract>false</isAbstract>
-          <value>12.0.0</value>
+          <value>12.1.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>857b2e05-eebf-4b73-a769-ab49fd966ea3</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="deb2ad5a-c8e0-48e0-99b5-aaab7ce71e4f" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>7.1.1</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b4e958c6-0cd7-42d7-aaf9-f7df9ce95d3d</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v10.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="5e879da0-ab17-450f-a066-cbbc948a1717" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>FastEndpoints.Attributes</name>
+          <isAbstract>false</isAbstract>
+          <value>7.1.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>deb2ad5a-c8e0-48e0-99b5-aaab7ce71e4f</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="d44c37e2-dd58-4ad3-a822-3d6e3d94c7e1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>FastEndpoints.Messaging.Core</name>
+          <isAbstract>false</isAbstract>
+          <value>7.1.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>deb2ad5a-c8e0-48e0-99b5-aaab7ce71e4f</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="a6e8c202-37c2-4503-bf32-9443f79022de" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>FluentValidation</name>
+          <isAbstract>false</isAbstract>
+          <value>12.1.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>deb2ad5a-c8e0-48e0-99b5-aaab7ce71e4f</parentFolderId>
           <stereotypes />
           <metadata />
           <childElements />

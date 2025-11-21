@@ -32,12 +32,15 @@ namespace Intent.Modules.AspNetCore.IdentityService
             NugetRegistry.Register(MicrosoftAspNetCoreIdentityEntityFrameworkCorePackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("9.0.10")
-                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "9.0.10")
-                            .WithNugetDependency("Microsoft.Extensions.Identity.Stores", "9.0.10"),
+                        ( >= 10, >= 0) => new PackageVersion("10.0.0")
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "10.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Identity.Stores", "10.0.0"),
+                        ( >= 9, >= 0) => new PackageVersion("9.0.11")
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "9.0.11")
+                            .WithNugetDependency("Microsoft.Extensions.Identity.Stores", "9.0.11"),
                         ( >= 8, >= 0) => new PackageVersion("8.0.21")
-                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "8.0.21")
-                            .WithNugetDependency("Microsoft.Extensions.Identity.Stores", "8.0.21"),
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "8.0.22")
+                            .WithNugetDependency("Microsoft.Extensions.Identity.Stores", "8.0.22"),
                         ( >= 7, >= 0) => new PackageVersion("7.0.20")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "7.0.20")
                             .WithNugetDependency("Microsoft.Extensions.Identity.Stores", "7.0.20"),
@@ -57,32 +60,35 @@ namespace Intent.Modules.AspNetCore.IdentityService
             NugetRegistry.Register(MicrosoftExtensionsIdentityStoresPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("9.0.10")
-                            .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "9.0.10")
-                            .WithNugetDependency("Microsoft.Extensions.Identity.Core", "9.0.10")
-                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.10"),
-                        ( >= 2, >= 0) => new PackageVersion("9.0.10")
-                            .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "9.0.10")
-                            .WithNugetDependency("Microsoft.Extensions.Identity.Core", "9.0.10")
-                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.10"),
+                        ( >= 10, >= 0) => new PackageVersion("10.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "10.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Identity.Core", "10.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "10.0.0"),
+                        ( >= 2, >= 0) => new PackageVersion("10.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "10.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Identity.Core", "10.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "10.0.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftExtensionsIdentityStoresPackageName}'"),
                     }
                 );
             NugetRegistry.Register(SystemIdentityModelTokensJwtPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("8.14.0")
-                            .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.14.0")
-                            .WithNugetDependency("Microsoft.IdentityModel.Tokens", "8.14.0"),
-                        ( >= 8, >= 0) => new PackageVersion("8.14.0")
-                            .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.14.0")
-                            .WithNugetDependency("Microsoft.IdentityModel.Tokens", "8.14.0"),
-                        ( >= 6, >= 0) => new PackageVersion("8.14.0")
-                            .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.14.0")
-                            .WithNugetDependency("Microsoft.IdentityModel.Tokens", "8.14.0"),
-                        ( >= 2, >= 0) => new PackageVersion("8.14.0")
-                            .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.14.0")
-                            .WithNugetDependency("Microsoft.IdentityModel.Tokens", "8.14.0"),
+                        ( >= 10, >= 0) => new PackageVersion("8.15.0")
+                            .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.15.0")
+                            .WithNugetDependency("Microsoft.IdentityModel.Tokens", "8.15.0"),
+                        ( >= 9, >= 0) => new PackageVersion("8.15.0")
+                            .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.15.0")
+                            .WithNugetDependency("Microsoft.IdentityModel.Tokens", "8.15.0"),
+                        ( >= 8, >= 0) => new PackageVersion("8.15.0")
+                            .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.15.0")
+                            .WithNugetDependency("Microsoft.IdentityModel.Tokens", "8.15.0"),
+                        ( >= 6, >= 0) => new PackageVersion("8.15.0")
+                            .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.15.0")
+                            .WithNugetDependency("Microsoft.IdentityModel.Tokens", "8.15.0"),
+                        ( >= 2, >= 0) => new PackageVersion("8.15.0")
+                            .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.15.0")
+                            .WithNugetDependency("Microsoft.IdentityModel.Tokens", "8.15.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{SystemIdentityModelTokensJwtPackageName}'"),
                     }
                 );

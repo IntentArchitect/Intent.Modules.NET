@@ -8656,7 +8656,7 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.BlazorClient/_Imports.razor</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>_Imports.razor</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>4db14e1a-8b17-4990-bfef-8951cf818e01</ProjectId>
@@ -8664,7 +8664,7 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.BlazorClient/App.razor</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>App.razor</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>4db14e1a-8b17-4990-bfef-8951cf818e01</ProjectId>
@@ -9480,7 +9480,7 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.BlazorClient/Pages/Counter.razor</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Pages/Counter.razor</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>4db14e1a-8b17-4990-bfef-8951cf818e01</ProjectId>
@@ -9488,7 +9488,7 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.BlazorClient/Pages/FetchData.razor</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Pages/FetchData.razor</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>4db14e1a-8b17-4990-bfef-8951cf818e01</ProjectId>
@@ -9496,7 +9496,7 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.BlazorClient/Pages/Index.razor</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Pages/Index.razor</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>4db14e1a-8b17-4990-bfef-8951cf818e01</ProjectId>
@@ -9512,7 +9512,7 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.BlazorClient/Shared/MainLayout.razor</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Shared/MainLayout.razor</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>4db14e1a-8b17-4990-bfef-8951cf818e01</ProjectId>
@@ -9520,7 +9520,7 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.BlazorClient/Shared/MainLayout.razor.css</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Shared/MainLayout.razor.css</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>4db14e1a-8b17-4990-bfef-8951cf818e01</ProjectId>
@@ -9528,7 +9528,7 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.BlazorClient/Shared/NavMenu.razor</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Shared/NavMenu.razor</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>4db14e1a-8b17-4990-bfef-8951cf818e01</ProjectId>
@@ -9536,7 +9536,7 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.BlazorClient/Shared/NavMenu.razor.css</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Shared/NavMenu.razor.css</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>4db14e1a-8b17-4990-bfef-8951cf818e01</ProjectId>
@@ -9544,7 +9544,7 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.BlazorClient/Shared/SurveyPrompt.razor</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Shared/SurveyPrompt.razor</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>4db14e1a-8b17-4990-bfef-8951cf818e01</ProjectId>
@@ -9560,7 +9560,7 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.BlazorClient/wwwroot/css/app.css</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>wwwroot/css/app.css</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>4db14e1a-8b17-4990-bfef-8951cf818e01</ProjectId>
@@ -9568,7 +9568,7 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.BlazorClient/wwwroot/css/bootstrap/bootstrap.min.css</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>wwwroot/css/bootstrap/bootstrap.min.css</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>4db14e1a-8b17-4990-bfef-8951cf818e01</ProjectId>
@@ -9576,7 +9576,7 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.BlazorClient/wwwroot/css/bootstrap/bootstrap.min.css.map</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>wwwroot/css/bootstrap/bootstrap.min.css.map</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>4db14e1a-8b17-4990-bfef-8951cf818e01</ProjectId>
@@ -9584,7 +9584,7 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.BlazorClient/wwwroot/css/open-iconic/FONT-LICENSE</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>wwwroot/css/open-iconic/FONT-LICENSE</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>4db14e1a-8b17-4990-bfef-8951cf818e01</ProjectId>
@@ -9592,7 +9592,7 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.BlazorClient/wwwroot/css/open-iconic/font/css/open-iconic-bootstrap.min.css</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>wwwroot/css/open-iconic/font/css/open-iconic-bootstrap.min.css</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>4db14e1a-8b17-4990-bfef-8951cf818e01</ProjectId>
@@ -9600,7 +9600,7 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.BlazorClient/wwwroot/css/open-iconic/font/fonts/open-iconic.eot</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>wwwroot/css/open-iconic/font/fonts/open-iconic.eot</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>4db14e1a-8b17-4990-bfef-8951cf818e01</ProjectId>
@@ -9608,7 +9608,7 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.BlazorClient/wwwroot/css/open-iconic/font/fonts/open-iconic.otf</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>wwwroot/css/open-iconic/font/fonts/open-iconic.otf</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>4db14e1a-8b17-4990-bfef-8951cf818e01</ProjectId>
@@ -9616,7 +9616,7 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.BlazorClient/wwwroot/css/open-iconic/font/fonts/open-iconic.svg</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>wwwroot/css/open-iconic/font/fonts/open-iconic.svg</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>4db14e1a-8b17-4990-bfef-8951cf818e01</ProjectId>
@@ -9624,7 +9624,7 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.BlazorClient/wwwroot/css/open-iconic/font/fonts/open-iconic.ttf</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>wwwroot/css/open-iconic/font/fonts/open-iconic.ttf</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>4db14e1a-8b17-4990-bfef-8951cf818e01</ProjectId>
@@ -9632,7 +9632,7 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.BlazorClient/wwwroot/css/open-iconic/font/fonts/open-iconic.woff</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>wwwroot/css/open-iconic/font/fonts/open-iconic.woff</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>4db14e1a-8b17-4990-bfef-8951cf818e01</ProjectId>
@@ -9640,7 +9640,7 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.BlazorClient/wwwroot/css/open-iconic/ICON-LICENSE</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>wwwroot/css/open-iconic/ICON-LICENSE</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>4db14e1a-8b17-4990-bfef-8951cf818e01</ProjectId>
@@ -9656,7 +9656,7 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.BlazorClient/wwwroot/favicon.png</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>wwwroot/favicon.png</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>4db14e1a-8b17-4990-bfef-8951cf818e01</ProjectId>
@@ -9664,7 +9664,7 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.BlazorClient/wwwroot/icon-192.png</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>wwwroot/icon-192.png</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>4db14e1a-8b17-4990-bfef-8951cf818e01</ProjectId>
@@ -9672,7 +9672,7 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.BlazorClient/wwwroot/index.html</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>wwwroot/index.html</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>4db14e1a-8b17-4990-bfef-8951cf818e01</ProjectId>
@@ -9680,7 +9680,7 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.BlazorClient/wwwroot/sample-data/weather.json</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>wwwroot/sample-data/weather.json</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>c52e41d4-d2e2-492c-8f52-d8f26d532ff8</ProjectId>

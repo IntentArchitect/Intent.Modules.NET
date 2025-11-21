@@ -1,5 +1,6 @@
 ### Version 1.0.7
 
+- Improvement: Updated NuGet package versions.
 - Improvement: Improved WASM configuration for debugging.
 - Improvement: Help Topic around routing parameters..
 

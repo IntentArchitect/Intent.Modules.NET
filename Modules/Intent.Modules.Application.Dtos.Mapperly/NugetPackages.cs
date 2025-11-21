@@ -18,7 +18,7 @@ namespace Intent.Modules.Application.Dtos.Mapperly
             NugetRegistry.Register(RiokMapperlyPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 2, >= 0) => new PackageVersion("4.2.1"),
+                        ( >= 2, >= 0) => new PackageVersion("4.3.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{RiokMapperlyPackageName}'"),
                     }
                 );

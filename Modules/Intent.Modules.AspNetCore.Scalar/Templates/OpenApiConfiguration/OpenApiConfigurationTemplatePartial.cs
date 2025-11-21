@@ -39,7 +39,7 @@ namespace Intent.Modules.AspNetCore.Scalar.Templates.OpenApiConfiguration
 
             if (ExecutionContext.InstalledModules.Any(x => x.ModuleId == "Intent.AspNetCore.Swashbuckle"))
             {
-                throw new ElementException(package, "Intent.AspNetCore.Swashbucle is also installed, only Intent.AspNetCore.Swashbuckle or Intent.AspNetCore.Scalar can be installed. Uninstall one or the other module");
+                throw new ElementException(package, "Intent.AspNetCore.Swashbuckle is also installed, only Intent.AspNetCore.Swashbuckle or Intent.AspNetCore.Scalar can be installed. Uninstall one or the other module");
             }
 
             AddNugetDependency(NugetPackages.ScalarAspNetCore(OutputTarget));

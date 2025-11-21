@@ -34,15 +34,15 @@ namespace Intent.Modules.Azure.KeyVault
             NugetRegistry.Register(AzureIdentityPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, >= 0) => new PackageVersion("1.17.0")
-                            .WithNugetDependency("Azure.Core", "1.49.0")
-                            .WithNugetDependency("Microsoft.Identity.Client", "4.76.0")
-                            .WithNugetDependency("Microsoft.Identity.Client.Extensions.Msal", "4.76.0"),
-                        ( >= 2, >= 0) => new PackageVersion("1.17.0")
-                            .WithNugetDependency("Azure.Core", "1.49.0")
-                            .WithNugetDependency("Microsoft.Identity.Client", "4.76.0")
-                            .WithNugetDependency("Microsoft.Identity.Client.Extensions.Msal", "4.76.0")
-                            .WithNugetDependency("System.Memory", "4.5.5"),
+                        ( >= 8, >= 0) => new PackageVersion("1.17.1")
+                            .WithNugetDependency("Azure.Core", "1.50.0")
+                            .WithNugetDependency("Microsoft.Identity.Client", "4.78.0")
+                            .WithNugetDependency("Microsoft.Identity.Client.Extensions.Msal", "4.78.0"),
+                        ( >= 2, >= 0) => new PackageVersion("1.17.1")
+                            .WithNugetDependency("Azure.Core", "1.50.0")
+                            .WithNugetDependency("Microsoft.Identity.Client", "4.78.0")
+                            .WithNugetDependency("Microsoft.Identity.Client.Extensions.Msal", "4.78.0")
+                            .WithNugetDependency("System.Memory", "4.6.3"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AzureIdentityPackageName}'"),
                     }
                 );

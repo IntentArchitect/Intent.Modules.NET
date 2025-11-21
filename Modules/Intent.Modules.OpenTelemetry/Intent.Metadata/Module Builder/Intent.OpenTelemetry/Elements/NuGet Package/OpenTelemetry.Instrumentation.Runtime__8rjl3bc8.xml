@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="3b828d6f-e21b-45c5-b290-736f69a55227" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>1.12.0</name>
+      <name>1.14.0</name>
       <display>1.12.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,16 +47,13 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="c1455762-bc2d-4962-92cb-a7ef2c4863d8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="11001324-a60f-46f4-abd6-2845e81417d7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>OpenTelemetry.Api</name>
-          <display>OpenTelemetry.Api (1.12.0)</display>
           <isAbstract>false</isAbstract>
-          <value>1.12.0</value>
+          <value>1.14.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3b828d6f-e21b-45c5-b290-736f69a55227</parentFolderId>
-          <packageId>652bd831-c437-4fba-8857-6387959bb71d</packageId>
-          <packageName>Intent.OpenTelemetry</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -64,7 +61,7 @@
       </childElements>
     </childElement>
     <childElement id="7f49a773-f2c1-4090-b924-f635584346a8" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>1.12.0</name>
+      <name>1.14.0</name>
       <display>1.12.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -86,16 +83,45 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="b2d1aa3e-37b3-4ff3-9569-532960b73747" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6e8e2cc0-5014-4b2a-8805-43832fb029f4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>OpenTelemetry.Api</name>
-          <display>OpenTelemetry.Api (1.12.0)</display>
           <isAbstract>false</isAbstract>
-          <value>1.12.0</value>
+          <value>1.14.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7f49a773-f2c1-4090-b924-f635584346a8</parentFolderId>
-          <packageId>652bd831-c437-4fba-8857-6387959bb71d</packageId>
-          <packageName>Intent.OpenTelemetry</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="c4239a3b-9969-4367-9319-734bea237dc1" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>1.14.0</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>5defbc7e-f575-48bc-aa28-be52ec953c21</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v10.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="8d570de1-65b1-4385-bab9-278448f94328" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>OpenTelemetry.Api</name>
+          <isAbstract>false</isAbstract>
+          <value>1.14.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>c4239a3b-9969-4367-9319-734bea237dc1</parentFolderId>
           <stereotypes />
           <metadata />
           <childElements />

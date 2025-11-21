@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="eb12fafb-a1e6-4858-9162-a588056ad58e" type="NuGet Package" typeId="f747cc37-29ee-488a-8dbe-755e856a842d">
+  <comment>Breaking changes for .NET, see:
+https://intent-architect.monday.com/boards/2883919780/pulses/18385968939</comment>
   <name>Swashbuckle.AspNetCore</name>
   <display>Swashbuckle.AspNetCore</display>
   <isAbstract>false</isAbstract>
@@ -26,7 +28,7 @@
   <childElements>
     <childElement id="5045950b-266c-47ec-b8ca-9037ca740ca3" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>8.1.4</name>
-      <display>8.1.1 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <display>8.1.4 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -47,46 +49,58 @@
       </stereotypes>
       <metadata />
       <childElements>
+        <childElement id="18ef562a-69fa-4e8e-b925-f1282acdff5a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.ApiDescription.Server</name>
+          <display>Microsoft.Extensions.ApiDescription.Server (6.0.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>6.0.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>5045950b-266c-47ec-b8ca-9037ca740ca3</parentFolderId>
+          <packageId>f77da7df-9c2c-4e65-af0b-df4ddc4c0cfe</packageId>
+          <packageName>Intent.ModularMonolith.Host</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
         <childElement id="ebef6f13-92f1-4181-b622-f7084990ee27" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Swashbuckle.AspNetCore.Swagger</name>
+          <display>Swashbuckle.AspNetCore.Swagger (8.1.4)</display>
           <isAbstract>false</isAbstract>
           <value>8.1.4</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5045950b-266c-47ec-b8ca-9037ca740ca3</parentFolderId>
+          <packageId>f77da7df-9c2c-4e65-af0b-df4ddc4c0cfe</packageId>
+          <packageName>Intent.ModularMonolith.Host</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="08c530f1-a1f3-44b8-9c2a-810ab60dfab8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Swashbuckle.AspNetCore.SwaggerGen</name>
+          <display>Swashbuckle.AspNetCore.SwaggerGen (8.1.4)</display>
           <isAbstract>false</isAbstract>
           <value>8.1.4</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5045950b-266c-47ec-b8ca-9037ca740ca3</parentFolderId>
+          <packageId>f77da7df-9c2c-4e65-af0b-df4ddc4c0cfe</packageId>
+          <packageName>Intent.ModularMonolith.Host</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="61e27cdb-0248-4ad8-909f-b279afd41248" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Swashbuckle.AspNetCore.SwaggerUI</name>
+          <display>Swashbuckle.AspNetCore.SwaggerUI (8.1.4)</display>
           <isAbstract>false</isAbstract>
           <value>8.1.4</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5045950b-266c-47ec-b8ca-9037ca740ca3</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="18ef562a-69fa-4e8e-b925-f1282acdff5a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.ApiDescription.Server</name>
-          <isAbstract>false</isAbstract>
-          <value>6.0.5</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>5045950b-266c-47ec-b8ca-9037ca740ca3</parentFolderId>
+          <packageId>f77da7df-9c2c-4e65-af0b-df4ddc4c0cfe</packageId>
+          <packageName>Intent.ModularMonolith.Host</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -95,10 +109,14 @@
     </childElement>
     <childElement id="f9c0ae2c-ad0a-4750-9ef6-ba431b1f841f" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>9.0.6</name>
+      <display>9.0.6 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>eb12fafb-a1e6-4858-9162-a588056ad58e</parentFolderId>
+      <packageId>f77da7df-9c2c-4e65-af0b-df4ddc4c0cfe</packageId>
+      <packageName>Intent.ModularMonolith.Host</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>
@@ -112,46 +130,58 @@
       </stereotypes>
       <metadata />
       <childElements>
+        <childElement id="089760e3-03d2-438d-a6ef-8bfcba677bac" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.ApiDescription.Server</name>
+          <display>Microsoft.Extensions.ApiDescription.Server (9.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>9.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>f9c0ae2c-ad0a-4750-9ef6-ba431b1f841f</parentFolderId>
+          <packageId>f77da7df-9c2c-4e65-af0b-df4ddc4c0cfe</packageId>
+          <packageName>Intent.ModularMonolith.Host</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
         <childElement id="dade1e50-2a06-4cb5-a8c7-67c40f59c4ee" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Swashbuckle.AspNetCore.Swagger</name>
+          <display>Swashbuckle.AspNetCore.Swagger (9.0.6)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f9c0ae2c-ad0a-4750-9ef6-ba431b1f841f</parentFolderId>
+          <packageId>f77da7df-9c2c-4e65-af0b-df4ddc4c0cfe</packageId>
+          <packageName>Intent.ModularMonolith.Host</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="5d83af64-59b4-462f-a8f3-e670190b8c92" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Swashbuckle.AspNetCore.SwaggerGen</name>
+          <display>Swashbuckle.AspNetCore.SwaggerGen (9.0.6)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f9c0ae2c-ad0a-4750-9ef6-ba431b1f841f</parentFolderId>
+          <packageId>f77da7df-9c2c-4e65-af0b-df4ddc4c0cfe</packageId>
+          <packageName>Intent.ModularMonolith.Host</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="61ddd770-1535-4bf4-8311-2a44034e0f7c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Swashbuckle.AspNetCore.SwaggerUI</name>
+          <display>Swashbuckle.AspNetCore.SwaggerUI (9.0.6)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f9c0ae2c-ad0a-4750-9ef6-ba431b1f841f</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="089760e3-03d2-438d-a6ef-8bfcba677bac" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.ApiDescription.Server</name>
-          <isAbstract>false</isAbstract>
-          <value>9.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>f9c0ae2c-ad0a-4750-9ef6-ba431b1f841f</parentFolderId>
+          <packageId>f77da7df-9c2c-4e65-af0b-df4ddc4c0cfe</packageId>
+          <packageName>Intent.ModularMonolith.Host</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -160,10 +190,14 @@
     </childElement>
     <childElement id="772e00c5-e991-4463-a168-c50477de10f4" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>9.0.6</name>
+      <display>9.0.6 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>eb12fafb-a1e6-4858-9162-a588056ad58e</parentFolderId>
+      <packageId>f77da7df-9c2c-4e65-af0b-df4ddc4c0cfe</packageId>
+      <packageName>Intent.ModularMonolith.Host</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>
@@ -177,46 +211,58 @@
       </stereotypes>
       <metadata />
       <childElements>
+        <childElement id="08509e1e-cb11-4b9f-992e-7eaf1e4db95f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.ApiDescription.Server</name>
+          <display>Microsoft.Extensions.ApiDescription.Server (8.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>772e00c5-e991-4463-a168-c50477de10f4</parentFolderId>
+          <packageId>f77da7df-9c2c-4e65-af0b-df4ddc4c0cfe</packageId>
+          <packageName>Intent.ModularMonolith.Host</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
         <childElement id="297b417e-bcc9-4c56-badd-95d21d88631c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Swashbuckle.AspNetCore.Swagger</name>
+          <display>Swashbuckle.AspNetCore.Swagger (9.0.6)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>772e00c5-e991-4463-a168-c50477de10f4</parentFolderId>
+          <packageId>f77da7df-9c2c-4e65-af0b-df4ddc4c0cfe</packageId>
+          <packageName>Intent.ModularMonolith.Host</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="3a37d0e5-19b6-460f-b9e2-a46e0db0c309" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Swashbuckle.AspNetCore.SwaggerGen</name>
+          <display>Swashbuckle.AspNetCore.SwaggerGen (9.0.6)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>772e00c5-e991-4463-a168-c50477de10f4</parentFolderId>
+          <packageId>f77da7df-9c2c-4e65-af0b-df4ddc4c0cfe</packageId>
+          <packageName>Intent.ModularMonolith.Host</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="bdb7bc72-0b6a-4bf7-a85e-f7dc9e75d64a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Swashbuckle.AspNetCore.SwaggerUI</name>
+          <display>Swashbuckle.AspNetCore.SwaggerUI (9.0.6)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>772e00c5-e991-4463-a168-c50477de10f4</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="08509e1e-cb11-4b9f-992e-7eaf1e4db95f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.ApiDescription.Server</name>
-          <isAbstract>false</isAbstract>
-          <value>8.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>772e00c5-e991-4463-a168-c50477de10f4</parentFolderId>
+          <packageId>f77da7df-9c2c-4e65-af0b-df4ddc4c0cfe</packageId>
+          <packageName>Intent.ModularMonolith.Host</packageName>
           <stereotypes />
           <metadata />
           <childElements />

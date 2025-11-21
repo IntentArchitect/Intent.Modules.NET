@@ -1,3 +1,7 @@
+### Version 1.1.12
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 1.1.11
 
 - Improvement: Updated module documentation to use centralized documentation site.

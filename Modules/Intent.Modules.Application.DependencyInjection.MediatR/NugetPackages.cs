@@ -14,7 +14,7 @@ namespace Intent.Modules.Application.DependencyInjection.MediatR
     {
         [IntentIgnore]
         private readonly IApplicationSettingsProvider _applicationSettingsProvider;
-        
+
         public const string MediatRPackageName = "MediatR";
 
         [IntentIgnore]
@@ -22,7 +22,7 @@ namespace Intent.Modules.Application.DependencyInjection.MediatR
         {
             _applicationSettingsProvider = applicationSettingsProvider;
         }
-        
+
         public void RegisterPackages()
         {
             //IntentIgnore
@@ -42,26 +42,26 @@ namespace Intent.Modules.Application.DependencyInjection.MediatR
                     }
                 );
             }
-            
+
             NugetRegistry.Register(MediatRPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("13.0.0")
+                        ( >= 9, >= 0) => new PackageVersion("13.1.0")
                             .WithNugetDependency("MediatR.Contracts", "2.0.1")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "8.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Logging", "8.0.0")
-                            .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.0.1"),
-                        ( >= 8, >= 0) => new PackageVersion("13.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "8.0.0")
+                            .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.14.0"),
+                        ( >= 8, >= 0) => new PackageVersion("13.1.0")
                             .WithNugetDependency("MediatR.Contracts", "2.0.1")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "8.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Logging", "8.0.0")
-                            .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.0.1"),
-                        ( >= 2, >= 0) => new PackageVersion("13.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "8.0.0")
+                            .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.14.0"),
+                        ( >= 2, >= 0) => new PackageVersion("13.1.0")
                             .WithNugetDependency("MediatR.Contracts", "2.0.1")
                             .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "8.0.0")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "8.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Logging", "8.0.0")
-                            .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.0.1"),
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "8.0.0")
+                            .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.14.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MediatRPackageName}'"),
                     }
                 );

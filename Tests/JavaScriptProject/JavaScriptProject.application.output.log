@@ -14,7 +14,7 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>JavaScriptProject/Folder1/azure-pipelines.yaml</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>../azure-pipelines.yaml</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>5701d30d-bc62-4413-8090-fadeb2263308</ProjectId>

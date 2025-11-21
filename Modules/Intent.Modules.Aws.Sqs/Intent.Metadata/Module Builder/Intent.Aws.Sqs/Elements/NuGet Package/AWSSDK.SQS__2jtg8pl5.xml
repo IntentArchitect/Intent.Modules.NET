@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="f38432e7-e7b4-44a8-ba44-e091ff2d8dc1" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>4.0.1.12</name>
+      <name>4.0.2.4</name>
       <display>4.0.1.12 ( &gt;= Any,Version=v0.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,16 +47,13 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="40dcf5c7-3e2b-43d2-b84b-84f0b9b65a9d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="bc64dffa-b6cc-498f-89c1-628da402a366" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>AWSSDK.Core</name>
-          <display>AWSSDK.Core (4.0.1.2)</display>
           <isAbstract>false</isAbstract>
-          <value>4.0.1.2</value>
+          <value>4.0.3.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f38432e7-e7b4-44a8-ba44-e091ff2d8dc1</parentFolderId>
-          <packageId>259088af-8612-4dd5-9bd7-b673553c3a6c</packageId>
-          <packageName>Intent.Aws.Sqs</packageName>
           <stereotypes />
           <metadata />
           <childElements />

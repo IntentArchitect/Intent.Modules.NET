@@ -2,6 +2,16 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#c8ab9feb-a55e-4a48-8612-5e9aa20d5f73</correlationId>
+      <path>Intent.Modules.Aws.Lambda.Functions/Templates/AssemblyAttributes/AssemblyAttributesTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2025-11-19T15:09:07.9456587Z</updatedAt>
+      <deviationsHash>A2617BA5B16D6AB2BDFEBF50356120B3B88B8F360B6582A69D37D7D85DC58883</deviationsHash>
+      <fileHash>A4C3240935A0FA4C087935350D9257F2DFE27775B86D62E7F0562735C7F64FE7</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#b42ececb-e2c8-4d4d-970c-9d51f1e98736</correlationId>
       <path>Intent.Modules.Aws.Lambda.Functions/Templates/Startup/StartupTemplatePartial.cs</path>
       <count>1</count>

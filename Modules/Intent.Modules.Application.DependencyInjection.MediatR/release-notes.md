@@ -1,3 +1,7 @@
+### Version 3.6.2
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 3.6.1
 
 - Improvement: Updated module documentation to use centralized documentation site.

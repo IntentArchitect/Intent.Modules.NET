@@ -1,5 +1,6 @@
 ### Version 1.0.6
 
+- Improvement: Updated NuGet package versions.
 - Improvement: Fixed AntiForgery exception when re-logging in.
 - Improvement: Refresh token support for WASM / JWT authentication.
 

@@ -28,8 +28,8 @@ namespace Intent.Modules.Aws.Sqs
             NugetRegistry.Register(AwsSdkSqsPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 0, >= 0) => new PackageVersion("4.0.1.12")
-                            .WithNugetDependency("AWSSDK.Core", "4.0.1.2"),
+                        ( >= 0, >= 0) => new PackageVersion("4.0.2.4")
+                            .WithNugetDependency("AWSSDK.Core", "4.0.3.2"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AwsSdkSqsPackageName}'"),
                     }
                 );

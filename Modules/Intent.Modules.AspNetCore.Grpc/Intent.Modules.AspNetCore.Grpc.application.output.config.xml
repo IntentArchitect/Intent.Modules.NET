@@ -5,6 +5,6 @@
     <file relativePath="Intent.Modules.AspNetCore.Grpc/Api/QueryModelStereotypeExtensions.cs" state="ignored" />
     <file relativePath="Intent.Modules.AspNetCore.Grpc/Intent.AspNetCore.Grpc.imodspec" state="ignored" />
     <file relativePath="Intent.Modules.AspNetCore.Grpc/Intent.Modules.AspNetCore.Grpc.csproj" state="ignored" />
-    <file relativePath="Intent.Modules.AspNetCore.Grpc/release-notes.md" state="once-off-generated" />
+    <file relativePath="Intent.Modules.AspNetCore.Grpc/release-notes.md" state="ignored;once-off-generated" />
   </files>
 </outputFiles>

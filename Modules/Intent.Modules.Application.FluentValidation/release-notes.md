@@ -1,3 +1,7 @@
+### Version 3.11.5
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 3.11.4
 
 - Improvement: Updated module documentation to use centralized documentation site.

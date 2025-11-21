@@ -1,3 +1,7 @@
+### Version 2.0.13
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 2.0.12
 
 - Improvement: Updated NuGet package versions.

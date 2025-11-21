@@ -8,8 +8,8 @@
 
   <ItemGroup>
     <PackageVersion Include="Intent.RoslynWeaver.Attributes" Version="3.0.0" />
-    <PackageVersion Include="Microsoft.Extensions.Configuration.Binder" Version="9.0.10" />
-	<PackageVersion Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.10" />
+    <PackageVersion Include="Microsoft.Extensions.Configuration.Binder" Version="10.0.0" />
+	<PackageVersion Include="Microsoft.Extensions.Configuration.Abstractions" Version="10.0.0" />
   </ItemGroup>
 
 </Project>

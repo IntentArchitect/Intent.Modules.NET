@@ -24,6 +24,45 @@
   </stereotypes>
   <metadata />
   <childElements>
+    <childElement id="ba31630e-be24-4449-b629-56087ffb2023" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>10.0.0</name>
+      <display>10.0.0 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>78e8d015-c8ef-44bc-a09e-bbe6d9249ea9</parentFolderId>
+      <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+      <packageName>Intent.AzureFunctions</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v10.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="7bbfeb31-5c32-4647-8e10-9c8dcd7e40c7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.EntityFrameworkCore.Design</name>
+          <display>Microsoft.EntityFrameworkCore.Design (10.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ba31630e-be24-4449-b629-56087ffb2023</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
     <childElement id="bb3dbcef-a36c-478d-8d05-ba2ab4bf68c3" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>5.0.17</name>
       <display>5.0.17 ( &gt;= .NETStandard,Version=v2.0 )</display>
@@ -87,8 +126,8 @@
       <childElements />
     </childElement>
     <childElement id="bfbcdb6e-f80d-4f79-a04a-b07693d70707" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.10</name>
-      <display>9.0.10 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <name>9.0.11</name>
+      <display>9.0.11 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -109,11 +148,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="571dd460-f7f4-4314-a5c2-869bb153565f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a393af7c-6f11-4dc8-8ebe-2867122d75d3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore.Design</name>
-          <display>Microsoft.EntityFrameworkCore.Design (9.0.10)</display>
+          <display>Microsoft.EntityFrameworkCore.Design (9.0.11)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.10</value>
+          <value>9.0.11</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>bfbcdb6e-f80d-4f79-a04a-b07693d70707</parentFolderId>

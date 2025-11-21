@@ -24,6 +24,59 @@
   </stereotypes>
   <metadata />
   <childElements>
+    <childElement id="851b072a-6143-4aff-a99e-b715bdd1645a" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>10.0.0</name>
+      <display>10.0.0 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a9f2f599-1b7a-4443-873c-6d9fbc9ac3d2</parentFolderId>
+      <packageId>b9d38f7c-7a8d-4007-b33d-7f386ccf119a</packageId>
+      <packageName>Intent.Blazor.Authentication</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v10.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="ddebeae3-6070-436b-b67f-db49910459a6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.EntityFrameworkCore.Relational</name>
+          <display>Microsoft.EntityFrameworkCore.Relational (10.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>851b072a-6143-4aff-a99e-b715bdd1645a</parentFolderId>
+          <packageId>b9d38f7c-7a8d-4007-b33d-7f386ccf119a</packageId>
+          <packageName>Intent.Blazor.Authentication</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="9289d32e-fbb9-400b-806c-88cf2c877c66" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Identity.Stores</name>
+          <display>Microsoft.Extensions.Identity.Stores (10.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>851b072a-6143-4aff-a99e-b715bdd1645a</parentFolderId>
+          <packageId>b9d38f7c-7a8d-4007-b33d-7f386ccf119a</packageId>
+          <packageName>Intent.Blazor.Authentication</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
     <childElement id="406fdf1f-455c-435f-80eb-04a4127a4320" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>2.3.0</name>
       <display>2.3.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
@@ -251,8 +304,9 @@
       </childElements>
     </childElement>
     <childElement id="730d731a-e0b6-4277-9212-4a33a88e0cc3" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <comment>Locked to prevent "NuGet Downgrade Errors" due to  Intent.EntityFrameworkCore module being locked to lower version.</comment>
       <name>8.0.21</name>
-      <display>8.0.21 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <display>8.0.21 ( &gt;= .NETCoreApp,Version=v8.0 ) [locked]</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -267,17 +321,17 @@
           <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
           <properties>
             <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="true" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="c675ca0a-0bdb-4404-9aaf-5be0e6bcc764" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="95b7df6f-1c37-4b09-abb3-b890a82ee6de" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore.Relational</name>
-          <display>Microsoft.EntityFrameworkCore.Relational (8.0.21)</display>
+          <display>Microsoft.EntityFrameworkCore.Relational (8.0.22)</display>
           <isAbstract>false</isAbstract>
-          <value>8.0.21</value>
+          <value>8.0.22</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>730d731a-e0b6-4277-9212-4a33a88e0cc3</parentFolderId>
@@ -287,11 +341,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="5280d07e-d4cc-42a2-85d6-148cb6c7d947" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="48f2f13e-c8f4-44d9-8393-d5b6adcab12d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Identity.Stores</name>
-          <display>Microsoft.Extensions.Identity.Stores (8.0.21)</display>
+          <display>Microsoft.Extensions.Identity.Stores (8.0.22)</display>
           <isAbstract>false</isAbstract>
-          <value>8.0.21</value>
+          <value>8.0.22</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>730d731a-e0b6-4277-9212-4a33a88e0cc3</parentFolderId>
@@ -304,8 +358,8 @@
       </childElements>
     </childElement>
     <childElement id="ceb0da62-abd2-499d-b2d0-9cfce56b92c3" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.10</name>
-      <display>9.0.10 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <name>9.0.11</name>
+      <display>9.0.11 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -326,11 +380,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="9eedd1f1-ba09-48c8-b497-98ead2df7f5b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="0b17d6b9-ad19-4698-a026-040514fc11cd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore.Relational</name>
-          <display>Microsoft.EntityFrameworkCore.Relational (9.0.10)</display>
+          <display>Microsoft.EntityFrameworkCore.Relational (9.0.11)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.10</value>
+          <value>9.0.11</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ceb0da62-abd2-499d-b2d0-9cfce56b92c3</parentFolderId>
@@ -340,11 +394,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="73cea243-4f2d-46c3-95ca-e19f80203d6f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="918e1d68-420e-4573-b4d9-3e92ba54033e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Identity.Stores</name>
-          <display>Microsoft.Extensions.Identity.Stores (9.0.10)</display>
+          <display>Microsoft.Extensions.Identity.Stores (9.0.11)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.10</value>
+          <value>9.0.11</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ceb0da62-abd2-499d-b2d0-9cfce56b92c3</parentFolderId>

@@ -1,3 +1,7 @@
+### Version 5.1.3
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 5.1.2
 
 - Fixed: Fixed an issue where `Consolidate Command/Query associated files into single file` settings caused Software Factory crashes with this module.

@@ -22,9 +22,9 @@ namespace Intent.Modules.Dapr.AspNetCore
             NugetRegistry.Register(DaprAspNetCorePackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("1.16.0")
-                            .WithNugetDependency("Dapr.Client", "1.16.0")
-                            .WithNugetDependency("Dapr.Common", "1.16.0")
+                        ( >= 9, >= 0) => new PackageVersion("1.16.1")
+                            .WithNugetDependency("Dapr.Client", "1.16.1")
+                            .WithNugetDependency("Dapr.Common", "1.16.1")
                             .WithNugetDependency("Google.Api.CommonProtos", "2.17.0")
                             .WithNugetDependency("Google.Protobuf", "3.32.0")
                             .WithNugetDependency("Grpc.Net.Client", "2.71.0")
@@ -36,9 +36,9 @@ namespace Intent.Modules.Dapr.AspNetCore
                             .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.8")
                             .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.8")
                             .WithNugetDependency("Microsoft.Extensions.Options", "9.0.8"),
-                        ( >= 8, >= 0) => new PackageVersion("1.16.0")
-                            .WithNugetDependency("Dapr.Client", "1.16.0")
-                            .WithNugetDependency("Dapr.Common", "1.16.0")
+                        ( >= 8, >= 0) => new PackageVersion("1.16.1")
+                            .WithNugetDependency("Dapr.Client", "1.16.1")
+                            .WithNugetDependency("Dapr.Common", "1.16.1")
                             .WithNugetDependency("Google.Api.CommonProtos", "2.17.0")
                             .WithNugetDependency("Google.Protobuf", "3.32.0")
                             .WithNugetDependency("Grpc.Net.Client", "2.71.0")
@@ -69,9 +69,9 @@ namespace Intent.Modules.Dapr.AspNetCore
             NugetRegistry.Register(DaprClientPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("1.16.0")
-                            .WithNugetDependency("Dapr.Common", "1.16.0")
-                            .WithNugetDependency("Dapr.Protos", "1.16.0")
+                        ( >= 9, >= 0) => new PackageVersion("1.16.1")
+                            .WithNugetDependency("Dapr.Common", "1.16.1")
+                            .WithNugetDependency("Dapr.Protos", "1.16.1")
                             .WithNugetDependency("Google.Api.CommonProtos", "2.17.0")
                             .WithNugetDependency("Google.Protobuf", "3.32.0")
                             .WithNugetDependency("Grpc.Net.Client", "2.71.0")
@@ -83,9 +83,9 @@ namespace Intent.Modules.Dapr.AspNetCore
                             .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.8")
                             .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.8")
                             .WithNugetDependency("Microsoft.Extensions.Options", "9.0.8"),
-                        ( >= 8, >= 0) => new PackageVersion("1.16.0")
-                            .WithNugetDependency("Dapr.Common", "1.16.0")
-                            .WithNugetDependency("Dapr.Protos", "1.16.0")
+                        ( >= 8, >= 0) => new PackageVersion("1.16.1")
+                            .WithNugetDependency("Dapr.Common", "1.16.1")
+                            .WithNugetDependency("Dapr.Protos", "1.16.1")
                             .WithNugetDependency("Google.Api.CommonProtos", "2.17.0")
                             .WithNugetDependency("Google.Protobuf", "3.32.0")
                             .WithNugetDependency("Grpc.Net.Client", "2.71.0")
@@ -116,9 +116,9 @@ namespace Intent.Modules.Dapr.AspNetCore
             NugetRegistry.Register(DaprExtensionsConfigurationPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("1.16.0")
-                            .WithNugetDependency("Dapr.Client", "1.16.0")
-                            .WithNugetDependency("Dapr.Common", "1.16.0")
+                        ( >= 9, >= 0) => new PackageVersion("1.16.1")
+                            .WithNugetDependency("Dapr.Client", "1.16.1")
+                            .WithNugetDependency("Dapr.Common", "1.16.1")
                             .WithNugetDependency("Google.Api.CommonProtos", "2.17.0")
                             .WithNugetDependency("Google.Protobuf", "3.32.0")
                             .WithNugetDependency("Grpc.Net.Client", "2.71.0")
@@ -130,9 +130,9 @@ namespace Intent.Modules.Dapr.AspNetCore
                             .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.8")
                             .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.8")
                             .WithNugetDependency("Microsoft.Extensions.Options", "9.0.8"),
-                        ( >= 8, >= 0) => new PackageVersion("1.16.0")
-                            .WithNugetDependency("Dapr.Client", "1.16.0")
-                            .WithNugetDependency("Dapr.Common", "1.16.0")
+                        ( >= 8, >= 0) => new PackageVersion("1.16.1")
+                            .WithNugetDependency("Dapr.Client", "1.16.1")
+                            .WithNugetDependency("Dapr.Common", "1.16.1")
                             .WithNugetDependency("Google.Api.CommonProtos", "2.17.0")
                             .WithNugetDependency("Google.Protobuf", "3.32.0")
                             .WithNugetDependency("Grpc.Net.Client", "2.71.0")
