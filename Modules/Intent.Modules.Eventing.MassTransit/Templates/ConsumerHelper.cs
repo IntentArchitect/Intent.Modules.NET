@@ -7,8 +7,7 @@ using Intent.Modules.Eventing.Contracts.Templates.IntegrationCommand;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage;
 using Intent.Modules.Eventing.MassTransit.Settings;
 using Intent.Modules.Common.UnitOfWork.Shared;
-
-using OutboxPatternType = Intent.Modules.Eventing.MassTransit.Settings.EventingSettings.OutboxPatternOptionsEnum;
+using Intent.Modules.Eventing.Contracts.Settings;
 
 namespace Intent.Modules.Eventing.MassTransit.Templates;
 
@@ -108,16 +107,16 @@ public static class ConsumerHelper
                 method.AddParameter($"{template.UseType("MassTransit.IConsumerConfigurator")}<{consumerClassTypeName}>", "consumerConfigurator");
                 method.AddParameter(template.UseType("MassTransit.IRegistrationContext"), "context");
 
-                switch (template.ExecutionContext.Settings.GetEventingSettings().OutboxPattern().AsEnum())
+                switch (template.ExecutionContext.Settings.GetMassTransitMessageBusSettings().OutboxPattern().AsEnum())
                 {
-                    case OutboxPatternType.InMemory:
+                    case MassTransitMessageBusSettings.OutboxPatternOptionsEnum.InMemory:
                         method.AddStatement("endpointConfigurator.UseInMemoryInboxOutbox(context);");
                         break;
-                    case OutboxPatternType.EntityFramework when EfIsPresent(template):
+                    case MassTransitMessageBusSettings.OutboxPatternOptionsEnum.EntityFramework when EfIsPresent(template):
                         method.AddStatement($"endpointConfigurator.UseEntityFrameworkOutbox<{template.GetTypeName(TemplateRoles.Infrastructure.Data.DbContext)}>(context);");
                         break;
-                    case OutboxPatternType.None:
-                    case OutboxPatternType.EntityFramework:
+                    case MassTransitMessageBusSettings.OutboxPatternOptionsEnum.None:
+                    case MassTransitMessageBusSettings.OutboxPatternOptionsEnum.EntityFramework:
                     default:
                         // Do nothing
                         break;
@@ -134,10 +133,10 @@ public static class ConsumerHelper
         var flushAll = method.FindStatement(p => p.HasMetadata("event-bus-flush"));
         flushAll.Remove();
 
-        var outboxPatternType = template.ExecutionContext.Settings.GetEventingSettings().OutboxPattern().AsEnum();
+        var outboxPatternType = template.ExecutionContext.Settings.GetMassTransitMessageBusSettings().OutboxPattern().AsEnum();
 
         // When we're using EF's outbox pattern, then MassTransit itself creates a transaction and saves the changes
-        var allowTransactionScope = outboxPatternType != OutboxPatternType.EntityFramework;
+        var allowTransactionScope = outboxPatternType != MassTransitMessageBusSettings.OutboxPatternOptionsEnum.EntityFramework;
 
         method.ApplyUnitOfWorkImplementations(
             template: template,
@@ -148,11 +147,11 @@ public static class ConsumerHelper
 
         switch (outboxPatternType)
         {
-            case OutboxPatternType.None:
-            case OutboxPatternType.InMemory:
+            case MassTransitMessageBusSettings.OutboxPatternOptionsEnum.None:
+            case MassTransitMessageBusSettings.OutboxPatternOptionsEnum.InMemory:
                 method.AddStatement(flushAll);
                 break;
-            case OutboxPatternType.EntityFramework:
+            case MassTransitMessageBusSettings.OutboxPatternOptionsEnum.EntityFramework:
                 // Transactional outbox pattern will have the EventBus Flush happen in the DbContext's SaveChanges.
                 break;
             default:

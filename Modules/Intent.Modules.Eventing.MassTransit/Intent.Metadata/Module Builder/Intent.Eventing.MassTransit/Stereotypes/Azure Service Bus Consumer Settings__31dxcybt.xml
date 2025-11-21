@@ -4,7 +4,7 @@
   <name>Azure Service Bus Consumer Settings</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
-    <type id="21c3df1c-5140-4f65-9814-a68e1a577768">Message Subscribe Assocation Target End</type>
+    <type id="21c3df1c-5140-4f65-9814-a68e1a577768">21c3df1c-5140-4f65-9814-a68e1a577768</type>
     <type id="16fa2952-79e6-4150-b5ab-45aa4c106de4">Subscribe Integration Event Target End</type>
   </targetTypes>
   <targetReferenceTypes />

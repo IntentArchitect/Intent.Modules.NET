@@ -7,6 +7,7 @@ using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.EntityFrameworkCore.Shared;
+using Intent.Modules.Eventing.Contracts.Settings;
 using Intent.Modules.Eventing.MassTransit.Settings;
 using Intent.Modules.Eventing.MassTransit.Templates.FinbucklePublishingFilter;
 using Intent.Plugins.FactoryExtensions;
@@ -154,7 +155,7 @@ namespace Intent.Modules.Eventing.MassTransit.FactoryExtensions
 
         private static bool IsTransactionalOutboxPatternSelected(IApplication application)
         {
-            return application.Settings.GetEventingSettings()?.OutboxPattern()?.IsEntityFramework() == true;
+            return application.Settings.GetMassTransitMessageBusSettings()?.OutboxPattern()?.IsEntityFramework() == true;
         }
     }
 }

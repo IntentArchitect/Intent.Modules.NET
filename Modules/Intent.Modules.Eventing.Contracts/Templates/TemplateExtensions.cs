@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using Intent.Modelers.Eventing.Api;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.Types.Api;
+using Intent.Modules.Eventing.Contracts.Templates.AssemblyAttributes;
 using Intent.Modules.Eventing.Contracts.Templates.CompositeMessageBus;
 using Intent.Modules.Eventing.Contracts.Templates.CompositeMessageBusConfiguration;
 using Intent.Modules.Eventing.Contracts.Templates.EventBusInterface;
@@ -22,12 +24,16 @@ namespace Intent.Modules.Eventing.Contracts.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetEventBusInterfaceName<T>(this IntentTemplateBase<T> template)
+        public static string GetAssemblyAttributesName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(AssemblyAttributesTemplate.TemplateId);
+        }
+        public static string GetEventBusInterfaceName(this IIntentTemplate template)
         {
             return template.GetTypeName(EventBusInterfaceTemplate.TemplateId);
         }
 
-        public static string GetMessageBusInterfaceName<T>(this IntentTemplateBase<T> template)
+        public static string GetMessageBusInterfaceName(this IIntentTemplate template)
         {
             return template.GetTypeName(MessageBusInterfaceTemplate.TemplateId);
         }
@@ -42,57 +48,57 @@ namespace Intent.Modules.Eventing.Contracts.Templates
             return template.GetTypeName(IntegrationCommandTemplate.TemplateId, model);
         }
 
-        public static string GetIntegrationEventDtoName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Eventing.Api.EventingDTOModel
+        public static string GetIntegrationEventDtoName<T>(this IIntentTemplate<T> template) where T : EventingDTOModel
         {
             return template.GetTypeName(IntegrationEventDtoTemplate.TemplateId, template.Model);
         }
 
-        public static string GetIntegrationEventDtoName(this IntentTemplateBase template, Intent.Modelers.Eventing.Api.EventingDTOModel model)
+        public static string GetIntegrationEventDtoName(this IIntentTemplate template, EventingDTOModel model)
         {
             return template.GetTypeName(IntegrationEventDtoTemplate.TemplateId, model);
         }
 
-        public static string GetIntegrationEventEnumName<T>(this IntentTemplateBase<T> template) where T : Intent.Modules.Common.Types.Api.EnumModel
+        public static string GetIntegrationEventEnumName<T>(this IIntentTemplate<T> template) where T : EnumModel
         {
             return template.GetTypeName(IntegrationEventEnumTemplate.TemplateId, template.Model);
         }
 
-        public static string GetIntegrationEventEnumName(this IntentTemplateBase template, Intent.Modules.Common.Types.Api.EnumModel model)
+        public static string GetIntegrationEventEnumName(this IIntentTemplate template, EnumModel model)
         {
             return template.GetTypeName(IntegrationEventEnumTemplate.TemplateId, model);
         }
 
-        public static string GetIntegrationEventHandlerInterfaceName<T>(this IntentTemplateBase<T> template)
+        public static string GetIntegrationEventHandlerInterfaceName(this IIntentTemplate template)
         {
             return template.GetTypeName(IntegrationEventHandlerInterfaceTemplate.TemplateId);
         }
 
-        public static string GetIntegrationEventMessageName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Eventing.Api.MessageModel
+        public static string GetIntegrationEventMessageName<T>(this IIntentTemplate<T> template) where T : MessageModel
         {
             return template.GetTypeName(IntegrationEventMessageTemplate.TemplateId, template.Model);
         }
 
-        public static string GetIntegrationEventMessageName(this IntentTemplateBase template, Intent.Modelers.Eventing.Api.MessageModel model)
+        public static string GetIntegrationEventMessageName(this IIntentTemplate template, MessageModel model)
         {
             return template.GetTypeName(IntegrationEventMessageTemplate.TemplateId, model);
         }
 
-        public static string GetCompositeMessageBusName<T>(this IntentTemplateBase<T> template)
+        public static string GetCompositeMessageBusName(this IIntentTemplate template)
         {
             return template.GetTypeName(CompositeMessageBusTemplate.TemplateId);
         }
 
-        public static string GetMessageBrokerRegistryName<T>(this IntentTemplateBase<T> template)
+        public static string GetMessageBrokerRegistryName(this IIntentTemplate template)
         {
             return template.GetTypeName(MessageBrokerRegistryTemplate.TemplateId);
         }
 
-        public static string GetMessageBrokerResolverName<T>(this IntentTemplateBase<T> template)
+        public static string GetMessageBrokerResolverName(this IIntentTemplate template)
         {
             return template.GetTypeName(MessageBrokerResolverTemplate.TemplateId);
         }
 
-        public static string GetCompositeMessageBusConfigurationName<T>(this IntentTemplateBase<T> template)
+        public static string GetCompositeMessageBusConfigurationName(this IIntentTemplate template)
         {
             return template.GetTypeName(CompositeMessageBusConfigurationTemplate.TemplateId);
         }

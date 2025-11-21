@@ -14,6 +14,7 @@ using Intent.Modules.Common.CSharp.Nuget;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
+using Intent.Modules.Eventing.Contracts.Settings;
 using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationCommand;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage;
@@ -146,13 +147,13 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
     }
     private MessageBrokerBase GetMessageBroker()
     {
-        var messageBrokerSetting = this.ExecutionContext.Settings.GetEventingSettings().MessagingServiceProvider().AsEnum();
+        var messageBrokerSetting = this.ExecutionContext.Settings.GetMassTransitMessageBusSettings().MessagingServiceProvider().AsEnum();
         return messageBrokerSetting switch
         {
-            EventingSettings.MessagingServiceProviderOptionsEnum.InMemory => new InMemoryMessageBroker(this),
-            EventingSettings.MessagingServiceProviderOptionsEnum.Rabbitmq => new RabbitMqMessageBroker(this),
-            EventingSettings.MessagingServiceProviderOptionsEnum.AzureServiceBus => new AzureServiceBusMessageBroker(this),
-            EventingSettings.MessagingServiceProviderOptionsEnum.AmazonSqs => new AmazonSqsMessageBroker(this),
+            MassTransitMessageBusSettings.MessagingServiceProviderOptionsEnum.InMemory => new InMemoryMessageBroker(this),
+            MassTransitMessageBusSettings.MessagingServiceProviderOptionsEnum.Rabbitmq => new RabbitMqMessageBroker(this),
+            MassTransitMessageBusSettings.MessagingServiceProviderOptionsEnum.AzureServiceBus => new AzureServiceBusMessageBroker(this),
+            MassTransitMessageBusSettings.MessagingServiceProviderOptionsEnum.AmazonSqs => new AmazonSqsMessageBroker(this),
             _ => throw new InvalidOperationException(
                 $"Messaging Service Provider is set to a setting that is not supported: {messageBrokerSetting}")
         };
@@ -252,7 +253,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
             factoryConfigVarName: "cfg",
             moreConfiguration: GetPostHostConfigurationStatements("cfg", configurationVarName)));
 
-        if (ExecutionContext.Settings.GetEventingSettings().OutboxPattern().IsInMemory())
+        if (ExecutionContext.Settings.GetMassTransitMessageBusSettings().OutboxPattern().IsInMemory())
         {
             block.AddStatement("x.AddInMemoryInboxOutbox();");
         }
@@ -270,11 +271,11 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
             yield return new CSharpStatement($@"{factoryConfigVarName}.ConfigureNonDefaultEndpoints(context);");
         }
 
-        if (ExecutionContext.Settings.GetEventingSettings().OutboxPattern().IsInMemory())
+        if (ExecutionContext.Settings.GetMassTransitMessageBusSettings().OutboxPattern().IsInMemory())
         {
             yield return new CSharpStatement($"{factoryConfigVarName}.UseInMemoryOutbox(context);").AddMetadata("in-memory-outbox", true);
         }
-        else if (ExecutionContext.Settings.GetEventingSettings().OutboxPattern().IsEntityFramework() &&
+        else if (ExecutionContext.Settings.GetMassTransitMessageBusSettings().OutboxPattern().IsEntityFramework() &&
                  ExecutionContext.GetApplicationConfig().Modules.All(p => p.ModuleId != "Intent.Eventing.MassTransit.EntityFrameworkCore"))
         {
             Logging.Log.Warning("Please install Intent.Eventing.MassTransit.EntityFrameworkCore module for the Outbox pattern to persist to the database");
@@ -486,23 +487,23 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
 
     private CSharpStatement GetMessageRetryStatement(string configParamName, string configurationVarName)
     {
-        return ExecutionContext.Settings.GetEventingSettings().RetryPolicy().AsEnum() switch
+        return ExecutionContext.Settings.GetMassTransitMessageBusSettings().RetryPolicy().AsEnum() switch
         {
-            EventingSettings.RetryPolicyOptionsEnum.RetryImmediate => GetCSharpRetryStatement("Immediate",
+            MassTransitMessageBusSettings.RetryPolicyOptionsEnum.RetryImmediate => GetCSharpRetryStatement("Immediate",
                 ("int", "RetryLimit", "5")),
-            EventingSettings.RetryPolicyOptionsEnum.RetryInterval => GetCSharpRetryStatement("Interval",
+            MassTransitMessageBusSettings.RetryPolicyOptionsEnum.RetryInterval => GetCSharpRetryStatement("Interval",
                 ("int", "RetryCount", "10"),
                 ("TimeSpan", "Interval", "TimeSpan.FromSeconds(5)")),
-            EventingSettings.RetryPolicyOptionsEnum.RetryIncremental => GetCSharpRetryStatement("Incremental",
+            MassTransitMessageBusSettings.RetryPolicyOptionsEnum.RetryIncremental => GetCSharpRetryStatement("Incremental",
                 ("int", "RetryLimit", "10"),
                 ("TimeSpan", "InitialInterval", "TimeSpan.FromSeconds(5)"),
                 ("TimeSpan", "IntervalIncrement", "TimeSpan.FromSeconds(5)")),
-            EventingSettings.RetryPolicyOptionsEnum.RetryExponential => GetCSharpRetryStatement("Exponential",
+            MassTransitMessageBusSettings.RetryPolicyOptionsEnum.RetryExponential => GetCSharpRetryStatement("Exponential",
                 ("int", "RetryLimit", "10"),
                 ("TimeSpan", "MinInterval", "TimeSpan.FromSeconds(5)"),
                 ("TimeSpan", "MaxInterval", "TimeSpan.FromMinutes(30)"),
                 ("TimeSpan", "IntervalDelta", "TimeSpan.FromSeconds(5)")),
-            EventingSettings.RetryPolicyOptionsEnum.RetryNone => GetCSharpRetryStatement("None"),
+            MassTransitMessageBusSettings.RetryPolicyOptionsEnum.RetryNone => GetCSharpRetryStatement("None"),
             _ => throw new ArgumentOutOfRangeException()
         };
 
@@ -529,16 +530,16 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
         // that would provide as good defaults, but based on the use cases for each retry
         // policy, I've put together some values that make sense.
 
-        switch (ExecutionContext.Settings.GetEventingSettings().RetryPolicy().AsEnum())
+        switch (ExecutionContext.Settings.GetMassTransitMessageBusSettings().RetryPolicy().AsEnum())
         {
-            case EventingSettings.RetryPolicyOptionsEnum.RetryImmediate:
+            case MassTransitMessageBusSettings.RetryPolicyOptionsEnum.RetryImmediate:
                 ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("MassTransit:RetryImmediate",
                     new
                     {
                         RetryLimit = 5
                     }));
                 break;
-            case EventingSettings.RetryPolicyOptionsEnum.RetryInterval:
+            case MassTransitMessageBusSettings.RetryPolicyOptionsEnum.RetryInterval:
                 ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("MassTransit:RetryInterval",
                     new
                     {
@@ -546,7 +547,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
                         Interval = TimeSpan.FromSeconds(5)
                     }));
                 break;
-            case EventingSettings.RetryPolicyOptionsEnum.RetryIncremental:
+            case MassTransitMessageBusSettings.RetryPolicyOptionsEnum.RetryIncremental:
                 ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("MassTransit:RetryIncremental",
                     new
                     {
@@ -555,7 +556,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
                         IntervalIncrement = TimeSpan.FromSeconds(5)
                     }));
                 break;
-            case EventingSettings.RetryPolicyOptionsEnum.RetryExponential:
+            case MassTransitMessageBusSettings.RetryPolicyOptionsEnum.RetryExponential:
                 // I used the MassTransit algo to work out this one.
                 ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("MassTransit:RetryExponential",
                     new
@@ -566,7 +567,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
                         IntervalDelta = TimeSpan.FromSeconds(5)
                     }));
                 break;
-            case EventingSettings.RetryPolicyOptionsEnum.RetryNone:
+            case MassTransitMessageBusSettings.RetryPolicyOptionsEnum.RetryNone:
             default:
                 break;
         }

@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.Contracts</id>
-  <version>6.0.1-pre.0</version>
+  <version>6.1.0-pre.0</version>
   <supportedClientVersions>[4.5.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Provides an interface for the EventBus and Event Handlers as well as Eventing Messages.</summary>
   <description>Provides an interface for the EventBus and Event Handlers as well as Eventing Messages.</description>
@@ -17,6 +17,22 @@
       </config>
       <role>Application.Eventing</role>
       <location></location>
+    </template>
+    <template id="Intent.Eventing.Contracts.CompositeMessageBus" externalReference="7b39ed57-dd46-4027-b851-7484ce851ce5">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.CompositeMessageBus</role>
+      <location>Eventing</location>
+    </template>
+    <template id="Intent.Eventing.Contracts.CompositeMessageBusConfiguration" externalReference="a647b2a7-040d-49ad-8052-f4f1db581793">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.DependencyInjection.CompositeMessageBus</role>
+      <location>Configuration</location>
     </template>
     <template id="Intent.Eventing.Contracts.EventBusInterface" externalReference="c05c51e0-a3d4-4a0b-8c66-2855263c672f">
       <config>
@@ -66,12 +82,45 @@
       <role>Application.Eventing.Message</role>
       <location>IntegrationEvents</location>
     </template>
+    <template id="Intent.Eventing.Contracts.MessageBrokerRegistry" externalReference="449ca544-5e2f-4c24-8bbf-dd87946ada43">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.MessageBrokerRegistry</role>
+      <location>Eventing</location>
+    </template>
+    <template id="Intent.Eventing.Contracts.MessageBrokerResolver" externalReference="80ead622-a79d-43a1-92a9-7f7f22e22082">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.MessageBrokerResolver</role>
+      <location>Eventing</location>
+    </template>
+    <template id="Intent.Eventing.Contracts.MessageBusInterface" externalReference="fb938506-716b-4e38-9c26-0f8660743ea6">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Eventing.MessageBusInterface</role>
+      <location>Common/Eventing</location>
+    </template>
   </templates>
   <decorators></decorators>
   <factoryExtensions>
     <factoryExtension id="Intent.Eventing.Contracts.ApplicationServiceInteractionInstaller" externalReference="5d6830aa-cfbb-4127-adfa-dccfb1207fe5" />
   </factoryExtensions>
-  <moduleSettings></moduleSettings>
+  <moduleSettings>
+    <group id="38416eff-a5f1-4842-b77c-ab301d7d1d67" title="Eventing Settings" externalReference="38416eff-a5f1-4842-b77c-ab301d7d1d67">
+      <settings>
+        <setting id="0420c177-417d-4073-bf26-250f1907a565" title="Use legacy interface name" type="switch">
+          <hint>Use legacy `IEventBus` interface name instead of `IMessageBus`.</hint>
+          <defaultValue>true</defaultValue>
+        </setting>
+      </settings>
+    </group>
+  </moduleSettings>
   <dependencies>
     <dependency id="Intent.Common" version="3.6.0" />
     <dependency id="Intent.Common.CSharp" version="3.9.0" />
@@ -92,5 +141,7 @@
     <file src="$outDir$/$id$.pdb" />
   </files>
   <moduleSettingsExtensions />
-  <metadata />
+  <metadata>
+    <install target="" src="Intent.Metadata/Module Builder/Intent.Eventing.Contracts/Intent.Eventing.Contracts.pkg.config" externalReference="bb2cc56b-8ccb-4f2e-bdf8-c019af951209" />
+  </metadata>
 </package>
