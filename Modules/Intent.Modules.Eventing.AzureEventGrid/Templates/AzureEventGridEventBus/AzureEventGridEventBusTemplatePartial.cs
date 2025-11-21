@@ -24,6 +24,8 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridEventBu
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public AzureEventGridEventBusTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            FulfillsRole("Eventing.MessageBusProvider");
+
             AddNugetDependency(NugetPackages.AzureMessagingEventGrid(outputTarget));
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
@@ -37,7 +39,7 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridEventBu
                 .AddUsing("Microsoft.Extensions.Options")
                 .AddClass($"AzureEventGridEventBus", @class =>
                 {
-                    @class.ImplementsInterface(this.GetMessageBusInterfaceName());
+                    @class.ImplementsInterface(this.GetBusInterfaceName());
                     @class.AddField("List<MessageEntry>", "_messageQueue", field => field.PrivateReadOnly().WithAssignment(new CSharpStatement("[]")));
                     @class.AddField("Dictionary<string, PublisherEntry>", "_lookup", field => field.PrivateReadOnly());
 

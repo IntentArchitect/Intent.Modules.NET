@@ -22,6 +22,8 @@ namespace Intent.Modules.Eventing.Solace.Templates.SolaceEventBus
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public SolaceEventBusTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            FulfillsRole("Eventing.MessageBusProvider");
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("System.Collections.Generic")
@@ -31,7 +33,7 @@ namespace Intent.Modules.Eventing.Solace.Templates.SolaceEventBus
                 .AddUsing("Microsoft.Extensions.Configuration")
                 .AddClass($"SolaceEventBus", @class =>
                 {
-                    @class.ImplementsInterface(this.GetMessageBusInterfaceName());
+                    @class.ImplementsInterface(this.GetBusInterfaceName());
                     @class.AddField("List<object>", "_messagesToPublish", f => f.PrivateReadOnly().WithAssignment("new List<object>()"));
                     @class.AddField("List<object>", "_messagesToSend", f => f.PrivateReadOnly().WithAssignment("new List<object>()"));
                     @class.AddField("int?", "_defaultPriority", f => f.PrivateReadOnly());

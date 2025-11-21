@@ -29,9 +29,9 @@ namespace Intent.Modules.Eventing.Contracts.Templates.CompositeMessageBus
                 .AddUsing("System.Threading.Tasks")
                 .AddClass("CompositeMessageBus", @class =>
                 {
-                    @class.ImplementsInterface(this.GetMessageBusInterfaceName());
+                    @class.ImplementsInterface(this.GetBusInterfaceName());
                     @class.AddField(this.GetMessageBrokerResolverName(), "_resolver", field => field.PrivateReadOnly());
-                    @class.AddField($"HashSet<{this.GetMessageBusInterfaceName()}>", "_messageBusProviders", field => 
+                    @class.AddField($"HashSet<{this.GetBusInterfaceName()}>", "_messageBusProviders", field => 
                         field.PrivateReadOnly().WithAssignment(new CSharpStatement("[]")));
 
                     @class.AddConstructor(ctor =>
@@ -97,7 +97,7 @@ namespace Intent.Modules.Eventing.Contracts.Templates.CompositeMessageBus
                     {
                         method.Private();
                         method.AddGenericParameter("T");
-                        method.AddParameter($"Action<{this.GetMessageBusInterfaceName()}>", "action");
+                        method.AddParameter($"Action<{this.GetBusInterfaceName()}>", "action");
                         
                         method.AddStatement("var providers = _resolver.GetMessageBusProvidersForMessageType(typeof(T));");
                         method.AddForEachStatement("provider", "providers", loop =>

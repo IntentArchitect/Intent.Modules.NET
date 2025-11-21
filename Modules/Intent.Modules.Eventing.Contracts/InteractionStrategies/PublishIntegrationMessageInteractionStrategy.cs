@@ -6,7 +6,7 @@ using Intent.Modules.Application.MediatR.CRUD.Eventing.MappingTypeResolvers;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Interactions;
 using Intent.Modules.Common.CSharp.Templates;
-using Intent.Modules.Eventing.Contracts.Templates.MessageBusInterface;
+using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationCommand;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventDto;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventEnum;
@@ -32,7 +32,10 @@ namespace Intent.Modules.Eventing.Contracts.InteractionStrategies
             var handlerClass = method.Class;
             var template = (ICSharpFileBuilderTemplate)handlerClass.File.Template;
             var @class = handlerClass;
-            @class.InjectService(template.GetTypeName(MessageBusInterfaceTemplate.TemplateId), "messageBus");
+            var busInterfaceName = template.GetBusInterfaceName();
+            var busVariableName = busInterfaceName == "IEventBus" ? "eventBus" : "messageBus";
+            var busFieldName = busInterfaceName == "IEventBus" ? "_eventBus" : "_messageBus";
+            @class.InjectService(template.GetTypeName(template.GetBusInterfaceTemplateId()), busVariableName);
 
             var csharpMapping = method.GetMappingManager();
             csharpMapping.AddMappingResolver(new MessageCreationMappingTypeResolver(template));
@@ -59,10 +62,10 @@ namespace Intent.Modules.Eventing.Contracts.InteractionStrategies
 
             if (interaction.IsPublishIntegrationEventTargetEndModel())
             {
-                AddIntegrationDispatchStatements(method, new CSharpInvocationStatement("_messageBus.Publish").AddArgument(newMessageStatement));
+                AddIntegrationDispatchStatements(method, new CSharpInvocationStatement($"{busFieldName}.Publish").AddArgument(newMessageStatement));
             } else if (interaction.IsSendIntegrationCommandTargetEndModel())
             {
-                AddIntegrationDispatchStatements(method, new CSharpInvocationStatement("_messageBus.Send").AddArgument(newMessageStatement));
+                AddIntegrationDispatchStatements(method, new CSharpInvocationStatement($"{busFieldName}.Send").AddArgument(newMessageStatement));
             }
         }
 

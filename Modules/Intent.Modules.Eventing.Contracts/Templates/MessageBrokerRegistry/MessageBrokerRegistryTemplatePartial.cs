@@ -36,7 +36,7 @@ namespace Intent.Modules.Eventing.Contracts.Templates.MessageBrokerRegistry
                         method.AddGenericParameter("TMessage", out var tMessage);
                         method.AddGenericParameter("TMessageBus", out var tMessageBus);
                         method.AddGenericTypeConstraint(tMessage, c => c.AddType("class"));
-                        method.AddGenericTypeConstraint(tMessageBus, c => c.AddType(this.GetMessageBusInterfaceName()));
+                        method.AddGenericTypeConstraint(tMessageBus, c => c.AddType(this.GetBusInterfaceName()));
 
                         method.AddIfStatement($"typeof(TMessageBus) == typeof({this.GetCompositeMessageBusName()})", stmt =>
                         {

@@ -12,6 +12,7 @@ using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
+using Intent.Modules.Eventing.Contracts.Settings;
 using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.Modules.Integration.IaC.Shared;
 using Intent.Modules.Integration.IaC.Shared.AzureEventGrid;
@@ -54,13 +55,15 @@ public partial class AzureEventGridConfigurationTemplate : CSharpTemplateBase<ob
                         if (isCompositeMode)
                         {
                             method.AddStatement($"// Register as concrete type for composite message bus");
-                            method.AddStatement($"services.AddScoped<{this.GetAzureEventGridEventBusName()}>();");
+                            method.AddStatement($"services.AddScoped<{this.GetAzureEventGridEventBusName()}>;");
                         }
                         else
                         {
-                            method.AddStatement($"// Register as IMessageBus and IEventBus for standalone mode");
-                            method.AddStatement($"services.AddScoped<{this.GetMessageBusInterfaceName()}, {this.GetAzureEventGridEventBusName()}>();");
-                            method.AddStatement($"services.AddScoped<{this.GetEventBusInterfaceName()}, {this.GetAzureEventGridEventBusName()}>();");
+                            var busInterface = this.GetBusInterfaceName();
+                            
+                            method.AddStatement($"// Register as {busInterface} for standalone mode");
+                            method.AddStatement($"services.AddScoped<{this.GetAzureEventGridEventBusName()}>;");
+                            method.AddStatement($"services.AddScoped<{busInterface}>(provider => provider.GetRequiredService<{this.GetAzureEventGridEventBusName()}>);");
                         }
                         method.AddStatement($"services.AddSingleton<{this.GetAzureEventGridMessageDispatcherName()}>();");
                         method.AddStatement($"services.AddSingleton<{this.GetAzureEventGridMessageDispatcherInterfaceName()}, {this.GetAzureEventGridMessageDispatcherName()}>();");

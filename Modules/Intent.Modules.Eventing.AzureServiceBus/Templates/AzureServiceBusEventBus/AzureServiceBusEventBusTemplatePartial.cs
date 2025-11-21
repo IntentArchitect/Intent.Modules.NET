@@ -22,6 +22,8 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusEvent
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public AzureServiceBusEventBusTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            FulfillsRole("Eventing.MessageBusProvider");
+
             AddNugetDependency(NugetPackages.AzureMessagingServiceBus(OutputTarget));
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
@@ -36,7 +38,7 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusEvent
                 .AddUsing("Microsoft.Extensions.Configuration")
                 .AddClass($"AzureServiceBusEventBus", @class =>
                 {
-                    @class.ImplementsInterface(this.GetMessageBusInterfaceName());
+                    @class.ImplementsInterface(this.GetBusInterfaceName());
                     @class.AddField("List<object>", "_messageQueue", field => field.PrivateReadOnly().WithAssignment(new CSharpStatement("[]")));
                     @class.AddField("Dictionary<string, string>", "_lookup", field => field.PrivateReadOnly());
 

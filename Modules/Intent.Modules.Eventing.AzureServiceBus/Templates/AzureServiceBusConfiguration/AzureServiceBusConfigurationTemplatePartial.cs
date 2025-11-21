@@ -13,6 +13,7 @@ using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
+using Intent.Modules.Eventing.Contracts.Settings;
 using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.Modules.Integration.IaC.Shared;
 using Intent.Modules.Integration.IaC.Shared.AzureServiceBus;
@@ -60,13 +61,15 @@ public partial class AzureServiceBusConfigurationTemplate : CSharpTemplateBase<o
                         if (isCompositeMode)
                         {
                             method.AddStatement($"// Register as concrete type for composite message bus");
-                            method.AddStatement($"services.AddScoped<{this.GetAzureServiceBusEventBusName()}>();");
+                            method.AddStatement($"services.AddScoped<{this.GetAzureServiceBusEventBusName()}>;");
                         }
                         else
                         {
-                            method.AddStatement($"// Register as IMessageBus and IEventBus for standalone mode");
-                            method.AddStatement($"services.AddScoped<{this.GetMessageBusInterfaceName()}, {this.GetAzureServiceBusEventBusName()}>();");
-                            method.AddStatement($"services.AddScoped<{this.GetEventBusInterfaceName()}, {this.GetAzureServiceBusEventBusName()}>();");
+                            var busInterface = this.GetBusInterfaceName();
+                            
+                            method.AddStatement($"// Register as {busInterface} for standalone mode");
+                            method.AddStatement($"services.AddScoped<{this.GetAzureServiceBusEventBusName()}>;");
+                            method.AddStatement($"services.AddScoped<{busInterface}>(provider => provider.GetRequiredService<{this.GetAzureServiceBusEventBusName()}>);");
                         }
                         method.AddStatement($"services.AddSingleton<{this.GetAzureServiceBusMessageDispatcherName()}>();");
                         method.AddStatement($"services.AddSingleton<{this.GetAzureServiceBusMessageDispatcherInterfaceName()}, {this.GetAzureServiceBusMessageDispatcherName()}>();");

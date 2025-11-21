@@ -10,7 +10,7 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Eventing.Contracts.DomainMapping.Templates;
 using Intent.Modules.Eventing.Contracts.DomainMapping.Templates.MessageExtensions;
-using Intent.Modules.Eventing.Contracts.Templates.MessageBusInterface;
+using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -40,12 +40,16 @@ namespace Intent.Modules.Eventing.Contracts.DomainMapping.FactoryExtensions
                         var extensionExists = template.TryGetTypeName(MessageExtensionsTemplate.TemplateId, messageModel, out _); // adds using
                         if (extensionExists)
                         {
+                            var busInterfaceName = template.GetBusInterfaceName();
+                            var busVariableName = busInterfaceName == "IEventBus" ? "eventBus" : "messageBus";
+                            var busFieldName = busInterfaceName == "IEventBus" ? "_eventBus" : "_messageBus";
+                            
                             var @class = file.Classes.First();
                             @class.Constructors.First()
-                                .AddParameter(template.GetTypeName(MessageBusInterfaceTemplate.TemplateId), "messageBus", param => param.IntroduceReadonlyField());
+                                .AddParameter(template.GetTypeName(template.GetBusInterfaceTemplateId()), busVariableName, param => param.IntroduceReadonlyField());
                             @class.FindMethod("Handle")
                                 .AddStatement($"var integrationEvent = notification.DomainEvent.MapTo{messageModel.Name.ToPascalCase()}();")
-                                .AddStatement("_messageBus.Publish(integrationEvent);");
+                                .AddStatement($"{busFieldName}.Publish(integrationEvent);");
                         }
                     });
                 }

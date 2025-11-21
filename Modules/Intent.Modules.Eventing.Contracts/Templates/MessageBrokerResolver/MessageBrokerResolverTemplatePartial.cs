@@ -45,7 +45,7 @@ namespace Intent.Modules.Eventing.Contracts.Templates.MessageBrokerResolver
                         method.AddStatement("return _registry.GetAllRegistrations().ContainsKey(messageType);");
                     });
 
-                    @class.AddMethod($"IReadOnlyList<{this.GetMessageBusInterfaceName()}>", "GetMessageBusProvidersForMessageType", method =>
+                    @class.AddMethod($"IReadOnlyList<{this.GetBusInterfaceName()}>", "GetMessageBusProvidersForMessageType", method =>
                     {
                         method.AddParameter("Type", "messageType");
                         
@@ -55,7 +55,7 @@ namespace Intent.Modules.Eventing.Contracts.Templates.MessageBrokerResolver
                         });
 
                         method.AddStatement($@"return providerTypes
-                .Select(pt => ({this.GetMessageBusInterfaceName()})_serviceProvider.GetRequiredService(pt))
+                .Select(pt => ({this.GetBusInterfaceName()})_serviceProvider.GetRequiredService(pt))
                 .ToList();", stmt => stmt.SeparatedFromPrevious());
                     });
                 });

@@ -24,6 +24,8 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitEventBus
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public MassTransitEventBusTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            FulfillsRole("Eventing.MessageBusProvider");
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("System.Collections.Generic")

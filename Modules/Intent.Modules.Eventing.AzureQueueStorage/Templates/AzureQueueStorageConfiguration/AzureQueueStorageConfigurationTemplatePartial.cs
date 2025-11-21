@@ -14,6 +14,7 @@ using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageOptions;
+using Intent.Modules.Eventing.Contracts.Settings;
 using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationCommand;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage;
@@ -68,13 +69,15 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageC
                         if (isCompositeMode)
                         {
                             mth.AddStatement($"// Register as concrete type for composite message bus");
-                            mth.AddStatement($"services.AddScoped<{this.GetAzureQueueStorageEventBusName()}>();");
+                            mth.AddStatement($"services.AddScoped<{this.GetAzureQueueStorageEventBusName()}>;");
                         }
                         else
                         {
-                            mth.AddStatement($"// Register as IMessageBus and IEventBus for standalone mode");
-                            mth.AddStatement($"services.AddScoped<{this.GetMessageBusInterfaceName()}, {this.GetAzureQueueStorageEventBusName()}>();");
-                            mth.AddStatement($"services.AddScoped<{this.GetEventBusInterfaceName()}, {this.GetAzureQueueStorageEventBusName()}>();");
+                            var busInterface = this.GetBusInterfaceName();
+                            
+                            mth.AddStatement($"// Register as {busInterface} for standalone mode");
+                            mth.AddStatement($"services.AddScoped<{this.GetAzureQueueStorageEventBusName()}>;");
+                            mth.AddStatement($"services.AddScoped<{busInterface}>(provider => provider.GetRequiredService<{this.GetAzureQueueStorageEventBusName()}>);");
                         }
 
                         mth.AddInvocationStatement($"services.AddOptions<{this.GetAzureQueueStorageOptionsName()}>", invoc =>

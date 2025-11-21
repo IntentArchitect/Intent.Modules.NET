@@ -13,6 +13,7 @@ using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
+using Intent.Modules.Eventing.Contracts.Settings;
 using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage;
 using Intent.RoslynWeaver.Attributes;
@@ -113,13 +114,15 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaConfiguration
                         if (isCompositeMode)
                         {
                             method.AddStatement("// Register as concrete type for composite message bus");
-                            method.AddStatement($"services.AddScoped<{this.GetKafkaEventBusName()}>();");
+                            method.AddStatement($"services.AddScoped<{this.GetKafkaEventBusName()}>;");
                         }
                         else
                         {
-                            method.AddStatement("// Register as IMessageBus and IEventBus for standalone mode");
-                            method.AddStatement($"services.AddScoped<{this.GetMessageBusInterfaceName()}, {this.GetKafkaEventBusName()}>();");
-                            method.AddStatement($"services.AddScoped<{this.GetEventBusInterfaceName()}, {this.GetKafkaEventBusName()}>();");
+                            var busInterface = this.GetBusInterfaceName();
+                            
+                            method.AddStatement($"// Register as {busInterface} for standalone mode");
+                            method.AddStatement($"services.AddScoped<{this.GetKafkaEventBusName()}>;");
+                            method.AddStatement($"services.AddScoped<{busInterface}>(provider => provider.GetRequiredService<{this.GetKafkaEventBusName()}>);");
                         }
                         method.AddStatement($"services.AddScoped(typeof({this.GetKafkaEventDispatcherInterfaceName()}<>), typeof({this.GetKafkaEventDispatcherName()}<>));");
                         method.AddStatement($"services.AddHostedService<{this.GetKafkaConsumerBackgroundServiceName()}>();");

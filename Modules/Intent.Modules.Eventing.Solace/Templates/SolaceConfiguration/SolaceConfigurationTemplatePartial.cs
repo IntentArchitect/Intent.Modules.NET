@@ -9,6 +9,7 @@ using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Eventing.Contracts.Settings;
 using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -97,13 +98,15 @@ namespace Intent.Modules.Eventing.Solace.Templates.SolaceConfiguration
                         if (isCompositeMode)
                         {
                             method.AddStatement("// Register as concrete type for composite message bus");
-                            method.AddStatement($"services.AddScoped<{this.GetSolaceEventBusName()}>();");
+                            method.AddStatement($"services.AddScoped<{this.GetSolaceEventBusName()}>;");
                         }
                         else
                         {
-                            method.AddStatement("// Register as IMessageBus and IEventBus for standalone mode");
-                            method.AddStatement($"services.AddScoped<{this.GetMessageBusInterfaceName()}, {this.GetSolaceEventBusName()}>();");
-                            method.AddStatement($"services.AddScoped<{this.GetEventBusInterfaceName()}, {this.GetSolaceEventBusName()}>();");
+                            var busInterface = this.GetBusInterfaceName();
+                            
+                            method.AddStatement($"// Register as {busInterface} for standalone mode");
+                            method.AddStatement($"services.AddScoped<{this.GetSolaceEventBusName()}>;");
+                            method.AddStatement($"services.AddScoped<{busInterface}>(provider => provider.GetRequiredService<{this.GetSolaceEventBusName()}>);");
                         }
                         
                         method.AddStatement($"services.AddTransient<{this.GetSolaceConsumerName()}>();");

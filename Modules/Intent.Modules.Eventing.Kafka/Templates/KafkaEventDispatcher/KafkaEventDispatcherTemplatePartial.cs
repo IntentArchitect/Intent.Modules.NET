@@ -37,8 +37,13 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaEventDispatcher
 
                     @class.AddConstructor(ctor =>
                     {
-                        ctor.AddParameter(this.GetEventBusInterfaceName(), "eventBus", p => p.IntroduceReadonlyField());
+                        var busInterfaceName = this.GetBusInterfaceName();
+                        var busVariableName = busInterfaceName == "IEventBus" ? "eventBus" : "messageBus";
+                        var busFieldName = busInterfaceName == "IEventBus" ? "_eventBus" : "_messageBus";
+                        
+                        ctor.AddParameter(busInterfaceName, busVariableName, p => p.IntroduceReadonlyField());
                         ctor.AddParameter($"{this.GetIntegrationEventHandlerInterfaceName()}<{t}>", "handler", p => p.IntroduceReadonlyField());
+                        ctor.AddMetadata("busFieldName", busFieldName);
                     });
 
                     @class.AddMethod("void", "Dispatch", method =>
@@ -54,7 +59,8 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaEventDispatcher
                             allowTransactionScope: true,
                             cancellationTokenExpression: "cancellationToken");
 
-                        method.AddStatement("await _eventBus.FlushAllAsync(cancellationToken);", s => s.SeparatedFromPrevious());
+                        var busFieldName = @class.Constructors.First().TryGetMetadata<string>("busFieldName", out var fieldName) ? fieldName : "_messageBus";
+                        method.AddStatement($"await {busFieldName}.FlushAllAsync(cancellationToken);", s => s.SeparatedFromPrevious());
                     });
                 });
         }

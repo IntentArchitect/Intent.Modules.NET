@@ -23,16 +23,46 @@ namespace Intent.Modules.Eventing.Contracts.Templates.EventBusInterface
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
+                .AddUsing("System.Collections.Generic")
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
                 .AddInterface("IEventBus", @interface => @interface
-                    .ExtendsInterface(this.GetMessageBusInterfaceName())
-                    .AddAttribute($"[Obsolete(\"Use {this.GetMessageBusInterfaceName()} instead\")]")
+                    .AddMethod("void", "Publish", m => m
+                        .AddGenericParameter("TMessage")
+                        .AddParameter("TMessage", "message")
+                        .AddGenericTypeConstraint("TMessage", c => c.AddType("class"))
+                    )
+                    .AddMethod("void", "Publish", m => m
+                        .AddGenericParameter("TMessage")
+                        .AddParameter("TMessage", "message")
+                        .AddParameter("IDictionary<string, object>", "additionalData")
+                        .AddGenericTypeConstraint("TMessage", c => c.AddType("class"))
+                    )
+                    .AddMethod("void", "Send", m => m
+                        .AddGenericParameter("TMessage")
+                        .AddParameter("TMessage", "message")
+                        .AddGenericTypeConstraint("TMessage", c => c.AddType("class"))
+                    )
+                    .AddMethod("void", "Send", m => m
+                        .AddGenericParameter("TMessage")
+                        .AddParameter("TMessage", "message")
+                        .AddParameter("IDictionary<string, object>", "additionalData")
+                        .AddGenericTypeConstraint("TMessage", c => c.AddType("class"))
+                    )
+                    .AddMethod("Task", "FlushAllAsync", m => m
+                        .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"))
+                    )
                 );
         }
 
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }
+
+        public override bool CanRunTemplate()
+        {
+            var useLegacy = Settings.ModuleSettingsExtensions.GetEventingSettings(ExecutionContext.Settings).UseLegacyInterfaceName();
+            return useLegacy;
+        }
 
         [IntentManaged(Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()

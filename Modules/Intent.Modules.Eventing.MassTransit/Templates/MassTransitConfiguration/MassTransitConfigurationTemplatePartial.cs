@@ -16,6 +16,7 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Eventing.Contracts.Settings;
 using Intent.Modules.Eventing.Contracts.Templates;
+using Intent.Modules.Eventing.Contracts.Templates.CompositeMessageBusConfiguration;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationCommand;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage;
 using Intent.Modules.Eventing.MassTransit.Settings;
@@ -76,11 +77,9 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
                     method.Static();
                     method.AddParameter("IServiceCollection", "services", param => param.WithThisModifier());
                     method.AddParameter("IConfiguration", "configuration");
-                    
-                    var compositeTemplate = GetTemplate<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Intent.Eventing.Contracts.CompositeMessageBusConfiguration"));
-                    var isCompositeMode = compositeTemplate != null;
-                    
-                    if (isCompositeMode)
+
+                    var isCompositeMode = TryGetTemplate<ICSharpFileBuilderTemplate>(CompositeMessageBusConfigurationTemplate.TemplateId, out var compositeConfigTemplate);
+                    if (isCompositeMode && compositeConfigTemplate.CanRunTemplate())
                     {
                         method.AddParameter(this.GetMessageBrokerRegistryName(), "registry");
                     }
@@ -216,14 +215,11 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
         }
         else
         {
-            var useLegacy = ExecutionContext.Settings.GetEventingSettings().UseLegacyInterfaceName();
-            var primaryInterface = this.GetBusInterfaceName();
-            var secondaryInterface = useLegacy ? this.GetMessageBusInterfaceName() : this.GetEventBusInterfaceName();
+            var busInterface = this.GetBusInterfaceName();
             
-            statements.Add($"// Register as {(useLegacy ? "IEventBus" : "IMessageBus")} (primary) and {(useLegacy ? "IMessageBus" : "IEventBus")} (secondary) for standalone mode");
+            statements.Add($"// Register as {busInterface} for standalone mode");
             statements.Add($@"services.AddScoped<{this.GetMassTransitEventBusName()}>();");
-            statements.Add($@"services.AddScoped<{primaryInterface}>(provider => provider.GetRequiredService<{this.GetMassTransitEventBusName()}>());");
-            statements.Add($@"services.AddScoped<{secondaryInterface}>(provider => provider.GetRequiredService<{this.GetMassTransitEventBusName()}>());");
+            statements.Add($@"services.AddScoped<{busInterface}>(provider => provider.GetRequiredService<{this.GetMassTransitEventBusName()}>());");
         }
 
         return statements;

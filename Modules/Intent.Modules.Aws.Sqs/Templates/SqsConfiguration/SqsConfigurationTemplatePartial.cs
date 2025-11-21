@@ -14,6 +14,7 @@ using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
+using Intent.Modules.Eventing.Contracts.Settings;
 using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.Modules.Integration.IaC.Shared.AwsSqs;
 using Intent.RoslynWeaver.Attributes;
@@ -63,13 +64,15 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsConfiguration
                             if (isCompositeMode)
                             {
                                 method.AddStatement("// Register as concrete type for composite message bus");
-                                method.AddStatement($"services.AddScoped<{this.GetTypeName(SqsEventBusTemplate.TemplateId)}>();", stmt => stmt.SeparatedFromPrevious());
+                                method.AddStatement($"services.AddScoped<{this.GetTypeName(SqsEventBusTemplate.TemplateId)}>;", stmt => stmt.SeparatedFromPrevious());
                             }
                             else
                             {
-                                method.AddStatement("// Register as IMessageBus and IEventBus for standalone mode");
-                                method.AddStatement($"services.AddScoped<{this.GetMessageBusInterfaceName()}, {this.GetTypeName(SqsEventBusTemplate.TemplateId)}>();", stmt => stmt.SeparatedFromPrevious());
-                                method.AddStatement($"services.AddScoped<{this.GetEventBusInterfaceName()}, {this.GetTypeName(SqsEventBusTemplate.TemplateId)}>();");
+                                var busInterface = this.GetBusInterfaceName();
+                                
+                                method.AddStatement($"// Register as {busInterface} for standalone mode", stmt => stmt.SeparatedFromPrevious());
+                                method.AddStatement($"services.AddScoped<{this.GetTypeName(SqsEventBusTemplate.TemplateId)}>;");
+                                method.AddStatement($"services.AddScoped<{busInterface}>(provider => provider.GetRequiredService<{this.GetTypeName(SqsEventBusTemplate.TemplateId)}>);");
                             }
 
                             // Register dispatcher

@@ -50,16 +50,27 @@ namespace Intent.Modules.Eventing.Contracts.Templates.CompositeMessageBusConfigu
                         method.AddStatement($"// Register the resolver (scoped, uses IServiceProvider to resolve providers per request)", stmt => stmt.SeparatedFromPrevious());
                         method.AddStatement($"services.AddScoped<{this.GetMessageBrokerResolverName()}>();");
 
-                        method.AddStatement($"// Register CompositeMessageBus as {this.GetMessageBusInterfaceName()} (scoped per request)", stmt => stmt.SeparatedFromPrevious());
-                        method.AddStatement($"services.AddScoped<{this.GetMessageBusInterfaceName()}, {this.GetCompositeMessageBusName()}>();");
+                        method.AddStatement($"// Register CompositeMessageBus as {this.GetBusInterfaceName()} (scoped per request)", stmt => stmt.SeparatedFromPrevious());
+                        method.AddStatement($"services.AddScoped<{this.GetBusInterfaceName()}, {this.GetCompositeMessageBusName()}>();");
 
                         method.AddStatement("return services;", stmt => stmt.SeparatedFromPrevious());
                     });
                 });
         }
 
+        public override bool CanRunTemplate()
+        {
+            var templates = ExecutionContext.FindTemplateInstances<ICSharpFileBuilderTemplate>("Eventing.MessageBusProvider").ToList();
+            return templates.Count >= 2;
+        }
+
         public override void BeforeTemplateExecution()
         {
+            if (!CanRunTemplate())
+            {
+                return;
+            }
+
             ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
                 .ToRegister("ConfigureCompositeMessageBus", ServiceConfigurationRequest.ParameterType.Configuration)
                 .HasDependency(this));
