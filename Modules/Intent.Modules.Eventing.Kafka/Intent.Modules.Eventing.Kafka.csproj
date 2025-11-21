@@ -5,12 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common" Version="3.7.2" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.8.1" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.7.3" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.9.0" />
     <PackageReference Include="Intent.Modules.Eventing.Contracts" Version="5.0.3" />
-    <PackageReference Include="Intent.Modules.Modelers.Eventing" Version="5.1.0" />
-    <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.7.3" />
-    <PackageReference Include="Intent.Modules.Modelers.Services.EventInteractions" Version="1.0.4" />
+    <PackageReference Include="Intent.Modules.Modelers.Eventing" Version="6.0.1" />
+    <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.8.3" />
+    <PackageReference Include="Intent.Modules.Modelers.Services.EventInteractions" Version="1.1.0" />
     <PackageReference Include="Intent.Packager" Version="3.6.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -22,6 +22,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
     <ProjectReference Include="..\Intent.Modules.Common.UnitOfWork\Intent.Modules.Common.UnitOfWork.csproj" PrivateAssets="All" />
+    <ProjectReference Include="..\Intent.Modules.Eventing.Contracts\Intent.Modules.Eventing.Contracts.csproj" PrivateAssets="All" />
   </ItemGroup>
 
   <ItemGroup>

@@ -48,11 +48,29 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsConfiguration
                             method.AddParameter("IServiceCollection", "services", param => param.WithThisModifier());
                             method.AddParameter("IConfiguration", "configuration");
 
+                            var compositeTemplate = GetTemplate<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Intent.Eventing.Contracts.CompositeMessageBusConfiguration"));
+                            var isCompositeMode = compositeTemplate != null;
+                            
+                            if (isCompositeMode)
+                            {
+                                method.AddParameter(this.GetMessageBrokerRegistryName(), "registry");
+                            }
+
                             method.AddStatement("services.AddAWSService<AmazonSQSClient>();");
                             method.AddStatement("services.AddSingleton(typeof(IAmazonSQS), sp => sp.GetRequiredService<AmazonSQSClient>());", stmt => stmt.SeparatedFromPrevious());
 
                             // Register event bus
-                            method.AddStatement($"services.AddScoped<{this.GetEventBusInterfaceName()}, {this.GetTypeName(SqsEventBusTemplate.TemplateId)}>();", stmt => stmt.SeparatedFromPrevious());
+                            if (isCompositeMode)
+                            {
+                                method.AddStatement("// Register as concrete type for composite message bus");
+                                method.AddStatement($"services.AddScoped<{this.GetTypeName(SqsEventBusTemplate.TemplateId)}>();", stmt => stmt.SeparatedFromPrevious());
+                            }
+                            else
+                            {
+                                method.AddStatement("// Register as IMessageBus and IEventBus for standalone mode");
+                                method.AddStatement($"services.AddScoped<{this.GetMessageBusInterfaceName()}, {this.GetTypeName(SqsEventBusTemplate.TemplateId)}>();", stmt => stmt.SeparatedFromPrevious());
+                                method.AddStatement($"services.AddScoped<{this.GetEventBusInterfaceName()}, {this.GetTypeName(SqsEventBusTemplate.TemplateId)}>();");
+                            }
 
                             // Register dispatcher
                             method.AddStatement($"services.AddSingleton<{this.GetTypeName(SqsMessageDispatcherTemplate.TemplateId)}>();");
@@ -91,6 +109,17 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsConfiguration
                                             arg.AddStatement($"options.Add<{messageType}, {handlerType}>();");
                                         }
                                     }));
+                            }
+
+                            if (isCompositeMode && publishers.Any())
+                            {
+                                method.AddStatement("");
+                                method.AddStatement("// Register message types with the composite message bus registry");
+                                foreach (var publisher in publishers)
+                                {
+                                    var messageType = publisher.GetModelTypeName(this);
+                                    method.AddStatement($"registry.Register<{messageType}, {this.GetTypeName(SqsEventBusTemplate.TemplateId)}>();");
+                                }
                             }
 
                             method.AddReturn("services", stmt => stmt.SeparatedFromPrevious());

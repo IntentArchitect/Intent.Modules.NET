@@ -31,7 +31,7 @@ namespace Intent.Modules.Eventing.Solace.Templates.SolaceEventBus
                 .AddUsing("Microsoft.Extensions.Configuration")
                 .AddClass($"SolaceEventBus", @class =>
                 {
-                    @class.ImplementsInterface(this.GetEventBusInterfaceName());
+                    @class.ImplementsInterface(this.GetMessageBusInterfaceName());
                     @class.AddField("List<object>", "_messagesToPublish", f => f.PrivateReadOnly().WithAssignment("new List<object>()"));
                     @class.AddField("List<object>", "_messagesToSend", f => f.PrivateReadOnly().WithAssignment("new List<object>()"));
                     @class.AddField("int?", "_defaultPriority", f => f.PrivateReadOnly());
@@ -61,6 +61,18 @@ namespace Intent.Modules.Eventing.Solace.Templates.SolaceEventBus
                             .AddGenericTypeConstraint(tMessage, c => c.AddType("class"));
                         method.AddStatement("_messagesToPublish.Add(message);");
                     });
+                    
+                    @class.AddMethod("void", "Publish", method =>
+                    {
+                        method
+                            .AddGenericParameter("TMessage", out var tMessage)
+                            .AddParameter(tMessage, "message")
+                            .AddParameter("IDictionary<string, object>", "additionalData")
+                            .AddGenericTypeConstraint(tMessage, c => c.AddType("class"));
+                        method.AddStatement("// Note: Solace does not support additional data in this implementation, ignoring parameter");
+                        method.AddStatement("Publish(message);");
+                    });
+                    
                     @class.AddMethod("void", "Send", method =>
                     {
                         method
@@ -68,6 +80,17 @@ namespace Intent.Modules.Eventing.Solace.Templates.SolaceEventBus
                             .AddParameter(tMessage, "message")
                             .AddGenericTypeConstraint(tMessage, c => c.AddType("class"));
                         method.AddStatement("_messagesToSend.Add(message);");
+                    });
+                    
+                    @class.AddMethod("void", "Send", method =>
+                    {
+                        method
+                            .AddGenericParameter("TMessage", out var tMessage)
+                            .AddParameter(tMessage, "message")
+                            .AddParameter("IDictionary<string, object>", "additionalData")
+                            .AddGenericTypeConstraint(tMessage, c => c.AddType("class"));
+                        method.AddStatement("// Note: Solace does not support additional data in this implementation, ignoring parameter");
+                        method.AddStatement("Send(message);");
                     });
                     @class.AddMethod("Task", "FlushAllAsync", method =>
                     {
