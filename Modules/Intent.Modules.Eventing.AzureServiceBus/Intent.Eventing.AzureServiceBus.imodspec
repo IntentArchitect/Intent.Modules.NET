@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.AzureServiceBus</id>
   <version>1.1.8-pre.0</version>
@@ -75,7 +75,6 @@
   </templates>
   <decorators></decorators>
   <factoryExtensions>
-    <factoryExtension id="Intent.Eventing.AzureServiceBus.EventBusInterfaceExtension" externalReference="beda5d3a-d0a4-4d44-b5a0-e419b6ac3c41" />
     <factoryExtension id="Intent.Eventing.AzureServiceBus.MetadataLoaderExtension" externalReference="616fbd83-0d92-499a-bb08-dc72aaf0afaf" />
   </factoryExtensions>
   <moduleSettings></moduleSettings>

@@ -26,7 +26,7 @@
   <childElements>
     <childElement id="b243570a-4179-4261-bc64-371039d72b23" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>10.0.0</name>
-      <display>9.0.10 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <display>10.0.0 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -47,244 +47,310 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="6747afce-e0f1-4378-8092-46b96abc97ac" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.Abstractions</name>
+        <childElement id="85b3ac6a-c44b-48b2-bb82-6805c657fecf" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration</name>
+          <display>Microsoft.Extensions.Configuration (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>b243570a-4179-4261-bc64-371039d72b23</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="6747afce-e0f1-4378-8092-46b96abc97ac" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.Abstractions</name>
+          <display>Microsoft.Extensions.Configuration.Abstractions (10.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b243570a-4179-4261-bc64-371039d72b23</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="6a6757ae-783a-4278-9e0c-e0f90801f68c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Binder</name>
+          <display>Microsoft.Extensions.Configuration.Binder (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>b243570a-4179-4261-bc64-371039d72b23</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="11aa0f83-222d-4404-822a-6bb7cca39657" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.CommandLine</name>
+          <display>Microsoft.Extensions.Configuration.CommandLine (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>b243570a-4179-4261-bc64-371039d72b23</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="3fece8c1-9755-4c62-9d99-544e97ac7907" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.EnvironmentVariables</name>
+          <display>Microsoft.Extensions.Configuration.EnvironmentVariables (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>b243570a-4179-4261-bc64-371039d72b23</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="e8ce3455-9a77-4ff3-9e39-0472f75c369d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.FileExtensions</name>
+          <display>Microsoft.Extensions.Configuration.FileExtensions (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>b243570a-4179-4261-bc64-371039d72b23</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="45a81369-2ae7-4bc5-bac5-4ddb413dfcaf" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Json</name>
+          <display>Microsoft.Extensions.Configuration.Json (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>b243570a-4179-4261-bc64-371039d72b23</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="24c7c389-027f-49a4-8aaa-bc372db39875" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.UserSecrets</name>
+          <display>Microsoft.Extensions.Configuration.UserSecrets (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>b243570a-4179-4261-bc64-371039d72b23</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="85b3ac6a-c44b-48b2-bb82-6805c657fecf" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>b243570a-4179-4261-bc64-371039d72b23</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="ae09b8f0-d8fc-4126-a24f-838422a7a7f4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>b243570a-4179-4261-bc64-371039d72b23</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="f2664a6e-9dbb-45aa-a539-85c1679e6fce" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection</name>
+          <display>Microsoft.Extensions.DependencyInjection (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>b243570a-4179-4261-bc64-371039d72b23</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="ae09b8f0-d8fc-4126-a24f-838422a7a7f4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
+          <display>Microsoft.Extensions.DependencyInjection.Abstractions (10.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b243570a-4179-4261-bc64-371039d72b23</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="eb991614-45fd-484f-adde-5f618644c954" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics</name>
+          <display>Microsoft.Extensions.Diagnostics (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>b243570a-4179-4261-bc64-371039d72b23</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="9e41fe19-0c78-4969-9818-c27e6a49551d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Abstractions</name>
+          <display>Microsoft.Extensions.FileProviders.Abstractions (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>b243570a-4179-4261-bc64-371039d72b23</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="f0b1abda-2955-426d-8ac2-54390a63cb40" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Physical</name>
+          <display>Microsoft.Extensions.FileProviders.Physical (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>b243570a-4179-4261-bc64-371039d72b23</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="37a2ab8f-23b5-4d38-9393-158736a27a4d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Hosting.Abstractions</name>
+          <display>Microsoft.Extensions.Hosting.Abstractions (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>b243570a-4179-4261-bc64-371039d72b23</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="84a23a7f-2e2d-4850-a586-b9428f3131ff" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.Abstractions</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>b243570a-4179-4261-bc64-371039d72b23</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="7ab59911-7386-4227-ba21-c77b3e21cc90" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.Configuration</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>b243570a-4179-4261-bc64-371039d72b23</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="aa4f9741-0036-46ad-a10a-30bd0e74d40f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.Console</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>b243570a-4179-4261-bc64-371039d72b23</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="39dd21d2-f02c-4275-9f28-eac47b4415aa" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.Debug</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>b243570a-4179-4261-bc64-371039d72b23</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="ae4bf486-7868-4a6b-a44c-71a715d6457a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.EventLog</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>b243570a-4179-4261-bc64-371039d72b23</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="99ea099f-8049-4c41-8ac4-74a519cbc43e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.EventSource</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>b243570a-4179-4261-bc64-371039d72b23</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="75bb8e3f-5f0d-47dc-8abe-a2539e77f52c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging</name>
+          <display>Microsoft.Extensions.Logging (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>b243570a-4179-4261-bc64-371039d72b23</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="84a23a7f-2e2d-4850-a586-b9428f3131ff" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.Abstractions</name>
+          <display>Microsoft.Extensions.Logging.Abstractions (10.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b243570a-4179-4261-bc64-371039d72b23</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="7ab59911-7386-4227-ba21-c77b3e21cc90" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.Configuration</name>
+          <display>Microsoft.Extensions.Logging.Configuration (10.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b243570a-4179-4261-bc64-371039d72b23</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="aa4f9741-0036-46ad-a10a-30bd0e74d40f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.Console</name>
+          <display>Microsoft.Extensions.Logging.Console (10.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b243570a-4179-4261-bc64-371039d72b23</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="39dd21d2-f02c-4275-9f28-eac47b4415aa" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.Debug</name>
+          <display>Microsoft.Extensions.Logging.Debug (10.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b243570a-4179-4261-bc64-371039d72b23</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="ae4bf486-7868-4a6b-a44c-71a715d6457a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.EventLog</name>
+          <display>Microsoft.Extensions.Logging.EventLog (10.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b243570a-4179-4261-bc64-371039d72b23</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="99ea099f-8049-4c41-8ac4-74a519cbc43e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.EventSource</name>
+          <display>Microsoft.Extensions.Logging.EventSource (10.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b243570a-4179-4261-bc64-371039d72b23</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="9eea3291-498d-44dc-b4bf-74ab91aff6c7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options</name>
+          <display>Microsoft.Extensions.Options (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>b243570a-4179-4261-bc64-371039d72b23</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -293,7 +359,7 @@
     </childElement>
     <childElement id="39fa4fbc-4775-4129-a2d3-b3e5633274dc" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>10.0.0</name>
-      <display>9.0.10 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <display>10.0.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -314,244 +380,310 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="35d76dde-ddb5-4734-8d77-2a5d515f9930" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.Abstractions</name>
+        <childElement id="a34be87e-ab56-4594-9f90-a7222c937848" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration</name>
+          <display>Microsoft.Extensions.Configuration (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>39fa4fbc-4775-4129-a2d3-b3e5633274dc</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="35d76dde-ddb5-4734-8d77-2a5d515f9930" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.Abstractions</name>
+          <display>Microsoft.Extensions.Configuration.Abstractions (10.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>39fa4fbc-4775-4129-a2d3-b3e5633274dc</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="37e4d3ec-8810-45d9-83f1-659254718ef1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Binder</name>
+          <display>Microsoft.Extensions.Configuration.Binder (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>39fa4fbc-4775-4129-a2d3-b3e5633274dc</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="14817a18-0867-41a2-89f5-c3b4c36f76e8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.CommandLine</name>
+          <display>Microsoft.Extensions.Configuration.CommandLine (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>39fa4fbc-4775-4129-a2d3-b3e5633274dc</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="7b7189c1-cf61-4c78-8941-c5417dcd0fa4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.EnvironmentVariables</name>
+          <display>Microsoft.Extensions.Configuration.EnvironmentVariables (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>39fa4fbc-4775-4129-a2d3-b3e5633274dc</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="5836e121-6f0d-4d9e-a2d1-2b3c0abefc1c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.FileExtensions</name>
+          <display>Microsoft.Extensions.Configuration.FileExtensions (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>39fa4fbc-4775-4129-a2d3-b3e5633274dc</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="26c73a00-3d71-4a19-a98a-024f62a96b6b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Json</name>
+          <display>Microsoft.Extensions.Configuration.Json (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>39fa4fbc-4775-4129-a2d3-b3e5633274dc</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="551b4627-c23c-4b05-9ccf-fb92d16e8eee" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.UserSecrets</name>
+          <display>Microsoft.Extensions.Configuration.UserSecrets (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>39fa4fbc-4775-4129-a2d3-b3e5633274dc</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="a34be87e-ab56-4594-9f90-a7222c937848" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>39fa4fbc-4775-4129-a2d3-b3e5633274dc</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="0670dd9d-a4a4-40e2-a7fb-796b86617eeb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>39fa4fbc-4775-4129-a2d3-b3e5633274dc</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="036a5e73-aab8-4ddd-b4a4-5e375fdd4f48" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection</name>
+          <display>Microsoft.Extensions.DependencyInjection (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>39fa4fbc-4775-4129-a2d3-b3e5633274dc</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="0670dd9d-a4a4-40e2-a7fb-796b86617eeb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
+          <display>Microsoft.Extensions.DependencyInjection.Abstractions (10.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>39fa4fbc-4775-4129-a2d3-b3e5633274dc</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="4894a52e-6b88-4c7c-9d77-4233effa40ba" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics</name>
+          <display>Microsoft.Extensions.Diagnostics (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>39fa4fbc-4775-4129-a2d3-b3e5633274dc</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="e94f8af3-b321-4af7-8a28-bfe6fe0b7ebb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Abstractions</name>
+          <display>Microsoft.Extensions.FileProviders.Abstractions (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>39fa4fbc-4775-4129-a2d3-b3e5633274dc</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="48313895-3c98-4d13-b90c-9c8b1e8502f4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Physical</name>
+          <display>Microsoft.Extensions.FileProviders.Physical (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>39fa4fbc-4775-4129-a2d3-b3e5633274dc</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="5087b54f-29a7-4bff-b962-226c58104aad" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Hosting.Abstractions</name>
+          <display>Microsoft.Extensions.Hosting.Abstractions (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>39fa4fbc-4775-4129-a2d3-b3e5633274dc</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="87f3c485-8cda-470b-8730-c145cf86ca64" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.Abstractions</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>39fa4fbc-4775-4129-a2d3-b3e5633274dc</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="e1cd4ff9-4a5d-4253-9e8b-518d4170ea92" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.Configuration</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>39fa4fbc-4775-4129-a2d3-b3e5633274dc</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="db58020c-6177-474e-b7fb-5efd7a389e55" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.Console</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>39fa4fbc-4775-4129-a2d3-b3e5633274dc</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="0a7eb906-2810-415e-b3e1-36bba20d53cc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.Debug</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>39fa4fbc-4775-4129-a2d3-b3e5633274dc</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="92952373-29cb-4453-848c-9e92a25dee57" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.EventLog</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>39fa4fbc-4775-4129-a2d3-b3e5633274dc</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="31af6799-46c8-4b93-baae-5f2c81815996" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.EventSource</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>39fa4fbc-4775-4129-a2d3-b3e5633274dc</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="8558fa1e-aa0c-45c4-9144-798dd69cb903" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging</name>
+          <display>Microsoft.Extensions.Logging (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>39fa4fbc-4775-4129-a2d3-b3e5633274dc</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="87f3c485-8cda-470b-8730-c145cf86ca64" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.Abstractions</name>
+          <display>Microsoft.Extensions.Logging.Abstractions (10.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>39fa4fbc-4775-4129-a2d3-b3e5633274dc</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="e1cd4ff9-4a5d-4253-9e8b-518d4170ea92" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.Configuration</name>
+          <display>Microsoft.Extensions.Logging.Configuration (10.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>39fa4fbc-4775-4129-a2d3-b3e5633274dc</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="db58020c-6177-474e-b7fb-5efd7a389e55" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.Console</name>
+          <display>Microsoft.Extensions.Logging.Console (10.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>39fa4fbc-4775-4129-a2d3-b3e5633274dc</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="0a7eb906-2810-415e-b3e1-36bba20d53cc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.Debug</name>
+          <display>Microsoft.Extensions.Logging.Debug (10.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>39fa4fbc-4775-4129-a2d3-b3e5633274dc</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="92952373-29cb-4453-848c-9e92a25dee57" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.EventLog</name>
+          <display>Microsoft.Extensions.Logging.EventLog (10.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>39fa4fbc-4775-4129-a2d3-b3e5633274dc</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="31af6799-46c8-4b93-baae-5f2c81815996" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.EventSource</name>
+          <display>Microsoft.Extensions.Logging.EventSource (10.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>39fa4fbc-4775-4129-a2d3-b3e5633274dc</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="df5cc7d1-76c9-4efe-9ae4-e0b52e377b95" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options</name>
+          <display>Microsoft.Extensions.Options (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>39fa4fbc-4775-4129-a2d3-b3e5633274dc</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -560,7 +692,7 @@
     </childElement>
     <childElement id="2c8b88ca-cebe-4692-839b-266665ae084c" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>10.0.0</name>
-      <display>9.0.10 ( &gt;= .NETStandard,Version=v2.1 )</display>
+      <display>10.0.0 ( &gt;= .NETStandard,Version=v2.1 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -581,244 +713,310 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="1d36bc81-1751-4f21-b8bb-c225823ba716" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.Abstractions</name>
+        <childElement id="1152b621-49b1-4fc1-9748-e76e348b5920" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration</name>
+          <display>Microsoft.Extensions.Configuration (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>2c8b88ca-cebe-4692-839b-266665ae084c</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="1d36bc81-1751-4f21-b8bb-c225823ba716" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.Abstractions</name>
+          <display>Microsoft.Extensions.Configuration.Abstractions (10.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2c8b88ca-cebe-4692-839b-266665ae084c</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="70b7f176-3221-4e2b-84ae-942477bf5392" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Binder</name>
+          <display>Microsoft.Extensions.Configuration.Binder (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>2c8b88ca-cebe-4692-839b-266665ae084c</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="8d739241-94b2-4e76-9219-7c9cdc2e44a7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.CommandLine</name>
+          <display>Microsoft.Extensions.Configuration.CommandLine (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>2c8b88ca-cebe-4692-839b-266665ae084c</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="32df2def-9087-442e-b2d0-a718a958ddb5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.EnvironmentVariables</name>
+          <display>Microsoft.Extensions.Configuration.EnvironmentVariables (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>2c8b88ca-cebe-4692-839b-266665ae084c</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="fa880966-84f5-4289-beda-01d460eb3488" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.FileExtensions</name>
+          <display>Microsoft.Extensions.Configuration.FileExtensions (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>2c8b88ca-cebe-4692-839b-266665ae084c</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="ee84e6d4-11e9-4ea5-bbea-285d47f3e781" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Json</name>
+          <display>Microsoft.Extensions.Configuration.Json (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>2c8b88ca-cebe-4692-839b-266665ae084c</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="b8a4c748-a492-4f59-9367-009d913e06de" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.UserSecrets</name>
+          <display>Microsoft.Extensions.Configuration.UserSecrets (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>2c8b88ca-cebe-4692-839b-266665ae084c</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="1152b621-49b1-4fc1-9748-e76e348b5920" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>2c8b88ca-cebe-4692-839b-266665ae084c</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="bd5f7aec-a34e-4c4d-bad2-19e1e30dc160" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>2c8b88ca-cebe-4692-839b-266665ae084c</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="d12553ef-3022-44bc-b550-c3903e7484cf" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection</name>
+          <display>Microsoft.Extensions.DependencyInjection (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>2c8b88ca-cebe-4692-839b-266665ae084c</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="bd5f7aec-a34e-4c4d-bad2-19e1e30dc160" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
+          <display>Microsoft.Extensions.DependencyInjection.Abstractions (10.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2c8b88ca-cebe-4692-839b-266665ae084c</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="a35bd236-ec14-4079-a326-1846035622c2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics</name>
+          <display>Microsoft.Extensions.Diagnostics (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>2c8b88ca-cebe-4692-839b-266665ae084c</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="f0031f59-99da-4b6e-baac-7a0f7c617cc4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Abstractions</name>
+          <display>Microsoft.Extensions.FileProviders.Abstractions (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>2c8b88ca-cebe-4692-839b-266665ae084c</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="a277bac5-35d6-4931-97c1-5ef543444c23" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Physical</name>
+          <display>Microsoft.Extensions.FileProviders.Physical (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>2c8b88ca-cebe-4692-839b-266665ae084c</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="24ef0334-0f4c-42e6-b4f7-18e5717a014d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Hosting.Abstractions</name>
+          <display>Microsoft.Extensions.Hosting.Abstractions (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>2c8b88ca-cebe-4692-839b-266665ae084c</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="c0809f39-6616-443b-9bf9-e75f5feab0ff" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.Abstractions</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>2c8b88ca-cebe-4692-839b-266665ae084c</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="8326943c-7639-4e58-8dd7-595a28db33bb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.Configuration</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>2c8b88ca-cebe-4692-839b-266665ae084c</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="ecf79251-b3ac-4cbf-bead-427cbfddeab2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.Console</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>2c8b88ca-cebe-4692-839b-266665ae084c</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="29c17024-077f-4146-bd53-bc153c65af10" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.Debug</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>2c8b88ca-cebe-4692-839b-266665ae084c</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="31ac86cf-c799-4135-b719-15b5dadf5ce8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.EventLog</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>2c8b88ca-cebe-4692-839b-266665ae084c</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="d52ca072-6551-46d3-87c2-4fc25a9d0dfb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.EventSource</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>2c8b88ca-cebe-4692-839b-266665ae084c</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="253c4faa-7754-447d-ba5b-de70d05a7ac5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging</name>
+          <display>Microsoft.Extensions.Logging (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>2c8b88ca-cebe-4692-839b-266665ae084c</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="c0809f39-6616-443b-9bf9-e75f5feab0ff" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.Abstractions</name>
+          <display>Microsoft.Extensions.Logging.Abstractions (10.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2c8b88ca-cebe-4692-839b-266665ae084c</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="8326943c-7639-4e58-8dd7-595a28db33bb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.Configuration</name>
+          <display>Microsoft.Extensions.Logging.Configuration (10.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2c8b88ca-cebe-4692-839b-266665ae084c</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="ecf79251-b3ac-4cbf-bead-427cbfddeab2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.Console</name>
+          <display>Microsoft.Extensions.Logging.Console (10.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2c8b88ca-cebe-4692-839b-266665ae084c</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="29c17024-077f-4146-bd53-bc153c65af10" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.Debug</name>
+          <display>Microsoft.Extensions.Logging.Debug (10.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2c8b88ca-cebe-4692-839b-266665ae084c</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="31ac86cf-c799-4135-b719-15b5dadf5ce8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.EventLog</name>
+          <display>Microsoft.Extensions.Logging.EventLog (10.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2c8b88ca-cebe-4692-839b-266665ae084c</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="d52ca072-6551-46d3-87c2-4fc25a9d0dfb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.EventSource</name>
+          <display>Microsoft.Extensions.Logging.EventSource (10.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2c8b88ca-cebe-4692-839b-266665ae084c</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="8e0260fc-9653-42c3-b2b7-c12108b20254" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options</name>
+          <display>Microsoft.Extensions.Options (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>2c8b88ca-cebe-4692-839b-266665ae084c</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -827,7 +1025,7 @@
     </childElement>
     <childElement id="c17eb193-cf86-4098-9438-296fdbdfec5d" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>10.0.0</name>
-      <display>9.0.10 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <display>10.0.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -850,527 +1048,336 @@
       <childElements>
         <childElement id="f96c5256-5180-46ac-8111-0a50afcbabb0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Bcl.AsyncInterfaces</name>
+          <display>Microsoft.Bcl.AsyncInterfaces (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>c17eb193-cf86-4098-9438-296fdbdfec5d</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="1c241452-b29f-45f6-94fc-d8bdaedb9bc0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.Abstractions</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>c17eb193-cf86-4098-9438-296fdbdfec5d</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="c4ebe9cd-c25c-407f-a4d8-6d0fb8a2d59d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.Binder</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>c17eb193-cf86-4098-9438-296fdbdfec5d</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="e85fe5ca-3fa2-4637-a838-a70a856295ca" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.CommandLine</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>c17eb193-cf86-4098-9438-296fdbdfec5d</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="e589a486-93de-4704-91c8-162c43e7a9af" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.EnvironmentVariables</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>c17eb193-cf86-4098-9438-296fdbdfec5d</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="eee6dfa0-675c-42eb-8911-468dc178bd47" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.FileExtensions</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>c17eb193-cf86-4098-9438-296fdbdfec5d</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="8a72e775-207f-49ad-886a-e70c2585905a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.Json</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>c17eb193-cf86-4098-9438-296fdbdfec5d</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="461d74ef-ae3e-4f5c-b21c-8d79c8207543" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.UserSecrets</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>c17eb193-cf86-4098-9438-296fdbdfec5d</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="d1d6278f-f71b-44ed-a659-e397329312b4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration</name>
+          <display>Microsoft.Extensions.Configuration (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>c17eb193-cf86-4098-9438-296fdbdfec5d</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="03ecd3ea-4c60-4f0f-b1d3-9df096021dbd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
+        <childElement id="1c241452-b29f-45f6-94fc-d8bdaedb9bc0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.Abstractions</name>
+          <display>Microsoft.Extensions.Configuration.Abstractions (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>c17eb193-cf86-4098-9438-296fdbdfec5d</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="c4ebe9cd-c25c-407f-a4d8-6d0fb8a2d59d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.Binder</name>
+          <display>Microsoft.Extensions.Configuration.Binder (10.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>c17eb193-cf86-4098-9438-296fdbdfec5d</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="e85fe5ca-3fa2-4637-a838-a70a856295ca" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.CommandLine</name>
+          <display>Microsoft.Extensions.Configuration.CommandLine (10.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>c17eb193-cf86-4098-9438-296fdbdfec5d</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="e589a486-93de-4704-91c8-162c43e7a9af" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.EnvironmentVariables</name>
+          <display>Microsoft.Extensions.Configuration.EnvironmentVariables (10.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>c17eb193-cf86-4098-9438-296fdbdfec5d</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="eee6dfa0-675c-42eb-8911-468dc178bd47" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.FileExtensions</name>
+          <display>Microsoft.Extensions.Configuration.FileExtensions (10.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>c17eb193-cf86-4098-9438-296fdbdfec5d</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="8a72e775-207f-49ad-886a-e70c2585905a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.Json</name>
+          <display>Microsoft.Extensions.Configuration.Json (10.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>c17eb193-cf86-4098-9438-296fdbdfec5d</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="461d74ef-ae3e-4f5c-b21c-8d79c8207543" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.UserSecrets</name>
+          <display>Microsoft.Extensions.Configuration.UserSecrets (10.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>c17eb193-cf86-4098-9438-296fdbdfec5d</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="e86871ee-f85f-4220-99aa-49b105c2ebd3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection</name>
+          <display>Microsoft.Extensions.DependencyInjection (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>c17eb193-cf86-4098-9438-296fdbdfec5d</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="03ecd3ea-4c60-4f0f-b1d3-9df096021dbd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
+          <display>Microsoft.Extensions.DependencyInjection.Abstractions (10.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>c17eb193-cf86-4098-9438-296fdbdfec5d</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="c9c37ae7-da7f-4c6d-b6fd-ae1d1c887c2c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics</name>
+          <display>Microsoft.Extensions.Diagnostics (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>c17eb193-cf86-4098-9438-296fdbdfec5d</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="8e7dc1cd-4432-4e4f-898c-4f8e422a8a8a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Abstractions</name>
+          <display>Microsoft.Extensions.FileProviders.Abstractions (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>c17eb193-cf86-4098-9438-296fdbdfec5d</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="bfc7bca5-419c-425f-9435-d4c112925053" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Physical</name>
+          <display>Microsoft.Extensions.FileProviders.Physical (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>c17eb193-cf86-4098-9438-296fdbdfec5d</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="8f97116c-df93-4fe0-8b27-419eb09b61e8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Hosting.Abstractions</name>
+          <display>Microsoft.Extensions.Hosting.Abstractions (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>c17eb193-cf86-4098-9438-296fdbdfec5d</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="59d99319-8aea-4e68-9068-0bbe57470689" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.Abstractions</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>c17eb193-cf86-4098-9438-296fdbdfec5d</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="26cf1a6f-1d1e-4f25-b0e9-5e59c4beb7c2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.Configuration</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>c17eb193-cf86-4098-9438-296fdbdfec5d</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="968233bf-b29a-4b92-b9b1-66263cd70890" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.Console</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>c17eb193-cf86-4098-9438-296fdbdfec5d</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="bc553f78-219b-4353-b604-db3cdf84320a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.Debug</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>c17eb193-cf86-4098-9438-296fdbdfec5d</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="a10867a6-60af-4d72-b32a-1f69ccae9e39" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.EventLog</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>c17eb193-cf86-4098-9438-296fdbdfec5d</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="96544ab5-a33b-4a70-9ceb-82e70a61ee70" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.EventSource</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>c17eb193-cf86-4098-9438-296fdbdfec5d</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="eb149b15-8e03-4de3-bd79-10310cd7809b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging</name>
+          <display>Microsoft.Extensions.Logging (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>c17eb193-cf86-4098-9438-296fdbdfec5d</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="59d99319-8aea-4e68-9068-0bbe57470689" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.Abstractions</name>
+          <display>Microsoft.Extensions.Logging.Abstractions (10.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>c17eb193-cf86-4098-9438-296fdbdfec5d</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="26cf1a6f-1d1e-4f25-b0e9-5e59c4beb7c2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.Configuration</name>
+          <display>Microsoft.Extensions.Logging.Configuration (10.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>c17eb193-cf86-4098-9438-296fdbdfec5d</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="968233bf-b29a-4b92-b9b1-66263cd70890" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.Console</name>
+          <display>Microsoft.Extensions.Logging.Console (10.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>c17eb193-cf86-4098-9438-296fdbdfec5d</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="bc553f78-219b-4353-b604-db3cdf84320a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.Debug</name>
+          <display>Microsoft.Extensions.Logging.Debug (10.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>c17eb193-cf86-4098-9438-296fdbdfec5d</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="a10867a6-60af-4d72-b32a-1f69ccae9e39" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.EventLog</name>
+          <display>Microsoft.Extensions.Logging.EventLog (10.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>c17eb193-cf86-4098-9438-296fdbdfec5d</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="96544ab5-a33b-4a70-9ceb-82e70a61ee70" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.EventSource</name>
+          <display>Microsoft.Extensions.Logging.EventSource (10.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>c17eb193-cf86-4098-9438-296fdbdfec5d</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="12ac385b-5324-4b39-afaa-7d41b2d3d4af" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options</name>
+          <display>Microsoft.Extensions.Options (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>c17eb193-cf86-4098-9438-296fdbdfec5d</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="970331c3-1b7f-4203-810a-a5fed5670e1b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Threading.Tasks.Extensions</name>
+          <display>System.Threading.Tasks.Extensions (4.6.3)</display>
           <isAbstract>false</isAbstract>
           <value>4.6.3</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>c17eb193-cf86-4098-9438-296fdbdfec5d</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
-    <childElement id="800c0cdf-5c40-4823-8937-93017abbd16a" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.0</name>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>2ba1ba98-996e-4470-b643-9c755a9a4007</parentFolderId>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>false</addedByDefault>
-          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
-          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
-          <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v10.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="1e8ec6fa-7530-4394-a060-45a02b213806" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.Abstractions</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>800c0cdf-5c40-4823-8937-93017abbd16a</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="f155c2ec-0d8c-46df-8481-eb9433905365" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.Binder</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>800c0cdf-5c40-4823-8937-93017abbd16a</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="e090704b-b7eb-4327-bc18-8e24feca9d9e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.CommandLine</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>800c0cdf-5c40-4823-8937-93017abbd16a</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="64df8641-03e8-4909-9708-e156edcbfb30" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.EnvironmentVariables</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>800c0cdf-5c40-4823-8937-93017abbd16a</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="1fd18d4a-fa1b-4925-9353-c69bc410c56f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.FileExtensions</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>800c0cdf-5c40-4823-8937-93017abbd16a</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="825ab7a3-ee11-4087-93ef-73c61594ebda" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.Json</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>800c0cdf-5c40-4823-8937-93017abbd16a</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="75d51602-7214-43f1-aa2e-d5fce55710bd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.UserSecrets</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>800c0cdf-5c40-4823-8937-93017abbd16a</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="31e3eb5b-0118-4aa9-9859-4650a8245f6b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>800c0cdf-5c40-4823-8937-93017abbd16a</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="a4fa87e5-bf85-4139-bab2-7c6f41f33239" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>800c0cdf-5c40-4823-8937-93017abbd16a</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="bc71b6bc-57d6-4ccb-b011-81c010b990c8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.DependencyInjection</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>800c0cdf-5c40-4823-8937-93017abbd16a</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="4ef06f42-e97d-405f-aef6-708e65a8b1ff" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Diagnostics</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>800c0cdf-5c40-4823-8937-93017abbd16a</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="25b58ac6-55f2-4ed7-b895-9841966f12f0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.FileProviders.Abstractions</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>800c0cdf-5c40-4823-8937-93017abbd16a</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="8677e58c-d4dc-40c9-9f4f-a619f2fd1c17" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.FileProviders.Physical</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>800c0cdf-5c40-4823-8937-93017abbd16a</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="aa0bdd06-2109-403f-8c6e-12c50c9535dc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Hosting.Abstractions</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>800c0cdf-5c40-4823-8937-93017abbd16a</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="e543389c-b706-4955-a137-a6045ffdcdae" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.Abstractions</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>800c0cdf-5c40-4823-8937-93017abbd16a</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="1ba0116d-ff7a-457b-8f2a-c32e1bbd0cd8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.Configuration</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>800c0cdf-5c40-4823-8937-93017abbd16a</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="f5f87b7d-cdcf-4ec8-beb9-a4cab5e60d8a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.Console</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>800c0cdf-5c40-4823-8937-93017abbd16a</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="e268ddde-54a4-450a-9508-aafab132239c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.Debug</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>800c0cdf-5c40-4823-8937-93017abbd16a</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="99f9fa5c-27d2-4caa-a9b8-5f8e3b83aa78" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.EventLog</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>800c0cdf-5c40-4823-8937-93017abbd16a</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="2850aa74-853d-47df-b539-6c8872b22e6b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.EventSource</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>800c0cdf-5c40-4823-8937-93017abbd16a</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="9f3537c2-19ed-403d-92c2-fca4fb18912b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>800c0cdf-5c40-4823-8937-93017abbd16a</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="dfc96641-0cb3-4e9d-89f0-f26f51fff2f4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Options</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>800c0cdf-5c40-4823-8937-93017abbd16a</parentFolderId>
+          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />

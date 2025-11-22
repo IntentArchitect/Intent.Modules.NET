@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Aws.Sqs</id>
   <version>1.0.2-pre.0</version>
@@ -67,7 +67,7 @@
   </templates>
   <decorators></decorators>
   <factoryExtensions>
-    <factoryExtension id="Intent.Aws.Sqs.EventBusInterfaceExtension" externalReference="0c6e73a6-fb50-4545-83a2-ec6624b3dbb8" />
+    <factoryExtension id="Intent.Aws.Sqs.MetadataLoaderExtension" externalReference="15b9270b-647d-433e-87ac-ec2ce833010b" />
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <interoperability>

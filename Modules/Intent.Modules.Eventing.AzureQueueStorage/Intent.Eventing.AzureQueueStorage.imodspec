@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.AzureQueueStorage</id>
   <version>1.0.0-beta.3</version>
@@ -98,9 +98,7 @@
     </template>
   </templates>
   <decorators></decorators>
-  <factoryExtensions>
-    <factoryExtension id="Intent.Eventing.AzureQueueStorage.EventBusInterfaceExtension" externalReference="ba04a154-bf68-41ff-b199-2609ca419a72" />
-  </factoryExtensions>
+  <factoryExtensions />
   <moduleSettings>
     <group id="e71edb78-27b4-4326-9def-796a18064e8b" title="Azure Queue Storage Settings" type="application-settings" externalReference="e71edb78-27b4-4326-9def-796a18064e8b">
       <settings>

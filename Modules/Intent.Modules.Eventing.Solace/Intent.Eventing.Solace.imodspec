@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.Solace</id>
   <version>2.0.14-pre.0</version>
@@ -119,7 +119,6 @@
   <decorators></decorators>
   <factoryExtensions>
     <factoryExtension id="Intent.Eventing.Solace.BaseMessageExtension" externalReference="449f375f-c5af-45f1-b62d-2aadb792cf23" />
-    <factoryExtension id="Intent.Eventing.Solace.EventBusInterfaceExtension" externalReference="821b1309-0e6a-4e3e-a332-8298a38ad58e" />
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>

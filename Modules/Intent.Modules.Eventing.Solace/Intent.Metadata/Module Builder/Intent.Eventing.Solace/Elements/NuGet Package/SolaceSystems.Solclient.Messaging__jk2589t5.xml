@@ -26,7 +26,7 @@
   <childElements>
     <childElement id="53051b4f-9888-4659-9bff-1e7496eae38b" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>10.28.2</name>
-      <display>10.28.1 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <display>10.28.2 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>

@@ -191,26 +191,6 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridEventBu
                 });
         }
 
-        public override void AfterTemplateRegistration()
-        {
-            var templates = ExecutionContext.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Application.Eventing.EventBusInterface"));
-            foreach (var template in templates)
-            {
-                template.CSharpFile.OnBuild(file =>
-                {
-                    file.AddUsing("System");
-                    file.AddUsing("System.Collections.Generic");
-                    var @interface = file.Interfaces.First();
-                    
-                    @interface.AddMethod("void", "Publish", m => m
-                        .AddGenericParameter("T")
-                        .AddParameter("T", "message")
-                        .AddParameter("IDictionary<string, object>", "additionalData")
-                        .AddGenericTypeConstraint("T", c => c.AddType("class")));
-                });
-            }
-        }
-
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }
 

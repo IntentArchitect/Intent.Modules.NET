@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="0c6e73a6-fb50-4545-83a2-ec6624b3dbb8" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
-  <name>EventBusInterfaceExtension</name>
-  <display>EventBusInterfaceExtension</display>
+<class id="15b9270b-647d-433e-87ac-ec2ce833010b" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>MetadataLoaderExtension</name>
+  <display>MetadataLoaderExtension</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
   <isMapped>false</isMapped>
