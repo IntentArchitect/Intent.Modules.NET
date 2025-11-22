@@ -60,14 +60,14 @@ namespace Intent.Modules.AspNetCore.IdentityService
             NugetRegistry.Register(MicrosoftExtensionsIdentityStoresPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 10, >= 0) => new PackageVersion("10.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "10.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Identity.Core", "10.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Logging", "10.0.0"),
-                        ( >= 2, >= 0) => new PackageVersion("10.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "10.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Identity.Core", "10.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Logging", "10.0.0"),
+                        ( >= 9, >= 0) => new PackageVersion("9.0.10", locked: true)
+                            .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "9.0.10")
+                            .WithNugetDependency("Microsoft.Extensions.Identity.Core", "9.0.10")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.10"),
+                        ( >= 2, >= 0) => new PackageVersion("9.0.10", locked: true)
+                            .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "9.0.10")
+                            .WithNugetDependency("Microsoft.Extensions.Identity.Core", "9.0.10")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.10"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftExtensionsIdentityStoresPackageName}'"),
                     }
                 );

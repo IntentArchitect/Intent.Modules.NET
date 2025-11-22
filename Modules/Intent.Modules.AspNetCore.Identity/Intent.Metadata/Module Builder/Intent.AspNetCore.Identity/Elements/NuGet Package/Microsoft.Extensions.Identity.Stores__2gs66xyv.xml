@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="524dd623-0f90-4533-8f82-75eb9fa4011c" type="NuGet Package" typeId="f747cc37-29ee-488a-8dbe-755e856a842d">
+  <comment>Causes issues only on Linux when allowed to be upgraded.
+
+https://intent-architect.monday.com/boards/2883919780/pulses/18387330679</comment>
   <name>Microsoft.Extensions.Identity.Stores</name>
-  <display>Microsoft.Extensions.Identity.Stores</display>
+  <display>Microsoft.Extensions.Identity.Stores [locked]</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
@@ -16,7 +19,7 @@
       <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
       <properties>
         <property name="4de9cc21-d4fb-4d52-8dfd-2eb6cf267a9a" display="Friendly Name" isActive="true" />
-        <property name="67c7c4d8-40ed-48f9-a83c-985eedb32141" display="Locked" value="false" isActive="true" />
+        <property name="67c7c4d8-40ed-48f9-a83c-985eedb32141" display="Locked" value="true" isActive="true" />
         <property name="c166c7cf-45e3-484b-9ec5-f7300951f897" display="Private Assets" isActive="true" />
         <property name="6bd6430c-8011-435e-bb73-6013477a875d" display="Include Assets" isActive="true" />
       </properties>
@@ -25,8 +28,8 @@
   <metadata />
   <childElements>
     <childElement id="19a14323-b767-441c-87eb-33aa01a16bd3" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.0</name>
-      <display>10.0.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <name>9.0.10</name>
+      <display>9.0.10 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -47,11 +50,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="fe97d146-f0bf-43fd-b533-00cba698743b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e01618fc-46bc-4145-b30c-e78441a839df" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Caching.Abstractions</name>
-          <display>Microsoft.Extensions.Caching.Abstractions (10.0.0)</display>
+          <display>Microsoft.Extensions.Caching.Abstractions (9.0.10)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>9.0.10</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>19a14323-b767-441c-87eb-33aa01a16bd3</parentFolderId>
@@ -61,11 +64,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="396393c1-f09f-46db-90fe-d269f4b10653" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="7f3e0851-2294-4477-89c0-de0ef20f4609" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Identity.Core</name>
-          <display>Microsoft.Extensions.Identity.Core (10.0.0)</display>
+          <display>Microsoft.Extensions.Identity.Core (9.0.10)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>9.0.10</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>19a14323-b767-441c-87eb-33aa01a16bd3</parentFolderId>
@@ -75,11 +78,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="264d9302-d85e-4587-9a39-657dbbed7e3e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ad426baa-0e2b-4aa4-85cc-15f8749ce9fd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging</name>
-          <display>Microsoft.Extensions.Logging (10.0.0)</display>
+          <display>Microsoft.Extensions.Logging (9.0.10)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>9.0.10</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>19a14323-b767-441c-87eb-33aa01a16bd3</parentFolderId>
@@ -91,9 +94,9 @@
         </childElement>
       </childElements>
     </childElement>
-    <childElement id="751c35d3-4235-4bcc-a3d6-8b2e720bff3b" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.0</name>
-      <display>10.0.0 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
+    <childElement id="d2ea5581-b0f4-4df1-b5a9-184e4a6a0870" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>9.0.10</name>
+      <display>9.0.10 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -107,49 +110,49 @@
           <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
           <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
           <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v10.0" isActive="true" />
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v9.0" isActive="true" />
             <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="f7410e4d-9a35-44d6-99fd-d22a6b1a7fc5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e634d556-fa52-42e7-a263-0d67376d2e9c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Caching.Abstractions</name>
-          <display>Microsoft.Extensions.Caching.Abstractions (10.0.0)</display>
+          <display>Microsoft.Extensions.Caching.Abstractions (9.0.10)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>9.0.10</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>751c35d3-4235-4bcc-a3d6-8b2e720bff3b</parentFolderId>
+          <parentFolderId>d2ea5581-b0f4-4df1-b5a9-184e4a6a0870</parentFolderId>
           <packageId>7061eb5a-c934-46e4-8c73-e3df67edf43a</packageId>
           <packageName>Intent.AspNetCore.Identity</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="b14f9c28-f1ae-4be0-a54d-ce87947d3210" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f4c79915-970a-4714-94af-eb07fe31c626" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Identity.Core</name>
-          <display>Microsoft.Extensions.Identity.Core (10.0.0)</display>
+          <display>Microsoft.Extensions.Identity.Core (9.0.10)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>9.0.10</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>751c35d3-4235-4bcc-a3d6-8b2e720bff3b</parentFolderId>
+          <parentFolderId>d2ea5581-b0f4-4df1-b5a9-184e4a6a0870</parentFolderId>
           <packageId>7061eb5a-c934-46e4-8c73-e3df67edf43a</packageId>
           <packageName>Intent.AspNetCore.Identity</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="656e84ca-a48f-47ee-9aff-db2fab341ccd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="072d495a-dae0-45af-a5a0-3c2374ba8a33" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging</name>
-          <display>Microsoft.Extensions.Logging (10.0.0)</display>
+          <display>Microsoft.Extensions.Logging (9.0.10)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>9.0.10</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>751c35d3-4235-4bcc-a3d6-8b2e720bff3b</parentFolderId>
+          <parentFolderId>d2ea5581-b0f4-4df1-b5a9-184e4a6a0870</parentFolderId>
           <packageId>7061eb5a-c934-46e4-8c73-e3df67edf43a</packageId>
           <packageName>Intent.AspNetCore.Identity</packageName>
           <stereotypes />

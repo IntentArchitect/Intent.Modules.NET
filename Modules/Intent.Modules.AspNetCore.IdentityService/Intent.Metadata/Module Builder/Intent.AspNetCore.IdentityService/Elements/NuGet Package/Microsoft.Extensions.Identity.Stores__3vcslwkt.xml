@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="5e6db837-b04b-41a9-a956-a4615dceea50" type="NuGet Package" typeId="f747cc37-29ee-488a-8dbe-755e856a842d">
+  <comment>Causes issues only on Linux when allowed to be upgraded.
+
+https://intent-architect.monday.com/boards/2883919780/pulses/18387330679</comment>
   <name>Microsoft.Extensions.Identity.Stores</name>
-  <display>Microsoft.Extensions.Identity.Stores</display>
+  <display>Microsoft.Extensions.Identity.Stores [locked]</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
@@ -16,7 +19,7 @@
       <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
       <properties>
         <property name="4de9cc21-d4fb-4d52-8dfd-2eb6cf267a9a" display="Friendly Name" isActive="true" />
-        <property name="67c7c4d8-40ed-48f9-a83c-985eedb32141" display="Locked" value="false" isActive="true" />
+        <property name="67c7c4d8-40ed-48f9-a83c-985eedb32141" display="Locked" value="true" isActive="true" />
         <property name="c166c7cf-45e3-484b-9ec5-f7300951f897" display="Private Assets" isActive="true" />
         <property name="6bd6430c-8011-435e-bb73-6013477a875d" display="Include Assets" isActive="true" />
       </properties>
@@ -24,9 +27,76 @@
   </stereotypes>
   <metadata />
   <childElements>
+    <childElement id="d0a54d42-5ac4-418a-a9ea-fcf535de76b9" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>9.0.10</name>
+      <display>9.0.10 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>5e6db837-b04b-41a9-a956-a4615dceea50</parentFolderId>
+      <packageId>a1a75470-3437-43b1-be57-f2187693929b</packageId>
+      <packageName>Intent.AspNetCore.IdentityService</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v9.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="9ab67dc2-fba3-45cf-9eb1-cd0b9e4c3963" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Caching.Abstractions</name>
+          <display>Microsoft.Extensions.Caching.Abstractions (9.0.10)</display>
+          <isAbstract>false</isAbstract>
+          <value>9.0.10</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d0a54d42-5ac4-418a-a9ea-fcf535de76b9</parentFolderId>
+          <packageId>a1a75470-3437-43b1-be57-f2187693929b</packageId>
+          <packageName>Intent.AspNetCore.IdentityService</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="d93442a0-8351-4154-9c94-8b87c06470fc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Identity.Core</name>
+          <display>Microsoft.Extensions.Identity.Core (9.0.10)</display>
+          <isAbstract>false</isAbstract>
+          <value>9.0.10</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d0a54d42-5ac4-418a-a9ea-fcf535de76b9</parentFolderId>
+          <packageId>a1a75470-3437-43b1-be57-f2187693929b</packageId>
+          <packageName>Intent.AspNetCore.IdentityService</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="a2f798ec-c169-431c-b09a-384f6739c0fe" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging</name>
+          <display>Microsoft.Extensions.Logging (9.0.10)</display>
+          <isAbstract>false</isAbstract>
+          <value>9.0.10</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d0a54d42-5ac4-418a-a9ea-fcf535de76b9</parentFolderId>
+          <packageId>a1a75470-3437-43b1-be57-f2187693929b</packageId>
+          <packageName>Intent.AspNetCore.IdentityService</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
     <childElement id="dfca2853-ff97-4482-a083-8d8180affd0c" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.0</name>
-      <display>10.0.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <name>9.0.10</name>
+      <display>9.0.10 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -47,11 +117,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="b110e263-610c-492c-a124-724aa4428876" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="816b43e0-45c4-467b-a0f0-983b4b5c43e7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Caching.Abstractions</name>
-          <display>Microsoft.Extensions.Caching.Abstractions (10.0.0)</display>
+          <display>Microsoft.Extensions.Caching.Abstractions (9.0.10)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>9.0.10</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>dfca2853-ff97-4482-a083-8d8180affd0c</parentFolderId>
@@ -61,11 +131,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="fd3e4034-7133-475e-bee5-2928134b30f6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a1a060be-ef91-4b26-b4b0-e0bebb4cc78e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Identity.Core</name>
-          <display>Microsoft.Extensions.Identity.Core (10.0.0)</display>
+          <display>Microsoft.Extensions.Identity.Core (9.0.10)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>9.0.10</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>dfca2853-ff97-4482-a083-8d8180affd0c</parentFolderId>
@@ -75,81 +145,14 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="22f622f6-ff3c-4470-8c40-0397647338d9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d5d472b2-2310-40c3-8d94-2241ffbac0d3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging</name>
-          <display>Microsoft.Extensions.Logging (10.0.0)</display>
+          <display>Microsoft.Extensions.Logging (9.0.10)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>9.0.10</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>dfca2853-ff97-4482-a083-8d8180affd0c</parentFolderId>
-          <packageId>a1a75470-3437-43b1-be57-f2187693929b</packageId>
-          <packageName>Intent.AspNetCore.IdentityService</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
-    <childElement id="415ac12a-75bf-4e80-a786-926c98484ce3" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.0</name>
-      <display>10.0.0 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
-      <isAbstract>false</isAbstract>
-      <sort-children>by-type-then-by-name</sort-children>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>5e6db837-b04b-41a9-a956-a4615dceea50</parentFolderId>
-      <packageId>a1a75470-3437-43b1-be57-f2187693929b</packageId>
-      <packageName>Intent.AspNetCore.IdentityService</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>false</addedByDefault>
-          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
-          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
-          <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v10.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="83c78fe8-5e95-4a0d-aef8-26363270a348" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Caching.Abstractions</name>
-          <display>Microsoft.Extensions.Caching.Abstractions (10.0.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>415ac12a-75bf-4e80-a786-926c98484ce3</parentFolderId>
-          <packageId>a1a75470-3437-43b1-be57-f2187693929b</packageId>
-          <packageName>Intent.AspNetCore.IdentityService</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="5e446248-8546-436a-ba9f-5ac4176a9eaf" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Identity.Core</name>
-          <display>Microsoft.Extensions.Identity.Core (10.0.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>415ac12a-75bf-4e80-a786-926c98484ce3</parentFolderId>
-          <packageId>a1a75470-3437-43b1-be57-f2187693929b</packageId>
-          <packageName>Intent.AspNetCore.IdentityService</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="aa5af337-3214-4a21-8507-128fe365354d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging</name>
-          <display>Microsoft.Extensions.Logging (10.0.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>415ac12a-75bf-4e80-a786-926c98484ce3</parentFolderId>
           <packageId>a1a75470-3437-43b1-be57-f2187693929b</packageId>
           <packageName>Intent.AspNetCore.IdentityService</packageName>
           <stereotypes />
