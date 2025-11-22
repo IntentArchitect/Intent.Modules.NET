@@ -135,6 +135,11 @@
         <package id="Intent.Application.MediatR.CRUD" version="7.0.0" />
       </install>
     </detect>
+    <detect id="Intent.Eventing.Contracts.DomainMapping">
+      <install>
+        <package id="Intent.Eventing.Contracts.DomainMapping" version="4.3.0-pre.0" />
+      </install>
+    </detect>
   </interoperability>
   <files>
     <file src="$outDir$/$id$.dll" />

@@ -38,21 +38,18 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsConfiguration
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("Microsoft.Extensions.Configuration")
-                .AddUsing("Microsoft.Extensions.DependencyInjection")
                 .AddUsing("Amazon.SQS")
                 .AddClass($"SqsConfiguration", @class =>
                 {
                     @class.Static()
-                        .AddMethod("IServiceCollection", "ConfigureSqs", method =>
+                        .AddMethod(UseType("Microsoft.Extensions.DependencyInjection.IServiceCollection"), "AddSqsConfiguration", method =>
                         {
                             method.Static();
-                            method.AddParameter("IServiceCollection", "services", param => param.WithThisModifier());
+                            method.AddParameter(UseType("Microsoft.Extensions.DependencyInjection.IServiceCollection"), "services", param => param.WithThisModifier());
                             method.AddParameter("IConfiguration", "configuration");
 
-                            var compositeTemplate = GetTemplate<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Intent.Eventing.Contracts.CompositeMessageBusConfiguration"));
-                            var isCompositeMode = compositeTemplate != null;
-                            
-                            if (isCompositeMode)
+                            var requiresCompositeMessageBus = this.RequiresCompositeMessageBus();
+                            if (requiresCompositeMessageBus)
                             {
                                 method.AddParameter(this.GetMessageBrokerRegistryName(), "registry");
                             }
@@ -61,18 +58,16 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsConfiguration
                             method.AddStatement("services.AddSingleton(typeof(IAmazonSQS), sp => sp.GetRequiredService<AmazonSQSClient>());", stmt => stmt.SeparatedFromPrevious());
 
                             // Register event bus
-                            if (isCompositeMode)
+                            if (requiresCompositeMessageBus)
                             {
-                                method.AddStatement("// Register as concrete type for composite message bus");
-                                method.AddStatement($"services.AddScoped<{this.GetTypeName(SqsEventBusTemplate.TemplateId)}>;", stmt => stmt.SeparatedFromPrevious());
+                                method.AddStatement($"services.AddScoped<{this.GetTypeName(SqsEventBusTemplate.TemplateId)}>();", stmt => stmt.SeparatedFromPrevious());
                             }
                             else
                             {
                                 var busInterface = this.GetBusInterfaceName();
                                 
-                                method.AddStatement($"// Register as {busInterface} for standalone mode", stmt => stmt.SeparatedFromPrevious());
-                                method.AddStatement($"services.AddScoped<{this.GetTypeName(SqsEventBusTemplate.TemplateId)}>;");
-                                method.AddStatement($"services.AddScoped<{busInterface}>(provider => provider.GetRequiredService<{this.GetTypeName(SqsEventBusTemplate.TemplateId)}>);");
+                                method.AddStatement($"services.AddScoped<{this.GetTypeName(SqsEventBusTemplate.TemplateId)}>();");
+                                method.AddStatement($"services.AddScoped<{busInterface}>(provider => provider.GetRequiredService<{this.GetTypeName(SqsEventBusTemplate.TemplateId)}>());");
                             }
 
                             // Register dispatcher
@@ -114,7 +109,7 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsConfiguration
                                     }));
                             }
 
-                            if (isCompositeMode && publishers.Any())
+                            if (requiresCompositeMessageBus && publishers.Any())
                             {
                                 method.AddStatement("");
                                 method.AddStatement("// Register message types with the composite message bus registry");
@@ -132,11 +127,15 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsConfiguration
 
         public override void BeforeTemplateExecution()
         {
-            this.ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
-                .ToRegister("ConfigureSqs", ServiceConfigurationRequest.ParameterType.Configuration)
-                .HasDependency(this)
-                .ForConcern("Infrastructure"));
-            
+            var requiresCompositeMessageBus = this.RequiresCompositeMessageBus();
+            if (!requiresCompositeMessageBus)
+            {
+                this.ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
+                    .ToRegister("AddSqsConfiguration", ServiceConfigurationRequest.ParameterType.Configuration)
+                    .HasDependency(this)
+                    .ForConcern("Infrastructure"));
+            }
+
             foreach (var message in IntegrationManager.Instance.GetAggregatedSqsItems(ExecutionContext.GetApplicationConfig().Id))
             {
                 this.ApplyAppSetting(message.QueueConfigurationName, $"https://{{region}}.amazonaws.com/{{id}}/{message.QueueName}");

@@ -27,65 +27,65 @@ namespace Intent.Modules.Eventing.Solace.Templates.SolaceConfiguration
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public SolaceConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            FulfillsRole("Eventing.MessageBusConfiguration");
+
             AddNugetDependency(NugetPackages.SolaceSystemsSolclientMessaging(OutputTarget));
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("Microsoft.Extensions.Configuration")
-                .AddUsing("Microsoft.Extensions.DependencyInjection")
                 .AddUsing("SolaceSystems.Solclient.Messaging")
                 .AddClass($"SolaceConfiguration", @class =>
                 {
                     @class.Static();
 
-                    @class.AddMethod("void", "AddSolaceConfiguration", method =>
+                    @class.AddMethod(UseType("Microsoft.Extensions.DependencyInjection.IServiceCollection"), "AddSolaceConfiguration", method =>
                     {
                         method.Static();
-                        method.AddParameter("IServiceCollection", "services", p => p.WithThisModifier());
+                        method.AddParameter(UseType("Microsoft.Extensions.DependencyInjection.IServiceCollection"), "services", p => p.WithThisModifier());
                         method.AddParameter("IConfiguration", "configuration");
 
-                        var compositeTemplate = GetTemplate<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Intent.Eventing.Contracts.CompositeMessageBusConfiguration"));
-                        var isCompositeMode = compositeTemplate != null;
-                        
-                        if (isCompositeMode)
+                        var requiresCompositeMessageBus = this.RequiresCompositeMessageBus();
+                        if (requiresCompositeMessageBus)
                         {
                             method.AddParameter(this.GetMessageBrokerRegistryName(), "registry");
                         }
 
-                        method.AddStatements(@"var config = configuration.GetSection(""Solace"").Get<SolaceConfig>();
-			if (config == null)
-			{
-				throw new Exception(""Unable to load / find Solace configuration in appsettings.json"");
-			}
-			else
-			{
-				config.Validate();
-			}
+                        method.AddStatements(
+                            """
+                            var config = configuration.GetSection("Solace").Get<SolaceConfig>();
+                            if (config == null)
+                            {
+                                throw new Exception("Unable to load / find Solace configuration in appsettings.json");
+                            }
+                            else
+                            {
+                                config.Validate();
+                            }
 
-			// Initialize Solace Systems Messaging API with logging to console at Warning level
-			var cfp = new ContextFactoryProperties()
-			{
-				SolClientLogLevel = SolLogLevel.Warning
-			};
-			ContextFactory.Instance.Init(cfp);
-			var context = ContextFactory.Instance.CreateContext(new ContextProperties(), null);
+                            // Initialize Solace Systems Messaging API with logging to console at Warning level
+                            var cfp = new ContextFactoryProperties()
+                            {
+                                SolClientLogLevel = SolLogLevel.Warning
+                            };
+                            ContextFactory.Instance.Init(cfp);
+                            var context = ContextFactory.Instance.CreateContext(new ContextProperties(), null);
 
-			// Create session properties
-			var sessionProps = new SessionProperties()
-			{
-				Host = config.Host,
-				VPNName = config.VPNName,
-				UserName = config.UserName,
-				Password = config.Password,
-				ReconnectRetries = config.ReconnectRetries ?? -1,
-				GdWithWebTransport = config.GdWithWebTransport ?? true,
-				SSLValidateCertificate = config.SSLValidateCertificate ?? false,
-				ProvisionTimeoutInMsecs = config.ProvisionTimeoutInMsecs ?? 10000
-			};
+                            // Create session properties
+                            var sessionProps = new SessionProperties()
+                            {
+                                Host = config.Host,
+                                VPNName = config.VPNName,
+                                UserName = config.UserName,
+                                Password = config.Password,
+                                ReconnectRetries = config.ReconnectRetries ?? -1,
+                                GdWithWebTransport = config.GdWithWebTransport ?? true,
+                                SSLValidateCertificate = config.SSLValidateCertificate ?? false,
+                                ProvisionTimeoutInMsecs = config.ProvisionTimeoutInMsecs ?? 10000
+                            };
 
-			var session = context.CreateSession(sessionProps, HandleSessionMessageEvent, HandleSessionEvent);
-
-".ConvertToStatements());
+                            var session = context.CreateSession(sessionProps, HandleSessionMessageEvent, HandleSessionEvent);
+                            """.ConvertToStatements());
 
                         method.AddStatement("services.AddSingleton(context);");
                         method.AddStatement("services.AddSingleton(session);");
@@ -93,39 +93,40 @@ namespace Intent.Modules.Eventing.Solace.Templates.SolaceConfiguration
                         method.AddStatement($"services.AddSingleton<{this.GetMessageSerializerName()}>();");
                         method.AddStatement($"services.AddSingleton<{this.GetMessageRegistryName()}>();");
                         method.AddStatement($"services.AddHostedService<{this.GetSolaceConsumingServiceName()}>();");
-                        method.AddStatement($"services.AddScoped(typeof({this.GetSolaceEventDispatcherInterfaceName()}<>),typeof({this.GetSolaceEventDispatcherName()}<>) );");
-                        
-                        if (isCompositeMode)
+                        method.AddStatement(
+                            $"services.AddScoped(typeof({this.GetSolaceEventDispatcherInterfaceName()}<>),typeof({this.GetSolaceEventDispatcherName()}<>) );");
+
+                        if (requiresCompositeMessageBus)
                         {
-                            method.AddStatement("// Register as concrete type for composite message bus");
-                            method.AddStatement($"services.AddScoped<{this.GetSolaceEventBusName()}>;");
+                            method.AddStatement($"services.AddScoped<{this.GetSolaceEventBusName()}>();");
                         }
                         else
                         {
                             var busInterface = this.GetBusInterfaceName();
-                            
-                            method.AddStatement($"// Register as {busInterface} for standalone mode");
-                            method.AddStatement($"services.AddScoped<{this.GetSolaceEventBusName()}>;");
-                            method.AddStatement($"services.AddScoped<{busInterface}>(provider => provider.GetRequiredService<{this.GetSolaceEventBusName()}>);");
+
+                            method.AddStatement($"services.AddScoped<{this.GetSolaceEventBusName()}>();");
+                            method.AddStatement(
+                                $"services.AddScoped<{busInterface}>(provider => provider.GetRequiredService<{this.GetSolaceEventBusName()}>());");
                         }
-                        
+
                         method.AddStatement($"services.AddTransient<{this.GetSolaceConsumerName()}>();");
+                        method.AddReturn("services");
+                    });
 
-                        @class.AddMethod("void", "HandleSessionMessageEvent", method =>
-                        {
-                            method.Private().Static();
-                            method.AddParameter("object?", "sender");
-                            method.AddParameter("MessageEventArgs", "e");
-                            method.AddStatement("// Handle incoming messages if necessary");
-                        });
+                    @class.AddMethod("void", "HandleSessionMessageEvent", method =>
+                    {
+                        method.Private().Static();
+                        method.AddParameter("object?", "sender");
+                        method.AddParameter("MessageEventArgs", "e");
+                        method.AddStatement("// Handle incoming messages if necessary");
+                    });
 
-                        @class.AddMethod("void", "HandleSessionEvent", method =>
-                        {
-                            method.Private().Static();
-                            method.AddParameter("object?", "sender");
-                            method.AddParameter("SessionEventArgs", "e");
-                            method.AddStatement("// Handle session events if necessary");
-                        });
+                    @class.AddMethod("void", "HandleSessionEvent", method =>
+                    {
+                        method.Private().Static();
+                        method.AddParameter("object?", "sender");
+                        method.AddParameter("SessionEventArgs", "e");
+                        method.AddStatement("// Handle session events if necessary");
                     });
 
                     @class.AddNestedClass("SolaceConfig", config =>
@@ -158,10 +159,14 @@ namespace Intent.Modules.Eventing.Solace.Templates.SolaceConfiguration
 
         public override void AfterTemplateRegistration()
         {
-            ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
-                .ToRegister("AddSolaceConfiguration", ServiceConfigurationRequest.ParameterType.Configuration)
-                .ForConcern("Infrastructure")
-                .HasDependency(this));
+            var requiresCompositeMessageBus = this.RequiresCompositeMessageBus();
+            if (!requiresCompositeMessageBus)
+            {
+                ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
+                    .ToRegister("AddSolaceConfiguration", ServiceConfigurationRequest.ParameterType.Configuration)
+                    .ForConcern("Infrastructure")
+                    .HasDependency(this));
+            }
 
             ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest($"Solace", new
             {
@@ -173,8 +178,7 @@ namespace Intent.Modules.Eventing.Solace.Templates.SolaceConfiguration
             }));
         }
 
-        [IntentManaged(Mode.Fully)]
-        public CSharpFile CSharpFile { get; }
+        [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
 
         [IntentManaged(Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()

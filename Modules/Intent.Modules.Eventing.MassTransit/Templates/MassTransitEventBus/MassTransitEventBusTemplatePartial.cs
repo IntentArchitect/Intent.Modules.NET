@@ -24,8 +24,6 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitEventBus
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public MassTransitEventBusTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            FulfillsRole("Eventing.MessageBusProvider");
-
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("System.Collections.Generic")
@@ -33,34 +31,17 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitEventBus
                 .AddUsing("System.Threading.Tasks")
                 .AddUsing("MassTransit")
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
+                .AddUsing("System.Linq")
                 .AddClass("MassTransitEventBus", @class =>
                 {
                     @class.ImplementsInterface(this.GetBusInterfaceName());
-                    @class.AddNestedClass("MessageToSend", nested =>
-                    {
-                        nested
-                            .Private()
-                            .Sealed()
-                            .AddConstructor(ctor =>
-                            {
-                                ctor.AddParameter("object", "message", p => p.IntroduceProperty(prop => prop.WithoutSetter()));
-                                ctor.AddParameter("Uri?", "address", p => p.IntroduceProperty(prop => prop.WithoutSetter()));
-                            });
-                    });
 
-                    var publishFieldDefault = outputTarget.GetProject().GetLanguageVersion().Major < 12
-                        ? new CSharpStatement("new List<object>()")
+                    var listFieldDefault = outputTarget.GetProject().GetLanguageVersion().Major < 12
+                        ? new CSharpStatement("new List<MessageEntry>()")
                         : new CSharpStatement("[]");
-                    @class.AddField("List<object>", "_messagesToPublish", field => field
+                    @class.AddField("List<MessageEntry>", "_messagesToDispatch", field => field
                         .PrivateReadOnly()
-                        .WithAssignment(publishFieldDefault));
-
-                    var sendhFieldDefault = outputTarget.GetProject().GetLanguageVersion().Major < 12
-                        ? new CSharpStatement("new List<MessageToSend>()")
-                        : new CSharpStatement("[]");
-                    @class.AddField("List<MessageToSend>", "_messagesToSend", field => field
-                        .PrivateReadOnly()
-                        .WithAssignment(sendhFieldDefault));
+                        .WithAssignment(listFieldDefault));
 
                     @class.AddConstructor(ctor => { ctor.AddParameter("IServiceProvider", "serviceProvider", param => param.IntroduceReadonlyField()); });
 
@@ -71,7 +52,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitEventBus
                         method.AddGenericParameter("T", out var T)
                             .AddGenericTypeConstraint(T, c => c.AddType("class"))
                             .AddParameter(T, "message")
-                            .AddStatement("_messagesToPublish.Add(message);");
+                            .AddStatement("_messagesToDispatch.Add(new MessageEntry(message, null, DispatchType.Publish));");
                     });
 
                     @class.AddMethod("void", "Publish", method =>
@@ -80,8 +61,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitEventBus
                             .AddGenericTypeConstraint(T, c => c.AddType("class"))
                             .AddParameter(T, "message")
                             .AddParameter("IDictionary<string, object>", "additionalData")
-                            .AddStatement("// Note: MassTransit does not support additional data in this implementation, ignoring parameter")
-                            .AddStatement("Publish(message);");
+                            .AddStatement("_messagesToDispatch.Add(new MessageEntry(message, additionalData, DispatchType.Publish));");
                     });
 
                     @class.AddMethod("void", "Send", method =>
@@ -89,7 +69,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitEventBus
                         method.AddGenericParameter("T", out var T)
                             .AddGenericTypeConstraint(T, c => c.AddType("class"))
                             .AddParameter(T, "message")
-                            .AddStatement("_messagesToSend.Add(new MessageToSend(message, null));");
+                            .AddStatement("_messagesToDispatch.Add(new MessageEntry(message, null, DispatchType.Send));");
                     });
 
                     @class.AddMethod("void", "Send", method =>
@@ -98,8 +78,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitEventBus
                             .AddGenericTypeConstraint(T, c => c.AddType("class"))
                             .AddParameter(T, "message")
                             .AddParameter("IDictionary<string, object>", "additionalData")
-                            .AddStatement("// Note: MassTransit does not support additional data in this implementation, ignoring parameter")
-                            .AddStatement("Send(message);");
+                            .AddStatement("_messagesToDispatch.Add(new MessageEntry(message, additionalData, DispatchType.Send));");
                     });
 
                     @class.AddMethod("void", "Send", method =>
@@ -108,7 +87,8 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitEventBus
                             .AddGenericTypeConstraint(T, c => c.AddType("class"))
                             .AddParameter(T, "message")
                             .AddParameter("Uri", "address")
-                            .AddStatement("_messagesToSend.Add(new MessageToSend(message, address));");
+                            .AddStatement("var additionalData = new Dictionary<string, object> { { \"address\", address.ToString() } };")
+                            .AddStatement("_messagesToDispatch.Add(new MessageEntry(message, additionalData, DispatchType.Send));");
                     });
 
                     @class.AddMethod("Task", "FlushAllAsync", method =>
@@ -116,68 +96,87 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitEventBus
                         method.Async();
                         method.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
 
-                        method.AddForEachStatement("toSend", "_messagesToSend", fe =>
-                        {
-                            fe.AddIfStatement("ConsumeContext is not null", block => { block.AddStatement("await SendWithConsumeContext(toSend, cancellationToken);"); });
-                            fe.AddElseStatement(block => { block.AddStatement("await SendWithNormalContext(toSend, cancellationToken);"); });
-                        });
-                        method.AddStatement("_messagesToSend.Clear();", s => s.SeparatedFromPrevious());
+                        method.AddStatement("var messagesToPublish = _messagesToDispatch.Where(x => x.DispatchType == DispatchType.Publish).ToList();");
+                        method.AddStatement("var messagesToSend = _messagesToDispatch.Where(x => x.DispatchType == DispatchType.Send).ToList();");
 
-                        method.AddIfStatement("ConsumeContext is not null", block => { block.AddStatement("await PublishWithConsumeContext(cancellationToken);"); });
-                        method.AddElseStatement(block => { block.AddStatement("await PublishWithNormalContext(cancellationToken);"); });
-                        method.AddStatement("_messagesToPublish.Clear();", s => s.SeparatedFromPrevious());
+                        method.AddStatement("await PublishMessagesAsync(messagesToPublish, cancellationToken);");
+                        method.AddStatement("await SendMessagesAsync(messagesToSend, cancellationToken);");
+
+                        method.AddStatement("_messagesToDispatch.Clear();");
                     });
 
-                    @class.AddMethod("Task", "SendWithConsumeContext", method =>
+                    @class.AddMethod("Task", "PublishMessagesAsync", method =>
                     {
-                        method.Async().Private();
-                        method.AddParameter("MessageToSend", "toSend");
+                        method.Private().Async();
+                        method.AddParameter("List<MessageEntry>", "messagesToPublish");
                         method.AddParameter("CancellationToken", "cancellationToken");
 
-                        method.AddIfStatement("toSend.Address is null", block => { block.AddStatement("await ConsumeContext!.Send(toSend.Message, cancellationToken).ConfigureAwait(false);"); });
-                        method.AddElseStatement(block =>
+                        method.AddIfStatement("ConsumeContext is not null", block =>
                         {
-                            block.AddStatement("var endpoint = await ConsumeContext!.GetSendEndpoint(toSend.Address).ConfigureAwait(false);");
-                            block.AddStatement("await endpoint.Send(toSend.Message, cancellationToken).ConfigureAwait(false);");
+                            block.AddStatement("await ConsumeContext!.PublishBatch(messagesToPublish.Select(x => x.Message), cancellationToken).ConfigureAwait(false);");
+                            block.AddStatement("return;");
                         });
-                    });
 
-                    @class.AddMethod("Task", "SendWithNormalContext", method =>
-                    {
-                        method.Async().Private();
-                        method.AddParameter("MessageToSend", "toSend");
-                        method.AddParameter("CancellationToken", "cancellationToken");
-
-                        method.AddIfStatement("toSend.Address is null", block =>
-                        {
-                            block.AddStatement("var bus = _serviceProvider.GetRequiredService<IBus>();");
-                            block.AddStatement("await bus.Send(toSend.Message, cancellationToken).ConfigureAwait(false);");
-                        });
-                        method.AddElseStatement(block =>
-                        {
-                            block.AddStatement("var sendEndpointProvider = _serviceProvider.GetRequiredService<ISendEndpointProvider>();");
-                            block.AddStatement("var endpoint = await sendEndpointProvider.GetSendEndpoint(toSend.Address).ConfigureAwait(false);");
-                            block.AddStatement("await endpoint.Send(toSend.Message, cancellationToken).ConfigureAwait(false);");
-                        });
-                    });
-
-
-                    @class.AddMethod("Task", "PublishWithConsumeContext", method =>
-                    {
-                        method.Async().Private();
-                        method.AddParameter("CancellationToken", "cancellationToken");
-
-                        method.AddStatement("await ConsumeContext!.PublishBatch(_messagesToPublish, cancellationToken).ConfigureAwait(false);");
-                    });
-
-                    @class.AddMethod("Task", "PublishWithNormalContext", method =>
-                    {
-                        method.Async().Private();
-                        method.AddParameter("CancellationToken", "cancellationToken");
                         method.AddStatement("var publishEndpoint = _serviceProvider.GetRequiredService<IPublishEndpoint>();");
+                        method.AddStatement("await publishEndpoint.PublishBatch(messagesToPublish.Select(x => x.Message), cancellationToken).ConfigureAwait(false);");
+                    });
 
-                        method.AddStatement("await publishEndpoint.PublishBatch(_messagesToPublish, cancellationToken).ConfigureAwait(false);",
-                            s => s.SeparatedFromPrevious());
+                    @class.AddMethod("Task", "SendMessagesAsync", method =>
+                    {
+                        method.Private().Async();
+                        method.AddParameter("List<MessageEntry>", "messagesToSend");
+                        method.AddParameter("CancellationToken", "cancellationToken");
+
+                        method.AddForEachStatement("toSend", "messagesToSend", fe =>
+                        {
+                            fe.AddStatement("Uri? address = null;");
+                            fe.AddIfStatement("toSend.AdditionalData?.TryGetValue(\"address\", out var addressObj) == true", block =>
+                            {
+                                block.AddStatement("address = new Uri((string)addressObj);");
+                            });
+
+                            fe.AddIfStatement("ConsumeContext is not null", block =>
+                            {
+                                block.AddIfStatement("address is null", b => b.AddStatement("await ConsumeContext!.Send(toSend.Message, cancellationToken).ConfigureAwait(false);"));
+                                block.AddElseStatement(b =>
+                                {
+                                    b.AddStatement("var endpoint = await ConsumeContext!.GetSendEndpoint(address).ConfigureAwait(false);");
+                                    b.AddStatement("await endpoint.Send(toSend.Message, cancellationToken).ConfigureAwait(false);");
+                                });
+                            });
+                            fe.AddElseStatement(block =>
+                            {
+                                block.AddIfStatement("address is null", b =>
+                                {
+                                    b.AddStatement("var bus = _serviceProvider.GetRequiredService<IBus>();");
+                                    b.AddStatement("await bus.Send(toSend.Message, cancellationToken).ConfigureAwait(false);");
+                                });
+                                block.AddElseStatement(b =>
+                                {
+                                    b.AddStatement("var sendEndpointProvider = _serviceProvider.GetRequiredService<ISendEndpointProvider>();");
+                                    b.AddStatement("var endpoint = await sendEndpointProvider.GetSendEndpoint(address).ConfigureAwait(false);");
+                                    b.AddStatement("await endpoint.Send(toSend.Message, cancellationToken).ConfigureAwait(false);");
+                                });
+                            });
+                        });
+                    });
+
+                    @class.AddNestedEnum("DispatchType", enumType =>
+                    {
+                        enumType.Private();
+                        enumType.AddLiteral("Publish");
+                        enumType.AddLiteral("Send");
+                    });
+
+                    @class.AddNestedRecord("MessageEntry", rec =>
+                    {
+                        rec.Private();
+                        rec.AddPrimaryConstructor(ctor =>
+                        {
+                            ctor.AddParameter("object", "Message");
+                            ctor.AddParameter("IDictionary<string, object>?", "AdditionalData");
+                            ctor.AddParameter("DispatchType", "DispatchType");
+                        });
                     });
                 });
         }

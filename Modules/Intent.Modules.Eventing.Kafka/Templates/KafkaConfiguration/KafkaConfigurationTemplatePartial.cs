@@ -34,6 +34,8 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaConfiguration
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public KafkaConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            FulfillsRole("Eventing.MessageBusConfiguration");
+            
             _subscribedMessageModels = new Lazy<IReadOnlyCollection<MessageModel>>(() =>
             {
                 var serviceDesignerMessages = ExecutionContext.MetadataManager
@@ -78,20 +80,17 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaConfiguration
                 .AddUsing("System")
                 .AddUsing("Confluent.SchemaRegistry")
                 .AddUsing("Microsoft.Extensions.Configuration")
-                .AddUsing("Microsoft.Extensions.DependencyInjection")
                 .AddClass($"KafkaConfiguration", @class =>
                 {
                     @class.Static();
 
-                    @class.AddMethod("void", "AddKafkaConfiguration", method =>
+                    @class.AddMethod(UseType("Microsoft.Extensions.DependencyInjection.IServiceCollection"), "AddKafkaConfiguration", method =>
                     {
                         method.Static();
-                        method.AddParameter("IServiceCollection", "services", p => p.WithThisModifier());
+                        method.AddParameter(UseType("Microsoft.Extensions.DependencyInjection.IServiceCollection"), "services", p => p.WithThisModifier());
 
-                        var compositeTemplate = GetTemplate<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Intent.Eventing.Contracts.CompositeMessageBusConfiguration"));
-                        var isCompositeMode = compositeTemplate != null;
-                        
-                        if (isCompositeMode)
+                        var requiresCompositeMessageBus = this.RequiresCompositeMessageBus();
+                        if (requiresCompositeMessageBus)
                         {
                             method.AddParameter(this.GetMessageBrokerRegistryName(), "registry");
                         }
@@ -111,18 +110,16 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaConfiguration
                             });
                         });
                         
-                        if (isCompositeMode)
+                        if (requiresCompositeMessageBus)
                         {
-                            method.AddStatement("// Register as concrete type for composite message bus");
-                            method.AddStatement($"services.AddScoped<{this.GetKafkaEventBusName()}>;");
+                            method.AddStatement($"services.AddScoped<{this.GetKafkaEventBusName()}>();");
                         }
                         else
                         {
                             var busInterface = this.GetBusInterfaceName();
                             
-                            method.AddStatement($"// Register as {busInterface} for standalone mode");
-                            method.AddStatement($"services.AddScoped<{this.GetKafkaEventBusName()}>;");
-                            method.AddStatement($"services.AddScoped<{busInterface}>(provider => provider.GetRequiredService<{this.GetKafkaEventBusName()}>);");
+                            method.AddStatement($"services.AddScoped<{this.GetKafkaEventBusName()}>();");
+                            method.AddStatement($"services.AddScoped<{busInterface}>(provider => provider.GetRequiredService<{this.GetKafkaEventBusName()}>());");
                         }
                         method.AddStatement($"services.AddScoped(typeof({this.GetKafkaEventDispatcherInterfaceName()}<>), typeof({this.GetKafkaEventDispatcherName()}<>));");
                         method.AddStatement($"services.AddHostedService<{this.GetKafkaConsumerBackgroundServiceName()}>();");
@@ -139,7 +136,7 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaConfiguration
                             method.AddStatement($"services.AddSingleton(serviceProvider => {GetProducerFactoryStatement(message)});");
                         }
                         
-                        if (isCompositeMode && _publishedMessageModels.Value.Any())
+                        if (requiresCompositeMessageBus && _publishedMessageModels.Value.Any())
                         {
                             method.AddStatement("");
                             method.AddStatement("// Register message types with the composite message bus registry");
@@ -148,6 +145,8 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaConfiguration
                                 method.AddStatement($"registry.Register<{this.GetIntegrationEventMessageName(message)}, {this.GetKafkaEventBusName()}>();");
                             }
                         }
+                        
+                        method.AddReturn("services");
                     });
 
                     if (_publishedMessageModels.Value.Any())
@@ -200,10 +199,14 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaConfiguration
 
         public override void AfterTemplateRegistration()
         {
-            ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
-                .ToRegister("AddKafkaConfiguration")
-                .ForConcern("Infrastructure")
-                .HasDependency(this));
+            var requiresCompositeMessageBus = this.RequiresCompositeMessageBus();
+            if (!requiresCompositeMessageBus)
+            {
+                ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
+                    .ToRegister("AddKafkaConfiguration")
+                    .ForConcern("Infrastructure")
+                    .HasDependency(this));
+            }
 
             ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("Kafka:SchemaRegistryConfig",
                 new

@@ -38,6 +38,8 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageC
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public AzureQueueStorageConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            FulfillsRole("Eventing.MessageBusConfiguration");
+            
             _messageModels = GetAllMessages();
             _integrationCommandModels = GetAllIntegrationCommands();
 
@@ -58,26 +60,23 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageC
                         mth.AddParameter(UseType("Microsoft.Extensions.DependencyInjection.IServiceCollection"), "services", @param => param.WithThisModifier())
                            .AddParameter(UseType("Microsoft.Extensions.Configuration.IConfiguration"), "configuration");
 
-                        var compositeTemplate = GetTemplate<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Intent.Eventing.Contracts.CompositeMessageBusConfiguration"));
-                        var isCompositeMode = compositeTemplate != null;
+                        var requiresCompositeMessageBus = this.RequiresCompositeMessageBus();
                         
-                        if (isCompositeMode)
+                        if (requiresCompositeMessageBus)
                         {
                             mth.AddParameter(this.GetMessageBrokerRegistryName(), "registry");
                         }
 
-                        if (isCompositeMode)
+                        if (requiresCompositeMessageBus)
                         {
-                            mth.AddStatement($"// Register as concrete type for composite message bus");
-                            mth.AddStatement($"services.AddScoped<{this.GetAzureQueueStorageEventBusName()}>;");
+                            mth.AddStatement($"services.AddScoped<{this.GetAzureQueueStorageEventBusName()}>();");
                         }
                         else
                         {
                             var busInterface = this.GetBusInterfaceName();
                             
-                            mth.AddStatement($"// Register as {busInterface} for standalone mode");
-                            mth.AddStatement($"services.AddScoped<{this.GetAzureQueueStorageEventBusName()}>;");
-                            mth.AddStatement($"services.AddScoped<{busInterface}>(provider => provider.GetRequiredService<{this.GetAzureQueueStorageEventBusName()}>);");
+                            mth.AddStatement($"services.AddScoped<{this.GetAzureQueueStorageEventBusName()}>();");
+                            mth.AddStatement($"services.AddScoped<{busInterface}>(provider => provider.GetRequiredService<{this.GetAzureQueueStorageEventBusName()}>());");
                         }
 
                         mth.AddInvocationStatement($"services.AddOptions<{this.GetAzureQueueStorageOptionsName()}>", invoc =>
@@ -126,7 +125,7 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageC
                             }
                         });
 
-                        if (isCompositeMode)
+                        if (requiresCompositeMessageBus)
                         {
                             var publishedMessages = this.GetPublishedMessages();
                             var sentCommands = this.GetSentIntegrationCommands();
@@ -215,10 +214,14 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageC
 
         public override void AfterTemplateRegistration()
         {
-            ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
-                .ToRegister("AddQueueStorageConfiguration", ServiceConfigurationRequest.ParameterType.Configuration)
-                .ForConcern("Infrastructure")
-                .HasDependency(this));
+            var requiresCompositeMessageBus = this.RequiresCompositeMessageBus();
+            if (!requiresCompositeMessageBus)
+            {
+                ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
+                    .ToRegister("AddQueueStorageConfiguration", ServiceConfigurationRequest.ParameterType.Configuration)
+                    .ForConcern("Infrastructure")
+                    .HasDependency(this));
+            }
 
             ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("QueueStorage",
                 new

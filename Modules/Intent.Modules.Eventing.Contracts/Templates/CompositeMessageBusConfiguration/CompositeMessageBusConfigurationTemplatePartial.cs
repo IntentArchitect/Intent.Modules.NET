@@ -35,45 +35,61 @@ namespace Intent.Modules.Eventing.Contracts.Templates.CompositeMessageBusConfigu
                         method.Static();
                         method.AddParameter("IServiceCollection", "services", param => param.WithThisModifier());
                         method.AddParameter("IConfiguration", "configuration");
-
-                        method.AddStatement($"// Create the central registry instance (mutable during startup)");
-                        method.AddStatement($"var registry = new {this.GetMessageBrokerRegistryName()}();");
-                        method.AddStatement("");
-                        method.AddStatement("// Configure all message broker providers, passing the registry to each");
-                        
-                        // Add configuration calls - these will be populated dynamically by extensions
-                        method.AddStatement("// Provider configurations will be added here", stmt => stmt.SeparatedFromPrevious());
-
-                        method.AddStatement($"// Register the now-populated registry as a singleton", stmt => stmt.SeparatedFromPrevious());
-                        method.AddStatement("services.AddSingleton(registry);");
-
-                        method.AddStatement($"// Register the resolver (scoped, uses IServiceProvider to resolve providers per request)", stmt => stmt.SeparatedFromPrevious());
-                        method.AddStatement($"services.AddScoped<{this.GetMessageBrokerResolverName()}>();");
-
-                        method.AddStatement($"// Register CompositeMessageBus as {this.GetBusInterfaceName()} (scoped per request)", stmt => stmt.SeparatedFromPrevious());
-                        method.AddStatement($"services.AddScoped<{this.GetBusInterfaceName()}, {this.GetCompositeMessageBusName()}>();");
-
-                        method.AddStatement("return services;", stmt => stmt.SeparatedFromPrevious());
                     });
-                });
+                })
+                .OnBuild(file =>
+                {
+                    var method = file.Classes.First().FindMethod("ConfigureCompositeMessageBus")!;
+                    method.AddStatement($"var registry = new {this.GetMessageBrokerRegistryName()}();", s => s.SeparatedFromNext());
+
+                    var eventBusConfigTemplates = ExecutionContext.FindTemplateInstances<ICSharpFileBuilderTemplate>("Eventing.MessageBusConfiguration");
+                    foreach (var template in eventBusConfigTemplates)
+                    {
+                        var configMethodName = template.CSharpFile.Classes.First().FindMethod(m => m.Name.StartsWith("Add") && m.Name.EndsWith("Configuration"))?.Name;
+                        if (configMethodName == null)
+                        {
+                            throw new Exception($"Could not find configuration method on template '{template.Id}'.");
+                        }
+
+                        method.AddInvocationStatement($"services.{configMethodName}", inv =>
+                        {
+                            inv.AddArgument("configuration");
+                            inv.AddArgument("registry");
+                        });
+                        AddTemplateDependency(TemplateDependency.OnTemplate(template));
+                    }
+
+                    method.AddStatement("services.AddSingleton(registry);", s => s.SeparatedFromPrevious());
+
+                    method.AddStatement($"services.AddScoped<{this.GetMessageBrokerResolverName()}>();", s => s.SeparatedFromPrevious());
+                    method.AddStatement($"services.AddScoped<{this.GetBusInterfaceName()}, {this.GetCompositeMessageBusName()}>();");
+
+                    method.AddStatement("return services;", stmt => stmt.SeparatedFromPrevious());
+                }, 1);
         }
 
         public override bool CanRunTemplate()
         {
-            var templates = ExecutionContext.FindTemplateInstances<ICSharpFileBuilderTemplate>("Eventing.MessageBusProvider").ToList();
-            return templates.Count >= 2;
+            return RequiresCompositeMessageBus();
         }
 
         public override void BeforeTemplateExecution()
         {
-            if (!CanRunTemplate())
+            if (!RequiresCompositeMessageBus())
             {
                 return;
             }
 
             ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
                 .ToRegister("ConfigureCompositeMessageBus", ServiceConfigurationRequest.ParameterType.Configuration)
+                .ForConcern("Infrastructure")
                 .HasDependency(this));
+        }
+        
+        private bool RequiresCompositeMessageBus()
+        {
+            var templates = ExecutionContext.FindTemplateInstances<ICSharpFileBuilderTemplate>("Eventing.MessageBusConfiguration").ToList();
+            return templates.Count >= 2;
         }
 
         [IntentManaged(Mode.Fully)]

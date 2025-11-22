@@ -34,101 +34,104 @@ public partial class AzureServiceBusConfigurationTemplate : CSharpTemplateBase<o
     [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
     public AzureServiceBusConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
     {
+        FulfillsRole("Eventing.MessageBusConfiguration");
+
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
             .AddUsing("System")
             .AddUsing("Microsoft.Extensions.Configuration")
-            .AddUsing("Microsoft.Extensions.DependencyInjection")
             .AddUsing("Azure.Messaging.ServiceBus")
             .AddClass($"AzureServiceBusConfiguration", @class =>
             {
-                @class.Static()
-                    .AddMethod("IServiceCollection", "ConfigureAzureServiceBus", method =>
+                @class.Static();
+                @class.AddMethod(UseType("Microsoft.Extensions.DependencyInjection.IServiceCollection"), "AddAzureServiceBusConfiguration", method =>
+                {
+                    method.Static();
+                    method.AddParameter(UseType("Microsoft.Extensions.DependencyInjection.IServiceCollection"), "services", param => param.WithThisModifier());
+                    method.AddParameter("IConfiguration", "configuration");
+
+                    var requiresCompositeMessageBus = this.RequiresCompositeMessageBus();
+                    if (requiresCompositeMessageBus)
                     {
-                        method.Static();
-                        method.AddParameter("IServiceCollection", "services", param => param.WithThisModifier());
-                        method.AddParameter("IConfiguration", "configuration");
+                        method.AddParameter(this.GetMessageBrokerRegistryName(), "registry");
+                    }
 
-                        var compositeTemplate = GetTemplate<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Intent.Eventing.Contracts.CompositeMessageBusConfiguration"));
-                        var isCompositeMode = compositeTemplate != null;
-                        
-                        if (isCompositeMode)
-                        {
-                            method.AddParameter(this.GetMessageBrokerRegistryName(), "registry");
-                        }
+                    method.AddStatement(
+                        $@"services.AddSingleton<ServiceBusClient>(sp => new ServiceBusClient(configuration[""AzureServiceBus:ConnectionString""]));");
 
-                        method.AddStatement($@"services.AddSingleton<ServiceBusClient>(sp => new ServiceBusClient(configuration[""AzureServiceBus:ConnectionString""]));");
-                            
-                        if (isCompositeMode)
-                        {
-                            method.AddStatement($"// Register as concrete type for composite message bus");
-                            method.AddStatement($"services.AddScoped<{this.GetAzureServiceBusEventBusName()}>;");
-                        }
-                        else
-                        {
-                            var busInterface = this.GetBusInterfaceName();
-                            
-                            method.AddStatement($"// Register as {busInterface} for standalone mode");
-                            method.AddStatement($"services.AddScoped<{this.GetAzureServiceBusEventBusName()}>;");
-                            method.AddStatement($"services.AddScoped<{busInterface}>(provider => provider.GetRequiredService<{this.GetAzureServiceBusEventBusName()}>);");
-                        }
-                        method.AddStatement($"services.AddSingleton<{this.GetAzureServiceBusMessageDispatcherName()}>();");
-                        method.AddStatement($"services.AddSingleton<{this.GetAzureServiceBusMessageDispatcherInterfaceName()}, {this.GetAzureServiceBusMessageDispatcherName()}>();");
-                            
-                        var publishers = IntegrationManager.Instance.GetAggregatedPublishedAzureServiceBusItems(ExecutionContext.GetApplicationConfig().Id);
-                        if (publishers.Count != 0)
-                        {
-                            method.AddInvocationStatement($"services.Configure<{this.GetAzureServiceBusPublisherOptionsName()}>", inv => inv
-                                .AddArgument(new CSharpLambdaBlock("options"), arg =>
-                                {
-                                    foreach (var item in publishers)
-                                    {
-                                        arg.AddStatement(
-                                            $"""options.Add<{item.GetModelTypeName(this)}>(configuration["{item.QueueOrTopicConfigurationName}"]!);""");
-                                    }
-                                }));
-                        }
+                    if (requiresCompositeMessageBus)
+                    {
+                        method.AddStatement($"services.AddScoped<{this.GetAzureServiceBusEventBusName()}>();");
+                    }
+                    else
+                    {
+                        var busInterface = this.GetBusInterfaceName();
 
-                        var subscribers = IntegrationManager.Instance.GetAggregatedSubscribedAzureServiceBusItems(ExecutionContext.GetApplicationConfig().Id);
-                        if (subscribers.Count != 0)
-                        {
-                            method.AddInvocationStatement($"services.Configure<{this.GetAzureServiceBusSubscriptionOptionsName()}>", inv => inv
-                                .AddArgument(new CSharpLambdaBlock("options"), arg =>
-                                {
-                                    foreach (var item in subscribers)
-                                    {
-                                        var inv = new CSharpInvocationStatement($"options.Add<{item.GetModelTypeName(this)}, {item.GetSubscriberTypeName(this)}>")
-                                            .AddArgument($@"configuration[""{item.QueueOrTopicConfigurationName}""]!");
-                                        if (!string.IsNullOrEmpty(item.QueueOrTopicSubscriptionConfigurationName))
-                                        {
-                                            inv.AddArgument($@"configuration[""{item.QueueOrTopicSubscriptionConfigurationName}""]");
-                                        }
-                                        arg.AddStatement(inv);
-                                    }
-                                }));
-                        }
+                        method.AddStatement($"services.AddScoped<{this.GetAzureServiceBusEventBusName()}>();");
+                        method.AddStatement($"services.AddScoped<{busInterface}>(provider => provider.GetRequiredService<{this.GetAzureServiceBusEventBusName()}>());");
+                    }
 
-                        if (isCompositeMode && publishers.Count != 0)
-                        {
-                            method.AddStatement("");
-                            method.AddStatement("// Register message types with the composite message bus registry");
-                            foreach (var item in publishers)
+                    method.AddStatement($"services.AddSingleton<{this.GetAzureServiceBusMessageDispatcherName()}>();");
+                    method.AddStatement(
+                        $"services.AddSingleton<{this.GetAzureServiceBusMessageDispatcherInterfaceName()}, {this.GetAzureServiceBusMessageDispatcherName()}>();");
+
+                    var publishers = IntegrationManager.Instance.GetAggregatedPublishedAzureServiceBusItems(ExecutionContext.GetApplicationConfig().Id);
+                    if (publishers.Count != 0)
+                    {
+                        method.AddInvocationStatement($"services.Configure<{this.GetAzureServiceBusPublisherOptionsName()}>", inv => inv
+                            .AddArgument(new CSharpLambdaBlock("options"), arg =>
                             {
-                                method.AddStatement($"registry.Register<{item.GetModelTypeName(this)}, {this.GetAzureServiceBusEventBusName()}>();");
-                            }
-                        }
+                                foreach (var item in publishers)
+                                {
+                                    arg.AddStatement(
+                                        $"""options.Add<{item.GetModelTypeName(this)}>(configuration["{item.QueueOrTopicConfigurationName}"]!);""");
+                                }
+                            }));
+                    }
 
-                        method.AddStatement("return services;");
-                    });
+                    var subscribers = IntegrationManager.Instance.GetAggregatedSubscribedAzureServiceBusItems(ExecutionContext.GetApplicationConfig().Id);
+                    if (subscribers.Count != 0)
+                    {
+                        method.AddInvocationStatement($"services.Configure<{this.GetAzureServiceBusSubscriptionOptionsName()}>", inv => inv
+                            .AddArgument(new CSharpLambdaBlock("options"), arg =>
+                            {
+                                foreach (var item in subscribers)
+                                {
+                                    var inv = new CSharpInvocationStatement($"options.Add<{item.GetModelTypeName(this)}, {item.GetSubscriberTypeName(this)}>")
+                                        .AddArgument($@"configuration[""{item.QueueOrTopicConfigurationName}""]!");
+                                    if (!string.IsNullOrEmpty(item.QueueOrTopicSubscriptionConfigurationName))
+                                    {
+                                        inv.AddArgument($@"configuration[""{item.QueueOrTopicSubscriptionConfigurationName}""]");
+                                    }
+
+                                    arg.AddStatement(inv);
+                                }
+                            }));
+                    }
+
+                    if (requiresCompositeMessageBus && publishers.Count != 0)
+                    {
+                        foreach (var item in publishers)
+                        {
+                            method.AddStatement($"registry.Register<{item.GetModelTypeName(this)}, {this.GetAzureServiceBusEventBusName()}>();");
+                        }
+                    }
+
+                    method.AddStatement("return services;");
+                });
             });
     }
 
     public override void BeforeTemplateExecution()
     {
-        this.ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
-            .ToRegister("ConfigureAzureServiceBus", ServiceConfigurationRequest.ParameterType.Configuration)
-            .HasDependency(this)
-            .ForConcern("Infrastructure"));
-            
+        var requiresCompositeMessageBus = this.RequiresCompositeMessageBus();
+        if (!requiresCompositeMessageBus)
+        {
+            this.ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
+                .ToRegister("AddAzureServiceBusConfiguration", ServiceConfigurationRequest.ParameterType.Configuration)
+                .HasDependency(this)
+                .ForConcern("Infrastructure"));
+        }
+
         foreach (var message in IntegrationManager.Instance.GetAggregatedAzureServiceBusItems(ExecutionContext.GetApplicationConfig().Id))
         {
             this.ApplyAppSetting(message.QueueOrTopicConfigurationName, message.QueueOrTopicName);
@@ -139,8 +142,7 @@ public partial class AzureServiceBusConfigurationTemplate : CSharpTemplateBase<o
         }
     }
 
-    [IntentManaged(Mode.Fully)]
-    public CSharpFile CSharpFile { get; }
+    [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
 
     [IntentManaged(Mode.Fully)]
     protected override CSharpFileConfig DefineFileConfig()

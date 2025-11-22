@@ -22,8 +22,6 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusEvent
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public AzureServiceBusEventBusTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            FulfillsRole("Eventing.MessageBusProvider");
-
             AddNugetDependency(NugetPackages.AzureMessagingServiceBus(OutputTarget));
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")

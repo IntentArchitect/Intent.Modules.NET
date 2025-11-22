@@ -103,33 +103,5 @@ namespace Intent.Modules.Eventing.Contracts.Templates
         {
             return template.GetTypeName(MessageBusInterfaceTemplate.TemplateId);
         }
-
-
-        /// <summary>
-        /// Returns the appropriate bus interface name based on the UseLegacyInterfaceName setting.
-        /// If true, returns IEventBus; if false, returns IMessageBus.
-        /// </summary>
-        [IntentIgnore]
-        public static string GetBusInterfaceName(this IIntentTemplate template)
-        {
-            var useLegacy = Settings.ModuleSettingsExtensions.GetEventingSettings(template.ExecutionContext.Settings).UseLegacyInterfaceName();
-            return useLegacy
-                ? template.GetTypeName(EventBusInterfaceTemplate.TemplateId)
-                : template.GetTypeName(MessageBusInterfaceTemplate.TemplateId);
-        }
-
-        /// <summary>
-        /// Returns the appropriate bus interface template ID based on the UseLegacyInterfaceName setting.
-        /// If true, returns EventBusInterface template ID; if false, returns MessageBusInterface template ID.
-        /// </summary>
-        [IntentIgnore]
-        public static string GetBusInterfaceTemplateId(this IIntentTemplate template)
-        {
-            var useLegacy = Settings.ModuleSettingsExtensions.GetEventingSettings(template.ExecutionContext.Settings).UseLegacyInterfaceName();
-            return useLegacy
-                ? EventBusInterfaceTemplate.TemplateId
-                : MessageBusInterfaceTemplate.TemplateId;
-        }
-
     }
 }

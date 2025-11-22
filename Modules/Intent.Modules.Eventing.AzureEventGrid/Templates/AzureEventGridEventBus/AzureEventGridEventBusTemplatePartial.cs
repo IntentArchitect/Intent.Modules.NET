@@ -24,8 +24,6 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridEventBu
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public AzureEventGridEventBusTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            FulfillsRole("Eventing.MessageBusProvider");
-
             AddNugetDependency(NugetPackages.AzureMessagingEventGrid(outputTarget));
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
