@@ -133,20 +133,6 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaEventBus
                 });
         }
 
-        public override void AfterTemplateRegistration()
-        {
-            ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest
-                .ToRegister(ClassName)
-                .WithPerServiceCallLifeTime()
-                .ForInterface(this.GetEventBusInterfaceName())
-                .WithPriority(4)
-                .ForConcern("Infrastructure")
-                .HasDependency(this)
-                .HasDependency(ExecutionContext.FindTemplateInstance<ITemplate>(EventBusInterfaceTemplate.TemplateId)));
-
-            base.AfterTemplateRegistration();
-        }
-
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }
 

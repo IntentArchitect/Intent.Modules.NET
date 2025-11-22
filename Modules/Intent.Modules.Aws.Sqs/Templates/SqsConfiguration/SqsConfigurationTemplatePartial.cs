@@ -33,6 +33,8 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsConfiguration
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public SqsConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            FulfillsRole("Eventing.MessageBusConfiguration");
+            
             AddNugetDependency(NugetPackages.AwsSdkSqs(OutputTarget));
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
