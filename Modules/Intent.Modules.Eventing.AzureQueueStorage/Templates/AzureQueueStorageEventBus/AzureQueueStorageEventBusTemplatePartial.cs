@@ -29,7 +29,7 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageE
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddClass($"AzureQueueStorageEventBus", @class =>
                 {
-                    @class.ImplementsInterface(this.GetMessageBusInterfaceName());
+                    @class.ImplementsInterface(this.GetBusInterfaceName());
 
                     @class.AddField($"{UseType("System.Collections.Generic.List")}<{this.GetAzureQueueStorageEnvelopeName()}>", "_messageQueue", @field =>
                     {

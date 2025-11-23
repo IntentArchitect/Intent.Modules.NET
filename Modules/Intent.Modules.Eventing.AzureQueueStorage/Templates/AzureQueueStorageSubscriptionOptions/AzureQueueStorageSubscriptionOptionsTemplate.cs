@@ -22,22 +22,22 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageS
                         
                         public class {{ClassName}}
                         {
-                            private readonly {{UseType("System.Collections.Generic.List")}}<SubscriptionEntry> _entries = new List<SubscriptionEntry>();
+                            private readonly {{UseType("System.Collections.Generic.List")}}<AzureQueueStorageSubscriptionEntry> _entries = new List<AzureQueueStorageSubscriptionEntry>();
 
-                            public {{UseType("System.Collections.Generic.IReadOnlyList")}}<SubscriptionEntry> Entries => _entries;
+                            public {{UseType("System.Collections.Generic.IReadOnlyList")}}<AzureQueueStorageSubscriptionEntry> Entries => _entries;
 
                             public void Add<TMessage, THandler>(string queueName)
                                 where TMessage : class
                                 where THandler : {{this.GetIntegrationEventHandlerInterfaceName()}}<TMessage>
                             {
                                 ArgumentNullException.ThrowIfNull(queueName);
-                                _entries.Add(new SubscriptionEntry(typeof(TMessage), {{this.GetAzureQueueStorageEventDispatcherName()}}.InvokeDispatchHandler<TMessage, THandler>, queueName));
+                                _entries.Add(new AzureQueueStorageSubscriptionEntry(typeof(TMessage), {{this.GetAzureQueueStorageEventDispatcherName()}}.InvokeDispatchHandler<TMessage, THandler>, queueName));
                             }
                         }
 
-                        public delegate {{UseType("System.Threading.Tasks.Task")}} DispatchHandler(IServiceProvider serviceProvider, {{this.GetAzureQueueStorageEnvelopeName()}} message, {{UseType("System.Text.Json.JsonSerializerOptions")}} serializationOptions, {{UseType("System.Threading.CancellationToken")}} cancellationToken);
+                        public delegate {{UseType("System.Threading.Tasks.Task")}} AzureQueueStorageDispatchHandler(IServiceProvider serviceProvider, {{this.GetAzureQueueStorageEnvelopeName()}} message, {{UseType("System.Text.Json.JsonSerializerOptions")}} serializationOptions, {{UseType("System.Threading.CancellationToken")}} cancellationToken);
 
-                        public record SubscriptionEntry(Type MessageType, DispatchHandler HandlerAsync, string QueueName);
+                        public record AzureQueueStorageSubscriptionEntry(Type MessageType, AzureQueueStorageDispatchHandler HandlerAsync, string QueueName);
                      }
                      """;
         }

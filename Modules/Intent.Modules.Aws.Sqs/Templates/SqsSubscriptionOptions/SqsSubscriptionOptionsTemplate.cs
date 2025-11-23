@@ -39,12 +39,12 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsSubscriptionOptions
                              }
                          }
                          
-                         public delegate Task DispatchHandler(
+                         public delegate Task SqsDispatchHandler(
                              IServiceProvider serviceProvider, 
                              SQSEvent.SQSMessage sqsMessage, 
                              CancellationToken cancellationToken);
                          
-                         public record {{SubscriptionEntry}}(Type MessageType, DispatchHandler HandlerAsync);
+                         public record {{SubscriptionEntry}}(Type MessageType, SqsDispatchHandler HandlerAsync);
                      }
                      """;
         }

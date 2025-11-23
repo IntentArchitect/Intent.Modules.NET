@@ -25,22 +25,22 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusSubsc
                      {
                          public class {{ClassName}}
                          {
-                             private readonly List<SubscriptionEntry> _entries = [];
+                             private readonly List<{{SubscriptionEntry}}> _entries = [];
                              
-                             public IReadOnlyList<SubscriptionEntry> Entries => _entries;
+                             public IReadOnlyList<{{SubscriptionEntry}}> Entries => _entries;
                              
                              public void Add<TMessage, THandler>(string queueOrTopicName, string? subscriptionName = null)
                                  where TMessage : class
                                  where THandler : {{this.GetIntegrationEventHandlerInterfaceName()}}<TMessage>
                              {
                                  ArgumentNullException.ThrowIfNull(queueOrTopicName);
-                                 _entries.Add(new SubscriptionEntry(typeof(TMessage), {{this.GetAzureServiceBusMessageDispatcherName()}}.InvokeDispatchHandler<TMessage, THandler>, queueOrTopicName, subscriptionName));
+                                 _entries.Add(new {{SubscriptionEntry}}(typeof(TMessage), {{this.GetAzureServiceBusMessageDispatcherName()}}.InvokeDispatchHandler<TMessage, THandler>, queueOrTopicName, subscriptionName));
                              }
                          }
                          
-                         public delegate Task DispatchHandler(IServiceProvider serviceProvider, ServiceBusReceivedMessage message, CancellationToken cancellationToken);
+                         public delegate Task AzureServiceBusDispatchHandler(IServiceProvider serviceProvider, ServiceBusReceivedMessage message, CancellationToken cancellationToken);
                          
-                         public record {{SubscriptionEntry}}(Type MessageType, DispatchHandler HandlerAsync, string QueueOrTopicName, string? SubscriptionName);
+                         public record {{SubscriptionEntry}}(Type MessageType, AzureServiceBusDispatchHandler HandlerAsync, string QueueOrTopicName, string? SubscriptionName);
                      }
                      """;
         }

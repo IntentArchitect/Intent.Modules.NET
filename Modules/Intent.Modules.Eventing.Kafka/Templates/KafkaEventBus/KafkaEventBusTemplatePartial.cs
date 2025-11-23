@@ -32,7 +32,7 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaEventBus
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
                 .AddClass($"KafkaEventBus", @class =>
                 {
-                    @class.ImplementsInterface(this.GetMessageBusInterfaceName());
+                    @class.ImplementsInterface(this.GetBusInterfaceName());
                     @class.AddField($"ConcurrentDictionary<Type, IProducer>", "_producersByMessageType", f => f
                         .PrivateReadOnly()
                         .WithAssignment(new CSharpStatement("new ConcurrentDictionary<Type, IProducer>()")));

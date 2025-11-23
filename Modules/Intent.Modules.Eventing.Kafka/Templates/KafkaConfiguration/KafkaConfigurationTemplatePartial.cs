@@ -88,6 +88,7 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaConfiguration
                     {
                         method.Static();
                         method.AddParameter(UseType("Microsoft.Extensions.DependencyInjection.IServiceCollection"), "services", p => p.WithThisModifier());
+                        method.AddParameter("IConfiguration", "configuration");
 
                         var requiresCompositeMessageBus = this.RequiresCompositeMessageBus();
                         if (requiresCompositeMessageBus)
@@ -203,7 +204,7 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaConfiguration
             if (!requiresCompositeMessageBus)
             {
                 ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
-                    .ToRegister("AddKafkaConfiguration")
+                    .ToRegister("AddKafkaConfiguration", ServiceConfigurationRequest.ParameterType.Configuration)
                     .ForConcern("Infrastructure")
                     .HasDependency(this));
             }

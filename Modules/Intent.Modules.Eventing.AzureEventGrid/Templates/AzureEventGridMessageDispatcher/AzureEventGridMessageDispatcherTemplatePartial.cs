@@ -34,7 +34,7 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridMessage
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
                 .AddClass($"AzureEventGridMessageDispatcher", @class =>
                 {
-                    @class.AddField("Dictionary<string, DispatchHandler>", "_handlers", field => field.PrivateReadOnly());
+                    @class.AddField("Dictionary<string, AzureEventGridDispatchHandler>", "_handlers", field => field.PrivateReadOnly());
 
                     @class.ImplementsInterface(this.GetAzureEventGridMessageDispatcherInterfaceName());
 

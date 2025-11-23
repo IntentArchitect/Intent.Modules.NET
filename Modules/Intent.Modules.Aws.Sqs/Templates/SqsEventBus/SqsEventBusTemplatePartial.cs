@@ -36,10 +36,11 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsEventBus
                 .AddUsing("Microsoft.Extensions.Options")
                 .AddClass($"SqsEventBus", @class =>
                 {
-                    @class.ImplementsInterface(this.GetMessageBusInterfaceName());
+                    @class.ImplementsInterface(this.GetBusInterfaceName());
+                    
                     @class.AddField("IAmazonSQS", "_sqsClient", field => field.PrivateReadOnly());
                     @class.AddField("List<MessageEntry>", "_messageQueue", field => field.PrivateReadOnly().WithAssignment(new CSharpStatement("[]")));
-                    @class.AddField("Dictionary<string, PublisherEntry>", "_lookup", field => field.PrivateReadOnly());
+                    @class.AddField("Dictionary<string, SqsPublisherEntry>", "_lookup", field => field.PrivateReadOnly());
 
                     @class.AddConstructor(ctor =>
                     {
@@ -135,7 +136,7 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsEventBus
                     {
                         method.Private().Static();
                         method.AddParameter("MessageEntry", "messageEntry");
-                        method.AddParameter("PublisherEntry", "publisherEntry");
+                        method.AddParameter("SqsPublisherEntry", "publisherEntry");
 
                         method.AddStatement("var messageBody = JsonSerializer.Serialize(messageEntry.Message);");
                         method.AddStatement("""

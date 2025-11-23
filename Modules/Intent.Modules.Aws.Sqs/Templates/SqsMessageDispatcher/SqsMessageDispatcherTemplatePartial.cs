@@ -37,7 +37,7 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsMessageDispatcher
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
                 .AddClass($"SqsMessageDispatcher", @class =>
                 {
-                    @class.AddField("Dictionary<string, DispatchHandler>", "_handlers", field => field.PrivateReadOnly());
+                    @class.AddField("Dictionary<string, SqsDispatchHandler>", "_handlers", field => field.PrivateReadOnly());
 
                     @class.ImplementsInterface(this.GetTypeName(SqsMessageDispatcherInterfaceTemplate.TemplateId));
 

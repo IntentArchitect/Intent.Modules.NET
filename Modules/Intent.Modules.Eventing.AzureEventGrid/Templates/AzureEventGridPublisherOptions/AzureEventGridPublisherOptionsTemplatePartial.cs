@@ -33,8 +33,8 @@ public partial class AzureEventGridPublisherOptionsTemplate : CSharpTemplateBase
         
         CSharpFile.AddClass("AzureEventGridPublisherOptions", @class =>
             {
-                @class.AddField("List<PublisherEntry>", "_entries", field => field.PrivateReadOnly().WithAssignment("[]"));
-                @class.AddProperty("IReadOnlyList<PublisherEntry>", "Entries", prop => prop.WithoutSetter().Getter.WithExpressionImplementation("_entries"));
+                @class.AddField("List<AzureEventGridPublisherEntry>", "_entries", field => field.PrivateReadOnly().WithAssignment("[]"));
+                @class.AddProperty("IReadOnlyList<AzureEventGridPublisherEntry>", "Entries", prop => prop.WithoutSetter().Getter.WithExpressionImplementation("_entries"));
 
                 if (hasCustomTopics)
                 {
@@ -48,7 +48,7 @@ public partial class AzureEventGridPublisherOptionsTemplate : CSharpTemplateBase
                         method.AddStatement("ArgumentNullException.ThrowIfNull(credentialKey);");
                         method.AddStatement("ArgumentNullException.ThrowIfNull(endpoint);");
                         method.AddStatement("ArgumentNullException.ThrowIfNull(source);");
-                        method.AddStatement($"_entries.Add(new PublisherEntry(typeof({tMessage}), credentialKey, endpoint, source));");
+                        method.AddStatement($"_entries.Add(new AzureEventGridPublisherEntry(typeof({tMessage}), credentialKey, endpoint, source));");
                     });
                 }
 
@@ -68,7 +68,7 @@ public partial class AzureEventGridPublisherOptionsTemplate : CSharpTemplateBase
                     });
                 }
             })
-            .AddRecord("PublisherEntry", record =>
+            .AddRecord("AzureEventGridPublisherEntry", record =>
             {
                 record.AddPrimaryConstructor(ctor =>
                 {
@@ -85,7 +85,7 @@ public partial class AzureEventGridPublisherOptionsTemplate : CSharpTemplateBase
             {
                 @class.AddField("string", "_credentialKey", field => field.PrivateReadOnly());
                 @class.AddField("string", "_endpoint", field => field.PrivateReadOnly());
-                @class.AddField("List<PublisherEntry>", "_entries", field => field.PrivateReadOnly().WithAssignment("[]"));
+                @class.AddField("List<AzureEventGridPublisherEntry>", "_entries", field => field.PrivateReadOnly().WithAssignment("[]"));
 
                 @class.AddConstructor(ctor =>
                 {
@@ -101,10 +101,10 @@ public partial class AzureEventGridPublisherOptionsTemplate : CSharpTemplateBase
                         .AddParameter("string", "source");
 
                     method.AddStatement("ArgumentNullException.ThrowIfNull(source);");
-                    method.AddStatement("_entries.Add(new PublisherEntry(typeof(TMessage), _credentialKey, _endpoint, source));");
+                    method.AddStatement("_entries.Add(new AzureEventGridPublisherEntry(typeof(TMessage), _credentialKey, _endpoint, source));");
                 });
 
-                @class.AddMethod("IEnumerable<PublisherEntry>", "ToEntries", method => { method.AddStatement("return _entries;"); });
+                @class.AddMethod("IEnumerable<AzureEventGridPublisherEntry>", "ToEntries", method => { method.AddStatement("return _entries;"); });
             });
         }
     }

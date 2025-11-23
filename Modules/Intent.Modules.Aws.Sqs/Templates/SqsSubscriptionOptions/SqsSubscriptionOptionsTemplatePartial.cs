@@ -16,7 +16,7 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsSubscriptionOptions
     partial class SqsSubscriptionOptionsTemplate : CSharpTemplateBase<object>
     {
         public const string TemplateId = "Intent.Aws.Sqs.SqsSubscriptionOptions";
-        public const string SubscriptionEntry = "SubscriptionEntry";
+        public const string SubscriptionEntry = "SqsSubscriptionEntry";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public SqsSubscriptionOptionsTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)

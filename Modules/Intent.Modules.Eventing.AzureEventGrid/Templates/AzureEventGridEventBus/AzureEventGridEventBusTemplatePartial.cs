@@ -39,7 +39,7 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridEventBu
                 {
                     @class.ImplementsInterface(this.GetBusInterfaceName());
                     @class.AddField("List<MessageEntry>", "_messageQueue", field => field.PrivateReadOnly().WithAssignment(new CSharpStatement("[]")));
-                    @class.AddField("Dictionary<string, PublisherEntry>", "_lookup", field => field.PrivateReadOnly());
+                    @class.AddField("Dictionary<string, AzureEventGridPublisherEntry>", "_lookup", field => field.PrivateReadOnly());
 
                     @class.NestedClasses.Add(new CSharpRecord("MessageEntry", CSharpFile)
                         .Private()
@@ -167,7 +167,7 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridEventBu
                     {
                         method.Private().Static();
                         method.AddParameter("MessageEntry", "messageEntry");
-                        method.AddParameter("PublisherEntry", "publisherEntry");
+                        method.AddParameter("AzureEventGridPublisherEntry", "publisherEntry");
 
                         method.AddStatement(new CSharpAssignmentStatement(new CSharpVariableDeclaration("cloudEvent"), new CSharpInvocationStatement("new CloudEvent")
                             .AddArgument("source", @"publisherEntry.Source")

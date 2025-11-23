@@ -35,7 +35,7 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusMessa
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
                 .AddClass($"AzureServiceBusMessageDispatcher", @class =>
                 {
-                    @class.AddField("Dictionary<string, DispatchHandler>", "_handlers", field => field.PrivateReadOnly());
+                    @class.AddField("Dictionary<string, AzureServiceBusDispatchHandler>", "_handlers", field => field.PrivateReadOnly());
 
                     @class.ImplementsInterface(this.GetAzureServiceBusMessageDispatcherInterfaceName());
 

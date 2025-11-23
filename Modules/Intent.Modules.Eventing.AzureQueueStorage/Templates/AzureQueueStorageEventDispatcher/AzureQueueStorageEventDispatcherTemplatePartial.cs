@@ -38,7 +38,7 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageE
                             .AddArgument("k => k.MessageType.FullName!").AddArgument("v => v.HandlerAsync"));
                     });
 
-                    @class.AddField($"{UseType("System.Collections.Generic.Dictionary")}<string, DispatchHandler>", "_handlers", @field =>
+                    @class.AddField($"{UseType("System.Collections.Generic.Dictionary")}<string, AzureQueueStorageDispatchHandler>", "_handlers", @field =>
                     {
                         field.PrivateReadOnly();
                     });

@@ -25,21 +25,21 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridSubscri
                      {
                          public class {{ClassName}}
                          {
-                             private readonly List<SubscriptionEntry> _entries = [];
+                             private readonly List<AzureEventGridSubscriptionEntry> _entries = [];
                              
-                             public IReadOnlyList<SubscriptionEntry> Entries => _entries;
+                             public IReadOnlyList<AzureEventGridSubscriptionEntry> Entries => _entries;
                              
                              public void Add<TMessage, THandler>()
                                  where TMessage : class
                                  where THandler : {{this.GetIntegrationEventHandlerInterfaceName()}}<TMessage>
                              {
-                                 _entries.Add(new SubscriptionEntry(typeof(TMessage), {{this.GetAzureEventGridMessageDispatcherName()}}.InvokeDispatchHandler<TMessage, THandler>));
+                                 _entries.Add(new AzureEventGridSubscriptionEntry(typeof(TMessage), {{this.GetAzureEventGridMessageDispatcherName()}}.InvokeDispatchHandler<TMessage, THandler>));
                              }
                          }
                          
-                         public delegate Task DispatchHandler(IServiceProvider serviceProvider, CloudEvent cloudEvent, CancellationToken cancellationToken);
+                         public delegate Task AzureEventGridDispatchHandler(IServiceProvider serviceProvider, CloudEvent cloudEvent, CancellationToken cancellationToken);
                          
-                         public record SubscriptionEntry(Type MessageType, DispatchHandler HandlerAsync);
+                         public record AzureEventGridSubscriptionEntry(Type MessageType, AzureEventGridDispatchHandler HandlerAsync);
                      }
                      """;
         }
