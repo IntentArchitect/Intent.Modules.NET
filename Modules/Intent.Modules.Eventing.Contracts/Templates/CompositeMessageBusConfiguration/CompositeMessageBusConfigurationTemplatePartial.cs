@@ -88,7 +88,9 @@ namespace Intent.Modules.Eventing.Contracts.Templates.CompositeMessageBusConfigu
         
         private bool RequiresCompositeMessageBus()
         {
-            var templates = ExecutionContext.FindTemplateInstances<ICSharpFileBuilderTemplate>("Eventing.MessageBusConfiguration").ToList();
+            var templates = ExecutionContext.FindTemplateInstances<ICSharpFileBuilderTemplate>("Eventing.MessageBusConfiguration")
+                .Where(x => x.CanRunTemplate())
+                .ToList();
             return templates.Count >= 2;
         }
 

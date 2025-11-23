@@ -1,3 +1,7 @@
+### Version 1.1.6
+
+- Improvement: Updated dependencies due to changes made in `Intent.Eventing.AzureEventGrid`.
+
 ### Version 1.1.5
 
 - Improvement: Updated NuGet package versions.

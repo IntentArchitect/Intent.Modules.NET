@@ -1,3 +1,7 @@
+### Version 1.0.9
+
+- Improvement: Updated dependencies due to changes made in `Intent.Eventing.AzureServiceBus`.
+
 ### Version 1.0.8
 
 - Improvement: Updated NuGet package versions.

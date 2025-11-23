@@ -141,7 +141,7 @@ namespace Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.ClientIm
             // Azure Service Bus requires a Transaction that is of type Serializable which is not how the
             // current transaction scope is setup, plus since the Request/Response is transient in nature
             // the risk of inconsistency is low since the messages are short lived as well as the receiver queues.
-            return ExecutionContext.Settings.GetEventingSettings().MessagingServiceProvider().IsAzureServiceBus();
+            return ExecutionContext.Settings.GetMassTransitMessageBusSettings().MessagingServiceProvider().IsAzureServiceBus();
         }
 
         private string GetFullyQualifiedTypeExpression(string templateId, IServiceContractOperationModel operation)

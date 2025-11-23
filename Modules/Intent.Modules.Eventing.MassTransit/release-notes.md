@@ -1,6 +1,9 @@
-### Version 7.0.12
+### Version 7.1.0
 
 - New Feature: EventBus now implements `IMessageBus` and supports composite message bus architecture for multi-provider scenarios.
+
+### Version 7.0.12
+
 - Improvement: Updated NuGet package versions.
 
 ### Version 7.0.11

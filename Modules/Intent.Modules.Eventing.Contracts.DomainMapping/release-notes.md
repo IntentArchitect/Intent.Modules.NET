@@ -1,3 +1,7 @@
+### Version 4.3.0
+
+- Improvement: Adjustments to remain compatible with `Intent.Eventing.Contracts`.
+
 ### Version 4.2.0
 
 - Improvement: Updated to cater for major module dependency update from `Intent.Modelers.Eventing`.

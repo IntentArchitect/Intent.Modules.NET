@@ -1,3 +1,7 @@
+### Version 5.3.0
+
+- Improvement: Adjustments made to remain compatible with `Intent.Eventing.Masstransit`.
+
 ### Version 5.2.5
 
 - Improvement: Updated module documentation to use centralized documentation site.

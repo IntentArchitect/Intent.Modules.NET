@@ -1,3 +1,7 @@
+### Version 1.1.12
+
+- Improvement: Updated dependencies due to changes made in `Intent.Eventing.MassTransit`.
+
 ### Version 1.1.11
 
 - Improvement: Updated module documentation to use centralized documentation site.
