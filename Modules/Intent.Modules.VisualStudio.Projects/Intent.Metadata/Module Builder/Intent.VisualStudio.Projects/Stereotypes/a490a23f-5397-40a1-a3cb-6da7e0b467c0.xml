@@ -34,8 +34,17 @@
         <option>Microsoft.NET.Sdk.Razor</option>
         <option>Microsoft.NET.Sdk.Worker</option>
         <option>Microsoft.NET.Sdk.WindowsDesktop</option>
+        <option>Aspire.AppHost.Sdk</option>
       </valueOptions>
       <isRequiredFunction>return true;</isRequiredFunction>
+    </property>
+    <property id="abba11c7-3b43-4228-9eac-72311a302668">
+      <name>Aspire SDK Version</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <defaultValue>13.0</defaultValue>
+      <isActiveFunction>return properties["SDK"].value == "Aspire.AppHost.Sdk";</isActiveFunction>
     </property>
     <property id="252d4572-8255-4e87-9bd9-ede6220f44c1">
       <hint>Use [top-level statements](https://learn.microsoft.com/dotnet/csharp/fundamentals/program-structure/top-level-statements) instead of a `Main` method.</hint>
@@ -70,6 +79,7 @@ return applicableSdks.indexOf(properties["SDK"].value) &gt;= 0;</isActiveFunctio
         <option>Console Application</option>
         <option>Windows Application</option>
       </valueOptions>
+      <isActiveFunction>return properties["SDK"].value != "Aspire.AppHost.Sdk";</isActiveFunction>
     </property>
     <property id="9da51e12-529a-4592-9119-491d7bc9d5d5">
       <name>Azure Functions Version</name>
