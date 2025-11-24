@@ -45,7 +45,7 @@ namespace Intent.Modules.AzureFunctions.AzureServiceBus.Templates.AzureFunctionC
                     {
                         ctor.AddParameter(this.GetAzureServiceBusMessageDispatcherInterfaceName(), "dispatcher", param => param.IntroduceReadonlyField());
                         ctor.AddParameter($"ILogger<{@class.Name}>", "logger", param => param.IntroduceReadonlyField());
-                        ctor.AddParameter(this.GetEventBusInterfaceName(), "eventBus", param => param.IntroduceReadonlyField());
+                        ctor.AddParameter(this.GetBusInterfaceName(), this.GetBusVariableName(), param => param.IntroduceReadonlyField());
                         ctor.AddParameter("IServiceProvider", "serviceProvider", param => param.IntroduceReadonlyField());
                     });
 
@@ -85,7 +85,7 @@ namespace Intent.Modules.AzureFunctions.AzureServiceBus.Templates.AzureFunctionC
 
                             block.ApplyUnitOfWorkImplementations(this, @class.Constructors.First(), dispatch);
 
-                            block.AddStatement($@"await _eventBus.FlushAllAsync(cancellationToken);");
+                            block.AddStatement($"await {this.GetBusVariableName().ToPrivateMemberName()}.FlushAllAsync(cancellationToken);");
                         });
                         method.AddCatchBlock(UseType("System.Exception"), "ex", block =>
                         {

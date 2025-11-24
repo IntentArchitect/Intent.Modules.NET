@@ -45,7 +45,7 @@ namespace Intent.Modules.AzureFunctions.AzureEventGrid.Templates.AzureFunctionCo
                     {
                         ctor.AddParameter(this.GetAzureEventGridMessageDispatcherInterfaceName(), "dispatcher", param => param.IntroduceReadonlyField());
                         ctor.AddParameter($"ILogger<{@class.Name}>", "logger", param => param.IntroduceReadonlyField());
-                        ctor.AddParameter(this.GetEventBusInterfaceName(), "eventBus", param => param.IntroduceReadonlyField());
+                        ctor.AddParameter(this.GetBusInterfaceName(), this.GetBusVariableName(), param => param.IntroduceReadonlyField());
                         ctor.AddParameter("IServiceProvider", "serviceProvider", param => param.IntroduceReadonlyField());
                     });
 
@@ -69,7 +69,7 @@ namespace Intent.Modules.AzureFunctions.AzureEventGrid.Templates.AzureFunctionCo
 
                             block.ApplyUnitOfWorkImplementations(this, @class.Constructors.First(), dispatch);
 
-                            block.AddStatement($@"await _eventBus.FlushAllAsync(cancellationToken);");
+                            block.AddStatement($"await {this.GetBusVariableName().ToPrivateMemberName()}.FlushAllAsync(cancellationToken);");
                         });
                         method.AddCatchBlock(UseType("System.Exception"), "ex", block =>
                         {

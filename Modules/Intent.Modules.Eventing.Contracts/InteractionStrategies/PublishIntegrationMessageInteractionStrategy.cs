@@ -32,9 +32,8 @@ namespace Intent.Modules.Eventing.Contracts.InteractionStrategies
             var handlerClass = method.Class;
             var template = (ICSharpFileBuilderTemplate)handlerClass.File.Template;
             var @class = handlerClass;
-            var busInterfaceName = template.GetBusInterfaceName();
-            var busVariableName = busInterfaceName == "IEventBus" ? "eventBus" : "messageBus";
-            var busFieldName = busInterfaceName == "IEventBus" ? "_eventBus" : "_messageBus";
+            var busVariableName = template.GetBusVariableName();
+            var busFieldName = busVariableName.ToPrivateMemberName();
             @class.InjectService(template.GetTypeName(template.GetBusInterfaceTemplateId()), busVariableName);
 
             var csharpMapping = method.GetMappingManager();

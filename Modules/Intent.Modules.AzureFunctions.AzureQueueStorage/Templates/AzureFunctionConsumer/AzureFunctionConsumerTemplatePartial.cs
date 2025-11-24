@@ -50,7 +50,7 @@ namespace Intent.Modules.AzureFunctions.AzureQueueStorage.Templates.AzureFunctio
                     {
                         ctor.AddParameter(this.GetAzureQueueStorageEventDispatcherInterfaceName(), "dispatcher", param => param.IntroduceReadonlyField());
                         ctor.AddParameter(UseType($"Microsoft.Extensions.Logging.ILogger<{@class.Name}>"), "logger", param => param.IntroduceReadonlyField());
-                        ctor.AddParameter(this.GetEventBusInterfaceName(), "eventBus", param => param.IntroduceReadonlyField());
+                        ctor.AddParameter(this.GetBusInterfaceName(), this.GetBusVariableName(), param => param.IntroduceReadonlyField());
                         ctor.AddParameter(UseType("System.IServiceProvider"), "serviceProvider", param => param.IntroduceReadonlyField());
 
                         ctor.AddObjectInitStatement("_serializerOptions", new CSharpObjectInitializerBlock("new JsonSerializerOptions")
@@ -90,7 +90,7 @@ namespace Intent.Modules.AzureFunctions.AzureQueueStorage.Templates.AzureFunctio
 
                             block.ApplyUnitOfWorkImplementations(this, @class.Constructors.First(), dispatch);
 
-                            block.AddStatement($@"await _eventBus.FlushAllAsync(cancellationToken);");
+                            block.AddStatement($"await {this.GetBusVariableName().ToPrivateMemberName()}.FlushAllAsync(cancellationToken);");
                         });
                         method.AddCatchBlock(UseType("System.Exception"), "ex", block =>
                         {

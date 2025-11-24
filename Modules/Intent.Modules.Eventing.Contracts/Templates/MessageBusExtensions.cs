@@ -34,6 +34,12 @@ public static class MessageBusExtensions
             : MessageBusInterfaceTemplate.TemplateId;
     }
     
+    public static string GetBusVariableName(this IIntentTemplate template)
+    {
+        var useLegacy = template.ExecutionContext.Settings.GetEventingSettings().UseLegacyInterfaceName();
+        return useLegacy ? "eventBus" : "messageBus";
+    }
+    
     public static bool RequiresCompositeMessageBus(this IIntentTemplate template)
     {
         var compositeTemplate = template.ExecutionContext.FindTemplateInstance<ICSharpFileBuilderTemplate>(
