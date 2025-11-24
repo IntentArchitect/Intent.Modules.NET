@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Dapr.AspNetCore.Pubsub</id>
-  <version>3.0.8</version>
+  <version>3.0.9-pre.0</version>
   <supportedClientVersions>[4.5.15-a,5.0.0)</supportedClientVersions>
   <summary>Generates event handlers utilizing MediatR and provides a lightweight unit-of-work based abstraction for publishing events for Dapr's "publish and subscribe" building block.</summary>
   <description>Generates event handlers utilizing MediatR and provides a lightweight unit-of-work based abstraction for publishing events for Dapr's "publish and subscribe" building block.</description>
@@ -10,6 +10,22 @@
   <releaseNotes>release-notes.md</releaseNotes>
   <tags>csharp dotnet aspnetcore dapr pubsub</tags>
   <templates>
+    <template id="Intent.Dapr.AspNetCore.Pubsub.DaprConfiguration" externalReference="bbfb82d0-360a-441b-b9e0-86840e148a1f">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.DependencyInjection.Dapr</role>
+      <location>Configuration</location>
+    </template>
+    <template id="Intent.Dapr.AspNetCore.Pubsub.DaprEventBus" externalReference="140811e5-8849-456a-a8d3-aa1b92ef9b01">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.DaprEventBus</role>
+      <location>Eventing</location>
+    </template>
     <template id="Intent.Dapr.AspNetCore.Pubsub.DaprEventHandlerController" externalReference="c8d2cbf9-8cfd-447e-ab0e-934aae33cbd0">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
@@ -18,23 +34,7 @@
       <role>Distribution.WebApi</role>
       <location>Controllers</location>
     </template>
-    <template id="Intent.Dapr.AspNetCore.Pubsub.EventBusImplementation" externalReference="140811e5-8849-456a-a8d3-aa1b92ef9b01">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Infrastructure.Eventing.EventBusImplementation</role>
-      <location>Eventing</location>
-    </template>
     <template id="Intent.Dapr.AspNetCore.Pubsub.EventHandler" externalReference="a6902236-f22b-4f61-8bc9-94e9fec3c7dc">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Application.Event.Handler</role>
-      <location>IntegrationEventHandlers</location>
-    </template>
-    <template id="Intent.Dapr.AspNetCore.Pubsub.EventHandlerImplementation" externalReference="4211c97c-c4e6-4f2f-9adf-e2d8f7814549">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
@@ -77,15 +77,15 @@
   <moduleSettings></moduleSettings>
   <dependencies>
     <dependency id="Intent.Application.DependencyInjection.MediatR" version="3.4.2" />
-    <dependency id="Intent.Common" version="3.9.0" />
-    <dependency id="Intent.Common.CSharp" version="3.9.5" />
+    <dependency id="Intent.Common" version="3.9.1" />
+    <dependency id="Intent.Common.CSharp" version="3.9.10" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Common.UnitOfWork" version="1.0.0" />
     <dependency id="Intent.Dapr.AspNetCore" version="2.0.2" />
-    <dependency id="Intent.Eventing.Contracts" version="5.1.5" />
+    <dependency id="Intent.Eventing.Contracts" version="6.1.0-pre.0" />
     <dependency id="Intent.Modelers.Domain" version="3.9.0" />
     <dependency id="Intent.Modelers.Eventing" version="6.0.1" />
-    <dependency id="Intent.Modelers.Services" version="3.7.1" />
+    <dependency id="Intent.Modelers.Services" version="3.8.3" />
     <dependency id="Intent.Modelers.Services.EventInteractions" version="1.2.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.9.10" />
   </dependencies>

@@ -27,6 +27,7 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaEventBus
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("System.Collections.Concurrent")
+                .AddUsing("System.Collections.Generic")
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
@@ -44,45 +45,44 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaEventBus
 
                     @class.AddMethod("void", "Publish", method =>
                     {
-                        method.AddGenericParameter("T", out var t);
-                        method.AddGenericTypeConstraint(t, c => c.AddType("class"));
-                        method.AddParameter(t, "message");
+                        method.AddGenericParameter("TMessage", out var TMessage);
+                        method.AddGenericTypeConstraint(TMessage, c => c.AddType("class"));
+                        method.AddParameter(TMessage, "message");
 
-                        method.AddStatement($"var producer = _producersByMessageType.GetOrAdd(typeof({t}), _ => new Producer<{t}>(_serviceProvider.GetRequiredService<{this.GetKafkaProducerInterfaceName()}<{t}>>()));");
+                        method.AddStatement($"var producer = _producersByMessageType.GetOrAdd(typeof({TMessage}), _ => new Producer<{TMessage}>(_serviceProvider.GetRequiredService<{this.GetKafkaProducerInterfaceName()}<{TMessage}>>()));");
                         method.AddStatement("producer.EnqueueMessage(message);");
                     });
 
                     @class.AddMethod("void", "Publish", method =>
                     {
-                        method.AddGenericParameter("T", out var t);
-                        method.AddGenericTypeConstraint(t, c => c.AddType("class"));
-                        method.AddParameter(t, "message");
+                        method.AddGenericParameter("TMessage", out var TMessage);
+                        method.AddGenericTypeConstraint(TMessage, c => c.AddType("class"));
+                        method.AddParameter(TMessage, "message");
                         method.AddParameter("IDictionary<string, object>", "additionalData");
 
-                        method.AddStatement("// Note: Kafka does not support additional data in this implementation, ignoring parameter");
-                        method.AddStatement("Publish(message);");
+                        method.AddStatement("throw new NotSupportedException(\"Additional data is not supported in Kafka event publishing.\");");
                     });
 
                     @class.AddMethod("void", "Send", method =>
                     {
-                        method.AddGenericParameter("T", out var t);
-                        method.AddGenericTypeConstraint(t, c => c.AddType("class"));
-                        method.AddParameter(t, "message");
+                        method.AddGenericParameter("TMessage", out var TMessage);
+                        method.AddGenericTypeConstraint(TMessage, c => c.AddType("class"));
+                        method.AddParameter(TMessage, "message");
 
                         method.AddStatement("Publish(message);");
                     });
                     
                     @class.AddMethod("void", "Send", method =>
                     {
-                        method.AddGenericParameter("T", out var t);
-                        method.AddGenericTypeConstraint(t, c => c.AddType("class"));
-                        method.AddParameter(t, "message");
+                        method.AddGenericParameter("TMessage", out var TMessage);
+                        method.AddGenericTypeConstraint(TMessage, c => c.AddType("class"));
+                        method.AddParameter(TMessage, "message");
                         method.AddParameter("IDictionary<string, object>", "additionalData");
 
-                        method.AddStatement("Publish(message, additionalData);");
+                        method.AddStatement("throw new NotSupportedException(\"Additional data is not supported in Kafka event publishing.\");");
                     });
 
-                    @class.AddMethod("void", "FlushAllAsync", method =>
+                    @class.AddMethod("Task", "FlushAllAsync", method =>
                     {
                         method.Async();
                         method.AddOptionalCancellationTokenParameter();
@@ -116,7 +116,7 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaEventBus
                             method.WithExpressionBody($"_messageQueue.Enqueue(({t})message)");
                         });
 
-                        producerClass.AddMethod("void", "FlushAsync", method =>
+                        producerClass.AddMethod("Task", "FlushAsync", method =>
                         {
                             method.Async();
                             method.AddParameter("CancellationToken", "cancellationToken");

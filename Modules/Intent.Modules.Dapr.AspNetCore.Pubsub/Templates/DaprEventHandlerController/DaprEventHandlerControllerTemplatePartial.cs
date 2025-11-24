@@ -15,7 +15,6 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.UnitOfWork.Shared;
 using Intent.Modules.Constants;
 using Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.EventHandler;
-using Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.EventHandlerImplementation;
 using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -65,26 +64,6 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.DaprEventHandlerContro
                                     p => { p.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException()); });
                             }
                         });
-
-                    //Eventing Designer
-                    var eventHandlerTemplates = ExecutionContext.FindTemplateInstances<EventHandlerImplementationTemplate>(TemplateDependency.OfType<EventHandlerImplementationTemplate>())
-                        .ToArray();
-
-                    foreach (var eventHandler in eventHandlerTemplates)
-                    {
-                        var eventType = this.GetIntegrationEventMessageName(eventHandler.Model);
-
-                        @class.AddMethod("Task", $"Handle{eventType}", method =>
-                        {
-                            method
-                                .AddAttribute("[HttpPost]")
-                                .AddAttribute($"[Topic({eventType}.PubsubName, {eventType}.TopicName)]")
-                                .Async()
-                                .AddParameter(eventType, "@event")
-                                .AddParameter("CancellationToken", "cancellationToken")
-                                .AddStatement("await _mediatr.Send(@event, cancellationToken);");
-                        });
-                    }
 
                     //Service Designer
                     var eventSubscriptionTemplates = ExecutionContext.FindTemplateInstances<EventHandlerTemplate>(TemplateDependency.OfType<EventHandlerTemplate>())
@@ -167,8 +146,7 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.DaprEventHandlerContro
 
         public override bool CanRunTemplate()
         {
-            if (!ExecutionContext.FindTemplateInstances<EventHandlerImplementationTemplate>(TemplateDependency.OfType<EventHandlerImplementationTemplate>()).Any() &&
-                !ExecutionContext.FindTemplateInstances<EventHandlerTemplate>(TemplateDependency.OfType<EventHandlerTemplate>()).Any())
+            if (!ExecutionContext.FindTemplateInstances<EventHandlerTemplate>(TemplateDependency.OfType<EventHandlerTemplate>()).Any())
             {
                 return false;
             }

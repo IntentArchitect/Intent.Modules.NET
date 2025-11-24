@@ -59,42 +59,40 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridEventBu
 
                     @class.AddMethod("void", "Publish", method =>
                     {
-                        method.AddGenericParameter("T", out var T);
-                        method.AddGenericTypeConstraint(T, c => c.AddType("class"));
-                        method.AddParameter(T, "message");
+                        method.AddGenericParameter("TMessage", out var TMessage);
+                        method.AddGenericTypeConstraint(TMessage, c => c.AddType("class"));
+                        method.AddParameter(TMessage, "message");
 
-                        method.AddStatement("ValidateMessage(message);");
                         method.AddStatement("_messageQueue.Add(new MessageEntry(message, null));");
                     });
                     
                     @class.AddMethod("void", "Publish", method =>
                     {
-                        method.AddGenericParameter("T", out var T);
-                        method.AddGenericTypeConstraint(T, c => c.AddType("class"));
-                        method.AddParameter(T, "message");
+                        method.AddGenericParameter("TMessage", out var TMessage);
+                        method.AddGenericTypeConstraint(TMessage, c => c.AddType("class"));
+                        method.AddParameter(TMessage, "message");
                         method.AddParameter("IDictionary<string, object>", "additionalData");
 
-                        method.AddStatement("ValidateMessage(message);");
                         method.AddStatement("_messageQueue.Add(new MessageEntry(message, additionalData));");
                     });
 
                     @class.AddMethod("void", "Send", method =>
                     {
-                        method.AddGenericParameter("T", out var T);
-                        method.AddGenericTypeConstraint(T, c => c.AddType("class"));
-                        method.AddParameter(T, "message");
+                        method.AddGenericParameter("TMessage", out var TMessage);
+                        method.AddGenericTypeConstraint(TMessage, c => c.AddType("class"));
+                        method.AddParameter(TMessage, "message");
 
-                        method.AddStatement("Publish(message);");
+                        method.AddStatement("_messageQueue.Add(new MessageEntry(message, null));");
                     });
                     
                     @class.AddMethod("void", "Send", method =>
                     {
-                        method.AddGenericParameter("T", out var T);
-                        method.AddGenericTypeConstraint(T, c => c.AddType("class"));
-                        method.AddParameter(T, "message");
+                        method.AddGenericParameter("TMessageT", out var TMessage);
+                        method.AddGenericTypeConstraint(TMessage, c => c.AddType("class"));
+                        method.AddParameter(TMessage, "message");
                         method.AddParameter("IDictionary<string, object>", "additionalData");
 
-                        method.AddStatement("Publish(message, additionalData);");
+                        method.AddStatement("_messageQueue.Add(new MessageEntry(message, additionalData));");
                     });
 
                     @class.AddMethod("Task", "FlushAllAsync", method =>
@@ -151,16 +149,6 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridEventBu
                         });
                         
                         method.AddStatement("_messageQueue.Clear();");
-                    });
-
-                    @class.AddMethod("void", "ValidateMessage", method =>
-                    {
-                        method.Private();
-                        method.AddParameter("object", "message");
-                        method.AddIfStatement("!_lookup.TryGetValue(message.GetType().FullName!, out _)", ifs =>
-                        {
-                            ifs.AddStatement("""throw new Exception($"The message type '{message.GetType().FullName}' is not registered.");""");
-                        });
                     });
 
                     @class.AddMethod("CloudEvent", "CreateCloudEvent", method =>

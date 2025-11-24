@@ -49,43 +49,43 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitEventBus
 
                     @class.AddMethod("void", "Publish", method =>
                     {
-                        method.AddGenericParameter("T", out var T)
-                            .AddGenericTypeConstraint(T, c => c.AddType("class"))
-                            .AddParameter(T, "message")
+                        method.AddGenericParameter("TMessage", out var TMessage)
+                            .AddGenericTypeConstraint(TMessage, c => c.AddType("class"))
+                            .AddParameter(TMessage, "message")
                             .AddStatement("_messagesToDispatch.Add(new MessageEntry(message, null, DispatchType.Publish));");
                     });
 
                     @class.AddMethod("void", "Publish", method =>
                     {
-                        method.AddGenericParameter("T", out var T)
-                            .AddGenericTypeConstraint(T, c => c.AddType("class"))
-                            .AddParameter(T, "message")
+                        method.AddGenericParameter("TMessage", out var TMessage)
+                            .AddGenericTypeConstraint(TMessage, c => c.AddType("class"))
+                            .AddParameter(TMessage, "message")
                             .AddParameter("IDictionary<string, object>", "additionalData")
                             .AddStatement("_messagesToDispatch.Add(new MessageEntry(message, additionalData, DispatchType.Publish));");
                     });
 
                     @class.AddMethod("void", "Send", method =>
                     {
-                        method.AddGenericParameter("T", out var T)
-                            .AddGenericTypeConstraint(T, c => c.AddType("class"))
-                            .AddParameter(T, "message")
+                        method.AddGenericParameter("TMessage", out var TMessage)
+                            .AddGenericTypeConstraint(TMessage, c => c.AddType("class"))
+                            .AddParameter(TMessage, "message")
                             .AddStatement("_messagesToDispatch.Add(new MessageEntry(message, null, DispatchType.Send));");
                     });
 
                     @class.AddMethod("void", "Send", method =>
                     {
-                        method.AddGenericParameter("T", out var T)
-                            .AddGenericTypeConstraint(T, c => c.AddType("class"))
-                            .AddParameter(T, "message")
+                        method.AddGenericParameter("TMessage", out var TMessage)
+                            .AddGenericTypeConstraint(TMessage, c => c.AddType("class"))
+                            .AddParameter(TMessage, "message")
                             .AddParameter("IDictionary<string, object>", "additionalData")
                             .AddStatement("_messagesToDispatch.Add(new MessageEntry(message, additionalData, DispatchType.Send));");
                     });
 
                     @class.AddMethod("void", "Send", method =>
                     {
-                        method.AddGenericParameter("T", out var T)
-                            .AddGenericTypeConstraint(T, c => c.AddType("class"))
-                            .AddParameter(T, "message")
+                        method.AddGenericParameter("TMessage", out var TMessage)
+                            .AddGenericTypeConstraint(TMessage, c => c.AddType("class"))
+                            .AddParameter(TMessage, "message")
                             .AddParameter("Uri", "address")
                             .AddStatement("var additionalData = new Dictionary<string, object> { { \"address\", address.ToString() } };")
                             .AddStatement("_messagesToDispatch.Add(new MessageEntry(message, additionalData, DispatchType.Send));");

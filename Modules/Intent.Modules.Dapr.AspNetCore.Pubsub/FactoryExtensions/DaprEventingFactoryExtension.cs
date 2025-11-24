@@ -27,15 +27,6 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.FactoryExtensions
 
         protected override void OnBeforeTemplateExecution(IApplication application)
         {
-            var eventBusInterfaceTemplate = application.FindTemplateInstance<EventBusInterfaceTemplate>(EventBusInterfaceTemplate.TemplateId);
-            eventBusInterfaceTemplate.CSharpFile.AfterBuild(file =>
-            {
-                var @interface = file.Interfaces.Single();
-                var method = @interface.Methods.Single(x => x.Name == "Publish");
-                var constraint = method.GenericTypeConstraints.Single(x => x.GenericTypeParameter == "T");
-                constraint.AddType(eventBusInterfaceTemplate.GetEventInterfaceName());
-            });
-
             var eventTemplates = application.FindTemplateInstances<IntegrationEventMessageTemplate>(TemplateDependency.OfType<IntegrationEventMessageTemplate>());
             foreach (var template in eventTemplates)
             {

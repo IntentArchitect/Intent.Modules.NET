@@ -26,7 +26,6 @@
 
 	<ItemGroup>
 	  <Folder Include="docs\images\" />
-	  <Folder Include="FactoryExtensions\" />
 	</ItemGroup>
 
 	<Import Project="..\Intent.Modules.Eventing.Shared\Intent.Modules.Eventing.Shared.projitems" Label="Shared" />

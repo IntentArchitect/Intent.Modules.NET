@@ -86,8 +86,8 @@
     </detect>
   </interoperability>
   <dependencies>
-    <dependency id="Intent.Common" version="3.9.0" />
-    <dependency id="Intent.Common.CSharp" version="3.8.3" />
+    <dependency id="Intent.Common" version="3.9.1" />
+    <dependency id="Intent.Common.CSharp" version="3.9.6" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Common.UnitOfWork" version="1.0.0" />
     <dependency id="Intent.Eventing.Contracts" version="6.1.0-pre.0" />

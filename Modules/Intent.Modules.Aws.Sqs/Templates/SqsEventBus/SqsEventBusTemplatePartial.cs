@@ -53,42 +53,40 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsEventBus
 
                     @class.AddMethod("void", "Publish", method =>
                     {
-                        method.AddGenericParameter("T", out var T);
-                        method.AddGenericTypeConstraint(T, c => c.AddType("class"));
-                        method.AddParameter(T, "message");
+                        method.AddGenericParameter("TMessage", out var TMessage);
+                        method.AddGenericTypeConstraint(TMessage, c => c.AddType("class"));
+                        method.AddParameter(TMessage, "message");
 
-                        method.AddStatement("ValidateMessage(message);");
-                        method.AddStatement("_messageQueue.Add(new MessageEntry(message));");
+                        method.AddStatement("_messageQueue.Add(new MessageEntry(message, null));");
                     });
                     
                     @class.AddMethod("void", "Publish", method =>
                     {
-                        method.AddGenericParameter("T", out var T);
-                        method.AddGenericTypeConstraint(T, c => c.AddType("class"));
-                        method.AddParameter(T, "message");
+                        method.AddGenericParameter("TMessage", out var TMessage);
+                        method.AddGenericTypeConstraint(TMessage, c => c.AddType("class"));
+                        method.AddParameter(TMessage, "message");
                         method.AddParameter("IDictionary<string, object>", "additionalData");
 
-                        method.AddStatement("// Note: AWS SQS does not support additional data in this implementation, ignoring parameter");
-                        method.AddStatement("Publish(message);");
+                        method.AddStatement("_messageQueue.Add(new MessageEntry(message, additionalData));");
                     });
                     
                     @class.AddMethod("void", "Send", method =>
                     {
-                        method.AddGenericParameter("T", out var T);
-                        method.AddGenericTypeConstraint(T, c => c.AddType("class"));
-                        method.AddParameter(T, "message");
+                        method.AddGenericParameter("TMessage", out var TMessage);
+                        method.AddGenericTypeConstraint(TMessage, c => c.AddType("class"));
+                        method.AddParameter(TMessage, "message");
 
-                        method.AddStatement("Publish(message);");
+                        method.AddStatement("_messageQueue.Add(new MessageEntry(message, null));");
                     });
                     
                     @class.AddMethod("void", "Send", method =>
                     {
-                        method.AddGenericParameter("T", out var T);
-                        method.AddGenericTypeConstraint(T, c => c.AddType("class"));
-                        method.AddParameter(T, "message");
+                        method.AddGenericParameter("TMessage", out var TMessage);
+                        method.AddGenericTypeConstraint(TMessage, c => c.AddType("class"));
+                        method.AddParameter(TMessage, "message");
                         method.AddParameter("IDictionary<string, object>", "additionalData");
 
-                        method.AddStatement("Publish(message, additionalData);");
+                        method.AddStatement("_messageQueue.Add(new MessageEntry(message, additionalData));");
                     });
 
                     @class.AddMethod("Task", "FlushAllAsync", method =>
@@ -122,15 +120,6 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsEventBus
                         method.AddStatement("_messageQueue.Clear();", stmt => stmt.SeparatedFromPrevious());
                     });
 
-                    @class.AddMethod("void", "ValidateMessage", method =>
-                    {
-                        method.Private();
-                        method.AddParameter("object", "message");
-                        method.AddIfStatement("!_lookup.TryGetValue(message.GetType().FullName!, out _)", ifs =>
-                        {
-                            ifs.AddStatement("""throw new Exception($"The message type '{message.GetType().FullName}' is not registered.");""");
-                        });
-                    });
 
                     @class.AddMethod("SendMessageRequest", "CreateSqsMessage", method =>
                     {
@@ -140,35 +129,48 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsEventBus
 
                         method.AddStatement("var messageBody = JsonSerializer.Serialize(messageEntry.Message);");
                         method.AddStatement("""
+                            var messageAttributes = new Dictionary<string, MessageAttributeValue>
+                            {
+                                ["MessageType"] = new MessageAttributeValue
+                                {
+                                    DataType = "String",
+                                    StringValue = messageEntry.Message.GetType().FullName!
+                                }
+                            };
+                            """, stmt => stmt.SeparatedFromPrevious());
+                        method.AddIfStatement("messageEntry.AdditionalData != null", ifs =>
+                        {
+                            ifs.AddForEachStatement("kvp", "messageEntry.AdditionalData", fe =>
+                            {
+                                fe.AddStatement("""
+                                    messageAttributes[kvp.Key] = new MessageAttributeValue
+                                    {
+                                        DataType = "String",
+                                        StringValue = kvp.Value.ToString()
+                                    };
+                                    """);
+                            });
+                        });
+                        method.AddStatement("""
                             var sqsMessage = new SendMessageRequest
                             {
                                 QueueUrl = publisherEntry.QueueUrl,
                                 MessageBody = messageBody,
-                                MessageAttributes = new Dictionary<string, MessageAttributeValue>
-                                {
-                                    ["MessageType"] = new MessageAttributeValue
-                                    {
-                                        DataType = "String",
-                                        StringValue = messageEntry.Message.GetType().FullName!
-                                    }
-                                }
+                                MessageAttributes = messageAttributes
                             };
                             """, stmt => stmt.SeparatedFromPrevious());
                         method.AddStatement("return sqsMessage;");
                     });
-                });
-
-            CSharpFile.AfterBuild(file =>
-            {
-                file.AddClass("MessageEntry", @class =>
-                {
-                    @class.Internal();
-                    @class.AddConstructor(ctor =>
+                    @class.AddNestedRecord("MessageEntry", record =>
                     {
-                        ctor.AddParameter("object", "message", param => param.IntroduceProperty());
+                        record.Private();
+                        record.AddPrimaryConstructor(ctor =>
+                        {
+                            ctor.AddParameter("object", "Message");
+                            ctor.AddParameter("IDictionary<string, object>?", "AdditionalData");
+                        });
                     });
                 });
-            });
         }
 
         [IntentManaged(Mode.Fully)]

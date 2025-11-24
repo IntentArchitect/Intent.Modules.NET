@@ -24,8 +24,8 @@
   <moduleSettings></moduleSettings>
   <dependencies>
     <dependency id="Intent.AzureFunctions" version="5.0.3" />
-    <dependency id="Intent.Common" version="3.9.0" />
-    <dependency id="Intent.Common.CSharp" version="3.8.3" />
+    <dependency id="Intent.Common" version="3.9.1" />
+    <dependency id="Intent.Common.CSharp" version="3.9.6" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Common.UnitOfWork" version="1.0.0" />
     <dependency id="Intent.Eventing.AzureServiceBus" version="1.1.8-pre.1" />

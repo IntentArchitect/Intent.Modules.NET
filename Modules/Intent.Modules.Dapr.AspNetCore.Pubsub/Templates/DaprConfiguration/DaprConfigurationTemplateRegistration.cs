@@ -11,17 +11,17 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel", Version = "1.0")]
 
-namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.EventBusImplementation
+namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.DaprConfiguration
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class EventBusImplementationTemplateRegistration : SingleFileTemplateRegistration
+    public class DaprConfigurationTemplateRegistration : SingleFileTemplateRegistration
     {
-        public override string TemplateId => EventBusImplementationTemplate.TemplateId;
+        public override string TemplateId => DaprConfigurationTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new EventBusImplementationTemplate(outputTarget);
+            return new DaprConfigurationTemplate(outputTarget);
         }
     }
 }

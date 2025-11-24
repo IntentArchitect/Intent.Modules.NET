@@ -1,4 +1,5 @@
-﻿using Intent.Modules.Common;
+﻿using Intent.Engine;
+using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Eventing.Contracts.Settings;
@@ -26,24 +27,39 @@ public static class MessageBusExtensions
     /// Returns the appropriate bus interface template ID based on the UseLegacyInterfaceName setting.
     /// If true, returns EventBusInterface template ID; if false, returns MessageBusInterface template ID.
     /// </summary>
-    public static string GetBusInterfaceTemplateId(this IIntentTemplate template)
+    public static string GetBusInterfaceTemplateId(this ISoftwareFactoryExecutionContext factoryExecutionContext)
     {
-        var useLegacy = template.ExecutionContext.Settings.GetEventingSettings().UseLegacyInterfaceName();
+        var useLegacy = factoryExecutionContext.Settings.GetEventingSettings().UseLegacyInterfaceName();
         return useLegacy
             ? EventBusInterfaceTemplate.TemplateId
             : MessageBusInterfaceTemplate.TemplateId;
     }
-    
-    public static string GetBusVariableName(this IIntentTemplate template)
+
+    public static string GetBusInterfaceTemplateId(this IIntentTemplate template)
     {
-        var useLegacy = template.ExecutionContext.Settings.GetEventingSettings().UseLegacyInterfaceName();
-        return useLegacy ? "eventBus" : "messageBus";
+        return GetBusInterfaceTemplateId(template.ExecutionContext);
     }
     
-    public static bool RequiresCompositeMessageBus(this IIntentTemplate template)
+    public static string GetBusVariableName(this ISoftwareFactoryExecutionContext factoryExecutionContext)
     {
-        var compositeTemplate = template.ExecutionContext.FindTemplateInstance<ICSharpFileBuilderTemplate>(
+        var useLegacy = factoryExecutionContext.Settings.GetEventingSettings().UseLegacyInterfaceName();
+        return useLegacy ? "eventBus" : "messageBus";
+    }
+
+    public static string GetBusVariableName(this IIntentTemplate template)
+    {
+        return GetBusVariableName(template.ExecutionContext);
+    }
+    
+    public static bool RequiresCompositeMessageBus(this ISoftwareFactoryExecutionContext factoryExecutionContext)
+    {
+        var compositeTemplate = factoryExecutionContext.FindTemplateInstance<ICSharpFileBuilderTemplate>(
             TemplateDependency.OnTemplate(CompositeMessageBusConfigurationTemplate.TemplateId));
         return compositeTemplate?.CanRunTemplate() == true;
+    }
+
+    public static bool RequiresCompositeMessageBus(this IIntentTemplate template)
+    {
+        return RequiresCompositeMessageBus(template.ExecutionContext);
     }
 }

@@ -37,18 +37,9 @@ namespace Intent.Modules.Eventing.Solace.Templates.SolaceEventBus
                     @class.AddField("int?", "_defaultPriority", f => f.PrivateReadOnly());
                     @class.AddConstructor(ctor =>
                     {
-                        ctor.AddParameter("ISession", "session", param =>
-                        {
-                            param.IntroduceReadonlyField();
-                        });
-                        ctor.AddParameter("MessageRegistry", "messageRegistry", param =>
-                        {
-                            param.IntroduceReadonlyField();
-                        });
-                        ctor.AddParameter("MessageSerializer", "messageSerializer", param =>
-                        {
-                            param.IntroduceReadonlyField();
-                        });
+                        ctor.AddParameter("ISession", "session", param => { param.IntroduceReadonlyField(); });
+                        ctor.AddParameter("MessageRegistry", "messageRegistry", param => { param.IntroduceReadonlyField(); });
+                        ctor.AddParameter("MessageSerializer", "messageSerializer", param => { param.IntroduceReadonlyField(); });
                         ctor.AddParameter("IConfiguration", "configuration");
                         ctor.AddStatement("_defaultPriority = configuration.GetSection(\"Solace:DefaultSendPriority\").Get<int?>();");
                     });
@@ -61,7 +52,7 @@ namespace Intent.Modules.Eventing.Solace.Templates.SolaceEventBus
                             .AddGenericTypeConstraint(tMessage, c => c.AddType("class"));
                         method.AddStatement("_messagesToPublish.Add(message);");
                     });
-                    
+
                     @class.AddMethod("void", "Publish", method =>
                     {
                         method
@@ -69,10 +60,9 @@ namespace Intent.Modules.Eventing.Solace.Templates.SolaceEventBus
                             .AddParameter(tMessage, "message")
                             .AddParameter("IDictionary<string, object>", "additionalData")
                             .AddGenericTypeConstraint(tMessage, c => c.AddType("class"));
-                        method.AddStatement("// Note: Solace does not support additional data in this implementation, ignoring parameter");
-                        method.AddStatement("Publish(message);");
+                        method.AddStatement("throw new NotSupportedException(\"SolaceEventBus does not support sending additional data with commands.\");");
                     });
-                    
+
                     @class.AddMethod("void", "Send", method =>
                     {
                         method
@@ -81,7 +71,7 @@ namespace Intent.Modules.Eventing.Solace.Templates.SolaceEventBus
                             .AddGenericTypeConstraint(tMessage, c => c.AddType("class"));
                         method.AddStatement("_messagesToSend.Add(message);");
                     });
-                    
+
                     @class.AddMethod("void", "Send", method =>
                     {
                         method
@@ -89,24 +79,27 @@ namespace Intent.Modules.Eventing.Solace.Templates.SolaceEventBus
                             .AddParameter(tMessage, "message")
                             .AddParameter("IDictionary<string, object>", "additionalData")
                             .AddGenericTypeConstraint(tMessage, c => c.AddType("class"));
-                        method.AddStatement("// Note: Solace does not support additional data in this implementation, ignoring parameter");
-                        method.AddStatement("Send(message);");
+                        method.AddStatement("throw new NotSupportedException(\"SolaceEventBus does not support sending additional data with commands.\");");
                     });
+
                     @class.AddMethod("Task", "FlushAllAsync", method =>
                     {
                         method.AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
-                        method.AddStatements(@"foreach (var toPublish in _messagesToPublish)
-			{
-				PublishEvent(_session, toPublish);
-			}
+                        method.AddStatements(
+                            """
+                            foreach (var toPublish in _messagesToPublish)
+                            {
+                                PublishEvent(_session, toPublish);
+                            }
 
-			_messagesToPublish.Clear();
-			foreach (var toSend in _messagesToSend)
-			{
-				SendCommand(_session, toSend);
-			}
-			_messagesToSend.Clear();
-			return Task.CompletedTask;".ConvertToStatements());
+                            _messagesToPublish.Clear();
+                            foreach (var toSend in _messagesToSend)
+                            {
+                                SendCommand(_session, toSend);
+                            }
+                            _messagesToSend.Clear();
+                            return Task.CompletedTask;
+                            """.ConvertToStatements());
                     });
 
                     @class.AddMethod("void", "PublishEvent", method =>
@@ -129,7 +122,6 @@ namespace Intent.Modules.Eventing.Solace.Templates.SolaceEventBus
 					throw new Exception($""Unable to publish message so Solace ({toPublish.GetType().Name}) : {returnCode}"");
 				}
 			}".ConvertToStatements());
-
                     });
                     @class.AddMethod("void", "SendCommand", method =>
                     {
