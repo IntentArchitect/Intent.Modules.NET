@@ -5,7 +5,7 @@
     <order>0</order>
     <typeReference id="a1bd6ac1-243b-498d-83b5-8b3b389adb6c">
       <typeId>ef1d8324-00d9-4916-b4e0-c42e7684e91b</typeId>
-      <isNavigable>true</isNavigable>
+      <isNavigable>false</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
       <isRequired>true</isRequired>
@@ -22,6 +22,9 @@
     <name>files</name>
     <display>[create] files: Files</display>
     <order>4</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="a2a4a4fb-26fd-4ca1-b12b-36781070bf94">
       <typeId>c470149e-fa3f-491c-9462-b12f123c7582</typeId>
       <isNavigable>true</isNavigable>

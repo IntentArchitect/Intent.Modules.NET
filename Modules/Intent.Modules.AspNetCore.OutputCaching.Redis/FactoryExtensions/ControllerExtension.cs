@@ -123,7 +123,7 @@ namespace Intent.Modules.AspNetCore.OutputCaching.Redis.FactoryExtensions
                     operations.Add(new(operation, cacheEvictionSettings));
                 }
             }
-            
+
             foreach (var controller in evictionControllers)
             {
                 var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateRoles.Distribution.WebApi.Controller, controller.Key);
@@ -151,11 +151,11 @@ namespace Intent.Modules.AspNetCore.OutputCaching.Redis.FactoryExtensions
                             .Select((statement, idx) => new { statement, idx })
                             .LastOrDefault(x => x.statement is CSharpReturnStatement)?.idx ?? method.Statements.Count;
 
-                        var insertIndex = (index - 1) > 0 ? index - 1: index;
+                        var insertIndex = (index - 1) > 0 ? index - 1 : index;
 
-                        foreach(var tag in endpoint.EvictionConfig?.Tags?.Split(",") ?? [])
+                        foreach (var tag in endpoint.EvictionConfig?.Tags?.Split(",") ?? [])
                         {
-                            if(tag.Contains('{'))
+                            if (tag.Contains('{'))
                             {
                                 method.InsertStatement(insertIndex, $"await _outputCacheStore.EvictByTagAsync($\"{tag}\", cancellationToken);");
                             }

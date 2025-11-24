@@ -5,7 +5,7 @@
     <order>0</order>
     <typeReference id="5e2abe95-60d1-4284-b429-5b1f8c4e0b58">
       <typeId>44178390-1fda-4e27-9ffe-9ddd824fd169</typeId>
-      <isNavigable>true</isNavigable>
+      <isNavigable>false</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
       <isRequired>true</isRequired>
@@ -22,6 +22,9 @@
     <name>customer</name>
     <display>[create] customer: Customer</display>
     <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="c2e27982-d61a-4f4a-be5e-4a4e794ff513">
       <typeId>5385562b-8635-4601-978d-a7f20bd628d9</typeId>
       <isNavigable>true</isNavigable>

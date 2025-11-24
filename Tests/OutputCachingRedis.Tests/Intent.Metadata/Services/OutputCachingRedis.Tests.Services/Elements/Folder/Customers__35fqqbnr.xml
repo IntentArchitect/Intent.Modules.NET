@@ -33,6 +33,14 @@
         <property name="13ebf11c-f242-4989-8e7f-0e70be5d9254" display="No Caching" value="false" isActive="true" />
       </properties>
     </stereotype>
+    <stereotype stereotypeDefinitionId="a981faa2-c29a-45e8-9117-bc06bfc29931" name="Cache Eviction">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.AspNetCore.OutputCaching.Redis</definitionPackageName>
+      <definitionPackageId>bf2555fa-08da-4a33-b203-c29cd6302ffc</definitionPackageId>
+      <properties>
+        <property name="b7de1b6a-00d6-4e7e-8fac-52aa043d2275" display="Tags" value="customers" isActive="true" />
+      </properties>
+    </stereotype>
   </stereotypes>
   <metadata />
   <childElements />

@@ -22,6 +22,9 @@
     <name>account</name>
     <display>[query] account: Account</display>
     <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="f7b69bda-75b1-4e9b-8183-811cbd2caacd">
       <typeId>62c60393-e005-4f94-9c7c-c8729f48be39</typeId>
       <isNavigable>true</isNavigable>
