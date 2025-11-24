@@ -187,7 +187,7 @@ public static class RazorFileExtensions
                                 continue;
                             }
 
-                            if (action.IsCallServiceOperationActionTargetEndModel())
+                            if (action.IsCallServiceOperationActionTargetEndModel() && action.AsCallServiceOperationActionTargetEndModel().GetMapInvocationMapping() != null)
                             {
                                 var serviceCall = action.AsCallServiceOperationActionTargetEndModel();
                                 var parentElement = ((IElement)serviceCall.Element).ParentElement;
