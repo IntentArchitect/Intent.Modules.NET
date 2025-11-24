@@ -16,7 +16,9 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructur
 {
     public static class MassTransitConfiguration
     {
-        public static void AddMassTransitConfiguration(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddMassTransitConfiguration(
+            this IServiceCollection services,
+            IConfiguration configuration)
         {
             services.AddScoped<MassTransitEventBus>();
             services.AddScoped<IEventBus>(provider => provider.GetRequiredService<MassTransitEventBus>());
@@ -45,6 +47,7 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructur
                 });
                 x.AddDelayedMessageScheduler();
             });
+            return services;
         }
 
         private static void AddMessageTopologyConfiguration(this IRabbitMqBusFactoryConfigurator cfg)

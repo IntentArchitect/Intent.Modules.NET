@@ -24,7 +24,7 @@ namespace AzureFunctions.AzureServiceBus.Infrastructure
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddScoped<IDomainEventService, DomainEventService>();
-            services.ConfigureAzureServiceBus(configuration);
+            services.AddAzureServiceBusConfiguration(configuration);
             return services;
         }
     }

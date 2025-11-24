@@ -21,7 +21,6 @@ namespace CleanArchitecture.Dapr.DomainEntityInterfaces.Infrastructure
             services.AddScoped<IClientRepository, ClientDaprStateStoreRepository>();
             services.AddScoped<DaprStateStoreUnitOfWork>();
             services.AddScoped<IDaprStateStoreUnitOfWork>(provider => provider.GetRequiredService<DaprStateStoreUnitOfWork>());
-            services.AddScoped<IEventBus, EventBusImplementation>();
             services.AddScoped<IDaprStateStoreGenericRepository, DaprStateStoreGenericRepository>();
             services.AddHttpClients(configuration);
             return services;

@@ -9,16 +9,16 @@ namespace AwsLambdaFunction.Sqs.GroupB.Infrastructure.Configuration
 {
     public class SqsPublisherOptions
     {
-        private readonly List<PublisherEntry> _entries = [];
+        private readonly List<SqsPublisherEntry> _entries = [];
 
-        public IReadOnlyList<PublisherEntry> Entries => _entries;
+        public IReadOnlyList<SqsPublisherEntry> Entries => _entries;
 
         public void AddQueue<TMessage>(string queueUrl)
         {
             ArgumentNullException.ThrowIfNull(queueUrl);
-            _entries.Add(new PublisherEntry(typeof(TMessage), queueUrl));
+            _entries.Add(new SqsPublisherEntry(typeof(TMessage), queueUrl));
         }
     }
 
-    public record PublisherEntry(Type MessageType, string QueueUrl);
+    public record SqsPublisherEntry(Type MessageType, string QueueUrl);
 }

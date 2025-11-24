@@ -51,5 +51,19 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="caa5b50c-bcd1-4290-95ed-658adb13f775" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Contracts.CompositeMessageBusConfiguration</name>
+      <display>Intent.Eventing.Contracts.CompositeMessageBusConfiguration</display>
+      <externalReference>Intent.Eventing.Contracts</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>deda5dd0-0792-4193-94fe-d7f63ea09b2f</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

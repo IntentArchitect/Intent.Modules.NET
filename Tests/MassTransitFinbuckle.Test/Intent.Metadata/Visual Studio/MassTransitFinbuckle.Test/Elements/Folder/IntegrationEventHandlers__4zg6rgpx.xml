@@ -20,22 +20,5 @@
     </stereotype>
   </stereotypes>
   <metadata />
-  <childElements>
-    <childElement id="72f236ef-3a99-43b7-8333-d9adbd3f5c59" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Eventing.MassTransit.IntegrationEventHandlerImplementation</name>
-      <display>Intent.Eventing.MassTransit.IntegrationEventHandlerImplementation</display>
-      <externalReference>Intent.Eventing.MassTransit</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>09d21748-843d-43da-9bee-cd4676cd5933</parentFolderId>
-      <packageId>11d71a8d-e02a-4bfc-9a15-ba1756f154cc</packageId>
-      <packageName>MassTransitFinbuckle.Test</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-  </childElements>
+  <childElements />
 </class>

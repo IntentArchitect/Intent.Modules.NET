@@ -9,16 +9,16 @@ namespace AzureFunctions.AzureEventGrid.Infrastructure.Configuration
 {
     public class AzureEventGridPublisherOptions
     {
-        private readonly List<PublisherEntry> _entries = [];
+        private readonly List<AzureEventGridPublisherEntry> _entries = [];
 
-        public IReadOnlyList<PublisherEntry> Entries => _entries;
+        public IReadOnlyList<AzureEventGridPublisherEntry> Entries => _entries;
 
         public void AddTopic<TMessage>(string credentialKey, string endpoint, string source)
         {
             ArgumentNullException.ThrowIfNull(credentialKey);
             ArgumentNullException.ThrowIfNull(endpoint);
             ArgumentNullException.ThrowIfNull(source);
-            _entries.Add(new PublisherEntry(typeof(TMessage), credentialKey, endpoint, source));
+            _entries.Add(new AzureEventGridPublisherEntry(typeof(TMessage), credentialKey, endpoint, source));
         }
 
         public void AddDomain(string credentialKey, string endpoint, Action<DomainOptions>? domainAction)
@@ -37,7 +37,7 @@ namespace AzureFunctions.AzureEventGrid.Infrastructure.Configuration
     {
         private readonly string _credentialKey;
         private readonly string _endpoint;
-        private readonly List<PublisherEntry> _entries = [];
+        private readonly List<AzureEventGridPublisherEntry> _entries = [];
 
         public DomainOptions(string credentialKey, string endpoint)
         {
@@ -48,14 +48,14 @@ namespace AzureFunctions.AzureEventGrid.Infrastructure.Configuration
         public void Add<TMessage>(string source)
         {
             ArgumentNullException.ThrowIfNull(source);
-            _entries.Add(new PublisherEntry(typeof(TMessage), _credentialKey, _endpoint, source));
+            _entries.Add(new AzureEventGridPublisherEntry(typeof(TMessage), _credentialKey, _endpoint, source));
         }
 
-        public IEnumerable<PublisherEntry> ToEntries()
+        public IEnumerable<AzureEventGridPublisherEntry> ToEntries()
         {
             return _entries;
         }
     }
 
-    public record PublisherEntry(Type MessageType, string CredentialKey, string Endpoint, string Source);
+    public record AzureEventGridPublisherEntry(Type MessageType, string CredentialKey, string Endpoint, string Source);
 }

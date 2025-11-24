@@ -14,20 +14,20 @@ namespace WindowsServiceHost.Tests.Configuration
 {
     public class AzureServiceBusSubscriptionOptions
     {
-        private readonly List<SubscriptionEntry> _entries = [];
+        private readonly List<AzureServiceBusSubscriptionEntry> _entries = [];
 
-        public IReadOnlyList<SubscriptionEntry> Entries => _entries;
+        public IReadOnlyList<AzureServiceBusSubscriptionEntry> Entries => _entries;
 
         public void Add<TMessage, THandler>(string queueOrTopicName, string? subscriptionName = null)
             where TMessage : class
             where THandler : IIntegrationEventHandler<TMessage>
         {
             ArgumentNullException.ThrowIfNull(queueOrTopicName);
-            _entries.Add(new SubscriptionEntry(typeof(TMessage), AzureServiceBusMessageDispatcher.InvokeDispatchHandler<TMessage, THandler>, queueOrTopicName, subscriptionName));
+            _entries.Add(new AzureServiceBusSubscriptionEntry(typeof(TMessage), AzureServiceBusMessageDispatcher.InvokeDispatchHandler<TMessage, THandler>, queueOrTopicName, subscriptionName));
         }
     }
 
-    public delegate Task DispatchHandler(IServiceProvider serviceProvider, ServiceBusReceivedMessage message, CancellationToken cancellationToken);
+    public delegate Task AzureServiceBusDispatchHandler(IServiceProvider serviceProvider, ServiceBusReceivedMessage message, CancellationToken cancellationToken);
 
-    public record SubscriptionEntry(Type MessageType, DispatchHandler HandlerAsync, string QueueOrTopicName, string? SubscriptionName);
+    public record AzureServiceBusSubscriptionEntry(Type MessageType, AzureServiceBusDispatchHandler HandlerAsync, string QueueOrTopicName, string? SubscriptionName);
 }

@@ -121,5 +121,47 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="c556d142-cd55-479f-89c4-d428d3d91c60" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Contracts.CompositeMessageBus</name>
+      <display>Intent.Eventing.Contracts.CompositeMessageBus</display>
+      <externalReference>Intent.Eventing.Contracts</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>786b70a9-f8e0-40e0-8ea3-c651e5c6decb</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="ef0f9268-981e-4139-bc53-4eb02339a17c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Contracts.MessageBrokerRegistry</name>
+      <display>Intent.Eventing.Contracts.MessageBrokerRegistry</display>
+      <externalReference>Intent.Eventing.Contracts</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>786b70a9-f8e0-40e0-8ea3-c651e5c6decb</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="655cc3f9-dec2-44b0-bbc6-521451f07a33" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Contracts.MessageBrokerResolver</name>
+      <display>Intent.Eventing.Contracts.MessageBrokerResolver</display>
+      <externalReference>Intent.Eventing.Contracts</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>786b70a9-f8e0-40e0-8ea3-c651e5c6decb</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

@@ -17,7 +17,7 @@ namespace AzureFunctions.AzureEventGrid.Infrastructure.Eventing
 {
     public class AzureEventGridMessageDispatcher : IAzureEventGridMessageDispatcher
     {
-        private readonly Dictionary<string, DispatchHandler> _handlers;
+        private readonly Dictionary<string, AzureEventGridDispatchHandler> _handlers;
 
         public AzureEventGridMessageDispatcher(IOptions<AzureEventGridSubscriptionOptions> options)
         {

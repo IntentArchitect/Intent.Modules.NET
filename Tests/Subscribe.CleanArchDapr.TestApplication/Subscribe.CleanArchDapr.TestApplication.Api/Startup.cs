@@ -15,6 +15,7 @@ using Subscribe.CleanArchDapr.TestApplication.Api.Configuration;
 using Subscribe.CleanArchDapr.TestApplication.Api.Filters;
 using Subscribe.CleanArchDapr.TestApplication.Application;
 using Subscribe.CleanArchDapr.TestApplication.Infrastructure;
+using Subscribe.CleanArchDapr.TestApplication.Infrastructure.Configuration;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.Startup", Version = "1.0")]
@@ -43,6 +44,7 @@ namespace Subscribe.CleanArchDapr.TestApplication.Api
             services.AddApplication(Configuration);
             services.ConfigureApplicationSecurity(Configuration);
             services.ConfigureProblemDetails();
+            services.AddDaprConfiguration(Configuration);
             services.AddInfrastructure(Configuration);
             services.ConfigureSwagger(Configuration);
         }

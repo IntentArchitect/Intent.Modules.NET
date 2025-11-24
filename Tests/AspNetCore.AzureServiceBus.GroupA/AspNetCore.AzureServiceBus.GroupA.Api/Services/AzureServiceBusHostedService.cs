@@ -57,7 +57,7 @@ namespace AspNetCore.AzureServiceBus.GroupA.Api.Services
         }
 
         private static ServiceBusProcessor CreateProcessor(
-            SubscriptionEntry subscription,
+            AzureServiceBusSubscriptionEntry subscription,
             ServiceBusClient serviceBusClient)
         {
             var options = new ServiceBusProcessorOptions

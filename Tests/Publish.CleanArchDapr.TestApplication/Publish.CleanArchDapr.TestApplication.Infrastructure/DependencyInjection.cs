@@ -35,7 +35,6 @@ namespace Publish.CleanArchDapr.TestApplication.Infrastructure
             services.AddTransient<ICustomerRepository, CustomerRepository>();
             services.AddTransient<IOrderRepository, OrderRepository>();
             services.AddScoped<IDomainEventService, DomainEventService>();
-            services.AddScoped<IEventBus, EventBusImplementation>();
             services.AddScoped<IDaprStateStoreGenericRepository, DaprStateStoreGenericRepository>();
             services.AddHttpClients(configuration);
             return services;

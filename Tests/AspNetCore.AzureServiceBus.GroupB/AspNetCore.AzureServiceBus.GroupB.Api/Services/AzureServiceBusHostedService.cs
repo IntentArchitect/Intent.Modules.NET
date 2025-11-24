@@ -50,7 +50,7 @@ public class AzureServiceBusHostedService : BackgroundService, IAsyncDisposable
     }
 
     private static ServiceBusProcessor CreateProcessor(
-            SubscriptionEntry subscription,
+            AzureServiceBusSubscriptionEntry subscription,
             ServiceBusClient serviceBusClient)
     {
         var options = new ServiceBusProcessorOptions
@@ -61,8 +61,8 @@ public class AzureServiceBusHostedService : BackgroundService, IAsyncDisposable
         };
 
         return subscription.SubscriptionName != null
-            ? serviceBusClient.CreateProcessor(subscription.QueueOrTopicName, subscription.SubscriptionName, options)
-            : serviceBusClient.CreateProcessor(subscription.QueueOrTopicName, options);
+                ? serviceBusClient.CreateProcessor(subscription.QueueOrTopicName, subscription.SubscriptionName, options)
+                : serviceBusClient.CreateProcessor(subscription.QueueOrTopicName, options);
     }
 
     private async Task ProcessMessageAsync(ProcessMessageEventArgs args, CancellationToken cancellationToken)

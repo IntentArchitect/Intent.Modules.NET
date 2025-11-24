@@ -17,7 +17,7 @@ namespace AzureFunction.QueueStorage.Infrastructure.Eventing
 {
     public class AzureQueueStorageEventDispatcher : IAzureQueueStorageEventDispatcher
     {
-        private readonly Dictionary<string, DispatchHandler> _handlers;
+        private readonly Dictionary<string, AzureQueueStorageDispatchHandler> _handlers;
 
         public AzureQueueStorageEventDispatcher(IOptions<AzureQueueStorageSubscriptionOptions> options)
         {

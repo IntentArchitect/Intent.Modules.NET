@@ -64,7 +64,7 @@ namespace WindowsServiceHost.Tests.Services
         }
 
         private static ServiceBusProcessor CreateProcessor(
-            SubscriptionEntry subscription,
+            AzureServiceBusSubscriptionEntry subscription,
             ServiceBusClient serviceBusClient)
         {
             var options = new ServiceBusProcessorOptions

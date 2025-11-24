@@ -18,7 +18,7 @@ namespace CleanArchitecture.QueueStorage.Infrastructure.Eventing
         private readonly IServiceProvider _serviceProvider;
         private readonly IOptions<AzureQueueStorageOptions> _options;
         private readonly QueueDefinition _queueDefinition;
-        private readonly Dictionary<string, DispatchHandler> _handlers;
+        private readonly Dictionary<string, AzureQueueStorageDispatchHandler> _handlers;
         private readonly JsonSerializerOptions _serializerOptions;
 
         public AzureQueueStorageConsumer(ILogger<AzureQueueStorageConsumer> logger,

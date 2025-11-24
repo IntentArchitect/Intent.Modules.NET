@@ -20,22 +20,5 @@
     </stereotype>
   </stereotypes>
   <metadata />
-  <childElements>
-    <childElement id="7c31719c-1d1e-4a68-9870-3ec7168b1cb0" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Eventing.MassTransit.IntegrationEventHandlerImplementation</name>
-      <display>Intent.Eventing.MassTransit.IntegrationEventHandlerImplementation</display>
-      <externalReference>Intent.Eventing.MassTransit</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>279f9bdd-fe52-47b6-8d16-fd666643b96f</parentFolderId>
-      <packageId>494434ee-0027-47c0-8b22-6852f9e3fc7c</packageId>
-      <packageName>Publish.AspNetCore.MassTransit.OutBoxNone</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-  </childElements>
+  <childElements />
 </class>

@@ -9,9 +9,51 @@
   <stereotypes />
   <metadata />
   <childElements>
-    <childElement id="68af761f-66ab-422b-98a5-bae10f021fb0" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Dapr.AspNetCore.Pubsub.EventBusImplementation</name>
-      <display>Intent.Dapr.AspNetCore.Pubsub.EventBusImplementation</display>
+    <childElement id="1019ab44-fec5-4668-9e64-50c9ac7f90e9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Contracts.CompositeMessageBus</name>
+      <display>Intent.Eventing.Contracts.CompositeMessageBus</display>
+      <externalReference>Intent.Eventing.Contracts</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c40d8e5c-60a5-4623-bacd-d023d60637ee</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="bc3b1f88-ba9a-4384-bb4b-4b4ab0671f8c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Contracts.MessageBrokerRegistry</name>
+      <display>Intent.Eventing.Contracts.MessageBrokerRegistry</display>
+      <externalReference>Intent.Eventing.Contracts</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c40d8e5c-60a5-4623-bacd-d023d60637ee</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="2e83528c-b2e5-4f5a-818b-7c89aea46fc5" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Contracts.MessageBrokerResolver</name>
+      <display>Intent.Eventing.Contracts.MessageBrokerResolver</display>
+      <externalReference>Intent.Eventing.Contracts</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c40d8e5c-60a5-4623-bacd-d023d60637ee</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="c5a50207-20c5-471c-9a26-70fbd7781649" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Dapr.AspNetCore.Pubsub.DaprEventBus</name>
+      <display>Intent.Dapr.AspNetCore.Pubsub.DaprEventBus</display>
       <externalReference>Intent.Dapr.AspNetCore.Pubsub</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />

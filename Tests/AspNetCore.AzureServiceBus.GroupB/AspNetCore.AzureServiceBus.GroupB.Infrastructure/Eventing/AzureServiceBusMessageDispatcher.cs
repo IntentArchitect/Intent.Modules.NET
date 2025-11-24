@@ -13,7 +13,7 @@ namespace AspNetCore.AzureServiceBus.GroupB.Infrastructure.Eventing
 {
     public class AzureServiceBusMessageDispatcher : IAzureServiceBusMessageDispatcher
     {
-        private readonly Dictionary<string, DispatchHandler> _handlers;
+        private readonly Dictionary<string, AzureServiceBusDispatchHandler> _handlers;
 
         public AzureServiceBusMessageDispatcher(IOptions<AzureServiceBusSubscriptionOptions> options)
         {

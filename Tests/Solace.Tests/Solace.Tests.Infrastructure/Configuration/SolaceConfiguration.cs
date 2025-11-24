@@ -13,7 +13,9 @@ namespace Solace.Tests.Infrastructure.Configuration
 {
     public static class SolaceConfiguration
     {
-        public static void AddSolaceConfiguration(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddSolaceConfiguration(
+            this IServiceCollection services,
+            IConfiguration configuration)
         {
             var config = configuration.GetSection("Solace").Get<SolaceConfig>();
             if (config == null)
@@ -54,8 +56,10 @@ namespace Solace.Tests.Infrastructure.Configuration
             services.AddSingleton<MessageRegistry>();
             services.AddHostedService<SolaceConsumingService>();
             services.AddScoped(typeof(ISolaceEventDispatcher<>), typeof(SolaceEventDispatcher<>));
-            services.AddScoped<IEventBus, SolaceEventBus>();
+            services.AddScoped<SolaceEventBus>();
+            services.AddScoped<IEventBus>(provider => provider.GetRequiredService<SolaceEventBus>());
             services.AddTransient<SolaceConsumer>();
+            return services;
         }
 
         private static void HandleSessionMessageEvent(object? sender, MessageEventArgs e)

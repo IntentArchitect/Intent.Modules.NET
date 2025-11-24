@@ -86,26 +86,28 @@ namespace AzureFunction.QueueStorage.Infrastructure.Eventing
             }
         }
 
-        public void Publish<T>(T message)
-            where T : class
+        public void Publish<TMessage>(TMessage message)
+            where TMessage : class
         {
-            ValidateMessage(message);
             _messageQueue.Add(new AzureQueueStorageEnvelope(message));
         }
 
-        public void Send<T>(T message)
-            where T : class
+        public void Publish<TMessage>(TMessage message, IDictionary<string, object> additionalData)
+            where TMessage : class
         {
-            ValidateMessage(message);
+            throw new NotSupportedException("Additional data is not supported in Azure Queue Storage messages.");
+        }
+
+        public void Send<TMessage>(TMessage message)
+            where TMessage : class
+        {
             _messageQueue.Add(new AzureQueueStorageEnvelope(message));
         }
 
-        public void ValidateMessage(object message)
+        public void Send<TMessage>(TMessage message, IDictionary<string, object> additionalData)
+            where TMessage : class
         {
-            if (!_lookup.TryGetValue(message.GetType().FullName!, out _))
-            {
-                throw new Exception($"The message type '{message.GetType().FullName}' is not registered.");
-            }
+            throw new NotSupportedException("Additional data is not supported in Azure Queue Storage messages.");
         }
     }
 }

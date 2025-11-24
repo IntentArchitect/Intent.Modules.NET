@@ -20,7 +20,7 @@ namespace AwsLambdaFunction.Sqs.GroupA.Infrastructure.Eventing
     {
         private readonly IAmazonSQS _sqsClient;
         private readonly List<MessageEntry> _messageQueue = [];
-        private readonly Dictionary<string, PublisherEntry> _lookup;
+        private readonly Dictionary<string, SqsPublisherEntry> _lookup;
 
         public SqsEventBus(IOptions<SqsPublisherOptions> options, IAmazonSQS sqsClient)
         {
@@ -28,18 +28,28 @@ namespace AwsLambdaFunction.Sqs.GroupA.Infrastructure.Eventing
             _lookup = options.Value.Entries.ToDictionary(k => k.MessageType.FullName!);
         }
 
-        public void Publish<T>(T message)
-            where T : class
+        public void Publish<TMessage>(TMessage message)
+            where TMessage : class
         {
-            ValidateMessage(message);
-            _messageQueue.Add(new MessageEntry(message));
+            _messageQueue.Add(new MessageEntry(message, null));
         }
 
-        public void Send<T>(T message)
-            where T : class
+        public void Publish<TMessage>(TMessage message, IDictionary<string, object> additionalData)
+            where TMessage : class
         {
-            ValidateMessage(message);
-            _messageQueue.Add(new MessageEntry(message));
+            _messageQueue.Add(new MessageEntry(message, additionalData));
+        }
+
+        public void Send<TMessage>(TMessage message)
+            where TMessage : class
+        {
+            _messageQueue.Add(new MessageEntry(message, null));
+        }
+
+        public void Send<TMessage>(TMessage message, IDictionary<string, object> additionalData)
+            where TMessage : class
+        {
+            _messageQueue.Add(new MessageEntry(message, additionalData));
         }
 
         public async Task FlushAllAsync(CancellationToken cancellationToken = default)
@@ -50,10 +60,10 @@ namespace AwsLambdaFunction.Sqs.GroupA.Infrastructure.Eventing
             }
 
             var groupedMessages = _messageQueue.GroupBy(entry =>
-{
-    var publisherEntry = _lookup[entry.Message.GetType().FullName!];
-    return publisherEntry.QueueUrl;
-});
+            {
+                var publisherEntry = _lookup[entry.Message.GetType().FullName!];
+                return publisherEntry.QueueUrl;
+            });
 
             foreach (var group in groupedMessages)
             {
@@ -68,42 +78,40 @@ namespace AwsLambdaFunction.Sqs.GroupA.Infrastructure.Eventing
             _messageQueue.Clear();
         }
 
-        private void ValidateMessage(object message)
-        {
-            if (!_lookup.TryGetValue(message.GetType().FullName!, out _))
-            {
-                throw new Exception($"The message type '{message.GetType().FullName}' is not registered.");
-            }
-        }
-
-        private static SendMessageRequest CreateSqsMessage(MessageEntry messageEntry, PublisherEntry publisherEntry)
+        private static SendMessageRequest CreateSqsMessage(MessageEntry messageEntry, SqsPublisherEntry publisherEntry)
         {
             var messageBody = JsonSerializer.Serialize(messageEntry.Message);
+
+            var messageAttributes = new Dictionary<string, MessageAttributeValue>
+            {
+                ["MessageType"] = new MessageAttributeValue
+                {
+                    DataType = "String",
+                    StringValue = messageEntry.Message.GetType().FullName!
+                }
+            };
+
+            if (messageEntry.AdditionalData != null)
+            {
+                foreach (var kvp in messageEntry.AdditionalData)
+                {
+                    messageAttributes[kvp.Key] = new MessageAttributeValue
+                    {
+                        DataType = "String",
+                        StringValue = kvp.Value.ToString()
+                    };
+                }
+            }
 
             var sqsMessage = new SendMessageRequest
             {
                 QueueUrl = publisherEntry.QueueUrl,
                 MessageBody = messageBody,
-                MessageAttributes = new Dictionary<string, MessageAttributeValue>
-                {
-                    ["MessageType"] = new MessageAttributeValue
-                    {
-                        DataType = "String",
-                        StringValue = messageEntry.Message.GetType().FullName!
-                    }
-                }
+                MessageAttributes = messageAttributes
             };
             return sqsMessage;
         }
-    }
 
-    internal class MessageEntry
-    {
-        public MessageEntry(object message)
-        {
-            Message = message;
-        }
-
-        public object Message { get; set; }
+        private record MessageEntry(object Message, IDictionary<string, object>? AdditionalData);
     }
 }

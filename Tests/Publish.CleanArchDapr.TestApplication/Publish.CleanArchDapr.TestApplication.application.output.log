@@ -876,6 +876,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>a8987131-f271-4efb-b34a-1fba1c013cd9</ProjectId>
+      <CorrelationId>Intent.Dapr.AspNetCore.Pubsub.DaprConfiguration#6aa7642f-beb9-4443-9b34-6d30fc0bcd67</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArchDapr.TestApplication.Infrastructure/Configuration/DaprConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DaprConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a8987131-f271-4efb-b34a-1fba1c013cd9</ProjectId>
       <CorrelationId>Intent.Dapr.AspNetCore.ServiceInvocation.HttpClientConfigurationTemplate#0b511a92-5753-427d-9e03-d9233ca76eaa</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.CleanArchDapr.TestApplication.Infrastructure/Configuration/HttpClientConfiguration.cs</ApplicationRelativeFilePath>
@@ -892,10 +900,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>e99d3c22-4bac-436a-bf59-2913054f9008</ProjectId>
-      <CorrelationId>Intent.Dapr.AspNetCore.Pubsub.EventBusImplementation#93410c4b-b028-4c43-8dd8-184e76c5737e</CorrelationId>
+      <CorrelationId>Intent.Dapr.AspNetCore.Pubsub.DaprEventBus#3fa6bfed-4b1b-4eb6-9b87-f9b2e8145073</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.CleanArchDapr.TestApplication.Infrastructure/Eventing/EventBusImplementation.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EventBusImplementation.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Publish.CleanArchDapr.TestApplication.Infrastructure/Eventing/DaprEventBus.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DaprEventBus.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

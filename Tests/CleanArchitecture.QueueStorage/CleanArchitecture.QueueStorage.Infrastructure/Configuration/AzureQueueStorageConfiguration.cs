@@ -17,7 +17,8 @@ namespace CleanArchitecture.QueueStorage.Infrastructure.Configuration
             this IServiceCollection services,
             IConfiguration configuration)
         {
-            services.AddScoped<IEventBus, AzureQueueStorageEventBus>();
+            services.AddScoped<AzureQueueStorageEventBus>();
+            services.AddScoped<IEventBus>(provider => provider.GetRequiredService<AzureQueueStorageEventBus>());
             services.AddOptions<AzureQueueStorageOptions>().Bind(configuration.GetSection("QueueStorage"));
             services.RegisterQueueStorageConsumers(configuration, "azurefunction-queuestorage-eventing-messages-productcreatedevent");
             services.RegisterQueueStorageConsumers(configuration, "cleanarchitecture-queuestorage-eventing-messages-createstockforproductcommand");

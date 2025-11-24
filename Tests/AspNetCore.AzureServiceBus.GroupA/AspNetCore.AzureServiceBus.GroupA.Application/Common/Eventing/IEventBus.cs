@@ -7,10 +7,14 @@ namespace AspNetCore.AzureServiceBus.GroupA.Application.Common.Eventing
 {
     public interface IEventBus
     {
-        void Publish<T>(T message)
-            where T : class;
+        void Publish<TMessage>(TMessage message)
+            where TMessage : class;
+        void Publish<TMessage>(TMessage message, IDictionary<string, object> additionalData)
+            where TMessage : class;
         Task FlushAllAsync(CancellationToken cancellationToken = default);
-        void Send<T>(T message)
-            where T : class;
+        void Send<TMessage>(TMessage message)
+            where TMessage : class;
+        void Send<TMessage>(TMessage message, IDictionary<string, object> additionalData)
+            where TMessage : class;
     }
 }

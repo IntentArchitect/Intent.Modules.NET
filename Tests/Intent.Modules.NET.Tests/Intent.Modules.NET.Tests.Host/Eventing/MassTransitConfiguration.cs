@@ -13,7 +13,7 @@ namespace Intent.Modules.NET.Tests.Host.Eventing
 {
     public static class MassTransitConfiguration
     {
-        public static void AddMassTransitConfiguration(
+        public static IServiceCollection AddMassTransitConfiguration(
             this IServiceCollection services,
             IConfiguration configuration,
             IEnumerable<IModuleInstaller> moduleInstallers)
@@ -37,6 +37,7 @@ namespace Intent.Modules.NET.Tests.Host.Eventing
                 x.AddInMemoryInboxOutbox();
                 moduleInstallers.ConfigureIntegrationEventConsumers(x);
             });
+            return services;
         }
 
         private static void AddConsumers(this IRegistrationConfigurator cfg)

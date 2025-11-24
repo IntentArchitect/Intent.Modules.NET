@@ -22,7 +22,7 @@ namespace WindowsServiceHost.Tests
             HostApplicationBuilder builder = Host.CreateApplicationBuilder(args);
 
             builder.Services.AddApplication(builder.Configuration);
-            builder.Services.ConfigureAzureServiceBus(builder.Configuration);
+            builder.Services.AddAzureServiceBusConfiguration(builder.Configuration);
             builder.Services.AddHttpClients(builder.Configuration);
             builder.Services.ConfigureQuartz(builder.Configuration);
             builder.Services.AddWindowsService(options =>

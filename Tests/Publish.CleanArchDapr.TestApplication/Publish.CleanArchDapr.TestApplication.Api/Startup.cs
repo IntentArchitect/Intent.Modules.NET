@@ -14,6 +14,7 @@ using Publish.CleanArchDapr.TestApplication.Api.Configuration;
 using Publish.CleanArchDapr.TestApplication.Api.Filters;
 using Publish.CleanArchDapr.TestApplication.Application;
 using Publish.CleanArchDapr.TestApplication.Infrastructure;
+using Publish.CleanArchDapr.TestApplication.Infrastructure.Configuration;
 using Serilog;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -43,6 +44,7 @@ namespace Publish.CleanArchDapr.TestApplication.Api
             services.AddApplication(Configuration);
             services.ConfigureApplicationSecurity(Configuration);
             services.ConfigureProblemDetails();
+            services.AddDaprConfiguration(Configuration);
             services.AddInfrastructure(Configuration);
             services.ConfigureSwagger(Configuration);
         }

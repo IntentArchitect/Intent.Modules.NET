@@ -16,7 +16,9 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Configuration
 {
     public static class MassTransitConfiguration
     {
-        public static void AddMassTransitConfiguration(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddMassTransitConfiguration(
+            this IServiceCollection services,
+            IConfiguration configuration)
         {
             services.AddScoped<MassTransitEventBus>();
             services.AddScoped<IEventBus>(provider => provider.GetRequiredService<MassTransitEventBus>());
@@ -37,6 +39,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Configuration
                 });
                 x.AddInMemoryInboxOutbox();
             });
+            return services;
         }
 
         private static void AddConsumers(this IRegistrationConfigurator cfg)

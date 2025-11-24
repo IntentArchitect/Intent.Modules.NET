@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
@@ -14,9 +15,8 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructur
 {
     public class MassTransitEventBus : IEventBus
     {
+        private readonly List<MessageEntry> _messagesToDispatch = [];
         private readonly IServiceProvider _serviceProvider;
-        private readonly List<object> _messagesToPublish = [];
-        private readonly List<MessageToSend> _messagesToSend = [];
         private readonly List<ScheduleEntry> _messagesToSchedule = new List<ScheduleEntry>();
 
         public MassTransitEventBus(IServiceProvider serviceProvider)
@@ -26,21 +26,35 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructur
 
         public ConsumeContext? ConsumeContext { get; set; }
 
-        public void Publish<T>(T message) where T : class
+        public void Publish<TMessage>(TMessage message)
+            where TMessage : class
         {
-            _messagesToPublish.Add(message);
+            _messagesToDispatch.Add(new MessageEntry(message, null, DispatchType.Publish));
         }
 
-        public void Send<T>(T message)
-            where T : class
+        public void Publish<TMessage>(TMessage message, IDictionary<string, object> additionalData)
+            where TMessage : class
         {
-            _messagesToSend.Add(new MessageToSend(message, null));
+            _messagesToDispatch.Add(new MessageEntry(message, additionalData, DispatchType.Publish));
         }
 
-        public void Send<T>(T message, Uri address)
-            where T : class
+        public void Send<TMessage>(TMessage message)
+            where TMessage : class
         {
-            _messagesToSend.Add(new MessageToSend(message, address));
+            _messagesToDispatch.Add(new MessageEntry(message, null, DispatchType.Send));
+        }
+
+        public void Send<TMessage>(TMessage message, IDictionary<string, object> additionalData)
+            where TMessage : class
+        {
+            _messagesToDispatch.Add(new MessageEntry(message, additionalData, DispatchType.Send));
+        }
+
+        public void Send<TMessage>(TMessage message, Uri address)
+            where TMessage : class
+        {
+            var additionalData = new Dictionary<string, object> { { "address", address.ToString() } };
+            _messagesToDispatch.Add(new MessageEntry(message, additionalData, DispatchType.Send));
         }
 
         public void SchedulePublish<T>(T message, DateTime scheduled)
@@ -55,97 +69,73 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructur
             _messagesToSchedule.Add(ScheduleEntry.ForDelay(message, delay));
         }
 
-        private sealed class MessageToSend
+        private async Task PublishMessagesAsync(List<MessageEntry> messagesToPublish, CancellationToken cancellationToken)
         {
-            public MessageToSend(object message, Uri? address)
+            if (ConsumeContext is not null)
             {
-                Message = message;
-                Address = address;
+                await ConsumeContext!.PublishBatch(messagesToPublish.Select(x => x.Message), cancellationToken).ConfigureAwait(false);
+                return;
             }
-
-            public object Message { get; }
-            public Uri? Address { get; }
+            var publishEndpoint = _serviceProvider.GetRequiredService<IPublishEndpoint>();
+            await publishEndpoint.PublishBatch(messagesToPublish.Select(x => x.Message), cancellationToken).ConfigureAwait(false);
         }
 
-        public async Task FlushAllAsync(CancellationToken cancellationToken = default)
+        private async Task SendMessagesAsync(List<MessageEntry> messagesToSend, CancellationToken cancellationToken)
         {
-            foreach (var toSend in _messagesToSend)
+            foreach (var toSend in messagesToSend)
             {
+                Uri? address = null;
+
+                if (toSend.AdditionalData?.TryGetValue("address", out var addressObj) == true)
+                {
+                    address = new Uri((string)addressObj);
+                }
+
                 if (ConsumeContext is not null)
                 {
-                    await SendWithConsumeContext(toSend, cancellationToken);
+                    if (address is null)
+                    {
+                        await ConsumeContext!.Send(toSend.Message, cancellationToken).ConfigureAwait(false);
+                    }
+                    else
+                    {
+                        var endpoint = await ConsumeContext!.GetSendEndpoint(address).ConfigureAwait(false);
+                        await endpoint.Send(toSend.Message, cancellationToken).ConfigureAwait(false);
+                    }
                 }
                 else
                 {
-                    await SendWithNormalContext(toSend, cancellationToken);
+                    if (address is null)
+                    {
+                        var bus = _serviceProvider.GetRequiredService<IBus>();
+                        await bus.Send(toSend.Message, cancellationToken).ConfigureAwait(false);
+                    }
+                    else
+                    {
+                        var sendEndpointProvider = _serviceProvider.GetRequiredService<ISendEndpointProvider>();
+                        var endpoint = await sendEndpointProvider.GetSendEndpoint(address).ConfigureAwait(false);
+                        await endpoint.Send(toSend.Message, cancellationToken).ConfigureAwait(false);
+                    }
                 }
             }
+        }
 
-            _messagesToSend.Clear();
+        private enum DispatchType
+        {
+            Publish,
 
-            if (ConsumeContext is not null)
-            {
-                await PublishWithConsumeContext(cancellationToken);
-            }
-            else
-            {
-                await PublishWithNormalContext(cancellationToken);
-            }
+            Send
+        }
+        private record MessageEntry(object Message, IDictionary<string, object>? AdditionalData, DispatchType DispatchType);
 
-            _messagesToPublish.Clear();
+        public async Task FlushAllAsync(CancellationToken cancellationToken = default)
+        {
+            var messagesToPublish = _messagesToDispatch.Where(x => x.DispatchType == DispatchType.Publish).ToList();
+            var messagesToSend = _messagesToDispatch.Where(x => x.DispatchType == DispatchType.Send).ToList();
+            await PublishMessagesAsync(messagesToPublish, cancellationToken);
+            await SendMessagesAsync(messagesToSend, cancellationToken);
+            _messagesToDispatch.Clear();
             _messagesToSchedule.Clear();
-        }
-
-        private async Task SendWithConsumeContext(MessageToSend toSend, CancellationToken cancellationToken)
-        {
-            if (toSend.Address is null)
-            {
-                await ConsumeContext!.Send(toSend.Message, cancellationToken).ConfigureAwait(false);
-            }
-            else
-            {
-                var endpoint = await ConsumeContext!.GetSendEndpoint(toSend.Address).ConfigureAwait(false);
-                await endpoint.Send(toSend.Message, cancellationToken).ConfigureAwait(false);
-            }
-        }
-
-        private async Task SendWithNormalContext(MessageToSend toSend, CancellationToken cancellationToken)
-        {
-            if (toSend.Address is null)
-            {
-                var bus = _serviceProvider.GetRequiredService<IBus>();
-                await bus.Send(toSend.Message, cancellationToken).ConfigureAwait(false);
-            }
-            else
-            {
-                var sendEndpointProvider = _serviceProvider.GetRequiredService<ISendEndpointProvider>();
-                var endpoint = await sendEndpointProvider.GetSendEndpoint(toSend.Address).ConfigureAwait(false);
-                await endpoint.Send(toSend.Message, cancellationToken).ConfigureAwait(false);
-            }
-        }
-
-        private async Task PublishWithConsumeContext(CancellationToken cancellationToken)
-        {
-            await ConsumeContext!.PublishBatch(_messagesToPublish, cancellationToken).ConfigureAwait(false);
-
-            foreach (var scheduleEntry in _messagesToSchedule)
-            {
-                await ConsumeContext!.SchedulePublish(scheduleEntry.Scheduled, scheduleEntry.Message, cancellationToken).ConfigureAwait(false);
-            }
-        }
-
-        private async Task PublishWithNormalContext(CancellationToken cancellationToken)
-        {
-            var publishEndpoint = _serviceProvider.GetRequiredService<IPublishEndpoint>();
-
-            await publishEndpoint.PublishBatch(_messagesToPublish, cancellationToken).ConfigureAwait(false);
-
-            var messageScheduler = _serviceProvider.GetRequiredService<IMessageScheduler>();
-
-            foreach (var scheduleEntry in _messagesToSchedule)
-            {
-                await messageScheduler.SchedulePublish(scheduleEntry.Scheduled, scheduleEntry.Message, cancellationToken).ConfigureAwait(false);
-            }
         }
 
         private class ScheduleEntry

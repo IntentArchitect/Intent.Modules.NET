@@ -14,7 +14,9 @@ namespace Kafka.Consumer.Infrastructure.Configuration
 {
     public static class KafkaConfiguration
     {
-        public static void AddKafkaConfiguration(this IServiceCollection services)
+        public static IServiceCollection AddKafkaConfiguration(
+            this IServiceCollection services,
+            IConfiguration configuration)
         {
             services.AddSingleton<ISchemaRegistryClient>(serviceProvider =>
             {
@@ -25,11 +27,13 @@ namespace Kafka.Consumer.Infrastructure.Configuration
 
                 return new CachedSchemaRegistryClient(schemaRegistryConfig);
             });
-            services.AddScoped<IEventBus, KafkaEventBus>();
+            services.AddScoped<KafkaEventBus>();
+            services.AddScoped<IEventBus>(provider => provider.GetRequiredService<KafkaEventBus>());
             services.AddScoped(typeof(IKafkaEventDispatcher<>), typeof(KafkaEventDispatcher<>));
             services.AddHostedService<KafkaConsumerBackgroundService>();
             services.AddTransient<IKafkaConsumer, KafkaConsumer<InvoiceCreatedEvent>>();
             services.AddTransient<IKafkaConsumer, KafkaConsumer<InvoiceUpdatedEvent>>();
+            return services;
         }
     }
 }

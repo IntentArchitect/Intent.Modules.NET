@@ -15,16 +15,17 @@ namespace AwsLambdaFunction.Sqs.GroupB.Infrastructure.Configuration
 {
     public static class SqsConfiguration
     {
-        public static IServiceCollection ConfigureSqs(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddSqsConfiguration(
+            this IServiceCollection services,
+            IConfiguration configuration)
         {
             services.AddAWSService<AmazonSQSClient>();
 
             services.AddSingleton(typeof(IAmazonSQS), sp => sp.GetRequiredService<AmazonSQSClient>());
-
-            services.AddScoped<IEventBus, SqsEventBus>();
+            services.AddScoped<SqsEventBus>();
+            services.AddScoped<IEventBus>(provider => provider.GetRequiredService<SqsEventBus>());
             services.AddSingleton<SqsMessageDispatcher>();
             services.AddSingleton<ISqsMessageDispatcher, SqsMessageDispatcher>(sp => sp.GetRequiredService<SqsMessageDispatcher>());
-
             services.Configure<SqsPublisherOptions>(options =>
             {
                 options.AddQueue<SpecificTopicOneMessageEvent>(configuration["AwsSqs:SpecificTopic:QueueUrl"]!);

@@ -9,16 +9,16 @@ namespace AzureFunctions.AzureServiceBus.Infrastructure.Configuration
 {
     public class AzureServiceBusPublisherOptions
     {
-        private readonly List<PublisherEntry> _entries = [];
+        private readonly List<AzureServiceBusPublisherEntry> _entries = [];
 
-        public IReadOnlyList<PublisherEntry> Entries => _entries;
+        public IReadOnlyList<AzureServiceBusPublisherEntry> Entries => _entries;
 
         public void Add<TMessage>(string queueOrTopicName)
         {
             ArgumentNullException.ThrowIfNull(queueOrTopicName);
-            _entries.Add(new PublisherEntry(typeof(TMessage), queueOrTopicName));
+            _entries.Add(new AzureServiceBusPublisherEntry(typeof(TMessage), queueOrTopicName));
         }
     }
 
-    public record PublisherEntry(Type MessageType, string QueueOrTopicName);
+    public record AzureServiceBusPublisherEntry(Type MessageType, string QueueOrTopicName);
 }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
@@ -21,11 +22,29 @@ namespace Kafka.Producer.Infrastructure.Eventing
             _serviceProvider = serviceProvider;
         }
 
-        public void Publish<T>(T message)
-            where T : class
+        public void Publish<TMessage>(TMessage message)
+            where TMessage : class
         {
-            var producer = _producersByMessageType.GetOrAdd(typeof(T), _ => new Producer<T>(_serviceProvider.GetRequiredService<IKafkaProducer<T>>()));
+            var producer = _producersByMessageType.GetOrAdd(typeof(TMessage), _ => new Producer<TMessage>(_serviceProvider.GetRequiredService<IKafkaProducer<TMessage>>()));
             producer.EnqueueMessage(message);
+        }
+
+        public void Publish<TMessage>(TMessage message, IDictionary<string, object> additionalData)
+            where TMessage : class
+        {
+            throw new NotSupportedException("Additional data is not supported in Kafka event publishing.");
+        }
+
+        public void Send<TMessage>(TMessage message)
+            where TMessage : class
+        {
+            Publish(message);
+        }
+
+        public void Send<TMessage>(TMessage message, IDictionary<string, object> additionalData)
+            where TMessage : class
+        {
+            throw new NotSupportedException("Additional data is not supported in Kafka event publishing.");
         }
 
         public async Task FlushAllAsync(CancellationToken cancellationToken = default)

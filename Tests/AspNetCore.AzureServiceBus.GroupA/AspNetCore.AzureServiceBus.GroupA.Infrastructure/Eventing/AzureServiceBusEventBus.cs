@@ -14,32 +14,39 @@ namespace AspNetCore.AzureServiceBus.GroupA.Infrastructure.Eventing
 {
     public class AzureServiceBusEventBus : IEventBus
     {
-        private readonly IConfiguration _configuration;
         private readonly ServiceBusClient _serviceBusClient;
-        private readonly List<object> _messageQueue = [];
+        private readonly List<MessageEntry> _messageQueue = [];
         private readonly Dictionary<string, string> _lookup;
 
-        public AzureServiceBusEventBus(IConfiguration configuration,
-            ServiceBusClient serviceBusClient,
+        public AzureServiceBusEventBus(ServiceBusClient serviceBusClient,
             IOptions<AzureServiceBusPublisherOptions> options)
         {
-            _configuration = configuration;
             _serviceBusClient = serviceBusClient;
             _lookup = options.Value.Entries.ToDictionary(k => k.MessageType.FullName!, v => v.QueueOrTopicName);
         }
 
-        public void Publish<T>(T message)
-            where T : class
+        public void Publish<TMessage>(TMessage message)
+            where TMessage : class
         {
-            ValidateMessage(message);
-            _messageQueue.Add(message);
+            _messageQueue.Add(new MessageEntry(message, null));
         }
 
-        public void Send<T>(T message)
-            where T : class
+        public void Publish<TMessage>(TMessage message, IDictionary<string, object> additionalData)
+            where TMessage : class
         {
-            ValidateMessage(message);
-            _messageQueue.Add(message);
+            _messageQueue.Add(new MessageEntry(message, additionalData));
+        }
+
+        public void Send<TMessage>(TMessage message)
+            where TMessage : class
+        {
+            _messageQueue.Add(new MessageEntry(message, null));
+        }
+
+        public void Send<TMessage>(TMessage message, IDictionary<string, object> additionalData)
+            where TMessage : class
+        {
+            _messageQueue.Add(new MessageEntry(message, additionalData));
         }
 
         public async Task FlushAllAsync(CancellationToken cancellationToken = default)
@@ -51,7 +58,7 @@ namespace AspNetCore.AzureServiceBus.GroupA.Infrastructure.Eventing
             using var scope = new TransactionScope(TransactionScopeOption.Suppress, TransactionScopeAsyncFlowOption.Enabled);
             foreach (var message in _messageQueue)
             {
-                var queueOrTopicName = _lookup[message.GetType().FullName!];
+                var queueOrTopicName = _lookup[message.Message.GetType().FullName!];
                 await using var sender = _serviceBusClient.CreateSender(queueOrTopicName);
                 var serviceBusMessage = CreateServiceBusMessage(message);
                 await sender.SendMessageAsync(serviceBusMessage, cancellationToken);
@@ -60,20 +67,22 @@ namespace AspNetCore.AzureServiceBus.GroupA.Infrastructure.Eventing
             _messageQueue.Clear();
         }
 
-        private void ValidateMessage(object message)
+        private static ServiceBusMessage CreateServiceBusMessage(MessageEntry message)
         {
-            if (!_lookup.TryGetValue(message.GetType().FullName!, out _))
-            {
-                throw new Exception($"The message type '{message.GetType().FullName}' is not registered.");
-            }
-        }
-
-        private static ServiceBusMessage CreateServiceBusMessage(object message)
-        {
-            var serializedMessage = JsonSerializer.Serialize(message);
+            var serializedMessage = JsonSerializer.Serialize(message.Message);
             var serviceBusMessage = new ServiceBusMessage(serializedMessage);
-            serviceBusMessage.ApplicationProperties["MessageType"] = message.GetType().FullName;
+            serviceBusMessage.ApplicationProperties["MessageType"] = message.Message.GetType().FullName;
+
+            if (message.AdditionalData != null)
+            {
+                foreach (var dataEnty in message.AdditionalData)
+                {
+                    serviceBusMessage.ApplicationProperties[dataEnty.Key] = dataEnty.Value;
+                }
+            }
             return serviceBusMessage;
         }
+
+        private record MessageEntry(object Message, IDictionary<string, object>? AdditionalData);
     }
 }

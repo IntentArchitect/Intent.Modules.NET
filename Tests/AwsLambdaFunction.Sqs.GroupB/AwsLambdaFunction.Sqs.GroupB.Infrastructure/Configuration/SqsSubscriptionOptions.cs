@@ -14,24 +14,24 @@ namespace AwsLambdaFunction.Sqs.GroupB.Infrastructure.Configuration
 {
     public class SqsSubscriptionOptions
     {
-        private readonly List<SubscriptionEntry> _entries = [];
+        private readonly List<SqsSubscriptionEntry> _entries = [];
 
-        public IReadOnlyList<SubscriptionEntry> Entries => _entries;
+        public IReadOnlyList<SqsSubscriptionEntry> Entries => _entries;
 
         public void Add<TMessage, THandler>()
             where TMessage : class
             where THandler : IIntegrationEventHandler<TMessage>
         {
-            _entries.Add(new SubscriptionEntry(
+            _entries.Add(new SqsSubscriptionEntry(
                 typeof(TMessage),
                 SqsMessageDispatcher.InvokeDispatchHandler<TMessage, THandler>));
         }
     }
 
-    public delegate Task DispatchHandler(
+    public delegate Task SqsDispatchHandler(
         IServiceProvider serviceProvider,
         SQSEvent.SQSMessage sqsMessage,
         CancellationToken cancellationToken);
 
-    public record SubscriptionEntry(Type MessageType, DispatchHandler HandlerAsync);
+    public record SqsSubscriptionEntry(Type MessageType, SqsDispatchHandler HandlerAsync);
 }

@@ -11,10 +11,14 @@ namespace AzureFunctions.AzureEventGrid.Application.Common.Eventing
 {
     public interface IEventBus
     {
-        void Publish<T>(T message)
-            where T : class;
-        void Publish<T>(T message, IDictionary<string, object> additionalData)
-            where T : class;
+        void Publish<TMessage>(TMessage message)
+            where TMessage : class;
+        void Publish<TMessage>(TMessage message, IDictionary<string, object> additionalData)
+            where TMessage : class;
+        void Send<TMessage>(TMessage message)
+            where TMessage : class;
+        void Send<TMessage>(TMessage message, IDictionary<string, object> additionalData)
+            where TMessage : class;
         Task FlushAllAsync(CancellationToken cancellationToken = default);
     }
 }

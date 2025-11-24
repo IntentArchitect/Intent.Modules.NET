@@ -21,7 +21,7 @@ namespace AspNetCore.AzureServiceBus.GroupA.Infrastructure
                 options.UseLazyLoadingProxies();
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
-            services.ConfigureAzureServiceBus(configuration);
+            services.AddAzureServiceBusConfiguration(configuration);
             return services;
         }
     }

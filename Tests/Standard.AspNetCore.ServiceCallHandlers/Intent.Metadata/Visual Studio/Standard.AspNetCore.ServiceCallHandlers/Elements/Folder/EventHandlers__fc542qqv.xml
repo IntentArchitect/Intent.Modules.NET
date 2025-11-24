@@ -37,21 +37,5 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="c094334f-6348-4683-994e-d5497a570468" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Eventing.MassTransit.IntegrationEventHandlerImplementation</name>
-      <display>Intent.Eventing.MassTransit.IntegrationEventHandlerImplementation</display>
-      <externalReference>Intent.Eventing.MassTransit</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>01744fc1-791d-4c77-8206-2fbd1f0303b1</parentFolderId>
-      <packageId>98edc616-5f17-4fce-b93f-fe01230d91c6</packageId>
-      <packageName>Standard.AspNetCore.ServiceCallHandlers</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
   </childElements>
 </class>

@@ -23,19 +23,5 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="12a33f3d-9ebc-41a4-95de-ee2035ce0229" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Eventing.MassTransit.IntegrationEventHandlerImplementation</name>
-      <display>Intent.Eventing.MassTransit.IntegrationEventHandlerImplementation</display>
-      <externalReference>Intent.Eventing.MassTransit</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>b2974695-c973-476a-833b-39959b8767d7</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
   </childElements>
 </class>

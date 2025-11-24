@@ -13,7 +13,7 @@ namespace AwsLambdaFunction.Sqs.GroupA.Infrastructure
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
             services.ConfigureAws(configuration);
-            services.ConfigureSqs(configuration);
+            services.AddSqsConfiguration(configuration);
             return services;
         }
     }

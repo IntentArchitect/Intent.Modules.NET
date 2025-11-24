@@ -13,12 +13,13 @@ namespace AspNetCore.AzureServiceBus.GroupA.Infrastructure.Configuration
 {
     public static class AzureServiceBusConfiguration
     {
-        public static IServiceCollection ConfigureAzureServiceBus(
+        public static IServiceCollection AddAzureServiceBusConfiguration(
             this IServiceCollection services,
             IConfiguration configuration)
         {
             services.AddSingleton<ServiceBusClient>(sp => new ServiceBusClient(configuration["AzureServiceBus:ConnectionString"]));
-            services.AddScoped<IEventBus, AzureServiceBusEventBus>();
+            services.AddScoped<AzureServiceBusEventBus>();
+            services.AddScoped<IEventBus>(provider => provider.GetRequiredService<AzureServiceBusEventBus>());
             services.AddSingleton<AzureServiceBusMessageDispatcher>();
             services.AddSingleton<IAzureServiceBusMessageDispatcher, AzureServiceBusMessageDispatcher>();
             services.Configure<AzureServiceBusPublisherOptions>(options =>

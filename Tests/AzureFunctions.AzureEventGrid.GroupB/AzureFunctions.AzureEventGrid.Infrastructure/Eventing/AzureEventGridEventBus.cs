@@ -21,7 +21,7 @@ namespace AzureFunctions.AzureEventGrid.Infrastructure.Eventing
     {
         private readonly AzureEventGridPublisherPipeline _pipeline;
         private readonly List<MessageEntry> _messageQueue = [];
-        private readonly Dictionary<string, PublisherEntry> _lookup;
+        private readonly Dictionary<string, AzureEventGridPublisherEntry> _lookup;
 
         public AzureEventGridEventBus(IOptions<AzureEventGridPublisherOptions> options,
             AzureEventGridPublisherPipeline pipeline)
@@ -30,17 +30,27 @@ namespace AzureFunctions.AzureEventGrid.Infrastructure.Eventing
             _lookup = options.Value.Entries.ToDictionary(k => k.MessageType.FullName!);
         }
 
-        public void Publish<T>(T message)
-            where T : class
+        public void Publish<TMessage>(TMessage message)
+            where TMessage : class
         {
-            ValidateMessage(message);
             _messageQueue.Add(new MessageEntry(message, null));
         }
 
-        public void Publish<T>(T message, IDictionary<string, object> additionalData)
-            where T : class
+        public void Publish<TMessage>(TMessage message, IDictionary<string, object> additionalData)
+            where TMessage : class
         {
-            ValidateMessage(message);
+            _messageQueue.Add(new MessageEntry(message, additionalData));
+        }
+
+        public void Send<TMessage>(TMessage message)
+            where TMessage : class
+        {
+            _messageQueue.Add(new MessageEntry(message, null));
+        }
+
+        public void Send<TMessageT>(TMessageT message, IDictionary<string, object> additionalData)
+            where TMessageT : class
+        {
             _messageQueue.Add(new MessageEntry(message, additionalData));
         }
 
@@ -82,15 +92,7 @@ namespace AzureFunctions.AzureEventGrid.Infrastructure.Eventing
             _messageQueue.Clear();
         }
 
-        private void ValidateMessage(object message)
-        {
-            if (!_lookup.TryGetValue(message.GetType().FullName!, out _))
-            {
-                throw new Exception($"The message type '{message.GetType().FullName}' is not registered.");
-            }
-        }
-
-        private static CloudEvent CreateCloudEvent(MessageEntry messageEntry, PublisherEntry publisherEntry)
+        private static CloudEvent CreateCloudEvent(MessageEntry messageEntry, AzureEventGridPublisherEntry publisherEntry)
         {
             var cloudEvent = new CloudEvent(source: publisherEntry.Source, type: messageEntry.Message.GetType().FullName!, jsonSerializableData: messageEntry.Message);
 

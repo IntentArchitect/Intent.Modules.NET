@@ -24,7 +24,7 @@ namespace AzureFunctions.AzureEventGrid.Infrastructure
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddScoped<IDomainEventService, DomainEventService>();
-            services.ConfigureEventGrid(configuration);
+            services.AddEventGridConfiguration(configuration);
             return services;
         }
     }

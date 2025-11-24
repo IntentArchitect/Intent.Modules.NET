@@ -15,7 +15,9 @@ namespace Kafka.Producer.Infrastructure.Configuration
 {
     public static class KafkaConfiguration
     {
-        public static void AddKafkaConfiguration(this IServiceCollection services)
+        public static IServiceCollection AddKafkaConfiguration(
+            this IServiceCollection services,
+            IConfiguration configuration)
         {
             services.AddSingleton<ISchemaRegistryClient>(serviceProvider =>
             {
@@ -26,11 +28,13 @@ namespace Kafka.Producer.Infrastructure.Configuration
 
                 return new CachedSchemaRegistryClient(schemaRegistryConfig);
             });
-            services.AddScoped<IEventBus, KafkaEventBus>();
+            services.AddScoped<KafkaEventBus>();
+            services.AddScoped<IEventBus>(provider => provider.GetRequiredService<KafkaEventBus>());
             services.AddScoped(typeof(IKafkaEventDispatcher<>), typeof(KafkaEventDispatcher<>));
             services.AddHostedService<KafkaConsumerBackgroundService>();
             services.AddSingleton(serviceProvider => CreateProducer<string, InvoiceCreatedEvent>(serviceProvider, message => message.Id.ToString()));
             services.AddSingleton(serviceProvider => CreateProducer<string, InvoiceUpdatedEvent>(serviceProvider, message => message.Id.ToString()));
+            return services;
         }
 
         private static IKafkaProducer<TValue> CreateProducer<TKey, TValue>(

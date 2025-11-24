@@ -18,7 +18,7 @@ namespace AwsLambdaFunction.Sqs.GroupA.Infrastructure.Eventing
 {
     public class SqsMessageDispatcher : ISqsMessageDispatcher
     {
-        private readonly Dictionary<string, DispatchHandler> _handlers;
+        private readonly Dictionary<string, SqsDispatchHandler> _handlers;
 
         public SqsMessageDispatcher(IOptions<SqsSubscriptionOptions> options)
         {

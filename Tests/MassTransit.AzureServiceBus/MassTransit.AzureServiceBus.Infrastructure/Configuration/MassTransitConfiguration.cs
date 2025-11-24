@@ -20,7 +20,9 @@ namespace MassTransit.AzureServiceBus.Infrastructure.Configuration
 {
     public static class MassTransitConfiguration
     {
-        public static void AddMassTransitConfiguration(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddMassTransitConfiguration(
+            this IServiceCollection services,
+            IConfiguration configuration)
         {
             services.AddScoped<MassTransitEventBus>();
             services.AddScoped<IEventBus>(provider => provider.GetRequiredService<MassTransitEventBus>());
@@ -46,6 +48,7 @@ namespace MassTransit.AzureServiceBus.Infrastructure.Configuration
                     EndpointConventionRegistration();
                 });
             });
+            return services;
         }
 
         private static void AddMessageTopologyConfiguration(this IServiceBusBusFactoryConfigurator cfg)

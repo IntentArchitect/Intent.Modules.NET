@@ -37,5 +37,33 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="c2f29860-893e-4d74-8be7-b33d3ce46b20" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Contracts.CompositeMessageBusConfiguration</name>
+      <display>Intent.Eventing.Contracts.CompositeMessageBusConfiguration</display>
+      <externalReference>Intent.Eventing.Contracts</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a8987131-f271-4efb-b34a-1fba1c013cd9</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="6aa7642f-beb9-4443-9b34-6d30fc0bcd67" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Dapr.AspNetCore.Pubsub.DaprConfiguration</name>
+      <display>Intent.Dapr.AspNetCore.Pubsub.DaprConfiguration</display>
+      <externalReference>Intent.Dapr.AspNetCore.Pubsub</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a8987131-f271-4efb-b34a-1fba1c013cd9</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

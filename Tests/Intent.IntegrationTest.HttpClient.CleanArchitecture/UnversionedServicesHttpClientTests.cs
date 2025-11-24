@@ -76,14 +76,20 @@ public class UnversionedServicesHttpClientTests
 
     public class MockEventBus : IEventBus
     {
-        public void Publish<T>(T message) where T : class { }
-
         public Task FlushAllAsync(CancellationToken cancellationToken = default) => Task.CompletedTask;
+
+        public void Publish<T>(T message) where T : class
+        {
+        }
+        public void Publish<TMessage>(TMessage message, IDictionary<string, object> additionalData) where TMessage : class
+        {
+        }
+        public void Send<TMessage>(TMessage message, IDictionary<string, object> additionalData) where TMessage : class
+        {
+        }
         public void Send<T>(T message) where T : class
         {
-            
         }
-
         public void Send<T>(T message, Uri address) where T : class
         {
         }

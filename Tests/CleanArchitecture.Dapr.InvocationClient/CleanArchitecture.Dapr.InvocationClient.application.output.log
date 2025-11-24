@@ -514,10 +514,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>c40d8e5c-60a5-4623-bacd-d023d60637ee</ProjectId>
-      <CorrelationId>Intent.Dapr.AspNetCore.Pubsub.EventBusImplementation#68af761f-66ab-422b-98a5-bae10f021fb0</CorrelationId>
+      <CorrelationId>Intent.Dapr.AspNetCore.Pubsub.DaprEventBus#c5a50207-20c5-471c-9a26-70fbd7781649</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.InvocationClient.Infrastructure/Eventing/EventBusImplementation.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EventBusImplementation.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.InvocationClient.Infrastructure/Eventing/DaprEventBus.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DaprEventBus.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

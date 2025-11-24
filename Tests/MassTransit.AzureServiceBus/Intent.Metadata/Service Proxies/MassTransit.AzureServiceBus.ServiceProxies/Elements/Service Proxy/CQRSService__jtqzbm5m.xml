@@ -12,9 +12,9 @@
     <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="13f85863-e934-4433-8ce6-ff5b15c25868" name="MassTransit.AzureServiceBus.Services" type="association" specialization="Services Package" />
-      <target id="0ab078c4-355c-444c-a62b-321c7db0cd31" name="RequestResponse" type="element" specialization="Folder" />
-      <target id="ac781ec5-5afd-4bf1-8943-33063dbf59a1" name="CQRS" type="element" specialization="Folder" />
+      <target id="13f85863-e934-4433-8ce6-ff5b15c25868" name="MassTransit.AzureServiceBus.Services" type="package-reference" specialization="Services Package" specializationId="df45eaf6-9202-4c25-8dd5-677e9ba1e906" />
+      <target id="0ab078c4-355c-444c-a62b-321c7db0cd31" name="RequestResponse" type="element" specialization="Folder" specializationId="4d95d53a-8855-4f35-aa82-e312643f5c5f" />
+      <target id="ac781ec5-5afd-4bf1-8943-33063dbf59a1" name="CQRS" type="element" specialization="Folder" specializationId="4d95d53a-8855-4f35-aa82-e312643f5c5f" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>0d4355f6-0a71-4e79-ab8b-46b9519b6760</parentFolderId>
@@ -44,12 +44,15 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="6ec6529d-f2f0-459e-9eef-2d685935900f" name="CommandDtoReturn" type="element" specialization="Command" />
+          <target id="6ec6529d-f2f0-459e-9eef-2d685935900f" name="CommandDtoReturn" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>a85d85f3-da9c-42c1-85bb-94a5ae2baeb5</parentFolderId>
       <packageId>0d4355f6-0a71-4e79-ab8b-46b9519b6760</packageId>
       <packageName>MassTransit.AzureServiceBus.ServiceProxies</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="e8eaf275-8da4-4dde-8cc1-79bb1c6936c4" name="Message Request Endpoint">
           <addedByDefault>false</addedByDefault>
@@ -82,12 +85,15 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="b45cd451-ddb8-49ba-aad7-68c277e715ce" name="CommandGuidReturn" type="element" specialization="Command" />
+          <target id="b45cd451-ddb8-49ba-aad7-68c277e715ce" name="CommandGuidReturn" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>a85d85f3-da9c-42c1-85bb-94a5ae2baeb5</parentFolderId>
       <packageId>0d4355f6-0a71-4e79-ab8b-46b9519b6760</packageId>
       <packageName>MassTransit.AzureServiceBus.ServiceProxies</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="e8eaf275-8da4-4dde-8cc1-79bb1c6936c4" name="Message Request Endpoint">
           <addedByDefault>false</addedByDefault>
@@ -117,12 +123,15 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="0b87328f-07bb-4578-9b9a-14242f38be3b" name="CommandNoParam" type="element" specialization="Command" />
+          <target id="0b87328f-07bb-4578-9b9a-14242f38be3b" name="CommandNoParam" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>a85d85f3-da9c-42c1-85bb-94a5ae2baeb5</parentFolderId>
       <packageId>0d4355f6-0a71-4e79-ab8b-46b9519b6760</packageId>
       <packageName>MassTransit.AzureServiceBus.ServiceProxies</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="e8eaf275-8da4-4dde-8cc1-79bb1c6936c4" name="Message Request Endpoint">
           <addedByDefault>false</addedByDefault>
@@ -152,12 +161,15 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="71a3299e-ff2b-4bde-880b-55b29a1f2cf3" name="CommandVoidReturn" type="element" specialization="Command" />
+          <target id="71a3299e-ff2b-4bde-880b-55b29a1f2cf3" name="CommandVoidReturn" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>a85d85f3-da9c-42c1-85bb-94a5ae2baeb5</parentFolderId>
       <packageId>0d4355f6-0a71-4e79-ab8b-46b9519b6760</packageId>
       <packageName>MassTransit.AzureServiceBus.ServiceProxies</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="e8eaf275-8da4-4dde-8cc1-79bb1c6936c4" name="Message Request Endpoint">
           <addedByDefault>false</addedByDefault>
@@ -190,12 +202,15 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="57a6b2fd-38ba-4d1b-8f61-e030fe037806" name="QueryGuidReturn" type="element" specialization="Query" />
+          <target id="57a6b2fd-38ba-4d1b-8f61-e030fe037806" name="QueryGuidReturn" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>a85d85f3-da9c-42c1-85bb-94a5ae2baeb5</parentFolderId>
       <packageId>0d4355f6-0a71-4e79-ab8b-46b9519b6760</packageId>
       <packageName>MassTransit.AzureServiceBus.ServiceProxies</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="e8eaf275-8da4-4dde-8cc1-79bb1c6936c4" name="Message Request Endpoint">
           <addedByDefault>false</addedByDefault>
@@ -228,12 +243,15 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="9331aba3-7a48-4d97-87ae-3860ba4a1830" name="QueryNoInputDtoReturnCollection" type="element" specialization="Query" />
+          <target id="9331aba3-7a48-4d97-87ae-3860ba4a1830" name="QueryNoInputDtoReturnCollection" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>a85d85f3-da9c-42c1-85bb-94a5ae2baeb5</parentFolderId>
       <packageId>0d4355f6-0a71-4e79-ab8b-46b9519b6760</packageId>
       <packageName>MassTransit.AzureServiceBus.ServiceProxies</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="e8eaf275-8da4-4dde-8cc1-79bb1c6936c4" name="Message Request Endpoint">
           <addedByDefault>false</addedByDefault>
@@ -266,12 +284,15 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="2afa8b99-da5e-44a4-a65a-b4ff0cf70e59" name="QueryResponseDtoReturn" type="element" specialization="Query" />
+          <target id="2afa8b99-da5e-44a4-a65a-b4ff0cf70e59" name="QueryResponseDtoReturn" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>a85d85f3-da9c-42c1-85bb-94a5ae2baeb5</parentFolderId>
       <packageId>0d4355f6-0a71-4e79-ab8b-46b9519b6760</packageId>
       <packageName>MassTransit.AzureServiceBus.ServiceProxies</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="e8eaf275-8da4-4dde-8cc1-79bb1c6936c4" name="Message Request Endpoint">
           <addedByDefault>false</addedByDefault>

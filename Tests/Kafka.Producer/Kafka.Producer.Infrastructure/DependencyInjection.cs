@@ -29,8 +29,7 @@ namespace Kafka.Producer.Infrastructure
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<IInvoiceRepository, InvoiceRepository>();
             services.AddScoped<IDomainEventService, DomainEventService>();
-            services.AddScoped<IEventBus, KafkaEventBus>();
-            services.AddKafkaConfiguration();
+            services.AddKafkaConfiguration(configuration);
             return services;
         }
     }
