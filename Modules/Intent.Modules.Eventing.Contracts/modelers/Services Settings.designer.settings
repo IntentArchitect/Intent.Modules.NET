@@ -8,6 +8,31 @@
   <elementSettings />
   <elementExtensions>
     <elementExtension type="Message" typeId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">
+      <validateFunctionOverride>const ModuleIds = [
+    "Intent.Dapr.AspNetCore.Pubsub",
+    "Intent.Eventing.AzureEventGrid",
+    "Intent.Eventing.AzureQueueStorage",
+    "Intent.Eventing.AzureServiceBus",
+    "Intent.Eventing.Kafka",
+    "Intent.Eventing.MassTransit",
+    "Intent.Eventing.Solace"
+];
+const installedIds = application.installedModules
+  .map(m =&gt; (m.id || '').trim())
+  .filter(id =&gt; id.length &gt; 0);
+const installCount = installedIds.reduce((acc, id) =&gt;
+  acc + (ModuleIds.some(t =&gt; t.toLowerCase() === id.toLowerCase()) ? 1 : 0), 0
+);
+
+if (installCount &lt;= 1) {
+    return "";
+}
+
+if (element.getStereotypes().length === 0) {
+    return "Multiple message brokers are detected, causing transport ambiguity. Please apply a specific Message Broker stereotype to explicitly bind this element to a provider.";
+}
+
+return "";</validateFunctionOverride>
       <mappingSettings />
     </elementExtension>
   </elementExtensions>

@@ -41,7 +41,7 @@
       <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
       <properties>
         <property name="8c964307-9d03-4a14-9fd3-40ea2607955a" display="Display Text Function" value="" isActive="true" />
-        <property name="996ed45f-2318-4587-9618-73db3d7cfed0" display="Validate Function" value="" isActive="true" />
+        <property name="996ed45f-2318-4587-9618-73db3d7cfed0" display="Validate Function" value="const ModuleIds = [&#xD;&#xA;    &quot;Intent.Dapr.AspNetCore.Pubsub&quot;,&#xD;&#xA;    &quot;Intent.Eventing.AzureEventGrid&quot;,&#xD;&#xA;    &quot;Intent.Eventing.AzureQueueStorage&quot;,&#xD;&#xA;    &quot;Intent.Eventing.AzureServiceBus&quot;,&#xD;&#xA;    &quot;Intent.Eventing.Kafka&quot;,&#xD;&#xA;    &quot;Intent.Eventing.MassTransit&quot;,&#xD;&#xA;    &quot;Intent.Eventing.Solace&quot;&#xD;&#xA;];&#xD;&#xA;const installedIds = application.installedModules&#xD;&#xA;  .map(m =&gt; (m.id || '').trim())&#xD;&#xA;  .filter(id =&gt; id.length &gt; 0);&#xD;&#xA;const installCount = installedIds.reduce((acc, id) =&gt;&#xD;&#xA;  acc + (ModuleIds.some(t =&gt; t.toLowerCase() === id.toLowerCase()) ? 1 : 0), 0&#xD;&#xA;);&#xD;&#xA;&#xD;&#xA;if (installCount &lt;= 1) {&#xD;&#xA;    return &quot;&quot;;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;if (element.getStereotypes().length === 0) {&#xD;&#xA;    return &quot;Multiple message brokers are detected, causing transport ambiguity. Please apply a specific Message Broker stereotype to explicitly bind this element to a provider.&quot;;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;return &quot;&quot;;" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>
