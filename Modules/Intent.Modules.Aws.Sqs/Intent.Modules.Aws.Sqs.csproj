@@ -9,8 +9,8 @@
     <PackageReference Include="Intent.Modules.Common" Version="3.9.1" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.9.6" />
     <PackageReference Include="Intent.Modules.Eventing.Contracts" Version="6.1.0-pre.0" />
-    <PackageReference Include="Intent.Modules.Modelers.Eventing" Version="6.0.2" />
-    <PackageReference Include="Intent.Modules.Modelers.Services" Version="4.0.5" />
+    <PackageReference Include="Intent.Modules.Modelers.Eventing" Version="6.0.3" />
+    <PackageReference Include="Intent.Modules.Modelers.Services" Version="4.0.7" />
     <PackageReference Include="Intent.Modules.Modelers.Services.EventInteractions" Version="1.2.1" />
     <PackageReference Include="Intent.Packager" Version="3.6.0">
       <PrivateAssets>all</PrivateAssets>

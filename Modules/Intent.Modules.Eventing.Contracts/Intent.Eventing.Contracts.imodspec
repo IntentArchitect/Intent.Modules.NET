@@ -124,8 +124,9 @@
   <dependencies>
     <dependency id="Intent.Common" version="3.6.0" />
     <dependency id="Intent.Common.CSharp" version="3.9.0" />
-    <dependency id="Intent.Common.Types" version="4.0.0" />
-    <dependency id="Intent.Modelers.Eventing" version="6.0.1" />
+    <dependency id="Intent.Common.Types" version="4.1.0" />
+    <dependency id="Intent.Modelers.Eventing" version="6.0.3" />
+    <dependency id="Intent.Modelers.Services" version="4.0.7" />
     <dependency id="Intent.Modelers.Services.EventInteractions" version="1.2.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.9.8" />
   </dependencies>
@@ -147,6 +148,7 @@
   </files>
   <moduleSettingsExtensions />
   <metadata>
-    <install target="" src="Intent.Metadata/Module Builder/Intent.Eventing.Contracts/Intent.Eventing.Contracts.pkg.config" externalReference="bb2cc56b-8ccb-4f2e-bdf8-c019af951209" />
+    <install target="Services" src="Intent.Metadata/Module Builder/Intent.Eventing.Contracts/Intent.Eventing.Contracts.pkg.config" externalReference="bb2cc56b-8ccb-4f2e-bdf8-c019af951209" />
+    <install target="Services" src="modelers/Services Settings.designer.settings" externalReference="930b477a-21cb-48e8-a645-0b7d9173b9b1" />
   </metadata>
 </package>

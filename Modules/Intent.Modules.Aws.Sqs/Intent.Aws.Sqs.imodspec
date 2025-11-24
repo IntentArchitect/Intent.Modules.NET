@@ -83,8 +83,8 @@
     <dependency id="Intent.Common.CSharp" version="3.9.6" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Eventing.Contracts" version="6.1.0-pre.0" />
-    <dependency id="Intent.Modelers.Eventing" version="6.0.2" />
-    <dependency id="Intent.Modelers.Services" version="4.0.5" />
+    <dependency id="Intent.Modelers.Eventing" version="6.0.3" />
+    <dependency id="Intent.Modelers.Services" version="4.0.7" />
     <dependency id="Intent.Modelers.Services.EventInteractions" version="1.2.1" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.9.10" />
   </dependencies>

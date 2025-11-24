@@ -126,8 +126,8 @@
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Common.UnitOfWork" version="1.0.2" />
     <dependency id="Intent.Eventing.Contracts" version="6.1.0-pre.0" />
-    <dependency id="Intent.Modelers.Eventing" version="6.0.1" />
-    <dependency id="Intent.Modelers.Services" version="4.0.5" />
+    <dependency id="Intent.Modelers.Eventing" version="6.0.3" />
+    <dependency id="Intent.Modelers.Services" version="4.0.7" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
   </dependencies>
   <files>
