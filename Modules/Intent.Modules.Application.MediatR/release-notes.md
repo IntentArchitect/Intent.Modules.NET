@@ -1,3 +1,7 @@
+### Version 4.5.3
+
+- Improvement: XML Documentation improvements for Command and Query models.
+
 ### Version 4.5.2
 
 - Improvement: Updated projectUrl to reference external documentation instead of local README.
