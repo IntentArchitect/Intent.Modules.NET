@@ -1,6 +1,10 @@
-### Version 5.3.3
+### Version 5.3.4
 
 - Improvement: Updated NuGet package versions.
+
+### Version 5.3.3
+
+- Improvement: Documentation and ProjectUrl link added.
 
 ### Version 5.3.2
 
