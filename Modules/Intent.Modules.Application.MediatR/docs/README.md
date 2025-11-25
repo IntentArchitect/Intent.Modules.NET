@@ -13,6 +13,38 @@ This module produces the following artifacts:
 - **Querys**- Classes representing all the modelled `Query`s.
 - **QueryHandlers** - MediatR request handlers for all the modelled `Query`s
 
+## CQRS Paradigm
+
+**Intent.Application.MediatR** implements the **CQRS Paradigm** (Command Query Responsibility Segregation), which:
+
+- Separates read and write responsibilities into distinct models optimized for their respective purposes
+- Models each operation as a discrete request/response object (use case-centric)
+- Enables specialized pipeline behaviors (validation, logging, transactions)
+- Provides loose coupling through the mediator pattern
+- Ideal for systems with complex requirements or high scalability demands
+
+This paradigm is appropriate when:
+- Your operations benefit from independent optimization and pipeline behaviors
+- You want strict separation between commands and queries
+- Individual operations have complex, distinct concerns
+- You require loose coupling via the mediator pattern
+
+## Alternative Paradigm: Traditional Application Services
+
+The **Traditional Service Paradigm** is available through the `Intent.Application.ServiceImplementations` module and:
+
+- Combines read and write logic into a single service
+- Uses a unified data model and service structure
+- Groups operations naturally by business capability
+- Simplifies development with a traditional object-oriented approach
+- Common in systems with straightforward requirements or minimal scalability concerns
+
+This paradigm is appropriate when:
+- Your domain model and service structure are naturally unified
+- Operations are grouped by business capability
+- You prefer a class-based approach with methods
+- Your team is familiar with traditional service-oriented patterns
+
 ## CQRS Settings
 
 ### CQRS Settings - Consolidate Command/Query associated files into single file
