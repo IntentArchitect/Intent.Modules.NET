@@ -1,3 +1,7 @@
+### Version 5.1.6
+
+- Improvement: Documentation and ProjectUrl link added.
+
 ### Version 5.1.5
 
 - Improvement: Service proxies will now generate within any folders they are modelled within.

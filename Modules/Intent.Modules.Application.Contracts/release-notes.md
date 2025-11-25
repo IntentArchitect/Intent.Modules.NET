@@ -1,3 +1,7 @@
+### Version 5.1.2
+
+- Improvement: Documentation and ProjectUrl link added.
+
 ### Version 5.1.1
 
 - Improvement: Detects existence and name of `CancellationToken` parameter before adding to `Service Calls Interactions`.

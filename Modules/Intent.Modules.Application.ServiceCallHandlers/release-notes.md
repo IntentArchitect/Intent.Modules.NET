@@ -1,3 +1,7 @@
+### Version 4.3.7
+
+- Improvement: Documentation and ProjectUrl link added.
+
 ### Version 4.3.6
 
 - Fixed: Handlers would be generated for operations on services with the `Contract Only` stereotype applied.

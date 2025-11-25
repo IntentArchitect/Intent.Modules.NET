@@ -1,3 +1,7 @@
+### Version 5.0.11
+
+- Improvement: Documentation and ProjectUrl link added.
+
 ### Version 5.0.10
 
 - Improvement: Improved domain events for deriving classes.

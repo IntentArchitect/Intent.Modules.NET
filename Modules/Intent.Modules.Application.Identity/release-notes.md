@@ -1,3 +1,7 @@
+### Version 3.6.1
+
+- Improvement: Documentation and ProjectUrl link added.
+
 ### Version 3.6.0
 
 - Improvement: Made User Info assessable asynchronously, which is required for technologies like Blazor. Synchronous accessors are still available for backward compatibility on existing projects.

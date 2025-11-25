@@ -1,3 +1,7 @@
+### Version 1.0.6
+
+- Improvement: Documentation and ProjectUrl link added.
+
 ### Version 1.0.5
 
 - Improvement: Updated referenced packages versions

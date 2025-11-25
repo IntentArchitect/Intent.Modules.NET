@@ -1,3 +1,7 @@
+### Version 2.2.28
+
+- Improvement: Documentation and ProjectUrl link added.
+
 ### Version 2.2.27
 
 - Improvement: Updated NuGet package versions.
