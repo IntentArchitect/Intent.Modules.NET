@@ -1,3 +1,7 @@
+### Version 5.3.4
+
+- Fixed: ProjectUrl link.
+
 ### Version 5.3.3
 
 - Improvement: Documentation and ProjectUrl link added.
