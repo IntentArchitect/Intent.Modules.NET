@@ -1,3 +1,7 @@
+### Version 1.0.18
+
+- Fixed: ProjectUrl link.
+
 ### Version 1.0.17
 
 - Improvement: Updated module documentation to use centralized documentation site.
