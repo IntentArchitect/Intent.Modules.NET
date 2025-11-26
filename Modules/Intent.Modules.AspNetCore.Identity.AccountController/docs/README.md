@@ -1,4 +1,4 @@
-# Identity AccountController
+# Intent.AspNetCore.Identity.AccountController
 
 Generate ASP.NET Core WebAPI controller for account management and JWT authentication.
 
@@ -69,21 +69,6 @@ Generated tokens include:
 - Controllers use `[Authorize]` and `[Authorize(Roles="Admin")]`
 - Custom authorization policies can be defined
 
-## Integration with Other Modules
-
-### Required Dependencies
-- **Intent.AspNetCore.Identity** - ASP.NET Core Identity integration
-- **Intent.Application.Identity** - Current user service and authorization
-- **Intent.EntityFrameworkCore** - DbContext and migrations
-- **Intent.Security.JWT** - JWT token generation utilities
-- **Intent.Entities** - Identity user entity definition
-
-### Optional Integrations
-- **Intent.AspNetCore.Swashbuckle** - Swagger documentation for auth endpoints
-- **Intent.Application.FluentValidation** - Request validation decorators
-- **Intent.AspNetCore.Logging.Serilog** - Structured logging for auth events
-- **Intent.AspNetCore.Identity.JWT** - Additional JWT configuration
-
 ## Customization Points
 
 ### Token Configuration
@@ -136,16 +121,9 @@ Configure via ASP.NET Core Identity options:
 - Password hashing via Identity's password hasher
 - Claims and roles stored in Identity tables
 
-## Documentation Link
-
-For comprehensive guidance on account management, JWT authentication, and ASP.NET Core Identity integration, see:
-https://docs.intentarchitect.com/articles/modules-dotnet/intent-aspnetcore-identity-accountcontroller/intent-aspnetcore-identity-accountcontroller.html
-
 ## Related Modules
 
 - **Intent.AspNetCore.Identity** - ASP.NET Core Identity configuration
 - **Intent.Security.JWT** - JWT token generation and validation utilities
 - **Intent.Application.Identity** - Current user service and authorization
-- **Intent.AspNetCore.Swashbuckle** - Swagger/OpenAPI documentation
-- **Intent.EntityFrameworkCore** - Entity Framework Core integration
 - **Intent.Security.MSAL** - OAuth/OIDC authentication via Azure AD

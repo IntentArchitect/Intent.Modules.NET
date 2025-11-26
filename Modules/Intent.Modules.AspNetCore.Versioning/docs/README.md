@@ -1,4 +1,4 @@
-# API Versioning
+# Intent.AspNetCore.Versioning
 
 Apply versioning strategies to ASP.NET Core APIs for managing endpoint evolution.
 
@@ -55,28 +55,7 @@ Mark old versions for removal:
 Define default API version:
 - When no version specified in request, default version used
 - Provides backward compatibility for unaware clients
-- Typically set to oldest supported version
-
-### Version Sunset
-Graceful API evolution:
-1. Release new feature in v2.0
-2. Mark v1.0 as deprecated
-3. Communicate sunset date to API consumers
-4. Remove v1.0 support after grace period
-5. Only v2.0 remains
-
-## Integration with Other Modules
-
-### Required Dependencies
-- **Intent.AspNetCore** - ASP.NET Core hosting foundation
-- **Intent.AspNetCore.Controllers** - Controller generation with versioning attributes
-- **Intent.Metadata.WebApi** - HTTP metadata including version specifications
-
-### Recommended Integrations
-- **Intent.AspNetCore.Swashbuckle** - Swagger documentation showing all API versions
-- **Intent.AspNetCore.Scalar** - Interactive API documentation with version selector
-- **Intent.Application.Contracts** - Versioned service contracts
-- **Intent.AspNetCore.Controllers.Dispatch.MediatR** or **ServiceContract** - Request dispatching
+- Typically set to the oldest supported version
 
 ## Customization Points
 
@@ -96,10 +75,6 @@ Via `ApiVersionSwaggerGenOptions`:
 - **Document per Version** - Separate Swagger docs for each version
 - **Description** - Version-specific descriptions
 - **Deprecated Indicator** - Visual marking of deprecated versions
-
-### Class Name Overrides
-- `ClassName` - ApiVersioningConfiguration class name
-- `Namespace` - Configuration class namespace
 
 ## Versioning Strategies Comparison
 
@@ -137,24 +112,6 @@ Via `ApiVersionSwaggerGenOptions`:
 - API is consumed only by first-party applications
 - Breaking changes acceptable with client updates
 
-## Best Practices
-
-1. **Semantic Versioning** - Use MAJOR.MINOR (e.g., 1.0, 1.1, 2.0)
-2. **Deprecation Timeline** - Provide 6-12 month deprecation period
-3. **Clear Documentation** - Document what changed in each version
-4. **Minimal Versions** - Support only 2-3 versions simultaneously
-5. **Migration Guides** - Help clients upgrade from old to new versions
-6. **Automatic Routing** - Route requests to correct handler per version
-
-## Documentation Link
-
-For comprehensive guidance on API versioning strategies and implementation patterns, see:
-https://docs.intentarchitect.com/articles/modules-dotnet/intent-aspnetcore-versioning/intent-aspnetcore-versioning.html
-
 ## Related Modules
 
-- **Intent.AspNetCore** - ASP.NET Core foundation
-- **Intent.AspNetCore.Controllers** - Controller generation
-- **Intent.AspNetCore.Swashbuckle** - Swagger documentation with versioning support
-- **Intent.AspNetCore.Scalar** - Interactive API documentation
 - **Intent.Metadata.WebApi** - HTTP metadata for versioning
