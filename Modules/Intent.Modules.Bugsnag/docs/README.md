@@ -1,7 +1,4 @@
----
-uid: modules-dotnet.intent-observability-bugsnag
----
-# Intent.Modules.Bugsnag
+# Intent.Bugsnag
 
 This module integrates [Bugsnag](https://www.bugsnag.com/) for error monitoring and reporting into your application.
 
