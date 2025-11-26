@@ -1,3 +1,7 @@
+### Version 5.0.12
+
+- Improvement: Updated `Intent.Modelers.Domain.Events` to `4.4.5`.
+
 ### Version 5.0.11
 
 - Improvement: Documentation and ProjectUrl link added.
