@@ -32,6 +32,12 @@ namespace Intent.Modules.Application.AutoMapper.FactoryExtensions
                 return;
             }
 
+            // It would be important to remove the existing AutoMapper package if it exists so that the correct version is installed.
+            template.ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.AutoMapperPackageName, template.OutputTarget));
+            template.AddNugetDependency(NugetPackages.AutoMapper(template.OutputTarget));
+
+            template.ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent("AutoMapper.Extensions.Microsoft.DependencyInjection", template.OutputTarget));
+            
             template.CSharpFile.AfterBuild(file =>
             {
                 var method = file.Classes.First().FindMethod("AddApplication");
@@ -39,12 +45,6 @@ namespace Intent.Modules.Application.AutoMapper.FactoryExtensions
                 {
                     return;
                 }
-
-                // It would be important to remove the existing AutoMapper package if it exists so that the correct version is installed.
-                template.ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.AutoMapperPackageName, template.OutputTarget));
-                template.AddNugetDependency(NugetPackages.AutoMapper(template.OutputTarget));
-
-                template.ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent("AutoMapper.Extensions.Microsoft.DependencyInjection", template.OutputTarget));
 
                 method.AddInvocationStatement("services.AddAutoMapper", stmt =>
                 {

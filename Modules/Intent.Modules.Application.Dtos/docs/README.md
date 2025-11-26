@@ -26,11 +26,6 @@ Generates Data Transfer Object (DTO) definitions and contract enums for applicat
 - Mapped by `Intent.Application.Dtos.AutoMapper` (and extended by DocumentDB cross-aggregate mapping module).
 - Consumed in Eventing / CQRS request/response patterns.
 
-## Customization Points
-- Partial classes allow adding validation or convenience methods.
-- Decorator (DataContractDTOAttributeDecorator) can be enabled to apply `[DataContract]` attributes.
-- Merge-mode modifications can introduce interfaces (e.g., `IHasId`) or base types.
-
 ## When To Use
 - Any application service layer requiring structured request/response models decoupled from domain entities.
 

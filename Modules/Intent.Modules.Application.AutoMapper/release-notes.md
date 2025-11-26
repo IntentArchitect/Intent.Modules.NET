@@ -1,3 +1,7 @@
+### Version 5.3.3
+
+- Fixed: Nuget package not correctly installed.
+
 ### Version 5.3.2
 
 - Improvement: Updated module documentation to use centralized documentation site.
