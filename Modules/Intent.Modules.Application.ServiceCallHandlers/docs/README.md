@@ -1,4 +1,4 @@
-# Service Call Handlers
+# Intent.Application.ServiceCallHandlers
 
 Implement service operations using individual handler classes instead of large service classes.
 
@@ -66,38 +66,6 @@ Build complex operations from simpler handlers:
 
 ### Required Dependencies
 - **Intent.Application.ServiceImplementations** - Service interface and container generation
-- **Intent.Modelers.Services** - Service operation modeling
-- **Intent.OutputManager.RoslynWeaver** - Code generation via templates
-
-### Optional Integrations
-- **Intent.Application.FluentValidation** - Request validation in handlers
-- **Intent.EntityFrameworkCore** - ORM for data access
-- **Intent.Application.Identity** - Authorization via `ICurrentUser`
-- **Intent.Application.AutoMapper** - DTO mapping in handlers
-- **Intent.Application.MediatR** - Alternative command/query handler pattern
-- **Intent.Common.UnitOfWork** - Transaction management per operation
-
-## Customization Points
-
-### Handler Implementation
-Customize generated handler class:
-- Override class name via `ClassName` formula
-- Override namespace via `Namespace` formula
-- Add custom validation logic
-- Integrate with business rules engine
-
-### Handler Invocation
-Customize via `ServiceImplementationExtension` factory extension:
-- Custom error handling per handler
-- Logging decorators
-- Performance monitoring
-- Authorization checks
-
-### Request/Response DTOs
-Customize request/response shape:
-- Add validation attributes
-- Configure serialization behavior
-- Define default values
 
 ## When To Use
 
@@ -119,21 +87,6 @@ Customize request/response shape:
 - You need sophisticated pipeline behaviors
 - Operations fit cleanly into Command/Query categories
 - Cross-cutting concerns are better expressed as pipeline behaviors
-
-## Comparison with Alternatives
-
-| Aspect | Service Call Handlers | Service Classes | MediatR |
-|--------|---------------------|-----------------|---------|
-| **Class Size** | Small (1 op each) | Large (many ops) | Small (1 op each) |
-| **Code Organization** | Many files, clear structure | Few files, large classes | Many files, explicit patterns |
-| **Testing** | Easy per-handler tests | Complex service tests | Easy per-handler tests |
-| **Dependency Injection** | Explicit per handler | Shared service | Explicit per handler |
-| **Pipeline Behaviors** | Manual decoration | Manual decoration | Full pipeline support |
-| **Learning Curve** | Low (simple pattern) | Low (traditional) | Moderate (CQRS concepts) |
-
-## Module Settings
-
-No module-level settings. Configuration applied at service operation level in the Services modeler.
 
 ## Handler Pattern Example
 
@@ -196,8 +149,4 @@ public class CreateProductHandler : IServiceCallHandler<CreateProductRequest, Cr
 ## Related Modules
 
 - **Intent.Application.ServiceImplementations** - Service interface generation and registration
-- **Intent.Application.MediatR** - Alternative CQRS-based handler pattern
-- **Intent.Application.Identity** - Authorization and current user context
-- **Intent.Application.FluentValidation** - Request validation
-- **Intent.EntityFrameworkCore** - ORM for data access
-- **Intent.Common.UnitOfWork** - Unit of work pattern support
+
