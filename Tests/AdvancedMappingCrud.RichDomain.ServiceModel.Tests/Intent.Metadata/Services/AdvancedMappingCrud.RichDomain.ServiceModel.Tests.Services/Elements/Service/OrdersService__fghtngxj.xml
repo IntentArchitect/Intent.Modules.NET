@@ -33,6 +33,10 @@
       <parentFolderId>1924dfc2-20e0-46d7-a021-eaf6f4fa2991</parentFolderId>
       <packageId>fca5a012-5b2c-4181-bcd6-8797ef9b7a9e</packageId>
       <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
@@ -83,6 +87,10 @@
       <parentFolderId>1924dfc2-20e0-46d7-a021-eaf6f4fa2991</parentFolderId>
       <packageId>fca5a012-5b2c-4181-bcd6-8797ef9b7a9e</packageId>
       <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
@@ -132,6 +140,10 @@
       <parentFolderId>1924dfc2-20e0-46d7-a021-eaf6f4fa2991</parentFolderId>
       <packageId>fca5a012-5b2c-4181-bcd6-8797ef9b7a9e</packageId>
       <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements />
@@ -154,6 +166,10 @@
       <parentFolderId>1924dfc2-20e0-46d7-a021-eaf6f4fa2991</parentFolderId>
       <packageId>fca5a012-5b2c-4181-bcd6-8797ef9b7a9e</packageId>
       <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
@@ -201,6 +217,10 @@
       <parentFolderId>1924dfc2-20e0-46d7-a021-eaf6f4fa2991</parentFolderId>
       <packageId>fca5a012-5b2c-4181-bcd6-8797ef9b7a9e</packageId>
       <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>

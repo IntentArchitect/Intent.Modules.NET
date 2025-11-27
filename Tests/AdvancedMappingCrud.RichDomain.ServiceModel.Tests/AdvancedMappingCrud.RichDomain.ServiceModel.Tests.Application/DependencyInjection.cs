@@ -2,7 +2,9 @@ using System.Reflection;
 using AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Application.Common.Behaviours;
 using AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Application.Common.Validation;
 using AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Application.Implementation;
+using AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Application.Implementation.MixInvocations;
 using AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Application.Interfaces;
+using AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Application.Interfaces.MixInvocations;
 using AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Domain.Services;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
@@ -40,6 +42,7 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Application
             services.AddTransient<IPeopleService, PeopleService>();
             services.AddTransient<IProductsService, ProductsService>();
             services.AddTransient<IUsersService, UsersService>();
+            services.AddTransient<IMixService, MixService>();
             return services;
         }
     }

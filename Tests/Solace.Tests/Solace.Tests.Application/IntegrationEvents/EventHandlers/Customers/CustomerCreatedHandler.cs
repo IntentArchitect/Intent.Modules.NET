@@ -31,7 +31,7 @@ namespace Solace.Tests.Application.IntegrationEvents.EventHandlers.Customers
 
             var command = new CreateAccountCommand(
                 customerId: message.Id);
-            await _mediator.Send(command, cancellationToken);
+            var createAccountCommandResult = await _mediator.Send(command, cancellationToken);
         }
     }
 }

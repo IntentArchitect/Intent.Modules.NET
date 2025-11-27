@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="92ac6aaf-f4b8-486b-88a3-57d3ddcfc847" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <name>MixService</name>
+  <display>MixService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>b8602b0a-2415-4a30-8723-1f767efec205</parentFolderId>
+  <packageId>fca5a012-5b2c-4181-bcd6-8797ef9b7a9e</packageId>
+  <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="2c00e70a-13ab-4d83-b72f-37c3c8b42bd2" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>CreateItem</name>
+      <display>CreateItem(name: string): guid</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="7f50fcba-3164-49f7-bd4c-910421425c95">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>92ac6aaf-f4b8-486b-88a3-57d3ddcfc847</parentFolderId>
+      <packageId>fca5a012-5b2c-4181-bcd6-8797ef9b7a9e</packageId>
+      <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="c3be854b-527f-48d6-83b0-914ea0028fdf" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>name</name>
+          <display>in : name: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="e738b387-4ec0-4f73-a228-012286a68590">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>2c00e70a-13ab-4d83-b72f-37c3c8b42bd2</parentFolderId>
+          <packageId>fca5a012-5b2c-4181-bcd6-8797ef9b7a9e</packageId>
+          <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>
