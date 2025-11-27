@@ -93,13 +93,15 @@ namespace Intent.Modules.Eventing.Solace.Templates.SolaceConfiguration
                         method.AddStatement($"services.AddSingleton<{this.GetMessageSerializerName()}>();");
                         method.AddInvocationStatement("services.AddSingleton", singleton =>
                         {
-                            singleton.AddArgument(new CSharpInvocationStatement($"new {this.GetMessageBrokerRegistryName()}"), registry =>
+                            singleton.AddArgument(new CSharpInvocationStatement($"new {this.GetMessageRegistryName()}"), registry =>
                             {
                                 registry.AddArgument("configuration");
                                 if (requiresCompositeMessageBus)
                                 {
                                     registry.AddArgument("registry");
                                 }
+
+                                registry.WithoutSemicolon();
                             });
                         });
                         method.AddStatement($"services.AddHostedService<{this.GetSolaceConsumingServiceName()}>();");
