@@ -208,7 +208,8 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
 
         var filtered = legacySubscriptionMessages
             .Union(legacyPublishMessages)
-            .Union(serviceIntegrationMessages);
+            .Union(serviceIntegrationMessages)
+            .FilterMessagesForThisMessageBroker(this, [MessageModelStereotypeExtensions.MessageTopologySettings.DefinitionId]);
 
         var result = filtered
             .OrderBy(x => x.Name)

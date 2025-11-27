@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Aws.Sqs.Api;
 using Intent.Engine;
 using Intent.Modules.Aws.Sqs.Templates.SqsEventBus;
 using Intent.Modules.Aws.Sqs.Templates.SqsMessageDispatcher;
@@ -72,15 +73,13 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsConfiguration
                                 method.AddStatement($"services.AddScoped<{busInterface}>(provider => provider.GetRequiredService<{this.GetTypeName(SqsEventBusTemplate.TemplateId)}>());");
                             }
 
-                            // Register dispatcher
                             method.AddStatement($"services.AddSingleton<{this.GetTypeName(SqsMessageDispatcherTemplate.TemplateId)}>();");
                             method.AddStatement($"services.AddSingleton<{this.GetTypeName(SqsMessageDispatcherInterfaceTemplate.TemplateId)}, {this.GetTypeName(SqsMessageDispatcherTemplate.TemplateId)}>(sp => sp.GetRequiredService<{this.GetTypeName(SqsMessageDispatcherTemplate.TemplateId)}>());");
 
-                            // Get metadata from IntegrationManager
-                            var publishers = IntegrationManager.Instance.GetAggregatedPublishedSqsItems(ExecutionContext.GetApplicationConfig().Id);
-                            var subscriptions = IntegrationManager.Instance.GetAggregatedSqsSubscriptions(ExecutionContext.GetApplicationConfig().Id);
-
-                            // Configure publisher options (metadata-driven)
+                            var publishers = IntegrationManager.Instance.GetAggregatedPublishedSqsItems(ExecutionContext.GetApplicationConfig().Id)
+                                .FilterMessagesForThisMessageBroker(this, [MessageModelStereotypeExtensions.AwsSqs.DefinitionId, IntegrationCommandModelStereotypeExtensions.AwsSqs.DefinitionId])
+                                .ToArray();
+                            
                             if (publishers.Any())
                             {
                                 method.AddInvocationStatement($"services.Configure<{this.GetTypeName(SqsPublisherOptionsTemplate.TemplateId)}>", inv => inv
@@ -92,14 +91,14 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsConfiguration
                                             var configKey = $"\"{publisher.QueueConfigurationName}\"";
                                             arg.AddStatement($"options.AddQueue<{messageType}>(configuration[{configKey}]!);");
                                         }
-                                    }));
+                                    })
+                                    .SeparatedFromNext());
                             }
 
-                            // Configure subscription options (metadata-driven)
+                            var subscriptions = IntegrationManager.Instance.GetAggregatedSqsSubscriptions(ExecutionContext.GetApplicationConfig().Id);
                             if (subscriptions.Any())
                             {
-                                method.AddStatement("");
-                                method.AddInvocationStatement($"services.Configure<{this.GetTypeName(SqsSubscriptionOptionsTemplate.TemplateId)}>", inv => inv
+                                method.AddInvocationStatement($"services.Configure<{GetTypeName(SqsSubscriptionOptionsTemplate.TemplateId)}>", inv => inv
                                     .AddArgument(new CSharpLambdaBlock("options"), arg =>
                                     {
                                         foreach (var subscription in subscriptions)
@@ -108,13 +107,12 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsConfiguration
                                             var handlerType = subscription.SubscriptionItem.GetSubscriberTypeName(this);
                                             arg.AddStatement($"options.Add<{messageType}, {handlerType}>();");
                                         }
-                                    }));
+                                    })
+                                    .SeparatedFromNext());
                             }
 
                             if (requiresCompositeMessageBus && publishers.Any())
                             {
-                                method.AddStatement("");
-                                method.AddStatement("// Register message types with the composite message bus registry");
                                 foreach (var publisher in publishers)
                                 {
                                     var messageType = publisher.GetModelTypeName(this);

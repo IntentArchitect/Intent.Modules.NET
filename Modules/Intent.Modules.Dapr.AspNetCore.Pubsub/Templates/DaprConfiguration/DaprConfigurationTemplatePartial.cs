@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Dapr.AspNetCore.Pubsub.Api;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Eventing.Api;
@@ -12,6 +13,7 @@ using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationCommand;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage;
@@ -89,15 +91,17 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.DaprConfiguration
             return GetPublishedMessages().Any();
         }
 
-        private IReadOnlyCollection<IElement> GetPublishedMessages()
+        private List<IElement> GetPublishedMessages()
         {
             var services = ExecutionContext.MetadataManager.Services(ExecutionContext.GetApplicationConfig().Id);
-            return services.GetMessageModels()
-                .SelectMany(x => x.IntegrationEventsSources().Select(y => y.InternalElement))
-                .Concat(services.GetIntegrationCommandModels()
-                    .SelectMany(x => x.IntegrationCommandSources()).Select(y => y.InternalElement))
-                .Distinct()
+
+            var messages = services.GetMessageModels().SelectMany(x => x.IntegrationEventsSources())
+                .Select(x => x.InternalElement)
+                .Where(x => x.IsMessageModel())
+                .FilterMessagesForThisMessageBroker(this, [MessageModelStereotypeExtensions.DaprSettings.DefinitionId])
                 .ToList();
+
+            return messages;
         }
 
         private string GetMessageTypeName(IElement message)

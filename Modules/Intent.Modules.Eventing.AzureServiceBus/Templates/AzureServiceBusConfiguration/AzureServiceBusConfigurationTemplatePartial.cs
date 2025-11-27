@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Eventing.AzureServiceBus.Api;
 using Intent.Metadata.Models;
 using Intent.Modelers.Eventing.Api;
 using Intent.Modelers.Services.Api;
@@ -73,8 +74,11 @@ public partial class AzureServiceBusConfigurationTemplate : CSharpTemplateBase<o
                     method.AddStatement($"services.AddSingleton<{this.GetAzureServiceBusMessageDispatcherName()}>();");
                     method.AddStatement(
                         $"services.AddSingleton<{this.GetAzureServiceBusMessageDispatcherInterfaceName()}, {this.GetAzureServiceBusMessageDispatcherName()}>();");
-
-                    var publishers = IntegrationManager.Instance.GetAggregatedPublishedAzureServiceBusItems(ExecutionContext.GetApplicationConfig().Id);
+                    
+                    var publishers = IntegrationManager.Instance.GetAggregatedPublishedAzureServiceBusItems(ExecutionContext.GetApplicationConfig().Id)
+                        .FilterMessagesForThisMessageBroker(this, [MessageModelStereotypeExtensions.AzureServiceBus.DefinitionId, IntegrationCommandModelStereotypeExtensions.AzureServiceBus.DefinitionId])
+                        .ToList();
+                    
                     if (publishers.Count != 0)
                     {
                         method.AddInvocationStatement($"services.Configure<{this.GetAzureServiceBusPublisherOptionsName()}>", inv => inv

@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using Intent.Eventing.AzureServiceBus.Api;
+using Intent.Metadata.Models;
 using Intent.Modelers.Eventing.Api;
 using Intent.Modules.Common.Templates;
 
@@ -84,4 +86,6 @@ internal record AzureServiceBusMessage : AzureServiceBusItemBase
     {
         return $"{template.GetTypeName("Intent.Eventing.Contracts.IntegrationEventHandlerInterface")}<{GetModelTypeName(template)}>";
     }
+
+    public override IEnumerable<IStereotype> Stereotypes => MessageModel.Stereotypes;
 }

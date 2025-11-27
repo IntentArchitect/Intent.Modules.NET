@@ -95,9 +95,7 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageC
 
                         mth.AddInvocationStatement($"services.Configure<{this.GetAzureQueueStorageSubscriptionOptionsName()}>", invoc =>
                         {
-
-
-                            if (subMessages.Count() + subCommands.Count() == 0)
+                            if (subMessages.Count + subCommands.Count == 0)
                             {
                                 invoc.AddArgument("options => {}");
                             }
@@ -127,19 +125,20 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageC
 
                         if (requiresCompositeMessageBus)
                         {
-                            var publishedMessages = this.GetPublishedMessages();
-                            var sentCommands = this.GetSentIntegrationCommands();
+                            var publishedMessages = this.GetPublishedMessages()
+                                .FilterMessagesForThisMessageBroker(this, [MessageModelStereotypeExtensions.AzureQueueStorage.DefinitionId])
+                                .ToList();
+                            var sentCommands = this.GetSentIntegrationCommands()
+                                .FilterMessagesForThisMessageBroker(this, [IntegrationCommandModelStereotypeExtensions.AzureQueueStorage.DefinitionId])
+                                .ToList();
                             
-                            if (publishedMessages.Any() || sentCommands.Any())
+                            if (publishedMessages.Count != 0 || sentCommands.Count != 0)
                             {
-                                mth.AddStatement("");
-                                mth.AddStatement("// Register message types with the composite message bus registry");
-                                
                                 foreach (var message in publishedMessages)
                                 {
                                     mth.AddStatement($"registry.Register<{GetTypeName(IntegrationEventMessageTemplate.TemplateId, message)}, {this.GetAzureQueueStorageEventBusName()}>();");
                                 }
-                                
+
                                 foreach (var command in sentCommands)
                                 {
                                     mth.AddStatement($"registry.Register<{GetTypeName(IntegrationCommandTemplate.TemplateId, command)}, {this.GetAzureQueueStorageEventBusName()}>();");

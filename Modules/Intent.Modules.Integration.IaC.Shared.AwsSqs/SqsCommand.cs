@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using Intent.Aws.Sqs.Api;
+using Intent.Metadata.Models;
 using Intent.Modelers.Eventing.Api;
 using Intent.Modules.Common.Templates;
 
@@ -74,4 +76,6 @@ internal record SqsCommand : SqsItemBase
     {
         return $"{template.GetTypeName("Intent.Eventing.Contracts.IntegrationEventHandlerInterface")}<{GetModelTypeName(template)}>";
     }
+
+    public override IEnumerable<IStereotype> Stereotypes => CommandModel.Stereotypes;
 }

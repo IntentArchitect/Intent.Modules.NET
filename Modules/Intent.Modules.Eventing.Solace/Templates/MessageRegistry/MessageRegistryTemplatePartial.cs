@@ -1,7 +1,9 @@
+#nullable enable
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Eventing.Solace.Api;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Eventing.Api;
@@ -50,16 +52,28 @@ namespace Intent.Modules.Eventing.Solace.Templates.MessageRegistry
                     @class.AddConstructor(ctor =>
                     {
                         ctor.AddParameter("IConfiguration", "configuration");
-                        ctor.AddStatements(@"var environmentPrefix = configuration[$""Solace:EnvironmentPrefix""] ?? """";
-			if (environmentPrefix != """")
-			{
-				if (!environmentPrefix.EndsWith(""/""))
-					environmentPrefix += ""/"";
-				_environmentPrefix = environmentPrefix;
-			}
-            LoadReplacementVariables(configuration);
-            RegisterMessageTypes();
-".ConvertToStatements());
+                        if (this.RequiresCompositeMessageBus())
+                        {
+                            ctor.AddParameter(this.GetMessageBrokerRegistryName(), "registry");
+                        }
+                        ctor.AddStatements("""
+                                           var environmentPrefix = configuration[$"Solace:EnvironmentPrefix"] ?? "";
+                                           	if (environmentPrefix != "")
+                                           	{
+                                           		if (!environmentPrefix.EndsWith("/"))
+                                           			environmentPrefix += "/";
+                                           		_environmentPrefix = environmentPrefix;
+                                           	}
+                                           LoadReplacementVariables(configuration);
+                                           """.ConvertToStatements());
+                        if (this.RequiresCompositeMessageBus())
+                        {
+                            ctor.AddStatement("RegisterMessageTypes(registry);");
+                        }
+                        else
+                        {
+                            ctor.AddStatement("RegisterMessageTypes();");
+                        }
                     });
 
                     @class.AddProperty($"IReadOnlyDictionary<Type, string>", "MessageTypes", p => p.ReadOnly().Getter.WithExpressionImplementation("_typeNameMap"));
@@ -69,11 +83,16 @@ namespace Intent.Modules.Eventing.Solace.Templates.MessageRegistry
                     @class.AddMethod("void", "RegisterMessageTypes", method =>
                     {
                         method.Private();
+                        if (this.RequiresCompositeMessageBus())
+                        {
+                            method.AddParameter(this.GetMessageBrokerRegistryName(), "registry");
+                        }
 
-                        if (_subscribedMessageModels.Any() || _publishedMessageModels.Any())
+                        if (_subscribedMessageModels.Count != 0 || _publishedMessageModels.Count != 0)
                         {
                             method.AddStatement("//Integration Events (Messages)");
                         }
+                        
                         var eventQueues = GetQueues(_subscribedMessageModels.Select(x => x.InternalElement), m => this.GetTypeName("Intent.Eventing.Contracts.IntegrationEventMessage", m.Id), true);
                         foreach (var queue in eventQueues)
                         {
@@ -124,10 +143,12 @@ namespace Intent.Modules.Eventing.Solace.Templates.MessageRegistry
                             }
                             method.AddStatement(invocation);
                         }
-                        if (_subscribedIntegrationCommandModels.Any() || _publishedIntegrationCommandModels.Any())
+                        
+                        if (_subscribedIntegrationCommandModels.Count != 0 || _publishedIntegrationCommandModels.Count != 0)
                         {
                             method.AddStatement("//Integration Commands");
                         }
+                        
                         var commandQueues = GetQueues(_subscribedIntegrationCommandModels.Select(x => x.InternalElement), m => this.GetTypeName("Intent.Eventing.Contracts.IntegrationCommand", m.Id), false);
                         foreach (var queue in commandQueues)
                         {
@@ -172,6 +193,20 @@ namespace Intent.Modules.Eventing.Solace.Templates.MessageRegistry
                                 invocation.AddArgument($"priority: {priority}");
                             }
                             method.AddStatement(invocation);
+                        }
+
+                        if (this.RequiresCompositeMessageBus())
+                        {
+                            foreach (var message in _publishedMessageModels)
+                            {
+                                var messageType = this.GetTypeName("Intent.Eventing.Contracts.IntegrationEventMessage", message.Id);
+                                method.AddStatement($"registry.Register<{messageType}, {this.GetSolaceEventBusName()}>();");
+                            }
+                            foreach (var command in _publishedIntegrationCommandModels)
+                            {
+                                var commandType = this.GetTypeName("Intent.Eventing.Contracts.IntegrationCommand", command.Id);
+                                method.AddStatement($"registry.Register<{commandType}, {this.GetSolaceEventBusName()}>();");
+                            }
                         }
                     });
 
@@ -477,6 +512,7 @@ namespace Intent.Modules.Eventing.Solace.Templates.MessageRegistry
             _publishedMessageModels = Enumerable.Empty<MessageModel>()
                     .Concat(serviceDesignerPubEvents)
                     .Concat(eventingDesignerPubEvents)
+                    .FilterMessagesForThisMessageBroker(this, [MessageModelStereotypeExtensions.Publishing.DefinitionId])
                     .OrderBy(x => x.Name)
                     .ToArray();
 
@@ -492,12 +528,12 @@ namespace Intent.Modules.Eventing.Solace.Templates.MessageRegistry
                 .ToArray();
 
             var serviceDesignerPubCommands = ExecutionContext.MetadataManager
-                .GetExplicitlySentIntegrationCommandDispatches(OutputTarget.Application.Id)
+                .GetExplicitlySentIntegrationCommandDispatches(ExecutionContext.GetApplicationConfig().Id)
                 .Select(x => x.TypeReference.Element.AsIntegrationCommandModel());
-
-
+            
             _publishedIntegrationCommandModels = Enumerable.Empty<IntegrationCommandModel>()
                     .Concat(serviceDesignerPubCommands)
+                    .FilterMessagesForThisMessageBroker(this, [IntegrationCommandModelStereotypeExtensions.Publishing.DefinitionId])
                     .OrderBy(x => x.Name)
                     .ToArray();
         }

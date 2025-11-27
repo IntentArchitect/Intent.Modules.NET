@@ -91,7 +91,17 @@ namespace Intent.Modules.Eventing.Solace.Templates.SolaceConfiguration
                         method.AddStatement("services.AddSingleton(session);");
                         method.AddStatement($"services.AddSingleton<{this.GetDispatchResolverName()}>();");
                         method.AddStatement($"services.AddSingleton<{this.GetMessageSerializerName()}>();");
-                        method.AddStatement($"services.AddSingleton<{this.GetMessageRegistryName()}>();");
+                        method.AddInvocationStatement("services.AddSingleton", singleton =>
+                        {
+                            singleton.AddArgument(new CSharpInvocationStatement($"new {this.GetMessageBrokerRegistryName()}"), registry =>
+                            {
+                                registry.AddArgument("configuration");
+                                if (requiresCompositeMessageBus)
+                                {
+                                    registry.AddArgument("registry");
+                                }
+                            });
+                        });
                         method.AddStatement($"services.AddHostedService<{this.GetSolaceConsumingServiceName()}>();");
                         method.AddStatement(
                             $"services.AddScoped(typeof({this.GetSolaceEventDispatcherInterfaceName()}<>),typeof({this.GetSolaceEventDispatcherName()}<>) );");

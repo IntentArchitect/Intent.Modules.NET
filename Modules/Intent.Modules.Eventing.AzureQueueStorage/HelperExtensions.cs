@@ -12,7 +12,7 @@ namespace Intent.Modules.Eventing.AzureQueueStorage;
 
 public static class HelperExtensions
 {
-    public static IEnumerable<string> GetSubscribeQueues(this IIntentTemplate template)
+    public static List<string> GetSubscribeQueues(this IIntentTemplate template)
     {
         var messageQueues = template.ExecutionContext.MetadataManager
                 .GetExplicitlySubscribedToMessageModels(template.OutputTarget.Application)
@@ -34,10 +34,10 @@ public static class HelperExtensions
             .Concat(commandQueues)
             .OrderBy(x => x)
             .Distinct()
-            .ToArray();
+            .ToList();
     }
     
-    public static IEnumerable<MessageModel> GetSubscribedMessages(this IIntentTemplate template)
+    public static List<MessageModel> GetSubscribedMessages(this IIntentTemplate template)
     {
         var serviceDesignerSubscribeMessages = template.ExecutionContext.MetadataManager
                 .GetExplicitlySubscribedToMessageModels(template.OutputTarget.Application);
@@ -52,12 +52,12 @@ public static class HelperExtensions
             .Concat(eventingDesignerSubscribedMessages)
             .OrderBy(x => x.Name)
             .Distinct()
-            .ToArray();
+            .ToList();
 
         return messageModels;
     }
 
-    public static IEnumerable<IntegrationCommandModel> GetSubscribedIntegrationCommands(this IIntentTemplate template)
+    public static List<IntegrationCommandModel> GetSubscribedIntegrationCommands(this IIntentTemplate template)
     {
         var serviceDesignerSubscribeCommands = template.ExecutionContext.MetadataManager
                 .GetExplicitlySubscribedToIntegrationCommandModels(template.OutputTarget.Application);
@@ -66,12 +66,12 @@ public static class HelperExtensions
             .Concat(serviceDesignerSubscribeCommands)
             .OrderBy(x => x.Name)
             .Distinct()
-            .ToArray();
+            .ToList();
 
         return commandModels;
     }
 
-    public static IEnumerable<MessageModel> GetPublishedMessages(this IIntentTemplate template)
+    public static List<MessageModel> GetPublishedMessages(this IIntentTemplate template)
     {
         var serviceDesignerPublishedMessages = template.ExecutionContext.MetadataManager
                 .GetExplicitlyPublishedMessageModels(template.OutputTarget.Application);
@@ -86,12 +86,12 @@ public static class HelperExtensions
             .Concat(eventingDesignerPublishedMessages)
             .OrderBy(x => x.Name)
             .Distinct()
-            .ToArray();
+            .ToList();
 
         return messageModels;
     }
 
-    public static IEnumerable<IntegrationCommandModel> GetSentIntegrationCommands(this IIntentTemplate template)
+    public static List<IntegrationCommandModel> GetSentIntegrationCommands(this IIntentTemplate template)
     {
         var serviceDesignerPublishedCommands = template.ExecutionContext.MetadataManager
                 .GetExplicitlySentIntegrationCommandModels(template.OutputTarget.Application);
@@ -100,7 +100,7 @@ public static class HelperExtensions
             .Concat(serviceDesignerPublishedCommands)
             .OrderBy(x => x.Name)
             .Distinct()
-            .ToArray();
+            .ToList();
 
         return commandModels;
     }

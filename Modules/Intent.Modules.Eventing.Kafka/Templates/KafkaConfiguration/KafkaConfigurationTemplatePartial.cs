@@ -70,6 +70,7 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaConfiguration
                 var messageModels = Enumerable.Empty<MessageModel>()
                     .Concat(serviceDesignerMessages)
                     .Concat(eventingDesignerMessages)
+                    .FilterMessagesForThisMessageBroker(this, [])
                     .OrderBy(x => x.Name)
                     .ToArray();
 

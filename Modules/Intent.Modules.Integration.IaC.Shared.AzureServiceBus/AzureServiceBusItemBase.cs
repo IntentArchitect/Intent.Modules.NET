@@ -1,8 +1,10 @@
+using System.Collections.Generic;
+using Intent.Metadata.Models;
 using Intent.Modules.Common.Templates;
 
 namespace Intent.Modules.Integration.IaC.Shared.AzureServiceBus;
 
-internal abstract record AzureServiceBusItemBase
+internal abstract record AzureServiceBusItemBase : IHasStereotypes
 {
     public string ApplicationId { get; init; }
     public string ApplicationName { get; init; }
@@ -14,4 +16,5 @@ internal abstract record AzureServiceBusItemBase
 
     public abstract string GetModelTypeName(IntentTemplateBase template);
     public abstract string GetSubscriberTypeName<T>(IntentTemplateBase<T> template);
+    public abstract IEnumerable<IStereotype> Stereotypes { get; }
 };

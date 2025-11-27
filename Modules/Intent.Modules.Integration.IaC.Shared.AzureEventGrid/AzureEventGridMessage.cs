@@ -1,10 +1,12 @@
+using System.Collections.Generic;
 using Intent.Eventing.AzureEventGrid.Api;
+using Intent.Metadata.Models;
 using Intent.Modelers.Eventing.Api;
 using Intent.Modules.Common.Templates;
 
 namespace Intent.Modules.Integration.IaC.Shared.AzureEventGrid;
 
-internal class AzureEventGridMessage
+internal class AzureEventGridMessage : IHasStereotypes
 {
     public AzureEventGridMessage(string ApplicationId, string ApplicationName, MessageModel MessageModel, AzureEventGridMethodType MethodType)
     {
@@ -24,6 +26,7 @@ internal class AzureEventGridMessage
             : null;
         DomainConfigurationKeyName = DomainName != null ? $"EventGrid:Domains:{DomainName.ToPascalCase()}:Key" : null;
         DomainConfigurationEndpointName = DomainName != null ? $"EventGrid:Domains:{DomainName.ToPascalCase()}:Endpoint" : null;
+        HasAzureEventGridStereotype = MessageModel.HasAzureEventGrid();
     }
 
     public MessageModel MessageModel { get; init; }
@@ -39,6 +42,7 @@ internal class AzureEventGridMessage
     public string? DomainName { get; init; }
     public string? DomainConfigurationKeyName { get; set; }
     public string? DomainConfigurationEndpointName { get; set; }
+    public bool HasAzureEventGridStereotype { get; init; }
 
     private string GetTopicConfigurationBaseName(MessageModel messageModel)
     {
@@ -63,4 +67,6 @@ internal class AzureEventGridMessage
     {
         return $"{template.GetTypeName("Intent.Eventing.Contracts.IntegrationEventHandlerInterface")}<{GetModelTypeName(template)}>";
     }
+
+    public IEnumerable<IStereotype> Stereotypes => MessageModel.Stereotypes;
 }

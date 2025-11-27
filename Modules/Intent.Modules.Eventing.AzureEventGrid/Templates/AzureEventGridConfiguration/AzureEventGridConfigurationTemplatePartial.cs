@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Eventing.AzureEventGrid.Api;
 using Intent.Modelers.Eventing.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.EventInteractions;
@@ -73,15 +74,16 @@ public partial class AzureEventGridConfigurationTemplate : CSharpTemplateBase<ob
 
                         method.AddStatement($"services.AddScoped<{this.GetAzureEventGridConsumerBehaviorInterfaceName()}, {this.GetInboundCloudEventBehaviorName()}>();", s => s.SeparatedFromPrevious());
                         
-                        var publishMessages = IntegrationManager.Instance.GetPublishedAzureEventGridMessages(ExecutionContext.GetApplicationConfig().Id);
+                        var publishMessages = IntegrationManager.Instance.GetPublishedAzureEventGridMessages(ExecutionContext.GetApplicationConfig().Id)
+                            .FilterMessagesForThisMessageBroker(this, [MessageModelStereotypeExtensions.AzureEventGrid.DefinitionId])
+                            .ToList();
+                        
                         if (publishMessages.Count != 0)
                         {
                             ConfigurePublisherOptions(method, publishMessages);
                             
                             if (requiresCompositeMessageBus)
                             {
-                                method.AddStatement("", s => s.SeparatedFromPrevious());
-                                method.AddStatement("// Register message types with the composite message bus registry");
                                 foreach (var publishMessage in publishMessages)
                                 {
                                     method.AddStatement($"registry.Register<{publishMessage.GetModelTypeName(this)}, {this.GetAzureEventGridEventBusName()}>();");
@@ -102,7 +104,7 @@ public partial class AzureEventGridConfigurationTemplate : CSharpTemplateBase<ob
                                 }));
                         }
 
-                        method.AddStatement("return services;");
+                        method.AddReturn("services", stmt => stmt.SeparatedFromPrevious());
                     });
             });
     }
