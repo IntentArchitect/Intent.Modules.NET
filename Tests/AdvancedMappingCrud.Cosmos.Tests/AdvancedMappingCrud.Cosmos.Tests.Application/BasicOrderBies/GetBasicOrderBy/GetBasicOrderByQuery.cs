@@ -10,7 +10,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.BasicOrderBies.GetBasicOr
 {
     public class GetBasicOrderByQuery : IRequest<PagedResult<BasicOrderByDto>>, IQuery
     {
-        public GetBasicOrderByQuery(int pageNo, int pageSize, string orderBy)
+        public GetBasicOrderByQuery(int pageNo = 1, int pageSize = 25, string orderBy = null)
         {
             PageNo = pageNo;
             PageSize = pageSize;

@@ -126,8 +126,8 @@ namespace AdvancedMappingCrudMongo.Tests.Api.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<PagedResult<CustomerDto>>> GetCustomersPaged(
-            [FromQuery] int pageNo,
-            [FromQuery] int pageSize,
+            [FromQuery] int pageNo = 5,
+            [FromQuery] int pageSize = 50,
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetCustomersPagedQuery(pageNo: pageNo, pageSize: pageSize), cancellationToken);

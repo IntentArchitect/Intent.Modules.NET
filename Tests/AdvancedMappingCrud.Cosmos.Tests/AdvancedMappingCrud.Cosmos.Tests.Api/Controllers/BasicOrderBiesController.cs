@@ -125,9 +125,9 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Api.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<PagedResult<BasicOrderByDto>>> GetBasicOrderBy(
-            [FromQuery] int pageNo,
-            [FromQuery] int pageSize,
-            [FromQuery] string orderBy,
+            [FromQuery] int pageNo = 1,
+            [FromQuery] int pageSize = 25,
+            [FromQuery] string orderBy = null,
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetBasicOrderByQuery(pageNo: pageNo, pageSize: pageSize, orderBy: orderBy), cancellationToken);

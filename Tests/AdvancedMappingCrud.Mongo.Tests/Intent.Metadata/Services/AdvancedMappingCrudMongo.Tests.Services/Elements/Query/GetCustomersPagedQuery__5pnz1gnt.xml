@@ -57,8 +57,9 @@
   <childElements>
     <childElement id="3f1199d9-e057-4420-8b73-c302c7e9129d" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>PageNo</name>
-      <display>PageNo: int</display>
+      <display>PageNo: int = 5</display>
       <isAbstract>false</isAbstract>
+      <value>5</value>
       <genericTypes />
       <typeReference id="009e0193-a5f0-4b5f-8680-4a92a330452e">
         <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
@@ -107,8 +108,9 @@
     </childElement>
     <childElement id="f09384b0-0458-49a2-b9e7-06adfa957ba9" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>PageSize</name>
-      <display>PageSize: int</display>
+      <display>PageSize: int = 50</display>
       <isAbstract>false</isAbstract>
+      <value>50</value>
       <genericTypes />
       <typeReference id="56e5415e-8e69-4f9f-a81d-e5ef9ea2bbee">
         <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
