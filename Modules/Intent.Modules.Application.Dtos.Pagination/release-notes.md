@@ -1,3 +1,7 @@
+### Version 4.1.4
+
+- Improvement: Added support for application-wide paging default values.
+
 ### Version 4.1.3
 
 - Improvement: Documentation and ProjectUrl link added.

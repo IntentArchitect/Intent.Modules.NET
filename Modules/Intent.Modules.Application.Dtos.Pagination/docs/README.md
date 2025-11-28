@@ -104,6 +104,15 @@ Often this is limited to the persistence technology you have chosen. However her
 - Extensions encapsulate converting a query into the correct wrapper reducing repetition.
 - DTO wrapping enforces consistent API responses and allows future augmentation (e.g., including server timing).
 
+## Pagination Defaults
+
+Default values for all paginated queries or operations can be set on the `Application Settings` screen.
+
+- **Page Size Default** - The default 'page size' to be applied to all paged services.
+- **Order By Default** - The default 'order by' to be applied to all paged services.
+
+If the service has been exposed as an HTTP Endpoint, then the defaults will also be applied to the controller and reflect on the OpenAPI documentation.
+
 ## Related Modules
 - **Intent.Application.Dtos** - Base DTO infrastructure
 - **Intent.Entities.Repositories.Api** - Repository patterns with pagination support

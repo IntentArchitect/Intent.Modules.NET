@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="58195f0a-e242-4886-a238-fadb50e7aa0b" type="Version Migration" typeId="03f24c57-66d8-4868-95a7-6daef900dc7f">
+  <name>4.1.4-pre.0</name>
+  <display>4.1.4-pre.0</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d07b5241-4f04-4b7d-a14a-9d8d22f6e1fe</parentFolderId>
+  <packageId>9baa3476-269d-4a87-a854-34e150a93bc8</packageId>
+  <packageName>Intent.Application.Dtos.Pagination</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
