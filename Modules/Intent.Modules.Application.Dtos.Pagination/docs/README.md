@@ -106,14 +106,16 @@ Often this is limited to the persistence technology you have chosen. However her
 
 ## Pagination Defaults
 
-Default values for all paginated queries or operations can be set on the `Application Settings` screen. Setting either one of these two values will result in the `pageNo` defaulting to 1.
+Default values for all paginated queries and operations can be configured on the **Application Settings** screen.  
 
-- **Page Size Default** - The default 'page size' to be applied to all paged services.
-- **Order By Default** - The default 'order by' to be applied to all paged services.
+If either of the pagination defaults is set, `pageNo` will automatically default to `1`.
 
-If the service has been exposed as an HTTP Endpoint, then the defaults will also be applied to the controller and reflect on the OpenAPI documentation.
+- **Page Size Default** – The default page size applied to all paged services.
+- **Order By Default** – The default sort (order by) applied to all paged services.
 
-> NOTE: The default values can be over-written on a specific `Query` or `Service Operation` by setting the `pageNo/pageSize/orderBy` field or parameter.
+If the service is exposed as an HTTP endpoint, these defaults are also applied to the controller and will be visible in the generated OpenAPI documentation.
+
+> **Note:** These defaults can be overridden on a specific `Query` or `Service Operation` by explicitly setting the `pageNo`, `pageSize`, or `orderBy` field/parameter.
 
 ## Related Modules
 - **Intent.Application.Dtos** - Base DTO infrastructure
