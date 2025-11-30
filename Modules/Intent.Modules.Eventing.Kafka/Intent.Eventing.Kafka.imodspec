@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.Kafka</id>
   <version>1.0.0-beta.34</version>
@@ -11,22 +11,6 @@
   <projectUrl>https://docs.intentarchitect.com/articles/modules-dotnet/intent-eventing-kafka/intent-eventing-kafka.html</projectUrl>
   <tags>csharp dotnet eventing kafka pubsub integration</tags>
   <templates>
-    <template id="Intent.Eventing.Kafka.IntegrationEventHandler" externalReference="95ed3df7-e1f2-4096-89fa-029303d591b6">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Application.Eventing.EventHandler</role>
-      <location>IntegrationEvents/EventHandlers</location>
-    </template>
-    <template id="Intent.Eventing.Kafka.IntegrationEventHandlerImplementation" externalReference="1e548eed-0a74-4cf8-bf46-c733c35b589d">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Application.Eventing.EventHandler</role>
-      <location>IntegrationEvents/EventHandlers</location>
-    </template>
     <template id="Intent.Eventing.Kafka.KafkaConfiguration" externalReference="bf314447-ab20-40fe-8e52-f5455b05093a">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />

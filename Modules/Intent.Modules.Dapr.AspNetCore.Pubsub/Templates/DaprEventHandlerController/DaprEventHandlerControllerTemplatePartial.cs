@@ -14,8 +14,8 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.UnitOfWork.Shared;
 using Intent.Modules.Constants;
-using Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.EventHandler;
 using Intent.Modules.Eventing.Contracts.Templates;
+using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventHandler;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -66,7 +66,7 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.DaprEventHandlerContro
                         });
 
                     //Service Designer
-                    var eventSubscriptionTemplates = ExecutionContext.FindTemplateInstances<EventHandlerTemplate>(TemplateDependency.OfType<EventHandlerTemplate>())
+                    var eventSubscriptionTemplates = ExecutionContext.FindTemplateInstances<IntegrationEventHandlerTemplate>(TemplateDependency.OfType<IntegrationEventHandlerTemplate>())
                         .ToArray();
                     if (eventSubscriptionTemplates.Length > 0)
                     {
@@ -146,7 +146,7 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.DaprEventHandlerContro
 
         public override bool CanRunTemplate()
         {
-            if (!ExecutionContext.FindTemplateInstances<EventHandlerTemplate>(TemplateDependency.OfType<EventHandlerTemplate>()).Any())
+            if (!ExecutionContext.FindTemplateInstances<IntegrationEventHandlerTemplate>(TemplateDependency.OfType<IntegrationEventHandlerTemplate>()).Any())
             {
                 return false;
             }

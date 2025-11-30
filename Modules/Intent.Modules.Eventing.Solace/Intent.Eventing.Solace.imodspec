@@ -35,22 +35,6 @@
       <role>Infrastructure.Eventing.DisptchResolver</role>
       <location>Eventing</location>
     </template>
-    <template id="Intent.Eventing.Solace.IntegrationEventHandler" externalReference="16549ad8-d7bf-415d-bb1e-6d5fb4f2361e">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Application.Eventing.EventHandler</role>
-      <location>IntegrationHandlers</location>
-    </template>
-    <template id="Intent.Eventing.Solace.IntegrationEventHandlerLegacy" externalReference="dd69c2cb-da21-4847-b0e6-942e812e2329">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Application.Eventing.EventHandler</role>
-      <location>IntegrationEvents/EventHandlers</location>
-    </template>
     <template id="Intent.Eventing.Solace.MessageRegistry" externalReference="114406f0-e77e-4ff5-ada0-38dbd22e7f14">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />

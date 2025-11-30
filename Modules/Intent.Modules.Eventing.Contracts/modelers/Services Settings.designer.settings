@@ -17,6 +17,38 @@
     "Intent.Eventing.MassTransit",
     "Intent.Eventing.Solace"
 ];
+// Make sure "MessageBusExtensions.cs" is updated too!
+const StereotypeIds = [
+  "dca28d4b-c277-4fb3-afe0-17f35ea8b59b", // Azure Event Grid
+  "84e5a563-953d-43f5-b2ca-a24ce3104e0b", // Azure Event Grid Folder Settings
+  "b440c77b-3bde-4a96-bcb6-3289a23e5b1d", // Event Domain
+  "7b57f640-600d-4b91-98a7-2a304c715f27", // Azure Queue Storage
+  "a9fcfa58-3b1d-4126-8bdc-26d441f9880c", // Azure Queue Storage Folder Settings
+  "32372bfd-d61a-4782-b542-427b0f6eb7b3", // Azure Queue Storage Package Settings
+].map(x =&gt; x.toLocaleLowerCase());
+
+function hasRelevantStereotype(modelElement) {
+    if (!modelElement) {
+        return false;
+    }
+
+    // Check the current element for any of the target stereotypes
+    const currentElementStereotypes = modelElement.getStereotypes();
+    const hasStereotype = currentElementStereotypes.some(s =&gt; StereotypeIds.indexOf(s.definitionId.toLocaleLowerCase()) &gt; -1);
+
+    if (hasStereotype) {
+        return true;
+    }
+
+    // Stop traversing if we hit the package/application level (or if getParent() returns null)
+    if (!modelElement.getParent) {
+        return false;
+    }
+    
+    // Check the parent recursively
+    return hasRelevantStereotype(modelElement.getParent());
+}
+
 const installedIds = application.installedModules
   .map(m =&gt; (m.id || '').trim())
   .filter(id =&gt; id.length &gt; 0);
@@ -28,7 +60,7 @@ if (installCount &lt;= 1) {
     return "";
 }
 
-if (element.getStereotypes().length === 0) {
+if (!hasRelevantStereotype(element)) {
     return "Multiple message brokers are detected, causing transport ambiguity. Please apply a specific Message Broker stereotype to explicitly bind this element to a provider.";
 }
 

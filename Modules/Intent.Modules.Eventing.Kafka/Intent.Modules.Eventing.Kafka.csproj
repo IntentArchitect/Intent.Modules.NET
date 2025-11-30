@@ -62,8 +62,6 @@
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
 
-  <Import Project="..\Intent.Modules.Eventing.Shared\Intent.Modules.Eventing.Shared.projitems" Label="Shared" />
-
   <!--<Import Project="..\Intent.Modules.UnitOfWork.Persistence.Shared\Intent.Modules.UnitOfWork.Persistence.Shared.projitems" Label="Shared" />-->
 
 </Project>

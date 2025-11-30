@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Intent.Modelers.Eventing.Api;
+using Intent.Modelers.Services.EventInteractions;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Eventing.Contracts.Templates.AssemblyAttributes;
@@ -9,6 +10,7 @@ using Intent.Modules.Eventing.Contracts.Templates.EventBusInterface;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationCommand;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventDto;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventEnum;
+using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventHandler;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventHandlerInterface;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage;
 using Intent.Modules.Eventing.Contracts.Templates.MessageBrokerRegistry;
@@ -72,6 +74,16 @@ namespace Intent.Modules.Eventing.Contracts.Templates
         public static string GetIntegrationEventEnumName(this IIntentTemplate template, EnumModel model)
         {
             return template.GetTypeName(IntegrationEventEnumTemplate.TemplateId, model);
+        }
+
+        public static string GetIntegrationEventHandlerName<T>(this IIntentTemplate<T> template) where T : IntegrationEventHandlerModel
+        {
+            return template.GetTypeName(IntegrationEventHandlerTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetIntegrationEventHandlerName(this IIntentTemplate template, IntegrationEventHandlerModel model)
+        {
+            return template.GetTypeName(IntegrationEventHandlerTemplate.TemplateId, model);
         }
 
         public static string GetIntegrationEventHandlerInterfaceName(this IIntentTemplate template)

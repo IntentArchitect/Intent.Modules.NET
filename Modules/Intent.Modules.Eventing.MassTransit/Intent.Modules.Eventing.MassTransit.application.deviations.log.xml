@@ -11,28 +11,5 @@
       <deviationsHash>918C58D82E037F27DA08C9480ED8D0CC66BE561AA43A3B7C8F256086D208D843</deviationsHash>
       <fileHash>6067CD7CD7460FDB7EFEF10CC93F79A83DCCECFC44031726941C5ACBD56BB3B7</fileHash>
     </file>
-    <file>
-      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f91a3b67-c1e4-4d0a-a64d-134a96b9a09a</correlationId>
-      <path>Intent.Modules.Eventing.MassTransit/Templates/IntegrationEventHandler/IntegrationEventHandlerTemplatePartial.cs</path>
-      <count>2</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2025-11-21T10:05:47.4715709Z</updatedAt>
-      <deviationsHash>6CACE7942DE62964007ED74A58069C356D9B319258E5BFDCF57FB71F5EC4D053</deviationsHash>
-      <fileHash>476663CFC722DE007A1DBF7B0BFA2F6CCAD1B44C9D4F565F83776D60AF0FC6C3</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#f91a3b67-c1e4-4d0a-a64d-134a96b9a09a</correlationId>
-      <path>Intent.Modules.Eventing.MassTransit/Templates/IntegrationEventHandler/IntegrationEventHandlerTemplateRegistration.cs</path>
-      <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-08-16T15:25:32.1908588Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-08-20T12:22:59.4421821Z</approvedAt>
-      <deviationsHash>42A145FB0B1FF8CB2FC4B8464F5CFB98BCCA9AEA58B27304BD0FB78ADF4293F7</deviationsHash>
-      <fileHash>C0D4334017D316FDA72DB8FE9A9A548DCB4A6075DC8238F62091D88CFCA213F2</fileHash>
-    </file>
   </files>
 </deviationsLog>

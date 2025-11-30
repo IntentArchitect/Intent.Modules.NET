@@ -2,11 +2,13 @@ using System.Collections.Generic;
 using Intent.Eventing.AzureEventGrid.Api;
 using Intent.Metadata.Models;
 using Intent.Modelers.Eventing.Api;
+using Intent.Modules.Common;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.Types.Api;
 
 namespace Intent.Modules.Integration.IaC.Shared.AzureEventGrid;
 
-internal class AzureEventGridMessage : IHasStereotypes
+internal class AzureEventGridMessage : IHasStereotypes, IHasName, IHasFolder, IElementWrapper
 {
     public AzureEventGridMessage(string ApplicationId, string ApplicationName, MessageModel MessageModel, AzureEventGridMethodType MethodType)
     {
@@ -51,11 +53,9 @@ internal class AzureEventGridMessage : IHasStereotypes
         return $"{prefix}{topic.ToPascalCase()}";
     }
     
-    
-
     private string GetTopicName(MessageModel messageModel)
     {
-        return messageModel.GetAzureEventGrid()?.TopicName() ?? "NO TOPIC";
+        return messageModel.GetAzureEventGrid()?.TopicName() ?? messageModel.Name.ToKebabCase();
     }
     
     public string GetModelTypeName(IntentTemplateBase template)
@@ -69,4 +69,10 @@ internal class AzureEventGridMessage : IHasStereotypes
     }
 
     public IEnumerable<IStereotype> Stereotypes => MessageModel.Stereotypes;
+
+    public string Name => MessageModel.Name;
+
+    public FolderModel Folder => MessageModel.Folder;
+
+    public IElement InternalElement => MessageModel.InternalElement;
 }

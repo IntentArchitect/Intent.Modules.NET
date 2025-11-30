@@ -2,19 +2,6 @@
 <deviationsLog>
   <files>
     <file>
-      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#6b82e377-cab9-4814-845c-02e4e5b3fe66</correlationId>
-      <path>Intent.Modules.Eventing.AzureServiceBus/Templates/IntegrationEventHandler/IntegrationEventHandlerTemplatePartial.cs</path>
-      <count>2</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2025-04-03T14:44:44.4961147Z</updatedAt>
-      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
-      <approvedAt>2025-04-05T15:48:09.7427315Z</approvedAt>
-      <deviationsHash>4EEFE1D7FE9BDCF8E90A4B84D40386F366093C99F30DD64CACB7BD742AABF3CE</deviationsHash>
-      <fileHash>A9A61EA5EA9B25EAFB8FCB505FA918988E3C8DFA193983DFC642EBBDBD2472D6</fileHash>
-    </file>
-    <file>
       <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions</correlationId>
       <path>Intent.Modules.Eventing.AzureServiceBus/Templates/TemplateExtensions.cs</path>
       <count>1</count>
@@ -22,7 +9,7 @@
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
       <updatedAt>2025-06-12T15:31:25.5606599Z</updatedAt>
       <deviationsHash>BCEEF60FCA4E5C04AF82D0DF102E62111DA338C70D7B6590BE040F971C582130</deviationsHash>
-      <fileHash>EE24E8DFBC30A54C81B55833D84BF26A193928EAACC58208979E98B2B0A93AFF</fileHash>
+      <fileHash>79D79E88720A9EFAEDC9797D33E5B3BB1C0A4426CA4B4026C7EB0B57A6B50110</fileHash>
     </file>
   </files>
 </deviationsLog>

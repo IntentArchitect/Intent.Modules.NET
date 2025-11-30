@@ -26,8 +26,6 @@
     <ProjectReference Include="..\Intent.Modules.Eventing.Contracts\Intent.Modules.Eventing.Contracts.csproj" PrivateAssets="All" />
   </ItemGroup>
 
-  <Import Project="..\Intent.Modules.Eventing.Shared\Intent.Modules.Eventing.Shared.projitems" Label="Shared" />
-
   <ItemGroup>
     <Compile Include="..\Intent.Modules.Eventing.AzureEventGrid\Api\MessageModelStereotypeExtensions.cs" Link="AzureEventGridApi\MessageModelStereotypeExtensions.cs" />
   </ItemGroup>

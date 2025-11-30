@@ -28,6 +28,4 @@
 	  <Folder Include="docs\images\" />
 	</ItemGroup>
 
-	<Import Project="..\Intent.Modules.Eventing.Shared\Intent.Modules.Eventing.Shared.projitems" Label="Shared" />
-
 </Project>

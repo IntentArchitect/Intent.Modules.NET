@@ -1,12 +1,8 @@
 using System.Collections.Generic;
-using Intent.Modelers.Eventing.Api;
-using Intent.Modelers.Services.EventInteractions;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Eventing.Solace.Templates.BaseMessage;
 using Intent.Modules.Eventing.Solace.Templates.BaseMessageConverter;
 using Intent.Modules.Eventing.Solace.Templates.DispatchResolver;
-using Intent.Modules.Eventing.Solace.Templates.IntegrationEventHandler;
-using Intent.Modules.Eventing.Solace.Templates.IntegrationEventHandlerLegacy;
 using Intent.Modules.Eventing.Solace.Templates.MessageRegistry;
 using Intent.Modules.Eventing.Solace.Templates.MessageSerializer;
 using Intent.Modules.Eventing.Solace.Templates.SolaceConfiguration;
@@ -37,25 +33,6 @@ namespace Intent.Modules.Eventing.Solace.Templates
         public static string GetDispatchResolverName(this IIntentTemplate template)
         {
             return template.GetTypeName(DispatchResolverTemplate.TemplateId);
-        }
-        public static string GetIntegrationEventHandlerName<T>(this IIntentTemplate<T> template) where T : IntegrationEventHandlerModel
-        {
-            return template.GetTypeName(IntegrationEventHandlerTemplate.TemplateId, template.Model);
-        }
-
-        public static string GetIntegrationEventHandlerName(this IIntentTemplate template, IntegrationEventHandlerModel model)
-        {
-            return template.GetTypeName(IntegrationEventHandlerTemplate.TemplateId, model);
-        }
-
-        public static string GetIntegrationEventHandlerLegacyName<T>(this IIntentTemplate<T> template) where T : MessageSubscribeAssocationTargetEndModel
-        {
-            return template.GetTypeName(IntegrationEventHandlerLegacyTemplate.TemplateId, template.Model);
-        }
-
-        public static string GetIntegrationEventHandlerLegacyName(this IIntentTemplate template, MessageSubscribeAssocationTargetEndModel model)
-        {
-            return template.GetTypeName(IntegrationEventHandlerLegacyTemplate.TemplateId, model);
         }
 
         public static string GetMessageRegistryName(this IIntentTemplate template)

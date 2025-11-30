@@ -26,6 +26,5 @@
   </ItemGroup>
 
   <Import Project="..\Intent.Modules.Integration.IaC.Shared.AwsSqs\Intent.Modules.Integration.IaC.Shared.AwsSqs.projitems" Label="Shared" />
-  <Import Project="..\Intent.Modules.Eventing.Shared\Intent.Modules.Eventing.Shared.projitems" Label="Shared" />
 
 </Project>

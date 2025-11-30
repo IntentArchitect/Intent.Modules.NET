@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.AzureEventGrid</id>
   <version>1.2.4-pre.1</version>
@@ -24,7 +24,7 @@
       <role>Infrastructure.DependencyInjection.AzureEventGrid</role>
       <location>Configuration</location>
     </template>
-    <template id="Intent.Eventing.AzureEventGrid.AzureEventGridEventBus" externalReference="764494e1-c037-4eb3-b825-207b611be042">
+    <template id="Intent.Eventing.AzureEventGrid.AzureEventGridMessageBus" externalReference="764494e1-c037-4eb3-b825-207b611be042">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
@@ -96,14 +96,6 @@
       <role>Infrastructure.Eventing.InboundCloudEventBehavior</role>
       <location>Eventing/AzureEventGridBehaviors</location>
     </template>
-    <template id="Intent.Eventing.AzureEventGrid.IntegrationEventHandler" externalReference="f2148016-efbc-439d-8687-89b32fdc1366">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Application.Eventing.EventHandler</role>
-      <location>IntegrationEvents/EventHandlers</location>
-    </template>
   </templates>
   <decorators></decorators>
   <factoryExtensions>
@@ -137,7 +129,6 @@
   <moduleSettingsExtensions />
   <metadata>
     <install target="Services" src="Intent.Metadata/Module Builder/Intent.Eventing.AzureEventGrid/Intent.Eventing.AzureEventGrid.pkg.config" externalReference="484120b4-6231-4c94-aa60-61efe5c783a7" />
-    <install target="Services" src="modelers/Azure Event Grid Settings.designer.settings" externalReference="7e39f655-35a0-45a4-9c00-e92bef2f9196" />
   </metadata>
   <migrations />
 </package>

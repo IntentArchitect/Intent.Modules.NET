@@ -183,6 +183,4 @@
 
   <Import Project="..\Intent.Modules.EntityFrameworkCore.Shared\Intent.Modules.EntityFrameworkCore.Shared.projitems" Label="Shared" />
 
-  <Import Project="..\Intent.Modules.Eventing.Shared\Intent.Modules.Eventing.Shared.projitems" Label="Shared" />
-
 </Project>

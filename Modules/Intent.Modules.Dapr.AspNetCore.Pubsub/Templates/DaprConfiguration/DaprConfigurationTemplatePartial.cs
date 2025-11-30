@@ -54,20 +54,20 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.DaprConfiguration
                         if (requiresCompositeMessageBus)
                         {
                             method.AddParameter(this.GetMessageBrokerRegistryName(), "registry");
-                            method.AddStatement($"services.AddScoped<{this.GetDaprEventBusName()}>();", s => s.SeparatedFromNext());
+                            method.AddStatement($"services.AddScoped<{this.GetDaprMessageBusName()}>();", s => s.SeparatedFromNext());
                         }
                         else
                         {
                             var busInterface = this.GetBusInterfaceName();
-                            method.AddStatement($"services.AddScoped<{this.GetDaprEventBusName()}>();", s => s.SeparatedFromNext());
-                            method.AddStatement($"services.AddScoped<{busInterface}, {this.GetDaprEventBusName()}>();", s => s.SeparatedFromNext());
+                            method.AddStatement($"services.AddScoped<{this.GetDaprMessageBusName()}>();", s => s.SeparatedFromNext());
+                            method.AddStatement($"services.AddScoped<{busInterface}, {this.GetDaprMessageBusName()}>();", s => s.SeparatedFromNext());
                         }
 
                         if (requiresCompositeMessageBus && publishedMessages.Any())
                         {
                             foreach (var message in publishedMessages)
                             {
-                                method.AddStatement($"registry.Register<{GetMessageTypeName(message)}, {this.GetDaprEventBusName()}>();");
+                                method.AddStatement($"registry.Register<{GetMessageTypeName(message)}, {this.GetDaprMessageBusName()}>();");
                             }
                         }
 

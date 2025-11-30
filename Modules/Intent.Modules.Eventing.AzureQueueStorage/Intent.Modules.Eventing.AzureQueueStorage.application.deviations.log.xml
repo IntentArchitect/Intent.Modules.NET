@@ -1,15 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files>
-    <file>
-      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#9c36bf3d-d160-43fa-a0f6-f643552aea59</correlationId>
-      <path>Intent.Modules.Eventing.AzureQueueStorage/Templates/IntegrationEventHandler/IntegrationEventHandlerTemplatePartial.cs</path>
-      <count>2</count>
-      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2025-10-23T17:15:08.7268152Z</updatedAt>
-      <deviationsHash>BE502B15295EDE70065F734F6DC13376DE021AF5C048271D0EDC922B96F9A00B</deviationsHash>
-      <fileHash>E47E54EFD6AFE4D8B4EB850C548B025C0761F4A6B32407F6954FBCAB3AF7FA71</fileHash>
-    </file>
-  </files>
+  <files />
 </deviationsLog>

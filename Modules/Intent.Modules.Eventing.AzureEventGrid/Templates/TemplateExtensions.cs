@@ -1,9 +1,8 @@
 using System.Collections.Generic;
-using Intent.Modelers.Services.EventInteractions;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridBehavior;
 using Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridConfiguration;
-using Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridEventBus;
+using Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridMessageBus;
 using Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridMessageDispatcher;
 using Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridMessageDispatcherInterface;
 using Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridPipeline;
@@ -12,7 +11,6 @@ using Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridSubscriptio
 using Intent.Modules.Eventing.AzureEventGrid.Templates.EventContext;
 using Intent.Modules.Eventing.AzureEventGrid.Templates.EventContextInterface;
 using Intent.Modules.Eventing.AzureEventGrid.Templates.InboundCloudEventBehavior;
-using Intent.Modules.Eventing.AzureEventGrid.Templates.IntegrationEventHandler;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -49,9 +47,9 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates
             return template.GetTypeName(AzureEventGridConfigurationTemplate.TemplateId);
         }
 
-        public static string GetAzureEventGridEventBusName(this IIntentTemplate template)
+        public static string GetAzureEventGridMessageBusName(this IIntentTemplate template)
         {
-            return template.GetTypeName(AzureEventGridEventBusTemplate.TemplateId);
+            return template.GetTypeName(AzureEventGridMessageBusTemplate.TemplateId);
         }
 
         public static string GetAzureEventGridMessageDispatcherName(this IIntentTemplate template)
@@ -108,16 +106,6 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates
         public static string GetInboundCloudEventBehaviorName(this IIntentTemplate template)
         {
             return template.GetTypeName(InboundCloudEventBehaviorTemplate.TemplateId);
-        }
-
-        public static string GetIntegrationEventHandlerName<T>(this IIntentTemplate<T> template) where T : IntegrationEventHandlerModel
-        {
-            return template.GetTypeName(IntegrationEventHandlerTemplate.TemplateId, template.Model);
-        }
-
-        public static string GetIntegrationEventHandlerName(this IIntentTemplate template, IntegrationEventHandlerModel model)
-        {
-            return template.GetTypeName(IntegrationEventHandlerTemplate.TemplateId, model);
         }
 
     }

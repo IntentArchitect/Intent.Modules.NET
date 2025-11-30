@@ -88,14 +88,6 @@
       <role>Infrastructure.DependencyInjection.AzureQueueStorageSubscriptionOptions</role>
       <location>Configuration</location>
     </template>
-    <template id="Intent.Eventing.AzureQueueStorage.IntegrationEventHandler" externalReference="9c36bf3d-d160-43fa-a0f6-f643552aea59">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Application.Eventing.EventHandler</role>
-      <location>IntegrationEvents/EventHandlers</location>
-    </template>
   </templates>
   <decorators></decorators>
   <factoryExtensions />

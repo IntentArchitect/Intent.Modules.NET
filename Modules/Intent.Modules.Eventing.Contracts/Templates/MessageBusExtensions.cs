@@ -11,6 +11,7 @@ using Intent.Modules.Eventing.Contracts.Settings;
 using Intent.Modules.Eventing.Contracts.Templates.CompositeMessageBusConfiguration;
 using Intent.Modules.Eventing.Contracts.Templates.EventBusInterface;
 using Intent.Modules.Eventing.Contracts.Templates.MessageBusInterface;
+using Intent.Utils;
 
 namespace Intent.Modules.Eventing.Contracts.Templates;
 
@@ -155,7 +156,7 @@ public static class MessageBusExtensions
             {
                 yield return element;
             }
-            else if (element.Stereotypes.Any())
+            else if (!HasKnownStereotype(element))
             {
                 messagesNotSpecified.Add(element);
             }
@@ -170,8 +171,29 @@ public static class MessageBusExtensions
             .Select(x => x is IHasName named ? named.Name : x.ToString())
             .ToList();
 
-        throw new Exception(
-            $"The following message models must specify a message broker stereotype when multiple message bus implementations are present: {string.Join(", ", names)}");
+
+        var message =
+            $"The following message models must specify a message broker stereotype when multiple message bus implementations are present: {string.Join(", ", names)}";
+        
+        Logging.Log.Failure(message);
+        
+        throw new Exception(message);
+    }
+
+    // Until we have a better way to do this, we're hardcoding the message broker stereotypes we know about.
+    private static bool HasKnownStereotype<T>(T element)
+        where T : IHasStereotypes
+    {
+        // Make sure Message Extension Validation Script is updated too!
+        string[] stereotypeIds = [
+            "dca28d4b-c277-4fb3-afe0-17f35ea8b59b", // Azure Event Grid
+            "84e5a563-953d-43f5-b2ca-a24ce3104e0b", // Azure Event Grid Folder Settings
+            "b440c77b-3bde-4a96-bcb6-3289a23e5b1d", // Event Domain
+            "7b57f640-600d-4b91-98a7-2a304c715f27", // Azure Queue Storage
+            "a9fcfa58-3b1d-4126-8bdc-26d441f9880c", // Azure Queue Storage Folder Settings
+            "32372bfd-d61a-4782-b542-427b0f6eb7b3", // Azure Queue Storage Package Settings
+        ];
+        return HasMatchingStereotype(element, stereotypeIds);
     }
 
     /// <summary>

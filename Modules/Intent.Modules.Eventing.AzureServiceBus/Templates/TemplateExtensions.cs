@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Intent.Modelers.Services.EventInteractions;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusConfiguration;
 using Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusEventBus;
@@ -8,7 +7,6 @@ using Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusMessageDi
 using Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusMessageDispatcherInterface;
 using Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusPublisherOptions;
 using Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusSubscriptionOptions;
-using Intent.Modules.Eventing.AzureServiceBus.Templates.IntegrationEventHandler;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -52,16 +50,6 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates
         public static string GetAzureServiceBusSubscriptionOptionsName(this IIntentTemplate template)
         {
             return template.GetTypeName(AzureServiceBusSubscriptionOptionsTemplate.TemplateId);
-        }
-
-        public static string GetIntegrationEventHandlerName<T>(this IIntentTemplate<T> template) where T : IntegrationEventHandlerModel
-        {
-            return template.GetTypeName(IntegrationEventHandlerTemplate.TemplateId, template.Model);
-        }
-
-        public static string GetIntegrationEventHandlerName(this IIntentTemplate template, IntegrationEventHandlerModel model)
-        {
-            return template.GetTypeName(IntegrationEventHandlerTemplate.TemplateId, model);
         }
 
         [IntentIgnore]

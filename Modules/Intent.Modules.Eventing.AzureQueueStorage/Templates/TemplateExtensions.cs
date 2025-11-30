@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Intent.Modelers.Services.EventInteractions;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageConfiguration;
 using Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageConsumer;
@@ -11,7 +10,6 @@ using Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageEvent
 using Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageEventDispatcherInterface;
 using Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageOptions;
 using Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageSubscriptionOptions;
-using Intent.Modules.Eventing.AzureQueueStorage.Templates.IntegrationEventHandler;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -69,16 +67,6 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates
         public static string GetAzureQueueStorageSubscriptionOptionsName(this IIntentTemplate template)
         {
             return template.GetTypeName(AzureQueueStorageSubscriptionOptionsTemplate.TemplateId);
-        }
-
-        public static string GetIntegrationEventHandlerName<T>(this IIntentTemplate<T> template) where T : IntegrationEventHandlerModel
-        {
-            return template.GetTypeName(IntegrationEventHandlerTemplate.TemplateId, template.Model);
-        }
-
-        public static string GetIntegrationEventHandlerName(this IIntentTemplate template, IntegrationEventHandlerModel model)
-        {
-            return template.GetTypeName(IntegrationEventHandlerTemplate.TemplateId, model);
         }
 
 

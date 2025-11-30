@@ -29,8 +29,6 @@
   <ItemGroup>
     <Folder Include="docs\images\" />
   </ItemGroup>
-
-  <Import Project="..\Intent.Modules.Eventing.Shared\Intent.Modules.Eventing.Shared.projitems" Label="Shared" />
   <!--<Import Project="..\Intent.Modules.UnitOfWork.Persistence.Shared\Intent.Modules.UnitOfWork.Persistence.Shared.projitems" Label="Shared" />-->
 
 </Project>

@@ -55,14 +55,14 @@ public partial class AzureEventGridConfigurationTemplate : CSharpTemplateBase<ob
 
                         if (requiresCompositeMessageBus)
                         {
-                            method.AddStatement($"services.AddScoped<{this.GetAzureEventGridEventBusName()}>();");
+                            method.AddStatement($"services.AddScoped<{this.GetAzureEventGridMessageBusName()}>();");
                         }
                         else
                         {
                             var busInterface = this.GetBusInterfaceName();
                             
-                            method.AddStatement($"services.AddScoped<{this.GetAzureEventGridEventBusName()}>();");
-                            method.AddStatement($"services.AddScoped<{busInterface}>(provider => provider.GetRequiredService<{this.GetAzureEventGridEventBusName()}>());");
+                            method.AddStatement($"services.AddScoped<{this.GetAzureEventGridMessageBusName()}>();");
+                            method.AddStatement($"services.AddScoped<{busInterface}>(provider => provider.GetRequiredService<{this.GetAzureEventGridMessageBusName()}>());");
                         }
                         method.AddStatement($"services.AddSingleton<{this.GetAzureEventGridMessageDispatcherName()}>();");
                         method.AddStatement($"services.AddSingleton<{this.GetAzureEventGridMessageDispatcherInterfaceName()}, {this.GetAzureEventGridMessageDispatcherName()}>();");
@@ -74,8 +74,14 @@ public partial class AzureEventGridConfigurationTemplate : CSharpTemplateBase<ob
 
                         method.AddStatement($"services.AddScoped<{this.GetAzureEventGridConsumerBehaviorInterfaceName()}, {this.GetInboundCloudEventBehaviorName()}>();", s => s.SeparatedFromPrevious());
                         
+                        string[] azEvtStereotypes = [
+                            MessageModelStereotypeExtensions.AzureEventGrid.DefinitionId,
+                            EventingPackageModelStereotypeExtensions.EventDomain.DefinitionId,
+                            FolderModelStereotypeExtensions.AzureEventGridFolderSettings.DefinitionId
+                        ];
+                        
                         var publishMessages = IntegrationManager.Instance.GetPublishedAzureEventGridMessages(ExecutionContext.GetApplicationConfig().Id)
-                            .FilterMessagesForThisMessageBroker(this, [MessageModelStereotypeExtensions.AzureEventGrid.DefinitionId])
+                            .FilterMessagesForThisMessageBroker(this, azEvtStereotypes)
                             .ToList();
                         
                         if (publishMessages.Count != 0)
@@ -86,12 +92,14 @@ public partial class AzureEventGridConfigurationTemplate : CSharpTemplateBase<ob
                             {
                                 foreach (var publishMessage in publishMessages)
                                 {
-                                    method.AddStatement($"registry.Register<{publishMessage.GetModelTypeName(this)}, {this.GetAzureEventGridEventBusName()}>();");
+                                    method.AddStatement($"registry.Register<{publishMessage.GetModelTypeName(this)}, {this.GetAzureEventGridMessageBusName()}>();");
                                 }
                             }
                         }
-                            
-                        var eventHandlers = IntegrationManager.Instance.GetSubscribedAzureEventGridMessages(ExecutionContext.GetApplicationConfig().Id);
+                        
+                        var eventHandlers = IntegrationManager.Instance.GetSubscribedAzureEventGridMessages(ExecutionContext.GetApplicationConfig().Id)
+                            .FilterMessagesForThisMessageBroker(this, azEvtStereotypes)
+                            .ToList();
                         if (eventHandlers.Count != 0)
                         {
                             method.AddInvocationStatement($"services.Configure<{this.GetAzureEventGridSubscriptionOptionsName()}>", inv => inv

@@ -1,4 +1,4 @@
-Microsoft Visual Studio Solution File, Format Version 12.00
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
 VisualStudioVersion = 18.0.11104.47
 MinimumVisualStudioVersion = 10.0.40219.1
@@ -237,8 +237,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Bugsnag", "Intent.Modules.Bugsnag\Intent.Modules.Bugsnag.csproj", "{A5D6D94F-98EA-425D-B7B7-52BF2AA44E62}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Eventing.Kafka", "Intent.Modules.Eventing.Kafka\Intent.Modules.Eventing.Kafka.csproj", "{A62D0C8F-724C-42A8-81F0-D930A724244E}"
-EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intent.Modules.Eventing.Shared", "Intent.Modules.Eventing.Shared\Intent.Modules.Eventing.Shared.shproj", "{57C3C1AD-5CF7-4E51-8B9A-860B11FF7196}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.DistributedCaching", "Intent.Modules.AspNetCore.DistributedCaching\Intent.Modules.AspNetCore.DistributedCaching.csproj", "{6755D512-DE99-44B6-B3B8-29BC0878EE25}"
 EndProject
@@ -1217,7 +1215,6 @@ Global
 		{7EC0323E-9CCC-4A06-8C4E-8E5BC996BF64} = {74EC6AD3-A4E8-4182-AE46-D649EF7E1090}
 		{A5D6D94F-98EA-425D-B7B7-52BF2AA44E62} = {06CBED72-FCB9-4F68-B410-0D6974A98B9A}
 		{A62D0C8F-724C-42A8-81F0-D930A724244E} = {408AB16B-0F81-405E-A39A-A052297CEF9C}
-		{57C3C1AD-5CF7-4E51-8B9A-860B11FF7196} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{6755D512-DE99-44B6-B3B8-29BC0878EE25} = {F75494CA-24E5-4CF2-8123-55A41BC20BC6}
 		{97A4546B-440F-472D-910E-475B0E90B26B} = {CB4522ED-5D9E-4388-8859-20415CC7F7E6}
 		{A1838A89-12C1-4144-A8F0-86D9BEB3437B} = {F75494CA-24E5-4CF2-8123-55A41BC20BC6}

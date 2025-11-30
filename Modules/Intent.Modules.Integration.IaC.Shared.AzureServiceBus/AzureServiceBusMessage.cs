@@ -4,6 +4,7 @@ using Intent.Eventing.AzureServiceBus.Api;
 using Intent.Metadata.Models;
 using Intent.Modelers.Eventing.Api;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.Types.Api;
 
 namespace Intent.Modules.Integration.IaC.Shared.AzureServiceBus;
 
@@ -88,4 +89,10 @@ internal record AzureServiceBusMessage : AzureServiceBusItemBase
     }
 
     public override IEnumerable<IStereotype> Stereotypes => MessageModel.Stereotypes;
+
+    public override string Name => MessageModel.Name;
+
+    public override FolderModel Folder => MessageModel.Folder;
+
+    public override IElement InternalElement => MessageModel.InternalElement;
 }

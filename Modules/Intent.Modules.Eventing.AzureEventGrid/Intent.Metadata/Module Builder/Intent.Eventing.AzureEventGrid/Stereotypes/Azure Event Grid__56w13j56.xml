@@ -26,8 +26,8 @@
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder>(required)</placeholder>
-      <isRequiredFunction>return true;</isRequiredFunction>
+      <placeholder>(default)</placeholder>
+      <isRequiredFunction>return false;</isRequiredFunction>
     </property>
   </properties>
 </stereotypeDefinition>

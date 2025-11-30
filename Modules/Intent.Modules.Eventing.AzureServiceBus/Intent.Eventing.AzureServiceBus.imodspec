@@ -64,14 +64,6 @@
       <role>Infrastructure.DependencyInjection.SubscriptionOptions</role>
       <location>Configuration</location>
     </template>
-    <template id="Intent.Eventing.AzureServiceBus.IntegrationEventHandler" externalReference="6b82e377-cab9-4814-845c-02e4e5b3fe66">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Application.Eventing.EventHandler</role>
-      <location>IntegrationEvents/EventHandlers</location>
-    </template>
   </templates>
   <decorators></decorators>
   <factoryExtensions>

@@ -1,9 +1,5 @@
 using System.Collections.Generic;
-using Intent.Modelers.Eventing.Api;
-using Intent.Modelers.Services.EventInteractions;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Eventing.Kafka.Templates.IntegrationEventHandler;
-using Intent.Modules.Eventing.Kafka.Templates.IntegrationEventHandlerImplementation;
 using Intent.Modules.Eventing.Kafka.Templates.KafkaConfiguration;
 using Intent.Modules.Eventing.Kafka.Templates.KafkaConsumer;
 using Intent.Modules.Eventing.Kafka.Templates.KafkaConsumerBackgroundService;
@@ -23,25 +19,6 @@ namespace Intent.Modules.Eventing.Kafka.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetIntegrationEventHandlerName<T>(this IIntentTemplate<T> template) where T : IntegrationEventHandlerModel
-        {
-            return template.GetTypeName(IntegrationEventHandlerTemplate.TemplateId, template.Model);
-        }
-
-        public static string GetIntegrationEventHandlerName(this IIntentTemplate template, IntegrationEventHandlerModel model)
-        {
-            return template.GetTypeName(IntegrationEventHandlerTemplate.TemplateId, model);
-        }
-
-        public static string GetIntegrationEventHandlerImplementationName<T>(this IIntentTemplate<T> template) where T : MessageSubscribeAssocationTargetEndModel
-        {
-            return template.GetTypeName(IntegrationEventHandlerImplementationTemplate.TemplateId, template.Model);
-        }
-
-        public static string GetIntegrationEventHandlerImplementationName(this IIntentTemplate template, MessageSubscribeAssocationTargetEndModel model)
-        {
-            return template.GetTypeName(IntegrationEventHandlerImplementationTemplate.TemplateId, model);
-        }
 
         public static string GetKafkaConfigurationName(this IIntentTemplate template)
         {

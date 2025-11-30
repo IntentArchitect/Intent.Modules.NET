@@ -50,8 +50,19 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageC
                 {
                     @class.Static();
 
-                    var subMessages = this.GetSubscribedMessages();
-                    var subCommands = this.GetSubscribedIntegrationCommands();
+                    string[] queueStorageStereotypeIds = 
+                    [
+                        MessageModelStereotypeExtensions.AzureQueueStorage.DefinitionId,
+                        FolderModelStereotypeExtensions.AzureQueueStorageFolderSettings.DefinitionId,
+                        EventingPackageModelStereotypeExtensions.AzureQueueStoragePackageSettings.DefinitionId
+                    ];
+                    
+                    var subMessages = this.GetSubscribedMessages()
+                        .FilterMessagesForThisMessageBroker(this, queueStorageStereotypeIds)
+                        .ToList();
+                    var subCommands = this.GetSubscribedIntegrationCommands()
+                        .FilterMessagesForThisMessageBroker(this, queueStorageStereotypeIds)
+                        .ToList();
 
                     @class.AddMethod(UseType("Microsoft.Extensions.DependencyInjection.IServiceCollection"), "AddQueueStorageConfiguration", mth =>
                     {
@@ -126,10 +137,10 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageC
                         if (requiresCompositeMessageBus)
                         {
                             var publishedMessages = this.GetPublishedMessages()
-                                .FilterMessagesForThisMessageBroker(this, [MessageModelStereotypeExtensions.AzureQueueStorage.DefinitionId])
+                                .FilterMessagesForThisMessageBroker(this, queueStorageStereotypeIds)
                                 .ToList();
                             var sentCommands = this.GetSentIntegrationCommands()
-                                .FilterMessagesForThisMessageBroker(this, [IntegrationCommandModelStereotypeExtensions.AzureQueueStorage.DefinitionId])
+                                .FilterMessagesForThisMessageBroker(this, queueStorageStereotypeIds)
                                 .ToList();
                             
                             if (publishedMessages.Count != 0 || sentCommands.Count != 0)

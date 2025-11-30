@@ -66,6 +66,14 @@
       <role>Application.Eventing.Enum</role>
       <location>IntegrationEvents</location>
     </template>
+    <template id="Intent.Eventing.Contracts.IntegrationEventHandler" externalReference="863649ed-05b5-4e4f-b728-e5af1efd303f">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Eventing.EventHandler</role>
+      <location>IntegrationEvents/EventHandlers</location>
+    </template>
     <template id="Intent.Eventing.Contracts.IntegrationEventHandlerInterface" externalReference="bb18f0ef-9468-4367-8400-b9b76fe520ba">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />

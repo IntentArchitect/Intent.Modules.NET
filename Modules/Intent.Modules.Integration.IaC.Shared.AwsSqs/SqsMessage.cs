@@ -4,6 +4,7 @@ using Intent.Aws.Sqs.Api;
 using Intent.Metadata.Models; // Will be created in Phase 2
 using Intent.Modelers.Eventing.Api;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.Types.Api;
 
 namespace Intent.Modules.Integration.IaC.Shared.AwsSqs;
 
@@ -78,4 +79,10 @@ internal record SqsMessage : SqsItemBase
     }
 
     public override IEnumerable<IStereotype> Stereotypes => MessageModel.Stereotypes;
+
+    public override string Name => MessageModel.Name;
+
+    public override FolderModel Folder => MessageModel.Folder;
+
+    public override IElement InternalElement => MessageModel.InternalElement;
 }
