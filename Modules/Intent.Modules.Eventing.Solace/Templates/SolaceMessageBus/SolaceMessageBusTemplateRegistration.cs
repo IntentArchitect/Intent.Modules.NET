@@ -11,17 +11,17 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel", Version = "1.0")]
 
-namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageEventBus
+namespace Intent.Modules.Eventing.Solace.Templates.SolaceMessageBus
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class AzureQueueStorageEventBusTemplateRegistration : SingleFileTemplateRegistration
+    public class SolaceMessageBusTemplateRegistration : SingleFileTemplateRegistration
     {
-        public override string TemplateId => AzureQueueStorageEventBusTemplate.TemplateId;
+        public override string TemplateId => SolaceMessageBusTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new AzureQueueStorageEventBusTemplate(outputTarget);
+            return new SolaceMessageBusTemplate(outputTarget);
         }
     }
 }

@@ -6,7 +6,7 @@ using Intent.Modules.Eventing.MassTransit.Templates.FinbucklePublishingFilter;
 using Intent.Modules.Eventing.MassTransit.Templates.FinbuckleSendingFilter;
 using Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventConsumer;
 using Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration;
-using Intent.Modules.Eventing.MassTransit.Templates.MassTransitEventBus;
+using Intent.Modules.Eventing.MassTransit.Templates.MassTransitMessageBus;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -47,9 +47,9 @@ namespace Intent.Modules.Eventing.MassTransit.Templates
             return template.GetTypeName(MassTransitConfigurationTemplate.TemplateId);
         }
 
-        public static string GetMassTransitEventBusName(this IIntentTemplate template)
+        public static string GetMassTransitMessageBusName(this IIntentTemplate template)
         {
-            return template.GetTypeName(MassTransitEventBusTemplate.TemplateId);
+            return template.GetTypeName(MassTransitMessageBusTemplate.TemplateId);
         }
     }
 }

@@ -46,7 +46,7 @@ public static class ConsumerHelper
                 method.Async();
                 method.AddParameter($"{template.UseType("MassTransit.ConsumeContext")}<{tMessage}>", "context");
 
-                method.AddStatement($"var eventBus = _serviceProvider.GetRequiredService<{template.GetMassTransitEventBusName()}>();");
+                method.AddStatement($"var eventBus = _serviceProvider.GetRequiredService<{template.GetMassTransitMessageBusName()}>();");
                 method.AddStatement($"eventBus.ConsumeContext = context;");
 
                 configureConsumeMethod(@class, method, tMessage);

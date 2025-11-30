@@ -4,9 +4,9 @@ using Intent.Modules.Eventing.Kafka.Templates.KafkaConfiguration;
 using Intent.Modules.Eventing.Kafka.Templates.KafkaConsumer;
 using Intent.Modules.Eventing.Kafka.Templates.KafkaConsumerBackgroundService;
 using Intent.Modules.Eventing.Kafka.Templates.KafkaConsumerInterface;
-using Intent.Modules.Eventing.Kafka.Templates.KafkaEventBus;
 using Intent.Modules.Eventing.Kafka.Templates.KafkaEventDispatcher;
 using Intent.Modules.Eventing.Kafka.Templates.KafkaEventDispatcherInterface;
+using Intent.Modules.Eventing.Kafka.Templates.KafkaMessageBus;
 using Intent.Modules.Eventing.Kafka.Templates.KafkaProducer;
 using Intent.Modules.Eventing.Kafka.Templates.KafkaProducerInterface;
 using Intent.RoslynWeaver.Attributes;
@@ -40,11 +40,6 @@ namespace Intent.Modules.Eventing.Kafka.Templates
             return template.GetTypeName(KafkaConsumerInterfaceTemplate.TemplateId);
         }
 
-        public static string GetKafkaEventBusName(this IIntentTemplate template)
-        {
-            return template.GetTypeName(KafkaEventBusTemplate.TemplateId);
-        }
-
         public static string GetKafkaEventDispatcherName(this IIntentTemplate template)
         {
             return template.GetTypeName(KafkaEventDispatcherTemplate.TemplateId);
@@ -53,6 +48,11 @@ namespace Intent.Modules.Eventing.Kafka.Templates
         public static string GetKafkaEventDispatcherInterfaceName(this IIntentTemplate template)
         {
             return template.GetTypeName(KafkaEventDispatcherInterfaceTemplate.TemplateId);
+        }
+
+        public static string GetKafkaMessageBusName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(KafkaMessageBusTemplate.TemplateId);
         }
 
         public static string GetKafkaProducerName(this IIntentTemplate template)

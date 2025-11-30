@@ -61,14 +61,14 @@ public partial class AzureServiceBusConfigurationTemplate : CSharpTemplateBase<o
 
                     if (requiresCompositeMessageBus)
                     {
-                        method.AddStatement($"services.AddScoped<{this.GetAzureServiceBusEventBusName()}>();");
+                        method.AddStatement($"services.AddScoped<{this.GetAzureServiceBusMessageBusName()}>();");
                     }
                     else
                     {
                         var busInterface = this.GetBusInterfaceName();
 
-                        method.AddStatement($"services.AddScoped<{this.GetAzureServiceBusEventBusName()}>();");
-                        method.AddStatement($"services.AddScoped<{busInterface}>(provider => provider.GetRequiredService<{this.GetAzureServiceBusEventBusName()}>());");
+                        method.AddStatement($"services.AddScoped<{this.GetAzureServiceBusMessageBusName()}>();");
+                        method.AddStatement($"services.AddScoped<{busInterface}>(provider => provider.GetRequiredService<{this.GetAzureServiceBusMessageBusName()}>());");
                     }
 
                     method.AddStatement($"services.AddSingleton<{this.GetAzureServiceBusMessageDispatcherName()}>();");
@@ -116,7 +116,7 @@ public partial class AzureServiceBusConfigurationTemplate : CSharpTemplateBase<o
                     {
                         foreach (var item in publishers)
                         {
-                            method.AddStatement($"registry.Register<{item.GetModelTypeName(this)}, {this.GetAzureServiceBusEventBusName()}>();");
+                            method.AddStatement($"registry.Register<{item.GetModelTypeName(this)}, {this.GetAzureServiceBusMessageBusName()}>();");
                         }
                     }
 

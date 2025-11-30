@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using Intent.Modules.Aws.Sqs.Templates.SqsConfiguration;
-using Intent.Modules.Aws.Sqs.Templates.SqsEventBus;
+using Intent.Modules.Aws.Sqs.Templates.SqsMessageBus;
 using Intent.Modules.Aws.Sqs.Templates.SqsMessageDispatcher;
 using Intent.Modules.Aws.Sqs.Templates.SqsMessageDispatcherInterface;
 using Intent.Modules.Aws.Sqs.Templates.SqsPublisherOptions;
@@ -21,9 +21,9 @@ namespace Intent.Modules.Aws.Sqs.Templates
             return template.GetTypeName(SqsConfigurationTemplate.TemplateId);
         }
 
-        public static string GetSqsEventBusName(this IIntentTemplate template)
+        public static string GetSqsMessageBusName(this IIntentTemplate template)
         {
-            return template.GetTypeName(SqsEventBusTemplate.TemplateId);
+            return template.GetTypeName(SqsMessageBusTemplate.TemplateId);
         }
 
         public static string GetSqsMessageDispatcherName(this IIntentTemplate template)

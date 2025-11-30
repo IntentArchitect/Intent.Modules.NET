@@ -8,9 +8,9 @@ using Intent.Modules.Eventing.Solace.Templates.MessageSerializer;
 using Intent.Modules.Eventing.Solace.Templates.SolaceConfiguration;
 using Intent.Modules.Eventing.Solace.Templates.SolaceConsumer;
 using Intent.Modules.Eventing.Solace.Templates.SolaceConsumingService;
-using Intent.Modules.Eventing.Solace.Templates.SolaceEventBus;
 using Intent.Modules.Eventing.Solace.Templates.SolaceEventDispatcher;
 using Intent.Modules.Eventing.Solace.Templates.SolaceEventDispatcherInterface;
+using Intent.Modules.Eventing.Solace.Templates.SolaceMessageBus;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -60,11 +60,6 @@ namespace Intent.Modules.Eventing.Solace.Templates
             return template.GetTypeName(SolaceConsumingServiceTemplate.TemplateId);
         }
 
-        public static string GetSolaceEventBusName(this IIntentTemplate template)
-        {
-            return template.GetTypeName(SolaceEventBusTemplate.TemplateId);
-        }
-
         public static string GetSolaceEventDispatcherName(this IIntentTemplate template)
         {
             return template.GetTypeName(SolaceEventDispatcherTemplate.TemplateId);
@@ -73,6 +68,11 @@ namespace Intent.Modules.Eventing.Solace.Templates
         public static string GetSolaceEventDispatcherInterfaceName(this IIntentTemplate template)
         {
             return template.GetTypeName(SolaceEventDispatcherInterfaceTemplate.TemplateId);
+        }
+
+        public static string GetSolaceMessageBusName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(SolaceMessageBusTemplate.TemplateId);
         }
 
     }

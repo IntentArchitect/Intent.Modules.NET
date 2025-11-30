@@ -5,9 +5,9 @@ using Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageConsu
 using Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageConsumerBackgroundService;
 using Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageConsumerInterface;
 using Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageEnvelope;
-using Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageEventBus;
 using Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageEventDispatcher;
 using Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageEventDispatcherInterface;
+using Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageMessageBus;
 using Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageOptions;
 using Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageSubscriptionOptions;
 using Intent.RoslynWeaver.Attributes;
@@ -45,11 +45,6 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates
             return template.GetTypeName(AzureQueueStorageEnvelopeTemplate.TemplateId);
         }
 
-        public static string GetAzureQueueStorageEventBusName(this IIntentTemplate template)
-        {
-            return template.GetTypeName(AzureQueueStorageEventBusTemplate.TemplateId);
-        }
-
         public static string GetAzureQueueStorageEventDispatcherName(this IIntentTemplate template)
         {
             return template.GetTypeName(AzureQueueStorageEventDispatcherTemplate.TemplateId);
@@ -58,6 +53,11 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates
         public static string GetAzureQueueStorageEventDispatcherInterfaceName(this IIntentTemplate template)
         {
             return template.GetTypeName(AzureQueueStorageEventDispatcherInterfaceTemplate.TemplateId);
+        }
+
+        public static string GetAzureQueueStorageMessageBusName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(AzureQueueStorageMessageBusTemplate.TemplateId);
         }
         public static string GetAzureQueueStorageOptionsName(this IIntentTemplate template)
         {

@@ -14,15 +14,15 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitEventBus
+namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitMessageBus
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public partial class MassTransitEventBusTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
+    public partial class MassTransitMessageBusTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
-        public const string TemplateId = "Intent.Eventing.MassTransit.MassTransitEventBus";
+        public const string TemplateId = "Intent.Eventing.MassTransit.MassTransitMessageBus";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public MassTransitEventBusTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
+        public MassTransitMessageBusTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")

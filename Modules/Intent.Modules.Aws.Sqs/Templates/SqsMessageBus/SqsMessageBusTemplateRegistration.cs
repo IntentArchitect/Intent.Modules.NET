@@ -11,17 +11,17 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel", Version = "1.0")]
 
-namespace Intent.Modules.Eventing.Kafka.Templates.KafkaEventBus
+namespace Intent.Modules.Aws.Sqs.Templates.SqsMessageBus
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class KafkaEventBusTemplateRegistration : SingleFileTemplateRegistration
+    public class SqsMessageBusTemplateRegistration : SingleFileTemplateRegistration
     {
-        public override string TemplateId => KafkaEventBusTemplate.TemplateId;
+        public override string TemplateId => SqsMessageBusTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new KafkaEventBusTemplate(outputTarget);
+            return new SqsMessageBusTemplate(outputTarget);
         }
     }
 }

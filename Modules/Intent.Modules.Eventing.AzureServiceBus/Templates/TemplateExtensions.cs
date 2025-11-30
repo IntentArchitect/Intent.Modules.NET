@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusConfiguration;
-using Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusEventBus;
 using Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusHostedService;
+using Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusMessageBus;
 using Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusMessageDispatcher;
 using Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusMessageDispatcherInterface;
 using Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusPublisherOptions;
@@ -22,14 +22,14 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates
             return template.GetTypeName(AzureServiceBusConfigurationTemplate.TemplateId);
         }
 
-        public static string GetAzureServiceBusEventBusName(this IIntentTemplate template)
-        {
-            return template.GetTypeName(AzureServiceBusEventBusTemplate.TemplateId);
-        }
-
         public static string GetAzureServiceBusHostedServiceName(this IIntentTemplate template)
         {
             return template.GetTypeName(AzureServiceBusHostedServiceTemplate.TemplateId);
+        }
+
+        public static string GetAzureServiceBusMessageBusName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(AzureServiceBusMessageBusTemplate.TemplateId);
         }
 
         public static string GetAzureServiceBusMessageDispatcherName(this IIntentTemplate template)

@@ -13,15 +13,15 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.Aws.Sqs.Templates.SqsEventBus
+namespace Intent.Modules.Aws.Sqs.Templates.SqsMessageBus
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public partial class SqsEventBusTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
+    public partial class SqsMessageBusTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
-        public const string TemplateId = "Intent.Aws.Sqs.SqsEventBus";
+        public const string TemplateId = "Intent.Aws.Sqs.SqsMessageBus";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public SqsEventBusTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
+        public SqsMessageBusTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NugetPackages.AwsSdkSqs(OutputTarget));
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
@@ -37,7 +37,7 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsEventBus
                 .AddClass($"SqsEventBus", @class =>
                 {
                     @class.ImplementsInterface(this.GetBusInterfaceName());
-                    
+
                     @class.AddField("IAmazonSQS", "_sqsClient", field => field.PrivateReadOnly());
                     @class.AddField("List<MessageEntry>", "_messageQueue", field => field.PrivateReadOnly().WithAssignment(new CSharpStatement("[]")));
                     @class.AddField("Dictionary<string, SqsPublisherEntry>", "_lookup", field => field.PrivateReadOnly());
@@ -59,7 +59,7 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsEventBus
 
                         method.AddStatement("_messageQueue.Add(new MessageEntry(message, null));");
                     });
-                    
+
                     @class.AddMethod("void", "Publish", method =>
                     {
                         method.AddGenericParameter("TMessage", out var TMessage);
@@ -69,7 +69,7 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsEventBus
 
                         method.AddStatement("_messageQueue.Add(new MessageEntry(message, additionalData));");
                     });
-                    
+
                     @class.AddMethod("void", "Send", method =>
                     {
                         method.AddGenericParameter("TMessage", out var TMessage);
@@ -78,7 +78,7 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsEventBus
 
                         method.AddStatement("_messageQueue.Add(new MessageEntry(message, null));");
                     });
-                    
+
                     @class.AddMethod("void", "Send", method =>
                     {
                         method.AddGenericParameter("TMessage", out var TMessage);

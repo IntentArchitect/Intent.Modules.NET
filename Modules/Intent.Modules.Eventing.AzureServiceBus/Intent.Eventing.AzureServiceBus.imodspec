@@ -16,14 +16,6 @@
       <role>Infrastructure.DependencyInjection.AzureServiceBus</role>
       <location>Configuration</location>
     </template>
-    <template id="Intent.Eventing.AzureServiceBus.AzureServiceBusEventBus" externalReference="a5e88f9d-0280-4d8d-b32f-fa3900c350de">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Infrastructure.Eventing.AzureServiceBusEventBus</role>
-      <location>Eventing</location>
-    </template>
     <template id="Intent.Eventing.AzureServiceBus.AzureServiceBusHostedService" externalReference="e423eece-40e1-4f53-8950-c0a66609488d">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
@@ -31,6 +23,14 @@
       </config>
       <role>Distribution</role>
       <location>Services</location>
+    </template>
+    <template id="Intent.Eventing.AzureServiceBus.AzureServiceBusMessageBus" externalReference="a5e88f9d-0280-4d8d-b32f-fa3900c350de">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.AzureServiceBusEventBus</role>
+      <location>Eventing</location>
     </template>
     <template id="Intent.Eventing.AzureServiceBus.AzureServiceBusMessageDispatcher" externalReference="3e66bb6c-0744-460a-9144-620e960acee9">
       <config>

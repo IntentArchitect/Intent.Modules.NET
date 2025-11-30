@@ -59,7 +59,7 @@
       <role>Infrastructure.DependencyInjection.MassTransit</role>
       <location>Configuration</location>
     </template>
-    <template id="Intent.Eventing.MassTransit.MassTransitEventBus" externalReference="014ed2f0-99fc-422f-b070-67a01953c8a3">
+    <template id="Intent.Eventing.MassTransit.MassTransitMessageBus" externalReference="014ed2f0-99fc-422f-b070-67a01953c8a3">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />

@@ -114,14 +114,14 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaConfiguration
                         
                         if (requiresCompositeMessageBus)
                         {
-                            method.AddStatement($"services.AddScoped<{this.GetKafkaEventBusName()}>();");
+                            method.AddStatement($"services.AddScoped<{this.GetKafkaMessageBusName()}>();");
                         }
                         else
                         {
                             var busInterface = this.GetBusInterfaceName();
                             
-                            method.AddStatement($"services.AddScoped<{this.GetKafkaEventBusName()}>();");
-                            method.AddStatement($"services.AddScoped<{busInterface}>(provider => provider.GetRequiredService<{this.GetKafkaEventBusName()}>());");
+                            method.AddStatement($"services.AddScoped<{this.GetKafkaMessageBusName()}>();");
+                            method.AddStatement($"services.AddScoped<{busInterface}>(provider => provider.GetRequiredService<{this.GetKafkaMessageBusName()}>());");
                         }
                         method.AddStatement($"services.AddScoped(typeof({this.GetKafkaEventDispatcherInterfaceName()}<>), typeof({this.GetKafkaEventDispatcherName()}<>));");
                         method.AddStatement($"services.AddHostedService<{this.GetKafkaConsumerBackgroundServiceName()}>();");
@@ -144,7 +144,7 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaConfiguration
                             method.AddStatement("// Register message types with the composite message bus registry");
                             foreach (var message in _publishedMessageModels.Value)
                             {
-                                method.AddStatement($"registry.Register<{this.GetIntegrationEventMessageName(message)}, {this.GetKafkaEventBusName()}>();");
+                                method.AddStatement($"registry.Register<{this.GetIntegrationEventMessageName(message)}, {this.GetKafkaMessageBusName()}>();");
                             }
                         }
                         

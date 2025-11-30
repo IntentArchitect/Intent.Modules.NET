@@ -200,12 +200,12 @@ namespace Intent.Modules.Eventing.Solace.Templates.MessageRegistry
                             foreach (var message in _publishedMessageModels)
                             {
                                 var messageType = this.GetTypeName("Intent.Eventing.Contracts.IntegrationEventMessage", message.Id);
-                                method.AddStatement($"registry.Register<{messageType}, {this.GetSolaceEventBusName()}>();");
+                                method.AddStatement($"registry.Register<{messageType}, {this.GetSolaceMessageBusName()}>();");
                             }
                             foreach (var command in _publishedIntegrationCommandModels)
                             {
                                 var commandType = this.GetTypeName("Intent.Eventing.Contracts.IntegrationCommand", command.Id);
-                                method.AddStatement($"registry.Register<{commandType}, {this.GetSolaceEventBusName()}>();");
+                                method.AddStatement($"registry.Register<{commandType}, {this.GetSolaceMessageBusName()}>();");
                             }
                         }
                     });

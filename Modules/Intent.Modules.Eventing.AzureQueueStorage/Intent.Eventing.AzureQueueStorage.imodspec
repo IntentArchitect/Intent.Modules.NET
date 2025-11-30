@@ -48,14 +48,6 @@
       <role>Infrastructure.Eventing.Envelope</role>
       <location>Eventing</location>
     </template>
-    <template id="Intent.Eventing.AzureQueueStorage.AzureQueueStorageEventBus" externalReference="c6285182-215e-491d-a359-2ce1c5174949">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Infrastructure.Eventing.AzureQueueStorageEventBus</role>
-      <location>Eventing</location>
-    </template>
     <template id="Intent.Eventing.AzureQueueStorage.AzureQueueStorageEventDispatcher" externalReference="c6a6f2af-8790-4310-ab87-b55e0866f8c3">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
@@ -70,6 +62,14 @@
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
       <role>Infrastructure.Eventing.Consumer</role>
+      <location>Eventing</location>
+    </template>
+    <template id="Intent.Eventing.AzureQueueStorage.AzureQueueStorageMessageBus" externalReference="c6285182-215e-491d-a359-2ce1c5174949">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.AzureQueueStorageEventBus</role>
       <location>Eventing</location>
     </template>
     <template id="Intent.Eventing.AzureQueueStorage.AzureQueueStorageOptions" externalReference="5ee741b9-6257-4a91-8b6c-1a9e15264957">

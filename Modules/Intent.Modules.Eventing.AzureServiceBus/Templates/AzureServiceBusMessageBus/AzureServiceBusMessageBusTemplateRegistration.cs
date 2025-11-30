@@ -11,17 +11,17 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel", Version = "1.0")]
 
-namespace Intent.Modules.Eventing.Solace.Templates.SolaceEventBus
+namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusMessageBus
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class SolaceEventBusTemplateRegistration : SingleFileTemplateRegistration
+    public class AzureServiceBusMessageBusTemplateRegistration : SingleFileTemplateRegistration
     {
-        public override string TemplateId => SolaceEventBusTemplate.TemplateId;
+        public override string TemplateId => AzureServiceBusMessageBusTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new SolaceEventBusTemplate(outputTarget);
+            return new AzureServiceBusMessageBusTemplate(outputTarget);
         }
     }
 }

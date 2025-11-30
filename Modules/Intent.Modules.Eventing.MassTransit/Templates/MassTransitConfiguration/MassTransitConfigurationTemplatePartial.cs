@@ -83,14 +83,14 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
                     if (requiresCompositeMessageBus)
                     {
                         method.AddParameter(this.GetMessageBrokerRegistryName(), "registry");
-                        method.AddStatement($"services.AddScoped<{this.GetMassTransitEventBusName()}>();");
+                        method.AddStatement($"services.AddScoped<{this.GetMassTransitMessageBusName()}>();");
                     }
                     else
                     {
                         var busInterface = this.GetBusInterfaceName();
             
-                        method.AddStatement($"services.AddScoped<{this.GetMassTransitEventBusName()}>();");
-                        method.AddStatement($"services.AddScoped<{busInterface}>(provider => provider.GetRequiredService<{this.GetMassTransitEventBusName()}>());");
+                        method.AddStatement($"services.AddScoped<{this.GetMassTransitMessageBusName()}>();");
+                        method.AddStatement($"services.AddScoped<{busInterface}>(provider => provider.GetRequiredService<{this.GetMassTransitMessageBusName()}>());");
                     }
                     
                     method.AddInvocationStatement("services.AddMassTransit", stmt => stmt
@@ -102,7 +102,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
                     {
                         foreach (var producer in _producers)
                         {
-                            method.AddStatement($"registry.Register<{producer.MessageTypeName}, {this.GetMassTransitEventBusName()}>();");
+                            method.AddStatement($"registry.Register<{producer.MessageTypeName}, {this.GetMassTransitMessageBusName()}>();");
                         }
                     }
                     

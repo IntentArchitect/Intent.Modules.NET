@@ -11,17 +11,17 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel", Version = "1.0")]
 
-namespace Intent.Modules.Aws.Sqs.Templates.SqsEventBus
+namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitMessageBus
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class SqsEventBusTemplateRegistration : SingleFileTemplateRegistration
+    public class MassTransitMessageBusTemplateRegistration : SingleFileTemplateRegistration
     {
-        public override string TemplateId => SqsEventBusTemplate.TemplateId;
+        public override string TemplateId => MassTransitMessageBusTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new SqsEventBusTemplate(outputTarget);
+            return new MassTransitMessageBusTemplate(outputTarget);
         }
     }
 }

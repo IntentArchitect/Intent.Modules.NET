@@ -14,15 +14,15 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.Eventing.Kafka.Templates.KafkaEventBus
+namespace Intent.Modules.Eventing.Kafka.Templates.KafkaMessageBus
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public partial class KafkaEventBusTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
+    public partial class KafkaMessageBusTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
-        public const string TemplateId = "Intent.Eventing.Kafka.KafkaEventBus";
+        public const string TemplateId = "Intent.Eventing.Kafka.KafkaMessageBus";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public KafkaEventBusTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
+        public KafkaMessageBusTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
@@ -71,7 +71,7 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaEventBus
 
                         method.AddStatement("Publish(message);");
                     });
-                    
+
                     @class.AddMethod("void", "Send", method =>
                     {
                         method.AddGenericParameter("TMessage", out var TMessage);

@@ -86,7 +86,7 @@ namespace Intent.Modules.Eventing.Contracts.Templates.IntegrationEventHandler
                     }
                 }, 1000);
         }
-        
+
         private string GetMessageName(SubscribeIntegrationEventTargetEndModel subscription)
         {
             return this.GetIntegrationEventMessageName(subscription.TypeReference.Element.AsMessageModel());
@@ -96,7 +96,7 @@ namespace Intent.Modules.Eventing.Contracts.Templates.IntegrationEventHandler
         {
             return this.GetIntegrationCommandName(subscription.TypeReference.Element.AsIntegrationCommandModel());
         }
-        
+
         public override void BeforeTemplateExecution()
         {
             foreach (var subscription in Model.IntegrationEventSubscriptions())
@@ -120,7 +120,8 @@ namespace Intent.Modules.Eventing.Contracts.Templates.IntegrationEventHandler
             }
         }
 
-        [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
+        [IntentManaged(Mode.Fully)]
+        public CSharpFile CSharpFile { get; }
 
         [IntentManaged(Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()

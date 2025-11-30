@@ -12,15 +12,15 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.Eventing.Solace.Templates.SolaceEventBus
+namespace Intent.Modules.Eventing.Solace.Templates.SolaceMessageBus
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public partial class SolaceEventBusTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
+    public partial class SolaceMessageBusTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
-        public const string TemplateId = "Intent.Eventing.Solace.SolaceEventBus";
+        public const string TemplateId = "Intent.Eventing.Solace.SolaceMessageBus";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public SolaceEventBusTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
+        public SolaceMessageBusTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")

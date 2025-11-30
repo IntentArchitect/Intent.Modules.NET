@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Aws.Sqs.Api;
 using Intent.Engine;
-using Intent.Modules.Aws.Sqs.Templates.SqsEventBus;
+using Intent.Modules.Aws.Sqs.Templates.SqsMessageBus;
 using Intent.Modules.Aws.Sqs.Templates.SqsMessageDispatcher;
 using Intent.Modules.Aws.Sqs.Templates.SqsMessageDispatcherInterface;
 using Intent.Modules.Aws.Sqs.Templates.SqsPublisherOptions;
@@ -63,14 +63,14 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsConfiguration
                             // Register event bus
                             if (requiresCompositeMessageBus)
                             {
-                                method.AddStatement($"services.AddScoped<{this.GetTypeName(SqsEventBusTemplate.TemplateId)}>();", stmt => stmt.SeparatedFromPrevious());
+                                method.AddStatement($"services.AddScoped<{this.GetTypeName(SqsMessageBusTemplate.TemplateId)}>();", stmt => stmt.SeparatedFromPrevious());
                             }
                             else
                             {
                                 var busInterface = this.GetBusInterfaceName();
                                 
-                                method.AddStatement($"services.AddScoped<{this.GetTypeName(SqsEventBusTemplate.TemplateId)}>();");
-                                method.AddStatement($"services.AddScoped<{busInterface}>(provider => provider.GetRequiredService<{this.GetTypeName(SqsEventBusTemplate.TemplateId)}>());");
+                                method.AddStatement($"services.AddScoped<{this.GetTypeName(SqsMessageBusTemplate.TemplateId)}>();");
+                                method.AddStatement($"services.AddScoped<{busInterface}>(provider => provider.GetRequiredService<{this.GetTypeName(SqsMessageBusTemplate.TemplateId)}>());");
                             }
 
                             method.AddStatement($"services.AddSingleton<{this.GetTypeName(SqsMessageDispatcherTemplate.TemplateId)}>();");
@@ -116,7 +116,7 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsConfiguration
                                 foreach (var publisher in publishers)
                                 {
                                     var messageType = publisher.GetModelTypeName(this);
-                                    method.AddStatement($"registry.Register<{messageType}, {this.GetTypeName(SqsEventBusTemplate.TemplateId)}>();");
+                                    method.AddStatement($"registry.Register<{messageType}, {this.GetTypeName(SqsMessageBusTemplate.TemplateId)}>();");
                                 }
                             }
 

@@ -14,15 +14,15 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageEventBus
+namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageMessageBus
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public partial class AzureQueueStorageEventBusTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
+    public partial class AzureQueueStorageMessageBusTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
-        public const string TemplateId = "Intent.Eventing.AzureQueueStorage.AzureQueueStorageEventBus";
+        public const string TemplateId = "Intent.Eventing.AzureQueueStorage.AzureQueueStorageMessageBus";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public AzureQueueStorageEventBusTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
+        public AzureQueueStorageMessageBusTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NugetPackages.AzureStorageQueues(outputTarget));
 
@@ -181,7 +181,7 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageE
                                    .AddArgument("message").WithoutSemicolon());
                         });
                     });
-                    
+
                     @class.AddMethod("void", "Send", mth =>
                     {
                         mth.AddGenericParameter("TMessage", out var TMessage);

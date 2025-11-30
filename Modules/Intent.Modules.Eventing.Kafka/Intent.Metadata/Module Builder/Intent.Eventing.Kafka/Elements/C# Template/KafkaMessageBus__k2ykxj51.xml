@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="05b35af7-72fe-4c97-a3fb-b60cd0ae0798" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
-  <name>KafkaEventBus</name>
-  <display>KafkaEventBus: Single File</display>
+  <name>KafkaMessageBus</name>
+  <display>KafkaMessageBus: Single File</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
   <typeReference id="7e674d12-2880-4c42-ac48-dea324a4469c">
