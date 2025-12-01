@@ -76,16 +76,21 @@ internal record AzureServiceBusMessage : AzureServiceBusItemBase
             var resolvedName = message.Name;
             resolvedName = resolvedName.RemoveSuffix("IntegrationEvent", "Event", "Message");
             resolvedName = resolvedName.ToPascalCase();
-            return prefix + resolvedName;
+            return resolvedName;
         }
     }
 
     private static AzureServiceBusChannelType GetChannelType(MessageModel message)
     {
-        return message.GetAzureServiceBus()?.Type().IsTopic() switch
+        if (string.IsNullOrWhiteSpace(message.GetAzureServiceBus()?.Type().Value))
         {
-            true => AzureServiceBusChannelType.Topic,
-            false => AzureServiceBusChannelType.Queue,
+            return AzureServiceBusChannelType.Topic;
+        }
+        
+        return message.GetAzureServiceBus().Type().AsEnum() switch
+        {
+            MessageModelStereotypeExtensions.AzureServiceBus.TypeOptionsEnum.Topic => AzureServiceBusChannelType.Topic,
+            MessageModelStereotypeExtensions.AzureServiceBus.TypeOptionsEnum.Queue => AzureServiceBusChannelType.Queue,
             _ => AzureServiceBusChannelType.Topic
         };
     }
