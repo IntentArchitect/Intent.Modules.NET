@@ -214,7 +214,7 @@ public static class MessageBusExtensions
     private static bool HasKnownStereotype<T>(T element)
         where T : IHasStereotypes
     {
-        // Make sure Message Extension Validation Script is updated too!
+        // Make sure Message and Command Extension Validation Scripts are updated too!
         string[] stereotypeIds = [
             "dca28d4b-c277-4fb3-afe0-17f35ea8b59b", // Azure Event Grid
             "84e5a563-953d-43f5-b2ca-a24ce3104e0b", // Azure Event Grid Folder Settings
