@@ -3,8 +3,9 @@ async function execute(): Promise<void> {
     const settingName = "AI.Blazor";
 
     let promptTemplatesString = await executeModuleTask(
-        "Intent.Modules.AI.Blazor.GetPromptTemplates",
+        "Intent.Modules.Common.AI.Tasks.GetPromptTemplates",
         application.id,
+        "Intent.Blazor.AI",
         element.getParent().getName() + "/" + element.getName());
 
     let promptTemplates = JSON.parse(promptTemplatesString) as any[];
@@ -60,7 +61,7 @@ async function execute(): Promise<void> {
     const { providerId, modelId, thinkingLevel: thinkingLevel } = await collectAndPersistAiSettingsFromPromptResult(
         promptResult, providerModelsResult, settingName);
 
-    await launchHostedModuleTask("Intent.Modules.AI.Blazor.Generate",
+    await launchHostedModuleTask("Intent.Blazor.AI",
         [
             application.id,
             element.id,

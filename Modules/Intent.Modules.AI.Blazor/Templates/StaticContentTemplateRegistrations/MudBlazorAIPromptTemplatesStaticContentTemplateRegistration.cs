@@ -1,10 +1,11 @@
-using System.Collections.Generic;
 using Intent.Configuration;
 using Intent.Engine;
-using Intent.Modules.AI.Blazor.Tasks.Config;
+using Intent.Modules.AI.Prompts.Tasks;
+using Intent.Modules.Common.AI.Configuration;
 using Intent.Modules.Common.Templates.StaticContent;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using System.Collections.Generic;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration", Version = "1.0")]
@@ -38,7 +39,7 @@ namespace Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations
         {
         };
 
-        public override string RelativeOutputPathPrefix => PromptConfig.GetTemplatePromptPath(_solutionConfig.SolutionRootLocation, _applicationConfigurationProvider.GetApplicationConfig().Name);
+        public override string RelativeOutputPathPrefix => PromptConfig.GetTemplatePromptPath(_solutionConfig.SolutionRootLocation, _applicationConfigurationProvider.GetApplicationConfig().Name, GenerateBlazorWithAITask.TaskTypeId);
 
         protected override ITemplate CreateTemplate(IOutputTarget outputTarget, string fileFullPath, string fileRelativePath, OverwriteBehaviour defaultOverwriteBehaviour)
         {
