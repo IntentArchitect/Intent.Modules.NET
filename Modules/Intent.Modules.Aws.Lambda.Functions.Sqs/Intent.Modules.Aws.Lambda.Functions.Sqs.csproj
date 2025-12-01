@@ -9,6 +9,7 @@
     <PackageReference Include="Intent.Modules.Common" Version="3.9.1" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.9.6" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="4.0.7" />
+    <PackageReference Include="Intent.Modules.Eventing.Contracts" Version="6.1.0-pre.0" />
     <PackageReference Include="Intent.Modules.Modelers.Services.EventInteractions" Version="2.0.4" />
     <PackageReference Include="Intent.Packager" Version="3.6.0">
       <PrivateAssets>all</PrivateAssets>
@@ -21,7 +22,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.Aws.Lambda.Functions\Intent.Modules.Aws.Lambda.Functions.csproj" />
     <ProjectReference Include="..\Intent.Modules.Aws.Sqs\Intent.Modules.Aws.Sqs.csproj" />
-    <ProjectReference Include="..\Intent.Modules.Eventing.Contracts\Intent.Modules.Eventing.Contracts.csproj" />
     <ProjectReference Include="..\Intent.Modules.Common.UnitOfWork\Intent.Modules.Common.UnitOfWork.csproj" PrivateAssets="All" />
   </ItemGroup>
 

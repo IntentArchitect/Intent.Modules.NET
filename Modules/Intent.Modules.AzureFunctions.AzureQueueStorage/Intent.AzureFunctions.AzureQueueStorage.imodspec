@@ -25,8 +25,8 @@
     <dependency id="Intent.Common" version="3.7.2" />
     <dependency id="Intent.Common.CSharp" version="3.8.0" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
+    <dependency id="Intent.Eventing.Contracts" version="6.1.0-pre.0" />
     <dependency id="Intent.Eventing.AzureQueueStorage" version="1.0.0-beta.4" />
-    <dependency id="Intent.Eventing.Contracts" version="6.0.0" />
     <dependency id="Intent.Modelers.Domain" version="3.11.1" />
     <dependency id="Intent.Modelers.Eventing" version="6.0.2" />
     <dependency id="Intent.Modelers.Services" version="4.0.7" />
