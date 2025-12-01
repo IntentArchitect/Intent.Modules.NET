@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Xml.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
@@ -13,20 +14,20 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.ProjectItemTemplate.Partial", Version = "1.0")]
 
-namespace Intent.Modules.VisualStudio.Projects.Templates.ServiceFabric.PackagesConfig
+namespace Intent.Modules.VisualStudio.Projects.Templates.ServiceFabric.DeployFabricApplication
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    partial class PackagesConfigTemplate : IntentTemplateBase<ServiceFabricProjectModel>
+    partial class DeployFabricApplicationTemplate : IntentTemplateBase<ServiceFabricProjectModel>
     {
         [IntentManaged(Mode.Fully)]
-        public const string TemplateId = "Intent.VisualStudio.Projects.ServiceFabric.PackagesConfig";
+        public const string TemplateId = "Intent.VisualStudio.Projects.ServiceFabric.DeployFabricApplication";
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-        public PackagesConfigTemplate(IOutputTarget outputTarget, ServiceFabricProjectModel model) : base(TemplateId, outputTarget, model)
+        public DeployFabricApplicationTemplate(IOutputTarget outputTarget, ServiceFabricProjectModel model) : base(TemplateId, outputTarget, model)
         {
         }
 
-        public XDocument Document { get; private set; }
+        public string Content { get; set; }
 
         public override void AfterTemplateRegistration()
         {
@@ -35,22 +36,23 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.ServiceFabric.PackagesC
                 existingFileContent = TransformText().ReplaceLineEndings();
             }
 
-            Document = XDocument.Parse(existingFileContent);
+            Content = existingFileContent;
 
             base.AfterTemplateRegistration();
         }
 
         public override string RunTemplate()
         {
-            return Document.ToStringUTF8();
+            return Content;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public override ITemplateFileConfig GetTemplateFileConfig()
         {
             return new TemplateFileConfig(
-                fileName: $"packages",
-                fileExtension: "config"
+                fileName: $"Deploy-FabricApplication",
+                fileExtension: "ps1",
+                relativeLocation: "Scripts"
             );
         }
 

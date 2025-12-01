@@ -13,19 +13,19 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.Custom", Version = "1.0")]
 
-namespace Intent.Modules.VisualStudio.Projects.Templates.ServiceFabric.PackagesConfig
+namespace Intent.Modules.VisualStudio.Projects.Templates.ServiceFabric.PublishProfileCloud
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class PackagesConfigTemplateRegistration : ITemplateRegistration
+    public class PublishProfileCloudTemplateRegistration : ITemplateRegistration
     {
         private readonly IMetadataManager _metadataManager;
 
-        public PackagesConfigTemplateRegistration(IMetadataManager metadataManager)
+        public PublishProfileCloudTemplateRegistration(IMetadataManager metadataManager)
         {
             _metadataManager = metadataManager;
         }
 
-        public string TemplateId => PackagesConfigTemplate.TemplateId;
+        public string TemplateId => PublishProfileCloudTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public void DoRegistration(ITemplateInstanceRegistry registry, IApplication applicationManager)
@@ -35,7 +35,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.ServiceFabric.PackagesC
             foreach (var model in models)
             {
                 var project = applicationManager.Projects.Single(x => x.Id == model.Id);
-                registry.Register(TemplateId, project, p => new PackagesConfigTemplate(p, model));
+                registry.Register(TemplateId, project, p => new PublishProfileCloudTemplate(p, model));
             }
         }
     }

@@ -1,0 +1,48 @@
+using System;
+using System.Collections.Generic;
+using Intent.RoslynWeaver.Attributes;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation", Version = "1.0")]
+
+namespace Intent.Modules.VisualStudio.Projects.Templates.ServiceFabric.PublishProfileCloud
+{
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
+    public partial class PublishProfileCloudTemplate
+    {
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        public override string TransformText()
+        {
+            return
+                """
+                <?xml version="1.0" encoding="utf-8"?>
+                <PublishProfile xmlns="http://schemas.microsoft.com/2015/05/fabrictools">
+                  <!-- ClusterConnectionParameters allows you to specify the PowerShell parameters to use when connecting to the Service Fabric cluster.
+                       Valid parameters are any that are accepted by the Connect-ServiceFabricCluster cmdlet.
+                
+                       For a remote cluster, you would need to specify the appropriate parameters for that specific cluster.
+                         For example: <ClusterConnectionParameters ConnectionEndpoint="mycluster.westus.cloudapp.azure.com:19000" />
+                
+                       Example showing parameters for a cluster that uses certificate security:
+                       <ClusterConnectionParameters ConnectionEndpoint="mycluster.westus.cloudapp.azure.com:19000"
+                                                    X509Credential="true"
+                                                    ServerCertThumbprint="0123456789012345678901234567890123456789"
+                                                    FindType="FindByThumbprint"
+                                                    FindValue="9876543210987654321098765432109876543210"
+                                                    StoreLocation="CurrentUser"
+                                                    StoreName="My" />
+                
+                       Example showing parameters for a cluster that uses Microsoft Entra ID (formerly known as Azure Active Directory) security:
+                       <ClusterConnectionParameters ConnectionEndpoint="mycluster.westus.cloudapp.azure.com:19000"
+                                                    AzureActiveDirectory="true"
+                                                    ServerCertThumbprint="0123456789012345678901234567890123456789" />
+                  -->
+                  <ClusterConnectionParameters ConnectionEndpoint="" />
+                  <ApplicationParameterFile Path="..\ApplicationParameters\Cloud.xml" />
+                  <StartupServiceParameterFile Path="..\StartupServiceParameters\Cloud.xml" />
+                  <CopyPackageParameters CompressPackage="true" />
+                </PublishProfile>
+                """;
+        }
+    }
+}

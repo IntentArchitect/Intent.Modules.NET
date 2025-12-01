@@ -1273,6 +1273,45 @@ createElement(servicesTypeId, "Services", element.id);</script>
             </createAssociation>
           </contextMenuOptions>
           <mappingSettings />
+          <macros>
+            <macro trigger="on-changed">
+              <script>const stereotypeId = "1d9e433d-888c-4b97-b1cf-c61d565336d4";
+const services = lookupTypesOf("6d5b30e5-37c8-4858-bb9d-0a94f6bd0940");
+const referencedElements = [];
+
+for (let i = 0; i &lt; services.length; i++) {
+    const service = services[i];
+    const references = service.getAssociations();
+    for (let j = 0; j &lt; references.length; j++) {
+        const reference = references[j];
+        const id = reference.typeReference.getTypeId();
+        if (!id) {
+            continue;
+        }
+
+        referencedElements.push(id);
+    }
+}
+
+const projects = lookupTypesOf("a1e23df1-27cb-43ba-92b1-13cfaac6837a");
+for (let i = 0; i &lt; projects.length; i++) {
+    const project = projects[i];
+    const hasStereotype = project.hasStereotype("stereotypeId");
+    const shouldHaveStereotype = referencedElements.indexOf(project.id) &gt;= 0;
+
+    if (hasStereotype == shouldHaveStereotype) {
+        continue;
+    }
+
+    if (shouldHaveStereotype) {
+        project.addStereotype(stereotypeId);
+    }
+    else {
+        project.removeStereotype(stereotypeId);
+    }
+}</script>
+            </macro>
+          </macros>
         </childElementSetting>
       </childElementSettings>
     </elementSetting>

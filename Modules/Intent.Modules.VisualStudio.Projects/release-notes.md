@@ -1,6 +1,7 @@
 ### Version 3.9.8
 
 - Improvement: It is now possible to specify "Aspire.AppHost.Sdk" as an SDK option for .NET Projects in the Visual Studio designer.
+- Improvement: Service Fabric .xml files are now individual templates which can be manipulated by other templates.
 
 ### Version 3.9.7
 

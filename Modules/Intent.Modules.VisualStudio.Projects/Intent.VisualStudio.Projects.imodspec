@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.VisualStudio.Projects</id>
-  <version>3.9.8-pre.0</version>
+  <version>3.9.8-pre.1</version>
   <supportedClientVersions>[4.5.15-a, 5.0.0-a)</supportedClientVersions>
   <summary>Visual Studio solution and project layout designer</summary>
   <description>Visual Studio solution and project layout designer</description>
@@ -41,11 +41,67 @@
       <location></location>
     </template>
     <template id="Intent.VisualStudio.Projects.JavaScriptProject" />
+    <template id="Intent.VisualStudio.Projects.ServiceFabric.ApplicationManifest" externalReference="4144a321-e6b5-4ada-9dec-ef35ab8ea5b0">
+      <role></role>
+      <location></location>
+    </template>
+    <template id="Intent.VisualStudio.Projects.ServiceFabric.ApplicationParametersCloud" externalReference="08d73662-2a56-4004-80a8-a2f51fe8cf4f">
+      <role></role>
+      <location></location>
+    </template>
+    <template id="Intent.VisualStudio.Projects.ServiceFabric.ApplicationParametersLocal1Node" externalReference="94204421-1022-41fa-a99a-02de30e3046f">
+      <role></role>
+      <location></location>
+    </template>
+    <template id="Intent.VisualStudio.Projects.ServiceFabric.ApplicationParametersLocal5Node" externalReference="dd288c54-5fd0-4be5-8a63-9c1f91104b9c">
+      <role></role>
+      <location></location>
+    </template>
+    <template id="Intent.VisualStudio.Projects.ServiceFabric.DeployFabricApplication" externalReference="07fe22b6-b996-4e90-ad61-46e6aace630a">
+      <role></role>
+      <location></location>
+    </template>
     <template id="Intent.VisualStudio.Projects.ServiceFabric.PackagesConfig" externalReference="6ab663e6-6751-4351-b9ed-15ee3bdd3909">
       <role></role>
       <location></location>
     </template>
+    <template id="Intent.VisualStudio.Projects.ServiceFabric.PublishProfileCloud" externalReference="e853bc38-b30b-4f77-8d77-7213fdb6a690">
+      <role></role>
+      <location></location>
+    </template>
+    <template id="Intent.VisualStudio.Projects.ServiceFabric.PublishProfileLocal1Node" externalReference="2d5bea00-64ec-411b-b7b9-3824b3908771">
+      <role></role>
+      <location></location>
+    </template>
+    <template id="Intent.VisualStudio.Projects.ServiceFabric.PublishProfileLocal5Node" externalReference="000b95cd-15c6-40d8-adb8-5b01d0a303e7">
+      <role></role>
+      <location></location>
+    </template>
+    <template id="Intent.VisualStudio.Projects.ServiceFabric.ServiceConfigSettings" externalReference="f57a9969-db93-4d23-86fe-f9eddbc85252">
+      <role></role>
+      <location></location>
+    </template>
     <template id="Intent.VisualStudio.Projects.ServiceFabric.ServiceFabricProject" externalReference="489d8e66-7e12-48ec-9290-23f5ac3bf323">
+      <role></role>
+      <location></location>
+    </template>
+    <template id="Intent.VisualStudio.Projects.ServiceFabric.ServiceManifest" externalReference="834e0b22-e01d-42a2-8ebf-575a8e7c51e4">
+      <role></role>
+      <location></location>
+    </template>
+    <template id="Intent.VisualStudio.Projects.ServiceFabric.StartupServiceParametersCloud" externalReference="2788e226-0e8d-48a4-b414-2620254f64e0">
+      <role></role>
+      <location></location>
+    </template>
+    <template id="Intent.VisualStudio.Projects.ServiceFabric.StartupServiceParametersLocal1Node" externalReference="54c191ad-f2d4-4453-b53d-e01e2aa99ced">
+      <role></role>
+      <location></location>
+    </template>
+    <template id="Intent.VisualStudio.Projects.ServiceFabric.StartupServiceParametersLocal5Node" externalReference="e5bacbb4-39a5-45cc-95f8-29ddbdf2c85c">
+      <role></role>
+      <location></location>
+    </template>
+    <template id="Intent.VisualStudio.Projects.ServiceFabric.StartupServices" externalReference="129b738d-a396-4c5a-8ffe-9c1a50a1b392">
       <role></role>
       <location></location>
     </template>

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Xml.Linq;
+using System.Xml;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modules.Common;
@@ -13,20 +13,20 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.ProjectItemTemplate.Partial", Version = "1.0")]
 
-namespace Intent.Modules.VisualStudio.Projects.Templates.ServiceFabric.PackagesConfig
+namespace Intent.Modules.VisualStudio.Projects.Templates.ServiceFabric.ApplicationParametersCloud
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    partial class PackagesConfigTemplate : IntentTemplateBase<ServiceFabricProjectModel>
+    partial class ApplicationParametersCloudTemplate : IntentTemplateBase<ServiceFabricProjectModel>
     {
         [IntentManaged(Mode.Fully)]
-        public const string TemplateId = "Intent.VisualStudio.Projects.ServiceFabric.PackagesConfig";
+        public const string TemplateId = "Intent.VisualStudio.Projects.ServiceFabric.ApplicationParametersCloud";
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-        public PackagesConfigTemplate(IOutputTarget outputTarget, ServiceFabricProjectModel model) : base(TemplateId, outputTarget, model)
+        public ApplicationParametersCloudTemplate(IOutputTarget outputTarget, ServiceFabricProjectModel model) : base(TemplateId, outputTarget, model)
         {
         }
 
-        public XDocument Document { get; private set; }
+        public XmlDocument Document { get; private set; }
 
         public override void AfterTemplateRegistration()
         {
@@ -35,22 +35,27 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.ServiceFabric.PackagesC
                 existingFileContent = TransformText().ReplaceLineEndings();
             }
 
-            Document = XDocument.Parse(existingFileContent);
+            Document = new XmlDocument
+            {
+                PreserveWhitespace = true,
+            };
+            Document.LoadXml(existingFileContent);
 
             base.AfterTemplateRegistration();
         }
 
         public override string RunTemplate()
         {
-            return Document.ToStringUTF8();
+            return Document.ToUtf8String();
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public override ITemplateFileConfig GetTemplateFileConfig()
         {
             return new TemplateFileConfig(
-                fileName: $"packages",
-                fileExtension: "config"
+                fileName: $"Cloud",
+                fileExtension: "xml",
+                relativeLocation: "ApplicationParameters"
             );
         }
 

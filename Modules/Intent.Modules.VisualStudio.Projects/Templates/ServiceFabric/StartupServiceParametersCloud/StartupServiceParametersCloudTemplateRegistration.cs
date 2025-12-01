@@ -13,19 +13,19 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.Custom", Version = "1.0")]
 
-namespace Intent.Modules.VisualStudio.Projects.Templates.ServiceFabric.PackagesConfig
+namespace Intent.Modules.VisualStudio.Projects.Templates.ServiceFabric.StartupServiceParametersCloud
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class PackagesConfigTemplateRegistration : ITemplateRegistration
+    public class StartupServiceParametersCloudTemplateRegistration : ITemplateRegistration
     {
         private readonly IMetadataManager _metadataManager;
 
-        public PackagesConfigTemplateRegistration(IMetadataManager metadataManager)
+        public StartupServiceParametersCloudTemplateRegistration(IMetadataManager metadataManager)
         {
             _metadataManager = metadataManager;
         }
 
-        public string TemplateId => PackagesConfigTemplate.TemplateId;
+        public string TemplateId => StartupServiceParametersCloudTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public void DoRegistration(ITemplateInstanceRegistry registry, IApplication applicationManager)
@@ -34,8 +34,13 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.ServiceFabric.PackagesC
 
             foreach (var model in models)
             {
+                if (model.GetServiceFabricSettings()?.GenerateStartupServices() == false)
+                {
+                    continue;
+                }
+
                 var project = applicationManager.Projects.Single(x => x.Id == model.Id);
-                registry.Register(TemplateId, project, p => new PackagesConfigTemplate(p, model));
+                registry.Register(TemplateId, project, p => new StartupServiceParametersCloudTemplate(p, model));
             }
         }
     }
