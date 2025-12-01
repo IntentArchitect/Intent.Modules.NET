@@ -234,6 +234,9 @@ public static class MessageBusExtensions
             "32eb7ec0-1c6f-42ae-ab3f-4a71d8882ad5", // MassTransit Folder Settings
             "fbe53252-9913-453c-b734-73b4e2dfdb46", // MassTransit Message Settings
             "f997aa34-0a9a-4733-b5a9-fdcf9e37170c", // MassTransit Package Settings
+            "56e898f3-74db-486d-86f9-3e885e7509e6", // Solace Publish
+            "d0dc5fff-184e-421d-951f-036c0e250bec", // Solace Folder Settings
+            "1edcb13a-0108-42a3-b9d0-dea95dc655b8", // Solace Package Settings
         ];
         return HasMatchingStereotype(element, stereotypeIds);
     }

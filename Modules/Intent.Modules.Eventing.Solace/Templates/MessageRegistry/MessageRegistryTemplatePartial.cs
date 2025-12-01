@@ -498,6 +498,7 @@ namespace Intent.Modules.Eventing.Solace.Templates.MessageRegistry
             _subscribedMessageModels = Enumerable.Empty<MessageModel>()
                 .Concat(serviceDesignerSubEvents)
                 .Concat(eventingDesignerSubEvents)
+                .FilterMessagesForThisMessageBroker(this, Constants.BrokerStereotypeIds)
                 .OrderBy(x => x.Name)
                 .ToArray();
 
@@ -512,7 +513,7 @@ namespace Intent.Modules.Eventing.Solace.Templates.MessageRegistry
             _publishedMessageModels = Enumerable.Empty<MessageModel>()
                     .Concat(serviceDesignerPubEvents)
                     .Concat(eventingDesignerPubEvents)
-                    .FilterMessagesForThisMessageBroker(this, [MessageModelStereotypeExtensions.Publishing.DefinitionId])
+                    .FilterMessagesForThisMessageBroker(this, Constants.BrokerStereotypeIds)
                     .OrderBy(x => x.Name)
                     .ToArray();
 
@@ -524,6 +525,7 @@ namespace Intent.Modules.Eventing.Solace.Templates.MessageRegistry
 
             _subscribedIntegrationCommandModels = Enumerable.Empty<IntegrationCommandModel>()
                 .Concat(serviceDesignerSubCommands)
+                .FilterMessagesForThisMessageBroker(this, Constants.BrokerStereotypeIds)
                 .OrderBy(x => x.Name)
                 .ToArray();
 
@@ -533,7 +535,7 @@ namespace Intent.Modules.Eventing.Solace.Templates.MessageRegistry
             
             _publishedIntegrationCommandModels = Enumerable.Empty<IntegrationCommandModel>()
                     .Concat(serviceDesignerPubCommands)
-                    .FilterMessagesForThisMessageBroker(this, [IntegrationCommandModelStereotypeExtensions.Publishing.DefinitionId])
+                    .FilterMessagesForThisMessageBroker(this, Constants.BrokerStereotypeIds)
                     .OrderBy(x => x.Name)
                     .ToArray();
         }

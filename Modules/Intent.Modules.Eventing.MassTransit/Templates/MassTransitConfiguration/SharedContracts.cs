@@ -1,4 +1,5 @@
 ﻿using Intent.Eventing.MassTransit.Api;
+using Intent.Metadata.Models;
 using Intent.Modelers.Eventing.Api;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -23,7 +24,7 @@ public record MessageDetail
         {
             MessageName = messageModel.Name,
             MessageTypeFullName = template.GetFullyQualifiedTypeName(messageModel.InternalElement),
-            TopicNameOverride = messageModel.GetMessageTopologySettings()?.EntityName()
+            TopicNameOverride = messageModel.GetMessageTopologySettings()?.EntityName(),
         };
     }
     

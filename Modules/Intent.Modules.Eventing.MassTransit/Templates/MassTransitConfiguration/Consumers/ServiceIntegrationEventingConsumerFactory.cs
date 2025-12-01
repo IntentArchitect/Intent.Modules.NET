@@ -22,6 +22,7 @@ internal class ServiceIntegrationEventingConsumerFactory : IConsumerFactory
         var consumers = _template.ExecutionContext.MetadataManager
             .Services(_template.ExecutionContext.GetApplicationConfig().Id).GetIntegrationEventHandlerModels()
             .SelectMany(x => x.IntegrationEventSubscriptions())
+            .FilterMessagesForThisMessageBroker(_template.ExecutionContext, Constants.BrokerStereotypeIds, x => x.TypeReference.Element.AsMessageModel())
             .Select(subscription =>
             {
                 var messageModel = subscription.TypeReference.Element.AsMessageModel();

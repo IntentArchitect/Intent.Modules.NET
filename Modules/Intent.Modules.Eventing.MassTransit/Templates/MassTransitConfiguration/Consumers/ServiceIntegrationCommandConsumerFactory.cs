@@ -22,13 +22,12 @@ internal class ServiceIntegrationCommandConsumerFactory : IConsumerFactory
         var consumers = _template.ExecutionContext.MetadataManager
             .Services(_template.ExecutionContext.GetApplicationConfig().Id).GetIntegrationEventHandlerModels()
             .SelectMany(x => x.IntegrationCommandSubscriptions())
+            .FilterMessagesForThisMessageBroker(_template.ExecutionContext, Constants.BrokerStereotypeIds, x => x.TypeReference.Element.AsIntegrationCommandModel())
             .Select(subscription =>
             {
                 var commandModel = subscription.TypeReference.Element.AsIntegrationCommandModel();
                 var messageName = _template.GetIntegrationCommandName(commandModel);
-
-                var consumerDefinitionType =
-                    $@"{_template.GetIntegrationEventHandlerInterfaceName()}<{messageName}>, {messageName}";
+                var consumerDefinitionType = $"{_template.GetIntegrationEventHandlerInterfaceName()}<{messageName}>, {messageName}";
 
                 return new Consumer
                 {
@@ -38,7 +37,7 @@ internal class ServiceIntegrationCommandConsumerFactory : IConsumerFactory
                         MessageTypeFullName = _template.GetFullyQualifiedTypeName(commandModel.InternalElement),
                         TopicNameOverride = null
                     },
-                    ConsumerTypeName = $@"{_template.GetIntegrationEventConsumerName()}<{consumerDefinitionType}>",
+                    ConsumerTypeName = $"{_template.GetIntegrationEventConsumerName()}<{consumerDefinitionType}>",
                     ConsumerDefinitionTypeName = $"{_template.GetIntegrationEventConsumerName()}Definition<{consumerDefinitionType}>",
                     IsSpecificMessageConsumer = true,
                     DestinationAddress = subscription.GetCommandConsumption()?.QueueName()

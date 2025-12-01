@@ -170,13 +170,13 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
                 $"Messaging Service Provider is set to a setting that is not supported: {messageBrokerSetting}")
         };
     }
-
+    
     private Consumer[] GetConsumers()
     {
         var consumers = new IConsumerFactory[]
             {
                 new ServiceIntegrationEventingConsumerFactory(this),
-                new ServiceIntegrationCommandConsumerFactory(this),
+                new ServiceIntegrationCommandConsumerFactory(this)
             }
             .Concat(GetDecorators().SelectMany(decorator => decorator.GetConsumerFactories() ?? []))
             .SelectMany(factory => factory.CreateConsumers())
@@ -200,7 +200,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
     {
         var serviceIntegrationMessages = ExecutionContext.MetadataManager.GetAssociatedMessageModels(OutputTarget.Application);
         var filtered = serviceIntegrationMessages
-            .FilterMessagesForThisMessageBroker(this, [MessageModelStereotypeExtensions.MessageTopologySettings.DefinitionId]);
+            .FilterMessagesForThisMessageBroker(this, Constants.BrokerStereotypeIds);
         var result = filtered
             .OrderBy(x => x.Name)
             .ThenBy(x => x.Id)

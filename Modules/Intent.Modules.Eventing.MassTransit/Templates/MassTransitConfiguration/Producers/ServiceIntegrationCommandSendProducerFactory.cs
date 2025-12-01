@@ -4,6 +4,7 @@ using Intent.Eventing.MassTransit.Api;
 using Intent.Modelers.Eventing.Api;
 using Intent.Modelers.Services.EventInteractions;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationCommand;
 
 namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration.Producers;
@@ -21,6 +22,7 @@ internal class ServiceIntegrationCommandSendProducerFactory : IProducerFactory
     {
         var results = _template.ExecutionContext.MetadataManager
             .GetExplicitlySentIntegrationCommandDispatches(_template.ExecutionContext.GetApplicationConfig().Id)
+            .FilterMessagesForThisMessageBroker(_template.ExecutionContext, Constants.BrokerStereotypeIds, x => x.TypeReference.Element.AsIntegrationCommandModel())
             .Select(subscription =>
             {
                 var model = subscription.TypeReference.Element.AsIntegrationCommandModel();
