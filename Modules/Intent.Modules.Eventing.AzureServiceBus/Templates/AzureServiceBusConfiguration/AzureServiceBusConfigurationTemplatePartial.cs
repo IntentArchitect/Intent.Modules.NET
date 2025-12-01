@@ -74,9 +74,17 @@ public partial class AzureServiceBusConfigurationTemplate : CSharpTemplateBase<o
                     method.AddStatement($"services.AddSingleton<{this.GetAzureServiceBusMessageDispatcherName()}>();");
                     method.AddStatement(
                         $"services.AddSingleton<{this.GetAzureServiceBusMessageDispatcherInterfaceName()}, {this.GetAzureServiceBusMessageDispatcherName()}>();");
+
+
+                    string[] brokerStereotypeIds =
+                    [
+                        MessageModelStereotypeExtensions.AzureServiceBus.DefinitionId,
+                        FolderModelStereotypeExtensions.AzureServiceBusFolderSettings.DefinitionId,
+                        EventingPackageModelStereotypeExtensions.AzureServiceBusPackageSettings.DefinitionId
+                    ];
                     
                     var publishers = IntegrationManager.Instance.GetAggregatedPublishedAzureServiceBusItems(ExecutionContext.GetApplicationConfig().Id)
-                        .FilterMessagesForThisMessageBroker(this, [MessageModelStereotypeExtensions.AzureServiceBus.DefinitionId, IntegrationCommandModelStereotypeExtensions.AzureServiceBus.DefinitionId])
+                        .FilterMessagesForThisMessageBroker(this, brokerStereotypeIds)
                         .ToList();
                     
                     if (publishers.Count != 0)
@@ -92,7 +100,10 @@ public partial class AzureServiceBusConfigurationTemplate : CSharpTemplateBase<o
                             }));
                     }
 
-                    var subscribers = IntegrationManager.Instance.GetAggregatedSubscribedAzureServiceBusItems(ExecutionContext.GetApplicationConfig().Id);
+                    var subscribers = IntegrationManager.Instance.GetAggregatedSubscribedAzureServiceBusItems(ExecutionContext.GetApplicationConfig().Id)
+                        .FilterMessagesForThisMessageBroker(this, brokerStereotypeIds)
+                        .ToList();
+                    
                     if (subscribers.Count != 0)
                     {
                         method.AddInvocationStatement($"services.Configure<{this.GetAzureServiceBusSubscriptionOptionsName()}>", inv => inv

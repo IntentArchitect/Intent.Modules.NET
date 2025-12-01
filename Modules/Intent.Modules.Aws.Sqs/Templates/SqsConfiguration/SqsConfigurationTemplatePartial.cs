@@ -76,8 +76,15 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsConfiguration
                             method.AddStatement($"services.AddSingleton<{this.GetTypeName(SqsMessageDispatcherTemplate.TemplateId)}>();");
                             method.AddStatement($"services.AddSingleton<{this.GetTypeName(SqsMessageDispatcherInterfaceTemplate.TemplateId)}, {this.GetTypeName(SqsMessageDispatcherTemplate.TemplateId)}>(sp => sp.GetRequiredService<{this.GetTypeName(SqsMessageDispatcherTemplate.TemplateId)}>());");
 
+                            string[] brokerStereotypeIds = 
+                            [
+                                MessageModelStereotypeExtensions.AwsSqs.DefinitionId,
+                                FolderModelStereotypeExtensions.AwsSqsFolderSettings.DefinitionId,
+                                EventingPackageModelStereotypeExtensions.AwsSqsPackageSettings.DefinitionId
+                            ];
+                            
                             var publishers = IntegrationManager.Instance.GetAggregatedPublishedSqsItems(ExecutionContext.GetApplicationConfig().Id)
-                                .FilterMessagesForThisMessageBroker(this, [MessageModelStereotypeExtensions.AwsSqs.DefinitionId, IntegrationCommandModelStereotypeExtensions.AwsSqs.DefinitionId])
+                                .FilterMessagesForThisMessageBroker(this, brokerStereotypeIds)
                                 .ToArray();
                             
                             if (publishers.Any())
@@ -95,8 +102,11 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsConfiguration
                                     .SeparatedFromNext());
                             }
 
-                            var subscriptions = IntegrationManager.Instance.GetAggregatedSqsSubscriptions(ExecutionContext.GetApplicationConfig().Id);
-                            if (subscriptions.Any())
+                            var subscriptions = IntegrationManager.Instance.GetAggregatedSqsSubscriptions(ExecutionContext.GetApplicationConfig().Id)
+                                .FilterMessagesForThisMessageBroker(this.ExecutionContext, brokerStereotypeIds, s => s.SubscriptionItem)
+                                .ToArray();
+                            
+                            if (subscriptions.Length != 0)
                             {
                                 method.AddInvocationStatement($"services.Configure<{GetTypeName(SqsSubscriptionOptionsTemplate.TemplateId)}>", inv => inv
                                     .AddArgument(new CSharpLambdaBlock("options"), arg =>

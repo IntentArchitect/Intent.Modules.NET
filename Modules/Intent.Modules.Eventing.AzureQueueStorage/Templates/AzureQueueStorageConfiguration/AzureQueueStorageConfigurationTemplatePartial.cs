@@ -50,7 +50,7 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageC
                 {
                     @class.Static();
 
-                    string[] queueStorageStereotypeIds = 
+                    string[] brokerStereotypeIds = 
                     [
                         MessageModelStereotypeExtensions.AzureQueueStorage.DefinitionId,
                         FolderModelStereotypeExtensions.AzureQueueStorageFolderSettings.DefinitionId,
@@ -58,10 +58,10 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageC
                     ];
                     
                     var subMessages = this.GetSubscribedMessages()
-                        .FilterMessagesForThisMessageBroker(this, queueStorageStereotypeIds)
+                        .FilterMessagesForThisMessageBroker(this, brokerStereotypeIds)
                         .ToList();
                     var subCommands = this.GetSubscribedIntegrationCommands()
-                        .FilterMessagesForThisMessageBroker(this, queueStorageStereotypeIds)
+                        .FilterMessagesForThisMessageBroker(this, brokerStereotypeIds)
                         .ToList();
 
                     @class.AddMethod(UseType("Microsoft.Extensions.DependencyInjection.IServiceCollection"), "AddQueueStorageConfiguration", mth =>
@@ -95,12 +95,20 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageC
                             invoc.AddInvocation("Bind", bindInvoc => bindInvoc.AddArgument("configuration.GetSection(\"QueueStorage\")"));
                         });
 
-                        foreach (var queueName in this.GetSubscribeQueues())
+                        foreach (var subMessage in subMessages)
                         {
                             mth.AddInvocationStatement($"services.RegisterQueueStorageConsumers", invoc =>
                             {
                                 invoc.AddArgument("configuration")
-                                .AddArgument($"\"{queueName}\"");
+                                .AddArgument($"\"{HelperExtensions.GetMessageQueue(subMessage)}\"");
+                            });
+                        }
+                        foreach (var subCommand in subCommands)
+                        {
+                            mth.AddInvocationStatement($"services.RegisterQueueStorageConsumers", invoc =>
+                            {
+                                invoc.AddArgument("configuration")
+                                    .AddArgument($"\"{HelperExtensions.GetIntegrationCommandQueue(subCommand)}\"");
                             });
                         }
 
@@ -137,10 +145,10 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageC
                         if (requiresCompositeMessageBus)
                         {
                             var publishedMessages = this.GetPublishedMessages()
-                                .FilterMessagesForThisMessageBroker(this, queueStorageStereotypeIds)
+                                .FilterMessagesForThisMessageBroker(this, brokerStereotypeIds)
                                 .ToList();
                             var sentCommands = this.GetSentIntegrationCommands()
-                                .FilterMessagesForThisMessageBroker(this, queueStorageStereotypeIds)
+                                .FilterMessagesForThisMessageBroker(this, brokerStereotypeIds)
                                 .ToList();
                             
                             if (publishedMessages.Count != 0 || sentCommands.Count != 0)

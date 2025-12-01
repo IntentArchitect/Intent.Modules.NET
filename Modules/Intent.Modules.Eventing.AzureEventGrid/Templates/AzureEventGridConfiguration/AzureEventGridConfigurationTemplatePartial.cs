@@ -74,14 +74,14 @@ public partial class AzureEventGridConfigurationTemplate : CSharpTemplateBase<ob
 
                         method.AddStatement($"services.AddScoped<{this.GetAzureEventGridConsumerBehaviorInterfaceName()}, {this.GetInboundCloudEventBehaviorName()}>();", s => s.SeparatedFromPrevious());
                         
-                        string[] azEvtStereotypes = [
+                        string[] brokerStereotypeIds = [
                             MessageModelStereotypeExtensions.AzureEventGrid.DefinitionId,
                             EventingPackageModelStereotypeExtensions.EventDomain.DefinitionId,
                             FolderModelStereotypeExtensions.AzureEventGridFolderSettings.DefinitionId
                         ];
                         
                         var publishMessages = IntegrationManager.Instance.GetPublishedAzureEventGridMessages(ExecutionContext.GetApplicationConfig().Id)
-                            .FilterMessagesForThisMessageBroker(this, azEvtStereotypes)
+                            .FilterMessagesForThisMessageBroker(this, brokerStereotypeIds)
                             .ToList();
                         
                         if (publishMessages.Count != 0)
@@ -98,7 +98,7 @@ public partial class AzureEventGridConfigurationTemplate : CSharpTemplateBase<ob
                         }
                         
                         var eventHandlers = IntegrationManager.Instance.GetSubscribedAzureEventGridMessages(ExecutionContext.GetApplicationConfig().Id)
-                            .FilterMessagesForThisMessageBroker(this, azEvtStereotypes)
+                            .FilterMessagesForThisMessageBroker(this, brokerStereotypeIds)
                             .ToList();
                         if (eventHandlers.Count != 0)
                         {

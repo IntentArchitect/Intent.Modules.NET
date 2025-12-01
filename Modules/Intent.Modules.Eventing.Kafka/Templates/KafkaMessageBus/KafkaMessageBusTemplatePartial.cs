@@ -31,7 +31,7 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaMessageBus
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
-                .AddClass($"KafkaEventBus", @class =>
+                .AddClass($"KafkaMessageBus", @class =>
                 {
                     @class.ImplementsInterface(this.GetBusInterfaceName());
                     @class.AddField($"ConcurrentDictionary<Type, IProducer>", "_producersByMessageType", f => f

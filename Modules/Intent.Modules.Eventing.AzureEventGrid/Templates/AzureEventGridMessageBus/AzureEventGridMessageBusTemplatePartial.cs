@@ -35,7 +35,7 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridMessage
                 .AddUsing("Azure.Messaging")
                 .AddUsing("Azure.Messaging.EventGrid")
                 .AddUsing("Microsoft.Extensions.Options")
-                .AddClass($"AzureEventGridEventBus", @class =>
+                .AddClass($"AzureEventGridMessageBus", @class =>
                 {
                     @class.ImplementsInterface(this.GetBusInterfaceName());
                     @class.AddField("List<MessageEntry>", "_messageQueue", field => field.PrivateReadOnly().WithAssignment(new CSharpStatement("[]")));

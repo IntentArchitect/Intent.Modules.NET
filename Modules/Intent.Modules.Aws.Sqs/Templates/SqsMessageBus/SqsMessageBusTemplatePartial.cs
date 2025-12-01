@@ -34,7 +34,7 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsMessageBus
                 .AddUsing("Amazon.SQS")
                 .AddUsing("Amazon.SQS.Model")
                 .AddUsing("Microsoft.Extensions.Options")
-                .AddClass($"SqsEventBus", @class =>
+                .AddClass($"SqsMessageBus", @class =>
                 {
                     @class.ImplementsInterface(this.GetBusInterfaceName());
 

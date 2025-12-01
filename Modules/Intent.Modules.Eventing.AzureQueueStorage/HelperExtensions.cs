@@ -12,30 +12,30 @@ namespace Intent.Modules.Eventing.AzureQueueStorage;
 
 public static class HelperExtensions
 {
-    public static List<string> GetSubscribeQueues(this IIntentTemplate template)
-    {
-        var messageQueues = template.ExecutionContext.MetadataManager
-                .GetExplicitlySubscribedToMessageModels(template.OutputTarget.Application)
-                .Select(GetMessageQueue);
-
-        var eventingMessageQueues = template.ExecutionContext.MetadataManager
-            .Eventing(template.ExecutionContext.GetApplicationConfig().Id).GetApplicationModels()
-            .SelectMany(x => x.SubscribedMessages())
-            .Select(x => x.TypeReference.Element.AsMessageModel())
-            .Select(GetMessageQueue);
-
-        var commandQueues = template.ExecutionContext.MetadataManager
-                .GetExplicitlySubscribedToIntegrationCommandModels(template.OutputTarget.Application)
-                .Select(GetIntegrationCommandQueue);
-
-        return Enumerable.Empty<string>()
-            .Concat(messageQueues)
-            .Concat(eventingMessageQueues)
-            .Concat(commandQueues)
-            .OrderBy(x => x)
-            .Distinct()
-            .ToList();
-    }
+    // public static List<string> GetSubscribeQueues(this IIntentTemplate template)
+    // {
+    //     var messageQueues = template.ExecutionContext.MetadataManager
+    //             .GetExplicitlySubscribedToMessageModels(template.OutputTarget.Application)
+    //             .Select(GetMessageQueue);
+    //
+    //     var eventingMessageQueues = template.ExecutionContext.MetadataManager
+    //         .Eventing(template.ExecutionContext.GetApplicationConfig().Id).GetApplicationModels()
+    //         .SelectMany(x => x.SubscribedMessages())
+    //         .Select(x => x.TypeReference.Element.AsMessageModel())
+    //         .Select(GetMessageQueue);
+    //
+    //     var commandQueues = template.ExecutionContext.MetadataManager
+    //             .GetExplicitlySubscribedToIntegrationCommandModels(template.OutputTarget.Application)
+    //             .Select(GetIntegrationCommandQueue);
+    //
+    //     return Enumerable.Empty<string>()
+    //         .Concat(messageQueues)
+    //         .Concat(eventingMessageQueues)
+    //         .Concat(commandQueues)
+    //         .OrderBy(x => x)
+    //         .Distinct()
+    //         .ToList();
+    // }
     
     public static List<MessageModel> GetSubscribedMessages(this IIntentTemplate template)
     {

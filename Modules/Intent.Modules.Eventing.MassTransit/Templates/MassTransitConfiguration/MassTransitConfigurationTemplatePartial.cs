@@ -171,11 +171,10 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
         };
     }
 
-    private IReadOnlyCollection<Consumer> GetConsumers()
+    private Consumer[] GetConsumers()
     {
         var consumers = new IConsumerFactory[]
             {
-                new LegacyEventingConsumerFactory(this),
                 new ServiceIntegrationEventingConsumerFactory(this),
                 new ServiceIntegrationCommandConsumerFactory(this),
             }
@@ -185,7 +184,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
         return consumers;
     }
 
-    private IReadOnlyCollection<Producer> GetProducers()
+    private Producer[] GetProducers()
     {
         var producers = new IProducerFactory[]
             {
@@ -197,24 +196,15 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
         return producers;
     }
 
-    private IReadOnlyList<MessageModel> GetApplicableMessages()
+    private MessageModel[] GetApplicableMessages()
     {
-        var eventApplications = ExecutionContext.MetadataManager.Eventing(ExecutionContext.GetApplicationConfig().Id).GetApplicationModels().ToList();
-        var legacySubscriptionMessages = eventApplications.SelectMany(x => x.SubscribedMessages())
-            .Select(x => x.TypeReference.Element.AsMessageModel());
-        var legacyPublishMessages = eventApplications.SelectMany(x => x.PublishedMessages())
-            .Select(x => x.TypeReference.Element.AsMessageModel());
         var serviceIntegrationMessages = ExecutionContext.MetadataManager.GetAssociatedMessageModels(OutputTarget.Application);
-
-        var filtered = legacySubscriptionMessages
-            .Union(legacyPublishMessages)
-            .Union(serviceIntegrationMessages)
+        var filtered = serviceIntegrationMessages
             .FilterMessagesForThisMessageBroker(this, [MessageModelStereotypeExtensions.MessageTopologySettings.DefinitionId]);
-
         var result = filtered
             .OrderBy(x => x.Name)
             .ThenBy(x => x.Id)
-            .ToList();
+            .ToArray();
         return result;
     }
 

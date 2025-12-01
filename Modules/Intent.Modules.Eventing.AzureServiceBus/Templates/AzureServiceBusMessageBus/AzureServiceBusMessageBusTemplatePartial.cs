@@ -23,13 +23,114 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusMessa
         public AzureServiceBusMessageBusTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddUsing("System")
+                .AddUsing("System.Collections.Generic")
+                .AddUsing("System.Linq")
+                .AddUsing("System.Text.Json")
+                .AddUsing("System.Threading")
+                .AddUsing("System.Threading.Tasks")
+                .AddUsing("System.Transactions")
+                .AddUsing("Azure.Messaging.ServiceBus")
+                .AddUsing("Microsoft.Extensions.Options")
+                .AddUsing("Microsoft.Extensions.Configuration")
                 .AddClass($"AzureServiceBusMessageBus", @class =>
                 {
+                    @class.ImplementsInterface(this.GetBusInterfaceName());
+                    @class.AddField("List<MessageEntry>", "_messageQueue", field => field.PrivateReadOnly().WithAssignment(new CSharpStatement("[]")));
+                    @class.AddField("Dictionary<string, string>", "_lookup", field => field.PrivateReadOnly());
+
                     @class.AddConstructor(ctor =>
                     {
-                        ctor.AddParameter("string", "exampleParam", param =>
+                        ctor.AddParameter("ServiceBusClient", "serviceBusClient", param => param.IntroduceReadonlyField());
+                        ctor.AddParameter($"IOptions<{this.GetAzureServiceBusPublisherOptionsName()}>", "options");
+
+                        ctor.AddStatement("_lookup = options.Value.Entries.ToDictionary(k => k.MessageType.FullName!, v => v.QueueOrTopicName);");
+                    });
+
+                    @class.AddMethod("void", "Publish", method =>
+                    {
+                        method.AddGenericParameter("TMessage", out var TMessage);
+                        method.AddGenericTypeConstraint(TMessage, c => c.AddType("class"));
+                        method.AddParameter(TMessage, "message");
+
+                        method.AddStatement("_messageQueue.Add(new MessageEntry(message, null));");
+                    });
+
+                    @class.AddMethod("void", "Publish", method =>
+                    {
+                        method.AddGenericParameter("TMessage", out var TMessage);
+                        method.AddGenericTypeConstraint(TMessage, c => c.AddType("class"));
+                        method.AddParameter(TMessage, "message");
+                        method.AddParameter("IDictionary<string, object>", "additionalData");
+
+                        method.AddStatement("_messageQueue.Add(new MessageEntry(message, additionalData));");
+                    });
+
+                    @class.AddMethod("void", "Send", method =>
+                    {
+                        method.AddGenericParameter("TMessage", out var TMessage);
+                        method.AddGenericTypeConstraint(TMessage, c => c.AddType("class"));
+                        method.AddParameter(TMessage, "message");
+
+                        method.AddStatement("_messageQueue.Add(new MessageEntry(message, null));");
+                    });
+
+                    @class.AddMethod("void", "Send", method =>
+                    {
+                        method.AddGenericParameter("TMessage", out var TMessage);
+                        method.AddGenericTypeConstraint(TMessage, c => c.AddType("class"));
+                        method.AddParameter(TMessage, "message");
+                        method.AddParameter("IDictionary<string, object>", "additionalData");
+
+                        method.AddStatement("_messageQueue.Add(new MessageEntry(message, additionalData));");
+                    });
+
+                    @class.AddMethod("Task", "FlushAllAsync", method =>
+                    {
+                        method.Async();
+                        method.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
+
+                        method.AddIfStatement("_messageQueue.Count == 0", fi => { fi.AddStatement("return;"); });
+
+                        method.AddStatement(
+                            "using var scope = new TransactionScope(TransactionScopeOption.Suppress, TransactionScopeAsyncFlowOption.Enabled);");
+
+                        method.AddForEachStatement("message", "_messageQueue", fe =>
                         {
-                            param.IntroduceReadonlyField();
+                            fe.AddStatement("var queueOrTopicName = _lookup[message.Message.GetType().FullName!];");
+                            fe.AddStatement("await using var sender = _serviceBusClient.CreateSender(queueOrTopicName);");
+                            fe.AddStatement("var serviceBusMessage = CreateServiceBusMessage(message);");
+                            fe.AddStatement("await sender.SendMessageAsync(serviceBusMessage, cancellationToken);");
+                        });
+
+                        method.AddStatement("scope.Complete();");
+                        method.AddStatement("_messageQueue.Clear();");
+                    });
+
+                    @class.AddMethod("ServiceBusMessage", "CreateServiceBusMessage", method =>
+                    {
+                        method.Private().Static();
+                        method.AddParameter("MessageEntry", "message");
+
+                        method.AddStatement("var serializedMessage = JsonSerializer.Serialize(message.Message);");
+                        method.AddStatement("var serviceBusMessage = new ServiceBusMessage(serializedMessage);");
+                        method.AddStatement("""serviceBusMessage.ApplicationProperties["MessageType"] = message.Message.GetType().FullName;""");
+                        method.AddIfStatement("message.AdditionalData != null",
+                            ifs =>
+                            {
+                                ifs.AddForEachStatement("dataEnty", "message.AdditionalData",
+                                    fe => { fe.AddStatement("serviceBusMessage.ApplicationProperties[dataEnty.Key] = dataEnty.Value;"); });
+                            });
+                        method.AddStatement("return serviceBusMessage;");
+                    });
+
+                    @class.AddNestedRecord("MessageEntry", record =>
+                    {
+                        record.Private();
+                        record.AddPrimaryConstructor(ctor =>
+                        {
+                            ctor.AddParameter("object", "Message");
+                            ctor.AddParameter("IDictionary<string, object>?", "AdditionalData");
                         });
                     });
                 });

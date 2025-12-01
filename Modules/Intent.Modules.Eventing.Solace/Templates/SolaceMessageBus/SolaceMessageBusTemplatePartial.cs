@@ -29,7 +29,7 @@ namespace Intent.Modules.Eventing.Solace.Templates.SolaceMessageBus
                 .AddUsing("System.Threading.Tasks")
                 .AddUsing("SolaceSystems.Solclient.Messaging")
                 .AddUsing("Microsoft.Extensions.Configuration")
-                .AddClass($"SolaceEventBus", @class =>
+                .AddClass($"SolaceMessageBus", @class =>
                 {
                     @class.ImplementsInterface(this.GetBusInterfaceName());
                     @class.AddField("List<object>", "_messagesToPublish", f => f.PrivateReadOnly().WithAssignment("new List<object>()"));

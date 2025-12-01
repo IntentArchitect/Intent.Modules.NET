@@ -33,7 +33,7 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.DaprMessageBus
                 .AddUsing("System.Collections.Generic")
                 .AddUsing("System.Linq")
                 .AddUsing("Dapr.Client")
-                .AddClass("DaprEventBus", @class => @class
+                .AddClass("DaprMessageBus", @class => @class
                     .ImplementsInterface(this.GetBusInterfaceName())
                     .AddField($"ConcurrentQueue<MessageEntry>", "_messages", f => f.PrivateReadOnly())
                     .AddConstructor(constructor => constructor

@@ -32,7 +32,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitMessageBus
                 .AddUsing("MassTransit")
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
                 .AddUsing("System.Linq")
-                .AddClass("MassTransitEventBus", @class =>
+                .AddClass("MassTransitMessageBus", @class =>
                 {
                     @class.ImplementsInterface(this.GetBusInterfaceName());
 

@@ -35,6 +35,13 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaConfiguration
         public KafkaConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             FulfillsRole("Eventing.MessageBusConfiguration");
+
+            string[] brokerStereotypeIds = 
+                [
+                    MessageModelStereotypeExtensions.KafkaMessageSettings.DefinitionId,
+                    FolderModelStereotypeExtensions.KafkaFolderSettings.DefinitionId,
+                    EventingPackageModelStereotypeExtensions.KafkaPackageSettings.DefinitionId
+                ];
             
             _subscribedMessageModels = new Lazy<IReadOnlyCollection<MessageModel>>(() =>
             {
@@ -51,6 +58,7 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaConfiguration
                 var messageModels = Enumerable.Empty<MessageModel>()
                     .Concat(serviceDesignerMessages)
                     .Concat(eventingDesignerMessages)
+                    .FilterMessagesForThisMessageBroker(this, brokerStereotypeIds)
                     .OrderBy(x => x.Name)
                     .ToArray();
 
@@ -70,7 +78,7 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaConfiguration
                 var messageModels = Enumerable.Empty<MessageModel>()
                     .Concat(serviceDesignerMessages)
                     .Concat(eventingDesignerMessages)
-                    .FilterMessagesForThisMessageBroker(this, [])
+                    .FilterMessagesForThisMessageBroker(this, brokerStereotypeIds)
                     .OrderBy(x => x.Name)
                     .ToArray();
 

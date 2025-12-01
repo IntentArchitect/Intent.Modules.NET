@@ -27,7 +27,7 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageM
             AddNugetDependency(NugetPackages.AzureStorageQueues(outputTarget));
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
-                .AddClass($"AzureQueueStorageEventBus", @class =>
+                .AddClass($"AzureQueueStorageMessageBus", @class =>
                 {
                     @class.ImplementsInterface(this.GetBusInterfaceName());
 
