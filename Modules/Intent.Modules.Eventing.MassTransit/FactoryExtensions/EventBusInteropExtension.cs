@@ -61,7 +61,7 @@ namespace Intent.Modules.Eventing.MassTransit.FactoryExtensions
                     return;
                 }
                 var mediatorConfig = (CSharpLambdaBlock)(meditarConfigLambda.Statements.FirstOrDefault());
-                var statementToMove = mediatorConfig.Statements.FirstOrDefault(stmt => stmt.GetText("").Contains("EventBusPublishBehaviour"));
+                var statementToMove = mediatorConfig.Statements.FirstOrDefault(stmt => stmt.GetText("").Contains("MessageBusPublishBehaviour"));
                 if (statementToMove == null)
                 {
                     return;

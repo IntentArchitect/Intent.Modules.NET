@@ -43,7 +43,7 @@ namespace Intent.Modules.AspNetCore.Mvc.FactoryExtensions
                 InstallServiceContractDispatch(template);
                 InstallValidation(template);
                 InstallTransactionWithUnitOfWork(template, application);
-                InstallMessageBus(template, application);
+                InstallMessageBus(template);
             }
 
             var startupTemplate = application.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
@@ -356,9 +356,9 @@ namespace Intent.Modules.AspNetCore.Mvc.FactoryExtensions
             }, order: 1);
         }
 
-        private static void InstallMessageBus(MvcControllerTemplate template, IApplication application)
+        private static void InstallMessageBus(MvcControllerTemplate template)
         {
-            var shouldInstallMessageBus = application.FindTemplateInstance<IClassProvider>(TemplateRoles.Application.Eventing.EventBusInterface) != null;
+            var shouldInstallMessageBus = TryGetMessageBusInterfaceName(template, out var messageBusInterfaceName);
             if (!shouldInstallMessageBus)
             {
                 return;
@@ -368,15 +368,32 @@ namespace Intent.Modules.AspNetCore.Mvc.FactoryExtensions
             {
                 var @class = file.Classes.First();
                 var ctor = @class.Constructors.First();
-                ctor.AddParameter(template.GetTypeName(TemplateRoles.Application.Eventing.EventBusInterface), "eventBus",
+                ctor.AddParameter(messageBusInterfaceName, "messageBus",
                     p => { p.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException()); });
 
                 foreach (var method in @class.Methods.Where(x => x.Attributes.All(a => !a.ToString()!.StartsWith("[HttpGet"))))
                 {
                     method.Statements.LastOrDefault(x => x.ToString()!.Trim().StartsWith("return "))?
-                        .InsertAbove("await _eventBus.FlushAllAsync(cancellationToken);", stmt => stmt.AddMetadata("eventbus-flush", true));
+                        .InsertAbove("await _messageBus.FlushAllAsync(cancellationToken);", stmt => stmt.AddMetadata("eventbus-flush", true));
                 }
             }, order: -100);
+        }
+        
+        private static bool TryGetMessageBusInterfaceName(IIntentTemplate template, out string typeName)
+        {
+            if (template.TryGetTypeName(TemplateRoles.Application.Eventing.MessageBusInterface, out typeName))
+            {
+                return true;
+            }
+
+            // Legacy support
+            if (template.TryGetTypeName(TemplateRoles.Application.Eventing.EventBusInterface, out typeName))
+            {
+                return true;
+            }
+
+            typeName = null;
+            return false;
         }
     }
 }

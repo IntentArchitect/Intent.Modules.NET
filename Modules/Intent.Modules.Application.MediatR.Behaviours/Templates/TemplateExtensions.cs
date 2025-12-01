@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Intent.Modules.Application.MediatR.Behaviours.Templates.AuthorizationBehaviour;
-using Intent.Modules.Application.MediatR.Behaviours.Templates.EventBusPublishBehaviour;
 using Intent.Modules.Application.MediatR.Behaviours.Templates.LoggingBehaviour;
+using Intent.Modules.Application.MediatR.Behaviours.Templates.MessageBusPublishBehaviour;
 using Intent.Modules.Application.MediatR.Behaviours.Templates.PerformanceBehaviour;
 using Intent.Modules.Application.MediatR.Behaviours.Templates.UnhandledExceptionBehaviour;
 using Intent.Modules.Application.MediatR.Behaviours.Templates.UnitOfWorkBehaviour;
@@ -20,17 +20,17 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates
             return template.GetTypeName(AuthorizationBehaviourTemplate.TemplateId);
         }
 
-        public static string GetEventBusPublishBehaviourName<T>(this IntentTemplateBase<T> template)
-        {
-            return template.GetTypeName(EventBusPublishBehaviourTemplate.TemplateId);
-        }
-
-        public static string GetLoggingBehaviourName<T>(this IntentTemplateBase<T> template)
+        public static string GetLoggingBehaviourName(this IIntentTemplate template)
         {
             return template.GetTypeName(LoggingBehaviourTemplate.TemplateId);
         }
 
-        public static string GetPerformanceBehaviourName<T>(this IntentTemplateBase<T> template)
+        public static string GetMessageBusPublishBehaviourName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(MessageBusPublishBehaviourTemplate.TemplateId);
+        }
+
+        public static string GetPerformanceBehaviourName(this IIntentTemplate template)
         {
             return template.GetTypeName(PerformanceBehaviourTemplate.TemplateId);
         }

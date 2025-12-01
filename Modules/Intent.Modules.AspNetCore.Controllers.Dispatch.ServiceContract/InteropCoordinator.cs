@@ -1,4 +1,5 @@
-﻿using Intent.Engine;
+﻿using System.Linq;
+using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -16,7 +17,8 @@ public static class InteropCoordinator
 
     public static bool ShouldInstallMessageBus(IApplication application)
     {
-        return application.FindTemplateInstance<IClassProvider>(TemplateRoles.Application.Eventing.EventBusInterface) != null;
+        return application.FindTemplateInstances<IClassProvider>(TemplateRoles.Application.Eventing.MessageBusInterface).Any() ||
+               application.FindTemplateInstances<IClassProvider>(TemplateRoles.Application.Eventing.EventBusInterface).Any();
     }
     
     public static bool ShouldInstallMongoDbUnitOfWork(IApplication application)

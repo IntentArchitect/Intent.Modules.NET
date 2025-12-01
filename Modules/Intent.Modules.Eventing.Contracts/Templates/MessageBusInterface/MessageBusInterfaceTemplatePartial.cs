@@ -69,11 +69,5 @@ namespace Intent.Modules.Eventing.Contracts.Templates.MessageBusInterface
         {
             return CSharpFile.ToString();
         }
-
-        public override bool CanRunTemplate()
-        {
-            var useLegacy = Settings.ModuleSettingsExtensions.GetEventingSettings(ExecutionContext.Settings).UseLegacyInterfaceName();
-            return !useLegacy;
-        }
     }
 }

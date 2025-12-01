@@ -46,8 +46,8 @@ public static class ConsumerHelper
                 method.Async();
                 method.AddParameter($"{template.UseType("MassTransit.ConsumeContext")}<{tMessage}>", "context");
 
-                method.AddStatement($"var eventBus = _serviceProvider.GetRequiredService<{template.GetMassTransitMessageBusName()}>();");
-                method.AddStatement($"eventBus.ConsumeContext = context;");
+                method.AddStatement($"var messageBus = _serviceProvider.GetRequiredService<{template.GetMassTransitMessageBusName()}>();");
+                method.AddStatement($"messageBus.ConsumeContext = context;");
 
                 configureConsumeMethod(@class, method, tMessage);
                 
@@ -56,7 +56,7 @@ public static class ConsumerHelper
                 // 2. The Consumer uses a dispatcher with its own middleware that will do everything.
                 if (applyStandardUnitOfWorkLogic)
                 {
-                    method.AddStatement($"await eventBus.FlushAllAsync(context.CancellationToken);",
+                    method.AddStatement($"await messageBus.FlushAllAsync(context.CancellationToken);",
                         stmt => stmt.AddMetadata("event-bus-flush", true));
 
                     if (template.SystemUsesPersistenceUnitOfWork())

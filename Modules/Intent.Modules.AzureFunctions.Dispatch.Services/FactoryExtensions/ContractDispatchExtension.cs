@@ -82,8 +82,8 @@ namespace Intent.Modules.AzureFunctions.Dispatch.Services.FactoryExtensions
                         });
                     if (ShouldInstallMessageBus(application))
                     {
-                        @class.Constructors.First().AddParameter(template.GetTypeName(TemplateRoles.Application.Eventing.EventBusInterface), "eventBus", param => param.IntroduceReadonlyField());
-                        invocationStatement.AddStatement($@"await _eventBus.FlushAllAsync(cancellationToken);", stmt => stmt.AddMetadata("eventBus", true));
+                        @class.Constructors.First().AddParameter(GetMessageBusInterfaceName(template), "messageBus", param => param.IntroduceReadonlyField());
+                        invocationStatement.AddStatement("await _messageBus.FlushAllAsync(cancellationToken);", stmt => stmt.AddMetadata("eventBus", true));
                     }
                     invocationStatement.AddStatement(GetReturnStatement(template));
                 });
@@ -92,8 +92,27 @@ namespace Intent.Modules.AzureFunctions.Dispatch.Services.FactoryExtensions
         
         private static bool ShouldInstallMessageBus(IApplication application)
         {
-            return application.FindTemplateInstance<IClassProvider>(TemplateRoles.Application.Eventing.EventBusInterface) is not null;
+                // Support newer MessageBusInterface and legacy EventBusInterface roles.
+                return application.FindTemplateInstances<IClassProvider>(TemplateRoles.Application.Eventing.MessageBusInterface).Any() ||
+                       application.FindTemplateInstances<IClassProvider>(TemplateRoles.Application.Eventing.EventBusInterface).Any();
         }
+
+            private static string GetMessageBusInterfaceName(AzureFunctionClassTemplate template)
+            {
+                if (template.TryGetTypeName(TemplateRoles.Application.Eventing.MessageBusInterface, out var typeName))
+                {
+                    return typeName; // Newer role
+                }
+
+                // Legacy fallback
+                if (template.TryGetTypeName(TemplateRoles.Application.Eventing.EventBusInterface, out typeName))
+                {
+                    return typeName;
+                }
+
+                throw new InvalidOperationException(
+                    $"Could not find Message Bus interface with template role '{TemplateRoles.Application.Eventing.MessageBusInterface}' (or legacy role '{TemplateRoles.Application.Eventing.EventBusInterface}').");
+            }
 
         private static IHasCSharpStatements? FindServiceInvokePoint(CSharpClass @class, out CSharpClassMethod? hostMethod)
         {

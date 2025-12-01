@@ -99,7 +99,7 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusHoste
 
                             tryBlock.AddStatement(new CSharpAssignmentStatement(
                                 new CSharpVariableDeclaration("eventBus"),
-                                $"scopedServiceProvider.GetRequiredService<{this.GetTypeName(TemplateRoles.Application.Eventing.EventBusInterface)}>()").WithSemicolon());
+                                $"scopedServiceProvider.GetRequiredService<{this.GetTypeName(TemplateRoles.Application.Eventing.MessageBusInterface)}>()").WithSemicolon());
 
                             tryBlock.ApplyUnitOfWorkImplementations(
                                 template: this,

@@ -11,17 +11,17 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel", Version = "1.0")]
 
-namespace Intent.Modules.Application.MediatR.Behaviours.Templates.EventBusPublishBehaviour
+namespace Intent.Modules.Application.MediatR.Behaviours.Templates.MessageBusPublishBehaviour
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class EventBusPublishBehaviourTemplateRegistration : SingleFileTemplateRegistration
+    public class MessageBusPublishBehaviourTemplateRegistration : SingleFileTemplateRegistration
     {
-        public override string TemplateId => EventBusPublishBehaviourTemplate.TemplateId;
+        public override string TemplateId => MessageBusPublishBehaviourTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new EventBusPublishBehaviourTemplate(outputTarget);
+            return new MessageBusPublishBehaviourTemplate(outputTarget);
         }
     }
 }

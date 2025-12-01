@@ -47,7 +47,7 @@ namespace Intent.Modules.AspNetCore.Grpc.Templates.TraditionalService
                 .AddClass($"{Model.Name}", @class =>
                 {
                     var addValidation = TryGetTypeName(TemplateRoles.Application.Common.ValidationServiceInterface, out var validationServiceInterfaceTypeName);
-                    var addEventBus = TryGetTypeName(TemplateRoles.Application.Eventing.EventBusInterface, out var eventBusInterfaceTypeName);
+                    var addMessageBus = TryGetMessageBusInterfaceName(out var messageBusInterfaceTypeName);
                     var addDispatch = installedModules.Contains("Intent.Application.Contracts");
                     var addUnitOfWork = this.SystemUsesPersistenceUnitOfWork();
 
@@ -75,10 +75,10 @@ namespace Intent.Modules.AspNetCore.Grpc.Templates.TraditionalService
                             ctor.AddParameter(validationServiceInterfaceTypeName, "validationService", p => p.IntroduceReadonlyField((_, s) => s.ThrowArgumentNullException()));
                         }
 
-                        if (addEventBus)
+                        if (addMessageBus)
                         {
                             AddUsing("System");
-                            ctor.AddParameter(eventBusInterfaceTypeName, "eventBus", p => p.IntroduceReadonlyField((_, s) => s.ThrowArgumentNullException()));
+                            ctor.AddParameter(messageBusInterfaceTypeName, "messageBus", p => p.IntroduceReadonlyField((_, s) => s.ThrowArgumentNullException()));
                         }
                     });
 
@@ -192,12 +192,12 @@ namespace Intent.Modules.AspNetCore.Grpc.Templates.TraditionalService
                                     }
                                 });
 
-                                if (addEventBus)
+                                if (addMessageBus)
                                 {
                                     CSharpFile.AfterBuild(_ =>
                                     {
                                         method.Statements.LastOrDefault(x => x.ToString()!.Trim().StartsWith("return "))?
-                                            .InsertAbove("await _eventBus.FlushAllAsync(context.CancellationToken);", stmt => stmt.AddMetadata("eventbus-flush", true));
+                                            .InsertAbove("await _messageBus.FlushAllAsync(context.CancellationToken);", stmt => stmt.AddMetadata("eventbus-flush", true));
                                     }, -100);
                                 }
 
@@ -217,6 +217,23 @@ namespace Intent.Modules.AspNetCore.Grpc.Templates.TraditionalService
         public override void AfterTemplateRegistration()
         {
             ExecutionContext.EventDispatcher.Publish(new RegisterGrpcService(this));
+        }
+        
+        private bool TryGetMessageBusInterfaceName(out string typeName)
+        {
+            if (this.TryGetTypeName(TemplateRoles.Application.Eventing.MessageBusInterface, out typeName))
+            {
+                return true;
+            }
+
+            // Legacy support
+            if (this.TryGetTypeName(TemplateRoles.Application.Eventing.EventBusInterface, out typeName) )
+            {
+                return true;
+            }
+
+            typeName = null;
+            return false;
         }
 
         private ServiceProtoFileTemplate ServiceProtoFileTemplateInstance => field ??= ExecutionContext.FindTemplateInstance<ServiceProtoFileTemplate>(ServiceProtoFileTemplate.TemplateId, Model.Id);

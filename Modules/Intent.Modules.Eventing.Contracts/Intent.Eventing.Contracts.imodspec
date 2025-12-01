@@ -39,7 +39,7 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Application.Eventing.EventBusInterface</role>
+      <role>Application.Eventing.MessageBusInterface</role>
       <location>Common/Eventing</location>
     </template>
     <template id="Intent.Eventing.Contracts.IntegrationCommand" externalReference="550e70be-6702-44f9-84c1-841a195b7b36">
@@ -142,6 +142,11 @@
     <detect id="Intent.Application.MediatR.CRUD">
       <install>
         <package id="Intent.Application.MediatR.CRUD" version="7.0.0" />
+      </install>
+    </detect>
+    <detect id="Intent.Application.MediatR.Behaviours">
+      <install>
+        <package id="Intent.Application.MediatR.Behaviours" version="4.5.6-pre.1" />
       </install>
     </detect>
     <detect id="Intent.Eventing.Contracts.DomainMapping">

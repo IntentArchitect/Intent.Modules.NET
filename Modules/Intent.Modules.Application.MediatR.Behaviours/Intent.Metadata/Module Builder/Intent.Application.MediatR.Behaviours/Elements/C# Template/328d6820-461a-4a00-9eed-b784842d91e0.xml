@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="328d6820-461a-4a00-9eed-b784842d91e0" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
-  <name>EventBusPublishBehaviour</name>
-  <display>EventBusPublishBehaviour: Single File</display>
+  <name>MessageBusPublishBehaviour</name>
+  <display>MessageBusPublishBehaviour: Single File</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
   <typeReference id="c7a8da02-34bc-4f0c-881b-318a54dca8c5">
@@ -25,7 +25,7 @@
       <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
       <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
       <properties>
-        <property name="3b9e1f1b-e253-4c04-89aa-30fef0a9bfa8" display="Templating Method" value="T4 Template" isActive="true" />
+        <property name="3b9e1f1b-e253-4c04-89aa-30fef0a9bfa8" display="Templating Method" value="C# File Builder" isActive="true" />
       </properties>
     </stereotype>
     <stereotype stereotypeDefinitionId="b1f08a30-9aae-4702-bfc8-e285e6b43a61" name="Template Settings">

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="fb938506-716b-4e38-9c26-0f8660743ea6" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
   <name>MessageBusInterface</name>
-  <display>MessageBusInterface: Single File</display>
+  <display>MessageBusInterface: Custom</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
   <typeReference id="300134d9-51dc-4c28-bf5e-49ba0065dae8">
-    <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>
+    <typeId>d2931361-7cf0-4c79-9847-621c60886ef9</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>

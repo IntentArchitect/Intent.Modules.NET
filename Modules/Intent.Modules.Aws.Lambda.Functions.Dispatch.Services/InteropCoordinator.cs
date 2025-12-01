@@ -1,4 +1,5 @@
 using Intent.Engine;
+using System.Linq;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -16,6 +17,8 @@ internal class InteropCoordinator
 
     public static bool ShouldInstallMessageBus(IApplication application)
     {
-        return application.FindTemplateInstance<IClassProvider>(TemplateRoles.Application.Eventing.EventBusInterface) != null;
+        // Support newer MessageBusInterface role as well as legacy EventBusInterface role.
+        return application.FindTemplateInstances<IClassProvider>(TemplateRoles.Application.Eventing.MessageBusInterface).Any() ||
+               application.FindTemplateInstances<IClassProvider>(TemplateRoles.Application.Eventing.EventBusInterface).Any();
     }
 }

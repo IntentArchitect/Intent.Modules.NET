@@ -214,15 +214,32 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
             {
                 var @class = file.Classes.First();
                 var ctor = @class.Constructors.First();
-                ctor.AddParameter(template.GetTypeName(TemplateRoles.Application.Eventing.EventBusInterface), "eventBus",
+                ctor.AddParameter(GetMessageBusInterfaceName(template), "messageBus",
                     p => { p.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException()); });
 
                 foreach (var method in @class.Methods.Where(x => x.Attributes.All(a => !a.ToString()!.StartsWith("[HttpGet"))))
                 {
                     method.Statements.LastOrDefault(x => x.ToString()!.Trim().StartsWith("return "))?
-                        .InsertAbove("await _eventBus.FlushAllAsync(cancellationToken);", stmt => stmt.AddMetadata("eventbus-flush", true));
+                        .InsertAbove("await _messageBus.FlushAllAsync(cancellationToken);", stmt => stmt.AddMetadata("eventbus-flush", true));
                 }
             }, order: -100);
+        }
+        
+        private static string GetMessageBusInterfaceName(IControllerTemplate<IControllerModel> template)
+        {
+            if (template.TryGetTypeName(TemplateRoles.Application.Eventing.MessageBusInterface, out var typeName))
+            {
+                return typeName;
+            }
+
+            // Legacy support
+            if (template.TryGetTypeName(TemplateRoles.Application.Eventing.EventBusInterface, out typeName) )
+            {
+                return typeName;
+            }
+
+            throw new InvalidOperationException(
+                $"Could not find Message Bus interface with template role '{TemplateRoles.Application.Eventing.MessageBusInterface}' (or older legacy template with role '{TemplateRoles.Application.Eventing.EventBusInterface}').");
         }
 
         private static string GetUnitOfWork(IControllerTemplate<IControllerModel> template)

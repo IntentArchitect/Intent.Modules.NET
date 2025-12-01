@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
@@ -162,7 +163,9 @@ namespace Intent.Modules.FastEndpoints.Dispatch.Services.FactoryExtensions
 
         private static void InstallMessageBus(EndpointTemplate endpointTemplate, IApplication application)
         {
-            if (application.FindTemplateInstance<IClassProvider>(TemplateRoles.Application.Eventing.EventBusInterface) is null)
+            // Support newer MessageBusInterface role and legacy EventBusInterface role.
+            if (!application.FindTemplateInstances<IClassProvider>(TemplateRoles.Application.Eventing.MessageBusInterface).Any() &&
+                !application.FindTemplateInstances<IClassProvider>(TemplateRoles.Application.Eventing.EventBusInterface).Any())
             {
                 return;
             }
@@ -177,13 +180,29 @@ namespace Intent.Modules.FastEndpoints.Dispatch.Services.FactoryExtensions
                 var @class = file.Classes.First();
                 var ctor = @class.Constructors.First();
 
-                ctor.AddParameter(endpointTemplate.GetTypeName(TemplateRoles.Application.Eventing.EventBusInterface), "eventBus",
+                ctor.AddParameter(GetMessageBusInterfaceName(endpointTemplate), "messageBus",
                     p => p.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException()));
 
                 var method = @class.FindMethod(s => s.HasMetadata("handle"))!;
                 method.Statements.LastOrDefault(x => x.HasMetadata("response"))
-                    ?.InsertAbove("await _eventBus.FlushAllAsync(ct);", stmt => stmt.AddMetadata("eventbus-flush", true));
+                    ?.InsertAbove("await _messageBus.FlushAllAsync(ct);", stmt => stmt.AddMetadata("eventbus-flush", true));
             }, order: -100);
+        }
+
+        private static string GetMessageBusInterfaceName(EndpointTemplate endpointTemplate)
+        {
+            if (endpointTemplate.TryGetTypeName(TemplateRoles.Application.Eventing.MessageBusInterface, out var typeName))
+            {
+                return typeName; // New role
+            }
+
+            if (endpointTemplate.TryGetTypeName(TemplateRoles.Application.Eventing.EventBusInterface, out typeName))
+            {
+                return typeName; // Legacy fallback
+            }
+
+            throw new InvalidOperationException(
+                $"Could not find Message Bus interface with template role '{TemplateRoles.Application.Eventing.MessageBusInterface}' (or legacy role '{TemplateRoles.Application.Eventing.EventBusInterface}').");
         }
     }
 }

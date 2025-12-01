@@ -58,12 +58,6 @@ namespace Intent.Modules.Eventing.Contracts.Templates.EventBusInterface
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }
 
-        public override bool CanRunTemplate()
-        {
-            var useLegacy = Settings.ModuleSettingsExtensions.GetEventingSettings(ExecutionContext.Settings).UseLegacyInterfaceName();
-            return useLegacy;
-        }
-
         [IntentManaged(Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()
         {

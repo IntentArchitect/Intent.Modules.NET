@@ -217,15 +217,32 @@ namespace Intent.Modules.Aws.Lambda.Functions.Dispatch.Services.FactoryExtension
             {
                 var @class = file.Classes.First();
                 var ctor = @class.Constructors.First();
-                ctor.AddParameter(template.GetTypeName(TemplateRoles.Application.Eventing.EventBusInterface), "eventBus",
+                ctor.AddParameter(GetMessageBusInterfaceName(template), "messageBus",
                     p => { p.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException()); });
 
                 foreach (var method in @class.Methods.Where(method => (method.RepresentedModel as ILambdaFunctionModel)?.Verb != HttpVerb.Get))
                 {
                     method.Statements.LastOrDefault(x => x.ToString()!.Trim().StartsWith("return "))?
-                        .InsertAbove("await _eventBus.FlushAllAsync(cancellationToken);", stmt => stmt.AddMetadata("eventbus-flush", true));
+                        .InsertAbove("await _messageBus.FlushAllAsync(cancellationToken);", stmt => stmt.AddMetadata("eventbus-flush", true));
                 }
             }, order: -100);
+        }
+
+        private static string GetMessageBusInterfaceName(LambdaFunctionClassTemplate template)
+        {
+            if (template.TryGetTypeName(TemplateRoles.Application.Eventing.MessageBusInterface, out var typeName))
+            {
+                return typeName; // Newer role
+            }
+
+            // Legacy support
+            if (template.TryGetTypeName(TemplateRoles.Application.Eventing.EventBusInterface, out typeName))
+            {
+                return typeName;
+            }
+
+            throw new InvalidOperationException(
+                $"Could not find Message Bus interface with template role '{TemplateRoles.Application.Eventing.MessageBusInterface}' (or legacy role '{TemplateRoles.Application.Eventing.EventBusInterface}').");
         }
     }
 }

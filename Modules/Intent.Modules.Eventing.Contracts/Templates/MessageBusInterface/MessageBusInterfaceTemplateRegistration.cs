@@ -5,23 +5,34 @@ using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
+using Intent.Registrations;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel", Version = "1.0")]
+[assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.Custom", Version = "1.0")]
 
 namespace Intent.Modules.Eventing.Contracts.Templates.MessageBusInterface
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class MessageBusInterfaceTemplateRegistration : SingleFileTemplateRegistration
+    public class MessageBusInterfaceTemplateRegistration : ITemplateRegistration
     {
-        public override string TemplateId => MessageBusInterfaceTemplate.TemplateId;
+        private readonly IMetadataManager _metadataManager;
 
-        [IntentManaged(Mode.Fully)]
-        public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
+        public MessageBusInterfaceTemplateRegistration(IMetadataManager metadataManager)
         {
-            return new MessageBusInterfaceTemplate(outputTarget);
+            _metadataManager = metadataManager;
+        }
+        public string TemplateId => MessageBusInterfaceTemplate.TemplateId;
+
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        public void DoRegistration(ITemplateInstanceRegistry registry, IApplication applicationManager)
+        {
+            var useLegacy = Settings.ModuleSettingsExtensions.GetEventingSettings(applicationManager.Settings).UseLegacyInterfaceName();
+            if (!useLegacy)
+            {
+                registry.RegisterTemplate(TemplateId, project => new MessageBusInterfaceTemplate(project, null));
+            }
         }
     }
 }

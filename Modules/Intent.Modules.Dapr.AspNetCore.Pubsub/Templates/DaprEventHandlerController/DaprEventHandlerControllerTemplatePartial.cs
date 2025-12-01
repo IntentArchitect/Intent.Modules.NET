@@ -35,7 +35,7 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.DaprEventHandlerContro
             AddNugetDependency(NugetPackages.DaprAspNetCore(outputTarget));
             AddNugetDependency(NugetPackages.MediatR(outputTarget));
             var shouldInstallUnitOfWork = new Lazy<bool>(this.SystemUsesPersistenceUnitOfWork);
-            var shouldInstallMessageBus = new Lazy<bool>(() => OutputTarget.FindTemplateInstance<IClassProvider>(TemplateRoles.Application.Eventing.EventBusInterface, accessibleTo: null) != null);
+            var shouldInstallMessageBus = new Lazy<bool>(() => OutputTarget.FindTemplateInstance<IClassProvider>(TemplateRoles.Application.Eventing.MessageBusInterface, accessibleTo: null) != null);
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
@@ -60,7 +60,7 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.DaprEventHandlerContro
                             if (shouldInstallMessageBus.Value)
                             {
                                 ctor.AddParameter(
-                                    GetTypeName(TemplateRoles.Application.Eventing.EventBusInterface), "eventBus",
+                                    GetTypeName(TemplateRoles.Application.Eventing.MessageBusInterface), "eventBus",
                                     p => { p.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException()); });
                             }
                         });

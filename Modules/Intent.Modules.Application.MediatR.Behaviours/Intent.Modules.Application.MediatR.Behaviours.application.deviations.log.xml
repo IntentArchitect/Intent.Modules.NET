@@ -28,6 +28,16 @@
       <fileHash>2502D4D72DA6276BD1B938F8C05051FA94F204E874E943110F59CC916B4EF62D</fileHash>
     </file>
     <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#328d6820-461a-4a00-9eed-b784842d91e0</correlationId>
+      <path>Intent.Modules.Application.MediatR.Behaviours/Templates/MessageBusPublishBehaviour/MessageBusPublishBehaviourTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2025-12-01T15:47:33.4954298Z</updatedAt>
+      <deviationsHash>3F32EF55167CB3A2B47817962CCB947FB6004511EC3CA0EF53B3F1BB40B86EC3</deviationsHash>
+      <fileHash>06CE7D006F44A9E61880CA2CE943740288C8A526BC610304E431BBA15EA42048</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#01accc66-206d-450c-8c23-b671dd4a69d4</correlationId>
       <path>Intent.Modules.Application.MediatR.Behaviours/Templates/PerformanceBehaviour/PerformanceBehaviourTemplatePartial.cs</path>
       <count>3</count>

@@ -125,7 +125,9 @@ namespace Intent.Modules.Constants
 
             public static class Eventing
             {
+                [Obsolete("Use Application.Eventing.MessageBusInterface")]
                 public const string EventBusInterface = "Application.Eventing.EventBusInterface";
+                public const string MessageBusInterface = "Application.Eventing.MessageBusInterface";
                 public const string EventHandler = "Application.Eventing.EventHandler";
             }
 
