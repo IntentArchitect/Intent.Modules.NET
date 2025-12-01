@@ -146,7 +146,8 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsConfiguration
                     .ForConcern("Infrastructure"));
             }
 
-            foreach (var message in IntegrationManager.Instance.GetAggregatedSqsItems(ExecutionContext.GetApplicationConfig().Id))
+            foreach (var message in IntegrationManager.Instance.GetAggregatedSqsItems(ExecutionContext.GetApplicationConfig().Id)
+                         .FilterMessagesForThisMessageBroker(this, Constants.BrokerStereotypeIds))
             {
                 this.ApplyAppSetting(message.QueueConfigurationName, $"https://{{region}}.amazonaws.com/{{id}}/{message.QueueName}");
             }

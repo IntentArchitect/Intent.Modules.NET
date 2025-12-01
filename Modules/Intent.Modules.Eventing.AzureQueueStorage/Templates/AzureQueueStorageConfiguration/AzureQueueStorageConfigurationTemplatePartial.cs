@@ -13,6 +13,7 @@ using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Eventing.AzureQueueStorage.Templates;
 using Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageOptions;
 using Intent.Modules.Eventing.Contracts.Settings;
 using Intent.Modules.Eventing.Contracts.Templates;
@@ -50,18 +51,11 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageC
                 {
                     @class.Static();
 
-                    string[] brokerStereotypeIds = 
-                    [
-                        MessageModelStereotypeExtensions.AzureQueueStorage.DefinitionId,
-                        FolderModelStereotypeExtensions.AzureQueueStorageFolderSettings.DefinitionId,
-                        EventingPackageModelStereotypeExtensions.AzureQueueStoragePackageSettings.DefinitionId
-                    ];
-                    
                     var subMessages = this.GetSubscribedMessages()
-                        .FilterMessagesForThisMessageBroker(this, brokerStereotypeIds)
+                        .FilterMessagesForThisMessageBroker(this, Constants.BrokerStereotypeIds)
                         .ToList();
                     var subCommands = this.GetSubscribedIntegrationCommands()
-                        .FilterMessagesForThisMessageBroker(this, brokerStereotypeIds)
+                        .FilterMessagesForThisMessageBroker(this, Constants.BrokerStereotypeIds)
                         .ToList();
 
                     @class.AddMethod(UseType("Microsoft.Extensions.DependencyInjection.IServiceCollection"), "AddQueueStorageConfiguration", mth =>
@@ -145,10 +139,10 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageC
                         if (requiresCompositeMessageBus)
                         {
                             var publishedMessages = this.GetPublishedMessages()
-                                .FilterMessagesForThisMessageBroker(this, brokerStereotypeIds)
+                                .FilterMessagesForThisMessageBroker(this, Constants.BrokerStereotypeIds)
                                 .ToList();
                             var sentCommands = this.GetSentIntegrationCommands()
-                                .FilterMessagesForThisMessageBroker(this, brokerStereotypeIds)
+                                .FilterMessagesForThisMessageBroker(this, Constants.BrokerStereotypeIds)
                                 .ToList();
                             
                             if (publishedMessages.Count != 0 || sentCommands.Count != 0)
@@ -249,6 +243,7 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageC
 
             var messages = Enumerable.Empty<MessageModel>()
                 .Union(_messageModels.Value)
+                .FilterMessagesForThisMessageBroker(this, Constants.BrokerStereotypeIds)
                 .Select(model => (
                     FullyQualifiedTypeName: GetFullyQualifiedTypeName(IntegrationEventMessageTemplate.TemplateId, model),
                     QueueName: HelperExtensions.GetMessageQueue(model)))
@@ -256,6 +251,7 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageC
 
             var commands = Enumerable.Empty<IntegrationCommandModel>()
                 .Union(_integrationCommandModels.Value)
+                .FilterMessagesForThisMessageBroker(this, Constants.BrokerStereotypeIds)
                 .Select(model => (
                     FullyQualifiedTypeName: GetFullyQualifiedTypeName(IntegrationCommandTemplate.TemplateId, model),
                     QueueName: HelperExtensions.GetIntegrationCommandQueue(model)))
@@ -268,24 +264,28 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageC
             }
 
             var publishedMessages = this.GetPublishedMessages()
+                .FilterMessagesForThisMessageBroker(this, Constants.BrokerStereotypeIds)
                 .Select(model => (
                     FullyQualifiedTypeName: GetFullyQualifiedTypeName(IntegrationEventMessageTemplate.TemplateId, model),
                     QueueName: HelperExtensions.GetMessageQueue(model)))
                 .OrderBy(x => x.FullyQualifiedTypeName);
 
             var subscribedMessages = this.GetSubscribedMessages()
+                .FilterMessagesForThisMessageBroker(this, Constants.BrokerStereotypeIds)
                 .Select(model => (
                     FullyQualifiedTypeName: GetFullyQualifiedTypeName(IntegrationEventMessageTemplate.TemplateId, model),
                     QueueName: HelperExtensions.GetMessageQueue(model)))
                 .OrderBy(x => x.FullyQualifiedTypeName);
 
             var sentCommands = this.GetSentIntegrationCommands()
+                .FilterMessagesForThisMessageBroker(this, Constants.BrokerStereotypeIds)
                 .Select(model => (
                     FullyQualifiedTypeName: GetFullyQualifiedTypeName(IntegrationCommandTemplate.TemplateId, model),
                     QueueName: HelperExtensions.GetIntegrationCommandQueue(model)))
                 .OrderBy(x => x.FullyQualifiedTypeName);
 
             var subscribedCommands = this.GetSubscribedIntegrationCommands()
+                .FilterMessagesForThisMessageBroker(this, Constants.BrokerStereotypeIds)
                 .Select(model => (
                     FullyQualifiedTypeName: GetFullyQualifiedTypeName(IntegrationCommandTemplate.TemplateId, model),
                     QueueName: HelperExtensions.GetIntegrationCommandQueue(model)))

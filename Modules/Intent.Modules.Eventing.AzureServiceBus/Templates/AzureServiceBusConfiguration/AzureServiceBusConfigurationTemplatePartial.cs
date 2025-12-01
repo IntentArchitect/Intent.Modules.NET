@@ -21,6 +21,7 @@ using Intent.Modules.Integration.IaC.Shared.AzureServiceBus;
 using Intent.Modules.Modelers.Eventing;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using Intent.Modules.Eventing.AzureServiceBus.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -76,15 +77,8 @@ public partial class AzureServiceBusConfigurationTemplate : CSharpTemplateBase<o
                         $"services.AddSingleton<{this.GetAzureServiceBusMessageDispatcherInterfaceName()}, {this.GetAzureServiceBusMessageDispatcherName()}>();");
 
 
-                    string[] brokerStereotypeIds =
-                    [
-                        MessageModelStereotypeExtensions.AzureServiceBus.DefinitionId,
-                        FolderModelStereotypeExtensions.AzureServiceBusFolderSettings.DefinitionId,
-                        EventingPackageModelStereotypeExtensions.AzureServiceBusPackageSettings.DefinitionId
-                    ];
-                    
                     var publishers = IntegrationManager.Instance.GetAggregatedPublishedAzureServiceBusItems(ExecutionContext.GetApplicationConfig().Id)
-                        .FilterMessagesForThisMessageBroker(this, brokerStereotypeIds)
+                        .FilterMessagesForThisMessageBroker(this, Constants.BrokerStereotypeIds)
                         .ToList();
                     
                     if (publishers.Count != 0)
@@ -101,7 +95,7 @@ public partial class AzureServiceBusConfigurationTemplate : CSharpTemplateBase<o
                     }
 
                     var subscribers = IntegrationManager.Instance.GetAggregatedSubscribedAzureServiceBusItems(ExecutionContext.GetApplicationConfig().Id)
-                        .FilterMessagesForThisMessageBroker(this, brokerStereotypeIds)
+                        .FilterMessagesForThisMessageBroker(this, Constants.BrokerStereotypeIds)
                         .ToList();
                     
                     if (subscribers.Count != 0)
@@ -147,7 +141,8 @@ public partial class AzureServiceBusConfigurationTemplate : CSharpTemplateBase<o
                 .ForConcern("Infrastructure"));
         }
 
-        foreach (var message in IntegrationManager.Instance.GetAggregatedAzureServiceBusItems(ExecutionContext.GetApplicationConfig().Id))
+        foreach (var message in IntegrationManager.Instance.GetAggregatedAzureServiceBusItems(ExecutionContext.GetApplicationConfig().Id)
+                     .FilterMessagesForThisMessageBroker(this, Constants.BrokerStereotypeIds))
         {
             this.ApplyAppSetting(message.QueueOrTopicConfigurationName, message.QueueOrTopicName);
             if (message.QueueOrTopicSubscriptionConfigurationName != null)

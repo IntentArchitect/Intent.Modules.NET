@@ -18,6 +18,7 @@ using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using Intent.Modules.Eventing.Kafka.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -36,13 +37,6 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaConfiguration
         {
             FulfillsRole("Eventing.MessageBusConfiguration");
 
-            string[] brokerStereotypeIds = 
-                [
-                    MessageModelStereotypeExtensions.KafkaMessageSettings.DefinitionId,
-                    FolderModelStereotypeExtensions.KafkaFolderSettings.DefinitionId,
-                    EventingPackageModelStereotypeExtensions.KafkaPackageSettings.DefinitionId
-                ];
-            
             _subscribedMessageModels = new Lazy<IReadOnlyCollection<MessageModel>>(() =>
             {
                 var serviceDesignerMessages = ExecutionContext.MetadataManager
@@ -58,7 +52,7 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaConfiguration
                 var messageModels = Enumerable.Empty<MessageModel>()
                     .Concat(serviceDesignerMessages)
                     .Concat(eventingDesignerMessages)
-                    .FilterMessagesForThisMessageBroker(this, brokerStereotypeIds)
+                    .FilterMessagesForThisMessageBroker(this, Constants.BrokerStereotypeIds)
                     .OrderBy(x => x.Name)
                     .ToArray();
 
@@ -78,7 +72,7 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaConfiguration
                 var messageModels = Enumerable.Empty<MessageModel>()
                     .Concat(serviceDesignerMessages)
                     .Concat(eventingDesignerMessages)
-                    .FilterMessagesForThisMessageBroker(this, brokerStereotypeIds)
+                    .FilterMessagesForThisMessageBroker(this, Constants.BrokerStereotypeIds)
                     .OrderBy(x => x.Name)
                     .ToArray();
 
@@ -233,6 +227,7 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaConfiguration
             var messages = Enumerable.Empty<MessageModel>()
                 .Union(_subscribedMessageModels.Value)
                 .Union(_publishedMessageModels.Value)
+                .FilterMessagesForThisMessageBroker(this, Constants.BrokerStereotypeIds)
                 .Select(model => (
                     FullyQualifiedTypeName: GetFullyQualifiedTypeName(IntegrationEventMessageTemplate.TemplateId, model),
                     Topic: GetMessageTopic(model)))
