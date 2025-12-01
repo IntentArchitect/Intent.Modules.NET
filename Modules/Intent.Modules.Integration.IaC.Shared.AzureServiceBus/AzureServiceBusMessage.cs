@@ -25,47 +25,59 @@ internal record AzureServiceBusMessage : AzureServiceBusItemBase
 
     public MessageModel MessageModel { get; init; }
 
-    private static string GetQueueOrTopicName(MessageModel command)
+    private static string GetQueueOrTopicName(MessageModel message)
     {
-        if (command.HasAzureServiceBus())
+        if (!message.HasAzureServiceBus())
         {
-            var name = command.GetAzureServiceBus().Type().AsEnum() switch
-            {
-                MessageModelStereotypeExtensions.AzureServiceBus.TypeOptionsEnum.Queue => command.GetAzureServiceBus().QueueName(),
-                MessageModelStereotypeExtensions.AzureServiceBus.TypeOptionsEnum.Topic => command.GetAzureServiceBus().TopicName(),
-                _ => throw new ArgumentOutOfRangeException($"The Type {command.GetAzureServiceBus().Type().AsEnum()} is not supported.")
-            };
-
-            return name;
+            return GetDefaultName();
         }
         
-        var resolvedName = command.Name;
-        resolvedName = resolvedName.RemoveSuffix("IntegrationEvent", "Event", "Message");
-        resolvedName = resolvedName.ToKebabCase();
-        return resolvedName;
+        var name = message.GetAzureServiceBus().Type().AsEnum() switch
+        {
+            MessageModelStereotypeExtensions.AzureServiceBus.TypeOptionsEnum.Default => GetDefaultName(),
+            MessageModelStereotypeExtensions.AzureServiceBus.TypeOptionsEnum.Queue => message.GetAzureServiceBus().QueueName(),
+            MessageModelStereotypeExtensions.AzureServiceBus.TypeOptionsEnum.Topic => message.GetAzureServiceBus().TopicName(),
+            var x => throw new ArgumentOutOfRangeException($"The Type {x} is not supported.")
+        };
+
+        return name;
+
+        string GetDefaultName()
+        {
+            var resolvedName = message.Name;
+            resolvedName = resolvedName.RemoveSuffix("IntegrationEvent", "Event", "Message");
+            resolvedName = resolvedName.ToKebabCase();
+            return resolvedName;
+        }
     }
 
     private static string GetQueueOrTopicConfigurationName(MessageModel message)
     {
         const string prefix = "AzureServiceBus:";
-        if (message.HasAzureServiceBus())
+        if (!message.HasAzureServiceBus())
         {
-            var name = message.GetAzureServiceBus().Type().AsEnum() switch
-            {
-                MessageModelStereotypeExtensions.AzureServiceBus.TypeOptionsEnum.Queue => message.GetAzureServiceBus().QueueName(),
-                MessageModelStereotypeExtensions.AzureServiceBus.TypeOptionsEnum.Topic => message.GetAzureServiceBus().TopicName(),
-                _ => throw new ArgumentOutOfRangeException($"The Type {message.GetAzureServiceBus().Type().AsEnum()} is not supported.")
-            };
-
-            name = name.ToPascalCase();
-
-            return prefix + name;
+            return GetDefaultName();
         }
+        
+        var name = message.GetAzureServiceBus().Type().AsEnum() switch
+        {
+            MessageModelStereotypeExtensions.AzureServiceBus.TypeOptionsEnum.Default => GetDefaultName(),
+            MessageModelStereotypeExtensions.AzureServiceBus.TypeOptionsEnum.Queue => message.GetAzureServiceBus().QueueName(),
+            MessageModelStereotypeExtensions.AzureServiceBus.TypeOptionsEnum.Topic => message.GetAzureServiceBus().TopicName(),
+            _ => throw new ArgumentOutOfRangeException($"The Type {message.GetAzureServiceBus().Type().AsEnum()} is not supported.")
+        };
 
-        var resolvedName = message.Name;
-        resolvedName = resolvedName.RemoveSuffix("IntegrationEvent", "Event", "Message");
-        resolvedName = resolvedName.ToPascalCase();
-        return prefix + resolvedName;
+        name = name.ToPascalCase();
+
+        return prefix + name;
+
+        string GetDefaultName()
+        {
+            var resolvedName = message.Name;
+            resolvedName = resolvedName.RemoveSuffix("IntegrationEvent", "Event", "Message");
+            resolvedName = resolvedName.ToPascalCase();
+            return prefix + resolvedName;
+        }
     }
 
     private static AzureServiceBusChannelType GetChannelType(MessageModel message)

@@ -27,45 +27,57 @@ internal record AzureServiceBusCommand : AzureServiceBusItemBase
 
     private static string GetQueueOrTopicName(IntegrationCommandModel command)
     {
-        if (command.HasAzureServiceBus())
+        if (!command.HasAzureServiceBus())
         {
-            var name = command.GetAzureServiceBus().Type().AsEnum() switch
-            {
-                IntegrationCommandModelStereotypeExtensions.AzureServiceBus.TypeOptionsEnum.Queue => command.GetAzureServiceBus().QueueName(),
-                IntegrationCommandModelStereotypeExtensions.AzureServiceBus.TypeOptionsEnum.Topic => command.GetAzureServiceBus().TopicName(),
-                _ => throw new ArgumentOutOfRangeException($"The Type {command.GetAzureServiceBus().Type().AsEnum()} is not supported.")
-            };
-
-            return name;
+            return GetDefaultName();
         }
         
-        var resolvedName = command.Name;
-        resolvedName = resolvedName.RemoveSuffix("IntegrationCommand", "Event", "Message");
-        resolvedName = resolvedName.ToKebabCase();
-        return resolvedName;
+        var name = command.GetAzureServiceBus().Type().AsEnum() switch
+        {
+            IntegrationCommandModelStereotypeExtensions.AzureServiceBus.TypeOptionsEnum.Default => GetDefaultName(),
+            IntegrationCommandModelStereotypeExtensions.AzureServiceBus.TypeOptionsEnum.Queue => command.GetAzureServiceBus().QueueName(),
+            IntegrationCommandModelStereotypeExtensions.AzureServiceBus.TypeOptionsEnum.Topic => command.GetAzureServiceBus().TopicName(),
+            _ => throw new ArgumentOutOfRangeException($"The Type {command.GetAzureServiceBus().Type().AsEnum()} is not supported.")
+        };
+
+        return name;
+
+        string GetDefaultName()
+        {
+            var resolvedName = command.Name;
+            resolvedName = resolvedName.RemoveSuffix("IntegrationCommand", "Event", "Message");
+            resolvedName = resolvedName.ToKebabCase();
+            return resolvedName;
+        }
     }
 
-    private static string GetQueueOrTopicConfigurationName(IntegrationCommandModel message)
+    private static string GetQueueOrTopicConfigurationName(IntegrationCommandModel command)
     {
         const string prefix = "AzureServiceBus:";
-        if (message.HasAzureServiceBus())
+        if (!command.HasAzureServiceBus())
         {
-            var name = message.GetAzureServiceBus().Type().AsEnum() switch
-            {
-                IntegrationCommandModelStereotypeExtensions.AzureServiceBus.TypeOptionsEnum.Queue => message.GetAzureServiceBus().QueueName(),
-                IntegrationCommandModelStereotypeExtensions.AzureServiceBus.TypeOptionsEnum.Topic => message.GetAzureServiceBus().TopicName(),
-                _ => throw new ArgumentOutOfRangeException($"The Type {message.GetAzureServiceBus().Type().AsEnum()} is not supported.")
-            };
-
-            name = name.ToPascalCase();
-
-            return prefix + name;
+            return GetDefaultName();
         }
+        
+        var name = command.GetAzureServiceBus().Type().AsEnum() switch
+        {
+            IntegrationCommandModelStereotypeExtensions.AzureServiceBus.TypeOptionsEnum.Default => GetDefaultName(),
+            IntegrationCommandModelStereotypeExtensions.AzureServiceBus.TypeOptionsEnum.Queue => command.GetAzureServiceBus().QueueName(),
+            IntegrationCommandModelStereotypeExtensions.AzureServiceBus.TypeOptionsEnum.Topic => command.GetAzureServiceBus().TopicName(),
+            _ => throw new ArgumentOutOfRangeException($"The Type {command.GetAzureServiceBus().Type().AsEnum()} is not supported.")
+        };
 
-        var resolvedName = message.Name;
-        resolvedName = resolvedName.RemoveSuffix("IntegrationCommand", "Event", "Message");
-        resolvedName = resolvedName.ToPascalCase();
-        return prefix + resolvedName;
+        name = name.ToPascalCase();
+
+        return prefix + name;
+
+        string GetDefaultName()
+        {
+            var resolvedName = command.Name;
+            resolvedName = resolvedName.RemoveSuffix("IntegrationCommand", "Event", "Message");
+            resolvedName = resolvedName.ToPascalCase();
+            return prefix + resolvedName;
+        }
     }
 
     private static AzureServiceBusChannelType GetChannelType(IntegrationCommandModel message)

@@ -105,6 +105,13 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
                             method.AddStatement($"registry.Register<{producer.MessageTypeName}, {this.GetMassTransitMessageBusName()}>();");
                         }
                     }
+                    if (requiresCompositeMessageBus && _applicableMessages?.Any() == true)
+                    {
+                        foreach (var msg in _applicableMessages)
+                        {
+                            method.AddStatement($"registry.Register<{this.GetIntegrationEventMessageName(msg)}, {this.GetMassTransitMessageBusName()}>();");
+                        }
+                    }
                     
                     method.AddReturn("services");
                 });

@@ -77,6 +77,8 @@ namespace Intent.Eventing.AzureServiceBus.Api
                 {
                     switch (Value)
                     {
+                        case "Default":
+                            return TypeOptionsEnum.Default;
                         case "Queue":
                             return TypeOptionsEnum.Queue;
                         case "Topic":
@@ -84,6 +86,11 @@ namespace Intent.Eventing.AzureServiceBus.Api
                         default:
                             throw new ArgumentOutOfRangeException();
                     }
+                }
+
+                public bool IsDefault()
+                {
+                    return Value == "Default";
                 }
 
                 public bool IsQueue()
@@ -98,6 +105,7 @@ namespace Intent.Eventing.AzureServiceBus.Api
 
             public enum TypeOptionsEnum
             {
+                Default,
                 Queue,
                 Topic
             }

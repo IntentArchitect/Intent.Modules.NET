@@ -74,14 +74,8 @@ public partial class AzureEventGridConfigurationTemplate : CSharpTemplateBase<ob
 
                         method.AddStatement($"services.AddScoped<{this.GetAzureEventGridConsumerBehaviorInterfaceName()}, {this.GetInboundCloudEventBehaviorName()}>();", s => s.SeparatedFromPrevious());
                         
-                        string[] brokerStereotypeIds = [
-                            MessageModelStereotypeExtensions.AzureEventGrid.DefinitionId,
-                            EventingPackageModelStereotypeExtensions.EventDomain.DefinitionId,
-                            FolderModelStereotypeExtensions.AzureEventGridFolderSettings.DefinitionId
-                        ];
-                        
                         var publishMessages = IntegrationManager.Instance.GetPublishedAzureEventGridMessages(ExecutionContext.GetApplicationConfig().Id)
-                            .FilterMessagesForThisMessageBroker(this, brokerStereotypeIds)
+                            .FilterMessagesForThisMessageBroker(this, Constants.BrokerStereotypeIds)
                             .ToList();
                         
                         if (publishMessages.Count != 0)
@@ -98,7 +92,7 @@ public partial class AzureEventGridConfigurationTemplate : CSharpTemplateBase<ob
                         }
                         
                         var eventHandlers = IntegrationManager.Instance.GetSubscribedAzureEventGridMessages(ExecutionContext.GetApplicationConfig().Id)
-                            .FilterMessagesForThisMessageBroker(this, brokerStereotypeIds)
+                            .FilterMessagesForThisMessageBroker(this, Constants.BrokerStereotypeIds)
                             .ToList();
                         if (eventHandlers.Count != 0)
                         {
@@ -162,7 +156,9 @@ public partial class AzureEventGridConfigurationTemplate : CSharpTemplateBase<ob
                 .ForConcern("Infrastructure"));
         }
 
-        var allMessages = IntegrationManager.Instance.GetAggregatedAzureEventGridMessages(ExecutionContext.GetApplicationConfig().Id);
+        var allMessages = IntegrationManager.Instance.GetAggregatedAzureEventGridMessages(ExecutionContext.GetApplicationConfig().Id)
+            .FilterMessagesForThisMessageBroker(this, Constants.BrokerStereotypeIds)
+            .ToList();
         foreach (var message in allMessages)
         {
             if (message.MethodType != AzureEventGridMethodType.Publish)
