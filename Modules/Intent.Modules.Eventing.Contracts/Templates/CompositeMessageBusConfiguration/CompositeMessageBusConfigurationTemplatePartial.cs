@@ -41,8 +41,8 @@ namespace Intent.Modules.Eventing.Contracts.Templates.CompositeMessageBusConfigu
                 {
                     var method = file.Classes.First().FindMethod("ConfigureCompositeMessageBus")!;
                     method.AddStatement($"var registry = new {this.GetMessageBrokerRegistryName()}();", s => s.SeparatedFromNext());
-
-                    var eventBusConfigTemplates = ExecutionContext.FindTemplateInstances<ICSharpFileBuilderTemplate>("Eventing.MessageBusConfiguration");
+                    
+                    var eventBusConfigTemplates = ExecutionContext.FindTemplateInstances<ICSharpFileBuilderTemplate>("Eventing.MessageBusConfiguration").ToList();
                     foreach (var template in eventBusConfigTemplates)
                     {
                         var configMethodName = template.CSharpFile.Classes.First().FindMethod(m => m.Name.StartsWith("Add") && m.Name.EndsWith("Configuration"))?.Name;
@@ -88,7 +88,9 @@ namespace Intent.Modules.Eventing.Contracts.Templates.CompositeMessageBusConfigu
         
         private bool RequiresCompositeMessageBus()
         {
-            var templates = ExecutionContext.FindTemplateInstances<ICSharpFileBuilderTemplate>("Eventing.MessageBusConfiguration")
+            // Don't use a different way to find templates as they would result in a cached lookup
+            // and so it may miss some message brokers when queried for configuring them up.
+            var templates = ExecutionContext.FindTemplateInstances("Eventing.MessageBusConfiguration")
                 .Where(x => x.CanRunTemplate())
                 .ToList();
             return templates.Count >= 2;

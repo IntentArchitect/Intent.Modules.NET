@@ -69,7 +69,7 @@ version: '3'
 
 services:
   zookeeper:
-    image: confluentinc/cp-zookeeper:latest
+    image: confluentinc/cp-zookeeper:7.4.0
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
@@ -77,7 +77,7 @@ services:
       - "2181:2181"
 
   kafka:
-    image: confluentinc/cp-kafka:latest
+    image: confluentinc/cp-kafka:7.4.0
     depends_on:
       - zookeeper
     environment:
@@ -92,7 +92,7 @@ services:
       - zookeeper
 
   schema-registry:
-    image: confluentinc/cp-schema-registry:latest
+    image: confluentinc/cp-schema-registry:7.4.0
     depends_on:
       - kafka
     environment:

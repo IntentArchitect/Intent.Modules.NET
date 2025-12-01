@@ -117,7 +117,7 @@ namespace Intent.Modules.Eventing.Contracts.Templates.CompositeMessageBus
                         {
                             stmt.AddStatement(@"throw new InvalidOperationException(
                     $""Message type '{messageType.FullName}' is not registered with any message broker provider. "" +
-                    $""Ensure the message is configured in the appropriate provider's configuration (e.g., AzureEventGridPublisherOptions)."");");
+                    $""Ensure the message is configured in the appropriate provider's configuration."");");
                         });
                     });
                 });

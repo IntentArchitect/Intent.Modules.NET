@@ -28,6 +28,8 @@
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
+      <placeholder>(required)</placeholder>
+      <isRequiredFunction>return true;</isRequiredFunction>
     </property>
     <property id="4a323650-3f88-4b07-a789-6bb3123194e9">
       <name>Priority</name>

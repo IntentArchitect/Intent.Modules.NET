@@ -7,6 +7,7 @@ using Intent.Modelers.Services.EventInteractions;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
+using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.Modules.Eventing.Solace.Templates;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
@@ -27,7 +28,6 @@ namespace Intent.Modules.Eventing.Solace.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-
             //Events
             var serviceDesignerSubEvents = application.MetadataManager
                 .Services(application.GetApplicationConfig().Id).GetIntegrationEventHandlerModels()
@@ -79,7 +79,7 @@ namespace Intent.Modules.Eventing.Solace.FactoryExtensions
                         .OrderBy(x => x.Name)
                         .ToArray();
 
-            foreach (var message in messages)
+            foreach (var message in messages.FilterMessagesForThisMessageBroker(application, Templates.Constants.BrokerStereotypeIds))
             {
                 var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.Eventing.Contracts.IntegrationEventMessage", message);
                 if (template == null)

@@ -27,6 +27,7 @@
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
+      <placeholder>(default)</placeholder>
     </property>
   </properties>
 </stereotypeDefinition>

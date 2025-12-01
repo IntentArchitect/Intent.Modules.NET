@@ -132,6 +132,39 @@ public static class MessageBusExtensions
     }
 
     /// <summary>
+    /// Filters a sequence of messages to include only those associated with the specified message broker(s).
+    /// When a composite message bus is not required, all messages are returned. When a composite message bus
+    /// is required, only messages with matching broker stereotypes (on the message, its folder hierarchy, or package)
+    /// are included. Messages without any known broker stereotype will cause a failure.
+    /// </summary>
+    /// <typeparam name="TMessage">The type of message to filter, which must implement <see cref="IHasStereotypes"/>.</typeparam>
+    /// <param name="sequence">The sequence of messages to filter.</param>
+    /// <param name="factoryExecutionContext">The software factory execution context.</param>
+    /// <param name="brokerStereotypeNameOrIds">An array of broker stereotype names or IDs to match against.</param>
+    /// <returns>
+    /// A filtered sequence containing only messages associated with the specified broker(s).
+    /// If no composite message bus is required, returns all messages unchanged.
+    /// </returns>
+    /// <exception cref="ArgumentNullException">
+    /// Thrown when <paramref name="factoryExecutionContext"/> or <paramref name="brokerStereotypeNameOrIds"/> is <c>null</c>.
+    /// </exception>
+    /// <exception cref="Exception">
+    /// Thrown when a composite message bus is required and one or more messages lack any known broker stereotype.
+    /// </exception>
+    public static IEnumerable<TMessage> FilterMessagesForThisMessageBroker<TMessage>(
+        this IEnumerable<TMessage> sequence,
+        ISoftwareFactoryExecutionContext factoryExecutionContext,
+        string[] brokerStereotypeNameOrIds)
+        where TMessage : IHasStereotypes
+    {
+        return FilterMessagesForThisMessageBroker(
+            sequence,
+            factoryExecutionContext,
+            brokerStereotypeNameOrIds,
+            element => element);
+    }
+    
+    /// <summary>
     /// Filters a sequence of messages to include only those associated with the specified message broker(s),
     /// using a selector function to access the element containing the broker stereotypes.
     /// When a composite message bus is not required, all messages are returned. When a composite message bus
