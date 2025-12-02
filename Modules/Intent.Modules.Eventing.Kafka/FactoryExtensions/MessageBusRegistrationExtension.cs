@@ -20,7 +20,8 @@ namespace Intent.Modules.Eventing.Kafka.FactoryExtensions
 
         protected override void OnAfterMetadataLoad(IApplication application)
         {
-            MessageBusRegistry.Register("Kafka", Templates.Constants.BrokerStereotypeIds);
+            const string KafkaMessageBusId = "c0f7166a-018a-453a-b9c0-48f690ec55fb";
+            MessageBusRegistry.Register(KafkaMessageBusId, Templates.Constants.BrokerStereotypeIds);
         }
     }
 }

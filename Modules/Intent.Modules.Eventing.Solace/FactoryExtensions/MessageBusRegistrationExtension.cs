@@ -20,7 +20,8 @@ namespace Intent.Modules.Eventing.Solace.FactoryExtensions
 
         protected override void OnAfterMetadataLoad(IApplication application)
         {
-            MessageBusRegistry.Register("Solace", Templates.Constants.BrokerStereotypeIds);
+            const string SolaceMessageBusId = "8070fbd6-fc5e-444d-b0c8-fa47b4e87326";
+            MessageBusRegistry.Register(SolaceMessageBusId, Templates.Constants.BrokerStereotypeIds);
         }
     }
 }

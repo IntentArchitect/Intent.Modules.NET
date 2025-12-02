@@ -20,7 +20,8 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.FactoryExtensions
 
         protected override void OnAfterMetadataLoad(IApplication application)
         {
-            MessageBusRegistry.Register("Azure Queue Storage", Templates.Constants.BrokerStereotypeIds);
+            const string AzureQueueStorageMessageBusId = "649d22c1-890a-4d65-a15c-bd3563993250";
+            MessageBusRegistry.Register(AzureQueueStorageMessageBusId, Templates.Constants.BrokerStereotypeIds);
         }
     }
 }

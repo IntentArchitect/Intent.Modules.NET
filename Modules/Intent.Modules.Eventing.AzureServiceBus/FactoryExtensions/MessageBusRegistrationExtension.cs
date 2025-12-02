@@ -20,7 +20,8 @@ namespace Intent.Modules.Eventing.AzureServiceBus.FactoryExtensions
 
         protected override void OnAfterMetadataLoad(IApplication application)
         {
-            MessageBusRegistry.Register("Azure Service Bus", Templates.Constants.BrokerStereotypeIds);
+            const string AzureServiceBusMessageBusId = "caaac841-4a77-4147-b7d1-70273f0bd346";
+            MessageBusRegistry.Register(AzureServiceBusMessageBusId, Templates.Constants.BrokerStereotypeIds);
         }
     }
 }

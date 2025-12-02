@@ -20,7 +20,8 @@ namespace Intent.Modules.Eventing.MassTransit.FactoryExtensions
 
         protected override void OnAfterMetadataLoad(IApplication application)
         {
-            MessageBusRegistry.Register("MassTransit", Templates.Constants.BrokerStereotypeIds);
+            const string MassTransitMessageBusId = "c6185bdb-d69b-4db6-af0f-ef2fe07a783c";
+            MessageBusRegistry.Register(MassTransitMessageBusId, Templates.Constants.BrokerStereotypeIds);
         }
     }
 }

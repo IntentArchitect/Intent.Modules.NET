@@ -56,7 +56,7 @@ internal record AzureServiceBusCommand : AzureServiceBusItemBase
         const string prefix = "AzureServiceBus:";
         if (!command.HasAzureServiceBus())
         {
-            return GetDefaultName();
+            return prefix + GetDefaultName();
         }
         
         var name = command.GetAzureServiceBus().Type().AsEnum() switch

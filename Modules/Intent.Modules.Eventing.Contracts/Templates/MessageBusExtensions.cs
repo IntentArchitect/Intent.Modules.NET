@@ -5,6 +5,7 @@ using Intent.Engine;
 using Intent.Eventing.Contracts.Api;
 using Intent.Exceptions;
 using Intent.Metadata.Models;
+using Intent.Modelers.Eventing.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
@@ -28,8 +29,8 @@ public static class MessageBusExtensions
     {
         var useLegacy = template.ExecutionContext.Settings.GetEventingSettings().UseLegacyInterfaceName();
         return useLegacy
-            ? template.GetTypeName(EventBusInterfaceTemplate.TemplateId)
-            : template.GetTypeName(MessageBusInterfaceTemplate.TemplateId);
+            ? template.GetTypeName(EventBusInterfaceTemplate.TemplateId)!
+            : template.GetTypeName(MessageBusInterfaceTemplate.TemplateId)!;
     }
 
     /// <summary>
@@ -273,38 +274,11 @@ public static class MessageBusExtensions
         }
     }
 
-    // Until we have a better way to do this, we're hardcoding the message broker stereotypes we know about.
     private static bool HasKnownStereotype<T>(T element)
         where T : IHasStereotypes
     {
         var stereotypeIds = MessageBusRegistry.GetAllMessageBusStereotypeDefinitionIds();
-        
         return HasMatchingStereotype(element, stereotypeIds);
-        // // Make sure Message and Command Extension Validation Scripts are updated too!
-        // string[] stereotypeIds = [
-        //     "dca28d4b-c277-4fb3-afe0-17f35ea8b59b", // Azure Event Grid
-        //     "84e5a563-953d-43f5-b2ca-a24ce3104e0b", // Azure Event Grid Folder Settings
-        //     "b440c77b-3bde-4a96-bcb6-3289a23e5b1d", // Event Domain
-        //     "7b57f640-600d-4b91-98a7-2a304c715f27", // Azure Queue Storage
-        //     "a9fcfa58-3b1d-4126-8bdc-26d441f9880c", // Azure Queue Storage Folder Settings
-        //     "32372bfd-d61a-4782-b542-427b0f6eb7b3", // Azure Queue Storage Package Settings
-        //     "1f60bd15-005b-4184-8c12-c44c20158001", // Azure Service Bus
-        //     "706576a2-ddb3-4ccd-9b13-ee58147b0e6b", // Azure Service Bus Folder Settings
-        //     "7c7514b5-f17f-4c91-aade-c5b5b0634281", // Azure Service Bus Package Settings
-        //     "74fbdee0-4098-4544-8ecf-f7c5787c78c3", // Aws Sqs
-        //     "721c45f1-add5-4143-8ef7-c6f54db6e06d", // Aws Sqs Folder Settings
-        //     "6ffbabf9-435f-442b-866a-37c4a83bb770", // Aws Sqs Package Settings
-        //     "762ba7ac-4039-4a56-8f8d-e0ecd59038c5", // Kafka Folder Settings 
-        //     "f18ed242-c439-4b46-834c-bc2947731486", // Kafka Message Settings
-        //     "a08a5b95-24a9-46dd-b52a-5faed1db9955", // Kafka Package Settings
-        //     "32eb7ec0-1c6f-42ae-ab3f-4a71d8882ad5", // MassTransit Folder Settings
-        //     "fbe53252-9913-453c-b734-73b4e2dfdb46", // MassTransit Message Settings
-        //     "f997aa34-0a9a-4733-b5a9-fdcf9e37170c", // MassTransit Package Settings
-        //     "56e898f3-74db-486d-86f9-3e885e7509e6", // Solace Publish
-        //     "d0dc5fff-184e-421d-951f-036c0e250bec", // Solace Folder Settings
-        //     "1edcb13a-0108-42a3-b9d0-dea95dc655b8", // Solace Package Settings
-        // ];
-        // return HasMatchingStereotype(element, stereotypeIds);
     }
 
     /// <summary>
@@ -331,7 +305,8 @@ public static class MessageBusExtensions
             var currentFolder = hasFolder.Folder;
             while (currentFolder != null)
             {
-                if (brokerStereotypeNameOrIds.Any(x => currentFolder.HasStereotype(x)))
+                if (brokerStereotypeNameOrIds.Any(x => currentFolder.HasStereotype(x)) ||
+                    currentFolder.GetMessageBus()?.Providers().Any(x => MessageBusRegistry.IsBrokerStereotypesMatch(x.Id, brokerStereotypeNameOrIds)) == true)
                 {
                     return true;
                 }
@@ -344,12 +319,14 @@ public static class MessageBusExtensions
         if (element is IElementWrapper wrapper)
         {
             var package = wrapper.InternalElement.Package;
-            return brokerStereotypeNameOrIds.Any(x => package.HasStereotype(x));
+            return brokerStereotypeNameOrIds.Any(x => package.HasStereotype(x)) ||
+                   (package.IsEventingPackageModel() && new EventingPackageModel(package).GetMessageBus()?.Providers().Any(x => MessageBusRegistry.IsBrokerStereotypesMatch(x.Id, brokerStereotypeNameOrIds)) == true);
         }
         if (element is IElement el)
         {
             var package = el.Package;
-            return brokerStereotypeNameOrIds.Any(x => package.HasStereotype(x));
+            return brokerStereotypeNameOrIds.Any(x => package.HasStereotype(x)) ||
+                   (package.IsEventingPackageModel() && new EventingPackageModel(package).GetMessageBus()?.Providers().Any(x => MessageBusRegistry.IsBrokerStereotypesMatch(x.Id, brokerStereotypeNameOrIds)) == true);
         }
         
         return false;

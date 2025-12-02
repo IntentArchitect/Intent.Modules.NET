@@ -20,7 +20,8 @@ namespace Intent.Modules.Eventing.AzureEventGrid.FactoryExtensions
 
         protected override void OnAfterMetadataLoad(IApplication application)
         {
-            MessageBusRegistry.Register("AzureEventGrid", Templates.Constants.BrokerStereotypeIds);
+            const string AzureEventGridMessageBusId = "48880079-8788-4c53-b7f3-0cbc7c4c8a88";
+            MessageBusRegistry.Register(AzureEventGridMessageBusId, Templates.Constants.BrokerStereotypeIds);
         }
     }
 }

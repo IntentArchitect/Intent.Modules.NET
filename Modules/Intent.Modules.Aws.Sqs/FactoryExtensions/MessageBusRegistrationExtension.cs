@@ -20,7 +20,8 @@ namespace Intent.Modules.Aws.Sqs.FactoryExtensions
 
         protected override void OnAfterMetadataLoad(IApplication application)
         {
-            MessageBusRegistry.Register("AWSSQS", Templates.Constants.BrokerStereotypeIds);
+            const string AwsSqsMessageBusId = "cf57ada8-c5d7-4a86-8f78-b8ed74ca0123";
+            MessageBusRegistry.Register(AwsSqsMessageBusId, Templates.Constants.BrokerStereotypeIds);
         }
     }
 }

@@ -22,7 +22,8 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.FactoryExtensions
 
         protected override void OnAfterMetadataLoad(IApplication application)
         {
-            MessageBusRegistry.Register("DAPR", Templates.Constants.BrokerStereotypeIds);
+            const string DaprMessageBusId = "764c5213-7e84-4b10-9414-addde0c07b69";
+            MessageBusRegistry.Register(DaprMessageBusId, Templates.Constants.BrokerStereotypeIds);
         }
     }
 }
