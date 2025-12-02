@@ -5,6 +5,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.Modules.Eventing.AzureQueueStorage.Settings;
 using Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageOptions;
 using Intent.Modules.Eventing.Contracts.Templates;
@@ -24,6 +25,7 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageM
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public AzureQueueStorageMessageBusTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            FulfillsRole(TemplateRoles.Application.Eventing.MessageBusImplementation);
             AddNugetDependency(NugetPackages.AzureStorageQueues(outputTarget));
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())

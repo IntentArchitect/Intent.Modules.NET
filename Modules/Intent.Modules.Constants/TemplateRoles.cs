@@ -130,6 +130,7 @@ namespace Intent.Modules.Constants
                 public const string MessageBusInterface = "Application.Eventing.MessageBusInterface";
                 public const string EventHandler = "Application.Eventing.EventHandler";
                 public const string MessageBusConfiguration = "Eventing.MessageBusConfiguration";
+                public const string MessageBusImplementation = "Application.Eventing.MessageBusImplementation";
             }
 
             public static class Validation

@@ -7,6 +7,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -24,6 +25,7 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridMessage
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public AzureEventGridMessageBusTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            FulfillsRole(TemplateRoles.Application.Eventing.MessageBusImplementation);
             AddNugetDependency(NugetPackages.AzureMessagingEventGrid(outputTarget));
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")

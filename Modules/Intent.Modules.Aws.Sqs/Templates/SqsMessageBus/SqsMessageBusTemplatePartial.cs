@@ -6,6 +6,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -23,6 +24,7 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsMessageBus
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public SqsMessageBusTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            FulfillsRole(TemplateRoles.Application.Eventing.MessageBusImplementation);
             AddNugetDependency(NugetPackages.AwsSdkSqs(OutputTarget));
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")

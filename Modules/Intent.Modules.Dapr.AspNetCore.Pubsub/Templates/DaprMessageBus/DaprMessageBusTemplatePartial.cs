@@ -6,6 +6,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.EventInterface;
 using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.RoslynWeaver.Attributes;
@@ -24,6 +25,7 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.DaprMessageBus
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public DaprMessageBusTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            FulfillsRole(TemplateRoles.Application.Eventing.MessageBusImplementation);
             AddNugetDependency(NugetPackages.DaprClient(outputTarget));
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
