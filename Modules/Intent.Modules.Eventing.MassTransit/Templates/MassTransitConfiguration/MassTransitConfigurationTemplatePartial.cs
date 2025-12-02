@@ -14,6 +14,7 @@ using Intent.Modules.Common.CSharp.Nuget;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
+using Intent.Modules.Constants;
 using Intent.Modules.Eventing.Contracts.Settings;
 using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.Modules.Eventing.Contracts.Templates.CompositeMessageBusConfiguration;
@@ -41,7 +42,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
     [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
     public MassTransitConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
     {
-        FulfillsRole("Eventing.MessageBusConfiguration");
+        FulfillsRole(TemplateRoles.Application.Eventing.MessageBusConfiguration);
         
         _messageBroker = GetMessageBroker();
 

@@ -14,6 +14,7 @@ using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
+using Intent.Modules.Constants;
 using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationCommand;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage;
@@ -33,7 +34,7 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.DaprConfiguration
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public DaprConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            FulfillsRole("Eventing.MessageBusConfiguration");
+            FulfillsRole(TemplateRoles.Application.Eventing.MessageBusConfiguration);
             
             var publishedMessages = GetPublishedMessages();
 

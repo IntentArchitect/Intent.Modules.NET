@@ -35,7 +35,7 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaConfiguration
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public KafkaConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            FulfillsRole("Eventing.MessageBusConfiguration");
+            FulfillsRole(TemplateRoles.Application.Eventing.MessageBusConfiguration);
 
             _subscribedMessageModels = new Lazy<IReadOnlyCollection<MessageModel>>(() =>
             {

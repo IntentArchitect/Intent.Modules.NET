@@ -13,6 +13,7 @@ using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.Modules.Eventing.AzureQueueStorage.Templates;
 using Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageOptions;
 using Intent.Modules.Eventing.Contracts.Settings;
@@ -39,7 +40,7 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageC
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public AzureQueueStorageConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            FulfillsRole("Eventing.MessageBusConfiguration");
+            FulfillsRole(TemplateRoles.Application.Eventing.MessageBusConfiguration);
             
             _messageModels = GetAllMessages();
             _integrationCommandModels = GetAllIntegrationCommands();

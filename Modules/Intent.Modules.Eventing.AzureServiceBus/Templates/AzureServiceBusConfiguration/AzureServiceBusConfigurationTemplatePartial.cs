@@ -36,7 +36,7 @@ public partial class AzureServiceBusConfigurationTemplate : CSharpTemplateBase<o
     [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
     public AzureServiceBusConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
     {
-        FulfillsRole("Eventing.MessageBusConfiguration");
+        FulfillsRole(TemplateRoles.Application.Eventing.MessageBusConfiguration);
 
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
             .AddUsing("System")

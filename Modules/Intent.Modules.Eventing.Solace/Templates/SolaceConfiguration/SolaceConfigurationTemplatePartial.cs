@@ -9,6 +9,7 @@ using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.Modules.Eventing.Contracts.Settings;
 using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.RoslynWeaver.Attributes;
@@ -27,7 +28,7 @@ namespace Intent.Modules.Eventing.Solace.Templates.SolaceConfiguration
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public SolaceConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            FulfillsRole("Eventing.MessageBusConfiguration");
+            FulfillsRole(TemplateRoles.Application.Eventing.MessageBusConfiguration);
 
             AddNugetDependency(NugetPackages.SolaceSystemsSolclientMessaging(OutputTarget));
 

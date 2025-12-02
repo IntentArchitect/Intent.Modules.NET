@@ -33,7 +33,7 @@ public partial class AzureEventGridConfigurationTemplate : CSharpTemplateBase<ob
     [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
     public AzureEventGridConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
     {
-        FulfillsRole("Eventing.MessageBusConfiguration");
+        FulfillsRole(TemplateRoles.Application.Eventing.MessageBusConfiguration);
         
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
             .AddUsing("Microsoft.Extensions.Configuration")
