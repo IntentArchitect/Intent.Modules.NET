@@ -25,12 +25,14 @@ namespace Intent.Modules.Eventing.MassTransit.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            var templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateRoles.Application.Eventing.MessageBusInterface));
-            foreach (var template in templates)
+            // Add method signature to MessageBusInterface
+            var interfaceTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateRoles.Application.Eventing.MessageBusInterface));
+            foreach (var template in interfaceTemplates)
             {
                 template.CSharpFile.OnBuild(file =>
                 {
                     var iface = file.Interfaces.First();
+                    // Send with Uri address
                     iface.AddMethod("void", "Send", method =>
                     {
                         method.WithComments([
@@ -48,15 +50,65 @@ namespace Intent.Modules.Eventing.MassTransit.FactoryExtensions
                             .AddGenericTypeConstraint(TMessage, c => c.AddType("class"))
                             .AddParameter(TMessage, "message")
                             .AddParameter(template.UseType("System.Uri"), "address");
-                        method.AddStatements(
-                            """
-                            Send<TMessage>(message, new Dictionary<string, object>
-                            {
-                                { "address", address.ToString() }
-                            });
-                            """.ConvertToStatements());
                     });
                 }, 1);
+            }
+
+            // Add implementations to MessageBusImplementation templates
+            var implementationTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateRoles.Application.Eventing.MessageBusImplementation));
+            foreach (var template in implementationTemplates)
+            {
+                var isMassTransit = template.Id == "Intent.Eventing.MassTransit.MassTransitMessageBus";
+                
+                template.CSharpFile.OnBuild(file =>
+                {
+                    var @class = file.Classes.First();
+                    
+                    // Send with Uri address
+                    @class.AddMethod("void", "Send", method =>
+                    {
+                        method.AddGenericParameter("TMessage", out var TMessage)
+                            .AddGenericTypeConstraint(TMessage, c => c.AddType("class"))
+                            .AddParameter(TMessage, "message")
+                            .AddParameter(template.UseType("System.Uri"), "address");
+                        
+                        if (isMassTransit)
+                        {
+                            method.AddStatements(
+                                """
+                                Send<TMessage>(message, new Dictionary<string, object>
+                                {
+                                    { "address", address.ToString() }
+                                });
+                                """.ConvertToStatements());
+                        }
+                        else
+                        {
+                            method.AddStatement("throw new NotSupportedException(\"Explicit address-based sending is not supported by this message bus provider.\");");
+                        }
+                    });
+                }, 2);
+            }
+
+            // Add method to CompositeMessageBus
+            var compositeTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.Eventing.Contracts.CompositeMessageBus");
+            if (compositeTemplate != null)
+            {
+                compositeTemplate.CSharpFile.OnBuild(file =>
+                {
+                    var @class = file.Classes.First();
+                    
+                    // Send with Uri address
+                    @class.AddMethod("void", "Send", method =>
+                    {
+                        method.AddGenericParameter("TMessage", out var TMessage)
+                            .AddGenericTypeConstraint(TMessage, c => c.AddType("class"))
+                            .AddParameter(TMessage, "message")
+                            .AddParameter(compositeTemplate.UseType("System.Uri"), "address");
+                        method.AddStatement("ValidateMessageType<TMessage>();");
+                        method.AddStatement("InnerDispatch<TMessage>(provider => provider.Send(message, address));");
+                    });
+                }, 3);
             }
         }
     }

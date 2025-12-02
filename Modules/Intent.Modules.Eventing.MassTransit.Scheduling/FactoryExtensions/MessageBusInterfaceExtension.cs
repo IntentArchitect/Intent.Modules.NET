@@ -24,12 +24,14 @@ namespace Intent.Modules.Eventing.MassTransit.Scheduling.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            var templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateRoles.Application.Eventing.MessageBusInterface));
-            foreach (var template in templates)
+            // Add method signatures to MessageBusInterface
+            var interfaceTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateRoles.Application.Eventing.MessageBusInterface));
+            foreach (var template in interfaceTemplates)
             {
                 template.CSharpFile.OnBuild(file =>
                 {
                     var iface = file.Interfaces.First();
+                    // Publish with DateTime scheduled
                     iface.AddMethod("void", "Publish", method =>
                     {
                         method.WithComments([
@@ -48,14 +50,9 @@ namespace Intent.Modules.Eventing.MassTransit.Scheduling.FactoryExtensions
                             .AddGenericTypeConstraint(TMessage, c => c.AddType("class"))
                             .AddParameter(TMessage, "message")
                             .AddParameter(template.UseType("System.DateTime"), "scheduled");
-                        method.AddStatements(
-                            """
-                            Publish<TMessage>(message, new Dictionary<string, object>
-                            {
-                                { "scheduled", scheduled }
-                            });
-                            """.ConvertToStatements());
                     });
+                    
+                    // Publish with TimeSpan delay
                     iface.AddMethod("void", "Publish", method =>
                     {
                         method.WithComments([
@@ -73,15 +70,100 @@ namespace Intent.Modules.Eventing.MassTransit.Scheduling.FactoryExtensions
                             .AddGenericTypeConstraint(TMessage, c => c.AddType("class"))
                             .AddParameter(TMessage, "message")
                             .AddParameter(template.UseType("System.TimeSpan"), "delay");
-                        method.AddStatements(
-                            """
-                            Publish<TMessage>(message, new Dictionary<string, object>
-                            {
-                                { "scheduled", DateTime.UtcNow.Add(delay) }
-                            });
-                            """.ConvertToStatements());
                     });
                 }, 2);
+            }
+
+            // Add implementations to MessageBusImplementation templates
+            var implementationTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateRoles.Application.Eventing.MessageBusImplementation));
+            foreach (var template in implementationTemplates)
+            {
+                var isMassTransit = template.Id == "Intent.Eventing.MassTransit.MassTransitMessageBus";
+                
+                template.CSharpFile.OnBuild(file =>
+                {
+                    var @class = file.Classes.First();
+                    
+                    // Publish with DateTime scheduled
+                    @class.AddMethod("void", "Publish", method =>
+                    {
+                        method.AddGenericParameter("TMessage", out var TMessage)
+                            .AddGenericTypeConstraint(TMessage, c => c.AddType("class"))
+                            .AddParameter(TMessage, "message")
+                            .AddParameter(template.UseType("System.DateTime"), "scheduled");
+                        
+                        if (isMassTransit)
+                        {
+                            method.AddStatements(
+                                """
+                                Publish<TMessage>(message, new Dictionary<string, object>
+                                {
+                                    { "scheduled", scheduled }
+                                });
+                                """.ConvertToStatements());
+                        }
+                        else
+                        {
+                            method.AddStatement("throw new NotSupportedException(\"Scheduled publishing is not supported by this message bus provider.\");");
+                        }
+                    });
+                    
+                    // Publish with TimeSpan delay
+                    @class.AddMethod("void", "Publish", method =>
+                    {
+                        method.AddGenericParameter("TMessage", out var TMessage)
+                            .AddGenericTypeConstraint(TMessage, c => c.AddType("class"))
+                            .AddParameter(TMessage, "message")
+                            .AddParameter(template.UseType("System.TimeSpan"), "delay");
+                        
+                        if (isMassTransit)
+                        {
+                            method.AddStatements(
+                                """
+                                Publish<TMessage>(message, new Dictionary<string, object>
+                                {
+                                    { "scheduled", DateTime.UtcNow.Add(delay) }
+                                });
+                                """.ConvertToStatements());
+                        }
+                        else
+                        {
+                            method.AddStatement("throw new NotSupportedException(\"Scheduled publishing is not supported by this message bus provider.\");");
+                        }
+                    });
+                }, 3);
+            }
+
+            // Add methods to CompositeMessageBus
+            var compositeTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.Eventing.Contracts.CompositeMessageBus");
+            if (compositeTemplate != null)
+            {
+                compositeTemplate.CSharpFile.OnBuild(file =>
+                {
+                    var @class = file.Classes.First();
+                    
+                    // Publish with DateTime scheduled
+                    @class.AddMethod("void", "Publish", method =>
+                    {
+                        method.AddGenericParameter("TMessage", out var TMessage)
+                            .AddGenericTypeConstraint(TMessage, c => c.AddType("class"))
+                            .AddParameter(TMessage, "message")
+                            .AddParameter(compositeTemplate.UseType("System.DateTime"), "scheduled");
+                        method.AddStatement("ValidateMessageType<TMessage>();");
+                        method.AddStatement("InnerDispatch<TMessage>(provider => provider.Publish(message, scheduled));");
+                    });
+                    
+                    // Publish with TimeSpan delay
+                    @class.AddMethod("void", "Publish", method =>
+                    {
+                        method.AddGenericParameter("TMessage", out var TMessage)
+                            .AddGenericTypeConstraint(TMessage, c => c.AddType("class"))
+                            .AddParameter(TMessage, "message")
+                            .AddParameter(compositeTemplate.UseType("System.TimeSpan"), "delay");
+                        method.AddStatement("ValidateMessageType<TMessage>();");
+                        method.AddStatement("InnerDispatch<TMessage>(provider => provider.Publish(message, delay));");
+                    });
+                }, 4);
             }
         }
     }
