@@ -1,5 +1,4 @@
 using System.Linq;
-using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -16,9 +15,9 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Modules.Eventing.MassTransit.Scheduling.FactoryExtensions
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public class EventBusInterfaceExtension : FactoryExtensionBase
+    public class MessageBusInterfaceExtension : FactoryExtensionBase
     {
-        public override string Id => "Intent.Eventing.MassTransit.Scheduling.EventBusInterfaceExtension";
+        public override string Id => "Intent.Eventing.MassTransit.Scheduling.MessageBusInterfaceExtension";
 
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;

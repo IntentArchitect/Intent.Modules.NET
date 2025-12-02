@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.MassTransit.Scheduling</id>
   <version>1.0.6-pre.0</version>
@@ -11,9 +11,9 @@
   <templates></templates>
   <decorators></decorators>
   <factoryExtensions>
-    <factoryExtension id="Intent.Eventing.MassTransit.Scheduling.EventBusInterfaceExtension" externalReference="db68c782-b2b2-4c77-a9c7-d8da2caf8d68" />
     <factoryExtension id="Intent.Eventing.MassTransit.Scheduling.MassTransitConfigurationExtension" externalReference="68a235b8-0b3c-4829-ad6d-9e16d3b15230" />
-    <factoryExtension id="Intent.Eventing.MassTransit.Scheduling.MassTransitEventBusExtension" externalReference="0bfa3a7f-5f62-44ae-bb17-ae136fdb117d" />
+    <factoryExtension id="Intent.Eventing.MassTransit.Scheduling.MassTransitMessageBusExtension" externalReference="0bfa3a7f-5f62-44ae-bb17-ae136fdb117d" />
+    <factoryExtension id="Intent.Eventing.MassTransit.Scheduling.MessageBusInterfaceExtension" externalReference="db68c782-b2b2-4c77-a9c7-d8da2caf8d68" />
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
