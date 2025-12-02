@@ -13,36 +13,36 @@ namespace Intent.Eventing.Kafka.Api
 {
     public static class IntegrationCommandModelStereotypeExtensions
     {
-        public static KafkaMessageSettings GetKafkaMessageSettings(this IntegrationCommandModel model)
+        public static KafkaMessage GetKafkaMessage(this IntegrationCommandModel model)
         {
-            var stereotype = model.GetStereotype(KafkaMessageSettings.DefinitionId);
-            return stereotype != null ? new KafkaMessageSettings(stereotype) : null;
+            var stereotype = model.GetStereotype(KafkaMessage.DefinitionId);
+            return stereotype != null ? new KafkaMessage(stereotype) : null;
         }
 
 
-        public static bool HasKafkaMessageSettings(this IntegrationCommandModel model)
+        public static bool HasKafkaMessage(this IntegrationCommandModel model)
         {
-            return model.HasStereotype(KafkaMessageSettings.DefinitionId);
+            return model.HasStereotype(KafkaMessage.DefinitionId);
         }
 
-        public static bool TryGetKafkaMessageSettings(this IntegrationCommandModel model, out KafkaMessageSettings stereotype)
+        public static bool TryGetKafkaMessage(this IntegrationCommandModel model, out KafkaMessage stereotype)
         {
-            if (!HasKafkaMessageSettings(model))
+            if (!HasKafkaMessage(model))
             {
                 stereotype = null;
                 return false;
             }
 
-            stereotype = new KafkaMessageSettings(model.GetStereotype(KafkaMessageSettings.DefinitionId));
+            stereotype = new KafkaMessage(model.GetStereotype(KafkaMessage.DefinitionId));
             return true;
         }
 
-        public class KafkaMessageSettings
+        public class KafkaMessage
         {
             private IStereotype _stereotype;
             public const string DefinitionId = "f18ed242-c439-4b46-834c-bc2947731486";
 
-            public KafkaMessageSettings(IStereotype stereotype)
+            public KafkaMessage(IStereotype stereotype)
             {
                 _stereotype = stereotype;
             }

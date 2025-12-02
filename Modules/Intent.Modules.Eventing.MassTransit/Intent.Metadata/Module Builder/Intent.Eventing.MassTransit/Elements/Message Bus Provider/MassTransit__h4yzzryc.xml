@@ -14,7 +14,7 @@
       <definitionPackageName>Intent.Eventing.Contracts</definitionPackageName>
       <definitionPackageId>bb2cc56b-8ccb-4f2e-bdf8-c019af951209</definitionPackageId>
       <properties>
-        <property name="a38f5695-bdaa-4d43-8b22-5e7031615128" display="Applicable Stereotypes" value="[&quot;fc095295-eb25-470a-9ee5-19129919db2b&quot;]" isActive="true" />
+        <property name="a38f5695-bdaa-4d43-8b22-5e7031615128" display="Applicable Stereotypes" value="[&quot;fc095295-eb25-470a-9ee5-19129919db2b&quot;,&quot;19664e24-b935-4822-ac61-26d47488be42&quot;]" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>

@@ -5,6 +5,6 @@ namespace Intent.Modules.Eventing.Kafka.Templates;
 internal static class Constants
 {
     public static readonly string[] BrokerStereotypeIds = [
-        MessageModelStereotypeExtensions.KafkaMessageSettings.DefinitionId,
+        MessageModelStereotypeExtensions.KafkaMessage.DefinitionId,
     ];
 }

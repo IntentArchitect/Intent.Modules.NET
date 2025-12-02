@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="f18ed242-c439-4b46-834c-bc2947731486" version="3.1.0">
-  <name>Kafka Message Settings</name>
+  <name>Kafka Message</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
     <type id="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">Message</type>

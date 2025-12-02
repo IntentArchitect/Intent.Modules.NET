@@ -13,36 +13,36 @@ namespace Intent.Eventing.Kafka.Api
 {
     public static class MessageModelStereotypeExtensions
     {
-        public static KafkaMessageSettings GetKafkaMessageSettings(this MessageModel model)
+        public static KafkaMessage GetKafkaMessage(this MessageModel model)
         {
-            var stereotype = model.GetStereotype(KafkaMessageSettings.DefinitionId);
-            return stereotype != null ? new KafkaMessageSettings(stereotype) : null;
+            var stereotype = model.GetStereotype(KafkaMessage.DefinitionId);
+            return stereotype != null ? new KafkaMessage(stereotype) : null;
         }
 
 
-        public static bool HasKafkaMessageSettings(this MessageModel model)
+        public static bool HasKafkaMessage(this MessageModel model)
         {
-            return model.HasStereotype(KafkaMessageSettings.DefinitionId);
+            return model.HasStereotype(KafkaMessage.DefinitionId);
         }
 
-        public static bool TryGetKafkaMessageSettings(this MessageModel model, out KafkaMessageSettings stereotype)
+        public static bool TryGetKafkaMessage(this MessageModel model, out KafkaMessage stereotype)
         {
-            if (!HasKafkaMessageSettings(model))
+            if (!HasKafkaMessage(model))
             {
                 stereotype = null;
                 return false;
             }
 
-            stereotype = new KafkaMessageSettings(model.GetStereotype(KafkaMessageSettings.DefinitionId));
+            stereotype = new KafkaMessage(model.GetStereotype(KafkaMessage.DefinitionId));
             return true;
         }
 
-        public class KafkaMessageSettings
+        public class KafkaMessage
         {
             private IStereotype _stereotype;
             public const string DefinitionId = "f18ed242-c439-4b46-834c-bc2947731486";
 
-            public KafkaMessageSettings(IStereotype stereotype)
+            public KafkaMessage(IStereotype stereotype)
             {
                 _stereotype = stereotype;
             }

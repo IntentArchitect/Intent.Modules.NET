@@ -8,5 +8,6 @@ internal static class Constants
     public static readonly string[] BrokerStereotypeIds = 
     [
         MessageModelStereotypeExtensions.MessageTopologySettings.DefinitionId,
+        MessageModelStereotypeExtensions.MassTransitMessage.DefinitionId
     ];
 }
