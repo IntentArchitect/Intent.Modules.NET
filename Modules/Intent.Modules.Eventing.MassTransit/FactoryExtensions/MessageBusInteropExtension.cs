@@ -20,9 +20,9 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Modules.Eventing.MassTransit.FactoryExtensions
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public class EventBusInteropExtension : FactoryExtensionBase
+    public class MessageBusInteropExtension : FactoryExtensionBase
     {
-        public override string Id => "Intent.Eventing.MassTransit.EventBusInteropExtension";
+        public override string Id => "Intent.Eventing.MassTransit.MessageBusInteropExtension";
 
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;
@@ -113,8 +113,8 @@ namespace Intent.Modules.Eventing.MassTransit.FactoryExtensions
             {
                 var @class = file.Classes.First();
                 var busInterface = template.GetBusInterfaceName();
-                var busParameterName = template.ExecutionContext.Settings.GetEventingSettings().UseLegacyInterfaceName() 
-                    ? "eventBus" 
+                var busParameterName = template.ExecutionContext.Settings.GetEventingSettings().UseLegacyInterfaceName()
+                    ? "eventBus"
                     : "messageBus";
                 var constructor = @class.Constructors.First();
                 if (!constructor.Parameters.Any(p => p.Type == busInterface))
@@ -122,8 +122,8 @@ namespace Intent.Modules.Eventing.MassTransit.FactoryExtensions
                     constructor.AddParameter(busInterface, busParameterName, p => p.IntroduceReadonlyField());
                 }
 
-                var busFieldName = template.ExecutionContext.Settings.GetEventingSettings().UseLegacyInterfaceName() 
-                    ? "_eventBus" 
+                var busFieldName = template.ExecutionContext.Settings.GetEventingSettings().UseLegacyInterfaceName()
+                    ? "_eventBus"
                     : "_messageBus";
 
                 var method = template.GetSaveChangesMethod();

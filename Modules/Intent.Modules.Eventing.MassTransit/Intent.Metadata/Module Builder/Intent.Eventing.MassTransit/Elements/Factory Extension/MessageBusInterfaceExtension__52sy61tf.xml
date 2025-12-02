@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="ef3ae01c-196b-4529-95d2-cb9d5375b3e2" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
-  <name>EventBusInteropExtension</name>
-  <display>EventBusInteropExtension</display>
+<class id="b09da749-7a17-4930-96df-9f1b97a40383" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>MessageBusInterfaceExtension</name>
+  <display>MessageBusInterfaceExtension</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
   <isMapped>false</isMapped>

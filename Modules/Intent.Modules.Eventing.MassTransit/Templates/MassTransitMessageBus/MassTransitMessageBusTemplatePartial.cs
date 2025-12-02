@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -35,6 +36,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitMessageBus
                 .AddClass("MassTransitMessageBus", @class =>
                 {
                     @class.ImplementsInterface(this.GetBusInterfaceName());
+                    @class.AddField("string", "AddressKey", f => f.Private().Constant(@"""address"""));
 
                     var listFieldDefault = outputTarget.GetProject().GetLanguageVersion().Major < 12
                         ? new CSharpStatement("new List<MessageEntry>()")
@@ -81,16 +83,6 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitMessageBus
                             .AddStatement("_messagesToDispatch.Add(new MessageEntry(message, additionalData, DispatchType.Send));");
                     });
 
-                    @class.AddMethod("void", "Send", method =>
-                    {
-                        method.AddGenericParameter("TMessage", out var TMessage)
-                            .AddGenericTypeConstraint(TMessage, c => c.AddType("class"))
-                            .AddParameter(TMessage, "message")
-                            .AddParameter("Uri", "address")
-                            .AddStatement("var additionalData = new Dictionary<string, object> { { \"address\", address.ToString() } };")
-                            .AddStatement("_messagesToDispatch.Add(new MessageEntry(message, additionalData, DispatchType.Send));");
-                    });
-
                     @class.AddMethod("Task", "FlushAllAsync", method =>
                     {
                         method.Async();
@@ -101,8 +93,6 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitMessageBus
 
                         method.AddStatement("await PublishMessagesAsync(messagesToPublish, cancellationToken);");
                         method.AddStatement("await SendMessagesAsync(messagesToSend, cancellationToken);");
-
-                        method.AddStatement("_messagesToDispatch.Clear();");
                     });
 
                     @class.AddMethod("Task", "PublishMessagesAsync", method =>
@@ -130,7 +120,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitMessageBus
                         method.AddForEachStatement("toSend", "messagesToSend", fe =>
                         {
                             fe.AddStatement("Uri? address = null;");
-                            fe.AddIfStatement("toSend.AdditionalData?.TryGetValue(\"address\", out var addressObj) == true", block =>
+                            fe.AddIfStatement("toSend.AdditionalData?.TryGetValue(AddressKey, out var addressObj) == true", block =>
                             {
                                 block.AddStatement("address = new Uri((string)addressObj);");
                             });
@@ -178,7 +168,12 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitMessageBus
                             ctor.AddParameter("DispatchType", "DispatchType");
                         });
                     });
-                });
+                })
+                .OnBuild(file =>
+                {
+                    var @class = file.Classes.First();
+                    @class.FindMethod("FlushAllAsync")?.AddStatement("_messagesToDispatch.Clear();", s => s.SeparatedFromPrevious());
+                }, 1000);
         }
 
         [IntentManaged(Mode.Fully)]

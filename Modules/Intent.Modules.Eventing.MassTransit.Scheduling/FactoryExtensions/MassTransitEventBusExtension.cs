@@ -5,7 +5,6 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
-using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -27,70 +26,57 @@ public class MassTransitEventBusExtension : FactoryExtensionBase
         template?.CSharpFile.OnBuild(file =>
         {
             var priClass = file.Classes.First();
-            priClass.AddField("List<ScheduleEntry>", "_messagesToSchedule", field => field
-                .PrivateReadOnly()
-                .WithAssignment("new List<ScheduleEntry>()"));
+            // Ensure ScheduledKey constant exists
+            priClass.AddField("string", "ScheduledKey", f => f.Private().Constant(@"""scheduled"""));
 
-            priClass.AddMethod("void", "SchedulePublish", method =>
+            // Modify Publish<TMessage>(TMessage message, IDictionary<string, object> additionalData) to set DispatchType based on ScheduledKey
+            var publishWithAdditionalData = priClass.FindMethod(m => m.Name == "Publish" && m.Parameters.Count == 2 && m.Parameters[1].Type == "IDictionary<string, object>");
+            if (publishWithAdditionalData is not null)
             {
-                method.AddGenericParameter("T", out var T)
-                    .AddGenericTypeConstraint(T, c => c.AddType("class"))
-                    .AddParameter(T, "message")
-                    .AddParameter("DateTime", "scheduled")
-                    .AddStatement("_messagesToSchedule.Add(ScheduleEntry.ForScheduled(message, scheduled));");
-            });
+                publishWithAdditionalData.Statements.Clear();
+                publishWithAdditionalData.AddStatement("_messagesToDispatch.Add(new MessageEntry(message, additionalData, additionalData.ContainsKey(ScheduledKey) ? DispatchType.Schedule : DispatchType.Publish));");
+            }
 
-            priClass.AddMethod("void", "SchedulePublish", method =>
+            // In FlushAllAsync, add messagesToSchedule and invoke SchedulePublishAsync
+            var flushMethod = priClass.FindMethod("FlushAllAsync");
+            flushMethod?.AddStatement("var messagesToSchedule = _messagesToDispatch.Where(x => x.DispatchType == DispatchType.Schedule).ToList();", s => s.SeparatedFromPrevious());
+            flushMethod?.AddStatement("await SchedulePublishAsync(messagesToSchedule, cancellationToken).ConfigureAwait(false);");
+
+            // Add DispatchType.Schedule to DispatchType enum
+            var dispatchEnum = priClass.NestedEnums.FirstOrDefault(x => x.Name == "DispatchType");
+            dispatchEnum?.AddLiteral("Schedule");
+
+            // Add SchedulePublishAsync method implementation
+            priClass.AddMethod("Task", "SchedulePublishAsync", method =>
             {
-                method.AddGenericParameter("T", out var T)
-                    .AddGenericTypeConstraint(T, c => c.AddType("class"))
-                    .AddParameter(T, "message")
-                    .AddParameter("TimeSpan", "delay")
-                    .AddStatement("_messagesToSchedule.Add(ScheduleEntry.ForDelay(message, delay));");
-            });
+                method.Private().Async();
+                method.AddParameter("List<MessageEntry>", "messagesToSchedule");
+                method.AddParameter("CancellationToken", "cancellationToken");
 
-            priClass.FindMethod("FlushAllAsync")?.AddStatement("_messagesToSchedule.Clear();");
-
-            priClass.FindMethod("PublishWithConsumeContext")
-                ?.AddForEachStatement("scheduleEntry", "_messagesToSchedule", loop =>
+                method.AddIfStatement("!messagesToSchedule.Any()", block =>
                 {
-                    loop.SeparatedFromPrevious();
-                    loop.AddStatement(
-                        "await ConsumeContext!.SchedulePublish(scheduleEntry.Scheduled, scheduleEntry.Message, cancellationToken).ConfigureAwait(false);");
+                    block.AddReturn("");
                 });
 
-            priClass.FindMethod("PublishWithNormalContext")
-                ?.AddStatement("var messageScheduler = _serviceProvider.GetRequiredService<IMessageScheduler>();",
-                    s => s.SeparatedFromPrevious())
-                .AddForEachStatement("scheduleEntry", "_messagesToSchedule", loop =>
+                method.AddIfStatement("ConsumeContext is not null", block =>
                 {
-                    loop.SeparatedFromPrevious();
-                    loop.AddStatement(
-                        "await messageScheduler.SchedulePublish(scheduleEntry.Scheduled, scheduleEntry.Message, cancellationToken).ConfigureAwait(false);");
+                    block.AddForEachStatement("toSchedule", "messagesToSchedule", fe =>
+                    {
+                        fe.AddIfStatement("toSchedule.AdditionalData != null && toSchedule.AdditionalData.TryGetValue(ScheduledKey, out var scheduledObj) && scheduledObj is DateTime scheduled", b =>
+                        {
+                            b.AddStatement("await ConsumeContext!.SchedulePublish(scheduled, toSchedule.Message, cancellationToken).ConfigureAwait(false);");
+                        });
+                    });
+                    block.AddReturn("");
                 });
 
-            @priClass.AddNestedClass("ScheduleEntry", nested =>
-            {
-                nested.Private();
-                nested.AddConstructor(ctor =>
+                method.AddStatement("var messageScheduler = _serviceProvider.GetRequiredService<IMessageScheduler>();");
+                method.AddForEachStatement("toSchedule", "messagesToSchedule", fe =>
                 {
-                    ctor.Private();
-                    ctor.AddParameter("object", "message", param => param.IntroduceProperty(prop => prop.ReadOnly()));
-                    ctor.AddParameter("DateTime", "scheduled", param => param.IntroduceProperty(prop => prop.ReadOnly()));
-                });
-                nested.AddMethod("ScheduleEntry", "ForScheduled", method =>
-                {
-                    method.Static();
-                    method.AddParameter("object", "message");
-                    method.AddParameter("DateTime", "scheduled");
-                    method.AddStatement("return new ScheduleEntry(message, scheduled);");
-                });
-                nested.AddMethod("ScheduleEntry", "ForDelay", method =>
-                {
-                    method.Static();
-                    method.AddParameter("object", "message");
-                    method.AddParameter("TimeSpan", "delay");
-                    method.AddStatement("return new ScheduleEntry(message, DateTime.UtcNow.Add(delay));");
+                    fe.AddIfStatement("toSchedule.AdditionalData != null && toSchedule.AdditionalData.TryGetValue(ScheduledKey, out var scheduledObj) && scheduledObj is DateTime scheduled", b =>
+                    {
+                        b.AddStatement("await messageScheduler.SchedulePublish(scheduled, toSchedule.Message, cancellationToken).ConfigureAwait(false);");
+                    });
                 });
             });
         }, 10);
