@@ -56,6 +56,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.ServiceFabric.ServiceMa
         public override ITemplateFileConfig GetTemplateFileConfig()
         {
             return new TemplateFileConfig(
+                relativeLocation: "PackageRoot",
                 fileName: $"ServiceManifest",
                 fileExtension: "xml"
             );

@@ -56,7 +56,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.ServiceFabric.ServiceCo
         public override ITemplateFileConfig GetTemplateFileConfig()
         {
             return new TemplateFileConfig(
-                relativeLocation: "Config",
+                relativeLocation: "PackageRoot/Config",
                 fileName: $"Settings",
                 fileExtension: "xml"
             );

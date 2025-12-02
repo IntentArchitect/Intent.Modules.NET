@@ -1,3 +1,7 @@
+### Version 3.9.9
+
+- Fixed: Service Fabric service `ServiceManifest.xml` and `Settings.xml` files were not being placed in the correct folder structure.
+
 ### Version 3.9.8
 
 - Improvement: It is now possible to specify "Aspire.AppHost.Sdk" as an SDK option for .NET Projects in the Visual Studio designer.
