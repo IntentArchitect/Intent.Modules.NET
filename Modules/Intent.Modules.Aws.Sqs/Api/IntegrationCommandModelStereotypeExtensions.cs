@@ -13,36 +13,36 @@ namespace Intent.Aws.Sqs.Api
 {
     public static class IntegrationCommandModelStereotypeExtensions
     {
-        public static AwsSqs GetAwsSqs(this IntegrationCommandModel model)
+        public static AWSSQS GetAWSSQS(this IntegrationCommandModel model)
         {
-            var stereotype = model.GetStereotype(AwsSqs.DefinitionId);
-            return stereotype != null ? new AwsSqs(stereotype) : null;
+            var stereotype = model.GetStereotype(AWSSQS.DefinitionId);
+            return stereotype != null ? new AWSSQS(stereotype) : null;
         }
 
 
-        public static bool HasAwsSqs(this IntegrationCommandModel model)
+        public static bool HasAWSSQS(this IntegrationCommandModel model)
         {
-            return model.HasStereotype(AwsSqs.DefinitionId);
+            return model.HasStereotype(AWSSQS.DefinitionId);
         }
 
-        public static bool TryGetAwsSqs(this IntegrationCommandModel model, out AwsSqs stereotype)
+        public static bool TryGetAWSSQS(this IntegrationCommandModel model, out AWSSQS stereotype)
         {
-            if (!HasAwsSqs(model))
+            if (!HasAWSSQS(model))
             {
                 stereotype = null;
                 return false;
             }
 
-            stereotype = new AwsSqs(model.GetStereotype(AwsSqs.DefinitionId));
+            stereotype = new AWSSQS(model.GetStereotype(AWSSQS.DefinitionId));
             return true;
         }
 
-        public class AwsSqs
+        public class AWSSQS
         {
             private IStereotype _stereotype;
             public const string DefinitionId = "74fbdee0-4098-4544-8ecf-f7c5787c78c3";
 
-            public AwsSqs(IStereotype stereotype)
+            public AWSSQS(IStereotype stereotype)
             {
                 _stereotype = stereotype;
             }

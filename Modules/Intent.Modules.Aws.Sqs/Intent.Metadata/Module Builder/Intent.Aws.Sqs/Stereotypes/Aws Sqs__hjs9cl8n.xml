@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="74fbdee0-4098-4544-8ecf-f7c5787c78c3" version="3.1.0">
   <comment>Configures AWS SQS message queue name.</comment>
-  <name>Aws Sqs</name>
+  <name>AWS SQS</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
     <type id="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">Message</type>

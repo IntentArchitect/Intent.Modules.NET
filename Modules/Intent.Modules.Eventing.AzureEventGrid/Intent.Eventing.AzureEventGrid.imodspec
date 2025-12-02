@@ -99,6 +99,7 @@
   </templates>
   <decorators></decorators>
   <factoryExtensions>
+    <factoryExtension id="Intent.Eventing.AzureEventGrid.MessageBusRegistrationExtension" externalReference="81134eff-48f4-44b0-9fb7-80d4646a433b" />
     <factoryExtension id="Intent.Eventing.AzureEventGrid.MetadataLoaderExtension" externalReference="cc0b7146-e0a5-4a33-ba08-3c88c62a21fe" />
   </factoryExtensions>
   <moduleSettings></moduleSettings>
@@ -110,7 +111,7 @@
     </detect>
   </interoperability>
   <dependencies>
-    <dependency id="Intent.Common" version="3.8.0" />
+    <dependency id="Intent.Common" version="3.9.0" />
     <dependency id="Intent.Common.CSharp" version="3.8.3" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Eventing.Contracts" version="6.1.0-pre.0" />

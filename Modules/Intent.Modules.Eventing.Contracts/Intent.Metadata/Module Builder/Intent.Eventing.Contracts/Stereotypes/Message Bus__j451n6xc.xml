@@ -8,7 +8,7 @@
   </targetTypes>
   <targetReferenceTypes />
   <applyMode>manually</applyMode>
-  <icon type="UrlImagePath" source="./img/icons/common/StereotypeDef_256x.png" />
+  <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEMAAABDCAYAAADHyrhzAAAACXBIWXMAAAsTAAALEwEAmpwYAAADQ0lEQVR4nO2ay2tUMRSHowsRRNFWBRc+ELELQVFx48KN+GrxAZI7VYSCoiZTx0dnkmkVHHwglnZyclsRBNH/Qd0purFOci3i/yA+Nor1VVvFSmrFcXE7I3ZyMyUf/JY55HwEkrlnEPJ4PB6Px+MyTDzZwKW6zaVWDPTgVGei7q18n1qHXCYvo0NM6m9c6rGaB9Qol6VW5CIdvdFSBnrYioiJMFCfz4rBJcg1mNRZmyJ+JxfqDHINJlUxCRkMdDdyDS7ViSRkcFDHkWt0hc8WManeWz4V784UnzQgF+EQ7eJSfbIk4wOXpW3IZbLXBpYzqa8wqe5wqe5PdUxdJtVlc3sl3avH4/F4akUmVPOY1ISD6uOgb0x9VB8L1THW/XgucplOGW3ioF7beXnql/kwWo/cPRHqleUX6Itsz/M5yDU46KM2RZSlDbkGS+hXK5fqKnINDqorCRnmOwpyDQZREwf93aoMUKOdIlqJXIRLxS2K+MFBnbbSGM6EizAVLSkCu/aegvnVrsuLaDcH/ZCBfmO+N9QgbzioB7lQ76y6lyPFBtOH6Wdfe39j1RIKhcJMTMQVTMVoQGHsV8TngAqO6o6xGZjCOUxh+E8vMBIQccH0WXE5puJS2cK/ggmcRHVEQIrZ2F4onJ908UF6fUFAxNe4AgGFtxgXZqE6oK2tMBsTMRTbC4Evew53xz/pU2m5dRIR42mlci2qAzANN1bqJUjDlvgCBPZUKpCi4WZUB5hGK8o4XmyOLYC9jKmVkQ+j9WYwzECXajF4nqh7MydLa52WkZf6oK3BM5NqhIc6cFJGRwKDZzOjiRs8JyqDg+6wK2LywXOiMphjg+dEZeRCnXFp8JyojGzPwGIOesjyqXjX2a8bnbxNmCw1m3/TWBLxMReq7XF7SVyGIQ+lFeZTHJP6Xi0GzxzUXTPYzsvBZWgSnJDhCl5GGV5GGV5GGV5GGV6GbRmYiAhTuF8HeVpzGcF0ipcBXkbwzzKoaEl8gzZDYEesjP1psSbxDVpMqr13dawMg7ktkt6kjWAiBlAlMIEmTMTLpDdb0xDxAqeLq1A1HDjWuzCgcBFT8SigYnC6ZLwfIgpmKl+VCI/H4/F4POg/+AkvmK5Txi5m7wAAAABJRU5ErkJggg==" />
   <displayIcon>false</displayIcon>
   <displayIconFunction>return false;</displayIconFunction>
   <displayFunction />
@@ -20,5 +20,17 @@
   <order>0</order>
   <packageId>bb2cc56b-8ccb-4f2e-bdf8-c019af951209</packageId>
   <packageName>Intent.Eventing.Contracts</packageName>
-  <properties />
+  <properties>
+    <property id="0749547c-4cf6-461d-9b4a-8f91472f0c95">
+      <name>Providers</name>
+      <type>string</type>
+      <controlType>multi-select</controlType>
+      <optionsSource>lookup-element</optionsSource>
+      <placeholder>(default)</placeholder>
+      <lookupTypes>
+        <type>8ac110ee-9223-48b5-a808-8f8c360fab11</type>
+      </lookupTypes>
+      <isRequiredFunction>return lookupTypesOf("Message Bus Provider").length &gt; 2;</isRequiredFunction>
+    </property>
+  </properties>
 </stereotypeDefinition>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1f97a642-fdf6-4d2d-9f49-097611d39a60" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>MessageBusRegistrationExtension</name>
+  <display>MessageBusRegistrationExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>a586f55c-9eca-44ef-8409-e110d1644c0b</parentFolderId>
+  <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
+  <packageName>Intent.Eventing.Kafka</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

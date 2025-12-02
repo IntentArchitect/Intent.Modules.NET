@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="48880079-8788-4c53-b7f3-0cbc7c4c8a88" type="Message Bus Provider" typeId="8ac110ee-9223-48b5-a808-8f8c360fab11">
+  <name>Azure Event Grid</name>
+  <display>Azure Event Grid</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>94e5d74c-2f56-42d6-beaa-db1f68c21930</parentFolderId>
+  <packageId>484120b4-6231-4c94-aa60-61efe5c783a7</packageId>
+  <packageName>Intent.Eventing.AzureEventGrid</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="bf50a93c-cf7d-414d-9d30-34f31bb696ad" name="Message Bus Provider Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.Eventing.Contracts</definitionPackageName>
+      <definitionPackageId>bb2cc56b-8ccb-4f2e-bdf8-c019af951209</definitionPackageId>
+      <properties>
+        <property name="a38f5695-bdaa-4d43-8b22-5e7031615128" display="Applicable Stereotypes" value="[&quot;dca28d4b-c277-4fb3-afe0-17f35ea8b59b&quot;]" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements />
+</class>

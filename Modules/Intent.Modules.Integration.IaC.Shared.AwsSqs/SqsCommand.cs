@@ -29,9 +29,9 @@ internal record SqsCommand : SqsItemBase
     private static string GetQueueName(IntegrationCommandModel command)
     {
         // Check if AWS SQS stereotype is applied
-        if (command.HasAwsSqs())
+        if (command.HasAWSSQS())
         {
-            var stereotypeName = command.GetAwsSqs().QueueName();
+            var stereotypeName = command.GetAWSSQS().QueueName();
             // Only use stereotype value if it's not empty
             if (!string.IsNullOrWhiteSpace(stereotypeName))
             {
@@ -50,9 +50,9 @@ internal record SqsCommand : SqsItemBase
     {
         const string prefix = "AwsSqs:";
         
-        if (command.HasAwsSqs())
+        if (command.HasAWSSQS())
         {
-            var name = command.GetAwsSqs().QueueName();
+            var name = command.GetAWSSQS().QueueName();
             // Only use stereotype value if it's not empty
             if (!string.IsNullOrWhiteSpace(name))
             {

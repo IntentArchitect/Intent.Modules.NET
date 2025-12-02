@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c6185bdb-d69b-4db6-af0f-ef2fe07a783c" type="Message Bus Provider" typeId="8ac110ee-9223-48b5-a808-8f8c360fab11">
+  <name>MassTransit</name>
+  <display>MassTransit</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>98d1b07e-cf62-47be-8c63-407a0d988e94</parentFolderId>
+  <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+  <packageName>Intent.Eventing.MassTransit</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="bf50a93c-cf7d-414d-9d30-34f31bb696ad" name="Message Bus Provider Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.Eventing.Contracts</definitionPackageName>
+      <definitionPackageId>bb2cc56b-8ccb-4f2e-bdf8-c019af951209</definitionPackageId>
+      <properties>
+        <property name="a38f5695-bdaa-4d43-8b22-5e7031615128" display="Applicable Stereotypes" value="[&quot;fc095295-eb25-470a-9ee5-19129919db2b&quot;]" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements />
+</class>

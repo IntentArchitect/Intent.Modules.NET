@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d15ac1cc-6b63-47b1-aa37-a3daba9e4aa1" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>MessageBusRegistrationExtension</name>
+  <display>MessageBusRegistrationExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>e5842805-0812-4f7f-a653-c7e9b35d8da1</parentFolderId>
+  <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
+  <packageName>Intent.Eventing.Solace</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

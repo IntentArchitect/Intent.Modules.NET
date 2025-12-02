@@ -103,10 +103,11 @@
   <decorators></decorators>
   <factoryExtensions>
     <factoryExtension id="Intent.Eventing.Solace.BaseMessageExtension" externalReference="449f375f-c5af-45f1-b62d-2aadb792cf23" />
+    <factoryExtension id="Intent.Eventing.Solace.MessageBusRegistrationExtension" externalReference="d15ac1cc-6b63-47b1-aa37-a3daba9e4aa1" />
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.Common" version="3.8.0" />
+    <dependency id="Intent.Common" version="3.9.0" />
     <dependency id="Intent.Common.CSharp" version="3.8.3" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Common.UnitOfWork" version="1.0.0" />
@@ -114,7 +115,7 @@
     <dependency id="Intent.Modelers.Domain" version="3.9.0" />
     <dependency id="Intent.Modelers.Eventing" version="6.0.3" />
     <dependency id="Intent.Modelers.Services" version="4.0.7" />
-    <dependency id="Intent.Modelers.Services.EventInteractions" version="1.2.0" />
+    <dependency id="Intent.Modelers.Services.EventInteractions" version="2.0.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.9.10" />
   </dependencies>
   <files>

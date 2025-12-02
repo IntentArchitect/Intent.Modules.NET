@@ -6,8 +6,6 @@ internal static class Constants
 {
     public static readonly string[] BrokerStereotypeIds = 
     [
-        MessageModelStereotypeExtensions.Publishing.DefinitionId,
-        FolderModelStereotypeExtensions.SolaceFolderSettings.DefinitionId,
-        EventingPackageModelStereotypeExtensions.SolacePackageSettings.DefinitionId
+        MessageModelStereotypeExtensions.Publishing.DefinitionId
     ];
 }

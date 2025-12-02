@@ -13,6 +13,7 @@ using Intent.Modules.Integration.IaC.Shared;
 using Intent.Modules.Integration.IaC.Shared.AzureServiceBus;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using Intent.Modules.AzureFunctions.AzureServiceBus.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.FilePerModel", Version = "1.0")]
@@ -40,7 +41,28 @@ namespace Intent.Modules.AzureFunctions.AzureServiceBus.Templates.AzureFunctionC
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<IntegrationEventHandlerModel> GetModels(IApplication application)
         {
-            return _metadataManager.Services(application).GetIntegrationEventHandlerModels();
+            var allHandlers = _metadataManager.Services(application).GetIntegrationEventHandlerModels();
+            // Filter handlers that have at least one Integration Event subscription applicable to this message broker
+            var handlersWithEventSubscriptions = allHandlers
+                .Where(handler => handler.IntegrationEventSubscriptions()
+                    .Select(subscription => subscription.TypeReference.Element.AsMessageModel())
+                    .FilterMessagesForThisMessageBroker(application, Constants.BrokerStereotypeIds)
+                    .Any())
+                .ToList();
+
+            // Filter handlers that have at least one Integration Command subscription applicable to this message broker
+            var handlersWithCommandSubscriptions = allHandlers
+                .Where(handler => handler.IntegrationCommandSubscriptions()
+                    .Select(subscription => subscription.TypeReference.Element.AsIntegrationCommandModel())
+                    .FilterMessagesForThisMessageBroker(application, Constants.BrokerStereotypeIds)
+                    .Any())
+                .ToList();
+
+            // Combine and return distinct handlers
+            return handlersWithEventSubscriptions
+                .Concat(handlersWithCommandSubscriptions)
+                .Distinct()
+                .ToList();
         }
     }
 }

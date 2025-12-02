@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="bf50a93c-cf7d-414d-9d30-34f31bb696ad" version="3.1.0">
+  <name>Message Bus Provider Settings</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="8ac110ee-9223-48b5-a808-8f8c360fab11">Message Bus Provider</type>
+  </targetTypes>
+  <targetReferenceTypes />
+  <applyMode>always</applyMode>
+  <icon type="FontAwesome" source="cogs" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return false;</displayIconFunction>
+  <displayFunction />
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>false</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>0f5eb30d-4307-4abd-83ca-79fd3cc89668</parentFolderId>
+  <order>0</order>
+  <packageId>bb2cc56b-8ccb-4f2e-bdf8-c019af951209</packageId>
+  <packageName>Intent.Eventing.Contracts</packageName>
+  <properties>
+    <property id="a38f5695-bdaa-4d43-8b22-5e7031615128">
+      <name>Applicable Stereotypes</name>
+      <type>string</type>
+      <controlType>multi-select</controlType>
+      <optionsSource>lookup-stereotype</optionsSource>
+    </property>
+  </properties>
+</stereotypeDefinition>

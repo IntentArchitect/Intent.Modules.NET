@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Dapr.AspNetCore.Pubsub</id>
-  <version>3.0.10-pre.0</version>
+  <version>3.1.0-pre.0</version>
   <supportedClientVersions>[4.5.15-a,5.0.0)</supportedClientVersions>
   <summary>Generates event handlers utilizing MediatR and provides a lightweight unit-of-work based abstraction for publishing events for Dapr's "publish and subscribe" building block.</summary>
   <description>Generates event handlers utilizing MediatR and provides a lightweight unit-of-work based abstraction for publishing events for Dapr's "publish and subscribe" building block.</description>
@@ -46,6 +46,7 @@
   <decorators></decorators>
   <factoryExtensions>
     <factoryExtension id="Intent.Dapr.AspNetCore.Pubsub.DaprEventingFactoryExtension" externalReference="b27245c4-1e73-423c-bca5-5897e32ae959" />
+    <factoryExtension id="Intent.Dapr.AspNetCore.Pubsub.MessageBusRegistrationExtension" externalReference="30d75da2-3762-4084-8240-ffd2a34a7636" />
   </factoryExtensions>
   <interoperability>
     <detect id="Intent.Application.MediatR.CRUD">
@@ -87,7 +88,7 @@
   </files>
   <moduleSettingsExtensions />
   <metadata>
-    <install target="Eventing" src="Intent.Metadata/Module Builder/Intent.Dapr.AspNetCore.Pubsub/Intent.Dapr.AspNetCore.Pubsub.pkg.config" externalReference="ed7d7f87-babb-4f57-83bf-d35b9f826bf6" />
+    <install target="Services" src="Intent.Metadata/Module Builder/Intent.Dapr.AspNetCore.Pubsub/Intent.Dapr.AspNetCore.Pubsub.pkg.config" externalReference="ed7d7f87-babb-4f57-83bf-d35b9f826bf6" />
   </metadata>
   <migrations>
     <migration version="3.0.0-pre.1" />

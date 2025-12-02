@@ -6,9 +6,11 @@ using Intent.Metadata.Models;
 using Intent.Modelers.Eventing.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.EventInteractions;
+using Intent.Modules.AzureFunctions.AzureEventGrid.Templates;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
 using Intent.Modules.Eventing.AzureEventGrid.Templates;
+using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.Modules.Integration.IaC.Shared;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -39,7 +41,28 @@ namespace Intent.Modules.AzureFunctions.AzureEventGrid.Templates.AzureFunctionCo
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<IntegrationEventHandlerModel> GetModels(IApplication application)
         {
-            return _metadataManager.Services(application).GetIntegrationEventHandlerModels();
+            var allHandlers = _metadataManager.Services(application).GetIntegrationEventHandlerModels();
+            // Filter handlers that have at least one Integration Event subscription applicable to this message broker
+            var handlersWithEventSubscriptions = allHandlers
+                .Where(handler => handler.IntegrationEventSubscriptions()
+                    .Select(subscription => subscription.TypeReference.Element.AsMessageModel())
+                    .FilterMessagesForThisMessageBroker(application, Constants.BrokerStereotypeIds)
+                    .Any())
+                .ToList();
+            
+            // Filter handlers that have at least one Integration Command subscription applicable to this message broker
+            var handlersWithCommandSubscriptions = allHandlers
+                .Where(handler => handler.IntegrationCommandSubscriptions()
+                    .Select(subscription => subscription.TypeReference.Element.AsIntegrationCommandModel())
+                    .FilterMessagesForThisMessageBroker(application, Constants.BrokerStereotypeIds)
+                    .Any())
+                .ToList();
+            
+            // Combine and return distinct handlers
+            return handlersWithEventSubscriptions
+                .Concat(handlersWithCommandSubscriptions)
+                .Distinct()
+                .ToList();
         }
     }
 }

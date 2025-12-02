@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="7b39ed57-dd46-4027-b851-7484ce851ce5" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
   <name>CompositeMessageBus</name>
-  <display>CompositeMessageBus: Single File</display>
+  <display>CompositeMessageBus: Custom</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
   <typeReference id="fd3fdf8e-0ec6-44aa-8767-d0cd6f8e0781">
-    <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>
+    <typeId>d2931361-7cf0-4c79-9847-621c60886ef9</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>

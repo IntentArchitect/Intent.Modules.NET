@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="35cf2945-a4bd-4a0d-a5ef-0c45cc1efe08" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>MessageBusRegistrationExtension</name>
+  <display>MessageBusRegistrationExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>259088af-8612-4dd5-9bd7-b673553c3a6c</parentFolderId>
+  <packageId>259088af-8612-4dd5-9bd7-b673553c3a6c</packageId>
+  <packageName>Intent.Aws.Sqs</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

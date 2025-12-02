@@ -2,7 +2,7 @@
 <package>
   <id>Intent.Eventing.AzureQueueStorage</id>
   <version>1.0.0-beta.5</version>
-  <supportedClientVersions>[4.4.0-a,5.0.0)</supportedClientVersions>
+  <supportedClientVersions>[4.5.18-a,5.0.0)</supportedClientVersions>
   <summary>Provides patterns for using Azure Queue Storage, which can be modeled in Intent Architect's designers.</summary>
   <description>Provides patterns for using Azure Queue Storage, which can be modeled in Intent Architect's designers.</description>
   <authors>Intent Architect</authors>
@@ -90,7 +90,9 @@
     </template>
   </templates>
   <decorators></decorators>
-  <factoryExtensions />
+  <factoryExtensions>
+    <factoryExtension id="Intent.Eventing.AzureQueueStorage.MessageBusRegistrationExtension" externalReference="9d5f9a1a-45c0-47e8-99aa-8c1a9a62bcb2" />
+  </factoryExtensions>
   <moduleSettings>
     <group id="e71edb78-27b4-4326-9def-796a18064e8b" title="Azure Queue Storage Settings" type="application-settings" externalReference="e71edb78-27b4-4326-9def-796a18064e8b">
       <settings>
@@ -113,7 +115,7 @@
     </detect>
   </interoperability>
   <dependencies>
-    <dependency id="Intent.Common" version="3.8.0" />
+    <dependency id="Intent.Common" version="3.9.0" />
     <dependency id="Intent.Common.CSharp" version="3.8.0" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Common.UnitOfWork" version="1.0.2" />

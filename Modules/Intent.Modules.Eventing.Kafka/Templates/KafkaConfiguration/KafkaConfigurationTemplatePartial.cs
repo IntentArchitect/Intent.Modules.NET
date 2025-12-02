@@ -16,9 +16,9 @@ using Intent.Modules.Constants;
 using Intent.Modules.Eventing.Contracts.Settings;
 using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage;
+using Intent.Modules.Eventing.Kafka.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using Intent.Modules.Eventing.Kafka.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -113,7 +113,7 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaConfiguration
                                 block.AddStatement("return new CachedSchemaRegistryClient(schemaRegistryConfig);", s => s.SeparatedFromPrevious());
                             });
                         });
-                        
+
                         if (requiresCompositeMessageBus)
                         {
                             method.AddStatement($"services.AddScoped<{this.GetKafkaMessageBusName()}>();");
@@ -121,7 +121,7 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaConfiguration
                         else
                         {
                             var busInterface = this.GetBusInterfaceName();
-                            
+
                             method.AddStatement($"services.AddScoped<{this.GetKafkaMessageBusName()}>();");
                             method.AddStatement($"services.AddScoped<{busInterface}>(provider => provider.GetRequiredService<{this.GetKafkaMessageBusName()}>());");
                         }
@@ -139,7 +139,7 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaConfiguration
                         {
                             method.AddStatement($"services.AddSingleton(serviceProvider => {GetProducerFactoryStatement(message)});");
                         }
-                        
+
                         if (requiresCompositeMessageBus && _publishedMessageModels.Value.Any())
                         {
                             method.AddStatement("");
@@ -149,7 +149,7 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaConfiguration
                                 method.AddStatement($"registry.Register<{this.GetIntegrationEventMessageName(message)}, {this.GetKafkaMessageBusName()}>();");
                             }
                         }
-                        
+
                         method.AddReturn("services");
                     });
 

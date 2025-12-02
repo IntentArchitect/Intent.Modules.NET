@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8070fbd6-fc5e-444d-b0c8-fa47b4e87326" type="Message Bus Provider" typeId="8ac110ee-9223-48b5-a808-8f8c360fab11">
+  <name>Solace</name>
+  <display>Solace</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>aa98f6fb-f93b-4954-8c2d-a463cc72ec0a</parentFolderId>
+  <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
+  <packageName>Intent.Eventing.Solace</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="bf50a93c-cf7d-414d-9d30-34f31bb696ad" name="Message Bus Provider Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.Eventing.Contracts</definitionPackageName>
+      <definitionPackageId>bb2cc56b-8ccb-4f2e-bdf8-c019af951209</definitionPackageId>
+      <properties>
+        <property name="a38f5695-bdaa-4d43-8b22-5e7031615128" display="Applicable Stereotypes" value="[&quot;56e898f3-74db-486d-86f9-3e885e7509e6&quot;]" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements />
+</class>

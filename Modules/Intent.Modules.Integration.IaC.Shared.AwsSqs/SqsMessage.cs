@@ -29,9 +29,9 @@ internal record SqsMessage : SqsItemBase
     private static string GetQueueName(MessageModel message)
     {
         // Check if AWS SQS stereotype is applied
-        if (message.HasAwsSqs())
+        if (message.HasAWSSQS())
         {
-            var stereotypeName = message.GetAwsSqs().QueueName();
+            var stereotypeName = message.GetAWSSQS().QueueName();
             // Only use stereotype value if it's not empty
             if (!string.IsNullOrWhiteSpace(stereotypeName))
             {
@@ -50,9 +50,9 @@ internal record SqsMessage : SqsItemBase
     {
         const string prefix = "AwsSqs:";
         
-        if (message.HasAwsSqs())
+        if (message.HasAWSSQS())
         {
-            var name = message.GetAwsSqs().QueueName();
+            var name = message.GetAWSSQS().QueueName();
             // Only use stereotype value if it's not empty
             if (!string.IsNullOrWhiteSpace(name))
             {

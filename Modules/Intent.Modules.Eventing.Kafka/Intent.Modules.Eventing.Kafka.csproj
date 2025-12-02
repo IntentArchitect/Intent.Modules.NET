@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common" Version="3.8.0" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.9.0" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.9.0" />
     <PackageReference Include="Intent.Modules.Eventing.Contracts" Version="6.1.0-pre.0" />
     <PackageReference Include="Intent.Modules.Modelers.Eventing" Version="6.0.3" />

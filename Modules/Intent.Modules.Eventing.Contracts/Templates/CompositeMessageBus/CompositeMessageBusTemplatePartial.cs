@@ -123,11 +123,6 @@ namespace Intent.Modules.Eventing.Contracts.Templates.CompositeMessageBus
                 });
         }
 
-        public override bool CanRunTemplate()
-        {
-            return this.RequiresCompositeMessageBus();
-        }
-
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }
 

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="81134eff-48f4-44b0-9fb7-80d4646a433b" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>MessageBusRegistrationExtension</name>
+  <display>MessageBusRegistrationExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>484120b4-6231-4c94-aa60-61efe5c783a7</parentFolderId>
+  <packageId>484120b4-6231-4c94-aa60-61efe5c783a7</packageId>
+  <packageName>Intent.Eventing.AzureEventGrid</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

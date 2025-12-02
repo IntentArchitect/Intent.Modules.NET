@@ -14,6 +14,7 @@ using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
+using Intent.Modules.Eventing.AzureServiceBus.Templates;
 using Intent.Modules.Eventing.Contracts.Settings;
 using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.Modules.Integration.IaC.Shared;
@@ -21,7 +22,6 @@ using Intent.Modules.Integration.IaC.Shared.AzureServiceBus;
 using Intent.Modules.Modelers.Eventing;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using Intent.Modules.Eventing.AzureServiceBus.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -80,7 +80,7 @@ public partial class AzureServiceBusConfigurationTemplate : CSharpTemplateBase<o
                     var publishers = IntegrationManager.Instance.GetAggregatedPublishedAzureServiceBusItems(ExecutionContext.GetApplicationConfig().Id)
                         .FilterMessagesForThisMessageBroker(this, Constants.BrokerStereotypeIds)
                         .ToList();
-                    
+
                     if (publishers.Count != 0)
                     {
                         method.AddInvocationStatement($"services.Configure<{this.GetAzureServiceBusPublisherOptionsName()}>", inv => inv
@@ -97,7 +97,7 @@ public partial class AzureServiceBusConfigurationTemplate : CSharpTemplateBase<o
                     var subscribers = IntegrationManager.Instance.GetAggregatedSubscribedAzureServiceBusItems(ExecutionContext.GetApplicationConfig().Id)
                         .FilterMessagesForThisMessageBroker(this, Constants.BrokerStereotypeIds)
                         .ToList();
-                    
+
                     if (subscribers.Count != 0)
                     {
                         method.AddInvocationStatement($"services.Configure<{this.GetAzureServiceBusSubscriptionOptionsName()}>", inv => inv

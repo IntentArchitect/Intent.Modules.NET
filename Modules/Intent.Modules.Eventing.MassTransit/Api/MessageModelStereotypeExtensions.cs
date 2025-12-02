@@ -13,29 +13,6 @@ namespace Intent.Eventing.MassTransit.Api
 {
     public static class MessageModelStereotypeExtensions
     {
-        public static MassTransitMessageSettings GetMassTransitMessageSettings(this MessageModel model)
-        {
-            var stereotype = model.GetStereotype(MassTransitMessageSettings.DefinitionId);
-            return stereotype != null ? new MassTransitMessageSettings(stereotype) : null;
-        }
-
-
-        public static bool HasMassTransitMessageSettings(this MessageModel model)
-        {
-            return model.HasStereotype(MassTransitMessageSettings.DefinitionId);
-        }
-
-        public static bool TryGetMassTransitMessageSettings(this MessageModel model, out MassTransitMessageSettings stereotype)
-        {
-            if (!HasMassTransitMessageSettings(model))
-            {
-                stereotype = null;
-                return false;
-            }
-
-            stereotype = new MassTransitMessageSettings(model.GetStereotype(MassTransitMessageSettings.DefinitionId));
-            return true;
-        }
         public static MessageTopologySettings GetMessageTopologySettings(this MessageModel model)
         {
             var stereotype = model.GetStereotype(MessageTopologySettings.DefinitionId);
@@ -58,20 +35,6 @@ namespace Intent.Eventing.MassTransit.Api
 
             stereotype = new MessageTopologySettings(model.GetStereotype(MessageTopologySettings.DefinitionId));
             return true;
-        }
-
-        public class MassTransitMessageSettings
-        {
-            private IStereotype _stereotype;
-            public const string DefinitionId = "fbe53252-9913-453c-b734-73b4e2dfdb46";
-
-            public MassTransitMessageSettings(IStereotype stereotype)
-            {
-                _stereotype = stereotype;
-            }
-
-            public string Name => _stereotype.Name;
-
         }
 
         public class MessageTopologySettings

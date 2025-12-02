@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings version="3.1.1">
+  <id>90f0d4bd-509e-4399-9a99-862ae2e72f10</id>
+  <name>Message Bus Providers</name>
+  <designerReferences />
+  <packageSettings />
+  <packageExtensions>
+    <packageExtension type="Intent Module" typeId="d2e543c7-174a-45b4-aebe-a13f9ee90214">
+      <requiredPackages />
+      <contextMenuOptions>
+        <createElement type="element">
+          <text>New Message Bus Provider</text>
+          <icon type="FontAwesome" source="fa-bus" />
+          <specializationType>Message Bus Provider</specializationType>
+          <specializationTypeId>8ac110ee-9223-48b5-a808-8f8c360fab11</specializationTypeId>
+          <defaultName>NewMessageBusProvider</defaultName>
+          <allowMultiple>true</allowMultiple>
+        </createElement>
+      </contextMenuOptions>
+      <creationOptions>
+        <option type="element">
+          <text>New Message Bus Provider</text>
+          <icon type="FontAwesome" source="fa-bus" />
+          <specializationType>Message Bus Provider</specializationType>
+          <specializationTypeId>8ac110ee-9223-48b5-a808-8f8c360fab11</specializationTypeId>
+          <defaultName>NewMessageBusProvider</defaultName>
+          <allowMultiple>true</allowMultiple>
+        </option>
+      </creationOptions>
+      <scriptOptions />
+      <typeOrder>
+        <type type="Message Bus Provider" typeId="8ac110ee-9223-48b5-a808-8f8c360fab11" />
+      </typeOrder>
+    </packageExtension>
+  </packageExtensions>
+  <elementSettings>
+    <elementSetting type="Message Bus Provider" typeId="8ac110ee-9223-48b5-a808-8f8c360fab11">
+      <icon type="FontAwesome" source="fa-bus" />
+      <saveAsOwnFile>true</saveAsOwnFile>
+      <allowRename>true</allowRename>
+      <nameMustBeUnique>true</nameMustBeUnique>
+      <allowAbstract>false</allowAbstract>
+      <allowStatic>false</allowStatic>
+      <allowGenericTypes>false</allowGenericTypes>
+      <allowMapping>false</allowMapping>
+      <allowSorting>false</allowSorting>
+      <sortChildren p4:nil="true" xmlns:p4="http://www.w3.org/2001/XMLSchema-instance" />
+      <allowFindInView>false</allowFindInView>
+      <allowTypeReference>false</allowTypeReference>
+      <allowConvertToType p4:nil="true" xmlns:p4="http://www.w3.org/2001/XMLSchema-instance" />
+      <allowSetValue>false</allowSetValue>
+      <mappingSettings />
+    </elementSetting>
+  </elementSettings>
+  <elementExtensions>
+    <elementExtension type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+      <contextMenuOptions>
+        <createElement type="element">
+          <text>New Message Bus Provider</text>
+          <icon type="FontAwesome" source="fa-bus" />
+          <specializationType>Message Bus Provider</specializationType>
+          <specializationTypeId>8ac110ee-9223-48b5-a808-8f8c360fab11</specializationTypeId>
+          <defaultName>NewMessageBusProvider</defaultName>
+          <allowMultiple>true</allowMultiple>
+        </createElement>
+      </contextMenuOptions>
+      <typeOrder>
+        <type type="Message Bus Provider" typeId="8ac110ee-9223-48b5-a808-8f8c360fab11" />
+      </typeOrder>
+      <mappingSettings />
+    </elementExtension>
+  </elementExtensions>
+  <associationSettings />
+  <associationExtensions />
+  <mappingSettings />
+  <mappableElementPackages />
+  <mappableElementPackageExtensions />
+  <scripts />
+</settings>

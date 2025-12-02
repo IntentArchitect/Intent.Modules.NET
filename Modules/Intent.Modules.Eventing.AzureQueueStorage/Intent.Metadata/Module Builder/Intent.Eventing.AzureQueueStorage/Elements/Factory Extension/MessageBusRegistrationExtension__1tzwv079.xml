@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9d5f9a1a-45c0-47e8-99aa-8c1a9a62bcb2" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>MessageBusRegistrationExtension</name>
+  <display>MessageBusRegistrationExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>f924ae65-9274-415c-a1c4-9682f8b463d1</parentFolderId>
+  <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
+  <packageName>Intent.Eventing.AzureQueueStorage</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

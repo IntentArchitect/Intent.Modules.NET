@@ -2,7 +2,7 @@
 <package>
   <id>Intent.Eventing.Contracts</id>
   <version>6.1.0-pre.0</version>
-  <supportedClientVersions>[4.5.0-a, 5.0.0-a)</supportedClientVersions>
+  <supportedClientVersions>[4.5.18-a, 5.0.0-a)</supportedClientVersions>
   <summary>Provides an interface for the EventBus and Event Handlers as well as Eventing Messages.</summary>
   <description>Provides an interface for the EventBus and Event Handlers as well as Eventing Messages.</description>
   <authors>Intent Architect</authors>
@@ -120,17 +120,17 @@
     <factoryExtension id="Intent.Eventing.Contracts.ApplicationServiceInteractionInstaller" externalReference="5d6830aa-cfbb-4127-adfa-dccfb1207fe5" />
   </factoryExtensions>
   <moduleSettings>
-    <group id="38416eff-a5f1-4842-b77c-ab301d7d1d67" title="Eventing Settings" externalReference="38416eff-a5f1-4842-b77c-ab301d7d1d67">
+    <group id="38416eff-a5f1-4842-b77c-ab301d7d1d67" title="Eventing Settings" externalReference="38416eff-a5f1-4842-b77c-ab301d7d1d67" type="application-settings">
       <settings>
         <setting id="0420c177-417d-4073-bf26-250f1907a565" title="Use legacy interface name" type="switch">
           <hint>Use legacy `IEventBus` interface name instead of `IMessageBus`.</hint>
-          <defaultValue>true</defaultValue>
+          <defaultValue>false</defaultValue>
         </setting>
       </settings>
     </group>
   </moduleSettings>
   <dependencies>
-    <dependency id="Intent.Common" version="3.6.0" />
+    <dependency id="Intent.Common" version="3.9.0" />
     <dependency id="Intent.Common.CSharp" version="3.9.0" />
     <dependency id="Intent.Common.Types" version="4.1.0" />
     <dependency id="Intent.Modelers.Eventing" version="6.0.3" />
@@ -201,7 +201,11 @@
   </files>
   <moduleSettingsExtensions />
   <metadata>
-    <install target="Services" src="Intent.Metadata/Module Builder/Intent.Eventing.Contracts/Intent.Eventing.Contracts.pkg.config" externalReference="bb2cc56b-8ccb-4f2e-bdf8-c019af951209" />
-    <install target="Services" src="modelers/Services Settings.designer.settings" externalReference="930b477a-21cb-48e8-a645-0b7d9173b9b1" />
+    <install target="Services;Module Builder" src="Intent.Metadata/Module Builder/Intent.Eventing.Contracts/Intent.Eventing.Contracts.pkg.config" externalReference="bb2cc56b-8ccb-4f2e-bdf8-c019af951209" />
+    <install target="Services" src="modelers/Message Bus Services Settings.designer.settings" externalReference="930b477a-21cb-48e8-a645-0b7d9173b9b1" />
+    <install target="Module Builder" src="modelers/Message Bus Providers.designer.settings" externalReference="90f0d4bd-509e-4399-9a99-862ae2e72f10" />
   </metadata>
+  <migrations>
+    <migration version="6.1.0-pre.0" />
+  </migrations>
 </package>

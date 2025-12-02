@@ -2,7 +2,7 @@
 <package>
   <id>Intent.Eventing.Kafka</id>
   <version>1.0.0-beta.35</version>
-  <supportedClientVersions>[4.4.0-a, 5.0.0)</supportedClientVersions>
+  <supportedClientVersions>[4.5.18-a, 5.0.0)</supportedClientVersions>
   <summary>Provides patterns for using Apache Kafka, a distributed event streaming platform, with events modeled in Intent Architect's designers.</summary>
   <description>Provides patterns for using Apache Kafka, a distributed event streaming platform, with events modeled in Intent Architect's designers.</description>
   <authors>Intent Architect</authors>
@@ -85,10 +85,12 @@
     </template>
   </templates>
   <decorators></decorators>
-  <factoryExtensions></factoryExtensions>
+  <factoryExtensions>
+    <factoryExtension id="Intent.Eventing.Kafka.MessageBusRegistrationExtension" externalReference="1f97a642-fdf6-4d2d-9f49-097611d39a60" />
+  </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.Common" version="3.8.0" />
+    <dependency id="Intent.Common" version="3.9.0" />
     <dependency id="Intent.Common.CSharp" version="3.8.0" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Common.UnitOfWork" version="1.0.0-pre.0" />
@@ -104,7 +106,7 @@
   </files>
   <moduleSettingsExtensions />
   <metadata>
-    <install target="Eventing;Services" src="Intent.Metadata/Module Builder/Intent.Eventing.Kafka/Intent.Eventing.Kafka.pkg.config" externalReference="a586f55c-9eca-44ef-8409-e110d1644c0b" />
+    <install target="Services" src="Intent.Metadata/Module Builder/Intent.Eventing.Kafka/Intent.Eventing.Kafka.pkg.config" externalReference="a586f55c-9eca-44ef-8409-e110d1644c0b" />
   </metadata>
   <migrations />
 </package>

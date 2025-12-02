@@ -2,7 +2,7 @@
 <package>
   <id>Intent.Aws.Sqs</id>
   <version>1.0.3-pre.0</version>
-  <supportedClientVersions>[4.5.15-a,5.0.0)</supportedClientVersions>
+  <supportedClientVersions>[4.5.18-a,5.0.0)</supportedClientVersions>
   <summary>Provides AWS SQS eventing infrastructure for publishing and consuming messages.</summary>
   <description>Core module for AWS SQS integration. Provides IEventBus implementation, message dispatcher, and configuration for SQS-based eventing patterns. Lambda function generation is handled by the companion Intent.AwsLambda.Sqs module.</description>
   <authors>Intent Architect</authors>
@@ -59,6 +59,7 @@
   </templates>
   <decorators></decorators>
   <factoryExtensions>
+    <factoryExtension id="Intent.Aws.Sqs.MessageBusRegistrationExtension" externalReference="35cf2945-a4bd-4a0d-a5ef-0c45cc1efe08" />
     <factoryExtension id="Intent.Aws.Sqs.MetadataLoaderExtension" externalReference="15b9270b-647d-433e-87ac-ec2ce833010b" />
   </factoryExtensions>
   <moduleSettings></moduleSettings>

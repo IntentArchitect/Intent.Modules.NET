@@ -73,6 +73,7 @@
     <factoryExtension id="Intent.Eventing.MassTransit.FinbuckleConfiguratorExtension" externalReference="869c1e00-4970-45e5-95c4-4641448ceeb1" />
     <factoryExtension id="Intent.Eventing.MassTransit.MessageBusInterfaceExtension" externalReference="b09da749-7a17-4930-96df-9f1b97a40383" />
     <factoryExtension id="Intent.Eventing.MassTransit.MessageBusInteropExtension" externalReference="ef3ae01c-196b-4529-95d2-cb9d5375b3e2" />
+    <factoryExtension id="Intent.Eventing.MassTransit.MessageBusRegistrationExtension" externalReference="7a75f2b5-c2d5-4d3c-93ff-67ab3c413b13" />
     <factoryExtension id="Intent.Eventing.MassTransit.TelemetryConfiguratorExtension" externalReference="75840da1-9946-4375-845b-78aad753a902" />
   </factoryExtensions>
   <moduleSettings>

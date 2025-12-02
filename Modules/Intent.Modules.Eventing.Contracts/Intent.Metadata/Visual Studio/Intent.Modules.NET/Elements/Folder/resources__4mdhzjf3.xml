@@ -9,7 +9,7 @@
   <stereotypes />
   <metadata />
   <childElements>
-    <childElement id="a7e3a818-3e1c-40ec-ad77-b06bc1ed553d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="9ae2f1a8-e321-4796-8efa-e3df4df21d62" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.Templates.DocumentationTemplate</name>
       <display>Intent.ModuleBuilder.Templates.DocumentationTemplate</display>
       <externalReference>Intent.ModuleBuilder</externalReference>

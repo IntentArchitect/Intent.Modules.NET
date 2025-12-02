@@ -9,7 +9,7 @@
   <stereotypes />
   <metadata />
   <childElements>
-    <childElement id="51b2c9ec-22cf-4d83-b949-dd3c46db7744" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="95d2b4de-c71f-4d83-9b3c-e569350d6943" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration</name>
       <display>Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
@@ -23,7 +23,7 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="3db7eaae-0609-43c8-bba3-8c929113ea05" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="5801c8eb-71db-4860-aeaa-5556bed6edb8" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.Templates.Migrations.OnUninstallMigration</name>
       <display>Intent.ModuleBuilder.Templates.Migrations.OnUninstallMigration</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
@@ -37,7 +37,7 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="241c9af9-6da2-4f49-8758-a682f84e2899" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="3c3a2557-d73d-48ff-8e79-fbff991ccdaa" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration</name>
       <display>Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration</display>
       <externalReference>Intent.ModuleBuilder</externalReference>

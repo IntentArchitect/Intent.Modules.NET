@@ -75,16 +75,10 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsConfiguration
 
                             method.AddStatement($"services.AddSingleton<{this.GetTypeName(SqsMessageDispatcherTemplate.TemplateId)}>();");
                             method.AddStatement($"services.AddSingleton<{this.GetTypeName(SqsMessageDispatcherInterfaceTemplate.TemplateId)}, {this.GetTypeName(SqsMessageDispatcherTemplate.TemplateId)}>(sp => sp.GetRequiredService<{this.GetTypeName(SqsMessageDispatcherTemplate.TemplateId)}>());");
-
-                            string[] brokerStereotypeIds = 
-                            [
-                                MessageModelStereotypeExtensions.AwsSqs.DefinitionId,
-                                FolderModelStereotypeExtensions.AwsSqsFolderSettings.DefinitionId,
-                                EventingPackageModelStereotypeExtensions.AwsSqsPackageSettings.DefinitionId
-                            ];
+                            
                             
                             var publishers = IntegrationManager.Instance.GetAggregatedPublishedSqsItems(ExecutionContext.GetApplicationConfig().Id)
-                                .FilterMessagesForThisMessageBroker(this, brokerStereotypeIds)
+                                .FilterMessagesForThisMessageBroker(this, Constants.BrokerStereotypeIds)
                                 .ToArray();
                             
                             if (publishers.Any())
@@ -103,7 +97,7 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsConfiguration
                             }
 
                             var subscriptions = IntegrationManager.Instance.GetAggregatedSqsSubscriptions(ExecutionContext.GetApplicationConfig().Id)
-                                .FilterMessagesForThisMessageBroker(this.ExecutionContext, brokerStereotypeIds, s => s.SubscriptionItem)
+                                .FilterMessagesForThisMessageBroker(this.ExecutionContext, Constants.BrokerStereotypeIds, s => s.SubscriptionItem)
                                 .ToArray();
                             
                             if (subscriptions.Length != 0)

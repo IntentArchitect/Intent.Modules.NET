@@ -149,7 +149,7 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="9ed6cc1e-67be-4d53-8c1c-98dfa9ab62bc" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="4e7f7316-70cc-45d8-b007-a32698b64453" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.Templates.Api.ApiTraitModel</name>
       <display>Intent.ModuleBuilder.Templates.Api.ApiTraitModel</display>
       <externalReference>Intent.ModuleBuilder</externalReference>

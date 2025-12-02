@@ -6,7 +6,5 @@ internal static class Constants
 {
     public static readonly string[] BrokerStereotypeIds = [
         MessageModelStereotypeExtensions.AzureServiceBus.DefinitionId,
-        EventingPackageModelStereotypeExtensions.AzureServiceBusPackageSettings.DefinitionId,
-        FolderModelStereotypeExtensions.AzureServiceBusFolderSettings.DefinitionId
     ];
 }
