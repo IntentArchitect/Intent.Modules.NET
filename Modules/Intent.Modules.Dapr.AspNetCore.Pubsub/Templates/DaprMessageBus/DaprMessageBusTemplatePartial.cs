@@ -105,6 +105,23 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.DaprMessageBus
                     })
                 );
         }
+        
+        public override void BeforeTemplateExecution()
+        {
+            if (this.RequiresCompositeMessageBus())
+            {
+                return;
+            }
+            
+            ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest
+                .ToRegister(ClassName)
+                .WithPerServiceCallLifeTime()
+                .ForInterface(this.GetBusInterfaceName())
+                .WithPriority(4)
+                .ForConcern("Infrastructure")
+                .HasDependency(this)
+                .HasDependency(ExecutionContext.FindTemplateInstance<ITemplate>(EventInterfaceTemplate.TemplateId)));
+        }
 
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }

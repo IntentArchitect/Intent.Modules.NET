@@ -64,13 +64,25 @@ namespace Intent.Modules.Eventing.Contracts.Templates.CompositeMessageBusConfigu
                     method.AddStatement($"services.AddScoped<{this.GetMessageBrokerResolverName()}>();", s => s.SeparatedFromPrevious());
                     method.AddStatement($"services.AddScoped<{this.GetBusInterfaceName()}, {this.GetCompositeMessageBusName()}>();");
 
-                    method.AddStatement("return services;", stmt => stmt.SeparatedFromPrevious());
+                    method.AddReturn("services", stmt => stmt.SeparatedFromPrevious());
                 }, 1);
         }
 
+        // To prevent potential stack overflow since multiple other Message Bus Configuration templates
+        // are querying the RequiresCompositeMessageBus() method which runs this template's CanRunTemplate() method
+        // which will be querying other Message Bus Configuration templates again and so it goes...
+        private bool _processingCanRunTemplate = false;
         public override bool CanRunTemplate()
         {
-            return RequiresCompositeMessageBus();
+            if (_processingCanRunTemplate)
+            {
+                return false;
+            }
+
+            _processingCanRunTemplate = true;
+            var result = RequiresCompositeMessageBus();
+            _processingCanRunTemplate = false;
+            return result;
         }
 
         public override void BeforeTemplateExecution()

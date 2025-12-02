@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="2c0b73e9-b37a-4f6a-b08e-69eda4e2fdcf" version="3.1.0">
+  <name>Message Bus</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="4d95d53a-8855-4f35-aa82-e312643f5c5f">Folder</type>
+    <type id="df96d537-7bb5-4c49-811f-973fa6e95beb">Eventing Package</type>
+  </targetTypes>
+  <targetReferenceTypes />
+  <applyMode>manually</applyMode>
+  <icon type="UrlImagePath" source="./img/icons/common/StereotypeDef_256x.png" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return false;</displayIconFunction>
+  <displayFunction />
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>0f5eb30d-4307-4abd-83ca-79fd3cc89668</parentFolderId>
+  <order>0</order>
+  <packageId>bb2cc56b-8ccb-4f2e-bdf8-c019af951209</packageId>
+  <packageName>Intent.Eventing.Contracts</packageName>
+  <properties />
+</stereotypeDefinition>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
@@ -81,8 +82,7 @@ public static class MessageBusExtensions
     /// </returns>
     public static bool RequiresCompositeMessageBus(this ISoftwareFactoryExecutionContext factoryExecutionContext)
     {
-        var compositeTemplate = factoryExecutionContext.FindTemplateInstance<ICSharpFileBuilderTemplate>(
-            TemplateDependency.OnTemplate(CompositeMessageBusConfigurationTemplate.TemplateId));
+        var compositeTemplate = factoryExecutionContext.FindTemplateInstance(TemplateDependency.OnTemplate(CompositeMessageBusConfigurationTemplate.TemplateId));
         return compositeTemplate?.CanRunTemplate() == true;
     }
 
@@ -199,6 +199,7 @@ public static class MessageBusExtensions
         string[] brokerStereotypeNameOrIds,
         Func<TMessage, TElementWithStereotype> selector)
         where TElementWithStereotype : IHasStereotypes
+        where TMessage : notnull
     {
         ArgumentNullException.ThrowIfNull(factoryExecutionContext);
         ArgumentNullException.ThrowIfNull(brokerStereotypeNameOrIds);
@@ -233,14 +234,42 @@ public static class MessageBusExtensions
         }
 
         var names = messagesNotSpecified
-            .Select(x => selector(x) is IHasName named ? named.Name : x.ToString())
+            .Select(x => selector(x) is IHasName name ? name.Name : x.ToString()!)
             .ToList();
 
-        var message =
-            $"The following message models must specify a message broker stereotype when multiple message bus implementations are present: {string.Join(", ", names)}";
+        // We don't have a hard constraint on the incoming element type so that we can
+        // cater for elements that are not IElement or IElementWrapper.
+        // If it doesn't fit that mold we have a fallback which is still friendly enough.
+        
+        var firstMessage = messagesNotSpecified.First();
+        var selectedNotSpecifiedElement = selector(firstMessage);
+        throw selectedNotSpecifiedElement switch
+        {
+            IElementWrapper wrapper => GetElementException(wrapper.InternalElement, names),
+            IElement el => GetElementException(el, names),
+            _ => GetFriendlyException(names)
+        };
 
-        Logging.Log.Failure(message);
-        throw new Exception(message);
+        static ElementException GetElementException(IElement firstElement, List<string> names)
+        {
+            var message = "The current message model must specify a message broker stereotype when multiple message bus implementations are present.";
+            
+            if (names.Count > 1)
+            {
+                message += $"{Environment.NewLine}Other models missing a message broker stereotype: {string.Join(", ", names)}";
+            }
+
+            return new ElementException(firstElement, message);
+        }
+        
+        static FriendlyException GetFriendlyException(List<string> names)
+        {
+            var message = $"""
+                           The current message model must specify a message broker stereotype when multiple message bus implementations are present.
+                           {Environment.NewLine}Other models missing a message broker stereotype: {string.Join(", ", names)}
+                           """;
+            return new FriendlyException(message);
+        }
     }
 
     // Until we have a better way to do this, we're hardcoding the message broker stereotypes we know about.
@@ -308,12 +337,17 @@ public static class MessageBusExtensions
         }
 
         // Check package level
-        if (element is not IElementWrapper wrapper)
+        if (element is IElementWrapper wrapper)
         {
-            return false;
+            var package = wrapper.InternalElement.Package;
+            return brokerStereotypeNameOrIds.Any(x => package.HasStereotype(x));
+        }
+        if (element is IElement el)
+        {
+            var package = el.Package;
+            return brokerStereotypeNameOrIds.Any(x => package.HasStereotype(x));
         }
         
-        var package = wrapper.InternalElement.Package;
-        return brokerStereotypeNameOrIds.Any(x => package.HasStereotype(x));
+        return false;
     }
 }
