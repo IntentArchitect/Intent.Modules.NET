@@ -150,7 +150,7 @@ namespace Intent.Modules.Eventing.MassTransit.Scheduling.FactoryExtensions
                             .AddParameter(TMessage, "message")
                             .AddParameter(compositeTemplate.UseType("System.DateTime"), "scheduled");
                         method.AddStatement("ValidateMessageType<TMessage>();");
-                        method.AddStatement("InnerDispatch<TMessage>(provider => provider.Publish(message, scheduled));");
+                        method.AddStatement("InnerDispatch<TMessage>(provider => provider.SchedulePublish(message, scheduled));");
                     });
                     
                     // Publish with TimeSpan delay
@@ -161,7 +161,7 @@ namespace Intent.Modules.Eventing.MassTransit.Scheduling.FactoryExtensions
                             .AddParameter(TMessage, "message")
                             .AddParameter(compositeTemplate.UseType("System.TimeSpan"), "delay");
                         method.AddStatement("ValidateMessageType<TMessage>();");
-                        method.AddStatement("InnerDispatch<TMessage>(provider => provider.Publish(message, delay));");
+                        method.AddStatement("InnerDispatch<TMessage>(provider => provider.SchedulePublish(message, delay));");
                     });
                 }, 4);
             }
