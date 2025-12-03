@@ -3,7 +3,7 @@ using CleanArchitecture.QueueStorage.Application.Common.Eventing;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Eventing.AzureQueueStorage.IntegrationEventHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Eventing.Contracts.IntegrationEventHandler", Version = "1.0")]
 
 namespace CleanArchitecture.QueueStorage.Application.IntegrationEvents.EventHandlers
 {

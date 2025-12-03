@@ -146,18 +146,18 @@
     </FileLog>
     <FileLog>
       <ProjectId>0f8b892b-138a-4d76-95ec-72bc60bc00d8</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.EventBusPublishBehaviour#845b2b1c-69ef-4392-81df-75dd165d9834</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupB.Application/Common/Behaviours/EventBusPublishBehaviour.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EventBusPublishBehaviour.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>0f8b892b-138a-4d76-95ec-72bc60bc00d8</ProjectId>
       <CorrelationId>Intent.Application.MediatR.Behaviours.LoggingBehaviour#70b4046f-bb1b-46d5-becd-1ceef7980b84</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupB.Application/Common/Behaviours/LoggingBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>LoggingBehaviour.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0f8b892b-138a-4d76-95ec-72bc60bc00d8</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.MessageBusPublishBehaviour#6b934d64-9d13-402d-8336-0a69441a64ad</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupB.Application/Common/Behaviours/MessageBusPublishBehaviour.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MessageBusPublishBehaviour.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -298,7 +298,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>2eec23bf-8d4b-4fe2-9613-9fe4a5495a51</ProjectId>
-      <CorrelationId>Intent.Eventing.AzureServiceBus.IntegrationEventHandler#1cc4f22b-ba48-4209-81bf-91d9ab28b443</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventHandler#1cc4f22b-ba48-4209-81bf-91d9ab28b443</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupB.Application/IntegrationEvents/EventHandlers/ClientCreatedEventHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ClientCreatedEventHandler.cs</ProjectRelativeFilePath>
@@ -306,7 +306,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>2eec23bf-8d4b-4fe2-9613-9fe4a5495a51</ProjectId>
-      <CorrelationId>Intent.Eventing.AzureServiceBus.IntegrationEventHandler#9464090b-c940-4761-a983-5bb36927ea33</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventHandler#9464090b-c940-4761-a983-5bb36927ea33</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupB.Application/IntegrationEvents/EventHandlers/PublishAndConsumeEventHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PublishAndConsumeEventHandler.cs</ProjectRelativeFilePath>
@@ -434,10 +434,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>6ff70b2e-0d14-415a-ae21-02de0988cc5f</ProjectId>
-      <CorrelationId>Intent.Eventing.AzureServiceBus.AzureServiceBusEventBus#05a0bfe9-febc-4c56-85f1-a67e9afbc355</CorrelationId>
+      <CorrelationId>Intent.Eventing.AzureServiceBus.AzureServiceBusMessageBus#43efd9e6-faa0-4277-8074-36a70d534819</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupB.Infrastructure/Eventing/AzureServiceBusEventBus.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AzureServiceBusEventBus.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupB.Infrastructure/Eventing/AzureServiceBusMessageBus.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AzureServiceBusMessageBus.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

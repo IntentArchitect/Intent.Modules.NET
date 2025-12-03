@@ -19,6 +19,17 @@ namespace TrainingModel.Tests.Application.Common.Eventing
             where TMessage : class;
         void Send<TMessage>(TMessage message, IDictionary<string, object> additionalData)
             where TMessage : class;
+        /// <summary>
+        /// Queues a point-to-point message for dispatch to a specific broker address.
+        /// </summary>
+        /// <typeparam name="TMessage">The concrete message type.</typeparam>
+        /// <param name="message">The message instance to send.</param>
+        /// <param name="address">The destination address understood by providers that support explicit addressing (MassTransit-specific concept).</param>
+        /// <remarks>
+        /// The message is buffered until <see cref="FlushAllAsync"/> is invoked. Providers that do not support explicit addressing may ignore this overload.
+        /// </remarks>
+        void Send<TMessage>(TMessage message, Uri address)
+            where TMessage : class;
         Task FlushAllAsync(CancellationToken cancellationToken = default);
     }
 }

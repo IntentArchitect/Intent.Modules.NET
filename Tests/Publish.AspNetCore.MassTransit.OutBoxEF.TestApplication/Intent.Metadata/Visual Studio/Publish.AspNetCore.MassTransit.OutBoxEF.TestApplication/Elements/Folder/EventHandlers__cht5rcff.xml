@@ -9,10 +9,10 @@
   <stereotypes />
   <metadata />
   <childElements>
-    <childElement id="49942241-4cea-42d7-80a0-5d36cbc92dfa" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Eventing.MassTransit.IntegrationEventHandler</name>
-      <display>Intent.Eventing.MassTransit.IntegrationEventHandler</display>
-      <externalReference>Intent.Eventing.MassTransit</externalReference>
+    <childElement id="51fa3bc7-b293-4e3b-8787-2b1fcaa7e653" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Contracts.IntegrationEventHandler</name>
+      <display>Intent.Eventing.Contracts.IntegrationEventHandler</display>
+      <externalReference>Intent.Eventing.Contracts</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>

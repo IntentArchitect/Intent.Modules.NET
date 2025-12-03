@@ -452,10 +452,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>1d945490-fd1f-43ef-a54e-a69010514f18</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.MassTransitEventBus#eb533e8a-1199-4045-8ab6-9a93264086fb</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.MassTransitMessageBus#c0f050c2-beb5-4e43-9682-2ce1a28d0577</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Standard.AspNetCore.ServiceCallHandlers.Infrastructure/Eventing/MassTransitEventBus.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MassTransitEventBus.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.ServiceCallHandlers.Infrastructure/Eventing/MassTransitMessageBus.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MassTransitMessageBus.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

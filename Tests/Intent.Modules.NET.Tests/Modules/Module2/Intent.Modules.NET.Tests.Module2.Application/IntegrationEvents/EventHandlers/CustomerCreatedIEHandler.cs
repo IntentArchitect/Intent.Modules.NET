@@ -5,7 +5,7 @@ using Intent.RoslynWeaver.Attributes;
 using Module1.Eventing.Messages;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Eventing.MassTransit.IntegrationEventHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Eventing.Contracts.IntegrationEventHandler", Version = "1.0")]
 
 namespace Intent.Modules.NET.Tests.Module2.Application.IntegrationEvents.EventHandlers
 {

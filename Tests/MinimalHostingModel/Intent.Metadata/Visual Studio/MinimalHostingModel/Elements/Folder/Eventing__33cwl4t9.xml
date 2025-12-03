@@ -101,22 +101,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="ad806edf-53f9-4d89-9297-5d2c68909e8f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Eventing.MassTransit.MassTransitEventBus</name>
-      <display>Intent.Eventing.MassTransit.MassTransitEventBus</display>
-      <externalReference>Intent.Eventing.MassTransit</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>de97fc2c-cddf-4284-b3b6-33e6fae0dca8</parentFolderId>
-      <packageId>7a254ecf-09b1-431f-83b1-ef39009b2028</packageId>
-      <packageName>MinimalHostingModel</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="cddf6499-bf77-4ca9-85b6-423f73de7a27" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Eventing.Contracts.CompositeMessageBus</name>
       <display>Intent.Eventing.Contracts.CompositeMessageBus</display>
@@ -149,6 +133,20 @@
       <name>Intent.Eventing.Contracts.MessageBrokerResolver</name>
       <display>Intent.Eventing.Contracts.MessageBrokerResolver</display>
       <externalReference>Intent.Eventing.Contracts</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>de97fc2c-cddf-4284-b3b6-33e6fae0dca8</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="a5873944-aeae-4423-9e71-c3b930d23a89" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.MassTransitMessageBus</name>
+      <display>Intent.Eventing.MassTransit.MassTransitMessageBus</display>
+      <externalReference>Intent.Eventing.MassTransit</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>

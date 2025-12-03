@@ -24,8 +24,8 @@ namespace MassTransitFinbuckle.Test.Infrastructure.Eventing
 
         public async Task Consume(ConsumeContext<TMessage> context)
         {
-            var eventBus = _serviceProvider.GetRequiredService<MassTransitEventBus>();
-            eventBus.ConsumeContext = context;
+            var messageBus = _serviceProvider.GetRequiredService<MassTransitMessageBus>();
+            messageBus.ConsumeContext = context;
             if (context.Message is not IMapperRequest mapperRequest)
             {
                 throw new Exception("Message type must inherit from IMapperRequest in order to proceed");

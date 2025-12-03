@@ -6,7 +6,7 @@ using AwsLambdaFunction.Sqs.GroupB.Eventing.Messages;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Aws.Sqs.IntegrationEventHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Eventing.Contracts.IntegrationEventHandler", Version = "1.0")]
 
 namespace AwsLambdaFunction.Sqs.GroupA.Application.IntegrationEvents.EventHandlers
 {

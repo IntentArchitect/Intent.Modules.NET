@@ -140,18 +140,18 @@
     </FileLog>
     <FileLog>
       <ProjectId>22630a39-614a-47c4-b35c-0dceeed040f9</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.EventBusPublishBehaviour#9a6c2350-a4ec-4533-8a0a-c0dbd31c7a32</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxEF.Application/Common/Behaviours/EventBusPublishBehaviour.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EventBusPublishBehaviour.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>22630a39-614a-47c4-b35c-0dceeed040f9</ProjectId>
       <CorrelationId>Intent.Application.MediatR.Behaviours.LoggingBehaviour#f70c73e0-9da9-485d-9171-8e1df91cddb9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxEF.Application/Common/Behaviours/LoggingBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>LoggingBehaviour.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>22630a39-614a-47c4-b35c-0dceeed040f9</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.MessageBusPublishBehaviour#071e3ac6-3698-4d28-afd9-d09b4112605d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxEF.Application/Common/Behaviours/MessageBusPublishBehaviour.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MessageBusPublishBehaviour.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -340,7 +340,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>f6b006bc-1b78-41c8-9d31-2004490c288c</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventHandler#20def6dd-5f6c-493c-a194-d50e78af6746</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventHandler#20def6dd-5f6c-493c-a194-d50e78af6746</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxEF.Application/IntegrationEvents/EventHandlers/OrderCreatedEventHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>OrderCreatedEventHandler.cs</ProjectRelativeFilePath>
@@ -348,7 +348,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>f6b006bc-1b78-41c8-9d31-2004490c288c</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventHandler#c69206bf-307c-42cd-bebe-168568365120</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventHandler#c69206bf-307c-42cd-bebe-168568365120</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxEF.Application/IntegrationEvents/EventHandlers/OrderDeletedEventHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>OrderDeletedEventHandler.cs</ProjectRelativeFilePath>
@@ -356,7 +356,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>f6b006bc-1b78-41c8-9d31-2004490c288c</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventHandler#07305294-6a30-4727-bec0-ed65d280ebc6</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventHandler#07305294-6a30-4727-bec0-ed65d280ebc6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxEF.Application/IntegrationEvents/EventHandlers/OrderUpdatedEventHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>OrderUpdatedEventHandler.cs</ProjectRelativeFilePath>
@@ -364,7 +364,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>f6b006bc-1b78-41c8-9d31-2004490c288c</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventHandler#c12a51e1-df0d-4d9a-98b9-fc31e9744a94</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventHandler#c12a51e1-df0d-4d9a-98b9-fc31e9744a94</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxEF.Application/IntegrationEvents/EventHandlers/UserCreatedEventHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UserCreatedEventHandler.cs</ProjectRelativeFilePath>
@@ -372,7 +372,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>f6b006bc-1b78-41c8-9d31-2004490c288c</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventHandler#03b7feb8-f7d3-4649-8baa-f6da05f75f06</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventHandler#03b7feb8-f7d3-4649-8baa-f6da05f75f06</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxEF.Application/IntegrationEvents/EventHandlers/UserDeletedEventHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UserDeletedEventHandler.cs</ProjectRelativeFilePath>
@@ -380,7 +380,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>f6b006bc-1b78-41c8-9d31-2004490c288c</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventHandler#fffc9854-a5c6-4ad5-bb31-ca88594890a1</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventHandler#fffc9854-a5c6-4ad5-bb31-ca88594890a1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxEF.Application/IntegrationEvents/EventHandlers/UserUpdatedEventHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UserUpdatedEventHandler.cs</ProjectRelativeFilePath>
@@ -572,10 +572,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>82a47d03-f7c8-40e8-a537-2689debb0aaa</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.MassTransitEventBus#8d6f2aa0-0f67-4493-8976-60c4bc47632c</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.MassTransitMessageBus#815040af-4b7a-4574-876a-9491cd4c78de</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxEF.Infrastructure/Eventing/MassTransitEventBus.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MassTransitEventBus.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxEF.Infrastructure/Eventing/MassTransitMessageBus.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MassTransitMessageBus.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

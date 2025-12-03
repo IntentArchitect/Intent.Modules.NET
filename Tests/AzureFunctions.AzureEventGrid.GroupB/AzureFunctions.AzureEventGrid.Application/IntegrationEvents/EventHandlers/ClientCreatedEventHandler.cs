@@ -7,7 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Logging;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Eventing.AzureEventGrid.IntegrationEventHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Eventing.Contracts.IntegrationEventHandler", Version = "1.0")]
 
 namespace AzureFunctions.AzureEventGrid.Application.IntegrationEvents.EventHandlers
 {

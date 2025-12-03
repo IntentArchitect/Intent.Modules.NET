@@ -21,16 +21,14 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="5965d295-9569-4b27-a569-1e74db892b64" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Eventing.AzureServiceBus.IntegrationEventHandler</name>
-      <display>Intent.Eventing.AzureServiceBus.IntegrationEventHandler</display>
-      <externalReference>Intent.Eventing.AzureServiceBus</externalReference>
+    <childElement id="734f0dcd-afb0-4e3f-9419-b0bbce308660" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Contracts.IntegrationEventHandler</name>
+      <display>Intent.Eventing.Contracts.IntegrationEventHandler</display>
+      <externalReference>Intent.Eventing.Contracts</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>2eec23bf-8d4b-4fe2-9613-9fe4a5495a51</parentFolderId>
-      <packageId>97f17e62-39f3-419e-945b-b095624c8c28</packageId>
-      <packageName>AspNetCore.AzureServiceBus.GroupB</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

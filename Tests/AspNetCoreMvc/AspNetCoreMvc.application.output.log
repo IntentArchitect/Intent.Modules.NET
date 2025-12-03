@@ -346,18 +346,18 @@
     </FileLog>
     <FileLog>
       <ProjectId>e9a8bd9f-af49-471c-a70c-250fc6731bfa</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.EventBusPublishBehaviour#943bec8b-7aa7-4658-a6ce-0b3ee7de30fe</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AspNetCoreMvc.Application/Common/Behaviours/EventBusPublishBehaviour.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EventBusPublishBehaviour.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>e9a8bd9f-af49-471c-a70c-250fc6731bfa</ProjectId>
       <CorrelationId>Intent.Application.MediatR.Behaviours.LoggingBehaviour#3d229dc6-3161-441a-b92f-9ec06c1bcbb6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCoreMvc.Application/Common/Behaviours/LoggingBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>LoggingBehaviour.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e9a8bd9f-af49-471c-a70c-250fc6731bfa</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.MessageBusPublishBehaviour#4b7df101-136b-4694-996f-e17494e9ecd9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCoreMvc.Application/Common/Behaviours/MessageBusPublishBehaviour.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MessageBusPublishBehaviour.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -706,10 +706,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>4b986a47-0137-4590-8c3a-c8113c492835</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.MassTransitEventBus#a217fa1c-892f-4a2e-96b7-dc017919c9b3</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.MassTransitMessageBus#65dcff8c-04ba-415a-902a-8a9ceb1b0861</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AspNetCoreMvc.Infrastructure/Eventing/MassTransitEventBus.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MassTransitEventBus.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>AspNetCoreMvc.Infrastructure/Eventing/MassTransitMessageBus.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MassTransitMessageBus.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

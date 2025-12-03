@@ -140,18 +140,18 @@
     </FileLog>
     <FileLog>
       <ProjectId>9726cfb4-c4d8-476a-ba8a-f8a4a47a2f00</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.EventBusPublishBehaviour#15bca651-a076-458d-82d9-cec5f72d25a2</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxMemory.Application/Common/Behaviours/EventBusPublishBehaviour.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EventBusPublishBehaviour.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>9726cfb4-c4d8-476a-ba8a-f8a4a47a2f00</ProjectId>
       <CorrelationId>Intent.Application.MediatR.Behaviours.LoggingBehaviour#f83a9516-1193-4954-9e17-b0b28ddd8eba</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxMemory.Application/Common/Behaviours/LoggingBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>LoggingBehaviour.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9726cfb4-c4d8-476a-ba8a-f8a4a47a2f00</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.MessageBusPublishBehaviour#1e4988c9-55d3-47e2-b897-6c6857281edb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxMemory.Application/Common/Behaviours/MessageBusPublishBehaviour.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MessageBusPublishBehaviour.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -396,7 +396,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>62e341a8-b3dc-43b8-945e-0b214f233dea</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventHandler#1444f4aa-02e0-4b6a-868f-7c901270c81f</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventHandler#1444f4aa-02e0-4b6a-868f-7c901270c81f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/EventHandlers/BasketCreatedEventHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>BasketCreatedEventHandler.cs</ProjectRelativeFilePath>
@@ -404,7 +404,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>62e341a8-b3dc-43b8-945e-0b214f233dea</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventHandler#6891ed77-d6ca-427a-aeb0-8846c6d431f0</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventHandler#6891ed77-d6ca-427a-aeb0-8846c6d431f0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/EventHandlers/BasketDeletedEventHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>BasketDeletedEventHandler.cs</ProjectRelativeFilePath>
@@ -412,7 +412,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>62e341a8-b3dc-43b8-945e-0b214f233dea</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventHandler#d7468a2a-f3c2-47e2-a2cd-ca799c4ae898</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventHandler#d7468a2a-f3c2-47e2-a2cd-ca799c4ae898</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/EventHandlers/BasketItemCreatedEventHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>BasketItemCreatedEventHandler.cs</ProjectRelativeFilePath>
@@ -420,7 +420,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>62e341a8-b3dc-43b8-945e-0b214f233dea</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventHandler#cf60f7dd-1d1c-4f3f-b8cd-c6175f12bdad</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventHandler#cf60f7dd-1d1c-4f3f-b8cd-c6175f12bdad</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/EventHandlers/BasketItemDeletedEventHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>BasketItemDeletedEventHandler.cs</ProjectRelativeFilePath>
@@ -428,7 +428,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>62e341a8-b3dc-43b8-945e-0b214f233dea</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventHandler#a1a7e0f9-5710-41b4-a782-7d822b2c8dec</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventHandler#a1a7e0f9-5710-41b4-a782-7d822b2c8dec</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/EventHandlers/BasketItemUpdatedEventHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>BasketItemUpdatedEventHandler.cs</ProjectRelativeFilePath>
@@ -436,7 +436,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>62e341a8-b3dc-43b8-945e-0b214f233dea</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventHandler#4e303d3c-4132-4e41-be57-5f05bb40cd8f</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventHandler#4e303d3c-4132-4e41-be57-5f05bb40cd8f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/EventHandlers/BasketUpdatedEventHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>BasketUpdatedEventHandler.cs</ProjectRelativeFilePath>
@@ -444,7 +444,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>62e341a8-b3dc-43b8-945e-0b214f233dea</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventHandler#40578201-1b91-4c82-901e-6b07fcf5d7d1</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventHandler#40578201-1b91-4c82-901e-6b07fcf5d7d1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/EventHandlers/DelayedNotificationEventHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DelayedNotificationEventHandler.cs</ProjectRelativeFilePath>
@@ -452,7 +452,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>62e341a8-b3dc-43b8-945e-0b214f233dea</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventHandler#c0831ddf-6e53-41e1-8c87-fa0fdcd73c0d</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventHandler#c0831ddf-6e53-41e1-8c87-fa0fdcd73c0d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/EventHandlers/RoleCreatedEventHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RoleCreatedEventHandler.cs</ProjectRelativeFilePath>
@@ -460,7 +460,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>62e341a8-b3dc-43b8-945e-0b214f233dea</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventHandler#00eb21f4-53d2-42ea-bcd5-72ee1c24df82</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventHandler#00eb21f4-53d2-42ea-bcd5-72ee1c24df82</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/EventHandlers/RoleDeletedEventHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RoleDeletedEventHandler.cs</ProjectRelativeFilePath>
@@ -468,7 +468,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>62e341a8-b3dc-43b8-945e-0b214f233dea</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventHandler#c4ffa920-3941-4c94-81c8-8b19467511e0</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventHandler#c4ffa920-3941-4c94-81c8-8b19467511e0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/EventHandlers/RoleUpdatedEventHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RoleUpdatedEventHandler.cs</ProjectRelativeFilePath>
@@ -628,10 +628,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>ac32b753-0ff9-4401-a5d5-699664061cde</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.MassTransitEventBus#78f68790-f8b8-4821-9eb1-68c4c96be19f</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.MassTransitMessageBus#4d1e220c-af44-4913-9c52-708c7fce3ec1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxMemory.Infrastructure/Eventing/MassTransitEventBus.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MassTransitEventBus.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxMemory.Infrastructure/Eventing/MassTransitMessageBus.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MassTransitMessageBus.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

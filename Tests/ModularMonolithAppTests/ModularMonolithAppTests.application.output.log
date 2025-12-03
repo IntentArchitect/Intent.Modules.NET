@@ -122,18 +122,18 @@
     </FileLog>
     <FileLog>
       <ProjectId>f257ea47-a3e4-408f-adb7-02e1f89370f7</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.EventBusPublishBehaviour#22e1acca-e566-466e-a3af-cf19bc3aeeed</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Intent.Modules.NET.Tests.Host/Common/Behaviours/EventBusPublishBehaviour.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EventBusPublishBehaviour.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>f257ea47-a3e4-408f-adb7-02e1f89370f7</ProjectId>
       <CorrelationId>Intent.Application.MediatR.Behaviours.LoggingBehaviour#dba1d494-80ec-4db3-b621-ce69abd93dd1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Intent.Modules.NET.Tests.Host/Common/Behaviours/LoggingBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>LoggingBehaviour.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f257ea47-a3e4-408f-adb7-02e1f89370f7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.MessageBusPublishBehaviour#4fc6037c-3168-406f-a23d-2ba9dcd63bbb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Intent.Modules.NET.Tests.Host/Common/Behaviours/MessageBusPublishBehaviour.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MessageBusPublishBehaviour.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -282,10 +282,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>f137e6b4-ed8e-4961-ad98-9af4977b4e69</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.MassTransitEventBus#659472e7-be17-44fb-9308-be77f5c9222b</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.MassTransitMessageBus#0c80031f-cef0-4d03-8f3a-93559d88caa2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Intent.Modules.NET.Tests.Infrastructure.Core/Eventing/MassTransitEventBus.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MassTransitEventBus.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Intent.Modules.NET.Tests.Infrastructure.Core/Eventing/MassTransitMessageBus.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MassTransitMessageBus.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

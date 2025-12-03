@@ -21,32 +21,6 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="5ac1af74-c2fc-43e0-82e4-03cc99758a58" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Aws.Sqs.SqsEventBus</name>
-      <display>Intent.Aws.Sqs.SqsEventBus</display>
-      <externalReference>Intent.Aws.Sqs</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>12ba3c32-f969-4865-b910-746f5324cdbe</parentFolderId>
-      <packageId>a56c5206-e08c-4777-9e62-abbaf860b673</packageId>
-      <packageName>AwsLambdaFunction.Sqs.GroupA</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
-          <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
-          <properties>
-            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
-            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="f9947cac-c927-4bd4-acb6-2f330d9c4f0a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Aws.Sqs.SqsMessageDispatcher</name>
       <display>Intent.Aws.Sqs.SqsMessageDispatcher</display>
@@ -131,6 +105,20 @@
       <name>Intent.Eventing.Contracts.MessageBrokerResolver</name>
       <display>Intent.Eventing.Contracts.MessageBrokerResolver</display>
       <externalReference>Intent.Eventing.Contracts</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>12ba3c32-f969-4865-b910-746f5324cdbe</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="9c45a801-6e14-43bd-a1d5-9363b7a817ba" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Aws.Sqs.SqsMessageBus</name>
+      <display>Intent.Aws.Sqs.SqsMessageBus</display>
+      <externalReference>Intent.Aws.Sqs</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>

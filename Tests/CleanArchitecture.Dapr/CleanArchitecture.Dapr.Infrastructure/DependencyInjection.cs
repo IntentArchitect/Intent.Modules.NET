@@ -33,6 +33,7 @@ namespace CleanArchitecture.Dapr.Infrastructure
             services.AddScoped<DaprStateStoreUnitOfWork>();
             services.AddScoped<IDaprStateStoreUnitOfWork>(provider => provider.GetRequiredService<DaprStateStoreUnitOfWork>());
             services.AddScoped<IDomainEventService, DomainEventService>();
+            services.AddScoped<IEventBus, DaprMessageBus>();
             services.AddScoped<IDaprStateStoreGenericRepository, DaprStateStoreGenericRepository>();
             services.AddHttpClients(configuration);
             return services;

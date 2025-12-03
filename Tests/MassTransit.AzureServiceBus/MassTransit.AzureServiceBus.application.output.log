@@ -172,18 +172,18 @@
     </FileLog>
     <FileLog>
       <ProjectId>f0626388-bb8e-45fe-b366-c9d474371d59</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.EventBusPublishBehaviour#4f86e19e-7db8-49ec-b6a8-1ea53d391b23</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/Common/Behaviours/EventBusPublishBehaviour.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EventBusPublishBehaviour.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>f0626388-bb8e-45fe-b366-c9d474371d59</ProjectId>
       <CorrelationId>Intent.Application.MediatR.Behaviours.LoggingBehaviour#68eae284-ba04-4d4d-9edf-127ddc1fd11e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/Common/Behaviours/LoggingBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>LoggingBehaviour.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f0626388-bb8e-45fe-b366-c9d474371d59</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.MessageBusPublishBehaviour#b51b2c4b-67a2-4cec-9e2d-ddec3326d3f7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/Common/Behaviours/MessageBusPublishBehaviour.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MessageBusPublishBehaviour.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -476,7 +476,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>326d6adf-1be5-4201-9b73-038be5d28f47</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventHandler#aa975e05-5a14-4b44-b2c5-198e92fdb653</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventHandler#aa975e05-5a14-4b44-b2c5-198e92fdb653</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/IntegrationEvents/EventHandlers/CatchAllHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CatchAllHandler.cs</ProjectRelativeFilePath>
@@ -484,7 +484,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>326d6adf-1be5-4201-9b73-038be5d28f47</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventHandler#41fbac96-71d3-4348-b6f4-38c9bbb2325f</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventHandler#41fbac96-71d3-4348-b6f4-38c9bbb2325f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/IntegrationEvents/EventHandlers/Configuration/ConfigTestMessageHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Configuration/ConfigTestMessageHandler.cs</ProjectRelativeFilePath>
@@ -492,7 +492,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>326d6adf-1be5-4201-9b73-038be5d28f47</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventHandler#effa18ca-c6b0-48d1-8ff9-b21cdb9503fa</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventHandler#effa18ca-c6b0-48d1-8ff9-b21cdb9503fa</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/IntegrationEvents/EventHandlers/NamingOverrides/ReceiveConsumerHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>NamingOverrides/ReceiveConsumerHandler.cs</ProjectRelativeFilePath>
@@ -500,7 +500,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>326d6adf-1be5-4201-9b73-038be5d28f47</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventHandler#f92fc69e-e991-454b-8284-cb05344ca518</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventHandler#f92fc69e-e991-454b-8284-cb05344ca518</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/IntegrationEvents/EventHandlers/NamingOverrides/SubscriptionConsumerHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>NamingOverrides/SubscriptionConsumerHandler.cs</ProjectRelativeFilePath>
@@ -508,7 +508,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>326d6adf-1be5-4201-9b73-038be5d28f47</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventHandler#df0cda32-18b9-4436-9c12-5d89f3ef2c4c</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventHandler#df0cda32-18b9-4436-9c12-5d89f3ef2c4c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/IntegrationEvents/EventHandlers/Test/TestMessageHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Test/TestMessageHandler.cs</ProjectRelativeFilePath>
@@ -516,7 +516,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>326d6adf-1be5-4201-9b73-038be5d28f47</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventHandler#8f20bcf3-e37f-4ff9-90f7-6b4453c0ca5d</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventHandler#8f20bcf3-e37f-4ff9-90f7-6b4453c0ca5d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/IntegrationEvents/EventHandlers/TestMessageHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TestMessageHandler.cs</ProjectRelativeFilePath>
@@ -1076,10 +1076,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>cf363c92-7ac3-4384-a72d-d4cdfeba0b9d</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.MassTransitEventBus#87498d25-c732-48a3-ad01-9c8899fcd1a3</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.MassTransitMessageBus#6e38f224-ae74-4a45-b0fc-65d4bd4d1108</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Infrastructure/Eventing/MassTransitEventBus.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MassTransitEventBus.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Infrastructure/Eventing/MassTransitMessageBus.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MassTransitMessageBus.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

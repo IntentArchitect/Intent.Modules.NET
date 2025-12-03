@@ -20,8 +20,8 @@ namespace AzureFunctions.AzureServiceBus.Infrastructure.Configuration
             IConfiguration configuration)
         {
             services.AddSingleton<ServiceBusClient>(sp => new ServiceBusClient(configuration["AzureServiceBus:ConnectionString"]));
-            services.AddScoped<AzureServiceBusEventBus>();
-            services.AddScoped<IEventBus>(provider => provider.GetRequiredService<AzureServiceBusEventBus>());
+            services.AddScoped<AzureServiceBusMessageBus>();
+            services.AddScoped<IEventBus>(provider => provider.GetRequiredService<AzureServiceBusMessageBus>());
             services.AddSingleton<AzureServiceBusMessageDispatcher>();
             services.AddSingleton<IAzureServiceBusMessageDispatcher, AzureServiceBusMessageDispatcher>();
             services.Configure<AzureServiceBusPublisherOptions>(options =>

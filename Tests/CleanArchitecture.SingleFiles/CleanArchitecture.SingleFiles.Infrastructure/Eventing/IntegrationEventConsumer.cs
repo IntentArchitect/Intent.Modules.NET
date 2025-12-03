@@ -37,8 +37,8 @@ namespace CleanArchitecture.SingleFiles.Infrastructure.Eventing
 
         public async Task Consume(ConsumeContext<TMessage> context)
         {
-            var eventBus = _serviceProvider.GetRequiredService<MassTransitEventBus>();
-            eventBus.ConsumeContext = context;
+            var messageBus = _serviceProvider.GetRequiredService<MassTransitMessageBus>();
+            messageBus.ConsumeContext = context;
             var handler = _serviceProvider.GetRequiredService<THandler>();
 
             // The execution is wrapped in a transaction scope to ensure that if any other
@@ -65,7 +65,7 @@ namespace CleanArchitecture.SingleFiles.Infrastructure.Eventing
             await _mongoDbUnitOfWork.SaveChangesAsync(context.CancellationToken);
             await _daprStateStoreUnitOfWork.SaveChangesAsync(context.CancellationToken);
             await _cosmosDBUnitOfWork.SaveChangesAsync(context.CancellationToken);
-            await eventBus.FlushAllAsync(context.CancellationToken);
+            await messageBus.FlushAllAsync(context.CancellationToken);
         }
     }
 

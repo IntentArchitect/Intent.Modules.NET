@@ -146,10 +146,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>c3a310cd-8406-4cef-9926-d2278f2bc279</ProjectId>
-      <CorrelationId>Intent.Eventing.AzureServiceBus.AzureServiceBusEventBus#7f52861a-f1be-4da9-99e0-1f284f9adf0b</CorrelationId>
+      <CorrelationId>Intent.Eventing.AzureServiceBus.AzureServiceBusMessageBus#d906e815-c6f7-4644-a24a-ab80001f54bb</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>WindowsServiceHost.Tests/Eventing/AzureServiceBusEventBus.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AzureServiceBusEventBus.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>WindowsServiceHost.Tests/Eventing/AzureServiceBusMessageBus.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AzureServiceBusMessageBus.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

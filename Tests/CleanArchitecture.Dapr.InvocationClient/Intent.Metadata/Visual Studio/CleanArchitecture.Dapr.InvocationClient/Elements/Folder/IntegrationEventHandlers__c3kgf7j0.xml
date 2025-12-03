@@ -9,18 +9,16 @@
   <stereotypes />
   <metadata />
   <childElements>
-    <childElement id="1ef5aafa-e386-45a4-b963-f9b2991df508" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Dapr.AspNetCore.Pubsub.EventHandler</name>
-      <display>Intent.Dapr.AspNetCore.Pubsub.EventHandler</display>
-      <externalReference>Intent.Dapr.AspNetCore.Pubsub</externalReference>
+    <childElement id="468918f2-cb4f-4064-950b-d1919ac2fb81" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Contracts.IntegrationEventHandler</name>
+      <display>Intent.Eventing.Contracts.IntegrationEventHandler</display>
+      <externalReference>Intent.Eventing.Contracts</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>79e4d2a0-16ff-4e3a-a1de-6b90e88ccdef</parentFolderId>
       <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
+      <metadata />
       <childElements />
     </childElement>
   </childElements>

@@ -154,18 +154,18 @@
     </FileLog>
     <FileLog>
       <ProjectId>c49f62de-90b0-4f33-b830-edc44b5f98a9</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.EventBusPublishBehaviour#c0b5fae0-f37f-48dc-a136-21ccd9e5bfbe</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Application/Common/Behaviours/EventBusPublishBehaviour.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EventBusPublishBehaviour.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c49f62de-90b0-4f33-b830-edc44b5f98a9</ProjectId>
       <CorrelationId>Intent.Application.MediatR.Behaviours.LoggingBehaviour#9fa3d0c8-1b4a-4086-b30d-397671c75b3a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Application/Common/Behaviours/LoggingBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>LoggingBehaviour.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c49f62de-90b0-4f33-b830-edc44b5f98a9</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.MessageBusPublishBehaviour#8ca2c921-64e6-42c1-9b5c-4c6ff75e058d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Application/Common/Behaviours/MessageBusPublishBehaviour.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MessageBusPublishBehaviour.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -426,10 +426,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>64bafc27-933b-4325-971a-685125f5d6de</ProjectId>
-      <CorrelationId>Intent.Eventing.AzureServiceBus.AzureServiceBusEventBus#2dcf50d6-161a-460f-ab30-afc96ede7dc7</CorrelationId>
+      <CorrelationId>Intent.Eventing.AzureServiceBus.AzureServiceBusMessageBus#3b3eeeb0-fc32-47ff-8df7-4faeff7eacef</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Infrastructure/Eventing/AzureServiceBusEventBus.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AzureServiceBusEventBus.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Infrastructure/Eventing/AzureServiceBusMessageBus.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AzureServiceBusMessageBus.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

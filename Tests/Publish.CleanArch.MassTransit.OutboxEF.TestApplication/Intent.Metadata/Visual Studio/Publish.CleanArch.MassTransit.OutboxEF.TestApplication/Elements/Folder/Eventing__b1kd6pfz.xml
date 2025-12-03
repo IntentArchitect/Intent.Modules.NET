@@ -69,22 +69,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="d694f846-e15e-4ddd-94be-4635cb02934f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Eventing.MassTransit.MassTransitEventBus</name>
-      <display>Intent.Eventing.MassTransit.MassTransitEventBus</display>
-      <externalReference>Intent.Eventing.MassTransit</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>cc8a6b91-c147-470c-b9ea-b64aea5b07aa</parentFolderId>
-      <packageId>3fe47d94-1efe-4443-b2c9-0a13a61875b6</packageId>
-      <packageName>Publish.CleanArch.MassTransit.OutboxEF.TestApplication</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="08a4b344-1a5d-4584-a674-e665cdbaf625" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Eventing.MassTransit.FinbuckleSendingFilter</name>
       <display>Intent.Eventing.MassTransit.FinbuckleSendingFilter</display>
@@ -145,6 +129,20 @@
       <name>Intent.Eventing.Contracts.MessageBrokerResolver</name>
       <display>Intent.Eventing.Contracts.MessageBrokerResolver</display>
       <externalReference>Intent.Eventing.Contracts</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>cc8a6b91-c147-470c-b9ea-b64aea5b07aa</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="677532dc-7e77-4b6b-82d7-4b065003f89b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.MassTransitMessageBus</name>
+      <display>Intent.Eventing.MassTransit.MassTransitMessageBus</display>
+      <externalReference>Intent.Eventing.MassTransit</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>

@@ -6,7 +6,7 @@ using Publish.CleanArchDapr.TestApplication.Eventing.Messages;
 using Subscribe.CleanArchDapr.TestApplication.Application.Common.Eventing;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Dapr.AspNetCore.Pubsub.EventHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Eventing.Contracts.IntegrationEventHandler", Version = "1.0")]
 
 namespace Subscribe.CleanArchDapr.TestApplication.Application.IntegrationEventHandlers
 {

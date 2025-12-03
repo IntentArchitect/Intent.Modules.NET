@@ -6,7 +6,7 @@ using AdvancedMappingCrud.Repositories.Tests.Eventing.Messages;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Eventing.MassTransit.IntegrationEventHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Eventing.Contracts.IntegrationEventHandler", Version = "1.0")]
 
 namespace AdvancedMappingCrud.Repositories.Tests.Application.IntegrationEvents.EventHandlers.Customers
 {

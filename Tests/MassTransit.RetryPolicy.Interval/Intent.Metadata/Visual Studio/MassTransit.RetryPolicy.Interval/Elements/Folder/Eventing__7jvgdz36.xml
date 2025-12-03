@@ -101,22 +101,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="e38a38d6-63b0-4d9a-825e-b4f46b42b88e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Eventing.MassTransit.MassTransitEventBus</name>
-      <display>Intent.Eventing.MassTransit.MassTransitEventBus</display>
-      <externalReference>Intent.Eventing.MassTransit</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>7182266d-2b3f-4c5e-972f-ff635ef3a589</parentFolderId>
-      <packageId>d92d09ee-db5e-42de-986e-feba7197d5e9</packageId>
-      <packageName>MassTransit.RetryPolicy.Interval</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="eaf36f9f-995f-4453-acc2-612e8a6c1fee" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Eventing.Contracts.CompositeMessageBus</name>
       <display>Intent.Eventing.Contracts.CompositeMessageBus</display>
@@ -149,6 +133,20 @@
       <name>Intent.Eventing.Contracts.MessageBrokerResolver</name>
       <display>Intent.Eventing.Contracts.MessageBrokerResolver</display>
       <externalReference>Intent.Eventing.Contracts</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>7182266d-2b3f-4c5e-972f-ff635ef3a589</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="be0029fe-4957-45d1-a2d3-20ed53617553" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.MassTransitMessageBus</name>
+      <display>Intent.Eventing.MassTransit.MassTransitMessageBus</display>
+      <externalReference>Intent.Eventing.MassTransit</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>

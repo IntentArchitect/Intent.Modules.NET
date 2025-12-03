@@ -164,18 +164,18 @@
     </FileLog>
     <FileLog>
       <ProjectId>97932b15-c887-4f15-bbd5-09ff2658304f</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.EventBusPublishBehaviour#21daa5a8-ccd4-462e-bc52-c5fc984922ff</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Kafka.Producer.Application/Common/Behaviours/EventBusPublishBehaviour.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EventBusPublishBehaviour.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>97932b15-c887-4f15-bbd5-09ff2658304f</ProjectId>
       <CorrelationId>Intent.Application.MediatR.Behaviours.LoggingBehaviour#58e5b583-0215-452d-95ac-112fd548bbc2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Kafka.Producer.Application/Common/Behaviours/LoggingBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>LoggingBehaviour.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>97932b15-c887-4f15-bbd5-09ff2658304f</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.MessageBusPublishBehaviour#b064585c-585d-4e5b-b333-56806604fa1d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Kafka.Producer.Application/Common/Behaviours/MessageBusPublishBehaviour.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MessageBusPublishBehaviour.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -700,18 +700,18 @@
     </FileLog>
     <FileLog>
       <ProjectId>786b70a9-f8e0-40e0-8ea3-c651e5c6decb</ProjectId>
-      <CorrelationId>Intent.Eventing.Kafka.KafkaEventBus#f481fb75-c2d2-49b4-b511-38e39ff52c52</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Kafka.Producer.Infrastructure/Eventing/KafkaEventBus.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>KafkaEventBus.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>786b70a9-f8e0-40e0-8ea3-c651e5c6decb</ProjectId>
       <CorrelationId>Intent.Eventing.Kafka.KafkaEventDispatcher#9d34c31e-ef07-4db6-9211-da4fc4f30744</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Kafka.Producer.Infrastructure/Eventing/KafkaEventDispatcher.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>KafkaEventDispatcher.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>786b70a9-f8e0-40e0-8ea3-c651e5c6decb</ProjectId>
+      <CorrelationId>Intent.Eventing.Kafka.KafkaMessageBus#1afd2445-082c-48bb-b917-af162196f138</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Kafka.Producer.Infrastructure/Eventing/KafkaMessageBus.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>KafkaMessageBus.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

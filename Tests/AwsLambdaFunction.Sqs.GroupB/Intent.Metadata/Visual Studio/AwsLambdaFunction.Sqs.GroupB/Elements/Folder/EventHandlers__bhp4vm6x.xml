@@ -21,27 +21,15 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="8c2928b0-0d75-4f09-8322-1e11fe28250c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Aws.Sqs.IntegrationEventHandler</name>
-      <display>Intent.Aws.Sqs.IntegrationEventHandler</display>
-      <externalReference>Intent.Aws.Sqs</externalReference>
+    <childElement id="7c84b6d5-b742-49c0-bded-19eb6ed43ab6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Contracts.IntegrationEventHandler</name>
+      <display>Intent.Eventing.Contracts.IntegrationEventHandler</display>
+      <externalReference>Intent.Eventing.Contracts</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>6edd0298-5438-4819-a7a7-6e913947dea5</parentFolderId>
-      <packageId>8e852e06-5210-402f-9eca-815be03ce0b7</packageId>
-      <packageName>AwsLambdaFunction.Sqs.GroupB</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
-          <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
-          <properties>
-            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
-            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
+      <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>

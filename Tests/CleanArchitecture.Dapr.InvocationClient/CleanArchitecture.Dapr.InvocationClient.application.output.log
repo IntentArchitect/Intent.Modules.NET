@@ -242,18 +242,18 @@
     </FileLog>
     <FileLog>
       <ProjectId>7b2f97c4-4b47-481f-841b-f42c20c831a3</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.EventBusPublishBehaviour#e5fb30d4-0cc5-404a-a0ad-300683db9ffe</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.InvocationClient.Application/Common/Behaviours/EventBusPublishBehaviour.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EventBusPublishBehaviour.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>7b2f97c4-4b47-481f-841b-f42c20c831a3</ProjectId>
       <CorrelationId>Intent.Application.MediatR.Behaviours.LoggingBehaviour#f7f2479f-3400-4fa5-b83d-49cd8094a14a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Dapr.InvocationClient.Application/Common/Behaviours/LoggingBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>LoggingBehaviour.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7b2f97c4-4b47-481f-841b-f42c20c831a3</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.MessageBusPublishBehaviour#8e12d60e-a84d-4432-8992-3620b8a03fa6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.InvocationClient.Application/Common/Behaviours/MessageBusPublishBehaviour.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MessageBusPublishBehaviour.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -514,10 +514,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>c40d8e5c-60a5-4623-bacd-d023d60637ee</ProjectId>
-      <CorrelationId>Intent.Dapr.AspNetCore.Pubsub.DaprEventBus#c5a50207-20c5-471c-9a26-70fbd7781649</CorrelationId>
+      <CorrelationId>Intent.Dapr.AspNetCore.Pubsub.DaprMessageBus#f82dca15-0ef9-4239-b2a0-545e26b250d1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.InvocationClient.Infrastructure/Eventing/DaprEventBus.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DaprEventBus.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.InvocationClient.Infrastructure/Eventing/DaprMessageBus.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DaprMessageBus.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -154,18 +154,18 @@
     </FileLog>
     <FileLog>
       <ProjectId>2ae305e5-bd8f-4c5d-a3e2-55189a601295</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.EventBusPublishBehaviour#275160b6-fd00-4ea2-87bd-8df9289a9769</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.AzureServiceBus.Application/Common/Behaviours/EventBusPublishBehaviour.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EventBusPublishBehaviour.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>2ae305e5-bd8f-4c5d-a3e2-55189a601295</ProjectId>
       <CorrelationId>Intent.Application.MediatR.Behaviours.LoggingBehaviour#d68b08fc-4ead-4e8f-b206-61862c5099c8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureServiceBus.Application/Common/Behaviours/LoggingBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>LoggingBehaviour.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2ae305e5-bd8f-4c5d-a3e2-55189a601295</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.MessageBusPublishBehaviour#3c579da4-fe2a-4652-adea-04806d8ff46a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.AzureServiceBus.Application/Common/Behaviours/MessageBusPublishBehaviour.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MessageBusPublishBehaviour.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -394,7 +394,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>6164cffc-ee61-4d1c-ac6a-067c8585c2e8</ProjectId>
-      <CorrelationId>Intent.Eventing.AzureServiceBus.IntegrationEventHandler#b142d75d-46bd-40bd-8700-b73152b53cc0</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventHandler#b142d75d-46bd-40bd-8700-b73152b53cc0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureServiceBus.Application/IntegrationEvents/EventHandlers/SpecificQueueMessageHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SpecificQueueMessageHandler.cs</ProjectRelativeFilePath>
@@ -402,7 +402,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>6164cffc-ee61-4d1c-ac6a-067c8585c2e8</ProjectId>
-      <CorrelationId>Intent.Eventing.AzureServiceBus.IntegrationEventHandler#e3dedbc0-62cb-44b1-a6be-e9856462c369</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventHandler#e3dedbc0-62cb-44b1-a6be-e9856462c369</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureServiceBus.Application/IntegrationEvents/EventHandlers/SpecificTopicMessageHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SpecificTopicMessageHandler.cs</ProjectRelativeFilePath>
@@ -656,10 +656,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>7c3dd909-c26e-41d2-a45e-068780b782c5</ProjectId>
-      <CorrelationId>Intent.Eventing.AzureServiceBus.AzureServiceBusEventBus#1356bceb-d821-4304-bc21-da76bbf1b3c6</CorrelationId>
+      <CorrelationId>Intent.Eventing.AzureServiceBus.AzureServiceBusMessageBus#9a2d89b7-8fe8-4cbd-b368-4059a8f0f2e2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.AzureServiceBus.Infrastructure/Eventing/AzureServiceBusEventBus.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AzureServiceBusEventBus.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>AzureFunctions.AzureServiceBus.Infrastructure/Eventing/AzureServiceBusMessageBus.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AzureServiceBusMessageBus.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -18,8 +18,8 @@ namespace Intent.Modules.NET.Tests.Host.Eventing
             IConfiguration configuration,
             IEnumerable<IModuleInstaller> moduleInstallers)
         {
-            services.AddScoped<MassTransitEventBus>();
-            services.AddScoped<IEventBus>(provider => provider.GetRequiredService<MassTransitEventBus>());
+            services.AddScoped<MassTransitMessageBus>();
+            services.AddScoped<IEventBus>(provider => provider.GetRequiredService<MassTransitMessageBus>());
 
             services.AddMassTransit(x =>
             {

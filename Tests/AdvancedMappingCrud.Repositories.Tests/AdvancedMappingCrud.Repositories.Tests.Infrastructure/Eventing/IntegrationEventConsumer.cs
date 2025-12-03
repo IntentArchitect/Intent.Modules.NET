@@ -32,8 +32,8 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Eventing
 
         public async Task Consume(ConsumeContext<TMessage> context)
         {
-            var eventBus = _serviceProvider.GetRequiredService<MassTransitEventBus>();
-            eventBus.ConsumeContext = context;
+            var messageBus = _serviceProvider.GetRequiredService<MassTransitMessageBus>();
+            messageBus.ConsumeContext = context;
             var handler = _serviceProvider.GetRequiredService<THandler>();
 
             using (_distributedCacheWithUnitOfWork.EnableUnitOfWork())
@@ -61,7 +61,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Eventing
 
                 await _distributedCacheWithUnitOfWork.SaveChangesAsync(context.CancellationToken);
             }
-            await eventBus.FlushAllAsync(context.CancellationToken);
+            await messageBus.FlushAllAsync(context.CancellationToken);
         }
     }
 

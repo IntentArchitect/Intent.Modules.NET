@@ -108,10 +108,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>704f5817-9058-4bfb-af45-ac62c910578d</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.MassTransitEventBus#0e33435e-e910-4892-8782-ad59d888a068</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.MassTransitMessageBus#09718895-3c42-4f55-98e8-3433a2c0fa2b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MassTransit.RetryPolicy.Incremental.Infrastructure/Eventing/MassTransitEventBus.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MassTransitEventBus.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>MassTransit.RetryPolicy.Incremental.Infrastructure/Eventing/MassTransitMessageBus.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MassTransitMessageBus.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

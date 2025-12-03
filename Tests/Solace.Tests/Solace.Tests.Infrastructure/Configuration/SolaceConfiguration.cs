@@ -53,11 +53,11 @@ namespace Solace.Tests.Infrastructure.Configuration
             services.AddSingleton(session);
             services.AddSingleton<DispatchResolver>();
             services.AddSingleton<MessageSerializer>();
-            services.AddSingleton<MessageRegistry>();
+            services.AddSingleton(new MessageRegistry(configuration));
             services.AddHostedService<SolaceConsumingService>();
             services.AddScoped(typeof(ISolaceEventDispatcher<>), typeof(SolaceEventDispatcher<>));
-            services.AddScoped<SolaceEventBus>();
-            services.AddScoped<IEventBus>(provider => provider.GetRequiredService<SolaceEventBus>());
+            services.AddScoped<SolaceMessageBus>();
+            services.AddScoped<IEventBus>(provider => provider.GetRequiredService<SolaceMessageBus>());
             services.AddTransient<SolaceConsumer>();
             return services;
         }

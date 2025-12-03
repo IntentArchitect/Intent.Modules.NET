@@ -37,20 +37,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="e6b68710-60b2-49c2-bd3d-e8b8ffb0a55a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.MediatR.Behaviours.EventBusPublishBehaviour</name>
-      <display>Intent.Application.MediatR.Behaviours.EventBusPublishBehaviour</display>
-      <externalReference>Intent.Application.MediatR.Behaviours</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>2d2850dc-d577-4d1e-9706-89d50f260634</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="7bfddd24-395f-42fd-8325-7a5d53543b3d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Application.MediatR.Behaviours.LoggingBehaviour</name>
       <display>Intent.Application.MediatR.Behaviours.LoggingBehaviour</display>
@@ -96,6 +82,20 @@
     <childElement id="d76c1867-9ab8-42cf-aa4d-cc84b9d8632e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour</name>
       <display>Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour</display>
+      <externalReference>Intent.Application.MediatR.Behaviours</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>2d2850dc-d577-4d1e-9706-89d50f260634</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="4ebaa9e1-6447-40b9-9487-e4a473af50da" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.MediatR.Behaviours.MessageBusPublishBehaviour</name>
+      <display>Intent.Application.MediatR.Behaviours.MessageBusPublishBehaviour</display>
       <externalReference>Intent.Application.MediatR.Behaviours</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />

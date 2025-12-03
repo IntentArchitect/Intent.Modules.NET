@@ -28,8 +28,8 @@ namespace Kafka.Producer.Infrastructure.Configuration
 
                 return new CachedSchemaRegistryClient(schemaRegistryConfig);
             });
-            services.AddScoped<KafkaEventBus>();
-            services.AddScoped<IEventBus>(provider => provider.GetRequiredService<KafkaEventBus>());
+            services.AddScoped<KafkaMessageBus>();
+            services.AddScoped<IEventBus>(provider => provider.GetRequiredService<KafkaMessageBus>());
             services.AddScoped(typeof(IKafkaEventDispatcher<>), typeof(KafkaEventDispatcher<>));
             services.AddHostedService<KafkaConsumerBackgroundService>();
             services.AddSingleton(serviceProvider => CreateProducer<string, InvoiceCreatedEvent>(serviceProvider, message => message.Id.ToString()));

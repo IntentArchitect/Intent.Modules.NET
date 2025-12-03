@@ -20,8 +20,8 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Infrastructure.
             this IServiceCollection services,
             IConfiguration configuration)
         {
-            services.AddScoped<MassTransitEventBus>();
-            services.AddScoped<IEventBus>(provider => provider.GetRequiredService<MassTransitEventBus>());
+            services.AddScoped<MassTransitMessageBus>();
+            services.AddScoped<IEventBus>(provider => provider.GetRequiredService<MassTransitMessageBus>());
 
             services.AddMassTransit(x =>
             {

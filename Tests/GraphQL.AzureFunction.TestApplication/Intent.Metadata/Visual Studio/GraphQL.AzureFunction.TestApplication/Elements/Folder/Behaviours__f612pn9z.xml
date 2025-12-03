@@ -37,22 +37,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="b1e8aa01-8a2e-45fa-9b80-01de571367b9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.MediatR.Behaviours.EventBusPublishBehaviour</name>
-      <display>Intent.Application.MediatR.Behaviours.EventBusPublishBehaviour</display>
-      <externalReference>Intent.Application.MediatR.Behaviours</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>506deabe-d263-4ec4-86f3-fc1aaa6be952</parentFolderId>
-      <packageId>8ab04101-bcc2-4325-baab-7570faf71b83</packageId>
-      <packageName>GraphQL.AzureFunction.TestApplication</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="bb3b90b9-91f2-45e3-bd89-ebca6d475e8d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Application.MediatR.Behaviours.LoggingBehaviour</name>
       <display>Intent.Application.MediatR.Behaviours.LoggingBehaviour</display>
@@ -127,6 +111,20 @@
       <parentFolderId>506deabe-d263-4ec4-86f3-fc1aaa6be952</parentFolderId>
       <packageId>8ab04101-bcc2-4325-baab-7570faf71b83</packageId>
       <packageName>GraphQL.AzureFunction.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="622c8bb6-bbda-45f5-9766-0e2812c58b4b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.MediatR.Behaviours.MessageBusPublishBehaviour</name>
+      <display>Intent.Application.MediatR.Behaviours.MessageBusPublishBehaviour</display>
+      <externalReference>Intent.Application.MediatR.Behaviours</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>506deabe-d263-4ec4-86f3-fc1aaa6be952</parentFolderId>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

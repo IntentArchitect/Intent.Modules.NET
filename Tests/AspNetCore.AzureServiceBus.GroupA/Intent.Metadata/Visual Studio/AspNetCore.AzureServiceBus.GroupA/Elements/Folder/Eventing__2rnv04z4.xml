@@ -21,22 +21,6 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="2dcf50d6-161a-460f-ab30-afc96ede7dc7" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Eventing.AzureServiceBus.AzureServiceBusEventBus</name>
-      <display>Intent.Eventing.AzureServiceBus.AzureServiceBusEventBus</display>
-      <externalReference>Intent.Eventing.AzureServiceBus</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>64bafc27-933b-4325-971a-685125f5d6de</parentFolderId>
-      <packageId>2f02f0ad-70ce-4c2e-bc6b-44498511e261</packageId>
-      <packageName>AspNetCore.AzureServiceBus.GroupA</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="9d65e161-a5f4-4883-ae95-b5dce063d0be" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Eventing.AzureServiceBus.AzureServiceBusMessageDispatcher</name>
       <display>Intent.Eventing.AzureServiceBus.AzureServiceBusMessageDispatcher</display>
@@ -101,6 +85,20 @@
       <name>Intent.Eventing.Contracts.MessageBrokerResolver</name>
       <display>Intent.Eventing.Contracts.MessageBrokerResolver</display>
       <externalReference>Intent.Eventing.Contracts</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>64bafc27-933b-4325-971a-685125f5d6de</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="3b3eeeb0-fc32-47ff-8df7-4faeff7eacef" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.AzureServiceBus.AzureServiceBusMessageBus</name>
+      <display>Intent.Eventing.AzureServiceBus.AzureServiceBusMessageBus</display>
+      <externalReference>Intent.Eventing.AzureServiceBus</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>

@@ -7,7 +7,7 @@ using MassTransit.RabbitMQ.Services.Animals;
 using MassTransit.RabbitMQ.Services.People;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Eventing.MassTransit.IntegrationEventHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Eventing.Contracts.IntegrationEventHandler", Version = "1.0")]
 
 namespace MassTransit.RabbitMQ.Application.IntegrationEvents.EventHandlers
 {

@@ -27,8 +27,8 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Infrastructure.
 
         public async Task Consume(ConsumeContext<TMessage> context)
         {
-            var eventBus = _serviceProvider.GetRequiredService<MassTransitEventBus>();
-            eventBus.ConsumeContext = context;
+            var messageBus = _serviceProvider.GetRequiredService<MassTransitMessageBus>();
+            messageBus.ConsumeContext = context;
             var handler = _serviceProvider.GetRequiredService<THandler>();
             await handler.HandleAsync(context.Message, context.CancellationToken);
             await _unitOfWork.SaveChangesAsync(context.CancellationToken);

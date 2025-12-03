@@ -19,8 +19,8 @@ namespace CleanArchitecture.SingleFiles.Infrastructure.Configuration
             this IServiceCollection services,
             IConfiguration configuration)
         {
-            services.AddScoped<MassTransitEventBus>();
-            services.AddScoped<IEventBus>(provider => provider.GetRequiredService<MassTransitEventBus>());
+            services.AddScoped<MassTransitMessageBus>();
+            services.AddScoped<IEventBus>(provider => provider.GetRequiredService<MassTransitMessageBus>());
 
             services.AddMassTransit(x =>
             {

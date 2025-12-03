@@ -22,8 +22,8 @@ namespace AwsLambdaFunction.Sqs.GroupA.Infrastructure.Configuration
             services.AddAWSService<AmazonSQSClient>();
 
             services.AddSingleton(typeof(IAmazonSQS), sp => sp.GetRequiredService<AmazonSQSClient>());
-            services.AddScoped<SqsEventBus>();
-            services.AddScoped<IEventBus>(provider => provider.GetRequiredService<SqsEventBus>());
+            services.AddScoped<SqsMessageBus>();
+            services.AddScoped<IEventBus>(provider => provider.GetRequiredService<SqsMessageBus>());
             services.AddSingleton<SqsMessageDispatcher>();
             services.AddSingleton<ISqsMessageDispatcher, SqsMessageDispatcher>(sp => sp.GetRequiredService<SqsMessageDispatcher>());
             services.Configure<SqsPublisherOptions>(options =>

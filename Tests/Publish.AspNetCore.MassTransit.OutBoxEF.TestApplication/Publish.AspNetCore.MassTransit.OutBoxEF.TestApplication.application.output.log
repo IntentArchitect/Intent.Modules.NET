@@ -468,10 +468,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>c4e9b6bf-c6c2-4771-9d1c-f18f58e5b8fa</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.MassTransitEventBus#047b3b1e-fb89-479f-bab6-9c03b83f3e72</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.MassTransitMessageBus#5136bc03-a3bb-443d-bf86-2adcdb948db2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Infrastructure/Eventing/MassTransitEventBus.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MassTransitEventBus.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Infrastructure/Eventing/MassTransitMessageBus.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MassTransitMessageBus.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

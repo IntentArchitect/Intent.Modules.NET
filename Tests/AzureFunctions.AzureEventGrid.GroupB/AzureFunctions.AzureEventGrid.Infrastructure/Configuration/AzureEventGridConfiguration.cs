@@ -19,8 +19,8 @@ namespace AzureFunctions.AzureEventGrid.Infrastructure.Configuration
             this IServiceCollection services,
             IConfiguration configuration)
         {
-            services.AddScoped<AzureEventGridEventBus>();
-            services.AddScoped<IEventBus>(provider => provider.GetRequiredService<AzureEventGridEventBus>());
+            services.AddScoped<AzureEventGridMessageBus>();
+            services.AddScoped<IEventBus>(provider => provider.GetRequiredService<AzureEventGridMessageBus>());
             services.AddSingleton<AzureEventGridMessageDispatcher>();
             services.AddSingleton<IAzureEventGridMessageDispatcher, AzureEventGridMessageDispatcher>();
 

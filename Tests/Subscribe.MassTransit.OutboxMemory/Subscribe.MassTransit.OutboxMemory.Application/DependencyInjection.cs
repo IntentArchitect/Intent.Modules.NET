@@ -28,7 +28,7 @@ namespace Subscribe.MassTransit.OutboxMemory.Application
                 cfg.AddOpenBehavior(typeof(UnhandledExceptionBehaviour<,>));
                 cfg.AddOpenBehavior(typeof(PerformanceBehaviour<,>));
                 cfg.AddOpenBehavior(typeof(AuthorizationBehaviour<,>));
-                cfg.AddOpenBehavior(typeof(EventBusPublishBehaviour<,>));
+                cfg.AddOpenBehavior(typeof(MessageBusPublishBehaviour<,>));
                 cfg.AddOpenBehavior(typeof(ValidationBehaviour<,>));
                 cfg.AddOpenBehavior(typeof(UnitOfWorkBehaviour<,>));
             });

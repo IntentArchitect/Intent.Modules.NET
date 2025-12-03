@@ -324,18 +324,18 @@
     </FileLog>
     <FileLog>
       <ProjectId>598ef533-3e48-4008-a4ed-cdc4d4070fbd</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.EventBusPublishBehaviour#46d8fd11-d168-4c27-84de-45561abccedd</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Solace.Tests.Application/Common/Behaviours/EventBusPublishBehaviour.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EventBusPublishBehaviour.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>598ef533-3e48-4008-a4ed-cdc4d4070fbd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.Behaviours.LoggingBehaviour#7aeb3426-03a5-4c8c-9f65-bc6aafcfb79a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Application/Common/Behaviours/LoggingBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>LoggingBehaviour.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>598ef533-3e48-4008-a4ed-cdc4d4070fbd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.MessageBusPublishBehaviour#2e9dc8e7-4858-4e65-bf5d-74ecfcbddd75</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Solace.Tests.Application/Common/Behaviours/MessageBusPublishBehaviour.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MessageBusPublishBehaviour.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -788,7 +788,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>cb1b68fd-8380-4ecc-9fd9-a2dd625ec1e9</ProjectId>
-      <CorrelationId>Intent.Eventing.Solace.IntegrationEventHandler#c22e8240-e744-4522-b39a-03e707054765</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventHandler#c22e8240-e744-4522-b39a-03e707054765</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Application/IntegrationEvents/EventHandlers/Customers/CustomerCreatedHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Customers/CustomerCreatedHandler.cs</ProjectRelativeFilePath>
@@ -796,7 +796,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>cb1b68fd-8380-4ecc-9fd9-a2dd625ec1e9</ProjectId>
-      <CorrelationId>Intent.Eventing.Solace.IntegrationEventHandler#8912ca43-636f-429f-ae4e-bba36cca0173</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventHandler#8912ca43-636f-429f-ae4e-bba36cca0173</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Application/IntegrationEvents/EventHandlers/GeneralHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>GeneralHandler.cs</ProjectRelativeFilePath>
@@ -1188,18 +1188,18 @@
     </FileLog>
     <FileLog>
       <ProjectId>abc5bd59-aeaf-406d-a1a4-57012f3d59ba</ProjectId>
-      <CorrelationId>Intent.Eventing.Solace.SolaceEventBus#acc708d2-a459-43a6-99d8-9a1e08a64fe8</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Solace.Tests.Infrastructure/Eventing/SolaceEventBus.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SolaceEventBus.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>abc5bd59-aeaf-406d-a1a4-57012f3d59ba</ProjectId>
       <CorrelationId>Intent.Eventing.Solace.SolaceEventDispatcher#be6baed8-a797-43e9-8a35-e6ef6ea0313e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Infrastructure/Eventing/SolaceEventDispatcher.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SolaceEventDispatcher.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>abc5bd59-aeaf-406d-a1a4-57012f3d59ba</ProjectId>
+      <CorrelationId>Intent.Eventing.Solace.SolaceMessageBus#88b08329-d9ad-4645-ad59-30f4ced2b524</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Solace.Tests.Infrastructure/Eventing/SolaceMessageBus.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SolaceMessageBus.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

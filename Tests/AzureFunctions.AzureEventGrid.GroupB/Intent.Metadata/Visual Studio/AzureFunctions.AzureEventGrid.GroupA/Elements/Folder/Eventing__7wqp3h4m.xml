@@ -21,22 +21,6 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="ff1d7227-3356-4e34-b3ab-ce327f228788" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Eventing.AzureEventGrid.AzureEventGridEventBus</name>
-      <display>Intent.Eventing.AzureEventGrid.AzureEventGridEventBus</display>
-      <externalReference>Intent.Eventing.AzureEventGrid</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>a84caf03-590f-4ac6-a81b-d2fa75771f31</parentFolderId>
-      <packageId>60a22b78-005c-44d9-9a7c-286afa665554</packageId>
-      <packageName>AzureFunctions.AzureEventGrid.GroupA</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="a9e00e34-da01-4cbe-9ed7-f1c34d212e1d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Eventing.AzureEventGrid.AzureEventGridMessageDispatcher</name>
       <display>Intent.Eventing.AzureEventGrid.AzureEventGridMessageDispatcher</display>
@@ -115,6 +99,20 @@
       <name>Intent.Eventing.Contracts.MessageBrokerResolver</name>
       <display>Intent.Eventing.Contracts.MessageBrokerResolver</display>
       <externalReference>Intent.Eventing.Contracts</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a84caf03-590f-4ac6-a81b-d2fa75771f31</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="c3359545-64ac-45cd-b972-2af0ee159b96" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.AzureEventGrid.AzureEventGridMessageBus</name>
+      <display>Intent.Eventing.AzureEventGrid.AzureEventGridMessageBus</display>
+      <externalReference>Intent.Eventing.AzureEventGrid</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>

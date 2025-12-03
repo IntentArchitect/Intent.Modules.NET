@@ -106,10 +106,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>08906b70-f48c-4dfd-b686-6583339ef0da</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.MassTransitEventBus#7a4be017-e601-48ef-ab19-a43411a694af</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.MassTransitMessageBus#04023b0f-bf15-4851-a86b-0d4740d78ec1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Intent.Modules.NET.Tests.Infrastructure.Core/Eventing/MassTransitEventBus.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MassTransitEventBus.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Intent.Modules.NET.Tests.Infrastructure.Core/Eventing/MassTransitMessageBus.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MassTransitMessageBus.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

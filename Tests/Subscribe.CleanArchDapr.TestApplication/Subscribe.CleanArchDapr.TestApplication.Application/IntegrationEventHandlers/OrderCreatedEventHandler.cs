@@ -9,7 +9,7 @@ using Subscribe.CleanArchDapr.TestApplication.Application.IntegrationServices;
 using Subscribe.CleanArchDapr.TestApplication.Application.IntegrationServices.Publish.CleanArchDapr.TestApplication.Services.Orders;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Dapr.AspNetCore.Pubsub.EventHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Eventing.Contracts.IntegrationEventHandler", Version = "1.0")]
 
 namespace Subscribe.CleanArchDapr.TestApplication.Application.IntegrationEventHandlers
 {

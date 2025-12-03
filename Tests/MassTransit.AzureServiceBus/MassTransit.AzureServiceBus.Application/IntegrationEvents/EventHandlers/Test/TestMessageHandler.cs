@@ -6,7 +6,7 @@ using MassTransit.AzureServiceBus.Application.Common.Eventing;
 using MassTransit.AzureServiceBus.Services.External;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Eventing.MassTransit.IntegrationEventHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Eventing.Contracts.IntegrationEventHandler", Version = "1.0")]
 
 namespace MassTransit.AzureServiceBus.Application.IntegrationEvents.EventHandlers.Test
 {

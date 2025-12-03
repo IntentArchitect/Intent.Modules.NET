@@ -508,18 +508,18 @@
     </FileLog>
     <FileLog>
       <ProjectId>49871c19-65a3-467d-934c-4934ec125684</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.Behaviours.EventBusPublishBehaviour#36bad3a0-dd2c-4c8c-bb91-cdd742e7caad</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Common/Behaviours/EventBusPublishBehaviour.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EventBusPublishBehaviour.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>49871c19-65a3-467d-934c-4934ec125684</ProjectId>
       <CorrelationId>Intent.Application.MediatR.Behaviours.LoggingBehaviour#5299e449-768c-4e3e-8349-e5397a2f6b72</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Common/Behaviours/LoggingBehaviour.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>LoggingBehaviour.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>49871c19-65a3-467d-934c-4934ec125684</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.MessageBusPublishBehaviour#c3131724-9f90-45a7-b984-e21c23a787b6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Common/Behaviours/MessageBusPublishBehaviour.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MessageBusPublishBehaviour.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2684,7 +2684,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>1e361e00-de9a-4870-a610-ac2840d8c682</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventHandler#3c699a99-95bd-4bc7-aaa4-4203295be61d</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventHandler#3c699a99-95bd-4bc7-aaa4-4203295be61d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/IntegrationEvents/EventHandlers/Customers/QuoteCreatedIntegrationEventHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Customers/QuoteCreatedIntegrationEventHandler.cs</ProjectRelativeFilePath>
@@ -2692,7 +2692,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>1e361e00-de9a-4870-a610-ac2840d8c682</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventHandler#a4478a42-c884-4cb8-9059-a2587efd044b</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventHandler#a4478a42-c884-4cb8-9059-a2587efd044b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/IntegrationEvents/EventHandlers/EnumMessage/EnumSampleHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>EnumMessage/EnumSampleHandler.cs</ProjectRelativeFilePath>
@@ -5804,10 +5804,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>cc6a7c0b-68e6-41b8-a7e1-d113ac081139</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.MassTransitEventBus#af85a85f-f7ff-48f3-9235-7d381020bf1e</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.MassTransitMessageBus#0430f922-2570-4fdd-817a-7fee9fbbb566</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Eventing/MassTransitEventBus.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MassTransitEventBus.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Eventing/MassTransitMessageBus.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MassTransitMessageBus.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

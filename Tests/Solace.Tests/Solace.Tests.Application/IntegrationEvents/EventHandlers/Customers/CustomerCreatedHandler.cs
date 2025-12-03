@@ -8,7 +8,7 @@ using Solace.Tests.Application.Common.Eventing;
 using Solace.Tests.Eventing.Messages;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Eventing.Solace.IntegrationEventHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Eventing.Contracts.IntegrationEventHandler", Version = "1.0")]
 
 namespace Solace.Tests.Application.IntegrationEvents.EventHandlers.Customers
 {

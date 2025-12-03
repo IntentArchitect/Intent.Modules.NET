@@ -65,20 +65,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="6f058104-5a34-48d0-b04f-8dab626ffb5f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Eventing.AzureQueueStorage.AzureQueueStorageEventBus</name>
-      <display>Intent.Eventing.AzureQueueStorage.AzureQueueStorageEventBus</display>
-      <externalReference>Intent.Eventing.AzureQueueStorage</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>a83ae2f2-1a10-4284-9f9d-8c093ca4528c</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="5f62a06a-a358-480f-ae08-a3bdf87cc991" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Eventing.AzureQueueStorage.AzureQueueStorageEventDispatcher</name>
       <display>Intent.Eventing.AzureQueueStorage.AzureQueueStorageEventDispatcher</display>
@@ -139,6 +125,20 @@
       <name>Intent.Eventing.Contracts.MessageBrokerResolver</name>
       <display>Intent.Eventing.Contracts.MessageBrokerResolver</display>
       <externalReference>Intent.Eventing.Contracts</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a83ae2f2-1a10-4284-9f9d-8c093ca4528c</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="f7311ca5-82bd-430f-8e2b-366834d1c489" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.AzureQueueStorage.AzureQueueStorageMessageBus</name>
+      <display>Intent.Eventing.AzureQueueStorage.AzureQueueStorageMessageBus</display>
+      <externalReference>Intent.Eventing.AzureQueueStorage</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>

@@ -51,20 +51,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="fe660bde-9850-450e-951c-a8a527b22cd3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Eventing.Kafka.KafkaEventBus</name>
-      <display>Intent.Eventing.Kafka.KafkaEventBus</display>
-      <externalReference>Intent.Eventing.Kafka</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>481917e3-f8cb-4acd-afdd-1ec4af3e2515</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="de42e4a7-6881-4696-9f53-1949fe4ce127" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Eventing.Kafka.KafkaEventDispatcher</name>
       <display>Intent.Eventing.Kafka.KafkaEventDispatcher</display>
@@ -153,6 +139,20 @@
       <name>Intent.Eventing.Contracts.MessageBrokerResolver</name>
       <display>Intent.Eventing.Contracts.MessageBrokerResolver</display>
       <externalReference>Intent.Eventing.Contracts</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>481917e3-f8cb-4acd-afdd-1ec4af3e2515</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="58c1da68-23a6-43cd-b3c2-deaaaf1eccc8" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Kafka.KafkaMessageBus</name>
+      <display>Intent.Eventing.Kafka.KafkaMessageBus</display>
+      <externalReference>Intent.Eventing.Kafka</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>

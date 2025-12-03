@@ -21,16 +21,14 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="635d303f-8a56-460c-b2cb-7d328fc94d9c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Eventing.MassTransit.IntegrationEventHandler</name>
-      <display>Intent.Eventing.MassTransit.IntegrationEventHandler</display>
-      <externalReference>Intent.Eventing.MassTransit</externalReference>
+    <childElement id="10bbf164-f6b0-4f8d-91a8-8689c8cab61f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Contracts.IntegrationEventHandler</name>
+      <display>Intent.Eventing.Contracts.IntegrationEventHandler</display>
+      <externalReference>Intent.Eventing.Contracts</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>ad23e073-ad12-4957-9c0d-be991c5b5bf7</parentFolderId>
-      <packageId>7a254ecf-09b1-431f-83b1-ef39009b2028</packageId>
-      <packageName>MinimalHostingModel</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

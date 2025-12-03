@@ -106,10 +106,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>ffb31237-d323-489e-8a27-7c1a6a645c27</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.MassTransitEventBus#063a86e1-37e2-4607-b1e9-7e32b0cf5df1</CorrelationId>
+      <CorrelationId>Intent.Eventing.MassTransit.MassTransitMessageBus#d1b18995-8c2a-4179-bf56-393179e313f5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Intent.Modules.NET.Tests.Infrastructure.Core/Eventing/MassTransitEventBus.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MassTransitEventBus.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Intent.Modules.NET.Tests.Infrastructure.Core/Eventing/MassTransitMessageBus.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MassTransitMessageBus.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -392,7 +392,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>273da6a1-ce49-4206-bf06-980fb89ab071</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventHandler#b20e9df4-1f8d-4297-bc0c-944d873f93e8</CorrelationId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventHandler#b20e9df4-1f8d-4297-bc0c-944d873f93e8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/IntegrationEvents/EventHandlers/CustomerCreatedIEHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CustomerCreatedIEHandler.cs</ProjectRelativeFilePath>

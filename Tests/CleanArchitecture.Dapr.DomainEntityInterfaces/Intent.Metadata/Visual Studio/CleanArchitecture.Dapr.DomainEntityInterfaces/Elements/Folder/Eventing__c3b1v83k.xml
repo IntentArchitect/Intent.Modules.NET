@@ -51,9 +51,9 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="36e26848-d7e8-4197-9fda-93ba3a002fb8" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Dapr.AspNetCore.Pubsub.DaprEventBus</name>
-      <display>Intent.Dapr.AspNetCore.Pubsub.DaprEventBus</display>
+    <childElement id="e681516d-0a5f-480c-8d78-4099d5623f13" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Dapr.AspNetCore.Pubsub.DaprMessageBus</name>
+      <display>Intent.Dapr.AspNetCore.Pubsub.DaprMessageBus</display>
       <externalReference>Intent.Dapr.AspNetCore.Pubsub</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />

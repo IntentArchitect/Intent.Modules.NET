@@ -9,7 +9,7 @@ using Kafka.Producer.Eventing.Messages;
 using MediatR;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Eventing.Kafka.IntegrationEventHandler", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Eventing.Contracts.IntegrationEventHandler", Version = "1.0")]
 
 namespace Kafka.Consumer.Application.IntegrationEvents.EventHandlers.Invoices
 {

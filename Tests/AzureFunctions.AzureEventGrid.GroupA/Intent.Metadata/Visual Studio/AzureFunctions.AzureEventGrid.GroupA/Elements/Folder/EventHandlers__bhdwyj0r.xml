@@ -21,16 +21,14 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="887767d6-80ec-4be5-92d9-695524f6a5b4" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Eventing.AzureEventGrid.IntegrationEventHandler</name>
-      <display>Intent.Eventing.AzureEventGrid.IntegrationEventHandler</display>
-      <externalReference>Intent.Eventing.AzureEventGrid</externalReference>
+    <childElement id="ffdd4b86-f09d-4b27-8954-4e50cbc5828c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Contracts.IntegrationEventHandler</name>
+      <display>Intent.Eventing.Contracts.IntegrationEventHandler</display>
+      <externalReference>Intent.Eventing.Contracts</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>e70be397-a29d-4314-af81-b33c50809690</parentFolderId>
-      <packageId>60a22b78-005c-44d9-9a7c-286afa665554</packageId>
-      <packageName>AzureFunctions.AzureEventGrid.GroupA</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
