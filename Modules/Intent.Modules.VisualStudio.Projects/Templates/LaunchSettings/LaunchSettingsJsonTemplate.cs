@@ -304,6 +304,26 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
                 }
             }
 
+            foreach (var profile in launchSettings.Profiles.Values)
+            {
+                if (!string.IsNullOrWhiteSpace(_defaultLaunchUrlPath) && !profile.LaunchUrl.Contains(_defaultLaunchUrlPath))
+                {
+                    string newPath = _defaultLaunchUrlPath;
+                    if (!newPath.StartsWith("/"))
+                        newPath = "/" + newPath;
+
+                    var uri = new Uri(profile.LaunchUrl);
+
+                    // Build the new URL with the same scheme, host, and port
+                    var builder = new UriBuilder(uri)
+                    {
+                        Path = newPath,
+                        Query = string.Empty // clear any query params if present
+                    };
+                    profile.LaunchUrl = builder.Uri.ToString();
+                }
+            }
+
             if (IsMicrosoftNETSdkWorker())
             {
                 // In case has not been set through an event, sets this be default.
