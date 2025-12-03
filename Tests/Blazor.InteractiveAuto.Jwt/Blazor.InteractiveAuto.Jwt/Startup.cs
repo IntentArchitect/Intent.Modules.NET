@@ -43,7 +43,8 @@ namespace Blazor.InteractiveAuto.Jwt
                                     }).AddCookie();
 
             services.AddRazorComponents()
-                .AddInteractiveWebAssemblyComponents();
+                .AddInteractiveWebAssemblyComponents()
+                .AddInteractiveServerComponents();
 
             services.AddMudServices();
         }
@@ -73,6 +74,7 @@ namespace Blazor.InteractiveAuto.Jwt
             {
                 endpoints.MapRazorComponents<App>()
                     .AddInteractiveWebAssemblyRenderMode()
+                    .AddInteractiveServerRenderMode()
                     .AddAdditionalAssemblies(typeof(Client._Imports).Assembly);
             });
         }

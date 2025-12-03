@@ -54,7 +54,8 @@ namespace Blazor.InteractiveAuto.AspNetCoreIdentity
             services.AddSingleton<IEmailSender<ApplicationUser>, IdentityNoOpEmailSender>();
 
             services.AddRazorComponents()
-                .AddInteractiveWebAssemblyComponents();
+                .AddInteractiveWebAssemblyComponents()
+                .AddInteractiveServerComponents();
 
             services.AddMudServices();
         }
@@ -84,6 +85,7 @@ namespace Blazor.InteractiveAuto.AspNetCoreIdentity
             {
                 endpoints.MapRazorComponents<App>()
                     .AddInteractiveWebAssemblyRenderMode()
+                    .AddInteractiveServerRenderMode()
                     .AddAdditionalAssemblies(typeof(Client._Imports).Assembly);
             });
         }
