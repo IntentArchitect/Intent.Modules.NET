@@ -6,6 +6,7 @@ using Intent.Metadata.Models;
 using Intent.Modelers.Eventing.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.EventInteractions;
+using Intent.Modules.AzureFunctions.AzureServiceBus.Templates;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
 using Intent.Modules.Eventing.Contracts.Templates;
@@ -13,7 +14,6 @@ using Intent.Modules.Integration.IaC.Shared;
 using Intent.Modules.Integration.IaC.Shared.AzureServiceBus;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using Intent.Modules.AzureFunctions.AzureServiceBus.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.FilePerModel", Version = "1.0")]

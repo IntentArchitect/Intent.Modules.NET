@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Aws.Lambda.Functions.Sqs</id>
   <version>1.1.0-pre.1</version>
@@ -29,11 +29,11 @@
     <dependency id="Intent.Common.CSharp" version="3.9.6" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Common.UnitOfWork" version="1.0.0" />
+    <dependency id="Intent.Eventing.Contracts" version="6.1.0-pre.1" />
     <dependency id="Intent.Modelers.Domain" version="3.12.8" />
     <dependency id="Intent.Modelers.Eventing" version="6.0.2" />
     <dependency id="Intent.Modelers.Services" version="4.0.7" />
     <dependency id="Intent.Modelers.Services.EventInteractions" version="2.0.4" />
-    <dependency id="Intent.Eventing.Contracts" version="6.1.0-pre.1" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
   </dependencies>
   <files>

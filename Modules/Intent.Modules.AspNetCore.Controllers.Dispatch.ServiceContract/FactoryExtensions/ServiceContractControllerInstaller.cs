@@ -224,7 +224,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
                 }
             }, order: -100);
         }
-        
+
         private static string GetMessageBusInterfaceName(IControllerTemplate<IControllerModel> template)
         {
             if (template.TryGetTypeName(TemplateRoles.Application.Eventing.MessageBusInterface, out var typeName))
@@ -233,7 +233,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
             }
 
             // Legacy support
-            if (template.TryGetTypeName(TemplateRoles.Application.Eventing.EventBusInterface, out typeName) )
+            if (template.TryGetTypeName(TemplateRoles.Application.Eventing.EventBusInterface, out typeName))
             {
                 return typeName;
             }

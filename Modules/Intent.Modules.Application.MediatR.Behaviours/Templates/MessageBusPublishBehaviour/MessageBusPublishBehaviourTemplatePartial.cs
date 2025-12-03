@@ -88,7 +88,7 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.MessageBusPubl
             }
 
             // Legacy support
-            if (TryGetTypeName(TemplateRoles.Application.Eventing.EventBusInterface, out typeName) )
+            if (TryGetTypeName(TemplateRoles.Application.Eventing.EventBusInterface, out typeName))
             {
                 return typeName;
             }

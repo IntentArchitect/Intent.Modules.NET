@@ -218,7 +218,7 @@ namespace Intent.Modules.AspNetCore.Grpc.Templates.TraditionalService
         {
             ExecutionContext.EventDispatcher.Publish(new RegisterGrpcService(this));
         }
-        
+
         private bool TryGetMessageBusInterfaceName(out string typeName)
         {
             if (this.TryGetTypeName(TemplateRoles.Application.Eventing.MessageBusInterface, out typeName))
@@ -227,7 +227,7 @@ namespace Intent.Modules.AspNetCore.Grpc.Templates.TraditionalService
             }
 
             // Legacy support
-            if (this.TryGetTypeName(TemplateRoles.Application.Eventing.EventBusInterface, out typeName) )
+            if (this.TryGetTypeName(TemplateRoles.Application.Eventing.EventBusInterface, out typeName))
             {
                 return true;
             }

@@ -88,9 +88,6 @@ namespace Intent.Modules.Aws.Lambda.Functions
             NugetRegistry.Register(MicrosoftExtensionsConfigurationBinderPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 10, >= 0) => new PackageVersion("10.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "10.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration", "10.0.0"),
                         ( >= 9, >= 0) => new PackageVersion("10.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Configuration", "10.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "10.0.0"),
@@ -126,8 +123,6 @@ namespace Intent.Modules.Aws.Lambda.Functions
             NugetRegistry.Register(MicrosoftExtensionsDependencyInjectionPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 10, >= 0) => new PackageVersion("10.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "10.0.0"),
                         ( >= 9, >= 0) => new PackageVersion("10.0.0")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "10.0.0"),
                         ( >= 8, >= 0) => new PackageVersion("10.0.0")
@@ -145,10 +140,6 @@ namespace Intent.Modules.Aws.Lambda.Functions
             NugetRegistry.Register(MicrosoftExtensionsLoggingPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 10, >= 0) => new PackageVersion("10.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "10.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Options", "10.0.0"),
                         ( >= 9, >= 0) => new PackageVersion("10.0.0")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "10.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.0")
