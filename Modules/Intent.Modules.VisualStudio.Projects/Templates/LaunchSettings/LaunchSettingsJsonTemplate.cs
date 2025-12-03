@@ -304,8 +304,16 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
                 }
             }
 
-            foreach (var profile in launchSettings.Profiles.Values)
+            //Ensure the API profile ends in /swagger or /scalar/v1 esp. if you swap modules.
+            // We dont have a way to know which profiles are for WebApI vs which are for the WebApp for example.
+            foreach (var kvp in launchSettings.Profiles)
             {
+                var key = kvp.Key;
+                var profile = kvp.Value;
+                if (!key.EndsWith(".Api"))
+                {
+                    continue;
+                }
                 if (!string.IsNullOrWhiteSpace(_defaultLaunchUrlPath) && !profile.LaunchUrl.Contains(_defaultLaunchUrlPath))
                 {
                     string newPath = _defaultLaunchUrlPath;

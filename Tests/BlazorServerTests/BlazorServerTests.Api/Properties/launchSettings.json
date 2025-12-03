@@ -8,11 +8,11 @@
     }
   },
   "profiles": {
-    "BlazorServerTests.Api": {
+    "BlazorServerTestsApi": {
       "commandName": "Project",
       "launchBrowser": true,
       "applicationUrl": "https://localhost:44349/",
-      "launchUrl": "https://localhost:44349/",
+      "launchUrl": "https://localhost:44349/swagger",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
