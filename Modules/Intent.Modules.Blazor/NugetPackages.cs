@@ -21,11 +21,11 @@ namespace Intent.Modules.Blazor
                 (framework) => (framework.Major, framework.Minor) switch
                     {
                         ( >= 10, >= 0) => new PackageVersion("10.0.0")
-                            .WithNugetDependency("Microsoft.JSInterop.WebAssembly", "10.0.0")
                             .WithNugetDependency("Microsoft.AspNetCore.Components.Web", "10.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Binder", "10.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Json", "10.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Logging", "10.0.0"),
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "10.0.0")
+                            .WithNugetDependency("Microsoft.JSInterop.WebAssembly", "10.0.0"),
                         ( >= 9, >= 0) => new PackageVersion("9.0.11")
                             .WithNugetDependency("Microsoft.AspNetCore.Components.Web", "9.0.11")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Binder", "9.0.11")

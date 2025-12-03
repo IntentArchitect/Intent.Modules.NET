@@ -78,7 +78,7 @@ namespace Intent.Modules.Blazor.FactoryExtensions
                         ApplyAddAuthorizationConfiguration(statements, context);
                         addRazorComponents.AddChainStatement("AddInteractiveWebAssemblyComponents()");
                     }
-                    else if (startup.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveServer() || startup.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveAuto())
+                    if (startup.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveServer() || startup.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveAuto())
                     {
                         addRazorComponents.AddChainStatement("AddInteractiveServerComponents()");
                     }
@@ -148,7 +148,7 @@ namespace Intent.Modules.Blazor.FactoryExtensions
                     {
                         addRazorComponents.AddChainStatement("AddInteractiveWebAssemblyRenderMode()");
                     }
-                    else if (startup.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveServer() || startup.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveAuto())
+                    if (startup.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveServer() || startup.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveAuto())
                     {
                         addRazorComponents.AddChainStatement("AddInteractiveServerRenderMode()");
                     }
