@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.Contracts</id>
   <version>6.1.0-pre.1</version>
@@ -40,7 +40,7 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Application.Eventing.MessageBusInterface</role>
+      <role>Application.Eventing.EventBusInterface, Application.Eventing.MessageBusInterface</role>
       <location>Common/Eventing</location>
     </template>
     <template id="Intent.Eventing.Contracts.IntegrationCommand" externalReference="550e70be-6702-44f9-84c1-841a195b7b36">

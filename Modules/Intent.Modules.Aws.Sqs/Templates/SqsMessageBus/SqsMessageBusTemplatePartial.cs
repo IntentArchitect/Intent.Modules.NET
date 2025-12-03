@@ -99,15 +99,16 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsMessageBus
                         method.AddIfStatement("_messageQueue.Count == 0", fi =>
                         {
                             fi.AddStatement("return;");
+                            fi.SeparatedFromNext();
                         });
 
-                        method.AddStatement("""
+                        method.AddStatements("""
                             var groupedMessages = _messageQueue.GroupBy(entry =>
                             {
                                 var publisherEntry = _lookup[entry.Message.GetType().FullName!];
                                 return publisherEntry.QueueUrl;
                             });
-                            """, stmt => stmt.SeparatedFromPrevious());
+                            """.ConvertToStatements());
 
                         method.AddForEachStatement("group", "groupedMessages", fe =>
                         {

@@ -223,16 +223,16 @@ namespace Intent.Modules.AspNetCore.Grpc.Templates.TraditionalService
 
         private bool TryGetBusVariableName(out string variableName)
         {
-            if (this.TryGetTypeName(TemplateRoles.Application.Eventing.MessageBusInterface, out _))
-            {
-                variableName = "messageBus";
-                return true;
-            }
-
-            // Legacy support
+            // Legacy support first since both interfaces have the MessageBusInterface role assigned
             if (this.TryGetTypeName(TemplateRoles.Application.Eventing.EventBusInterface, out _))
             {
                 variableName = "eventBus";
+                return true;
+            }
+            
+            if (this.TryGetTypeName(TemplateRoles.Application.Eventing.MessageBusInterface, out _))
+            {
+                variableName = "messageBus";
                 return true;
             }
 
@@ -242,13 +242,13 @@ namespace Intent.Modules.AspNetCore.Grpc.Templates.TraditionalService
 
         private bool TryGetMessageBusInterfaceName(out string typeName)
         {
-            if (this.TryGetTypeName(TemplateRoles.Application.Eventing.MessageBusInterface, out typeName))
+            // Legacy support first since both interfaces have the MessageBusInterface role assigned
+            if (this.TryGetTypeName(TemplateRoles.Application.Eventing.EventBusInterface, out typeName))
             {
                 return true;
             }
-
-            // Legacy support
-            if (this.TryGetTypeName(TemplateRoles.Application.Eventing.EventBusInterface, out typeName))
+            
+            if (this.TryGetTypeName(TemplateRoles.Application.Eventing.MessageBusInterface, out typeName))
             {
                 return true;
             }

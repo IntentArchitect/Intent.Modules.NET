@@ -25,16 +25,18 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.MessageBusPubl
         public MessageBusPublishBehaviourTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
-                .AddClass($"MessageBusPublishBehaviour", @class =>
+                .AddClass("MessageBusPublishBehaviour", @class =>
                 {
                     @class.AddGenericParameter("TRequest", out var tRequest);
                     @class.AddGenericParameter("TResponse", out var tResponse);
                     @class.AddGenericTypeConstraint(tRequest, c => c.AddType("notnull"));
                     @class.ImplementsInterface($"MediatR.IPipelineBehavior<{tRequest}, {tResponse}>");
-
+            
+                    var busVariableName = GetBusVariableName(this);
+                    
                     @class.AddConstructor(ctor =>
                     {
-                        ctor.AddParameter(GetMessageBusInterfaceName(), "messageBus", param =>
+                        ctor.AddParameter(GetMessageBusInterfaceName(this), busVariableName, param =>
                         {
                             param.IntroduceReadonlyField();
                         });
@@ -48,7 +50,7 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.MessageBusPubl
                         method.AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken");
 
                         method.AddStatement($"var response = await next({GetCancellationTokenArgument()});", cfg => cfg.SeparatedFromNext());
-                        method.AddStatement("await _messageBus.FlushAllAsync(cancellationToken);", cfg => cfg.SeparatedFromNext());
+                        method.AddStatement($"await _{busVariableName}.FlushAllAsync(cancellationToken);", cfg => cfg.SeparatedFromNext());
                         method.AddReturn("response");
                     });
                 });
@@ -60,10 +62,7 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.MessageBusPubl
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
         {
-            return new CSharpFileConfig(
-                className: $"MessageBusPublishBehaviour",
-                @namespace: $"{this.GetNamespace()}",
-                relativeLocation: $"{this.GetFolderPath()}");
+            return CSharpFile.GetConfig();
         }
 
         private string GetCancellationTokenArgument()
@@ -76,19 +75,36 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.MessageBusPubl
 
         public override bool CanRunTemplate()
         {
-            return TryGetTypeName(TemplateRoles.Application.Eventing.MessageBusInterface, out _) ||
-                   TryGetTypeName(TemplateRoles.Application.Eventing.EventBusInterface, out _);
+            return TryGetTypeName(TemplateRoles.Application.Eventing.EventBusInterface, out _) ||
+                   TryGetTypeName(TemplateRoles.Application.Eventing.MessageBusInterface, out _);
         }
 
-        private string GetMessageBusInterfaceName()
+        private static string GetBusVariableName(IIntentTemplate template)
         {
-            if (TryGetTypeName(TemplateRoles.Application.Eventing.MessageBusInterface, out var typeName))
+            // Legacy support first since both interfaces have the MessageBusInterface role assigned
+            if (template.TryGetTypeName(TemplateRoles.Application.Eventing.EventBusInterface, out _))
+            {
+                return "eventBus";
+            }
+            
+            if (template.TryGetTypeName(TemplateRoles.Application.Eventing.MessageBusInterface, out _))
+            {
+                return "messageBus";
+            }
+
+            throw new InvalidOperationException(
+                $"Could not find Message Bus interface with template role '{TemplateRoles.Application.Eventing.MessageBusInterface}' (or older legacy template with role '{TemplateRoles.Application.Eventing.EventBusInterface}').");
+        }
+        
+        private static string GetMessageBusInterfaceName(IIntentTemplate template)
+        {
+            // Legacy support first since both interfaces have the MessageBusInterface role assigned
+            if (template.TryGetTypeName(TemplateRoles.Application.Eventing.EventBusInterface, out var typeName))
             {
                 return typeName;
             }
-
-            // Legacy support
-            if (TryGetTypeName(TemplateRoles.Application.Eventing.EventBusInterface, out typeName))
+            
+            if (template.TryGetTypeName(TemplateRoles.Application.Eventing.MessageBusInterface, out typeName))
             {
                 return typeName;
             }

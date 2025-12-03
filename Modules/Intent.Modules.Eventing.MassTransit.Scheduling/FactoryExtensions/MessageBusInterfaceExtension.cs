@@ -32,7 +32,7 @@ namespace Intent.Modules.Eventing.MassTransit.Scheduling.FactoryExtensions
                 {
                     var iface = file.Interfaces.First();
                     // Publish with DateTime scheduled
-                    iface.AddMethod("void", "Publish", method =>
+                    iface.AddMethod("void", "SchedulePublish", method =>
                     {
                         method.WithComments([
                             "/// <summary>",
@@ -53,7 +53,7 @@ namespace Intent.Modules.Eventing.MassTransit.Scheduling.FactoryExtensions
                     });
                     
                     // Publish with TimeSpan delay
-                    iface.AddMethod("void", "Publish", method =>
+                    iface.AddMethod("void", "SchedulePublish", method =>
                     {
                         method.WithComments([
                             "/// <summary>",
@@ -85,7 +85,7 @@ namespace Intent.Modules.Eventing.MassTransit.Scheduling.FactoryExtensions
                     var @class = file.Classes.First();
                     
                     // Publish with DateTime scheduled
-                    @class.AddMethod("void", "Publish", method =>
+                    @class.AddMethod("void", "SchedulePublish", method =>
                     {
                         method.AddGenericParameter("TMessage", out var TMessage)
                             .AddGenericTypeConstraint(TMessage, c => c.AddType("class"))
@@ -109,7 +109,7 @@ namespace Intent.Modules.Eventing.MassTransit.Scheduling.FactoryExtensions
                     });
                     
                     // Publish with TimeSpan delay
-                    @class.AddMethod("void", "Publish", method =>
+                    @class.AddMethod("void", "SchedulePublish", method =>
                     {
                         method.AddGenericParameter("TMessage", out var TMessage)
                             .AddGenericTypeConstraint(TMessage, c => c.AddType("class"))
@@ -143,7 +143,7 @@ namespace Intent.Modules.Eventing.MassTransit.Scheduling.FactoryExtensions
                     var @class = file.Classes.First();
                     
                     // Publish with DateTime scheduled
-                    @class.AddMethod("void", "Publish", method =>
+                    @class.AddMethod("void", "SchedulePublish", method =>
                     {
                         method.AddGenericParameter("TMessage", out var TMessage)
                             .AddGenericTypeConstraint(TMessage, c => c.AddType("class"))
@@ -154,7 +154,7 @@ namespace Intent.Modules.Eventing.MassTransit.Scheduling.FactoryExtensions
                     });
                     
                     // Publish with TimeSpan delay
-                    @class.AddMethod("void", "Publish", method =>
+                    @class.AddMethod("void", "SchedulePublish", method =>
                     {
                         method.AddGenericParameter("TMessage", out var TMessage)
                             .AddGenericTypeConstraint(TMessage, c => c.AddType("class"))

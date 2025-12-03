@@ -28,7 +28,7 @@ namespace Intent.Modules.Eventing.Contracts.Templates.EventBusInterface
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public void DoRegistration(ITemplateInstanceRegistry registry, IApplication applicationManager)
         {
-            var useLegacy = Settings.ModuleSettingsExtensions.GetEventingSettings(applicationManager.Settings).UseLegacyInterfaceName();
+            var useLegacy = Settings.ModuleSettingsExtensions.GetEventingSettings(applicationManager.Settings)?.UseLegacyInterfaceName() ?? false;
             if (useLegacy)
             {
                 registry.RegisterTemplate(TemplateId, project => new EventBusInterfaceTemplate(project, null));

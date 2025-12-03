@@ -64,6 +64,8 @@ namespace Intent.Modules.Eventing.MassTransit.FactoryExtensions
                 {
                     var @class = file.Classes.First();
                     
+                    @class.AddField("string", "AddressKey", f => f.Private().Constant(@"""address"""));
+                    
                     // Send with Uri address
                     @class.AddMethod("void", "Send", method =>
                     {
@@ -78,7 +80,7 @@ namespace Intent.Modules.Eventing.MassTransit.FactoryExtensions
                                 """
                                 Send<TMessage>(message, new Dictionary<string, object>
                                 {
-                                    { "address", address.ToString() }
+                                    { AddressKey, address.ToString() }
                                 });
                                 """.ConvertToStatements());
                         }

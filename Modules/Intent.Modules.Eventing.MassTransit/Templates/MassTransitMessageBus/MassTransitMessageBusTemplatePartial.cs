@@ -39,7 +39,6 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitMessageBus
                 .AddClass("MassTransitMessageBus", @class =>
                 {
                     @class.ImplementsInterface(this.GetBusInterfaceName());
-                    @class.AddField("string", "AddressKey", f => f.Private().Constant(@"""address"""));
 
                     var listFieldDefault = outputTarget.GetProject().GetLanguageVersion().Major < 12
                         ? new CSharpStatement("new List<MessageEntry>()")

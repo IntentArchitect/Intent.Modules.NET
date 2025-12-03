@@ -231,15 +231,15 @@ namespace Intent.Modules.Aws.Lambda.Functions.Dispatch.Services.FactoryExtension
 
         private static string GetBusVariableName(IIntentTemplate template)
         {
-            if (template.TryGetTypeName(TemplateRoles.Application.Eventing.MessageBusInterface, out _))
-            {
-                return "messageBus";
-            }
-
-            // Legacy support
+            // Legacy support first since both interfaces have the MessageBusInterface role assigned
             if (template.TryGetTypeName(TemplateRoles.Application.Eventing.EventBusInterface, out _))
             {
                 return "eventBus";
+            }
+            
+            if (template.TryGetTypeName(TemplateRoles.Application.Eventing.MessageBusInterface, out _))
+            {
+                return "messageBus";
             }
 
             throw new InvalidOperationException(
@@ -248,13 +248,13 @@ namespace Intent.Modules.Aws.Lambda.Functions.Dispatch.Services.FactoryExtension
         
         private static string GetMessageBusInterfaceName(LambdaFunctionClassTemplate template)
         {
-            if (template.TryGetTypeName(TemplateRoles.Application.Eventing.MessageBusInterface, out var typeName))
+            // Legacy support first since both interfaces have the MessageBusInterface role assigned
+            if (template.TryGetTypeName(TemplateRoles.Application.Eventing.EventBusInterface, out var typeName))
             {
-                return typeName; // Newer role
+                return typeName;
             }
-
-            // Legacy support
-            if (template.TryGetTypeName(TemplateRoles.Application.Eventing.EventBusInterface, out typeName))
+            
+            if (template.TryGetTypeName(TemplateRoles.Application.Eventing.MessageBusInterface, out typeName))
             {
                 return typeName;
             }

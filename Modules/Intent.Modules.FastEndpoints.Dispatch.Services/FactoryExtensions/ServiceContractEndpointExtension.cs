@@ -193,35 +193,36 @@ namespace Intent.Modules.FastEndpoints.Dispatch.Services.FactoryExtensions
         
         private static string GetBusVariableName(IIntentTemplate template)
         {
+            // Legacy support first since both interfaces have the MessageBusInterface role assigned
+            if (template.TryGetTypeName(TemplateRoles.Application.Eventing.EventBusInterface, out _))
+            {
+                return "eventBus";
+            }
+            
             if (template.TryGetTypeName(TemplateRoles.Application.Eventing.MessageBusInterface, out _))
             {
                 return "messageBus";
             }
 
-            // Legacy support
-            if (template.TryGetTypeName(TemplateRoles.Application.Eventing.EventBusInterface, out _))
+            throw new InvalidOperationException(
+                $"Could not find Message Bus interface with template role '{TemplateRoles.Application.Eventing.MessageBusInterface}' (or older legacy template with role '{TemplateRoles.Application.Eventing.EventBusInterface}').");
+        }
+        
+        private static string GetMessageBusInterfaceName(IIntentTemplate template)
+        {
+            // Legacy support first since both interfaces have the MessageBusInterface role assigned
+            if (template.TryGetTypeName(TemplateRoles.Application.Eventing.EventBusInterface, out var typeName))
             {
-                return "eventBus";
+                return typeName;
+            }
+            
+            if (template.TryGetTypeName(TemplateRoles.Application.Eventing.MessageBusInterface, out typeName))
+            {
+                return typeName;
             }
 
             throw new InvalidOperationException(
                 $"Could not find Message Bus interface with template role '{TemplateRoles.Application.Eventing.MessageBusInterface}' (or older legacy template with role '{TemplateRoles.Application.Eventing.EventBusInterface}').");
-        }
-
-        private static string GetMessageBusInterfaceName(EndpointTemplate endpointTemplate)
-        {
-            if (endpointTemplate.TryGetTypeName(TemplateRoles.Application.Eventing.MessageBusInterface, out var typeName))
-            {
-                return typeName; // New role
-            }
-
-            if (endpointTemplate.TryGetTypeName(TemplateRoles.Application.Eventing.EventBusInterface, out typeName))
-            {
-                return typeName; // Legacy fallback
-            }
-
-            throw new InvalidOperationException(
-                $"Could not find Message Bus interface with template role '{TemplateRoles.Application.Eventing.MessageBusInterface}' (or legacy role '{TemplateRoles.Application.Eventing.EventBusInterface}').");
         }
     }
 }

@@ -368,26 +368,44 @@ namespace Intent.Modules.AspNetCore.Mvc.FactoryExtensions
             {
                 var @class = file.Classes.First();
                 var ctor = @class.Constructors.First();
-                ctor.AddParameter(messageBusInterfaceName, "messageBus",
+                var busVariableName = GetBusVariableName(template);
+                ctor.AddParameter(messageBusInterfaceName, busVariableName,
                     p => { p.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException()); });
 
                 foreach (var method in @class.Methods.Where(x => x.Attributes.All(a => !a.ToString()!.StartsWith("[HttpGet"))))
                 {
                     method.Statements.LastOrDefault(x => x.ToString()!.Trim().StartsWith("return "))?
-                        .InsertAbove("await _messageBus.FlushAllAsync(cancellationToken);", stmt => stmt.AddMetadata("eventbus-flush", true));
+                        .InsertAbove($"await _{busVariableName}.FlushAllAsync(cancellationToken);", stmt => stmt.AddMetadata("eventbus-flush", true));
                 }
             }, order: -100);
         }
         
+        private static string GetBusVariableName(IIntentTemplate template)
+        {
+            // Legacy support first since both interfaces have the MessageBusInterface role assigned
+            if (template.TryGetTypeName(TemplateRoles.Application.Eventing.EventBusInterface, out _))
+            {
+                return "eventBus";
+            }
+            
+            if (template.TryGetTypeName(TemplateRoles.Application.Eventing.MessageBusInterface, out _))
+            {
+                return "messageBus";
+            }
+
+            throw new InvalidOperationException(
+                $"Could not find Message Bus interface with template role '{TemplateRoles.Application.Eventing.MessageBusInterface}' (or older legacy template with role '{TemplateRoles.Application.Eventing.EventBusInterface}').");
+        }
+        
         private static bool TryGetMessageBusInterfaceName(IIntentTemplate template, out string typeName)
         {
-            if (template.TryGetTypeName(TemplateRoles.Application.Eventing.MessageBusInterface, out typeName))
+            // Legacy support first since both interfaces have the MessageBusInterface role assigned
+            if (template.TryGetTypeName(TemplateRoles.Application.Eventing.EventBusInterface, out typeName))
             {
                 return true;
             }
-
-            // Legacy support
-            if (template.TryGetTypeName(TemplateRoles.Application.Eventing.EventBusInterface, out typeName))
+            
+            if (template.TryGetTypeName(TemplateRoles.Application.Eventing.MessageBusInterface, out typeName))
             {
                 return true;
             }
