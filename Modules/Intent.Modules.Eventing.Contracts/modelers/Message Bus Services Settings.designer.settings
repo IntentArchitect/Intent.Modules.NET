@@ -8,9 +8,23 @@
   <elementSettings />
   <elementExtensions>
     <elementExtension type="Integration Command" typeId="7f01ca8e-0e3c-4735-ae23-a45169f71625">
-      <validateFunctionOverride>const providers = lookupTypesOf("Message Bus Provider", true);
+      <validateFunctionOverride>function distinctBy(array, key) {
+  const seen = new Set();
+  return array.filter(item =&gt; {
+    const value = item[key];
+    if (seen.has(value)) {
+      return false; // Already seen, filter out
+    }
+    seen.add(value);
+    return true; // New value, keep it
+  });
+}
 
-if (providers.length &lt;= 1) {
+const providers = lookupTypesOf("Message Bus Provider", true);
+
+const distinctProviders = distinctBy(providers, "name");
+
+if (distinctProviders.length &lt;= 1) {
     return "";
 }
 
@@ -18,7 +32,7 @@ let allowedStereotypeIds = [
     "2c0b73e9-b37a-4f6a-b08e-69eda4e2fdcf" // Message Bus Stereotype
 ];
 
-providers.forEach(provider =&gt; {
+distinctProviders.forEach(provider =&gt; {
     const settings = provider.getStereotype("Message Bus Provider Settings");
     if (!settings) return;
 
@@ -68,9 +82,23 @@ return "";</validateFunctionOverride>
       <mappingSettings />
     </elementExtension>
     <elementExtension type="Message" typeId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">
-      <validateFunctionOverride>const providers = lookupTypesOf("Message Bus Provider", true);
+      <validateFunctionOverride>function distinctBy(array, key) {
+  const seen = new Set();
+  return array.filter(item =&gt; {
+    const value = item[key];
+    if (seen.has(value)) {
+      return false; // Already seen, filter out
+    }
+    seen.add(value);
+    return true; // New value, keep it
+  });
+}
 
-if (providers.length &lt;= 1) {
+const providers = lookupTypesOf("Message Bus Provider", true);
+
+const distinctProviders = distinctBy(providers, "name");
+
+if (distinctProviders.length &lt;= 1) {
     return "";
 }
 
@@ -78,7 +106,7 @@ let allowedStereotypeIds = [
     "2c0b73e9-b37a-4f6a-b08e-69eda4e2fdcf" // Message Bus Stereotype
 ];
 
-providers.forEach(provider =&gt; {
+distinctProviders.forEach(provider =&gt; {
     const settings = provider.getStereotype("Message Bus Provider Settings");
     if (!settings) return;
 

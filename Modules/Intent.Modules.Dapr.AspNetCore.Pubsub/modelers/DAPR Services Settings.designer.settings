@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings version="3.1.1">
+  <id>07b30d50-f718-4434-b68b-fa01b14ed565</id>
+  <name>DAPR Services Settings</name>
+  <designerReferences />
+  <packageSettings />
+  <packageExtensions />
+  <elementSettings />
+  <elementExtensions>
+    <elementExtension type="Message" typeId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">
+      <mappingSettings />
+      <macros>
+        <macro trigger="on-created">
+          <script>function distinctBy(array, key) {
+  const seen = new Set();
+  return array.filter(item =&gt; {
+    const value = item[key];
+    if (seen.has(value)) {
+      return false; // Already seen, filter out
+    }
+    seen.add(value);
+    return true; // New value, keep it
+  });
+}
+
+const providers = lookupTypesOf("Message Bus Provider", true);
+
+const distinctProviders = distinctBy(providers, "name");
+
+if (distinctProviders.length &gt; 1) {
+    return;
+}
+
+const DaprStereotypeId = "ec96e452-9084-49bb-a883-aa42eb327fe7";
+
+element.addStereotype(DaprStereotypeId);</script>
+        </macro>
+      </macros>
+    </elementExtension>
+  </elementExtensions>
+  <associationSettings />
+  <associationExtensions />
+  <mappingSettings />
+  <mappableElementPackages />
+  <mappableElementPackageExtensions />
+  <scripts />
+</settings>

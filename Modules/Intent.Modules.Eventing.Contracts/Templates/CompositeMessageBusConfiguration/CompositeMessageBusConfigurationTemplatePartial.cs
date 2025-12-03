@@ -7,6 +7,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -42,9 +43,14 @@ namespace Intent.Modules.Eventing.Contracts.Templates.CompositeMessageBusConfigu
                     var method = file.Classes.First().FindMethod("ConfigureCompositeMessageBus")!;
                     method.AddStatement($"var registry = new {this.GetMessageBrokerRegistryName()}();", s => s.SeparatedFromNext());
                     
-                    var eventBusConfigTemplates = ExecutionContext.FindTemplateInstances<ICSharpFileBuilderTemplate>("Eventing.MessageBusConfiguration").ToList();
+                    var eventBusConfigTemplates = ExecutionContext.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateRoles.Application.Eventing.MessageBusConfiguration).ToList();
                     foreach (var template in eventBusConfigTemplates)
                     {
+                        if (!template.CanRunTemplate())
+                        {
+                            continue;
+                        }
+                        
                         var configMethodName = template.CSharpFile.Classes.First().FindMethod(m => m.Name.StartsWith("Add") && m.Name.EndsWith("Configuration"))?.Name;
                         if (configMethodName == null)
                         {
