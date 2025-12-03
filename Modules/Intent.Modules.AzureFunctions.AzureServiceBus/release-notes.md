@@ -1,3 +1,7 @@
+### Version 1.1.0
+
+- Improvement: Azure Functions Azure Service Bus handlers now support composite message bus configurations, allowing multiple message brokers to coexist in the same application.
+
 ### Version 1.0.9
 
 - Improvement: Updated dependencies due to changes made in `Intent.Eventing.AzureServiceBus`.

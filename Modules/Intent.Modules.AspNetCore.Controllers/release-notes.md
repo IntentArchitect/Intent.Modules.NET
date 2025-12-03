@@ -1,8 +1,12 @@
+### Version 7.1.8
+
+- Improvement: Updated dependencies to latest versions.
+
 ### Version 7.1.7
 
 - Improvement: Updated module documentation to use centralized documentation site.
 
-﻿### Version 7.1.6
+### Version 7.1.6
 
 - Improvement: Internal refactoring.
 - Improvement: Added support for having multiple ASP.NET Core projects each with their own controllers, startup files, etc, in the same application.

@@ -1,3 +1,7 @@
+### Version 1.1.0
+
+- Improvement: Updated to support composite message bus architecture and `IMessageBus` interface.
+
 ### Version 1.0.5
 
 - Improvement: Updated module documentation to use centralized documentation site.

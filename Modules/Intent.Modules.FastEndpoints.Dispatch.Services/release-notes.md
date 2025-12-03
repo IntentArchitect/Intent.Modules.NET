@@ -1,3 +1,7 @@
+### Version 1.0.6
+
+- Improvement: Updated to use `IMessageBus` instead of `IEventBus` (variable name changed from `eventBus` to `messageBus`). Maintains backward compatibility by supporting both `IEventBus` and `IMessageBus` interfaces.
+
 ### Version 1.0.5
 
 - Improvement: Updated Shared Module.
