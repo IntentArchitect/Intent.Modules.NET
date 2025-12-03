@@ -1,3 +1,7 @@
+### Version 1.0.8
+
+- Fixed: Fixed an container and host configuration for "Auto".
+
 ### Version 1.0.7
 
 - Improvement: Updated NuGet package versions.

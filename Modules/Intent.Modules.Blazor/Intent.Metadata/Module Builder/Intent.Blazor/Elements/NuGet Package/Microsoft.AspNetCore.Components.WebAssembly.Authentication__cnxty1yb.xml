@@ -24,6 +24,59 @@
   </stereotypes>
   <metadata />
   <childElements>
+    <childElement id="d267af0e-0c5e-48af-8388-4030aceb0f95" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>10.0.0</name>
+      <display>10.0.0 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>e800eea8-084d-4ca9-b215-a4806d356e51</parentFolderId>
+      <packageId>3ac5ff1e-5fc9-46a2-95e5-2d9ca579e484</packageId>
+      <packageName>Intent.Blazor</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v10.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="4d78ec71-4da0-439b-b599-14dfee22edc9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.AspNetCore.Components.Authorization</name>
+          <display>Microsoft.AspNetCore.Components.Authorization (10.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d267af0e-0c5e-48af-8388-4030aceb0f95</parentFolderId>
+          <packageId>3ac5ff1e-5fc9-46a2-95e5-2d9ca579e484</packageId>
+          <packageName>Intent.Blazor</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="1de924f6-0d4d-4af2-b789-c27e81f96a91" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.AspNetCore.Components.Web</name>
+          <display>Microsoft.AspNetCore.Components.Web (10.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d267af0e-0c5e-48af-8388-4030aceb0f95</parentFolderId>
+          <packageId>3ac5ff1e-5fc9-46a2-95e5-2d9ca579e484</packageId>
+          <packageName>Intent.Blazor</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
     <childElement id="cc9cbce8-55e1-4309-99a2-99dffb0941bd" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>3.2.1</name>
       <display>3.2.1 ( &gt;= .NETStandard,Version=v2.1 )</display>
@@ -185,7 +238,7 @@
     </childElement>
     <childElement id="66557075-ee01-4afc-9499-a8aa4621befd" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>8.0.22</name>
-      <display>8.0.21 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <display>8.0.22 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -208,22 +261,28 @@
       <childElements>
         <childElement id="9bb919c8-03e9-4d98-affb-116a36417686" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Components.Authorization</name>
+          <display>Microsoft.AspNetCore.Components.Authorization (8.0.22)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.22</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>66557075-ee01-4afc-9499-a8aa4621befd</parentFolderId>
+          <packageId>3ac5ff1e-5fc9-46a2-95e5-2d9ca579e484</packageId>
+          <packageName>Intent.Blazor</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="c39cd39d-81fe-4d10-9ad4-668909c85dca" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Components.Web</name>
+          <display>Microsoft.AspNetCore.Components.Web (8.0.22)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.22</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>66557075-ee01-4afc-9499-a8aa4621befd</parentFolderId>
+          <packageId>3ac5ff1e-5fc9-46a2-95e5-2d9ca579e484</packageId>
+          <packageName>Intent.Blazor</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -232,7 +291,7 @@
     </childElement>
     <childElement id="a3ae2356-2af3-4c98-8479-de2494a9ae48" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>9.0.11</name>
-      <display>9.0.10 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <display>9.0.11 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -255,65 +314,28 @@
       <childElements>
         <childElement id="0106d329-ed7e-42b8-9353-b34f64fa9dfc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Components.Authorization</name>
+          <display>Microsoft.AspNetCore.Components.Authorization (9.0.11)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.11</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a3ae2356-2af3-4c98-8479-de2494a9ae48</parentFolderId>
+          <packageId>3ac5ff1e-5fc9-46a2-95e5-2d9ca579e484</packageId>
+          <packageName>Intent.Blazor</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="4defda68-639d-4e3d-a975-0a579cc7e31b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Components.Web</name>
+          <display>Microsoft.AspNetCore.Components.Web (9.0.11)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.11</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a3ae2356-2af3-4c98-8479-de2494a9ae48</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
-    <childElement id="d267af0e-0c5e-48af-8388-4030aceb0f95" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.0</name>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>e800eea8-084d-4ca9-b215-a4806d356e51</parentFolderId>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>false</addedByDefault>
-          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
-          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
-          <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v10.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="4d78ec71-4da0-439b-b599-14dfee22edc9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.AspNetCore.Components.Authorization</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>d267af0e-0c5e-48af-8388-4030aceb0f95</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="1de924f6-0d4d-4af2-b789-c27e81f96a91" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.AspNetCore.Components.Web</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>d267af0e-0c5e-48af-8388-4030aceb0f95</parentFolderId>
+          <packageId>3ac5ff1e-5fc9-46a2-95e5-2d9ca579e484</packageId>
+          <packageName>Intent.Blazor</packageName>
           <stereotypes />
           <metadata />
           <childElements />

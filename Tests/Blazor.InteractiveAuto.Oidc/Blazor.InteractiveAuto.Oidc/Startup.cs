@@ -45,7 +45,8 @@ namespace Blazor.InteractiveAuto.Oidc
                                     }).AddCookie();
 
             services.AddRazorComponents()
-                .AddInteractiveWebAssemblyComponents();
+                .AddInteractiveWebAssemblyComponents()
+                .AddInteractiveServerComponents();
 
             services.AddMudServices();
         }
@@ -75,6 +76,7 @@ namespace Blazor.InteractiveAuto.Oidc
             {
                 endpoints.MapRazorComponents<App>()
                     .AddInteractiveWebAssemblyRenderMode()
+                    .AddInteractiveServerRenderMode()
                     .AddAdditionalAssemblies(typeof(Client._Imports).Assembly);
             });
         }
