@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="424987a5-8420-4bc8-b1b8-98f389eb591d" type="Message" typeId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">
+  <name>MsgAzEvtGrid</name>
+  <display>MsgAzEvtGrid</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>e6528887-f142-4ec9-8063-9ada970e8855</parentFolderId>
+  <packageId>e6528887-f142-4ec9-8063-9ada970e8855</packageId>
+  <packageName>CompositeMessageBus.Eventing.Messages</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="dca28d4b-c277-4fb3-afe0-17f35ea8b59b" name="Azure Event Grid">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Eventing.AzureEventGrid</definitionPackageName>
+      <definitionPackageId>484120b4-6231-4c94-aa60-61efe5c783a7</definitionPackageId>
+      <properties>
+        <property name="5f7b74d7-5fea-4618-b30d-5a3ee30e15e8" display="Topic Name" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="08ba0ddf-ae31-4421-86a8-b04cfa7abd80" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>Message</name>
+      <display>Message: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="7ce0dc00-6902-4e7f-947b-e532c3c46994">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>424987a5-8420-4bc8-b1b8-98f389eb591d</parentFolderId>
+      <packageId>e6528887-f142-4ec9-8063-9ada970e8855</packageId>
+      <packageName>CompositeMessageBus.Eventing.Messages</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

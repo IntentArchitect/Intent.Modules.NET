@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="41e023cf-419e-4637-9e59-9a0d3385db8d" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>dapr</name>
+  <display>dapr</display>
+  <externalReference>52897f11-e9e6-4b4b-a769-a0853e5bf7f2</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>eab350f1-2d8d-496c-96cf-03b1a661430c</parentFolderId>
+  <packageId>8b009537-c6e5-471f-9eeb-b45e87fa0c89</packageId>
+  <packageName>CompositeMessageBus</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="ffaa5ab8-cecd-46a8-9588-d4ae0692247e" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>Dapr</name>
+      <display>Dapr</display>
+      <externalReference>a47ae6b9-d22d-4fb1-bf8b-7c4793acffcf</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>41e023cf-419e-4637-9e59-9a0d3385db8d</parentFolderId>
+      <packageId>8b009537-c6e5-471f-9eeb-b45e87fa0c89</packageId>
+      <packageName>CompositeMessageBus</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="a23c7901-31a5-4cbf-b8bf-1be128977e6d" name="Role Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+          <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+          <properties>
+            <property name="8d79a350-96f1-4d50-bb0a-f65a5c53ec62" display="Create Sub-Folders" value="true" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="b30b978a-c555-4983-89dd-f7a0c2107155" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Modules.Dapr.AspNetCore.Templates.StaticContentTemplateRegistrations.DaprFilesStaticContentTemplateRegistration</name>
+      <display>Intent.Modules.Dapr.AspNetCore.Templates.StaticContentTemplateRegistrations.DaprFilesStaticContentTemplateRegistration</display>
+      <externalReference>Intent.Dapr.AspNetCore</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>41e023cf-419e-4637-9e59-9a0d3385db8d</parentFolderId>
+      <packageId>8b009537-c6e5-471f-9eeb-b45e87fa0c89</packageId>
+      <packageName>CompositeMessageBus</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+          <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

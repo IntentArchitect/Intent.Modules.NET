@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="7e6b32b8-df4d-42ac-a08b-65c431ebd5a0">
+  <sourceEnd id="c62ec4c2-b47b-4c64-9c3c-10a1aac7c326" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : CompositeMessageBus.Services.Test5Command</display>
+    <order>0</order>
+    <typeReference id="ee12b1d9-17ba-493a-9fb4-c414096114f8">
+      <typeId>51261088-eb81-4ee5-9412-955439d3b27e</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CompositeMessageBus.Services</typePackageName>
+      <typePackageId>4dc00151-140b-48c6-a29c-ce3b8cf39bb4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="7e6b32b8-df4d-42ac-a08b-65c431ebd5a0" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] MsgKafka</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="7d389d00-4760-4231-b49c-9c34559114fd">
+      <typeId>4faa539c-5e51-4cf8-9e30-06149b23d0a1</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CompositeMessageBus.Eventing.Messages</typePackageName>
+      <typePackageId>e6528887-f142-4ec9-8063-9ada970e8855</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="eeaa8b97-ea61-4ab1-9902-fbcc201b4855" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="51261088-eb81-4ee5-9412-955439d3b27e" location="[CompositeMessageBus].[Services].[Test5Command]" />
+        <target applicationId="eeaa8b97-ea61-4ab1-9902-fbcc201b4855" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="4faa539c-5e51-4cf8-9e30-06149b23d0a1" location="[CompositeMessageBus].[Services].[MsgKafka]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Message}</expression>
+            <path>
+              <target id="4faa539c-5e51-4cf8-9e30-06149b23d0a1" name="MsgKafka" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="29d5e9b2-8b4a-4322-b307-9eee1a11e518" name="Message" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="Message" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="51261088-eb81-4ee5-9412-955439d3b27e" name="Test5Command" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="257e0d48-d48a-4560-99fd-ea2d9d1851e7" name="Message" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>

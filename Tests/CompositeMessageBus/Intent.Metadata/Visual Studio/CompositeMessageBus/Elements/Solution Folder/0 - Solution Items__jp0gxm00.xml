@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="eab350f1-2d8d-496c-96cf-03b1a661430c" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>0 - Solution Items</name>
+  <display>0 - Solution Items</display>
+  <externalReference>2bfb79a1-b955-402d-9e62-3e2f76c1b655</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>8b009537-c6e5-471f-9eeb-b45e87fa0c89</parentFolderId>
+  <packageId>8b009537-c6e5-471f-9eeb-b45e87fa0c89</packageId>
+  <packageName>CompositeMessageBus</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

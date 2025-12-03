@@ -19,8 +19,12 @@
     <childElements />
   </sourceEnd>
   <targetEnd id="6f9df77e-67a5-4e37-b2f9-55fce52e42e5" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
-    <display>handles: FullNamespaceEvent</display>
+    <name>Handler</name>
+    <display>[handles] FullNamespaceEvent</display>
     <order>0</order>
+    <traits>
+      <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+    </traits>
     <typeReference id="1a5c435f-4939-4781-b342-1e455990c04e">
       <typeId>7aacf3d0-f523-471b-bbb9-ede0c19d5950</typeId>
       <isNavigable>true</isNavigable>

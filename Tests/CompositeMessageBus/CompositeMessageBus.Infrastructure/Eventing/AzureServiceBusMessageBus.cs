@@ -1,0 +1,109 @@
+using System.Text.Json;
+using System.Transactions;
+using Azure.Messaging.ServiceBus;
+using CompositeMessageBus.Application.Common.Eventing;
+using CompositeMessageBus.Infrastructure.Configuration;
+using Intent.RoslynWeaver.Attributes;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.Eventing.AzureServiceBus.AzureServiceBusMessageBus", Version = "1.0")]
+
+namespace CompositeMessageBus.Infrastructure.Eventing
+{
+    public class AzureServiceBusMessageBus : IEventBus
+    {
+        public const string AddressKey = "address";
+        private readonly List<MessageEntry> _messageQueue = [];
+        private readonly Dictionary<string, string> _lookup;
+        private readonly ServiceBusClient _serviceBusClient;
+
+        public AzureServiceBusMessageBus(ServiceBusClient serviceBusClient,
+            IOptions<AzureServiceBusPublisherOptions> options)
+        {
+            _serviceBusClient = serviceBusClient;
+            _lookup = options.Value.Entries.ToDictionary(k => k.MessageType.FullName!, v => v.QueueOrTopicName);
+        }
+
+        public void Publish<TMessage>(TMessage message)
+            where TMessage : class
+        {
+            _messageQueue.Add(new MessageEntry(message, null));
+        }
+
+        public void Publish<TMessage>(TMessage message, IDictionary<string, object> additionalData)
+            where TMessage : class
+        {
+            _messageQueue.Add(new MessageEntry(message, additionalData));
+        }
+
+        public void Send<TMessage>(TMessage message)
+            where TMessage : class
+        {
+            _messageQueue.Add(new MessageEntry(message, null));
+        }
+
+        public void Send<TMessage>(TMessage message, IDictionary<string, object> additionalData)
+            where TMessage : class
+        {
+            _messageQueue.Add(new MessageEntry(message, additionalData));
+        }
+
+        public void Send<TMessage>(TMessage message, Uri address)
+            where TMessage : class
+        {
+            throw new NotSupportedException("Explicit address-based sending is not supported by this message bus provider.");
+        }
+
+        public async Task FlushAllAsync(CancellationToken cancellationToken = default)
+        {
+            if (_messageQueue.Count == 0)
+            {
+                return;
+            }
+            using var scope = new TransactionScope(TransactionScopeOption.Suppress, TransactionScopeAsyncFlowOption.Enabled);
+
+            foreach (var message in _messageQueue)
+            {
+                var queueOrTopicName = _lookup[message.Message.GetType().FullName!];
+                await using var sender = _serviceBusClient.CreateSender(queueOrTopicName);
+                var serviceBusMessage = CreateServiceBusMessage(message);
+                await sender.SendMessageAsync(serviceBusMessage, cancellationToken);
+            }
+            scope.Complete();
+            _messageQueue.Clear();
+        }
+
+        public void SchedulePublish<TMessage>(TMessage message, DateTime scheduled)
+            where TMessage : class
+        {
+            throw new NotSupportedException("Scheduled publishing is not supported by this message bus provider.");
+        }
+
+        public void SchedulePublish<TMessage>(TMessage message, TimeSpan delay)
+            where TMessage : class
+        {
+            throw new NotSupportedException("Scheduled publishing is not supported by this message bus provider.");
+        }
+
+        private static ServiceBusMessage CreateServiceBusMessage(MessageEntry message)
+        {
+            var serializedMessage = JsonSerializer.Serialize(message.Message);
+            var serviceBusMessage = new ServiceBusMessage(serializedMessage);
+            serviceBusMessage.ApplicationProperties["MessageType"] = message.Message.GetType().FullName;
+
+            if (message.AdditionalData != null)
+            {
+                foreach (var dataEnty in message.AdditionalData)
+                {
+                    serviceBusMessage.ApplicationProperties[dataEnty.Key] = dataEnty.Value;
+                }
+            }
+            return serviceBusMessage;
+        }
+
+        private record MessageEntry(object Message, IDictionary<string, object>? AdditionalData);
+
+    }
+}

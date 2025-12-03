@@ -1,0 +1,68 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Solution Items", "0 - Solution Items", "{EAB350F1-2D8D-496C-96CF-03B1A661430C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dapr", "dapr", "{41E023CF-419E-4637-9E59-9A0D3385DB8D}"
+	ProjectSection(SolutionItems) = preProject
+		dapr\config.yaml = dapr\config.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "components", "components", "{D786134A-A36F-44B9-8837-F82392AC2DC9}"
+	ProjectSection(SolutionItems) = preProject
+		dapr\components\pubsub.yaml = dapr\components\pubsub.yaml
+		dapr\components\statestore.yaml = dapr\components\statestore.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{1B3CB348-8BF6-4ED8-93CF-DA5D9238CD90}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompositeMessageBus.Api", "CompositeMessageBus.Api\CompositeMessageBus.Api.csproj", "{9D4CDB1E-63FF-47F8-99FD-8B76D7179DD3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{317D2EAE-BCDE-4A9A-825D-31E2AB5D9CBF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompositeMessageBus.Application", "CompositeMessageBus.Application\CompositeMessageBus.Application.csproj", "{279649E9-5AB3-46A1-BC68-584286DB72F3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{0B4667FC-08F5-4288-BEBF-FA171A3DF76A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompositeMessageBus.Domain", "CompositeMessageBus.Domain\CompositeMessageBus.Domain.csproj", "{71883157-BDC6-41EC-819E-2ACFEDA1C513}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{E9800D36-1942-412B-A570-64528AE52D43}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompositeMessageBus.Infrastructure", "CompositeMessageBus.Infrastructure\CompositeMessageBus.Infrastructure.csproj", "{38B0DB06-943D-4535-8C35-78E8CE1B13A1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{41E023CF-419E-4637-9E59-9A0D3385DB8D} = {EAB350F1-2D8D-496C-96CF-03B1A661430C}
+		{D786134A-A36F-44B9-8837-F82392AC2DC9} = {41E023CF-419E-4637-9E59-9A0D3385DB8D}
+		{9D4CDB1E-63FF-47F8-99FD-8B76D7179DD3} = {1B3CB348-8BF6-4ED8-93CF-DA5D9238CD90}
+		{279649E9-5AB3-46A1-BC68-584286DB72F3} = {317D2EAE-BCDE-4A9A-825D-31E2AB5D9CBF}
+		{71883157-BDC6-41EC-819E-2ACFEDA1C513} = {0B4667FC-08F5-4288-BEBF-FA171A3DF76A}
+		{38B0DB06-943D-4535-8C35-78E8CE1B13A1} = {E9800D36-1942-412B-A570-64528AE52D43}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9D4CDB1E-63FF-47F8-99FD-8B76D7179DD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D4CDB1E-63FF-47F8-99FD-8B76D7179DD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D4CDB1E-63FF-47F8-99FD-8B76D7179DD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D4CDB1E-63FF-47F8-99FD-8B76D7179DD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{279649E9-5AB3-46A1-BC68-584286DB72F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{279649E9-5AB3-46A1-BC68-584286DB72F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{279649E9-5AB3-46A1-BC68-584286DB72F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{279649E9-5AB3-46A1-BC68-584286DB72F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71883157-BDC6-41EC-819E-2ACFEDA1C513}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71883157-BDC6-41EC-819E-2ACFEDA1C513}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71883157-BDC6-41EC-819E-2ACFEDA1C513}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71883157-BDC6-41EC-819E-2ACFEDA1C513}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38B0DB06-943D-4535-8C35-78E8CE1B13A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38B0DB06-943D-4535-8C35-78E8CE1B13A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38B0DB06-943D-4535-8C35-78E8CE1B13A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38B0DB06-943D-4535-8C35-78E8CE1B13A1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

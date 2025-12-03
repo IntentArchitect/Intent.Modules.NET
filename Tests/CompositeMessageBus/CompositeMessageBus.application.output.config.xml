@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<outputFiles>
+  <files>
+    <file relativePath="dapr/components/pubsub.yaml" state="ignored;once-off-generated" />
+    <file relativePath="dapr/components/statestore.yaml" state="ignored;once-off-generated" />
+    <file relativePath="dapr/config.yaml" state="ignored;once-off-generated" />
+  </files>
+</outputFiles>

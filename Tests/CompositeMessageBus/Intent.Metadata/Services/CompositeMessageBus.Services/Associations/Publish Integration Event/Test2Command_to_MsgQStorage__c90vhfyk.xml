@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="7cca5fa3-56d9-4a8e-96ef-90cdf2bffdf8">
+  <sourceEnd id="e536c3dd-a767-4f5a-8d8d-f5339095b1d6" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : CompositeMessageBus.Services.Test2Command</display>
+    <order>0</order>
+    <typeReference id="5e139892-f97a-4dab-9fda-9a5f955de9b8">
+      <typeId>e7758bef-9945-4615-ad22-d3c1739e4af6</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CompositeMessageBus.Services</typePackageName>
+      <typePackageId>4dc00151-140b-48c6-a29c-ce3b8cf39bb4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="7cca5fa3-56d9-4a8e-96ef-90cdf2bffdf8" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] MsgQStorage</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="b345aaba-3b80-4e20-80d3-c5c1fbb863d8">
+      <typeId>f713e216-3dcf-4eea-ac40-9745f73ea17e</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CompositeMessageBus.Eventing.Messages</typePackageName>
+      <typePackageId>e6528887-f142-4ec9-8063-9ada970e8855</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="eeaa8b97-ea61-4ab1-9902-fbcc201b4855" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="e7758bef-9945-4615-ad22-d3c1739e4af6" location="[CompositeMessageBus].[Services].[Test2Command]" />
+        <target applicationId="eeaa8b97-ea61-4ab1-9902-fbcc201b4855" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="f713e216-3dcf-4eea-ac40-9745f73ea17e" location="[CompositeMessageBus].[Services].[MsgQStorage]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Message}</expression>
+            <path>
+              <target id="f713e216-3dcf-4eea-ac40-9745f73ea17e" name="MsgQStorage" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="e4a5ca01-a1e3-4661-8cb5-e18737ef5de1" name="Message" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="Message" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="e7758bef-9945-4615-ad22-d3c1739e4af6" name="Test2Command" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="0d5b2508-7b8f-420a-9d72-65913aedaa96" name="Message" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>
