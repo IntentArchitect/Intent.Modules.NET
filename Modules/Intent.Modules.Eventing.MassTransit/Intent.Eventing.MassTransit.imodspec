@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.MassTransit</id>
-  <version>7.1.0-pre.0</version>
+  <version>7.1.0-pre.1</version>
   <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>MassTransit is a free, open-source distributed application framework for .NET which integrates with the Intent Architect Eventing designer.</summary>
   <description>MassTransit is a free, open-source distributed application framework for .NET which integrates with the Intent Architect Eventing designer.</description>
@@ -114,27 +114,27 @@
   <interoperability>
     <detect id="Intent.EntityFrameworkCore">
       <install>
-        <package id="Intent.Eventing.MassTransit.EntityFrameworkCore" version="5.3.0-pre.0" />
+        <package id="Intent.Eventing.MassTransit.EntityFrameworkCore" version="5.3.0-pre.1" />
       </install>
     </detect>
     <detect id="Intent.Eventing.MassTransit.EntityFrameworkCore">
       <install>
-        <package id="Intent.Eventing.MassTransit.EntityFrameworkCore" version="5.3.0-pre.0" />
+        <package id="Intent.Eventing.MassTransit.EntityFrameworkCore" version="5.3.0-pre.1" />
       </install>
     </detect>
     <detect id="Intent.Application.MediatR.CRUD">
       <install>
-        <package id="Intent.Application.MediatR.CRUD.Eventing" version="5.0.2" />
+        <package id="Intent.Application.MediatR.CRUD.Eventing" version="5.2.0" />
       </install>
     </detect>
     <detect id="Intent.Application.ServiceImplementations.Conventions.CRUD">
       <install>
-        <package id="Intent.Application.ServiceImplementations.CRUD.Eventing" version="1.0.11" />
+        <package id="Intent.Application.ServiceImplementations.CRUD.Eventing" version="1.1.2" />
       </install>
     </detect>
     <detect id="Intent.Eventing.MassTransit.RequestResponse">
       <install>
-        <package id="Intent.Eventing.MassTransit.RequestResponse" version="1.1.12-pre.0" />
+        <package id="Intent.Eventing.MassTransit.RequestResponse" version="1.1.13-pre.1" />
       </install>
     </detect>
   </interoperability>
@@ -143,7 +143,7 @@
     <dependency id="Intent.Common.CSharp" version="3.9.11-pre.0" />
     <dependency id="Intent.Common.Types" version="4.0.0" />
     <dependency id="Intent.Common.UnitOfWork" version="1.0.0" />
-    <dependency id="Intent.Eventing.Contracts" version="6.1.0-pre.0" />
+    <dependency id="Intent.Eventing.Contracts" version="6.1.0-pre.1" />
     <dependency id="Intent.Modelers.Domain" version="3.5.0" />
     <dependency id="Intent.Modelers.Eventing" version="6.0.3" />
     <dependency id="Intent.Modelers.Services" version="4.0.7" />

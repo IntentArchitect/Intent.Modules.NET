@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.Controllers</id>
-  <version>7.1.7</version>
+  <version>7.1.8-pre.0</version>
   <supportedClientVersions>[4.5.15-a, 5.0.0-a)</supportedClientVersions>
   <summary>Generates Controller classes based off of Services in the Services designer</summary>
   <description>Generates Controller classes based off of Services in the Services designer</description>
@@ -66,7 +66,7 @@
     </detect>
     <detect id="Intent.Application.MediatR">
       <install>
-        <package id="Intent.AspNetCore.Controllers.Dispatch.MediatR" version="6.1.0" />
+        <package id="Intent.AspNetCore.Controllers.Dispatch.MediatR" version="6.1.2" />
       </install>
     </detect>
     <detect id="Intent.AspNetCore.Swashbuckle">
