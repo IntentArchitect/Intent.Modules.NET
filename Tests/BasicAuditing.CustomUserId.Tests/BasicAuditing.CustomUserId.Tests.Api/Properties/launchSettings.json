@@ -12,7 +12,7 @@
       "commandName": "Project",
       "launchBrowser": true,
       "applicationUrl": "https://localhost:44369/",
-      "launchUrl": "https://localhost:44369/swagger",
+      "launchUrl": "https://localhost:44369/scalar/v1",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

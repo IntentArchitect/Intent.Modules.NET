@@ -1,5 +1,6 @@
 ### Version 3.9.9
 
+- Improvement: LaunchSettings.json LaunchURL now updates the default launch URL path for modules like Scalar / SwashBuckle.
 - Fixed: Service Fabric service `ServiceManifest.xml` and `Settings.xml` files were not being placed in the correct folder structure.
 
 ### Version 3.9.8
