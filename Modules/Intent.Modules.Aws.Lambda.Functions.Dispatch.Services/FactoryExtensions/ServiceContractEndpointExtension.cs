@@ -215,19 +215,37 @@ namespace Intent.Modules.Aws.Lambda.Functions.Dispatch.Services.FactoryExtension
 
             template.CSharpFile.AfterBuild(file =>
             {
+                var busVariableName = GetBusVariableName(template);
                 var @class = file.Classes.First();
                 var ctor = @class.Constructors.First();
-                ctor.AddParameter(GetMessageBusInterfaceName(template), "messageBus",
+                ctor.AddParameter(GetMessageBusInterfaceName(template), busVariableName,
                     p => { p.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException()); });
 
                 foreach (var method in @class.Methods.Where(method => (method.RepresentedModel as ILambdaFunctionModel)?.Verb != HttpVerb.Get))
                 {
                     method.Statements.LastOrDefault(x => x.ToString()!.Trim().StartsWith("return "))?
-                        .InsertAbove("await _messageBus.FlushAllAsync(cancellationToken);", stmt => stmt.AddMetadata("eventbus-flush", true));
+                        .InsertAbove($"await _{busVariableName}.FlushAllAsync(cancellationToken);", stmt => stmt.AddMetadata("eventbus-flush", true));
                 }
             }, order: -100);
         }
 
+        private static string GetBusVariableName(IIntentTemplate template)
+        {
+            if (template.TryGetTypeName(TemplateRoles.Application.Eventing.MessageBusInterface, out _))
+            {
+                return "messageBus";
+            }
+
+            // Legacy support
+            if (template.TryGetTypeName(TemplateRoles.Application.Eventing.EventBusInterface, out _))
+            {
+                return "eventBus";
+            }
+
+            throw new InvalidOperationException(
+                $"Could not find Message Bus interface with template role '{TemplateRoles.Application.Eventing.MessageBusInterface}' (or older legacy template with role '{TemplateRoles.Application.Eventing.EventBusInterface}').");
+        }
+        
         private static string GetMessageBusInterfaceName(LambdaFunctionClassTemplate template)
         {
             if (template.TryGetTypeName(TemplateRoles.Application.Eventing.MessageBusInterface, out var typeName))

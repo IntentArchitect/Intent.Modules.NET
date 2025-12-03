@@ -51,6 +51,8 @@ namespace Intent.Modules.AspNetCore.Grpc.Templates.TraditionalService
                     var addDispatch = installedModules.Contains("Intent.Application.Contracts");
                     var addUnitOfWork = this.SystemUsesPersistenceUnitOfWork();
 
+                    TryGetBusVariableName(out var busVariableName);
+
                     var (serviceAuthAttributes, authAttributesByEndpoint) = this.GetAuthorizationAttributes(
                         container: Model.InternalElement,
                         endpointElements: Model.Operations.Where(x => x.HasExposeWithGRPC()).Select(x => x.InternalElement));
@@ -78,7 +80,7 @@ namespace Intent.Modules.AspNetCore.Grpc.Templates.TraditionalService
                         if (addMessageBus)
                         {
                             AddUsing("System");
-                            ctor.AddParameter(messageBusInterfaceTypeName, "messageBus", p => p.IntroduceReadonlyField((_, s) => s.ThrowArgumentNullException()));
+                            ctor.AddParameter(messageBusInterfaceTypeName, busVariableName, p => p.IntroduceReadonlyField((_, s) => s.ThrowArgumentNullException()));
                         }
                     });
 
@@ -197,7 +199,7 @@ namespace Intent.Modules.AspNetCore.Grpc.Templates.TraditionalService
                                     CSharpFile.AfterBuild(_ =>
                                     {
                                         method.Statements.LastOrDefault(x => x.ToString()!.Trim().StartsWith("return "))?
-                                            .InsertAbove("await _messageBus.FlushAllAsync(context.CancellationToken);", stmt => stmt.AddMetadata("eventbus-flush", true));
+                                            .InsertAbove($"await _{busVariableName}.FlushAllAsync(context.CancellationToken);", stmt => stmt.AddMetadata("eventbus-flush", true));
                                     }, -100);
                                 }
 
@@ -217,6 +219,25 @@ namespace Intent.Modules.AspNetCore.Grpc.Templates.TraditionalService
         public override void AfterTemplateRegistration()
         {
             ExecutionContext.EventDispatcher.Publish(new RegisterGrpcService(this));
+        }
+
+        private bool TryGetBusVariableName(out string variableName)
+        {
+            if (this.TryGetTypeName(TemplateRoles.Application.Eventing.MessageBusInterface, out _))
+            {
+                variableName = "messageBus";
+                return true;
+            }
+
+            // Legacy support
+            if (this.TryGetTypeName(TemplateRoles.Application.Eventing.EventBusInterface, out _))
+            {
+                variableName = "eventBus";
+                return true;
+            }
+
+            variableName = null;
+            return false;
         }
 
         private bool TryGetMessageBusInterfaceName(out string typeName)

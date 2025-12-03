@@ -180,13 +180,32 @@ namespace Intent.Modules.FastEndpoints.Dispatch.Services.FactoryExtensions
                 var @class = file.Classes.First();
                 var ctor = @class.Constructors.First();
 
-                ctor.AddParameter(GetMessageBusInterfaceName(endpointTemplate), "messageBus",
+                var busVariableName = GetBusVariableName(endpointTemplate);
+                
+                ctor.AddParameter(GetMessageBusInterfaceName(endpointTemplate), busVariableName,
                     p => p.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException()));
 
                 var method = @class.FindMethod(s => s.HasMetadata("handle"))!;
                 method.Statements.LastOrDefault(x => x.HasMetadata("response"))
-                    ?.InsertAbove("await _messageBus.FlushAllAsync(ct);", stmt => stmt.AddMetadata("eventbus-flush", true));
+                    ?.InsertAbove($"await _{busVariableName}.FlushAllAsync(ct);", stmt => stmt.AddMetadata("eventbus-flush", true));
             }, order: -100);
+        }
+        
+        private static string GetBusVariableName(IIntentTemplate template)
+        {
+            if (template.TryGetTypeName(TemplateRoles.Application.Eventing.MessageBusInterface, out _))
+            {
+                return "messageBus";
+            }
+
+            // Legacy support
+            if (template.TryGetTypeName(TemplateRoles.Application.Eventing.EventBusInterface, out _))
+            {
+                return "eventBus";
+            }
+
+            throw new InvalidOperationException(
+                $"Could not find Message Bus interface with template role '{TemplateRoles.Application.Eventing.MessageBusInterface}' (or older legacy template with role '{TemplateRoles.Application.Eventing.EventBusInterface}').");
         }
 
         private static string GetMessageBusInterfaceName(EndpointTemplate endpointTemplate)
