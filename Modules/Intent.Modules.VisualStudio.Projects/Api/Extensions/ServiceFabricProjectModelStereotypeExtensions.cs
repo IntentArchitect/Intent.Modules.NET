@@ -36,6 +36,30 @@ namespace Intent.Modules.VisualStudio.Projects.Api
             return true;
         }
 
+        public static ServiceFabricSettings GetServiceFabricSettings(this ServiceFabricProjectModel model)
+        {
+            var stereotype = model.GetStereotype(ServiceFabricSettings.DefinitionId);
+            return stereotype != null ? new ServiceFabricSettings(stereotype) : null;
+        }
+
+
+        public static bool HasServiceFabricSettings(this ServiceFabricProjectModel model)
+        {
+            return model.HasStereotype(ServiceFabricSettings.DefinitionId);
+        }
+
+        public static bool TryGetServiceFabricSettings(this ServiceFabricProjectModel model, out ServiceFabricSettings stereotype)
+        {
+            if (!HasServiceFabricSettings(model))
+            {
+                stereotype = null;
+                return false;
+            }
+
+            stereotype = new ServiceFabricSettings(model.GetStereotype(ServiceFabricSettings.DefinitionId));
+            return true;
+        }
+
         public class NETFrameworkSettings
         {
             private IStereotype _stereotype;
@@ -51,6 +75,25 @@ namespace Intent.Modules.VisualStudio.Projects.Api
             public IElement TargetFramework()
             {
                 return _stereotype.GetProperty<IElement>("Target Framework");
+            }
+
+        }
+
+        public class ServiceFabricSettings
+        {
+            private IStereotype _stereotype;
+            public const string DefinitionId = "f8586cfc-9ee2-4f3a-b41a-0698cc082d49";
+
+            public ServiceFabricSettings(IStereotype stereotype)
+            {
+                _stereotype = stereotype;
+            }
+
+            public string Name => _stereotype.Name;
+
+            public bool GenerateStartupServices()
+            {
+                return _stereotype.GetProperty<bool>("Generate Startup Services");
             }
 
         }

@@ -64,6 +64,7 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandModels
                             param.AddMetadata("model", property);
                             param.IntroduceProperty(prop =>
                             {
+                                prop.TryAddXmlDocComments(property.InternalElement);
                                 prop.RepresentsModel(property);
 
                                 if (property.HasStereotype("OpenAPI Settings")

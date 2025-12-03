@@ -2,7 +2,8 @@
 
 - Improvement: Updated NuGet package versions.
 - Improvement: Improved WASM configuration for debugging.
-- Improvement: Help Topic around routing parameters..
+- Improvement: Help Topic around routing parameters.
+- Fixed: **Software Factory** crashed when you had a service invocation with no mapping.
 
 ### Version 1.0.6
 

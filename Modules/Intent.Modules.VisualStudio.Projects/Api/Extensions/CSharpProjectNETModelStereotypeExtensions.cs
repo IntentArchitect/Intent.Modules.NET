@@ -101,6 +101,11 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 return new SDKOptions(_stereotype.GetProperty<string>("SDK"));
             }
 
+            public string AspireSDKVersion()
+            {
+                return _stereotype.GetProperty<string>("Aspire SDK Version");
+            }
+
             public bool UseTopLevelStatements()
             {
                 return _stereotype.GetProperty<bool>("Use top-level statements");
@@ -221,6 +226,8 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                             return SDKOptionsEnum.MicrosoftNETSdkWorker;
                         case "Microsoft.NET.Sdk.WindowsDesktop":
                             return SDKOptionsEnum.MicrosoftNETSdkWindowsDesktop;
+                        case "Aspire.AppHost.Sdk":
+                            return SDKOptionsEnum.AspireAppHostSdk;
                         default:
                             throw new ArgumentOutOfRangeException();
                     }
@@ -250,6 +257,10 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 {
                     return Value == "Microsoft.NET.Sdk.WindowsDesktop";
                 }
+                public bool IsAspireAppHostSdk()
+                {
+                    return Value == "Aspire.AppHost.Sdk";
+                }
             }
 
             public enum SDKOptionsEnum
@@ -259,7 +270,8 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 MicrosoftNETSdkBlazorWebAssembly,
                 MicrosoftNETSdkRazor,
                 MicrosoftNETSdkWorker,
-                MicrosoftNETSdkWindowsDesktop
+                MicrosoftNETSdkWindowsDesktop,
+                AspireAppHostSdk
             }
             public class OutputTypeOptions
             {

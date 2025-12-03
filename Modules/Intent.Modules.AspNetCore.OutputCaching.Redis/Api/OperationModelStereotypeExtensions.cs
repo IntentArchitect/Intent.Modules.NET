@@ -13,6 +13,29 @@ namespace Intent.AspNetCore.OutputCaching.Redis.Api
 {
     public static class OperationModelStereotypeExtensions
     {
+        public static CacheEviction GetCacheEviction(this OperationModel model)
+        {
+            var stereotype = model.GetStereotype(CacheEviction.DefinitionId);
+            return stereotype != null ? new CacheEviction(stereotype) : null;
+        }
+
+
+        public static bool HasCacheEviction(this OperationModel model)
+        {
+            return model.HasStereotype(CacheEviction.DefinitionId);
+        }
+
+        public static bool TryGetCacheEviction(this OperationModel model, out CacheEviction stereotype)
+        {
+            if (!HasCacheEviction(model))
+            {
+                stereotype = null;
+                return false;
+            }
+
+            stereotype = new CacheEviction(model.GetStereotype(CacheEviction.DefinitionId));
+            return true;
+        }
         public static Caching GetCaching(this OperationModel model)
         {
             var stereotype = model.GetStereotype(Caching.DefinitionId);
@@ -35,6 +58,25 @@ namespace Intent.AspNetCore.OutputCaching.Redis.Api
 
             stereotype = new Caching(model.GetStereotype(Caching.DefinitionId));
             return true;
+        }
+
+        public class CacheEviction
+        {
+            private IStereotype _stereotype;
+            public const string DefinitionId = "a981faa2-c29a-45e8-9117-bc06bfc29931";
+
+            public CacheEviction(IStereotype stereotype)
+            {
+                _stereotype = stereotype;
+            }
+
+            public string Name => _stereotype.Name;
+
+            public string Tags()
+            {
+                return _stereotype.GetProperty<string>("Tags");
+            }
+
         }
 
         public class Caching

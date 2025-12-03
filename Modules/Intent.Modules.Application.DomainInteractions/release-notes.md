@@ -1,3 +1,7 @@
+### Version 1.1.9
+
+- Improvement: Documentation and ProjectUrl link added.
+
 ### Version 1.1.8
 
 - Internal Improvement: Preparing for future support for result pattern in mapping system.

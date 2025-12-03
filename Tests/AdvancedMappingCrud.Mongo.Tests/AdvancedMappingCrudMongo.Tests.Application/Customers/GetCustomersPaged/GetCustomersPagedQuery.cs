@@ -10,7 +10,7 @@ namespace AdvancedMappingCrudMongo.Tests.Application.Customers.GetCustomersPaged
 {
     public class GetCustomersPagedQuery : IRequest<PagedResult<CustomerDto>>, IQuery
     {
-        public GetCustomersPagedQuery(int pageNo, int pageSize)
+        public GetCustomersPagedQuery(int pageNo = 5, int pageSize = 50)
         {
             PageNo = pageNo;
             PageSize = pageSize;

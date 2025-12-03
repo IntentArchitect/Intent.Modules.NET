@@ -1,4 +1,8 @@
-﻿### Version 7.1.2
+﻿### Version 7.1.3
+
+- Improvement: Documentation and ProjectUrl link added.
+
+### Version 7.1.2
 
 - Improvement: Migrated from Decorators to Factory Extensions to enhance the Command and Query handlers for CRUD implementations.
 

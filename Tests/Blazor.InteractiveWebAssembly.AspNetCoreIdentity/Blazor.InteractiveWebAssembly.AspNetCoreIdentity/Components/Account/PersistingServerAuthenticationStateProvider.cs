@@ -96,7 +96,7 @@ namespace Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Components.Account
 
                 if (userId != null && email != null)
                 {
-                    var userInfo = new UserInfo { UserId = userId, Email = email, AccessToken = accessToken };
+                    var userInfo = new UserInfo { UserId = userId, Email = email, AccessToken = accessToken, RefreshToken = refreshToken, AccessTokenExpiresAt = expiresAt, RefreshUrl = refreshUrl };
                     _persistentComponentState.PersistAsJson(nameof(UserInfo), userInfo);
                 }
             }

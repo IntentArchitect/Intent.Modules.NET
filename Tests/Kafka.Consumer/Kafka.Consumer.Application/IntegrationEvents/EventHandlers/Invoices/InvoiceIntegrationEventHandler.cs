@@ -30,7 +30,7 @@ namespace Kafka.Consumer.Application.IntegrationEvents.EventHandlers.Invoices
             var command = new CreateInvoiceCommand(
                 id: message.Id,
                 note: message.Note);
-            await _mediator.Send(command, cancellationToken);
+            var createInvoiceCommandResult = await _mediator.Send(command, cancellationToken);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]

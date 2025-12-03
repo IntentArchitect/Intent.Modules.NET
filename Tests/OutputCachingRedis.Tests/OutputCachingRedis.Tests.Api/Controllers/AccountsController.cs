@@ -28,10 +28,12 @@ namespace OutputCachingRedis.Tests.Api.Controllers
     public class AccountsController : ControllerBase
     {
         private readonly ISender _mediator;
+        private readonly IOutputCacheStore _outputCacheStore;
 
-        public AccountsController(ISender mediator)
+        public AccountsController(ISender mediator, IOutputCacheStore outputCacheStore)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
+            _outputCacheStore = outputCacheStore;
         }
 
         /// <summary>
@@ -93,6 +95,7 @@ namespace OutputCachingRedis.Tests.Api.Controllers
             }
 
             await _mediator.Send(command, cancellationToken);
+            await _outputCacheStore.EvictByTagAsync("account", cancellationToken);
             return NoContent();
         }
 

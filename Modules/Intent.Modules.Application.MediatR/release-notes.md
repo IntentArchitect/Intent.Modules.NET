@@ -1,3 +1,8 @@
+### Version 4.5.3
+
+- Improvement: XML Documentation improvements for Command and Query models.
+- Fixed: Performing an "invocation" on a CQRS Command with a return type will now detect if it has a return value. This helps to auto-return when return types match.
+
 ### Version 4.5.2
 
 - Improvement: Updated projectUrl to reference external documentation instead of local README.

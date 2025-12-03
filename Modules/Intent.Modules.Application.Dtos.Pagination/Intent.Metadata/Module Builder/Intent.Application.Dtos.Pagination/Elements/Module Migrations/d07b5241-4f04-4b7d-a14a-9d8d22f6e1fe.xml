@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d07b5241-4f04-4b7d-a14a-9d8d22f6e1fe" type="Module Migrations" typeId="8cfd2eab-c1bf-46bc-a86f-3ed0263a380f">
+  <name>Migrations</name>
+  <display>Migrations</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9baa3476-269d-4a87-a854-34e150a93bc8</parentFolderId>
+  <packageId>9baa3476-269d-4a87-a854-34e150a93bc8</packageId>
+  <packageName>Intent.Application.Dtos.Pagination</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

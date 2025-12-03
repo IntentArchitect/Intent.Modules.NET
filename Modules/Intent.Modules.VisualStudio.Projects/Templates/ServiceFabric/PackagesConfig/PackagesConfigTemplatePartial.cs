@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Xml.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modules.Common;
@@ -23,6 +24,25 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.ServiceFabric.PackagesC
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public PackagesConfigTemplate(IOutputTarget outputTarget, ServiceFabricProjectModel model) : base(TemplateId, outputTarget, model)
         {
+        }
+
+        public XDocument Document { get; private set; }
+
+        public override void AfterTemplateRegistration()
+        {
+            if (!TryGetExistingFileContent(out var existingFileContent))
+            {
+                existingFileContent = TransformText().ReplaceLineEndings();
+            }
+
+            Document = XDocument.Parse(existingFileContent);
+
+            base.AfterTemplateRegistration();
+        }
+
+        public override string RunTemplate()
+        {
+            return Document.ToStringUTF8();
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

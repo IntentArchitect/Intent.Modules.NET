@@ -39,8 +39,8 @@
     <stereotypes />
     <mappings>
       <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
-        <source applicationId="2528e32a-a0c8-4e88-b1ef-5131f49d12a5" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="d08bb4d2-0d58-4d54-be05-195b7be4e7a0" location="[AdvancedMappingCrudMongo.Tests].[Services].[GetCustomersQuery]" />
-        <target applicationId="2528e32a-a0c8-4e88-b1ef-5131f49d12a5" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="a45dd931-55a8-4f02-8b91-bd479bd0359e" location="[AdvancedMappingCrudMongo.Tests].[Services].[Customer]" />
+        <source applicationId="2528e32a-a0c8-4e88-b1ef-5131f49d12a5" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="4a8f7652-cc6f-46ab-879c-874adf2c96db" location="[AdvancedMappingCrud.Mongo.Tests].[Services].[GetCustomersPagedQuery]" />
+        <target applicationId="2528e32a-a0c8-4e88-b1ef-5131f49d12a5" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="a45dd931-55a8-4f02-8b91-bd479bd0359e" location="[AdvancedMappingCrud.Mongo.Tests].[Services].[Customer]" />
         <mappedEnds />
       </mapping>
     </mappings>

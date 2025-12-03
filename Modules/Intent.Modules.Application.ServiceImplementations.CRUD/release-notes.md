@@ -1,3 +1,11 @@
+### Version 5.2.3
+
+- Fixed: ProjectUrl link.
+
+### Version 5.2.2
+
+- Improvement: Documentation and ProjectUrl link added.
+
 ### Version 5.2.1
 
 - Improvement: Added support for Mapperly.

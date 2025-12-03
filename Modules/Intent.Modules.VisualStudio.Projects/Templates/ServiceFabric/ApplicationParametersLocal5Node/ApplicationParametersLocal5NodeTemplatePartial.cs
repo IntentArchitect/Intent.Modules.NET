@@ -1,0 +1,63 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Xml;
+using Intent.Engine;
+using Intent.Metadata.Models;
+using Intent.Modules.Common;
+using Intent.Modules.Common.Templates;
+using Intent.Modules.VisualStudio.Projects.Api;
+using Intent.RoslynWeaver.Attributes;
+using Intent.Templates;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.ModuleBuilder.ProjectItemTemplate.Partial", Version = "1.0")]
+
+namespace Intent.Modules.VisualStudio.Projects.Templates.ServiceFabric.ApplicationParametersLocal5Node
+{
+    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+    partial class ApplicationParametersLocal5NodeTemplate : IntentTemplateBase<ServiceFabricProjectModel>
+    {
+        [IntentManaged(Mode.Fully)]
+        public const string TemplateId = "Intent.VisualStudio.Projects.ServiceFabric.ApplicationParametersLocal5Node";
+
+        [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+        public ApplicationParametersLocal5NodeTemplate(IOutputTarget outputTarget, ServiceFabricProjectModel model) : base(TemplateId, outputTarget, model)
+        {
+        }
+
+        public XmlDocument Document { get; private set; }
+
+        public override void AfterTemplateRegistration()
+        {
+            if (!TryGetExistingFileContent(out var existingFileContent))
+            {
+                existingFileContent = TransformText().ReplaceLineEndings();
+            }
+
+            Document = new XmlDocument
+            {
+                PreserveWhitespace = true,
+            };
+            Document.LoadXml(existingFileContent);
+
+            base.AfterTemplateRegistration();
+        }
+
+        public override string RunTemplate()
+        {
+            return Document.ToUtf8String();
+        }
+
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        public override ITemplateFileConfig GetTemplateFileConfig()
+        {
+            return new TemplateFileConfig(
+                fileName: $"Local.5Node",
+                fileExtension: "xml",
+                relativeLocation: "ApplicationParameters"
+            );
+        }
+
+    }
+}

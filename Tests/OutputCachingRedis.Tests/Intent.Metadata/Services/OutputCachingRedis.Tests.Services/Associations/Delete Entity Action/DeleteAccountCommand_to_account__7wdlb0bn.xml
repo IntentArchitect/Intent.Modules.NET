@@ -5,7 +5,7 @@
     <order>0</order>
     <typeReference id="6e54adf8-1368-4207-8d77-a94a2e345195">
       <typeId>3310d34a-2467-4cef-a84d-aaea5dbbd2b3</typeId>
-      <isNavigable>true</isNavigable>
+      <isNavigable>false</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
       <isRequired>true</isRequired>
@@ -22,6 +22,9 @@
     <name>account</name>
     <display>[delete] account: Account</display>
     <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="485edd93-81d3-4388-9a8a-cc7cc1917616">
       <typeId>62c60393-e005-4f94-9c7c-c8729f48be39</typeId>
       <isNavigable>true</isNavigable>

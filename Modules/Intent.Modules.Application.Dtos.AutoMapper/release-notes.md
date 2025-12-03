@@ -1,3 +1,7 @@
+### Version 4.0.19
+
+- Improvement: Documentation and ProjectUrl link added.
+
 ### Version 4.0.18
 
 - Fixed: Double nullable `??` characters added in certain scenarios

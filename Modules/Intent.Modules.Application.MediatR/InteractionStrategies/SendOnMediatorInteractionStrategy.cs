@@ -66,6 +66,19 @@ namespace Intent.Modules.Application.Contracts.InteractionStrategies
                 statements.Add(new CSharpAssignmentStatement(new CSharpVariableDeclaration(response.Name.ToLocalVariableName()), mediatorSendCall));
                 method.TrackedEntities().Add(response.Id, new EntityDetails((IElement)response, response.Name.ToLocalVariableName(), null, false));
             }
+            else if (response != null && interaction.TypeReference.Element.IsCommandModel())
+            {
+                var variableName = interaction.Name.ToLocalVariableName();
+                if (string.IsNullOrWhiteSpace(variableName))
+                {
+                    variableName = interaction.TypeReference.Element!.Name.ToLocalVariableName() + "Result";
+                }
+                _csharpMapping.SetFromReplacement(interaction, variableName);
+                _csharpMapping.SetToReplacement(interaction, variableName);
+
+                statements.Add(new CSharpAssignmentStatement(new CSharpVariableDeclaration(variableName), mediatorSendCall));
+                method.TrackedEntities().Add(response.Id, new EntityDetails((IElement)response, variableName, null, false));
+            }
             else
             {
                 statements.Add(mediatorSendCall);

@@ -36,14 +36,44 @@ namespace Intent.Modules.AspNetCore.OutputCaching.Redis.Api
 
 		private static Caching GetCaching(this IHasStereotypes model)
 		{
-			var stereotype = model.GetStereotype("c090804e-8e1c-4121-8209-488982ce6a22");
+			var stereotype = model.GetStereotype(Caching.DefinitionId);
 			return new Caching(stereotype);
 		}
 
-
 		private static bool HasCaching(this IHasStereotypes model)
 		{
-			return model.HasStereotype("c090804e-8e1c-4121-8209-488982ce6a22");
+			return model.HasStereotype(Caching.DefinitionId);
+		}
+
+		private static IEnumerable<CacheEviction> FindCacheEviction(IElement endpoint)
+		{
+			IHasStereotypes currentElement = endpoint;
+
+			while (currentElement != null)
+			{
+				if (currentElement.HasCacheEviction())
+				{
+					yield return currentElement.GetCacheEviction();
+				}
+
+				if (currentElement is not IElement element)
+				{
+					break;
+				}
+
+				currentElement = element.ParentElement ?? (IHasStereotypes)element.Package;
+			}
+		}
+
+		private static CacheEviction GetCacheEviction(this IHasStereotypes model)
+		{
+			var stereotype = model.GetStereotype(CacheEviction.DefinitionId);
+			return new CacheEviction(stereotype);
+		}
+
+		private static bool HasCacheEviction(this IHasStereotypes model)
+		{
+			return model.HasStereotype(CacheEviction.DefinitionId);
 		}
 
 		internal static bool TryGetCaching(this IElement operation, out CachingAggregate? caching)
@@ -88,6 +118,26 @@ namespace Intent.Modules.AspNetCore.OutputCaching.Redis.Api
 				}
 				if (caching.NoCaching == true)
 					return false;
+				return true;
+			}
+
+			return false;
+		}
+
+		internal static bool TryGetCacheEviction(this IElement operation, out CacheEvictionAggregate? cacheEviction)
+		{
+			cacheEviction = null;
+
+			var evictionConfigs = FindCacheEviction(operation);
+			if (evictionConfigs.Any())
+			{
+				var result = new CacheEvictionAggregate();
+				// Cascading: value set closest to the Endpoint wins.
+				foreach (var evictionConfig in evictionConfigs)
+				{
+					result.Tags = evictionConfig.Tags();
+				}
+				cacheEviction = result;
 				return true;
 			}
 
@@ -188,6 +238,27 @@ namespace Intent.Modules.AspNetCore.OutputCaching.Redis.Api
 					if (_noCaching == null)
 					{
 						_noCaching = value;
+					}
+				}
+			}
+		}
+
+		public class CacheEvictionAggregate
+		{
+			private string? _tags;
+
+			public CacheEvictionAggregate()
+			{
+			}
+
+			public string? Tags
+			{
+				get => _tags;
+				set
+				{
+					if (_tags == null)
+					{
+						_tags = value;
 					}
 				}
 			}

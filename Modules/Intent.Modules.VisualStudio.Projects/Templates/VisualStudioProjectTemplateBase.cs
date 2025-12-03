@@ -182,9 +182,13 @@ public abstract class VisualStudioProjectTemplateBase<TModel> : IntentFileTempla
         {
             var netSettings = csharpProjectModel.GetNETSettings();
 
-            if (doc.Root!.Attribute("Sdk")!.Value != netSettings.SDK().Value)
+            var sdkValue = netSettings.SDK().IsAspireAppHostSdk()
+                ? $"{netSettings.SDK().Value}/{netSettings.AspireSDKVersion()}"
+                : $"{netSettings.SDK().Value}";
+            
+            if (doc.Root!.Attribute("Sdk")!.Value != sdkValue)
             {
-                doc.Root.Attribute("Sdk")!.Value = netSettings.SDK().Value;
+                doc.Root.Attribute("Sdk")!.Value = sdkValue;
                 hasChange = true;
             }
 

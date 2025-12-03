@@ -5,7 +5,7 @@
     <order>0</order>
     <typeReference id="3f6d1ad6-1854-4521-8b34-2b83d2a1738d">
       <typeId>d6cc8a0a-92f0-4c15-9fcb-82ea0efee0ac</typeId>
-      <isNavigable>true</isNavigable>
+      <isNavigable>false</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
       <isRequired>true</isRequired>
@@ -22,6 +22,9 @@
     <name>account</name>
     <display>[update] account: Account</display>
     <order>2</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="4124262f-b8b2-4eb1-b02c-b9d49fcf9ac8">
       <typeId>62c60393-e005-4f94-9c7c-c8729f48be39</typeId>
       <isNavigable>true</isNavigable>
@@ -42,14 +45,14 @@
           <mappedEnd>
             <expression>{Id}</expression>
             <path>
-              <target id="62c60393-e005-4f94-9c7c-c8729f48be39" name="Account" type="element" specialization="Class" />
-              <target id="4deb1a09-e6d4-426a-95c7-87b226ef2ca4" name="Id" type="element" specialization="Attribute" />
+              <target id="62c60393-e005-4f94-9c7c-c8729f48be39" name="Account" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="4deb1a09-e6d4-426a-95c7-87b226ef2ca4" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </path>
             <sources>
               <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
                 <path>
-                  <target id="d6cc8a0a-92f0-4c15-9fcb-82ea0efee0ac" name="UpdateAccountCommand" type="element" specialization="Command" />
-                  <target id="74ebca75-8098-4cb2-823f-e2eda1d50801" name="Id" type="element" specialization="DTO-Field" />
+                  <target id="d6cc8a0a-92f0-4c15-9fcb-82ea0efee0ac" name="UpdateAccountCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="74ebca75-8098-4cb2-823f-e2eda1d50801" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>
@@ -63,14 +66,14 @@
           <mappedEnd>
             <expression>{Name}</expression>
             <path>
-              <target id="62c60393-e005-4f94-9c7c-c8729f48be39" name="Account" type="element" specialization="Class" />
-              <target id="8d2b5986-c06d-42ec-917d-c2cc245d948c" name="Name" type="element" specialization="Attribute" />
+              <target id="62c60393-e005-4f94-9c7c-c8729f48be39" name="Account" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="8d2b5986-c06d-42ec-917d-c2cc245d948c" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </path>
             <sources>
               <source identifier="Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
                 <path>
-                  <target id="d6cc8a0a-92f0-4c15-9fcb-82ea0efee0ac" name="UpdateAccountCommand" type="element" specialization="Command" />
-                  <target id="3b147a00-4c35-4259-8753-1f78c711ac52" name="Name" type="element" specialization="DTO-Field" />
+                  <target id="d6cc8a0a-92f0-4c15-9fcb-82ea0efee0ac" name="UpdateAccountCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="3b147a00-4c35-4259-8753-1f78c711ac52" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>

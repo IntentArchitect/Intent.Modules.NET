@@ -108,5 +108,54 @@
         </childElement>
       </childElements>
     </childElement>
+    <childElement id="95cb27be-e96f-4ab9-aac5-77b957f5474d" type="Element Event Settings" typeId="3c628ab0-2407-4fb0-8507-ddde986cff2e">
+      <name>NewElementEventSettings</name>
+      <display>[events]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>6d5b30e5-37c8-4858-bb9d-0a94f6bd0940</parentFolderId>
+      <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+      <packageName>Intent.VisualStudio.Projects</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="41025dc1-d321-428b-9cd0-deae2de2a866" type="Element Event Handler" typeId="0ef412e3-d15a-45d3-bcd3-f646165f2eb6">
+          <name>On Changed</name>
+          <display>On Changed: Inline Script</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="db7afc3a-eab2-4455-851c-6d60b1b09bd8">
+            <typeId>043eee26-1591-42ac-9f2c-fc911b070eb1</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.ModuleBuilder</typePackageName>
+            <typePackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>95cb27be-e96f-4ab9-aac5-77b957f5474d</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="56bc0465-c1fe-4bca-9493-2a3ce88a4047" name="Script Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+              <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+              <properties>
+                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="const stereotypeId = &quot;1d9e433d-888c-4b97-b1cf-c61d565336d4&quot;;&#xD;&#xA;const services = lookupTypesOf(&quot;6d5b30e5-37c8-4858-bb9d-0a94f6bd0940&quot;);&#xD;&#xA;const referencedElements = [];&#xD;&#xA;&#xD;&#xA;for (let i = 0; i &lt; services.length; i++) {&#xD;&#xA;    const service = services[i];&#xD;&#xA;    const references = service.getAssociations();&#xD;&#xA;    for (let j = 0; j &lt; references.length; j++) {&#xD;&#xA;        const reference = references[j];&#xD;&#xA;        const id = reference.typeReference.getTypeId();&#xD;&#xA;        if (!id) {&#xD;&#xA;            continue;&#xD;&#xA;        }&#xD;&#xA;&#xD;&#xA;        referencedElements.push(id);&#xD;&#xA;    }&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;const projects = lookupTypesOf(&quot;a1e23df1-27cb-43ba-92b1-13cfaac6837a&quot;);&#xD;&#xA;for (let i = 0; i &lt; projects.length; i++) {&#xD;&#xA;    const project = projects[i];&#xD;&#xA;    const hasStereotype = project.hasStereotype(&quot;stereotypeId&quot;);&#xD;&#xA;    const shouldHaveStereotype = referencedElements.indexOf(project.id) &gt;= 0;&#xD;&#xA;&#xD;&#xA;    if (hasStereotype == shouldHaveStereotype) {&#xD;&#xA;        continue;&#xD;&#xA;    }&#xD;&#xA;&#xD;&#xA;    if (shouldHaveStereotype) {&#xD;&#xA;        project.addStereotype(stereotypeId);&#xD;&#xA;    }&#xD;&#xA;    else {&#xD;&#xA;        project.removeStereotype(stereotypeId);&#xD;&#xA;    }&#xD;&#xA;}" isActive="true" />
+                <property name="7df9c3b9-91a0-4cb7-bc3a-15d72f160054" display="Dependencies" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>

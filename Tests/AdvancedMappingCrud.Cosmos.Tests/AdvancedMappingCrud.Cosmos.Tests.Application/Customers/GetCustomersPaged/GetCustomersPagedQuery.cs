@@ -10,7 +10,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.Customers.GetCustomersPag
 {
     public class GetCustomersPagedQuery : IRequest<PagedResult<CustomerDto>>, IQuery
     {
-        public GetCustomersPagedQuery(int pageNo, int pageSize)
+        public GetCustomersPagedQuery(int pageNo = 1, int pageSize = 25)
         {
             PageNo = pageNo;
             PageSize = pageSize;

@@ -1,6 +1,10 @@
-### Version 4.5.5
+### Version 4.5.6
 
 - Improvement: Updated NuGet package versions.
+
+### Version 4.5.5
+
+- Improvement: Documentation and ProjectUrl link added.
 
 ### Version 4.5.4
 

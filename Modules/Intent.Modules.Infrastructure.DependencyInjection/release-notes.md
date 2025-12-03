@@ -1,6 +1,10 @@
-### Version 4.1.13
+### Version 4.1.14
 
 - Improvement: Updated NuGet package versions.
+
+### Version 4.1.13
+
+- Improvement: Documentation and ProjectUrl link added.
 
 ### Version 4.1.12
 

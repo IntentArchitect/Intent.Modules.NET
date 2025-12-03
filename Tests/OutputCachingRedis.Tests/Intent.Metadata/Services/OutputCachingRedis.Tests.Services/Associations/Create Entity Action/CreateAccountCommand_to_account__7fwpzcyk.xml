@@ -5,7 +5,7 @@
     <order>0</order>
     <typeReference id="e68f666a-8c58-4c37-a12f-7fcd9240e562">
       <typeId>80437224-d82d-4b5d-9305-c4ffc4b9a775</typeId>
-      <isNavigable>true</isNavigable>
+      <isNavigable>false</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
       <isRequired>true</isRequired>
@@ -22,6 +22,9 @@
     <name>account</name>
     <display>[create] account: Account</display>
     <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="23729060-d22d-4eb5-a519-8a43d66e3d77">
       <typeId>62c60393-e005-4f94-9c7c-c8729f48be39</typeId>
       <isNavigable>true</isNavigable>

@@ -1,6 +1,10 @@
-﻿### Version 3.0.9
+﻿### Version 3.1.0
 
 - Improvement: EventBus now implements `IMessageBus` and supports composite message bus architecture for multi-provider scenarios.
+
+### Version 3.0.9
+
+- Improvement: Documentation and ProjectUrl link added.
 
 ### Version 3.0.8
 

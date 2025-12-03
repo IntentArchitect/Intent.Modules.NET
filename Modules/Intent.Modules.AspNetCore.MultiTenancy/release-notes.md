@@ -1,6 +1,10 @@
-### Version 5.1.18
+### Version 5.1.19
 
 - Improvement: Updated NuGet package versions.
+
+### Version 5.1.18
+
+- Fixed: ProjectUrl link.
 
 ### Version 5.1.17
 

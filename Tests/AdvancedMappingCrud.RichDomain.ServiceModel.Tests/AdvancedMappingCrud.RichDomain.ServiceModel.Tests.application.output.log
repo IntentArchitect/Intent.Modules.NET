@@ -540,6 +540,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>5c87c090-6acc-44fa-b54d-f03ee630de4c</ProjectId>
+      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#92ac6aaf-f4b8-486b-88a3-57d3ddcfc847</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Application/Implementation/MixInvocations/MixService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MixInvocations/MixService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5c87c090-6acc-44fa-b54d-f03ee630de4c</ProjectId>
       <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#1924dfc2-20e0-46d7-a021-eaf6f4fa2991</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Application/Implementation/OrdersService.cs</ApplicationRelativeFilePath>
@@ -616,6 +624,38 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Application/Interfaces/IUsersService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IUsersService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>98c83685-bad4-411a-a30a-2f16d1f1489e</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.ServiceContract#92ac6aaf-f4b8-486b-88a3-57d3ddcfc847</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Application/Interfaces/MixInvocations/IMixService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MixInvocations/IMixService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e46518f5-58d9-4cb7-a32a-0c07747e5064</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#c0ef29c0-3791-4a52-a024-d7ac436f36d6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Application/MixInvocations/CreateItem/CreateItemCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MixInvocations/CreateItem/CreateItemCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e46518f5-58d9-4cb7-a32a-0c07747e5064</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#c0ef29c0-3791-4a52-a024-d7ac436f36d6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Application/MixInvocations/CreateItem/CreateItemCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MixInvocations/CreateItem/CreateItemCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e46518f5-58d9-4cb7-a32a-0c07747e5064</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#c0ef29c0-3791-4a52-a024-d7ac436f36d6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Application/MixInvocations/CreateItem/CreateItemCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MixInvocations/CreateItem/CreateItemCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

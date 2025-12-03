@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="f8586cfc-9ee2-4f3a-b41a-0698cc082d49" version="3.1.0">
+  <name>Service Fabric Settings</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="0b49ae99-c1c2-46c7-a4e3-41591e0118e1">Service Fabric Project</type>
+  </targetTypes>
+  <targetReferenceTypes />
+  <applyMode>always</applyMode>
+  <icon type="UrlImagePath" source="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgODAgODAiIGZpbGw9IiNmZmYiDQogICAgZmlsbC1ydWxlPSJldmVub2RkIiBzdHJva2U9IiMwMDAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+DQoNCiAgICA8ZyBzdHJva2U9Im5vbmUiPg0KICAgICAgICA8cGF0aA0KICAgICAgICAgICAgZD0iTTM5Ljk5MyAxNS4xNjdsMjUuMjQ4IDIwLjk2MS04LjUxMyAyOC44NTFIMjIuNzE1bC04LjAyNy0yOC44MDQgMjUuMzA1LTIxLjAwOG0wLTguOTM3TDYuODY5IDMzLjczbDEwLjYyNSAzOC4xMjRoNDQuMzc0TDczLjExNyAzMy43MyAzOS45OTMgNi4yM2gweiINCiAgICAgICAgICAgIGZpbGw9IiNkZDU5MDAiIC8+DQogICAgICAgIDxwYXRoDQogICAgICAgICAgICBkPSJNMzkuOTk5IDBjNi45MDQgMCAxMi41IDUuNTk3IDEyLjUgMTIuNTAxQTEyLjUgMTIuNSAwIDAgMSAzOS45OTkgMjVhMTIuNSAxMi41IDAgMCAxIDAtMjQuOTk5ek02Ny41IDIxLjI0OWExMi41IDEyLjUgMCAwIDEgMTIuNDk5IDEyLjQ5OUExMi41IDEyLjUgMCAwIDEgNjcuNSA0Ni4yNDdjLTYuOTA0IDAtMTIuNS01LjU5Ny0xMi41LTEyLjQ5OXM1LjU5Ny0xMi40OTkgMTIuNS0xMi40OTl6bS05LjM3NiAzMy43NWM2LjkwNCAwIDEyLjUgNS41OTcgMTIuNSAxMi40OTlzLTUuNTk3IDEyLjQ5OS0xMi41IDEyLjQ5OWExMi41IDEyLjUgMCAwIDEtMTIuNDk5LTEyLjQ5OSAxMi41IDEyLjUgMCAwIDEgMTIuNDk5LTEyLjQ5OXptLTM2LjI2NSAwYzYuOTA0IDAgMTIuNTAxIDUuNTk3IDEyLjUwMSAxMi40OTlzLTUuNTk3IDEyLjUwMS0xMi41MDEgMTIuNTAxLTEyLjUtNS41OTctMTIuNS0xMi41MDEgNS41OTctMTIuNDk5IDEyLjUtMTIuNDk5em0tOS4zNTgtMzMuNzVBMTIuNSAxMi41IDAgMSAxIDAgMzMuNzVjMC02LjkwNCA1LjU5Ny0xMi41IDEyLjUwMS0xMi41eiINCiAgICAgICAgICAgIGZpbGw9IiNmZjhjMDAiIC8+DQogICAgICAgIDxwYXRoDQogICAgICAgICAgICBkPSJNMjQuMDg4IDc5Ljc5OEwyOS4xOCA1Ny4zN2ExMi40NCAxMi40NCAwIDAgMC03LjMyMS0yLjM2OWMtLjY0MiAwLTEuMjcuMDQ4LTEuODg2LjE0MmwtMi43MzgtOS44MjJDMjEuNzkgNDMuNDUzIDI1IDM4Ljk3OSAyNSAzMy43NTFjMC0xLjg1NC0uNDA2LTMuNjEzLTEuMTMxLTUuMTk3bDcuOTU1LTYuNjAzYTEyLjUgMTIuNSAwIDAgMCA0LjgxMSAyLjU5TDQyLjE2Mi4xOTJDNDEuNDU4LjA2NyA0MC43MzcgMCAzOS45OTkgMCAzMy4wOTUgMCAyNy41IDUuNTk3IDI3LjUgMTIuNTAxYzAgMS4yNy4xOTEgMi40OTYuNTQ0IDMuNjUxbC04LjY0MyA3LjE3NmMtMS45NzctMS4zMTItNC4zNDktMi4wNzctNi44OTktMi4wNzdBMTIuNSAxMi41IDAgMCAwIDAgMzMuNzVjMCA2LjE1MyA0LjQ0OCAxMS4yNjQgMTAuMzAyIDEyLjMwNGwzLjM1IDEyLjAyMmMtMi42MyAyLjI5MS00LjI5NCA1LjY2Mi00LjI5NCA5LjQyNEM5LjM1OCA3NC40MDMgMTQuOTU1IDgwIDIxLjg1OSA4MGMuNzYtLjAwMiAxLjUwNi0uMDcyIDIuMjI5LS4yMDJ6Ig0KICAgICAgICAgICAgb3BhY2l0eT0iLjI1IiAvPg0KICAgIDwvZz4NCjwvc3ZnPg==" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return false;</displayIconFunction>
+  <displayFunction />
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>f0d6fe41-55fc-486f-998b-5b49efa2e07f</parentFolderId>
+  <order>0</order>
+  <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+  <packageName>Intent.VisualStudio.Projects</packageName>
+  <properties>
+    <property id="2108bdcb-7043-48f9-9af9-acd1a329f2c2">
+      <name>Generate Startup Services</name>
+      <type>string</type>
+      <controlType>checkbox</controlType>
+      <optionsSource>n/a</optionsSource>
+      <defaultValue>true</defaultValue>
+    </property>
+  </properties>
+</stereotypeDefinition>

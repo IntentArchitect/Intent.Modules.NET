@@ -20,8 +20,14 @@ namespace GraphQL.CQRS.TestApplication.Application.Invoices.GetInvoicesPaged
             PageIndex = pageIndex;
             PageSize = pageSize;
         }
+        /// <summary>
+        /// The page index
+        /// </summary>
         public int PageIndex { get; set; }
 
+        /// <summary>
+        /// The page size
+        /// </summary>
         public string PageSize { get; set; }
 
     }

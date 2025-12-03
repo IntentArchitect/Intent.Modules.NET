@@ -35,7 +35,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.ServiceFabric.PackagesC
             foreach (var model in models)
             {
                 var project = applicationManager.Projects.Single(x => x.Id == model.Id);
-                registry.Register(TemplateId, project, p => new PackagesConfigTemplate(p, null));
+                registry.Register(TemplateId, project, p => new PackagesConfigTemplate(p, model));
             }
         }
     }

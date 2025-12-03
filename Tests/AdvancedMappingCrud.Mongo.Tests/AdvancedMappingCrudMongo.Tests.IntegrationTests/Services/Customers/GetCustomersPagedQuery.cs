@@ -11,7 +11,7 @@ namespace AdvancedMappingCrudMongo.Tests.IntegrationTests.Services.Customers
         public int PageNo { get; set; }
         public int PageSize { get; set; }
 
-        public static GetCustomersPagedQuery Create(int pageNo, int pageSize)
+        public static GetCustomersPagedQuery Create(int pageNo = 5, int pageSize = 50)
         {
             return new GetCustomersPagedQuery
             {

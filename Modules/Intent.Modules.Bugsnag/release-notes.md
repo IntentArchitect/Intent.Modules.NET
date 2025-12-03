@@ -1,3 +1,7 @@
+### Version 1.0.7
+
+- Improvement: Documentation and ProjectUrl link added.
+
 ### Version 1.0.6
 
 - Improvement: Updated NuGet package versions.

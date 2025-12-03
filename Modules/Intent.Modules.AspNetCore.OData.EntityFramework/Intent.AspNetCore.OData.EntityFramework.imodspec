@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.OData.EntityFramework</id>
-  <version>1.0.9-pre.0</version>
+  <version>1.0.9</version>
   <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
   <summary>Provide the ability to expose OData endpoints for a Domain Model.</summary>
   <description>Enable the application to expose OData endpoints that operate directly over the Domain Model, allowing clients to query, filter, and manipulate domain entities using standard OData protocols.</description>

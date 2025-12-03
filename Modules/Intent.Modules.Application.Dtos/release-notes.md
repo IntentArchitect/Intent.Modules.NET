@@ -1,3 +1,7 @@
+### Version 4.4.7
+
+- Improvement: Documentation and ProjectUrl link added.
+
 ### Version 4.4.6
 
 - Improvement: Added support for default values on the constructor and `Create` method

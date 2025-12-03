@@ -29,10 +29,12 @@ namespace OutputCachingRedis.Tests.Api.Controllers
     public class CustomersController : ControllerBase
     {
         private readonly ISender _mediator;
+        private readonly IOutputCacheStore _outputCacheStore;
 
-        public CustomersController(ISender mediator)
+        public CustomersController(ISender mediator, IOutputCacheStore outputCacheStore)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
+            _outputCacheStore = outputCacheStore;
         }
 
         /// <summary>
@@ -49,6 +51,7 @@ namespace OutputCachingRedis.Tests.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(command, cancellationToken);
+            await _outputCacheStore.EvictByTagAsync("customers", cancellationToken);
             return CreatedAtAction(nameof(GetCustomerById), new { id = result }, new JsonResponse<Guid>(result));
         }
 
@@ -65,6 +68,7 @@ namespace OutputCachingRedis.Tests.Api.Controllers
         public async Task<ActionResult> DeleteCustomer([FromRoute] Guid id, CancellationToken cancellationToken = default)
         {
             await _mediator.Send(new DeleteCustomerCommand(id: id), cancellationToken);
+            await _outputCacheStore.EvictByTagAsync("customers", cancellationToken);
             return Ok();
         }
 
@@ -94,6 +98,7 @@ namespace OutputCachingRedis.Tests.Api.Controllers
             }
 
             await _mediator.Send(command, cancellationToken);
+            await _outputCacheStore.EvictByTagAsync("customers", cancellationToken);
             return NoContent();
         }
 
