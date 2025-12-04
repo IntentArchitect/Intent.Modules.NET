@@ -51,6 +51,11 @@ namespace BlazorServerTests.Api.Components.Pages
             NavigationManager.NavigateTo("customer-add");
         }
 
+        private void NavigateToExamplePage(string title = "Example Page")
+        {
+            NavigationManager.NavigateTo("example-page/{title}");
+        }
+
         public async Task<TableData<CustomerDto>> LoadServerData(TableState state, CancellationToken cancellationToken)
         {
             string? orderBy = null;

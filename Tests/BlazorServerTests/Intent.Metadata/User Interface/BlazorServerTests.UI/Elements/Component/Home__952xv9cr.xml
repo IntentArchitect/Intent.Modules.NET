@@ -12,6 +12,7 @@
   <packageName>BlazorServerTests.UI</packageName>
   <traits>
     <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+    <trait id="ea4adc09-8978-4ede-ba5f-265debb2b60c" name="Page" />
   </traits>
   <stereotypes>
     <stereotype stereotypeDefinitionId="ea4adc09-8978-4ede-ba5f-265debb2b60c" name="Page">

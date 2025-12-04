@@ -10,9 +10,16 @@ namespace BlazorServerTests.Api.Components.Pages
     {
         [Parameter]
         public string Title { get; set; } = "Example Page";
+        [Inject]
+        public NavigationManager NavigationManager { get; set; } = default!;
 
         protected override async Task OnInitializedAsync()
         {
+        }
+
+        private void NavigateToCustomerSearch()
+        {
+            NavigationManager.NavigateTo("customer-search");
         }
     }
 }

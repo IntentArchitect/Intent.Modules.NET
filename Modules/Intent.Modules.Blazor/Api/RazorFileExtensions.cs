@@ -446,8 +446,10 @@ public static class RazorFileExtensions
         if (string.IsNullOrEmpty(path) || path.Length < 3) // minimum string we care about is 3 chars { "/" }
             return path;
 
-        return path[1] == '/'
-            ? "\"" + path[2..]
+        int position = path[0] == '$' ? 2 : 1;// $"/..." vs "/..."
+
+        return path[position] == '/'
+            ? "\"" + path[(position + 1)..]
             : path;
     }
 
