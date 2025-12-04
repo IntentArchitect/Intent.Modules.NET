@@ -167,6 +167,7 @@ namespace Intent.Modules.Aws.Sqs.Templates.SqsMessageBus
                     @class.AddNestedRecord("MessageEntry", record =>
                     {
                         record.Private();
+                        record.Sealed();
                         record.AddPrimaryConstructor(ctor =>
                         {
                             ctor.AddParameter("object", "Message");

@@ -163,6 +163,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitMessageBus
                     @class.AddNestedRecord("MessageEntry", rec =>
                     {
                         rec.Private();
+                        rec.Sealed();
                         rec.AddPrimaryConstructor(ctor =>
                         {
                             ctor.AddParameter("object", "Message");

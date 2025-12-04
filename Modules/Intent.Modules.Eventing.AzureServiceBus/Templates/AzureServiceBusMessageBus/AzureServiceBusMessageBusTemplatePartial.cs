@@ -130,6 +130,7 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusMessa
                     @class.AddNestedRecord("MessageEntry", record =>
                     {
                         record.Private();
+                        record.Sealed();
                         record.AddPrimaryConstructor(ctor =>
                         {
                             ctor.AddParameter("object", "Message");
