@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.AzureQueueStorage</id>
-  <version>1.1.0-pre.1</version>
+  <version>1.1.0-pre.2</version>
   <supportedClientVersions>[4.5.18-a,5.0.0)</supportedClientVersions>
   <summary>Provides patterns for using Azure Queue Storage, which can be modeled in Intent Architect's designers.</summary>
   <description>Provides patterns for using Azure Queue Storage, which can be modeled in Intent Architect's designers.</description>
@@ -110,7 +110,7 @@
   <interoperability>
     <detect id="Intent.AzureFunctions">
       <install>
-        <package id="Intent.AzureFunctions.AzureQueueStorage" version="1.1.0-beta.1" />
+        <package id="Intent.AzureFunctions.AzureQueueStorage" version="1.1.0-pre.2" />
       </install>
     </detect>
   </interoperability>
@@ -119,7 +119,7 @@
     <dependency id="Intent.Common.CSharp" version="3.8.0" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Common.UnitOfWork" version="1.0.2" />
-    <dependency id="Intent.Eventing.Contracts" version="6.1.0-pre.1" />
+    <dependency id="Intent.Eventing.Contracts" version="6.1.0-pre.2" />
     <dependency id="Intent.Modelers.Eventing" version="6.0.3" />
     <dependency id="Intent.Modelers.Services" version="4.0.7" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
