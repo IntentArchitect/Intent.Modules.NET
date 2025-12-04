@@ -1,5 +1,7 @@
 ### Version 1.0.8
 
+- Fixed: WASM Client launch profile was not getting created.
+- Fixed: Made `NavigateTo` routes relative rather than absolute, these are relative to the RootPath making it better for sub path hosting, and should still function the same for normal hosting .
 - Fixed: Fixed an container and host configuration for "Auto".
 
 ### Version 1.0.7

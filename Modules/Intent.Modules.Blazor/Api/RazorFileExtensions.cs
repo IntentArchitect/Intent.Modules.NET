@@ -317,11 +317,11 @@ public static class RazorFileExtensions
                                 if (route.Route.Contains("{"))
                                 {
                                     var adjusted = FixParameterCasing(route.Route, method.Parameters.Select(p => p.Name).ToList());
-                                    method.AddStatement($"{serviceName}.NavigateTo(${adjusted});");
+                                    method.AddStatement($"{serviceName}.NavigateTo(${ MakePathRelative(adjusted)});");
                                 }
                                 else
                                 {
-                                    method.AddStatement($"{serviceName}.NavigateTo({route.Route});");
+                                    method.AddStatement($"{serviceName}.NavigateTo({MakePathRelative(route.Route)});");
                                 }
 
                                 continue;
@@ -435,10 +435,20 @@ public static class RazorFileExtensions
 
                     block.InjectServiceProperty("NavigationManager");
                     //template.RazorFile.AddInjectDirective("NavigationManager");
-                    method.AddStatement($"NavigationManager.NavigateTo({route});");
+                    method.AddStatement($"NavigationManager.NavigateTo({MakePathRelative(route)});");
                 });
             }
         }
+    }
+
+    static string MakePathRelative(string path)
+    {
+        if (string.IsNullOrEmpty(path) || path.Length < 3) // minimum string we care about is 3 chars { "/" }
+            return path;
+
+        return path[1] == '/'
+            ? "\"" + path[2..]
+            : path;
     }
 
     static string FixParameterCasing(string route, List<string> localVariableNames)

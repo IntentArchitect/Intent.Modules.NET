@@ -1,5 +1,9 @@
 ### Version 5.1.19
 
+- Improvement: Improved error message around unsupported scenarios.
+
+### Version 5.1.19
+
 - Improvement: Updated NuGet package versions.
 
 ### Version 5.1.18

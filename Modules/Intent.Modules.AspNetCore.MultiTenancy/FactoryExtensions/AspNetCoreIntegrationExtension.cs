@@ -195,7 +195,7 @@ public class AspNetCoreIntegrationExtension : FactoryExtensionBase
                     ).FirstOrDefault();
             if (problem != null)
             {
-                throw new ElementException(problem.InternalElement, "Composite/Owned entities cannot be have the  `Multi Tenant` stereotype. Either remove the stereotype or apply the `Table` stereotype it.");
+                throw new ElementException(problem.InternalElement, "Composite/Owned entities cannot be have the `Multi Tenant` stereotype (as FinBuckle does not support this mapping). Either remove the stereotype or change the relationship to not be owned `Inverting` the owned association or apply the `Table` stereotype.");
             }
         }
     }
