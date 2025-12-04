@@ -123,7 +123,7 @@ namespace UI.AI.Samples.Api.Components.Pages.Templates.Pages
                 }
                 await CreateCustomer();
                 Snackbar.Add("Customer created successfully.", Severity.Success);
-                NavigationManager.NavigateTo("/templates/pages/customers");
+                NavigationManager.NavigateTo("templates/pages/customers");
             }
             catch (Exception ex)
             {
@@ -137,7 +137,7 @@ namespace UI.AI.Samples.Api.Components.Pages.Templates.Pages
 
         private void Cancel()
         {
-            NavigationManager.NavigateTo("/templates/pages/customers");
+            NavigationManager.NavigateTo("templates/pages/customers");
         }
 
         private async Task CreateCustomer()

@@ -42,7 +42,7 @@ namespace UI.AI.Samples.Api.Components.Pages.Templates.Pages
 
         private void Cancel()
         {
-            NavigationManager.NavigateTo("/templates/pages/customers");
+            NavigationManager.NavigateTo("templates/pages/customers");
         }
     }
 }

@@ -48,7 +48,7 @@ namespace BlazorServerTests.Api.Components.Pages
 
         private void AddCustomer()
         {
-            NavigationManager.NavigateTo("/customer-add");
+            NavigationManager.NavigateTo("customer-add");
         }
 
         public async Task<TableData<CustomerDto>> LoadServerData(TableState state, CancellationToken cancellationToken)

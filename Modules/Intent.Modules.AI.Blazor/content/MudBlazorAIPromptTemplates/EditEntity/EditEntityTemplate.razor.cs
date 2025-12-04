@@ -201,7 +201,7 @@ namespace UI.AI.Samples.Api.Components.Pages.Templates.Pages
                 }
                 await UpdateCustomer();
                 Snackbar.Add("Customer updated successfully.", Severity.Success);
-                NavigationManager.NavigateTo("/templates/pages/customers");
+                NavigationManager.NavigateTo("templates/pages/customers");
             }
             catch (Exception ex)
             {
@@ -215,7 +215,7 @@ namespace UI.AI.Samples.Api.Components.Pages.Templates.Pages
 
         private void Cancel()
         {
-            NavigationManager.NavigateTo("/templates/pages/customers");
+            NavigationManager.NavigateTo("templates/pages/customers");
         }
 
         public void RemoveAddress(int index)

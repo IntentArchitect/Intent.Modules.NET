@@ -45,7 +45,7 @@ namespace MudBlazor.ExampleApp.Client.Pages.Invoices
                         })
                         .ToList()
                 });
-                NavigationManager.NavigateTo("/invoices");
+                NavigationManager.NavigateTo("invoices");
             }
             catch (Exception e)
             {
@@ -55,7 +55,7 @@ namespace MudBlazor.ExampleApp.Client.Pages.Invoices
 
         private void OnCancelClicked()
         {
-            NavigationManager.NavigateTo("/invoices");
+            NavigationManager.NavigateTo("invoices");
         }
 
         private async Task OnSaveClickedAlt()
@@ -73,7 +73,7 @@ namespace MudBlazor.ExampleApp.Client.Pages.Invoices
                         CustomerId = Model.CustomerId.Value
                     }
                 });
-                NavigationManager.NavigateTo("/invoices");
+                NavigationManager.NavigateTo("invoices");
             }
             catch (Exception e)
             {

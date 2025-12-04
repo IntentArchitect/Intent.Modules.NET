@@ -1,10 +1,8 @@
 using Intent.RoslynWeaver.Attributes;
-using Kafka.Consumer.Application.Common.Eventing;
 using Kafka.Consumer.Application.Common.Interfaces;
 using Kafka.Consumer.Domain.Common.Interfaces;
 using Kafka.Consumer.Domain.Repositories;
 using Kafka.Consumer.Infrastructure.Configuration;
-using Kafka.Consumer.Infrastructure.Eventing;
 using Kafka.Consumer.Infrastructure.Persistence;
 using Kafka.Consumer.Infrastructure.Repositories;
 using Kafka.Consumer.Infrastructure.Services;

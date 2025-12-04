@@ -21,12 +21,12 @@ namespace MudBlazor.ExampleApp.Client.Pages.Invoices
 
         private void AddInvoiceClick()
         {
-            NavigationManager.NavigateTo("/invoices/add");
+            NavigationManager.NavigateTo("invoices/add");
         }
 
         private void OnRowClicked(string invoiceId)
         {
-            NavigationManager.NavigateTo($"/invoices/{Guid.Parse(invoiceId)}");
+            NavigationManager.NavigateTo($"invoices/{Guid.Parse(invoiceId)}");
         }
 
         private async Task FetchDataGridData(int pageNo, int pageSize, string sorting)

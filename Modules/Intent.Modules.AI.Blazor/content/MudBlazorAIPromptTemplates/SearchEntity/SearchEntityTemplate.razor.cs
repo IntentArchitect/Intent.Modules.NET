@@ -87,17 +87,17 @@ namespace UI.AI.Samples.Api.Components.Pages.Templates.Pages
 
         private void AddCustomer()
         {
-            NavigationManager.NavigateTo("/templates/pages/customers/add");
+            NavigationManager.NavigateTo("templates/pages/customers/add");
         }
 
         private void EditCustomer(Guid customerId)
         {
-            NavigationManager.NavigateTo($"/templates/pages/customers/edit/{customerId}");
+            NavigationManager.NavigateTo($"templates/pages/customers/edit/{customerId}");
         }
 
         private void ViewCustomer(Guid customerId)
         {
-            NavigationManager.NavigateTo($"/templates/pages/customers/view/{customerId}");
+            NavigationManager.NavigateTo($"templates/pages/customers/view/{customerId}");
         }
 
         /// <summary>

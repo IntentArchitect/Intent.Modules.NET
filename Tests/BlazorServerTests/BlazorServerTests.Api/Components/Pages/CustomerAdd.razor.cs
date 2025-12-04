@@ -28,7 +28,7 @@ namespace BlazorServerTests.Api.Components.Pages
 
         private void Cancel()
         {
-            NavigationManager.NavigateTo("/customer-search");
+            NavigationManager.NavigateTo("customer-search");
         }
 
         private async Task CreateCustomer()

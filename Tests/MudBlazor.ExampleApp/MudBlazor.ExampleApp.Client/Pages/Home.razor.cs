@@ -13,7 +13,7 @@ namespace MudBlazor.ExampleApp.Client.Pages
 
         private void NavigateToCustomerList()
         {
-            NavigationManager.NavigateTo("/customers");
+            NavigationManager.NavigateTo("customers");
         }
     }
 }
