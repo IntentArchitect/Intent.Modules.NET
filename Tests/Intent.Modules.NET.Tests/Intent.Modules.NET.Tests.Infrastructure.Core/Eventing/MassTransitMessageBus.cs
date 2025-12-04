@@ -121,7 +121,7 @@ namespace Intent.Modules.NET.Tests.Infrastructure.Core.Eventing
 
             Send
         }
-        private record MessageEntry(object Message, IDictionary<string, object>? AdditionalData, DispatchType DispatchType);
+        private sealed record MessageEntry(object Message, IDictionary<string, object>? AdditionalData, DispatchType DispatchType);
 
     }
 }

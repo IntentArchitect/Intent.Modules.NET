@@ -24,3 +24,10 @@ resource "azurerm_eventgrid_topic" "specific_topic" {
   resource_group_name = azurerm_resource_group.main_rg.name
   input_schema        = "CloudEventSchemaV1_0"
 }
+
+resource "azurerm_eventgrid_topic" "msg_az_evt_grid" {
+  name                = "msg-az-evt-grid"
+  location            = azurerm_resource_group.main_rg.location
+  resource_group_name = azurerm_resource_group.main_rg.name
+  input_schema        = "CloudEventSchemaV1_0"
+}

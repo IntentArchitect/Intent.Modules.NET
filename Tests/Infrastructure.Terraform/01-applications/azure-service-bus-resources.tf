@@ -59,3 +59,8 @@ resource "azurerm_servicebus_subscription" "asp_net_core_azure_service_bus_group
   topic_id           = azurerm_servicebus_topic.publish_and_consume.id
   max_delivery_count = 3
 }
+
+resource "azurerm_servicebus_topic" "msg_az_srv_bus" {
+  name         = "msg-az-srv-bus"
+  namespace_id = azurerm_servicebus_namespace.service_bus.id
+}
