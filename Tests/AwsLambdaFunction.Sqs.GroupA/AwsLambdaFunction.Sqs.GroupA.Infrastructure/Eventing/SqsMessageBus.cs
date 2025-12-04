@@ -60,10 +60,10 @@ namespace AwsLambdaFunction.Sqs.GroupA.Infrastructure.Eventing
             }
 
             var groupedMessages = _messageQueue.GroupBy(entry =>
-{
-    var publisherEntry = _lookup[entry.Message.GetType().FullName!];
-    return publisherEntry.QueueUrl;
-});
+            {
+                var publisherEntry = _lookup[entry.Message.GetType().FullName!];
+                return publisherEntry.QueueUrl;
+            });
 
             foreach (var group in groupedMessages)
             {
@@ -112,7 +112,7 @@ namespace AwsLambdaFunction.Sqs.GroupA.Infrastructure.Eventing
             return sqsMessage;
         }
 
-        private record MessageEntry(object Message, IDictionary<string, object>? AdditionalData);
+        private sealed record MessageEntry(object Message, IDictionary<string, object>? AdditionalData);
 
     }
 }

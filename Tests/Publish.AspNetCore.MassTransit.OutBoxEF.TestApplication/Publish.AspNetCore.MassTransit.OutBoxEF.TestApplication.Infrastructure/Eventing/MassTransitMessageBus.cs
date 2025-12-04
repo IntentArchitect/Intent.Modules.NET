@@ -126,7 +126,7 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Infrastructure
 
             Send
         }
-        private record MessageEntry(object Message, IDictionary<string, object>? AdditionalData, DispatchType DispatchType);
+        private sealed record MessageEntry(object Message, IDictionary<string, object>? AdditionalData, DispatchType DispatchType);
 
     }
 }

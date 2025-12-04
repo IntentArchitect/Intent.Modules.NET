@@ -411,5 +411,61 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="74691d71-c1a2-4339-95d6-17dbfa7fc9dd" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Aws.Common.AwsConfiguration</name>
+      <display>Intent.Aws.Common.AwsConfiguration</display>
+      <externalReference>Intent.Aws.Common</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>44a8fa2b-baa0-412e-80f2-43567b1963e2</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="e80d9036-023c-475f-8f8b-f9ea98df3c2f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Aws.Sqs.SqsConfiguration</name>
+      <display>Intent.Aws.Sqs.SqsConfiguration</display>
+      <externalReference>Intent.Aws.Sqs</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>44a8fa2b-baa0-412e-80f2-43567b1963e2</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="515a704d-6dd4-439c-b1dd-44e14f8b29eb" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Aws.Sqs.SqsPublisherOptions</name>
+      <display>Intent.Aws.Sqs.SqsPublisherOptions</display>
+      <externalReference>Intent.Aws.Sqs</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>44a8fa2b-baa0-412e-80f2-43567b1963e2</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="7c630447-4232-47a7-b508-d39a07868ef6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Aws.Sqs.SqsSubscriptionOptions</name>
+      <display>Intent.Aws.Sqs.SqsSubscriptionOptions</display>
+      <externalReference>Intent.Aws.Sqs</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>44a8fa2b-baa0-412e-80f2-43567b1963e2</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

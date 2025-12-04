@@ -89,7 +89,7 @@ namespace AzureFunctions.AzureServiceBus.Infrastructure.Eventing
             return serviceBusMessage;
         }
 
-        private record MessageEntry(object Message, IDictionary<string, object>? AdditionalData);
+        private sealed record MessageEntry(object Message, IDictionary<string, object>? AdditionalData);
 
     }
 }

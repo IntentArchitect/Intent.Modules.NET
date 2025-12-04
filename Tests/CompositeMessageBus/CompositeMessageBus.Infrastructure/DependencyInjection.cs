@@ -25,6 +25,7 @@ namespace CompositeMessageBus.Infrastructure
             services.AddScoped<DaprStateStoreUnitOfWork>();
             services.AddScoped<IDaprStateStoreUnitOfWork>(provider => provider.GetRequiredService<DaprStateStoreUnitOfWork>());
             services.AddScoped<IDaprStateStoreGenericRepository, DaprStateStoreGenericRepository>();
+            services.ConfigureAws(configuration);
             services.AddHttpClients(configuration);
             services.ConfigureCompositeMessageBus(configuration);
             return services;

@@ -179,7 +179,7 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructur
 
             Schedule
         }
-        private record MessageEntry(object Message, IDictionary<string, object>? AdditionalData, DispatchType DispatchType);
+        private sealed record MessageEntry(object Message, IDictionary<string, object>? AdditionalData, DispatchType DispatchType);
 
     }
 }

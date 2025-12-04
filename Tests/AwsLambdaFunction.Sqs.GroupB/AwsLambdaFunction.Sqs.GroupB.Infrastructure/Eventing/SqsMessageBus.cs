@@ -112,7 +112,7 @@ namespace AwsLambdaFunction.Sqs.GroupB.Infrastructure.Eventing
             return sqsMessage;
         }
 
-        private record MessageEntry(object Message, IDictionary<string, object>? AdditionalData);
+        private sealed record MessageEntry(object Message, IDictionary<string, object>? AdditionalData);
 
     }
 }

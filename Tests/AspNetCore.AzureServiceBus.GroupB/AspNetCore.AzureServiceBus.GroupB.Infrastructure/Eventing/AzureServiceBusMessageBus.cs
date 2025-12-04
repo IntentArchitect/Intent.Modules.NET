@@ -84,7 +84,7 @@ namespace AspNetCore.AzureServiceBus.GroupB.Infrastructure.Eventing
             return serviceBusMessage;
         }
 
-        private record MessageEntry(object Message, IDictionary<string, object>? AdditionalData);
+        private sealed record MessageEntry(object Message, IDictionary<string, object>? AdditionalData);
 
     }
 }

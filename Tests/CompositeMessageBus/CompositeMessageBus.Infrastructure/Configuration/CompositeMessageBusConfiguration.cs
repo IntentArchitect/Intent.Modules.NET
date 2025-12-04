@@ -17,15 +17,16 @@ namespace CompositeMessageBus.Infrastructure.Configuration
         {
             var registry = new MessageBrokerRegistry();
 
+            services.AddSqsConfiguration(configuration, registry);
             services.AddEventGridConfiguration(configuration, registry);
             services.AddQueueStorageConfiguration(configuration, registry);
             services.AddAzureServiceBusConfiguration(configuration, registry);
             services.AddKafkaConfiguration(configuration, registry);
             services.AddMassTransitConfiguration(configuration, registry);
+
             services.AddSolaceConfiguration(configuration, registry);
 
             services.AddSingleton(registry);
-
             services.AddScoped<MessageBrokerResolver>();
             services.AddScoped<IEventBus, Infrastructure.Eventing.CompositeMessageBus>();
 

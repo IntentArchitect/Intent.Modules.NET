@@ -1,29 +1,27 @@
 using System.Text.Json;
-using System.Transactions;
-using Azure.Messaging.ServiceBus;
+using Amazon.SQS;
+using Amazon.SQS.Model;
 using CompositeMessageBus.Application.Common.Eventing;
 using CompositeMessageBus.Infrastructure.Configuration;
 using Intent.RoslynWeaver.Attributes;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Eventing.AzureServiceBus.AzureServiceBusMessageBus", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Aws.Sqs.SqsMessageBus", Version = "1.0")]
 
 namespace CompositeMessageBus.Infrastructure.Eventing
 {
-    public class AzureServiceBusMessageBus : IEventBus
+    public class SqsMessageBus : IEventBus
     {
         public const string AddressKey = "address";
+        private readonly IAmazonSQS _sqsClient;
         private readonly List<MessageEntry> _messageQueue = [];
-        private readonly Dictionary<string, string> _lookup;
-        private readonly ServiceBusClient _serviceBusClient;
+        private readonly Dictionary<string, SqsPublisherEntry> _lookup;
 
-        public AzureServiceBusMessageBus(ServiceBusClient serviceBusClient,
-            IOptions<AzureServiceBusPublisherOptions> options)
+        public SqsMessageBus(IOptions<SqsPublisherOptions> options, IAmazonSQS sqsClient)
         {
-            _serviceBusClient = serviceBusClient;
-            _lookup = options.Value.Entries.ToDictionary(k => k.MessageType.FullName!, v => v.QueueOrTopicName);
+            _sqsClient = sqsClient;
+            _lookup = options.Value.Entries.ToDictionary(k => k.MessageType.FullName!);
         }
 
         public void Publish<TMessage>(TMessage message)
@@ -62,16 +60,23 @@ namespace CompositeMessageBus.Infrastructure.Eventing
             {
                 return;
             }
-            using var scope = new TransactionScope(TransactionScopeOption.Suppress, TransactionScopeAsyncFlowOption.Enabled);
 
-            foreach (var message in _messageQueue)
+            var groupedMessages = _messageQueue.GroupBy(entry =>
             {
-                var queueOrTopicName = _lookup[message.Message.GetType().FullName!];
-                await using var sender = _serviceBusClient.CreateSender(queueOrTopicName);
-                var serviceBusMessage = CreateServiceBusMessage(message);
-                await sender.SendMessageAsync(serviceBusMessage, cancellationToken);
+                var publisherEntry = _lookup[entry.Message.GetType().FullName!];
+                return publisherEntry.QueueUrl;
+            });
+
+            foreach (var group in groupedMessages)
+            {
+                foreach (var entry in group)
+                {
+                    var publisherEntry = _lookup[entry.Message.GetType().FullName!];
+                    var sqsMessage = CreateSqsMessage(entry, publisherEntry);
+                    await _sqsClient.SendMessageAsync(sqsMessage, cancellationToken);
+                }
             }
-            scope.Complete();
+
             _messageQueue.Clear();
         }
 
@@ -87,20 +92,38 @@ namespace CompositeMessageBus.Infrastructure.Eventing
             throw new NotSupportedException("Scheduled publishing is not supported by this message bus provider.");
         }
 
-        private static ServiceBusMessage CreateServiceBusMessage(MessageEntry message)
+        private static SendMessageRequest CreateSqsMessage(MessageEntry messageEntry, SqsPublisherEntry publisherEntry)
         {
-            var serializedMessage = JsonSerializer.Serialize(message.Message);
-            var serviceBusMessage = new ServiceBusMessage(serializedMessage);
-            serviceBusMessage.ApplicationProperties["MessageType"] = message.Message.GetType().FullName;
+            var messageBody = JsonSerializer.Serialize(messageEntry.Message);
 
-            if (message.AdditionalData != null)
+            var messageAttributes = new Dictionary<string, MessageAttributeValue>
             {
-                foreach (var dataEnty in message.AdditionalData)
+                ["MessageType"] = new MessageAttributeValue
                 {
-                    serviceBusMessage.ApplicationProperties[dataEnty.Key] = dataEnty.Value;
+                    DataType = "String",
+                    StringValue = messageEntry.Message.GetType().FullName!
+                }
+            };
+
+            if (messageEntry.AdditionalData != null)
+            {
+                foreach (var kvp in messageEntry.AdditionalData)
+                {
+                    messageAttributes[kvp.Key] = new MessageAttributeValue
+                    {
+                        DataType = "String",
+                        StringValue = kvp.Value.ToString()
+                    };
                 }
             }
-            return serviceBusMessage;
+
+            var sqsMessage = new SendMessageRequest
+            {
+                QueueUrl = publisherEntry.QueueUrl,
+                MessageBody = messageBody,
+                MessageAttributes = messageAttributes
+            };
+            return sqsMessage;
         }
 
         private sealed record MessageEntry(object Message, IDictionary<string, object>? AdditionalData);
