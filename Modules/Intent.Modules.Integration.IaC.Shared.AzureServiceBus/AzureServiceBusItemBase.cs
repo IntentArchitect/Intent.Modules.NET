@@ -22,4 +22,5 @@ internal abstract record AzureServiceBusItemBase : IHasStereotypes, IHasName, IH
     public abstract string Name { get; }
     public abstract FolderModel Folder { get; }
     public abstract IElement InternalElement { get; }
+    public abstract bool HasAzureServiceBusStereotype { get; }
 };

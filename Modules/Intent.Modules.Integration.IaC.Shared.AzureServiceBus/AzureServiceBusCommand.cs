@@ -112,4 +112,6 @@ internal record AzureServiceBusCommand : AzureServiceBusItemBase
     public override FolderModel Folder => CommandModel.Folder;
 
     public override IElement InternalElement => CommandModel.InternalElement;
+
+    public override bool HasAzureServiceBusStereotype => CommandModel.HasAzureServiceBus();
 }

@@ -27,6 +27,15 @@
     <Compile Include="..\Intent.Modules.Eventing.AzureEventGrid\Api\EventingPackageModelStereotypeExtensions.cs" Link="AzureEventGridApi\EventingPackageModelStereotypeExtensions.cs" />
     <Compile Include="..\Intent.Modules.Eventing.AzureServiceBus\Api\IntegrationCommandModelStereotypeExtensions.cs" Link="AzureServiceBusApi\IntegrationCommandModelStereotypeExtensions.cs" />
     <Compile Include="..\Intent.Modules.Eventing.AzureServiceBus\Api\MessageModelStereotypeExtensions.cs" Link="AzureServiceBusApi\MessageModelStereotypeExtensions.cs" />
+    <Compile Include="..\Intent.Modules.Eventing.Contracts\Api\EventingPackageModelStereotypeExtensions.cs">
+      <Link>EventingContractsApi\EventingPackageModelStereotypeExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Intent.Modules.Eventing.Contracts\Api\FolderModelStereotypeExtensions.cs">
+      <Link>EventingContractsApi\FolderModelStereotypeExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Intent.Modules.Eventing.Contracts\Api\MessageBusProviderModel.cs">
+      <Link>EventingContractsApi\MessageBusProviderModel.cs</Link>
+    </Compile>
   </ItemGroup>
 
   <Import Project="..\Intent.Modules.Integration.IaC.Shared.AzureEventGrid\Intent.Modules.Integration.IaC.Shared.AzureEventGrid.projitems" Label="Shared" />

@@ -30,7 +30,15 @@ namespace Intent.Modules.IaC.Terraform.Templates.Applications.AzureServiceBusRes
                 .GetApplicationReferences()
                 .Select(app => ExecutionContext.GetSolutionConfig().GetApplicationConfig(app.Id))
                 .ToArray();
-            _azureServiceBusMessages = apps.SelectMany(app => IntegrationManager.Instance.GetAggregatedAzureServiceBusItems(app.Id)).ToList();
+            _azureServiceBusMessages = apps.SelectMany(app =>
+            {
+                var messages = IntegrationManager.Instance.GetAggregatedAzureServiceBusItems(app.Id).ToList();
+                if (CompositeMessageBusHelper.RequiresCompositeMessageBus(app))
+                {
+                    messages = CompositeMessageBusHelper.FilterMessagesForApp(messages, app);
+                }
+                return messages;
+            }).ToList();
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

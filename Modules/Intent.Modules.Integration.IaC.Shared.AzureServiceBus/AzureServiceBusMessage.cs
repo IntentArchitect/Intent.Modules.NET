@@ -112,4 +112,6 @@ internal record AzureServiceBusMessage : AzureServiceBusItemBase
     public override FolderModel Folder => MessageModel.Folder;
 
     public override IElement InternalElement => MessageModel.InternalElement;
+
+    public override bool HasAzureServiceBusStereotype => MessageModel.HasAzureServiceBus();
 }

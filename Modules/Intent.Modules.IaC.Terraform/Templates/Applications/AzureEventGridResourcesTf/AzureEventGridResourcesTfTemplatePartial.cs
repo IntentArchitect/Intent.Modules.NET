@@ -30,7 +30,15 @@ namespace Intent.Modules.IaC.Terraform.Templates.Applications.AzureEventGridReso
                 .GetApplicationReferences()
                 .Select(app => ExecutionContext.GetSolutionConfig().GetApplicationConfig(app.Id))
                 .ToArray();
-            _azureEventGridMessages = apps.SelectMany(app => IntegrationManager.Instance.GetPublishedAzureEventGridMessages(app.Id)).ToList();
+            _azureEventGridMessages = apps.SelectMany(app =>
+            {
+                var messages = IntegrationManager.Instance.GetPublishedAzureEventGridMessages(app.Id).ToList();
+                if (CompositeMessageBusHelper.RequiresCompositeMessageBus(app))
+                {
+                    messages = CompositeMessageBusHelper.FilterMessagesForApp(messages, app);
+                }
+                return messages;
+            }).ToList();
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
