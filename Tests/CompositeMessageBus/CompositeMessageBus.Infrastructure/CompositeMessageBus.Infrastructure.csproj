@@ -14,7 +14,7 @@
 
   <ItemGroup>
     <PackageReference Include="Amazon.Lambda.SQSEvents" Version="2.2.0" />
-    <PackageReference Include="AWSSDK.Extensions.NETCore.Setup" Version="4.0.3.7" />
+    <PackageReference Include="AWSSDK.Extensions.NETCore.Setup" Version="4.0.3.13" />
     <PackageReference Include="AWSSDK.SQS" Version="4.0.2.4" />
     <PackageReference Include="Azure.Messaging.EventGrid" Version="5.0.0" />
     <PackageReference Include="Azure.Messaging.ServiceBus" Version="7.20.1" />
