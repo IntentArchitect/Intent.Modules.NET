@@ -30,6 +30,38 @@ For each message type, an entry is added to the `appsettings.json` file allowing
 
 This module automatically installs the `Intent.Modelers.Eventing` module which provides designer modeling capabilities for integration events. For details on modeling integration events, refer to its [README](https://github.com/IntentArchitect/Intent.Modules/blob/development/Modules/Intent.Modules.Modelers.Eventing/README.md).
 
+## Working with Multiple Message Bus Providers
+
+This module can coexist with other message bus implementations in the same application. When multiple providers are installed, Intent Architect automatically generates a **Composite Message Bus** that intelligently routes messages based on configuration.
+
+### Designating Messages for Kafka
+
+When you have only this provider installed, all messages automatically use it—no configuration needed.
+
+When you have **multiple providers** installed, you must designate which messages should be handled by Kafka using the **`Message Bus`** stereotype:
+
+1. **Right-click** on a **Package** or **Folder** in the Services designer
+2. Select **Add Stereotype** → **Message Bus**
+3. In the stereotype properties, select `Kafka` from the **Providers** list
+
+The stereotype can be applied at multiple levels:
+- **Package level**: All messages in the package use the selected provider(s)
+- **Folder level**: All messages in the folder inherit the designation
+- **Message level**: Individual message-level control (rarely needed)
+
+**Stereotype Inheritance**: Child elements inherit their parent's `Message Bus` stereotype automatically, so you typically only need to set it at the package or folder level. Intent handles all the routing transparently.
+
+### Generated Code Filtering
+
+When multiple providers are installed:
+- Kafka **only generates** handlers, consumers, and configuration for messages marked with its provider designation
+- Messages designated for other providers are ignored by this module
+- Messages can be marked for multiple providers and will be handled by each
+
+### Additional Resources
+
+For comprehensive details on the Composite Message Bus architecture and design, see the [Intent.Eventing.Contracts documentation](https://docs.intentarchitect.com/articles/modules-dotnet/intent-eventing-contracts/intent-eventing-contracts.html).
+
 ## Running Kafka locally using Docker
 
 This guide will walk you through setting up Apache Kafka using Docker Compose, including the necessary steps to update your hosts file for local development purposes. We'll be using the `confluentinc` images for Zookeeper, Kafka, and Schema Registry, which are widely recognized for their ease of use and compatibility with Confluent Platform.

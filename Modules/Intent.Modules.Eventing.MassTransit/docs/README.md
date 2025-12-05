@@ -129,6 +129,38 @@ The is what the Business logic Integration Event handler looks like:
 
 ```
 
+## Working with Multiple Message Bus Providers
+
+This module can coexist with other message bus implementations in the same application. When multiple providers are installed, Intent Architect automatically generates a **Composite Message Bus** that intelligently routes messages based on configuration.
+
+### Designating Messages for MassTransit
+
+When you have only this provider installed, all messages automatically use it—no configuration needed.
+
+When you have **multiple providers** installed, you must designate which messages should be handled by MassTransit using the **`Message Bus`** stereotype:
+
+1. **Right-click** on a **Package** or **Folder** in the Services designer
+2. Select **Add Stereotype** → **Message Bus**
+3. In the stereotype properties, select `MassTransit` from the **Providers** list
+
+The stereotype can be applied at multiple levels:
+- **Package level**: All messages in the package use the selected provider(s)
+- **Folder level**: All messages in the folder inherit the designation
+- **Message level**: Individual message-level control (rarely needed)
+
+**Stereotype Inheritance**: Child elements inherit their parent's `Message Bus` stereotype automatically, so you typically only need to set it at the package or folder level. Intent handles all the routing transparently.
+
+### Generated Code Filtering
+
+When multiple providers are installed:
+- MassTransit **only generates** handlers, consumers, and configuration for messages marked with its provider designation
+- Messages designated for other providers are ignored by this module
+- Messages can be marked for multiple providers and will be handled by each
+
+### Additional Resources
+
+For comprehensive details on the Composite Message Bus architecture and design, see the [Intent.Eventing.Contracts documentation](https://docs.intentarchitect.com/articles/modules-dotnet/intent-eventing-contracts/intent-eventing-contracts.html).
+
 ## Multi-tenancy Finbuckle Integration
 
 If you have the `Intent.Modules.AspNetCore.MultiTenancy` module install, this module will add Multi-tenancy support to your MassTransit implementation. All outbound messages published will automatically include a tenant identifier in the header and all message consumers which encounter messages with a tenant identifier will set up the Finbuckle tenancy for the processing of the message.

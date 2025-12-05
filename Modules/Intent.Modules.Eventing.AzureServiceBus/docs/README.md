@@ -6,13 +6,13 @@ This module provides patterns for working with Azure Service Bus directly.
 
 Azure Service Bus is a fully managed enterprise message broker with message queues and publish-subscribe topics. It enables reliable message delivery, message routing, and data transfers between different applications and services. Service Bus helps you decouple applications and services from each other, providing features like message sessions, transactions, ordering, and duplicate detection.
 
-For more information on Azure Service Bus, check out their [official docs](https://docs.microsoft.com/en-us/azure/service-bus/).
+For more information on Azure Service Bus, check out their [official docs](https://docs.microsoft.com/azure/service-bus/).
 
 ## Modeling Integration Events and Commands
 
 Modeling Integration Events can be achieved from within the Services designer. 
 This module automatically installs the `Intent.Modelers.Eventing` module which provides designer modeling capabilities for integration events and commands. 
-For details on modeling integration events and commands, refer to its [README](https://docs.intentarchitect.com/articles/modules-common/intent-modelers-eventing/intent-modelers-eventing.html).
+For details on modeling integration events and commands, refer to its [README](https://docs.intentarchitect.com/articles/application-development/modelling/services-designer/message-based-integration-modeling/message-based-integration-modeling.html#publishing-an-integration-message-from-a-command).
 
 ![Modeling Events and Commands](images/modeling-event-command.png)
 
@@ -64,6 +64,38 @@ The is what the Business logic Integration Event handler looks like:
 > [!NOTE]
 >
 > This module will not be generating consumer code automatically for you. Look at the [Related Modules](#related-modules) section to see which modules cause this to happen.
+
+## Working with Multiple Message Bus Providers
+
+This module can coexist with other message bus implementations in the same application. When multiple providers are installed, Intent Architect automatically generates a **Composite Message Bus** that intelligently routes messages based on configuration.
+
+### Designating Messages for Azure Service Bus
+
+When you have only this provider installed, all messages automatically use it—no configuration needed.
+
+When you have **multiple providers** installed, you must designate which messages should be handled by Azure Service Bus using the **`Message Bus`** stereotype:
+
+1. **Right-click** on a **Package** or **Folder** in the Services designer
+2. Select **Add Stereotype** → **Message Bus**
+3. In the stereotype properties, select `Azure Service Bus` from the **Providers** list
+
+The stereotype can be applied at multiple levels:
+- **Package level**: All messages in the package use the selected provider(s)
+- **Folder level**: All messages in the folder inherit the designation
+- **Message level**: Individual message-level control (rarely needed)
+
+**Stereotype Inheritance**: Child elements inherit their parent's `Message Bus` stereotype automatically, so you typically only need to set it at the package or folder level. Intent handles all the routing transparently.
+
+### Generated Code Filtering
+
+When multiple providers are installed:
+- Azure Service Bus **only generates** handlers, consumers, and configuration for messages marked with its provider designation
+- Messages designated for other providers are ignored by this module
+- Messages can be marked for multiple providers and will be handled by each
+
+### Additional Resources
+
+For comprehensive details on the Composite Message Bus architecture and design, see the [Intent.Eventing.Contracts documentation](https://docs.intentarchitect.com/articles/modules-dotnet/intent-eventing-contracts/intent-eventing-contracts.html).
 
 ## Configuring Service Bus
 
