@@ -1,4 +1,4 @@
-### Version 2.0.7
+### Version 2.0.8
 
 - Improvement: Improved installation process when multiple persistence technologies are present.
 
