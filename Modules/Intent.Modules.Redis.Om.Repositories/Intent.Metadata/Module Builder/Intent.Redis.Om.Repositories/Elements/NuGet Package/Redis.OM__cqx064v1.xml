@@ -26,7 +26,7 @@
   <childElements>
     <childElement id="4ebe5972-6a1e-4cde-968b-1fc1d4ace439" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>1.1.0</name>
-      <display>1.0.1 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <display>1.1.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -49,55 +49,70 @@
       <childElements>
         <childElement id="361c0bc7-dd75-4b08-9848-bc68afcc0c0c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Bcl.AsyncInterfaces</name>
+          <display>Microsoft.Bcl.AsyncInterfaces (8.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4ebe5972-6a1e-4cde-968b-1fc1d4ace439</parentFolderId>
+          <packageId>739f3162-d1f8-4609-86df-756c6ff6b7e3</packageId>
+          <packageName>Intent.Redis.Om.Repositories</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="11ac30ce-b491-4559-b455-12866bc2b123" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Newtonsoft.Json</name>
+          <display>Newtonsoft.Json (13.0.1)</display>
           <isAbstract>false</isAbstract>
           <value>13.0.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4ebe5972-6a1e-4cde-968b-1fc1d4ace439</parentFolderId>
+          <packageId>739f3162-d1f8-4609-86df-756c6ff6b7e3</packageId>
+          <packageName>Intent.Redis.Om.Repositories</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="fdfb58c4-c9c4-4b36-8d63-ccd89f72d882" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>StackExchange.Redis</name>
+          <display>StackExchange.Redis (2.7.17)</display>
           <isAbstract>false</isAbstract>
           <value>2.7.17</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4ebe5972-6a1e-4cde-968b-1fc1d4ace439</parentFolderId>
+          <packageId>739f3162-d1f8-4609-86df-756c6ff6b7e3</packageId>
+          <packageName>Intent.Redis.Om.Repositories</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="e1a76917-bb79-4296-9c46-91027fa5ef64" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Text.Json</name>
+          <display>System.Text.Json (8.0.5)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.5</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4ebe5972-6a1e-4cde-968b-1fc1d4ace439</parentFolderId>
+          <packageId>739f3162-d1f8-4609-86df-756c6ff6b7e3</packageId>
+          <packageName>Intent.Redis.Om.Repositories</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="21543ddd-0204-4ced-8ea9-21a8b0719009" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Ulid</name>
+          <display>Ulid (1.2.6)</display>
           <isAbstract>false</isAbstract>
           <value>1.2.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4ebe5972-6a1e-4cde-968b-1fc1d4ace439</parentFolderId>
+          <packageId>739f3162-d1f8-4609-86df-756c6ff6b7e3</packageId>
+          <packageName>Intent.Redis.Om.Repositories</packageName>
           <stereotypes />
           <metadata />
           <childElements />

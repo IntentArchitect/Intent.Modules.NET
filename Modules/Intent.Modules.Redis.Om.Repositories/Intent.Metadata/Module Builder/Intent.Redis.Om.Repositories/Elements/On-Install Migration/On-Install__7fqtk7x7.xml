@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ec03b26b-aabf-4368-916f-eaa44a358b01" type="On-Install Migration" typeId="4ba35747-deea-43a9-acd4-26d57edb5bb9">
+  <name>On-Install</name>
+  <display>On-Install</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>ed83910c-cde2-4b32-8ad0-d10e26023d6c</parentFolderId>
+  <packageId>739f3162-d1f8-4609-86df-756c6ff6b7e3</packageId>
+  <packageName>Intent.Redis.Om.Repositories</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

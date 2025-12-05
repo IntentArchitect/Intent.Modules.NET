@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="06075f03-f58e-46fd-9d14-5572ca15b212" type="On-Install Migration" typeId="4ba35747-deea-43a9-acd4-26d57edb5bb9">
+  <name>On-Install</name>
+  <display>On-Install</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>60e779a6-5d70-4151-9d17-265f3fc9e9d6</parentFolderId>
+  <packageId>17a7166d-9245-4414-82bf-0c32c64a7c45</packageId>
+  <packageName>Intent.Azure.TableStorage</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

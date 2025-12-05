@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Azure.TableStorage</id>
-  <version>1.0.0-beta.31</version>
+  <version>1.0.0-pre.0</version>
   <supportedClientVersions>[4.5.15-a,5.0.0)</supportedClientVersions>
   <summary>Azure Table Storage Database Provider implementation.</summary>
   <description>Azure Table Storage Database Provider implementation.</description>
@@ -127,5 +127,5 @@
   <metadata>
     <install target="Domain;Services" src="Intent.Metadata/Module Builder/Intent.Azure.TableStorage/Intent.Azure.TableStorage.pkg.config" externalReference="17a7166d-9245-4414-82bf-0c32c64a7c45" />
   </metadata>
-  <migrations />
+  <migrations has-on-install-migration="true" />
 </package>

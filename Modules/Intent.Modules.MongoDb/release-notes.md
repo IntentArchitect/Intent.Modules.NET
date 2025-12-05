@@ -1,5 +1,9 @@
 ### Version 2.0.7
 
+- Improvement: Improved installation process when multiple persistence technologies are present.
+
+### Version 2.0.7
+
 - Improvement: Updated NuGet package versions.
 
 ### Version 2.0.6

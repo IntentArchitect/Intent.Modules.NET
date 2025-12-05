@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.CosmosDB</id>
-  <version>1.2.23</version>
+  <version>1.2.24-pre.0</version>
   <supportedClientVersions>[4.5.15-a, 5.0.0-a)</supportedClientVersions>
   <summary>Core Cosmos DB Database Provider Repository backed using the Cosmos DB Client.</summary>
   <description>Core Cosmos DB Database Provider Repository backed using the Cosmos DB Client.</description>
@@ -195,7 +195,7 @@
     <factoryExtension id="Intent.CosmosDB.MultiTenancyFactoryExtension" externalReference="cc56c90e-b5fe-4fb3-8cfc-cb5b02526727" />
   </factoryExtensions>
   <moduleSettings>
-    <group id="dcfa949a-c512-47c4-a644-0f2b88e44794" title="Cosmos DB Settings" externalReference="dcfa949a-c512-47c4-a644-0f2b88e44794">
+    <group id="dcfa949a-c512-47c4-a644-0f2b88e44794" title="Cosmos DB Settings" externalReference="dcfa949a-c512-47c4-a644-0f2b88e44794" type="application-settings">
       <settings>
         <setting id="6f75f245-8194-4606-b6b7-2bb226394b5f" title="Use Optimistic Concurrency" type="switch">
           <hint>Ensures updates are applied only when document etags match, for improved concurrency management</hint>
@@ -263,5 +263,5 @@
     <install target="Domain;Services" src="Intent.Metadata/Module Builder/Intent.CosmosDB/Intent.CosmosDB.pkg.config" externalReference="b52e75f6-d86b-4c53-b4bd-8a8c2c267865" />
     <install target="Domain" src="modelers/Cosmos DB Designer Settings.designer.settings" externalReference="38ad535e-2ba2-48b5-a6d5-f1f7cdae3d62" />
   </metadata>
-  <migrations />
+  <migrations has-on-install-migration="true" />
 </package>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="26415c04-9c0f-4daf-9723-cade3d17eeed" type="On-Install Migration" typeId="4ba35747-deea-43a9-acd4-26d57edb5bb9">
+  <name>On-Install</name>
+  <display>On-Install</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9f321e4d-1bb2-456c-95b2-7191c2317589</parentFolderId>
+  <packageId>519202d6-a4a4-48f5-8fde-70ff3bfd63ba</packageId>
+  <packageName>Intent.Aws.DynamoDB</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

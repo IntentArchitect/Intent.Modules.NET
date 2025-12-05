@@ -9,6 +9,7 @@
     <Import_RootNamespace>Intent.Modules.DocumentDB.Shared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)DomainPackageInstallationHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)EntityFactoryExtensionHelper.cs" />
   </ItemGroup>
 </Project>

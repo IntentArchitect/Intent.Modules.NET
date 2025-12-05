@@ -1,3 +1,7 @@
+### Version 1.2.24
+
+- Improvement: Improved installation process when multiple persistence technologies are present.
+
 ### Version 1.2.23
 
 - Improvement: Updated module documentation to use centralized documentation site.

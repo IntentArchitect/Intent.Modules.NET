@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Aws.DynamoDB</id>
-  <version>1.0.0-beta.7</version>
+  <version>1.0.0-beta.8</version>
   <supportedClientVersions>[4.5.15-a,5.0.0)</supportedClientVersions>
   <summary>DynamoDB database provider repository.</summary>
   <description>DynamoDB database provider repository.</description>
@@ -205,5 +205,5 @@
     <install target="Domain" src="Intent.Metadata/Module Builder/Intent.Aws.DynamoDB/Intent.Aws.DynamoDB.pkg.config" externalReference="519202d6-a4a4-48f5-8fde-70ff3bfd63ba" />
   </metadata>
   <projectUrl>https://docs.intentarchitect.com/articles/modules-dotnet/intent-aws-dynamodb/intent-aws-dynamodb.html</projectUrl>
-  <migrations />
+  <migrations has-on-install-migration="true" />
 </package>

@@ -1,3 +1,7 @@
+### Version 1.0.19
+
+- Improvement: Improved installation process when multiple persistence technologies are present.
+
 ### Version 1.0.18
 
 - Improvement: Updated NuGet package versions.

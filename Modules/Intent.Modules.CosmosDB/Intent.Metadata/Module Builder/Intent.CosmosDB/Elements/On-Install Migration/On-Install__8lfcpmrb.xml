@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9e235b7c-35f9-4526-871b-6cb0c295acee" type="On-Install Migration" typeId="4ba35747-deea-43a9-acd4-26d57edb5bb9">
+  <name>On-Install</name>
+  <display>On-Install</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9fd88e3f-339b-4757-bfd1-474003ffe775</parentFolderId>
+  <packageId>b52e75f6-d86b-4c53-b4bd-8a8c2c267865</packageId>
+  <packageName>Intent.CosmosDB</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

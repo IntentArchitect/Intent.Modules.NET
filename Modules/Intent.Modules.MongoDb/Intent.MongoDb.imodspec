@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.MongoDb</id>
-  <version>2.0.7</version>
+  <version>2.0.8-pre.0</version>
   <supportedClientVersions>[4.5.15-a, 5.0.0-a)</supportedClientVersions>
   <summary>Core MongoDB Database Provider using the official MongoDB.Driver library.</summary>
   <description>Core MongoDB Database Provider using the official MongoDB.Driver library.</description>
@@ -114,7 +114,7 @@
     <factoryExtension id="Intent.MongoDb.EntityFactoryExtension" externalReference="fbce7f40-2eba-4a2a-90f8-8edde9ba6b07" />
   </factoryExtensions>
   <moduleSettings>
-    <group id="65b66781-0c91-48b4-990e-b9456f203ca6" title="MongoDB Settings" externalReference="65b66781-0c91-48b4-990e-b9456f203ca6">
+    <group id="65b66781-0c91-48b4-990e-b9456f203ca6" title="MongoDB Settings" externalReference="65b66781-0c91-48b4-990e-b9456f203ca6" type="application-settings">
       <settings>
         <setting id="5a17d713-b7f7-45c2-ab23-3614e2f95509" title="Persist primary key as ObjectId" type="switch">
           <defaultValue>false</defaultValue>
@@ -181,7 +181,7 @@
       </settings>
     </groupExtension>
   </moduleSettingsExtensions>
-  <migrations>
+  <migrations has-on-install-migration="true">
     <migration version="2.0.0-alpha.2" />
   </migrations>
 </package>
