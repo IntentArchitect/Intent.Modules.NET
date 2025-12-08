@@ -17,8 +17,8 @@ namespace Intent.Modules.Aws.DynamoDB
             NugetRegistry.Register(AWSSDKDynamoDBv2PackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 0, >= 0) => new PackageVersion("4.0.10")
-                            .WithNugetDependency("AWSSDK.Core", "4.0.3.2"),
+                        ( >= 0, >= 0) => new PackageVersion("4.0.10.2")
+                            .WithNugetDependency("AWSSDK.Core", "4.0.3.4"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AWSSDKDynamoDBv2PackageName}'"),
                     }
                 );

@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="296cf0ca-cc77-47ae-b371-ede9d2d1e821" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>4.8.1</name>
+      <name>4.9.0</name>
       <display>4.6.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,10 +47,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="68b0510a-f0dc-4dec-8e34-3dc9d70f6774" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="7d880c54-8e17-4064-aa79-440d5123e47a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Testcontainers</name>
           <isAbstract>false</isAbstract>
-          <value>4.8.1</value>
+          <value>4.9.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>296cf0ca-cc77-47ae-b371-ede9d2d1e821</parentFolderId>
@@ -61,7 +61,7 @@
       </childElements>
     </childElement>
     <childElement id="837e2fcb-1a5f-4b19-9c72-ae690c350f18" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>4.8.1</name>
+      <name>4.9.0</name>
       <display>4.6.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -83,10 +83,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="ba1f7b04-6949-45a8-982e-7896e62587ec" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="3e2847ad-40ba-4d5d-8882-97b2d7c7bcba" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Testcontainers</name>
           <isAbstract>false</isAbstract>
-          <value>4.8.1</value>
+          <value>4.9.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>837e2fcb-1a5f-4b19-9c72-ae690c350f18</parentFolderId>
@@ -97,7 +97,7 @@
       </childElements>
     </childElement>
     <childElement id="e42a17c3-a372-48cc-b130-78b445dab674" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>4.8.1</name>
+      <name>4.9.0</name>
       <display>4.6.0 ( &gt;= .NETStandard,Version=v2.1 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -119,10 +119,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="0b6a5c36-8cb2-44f7-8e99-98464533c989" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="484bf1d7-e5ec-455f-884d-95567937bf9a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Testcontainers</name>
           <isAbstract>false</isAbstract>
-          <value>4.8.1</value>
+          <value>4.9.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e42a17c3-a372-48cc-b130-78b445dab674</parentFolderId>
@@ -133,7 +133,7 @@
       </childElements>
     </childElement>
     <childElement id="c6a60e7f-133b-4ea5-8bcf-317035c6efd8" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>4.8.1</name>
+      <name>4.9.0</name>
       <display>4.6.0 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -155,13 +155,45 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="a1985e01-42c6-43dd-b3ea-5bb79e34c30a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f204a056-f7fb-4acd-bc02-59c371898e0f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Testcontainers</name>
           <isAbstract>false</isAbstract>
-          <value>4.8.1</value>
+          <value>4.9.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>c6a60e7f-133b-4ea5-8bcf-317035c6efd8</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="c0565584-6e2a-4a5e-9039-e84cdf55294f" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>4.9.0</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>400f956e-df07-4636-9719-6d841c48c5fd</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v10.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="fc2d7253-7777-4f9d-97eb-9f1bc1677c09" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Testcontainers</name>
+          <isAbstract>false</isAbstract>
+          <value>4.9.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>c0565584-6e2a-4a5e-9039-e84cdf55294f</parentFolderId>
           <stereotypes />
           <metadata />
           <childElements />

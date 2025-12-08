@@ -185,56 +185,64 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting
             NugetRegistry.Register(TestcontainersCosmosDbPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("4.8.1")
-                            .WithNugetDependency("Testcontainers", "4.8.1"),
-                        ( >= 8, >= 0) => new PackageVersion("4.8.1")
-                            .WithNugetDependency("Testcontainers", "4.8.1"),
-                        ( >= 2, >= 1) => new PackageVersion("4.8.1")
-                            .WithNugetDependency("Testcontainers", "4.8.1"),
-                        ( >= 2, >= 0) => new PackageVersion("4.8.1")
-                            .WithNugetDependency("Testcontainers", "4.8.1"),
+                        ( >= 10, >= 0) => new PackageVersion("4.9.0")
+                            .WithNugetDependency("Testcontainers", "4.9.0"),
+                        ( >= 9, >= 0) => new PackageVersion("4.9.0")
+                            .WithNugetDependency("Testcontainers", "4.9.0"),
+                        ( >= 8, >= 0) => new PackageVersion("4.9.0")
+                            .WithNugetDependency("Testcontainers", "4.9.0"),
+                        ( >= 2, >= 1) => new PackageVersion("4.9.0")
+                            .WithNugetDependency("Testcontainers", "4.9.0"),
+                        ( >= 2, >= 0) => new PackageVersion("4.9.0")
+                            .WithNugetDependency("Testcontainers", "4.9.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{TestcontainersCosmosDbPackageName}'"),
                     }
                 );
             NugetRegistry.Register(TestcontainersMongoDbPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("4.8.1")
-                            .WithNugetDependency("Testcontainers", "4.8.1"),
-                        ( >= 8, >= 0) => new PackageVersion("4.8.1")
-                            .WithNugetDependency("Testcontainers", "4.8.1"),
-                        ( >= 2, >= 1) => new PackageVersion("4.8.1")
-                            .WithNugetDependency("Testcontainers", "4.8.1"),
-                        ( >= 2, >= 0) => new PackageVersion("4.8.1")
-                            .WithNugetDependency("Testcontainers", "4.8.1"),
+                        ( >= 10, >= 0) => new PackageVersion("4.9.0")
+                            .WithNugetDependency("Testcontainers", "4.9.0"),
+                        ( >= 9, >= 0) => new PackageVersion("4.9.0")
+                            .WithNugetDependency("Testcontainers", "4.9.0"),
+                        ( >= 8, >= 0) => new PackageVersion("4.9.0")
+                            .WithNugetDependency("Testcontainers", "4.9.0"),
+                        ( >= 2, >= 1) => new PackageVersion("4.9.0")
+                            .WithNugetDependency("Testcontainers", "4.9.0"),
+                        ( >= 2, >= 0) => new PackageVersion("4.9.0")
+                            .WithNugetDependency("Testcontainers", "4.9.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{TestcontainersMongoDbPackageName}'"),
                     }
                 );
             NugetRegistry.Register(TestcontainersMsSqlPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("4.8.1")
-                            .WithNugetDependency("Testcontainers", "4.8.1"),
-                        ( >= 8, >= 0) => new PackageVersion("4.8.1")
-                            .WithNugetDependency("Testcontainers", "4.8.1"),
-                        ( >= 2, >= 1) => new PackageVersion("4.8.1")
-                            .WithNugetDependency("Testcontainers", "4.8.1"),
-                        ( >= 2, >= 0) => new PackageVersion("4.8.1")
-                            .WithNugetDependency("Testcontainers", "4.8.1"),
+                        ( >= 10, >= 0) => new PackageVersion("4.9.0")
+                            .WithNugetDependency("Testcontainers", "4.9.0"),
+                        ( >= 9, >= 0) => new PackageVersion("4.9.0")
+                            .WithNugetDependency("Testcontainers", "4.9.0"),
+                        ( >= 8, >= 0) => new PackageVersion("4.9.0")
+                            .WithNugetDependency("Testcontainers", "4.9.0"),
+                        ( >= 2, >= 1) => new PackageVersion("4.9.0")
+                            .WithNugetDependency("Testcontainers", "4.9.0"),
+                        ( >= 2, >= 0) => new PackageVersion("4.9.0")
+                            .WithNugetDependency("Testcontainers", "4.9.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{TestcontainersMsSqlPackageName}'"),
                     }
                 );
             NugetRegistry.Register(TestcontainersPostgreSqlPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("4.8.1")
-                            .WithNugetDependency("Testcontainers", "4.8.1"),
-                        ( >= 8, >= 0) => new PackageVersion("4.8.1")
-                            .WithNugetDependency("Testcontainers", "4.8.1"),
-                        ( >= 2, >= 1) => new PackageVersion("4.8.1")
-                            .WithNugetDependency("Testcontainers", "4.8.1"),
-                        ( >= 2, >= 0) => new PackageVersion("4.8.1")
-                            .WithNugetDependency("Testcontainers", "4.8.1"),
+                        ( >= 10, >= 0) => new PackageVersion("4.9.0")
+                            .WithNugetDependency("Testcontainers", "4.9.0"),
+                        ( >= 9, >= 0) => new PackageVersion("4.9.0")
+                            .WithNugetDependency("Testcontainers", "4.9.0"),
+                        ( >= 8, >= 0) => new PackageVersion("4.9.0")
+                            .WithNugetDependency("Testcontainers", "4.9.0"),
+                        ( >= 2, >= 1) => new PackageVersion("4.9.0")
+                            .WithNugetDependency("Testcontainers", "4.9.0"),
+                        ( >= 2, >= 0) => new PackageVersion("4.9.0")
+                            .WithNugetDependency("Testcontainers", "4.9.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{TestcontainersPostgreSqlPackageName}'"),
                     }
                 );
@@ -249,8 +257,8 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting
             NugetRegistry.Register(XunitV3PackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, >= 0) => new PackageVersion("3.2.0")
-                            .WithNugetDependency("xunit.v3.mtp-v1", "3.2.0"),
+                        ( >= 8, >= 0) => new PackageVersion("3.2.1")
+                            .WithNugetDependency("xunit.v3.mtp-v1", "3.2.1"),
                         ( >= 6, >= 0) => new PackageVersion("1.1.0")
                             .WithNugetDependency("xunit.analyzers", "1.20.0")
                             .WithNugetDependency("xunit.v3.assert", "1.1.0")

@@ -206,5 +206,48 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="e0d60ce4-0dba-4e07-93cc-8415cb5a0fbc" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>10.0.0</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>227569fb-7bc5-47fc-a9e0-f68139da5502</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v10.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="3f47a1d4-0722-41de-8d78-1a7d462e547b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.Abstractions</name>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>e0d60ce4-0dba-4e07-93cc-8415cb5a0fbc</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="e42a1e55-9544-49f9-8877-25a443938963" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration</name>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>e0d60ce4-0dba-4e07-93cc-8415cb5a0fbc</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>

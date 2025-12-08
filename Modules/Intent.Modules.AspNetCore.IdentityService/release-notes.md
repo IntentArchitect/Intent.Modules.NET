@@ -1,5 +1,6 @@
 ### Version 1.0.11
 
+- Improvement: Updated NuGet package versions.
 - Improvement: Bumped persistence dependency version.
 - 
 ### Version 1.0.10

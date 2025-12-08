@@ -305,7 +305,7 @@
     </childElement>
     <childElement id="1b33d558-7f3a-4f1a-8c23-937f463bb20c" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <comment>Locked to prevent "NuGet Downgrade Errors" due to  Intent.EntityFrameworkCore module being locked to lower version.</comment>
-      <name>8.0.21</name>
+      <name>8.0.22</name>
       <display>8.0.21 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -327,30 +327,24 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="2dd30ad5-2bff-426a-be36-85a3bb9c597b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.EntityFrameworkCore.Relational</name>
-          <display>Microsoft.EntityFrameworkCore.Relational (8.0.22)</display>
+        <childElement id="9df356d3-1d49-4dae-9e01-81e1ab83142d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Identity.Stores</name>
           <isAbstract>false</isAbstract>
           <value>8.0.22</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>1b33d558-7f3a-4f1a-8c23-937f463bb20c</parentFolderId>
-          <packageId>a1a75470-3437-43b1-be57-f2187693929b</packageId>
-          <packageName>Intent.AspNetCore.IdentityService</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="5620a4d5-183d-4191-8330-482435ba4ee8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Identity.Stores</name>
-          <display>Microsoft.Extensions.Identity.Stores (8.0.22)</display>
+        <childElement id="6373936d-9d06-474c-9600-d59bf90cf50d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.EntityFrameworkCore.Relational</name>
           <isAbstract>false</isAbstract>
           <value>8.0.22</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>1b33d558-7f3a-4f1a-8c23-937f463bb20c</parentFolderId>
-          <packageId>a1a75470-3437-43b1-be57-f2187693929b</packageId>
-          <packageName>Intent.AspNetCore.IdentityService</packageName>
           <stereotypes />
           <metadata />
           <childElements />

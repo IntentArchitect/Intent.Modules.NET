@@ -18,6 +18,10 @@ namespace Intent.Modules.Application.MediatR.Behaviours
             NugetRegistry.Register(MicrosoftExtensionsLoggingPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
+                        ( >= 10, >= 0) => new PackageVersion("10.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "10.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "10.0.0"),
                         ( >= 9, >= 0) => new PackageVersion("10.0.0")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "10.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.0")

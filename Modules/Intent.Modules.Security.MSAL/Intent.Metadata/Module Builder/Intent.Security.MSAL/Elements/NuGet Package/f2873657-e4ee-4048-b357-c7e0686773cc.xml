@@ -97,7 +97,7 @@
       </childElements>
     </childElement>
     <childElement id="428d9067-6289-484d-b1cf-7fd92e25973a" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>4.1.0</name>
+      <name>4.1.1</name>
       <display>3.9.1 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -119,10 +119,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="9516d1e2-bc14-4a0a-9bc2-cbeb265232a3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c3957302-c3d5-4573-bff8-466debda1e2d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Identity.Web</name>
           <isAbstract>false</isAbstract>
-          <value>4.1.0</value>
+          <value>4.1.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>428d9067-6289-484d-b1cf-7fd92e25973a</parentFolderId>
@@ -133,7 +133,7 @@
       </childElements>
     </childElement>
     <childElement id="a9597a76-e537-4bfa-8607-931b554ad2ac" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>4.1.0</name>
+      <name>4.1.1</name>
       <display>3.9.1 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -155,10 +155,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="ec58bf42-18c8-4412-a597-ce319302cf20" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ba65124e-1eb4-4915-b602-e230b72568d3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Identity.Web</name>
           <isAbstract>false</isAbstract>
-          <value>4.1.0</value>
+          <value>4.1.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a9597a76-e537-4bfa-8607-931b554ad2ac</parentFolderId>

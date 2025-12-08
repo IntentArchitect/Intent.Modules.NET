@@ -92,7 +92,7 @@
       </childElements>
     </childElement>
     <childElement id="414a2eab-aa8e-4b11-85df-7a16d0a68483" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>3.2.0</name>
+      <name>3.2.1</name>
       <display>3.1.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -114,10 +114,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="edf896ab-19c5-4313-a760-948ebffb3e8c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="83940aea-a5a8-4cc8-82bf-50b59bc977a1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>xunit.v3.mtp-v1</name>
           <isAbstract>false</isAbstract>
-          <value>3.2.0</value>
+          <value>3.2.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>414a2eab-aa8e-4b11-85df-7a16d0a68483</parentFolderId>

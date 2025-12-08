@@ -15,14 +15,14 @@
     <PackageReference Include="MassTransit" Version="8.4.1" />
     <PackageReference Include="MassTransit.Abstractions" Version="8.4.1" />
     <PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="8.0.22" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.21" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.21" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.21" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="8.0.21" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.21" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.22" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.22" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.22" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="8.0.22" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.22" />
     <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="10.0.0" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="10.0.0" />
-    <PackageReference Include="SonarAnalyzer.CSharp" Version="10.15.0.120848">
+    <PackageReference Include="SonarAnalyzer.CSharp" Version="10.16.1.129956">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentFiles; analyzers; buildTransitive</IncludeAssets>
     </PackageReference>

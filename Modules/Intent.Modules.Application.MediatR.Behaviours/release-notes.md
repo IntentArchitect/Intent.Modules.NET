@@ -1,5 +1,6 @@
 ### Version 4.6.0
 
+- Improvement: Updated NuGet package versions.
 - Improvement: Renamed `EventBusPublishBehaviour` to `MessageBusPublishBehaviour` due to `IEventBus` to `IMessageBus` change made in `Intent.Eventing.Contracts`. Still compatible with previous versions.
 
 ### Version 4.5.6

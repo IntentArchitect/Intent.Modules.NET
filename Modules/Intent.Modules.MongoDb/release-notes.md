@@ -1,5 +1,6 @@
 ### Version 2.0.8
 
+- Improvement: Updated NuGet package versions.
 - Improvement: Improved installation process when multiple persistence technologies are present.
 
 ### Version 2.0.7

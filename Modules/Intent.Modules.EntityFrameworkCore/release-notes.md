@@ -1,5 +1,6 @@
 ### Version 5.0.35
 
+- Improvement: Updated NuGet package versions.
 - Improvement: Improved installation process when multiple persistence technologies are present.
 
 ### Version 5.0.34

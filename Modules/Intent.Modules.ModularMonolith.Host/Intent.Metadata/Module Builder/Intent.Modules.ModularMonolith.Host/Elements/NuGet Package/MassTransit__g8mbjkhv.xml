@@ -25,8 +25,8 @@
   <metadata />
   <childElements>
     <childElement id="5b615250-c242-4114-af22-ee91ae6978cd" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.5.5</name>
-      <display>8.5.5 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <name>8.5.7</name>
+      <display>8.5.7 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -47,11 +47,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="aeb152b9-e26d-410d-9f3f-200f438f9a5f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="23ff62c7-ea1f-404a-a25f-359f107ab004" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>MassTransit.Abstractions</name>
-          <display>MassTransit.Abstractions (8.5.5)</display>
+          <display>MassTransit.Abstractions (8.5.7)</display>
           <isAbstract>false</isAbstract>
-          <value>8.5.5</value>
+          <value>8.5.7</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5b615250-c242-4114-af22-ee91ae6978cd</parentFolderId>
@@ -61,7 +61,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="16b345cf-f6ae-4def-847b-2fbac0c4341b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="da33106e-55c7-49e7-8a1f-7d730a6fe6f5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
           <display>Microsoft.Extensions.DependencyInjection.Abstractions (9.0.0)</display>
           <isAbstract>false</isAbstract>
@@ -75,7 +75,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d5dd8f88-d7f4-42a6-85cb-7e370cc0b062" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="305ffbe0-1ff0-4f51-8b62-b472c3fb31c8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics.HealthChecks</name>
           <display>Microsoft.Extensions.Diagnostics.HealthChecks (9.0.0)</display>
           <isAbstract>false</isAbstract>
@@ -89,7 +89,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="fef80c53-606f-47aa-b72e-fd1159d38d43" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="3bc88ed4-182e-4bc1-8541-ef4e2b3212e9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Hosting.Abstractions</name>
           <display>Microsoft.Extensions.Hosting.Abstractions (9.0.0)</display>
           <isAbstract>false</isAbstract>
@@ -103,7 +103,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="b6d4aa82-8d98-4884-9548-d73f9828e499" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="1edeaf9a-c822-4391-ac00-854110f5f81e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
           <display>Microsoft.Extensions.Logging.Abstractions (9.0.0)</display>
           <isAbstract>false</isAbstract>
@@ -117,7 +117,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="055252c5-6c07-4b89-9996-93f9f27a98ad" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="eaf0a7de-0720-4d41-a25e-4f3150c41334" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options</name>
           <display>Microsoft.Extensions.Options (9.0.0)</display>
           <isAbstract>false</isAbstract>
@@ -134,8 +134,8 @@
       </childElements>
     </childElement>
     <childElement id="71cd3abe-b939-40b6-9249-bd2a485721ce" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.5.5</name>
-      <display>8.5.5 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <name>8.5.7</name>
+      <display>8.5.7 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -156,11 +156,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="ddc7d8d3-d8b4-4121-ab6f-048eeebce377" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="976334d3-687c-408f-8d2e-fe04eb97622b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>MassTransit.Abstractions</name>
-          <display>MassTransit.Abstractions (8.5.5)</display>
+          <display>MassTransit.Abstractions (8.5.7)</display>
           <isAbstract>false</isAbstract>
-          <value>8.5.5</value>
+          <value>8.5.7</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>71cd3abe-b939-40b6-9249-bd2a485721ce</parentFolderId>
@@ -170,7 +170,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="f20b4a5b-9b75-4d12-87d7-8b0a3c690a91" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="245d73ee-bbff-4d49-82e5-e1a2d4294790" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
           <display>Microsoft.Extensions.DependencyInjection.Abstractions (8.0.0)</display>
           <isAbstract>false</isAbstract>
@@ -184,7 +184,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="cb560756-74d1-446f-877a-7a899f9a225a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f64ae3d5-c671-4845-b139-295f4bf58046" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics.HealthChecks</name>
           <display>Microsoft.Extensions.Diagnostics.HealthChecks (8.0.0)</display>
           <isAbstract>false</isAbstract>
@@ -198,7 +198,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="71b13dbc-8a02-48d7-961a-7f0bc35cfe13" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="daa6f089-6392-4ae7-b4c3-c4364182672b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Hosting.Abstractions</name>
           <display>Microsoft.Extensions.Hosting.Abstractions (8.0.0)</display>
           <isAbstract>false</isAbstract>
@@ -212,7 +212,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="f40493ca-0fce-41a9-9b7b-8e2e1f5bebeb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="2c73dd07-dace-4f08-bfb8-bf1626f9550c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
           <display>Microsoft.Extensions.Logging.Abstractions (8.0.0)</display>
           <isAbstract>false</isAbstract>
@@ -226,7 +226,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="bab6a6d8-2681-4717-a5d7-ba04e1e004df" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="916c5872-927d-4e0b-84db-179976bb64cf" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options</name>
           <display>Microsoft.Extensions.Options (8.0.0)</display>
           <isAbstract>false</isAbstract>
@@ -243,8 +243,8 @@
       </childElements>
     </childElement>
     <childElement id="6783bb8a-4820-412f-b265-42e28e7662d2" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.5.5</name>
-      <display>8.5.5 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <name>8.5.7</name>
+      <display>8.5.7 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -265,11 +265,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="568cb5d5-f45e-4a94-9841-1692f446310e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c2b595c5-5724-454b-98b0-01382fbee7fe" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>MassTransit.Abstractions</name>
-          <display>MassTransit.Abstractions (8.5.5)</display>
+          <display>MassTransit.Abstractions (8.5.7)</display>
           <isAbstract>false</isAbstract>
-          <value>8.5.5</value>
+          <value>8.5.7</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>6783bb8a-4820-412f-b265-42e28e7662d2</parentFolderId>
@@ -279,7 +279,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="6e8f8ecc-d550-414f-b5e4-11e5b3ac344f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c5413808-ae14-47aa-8409-c231be2ef7d7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Bcl.AsyncInterfaces</name>
           <display>Microsoft.Bcl.AsyncInterfaces (8.0.0)</display>
           <isAbstract>false</isAbstract>
@@ -293,7 +293,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="705cd986-7beb-4832-af5e-207901f9c092" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d78bdfab-2c13-440b-bd2a-48509a5cf158" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
           <display>Microsoft.Extensions.DependencyInjection.Abstractions (8.0.0)</display>
           <isAbstract>false</isAbstract>
@@ -307,7 +307,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="0abfbb75-3b01-4527-9577-2419f8a25f35" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a396e3ba-49f1-41b7-8e7d-ab3571ab8249" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics.HealthChecks</name>
           <display>Microsoft.Extensions.Diagnostics.HealthChecks (8.0.0)</display>
           <isAbstract>false</isAbstract>
@@ -321,7 +321,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="98db05ed-97d9-4e30-a658-1478284bb0c3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a2980b51-a6dd-4b09-98f2-d2ab5d76b7be" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Hosting.Abstractions</name>
           <display>Microsoft.Extensions.Hosting.Abstractions (8.0.0)</display>
           <isAbstract>false</isAbstract>
@@ -335,7 +335,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="9cb890ac-ad0d-4dba-861f-8c1e2f8e44fe" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c28e1e56-f78f-4ac1-b362-05f21387920c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
           <display>Microsoft.Extensions.Logging.Abstractions (8.0.0)</display>
           <isAbstract>false</isAbstract>
@@ -349,7 +349,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="18333259-dc24-4409-ae56-4d5558f0af86" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a16404ca-0e1e-420c-afa0-877c57dc3684" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options</name>
           <display>Microsoft.Extensions.Options (8.0.0)</display>
           <isAbstract>false</isAbstract>
@@ -363,7 +363,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d5b1a7da-f473-421b-b32c-7f8a84a212cf" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a00b57fc-7ab3-42d8-93f4-5cf4ba3f7697" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Diagnostics.DiagnosticSource</name>
           <display>System.Diagnostics.DiagnosticSource (8.0.1)</display>
           <isAbstract>false</isAbstract>
@@ -377,7 +377,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="10b14206-f66d-43d0-9216-1a468d649c69" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="fb89e9b8-c07d-4ea8-95a2-9d092a839c9a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Memory</name>
           <display>System.Memory (4.6.3)</display>
           <isAbstract>false</isAbstract>
@@ -391,7 +391,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="5bd7e475-c515-4bd9-baef-88acc4431ed1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="bafc1eb1-f4b7-4113-82fa-42e63210e607" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Reflection.Emit</name>
           <display>System.Reflection.Emit (4.7.0)</display>
           <isAbstract>false</isAbstract>
@@ -405,7 +405,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="503a749b-3d01-4b67-beb6-30a59541600f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d30ced2e-2cd5-4d8a-9817-aa10010df879" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Reflection.Emit.Lightweight</name>
           <display>System.Reflection.Emit.Lightweight (4.7.0)</display>
           <isAbstract>false</isAbstract>
@@ -419,7 +419,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="e7ef2c71-7167-4a07-982a-d02c4baa1b22" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="4915ef90-0506-47dd-8b56-cbaaa49c47af" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Text.Json</name>
           <display>System.Text.Json (8.0.6)</display>
           <isAbstract>false</isAbstract>
@@ -433,7 +433,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c60f6059-ab1c-4673-a902-4a56c84bdff6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e5d3508d-00ca-49ef-a011-a07cf2a65bb7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Threading.Channels</name>
           <display>System.Threading.Channels (8.0.0)</display>
           <isAbstract>false</isAbstract>
@@ -447,7 +447,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="df5d1501-b54f-4073-b554-295a57a30a98" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="73c6aa8f-4ff2-4daf-b95c-2c93f1d7df10" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Threading.Tasks.Extensions</name>
           <display>System.Threading.Tasks.Extensions (4.6.3)</display>
           <isAbstract>false</isAbstract>
@@ -455,6 +455,115 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>6783bb8a-4820-412f-b265-42e28e7662d2</parentFolderId>
+          <packageId>f77da7df-9c2c-4e65-af0b-df4ddc4c0cfe</packageId>
+          <packageName>Intent.ModularMonolith.Host</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="349871e1-f5b0-4951-9781-c4c0b40b6101" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>8.5.7</name>
+      <display>8.5.7 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>34db97ce-c948-4a6e-bf73-52865b74f3e0</parentFolderId>
+      <packageId>f77da7df-9c2c-4e65-af0b-df4ddc4c0cfe</packageId>
+      <packageName>Intent.ModularMonolith.Host</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v10.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="0c1c9ef4-68d3-4238-b87e-0c6018f5e90e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>MassTransit.Abstractions</name>
+          <display>MassTransit.Abstractions (8.5.7)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.5.7</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>349871e1-f5b0-4951-9781-c4c0b40b6101</parentFolderId>
+          <packageId>f77da7df-9c2c-4e65-af0b-df4ddc4c0cfe</packageId>
+          <packageName>Intent.ModularMonolith.Host</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="8df73803-24ec-4351-9fce-59aef4969efb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
+          <display>Microsoft.Extensions.DependencyInjection.Abstractions (10.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>349871e1-f5b0-4951-9781-c4c0b40b6101</parentFolderId>
+          <packageId>f77da7df-9c2c-4e65-af0b-df4ddc4c0cfe</packageId>
+          <packageName>Intent.ModularMonolith.Host</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="e3ecd82e-4029-4acf-9cfc-e39fc407ef7c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Diagnostics.HealthChecks</name>
+          <display>Microsoft.Extensions.Diagnostics.HealthChecks (10.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>349871e1-f5b0-4951-9781-c4c0b40b6101</parentFolderId>
+          <packageId>f77da7df-9c2c-4e65-af0b-df4ddc4c0cfe</packageId>
+          <packageName>Intent.ModularMonolith.Host</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="a7c3b2cd-ca42-49bc-aa79-c15001cbfcb9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Hosting.Abstractions</name>
+          <display>Microsoft.Extensions.Hosting.Abstractions (10.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>349871e1-f5b0-4951-9781-c4c0b40b6101</parentFolderId>
+          <packageId>f77da7df-9c2c-4e65-af0b-df4ddc4c0cfe</packageId>
+          <packageName>Intent.ModularMonolith.Host</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="b0194cfa-6d2e-480d-af0c-d9cf05c91573" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.Abstractions</name>
+          <display>Microsoft.Extensions.Logging.Abstractions (10.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>349871e1-f5b0-4951-9781-c4c0b40b6101</parentFolderId>
+          <packageId>f77da7df-9c2c-4e65-af0b-df4ddc4c0cfe</packageId>
+          <packageName>Intent.ModularMonolith.Host</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="e0c98234-6020-4524-a095-58f73201b083" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Options</name>
+          <display>Microsoft.Extensions.Options (10.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>349871e1-f5b0-4951-9781-c4c0b40b6101</parentFolderId>
           <packageId>f77da7df-9c2c-4e65-af0b-df4ddc4c0cfe</packageId>
           <packageName>Intent.ModularMonolith.Host</packageName>
           <stereotypes />

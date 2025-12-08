@@ -24,6 +24,59 @@
   </stereotypes>
   <metadata />
   <childElements>
+    <childElement id="6ec19427-cdb3-4eb2-8afc-2475da2f8a9d" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>10.0.0</name>
+      <display>10.0.0 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>2263c634-08aa-4f8b-b9e6-120a94bc56be</parentFolderId>
+      <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+      <packageName>Intent.EntityFrameworkCore</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v10.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="e8f8bd2a-4eb1-40ae-9cb8-8c9698434010" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Npgsql.EntityFrameworkCore.PostgreSQL</name>
+          <display>Npgsql.EntityFrameworkCore.PostgreSQL (10.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>6ec19427-cdb3-4eb2-8afc-2475da2f8a9d</parentFolderId>
+          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+          <packageName>Intent.EntityFrameworkCore</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="2223cc69-07e6-4c86-a486-f7e405941f24" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Npgsql.NetTopologySuite</name>
+          <display>Npgsql.NetTopologySuite (10.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>6ec19427-cdb3-4eb2-8afc-2475da2f8a9d</parentFolderId>
+          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+          <packageName>Intent.EntityFrameworkCore</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
     <childElement id="51973392-7412-4215-a975-6a28403712a9" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>3.1.18</name>
       <display>3.1.18 ( &gt;= .NETStandard,Version=v2.0 )</display>

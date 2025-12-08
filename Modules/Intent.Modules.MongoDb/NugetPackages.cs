@@ -69,18 +69,18 @@ namespace Intent.Modules.MongoDb
             NugetRegistry.Register(MongoDBDriverPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 6, >= 0) => new PackageVersion("3.5.1")
+                        ( >= 6, >= 0) => new PackageVersion("3.5.2")
                             .WithNugetDependency("DnsClient", "1.6.1")
                             .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "2.0.0")
-                            .WithNugetDependency("MongoDB.Bson", "3.5.1")
+                            .WithNugetDependency("MongoDB.Bson", "3.5.2")
                             .WithNugetDependency("SharpCompress", "0.30.1")
                             .WithNugetDependency("Snappier", "1.0.0")
                             .WithNugetDependency("System.Buffers", "4.5.1")
                             .WithNugetDependency("ZstdSharp.Port", "0.7.3"),
-                        ( >= 2, >= 1) => new PackageVersion("3.5.1")
+                        ( >= 2, >= 1) => new PackageVersion("3.5.2")
                             .WithNugetDependency("DnsClient", "1.6.1")
                             .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "2.0.0")
-                            .WithNugetDependency("MongoDB.Bson", "3.5.1")
+                            .WithNugetDependency("MongoDB.Bson", "3.5.2")
                             .WithNugetDependency("SharpCompress", "0.30.1")
                             .WithNugetDependency("Snappier", "1.0.0")
                             .WithNugetDependency("System.Buffers", "4.5.1")

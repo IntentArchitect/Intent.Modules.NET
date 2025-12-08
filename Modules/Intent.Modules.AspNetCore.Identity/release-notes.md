@@ -1,5 +1,6 @@
 ### Version 4.2.9
 
+- Improvement: Updated NuGet package versions.
 - Improvement: Bumped persistence version dependency.
 
 ### Version 4.2.8

@@ -57,19 +57,23 @@ namespace Intent.Modules.AzureFunctions
             NugetRegistry.Register(AutoMapperPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("15.1.0")
-                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "8.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Options", "8.0.0")
+                        ( >= 10, >= 0) => new PackageVersion("16.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "10.0.0")
                             .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.14.0"),
-                        ( >= 8, >= 0) => new PackageVersion("15.1.0")
-                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "8.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Options", "8.0.0")
+                        ( >= 9, >= 0) => new PackageVersion("16.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "10.0.0")
+                            .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.14.0"),
+                        ( >= 8, >= 0) => new PackageVersion("16.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "10.0.0")
                             .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.14.0"),
                         ( >= 6, >= 0) => new PackageVersion("13.0.1", locked: true),
-                        ( >= 2, >= 0) => new PackageVersion("15.1.0")
+                        ( >= 2, >= 0) => new PackageVersion("16.0.0")
                             .WithNugetDependency("Microsoft.Bcl.HashCode", "6.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "8.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Options", "8.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "10.0.0")
                             .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.14.0")
                             .WithNugetDependency("System.Reflection.Emit", "4.7.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AutoMapperPackageName}'"),
@@ -85,22 +89,27 @@ namespace Intent.Modules.AzureFunctions
             NugetRegistry.Register(MediatRPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("13.1.0")
+                        ( >= 10, >= 0) => new PackageVersion("14.0.0")
                             .WithNugetDependency("MediatR.Contracts", "2.0.1")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "8.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "8.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "10.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.0")
                             .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.14.0"),
-                        ( >= 8, >= 0) => new PackageVersion("13.1.0")
+                        ( >= 9, >= 0) => new PackageVersion("14.0.0")
                             .WithNugetDependency("MediatR.Contracts", "2.0.1")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "8.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "8.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "10.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.0")
+                            .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.14.0"),
+                        ( >= 8, >= 0) => new PackageVersion("14.0.0")
+                            .WithNugetDependency("MediatR.Contracts", "2.0.1")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "10.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.0")
                             .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.14.0"),
                         ( >= 6, >= 0) => new PackageVersion("12.1.1", locked: true),
-                        ( >= 2, >= 0) => new PackageVersion("13.1.0")
+                        ( >= 2, >= 0) => new PackageVersion("14.0.0")
                             .WithNugetDependency("MediatR.Contracts", "2.0.1")
-                            .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "8.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "8.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "8.0.0")
+                            .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "10.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "10.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.0")
                             .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.14.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MediatRPackageName}'"),
                     }

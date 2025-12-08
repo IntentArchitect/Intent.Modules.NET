@@ -25,7 +25,7 @@ namespace Intent.Modules.AspNetCore.Identity
                         ( >= 9, >= 0) => new PackageVersion("9.0.11")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "9.0.11")
                             .WithNugetDependency("Microsoft.Extensions.Identity.Stores", "9.0.11"),
-                        ( >= 8, >= 0) => new PackageVersion("8.0.21")
+                        ( >= 8, >= 0) => new PackageVersion("8.0.22")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "8.0.22")
                             .WithNugetDependency("Microsoft.Extensions.Identity.Stores", "8.0.22"),
                         ( >= 7, >= 0) => new PackageVersion("7.0.20"),
