@@ -10,6 +10,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using static Intent.Metadata.RDBMS.Api.DomainPackageModelStereotypeExtensions;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration", Version = "1.0")]
@@ -50,9 +51,9 @@ namespace Intent.Modules.EntityFrameworkCore.Migrations
     {
         private const string DomainDesignerId = "6ab29b31-27af-4f56-a67c-986d82097d63";
         private const string DocumentDBStereotypeId = "8b68020c-6652-484b-85e8-6c33e1d8031f";
-        private const string DocumentDBProviderPropertyId = "85ea3708-f41a-4cd5-a23c-1126d9ddd4e1";
         private const string RDBMSStereotypeId = "51a7bcf5-0eb9-4c9a-855e-3ead1048729c";
         private const string IntentMetadataDocumentDBModuleId = "1c7eab18-9482-4b4e-b61b-1fbd2d2427b6";
+        private const string RelationalDatabaseName = "Relational Database";
 
         public static void EnsureProviderDomainPackage(IApplicationPersistable app, IMetadataInstaller metadataInstaller, ProviderContext context)
         {
@@ -64,23 +65,31 @@ namespace Intent.Modules.EntityFrameworkCore.Migrations
 
             foreach (var package in packages)
             {
-                if (IsRelationalPackage(package))
+                if (IsDocumentDbPackage(package))
                 {
                     continue;
                 }
 
-                // Already has a DocumentDB stereotype, that can be claimed
-                if (TryEnsureProviderForExistingDocumentDb(designer, package, providerId))
+                hasExistingPackage = true;
+
+                if ((package.Metadata != null && package.Metadata.Any(i => i.Key == "database-paradigm-selected")) ||
+                    (package.Stereotypes != null &&
+                    (package.Stereotypes.Any(s => s.DefinitionId == RDBMSStereotypeId) ||
+                    package.Stereotypes.Any(s => s.DefinitionId == DocumentDBStereotypeId))))
                 {
-                    hasExistingPackage = true;
-                }
-                // No DocumentDB stereotype – add one for this provider
-                else if (!HasDocumentDbStereotype(package))
-                {
-                    AddDocumentDbStereotype(designer, package, providerId);
-                    hasExistingPackage = true;
                     break;
                 }
+
+                package.Stereotypes.Add(RDBMSStereotypeId,
+                    RelationalDatabaseName,
+                    package.Id,
+                    package.Name
+                );
+
+                package.Metadata.Add("database-paradigm-selected", "true");
+
+                app.SaveAllChanges();
+
             }
 
             if (!hasExistingPackage)
@@ -92,64 +101,8 @@ namespace Intent.Modules.EntityFrameworkCore.Migrations
         private static bool IsRelationalPackage(IPackageModelPersistable package) =>
             package.Stereotypes.Any(x => x.DefinitionId == RDBMSStereotypeId);
 
-        private static bool HasDocumentDbStereotype(IPackageModelPersistable package) =>
+        private static bool IsDocumentDbPackage(IPackageModelPersistable package) =>
             package.Stereotypes.Any(x => x.DefinitionId == DocumentDBStereotypeId);
-
-        private static bool TryEnsureProviderForExistingDocumentDb(IApplicationDesignerPersistable designer, IPackageModelPersistable package, string providerId)
-        {
-            var stereotype = package.Stereotypes
-                .FirstOrDefault(x => x.DefinitionId == DocumentDBStereotypeId);
-
-            if (stereotype == null)
-            {
-                return false;
-            }
-
-            var providerSetting = stereotype.Properties
-                .FirstOrDefault(p => p.DefinitionId == DocumentDBProviderPropertyId);
-
-            if (providerSetting == null)
-            {
-                return false;
-            }
-
-            //Already Have a package for this provider
-            if (providerSetting.Value == providerId)
-            {
-                return true;
-            }
-
-            // Empty provider + nothing modeled, hijack this package
-            var canUseThisPackage = string.IsNullOrEmpty(providerSetting.Value)
-                                    && !package.Classes.Any();
-
-            if (canUseThisPackage)
-            {
-                providerSetting.Value = providerId;
-                designer.Save();
-                return true;
-            }
-
-            return false;
-        }
-
-        private static void AddDocumentDbStereotype(IApplicationDesignerPersistable designer, IPackageModelPersistable package, string providerId)
-        {
-            package.Stereotypes.Add(
-                DocumentDBStereotypeId,
-                "Document Database",
-                IntentMetadataDocumentDBModuleId,
-                "Intent.Metadata.DocumentDB",
-                stereotype =>
-                {
-                    stereotype.Properties.Add(
-                        DocumentDBProviderPropertyId,
-                        "Provider",
-                        providerId);
-                });
-
-            designer.Save();
-        }
 
         private static void InstallNewPackage(IApplicationPersistable app, IMetadataInstaller metadataInstaller, ProviderContext context)
         {
