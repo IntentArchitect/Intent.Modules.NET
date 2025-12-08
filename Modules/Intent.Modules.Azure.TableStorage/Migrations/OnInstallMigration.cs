@@ -1,3 +1,9 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Threading.Tasks;
 using Intent.Engine;
 using Intent.Metadata;
 using Intent.Modules.Azure.TableStorage.Templates;
@@ -5,12 +11,6 @@ using Intent.Modules.DocumentDB.Shared;
 using Intent.Persistence;
 using Intent.Plugins;
 using Intent.RoslynWeaver.Attributes;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration", Version = "1.0")]

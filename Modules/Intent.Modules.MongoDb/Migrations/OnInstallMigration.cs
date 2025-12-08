@@ -1,3 +1,11 @@
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 using Intent.Engine;
 using Intent.IArchitect.Agent.Persistence.Model;
 using Intent.IArchitect.Agent.Persistence.Model.Common;
@@ -8,14 +16,6 @@ using Intent.Modules.MongoDb.Templates;
 using Intent.Persistence;
 using Intent.Plugins;
 using Intent.RoslynWeaver.Attributes;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration", Version = "1.0")]
@@ -24,7 +24,7 @@ namespace Intent.Modules.MongoDb.Migrations
 {
     public class OnInstallMigration : IModuleOnInstallMigration
     {
-        
+
         private readonly IApplicationConfigurationProvider _configurationProvider;
         private readonly IMetadataInstaller _metadataInstaller;
         private readonly IPersistenceLoader _persistenceLoader;

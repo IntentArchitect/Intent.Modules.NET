@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Dapr.AspNetCore.StateManagement</id>
-  <version>1.2.16</version>
-  <supportedClientVersions>[4.5.15-a,5.0.0)</supportedClientVersions>
+  <version>1.2.17-pre.0</version>
+  <supportedClientVersions>[4.5.18-a,5.0.0)</supportedClientVersions>
   <summary>Create long running, stateless and stateful services.</summary>
   <description>Create long running, stateless and stateful services.</description>
   <authors>Intent Architect</authors>
@@ -111,5 +111,5 @@
   <metadata>
     <install target="Domain" src="Intent.Metadata/Module Builder/Intent.Dapr.AspNetCore.StateManagement/Intent.Dapr.AspNetCore.StateManagement.pkg.config" externalReference="73923254-9ff4-4af0-b5a8-aba37165e9bc" />
   </metadata>
-  <migrations />
+  <migrations has-on-install-migration="true" />
 </package>

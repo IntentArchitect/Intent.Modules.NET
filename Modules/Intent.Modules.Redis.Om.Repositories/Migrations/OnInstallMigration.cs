@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using Intent.Engine;
 using Intent.Metadata;
 using Intent.Modules.DocumentDB.Shared;
@@ -5,7 +6,6 @@ using Intent.Modules.Redis.Om.Repositories.Templates;
 using Intent.Persistence;
 using Intent.Plugins;
 using Intent.RoslynWeaver.Attributes;
-using System.Diagnostics;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration", Version = "1.0")]

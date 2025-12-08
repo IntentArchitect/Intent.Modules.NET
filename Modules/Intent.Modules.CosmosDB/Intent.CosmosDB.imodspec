@@ -2,7 +2,7 @@
 <package>
   <id>Intent.CosmosDB</id>
   <version>1.2.24-pre.0</version>
-  <supportedClientVersions>[4.5.15-a, 5.0.0-a)</supportedClientVersions>
+  <supportedClientVersions>[4.5.18-a, 5.0.0-a)</supportedClientVersions>
   <summary>Core Cosmos DB Database Provider Repository backed using the Cosmos DB Client.</summary>
   <description>Core Cosmos DB Database Provider Repository backed using the Cosmos DB Client.</description>
   <authors>Intent Architect</authors>

@@ -2,7 +2,7 @@
 <package>
   <id>Intent.Aws.DynamoDB</id>
   <version>1.0.0-beta.8</version>
-  <supportedClientVersions>[4.5.15-a,5.0.0)</supportedClientVersions>
+  <supportedClientVersions>[4.5.18-a,5.0.0)</supportedClientVersions>
   <summary>DynamoDB database provider repository.</summary>
   <description>DynamoDB database provider repository.</description>
   <authors>Intent Architect</authors>

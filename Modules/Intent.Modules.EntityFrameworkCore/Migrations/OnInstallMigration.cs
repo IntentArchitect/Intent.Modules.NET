@@ -1,15 +1,15 @@
-using Intent.Engine;
-using Intent.IArchitect.Agent.Persistence.Model;
-using Intent.Metadata;
-using Intent.Persistence;
-using Intent.Plugins;
-using Intent.RoslynWeaver.Attributes;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using Intent.Engine;
+using Intent.IArchitect.Agent.Persistence.Model;
+using Intent.Metadata;
+using Intent.Persistence;
+using Intent.Plugins;
+using Intent.RoslynWeaver.Attributes;
 using static Intent.Metadata.RDBMS.Api.DomainPackageModelStereotypeExtensions;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]

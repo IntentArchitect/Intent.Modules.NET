@@ -2,7 +2,7 @@
 <package>
   <id>Intent.Redis.Om.Repositories</id>
   <version>1.0.19-pre.0</version>
-  <supportedClientVersions>[4.5.15-a,5.0.0)</supportedClientVersions>
+  <supportedClientVersions>[4.5.18-a,5.0.0)</supportedClientVersions>
   <summary>Implements the Repository pattern using Redis OM .NET for handling documents in the Redis Stack.</summary>
   <description>Implements the Repository pattern using Redis OM .NET for handling documents in the Redis Stack.</description>
   <authors>Intent Architect</authors>

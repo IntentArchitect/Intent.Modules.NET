@@ -2,7 +2,7 @@
 <package>
   <id>Intent.Azure.TableStorage</id>
   <version>1.0.0-pre.0</version>
-  <supportedClientVersions>[4.5.15-a,5.0.0)</supportedClientVersions>
+  <supportedClientVersions>[4.5.18-a,5.0.0)</supportedClientVersions>
   <summary>Azure Table Storage Database Provider implementation.</summary>
   <description>Azure Table Storage Database Provider implementation.</description>
   <authors>Intent Architect</authors>
