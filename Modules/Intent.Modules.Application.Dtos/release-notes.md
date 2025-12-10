@@ -1,3 +1,7 @@
+### Version 4.5.0
+
+- Improvement: Added support for importing user changes.
+
 ### Version 4.4.7
 
 - Improvement: Documentation and ProjectUrl link added.

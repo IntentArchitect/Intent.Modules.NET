@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using Intent.Engine;
+//using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.Dtos.Settings;
 using Intent.Modules.Application.Dtos.Templates.ContractEnumModel;
@@ -18,6 +19,7 @@ using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using Intent.UserChanges;
 using static Intent.Modules.Constants.TemplateRoles.Blazor.Client;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -26,7 +28,7 @@ using static Intent.Modules.Constants.TemplateRoles.Blazor.Client;
 namespace Intent.Modules.Application.Dtos.Templates.DtoModel
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public partial class DtoModelTemplate : CSharpTemplateBase<DTOModel, DtoModelDecorator>, ICSharpFileBuilderTemplate
+    public partial class DtoModelTemplate : CSharpTemplateBase<DTOModel, DtoModelDecorator>, ICSharpFileBuilderTemplate, IProvidesUserChanges, IAcceptsUserChanges
     {
         public const string TemplateId = "Intent.Application.Dtos.DtoModel";
 
@@ -438,6 +440,40 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
             }
 
             return $"{Model.Name}Of{string.Join("And", Model.GenericTypes)}";
+        }
+
+        public IReadOnlyCollection<IUserChange> GetUserChanges()
+        {
+            var addedProperties = _compilationUnitNode?
+                .Children.FirstOrDefault(x => x.SyntaxKind == CSharpSyntaxKind.NamespaceDeclaration)?
+                .Children.FirstOrDefault(x => x.SyntaxKind == CSharpSyntaxKind.ClassDeclaration)?
+                .Children.Where(x =>
+                    x.SyntaxKind == CSharpSyntaxKind.PropertyDeclaration &&
+                    x.DifferenceType == CSharpDifferenceType.Added);
+
+            if (addedProperties == null)
+            {
+                return [];
+            }
+
+            return addedProperties
+                .Select(x => UserChangeFactory.Instance.CreateChildElement(
+                    parent: Model.InternalElement,
+                    elementId: Guid.NewGuid().ToString(),
+                    name: x.Identifier!,
+                    specialization: "DTO-Field",
+                    specializationId: "7baed1fd-469b-4980-8fd9-4cefb8331eb2",
+                    typeReference: TryGetTypeReference(x.TypeName ?? x.OldTypeName!, out var reference)
+                        ? UserChangeFactory.Instance.TypeReference(reference)
+                        : null))
+                .ToArray();
+        }
+
+        private ICSharpDifferenceNode? _compilationUnitNode;
+
+        public void Apply(ICSharpDifferenceNode compilationUnitNode)
+        {
+            _compilationUnitNode = compilationUnitNode;
         }
     }
 }
