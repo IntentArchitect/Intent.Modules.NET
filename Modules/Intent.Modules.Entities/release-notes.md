@@ -1,3 +1,7 @@
+### Version 5.2.0
+
+- Improvement: Added support for importing changes from code base to designers.
+
 ### Version 5.1.16
 
 - Improvement: Added method in `UpdateHelper` called `SynchronizeCollection` which Synchronizes a collection by adding and removing items to match the changed collection.

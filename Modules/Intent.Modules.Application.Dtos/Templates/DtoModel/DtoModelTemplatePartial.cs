@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading;
+using Intent.CodeToModelOperations;
 using Intent.Engine;
+using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.Dtos.Settings;
 using Intent.Modules.Application.Dtos.Templates.ContractEnumModel;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.CodeToModelSynchronization;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
@@ -25,8 +28,8 @@ using static Intent.Modules.Constants.TemplateRoles.Blazor.Client;
 
 namespace Intent.Modules.Application.Dtos.Templates.DtoModel
 {
-    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public partial class DtoModelTemplate : CSharpTemplateBase<DTOModel, DtoModelDecorator>, ICSharpFileBuilderTemplate
+    [IntentManaged(Mode.Merge)]
+    public partial class DtoModelTemplate : CSharpTemplateBase<DTOModel, DtoModelDecorator>, ICSharpFileBuilderTemplate, ISynchronizeCSharpCodeToModel
     {
         public const string TemplateId = "Intent.Application.Dtos.DtoModel";
 
@@ -430,6 +433,7 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
             return CSharpFile.ToString();
         }
 
+#pragma warning disable IDE0010
         private string GetTemplateFileName()
         {
             if (!Model.GenericTypes.Any())
@@ -438,6 +442,65 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
             }
 
             return $"{Model.Name}Of{string.Join("And", Model.GenericTypes)}";
+        }
+
+        public IReadOnlyCollection<ICodeToModelOperation> GetCodeToOperationModels()
+        {
+            var properties = _rootComparisonNode?
+                .ChildNodes.FirstOrDefault(x => x.SyntaxKind == CSharpSyntaxKind.NamespaceDeclaration)?
+                .ChildNodes.FirstOrDefault(x => x.SyntaxKind == CSharpSyntaxKind.ClassDeclaration)?
+                .ChildNodes.Where(x => x.SyntaxKind == CSharpSyntaxKind.PropertyDeclaration)
+                .ToArray();
+
+            if (properties == null || properties.Length == 0)
+            {
+                return [];
+            }
+
+            var models = new List<ICodeToModelOperation>();
+
+            foreach (var property in properties)
+            {
+                var typeReference = TryGetTypeReference(property.TypeName ?? property.OldTypeName!, Model.InternalElement.Package, out var reference)
+                    ? CodeToModelOperationFactory.Instance.TypeReference(reference)
+                    : null;
+
+                switch (property.DifferenceType)
+                {
+                    case CSharpDifferenceType.Added:
+                        models.Add(CodeToModelOperationFactory.Instance.CreateChildElement(
+                            parent: Model.InternalElement,
+                            newElementId: Guid.NewGuid().ToString(),
+                            name: property.Identifier!,
+                            specialization: DTOFieldModel.SpecializationType,
+                            specializationId: DTOFieldModel.SpecializationTypeId,
+                            typeReference: typeReference));
+                        break;
+                    case CSharpDifferenceType.Changed:
+                        models.Add(CodeToModelOperationFactory.Instance.ChangeElementTypeReference(
+                            element: Model.InternalElement,
+                            typeReference: typeReference));
+                        break;
+                    case CSharpDifferenceType.Removed:
+                        var fieldToRemove = Model.Fields.FirstOrDefault(x => string.Equals(x.Name, property.OldIdentifier, StringComparison.OrdinalIgnoreCase));
+                        if (fieldToRemove != null)
+                        {
+                            models.Add(CodeToModelOperationFactory.Instance.DeleteElement(fieldToRemove.InternalElement));
+                        }
+
+                        break;
+                }
+            }
+
+            return models;
+        }
+#pragma warning restore IDE0010
+
+        private ICSharpSemanticComparisonNode _rootComparisonNode;
+
+        public void Accept(ICSharpSemanticComparisonNode rootComparisonNode)
+        {
+            _rootComparisonNode = rootComparisonNode;
         }
     }
 }

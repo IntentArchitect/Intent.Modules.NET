@@ -2,7 +2,7 @@
 <package>
   <id>Intent.Application.Dtos.AutoMapper</id>
   <version>4.0.19</version>
-  <supportedClientVersions>[4.5.0-a, 5.0.0-a)</supportedClientVersions>
+  <supportedClientVersions>[4.6.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Generates mapping specifications using AutoMapper for DTOs that are mapped from Domain Entities</summary>
   <description>Generates mapping specifications using AutoMapper for DTOs that are mapped from Domain Entities</description>
   <authors>Intent Architect</authors>
@@ -31,8 +31,8 @@
   <dependencies>
     <dependency id="Intent.Application.AutoMapper" version="5.2.1" />
     <dependency id="Intent.Application.Dtos" version="4.2.1" />
-    <dependency id="Intent.Common" version="3.7.2" />
-    <dependency id="Intent.Common.CSharp" version="3.9.0" />
+    <dependency id="Intent.Common" version="3.10.0-pre.0" />
+    <dependency id="Intent.Common.CSharp" version="3.10.0-pre.0" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Modelers.Services" version="3.7.3" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />

@@ -152,7 +152,7 @@ namespace Intent.Modules.SharedKernel.Consumer
             throw new NotImplementedException();
         }
 
-        public void RegisterInstance<TInstance>(object key, TInstance instance)
+        public void RegisterInstance<TInstance>(object key, TInstance instance) where TInstance : class
         {
             throw new NotImplementedException();
         }
@@ -182,7 +182,7 @@ namespace Intent.Modules.SharedKernel.Consumer
             throw new NotImplementedException();
         }
 
-        public bool TryResolveInstance<TInstance>(object key, out TInstance instance)
+        public bool TryResolveInstance<TInstance>(object key, out TInstance instance) where TInstance : class
         {
             throw new NotImplementedException();
         }
