@@ -2,7 +2,7 @@
 <package>
   <id>Intent.AspNetCore.Identity</id>
   <version>4.2.9-pre.1</version>
-  <supportedClientVersions>[4.5.18-a, 5.0.0-a)</supportedClientVersions>
+  <supportedClientVersions>[4.6.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Introduces AspNetCore Identity for User Authentication and Account Management using Entity Framework Core.</summary>
   <description>Introduces AspNetCore Identity for User Authentication and Account Management using Entity Framework Core.</description>
   <authors>Intent Architect</authors>
@@ -34,8 +34,8 @@
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.Common" version="3.7.2" />
-    <dependency id="Intent.Common.CSharp" version="3.8.0" />
+    <dependency id="Intent.Common" version="3.10.0-pre.0" />
+    <dependency id="Intent.Common.CSharp" version="3.10.0-pre.0" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Entities" version="5.1.13" />
     <dependency id="Intent.EntityFrameworkCore" version="5.0.26" />

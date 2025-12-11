@@ -2,7 +2,7 @@
 <package>
   <id>Intent.DocumentDB.Dtos.AutoMapper</id>
   <version>1.0.6</version>
-  <supportedClientVersions>[4.5.0-a,5.0.0)</supportedClientVersions>
+  <supportedClientVersions>[4.6.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Generates mapping specifications using AutoMapper for DTOs that are mapped.</summary>
   <description>Generates mapping specifications using AutoMapper for DTOs that are mapped.</description>
   <authors>Intent Architect</authors>
@@ -17,8 +17,8 @@
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.Common" version="3.6.0" />
-    <dependency id="Intent.Common.CSharp" version="3.9.0" />
+    <dependency id="Intent.Common" version="3.10.0-pre.0" />
+    <dependency id="Intent.Common.CSharp" version="3.10.0-pre.0" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Modelers.Domain" version="3.4.3" />
     <dependency id="Intent.Modelers.Services" version="3.4.3" />

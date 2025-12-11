@@ -2,11 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Metadata;
+using Intent.CodeToModelOperations;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.CodeToModelSynchronization;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
@@ -24,6 +26,7 @@ using Intent.Utils;
 using AttributeModel = Intent.Modelers.Domain.Api.AttributeModel;
 using OperationModel = Intent.Modelers.Domain.Api.OperationModel;
 using static Intent.Modules.Constants.TemplateRoles.Blazor.Client;
+using ParameterModel = Intent.Modules.Common.Types.Api.ParameterModel;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -31,7 +34,7 @@ using static Intent.Modules.Constants.TemplateRoles.Blazor.Client;
 namespace Intent.Modules.Entities.Templates.DomainEntity
 {
     [IntentManaged(Mode.Ignore, Body = Mode.Merge)]
-    public partial class DomainEntityTemplate : DomainEntityStateTemplateBase
+    public partial class DomainEntityTemplate : DomainEntityStateTemplateBase, ISynchronizeCSharpCodeToModel
     {
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Entities.DomainEntity";
@@ -527,6 +530,118 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
             }
 
             public TemplateMigrationCriteria Criteria => TemplateMigrationCriteria.Upgrade(1, 2);
+        }
+
+        public IReadOnlyCollection<ICodeToModelOperation> GetCodeToOperationModels()
+        {
+            var @class = _rootComparisonNode?
+                .ChildNodes.FirstOrDefault(x => x.SyntaxKind == CSharpSyntaxKind.NamespaceDeclaration)?
+                .ChildNodes.FirstOrDefault(x => x.SyntaxKind == CSharpSyntaxKind.ClassDeclaration);
+
+            if (@class == null)
+            {
+                return [];
+            }
+
+            var changes = new List<ICodeToModelOperation>();
+
+            foreach (var member in @class.ChildNodes)
+            {
+                switch (member.SyntaxKind)
+                {
+                    case CSharpSyntaxKind.MethodDeclaration:
+                        switch (member.DifferenceType)
+                        {
+                            case CSharpDifferenceType.Added:
+                            {
+                                var method = CodeToModelOperationFactory.Instance.CreateChildElement(
+                                    parent: Model.InternalElement,
+                                    elementId: Guid.NewGuid().ToString(),
+                                    name: member.Identifier!,
+                                    specialization: OperationModel.SpecializationType,
+                                    specializationId: OperationModel.SpecializationTypeId,
+                                    typeReference: TryGetTypeReference(member.TypeName ?? member.OldTypeName!, Model.InternalElement.Package, out var methodReference)
+                                        ? CodeToModelOperationFactory.Instance.TypeReference(methodReference)
+                                        : null);
+
+                                changes.Add(method);
+
+                                foreach (var parameter in member.ChildNodes.Where(x => x.SyntaxKind == CSharpSyntaxKind.Parameter))
+                                {
+                                    changes.Add(CodeToModelOperationFactory.Instance.CreateChildElement(
+                                        parent: method,
+                                        elementId: Guid.NewGuid().ToString(),
+                                        name: parameter.Identifier!,
+                                        specialization: ParameterModel.SpecializationType,
+                                        specializationId: ParameterModel.SpecializationTypeId,
+                                        typeReference: TryGetTypeReference(parameter.TypeName ?? parameter.OldTypeName!, Model.InternalElement.Package, out var parameterReference)
+                                            ? CodeToModelOperationFactory.Instance.TypeReference(parameterReference)
+                                            : null));
+                                }
+
+                                break;
+                            }
+                            case CSharpDifferenceType.Changed:
+                            {
+                                var method = Model.Attributes.SingleOrDefault(x => string.Equals(x.Name, member.Identifier, StringComparison.OrdinalIgnoreCase));
+                                if (method != null)
+                                {
+                                    changes.Add(CodeToModelOperationFactory.Instance.ChangeElementTypeReference(
+                                        element: method.InternalElement,
+                                        typeReference: TryGetTypeReference(member.TypeName!, Model.InternalElement.Package, out var reference)
+                                            ? CodeToModelOperationFactory.Instance.TypeReference(reference)
+                                            : null));
+                                }
+
+                                break;
+                            }
+                        }
+
+                        break;
+                    case CSharpSyntaxKind.PropertyDeclaration:
+                        switch (member.DifferenceType)
+                        {
+                            case CSharpDifferenceType.Added:
+                            {
+                                changes.Add(CodeToModelOperationFactory.Instance.CreateChildElement(
+                                    parent: Model.InternalElement,
+                                    elementId: Guid.NewGuid().ToString(),
+                                    name: member.Identifier!,
+                                    specialization: AttributeModel.SpecializationType,
+                                    specializationId: AttributeModel.SpecializationTypeId,
+                                    typeReference: TryGetTypeReference(member.TypeName ?? member.OldTypeName!, Model.InternalElement.Package, out var reference)
+                                        ? CodeToModelOperationFactory.Instance.TypeReference(reference)
+                                        : null));
+                                break;
+                            }
+                            case CSharpDifferenceType.Changed:
+                            {
+                                var property = Model.Attributes.SingleOrDefault(x => string.Equals(x.Name, member.Identifier, StringComparison.OrdinalIgnoreCase));
+                                if (property != null)
+                                {
+                                    changes.Add(CodeToModelOperationFactory.Instance.ChangeElementTypeReference(
+                                        element: property.InternalElement,
+                                        typeReference: TryGetTypeReference(member.TypeName!, Model.InternalElement.Package , out var reference)
+                                            ? CodeToModelOperationFactory.Instance.TypeReference(reference)
+                                            : null));
+                                }
+
+                                break;
+                            }
+                        }
+
+                        break;
+                }
+            }
+
+            return changes;
+        }
+
+        private ICSharpSemanticComparisonNode _rootComparisonNode;
+
+        public void Accept(ICSharpSemanticComparisonNode rootComparisonNode)
+        {
+            _rootComparisonNode = rootComparisonNode;
         }
     }
 

@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading;
+using Intent.CodeToModelOperations;
 using Intent.Engine;
-//using Intent.Metadata.Models;
+using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.Dtos.Settings;
 using Intent.Modules.Application.Dtos.Templates.ContractEnumModel;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.CodeToModelSynchronization;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
@@ -19,7 +21,6 @@ using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using Intent.UserChanges;
 using static Intent.Modules.Constants.TemplateRoles.Blazor.Client;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -28,7 +29,7 @@ using static Intent.Modules.Constants.TemplateRoles.Blazor.Client;
 namespace Intent.Modules.Application.Dtos.Templates.DtoModel
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public partial class DtoModelTemplate : CSharpTemplateBase<DTOModel, DtoModelDecorator>, ICSharpFileBuilderTemplate, IProvidesUserChanges, IAcceptsUserChanges
+    public partial class DtoModelTemplate : CSharpTemplateBase<DTOModel, DtoModelDecorator>, ICSharpFileBuilderTemplate, ISynchronizeCSharpCodeToModel
     {
         public const string TemplateId = "Intent.Application.Dtos.DtoModel";
 
@@ -442,12 +443,12 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
             return $"{Model.Name}Of{string.Join("And", Model.GenericTypes)}";
         }
 
-        public IReadOnlyCollection<IUserChange> GetUserChanges()
+        public IReadOnlyCollection<ICodeToModelOperation> GetCodeToOperationModels()
         {
-            var addedProperties = _compilationUnitNode?
-                .Children.FirstOrDefault(x => x.SyntaxKind == CSharpSyntaxKind.NamespaceDeclaration)?
-                .Children.FirstOrDefault(x => x.SyntaxKind == CSharpSyntaxKind.ClassDeclaration)?
-                .Children.Where(x =>
+            var addedProperties = _rootComparisonNode?
+                .ChildNodes.FirstOrDefault(x => x.SyntaxKind == CSharpSyntaxKind.NamespaceDeclaration)?
+                .ChildNodes.FirstOrDefault(x => x.SyntaxKind == CSharpSyntaxKind.ClassDeclaration)?
+                .ChildNodes.Where(x =>
                     x.SyntaxKind == CSharpSyntaxKind.PropertyDeclaration &&
                     x.DifferenceType == CSharpDifferenceType.Added);
 
@@ -457,23 +458,23 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
             }
 
             return addedProperties
-                .Select(x => UserChangeFactory.Instance.CreateChildElement(
+                .Select(x => CodeToModelOperationFactory.Instance.CreateChildElement(
                     parent: Model.InternalElement,
                     elementId: Guid.NewGuid().ToString(),
                     name: x.Identifier!,
-                    specialization: "DTO-Field",
-                    specializationId: "7baed1fd-469b-4980-8fd9-4cefb8331eb2",
-                    typeReference: TryGetTypeReference(x.TypeName ?? x.OldTypeName!, out var reference)
-                        ? UserChangeFactory.Instance.TypeReference(reference)
+                    specialization: DTOFieldModel.SpecializationType,
+                    specializationId: DTOFieldModel.SpecializationTypeId,
+                    typeReference: TryGetTypeReference(x.TypeName ?? x.OldTypeName!, Model.InternalElement.Package, out var reference)
+                        ? CodeToModelOperationFactory.Instance.TypeReference(reference)
                         : null))
                 .ToArray();
         }
 
-        private ICSharpDifferenceNode? _compilationUnitNode;
+        private ICSharpSemanticComparisonNode _rootComparisonNode;
 
-        public void Apply(ICSharpDifferenceNode compilationUnitNode)
+        public void Accept(ICSharpSemanticComparisonNode rootComparisonNode)
         {
-            _compilationUnitNode = compilationUnitNode;
+            _rootComparisonNode = rootComparisonNode;
         }
     }
 }

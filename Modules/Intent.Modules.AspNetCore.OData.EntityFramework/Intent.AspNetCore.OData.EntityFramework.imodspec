@@ -2,7 +2,7 @@
 <package>
   <id>Intent.AspNetCore.OData.EntityFramework</id>
   <version>1.0.9</version>
-  <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
+  <supportedClientVersions>[4.6.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Provide the ability to expose OData endpoints for a Domain Model.</summary>
   <description>Enable the application to expose OData endpoints that operate directly over the Domain Model, allowing clients to query, filter, and manipulate domain entities using standard OData protocols.</description>
   <authors>Intent Architect</authors>
@@ -33,8 +33,8 @@
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.Common" version="3.7.3" />
-    <dependency id="Intent.Common.CSharp" version="3.8.5" />
+    <dependency id="Intent.Common" version="3.10.0-pre.0" />
+    <dependency id="Intent.Common.CSharp" version="3.10.0-pre.0" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Entities" version="5.1.12" />
     <dependency id="Intent.EntityFrameworkCore" version="5.0.20" />
