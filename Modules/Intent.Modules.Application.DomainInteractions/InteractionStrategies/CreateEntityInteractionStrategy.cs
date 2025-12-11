@@ -11,7 +11,10 @@ using Intent.Modules.Application.DomainInteractions.Extensions;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Interactions;
+using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using OperationModelExtensions = Intent.Modelers.Domain.Api.OperationModelExtensions;
 
 namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
@@ -58,6 +61,9 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
                         foundEntity: entity,
                         aggregateDetails: out _);
                 }
+
+                // Handle Lookup IDs mappings (surrogate IDs to entity collections)
+                ProcessLookupIdsMappings(method, mapping, csharpMapping, statements);
 
                 if (mapping != null)
                 {
@@ -165,6 +171,82 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
             }
             // For document DBs User Supplied and Auto-generated is assumed to not be set by the DB
             return attribute.IsPrimaryKey() && attribute.GetStereotypeProperty("Primary Key", "Data source", "Default") == DataSources.Default;
+        }
+
+        private static void ProcessLookupIdsMappings(
+            ICSharpClassMethodDeclaration method,
+            IElementToElementMapping mapping,
+            CSharpClassMappingManager csharpMapping,
+            List<CSharpStatement> statements)
+        {
+            const string lookupIdsElementId = "5be4e1b7-855b-4ae6-a56e-6fc9d8ba0a87";
+
+            // Find all mapped ends that use Lookup IDs (source is the static "Lookup IDs" element)
+            var lookupIdsMappings = mapping.MappedEnds
+                .Where(x => x.TargetElement?.Id == lookupIdsElementId)
+                .ToList();
+
+            foreach (var lookupMapping in lookupIdsMappings)
+            {               
+                // The target path should lead to an association (e.g., Product -> Categories -> Lookup IDs)
+                // We want the association element which is typically at TargetPath[TargetPath.Count - 2]
+                var targetPath = lookupMapping.TargetPath?.ToList();
+                if (targetPath == null || targetPath.Count < 2)
+                {
+                    continue;
+                }
+
+                // Get the association from the target path (second-to-last element)
+                var associationPathElement = targetPath[targetPath.Count - 2];
+                
+                // The Element property contains the association end which has the TypeReference
+                var associationElement = associationPathElement.Element;
+                if (associationElement == null)
+                {
+                    continue;
+                }
+                
+                // Get the entity type from the association's type reference (e.g., Category)
+                var targetEntityType = associationElement.TypeReference?.Element.AsClassModel();
+                if (targetEntityType == null || !targetEntityType.IsAggregateRoot())
+                {
+                    // Only support aggregate roots for now
+                    continue;
+                }
+
+                var template = method.File.Template;
+                
+                // Check if repository exists for this entity
+                if (!template.TryGetTypeName(TemplateRoles.Repository.Interface.Entity, targetEntityType, out var repositoryInterface))
+                {
+                    continue;
+                }
+
+                // Inject the repository
+                var repositoryFieldName = method.Class.InjectService(repositoryInterface);
+
+                // Generate a user-friendly variable name: existing{EntityName}s (e.g., existingCategories)
+                var entityName = targetEntityType.Name;
+                var variableName = $"existing{entityName.Pluralize()}";
+
+                // Generate the source expression for the IDs (e.g., request.CategoryIds)
+                var sourceIdsExpression = csharpMapping.GenerateSourceStatementForMapping(mapping, lookupMapping);
+
+                // Generate the repository lookup statement
+                template.AddUsing("System.Linq");
+                var lookupStatement = new CSharpInvocationStatement($"await {repositoryFieldName}", "FindByIdsAsync")
+                    .AddArgument($"{sourceIdsExpression}.ToArray()")
+                    .AddArgument("cancellationToken");
+
+                statements.Add(new CSharpAssignmentStatement($"var {variableName}", lookupStatement).WithSemicolon());
+                
+                // TODO: Add validation that all requested IDs were found
+                statements.Add(new CSharpStatement($"// TODO: Consider adding validation that all {entityName} IDs were found"));
+
+                // Set up mapping replacements so the object initializer uses this variable
+                // Replace the static metadata ID
+                csharpMapping.SetFromReplacement(new StaticMetadata(lookupIdsElementId), variableName);
+            }
         }
     }
 }

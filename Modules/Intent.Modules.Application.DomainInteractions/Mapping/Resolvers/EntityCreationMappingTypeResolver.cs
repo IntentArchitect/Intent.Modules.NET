@@ -2,6 +2,7 @@
 using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 
@@ -49,6 +50,13 @@ public class EntityCreationMappingTypeResolver : IMappingTypeResolver
         if (model.IsClassConstructorModel())
         {
             return new ConstructorMapping(mappingModel, _sourceTemplate);
+        }
+
+        const string lookupIdsElementId = "5be4e1b7-855b-4ae6-a56e-6fc9d8ba0a87";
+        // Child element is our Static Mapping for Lookup IDs
+        if (mappingModel.Mapping == null && mappingModel.Children.FirstOrDefault()?.Model?.SpecializationTypeId == lookupIdsElementId)
+        {
+            return new LookupIdsMapping(mappingModel, _sourceTemplate);
         }
 
         if (model.SpecializationType == "Class" || model.TypeReference?.Element?.SpecializationType == "Class")
