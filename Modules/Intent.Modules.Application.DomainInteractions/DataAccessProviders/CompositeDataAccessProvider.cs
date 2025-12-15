@@ -82,6 +82,16 @@ public class CompositeDataAccessProvider : IDataAccessProvider
         //throw new Exception("Not Implemented");
     }
 
+    internal void ProcessLookupIdsMappingsImpl(
+        ICSharpClassMethodDeclaration method,
+        IElementToElementMapping mapping,
+        CSharpClassMappingManager csharpMapping,
+        List<CSharpStatement> statements)
+    {
+        // CompositeDataAccessProvider (accessing collections through aggregate roots) 
+        // does not support Lookup IDs mappings - this is a no-op.
+    }
+
     public CSharpStatement FindAsync(IElementToElementMapping queryMapping, out IList<CSharpStatement> prerequisiteStatements)
     {
         prerequisiteStatements = new List<CSharpStatement>();

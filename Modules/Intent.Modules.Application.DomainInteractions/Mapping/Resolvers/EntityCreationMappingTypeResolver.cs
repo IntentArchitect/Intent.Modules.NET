@@ -52,9 +52,12 @@ public class EntityCreationMappingTypeResolver : IMappingTypeResolver
             return new ConstructorMapping(mappingModel, _sourceTemplate);
         }
 
-        const string lookupIdsElementId = "5be4e1b7-855b-4ae6-a56e-6fc9d8ba0a87";
+        const string lookupIdsTargetEndElementId = "5be4e1b7-855b-4ae6-a56e-6fc9d8ba0a87";
+        const string lookupIdsSourceEndElementId = "11201123-7476-4b32-9452-f4ccc96449ef";
+        
         // Child element is our Static Mapping for Lookup IDs
-        if (mappingModel.Mapping == null && mappingModel.Children.FirstOrDefault()?.Model?.SpecializationTypeId == lookupIdsElementId)
+        var mappedElementSpecializationTypeId = mappingModel.Children.FirstOrDefault()?.Model?.SpecializationTypeId;
+        if (mappingModel.Mapping == null && mappedElementSpecializationTypeId is lookupIdsTargetEndElementId or lookupIdsSourceEndElementId)
         {
             return new LookupIdsMapping(mappingModel, _sourceTemplate);
         }

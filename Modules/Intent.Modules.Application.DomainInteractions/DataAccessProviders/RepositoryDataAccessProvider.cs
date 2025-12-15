@@ -115,6 +115,80 @@ internal class RepositoryDataAccessProvider : IDataAccessProvider
         return _queryImplementation.FindByIdsAsync(pkMaps);
     }
 
+    internal void ProcessLookupIdsMappingsImpl(
+        ICSharpClassMethodDeclaration method,
+        IElementToElementMapping mapping,
+        CSharpClassMappingManager csharpMapping,
+        List<CSharpStatement> statements)
+    {
+        const string lookupIdsTargetEndElementId = "5be4e1b7-855b-4ae6-a56e-6fc9d8ba0a87";
+        const string lookupIdsSourceEndElementId = "11201123-7476-4b32-9452-f4ccc96449ef";
+
+        // Find all mapped ends that use Lookup IDs (target is the static "Lookup IDs" element)
+        var lookupIdsMappings = mapping.MappedEnds
+            .Where(x => x.TargetElement?.Id == lookupIdsTargetEndElementId || x.TargetElement?.Id == lookupIdsSourceEndElementId)
+            .ToList();
+
+        foreach (var lookupMapping in lookupIdsMappings)
+        {
+            // The target path should lead to an association (e.g., Product -> Categories -> Lookup IDs)
+            // We want the association element which is typically at TargetPath[TargetPath.Count - 2]
+            var targetPath = lookupMapping.TargetPath?.ToList();
+            if (targetPath == null || targetPath.Count < 2)
+            {
+                continue;
+            }
+
+            // Get the association from the target path (second-to-last element)
+            var associationPathElement = targetPath[targetPath.Count - 2];
+
+            // The Element property contains the association end which has the TypeReference
+            var associationElement = associationPathElement.Element;
+            if (associationElement == null)
+            {
+                continue;
+            }
+
+            // Get the entity type from the association's type reference (e.g., Category)
+            var targetEntityType = associationElement.TypeReference?.Element.AsClassModel();
+            if (targetEntityType == null || !targetEntityType.IsAggregateRoot())
+            {
+                // Only support aggregate roots for now
+                continue;
+            }
+
+            // Get the repository for the target entity type (Category, not Product)
+            if (!_template.TryGetTypeName(TemplateRoles.Repository.Interface.Entity, targetEntityType, out var targetRepositoryInterface))
+            {
+                // No repository for this entity type, skip it
+                continue;
+            }
+
+            // Inject the target entity's repository
+            var targetRepositoryFieldName = method.Class.InjectService(targetRepositoryInterface);
+
+            // Generate a user-friendly variable name: existing{EntityName}s (e.g., existingCategories)
+            var entityName = targetEntityType.Name;
+            var variableName = $"existing{entityName.Pluralize()}";
+
+            // Generate the source expression for the IDs (e.g., request.CategoryIds)
+            var sourceIdsExpression = csharpMapping.GenerateSourceStatementForMapping(mapping, lookupMapping);
+
+            // Generate the repository lookup statement using the TARGET entity's repository
+            _template.AddUsing("System.Linq");
+            var lookupStatement = new CSharpInvocationStatement($"await {targetRepositoryFieldName}", "FindByIdsAsync")
+                .AddArgument($"{sourceIdsExpression}.ToArray()")
+                .AddArgument("cancellationToken");
+
+            statements.Add(new CSharpAssignmentStatement($"var {variableName}", lookupStatement).WithSemicolon());
+
+            // Set up mapping replacements so the object initializer uses this variable
+            // Replace the static metadata ID
+            csharpMapping.SetFromReplacement(new StaticMetadata(lookupIdsTargetEndElementId), variableName);
+            csharpMapping.SetFromReplacement(new StaticMetadata(lookupIdsSourceEndElementId), variableName);
+        }
+    }
+
     public CSharpStatement FindAsync(IElementToElementMapping queryMapping, out IList<CSharpStatement> prerequisiteStatements)
     {
         return _queryImplementation.FindAsync(queryMapping, out prerequisiteStatements);

@@ -105,6 +105,76 @@ internal class DbContextDataAccessProvider : IDataAccessProvider
         return new CSharpInvocationStatement(whereClause.WithoutSemicolon(), "ToListAsync").AddArgument("cancellationToken");
     }
 
+    internal void ProcessLookupIdsMappingsImpl(
+        ICSharpClassMethodDeclaration method,
+        IElementToElementMapping mapping,
+        CSharpClassMappingManager csharpMapping,
+        List<CSharpStatement> statements)
+    {
+        const string lookupIdsTargetEndElementId = "5be4e1b7-855b-4ae6-a56e-6fc9d8ba0a87";
+        const string lookupIdsSourceEndElementId = "11201123-7476-4b32-9452-f4ccc96449ef";
+
+        // Find all mapped ends that use Lookup IDs (target is the static "Lookup IDs" element)
+        var lookupIdsMappings = mapping.MappedEnds
+            .Where(x => x.TargetElement?.Id == lookupIdsTargetEndElementId || x.TargetElement?.Id == lookupIdsSourceEndElementId)
+            .ToList();
+
+        foreach (var lookupMapping in lookupIdsMappings)
+        {
+            // The target path should lead to an association (e.g., Product -> Categories -> Lookup IDs)
+            // We want the association element which is typically at TargetPath[TargetPath.Count - 2]
+            var targetPath = lookupMapping.TargetPath?.ToList();
+            if (targetPath == null || targetPath.Count < 2)
+            {
+                continue;
+            }
+
+            // Get the association from the target path (second-to-last element)
+            var associationPathElement = targetPath[targetPath.Count - 2];
+
+            // The Element property contains the association end which has the TypeReference
+            var associationElement = associationPathElement.Element;
+            if (associationElement == null)
+            {
+                continue;
+            }
+
+            // Get the entity type from the association's type reference (e.g., Category)
+            var targetEntityType = associationElement.TypeReference?.Element.AsClassModel();
+            if (targetEntityType == null || !targetEntityType.IsAggregateRoot())
+            {
+                // Only support aggregate roots for now
+                continue;
+            }
+
+            // Generate a user-friendly variable name: existing{EntityName}s (e.g., existingCategories)
+            var entityName = targetEntityType.Name;
+            var variableName = $"existing{entityName.Pluralize()}";
+
+            // Generate the source expression for the IDs (e.g., request.CategoryIds)
+            var sourceIdsExpression = csharpMapping.GenerateSourceStatementForMapping(mapping, lookupMapping);
+
+            // Generate the DbContext lookup statement
+            _template.AddUsing("System.Linq");
+            _template.AddUsing("Microsoft.EntityFrameworkCore");
+            
+            var dbSetAccessor = new CSharpAccessMemberStatement(_dbContextField, GetDbSetName(targetEntityType));
+            var lookupStatement = new CSharpInvocationStatement($"await {dbSetAccessor}", "Where")
+                .AddArgument($"x => {sourceIdsExpression}.Contains(x.{_pks[0].Name})")
+                .WithoutSemicolon();
+            
+            var finalStatement = new CSharpInvocationStatement(lookupStatement, "ToListAsync")
+                .AddArgument("cancellationToken");
+
+            statements.Add(new CSharpAssignmentStatement($"var {variableName}", finalStatement).WithSemicolon());
+
+            // Set up mapping replacements so the object initializer uses this variable
+            // Replace the static metadata ID
+            csharpMapping.SetFromReplacement(new StaticMetadata(lookupIdsTargetEndElementId), variableName);
+            csharpMapping.SetFromReplacement(new StaticMetadata(lookupIdsSourceEndElementId), variableName);
+        }
+    }
+
     public CSharpStatement FindAllAsync(IElementToElementMapping queryMapping, out IList<CSharpStatement> prerequisiteStatements)
     {
         _template.AddUsing("Microsoft.EntityFrameworkCore");
