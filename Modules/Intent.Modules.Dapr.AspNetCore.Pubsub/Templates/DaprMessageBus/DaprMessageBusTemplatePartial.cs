@@ -48,27 +48,13 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.DaprMessageBus
                             .AddGenericTypeConstraint(TMessage, c => c.AddType("class"))
                             .AddParameter(TMessage, "message")
                             .AddStatement("_messages.Enqueue(new MessageEntry((IEvent)message, null));");
-                    }).AddMethod("void", "Publish", method =>
-                    {
-                        method.AddGenericParameter("TMessage", out var TMessage)
-                            .AddGenericTypeConstraint(TMessage, c => c.AddType("class"))
-                            .AddParameter(TMessage, "message")
-                            .AddParameter("IDictionary<string, object>", "additionalData")
-                            .AddStatement("_messages.Enqueue(new MessageEntry((IEvent)message, additionalData.ToDictionary(key => key.Key, value => value.ToString())));");
-                    }).AddMethod("void", "Send", method =>
-                    {
-                        method.AddGenericParameter("TMessage", out var TMessage)
-                            .AddGenericTypeConstraint(TMessage, c => c.AddType("class"))
-                            .AddParameter(TMessage, "message")
-                            .AddStatement("_messages.Enqueue(new MessageEntry((IEvent)message, null));");
                     })
                     .AddMethod("void", "Send", method =>
                     {
                         method.AddGenericParameter("TMessage", out var TMessage)
                             .AddGenericTypeConstraint(TMessage, c => c.AddType("class"))
                             .AddParameter(TMessage, "message")
-                            .AddParameter("IDictionary<string, object>", "additionalData")
-                            .AddStatement("_messages.Enqueue(new MessageEntry((IEvent)message, additionalData.ToDictionary(key => key.Key, value => value.ToString())));");
+                            .AddStatement("_messages.Enqueue(new MessageEntry((IEvent)message, null));");
                     })
                     .AddMethod("Task", "FlushAllAsync", method => method
                         .Async()

@@ -162,15 +162,6 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageM
                         });
                     });
 
-                    @class.AddMethod("void", "Publish", mth =>
-                    {
-                        mth.AddGenericParameter("TMessage", out var TMessage).AddGenericTypeConstraint(TMessage, gen => gen.AddType("class"));
-                        mth.AddParameter(TMessage, "message");
-                        mth.AddParameter($"{UseType("System.Collections.Generic.IDictionary")}<string, object>", "additionalData");
-
-                        mth.AddStatement($"throw new {UseType("System.NotSupportedException")}(\"Additional data is not supported in Azure Queue Storage messages.\");");
-                    });
-
                     @class.AddMethod("void", "Send", mth =>
                     {
                         mth.AddGenericParameter("TMessage", out var TMessage);
@@ -182,16 +173,6 @@ namespace Intent.Modules.Eventing.AzureQueueStorage.Templates.AzureQueueStorageM
                             invoc.AddArgument(new CSharpInvocationStatement($"new {this.GetAzureQueueStorageEnvelopeName()}")
                                    .AddArgument("message").WithoutSemicolon());
                         });
-                    });
-
-                    @class.AddMethod("void", "Send", mth =>
-                    {
-                        mth.AddGenericParameter("TMessage", out var TMessage);
-                        mth.AddGenericTypeConstraint(TMessage, c => c.AddType("class"));
-                        mth.AddParameter(TMessage, "message");
-                        mth.AddParameter($"{UseType("System.Collections.Generic.IDictionary")}<string, object>", "additionalData");
-
-                        mth.AddStatement($"throw new {UseType("System.NotSupportedException")}(\"Additional data is not supported in Azure Queue Storage messages.\");");
                     });
                 });
         }

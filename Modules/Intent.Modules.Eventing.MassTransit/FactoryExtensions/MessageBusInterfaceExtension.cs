@@ -78,10 +78,10 @@ namespace Intent.Modules.Eventing.MassTransit.FactoryExtensions
                         {
                             method.AddStatements(
                                 """
-                                Send<TMessage>(message, new Dictionary<string, object>
+                                _messagesToDispatch.Add(new MessageEntry(message, new Dictionary<string, object>
                                 {
                                     { AddressKey, address.ToString() }
-                                });
+                                }, DispatchType.Send));
                                 """.ConvertToStatements());
                         }
                         else

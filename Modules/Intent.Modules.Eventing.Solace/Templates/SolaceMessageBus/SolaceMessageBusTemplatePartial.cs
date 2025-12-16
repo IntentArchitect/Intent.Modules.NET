@@ -56,16 +56,6 @@ namespace Intent.Modules.Eventing.Solace.Templates.SolaceMessageBus
                         method.AddStatement("_messagesToPublish.Add(message);");
                     });
 
-                    @class.AddMethod("void", "Publish", method =>
-                    {
-                        method
-                            .AddGenericParameter("TMessage", out var tMessage)
-                            .AddParameter(tMessage, "message")
-                            .AddParameter("IDictionary<string, object>", "additionalData")
-                            .AddGenericTypeConstraint(tMessage, c => c.AddType("class"));
-                        method.AddStatement("throw new NotSupportedException(\"SolaceEventBus does not support sending additional data with commands.\");");
-                    });
-
                     @class.AddMethod("void", "Send", method =>
                     {
                         method
@@ -73,16 +63,6 @@ namespace Intent.Modules.Eventing.Solace.Templates.SolaceMessageBus
                             .AddParameter(tMessage, "message")
                             .AddGenericTypeConstraint(tMessage, c => c.AddType("class"));
                         method.AddStatement("_messagesToSend.Add(message);");
-                    });
-
-                    @class.AddMethod("void", "Send", method =>
-                    {
-                        method
-                            .AddGenericParameter("TMessage", out var tMessage)
-                            .AddParameter(tMessage, "message")
-                            .AddParameter("IDictionary<string, object>", "additionalData")
-                            .AddGenericTypeConstraint(tMessage, c => c.AddType("class"));
-                        method.AddStatement("throw new NotSupportedException(\"SolaceEventBus does not support sending additional data with commands.\");");
                     });
 
                     @class.AddMethod("Task", "FlushAllAsync", method =>

@@ -32,21 +32,9 @@ namespace Intent.Modules.Eventing.Contracts.Templates.EventBusInterface
                         .AddParameter("TMessage", "message")
                         .AddGenericTypeConstraint("TMessage", c => c.AddType("class"))
                     )
-                    .AddMethod("void", "Publish", m => m
-                        .AddGenericParameter("TMessage")
-                        .AddParameter("TMessage", "message")
-                        .AddParameter("IDictionary<string, object>", "additionalData")
-                        .AddGenericTypeConstraint("TMessage", c => c.AddType("class"))
-                    )
                     .AddMethod("void", "Send", m => m
                         .AddGenericParameter("TMessage")
                         .AddParameter("TMessage", "message")
-                        .AddGenericTypeConstraint("TMessage", c => c.AddType("class"))
-                    )
-                    .AddMethod("void", "Send", m => m
-                        .AddGenericParameter("TMessage")
-                        .AddParameter("TMessage", "message")
-                        .AddParameter("IDictionary<string, object>", "additionalData")
                         .AddGenericTypeConstraint("TMessage", c => c.AddType("class"))
                     )
                     .AddMethod("Task", "FlushAllAsync", m => m

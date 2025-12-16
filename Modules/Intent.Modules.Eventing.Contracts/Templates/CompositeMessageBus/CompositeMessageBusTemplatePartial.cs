@@ -49,16 +49,6 @@ namespace Intent.Modules.Eventing.Contracts.Templates.CompositeMessageBus
                         method.AddStatement("InnerDispatch<TMessage>(provider => provider.Publish(message));");
                     });
 
-                    @class.AddMethod("void", "Publish", method =>
-                    {
-                        method.AddGenericParameter("TMessage", out var tMessage);
-                        method.AddGenericTypeConstraint(tMessage, c => c.AddType("class"));
-                        method.AddParameter(tMessage, "message");
-                        method.AddParameter("IDictionary<string, object>", "additionalData");
-                        method.AddStatement("ValidateMessageType<TMessage>();");
-                        method.AddStatement("InnerDispatch<TMessage>(provider => provider.Publish(message, additionalData));");
-                    });
-
                     @class.AddMethod("void", "Send", method =>
                     {
                         method.AddGenericParameter("TMessage", out var tMessage);
@@ -66,16 +56,6 @@ namespace Intent.Modules.Eventing.Contracts.Templates.CompositeMessageBus
                         method.AddParameter(tMessage, "message");
                         method.AddStatement("ValidateMessageType<TMessage>();");
                         method.AddStatement("InnerDispatch<TMessage>(provider => provider.Send(message));");
-                    });
-
-                    @class.AddMethod("void", "Send", method =>
-                    {
-                        method.AddGenericParameter("TMessage", out var tMessage);
-                        method.AddGenericTypeConstraint(tMessage, c => c.AddType("class"));
-                        method.AddParameter(tMessage, "message");
-                        method.AddParameter("IDictionary<string, object>", "additionalData");
-                        method.AddStatement("ValidateMessageType<TMessage>();");
-                        method.AddStatement("InnerDispatch<TMessage>(provider => provider.Send(message, additionalData));");
                     });
 
                     @class.AddMethod("Task", "FlushAllAsync", method =>

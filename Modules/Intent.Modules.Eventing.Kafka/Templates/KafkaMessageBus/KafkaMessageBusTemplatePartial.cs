@@ -56,16 +56,6 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaMessageBus
                         method.AddStatement("producer.EnqueueMessage(message);");
                     });
 
-                    @class.AddMethod("void", "Publish", method =>
-                    {
-                        method.AddGenericParameter("TMessage", out var TMessage);
-                        method.AddGenericTypeConstraint(TMessage, c => c.AddType("class"));
-                        method.AddParameter(TMessage, "message");
-                        method.AddParameter("IDictionary<string, object>", "additionalData");
-
-                        method.AddStatement("throw new NotSupportedException(\"Additional data is not supported in Kafka event publishing.\");");
-                    });
-
                     @class.AddMethod("void", "Send", method =>
                     {
                         method.AddGenericParameter("TMessage", out var TMessage);
@@ -73,16 +63,6 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaMessageBus
                         method.AddParameter(TMessage, "message");
 
                         method.AddStatement("Publish(message);");
-                    });
-
-                    @class.AddMethod("void", "Send", method =>
-                    {
-                        method.AddGenericParameter("TMessage", out var TMessage);
-                        method.AddGenericTypeConstraint(TMessage, c => c.AddType("class"));
-                        method.AddParameter(TMessage, "message");
-                        method.AddParameter("IDictionary<string, object>", "additionalData");
-
-                        method.AddStatement("throw new NotSupportedException(\"Additional data is not supported in Kafka event publishing.\");");
                     });
 
                     @class.AddMethod("Task", "FlushAllAsync", method =>

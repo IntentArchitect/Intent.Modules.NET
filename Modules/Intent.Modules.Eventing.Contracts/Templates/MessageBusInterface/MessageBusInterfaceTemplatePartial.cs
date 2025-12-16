@@ -31,12 +31,7 @@ namespace Intent.Modules.Eventing.Contracts.Templates.MessageBusInterface
                         "/// <summary>",
                         "/// Provides an abstraction for dispatching messages to one or more underlying message brokers.",
                         "/// Messages are queued via <see cref=\"Publish{TMessage}\"/> (fan-out / broadcast semantics) or <see cref=\"Send{TMessage}\"/> (point-to-point semantics) and are flushed in batches when <see cref=\"FlushAllAsync\"/> is invoked.",
-                        "/// </summary>",
-                        "/// <remarks>",
-                        "/// Implementations typically buffer messages to optimize throughput; you must call <see cref=\"FlushAllAsync\"/> to ensure queued messages are actually dispatched.",
-                        "/// Overloads that accept <c>IDictionary&lt;string, object&gt; additionalData</c> allow passing provider-specific metadata (headers, correlation identifiers, routing keys, scheduling information, explicit destination addresses, etc.).",
-                        "/// Scheduling of messages (delayed or at a specific time) and explicit address targeting are provider-specific capabilities introduced by implementations such as MassTransit, surfaced via additional overloads.",
-                        "/// </remarks>"
+                        "/// </summary>"
                     ])
                     .AddMethod("void", "Publish", m => m
                         .AddGenericParameter("TMessage")
@@ -53,23 +48,6 @@ namespace Intent.Modules.Eventing.Contracts.Templates.MessageBusInterface
                             "/// </remarks>"
                         ])
                     )
-                    .AddMethod("void", "Publish", m => m
-                        .AddGenericParameter("TMessage")
-                        .AddParameter("TMessage", "message")
-                        .AddParameter("IDictionary<string, object>", "additionalData")
-                        .AddGenericTypeConstraint("TMessage", c => c.AddType("class"))
-                        .WithComments([
-                            "/// <summary>",
-                            "/// Queues a message to be published including provider-specific metadata.",
-                            "/// </summary>",
-                            "/// <typeparam name=\"TMessage\">The concrete message type.</typeparam>",
-                            "/// <param name=\"message\">The message instance to publish.</param>",
-                            "/// <param name=\"additionalData\">Arbitrary provider-specific metadata (e.g. headers, correlation ids, routing keys, scheduling info).</param>",
-                            "/// <remarks>",
-                            "/// Scheduling related entries (e.g. a scheduled date) are interpreted only by providers that support scheduling (such as MassTransit).",
-                            "/// </remarks>"
-                        ])
-                    )
                     .AddMethod("void", "Send", m => m
                         .AddGenericParameter("TMessage")
                         .AddParameter("TMessage", "message")
@@ -82,23 +60,6 @@ namespace Intent.Modules.Eventing.Contracts.Templates.MessageBusInterface
                             "/// <param name=\"message\">The message instance to send.</param>",
                             "/// <remarks>",
                             "/// The message is buffered until <see cref=\"FlushAllAsync\"/> is called. Use send for commands or direct messages; use publish for events.",
-                            "/// </remarks>"
-                        ])
-                    )
-                    .AddMethod("void", "Send", m => m
-                        .AddGenericParameter("TMessage")
-                        .AddParameter("TMessage", "message")
-                        .AddParameter("IDictionary<string, object>", "additionalData")
-                        .AddGenericTypeConstraint("TMessage", c => c.AddType("class"))
-                        .WithComments([
-                            "/// <summary>",
-                            "/// Queues a point-to-point message including provider-specific metadata.",
-                            "/// </summary>",
-                            "/// <typeparam name=\"TMessage\">The concrete message type.</typeparam>",
-                            "/// <param name=\"message\">The message instance to send.</param>",
-                            "/// <param name=\"additionalData\">Arbitrary provider-specific metadata (e.g. headers, correlation ids, explicit address, scheduling info).</param>",
-                            "/// <remarks>",
-                            "/// An explicit destination address (when supported by the underlying provider such as MassTransit) or scheduling information may be included in <paramref name=\"additionalData\"/>.",
                             "/// </remarks>"
                         ])
                     )

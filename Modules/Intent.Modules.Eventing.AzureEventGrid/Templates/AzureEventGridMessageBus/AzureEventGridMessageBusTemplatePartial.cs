@@ -68,16 +68,6 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridMessage
                         method.AddStatement("_messageQueue.Add(new MessageEntry(message, null));");
                     });
 
-                    @class.AddMethod("void", "Publish", method =>
-                    {
-                        method.AddGenericParameter("TMessage", out var TMessage);
-                        method.AddGenericTypeConstraint(TMessage, c => c.AddType("class"));
-                        method.AddParameter(TMessage, "message");
-                        method.AddParameter("IDictionary<string, object>", "additionalData");
-
-                        method.AddStatement("_messageQueue.Add(new MessageEntry(message, additionalData));");
-                    });
-
                     @class.AddMethod("void", "Send", method =>
                     {
                         method.AddGenericParameter("TMessage", out var TMessage);
@@ -85,16 +75,6 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridMessage
                         method.AddParameter(TMessage, "message");
 
                         method.AddStatement("_messageQueue.Add(new MessageEntry(message, null));");
-                    });
-
-                    @class.AddMethod("void", "Send", method =>
-                    {
-                        method.AddGenericParameter("TMessageT", out var TMessage);
-                        method.AddGenericTypeConstraint(TMessage, c => c.AddType("class"));
-                        method.AddParameter(TMessage, "message");
-                        method.AddParameter("IDictionary<string, object>", "additionalData");
-
-                        method.AddStatement("_messageQueue.Add(new MessageEntry(message, additionalData));");
                     });
 
                     @class.AddMethod("Task", "FlushAllAsync", method =>

@@ -30,14 +30,6 @@ public class MassTransitMessageBusExtension : FactoryExtensionBase
             // Ensure ScheduledKey constant exists
             priClass.AddField("string", "ScheduledKey", f => f.Private().Constant(@"""scheduled"""));
 
-            // Modify Publish<TMessage>(TMessage message, IDictionary<string, object> additionalData) to set DispatchType based on ScheduledKey
-            var publishWithAdditionalData = priClass.FindMethod(m => m.Name == "Publish" && m.Parameters.Count == 2 && m.Parameters[1].Type == "IDictionary<string, object>");
-            if (publishWithAdditionalData is not null)
-            {
-                publishWithAdditionalData.Statements.Clear();
-                publishWithAdditionalData.AddStatement("_messagesToDispatch.Add(new MessageEntry(message, additionalData, additionalData.ContainsKey(ScheduledKey) ? DispatchType.Schedule : DispatchType.Publish));");
-            }
-
             // In FlushAllAsync, add messagesToSchedule and invoke SchedulePublishAsync
             var flushMethod = priClass.FindMethod("FlushAllAsync");
             flushMethod?.AddStatement("var messagesToSchedule = _messagesToDispatch.Where(x => x.DispatchType == DispatchType.Schedule).ToList();", s => s.SeparatedFromPrevious());

@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.AzureEventGrid</id>
-  <version>1.3.0-pre.2</version>
+  <version>1.3.0-pre.3</version>
   <supportedClientVersions>[4.5.0-a,5.0.0)</supportedClientVersions>
   <summary>Provides patterns for using Azure Event Grid, which can be modeled in Intent Architect's designers.</summary>
   <description>Provides patterns for using Azure Event Grid, which can be modeled in Intent Architect's designers.</description>
@@ -99,6 +99,7 @@
   </templates>
   <decorators></decorators>
   <factoryExtensions>
+    <factoryExtension id="Intent.Eventing.AzureEventGrid.MessageBusInterfaceExtension" externalReference="7da6bb36-866c-474c-8035-9f5293ffb1ef" />
     <factoryExtension id="Intent.Eventing.AzureEventGrid.MessageBusRegistrationExtension" externalReference="81134eff-48f4-44b0-9fb7-80d4646a433b" />
     <factoryExtension id="Intent.Eventing.AzureEventGrid.MetadataLoaderExtension" externalReference="cc0b7146-e0a5-4a33-ba08-3c88c62a21fe" />
   </factoryExtensions>
