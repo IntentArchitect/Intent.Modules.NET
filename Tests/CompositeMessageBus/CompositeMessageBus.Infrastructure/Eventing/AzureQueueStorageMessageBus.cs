@@ -91,7 +91,7 @@ namespace CompositeMessageBus.Infrastructure.Eventing
         public void Publish<TMessage>(TMessage message, IDictionary<string, object> additionalData)
             where TMessage : class
         {
-            throw new NotSupportedException("Additional data is not supported in Azure Queue Storage messages.");
+            throw new NotSupportedException("Publishing with additional data is not supported by this message bus provider.");
         }
 
         public void Send<TMessage>(TMessage message)
@@ -103,7 +103,7 @@ namespace CompositeMessageBus.Infrastructure.Eventing
         public void Send<TMessage>(TMessage message, IDictionary<string, object> additionalData)
             where TMessage : class
         {
-            throw new NotSupportedException("Additional data is not supported in Azure Queue Storage messages.");
+            throw new NotSupportedException("Sending with additional data is not supported by this message bus provider.");
         }
 
         public void Send<TMessage>(TMessage message, Uri address)

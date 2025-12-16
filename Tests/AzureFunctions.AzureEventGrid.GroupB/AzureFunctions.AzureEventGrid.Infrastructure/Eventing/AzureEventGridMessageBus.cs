@@ -47,8 +47,8 @@ namespace AzureFunctions.AzureEventGrid.Infrastructure.Eventing
             _messageQueue.Add(new MessageEntry(message, null));
         }
 
-        public void Send<TMessageT>(TMessageT message, IDictionary<string, object> additionalData)
-            where TMessageT : class
+        public void Send<TMessage>(TMessage message, IDictionary<string, object> additionalData)
+            where TMessage : class
         {
             _messageQueue.Add(new MessageEntry(message, additionalData));
         }

@@ -31,7 +31,7 @@ namespace CompositeMessageBus.Infrastructure.Eventing
         public void Publish<TMessage>(TMessage message, IDictionary<string, object> additionalData)
             where TMessage : class
         {
-            _messagesToDispatch.Add(new MessageEntry(message, additionalData, additionalData.ContainsKey(ScheduledKey) ? DispatchType.Schedule : DispatchType.Publish));
+            throw new NotSupportedException("Publishing with additional data is not supported by this message bus provider.");
         }
 
         public void Send<TMessage>(TMessage message)
@@ -43,16 +43,16 @@ namespace CompositeMessageBus.Infrastructure.Eventing
         public void Send<TMessage>(TMessage message, IDictionary<string, object> additionalData)
             where TMessage : class
         {
-            _messagesToDispatch.Add(new MessageEntry(message, additionalData, DispatchType.Send));
+            throw new NotSupportedException("Sending with additional data is not supported by this message bus provider.");
         }
 
         public void Send<TMessage>(TMessage message, Uri address)
             where TMessage : class
         {
-            Send<TMessage>(message, new Dictionary<string, object>
+            _messagesToDispatch.Add(new MessageEntry(message, new Dictionary<string, object>
             {
                 { AddressKey, address.ToString() }
-            });
+            }, DispatchType.Send));
         }
 
         public async Task FlushAllAsync(CancellationToken cancellationToken = default)
@@ -71,19 +71,19 @@ namespace CompositeMessageBus.Infrastructure.Eventing
         public void SchedulePublish<TMessage>(TMessage message, DateTime scheduled)
             where TMessage : class
         {
-            Publish<TMessage>(message, new Dictionary<string, object>
+            _messagesToDispatch.Add(new MessageEntry(message, new Dictionary<string, object>
             {
                 { "scheduled", scheduled }
-            });
+            }, DispatchType.Publish));
         }
 
         public void SchedulePublish<TMessage>(TMessage message, TimeSpan delay)
             where TMessage : class
         {
-            Publish<TMessage>(message, new Dictionary<string, object>
+            _messagesToDispatch.Add(new MessageEntry(message, new Dictionary<string, object>
             {
                 { "scheduled", DateTime.UtcNow.Add(delay) }
-            });
+            }, DispatchType.Publish));
         }
 
         private async Task PublishMessagesAsync(List<MessageEntry> messagesToPublish, CancellationToken cancellationToken)

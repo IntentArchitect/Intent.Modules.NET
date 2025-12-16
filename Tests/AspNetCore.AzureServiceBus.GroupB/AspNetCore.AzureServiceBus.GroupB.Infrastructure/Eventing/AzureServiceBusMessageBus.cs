@@ -31,22 +31,10 @@ namespace AspNetCore.AzureServiceBus.GroupB.Infrastructure.Eventing
             _messageQueue.Add(new MessageEntry(message, null));
         }
 
-        public void Publish<TMessage>(TMessage message, IDictionary<string, object> additionalData)
-            where TMessage : class
-        {
-            _messageQueue.Add(new MessageEntry(message, additionalData));
-        }
-
         public void Send<TMessage>(TMessage message)
             where TMessage : class
         {
             _messageQueue.Add(new MessageEntry(message, null));
-        }
-
-        public void Send<TMessage>(TMessage message, IDictionary<string, object> additionalData)
-            where TMessage : class
-        {
-            _messageQueue.Add(new MessageEntry(message, additionalData));
         }
 
         public async Task FlushAllAsync(CancellationToken cancellationToken = default)

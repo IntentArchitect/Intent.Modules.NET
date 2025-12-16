@@ -38,22 +38,10 @@ namespace Solace.Tests.Infrastructure.Eventing
             _messagesToPublish.Add(message);
         }
 
-        public void Publish<TMessage>(TMessage message, IDictionary<string, object> additionalData)
-            where TMessage : class
-        {
-            throw new NotSupportedException("SolaceEventBus does not support sending additional data with commands.");
-        }
-
         public void Send<TMessage>(TMessage message)
             where TMessage : class
         {
             _messagesToSend.Add(message);
-        }
-
-        public void Send<TMessage>(TMessage message, IDictionary<string, object> additionalData)
-            where TMessage : class
-        {
-            throw new NotSupportedException("SolaceEventBus does not support sending additional data with commands.");
         }
 
         public Task FlushAllAsync(CancellationToken cancellationToken = default)

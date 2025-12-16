@@ -29,7 +29,7 @@ namespace CompositeMessageBus.Infrastructure.Eventing
         public void Publish<TMessage>(TMessage message, IDictionary<string, object> additionalData)
             where TMessage : class
         {
-            _messages.Enqueue(new MessageEntry((IEvent)message, additionalData.ToDictionary(key => key.Key, value => value.ToString())));
+            throw new NotSupportedException("Publishing with additional data is not supported by this message bus provider.");
         }
 
         public void Send<TMessage>(TMessage message)
@@ -41,7 +41,7 @@ namespace CompositeMessageBus.Infrastructure.Eventing
         public void Send<TMessage>(TMessage message, IDictionary<string, object> additionalData)
             where TMessage : class
         {
-            _messages.Enqueue(new MessageEntry((IEvent)message, additionalData.ToDictionary(key => key.Key, value => value.ToString())));
+            throw new NotSupportedException("Sending with additional data is not supported by this message bus provider.");
         }
 
         public void Send<TMessage>(TMessage message, Uri address)

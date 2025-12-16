@@ -32,31 +32,19 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Infrastructure
             _messagesToDispatch.Add(new MessageEntry(message, null, DispatchType.Publish));
         }
 
-        public void Publish<TMessage>(TMessage message, IDictionary<string, object> additionalData)
-            where TMessage : class
-        {
-            _messagesToDispatch.Add(new MessageEntry(message, additionalData, DispatchType.Publish));
-        }
-
         public void Send<TMessage>(TMessage message)
             where TMessage : class
         {
             _messagesToDispatch.Add(new MessageEntry(message, null, DispatchType.Send));
         }
 
-        public void Send<TMessage>(TMessage message, IDictionary<string, object> additionalData)
-            where TMessage : class
-        {
-            _messagesToDispatch.Add(new MessageEntry(message, additionalData, DispatchType.Send));
-        }
-
         public void Send<TMessage>(TMessage message, Uri address)
             where TMessage : class
         {
-            Send<TMessage>(message, new Dictionary<string, object>
+            _messagesToDispatch.Add(new MessageEntry(message, new Dictionary<string, object>
             {
                 { AddressKey, address.ToString() }
-            });
+            }, DispatchType.Send));
         }
 
         public async Task FlushAllAsync(CancellationToken cancellationToken = default)

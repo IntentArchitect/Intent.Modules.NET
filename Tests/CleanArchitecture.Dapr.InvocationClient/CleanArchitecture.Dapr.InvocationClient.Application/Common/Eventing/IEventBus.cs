@@ -9,11 +9,7 @@ namespace CleanArchitecture.Dapr.InvocationClient.Application.Common.Eventing
     {
         void Publish<TMessage>(TMessage message)
             where TMessage : class;
-        void Publish<TMessage>(TMessage message, IDictionary<string, object> additionalData)
-            where TMessage : class;
         void Send<TMessage>(TMessage message)
-            where TMessage : class;
-        void Send<TMessage>(TMessage message, IDictionary<string, object> additionalData)
             where TMessage : class;
         Task FlushAllAsync(CancellationToken cancellationToken = default);
     }

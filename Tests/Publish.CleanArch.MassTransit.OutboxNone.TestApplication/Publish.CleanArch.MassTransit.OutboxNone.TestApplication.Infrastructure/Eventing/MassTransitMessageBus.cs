@@ -33,31 +33,19 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructur
             _messagesToDispatch.Add(new MessageEntry(message, null, DispatchType.Publish));
         }
 
-        public void Publish<TMessage>(TMessage message, IDictionary<string, object> additionalData)
-            where TMessage : class
-        {
-            _messagesToDispatch.Add(new MessageEntry(message, additionalData, additionalData.ContainsKey(ScheduledKey) ? DispatchType.Schedule : DispatchType.Publish));
-        }
-
         public void Send<TMessage>(TMessage message)
             where TMessage : class
         {
             _messagesToDispatch.Add(new MessageEntry(message, null, DispatchType.Send));
         }
 
-        public void Send<TMessage>(TMessage message, IDictionary<string, object> additionalData)
-            where TMessage : class
-        {
-            _messagesToDispatch.Add(new MessageEntry(message, additionalData, DispatchType.Send));
-        }
-
         public void Send<TMessage>(TMessage message, Uri address)
             where TMessage : class
         {
-            Send<TMessage>(message, new Dictionary<string, object>
+            _messagesToDispatch.Add(new MessageEntry(message, new Dictionary<string, object>
             {
                 { AddressKey, address.ToString() }
-            });
+            }, DispatchType.Send));
         }
 
         public async Task FlushAllAsync(CancellationToken cancellationToken = default)
@@ -76,19 +64,19 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructur
         public void SchedulePublish<TMessage>(TMessage message, DateTime scheduled)
             where TMessage : class
         {
-            Publish<TMessage>(message, new Dictionary<string, object>
+            _messagesToDispatch.Add(new MessageEntry(message, new Dictionary<string, object>
             {
                 { "scheduled", scheduled }
-            });
+            }, DispatchType.Publish));
         }
 
         public void SchedulePublish<TMessage>(TMessage message, TimeSpan delay)
             where TMessage : class
         {
-            Publish<TMessage>(message, new Dictionary<string, object>
+            _messagesToDispatch.Add(new MessageEntry(message, new Dictionary<string, object>
             {
                 { "scheduled", DateTime.UtcNow.Add(delay) }
-            });
+            }, DispatchType.Publish));
         }
 
         private async Task PublishMessagesAsync(List<MessageEntry> messagesToPublish, CancellationToken cancellationToken)

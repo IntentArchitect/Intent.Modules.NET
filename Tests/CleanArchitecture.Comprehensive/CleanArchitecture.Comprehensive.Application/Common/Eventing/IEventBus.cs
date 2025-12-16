@@ -13,11 +13,7 @@ namespace CleanArchitecture.Comprehensive.Application.Common.Eventing
     {
         void Publish<TMessage>(TMessage message)
             where TMessage : class;
-        void Publish<TMessage>(TMessage message, IDictionary<string, object> additionalData)
-            where TMessage : class;
         void Send<TMessage>(TMessage message)
-            where TMessage : class;
-        void Send<TMessage>(TMessage message, IDictionary<string, object> additionalData)
             where TMessage : class;
         /// <summary>
         /// Queues a point-to-point message for dispatch to a specific broker address.

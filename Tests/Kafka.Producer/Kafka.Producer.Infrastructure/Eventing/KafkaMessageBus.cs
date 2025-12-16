@@ -29,22 +29,10 @@ namespace Kafka.Producer.Infrastructure.Eventing
             producer.EnqueueMessage(message);
         }
 
-        public void Publish<TMessage>(TMessage message, IDictionary<string, object> additionalData)
-            where TMessage : class
-        {
-            throw new NotSupportedException("Additional data is not supported in Kafka event publishing.");
-        }
-
         public void Send<TMessage>(TMessage message)
             where TMessage : class
         {
             Publish(message);
-        }
-
-        public void Send<TMessage>(TMessage message, IDictionary<string, object> additionalData)
-            where TMessage : class
-        {
-            throw new NotSupportedException("Additional data is not supported in Kafka event publishing.");
         }
 
         public async Task FlushAllAsync(CancellationToken cancellationToken = default)

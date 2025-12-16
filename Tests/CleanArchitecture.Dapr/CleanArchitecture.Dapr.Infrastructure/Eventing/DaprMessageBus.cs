@@ -29,22 +29,10 @@ namespace CleanArchitecture.Dapr.Infrastructure.Eventing
             _messages.Enqueue(new MessageEntry((IEvent)message, null));
         }
 
-        public void Publish<TMessage>(TMessage message, IDictionary<string, object> additionalData)
-            where TMessage : class
-        {
-            _messages.Enqueue(new MessageEntry((IEvent)message, additionalData.ToDictionary(key => key.Key, value => value.ToString())));
-        }
-
         public void Send<TMessage>(TMessage message)
             where TMessage : class
         {
             _messages.Enqueue(new MessageEntry((IEvent)message, null));
-        }
-
-        public void Send<TMessage>(TMessage message, IDictionary<string, object> additionalData)
-            where TMessage : class
-        {
-            _messages.Enqueue(new MessageEntry((IEvent)message, additionalData.ToDictionary(key => key.Key, value => value.ToString())));
         }
 
         public async Task FlushAllAsync(CancellationToken cancellationToken = default)

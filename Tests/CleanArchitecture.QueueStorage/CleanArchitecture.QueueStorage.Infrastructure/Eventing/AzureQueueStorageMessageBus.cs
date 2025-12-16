@@ -87,22 +87,10 @@ namespace CleanArchitecture.QueueStorage.Infrastructure.Eventing
             _messageQueue.Add(new AzureQueueStorageEnvelope(message));
         }
 
-        public void Publish<TMessage>(TMessage message, IDictionary<string, object> additionalData)
-            where TMessage : class
-        {
-            throw new NotSupportedException("Additional data is not supported in Azure Queue Storage messages.");
-        }
-
         public void Send<TMessage>(TMessage message)
             where TMessage : class
         {
             _messageQueue.Add(new AzureQueueStorageEnvelope(message));
-        }
-
-        public void Send<TMessage>(TMessage message, IDictionary<string, object> additionalData)
-            where TMessage : class
-        {
-            throw new NotSupportedException("Additional data is not supported in Azure Queue Storage messages.");
         }
     }
 }
