@@ -8,6 +8,7 @@ using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage;
 using Intent.Modules.Eventing.MassTransit.Settings;
 using Intent.Modules.Common.UnitOfWork.Shared;
 using Intent.Modules.Eventing.Contracts.Settings;
+using Intent.Modules.Eventing.Contracts.Templates;
 
 namespace Intent.Modules.Eventing.MassTransit.Templates;
 
@@ -46,8 +47,15 @@ public static class ConsumerHelper
                 method.Async();
                 method.AddParameter($"{template.UseType("MassTransit.ConsumeContext")}<{tMessage}>", "context");
 
-                method.AddStatement($"var messageBus = _serviceProvider.GetRequiredService<{template.GetMassTransitMessageBusName()}>();");
-                method.AddStatement($"messageBus.ConsumeContext = context;");
+                var requiresCompositeMessageBus = template.RequiresCompositeMessageBus();
+                var massTransitMessageBusVariableName = requiresCompositeMessageBus ? "massTransitMessageBus" : "messageBus";
+
+                if (requiresCompositeMessageBus)
+                {
+                    method.AddStatement("// Using Composite Message Bus still requires setting the ConsumeContext on the MassTransit-specific implementation.");
+                }
+                method.AddStatement($"var {massTransitMessageBusVariableName} = _serviceProvider.GetRequiredService<{template.GetMassTransitMessageBusName()}>();");
+                method.AddStatement($"{massTransitMessageBusVariableName}.ConsumeContext = context;");
 
                 configureConsumeMethod(@class, method, tMessage);
                 
@@ -56,6 +64,10 @@ public static class ConsumerHelper
                 // 2. The Consumer uses a dispatcher with its own middleware that will do everything.
                 if (applyStandardUnitOfWorkLogic)
                 {
+                    if (requiresCompositeMessageBus)
+                    {
+                        method.AddStatement($"var messageBus = _serviceProvider.GetRequiredService<{template.GetBusInterfaceName()}>();");
+                    }
                     method.AddStatement($"await messageBus.FlushAllAsync(context.CancellationToken);",
                         stmt => stmt.AddMetadata("event-bus-flush", true));
 

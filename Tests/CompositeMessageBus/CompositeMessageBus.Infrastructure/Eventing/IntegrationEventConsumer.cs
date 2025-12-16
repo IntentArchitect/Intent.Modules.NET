@@ -29,9 +29,11 @@ namespace CompositeMessageBus.Infrastructure.Eventing
 
         public async Task Consume(ConsumeContext<TMessage> context)
         {
-            var messageBus = _serviceProvider.GetRequiredService<MassTransitMessageBus>();
-            messageBus.ConsumeContext = context;
+            // Using Composite Message Bus still requires setting the ConsumeContext on the MassTransit-specific implementation.
+            var massTransitMessageBus = _serviceProvider.GetRequiredService<MassTransitMessageBus>();
+            massTransitMessageBus.ConsumeContext = context;
             var handler = _serviceProvider.GetRequiredService<THandler>();
+            var messageBus = _serviceProvider.GetRequiredService<IEventBus>();
 
             // The execution is wrapped in a transaction scope to ensure that if any other
             // SaveChanges calls to the data source (e.g. EF Core) are called, that they are

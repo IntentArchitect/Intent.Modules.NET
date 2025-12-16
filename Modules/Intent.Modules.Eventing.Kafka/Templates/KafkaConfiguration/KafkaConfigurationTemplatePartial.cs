@@ -120,10 +120,7 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaConfiguration
                         }
                         else
                         {
-                            var busInterface = this.GetBusInterfaceName();
-
-                            method.AddStatement($"services.AddScoped<{this.GetKafkaMessageBusName()}>();");
-                            method.AddStatement($"services.AddScoped<{busInterface}>(provider => provider.GetRequiredService<{this.GetKafkaMessageBusName()}>());");
+                            method.AddStatement($"services.AddScoped<{this.GetBusInterfaceName()}, {this.GetKafkaMessageBusName()}>();");
                         }
                         method.AddStatement($"services.AddScoped(typeof({this.GetKafkaEventDispatcherInterfaceName()}<>), typeof({this.GetKafkaEventDispatcherName()}<>));");
                         method.AddStatement($"services.AddHostedService<{this.GetKafkaConsumerBackgroundServiceName()}>();");

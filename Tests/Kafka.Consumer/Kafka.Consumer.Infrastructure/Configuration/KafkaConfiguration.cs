@@ -27,8 +27,7 @@ namespace Kafka.Consumer.Infrastructure.Configuration
 
                 return new CachedSchemaRegistryClient(schemaRegistryConfig);
             });
-            services.AddScoped<KafkaMessageBus>();
-            services.AddScoped<IEventBus>(provider => provider.GetRequiredService<KafkaMessageBus>());
+            services.AddScoped<IEventBus, KafkaMessageBus>();
             services.AddScoped(typeof(IKafkaEventDispatcher<>), typeof(KafkaEventDispatcher<>));
             services.AddHostedService<KafkaConsumerBackgroundService>();
             services.AddTransient<IKafkaConsumer, KafkaConsumer<InvoiceCreatedEvent>>();
