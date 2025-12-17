@@ -98,8 +98,8 @@ namespace Intent.Modules.Eventing.MassTransit.Scheduling.FactoryExtensions
                                 """
                                 _messagesToDispatch.Add(new MessageEntry(message, new Dictionary<string, object>
                                 {
-                                    { "scheduled", scheduled }
-                                }, DispatchType.Publish));
+                                    { ScheduledKey, scheduled }
+                                }, DispatchType.Schedule));
                                 """.ConvertToStatements());
                         }
                         else
@@ -122,8 +122,8 @@ namespace Intent.Modules.Eventing.MassTransit.Scheduling.FactoryExtensions
                                 """
                                 _messagesToDispatch.Add(new MessageEntry(message, new Dictionary<string, object>
                                 {
-                                    { "scheduled", DateTime.UtcNow.Add(delay) }
-                                }, DispatchType.Publish));
+                                    { ScheduledKey, DateTime.UtcNow.Add(delay) }
+                                }, DispatchType.Schedule));
                                 """.ConvertToStatements());
                         }
                         else
