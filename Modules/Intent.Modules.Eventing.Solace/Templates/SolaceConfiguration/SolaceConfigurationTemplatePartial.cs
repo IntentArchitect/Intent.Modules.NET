@@ -115,11 +115,8 @@ namespace Intent.Modules.Eventing.Solace.Templates.SolaceConfiguration
                         }
                         else
                         {
-                            var busInterface = this.GetBusInterfaceName();
 
-                            method.AddStatement($"services.AddScoped<{this.GetSolaceMessageBusName()}>();");
-                            method.AddStatement(
-                                $"services.AddScoped<{busInterface}>(provider => provider.GetRequiredService<{this.GetSolaceMessageBusName()}>());");
+                            method.AddStatement($"services.AddScoped<{this.GetBusInterfaceName()}, {this.GetSolaceMessageBusName()}>();");
                         }
 
                         method.AddStatement($"services.AddTransient<{this.GetSolaceConsumerName()}>();");

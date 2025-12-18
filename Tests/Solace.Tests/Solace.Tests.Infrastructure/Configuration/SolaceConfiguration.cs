@@ -56,8 +56,7 @@ namespace Solace.Tests.Infrastructure.Configuration
             services.AddSingleton(new MessageRegistry(configuration));
             services.AddHostedService<SolaceConsumingService>();
             services.AddScoped(typeof(ISolaceEventDispatcher<>), typeof(SolaceEventDispatcher<>));
-            services.AddScoped<SolaceMessageBus>();
-            services.AddScoped<IEventBus>(provider => provider.GetRequiredService<SolaceMessageBus>());
+            services.AddScoped<IEventBus, SolaceMessageBus>();
             services.AddTransient<SolaceConsumer>();
             return services;
         }
