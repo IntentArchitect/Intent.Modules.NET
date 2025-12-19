@@ -8,7 +8,7 @@
     <PackageReference Include="Intent.Architect.Persistence" Version="3.7.0" />
     <PackageReference Include="Intent.Modules.Common" Version="3.9.1" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.9.10" />
-    <PackageReference Include="Intent.Modules.Eventing.Contracts" Version="6.1.0-pre.1" />
+    <PackageReference Include="Intent.Modules.Eventing.Contracts" Version="6.1.0" />
     <PackageReference Include="Intent.Modules.Modelers.Eventing" Version="6.0.3" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="4.0.7" />
     <PackageReference Include="Intent.Modules.Modelers.Services.EventInteractions" Version="1.2.0" />
@@ -33,4 +33,3 @@
   <Import Project="..\Intent.Modules.Enums.Shared\Intent.Modules.Enums.Shared.projitems" Label="Shared" />
 
 </Project>
-
