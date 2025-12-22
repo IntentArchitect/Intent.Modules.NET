@@ -1,4 +1,5 @@
-﻿using Intent.Metadata.Models;
+﻿using System.Linq;
+using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Mapping;
@@ -27,6 +28,20 @@ public class EntityUpdateMappingTypeResolver : IMappingTypeResolver
         if (model.IsGeneralizationTargetEndModel())
         {
             return new InheritedChildrenMapping(mappingModel, _sourceTemplate);
+        }
+        
+        const string lookupIdsTargetEndElementId = "48ded4be-abe8-4a2b-b9f6-ad9fb81067d8";
+        const string lookupIdsSourceEndElementId = "67ed3b19-a5eb-4b9a-a72a-d0a33b122fc0";
+        
+        // Child element is our Static Mapping for Lookup IDs
+        if (mappingModel.Mapping?.TargetElement.SpecializationTypeId is lookupIdsSourceEndElementId or lookupIdsTargetEndElementId)
+        {
+            return new UpdateLookupIdsMapping(mappingModel, _sourceTemplate);
+        }
+
+        if (mappingModel.Children.Any(x => x.Mapping?.TargetElement.SpecializationTypeId is lookupIdsSourceEndElementId or lookupIdsTargetEndElementId))
+        {
+            return new LookupIdSynchronizeCollectionMapping(mappingModel, _sourceTemplate);
         }
 
         if (model.SpecializationType == "Class" || (model.SpecializationType == "Association Target End" && model.TypeReference?.Element?.SpecializationType == "Class"))

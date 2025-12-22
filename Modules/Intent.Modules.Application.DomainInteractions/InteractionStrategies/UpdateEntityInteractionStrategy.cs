@@ -35,7 +35,7 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
             var projectedType = queryContext.ImplementWithProjections() && dataAccess.IsUsingProjections
                 ? queryContext.GetDtoProjectionReturnType()
                 : null;
-
+            
             method.AddStatements(ExecutionPhases.BusinessLogic, method.GetQueryStatements(
                 dataAccessProviderInjector: DataAccessProviderInjector.Instance,
                 dataAccessProvider: dataAccess,
@@ -56,9 +56,12 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
                 var entityDetails = method.TrackedEntities()[updateAction.Id];
                 var entity = entityDetails.ElementModel.AsClassModel();
                 var updateMapping = updateAction.Mappings.GetUpdateEntityMapping();
-
+                
                 var statements = new List<CSharpStatement>();
 
+                // Handle Lookup IDs mappings (surrogate IDs to entity collections)
+                dataAccess.ProcessLookupIdsMappings(method, updateMapping, csharpMapping, statements);
+                
                 if (entityDetails.IsCollection)
                 {
                     csharpMapping.SetToReplacement(entity, entityDetails.VariableName.Singularize());

@@ -8,9 +8,9 @@ namespace Intent.Modules.Application.DomainInteractions.Mapping.Resolvers;
 // We have a very special case where mapping your surrogate IDs to a list of existing entities containing a Lookup IDs
 // static mapping element will trigger another repository to be loaded and fetching those entities by their IDs and then
 // passing them to whoever references the variable name returned by the GetSourceStatement().
-internal class LookupIdsMapping : CSharpMappingBase
+internal class CreateLookupIdsMapping : CSharpMappingBase
 {
-    public LookupIdsMapping(MappingModel model, ICSharpTemplate template) : base(model, template)
+    public CreateLookupIdsMapping(MappingModel model, ICSharpTemplate template) : base(model, template)
     {
     }
 

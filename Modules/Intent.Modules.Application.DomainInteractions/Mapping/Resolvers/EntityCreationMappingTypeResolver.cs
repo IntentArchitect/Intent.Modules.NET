@@ -59,7 +59,7 @@ public class EntityCreationMappingTypeResolver : IMappingTypeResolver
         var mappedElementSpecializationTypeId = mappingModel.Children.FirstOrDefault()?.Model?.SpecializationTypeId;
         if (mappingModel.Mapping == null && mappedElementSpecializationTypeId is lookupIdsTargetEndElementId or lookupIdsSourceEndElementId)
         {
-            return new LookupIdsMapping(mappingModel, _sourceTemplate);
+            return new CreateLookupIdsMapping(mappingModel, _sourceTemplate);
         }
 
         if (model.SpecializationType == "Class" || model.TypeReference?.Element?.SpecializationType == "Class")

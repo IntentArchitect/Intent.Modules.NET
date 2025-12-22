@@ -111,12 +111,17 @@ internal class DbContextDataAccessProvider : IDataAccessProvider
         CSharpClassMappingManager csharpMapping,
         List<CSharpStatement> statements)
     {
-        const string lookupIdsTargetEndElementId = "5be4e1b7-855b-4ae6-a56e-6fc9d8ba0a87";
-        const string lookupIdsSourceEndElementId = "11201123-7476-4b32-9452-f4ccc96449ef";
+        var lookupIdElementIds = new HashSet<string>
+        {
+            "5be4e1b7-855b-4ae6-a56e-6fc9d8ba0a87",
+            "11201123-7476-4b32-9452-f4ccc96449ef",
+            "48ded4be-abe8-4a2b-b9f6-ad9fb81067d8",
+            "67ed3b19-a5eb-4b9a-a72a-d0a33b122fc0"
+        };
 
         // Find all mapped ends that use Lookup IDs (target is the static "Lookup IDs" element)
         var lookupIdsMappings = mapping.MappedEnds
-            .Where(x => x.TargetElement?.Id == lookupIdsTargetEndElementId || x.TargetElement?.Id == lookupIdsSourceEndElementId)
+            .Where(x => x.TargetElement != null && lookupIdElementIds.Contains(x.TargetElement.Id))
             .ToList();
 
         foreach (var lookupMapping in lookupIdsMappings)
@@ -170,8 +175,10 @@ internal class DbContextDataAccessProvider : IDataAccessProvider
 
             // Set up mapping replacements so the object initializer uses this variable
             // Replace the static metadata ID
-            csharpMapping.SetFromReplacement(new StaticMetadata(lookupIdsTargetEndElementId), variableName);
-            csharpMapping.SetFromReplacement(new StaticMetadata(lookupIdsSourceEndElementId), variableName);
+            foreach (var id in lookupIdElementIds)
+            {
+                csharpMapping.SetFromReplacement(new StaticMetadata(id), variableName);
+            }
         }
     }
 
