@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -26,29 +26,11 @@
 		<Compile Remove="Templates\DomainEntityInterface\DomainEntityInterfaceDecoratorBase.cs" />
 		<Compile Remove="Templates\DomainEntityInterface\DomainEntityInterfaceTemplate.cs" />
 		<Compile Remove="Templates\DomainEntity\DomainEntityTemplate.cs" />
-		<Compile Update="Templates\CollectionWrapper\CollectionWrapperTemplate.cs">
-			<DesignTime>True</DesignTime>
-			<AutoGen>True</AutoGen>
-			<DependentUpon>CollectionWrapperTemplate.tt</DependentUpon>
-		</Compile>
-		<Compile Update="Templates\UpdateHelper\UpdateHelperTemplate.cs">
-			<DesignTime>True</DesignTime>
-			<AutoGen>True</AutoGen>
-			<DependentUpon>UpdateHelperTemplate.tt</DependentUpon>
-		</Compile>
 	</ItemGroup>
 
 	<ItemGroup>
 		<None Remove="Templates\DomainEntityInterface\DomainEntityInterfaceTemplate.tt" />
 		<None Remove="Templates\DomainEntity\DomainEntityTemplate.tt" />
-		<None Update="Templates\CollectionWrapper\CollectionWrapperTemplate.tt">
-			<Generator>TextTemplatingFilePreprocessor</Generator>
-			<LastGenOutput>CollectionWrapperTemplate.cs</LastGenOutput>
-		</None>
-		<None Update="Templates\UpdateHelper\UpdateHelperTemplate.tt">
-			<Generator>TextTemplatingFilePreprocessor</Generator>
-			<LastGenOutput>UpdateHelperTemplate.cs</LastGenOutput>
-		</None>
 	</ItemGroup>
 
 	<ItemGroup>
