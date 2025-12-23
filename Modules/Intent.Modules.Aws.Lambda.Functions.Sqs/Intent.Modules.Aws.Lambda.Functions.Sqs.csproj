@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -8,7 +8,7 @@
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.9.1" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.9.6" />
-    <PackageReference Include="Intent.Modules.Eventing.Contracts" Version="6.1.0-pre.1" />
+    <PackageReference Include="Intent.Modules.Eventing.Contracts" Version="6.1.0" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="4.0.7" />
     <PackageReference Include="Intent.Modules.Modelers.Services.EventInteractions" Version="2.0.4" />
     <PackageReference Include="Intent.Packager" Version="3.6.0">
