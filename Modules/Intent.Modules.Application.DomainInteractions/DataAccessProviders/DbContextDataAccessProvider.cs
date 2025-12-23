@@ -105,23 +105,24 @@ internal class DbContextDataAccessProvider : IDataAccessProvider
         return new CSharpInvocationStatement(whereClause.WithoutSemicolon(), "ToListAsync").AddArgument("cancellationToken");
     }
 
+    private static readonly HashSet<string> LookupIdElementIds =
+    [
+        "5be4e1b7-855b-4ae6-a56e-6fc9d8ba0a87",
+        "11201123-7476-4b32-9452-f4ccc96449ef",
+        "48ded4be-abe8-4a2b-b9f6-ad9fb81067d8",
+        "67ed3b19-a5eb-4b9a-a72a-d0a33b122fc0"
+    ];
+    
     public IList<CSharpStatement> GetAggregateEntityRetrievalStatements(
         ICSharpClassMethodDeclaration method,
         IElementToElementMapping mapping,
         CSharpClassMappingManager csharpMapping)
     {
         List<CSharpStatement> statements = [];
-        var lookupIdElementIds = new HashSet<string>
-        {
-            "5be4e1b7-855b-4ae6-a56e-6fc9d8ba0a87",
-            "11201123-7476-4b32-9452-f4ccc96449ef",
-            "48ded4be-abe8-4a2b-b9f6-ad9fb81067d8",
-            "67ed3b19-a5eb-4b9a-a72a-d0a33b122fc0"
-        };
 
         // Find all mapped ends that use Lookup IDs (target is the static "Lookup IDs" element)
         var lookupIdsMappings = mapping.MappedEnds
-            .Where(x => x.TargetElement != null && lookupIdElementIds.Contains(x.TargetElement.Id))
+            .Where(x => x.TargetElement != null && LookupIdElementIds.Contains(x.TargetElement.Id))
             .ToList();
 
         foreach (var lookupMapping in lookupIdsMappings)
@@ -172,12 +173,13 @@ internal class DbContextDataAccessProvider : IDataAccessProvider
                 .AddArgument("cancellationToken");
 
             statements.Add(new CSharpAssignmentStatement($"var {variableName}", finalStatement).WithSemicolon());
-
+            
+            csharpMapping.SetFromReplacement(lookupMapping.TargetPath[1].Element, variableName);
             // Set up mapping replacements so the object initializer uses this variable
             // Replace the static metadata ID
-            foreach (var id in lookupIdElementIds)
+            foreach (var id in LookupIdElementIds)
             {
-                csharpMapping.SetFromReplacement(new StaticMetadata(id), variableName);
+                csharpMapping.SetFromReplacement(new StaticMetadata(id), "");
             }
         }
 
