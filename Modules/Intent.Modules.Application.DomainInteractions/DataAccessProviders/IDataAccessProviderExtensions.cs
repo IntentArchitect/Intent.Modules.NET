@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Intent.Metadata.Models;
 using Intent.Modules.Common.CSharp.Builder;
@@ -6,31 +7,24 @@ using Intent.Modules.Common.CSharp.Mapping;
 
 namespace Intent.Modules.Application.DomainInteractions.DataAccessProviders;
 
-/// <summary>
-/// Extension methods for IDataAccessProvider to support Lookup IDs mappings (surrogate IDs to entity collections).
-/// Each provider implements this as a virtual method that can be overridden.
-/// </summary>
-public static class IDataAccessProviderExtensions
+/// Before we promote this to the IDataAccessProvider interface, let's finalize the design.
+internal static class IDataAccessProviderExtensions
 {
-    public static void ProcessLookupIdsMappings(
+    public static IList<CSharpStatement> GetAggregateEntityRetrievalStatements(
         this IDataAccessProvider provider,
         ICSharpClassMethodDeclaration method,
         IElementToElementMapping mapping,
-        CSharpClassMappingManager csharpMapping,
-        List<CSharpStatement> statements)
+        CSharpClassMappingManager csharpMapping)
     {
-        // Dispatch to the actual implementation based on provider type
-        if (provider is RepositoryDataAccessProvider repositoryProvider)
+        return provider switch
         {
-            repositoryProvider.ProcessLookupIdsMappingsImpl(method, mapping, csharpMapping, statements);
-        }
-        else if (provider is DbContextDataAccessProvider dbContextProvider)
-        {
-            dbContextProvider.ProcessLookupIdsMappingsImpl(method, mapping, csharpMapping, statements);
-        }
-        else if (provider is CompositeDataAccessProvider compositeProvider)
-        {
-            compositeProvider.ProcessLookupIdsMappingsImpl(method, mapping, csharpMapping, statements);
-        }
+            RepositoryDataAccessProvider repositoryProvider => 
+                repositoryProvider.GetAggregateEntityRetrievalStatements(method, mapping, csharpMapping),
+            DbContextDataAccessProvider dbContextProvider =>
+                dbContextProvider.GetAggregateEntityRetrievalStatements(method, mapping, csharpMapping),
+            CompositeDataAccessProvider compositeProvider =>
+                compositeProvider.GetAggregateEntityRetrievalStatements(method, mapping, csharpMapping),
+            _ => throw new NotSupportedException("The IDataAccessProvider type is not supported for GetAggregateEntityRetrievalStatements.")
+        };
     }
 }

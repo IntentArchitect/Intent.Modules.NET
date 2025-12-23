@@ -62,11 +62,10 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
                         aggregateDetails: out _);
                 }
 
-                // Handle Lookup IDs mappings (surrogate IDs to entity collections)
-                dataAccess.ProcessLookupIdsMappings(method, mapping, csharpMapping, statements);
-
                 if (mapping != null)
                 {
+                    statements.AddRange(dataAccess.GetAggregateEntityRetrievalStatements(method, mapping, csharpMapping));
+                    
                     var constructionStatement = csharpMapping.GenerateCreationStatement(mapping);
 
                     handlerClass.WireUpDomainServicesForConstructors(createAction, constructionStatement);

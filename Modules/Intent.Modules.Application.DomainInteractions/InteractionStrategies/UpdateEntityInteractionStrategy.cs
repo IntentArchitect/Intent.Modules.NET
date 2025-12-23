@@ -59,9 +59,11 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
                 
                 var statements = new List<CSharpStatement>();
 
-                // Handle Lookup IDs mappings (surrogate IDs to entity collections)
-                dataAccess.ProcessLookupIdsMappings(method, updateMapping, csharpMapping, statements);
-                
+                if (updateMapping != null)
+                {
+                    statements.AddRange(dataAccess.GetAggregateEntityRetrievalStatements(method, updateMapping, csharpMapping));
+                }
+
                 if (entityDetails.IsCollection)
                 {
                     csharpMapping.SetToReplacement(entity, entityDetails.VariableName.Singularize());

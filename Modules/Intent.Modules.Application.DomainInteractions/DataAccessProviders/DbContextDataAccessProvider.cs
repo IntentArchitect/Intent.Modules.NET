@@ -105,12 +105,12 @@ internal class DbContextDataAccessProvider : IDataAccessProvider
         return new CSharpInvocationStatement(whereClause.WithoutSemicolon(), "ToListAsync").AddArgument("cancellationToken");
     }
 
-    internal void ProcessLookupIdsMappingsImpl(
+    public IList<CSharpStatement> GetAggregateEntityRetrievalStatements(
         ICSharpClassMethodDeclaration method,
         IElementToElementMapping mapping,
-        CSharpClassMappingManager csharpMapping,
-        List<CSharpStatement> statements)
+        CSharpClassMappingManager csharpMapping)
     {
+        List<CSharpStatement> statements = [];
         var lookupIdElementIds = new HashSet<string>
         {
             "5be4e1b7-855b-4ae6-a56e-6fc9d8ba0a87",
@@ -162,12 +162,12 @@ internal class DbContextDataAccessProvider : IDataAccessProvider
             // Generate the DbContext lookup statement
             _template.AddUsing("System.Linq");
             _template.AddUsing("Microsoft.EntityFrameworkCore");
-            
+
             var dbSetAccessor = new CSharpAccessMemberStatement(_dbContextField, GetDbSetName(targetEntityType));
             var lookupStatement = new CSharpInvocationStatement($"await {dbSetAccessor}", "Where")
                 .AddArgument($"x => {sourceIdsExpression}.Contains(x.{_pks[0].Name})")
                 .WithoutSemicolon();
-            
+
             var finalStatement = new CSharpInvocationStatement(lookupStatement, "ToListAsync")
                 .AddArgument("cancellationToken");
 
@@ -180,6 +180,8 @@ internal class DbContextDataAccessProvider : IDataAccessProvider
                 csharpMapping.SetFromReplacement(new StaticMetadata(id), variableName);
             }
         }
+
+        return statements;
     }
 
     public CSharpStatement FindAllAsync(IElementToElementMapping queryMapping, out IList<CSharpStatement> prerequisiteStatements)

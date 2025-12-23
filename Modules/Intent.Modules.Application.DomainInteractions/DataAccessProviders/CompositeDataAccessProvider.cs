@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Metadata.Models;
@@ -82,14 +83,14 @@ public class CompositeDataAccessProvider : IDataAccessProvider
         //throw new Exception("Not Implemented");
     }
 
-    internal void ProcessLookupIdsMappingsImpl(
+    public IList<CSharpStatement> GetAggregateEntityRetrievalStatements(
         ICSharpClassMethodDeclaration method,
         IElementToElementMapping mapping,
-        CSharpClassMappingManager csharpMapping,
-        List<CSharpStatement> statements)
+        CSharpClassMappingManager csharpMapping)
     {
         // CompositeDataAccessProvider (accessing collections through aggregate roots) 
         // does not support Lookup IDs mappings - this is a no-op.
+        return Array.Empty<CSharpStatement>();
     }
 
     public CSharpStatement FindAsync(IElementToElementMapping queryMapping, out IList<CSharpStatement> prerequisiteStatements)

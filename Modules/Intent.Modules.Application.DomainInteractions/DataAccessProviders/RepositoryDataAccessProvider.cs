@@ -115,12 +115,12 @@ internal class RepositoryDataAccessProvider : IDataAccessProvider
         return _queryImplementation.FindByIdsAsync(pkMaps);
     }
 
-    internal void ProcessLookupIdsMappingsImpl(
+    public IList<CSharpStatement> GetAggregateEntityRetrievalStatements(
         ICSharpClassMethodDeclaration method,
         IElementToElementMapping mapping,
-        CSharpClassMappingManager csharpMapping,
-        List<CSharpStatement> statements)
+        CSharpClassMappingManager csharpMapping)
     {
+        List<CSharpStatement> statements = [];
         var lookupIdElementIds = new HashSet<string>
         {
             "5be4e1b7-855b-4ae6-a56e-6fc9d8ba0a87",
@@ -194,6 +194,8 @@ internal class RepositoryDataAccessProvider : IDataAccessProvider
                 csharpMapping.SetFromReplacement(new StaticMetadata(id), variableName);
             }
         }
+
+        return statements;
     }
 
     public CSharpStatement FindAsync(IElementToElementMapping queryMapping, out IList<CSharpStatement> prerequisiteStatements)
@@ -352,8 +354,6 @@ internal class RepositoryDataAccessProvider : IDataAccessProvider
         CSharpStatement FindAsync(IElementToElementMapping queryMapping, out IList<CSharpStatement> prerequisiteStatements);
         CSharpStatement FindByIdAsync(List<PrimaryKeyFilterMapping> pkMaps);
         CSharpStatement FindByIdsAsync(List<PrimaryKeyFilterMapping> pkMaps);
-
-
     }
 
     private class SpecificationImplementation : DefaultQueryImplementation
