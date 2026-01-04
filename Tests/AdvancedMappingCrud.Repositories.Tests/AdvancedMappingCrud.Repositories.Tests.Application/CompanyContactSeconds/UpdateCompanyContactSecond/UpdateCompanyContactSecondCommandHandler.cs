@@ -2,7 +2,6 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Common.Exceptions;
-using AdvancedMappingCrud.Repositories.Tests.Domain.Entities;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -33,18 +32,6 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.CompanyContactSecon
             }
 
             companyContactSecond.ContactSecondId = request.ContactSecondId;
-            companyContactSecond.ContactSecond = CreateOrUpdateContactSecond(companyContactSecond.ContactSecond, request);
-        }
-
-        [IntentManaged(Mode.Fully)]
-        private static ContactSecond CreateOrUpdateContactSecond(
-            ContactSecond? entity,
-            UpdateCompanyContactSecondCommand dto)
-        {
-            entity ??= new ContactSecond();
-            entity.ContactName = dto.ContactName;
-            entity.ContactDetailsSecond.Name = dto.Name;
-            return entity;
         }
     }
 }

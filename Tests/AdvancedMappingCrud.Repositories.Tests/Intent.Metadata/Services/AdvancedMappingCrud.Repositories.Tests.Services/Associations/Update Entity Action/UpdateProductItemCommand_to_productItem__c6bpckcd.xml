@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="8c3c1fa2-78db-4d03-9f00-7021c8604e39">
+  <sourceEnd id="e4ee769c-c0fd-4889-a48d-152bf3c78e2c" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : ManyToMany.UpdateProductItemCommand</display>
+    <order>0</order>
+    <typeReference id="e5e72308-d3ff-4df5-a096-e8db5bb68b04">
+      <typeId>5618ac74-122f-4428-b3fe-1fbdf327c68e</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+      <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="8c3c1fa2-78db-4d03-9f00-7021c8604e39" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>productItem</name>
+    <display>[update] productItem: ProductItem</display>
+    <order>4</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="330b3b4e-a1ad-4779-ae51-80f9d75be55b">
+      <typeId>8f078b2a-ebe8-40d4-b6f9-207f9431b496</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="5618ac74-122f-4428-b3fe-1fbdf327c68e" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[UpdateProductItemCommand]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="8f078b2a-ebe8-40d4-b6f9-207f9431b496" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[ProductItem]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="8f078b2a-ebe8-40d4-b6f9-207f9431b496" name="ProductItem" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="f1345aa9-8ad8-4050-8797-d4eab94e873b" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="5618ac74-122f-4428-b3fe-1fbdf327c68e" name="UpdateProductItemCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="15c52b01-baa9-4e05-b123-cca34dc26dd7" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="5618ac74-122f-4428-b3fe-1fbdf327c68e" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[UpdateProductItemCommand]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="8f078b2a-ebe8-40d4-b6f9-207f9431b496" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[ProductItem]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="8f078b2a-ebe8-40d4-b6f9-207f9431b496" name="ProductItem" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="a2e2d5b5-f982-4194-ac42-382a4b27a68d" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="5618ac74-122f-4428-b3fe-1fbdf327c68e" name="UpdateProductItemCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="3df2e6e0-1e01-48e2-ae28-72dd35648143" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{TagIds}</expression>
+            <path>
+              <target id="8f078b2a-ebe8-40d4-b6f9-207f9431b496" name="ProductItem" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="8a64b63e-fb29-4f5e-88be-74bbe295cc4e" name="Tags" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="48ded4be-abe8-4a2b-b9f6-ad9fb81067d8" name="Target Lookup IDs" type="static-mappable" specialization="Target Lookup IDs" specializationId="48ded4be-abe8-4a2b-b9f6-ad9fb81067d8">
+                <typeReference>
+                  <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+                  <isNavigable>true</isNavigable>
+                  <isNullable>false</isNullable>
+                  <isCollection>true</isCollection>
+                  <isRequired>true</isRequired>
+                  <typePackageName>Intent.Common.Types</typePackageName>
+                  <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+                  <stereotypes />
+                  <genericTypeParameters />
+                </typeReference>
+              </target>
+            </path>
+            <sources>
+              <source identifier="TagIds" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="5618ac74-122f-4428-b3fe-1fbdf327c68e" name="UpdateProductItemCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="9365a8e3-a367-40e8-a00a-c9f086a858a6" name="TagIds" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{CategoryIds}</expression>
+            <path>
+              <target id="8f078b2a-ebe8-40d4-b6f9-207f9431b496" name="ProductItem" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="1b2b2ec0-2b2d-4665-89c3-c641bfdeb566" name="Categories" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="48ded4be-abe8-4a2b-b9f6-ad9fb81067d8" name="Target Lookup IDs" type="static-mappable" specialization="Target Lookup IDs" specializationId="48ded4be-abe8-4a2b-b9f6-ad9fb81067d8">
+                <typeReference>
+                  <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+                  <isNavigable>true</isNavigable>
+                  <isNullable>false</isNullable>
+                  <isCollection>true</isCollection>
+                  <isRequired>true</isRequired>
+                  <typePackageName>Intent.Common.Types</typePackageName>
+                  <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+                  <stereotypes />
+                  <genericTypeParameters />
+                </typeReference>
+              </target>
+            </path>
+            <sources>
+              <source identifier="CategoryIds" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="5618ac74-122f-4428-b3fe-1fbdf327c68e" name="UpdateProductItemCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="cbdd0a98-d54e-4d12-810b-02a24cc0b285" name="CategoryIds" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

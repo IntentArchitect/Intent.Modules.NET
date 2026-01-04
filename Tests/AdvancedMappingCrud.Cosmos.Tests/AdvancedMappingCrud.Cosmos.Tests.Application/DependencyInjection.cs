@@ -1,6 +1,8 @@
 using System.Reflection;
 using AdvancedMappingCrud.Cosmos.Tests.Application.Common.Behaviours;
 using AdvancedMappingCrud.Cosmos.Tests.Application.Common.Validation;
+using AdvancedMappingCrud.Cosmos.Tests.Application.Implementation.ManyToMany;
+using AdvancedMappingCrud.Cosmos.Tests.Application.Interfaces.ManyToMany;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
@@ -28,6 +30,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddScoped<IValidatorProvider, ValidatorProvider>();
             services.AddTransient<IValidationService, ValidationService>();
+            services.AddTransient<IProductItemService, ProductItemService>();
             return services;
         }
     }

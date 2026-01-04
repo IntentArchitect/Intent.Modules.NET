@@ -108,6 +108,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>e936c843-fe11-41bc-8b71-66145063c8f6</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#38127a9e-39ac-4dfb-b7aa-f5b093299a60</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Api/Controllers/ManyToMany/ProductItemController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/ProductItemController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e936c843-fe11-41bc-8b71-66145063c8f6</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#07561480-c563-4062-b3a2-b2ade7f12c44</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Api/Controllers/ManyToManyController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToManyController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e936c843-fe11-41bc-8b71-66145063c8f6</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#c5c7590b-668d-4237-9ad4-a2df580080b2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Api/Controllers/OrdersController.cs</ApplicationRelativeFilePath>
@@ -1163,6 +1179,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>f0b97799-bb8b-4518-b429-fc2e329af42c</ProjectId>
+      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#38127a9e-39ac-4dfb-b7aa-f5b093299a60</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/Implementation/ManyToMany/ProductItemService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/ProductItemService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c4591a86-e86f-4901-acfc-f395c81ccbe8</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.ServiceContract#38127a9e-39ac-4dfb-b7aa-f5b093299a60</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/Interfaces/ManyToMany/IProductItemService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/IProductItemService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#d2b4bece-d699-4e2e-88d8-ccab8ce507bd</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -1184,6 +1216,86 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/Jobs/MyTimedJob/MyTimedJobCommandValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Jobs/MyTimedJob/MyTimedJobCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#4ac145ac-84e1-4a59-9faa-9da33e444e66</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/ManyToMany/CreateProductItem/CreateProductItemCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/CreateProductItem/CreateProductItemCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#4ac145ac-84e1-4a59-9faa-9da33e444e66</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/ManyToMany/CreateProductItem/CreateProductItemCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/CreateProductItem/CreateProductItemCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#4ac145ac-84e1-4a59-9faa-9da33e444e66</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/ManyToMany/CreateProductItem/CreateProductItemCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/CreateProductItem/CreateProductItemCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#4d9d965c-9a26-4087-8e16-62f8971320d8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/ManyToMany/CreateProductItemDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/CreateProductItemDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#4d9d965c-9a26-4087-8e16-62f8971320d8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/ManyToMany/CreateProductItemDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/CreateProductItemDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#048fca1b-7366-4bfe-83da-efe8be46940b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/ManyToMany/UpdateProductItem/UpdateProductItemCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/UpdateProductItem/UpdateProductItemCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#048fca1b-7366-4bfe-83da-efe8be46940b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/ManyToMany/UpdateProductItem/UpdateProductItemCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/UpdateProductItem/UpdateProductItemCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#048fca1b-7366-4bfe-83da-efe8be46940b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/ManyToMany/UpdateProductItem/UpdateProductItemCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/UpdateProductItem/UpdateProductItemCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#8d760645-a309-4c56-9c9b-d824ff548e84</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/ManyToMany/UpdateProductItemDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/UpdateProductItemDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#8d760645-a309-4c56-9c9b-d824ff548e84</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/ManyToMany/UpdateProductItemDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/UpdateProductItemDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2180,6 +2292,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>edef835f-e49f-48e6-b7f3-9e625679ec49</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#5b4b56d9-34f1-4119-9074-aeb0acd8357c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Domain/Entities/ManyToMany/Category.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/Category.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>edef835f-e49f-48e6-b7f3-9e625679ec49</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#2c0377b2-30db-4496-b23d-f2dcbd7028ac</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Domain/Entities/ManyToMany/ProductItem.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/ProductItem.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>edef835f-e49f-48e6-b7f3-9e625679ec49</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#9cbb06fa-01a2-442a-bd51-312f72b13829</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Domain/Entities/ManyToMany/Tag.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/Tag.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>edef835f-e49f-48e6-b7f3-9e625679ec49</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#40a608b5-7171-4e71-99b3-6bce641aa33b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Domain/Entities/Order.cs</ApplicationRelativeFilePath>
@@ -2435,6 +2571,30 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>81139bf6-2331-4314-907f-b164c5aadf86</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocumentInterface#5b4b56d9-34f1-4119-9074-aeb0acd8357c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Domain/Repositories/Documents/ManyToMany/ICategoryDocument.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/ICategoryDocument.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>81139bf6-2331-4314-907f-b164c5aadf86</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocumentInterface#2c0377b2-30db-4496-b23d-f2dcbd7028ac</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Domain/Repositories/Documents/ManyToMany/IProductItemDocument.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/IProductItemDocument.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>81139bf6-2331-4314-907f-b164c5aadf86</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocumentInterface#9cbb06fa-01a2-442a-bd51-312f72b13829</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Domain/Repositories/Documents/ManyToMany/ITagDocument.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/ITagDocument.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>2d3e7d09-19c9-4357-8c73-751f590384f8</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#ba238544-c312-43a9-8e6c-65010bd8d715</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -2547,6 +2707,30 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>2d3e7d09-19c9-4357-8c73-751f590384f8</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#5b4b56d9-34f1-4119-9074-aeb0acd8357c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Domain/Repositories/ManyToMany/ICategoryRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/ICategoryRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2d3e7d09-19c9-4357-8c73-751f590384f8</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#2c0377b2-30db-4496-b23d-f2dcbd7028ac</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Domain/Repositories/ManyToMany/IProductItemRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/IProductItemRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2d3e7d09-19c9-4357-8c73-751f590384f8</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#9cbb06fa-01a2-442a-bd51-312f72b13829</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Domain/Repositories/ManyToMany/ITagRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/ITagRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>f3853c95-c817-43e2-bf36-aafb6221c7aa</ProjectId>
       <CorrelationId>Intent.ValueObjects.ValueObjectBase#1e814109-44eb-47d8-8c45-f905977c0b4e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -2640,6 +2824,30 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Infrastructure/Persistence/Documents/ICosmosDBDocument.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICosmosDBDocument.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f74be9d3-c119-4e55-9c4a-73a7db11f4c3</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocument#5b4b56d9-34f1-4119-9074-aeb0acd8357c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Infrastructure/Persistence/Documents/ManyToMany/CategoryDocument.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/CategoryDocument.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f74be9d3-c119-4e55-9c4a-73a7db11f4c3</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocument#2c0377b2-30db-4496-b23d-f2dcbd7028ac</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Infrastructure/Persistence/Documents/ManyToMany/ProductItemDocument.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/ProductItemDocument.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f74be9d3-c119-4e55-9c4a-73a7db11f4c3</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocument#9cbb06fa-01a2-442a-bd51-312f72b13829</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Infrastructure/Persistence/Documents/ManyToMany/TagDocument.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/TagDocument.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2808,6 +3016,30 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Infrastructure/Repositories/ExplicitETagCosmosDBRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ExplicitETagCosmosDBRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2af958ea-bd83-48d7-b454-cec064683968</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBRepository#5b4b56d9-34f1-4119-9074-aeb0acd8357c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Infrastructure/Repositories/ManyToMany/CategoryCosmosDBRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/CategoryCosmosDBRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2af958ea-bd83-48d7-b454-cec064683968</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBRepository#2c0377b2-30db-4496-b23d-f2dcbd7028ac</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Infrastructure/Repositories/ManyToMany/ProductItemCosmosDBRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/ProductItemCosmosDBRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2af958ea-bd83-48d7-b454-cec064683968</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBRepository#9cbb06fa-01a2-442a-bd51-312f72b13829</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Infrastructure/Repositories/ManyToMany/TagCosmosDBRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/TagCosmosDBRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2984,6 +3216,38 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/HttpClients/JsonResponse.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>JsonResponse.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7dee352a-dfc5-4dff-9675-7e0773cea59c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#07561480-c563-4062-b3a2-b2ade7f12c44</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/HttpClients/ManyToMany/IManyToManyService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/IManyToManyService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7dee352a-dfc5-4dff-9675-7e0773cea59c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#38127a9e-39ac-4dfb-b7aa-f5b093299a60</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/HttpClients/ManyToMany/IProductItemService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/IProductItemService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7dee352a-dfc5-4dff-9675-7e0773cea59c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.HttpClient#07561480-c563-4062-b3a2-b2ade7f12c44</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/HttpClients/ManyToMany/ManyToManyHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/ManyToManyHttpClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7dee352a-dfc5-4dff-9675-7e0773cea59c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.HttpClient#38127a9e-39ac-4dfb-b7aa-f5b093299a60</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/HttpClients/ManyToMany/ProductItemServiceHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/ProductItemServiceHttpClient.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -3264,6 +3528,38 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Services/ExplicitETags/UpdateExplicitETagCommand.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Services/ExplicitETags/UpdateExplicitETagCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f6c2ba26-f45b-416d-9e71-86ab3a6b1be7</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#4ac145ac-84e1-4a59-9faa-9da33e444e66</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Services/ManyToMany/CreateProductItemCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/ManyToMany/CreateProductItemCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f6c2ba26-f45b-416d-9e71-86ab3a6b1be7</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#4d9d965c-9a26-4087-8e16-62f8971320d8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Services/ManyToMany/CreateProductItemDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/ManyToMany/CreateProductItemDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f6c2ba26-f45b-416d-9e71-86ab3a6b1be7</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#048fca1b-7366-4bfe-83da-efe8be46940b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Services/ManyToMany/UpdateProductItemCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/ManyToMany/UpdateProductItemCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f6c2ba26-f45b-416d-9e71-86ab3a6b1be7</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#8d760645-a309-4c56-9c9b-d824ff548e84</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Services/ManyToMany/UpdateProductItemDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/ManyToMany/UpdateProductItemDto.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -3780,6 +4076,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>14bb1112-cfb0-43a4-b91d-ba28c73bd603</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#4ac145ac-84e1-4a59-9faa-9da33e444e66</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Tests/ManyToMany/CreateProductItemTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/CreateProductItemTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>14bb1112-cfb0-43a4-b91d-ba28c73bd603</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#048fca1b-7366-4bfe-83da-efe8be46940b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Tests/ManyToMany/UpdateProductItemTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/UpdateProductItemTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>14bb1112-cfb0-43a4-b91d-ba28c73bd603</ProjectId>
       <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#3cd02d1b-5fe8-44ed-99ad-b6432a63e822</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Tests/Orders/CreateOrderOrderItemTests.cs</ApplicationRelativeFilePath>
@@ -3896,6 +4208,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Tests/Parents/UpdateParentTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Parents/UpdateParentTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>14bb1112-cfb0-43a4-b91d-ba28c73bd603</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#0fa66542-718e-4922-933c-ec7b26467569</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Tests/ProductItemService/CreateProductItemTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProductItemService/CreateProductItemTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>14bb1112-cfb0-43a4-b91d-ba28c73bd603</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#c06c44e6-d3dd-478e-a243-e381844670f2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Tests/ProductItemService/UpdateProductItemTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProductItemService/UpdateProductItemTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -78,39 +78,6 @@
               </source>
             </sources>
           </mappedEnd>
-          <mappedEnd>
-            <expression>{ContactName}</expression>
-            <path>
-              <target id="3020282d-1252-4281-9b1e-1e6a02669e85" name="CompanyContactSecond" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
-              <target id="3b1aa2a0-005d-4c1a-ab81-c29077bbf1c1" name="ContactSecond" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
-              <target id="a5f1f6d8-c36e-4331-b5f4-5924d4b6e2bc" name="ContactName" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
-            </path>
-            <sources>
-              <source identifier="ContactName" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
-                <path>
-                  <target id="42aa2530-4c20-4d8e-b2aa-bd37af4b5f56" name="UpdateCompanyContactSecondCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
-                  <target id="f50c221c-25b0-4328-8ef0-52a1e84190ea" name="ContactName" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
-                </path>
-              </source>
-            </sources>
-          </mappedEnd>
-          <mappedEnd>
-            <expression>{Name}</expression>
-            <path>
-              <target id="3020282d-1252-4281-9b1e-1e6a02669e85" name="CompanyContactSecond" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
-              <target id="3b1aa2a0-005d-4c1a-ab81-c29077bbf1c1" name="ContactSecond" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
-              <target id="72992f69-5c7b-4de3-9ba6-6a96bbbd9d2d" name="ContactDetailsSecond" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
-              <target id="5dd90077-0105-405e-8711-7351709fa50a" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
-            </path>
-            <sources>
-              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
-                <path>
-                  <target id="42aa2530-4c20-4d8e-b2aa-bd37af4b5f56" name="UpdateCompanyContactSecondCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
-                  <target id="8764c1ba-ea79-4d39-b97d-2326624cb9aa" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
-                </path>
-              </source>
-            </sources>
-          </mappedEnd>
         </mappedEnds>
       </mapping>
     </mappings>

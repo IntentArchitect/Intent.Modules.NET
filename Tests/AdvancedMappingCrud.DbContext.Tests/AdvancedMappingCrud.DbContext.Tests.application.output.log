@@ -76,6 +76,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>a62220ea-608d-4ed1-9fd0-88eeaf08a71a</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#5a8790be-6f98-40ef-b2dc-0b6b4b775bb2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Api/Controllers/ManyToMany/ProductItemController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/ProductItemController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a62220ea-608d-4ed1-9fd0-88eeaf08a71a</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#4af5dcb1-c6b0-48ab-ae99-7b7fdb91afa5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Api/Controllers/ManyToManyController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToManyController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a62220ea-608d-4ed1-9fd0-88eeaf08a71a</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#488aa1b9-6c0e-4b95-8618-784468d93831</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Api/Controllers/OrdersController.cs</ApplicationRelativeFilePath>
@@ -516,6 +532,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>238956a8-b624-4255-98fe-0878c0b55dff</ProjectId>
+      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#5a8790be-6f98-40ef-b2dc-0b6b4b775bb2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/Implementation/ManyToMany/ProductItemService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/ProductItemService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>238956a8-b624-4255-98fe-0878c0b55dff</ProjectId>
       <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#99f7485c-17b9-45da-8405-1bb5782967be</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/Implementation/UsersService.cs</ApplicationRelativeFilePath>
@@ -528,6 +552,94 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/Interfaces/IUsersService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IUsersService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a60285bf-e8f8-4f57-a4ef-01982782e22e</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.ServiceContract#5a8790be-6f98-40ef-b2dc-0b6b4b775bb2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/Interfaces/ManyToMany/IProductItemService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/IProductItemService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3c50f867-88d1-419e-8a2e-eed8d12e80f2</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#f67aea78-de61-4693-9b39-28b2d480a627</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/ManyToMany/CreateProductItem/CreateProductItemCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/CreateProductItem/CreateProductItemCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3c50f867-88d1-419e-8a2e-eed8d12e80f2</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#f67aea78-de61-4693-9b39-28b2d480a627</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/ManyToMany/CreateProductItem/CreateProductItemCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/CreateProductItem/CreateProductItemCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3c50f867-88d1-419e-8a2e-eed8d12e80f2</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#f67aea78-de61-4693-9b39-28b2d480a627</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/ManyToMany/CreateProductItem/CreateProductItemCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/CreateProductItem/CreateProductItemCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3c50f867-88d1-419e-8a2e-eed8d12e80f2</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#9a04265f-f64b-45fa-8795-1673a106ddf0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/ManyToMany/CreateProductItemDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/CreateProductItemDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3c50f867-88d1-419e-8a2e-eed8d12e80f2</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#9a04265f-f64b-45fa-8795-1673a106ddf0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/ManyToMany/CreateProductItemDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/CreateProductItemDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3c50f867-88d1-419e-8a2e-eed8d12e80f2</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#66cc5cb7-cc0d-4754-9b03-94293213859e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/ManyToMany/UpdateProductItem/UpdateProductItemCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/UpdateProductItem/UpdateProductItemCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3c50f867-88d1-419e-8a2e-eed8d12e80f2</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#66cc5cb7-cc0d-4754-9b03-94293213859e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/ManyToMany/UpdateProductItem/UpdateProductItemCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/UpdateProductItem/UpdateProductItemCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3c50f867-88d1-419e-8a2e-eed8d12e80f2</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#66cc5cb7-cc0d-4754-9b03-94293213859e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/ManyToMany/UpdateProductItem/UpdateProductItemCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/UpdateProductItem/UpdateProductItemCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3c50f867-88d1-419e-8a2e-eed8d12e80f2</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#3067c369-ec0a-4bf4-9832-3fdddbb9b147</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/ManyToMany/UpdateProductItemDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/UpdateProductItemDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3c50f867-88d1-419e-8a2e-eed8d12e80f2</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#3067c369-ec0a-4bf4-9832-3fdddbb9b147</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/ManyToMany/UpdateProductItemDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/UpdateProductItemDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1212,6 +1324,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>9bf770e6-af08-4557-bfa0-6caf130405ea</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#b81d7ecf-2c44-4d1e-b66e-dac8f188e39c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Domain/Entities/ManyToMany/Category.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/Category.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9bf770e6-af08-4557-bfa0-6caf130405ea</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#419046b5-ab47-41a7-924a-351f962b725e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Domain/Entities/ManyToMany/ProductItem.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/ProductItem.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9bf770e6-af08-4557-bfa0-6caf130405ea</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#0385bd0d-b1a5-41d5-b188-792af953c4e3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Domain/Entities/ManyToMany/Tag.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/Tag.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9bf770e6-af08-4557-bfa0-6caf130405ea</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#d437a112-210e-4fdf-b8e5-147f14868319</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Domain/Entities/Order.cs</ApplicationRelativeFilePath>
@@ -1296,6 +1432,30 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Infrastructure/Persistence/Configurations/CustomerConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CustomerConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1c1e74c1-9aac-436d-8c97-141bd859d031</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#b81d7ecf-2c44-4d1e-b66e-dac8f188e39c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Infrastructure/Persistence/Configurations/ManyToMany/CategoryConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/CategoryConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1c1e74c1-9aac-436d-8c97-141bd859d031</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#419046b5-ab47-41a7-924a-351f962b725e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Infrastructure/Persistence/Configurations/ManyToMany/ProductItemConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/ProductItemConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1c1e74c1-9aac-436d-8c97-141bd859d031</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#0385bd0d-b1a5-41d5-b188-792af953c4e3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Infrastructure/Persistence/Configurations/ManyToMany/TagConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/TagConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1400,6 +1560,38 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.IntegrationTests/HttpClients/JsonResponse.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>JsonResponse.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e7203cc8-e6af-4df9-a702-e6a994fe1544</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#4af5dcb1-c6b0-48ab-ae99-7b7fdb91afa5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.IntegrationTests/HttpClients/ManyToMany/IManyToManyService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/IManyToManyService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e7203cc8-e6af-4df9-a702-e6a994fe1544</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#5a8790be-6f98-40ef-b2dc-0b6b4b775bb2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.IntegrationTests/HttpClients/ManyToMany/IProductItemService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/IProductItemService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e7203cc8-e6af-4df9-a702-e6a994fe1544</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.HttpClient#4af5dcb1-c6b0-48ab-ae99-7b7fdb91afa5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.IntegrationTests/HttpClients/ManyToMany/ManyToManyHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/ManyToManyHttpClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e7203cc8-e6af-4df9-a702-e6a994fe1544</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.HttpClient#5a8790be-6f98-40ef-b2dc-0b6b4b775bb2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.IntegrationTests/HttpClients/ManyToMany/ProductItemServiceHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/ProductItemServiceHttpClient.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1512,6 +1704,38 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.IntegrationTests/Services/Customers/UpdateCustomerCommand.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Services/Customers/UpdateCustomerCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d2049e4c-ea02-43c8-9986-8749080e35ec</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#f67aea78-de61-4693-9b39-28b2d480a627</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.IntegrationTests/Services/ManyToMany/CreateProductItemCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/ManyToMany/CreateProductItemCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d2049e4c-ea02-43c8-9986-8749080e35ec</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#9a04265f-f64b-45fa-8795-1673a106ddf0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.IntegrationTests/Services/ManyToMany/CreateProductItemDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/ManyToMany/CreateProductItemDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d2049e4c-ea02-43c8-9986-8749080e35ec</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#66cc5cb7-cc0d-4754-9b03-94293213859e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.IntegrationTests/Services/ManyToMany/UpdateProductItemCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/ManyToMany/UpdateProductItemCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d2049e4c-ea02-43c8-9986-8749080e35ec</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#3067c369-ec0a-4bf4-9832-3fdddbb9b147</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.IntegrationTests/Services/ManyToMany/UpdateProductItemDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/ManyToMany/UpdateProductItemDto.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1772,6 +1996,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>abeb604d-15ce-492d-9f87-0be62589f471</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#f67aea78-de61-4693-9b39-28b2d480a627</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.IntegrationTests/Tests/ManyToMany/CreateProductItemTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/CreateProductItemTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>abeb604d-15ce-492d-9f87-0be62589f471</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#66cc5cb7-cc0d-4754-9b03-94293213859e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.IntegrationTests/Tests/ManyToMany/UpdateProductItemTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ManyToMany/UpdateProductItemTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>abeb604d-15ce-492d-9f87-0be62589f471</ProjectId>
       <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#42a62ab2-61bb-41e7-bde7-c4b98e039763</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.IntegrationTests/Tests/Orders/CreateOrderOrderItemTests.cs</ApplicationRelativeFilePath>
@@ -1848,6 +2088,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.IntegrationTests/Tests/Orders/UpdateOrderTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Orders/UpdateOrderTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>abeb604d-15ce-492d-9f87-0be62589f471</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#5e3167a4-d71a-475e-99f0-08f0709141a3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.IntegrationTests/Tests/ProductItemService/CreateProductItemTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProductItemService/CreateProductItemTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>abeb604d-15ce-492d-9f87-0be62589f471</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#b09b64db-e167-4e2b-9f6b-03d60507b93d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.IntegrationTests/Tests/ProductItemService/UpdateProductItemTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProductItemService/UpdateProductItemTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

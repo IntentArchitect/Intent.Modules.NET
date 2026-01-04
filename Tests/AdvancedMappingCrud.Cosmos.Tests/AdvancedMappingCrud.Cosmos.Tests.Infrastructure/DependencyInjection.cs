@@ -1,8 +1,10 @@
 using AdvancedMappingCrud.Cosmos.Tests.Application.Common.Interfaces;
 using AdvancedMappingCrud.Cosmos.Tests.Domain.Common.Interfaces;
 using AdvancedMappingCrud.Cosmos.Tests.Domain.Repositories;
+using AdvancedMappingCrud.Cosmos.Tests.Domain.Repositories.ManyToMany;
 using AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Persistence;
 using AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Repositories;
+using AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Repositories.ManyToMany;
 using AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Services;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
@@ -28,6 +30,9 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Infrastructure
             services.AddScoped<ISimpleOdataRepository, SimpleOdataCosmosDBRepository>();
             services.AddScoped<IStockRepository, StockCosmosDBRepository>();
             services.AddScoped<IStockDocumentRepository, StockDocumentCosmosDBRepository>();
+            services.AddScoped<ICategoryRepository, CategoryCosmosDBRepository>();
+            services.AddScoped<IProductItemRepository, ProductItemCosmosDBRepository>();
+            services.AddScoped<ITagRepository, TagCosmosDBRepository>();
             services.AddScoped<CosmosDBUnitOfWork>();
             services.AddScoped<ICosmosDBUnitOfWork>(provider => provider.GetRequiredService<CosmosDBUnitOfWork>());
             services.AddTransient<ICustomRepository, CustomRepository>();

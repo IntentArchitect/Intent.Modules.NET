@@ -38,7 +38,6 @@
           <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
           <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
           <properties>
-            <property name="4c1e3f7e-61d4-460d-bd20-c2edbc0c0e2e" display="Identity" value="false" isActive="true" />
             <property name="a7a5e921-18b9-43b4-8078-b4ac4e5dae6f" display="Data source" value="Default" isActive="true" />
           </properties>
         </stereotype>
@@ -170,7 +169,7 @@
     </childElement>
     <childElement id="739c560a-40d6-4d9a-850b-fe22b1328f12" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>EntityStatus</name>
-      <display>EntityStatus: EntityStatus</display>
+      <display>EntityStatus: EntityStatus = EntityStatus.Active</display>
       <isAbstract>false</isAbstract>
       <value>EntityStatus.Active</value>
       <genericTypes />

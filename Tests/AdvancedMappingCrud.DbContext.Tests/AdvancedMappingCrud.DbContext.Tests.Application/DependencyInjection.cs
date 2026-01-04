@@ -2,7 +2,9 @@ using System.Reflection;
 using AdvancedMappingCrud.DbContext.Tests.Application.Common.Behaviours;
 using AdvancedMappingCrud.DbContext.Tests.Application.Common.Validation;
 using AdvancedMappingCrud.DbContext.Tests.Application.Implementation;
+using AdvancedMappingCrud.DbContext.Tests.Application.Implementation.ManyToMany;
 using AdvancedMappingCrud.DbContext.Tests.Application.Interfaces;
+using AdvancedMappingCrud.DbContext.Tests.Application.Interfaces.ManyToMany;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
@@ -31,6 +33,7 @@ namespace AdvancedMappingCrud.DbContext.Tests.Application
             services.AddScoped<IValidatorProvider, ValidatorProvider>();
             services.AddTransient<IValidationService, ValidationService>();
             services.AddTransient<IUsersService, UsersService>();
+            services.AddTransient<IProductItemService, ProductItemService>();
             return services;
         }
     }

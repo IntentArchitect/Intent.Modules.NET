@@ -62,24 +62,7 @@
       <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
         <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="6f2bb60b-f1c0-4db3-835a-4bce25edb277" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[UpdateCompanyContactCommand]" />
         <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="cf47db73-147b-4f73-a3a0-69af6eb0580b" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[CompanyContact]" />
-        <mappedEnds>
-          <mappedEnd>
-            <expression>{FirstName}</expression>
-            <path>
-              <target id="cf47db73-147b-4f73-a3a0-69af6eb0580b" name="CompanyContact" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
-              <target id="e7b1d985-cba3-4315-9f90-1794e2ccd976" name="Contact" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
-              <target id="f85fdb69-43f4-40fc-bb81-093003299302" name="FirstName" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
-            </path>
-            <sources>
-              <source identifier="FirstName" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
-                <path>
-                  <target id="6f2bb60b-f1c0-4db3-835a-4bce25edb277" name="UpdateCompanyContactCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
-                  <target id="c44e7a61-9312-42b8-93b9-4c1e28526384" name="FirstName" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
-                </path>
-              </source>
-            </sources>
-          </mappedEnd>
-        </mappedEnds>
+        <mappedEnds />
       </mapping>
     </mappings>
     <metadata />

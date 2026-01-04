@@ -2,7 +2,6 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Common.Exceptions;
-using AdvancedMappingCrud.Repositories.Tests.Domain.Entities;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -32,15 +31,6 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.CompanyContacts.Upd
                 throw new NotFoundException($"Could not find CompanyContact '{request.Id}'");
             }
 
-            companyContact.Contact = CreateOrUpdateContact(companyContact.Contact, request);
-        }
-
-        [IntentManaged(Mode.Fully)]
-        private static Contact CreateOrUpdateContact(Contact? entity, UpdateCompanyContactCommand dto)
-        {
-            entity ??= new Contact();
-            entity.FirstName = dto.FirstName;
-            return entity;
         }
     }
 }

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f28a2f6e-e581-4723-afe5-a4ccdb3e8310" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Many To Many</name>
+  <display>Many To Many</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>730b7e87-4e6a-400e-9252-ae7660ab7b98</parentFolderId>
+  <packageId>e9a90d1a-2d6c-4860-967f-32435319b518</packageId>
+  <packageName>AdvancedMappingCrud.DbContext.Tests.Domain</packageName>
+  <diagram>
+    <targetPackageId>f28a2f6e-e581-4723-afe5-a4ccdb3e8310</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

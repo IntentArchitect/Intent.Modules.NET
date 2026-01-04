@@ -1,6 +1,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using AdvancedMappingCrud.DbContext.Tests.Domain.Entities;
+using AdvancedMappingCrud.DbContext.Tests.Domain.Entities.ManyToMany;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,6 +16,9 @@ namespace AdvancedMappingCrud.DbContext.Tests.Application.Common.Interfaces
         DbSet<Order> Orders { get; }
         DbSet<Product> Products { get; }
         DbSet<User> Users { get; }
+        DbSet<Category> Categories { get; }
+        DbSet<ProductItem> ProductItems { get; }
+        DbSet<Tag> Tags { get; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }
 }

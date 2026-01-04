@@ -4,7 +4,9 @@ using System.Threading.Tasks;
 using AdvancedMappingCrud.DbContext.Tests.Application.Common.Interfaces;
 using AdvancedMappingCrud.DbContext.Tests.Domain.Common;
 using AdvancedMappingCrud.DbContext.Tests.Domain.Entities;
+using AdvancedMappingCrud.DbContext.Tests.Domain.Entities.ManyToMany;
 using AdvancedMappingCrud.DbContext.Tests.Infrastructure.Persistence.Configurations;
+using AdvancedMappingCrud.DbContext.Tests.Infrastructure.Persistence.Configurations.ManyToMany;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 
@@ -26,6 +28,9 @@ namespace AdvancedMappingCrud.DbContext.Tests.Infrastructure.Persistence
         public DbSet<Order> Orders { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<ProductItem> ProductItems { get; set; }
+        public DbSet<Tag> Tags { get; set; }
 
         public override async Task<int> SaveChangesAsync(
             bool acceptAllChangesOnSuccess,
@@ -50,6 +55,9 @@ namespace AdvancedMappingCrud.DbContext.Tests.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new OrderConfiguration());
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
             modelBuilder.ApplyConfiguration(new UserConfiguration());
+            modelBuilder.ApplyConfiguration(new CategoryConfiguration());
+            modelBuilder.ApplyConfiguration(new ProductItemConfiguration());
+            modelBuilder.ApplyConfiguration(new TagConfiguration());
         }
 
         [IntentManaged(Mode.Ignore)]
