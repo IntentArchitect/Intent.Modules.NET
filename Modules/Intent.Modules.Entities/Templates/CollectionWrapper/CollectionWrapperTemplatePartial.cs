@@ -64,11 +64,11 @@ namespace Intent.Modules.Entities.Templates.CollectionWrapper
                         method.AddStatement(@"return _wrappedCollection.Cast<TInterface>().GetEnumerator();");
                     });
 
-                    @class.AddMethod("IEnumerator", "GetEnumerator", method =>
+                    @class.AddMethod("IEnumerator", "IEnumerable.GetEnumerator", method =>
                     {
+                        method.WithoutAccessModifier();
                         method.WithComments("/// <inheritdoc />");
-                        method.WithExpressionBody("GetEnumerator()");
-                        method.AddMetadata("explicit-interface", "IEnumerable");
+                        method.AddReturn("GetEnumerator()");
                     });
 
                     @class.AddMethod("void", "Add", method =>
