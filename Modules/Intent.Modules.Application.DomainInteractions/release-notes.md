@@ -1,3 +1,7 @@
+### Version 1.1.10
+
+- Improvement: Create and Update actions involving Aggregate Root IDs will now leverage appropriate query logic to fetch those aggregate roots and assign them to the entity in question.
+
 ### Version 1.1.9
 
 - Improvement: Documentation and ProjectUrl link added.

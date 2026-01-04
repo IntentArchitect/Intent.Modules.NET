@@ -1,3 +1,7 @@
+### Version 5.1.16
+
+- Improvement: Added method in `UpdateHelper` called `SynchronizeCollection` which Synchronizes a collection by adding and removing items to match the changed collection.
+
 ### Version 5.1.15
 
 - Improvement: Updated module documentation to use centralized documentation site.
