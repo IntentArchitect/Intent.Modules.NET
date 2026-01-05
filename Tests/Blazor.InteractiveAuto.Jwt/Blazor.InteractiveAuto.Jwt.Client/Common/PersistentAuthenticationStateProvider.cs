@@ -60,8 +60,7 @@ namespace Blazor.InteractiveAuto.Jwt.Client.Common
             return _authenticationStateTask;
         }
 
-        public ValueTask<AccessTokenResult> RequestAccessToken()
-=> RequestAccessToken(new AccessTokenRequestOptions());
+        public ValueTask<AccessTokenResult> RequestAccessToken() => RequestAccessToken(new AccessTokenRequestOptions());
 
         public async ValueTask<AccessTokenResult> RequestAccessToken(AccessTokenRequestOptions options)
         {

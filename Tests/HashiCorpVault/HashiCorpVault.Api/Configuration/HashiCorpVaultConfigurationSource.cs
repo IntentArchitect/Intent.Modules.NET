@@ -95,8 +95,7 @@ public class HashiCorpVaultConfigurationProvider : ConfigurationProvider
         private readonly Dictionary<string, string?> _data = new Dictionary<string, string?>(StringComparer.OrdinalIgnoreCase);
         private readonly Stack<string> _paths = new Stack<string>();
 
-        public static IDictionary<string, string?> Convert(KeyValuePair<string, object> pair)
-=> new JsonConfigurationFileParser().ConvertObject(pair);
+        public static IDictionary<string, string?> Convert(KeyValuePair<string, object> pair) => new JsonConfigurationFileParser().ConvertObject(pair);
 
         private Dictionary<string, string?> ConvertObject(KeyValuePair<string, object> pair)
         {
