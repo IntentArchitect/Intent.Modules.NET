@@ -1,6 +1,7 @@
 using System.Reflection;
 using Asp.Versioning;
 using Asp.Versioning.ApiExplorer;
+using Intent.Modules.NET.Tests.Domain.Core.Common.Exceptions;
 using Intent.Modules.NET.Tests.Host.Filters;
 using Intent.Modules.NET.Tests.Infrastructure.Core.Interfaces;
 using Intent.RoslynWeaver.Attributes;
@@ -40,6 +41,12 @@ namespace Intent.Modules.NET.Tests.Host.Configuration
                     if (File.Exists(applicationXmlFile))
                     {
                         options.IncludeXmlComments(applicationXmlFile);
+                    }
+
+                    var domainXmlFile = Path.Combine(AppContext.BaseDirectory, $"{typeof(NotFoundException).Assembly.GetName().Name}.xml");
+                    if (File.Exists(domainXmlFile))
+                    {
+                        options.IncludeXmlComments(domainXmlFile);
                     }
 
                     moduleInstallers.ConfigureSwagger(options);

@@ -1,6 +1,7 @@
 using System.Reflection;
 using AdvancedMapping.Repositories.Mapperly.Tests.Api.Filters;
 using AdvancedMapping.Repositories.Mapperly.Tests.Application;
+using AdvancedMapping.Repositories.Mapperly.Tests.Domain.Common.Exceptions;
 using Asp.Versioning;
 using Asp.Versioning.ApiExplorer;
 using Intent.RoslynWeaver.Attributes;
@@ -37,6 +38,12 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Api.Configuration
                     if (File.Exists(applicationXmlFile))
                     {
                         options.IncludeXmlComments(applicationXmlFile);
+                    }
+
+                    var domainXmlFile = Path.Combine(AppContext.BaseDirectory, $"{typeof(NotFoundException).Assembly.GetName().Name}.xml");
+                    if (File.Exists(domainXmlFile))
+                    {
+                        options.IncludeXmlComments(domainXmlFile);
                     }
 
                     options.OperationFilter<AuthorizeCheckOperationFilter>();

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using Finbuckle.SeparateDatabase.TestApplication.Api.Filters;
 using Finbuckle.SeparateDatabase.TestApplication.Application;
+using Finbuckle.SeparateDatabase.TestApplication.Domain.Common.Exceptions;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
@@ -46,6 +47,12 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Api.Configuration
                     if (File.Exists(applicationXmlFile))
                     {
                         options.IncludeXmlComments(applicationXmlFile);
+                    }
+
+                    var domainXmlFile = Path.Combine(AppContext.BaseDirectory, $"{typeof(NotFoundException).Assembly.GetName().Name}.xml");
+                    if (File.Exists(domainXmlFile))
+                    {
+                        options.IncludeXmlComments(domainXmlFile);
                     }
                     options.OperationFilter<TenantHeaderOperationFilter>();
                     options.SchemaFilter<TypeSchemaFilter>();

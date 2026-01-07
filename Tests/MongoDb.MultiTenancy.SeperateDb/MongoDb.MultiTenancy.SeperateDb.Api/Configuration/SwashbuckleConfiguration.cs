@@ -14,6 +14,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using MongoDb.MultiTenancy.SeperateDb.Api.Filters;
 using MongoDb.MultiTenancy.SeperateDb.Application;
+using MongoDb.MultiTenancy.SeperateDb.Domain.Common.Exceptions;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Swashbuckle.AspNetCore.SwaggerUI;
 
@@ -44,6 +45,12 @@ namespace MongoDb.MultiTenancy.SeperateDb.Api.Configuration
                     if (File.Exists(applicationXmlFile))
                     {
                         options.IncludeXmlComments(applicationXmlFile);
+                    }
+
+                    var domainXmlFile = Path.Combine(AppContext.BaseDirectory, $"{typeof(NotFoundException).Assembly.GetName().Name}.xml");
+                    if (File.Exists(domainXmlFile))
+                    {
+                        options.IncludeXmlComments(domainXmlFile);
                     }
                     options.OperationFilter<TenantHeaderOperationFilter>();
                     options.OperationFilter<AuthorizeCheckOperationFilter>();

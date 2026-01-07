@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using AdvancedMappingCrud.Cosmos.Tests.Api.Filters;
 using AdvancedMappingCrud.Cosmos.Tests.Application;
+using AdvancedMappingCrud.Cosmos.Tests.Domain.Common.Exceptions;
 using Asp.Versioning;
 using Asp.Versioning.ApiExplorer;
 using Intent.RoslynWeaver.Attributes;
@@ -44,6 +45,12 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Api.Configuration
                     if (File.Exists(applicationXmlFile))
                     {
                         options.IncludeXmlComments(applicationXmlFile);
+                    }
+
+                    var domainXmlFile = Path.Combine(AppContext.BaseDirectory, $"{typeof(NotFoundException).Assembly.GetName().Name}.xml");
+                    if (File.Exists(domainXmlFile))
+                    {
+                        options.IncludeXmlComments(domainXmlFile);
                     }
                     options.OperationFilter<ODataQueryFilter>();
                     options.OperationFilter<AuthorizeCheckOperationFilter>();

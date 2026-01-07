@@ -3,6 +3,7 @@ using Asp.Versioning;
 using Asp.Versioning.ApiExplorer;
 using DynamoDbTests.PrivateSetters.Api.Filters;
 using DynamoDbTests.PrivateSetters.Application;
+using DynamoDbTests.PrivateSetters.Domain.Common.Exceptions;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
@@ -36,6 +37,12 @@ namespace DynamoDbTests.PrivateSetters.Api.Configuration
                     if (File.Exists(applicationXmlFile))
                     {
                         options.IncludeXmlComments(applicationXmlFile);
+                    }
+
+                    var domainXmlFile = Path.Combine(AppContext.BaseDirectory, $"{typeof(NotFoundException).Assembly.GetName().Name}.xml");
+                    if (File.Exists(domainXmlFile))
+                    {
+                        options.IncludeXmlComments(domainXmlFile);
                     }
 
                     options.SchemaFilter<TypeSchemaFilter>();

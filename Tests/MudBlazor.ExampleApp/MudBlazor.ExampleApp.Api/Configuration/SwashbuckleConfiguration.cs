@@ -7,6 +7,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using MudBlazor.ExampleApp.Api.Filters;
 using MudBlazor.ExampleApp.Application;
+using MudBlazor.ExampleApp.Domain.Common.Exceptions;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Swashbuckle.AspNetCore.SwaggerUI;
 
@@ -37,6 +38,12 @@ namespace MudBlazor.ExampleApp.Api.Configuration
                     if (File.Exists(applicationXmlFile))
                     {
                         options.IncludeXmlComments(applicationXmlFile);
+                    }
+
+                    var domainXmlFile = Path.Combine(AppContext.BaseDirectory, $"{typeof(NotFoundException).Assembly.GetName().Name}.xml");
+                    if (File.Exists(domainXmlFile))
+                    {
+                        options.IncludeXmlComments(domainXmlFile);
                     }
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
 
