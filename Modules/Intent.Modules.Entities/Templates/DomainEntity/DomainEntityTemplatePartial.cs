@@ -18,6 +18,7 @@ using Intent.Modules.Entities.Settings;
 using Intent.Modules.Entities.Templates.DomainEnum;
 using Intent.Modules.Modelers.Domain.Settings;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Templates;
 using Intent.Utils;
 using AttributeModel = Intent.Modelers.Domain.Api.AttributeModel;
 using OperationModel = Intent.Modelers.Domain.Api.OperationModel;
