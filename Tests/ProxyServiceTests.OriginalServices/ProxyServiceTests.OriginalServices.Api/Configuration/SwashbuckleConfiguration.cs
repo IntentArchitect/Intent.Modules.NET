@@ -14,6 +14,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using ProxyServiceTests.OriginalServices.Api.Filters;
 using ProxyServiceTests.OriginalServices.Application;
+using ProxyServiceTests.OriginalServices.Domain.Common.Exceptions;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Swashbuckle.AspNetCore.SwaggerUI;
 
@@ -44,6 +45,12 @@ namespace ProxyServiceTests.OriginalServices.Api.Configuration
                     if (File.Exists(applicationXmlFile))
                     {
                         options.IncludeXmlComments(applicationXmlFile);
+                    }
+
+                    var domainXmlFile = Path.Combine(AppContext.BaseDirectory, $"{typeof(NotFoundException).Assembly.GetName().Name}.xml");
+                    if (File.Exists(domainXmlFile))
+                    {
+                        options.IncludeXmlComments(domainXmlFile);
                     }
 
                     options.OperationFilter<BinaryContentFilter>();

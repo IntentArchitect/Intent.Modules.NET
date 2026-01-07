@@ -16,6 +16,7 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 using Swashbuckle.AspNetCore.SwaggerUI;
 using TrainingModel.Tests.Api.Filters;
 using TrainingModel.Tests.Application;
+using TrainingModel.Tests.Domain.Common.Exceptions;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration", Version = "1.0")]
@@ -44,6 +45,12 @@ namespace TrainingModel.Tests.Api.Configuration
                     if (File.Exists(applicationXmlFile))
                     {
                         options.IncludeXmlComments(applicationXmlFile);
+                    }
+
+                    var domainXmlFile = Path.Combine(AppContext.BaseDirectory, $"{typeof(NotFoundException).Assembly.GetName().Name}.xml");
+                    if (File.Exists(domainXmlFile))
+                    {
+                        options.IncludeXmlComments(domainXmlFile);
                     }
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
 

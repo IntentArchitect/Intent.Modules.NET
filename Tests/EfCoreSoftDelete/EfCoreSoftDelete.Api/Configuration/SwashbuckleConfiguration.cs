@@ -1,6 +1,7 @@
 using System.Reflection;
 using EfCoreSoftDelete.Api.Filters;
 using EfCoreSoftDelete.Application;
+using EfCoreSoftDelete.Domain.Common.Exceptions;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.OpenApi.Models;
@@ -40,6 +41,12 @@ namespace EfCoreSoftDelete.Api.Configuration
                     if (File.Exists(applicationXmlFile))
                     {
                         options.IncludeXmlComments(applicationXmlFile);
+                    }
+
+                    var domainXmlFile = Path.Combine(AppContext.BaseDirectory, $"{typeof(NotFoundException).Assembly.GetName().Name}.xml");
+                    if (File.Exists(domainXmlFile))
+                    {
+                        options.IncludeXmlComments(domainXmlFile);
                     }
 
                     options.OperationFilter<AuthorizeCheckOperationFilter>();

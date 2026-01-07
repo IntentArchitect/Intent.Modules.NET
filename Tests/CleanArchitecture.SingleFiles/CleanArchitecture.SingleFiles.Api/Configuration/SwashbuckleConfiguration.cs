@@ -7,6 +7,7 @@ using Asp.Versioning;
 using Asp.Versioning.ApiExplorer;
 using CleanArchitecture.SingleFiles.Api.Filters;
 using CleanArchitecture.SingleFiles.Application;
+using CleanArchitecture.SingleFiles.Domain.Common.Exceptions;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -44,6 +45,12 @@ namespace CleanArchitecture.SingleFiles.Api.Configuration
                     if (File.Exists(applicationXmlFile))
                     {
                         options.IncludeXmlComments(applicationXmlFile);
+                    }
+
+                    var domainXmlFile = Path.Combine(AppContext.BaseDirectory, $"{typeof(NotFoundException).Assembly.GetName().Name}.xml");
+                    if (File.Exists(domainXmlFile))
+                    {
+                        options.IncludeXmlComments(domainXmlFile);
                     }
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
 

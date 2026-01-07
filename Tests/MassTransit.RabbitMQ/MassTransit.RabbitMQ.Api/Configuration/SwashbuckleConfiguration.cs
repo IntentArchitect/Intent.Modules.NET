@@ -6,6 +6,7 @@ using System.Reflection;
 using Intent.RoslynWeaver.Attributes;
 using MassTransit.RabbitMQ.Api.Filters;
 using MassTransit.RabbitMQ.Application;
+using MassTransit.RabbitMQ.Domain.Common.Exceptions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
@@ -49,6 +50,12 @@ namespace MassTransit.RabbitMQ.Api.Configuration
                     if (File.Exists(applicationXmlFile))
                     {
                         options.IncludeXmlComments(applicationXmlFile);
+                    }
+
+                    var domainXmlFile = Path.Combine(AppContext.BaseDirectory, $"{typeof(NotFoundException).Assembly.GetName().Name}.xml");
+                    if (File.Exists(domainXmlFile))
+                    {
+                        options.IncludeXmlComments(domainXmlFile);
                     }
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
 

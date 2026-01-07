@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using Entities.Constants.TestApplication.Api.Filters;
 using Entities.Constants.TestApplication.Application;
+using Entities.Constants.TestApplication.Domain.Common.Exceptions;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -47,6 +48,12 @@ namespace Entities.Constants.TestApplication.Api.Configuration
                     if (File.Exists(applicationXmlFile))
                     {
                         options.IncludeXmlComments(applicationXmlFile);
+                    }
+
+                    var domainXmlFile = Path.Combine(AppContext.BaseDirectory, $"{typeof(NotFoundException).Assembly.GetName().Name}.xml");
+                    if (File.Exists(domainXmlFile))
+                    {
+                        options.IncludeXmlComments(domainXmlFile);
                     }
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
 

@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Api.Filters;
 using Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application;
+using Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Domain.Common.Exceptions;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Swashbuckle.AspNetCore.SwaggerUI;
 
@@ -47,6 +48,12 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Api.Configurati
                     if (File.Exists(applicationXmlFile))
                     {
                         options.IncludeXmlComments(applicationXmlFile);
+                    }
+
+                    var domainXmlFile = Path.Combine(AppContext.BaseDirectory, $"{typeof(NotFoundException).Assembly.GetName().Name}.xml");
+                    if (File.Exists(domainXmlFile))
+                    {
+                        options.IncludeXmlComments(domainXmlFile);
                     }
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
 

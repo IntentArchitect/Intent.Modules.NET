@@ -3,6 +3,7 @@ using Asp.Versioning;
 using Asp.Versioning.ApiExplorer;
 using CosmosDB.Authentication.Api.Filters;
 using CosmosDB.Authentication.Application;
+using CosmosDB.Authentication.Domain.Common.Exceptions;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Options;
@@ -37,6 +38,12 @@ namespace CosmosDB.Authentication.Api.Configuration
                     if (File.Exists(applicationXmlFile))
                     {
                         options.IncludeXmlComments(applicationXmlFile);
+                    }
+
+                    var domainXmlFile = Path.Combine(AppContext.BaseDirectory, $"{typeof(NotFoundException).Assembly.GetName().Name}.xml");
+                    if (File.Exists(domainXmlFile))
+                    {
+                        options.IncludeXmlComments(domainXmlFile);
                     }
 
                     options.OperationFilter<AuthorizeCheckOperationFilter>();

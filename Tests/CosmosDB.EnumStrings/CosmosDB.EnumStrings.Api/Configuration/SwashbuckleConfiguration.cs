@@ -7,6 +7,7 @@ using Asp.Versioning;
 using Asp.Versioning.ApiExplorer;
 using CosmosDB.EnumStrings.Api.Filters;
 using CosmosDB.EnumStrings.Application;
+using CosmosDB.EnumStrings.Domain.Common.Exceptions;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
@@ -43,6 +44,12 @@ namespace CosmosDB.EnumStrings.Api.Configuration
                     if (File.Exists(applicationXmlFile))
                     {
                         options.IncludeXmlComments(applicationXmlFile);
+                    }
+
+                    var domainXmlFile = Path.Combine(AppContext.BaseDirectory, $"{typeof(NotFoundException).Assembly.GetName().Name}.xml");
+                    if (File.Exists(domainXmlFile))
+                    {
+                        options.IncludeXmlComments(domainXmlFile);
                     }
                     options.SchemaFilter<TypeSchemaFilter>();
                 });

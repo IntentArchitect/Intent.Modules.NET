@@ -1,3 +1,7 @@
+### Version 5.2.2
+
+- Improvement: Comments in the Domain Model are now included in the generated Swagger documentation when XML comments are enabled for the Domain project.
+
 ### Version 5.2.1
 
 - Improvement: Updated module documentation to use centralized documentation site.

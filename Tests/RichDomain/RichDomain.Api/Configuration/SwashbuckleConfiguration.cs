@@ -13,6 +13,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using RichDomain.Api.Filters;
 using RichDomain.Application;
+using RichDomain.Domain.Common.Exceptions;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Swashbuckle.AspNetCore.SwaggerUI;
 
@@ -43,6 +44,12 @@ namespace RichDomain.Api.Configuration
                     if (File.Exists(applicationXmlFile))
                     {
                         options.IncludeXmlComments(applicationXmlFile);
+                    }
+
+                    var domainXmlFile = Path.Combine(AppContext.BaseDirectory, $"{typeof(NotFoundException).Assembly.GetName().Name}.xml");
+                    if (File.Exists(domainXmlFile))
+                    {
+                        options.IncludeXmlComments(domainXmlFile);
                     }
                     options.SchemaFilter<TypeSchemaFilter>();
                 });

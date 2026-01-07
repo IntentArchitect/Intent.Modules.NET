@@ -94,6 +94,21 @@ public partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<objec
                                     });
                                     lambdaBlock.AddStatement("");
                                 }
+
+                                if (TryGetTemplate<ICSharpTemplate>("Intent.Entities.NotFoundException", out _))
+                                {
+                                    lambdaBlock.AddStatement(
+                                        $"var domainXmlFile = Path.Combine(AppContext.BaseDirectory," +
+                                        $" $\"{{typeof({GetTypeName("Intent.Entities.NotFoundException")}).Assembly.GetName().Name}}.xml\");");
+
+                                    lambdaBlock.AddIfStatement("File.Exists(domainXmlFile)", @if =>
+                                    {
+                                        @if
+                                            .AddStatement("options.IncludeXmlComments(domainXmlFile);")
+                                            .SeparatedFromPrevious(false);
+                                    });
+                                    lambdaBlock.AddStatement("");
+                                }
                             })
                             .WithArgumentsOnNewLines()
                             .AddMetadata("AddSwaggerGen", true)

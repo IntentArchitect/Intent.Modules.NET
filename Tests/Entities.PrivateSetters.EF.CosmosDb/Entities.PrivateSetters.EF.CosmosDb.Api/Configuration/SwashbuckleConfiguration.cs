@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using Entities.PrivateSetters.EF.CosmosDb.Api.Filters;
 using Entities.PrivateSetters.EF.CosmosDb.Application;
+using Entities.PrivateSetters.EF.CosmosDb.Domain.Common.Exceptions;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
@@ -46,6 +47,12 @@ namespace Entities.PrivateSetters.EF.CosmosDb.Api.Configuration
                     if (File.Exists(applicationXmlFile))
                     {
                         options.IncludeXmlComments(applicationXmlFile);
+                    }
+
+                    var domainXmlFile = Path.Combine(AppContext.BaseDirectory, $"{typeof(NotFoundException).Assembly.GetName().Name}.xml");
+                    if (File.Exists(domainXmlFile))
+                    {
+                        options.IncludeXmlComments(domainXmlFile);
                     }
                     options.SchemaFilter<TypeSchemaFilter>();
                 });
