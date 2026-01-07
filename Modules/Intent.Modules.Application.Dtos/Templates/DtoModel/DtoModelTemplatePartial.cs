@@ -457,7 +457,7 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
                 return [];
             }
 
-            var models = new List<ICodeToModelOperation>();
+            var changes = new List<ICodeToModelOperation>();
 
             foreach (var property in properties)
             {
@@ -468,7 +468,7 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
                 switch (property.DifferenceType)
                 {
                     case CSharpDifferenceType.Added:
-                        models.Add(CodeToModelOperationFactory.Instance.CreateChildElement(
+                        changes.Add(CodeToModelOperationFactory.Instance.CreateChildElement(
                             parent: Model.InternalElement,
                             newElementId: Guid.NewGuid().ToString(),
                             name: property.Identifier!,
@@ -477,22 +477,23 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
                             typeReference: typeReference));
                         break;
                     case CSharpDifferenceType.Changed:
-                        models.Add(CodeToModelOperationFactory.Instance.ChangeElementTypeReference(
+                        changes.Add(CodeToModelOperationFactory.Instance.UpdateElement(
                             element: Model.InternalElement,
+                            name: property.Identifier.ToPascalCase(),
                             typeReference: typeReference));
                         break;
                     case CSharpDifferenceType.Removed:
                         var fieldToRemove = Model.Fields.FirstOrDefault(x => string.Equals(x.Name, property.OldIdentifier, StringComparison.OrdinalIgnoreCase));
                         if (fieldToRemove != null)
                         {
-                            models.Add(CodeToModelOperationFactory.Instance.DeleteElement(fieldToRemove.InternalElement));
+                            changes.Add(CodeToModelOperationFactory.Instance.DeleteElement(fieldToRemove.InternalElement));
                         }
 
                         break;
                 }
             }
 
-            return models;
+            return changes;
         }
 #pragma warning restore IDE0010
 

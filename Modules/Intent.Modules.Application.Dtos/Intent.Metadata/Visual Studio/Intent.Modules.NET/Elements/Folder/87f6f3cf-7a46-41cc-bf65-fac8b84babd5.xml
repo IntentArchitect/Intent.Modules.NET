@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="b53f97d8-d3a6-4f2c-a260-e0ad93ff9a8f" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+<class id="87f6f3cf-7a46-41cc-bf65-fac8b84babd5" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
   <name>Migrations</name>
   <display>Migrations</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>caf76cc7-8bfb-4698-999d-a4748122ded9</parentFolderId>
-  <packageId>381ec2e1-c1c5-4d86-828b-b85b4927cec6</packageId>
+  <parentFolderId>1e3cd862-5246-466c-995c-adf4a53ca269</parentFolderId>
+  <packageId>eb67f929-a28f-41da-8549-2380fc2589af</packageId>
   <packageName>Intent.Modules.NET</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
@@ -21,15 +21,15 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="cdcf36b5-42ee-4cff-a0b7-8bfd51dd2ec2" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="1018da5f-aed5-4e8e-971d-ef313f23703c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration</name>
       <display>Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>b53f97d8-d3a6-4f2c-a260-e0ad93ff9a8f</parentFolderId>
-      <packageId>381ec2e1-c1c5-4d86-828b-b85b4927cec6</packageId>
+      <parentFolderId>87f6f3cf-7a46-41cc-bf65-fac8b84babd5</parentFolderId>
+      <packageId>eb67f929-a28f-41da-8549-2380fc2589af</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
       <metadata>
@@ -37,15 +37,15 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="f46a482e-5f3d-40f8-926c-2a6ffe0c5c80" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="e8881f32-40bb-4721-81cc-25bb50c9ec54" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.Templates.Migrations.OnUninstallMigration</name>
       <display>Intent.ModuleBuilder.Templates.Migrations.OnUninstallMigration</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>b53f97d8-d3a6-4f2c-a260-e0ad93ff9a8f</parentFolderId>
-      <packageId>381ec2e1-c1c5-4d86-828b-b85b4927cec6</packageId>
+      <parentFolderId>87f6f3cf-7a46-41cc-bf65-fac8b84babd5</parentFolderId>
+      <packageId>eb67f929-a28f-41da-8549-2380fc2589af</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
       <metadata>
@@ -53,15 +53,15 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="3ee986fa-a7c9-443d-8109-ffdcd31eee38" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="61856e07-8f3c-4719-b1bd-6ed6b7778f8f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration</name>
       <display>Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>b53f97d8-d3a6-4f2c-a260-e0ad93ff9a8f</parentFolderId>
-      <packageId>381ec2e1-c1c5-4d86-828b-b85b4927cec6</packageId>
+      <parentFolderId>87f6f3cf-7a46-41cc-bf65-fac8b84babd5</parentFolderId>
+      <packageId>eb67f929-a28f-41da-8549-2380fc2589af</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
       <metadata>

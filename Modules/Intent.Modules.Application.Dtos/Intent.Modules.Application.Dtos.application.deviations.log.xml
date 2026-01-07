@@ -30,15 +30,12 @@
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#8229e960-3d06-4e61-952e-b08570edca67</correlationId>
       <path>Intent.Modules.Application.Dtos/Templates/DtoModel/DtoModelTemplatePartial.cs</path>
-      <count>1</count>
-      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2024-10-08T11:49:38.8931795Z</updatedAt>
-      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>JP Seini</approvedByDisplayName>
-      <approvedAt>2024-10-08T12:03:41.5591273Z</approvedAt>
-      <deviationsHash>E5A486C55B686A78C43D3430B55F51EC3C454555A2C5A7A74BB35255DE6F1B53</deviationsHash>
-      <fileHash>4E7EF3BE1FA11825D6C480F4FEE7B8632E2DD379DC50E5B98B3E9BBB3069DA4E</fileHash>
+      <count>2</count>
+      <updatedByAccountName>jonathan.lydall+mac@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall (macOS)</updatedByDisplayName>
+      <updatedAt>2026-01-07T19:23:17.0615706Z</updatedAt>
+      <deviationsHash>80126F9C3A10BA42660149B19D33A84B84B50321E2E5B3CC732DDCF5D0A16D45</deviationsHash>
+      <fileHash>B96A3E85502F8AF5EE7657E160DE8EF627608466CA45010B95E593AF6DA5D951</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#8229e960-3d06-4e61-952e-b08570edca67</correlationId>

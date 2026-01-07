@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.Metadata;
 using Intent.CodeToModelOperations;
 using Intent.Engine;
 using Intent.Metadata.Models;
@@ -11,22 +10,18 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.CodeToModelSynchronization;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
-using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Common.TypeResolution;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Constants;
 using Intent.Modules.Entities.Settings;
 using Intent.Modules.Entities.Templates.DomainEnum;
 using Intent.Modules.Modelers.Domain.Settings;
 using Intent.RoslynWeaver.Attributes;
-using Intent.Templates;
 using Intent.Utils;
 using AttributeModel = Intent.Modelers.Domain.Api.AttributeModel;
 using OperationModel = Intent.Modelers.Domain.Api.OperationModel;
 using ParameterModel = Intent.Modules.Common.Types.Api.ParameterModel;
-using static Intent.Modules.Constants.TemplateRoles.Blazor.Client;
 
 #pragma warning disable IDE0010
 
@@ -549,6 +544,10 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
 
             foreach (var member in @class.ChildNodes)
             {
+                var typeReference = TryGetTypeReference(member.TypeName ?? member.OldTypeName!, Model.InternalElement.Package, out var typeNameReference)
+                    ? CodeToModelOperationFactory.Instance.TypeReference(typeNameReference)
+                    : null;
+
                 switch (member.SyntaxKind)
                 {
                     case CSharpSyntaxKind.MethodDeclaration:
@@ -562,9 +561,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                                         name: member.Identifier!,
                                         specialization: OperationModel.SpecializationType,
                                         specializationId: OperationModel.SpecializationTypeId,
-                                        typeReference: TryGetTypeReference(member.TypeName ?? member.OldTypeName!, Model.InternalElement.Package, out var methodReference)
-                                            ? CodeToModelOperationFactory.Instance.TypeReference(methodReference)
-                                            : null);
+                                        typeReference: typeReference);
 
                                     changes.Add(method);
 
@@ -583,16 +580,27 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
 
                                     break;
                                 }
+                            case CSharpDifferenceType.Removed:
+                                {
+                                    var operation = Model.Operations.SingleOrDefault(x => string.Equals(x.Name, member.OldIdentifier, StringComparison.OrdinalIgnoreCase));
+                                    if (operation != null)
+                                    {
+                                        changes.Add(CodeToModelOperationFactory.Instance.DeleteElement(operation.InternalElement));
+                                    }
+
+                                    break;
+                                }
                             case CSharpDifferenceType.Changed:
                                 {
-                                    var method = Model.Attributes.SingleOrDefault(x => string.Equals(x.Name, member.Identifier, StringComparison.OrdinalIgnoreCase));
-                                    if (method != null)
+                                    var operation = Model.Operations.SingleOrDefault(x => string.Equals(x.Name, member.Identifier, StringComparison.OrdinalIgnoreCase));
+                                    if (operation != null)
                                     {
-                                        changes.Add(CodeToModelOperationFactory.Instance.ChangeElementTypeReference(
-                                            element: method.InternalElement,
-                                            typeReference: TryGetTypeReference(member.TypeName!, Model.InternalElement.Package, out var reference)
-                                                ? CodeToModelOperationFactory.Instance.TypeReference(reference)
-                                                : null));
+                                        changes.Add(CodeToModelOperationFactory.Instance.UpdateElement(
+                                            element: operation.InternalElement,
+                                            name: member.Identifier.ToPascalCase(),
+                                            typeReference: typeReference));
+
+                                        // TODO Sync parameters
                                     }
 
                                     break;
@@ -601,54 +609,77 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
 
                         break;
                     case CSharpSyntaxKind.PropertyDeclaration:
-                        switch (member.DifferenceType)
+                        // Attributes
+                        if (typeNameReference == null ||
+                            typeNameReference.Element.SpecializationTypeId is TypeDefinitionModel.SpecializationTypeId or EnumModel.SpecializationTypeId)
                         {
-                            case CSharpDifferenceType.Added:
-                                {
-                                    if (!TryGetTypeReference(member.TypeName ?? member.OldTypeName!, Model.InternalElement.Package, out var reference) ||
-                                        reference.Element.SpecializationTypeId is TypeDefinitionModel.SpecializationTypeId or EnumModel.SpecializationTypeId)
+                            switch (member.DifferenceType)
+                            {
+                                case CSharpDifferenceType.Added:
+                                    changes.Add(CodeToModelOperationFactory.Instance.CreateChildElement(
+                                        parent: Model.InternalElement,
+                                        name: member.Identifier!,
+                                        specialization: AttributeModel.SpecializationType,
+                                        specializationId: AttributeModel.SpecializationTypeId,
+                                        typeReference: typeReference));
+                                    break;
+                                case CSharpDifferenceType.Removed:
                                     {
-                                        changes.Add(CodeToModelOperationFactory.Instance.CreateChildElement(
-                                            parent: Model.InternalElement,
-                                            newElementId: Guid.NewGuid().ToString(),
-                                            name: member.Identifier!,
-                                            specialization: AttributeModel.SpecializationType,
-                                            specializationId: AttributeModel.SpecializationTypeId,
-                                            typeReference: CodeToModelOperationFactory.Instance.TypeReference(reference)));
+                                        var existing = Model.Attributes.FirstOrDefault(x => string.Equals(x.Name, member.OldIdentifier, StringComparison.OrdinalIgnoreCase));
+                                        if (existing == null)
+                                        {
+                                            break;
+                                        }
+
+                                        changes.Add(CodeToModelOperationFactory.Instance.DeleteElement(existing.InternalElement));
+                                        break;
+                                    }
+                                case CSharpDifferenceType.Changed:
+                                    {
+                                        var existing = Model.Attributes.FirstOrDefault(x => string.Equals(x.Name, member.OldIdentifier, StringComparison.OrdinalIgnoreCase));
+                                        if (existing == null)
+                                        {
+                                            break;
+                                        }
+
+                                        changes.Add(CodeToModelOperationFactory.Instance.UpdateElement(
+                                            element: existing.InternalElement,
+                                            name: member.Identifier.ToPascalCase(),
+                                            typeReference: typeReference));
 
                                         break;
                                     }
+                            }
 
-                                    changes.Add(CodeToModelOperationFactory.Instance.CreateAssociation(
-                                        specialization: AssociationModel.SpecializationType,
-                                        specializationId: AssociationModel.SpecializationTypeId,
-                                        ownerEndElement: Model.InternalElement,
-                                        ownerEndName: null,
-                                        ownerEndIsNullable: false,
-                                        ownerEndIsCollection: false,
-                                        targetEndElement: (IElement)reference.Element,
-                                        targetEndName: member.Identifier,
-                                        targetEndIsNullable: reference.IsNullable,
-                                        targetEndIsCollection: reference.IsCollection,
-                                        isBidirectional: false)
-                                    );
+                            break;
+                        }
 
-                                    break;
-                                }
+                        // Associations
+                        switch (member.DifferenceType)
+                        {
+                            case CSharpDifferenceType.Added:
+                                changes.Add(CodeToModelOperationFactory.Instance.CreateAssociation(
+                                    specialization: AssociationModel.SpecializationType,
+                                    specializationId: AssociationModel.SpecializationTypeId,
+                                    targetEndElement: (IElement)typeNameReference.Element,
+                                    targetEndName: member.Identifier,
+                                    targetEndIsNullable: typeNameReference.IsNullable,
+                                    targetEndIsCollection: typeNameReference.IsCollection,
+                                    ownerEndElement: Model.InternalElement));
+                                break;
+                            case CSharpDifferenceType.Removed:
+                                // TODO JL: We need to add such an operation
+                                break;
                             case CSharpDifferenceType.Changed:
-                                {
-                                    var property = Model.Attributes.SingleOrDefault(x => string.Equals(x.Name, member.Identifier, StringComparison.OrdinalIgnoreCase));
-                                    if (property != null)
-                                    {
-                                        changes.Add(CodeToModelOperationFactory.Instance.ChangeElementTypeReference(
-                                            element: property.InternalElement,
-                                            typeReference: TryGetTypeReference(member.TypeName!, Model.InternalElement.Package, out var reference)
-                                                ? CodeToModelOperationFactory.Instance.TypeReference(reference)
-                                                : null));
-                                    }
-
-                                    break;
-                                }
+                                changes.Add(CodeToModelOperationFactory.Instance.CreateAssociation(
+                                    specialization: AssociationModel.SpecializationType,
+                                    specializationId: AssociationModel.SpecializationTypeId,
+                                    targetEndElement: (IElement)typeNameReference.Element,
+                                    targetEndName: member.Identifier,
+                                    targetEndIsNullable: typeNameReference.IsNullable,
+                                    targetEndIsCollection: typeNameReference.IsCollection,
+                                    ownerEndElement: Model.InternalElement));
+                                break;
                         }
 
                         break;

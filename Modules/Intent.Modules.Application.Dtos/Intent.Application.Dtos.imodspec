@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.Dtos</id>
-  <version>4.5.0-pre.0</version>
+  <version>4.5.0-pre.1</version>
   <supportedClientVersions>[4.6.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Generates code for your Application Service that applies the Interface segregation principal</summary>
   <description>Generates code for your Application Service that applies the Interface segregation principal</description>
@@ -32,10 +32,10 @@
     <decorator id="Intent.Application.Dtos.DataContractDTOAttributeDecorator" enabled="false" externalReference="128d2122-ed2d-459e-b933-c5ce487320f0" />
   </decorators>
   <dependencies>
-    <dependency id="Intent.Common" version="3.10.0-pre.0" />
-    <dependency id="Intent.Common.CSharp" version="3.10.0-pre.0" />
-    <dependency id="Intent.Common.Types" version="4.0.0" />
-    <dependency id="Intent.Modelers.Services" version="3.5.1" />
+    <dependency id="Intent.Common" version="3.10.0-pre.1" />
+    <dependency id="Intent.Common.CSharp" version="3.10.0-pre.1" />
+    <dependency id="Intent.Common.Types" version="4.1.0" />
+    <dependency id="Intent.Modelers.Services" version="4.0.8" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
   </dependencies>
   <files>
@@ -46,7 +46,7 @@
     <install target="Module Builder" src="Intent.Metadata/Module Builder/Intent.Application.Dtos/Intent.Application.Dtos.pkg.config" externalReference="7c10c085-173e-4ce3-9aa5-3cc261c87b1f" />
   </metadata>
   <moduleSettings>
-    <group id="aac8a446-047c-468b-809b-ca28989b558b" title="DTO Settings" externalReference="aac8a446-047c-468b-809b-ca28989b558b">
+    <group id="aac8a446-047c-468b-809b-ca28989b558b" title="DTO Settings" externalReference="aac8a446-047c-468b-809b-ca28989b558b" type="application-settings">
       <settings>
         <setting id="1d1a8aae-d3f7-42ee-84b3-cf62d7da4d1e" title="Type" type="select">
           <defaultValue>class</defaultValue>
@@ -77,4 +77,5 @@
     </group>
   </moduleSettings>
   <moduleSettingsExtensions />
+  <migrations />
 </package>
