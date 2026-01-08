@@ -76,10 +76,14 @@ async function getAiProviderModels() {
 }
 async function getAiModelSelectionFields(providerModelsResult, aiSettingKeyPrefix) {
     var _a;
-    const globalSettings = await userSettings.loadGlobalAsync();
-    const settingModelId = globalSettings.get(`${aiSettingKeyPrefix}.ModelId`);
-    const settingThinkingLevel = globalSettings.get(`${aiSettingKeyPrefix}.ThinkingLevel`);
     const { providerModels, modelLookup } = providerModelsResult;
+    const globalSettings = await userSettings.loadGlobalAsync();
+    let settingModelId = globalSettings.get(`${aiSettingKeyPrefix}.ModelId`);
+    let settingThinkingLevel = globalSettings.get(`${aiSettingKeyPrefix}.ThinkingLevel`);
+    if (settingModelId == null && modelLookup["open-ai--gpt-5.1"] != null) {
+        settingModelId = "open-ai--gpt-5.1";
+        settingThinkingLevel = "low";
+    }
     const initialThinkingType = (_a = modelLookup[settingModelId]) === null || _a === void 0 ? void 0 : _a.thinkingType;
     return [
         {

@@ -31,11 +31,16 @@ async function getAiProviderModels(): Promise<IProviderModelsResult> {
 }
 
 async function getAiModelSelectionFields(providerModelsResult: IProviderModelsResult, aiSettingKeyPrefix: string): Promise<MacroApi.Context.IDynamicFormFieldConfig[]> {
-    const globalSettings = await userSettings.loadGlobalAsync();
-    const settingModelId = globalSettings.get(`${aiSettingKeyPrefix}.ModelId`);
-    const settingThinkingLevel = globalSettings.get(`${aiSettingKeyPrefix}.ThinkingLevel`);
-
     const { providerModels, modelLookup } = providerModelsResult;
+    const globalSettings = await userSettings.loadGlobalAsync();
+    let settingModelId = globalSettings.get(`${aiSettingKeyPrefix}.ModelId`);
+    let settingThinkingLevel = globalSettings.get(`${aiSettingKeyPrefix}.ThinkingLevel`);
+
+    if (settingModelId == null && modelLookup["open-ai--gpt-5.1"] != null) {
+        settingModelId = "open-ai--gpt-5.1";
+        settingThinkingLevel = "low";
+    }
+
     const initialThinkingType = modelLookup[settingModelId]?.thinkingType;
 
     return [
