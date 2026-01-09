@@ -1,3 +1,7 @@
+### Version 3.9.10
+
+- Fixed: Updated `Intent.Persistence.SDK` to latest version to resolve compatibility issues.
+
 ### Version 3.9.9
 
 - Improvement: LaunchSettings.json LaunchURL now updates the default launch URL path for modules like Scalar / SwashBuckle.

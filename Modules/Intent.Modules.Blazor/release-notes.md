@@ -1,3 +1,7 @@
+### Version 1.0.9
+
+- Fixed: Updated `Intent.Persistence.SDK` to latest version to resolve compatibility issues.
+
 ### Version 1.0.8
 
 - Fixed: WASM Client launch profile was not getting created.

@@ -1,3 +1,7 @@
+### Version 4.1.5
+
+- Fixed: Updated `Intent.Persistence.SDK` to latest version to resolve compatibility issues.
+
 ### Version 4.1.4
 
 - Improvement: Added support for application-wide paging default values.

@@ -1,3 +1,7 @@
+### Version 6.1.1
+
+- Fixed: Updated `Intent.Persistence.SDK` to latest version to resolve compatibility issues.
+
 ### Version 6.1.0
 
 - New Feature: Added `IMessageBus` interface as the primary eventing contract with `Publish`, `Send`, and `FlushAllAsync` methods, along with composite message bus infrastructure to support multiple provider coexistence.
