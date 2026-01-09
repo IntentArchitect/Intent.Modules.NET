@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{3F555F73-B18B-4919-91F6-64EBA2E52CCC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scalar.NET10.OAuth2Implicit.Api", "Scalar.NET10.OAuth2Implicit.Api\Scalar.NET10.OAuth2Implicit.Api.csproj", "{46009A80-951A-44D7-8F00-B8D839C3AB82}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{DFA71346-0B67-4BEA-A8D2-55CF482A7757}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scalar.NET10.OAuth2Implicit.Application", "Scalar.NET10.OAuth2Implicit.Application\Scalar.NET10.OAuth2Implicit.Application.csproj", "{D057DB5D-9BA8-4CF0-867D-1340383A60E3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{5A5BF3AF-140F-4E05-91FC-D19DA027A5DB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scalar.NET10.OAuth2Implicit.Domain", "Scalar.NET10.OAuth2Implicit.Domain\Scalar.NET10.OAuth2Implicit.Domain.csproj", "{F7826734-F91A-4538-83A9-8A734ACEAF5F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{EF732DBC-1D82-419E-B489-5815B11E67C3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scalar.NET10.OAuth2Implicit.Infrastructure", "Scalar.NET10.OAuth2Implicit.Infrastructure\Scalar.NET10.OAuth2Implicit.Infrastructure.csproj", "{759B88A9-6800-4127-B85B-E10BE30DBDB9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{46009A80-951A-44D7-8F00-B8D839C3AB82} = {3F555F73-B18B-4919-91F6-64EBA2E52CCC}
+		{D057DB5D-9BA8-4CF0-867D-1340383A60E3} = {DFA71346-0B67-4BEA-A8D2-55CF482A7757}
+		{F7826734-F91A-4538-83A9-8A734ACEAF5F} = {5A5BF3AF-140F-4E05-91FC-D19DA027A5DB}
+		{759B88A9-6800-4127-B85B-E10BE30DBDB9} = {EF732DBC-1D82-419E-B489-5815B11E67C3}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{46009A80-951A-44D7-8F00-B8D839C3AB82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46009A80-951A-44D7-8F00-B8D839C3AB82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46009A80-951A-44D7-8F00-B8D839C3AB82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46009A80-951A-44D7-8F00-B8D839C3AB82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D057DB5D-9BA8-4CF0-867D-1340383A60E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D057DB5D-9BA8-4CF0-867D-1340383A60E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D057DB5D-9BA8-4CF0-867D-1340383A60E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D057DB5D-9BA8-4CF0-867D-1340383A60E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7826734-F91A-4538-83A9-8A734ACEAF5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7826734-F91A-4538-83A9-8A734ACEAF5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7826734-F91A-4538-83A9-8A734ACEAF5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7826734-F91A-4538-83A9-8A734ACEAF5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{759B88A9-6800-4127-B85B-E10BE30DBDB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{759B88A9-6800-4127-B85B-E10BE30DBDB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{759B88A9-6800-4127-B85B-E10BE30DBDB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{759B88A9-6800-4127-B85B-E10BE30DBDB9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

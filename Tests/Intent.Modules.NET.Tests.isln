@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore.CleanArchitecture.Dapr" version="2.1.16" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture" version="5.1.18-pre.4" />
   <applications>
     <application id="a3039e69-7ab0-4ab4-8784-54706aa3fcd8" name="Standard.AspNetCore.TestApplication" relativePath="Standard.AspNetCore.TestApplication/Standard.AspNetCore.TestApplication.application.config" />
     <application id="859f5adf-c40e-40fb-9e68-e41da908d768" name="AzureFunctions.TestApplication" relativePath="AzureFunctions.TestApplication/AzureFunctions.TestApplication.application.config" />
@@ -190,5 +190,9 @@
     <application id="31ac754c-9bd6-45cf-9eff-adc02d98f105" name="AzureFunction.QueueStorage" solutionFolder="Eventing/AzureQueueStorage" relativePath="AzureFunction.QueueStorage/AzureFunction.QueueStorage.application.config" />
     <application id="71645763-b306-4429-971a-8567d89d3b14" name="EntityFrameworkCore.SqlServer.EF10" relativePath="EntityFrameworkCore.SqlServer.EF10/EntityFrameworkCore.SqlServer.EF10.application.config" />
     <application id="eeaa8b97-ea61-4ab1-9902-fbcc201b4855" name="CompositeMessageBus" solutionFolder="Eventing/Composite Message Bus" relativePath="CompositeMessageBus/CompositeMessageBus.application.config" />
+    <application id="4809e1b4-751a-40d5-9259-a67f228d11dd" name="Scalar.NET10.Bearer" solutionFolder="Scalar" relativePath="Scalar.NET10.Bearer/Scalar.NET10.Bearer.application.config" />
+    <application id="08faffbb-9f31-42d2-bbc4-cdf37b00cc77" name="Scalar.NET10.OAuth2Implicit" solutionFolder="Scalar" relativePath="Scalar.NET10.OAuth2Implicit/Scalar.NET10.OAuth2Implicit.application.config" />
+    <application id="1955332e-854d-46d7-ab61-72c14b1da1b8" name="Scalar.NET9.OAuth2Implicit" solutionFolder="Scalar" relativePath="Scalar.NET9.OAuth2Implicit/Scalar.NET9.OAuth2Implicit.application.config" />
+    <application id="2fc52b83-de44-46be-9ee0-bfb16405021e" name="Scalar.NET9.Bearer" solutionFolder="Scalar" relativePath="Scalar.NET9.Bearer/Scalar.NET9.Bearer.application.config" />
   </applications>
 </solution>

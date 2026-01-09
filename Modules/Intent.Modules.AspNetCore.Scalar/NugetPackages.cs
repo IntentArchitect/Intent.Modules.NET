@@ -19,11 +19,13 @@ namespace Intent.Modules.AspNetCore.Scalar
             NugetRegistry.Register(MicrosoftAspNetCoreOpenApiPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("9.0.10", locked: true)
+                        ( >= 10, >= 0) => new PackageVersion("10.0.1")
+                            .WithNugetDependency("Microsoft.OpenApi", "2.0.0"),
+                        ( >= 9, >= 0) => new PackageVersion("9.0.11")
                             .WithNugetDependency("Microsoft.OpenApi", "1.6.17"),
-                        ( >= 8, >= 0) => new PackageVersion("8.0.21", locked: true)
+                        ( >= 8, >= 0) => new PackageVersion("8.0.22")
                             .WithNugetDependency("Microsoft.OpenApi", "1.4.3"),
-                        ( >= 7, >= 0) => new PackageVersion("7.0.20", locked: true)
+                        ( >= 7, >= 0) => new PackageVersion("7.0.20")
                             .WithNugetDependency("Microsoft.OpenApi", "1.4.3"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftAspNetCoreOpenApiPackageName}'"),
                     }
@@ -31,8 +33,9 @@ namespace Intent.Modules.AspNetCore.Scalar
             NugetRegistry.Register(ScalarAspNetCorePackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("2.9.0", locked: true),
-                        ( >= 8, >= 0) => new PackageVersion("2.9.0", locked: true),
+                        ( >= 10, >= 0) => new PackageVersion("2.12.3"),
+                        ( >= 9, >= 0) => new PackageVersion("2.12.3"),
+                        ( >= 8, >= 0) => new PackageVersion("2.12.3"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{ScalarAspNetCorePackageName}'"),
                     }
                 );

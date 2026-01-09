@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="32eeab05-a41f-45ea-875f-1c5358c501a6" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>169f3801-8244-4b9e-ac2f-3eaede785048</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>f6cf2020-b204-426d-9704-c4a414ff4678</parentFolderId>
+  <packageId>f6cf2020-b204-426d-9704-c4a414ff4678</packageId>
+  <packageName>Scalar.NET10.Bearer.Services</packageName>
+  <diagram>
+    <targetPackageId>f6cf2020-b204-426d-9704-c4a414ff4678</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

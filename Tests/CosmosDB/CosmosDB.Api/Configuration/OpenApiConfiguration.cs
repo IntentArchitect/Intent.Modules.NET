@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.Scalar.OpenApiConfiguration", Version = "1.0")]
@@ -26,43 +26,38 @@ namespace CosmosDB.Api.Configuration
                                 return Task.CompletedTask;
                             }
 
-                            if (schema.Annotations == null || !schema.Annotations.TryGetValue("x-schema-id", out object? _))
+                            if (schema.Metadata == null || !schema.Metadata.TryGetValue("x-schema-id", out object? _))
                             {
                                 return Task.CompletedTask;
                             }
 
                             var schemaId = SchemaIdSelector(context.JsonTypeInfo.Type);
-                            schema.Annotations["x-schema-id"] = schemaId;
+                            schema.Metadata["x-schema-id"] = schemaId;
                             schema.Title = schemaId;
 
                             return Task.CompletedTask;
                         });
                     options.AddDocumentTransformer((document, context, cancellationToken) =>
                     {
-                        document.Components ??= new();
-
-                        document.Components.SecuritySchemes["Bearer"] = new()
+                        document.Components ??= new OpenApiComponents();
+                        document.Components.SecuritySchemes ??= new Dictionary<string, IOpenApiSecurityScheme>();
+                        document.Components.SecuritySchemes.Add("bearer", new OpenApiSecurityScheme
                         {
                             Type = SecuritySchemeType.Http,
                             Scheme = "bearer",
-                            BearerFormat = "JWT"
-                        };
+                            In = ParameterLocation.Header,
+                            BearerFormat = "Json Web Token"
+                        });
 
-                        var bearerSchemeReference = new OpenApiSecurityScheme
+                        foreach (var operation in document.Paths.Values.SelectMany(path => path.Operations ?? []))
                         {
-                            Reference = new OpenApiReference
+                            operation.Value.Security ??= [];
+                            operation.Value.Security.Add(new OpenApiSecurityRequirement
                             {
-                                Id = "Bearer",
-                                Type = ReferenceType.SecurityScheme
-                            }
-                        };
+                                { new OpenApiSecuritySchemeReference("Bearer", document), [] }
+                            });
+                        }
 
-                        var securityStatement = new OpenApiSecurityRequirement
-                        {
-                            [bearerSchemeReference] = new List<string>()
-                        };
-
-                        document.SecurityRequirements.Add(securityStatement);
                         return Task.CompletedTask;
                     });
                 });

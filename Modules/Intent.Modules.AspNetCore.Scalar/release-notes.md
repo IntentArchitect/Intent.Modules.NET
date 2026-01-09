@@ -1,3 +1,7 @@
+### Version 1.0.5
+
+- Improvement: Compatibility added for `Microsoft.AspNetCore.OpenApi` versions 10 and greater applied conditionally depending on the target framework of the project.
+
 ### Version 1.0.4
 
 - Improvement: Updated module documentation to use centralized documentation site.
