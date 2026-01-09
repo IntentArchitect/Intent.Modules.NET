@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.Scalar</id>
-  <version>1.0.4</version>
-  <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
+  <version>1.0.5-pre.0</version>
+  <supportedClientVersions>[4.4.0-a,5.0.0)</supportedClientVersions>
   <summary>Provides OpenApi support for using the Scalar library for ASP.NET Core.</summary>
   <description>Provides OpenApi support for using the Scalar library for ASP.NET Core.</description>
   <authors>Intent Architect</authors>
@@ -44,7 +44,7 @@
   </moduleSettings>
   <dependencies>
     <dependency id="Intent.Common" version="3.8.0" />
-    <dependency id="Intent.Common.CSharp" version="3.8.1" />
+    <dependency id="Intent.Common.CSharp" version="3.9.13-pre.0" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
   </dependencies>

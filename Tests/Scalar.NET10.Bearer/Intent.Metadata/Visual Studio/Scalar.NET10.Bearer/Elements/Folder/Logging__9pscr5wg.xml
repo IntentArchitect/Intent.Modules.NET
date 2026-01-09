@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="451b648c-7c41-452e-8ed6-183631a986ea" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Logging</name>
+  <display>Logging</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>b0be9d91-d279-46b6-93d9-3cb8610dc69c</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

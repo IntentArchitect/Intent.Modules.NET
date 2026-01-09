@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{5A2F57D8-F563-4B40-8E71-6D740A70459E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scalar.NET10.Bearer.Api", "Scalar.NET10.Bearer.Api\Scalar.NET10.Bearer.Api.csproj", "{B0BE9D91-D279-46B6-93D9-3CB8610DC69C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{D106A7CE-02FA-4215-B580-BDBA6A8A8226}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scalar.NET10.Bearer.Application", "Scalar.NET10.Bearer.Application\Scalar.NET10.Bearer.Application.csproj", "{1C8A06C8-1C92-473C-8ED9-CE4CDB0F4A54}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{96916792-CE4F-4F33-908E-40167E097989}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scalar.NET10.Bearer.Domain", "Scalar.NET10.Bearer.Domain\Scalar.NET10.Bearer.Domain.csproj", "{BF6B9DDD-D25C-4450-A8DD-4903D9F08DE0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{E9053A50-9123-4F4D-9EB6-85A09606FCE7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scalar.NET10.Bearer.Infrastructure", "Scalar.NET10.Bearer.Infrastructure\Scalar.NET10.Bearer.Infrastructure.csproj", "{73834711-9138-41D9-8515-03A921B615E6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B0BE9D91-D279-46B6-93D9-3CB8610DC69C} = {5A2F57D8-F563-4B40-8E71-6D740A70459E}
+		{1C8A06C8-1C92-473C-8ED9-CE4CDB0F4A54} = {D106A7CE-02FA-4215-B580-BDBA6A8A8226}
+		{BF6B9DDD-D25C-4450-A8DD-4903D9F08DE0} = {96916792-CE4F-4F33-908E-40167E097989}
+		{73834711-9138-41D9-8515-03A921B615E6} = {E9053A50-9123-4F4D-9EB6-85A09606FCE7}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B0BE9D91-D279-46B6-93D9-3CB8610DC69C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0BE9D91-D279-46B6-93D9-3CB8610DC69C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0BE9D91-D279-46B6-93D9-3CB8610DC69C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0BE9D91-D279-46B6-93D9-3CB8610DC69C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C8A06C8-1C92-473C-8ED9-CE4CDB0F4A54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C8A06C8-1C92-473C-8ED9-CE4CDB0F4A54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C8A06C8-1C92-473C-8ED9-CE4CDB0F4A54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C8A06C8-1C92-473C-8ED9-CE4CDB0F4A54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF6B9DDD-D25C-4450-A8DD-4903D9F08DE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF6B9DDD-D25C-4450-A8DD-4903D9F08DE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF6B9DDD-D25C-4450-A8DD-4903D9F08DE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF6B9DDD-D25C-4450-A8DD-4903D9F08DE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73834711-9138-41D9-8515-03A921B615E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73834711-9138-41D9-8515-03A921B615E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73834711-9138-41D9-8515-03A921B615E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73834711-9138-41D9-8515-03A921B615E6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

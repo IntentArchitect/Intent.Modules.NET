@@ -9,9 +9,11 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using static Intent.Modules.AspNetCore.Scalar.Settings.ScalarSettings;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -46,7 +48,6 @@ namespace Intent.Modules.AspNetCore.Scalar.Templates.OpenApiConfiguration
             AddNugetDependency(NugetPackages.MicrosoftAspNetCoreOpenApi(OutputTarget));
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
-                .AddUsing("Microsoft.OpenApi.Models")
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
                 .AddUsing("System")
                 .AddUsing("System.Linq")
@@ -54,6 +55,15 @@ namespace Intent.Modules.AspNetCore.Scalar.Templates.OpenApiConfiguration
                 .AddUsing("System.Collections.Generic")
                 .AddClass($"OpenApiConfiguration", @class =>
                 {
+                    var usesMicrosoftOpenApiV2 = Project.GetMaxNetAppVersion().Major >= 10;
+                    if (!usesMicrosoftOpenApiV2)
+                    {
+                        AddUsing("Microsoft.OpenApi.Models");
+                    }
+                    var schemaMetadataProperty = usesMicrosoftOpenApiV2
+                        ? "Metadata"
+                        : "Annotations";
+
                     @class.Static();
 
                     @class.AddMethod("IServiceCollection", "ConfigureOpenApi", configureOpenApi =>
@@ -66,79 +76,142 @@ namespace Intent.Modules.AspNetCore.Scalar.Templates.OpenApiConfiguration
                             .AddArgument(new CSharpLambdaBlock("options"), argument =>
                             {
                                 var lambdaBlock = (CSharpLambdaBlock)argument;
-                                
+
                                 lambdaBlock.AddStatement(new CSharpInvocationStatement("options.AddSchemaTransformer")
                                     .AddArgument(new CSharpLambdaBlock("(schema, context, cancellationToken)"), configure =>
                                     {
                                         configure.AddIfStatement("context.JsonTypeInfo.Type.IsValueType || context.JsonTypeInfo.Type == typeof(String) || context.JsonTypeInfo.Type == typeof(string)", @if => @if.AddReturn("Task.CompletedTask"));
-                                        configure.AddIfStatement("schema.Annotations == null || !schema.Annotations.TryGetValue(\"x-schema-id\", out object? _)", @if => @if.AddReturn("Task.CompletedTask"));
+                                        configure.AddIfStatement($"schema.{schemaMetadataProperty} == null || !schema.{schemaMetadataProperty}.TryGetValue(\"x-schema-id\", out object? _)", @if => @if.AddReturn("Task.CompletedTask"));
 
                                         configure.AddStatement("var schemaId = SchemaIdSelector(context.JsonTypeInfo.Type);", s => s.SeparatedFromPrevious());
-                                        configure.AddStatement("schema.Annotations[\"x-schema-id\"] = schemaId;");
+                                        configure.AddStatement($"schema.{schemaMetadataProperty}[\"x-schema-id\"] = schemaId;");
                                         configure.AddStatement("schema.Title = schemaId;");
 
                                         configure.AddStatement("return Task.CompletedTask;", s => s.SeparatedFromPrevious());
                                     }).WithArgumentsOnNewLines());
 
-                                lambdaBlock.AddStatement(new CSharpInvocationStatement("options.AddDocumentTransformer")
+                                var authenticationType = ExecutionContext.GetSettings().GetScalarSettings().Authentication().AsEnum();
+                                if (authenticationType != AuthenticationOptionsEnum.None)
+                                {
+                                    lambdaBlock.AddStatement(new CSharpInvocationStatement("options.AddDocumentTransformer")
                                         .AddArgument(new CSharpLambdaBlock("(document, context, cancellationToken)"), configure =>
                                         {
-                                            configure.AddStatement("document.Components ??= new();");
-
-                                            if (ExecutionContext.GetSettings().GetScalarSettings().Authentication().IsBearer())
+                                            switch (authenticationType)
                                             {
-                                                configure.AddStatement(new CSharpObjectInitializerBlock("document.Components.SecuritySchemes[\"Bearer\"] = new()")
-                                                    .AddInitStatement("Type", "SecuritySchemeType.Http")
-                                                    .AddInitStatement("Scheme", "\"bearer\"")
-                                                    .AddInitStatement("BearerFormat", "\"JWT\"")
-                                                    .WithSemicolon());
+                                                case AuthenticationOptionsEnum.Bearer:
+                                                    if (!usesMicrosoftOpenApiV2)
+                                                    {
+                                                        configure.AddStatement("document.Components ??= new();");
+                                                        configure.AddStatement(new CSharpObjectInitializerBlock("document.Components.SecuritySchemes[\"Bearer\"] = new()")
+                                                            .AddInitStatement("Type", "SecuritySchemeType.Http")
+                                                            .AddInitStatement("Scheme", "\"bearer\"")
+                                                            .AddInitStatement("BearerFormat", "\"JWT\"")
+                                                            .WithSemicolon());
 
-                                                configure.AddStatement(new CSharpObjectInitializerBlock("var bearerSchemeReference = new OpenApiSecurityScheme")
-                                                    .AddInitStatement("Reference", new CSharpObjectInitializerBlock("new OpenApiReference")
-                                                        .AddInitStatement("Id", "\"Bearer\"")
-                                                        .AddInitStatement("Type", "ReferenceType.SecurityScheme")
-                                                    )
-                                                    .WithSemicolon());
+                                                        configure.AddStatement(new CSharpObjectInitializerBlock("var bearerSchemeReference = new OpenApiSecurityScheme")
+                                                            .AddInitStatement("Reference", new CSharpObjectInitializerBlock("new OpenApiReference")
+                                                                .AddInitStatement("Id", "\"Bearer\"")
+                                                                .AddInitStatement("Type", "ReferenceType.SecurityScheme")
+                                                            )
+                                                            .WithSemicolon());
 
-                                                configure.AddStatement(new CSharpObjectInitializerBlock("var securityStatement = new OpenApiSecurityRequirement")
-                                                    .AddInitStatement("[bearerSchemeReference]", "new List<string>()").WithSemicolon());
+                                                        configure.AddStatement(new CSharpObjectInitializerBlock("var securityStatement = new OpenApiSecurityRequirement")
+                                                            .AddInitStatement("[bearerSchemeReference]", "new List<string>()").WithSemicolon());
 
-                                                configure.AddStatement("document.SecurityRequirements.Add(securityStatement);");
-                                            }
-                                            else if (ExecutionContext.GetSettings().GetScalarSettings().Authentication().IsImplicit())
-                                            {
-                                                configure.AddStatement("var configuration = context.ApplicationServices.GetRequiredService<IConfiguration>();");
+                                                        configure.AddStatement("document.SecurityRequirements.Add(securityStatement);");
+                                                    }
+                                                    else
+                                                    {
+                                                        AddUsing("Microsoft.OpenApi");
+                                                        configure.AddStatement("document.Components ??= new OpenApiComponents();", s => s.SeparatedFromPrevious());
+                                                        configure.AddStatement("document.Components.SecuritySchemes ??= new Dictionary<string, IOpenApiSecurityScheme>();");
+                                                        configure.AddInvocationStatement("document.Components.SecuritySchemes.Add", c =>
+                                                        {
+                                                            c.AddArgument("\"bearer\"");
+                                                            c.AddArgument(new CSharpObjectInitializerBlock("new OpenApiSecurityScheme")
+                                                                .AddInitStatement("Type", "SecuritySchemeType.Http")
+                                                                .AddInitStatement("Scheme", "\"bearer\"")
+                                                                .AddInitStatement("In", "ParameterLocation.Header")
+                                                                .AddInitStatement("BearerFormat", "\"Json Web Token\""));
+                                                        });
 
-                                                configure.AddStatement("var oidcSection = configuration.GetSection(\"OpenApi:Oidc\");");
-                                                configure.AddStatement("var authorizationUrl = oidcSection.GetValue<string>(\"AuthorizationUrl\");");
-                                                configure.AddStatement("var scopes = oidcSection.GetSection(\"Scopes\").Get<string[]>() ?? Array.Empty<string>();");
+                                                        configure.AddForEachStatement("operation", "document.Paths.Values.SelectMany(path => path.Operations ?? [])", @foreach =>
+                                                        {
+                                                            @foreach.AddStatement("operation.Value.Security ??= [];");
+                                                            @foreach.AddInvocationStatement("operation.Value.Security.Add", invocation =>
+                                                            {
+                                                                invocation.AddArgument(new CSharpObjectInitializerBlock("new OpenApiSecurityRequirement")
+                                                                    .AddKeyAndValue("new OpenApiSecuritySchemeReference(\"Bearer\", document)", "[]"));
+                                                            });
+                                                        });
+                                                    }
+                                                    break;
+                                                case AuthenticationOptionsEnum.Implicit:
+                                                    configure.AddStatement("var configuration = context.ApplicationServices.GetRequiredService<IConfiguration>();");
+                                                    configure.AddStatement("var oidcSection = configuration.GetSection(\"OpenApi:Oidc\");");
+                                                    configure.AddStatement("var authorizationUrl = oidcSection.GetValue<string>(\"AuthorizationUrl\");");
+                                                    configure.AddStatement("var scopes = oidcSection.GetSection(\"Scopes\").Get<string[]>() ?? Array.Empty<string>();");
+                                                    configure.AddIfStatement("string.IsNullOrEmpty(authorizationUrl)", @if => @if.AddStatement("throw new ArgumentException(\"You have not configured your AuthorizationUrl\", nameof(authorizationUrl));"));
 
-                                                configure.AddIfStatement("string.IsNullOrEmpty(authorizationUrl)", @if => @if.AddStatement("throw new ArgumentException(\"You have not configured your AuthorizationUrl\", nameof(authorizationUrl));"));
+                                                    if (!usesMicrosoftOpenApiV2)
+                                                    {
+                                                        configure.AddStatement("document.Components ??= new();", s => s.SeparatedFromPrevious());
+                                                        configure.AddStatement(new CSharpObjectInitializerBlock("document.Components.SecuritySchemes[\"OidcImplicit\"] = new()")
+                                                            .AddInitStatement("Type", "SecuritySchemeType.OAuth2")
+                                                            .AddInitStatement("Flows", new CSharpObjectInitializerBlock("new OpenApiOAuthFlows")
+                                                                .AddInitStatement("Implicit", new CSharpObjectInitializerBlock("new OpenApiOAuthFlow")
+                                                                    .AddInitStatement("AuthorizationUrl", "new Uri(authorizationUrl)")
+                                                                    .AddInitStatement("Scopes", "scopes.ToDictionary(s => s, s => $\"Access to {s}\")")))
+                                                            .WithSemicolon());
 
-                                                configure.AddStatement(new CSharpObjectInitializerBlock("document.Components.SecuritySchemes[\"OidcImplicit\"] = new()")
-                                                   .AddInitStatement("Type", "SecuritySchemeType.OAuth2")
-                                                   .AddInitStatement("Flows", new CSharpObjectInitializerBlock("new OpenApiOAuthFlows")
-                                                        .AddInitStatement("Implicit", new CSharpObjectInitializerBlock("new OpenApiOAuthFlow")
-                                                            .AddInitStatement("AuthorizationUrl", "new Uri(authorizationUrl)")
-                                                            .AddInitStatement("Scopes", "scopes.ToDictionary(s => s, s => $\"Access to {s}\")")))
-                                                   .WithSemicolon());
+                                                        configure.AddStatement(new CSharpObjectInitializerBlock("var oidcSchemeReference = new OpenApiSecurityScheme")
+                                                            .AddInitStatement("Reference", new CSharpObjectInitializerBlock("new OpenApiReference")
+                                                                .AddInitStatement("Id", "\"OidcImplicit\"")
+                                                                .AddInitStatement("Type", "ReferenceType.SecurityScheme")
+                                                            )
+                                                            .WithSemicolon());
 
-                                                configure.AddStatement(new CSharpObjectInitializerBlock("var oidcSchemeReference = new OpenApiSecurityScheme")
-                                                    .AddInitStatement("Reference", new CSharpObjectInitializerBlock("new OpenApiReference")
-                                                        .AddInitStatement("Id", "\"OidcImplicit\"")
-                                                        .AddInitStatement("Type", "ReferenceType.SecurityScheme")
-                                                    )
-                                                    .WithSemicolon());
+                                                        configure.AddStatement(new CSharpObjectInitializerBlock("var securityStatement = new OpenApiSecurityRequirement")
+                                                            .AddInitStatement("[oidcSchemeReference]", "scopes.ToList()").WithSemicolon());
 
-                                                configure.AddStatement(new CSharpObjectInitializerBlock("var securityStatement = new OpenApiSecurityRequirement")
-                                                    .AddInitStatement("[oidcSchemeReference]", "scopes.ToList()").WithSemicolon());
+                                                        configure.AddStatement("document.SecurityRequirements.Add(securityStatement);");
+                                                    }
+                                                    else
+                                                    {
+                                                        AddUsing("Microsoft.OpenApi");
+                                                        configure.AddStatement("document.Components ??= new OpenApiComponents();", s => s.SeparatedFromPrevious());
+                                                        configure.AddStatement("document.Components.SecuritySchemes ??= new Dictionary<string, IOpenApiSecurityScheme>();");
+                                                        configure.AddInvocationStatement("document.Components.SecuritySchemes.Add", c =>
+                                                        {
+                                                            c.AddArgument("\"oauth2\"");
+                                                            c.AddArgument(new CSharpObjectInitializerBlock("new OpenApiSecurityScheme")
+                                                                .AddInitStatement("Type", "SecuritySchemeType.OAuth2")
+                                                                .AddInitStatement("Flows", new CSharpObjectInitializerBlock("new OpenApiOAuthFlows")
+                                                                    .AddInitStatement("AuthorizationCode", new CSharpObjectInitializerBlock("new OpenApiOAuthFlow")
+                                                                        .AddInitStatement("AuthorizationUrl", "new Uri(authorizationUrl)")
+                                                                        .AddInitStatement("Scopes", "scopes.ToDictionary(s => s, s => $\"Access to {s}\")"))));
+                                                        });
 
-                                                configure.AddStatement("document.SecurityRequirements.Add(securityStatement);");
+                                                        configure.AddStatement("document.Security ??= new List<OpenApiSecurityRequirement>();", s => s.SeparatedFromPrevious());
+                                                        configure.AddInvocationStatement("document.Security.Add", c =>
+                                                        {
+                                                            c.AddArgument(new CSharpObjectInitializerBlock("new OpenApiSecurityRequirement")
+                                                                .AddStatement(new CSharpObjectInitializerBlock(null)
+                                                                    .AddStatement("new OpenApiSecuritySchemeReference(\"oauth2\")")
+                                                                    .AddStatement("scopes.ToList()")));
+                                                        });
+
+                                                        configure.AddStatement("document.SetReferenceHostDocument();", s => s.SeparatedFromPrevious());
+                                                    }
+                                                    break;
+                                                case AuthenticationOptionsEnum.None:
+                                                default:
+                                                    throw new ArgumentOutOfRangeException();
                                             }
 
                                             configure.AddStatement("return Task.CompletedTask;");
-                                        })
-                                    );
+                                        }));
+                                }
                             })
                             .WithArgumentsOnNewLines()
                         );
