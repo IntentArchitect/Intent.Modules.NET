@@ -19,7 +19,8 @@ namespace Intent.Modules.AspNetCore.Versioning
             NugetRegistry.Register(AspVersioningMvcPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, >= 0) => new PackageVersion("8.1.0"),
+                        ( >= 8, >= 0) => new PackageVersion("8.1.1")
+                            .WithNugetDependency("Asp.Versioning.Http", "8.1.1"),
                         ( >= 7, >= 0) => new PackageVersion("7.1.1"),
                         ( >= 6, >= 0) => new PackageVersion("6.4.1"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AspVersioningMvcPackageName}'"),
@@ -28,7 +29,8 @@ namespace Intent.Modules.AspNetCore.Versioning
             NugetRegistry.Register(AspVersioningMvcApiExplorerPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, >= 0) => new PackageVersion("8.1.0"),
+                        ( >= 8, >= 0) => new PackageVersion("8.1.1")
+                            .WithNugetDependency("Asp.Versioning.Mvc", "8.1.1"),
                         ( >= 7, >= 0) => new PackageVersion("7.1.0"),
                         ( >= 6, >= 0) => new PackageVersion("6.4.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AspVersioningMvcApiExplorerPackageName}'"),

@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="59606dad-b026-4d55-8491-c717a1335b06" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.5.7</name>
+      <name>9.0.0</name>
       <display>8.5.5 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,10 +47,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="72b53217-a100-404a-8ab0-4e4e0192781b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ab64cb12-761a-4679-82f4-4efb72f731a8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>MassTransit</name>
           <isAbstract>false</isAbstract>
-          <value>8.5.7</value>
+          <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>59606dad-b026-4d55-8491-c717a1335b06</parentFolderId>
@@ -58,7 +58,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="b2122740-c377-417b-bbcd-8b6039947069" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="74823680-b8f8-45ae-b1f1-724d51a3648e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Identity</name>
           <isAbstract>false</isAbstract>
           <value>1.17.1</value>
@@ -69,7 +69,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="2635b4ed-3930-45fb-a87b-158ca3d1e4f1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="fd757a2f-d3ad-471e-836b-5968dcf6026d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Messaging.ServiceBus</name>
           <isAbstract>false</isAbstract>
           <value>7.20.1</value>
@@ -83,7 +83,7 @@
       </childElements>
     </childElement>
     <childElement id="f7e77f29-679c-4ded-b367-e1b418a6ba78" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.5.7</name>
+      <name>9.0.0</name>
       <display>8.5.5 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -105,10 +105,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="d39bb3a7-9b70-4328-9d3d-30754e3fbf5f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c21f3171-6dc3-46b4-9850-87672f7a0d5d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>MassTransit</name>
           <isAbstract>false</isAbstract>
-          <value>8.5.7</value>
+          <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f7e77f29-679c-4ded-b367-e1b418a6ba78</parentFolderId>
@@ -116,7 +116,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="ca4609bd-a4c7-454f-b055-64c6edd290e7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9cd37fae-c747-4915-bad2-a395e0737e8c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Identity</name>
           <isAbstract>false</isAbstract>
           <value>1.17.1</value>
@@ -127,7 +127,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="089d3691-e77c-44fd-9fa9-ec69ae00f822" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="18acbbb3-8f53-4697-ab7d-2915b6baa0fa" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Messaging.ServiceBus</name>
           <isAbstract>false</isAbstract>
           <value>7.20.1</value>
@@ -141,7 +141,7 @@
       </childElements>
     </childElement>
     <childElement id="e7a7ce92-b51d-4547-a7cd-2e069bf0a3b5" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.5.7</name>
+      <name>9.0.0</name>
       <display>8.5.5 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -163,10 +163,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="1d465abc-4c14-4c47-aaa0-7ef58e067059" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="7a56d1ab-2f3d-4ff7-ac7b-055197dc5f8e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>MassTransit</name>
           <isAbstract>false</isAbstract>
-          <value>8.5.7</value>
+          <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e7a7ce92-b51d-4547-a7cd-2e069bf0a3b5</parentFolderId>
@@ -174,7 +174,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="cb314a61-cb00-41f8-a13c-ffae3d7b2f47" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f515345f-7848-4965-9e91-eaaff9c4ccbe" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Identity</name>
           <isAbstract>false</isAbstract>
           <value>1.17.1</value>
@@ -185,7 +185,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="066b31c8-8861-40fe-ab53-f29d464656b7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="98da7016-1fae-46c4-8cb2-b5cc49a12807" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Messaging.ServiceBus</name>
           <isAbstract>false</isAbstract>
           <value>7.20.1</value>
@@ -199,7 +199,7 @@
       </childElements>
     </childElement>
     <childElement id="9331b277-bc33-4317-9c14-b3e3bd2bd6ae" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.5.7</name>
+      <name>9.0.0</name>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -217,10 +217,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="a204e461-f214-4c36-9fb4-6d2e64abe79f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="3d3201b2-ac1c-4122-9d68-662ea72ccee8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>MassTransit</name>
           <isAbstract>false</isAbstract>
-          <value>8.5.7</value>
+          <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>9331b277-bc33-4317-9c14-b3e3bd2bd6ae</parentFolderId>
@@ -228,7 +228,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d72118b6-c283-4d9e-8cb8-32879a133c24" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="31ca5ea1-73f7-4de7-9090-c8258a9fbcc2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Identity</name>
           <isAbstract>false</isAbstract>
           <value>1.17.1</value>
@@ -239,7 +239,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="46143c58-4e44-41ef-825a-aa99da023bbb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="7d89a614-2ba0-4810-80e8-0a26132c5551" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Messaging.ServiceBus</name>
           <isAbstract>false</isAbstract>
           <value>7.20.1</value>

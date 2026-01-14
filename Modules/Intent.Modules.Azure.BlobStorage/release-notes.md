@@ -1,3 +1,7 @@
+### Version 3.4.12
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 3.4.11
 
 - Improvement: Updated module documentation to use centralized documentation site.

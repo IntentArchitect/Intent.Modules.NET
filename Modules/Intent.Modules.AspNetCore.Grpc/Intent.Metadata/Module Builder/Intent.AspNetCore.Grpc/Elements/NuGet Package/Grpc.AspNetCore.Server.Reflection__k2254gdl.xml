@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="750dc8f0-551a-44af-b180-5a13b23a2394" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>2.71.0</name>
+      <name>2.76.0</name>
       <display>2.71.0 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,44 +47,35 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="6df59733-40be-4df7-a4f1-9b6dbe685bae" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Google.Protobuf</name>
-          <display>Google.Protobuf (3.30.2)</display>
-          <isAbstract>false</isAbstract>
-          <value>3.30.2</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>750dc8f0-551a-44af-b180-5a13b23a2394</parentFolderId>
-          <packageId>2b80d4f5-b004-4832-8678-05b39e33193c</packageId>
-          <packageName>Intent.AspNetCore.Grpc</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="ecffffa8-b340-4420-ab64-1a765078229e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="2d9d4d08-5f26-4d53-96cb-70d57aa1b670" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Grpc.AspNetCore.Server</name>
-          <display>Grpc.AspNetCore.Server (2.71.0)</display>
           <isAbstract>false</isAbstract>
-          <value>2.71.0</value>
+          <value>2.76.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>750dc8f0-551a-44af-b180-5a13b23a2394</parentFolderId>
-          <packageId>2b80d4f5-b004-4832-8678-05b39e33193c</packageId>
-          <packageName>Intent.AspNetCore.Grpc</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="bf7c1c0d-1547-468f-a50e-0cddc50ffcd2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="20851407-0bd5-40ab-be1d-f512eae83ba0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Grpc.Reflection</name>
-          <display>Grpc.Reflection (2.71.0)</display>
           <isAbstract>false</isAbstract>
-          <value>2.71.0</value>
+          <value>2.76.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>750dc8f0-551a-44af-b180-5a13b23a2394</parentFolderId>
-          <packageId>2b80d4f5-b004-4832-8678-05b39e33193c</packageId>
-          <packageName>Intent.AspNetCore.Grpc</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="0a1d6969-d75d-4a4f-bf4a-5731f08127a9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Google.Protobuf</name>
+          <isAbstract>false</isAbstract>
+          <value>3.31.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>750dc8f0-551a-44af-b180-5a13b23a2394</parentFolderId>
           <stereotypes />
           <metadata />
           <childElements />
@@ -92,7 +83,7 @@
       </childElements>
     </childElement>
     <childElement id="50f912f9-942a-47cd-b498-b657ac30b03c" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>2.71.0</name>
+      <name>2.76.0</name>
       <display>2.71.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -114,44 +105,35 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="c9ad1f49-0d60-41bf-a86d-56948941f370" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Google.Protobuf</name>
-          <display>Google.Protobuf (3.30.2)</display>
-          <isAbstract>false</isAbstract>
-          <value>3.30.2</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>50f912f9-942a-47cd-b498-b657ac30b03c</parentFolderId>
-          <packageId>2b80d4f5-b004-4832-8678-05b39e33193c</packageId>
-          <packageName>Intent.AspNetCore.Grpc</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="0df0731c-c4a2-401d-9953-0ae1c8a07beb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="00eed17c-fb92-4ed3-9842-c2d4cbb42137" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Grpc.AspNetCore.Server</name>
-          <display>Grpc.AspNetCore.Server (2.71.0)</display>
           <isAbstract>false</isAbstract>
-          <value>2.71.0</value>
+          <value>2.76.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>50f912f9-942a-47cd-b498-b657ac30b03c</parentFolderId>
-          <packageId>2b80d4f5-b004-4832-8678-05b39e33193c</packageId>
-          <packageName>Intent.AspNetCore.Grpc</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="764c5528-9bdb-4a63-83ce-d72a80e082db" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="77cfadb1-d6e3-4a8f-94ba-265210a1fdd6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Grpc.Reflection</name>
-          <display>Grpc.Reflection (2.71.0)</display>
           <isAbstract>false</isAbstract>
-          <value>2.71.0</value>
+          <value>2.76.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>50f912f9-942a-47cd-b498-b657ac30b03c</parentFolderId>
-          <packageId>2b80d4f5-b004-4832-8678-05b39e33193c</packageId>
-          <packageName>Intent.AspNetCore.Grpc</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="4d533b85-b0e1-4178-9a77-d0d0e011c79f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Google.Protobuf</name>
+          <isAbstract>false</isAbstract>
+          <value>3.31.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>50f912f9-942a-47cd-b498-b657ac30b03c</parentFolderId>
           <stereotypes />
           <metadata />
           <childElements />
@@ -286,6 +268,60 @@
           <parentFolderId>35443477-ad06-41d0-978d-c74c34774013</parentFolderId>
           <packageId>2b80d4f5-b004-4832-8678-05b39e33193c</packageId>
           <packageName>Intent.AspNetCore.Grpc</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="1fbef324-a5e7-45f4-a61e-deca25511fca" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>2.76.0</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>6742f707-c3ee-4969-a08a-53764a10b29a</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v10.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="dad97185-1b13-4e61-9ad3-36a40d213492" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Grpc.AspNetCore.Server</name>
+          <isAbstract>false</isAbstract>
+          <value>2.76.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>1fbef324-a5e7-45f4-a61e-deca25511fca</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="92c89fa8-8793-4e35-a123-1e757af53b59" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Grpc.Reflection</name>
+          <isAbstract>false</isAbstract>
+          <value>2.76.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>1fbef324-a5e7-45f4-a61e-deca25511fca</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="39863154-feac-4bc5-8128-9182a49df4bc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Google.Protobuf</name>
+          <isAbstract>false</isAbstract>
+          <value>3.31.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>1fbef324-a5e7-45f4-a61e-deca25511fca</parentFolderId>
           <stereotypes />
           <metadata />
           <childElements />

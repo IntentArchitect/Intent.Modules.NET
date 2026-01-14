@@ -131,7 +131,7 @@
       </childElements>
     </childElement>
     <childElement id="e4d834d0-e9f5-46e5-b3b8-388f7f0913b8" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.5.7</name>
+      <name>9.0.0</name>
       <display>8.5.5 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -153,10 +153,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="18039955-76c3-4df2-8c30-c351982c566a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="739ea231-8219-4aff-bdae-8888fa69e333" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>MassTransit</name>
           <isAbstract>false</isAbstract>
-          <value>8.5.7</value>
+          <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e4d834d0-e9f5-46e5-b3b8-388f7f0913b8</parentFolderId>
@@ -164,7 +164,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d67fe280-bb04-4f2f-8144-7d232388f7c5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a970f58d-e62e-44f0-862b-c2706076f3a0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore.Relational</name>
           <isAbstract>false</isAbstract>
           <value>9.0.1</value>
@@ -175,7 +175,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="13afe383-f832-4ad3-9c3f-c436324d980c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="71d761ca-07e8-46d4-865b-1f9fc0efbd9c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Caching.Memory</name>
           <isAbstract>false</isAbstract>
           <value>9.0.1</value>
@@ -189,7 +189,7 @@
       </childElements>
     </childElement>
     <childElement id="7799a154-c02f-42eb-a131-f214972792be" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.5.7</name>
+      <name>9.0.0</name>
       <display>8.5.5 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -211,10 +211,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="07e676de-e0bc-4633-97d6-8550c7a8e194" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="989e7e65-7b40-4406-81ff-1f958b8ee54f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>MassTransit</name>
           <isAbstract>false</isAbstract>
-          <value>8.5.7</value>
+          <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7799a154-c02f-42eb-a131-f214972792be</parentFolderId>
@@ -222,7 +222,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="803ea311-a6fa-45b3-bc36-396382ea5e83" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="5a41ad7c-9393-435d-91fb-641b72b9ec99" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore.Relational</name>
           <isAbstract>false</isAbstract>
           <value>9.0.1</value>
@@ -233,7 +233,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="024d271b-044a-42bc-b4d7-9b2a2602ced6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c4e55913-4bfb-4460-8591-3c4e356ea0ae" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Caching.Memory</name>
           <isAbstract>false</isAbstract>
           <value>9.0.1</value>
@@ -247,7 +247,7 @@
       </childElements>
     </childElement>
     <childElement id="df6187aa-6263-4847-b93e-cbac3f762ec1" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.5.7</name>
+      <name>9.0.0</name>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -265,10 +265,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="aad6759f-f7e7-41b5-bad0-88071bf00853" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b9afc4e7-c170-41a6-b5e2-ab988e825d6c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>MassTransit</name>
           <isAbstract>false</isAbstract>
-          <value>8.5.7</value>
+          <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>df6187aa-6263-4847-b93e-cbac3f762ec1</parentFolderId>
@@ -276,7 +276,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d343c6b9-2244-4979-9ae0-31ac65beca2a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d83c12b1-9e85-46ac-ba45-37b0c9e97f10" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore.Relational</name>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
@@ -287,7 +287,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="a4f29e30-ac9b-47ba-9fd7-65e569e27fa0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="095628a2-947a-4636-87ec-e2c67a29f222" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Caching.Memory</name>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>

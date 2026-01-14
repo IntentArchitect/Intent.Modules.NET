@@ -21,18 +21,21 @@ namespace Intent.Modules.FastEndpoints
             NugetRegistry.Register(FastEndpointsPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 10, >= 0) => new PackageVersion("7.1.1")
-                            .WithNugetDependency("FastEndpoints.Attributes", "7.1.1")
-                            .WithNugetDependency("FastEndpoints.Messaging.Core", "7.1.1")
-                            .WithNugetDependency("FluentValidation", "12.1.0"),
-                        ( >= 9, >= 0) => new PackageVersion("7.1.1")
-                            .WithNugetDependency("FastEndpoints.Attributes", "7.1.1")
-                            .WithNugetDependency("FastEndpoints.Messaging.Core", "7.1.1")
-                            .WithNugetDependency("FluentValidation", "12.1.0"),
-                        ( >= 8, >= 0) => new PackageVersion("7.1.1")
-                            .WithNugetDependency("FastEndpoints.Attributes", "7.1.1")
-                            .WithNugetDependency("FastEndpoints.Messaging.Core", "7.1.1")
-                            .WithNugetDependency("FluentValidation", "12.1.0"),
+                        ( >= 10, >= 0) => new PackageVersion("7.2.0")
+                            .WithNugetDependency("FastEndpoints.Attributes", "7.2.0")
+                            .WithNugetDependency("FastEndpoints.JobQueues", "7.2.0")
+                            .WithNugetDependency("FastEndpoints.Messaging", "7.2.0")
+                            .WithNugetDependency("FluentValidation", "12.1.1"),
+                        ( >= 9, >= 0) => new PackageVersion("7.2.0")
+                            .WithNugetDependency("FastEndpoints.Attributes", "7.2.0")
+                            .WithNugetDependency("FastEndpoints.JobQueues", "7.2.0")
+                            .WithNugetDependency("FastEndpoints.Messaging", "7.2.0")
+                            .WithNugetDependency("FluentValidation", "12.1.1"),
+                        ( >= 8, >= 0) => new PackageVersion("7.2.0")
+                            .WithNugetDependency("FastEndpoints.Attributes", "7.2.0")
+                            .WithNugetDependency("FastEndpoints.JobQueues", "7.2.0")
+                            .WithNugetDependency("FastEndpoints.Messaging", "7.2.0")
+                            .WithNugetDependency("FluentValidation", "12.1.1"),
                         ( >= 7, >= 0) => new PackageVersion("5.35.0")
                             .WithNugetDependency("FastEndpoints.Attributes", "5.35.0")
                             .WithNugetDependency("FastEndpoints.Messaging.Core", "5.35.0")
@@ -47,21 +50,21 @@ namespace Intent.Modules.FastEndpoints
             NugetRegistry.Register(FastEndpointsAspVersioningPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 10, >= 0) => new PackageVersion("7.1.1")
-                            .WithNugetDependency("FastEndpoints", "7.1.1")
-                            .WithNugetDependency("Asp.Versioning.Http", "8.1.0")
-                            .WithNugetDependency("Asp.Versioning.Mvc.ApiExplorer", "8.1.0")
-                            .WithNugetDependency("NSwag.Generation.AspNetCore", "14.6.2"),
-                        ( >= 9, >= 0) => new PackageVersion("7.1.1")
-                            .WithNugetDependency("Asp.Versioning.Http", "8.1.0")
-                            .WithNugetDependency("Asp.Versioning.Mvc.ApiExplorer", "8.1.0")
-                            .WithNugetDependency("FastEndpoints", "7.1.1")
-                            .WithNugetDependency("NSwag.Generation.AspNetCore", "14.6.2"),
-                        ( >= 8, >= 0) => new PackageVersion("7.1.1")
-                            .WithNugetDependency("Asp.Versioning.Http", "8.1.0")
-                            .WithNugetDependency("Asp.Versioning.Mvc.ApiExplorer", "8.1.0")
-                            .WithNugetDependency("FastEndpoints", "7.1.1")
-                            .WithNugetDependency("NSwag.Generation.AspNetCore", "14.6.2"),
+                        ( >= 10, >= 0) => new PackageVersion("7.2.0")
+                            .WithNugetDependency("FastEndpoints", "7.2.0")
+                            .WithNugetDependency("Asp.Versioning.Http", "8.1.1")
+                            .WithNugetDependency("Asp.Versioning.Mvc.ApiExplorer", "8.1.1")
+                            .WithNugetDependency("NSwag.Generation.AspNetCore", "14.6.3"),
+                        ( >= 9, >= 0) => new PackageVersion("7.2.0")
+                            .WithNugetDependency("Asp.Versioning.Http", "8.1.1")
+                            .WithNugetDependency("Asp.Versioning.Mvc.ApiExplorer", "8.1.1")
+                            .WithNugetDependency("FastEndpoints", "7.2.0")
+                            .WithNugetDependency("NSwag.Generation.AspNetCore", "14.6.3"),
+                        ( >= 8, >= 0) => new PackageVersion("7.2.0")
+                            .WithNugetDependency("Asp.Versioning.Http", "8.1.1")
+                            .WithNugetDependency("Asp.Versioning.Mvc.ApiExplorer", "8.1.1")
+                            .WithNugetDependency("FastEndpoints", "7.2.0")
+                            .WithNugetDependency("NSwag.Generation.AspNetCore", "14.6.3"),
                         ( >= 7, >= 0) => new PackageVersion("5.35.0")
                             .WithNugetDependency("Asp.Versioning.Http", "7.1.0")
                             .WithNugetDependency("Asp.Versioning.Mvc.ApiExplorer", "7.1.0")
@@ -73,7 +76,7 @@ namespace Intent.Modules.FastEndpoints
             NugetRegistry.Register(FastEndpointsAttributesPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 2, >= 0) => new PackageVersion("7.1.1")
+                        ( >= 2, >= 0) => new PackageVersion("7.2.0")
                             .WithNugetDependency("Microsoft.Extensions.Primitives", "8.0.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{FastEndpointsAttributesPackageName}'"),
                     }

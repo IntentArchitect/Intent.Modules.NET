@@ -1,3 +1,7 @@
+### Version 1.2.25
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 1.2.24
 
 - Improvement: Improved installation process when multiple persistence technologies are present.

@@ -381,6 +381,16 @@
       <fileHash>235B90B149EF3215C705F9835F7DF08B9654658570D27EE8CB3C7AF60997833F</fileHash>
     </file>
     <file>
+      <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#4144a321-e6b5-4ada-9dec-ef35ab8ea5b0</correlationId>
+      <path>Intent.Modules.VisualStudio.Projects/Templates/ServiceFabric/ApplicationManifest/ApplicationManifestTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-01-14T11:17:53.1428142Z</updatedAt>
+      <deviationsHash>267C2B81929B8E2EF30FFA0D0EF25FE86E2DA11213C478AA1D162E2175ADACA3</deviationsHash>
+      <fileHash>4423FF82B613433D592E41A2F5216834D635EA75C93E5889864AE95D471A085A</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#489d8e66-7e12-48ec-9290-23f5ac3bf323</correlationId>
       <path>Intent.Modules.VisualStudio.Projects/Templates/ServiceFabric/ServiceFabricProject/ServiceFabricProjectTemplatePartial.cs</path>
       <count>1</count>
@@ -389,6 +399,16 @@
       <updatedAt>2025-09-04T10:29:07.7378401Z</updatedAt>
       <deviationsHash>A25B03A6669C9F4E97BBE7332EBCAB60610F9F00B5F1E42B7DB0E65E920DB93C</deviationsHash>
       <fileHash>76FDF3169754AD4BD6C771C9DC575537D17F3BB1A57DBB0B0F58131AFC82911D</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#129b738d-a396-4c5a-8ffe-9c1a50a1b392</correlationId>
+      <path>Intent.Modules.VisualStudio.Projects/Templates/ServiceFabric/StartupServices/StartupServicesTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-01-14T11:17:53.1433333Z</updatedAt>
+      <deviationsHash>20DB0860E71C39B95420F2500B56CF110EFAF30162A832C1DF2786C8E8B4274F</deviationsHash>
+      <fileHash>A34EE393199B39EBFD34E560B2CE9221FFC77051EB6B699C8173CEAE1D6B69DC</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#90bf72bb-3741-4c8e-8954-2a9a65d37740</correlationId>

@@ -23,7 +23,7 @@
   <metadata />
   <childElements>
     <childElement id="66eca637-6e3a-499d-94bd-e67d8dbe9c69" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>5.3.5</name>
+      <name>5.3.8</name>
       <display>4.6.0 ( &gt;= .NETCoreApp,Version=v7.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -44,10 +44,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="92fd167b-dc24-4ebd-ab36-a3c553fb1c28" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6a31672f-112b-4a48-98c7-2474f51732e2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>AsyncKeyedLock</name>
           <isAbstract>false</isAbstract>
-          <value>7.1.8</value>
+          <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>66eca637-6e3a-499d-94bd-e67d8dbe9c69</parentFolderId>
@@ -55,7 +55,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="0e18cad6-faae-4c36-a3b8-9bc600664b59" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9d494e87-b14b-4820-86ba-247e927f6316" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore</name>
           <isAbstract>false</isAbstract>
           <value>7.0.0</value>
@@ -66,7 +66,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="9c74d993-8c1f-412c-ae6b-7c9e82871148" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="4a9bff4a-ae70-47f9-9e63-f24c639cf984" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore.Relational</name>
           <isAbstract>false</isAbstract>
           <value>7.0.0</value>
@@ -80,7 +80,7 @@
       </childElements>
     </childElement>
     <childElement id="4f16df79-a5a4-402a-a9c7-7ec8f3d8e371" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>5.3.5</name>
+      <name>5.3.8</name>
       <display>4.6.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -101,10 +101,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="e23ed728-4c1c-43e5-a54f-91b0b4eb5fdb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="8f580165-cb76-4104-9e4c-256be94f0c9b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>AsyncKeyedLock</name>
           <isAbstract>false</isAbstract>
-          <value>7.1.8</value>
+          <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4f16df79-a5a4-402a-a9c7-7ec8f3d8e371</parentFolderId>
@@ -112,7 +112,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="acb0e9b0-ee5d-4180-b7a8-8c10c2609cb9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6affce0e-915e-4ab3-811d-a2bb0911cdfe" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore</name>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
@@ -123,7 +123,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="50c0b003-61bf-408e-a25d-920fc33397ba" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="3c22fd20-742d-4584-962f-1b7415aa18af" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore.Relational</name>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
@@ -134,7 +134,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="a5601dea-6ad7-4c75-af73-0706ddd195e6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f3eee956-13b4-45d6-9266-cba6fbe57fad" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Caching.Memory</name>
           <isAbstract>false</isAbstract>
           <value>8.0.1</value>
@@ -145,7 +145,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d3893320-99fe-4128-8d1f-8e9fc1ec0edd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="fb0375cc-91ca-4092-ac1d-95c59ca5a3c6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.IO.Hashing</name>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
@@ -159,7 +159,7 @@
       </childElements>
     </childElement>
     <childElement id="c57002ee-4803-4e44-bdeb-ba8be902ee39" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>5.3.5</name>
+      <name>5.3.8</name>
       <display>4.6.0 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -180,10 +180,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="ba9af739-67a6-4d7d-b1b1-f78f0df0a394" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e61ec998-c316-46aa-8d14-19cf1081fbf8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>AsyncKeyedLock</name>
           <isAbstract>false</isAbstract>
-          <value>7.1.8</value>
+          <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>c57002ee-4803-4e44-bdeb-ba8be902ee39</parentFolderId>
@@ -191,7 +191,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="631bce9f-1491-4fae-84fb-728e5a81adc6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="05aec239-a906-427b-aba0-6e90d4455fe2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore</name>
           <isAbstract>false</isAbstract>
           <value>6.0.0</value>
@@ -202,7 +202,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="bc5c68a6-6796-41d5-b8e2-a606e5a5c28b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="cc613c4c-8dec-4a4a-8444-4970b8d3081d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore.Relational</name>
           <isAbstract>false</isAbstract>
           <value>6.0.0</value>
@@ -213,7 +213,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="8f3da7a4-65db-475f-8600-050b4dbe663a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c0aeb658-3719-4b22-889a-97ad0a280f59" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Caching.Memory</name>
           <isAbstract>false</isAbstract>
           <value>6.0.2</value>
@@ -227,7 +227,7 @@
       </childElements>
     </childElement>
     <childElement id="00b55ce3-4f09-4aa5-bd40-bbc94bb4bb13" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>5.3.5</name>
+      <name>5.3.8</name>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -245,10 +245,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="ea74425c-6de1-437b-a476-16363e1b68c0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="3fde5731-8326-4ecd-8381-661e0dfd1e68" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>AsyncKeyedLock</name>
           <isAbstract>false</isAbstract>
-          <value>7.1.8</value>
+          <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>00b55ce3-4f09-4aa5-bd40-bbc94bb4bb13</parentFolderId>
@@ -256,7 +256,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="3c135d66-7ed4-440c-b443-a90a0f8909f9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d8fd2007-073c-459c-832f-a39827217b82" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore</name>
           <isAbstract>false</isAbstract>
           <value>3.1.0</value>
@@ -267,7 +267,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="e1568fc6-f693-48a4-87f1-a2c28fc76556" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="187050e9-9e1f-4f60-bb44-0e0d6eb25262" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore.Relational</name>
           <isAbstract>false</isAbstract>
           <value>3.1.0</value>
@@ -281,7 +281,7 @@
       </childElements>
     </childElement>
     <childElement id="1ecc377d-3e35-47fa-8951-c30944545093" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>5.3.5</name>
+      <name>5.3.8</name>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -299,10 +299,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="bcefe2e1-015d-45e9-88dd-c2bf0de97b79" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="734b5d43-8189-4bc2-abfd-a59e0a0f9363" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>AsyncKeyedLock</name>
           <isAbstract>false</isAbstract>
-          <value>7.1.8</value>
+          <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>1ecc377d-3e35-47fa-8951-c30944545093</parentFolderId>
@@ -310,7 +310,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="fff64f48-77a7-4b37-a28d-f2abf77d4e42" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a69a9a20-bb6e-4ca2-8d82-a650750c1dfc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore</name>
           <isAbstract>false</isAbstract>
           <value>5.0.0</value>
@@ -321,7 +321,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="679459e6-1686-4f96-8134-eb0a480fb6a1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6602cbad-3609-487f-828d-dc73192c8681" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore.Relational</name>
           <isAbstract>false</isAbstract>
           <value>5.0.0</value>
@@ -335,7 +335,7 @@
       </childElements>
     </childElement>
     <childElement id="1e608202-359c-4d9a-b998-9f1488db23d6" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>5.3.5</name>
+      <name>5.3.8</name>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -353,10 +353,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="a5a33865-e7cf-49d7-8bee-6ef4f1cb73d8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e653659a-4fa6-4a9d-8884-dc060166d6e9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>AsyncKeyedLock</name>
           <isAbstract>false</isAbstract>
-          <value>7.1.8</value>
+          <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>1e608202-359c-4d9a-b998-9f1488db23d6</parentFolderId>
@@ -364,7 +364,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="cfb30b56-67b1-433d-b9cf-fdfae2ca9cd5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c3b81e67-d02a-4855-b629-836cf0038c0d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore</name>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>
@@ -375,7 +375,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="0c6531de-d0da-4dd7-81be-81f73109a5da" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="2a3f7a33-49af-4e71-8929-9a7ffae0d483" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore.Relational</name>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>
@@ -386,7 +386,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="4bd73a2d-b4c8-492d-b70b-42bcd8e9be26" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="fc691563-f442-49fb-9b51-f1de7aafeca7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.IO.Hashing</name>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>
@@ -400,7 +400,7 @@
       </childElements>
     </childElement>
     <childElement id="558d8901-9abe-4916-a097-f7c38cd75fdd" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>5.3.5</name>
+      <name>5.3.8</name>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -418,10 +418,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="78285b68-d4dc-40cd-86ea-76d92479c28c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ef99daed-9114-4ca0-8c3f-0c22567df768" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>AsyncKeyedLock</name>
           <isAbstract>false</isAbstract>
-          <value>7.1.8</value>
+          <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>558d8901-9abe-4916-a097-f7c38cd75fdd</parentFolderId>
@@ -429,7 +429,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="4074a0d3-598a-4519-8ba6-d59f5961549a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="77a29eca-1884-43c8-beab-431e0dbacfd4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore</name>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
@@ -440,7 +440,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="db038e46-f91c-4eb1-8db6-ecf9f71239db" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="41ef89cc-35ab-4e7b-aaa4-1dfe01dd639d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore.Relational</name>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
@@ -451,7 +451,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="3c343694-172d-432e-b513-5abd4009b22a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a4b3d707-d5f9-45da-8308-fac3b4f7c18e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.IO.Hashing</name>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>

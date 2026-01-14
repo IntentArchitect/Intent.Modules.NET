@@ -25,8 +25,8 @@
   <metadata />
   <childElements>
     <childElement id="55637615-e2cb-4020-93c5-73c0f15b24bb" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.0</name>
-      <display>10.0.0 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
+      <name>10.0.2</name>
+      <display>10.0.2 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -47,7 +47,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="4455d9fb-5d57-42a5-9260-ff3509973798" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="60cf3d3e-6115-4073-b444-ae59ae533026" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Data.SqlClient</name>
           <display>Microsoft.Data.SqlClient (6.1.1)</display>
           <isAbstract>false</isAbstract>
@@ -61,11 +61,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="2f7c292b-ed5a-485f-bf7e-0e9aed3ee3ec" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="5fa7c3e4-555c-45d4-8617-d09c1eaa4e15" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore.SqlServer</name>
-          <display>Microsoft.EntityFrameworkCore.SqlServer (10.0.0)</display>
+          <display>Microsoft.EntityFrameworkCore.SqlServer (10.0.2)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>55637615-e2cb-4020-93c5-73c0f15b24bb</parentFolderId>
@@ -75,11 +75,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="e852c32f-52cd-4f3c-80e5-7340790ecaa5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c629ad2f-9e3e-4a0a-8e9a-2039501094c5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Caching.Memory</name>
-          <display>Microsoft.Extensions.Caching.Memory (10.0.0)</display>
+          <display>Microsoft.Extensions.Caching.Memory (10.0.2)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>55637615-e2cb-4020-93c5-73c0f15b24bb</parentFolderId>
@@ -89,11 +89,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="2828bee2-94ef-42ff-a67d-f55bd9f3d40c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b522df97-1675-4888-929d-f9ca7aefb9cb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Abstractions</name>
-          <display>Microsoft.Extensions.Configuration.Abstractions (10.0.0)</display>
+          <display>Microsoft.Extensions.Configuration.Abstractions (10.0.2)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>55637615-e2cb-4020-93c5-73c0f15b24bb</parentFolderId>
@@ -103,11 +103,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="4654c241-74a6-4599-a457-4ffaf8911c86" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="2f6ca732-6215-473a-8405-a2929cc752c5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging</name>
-          <display>Microsoft.Extensions.Logging (10.0.0)</display>
+          <display>Microsoft.Extensions.Logging (10.0.2)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>55637615-e2cb-4020-93c5-73c0f15b24bb</parentFolderId>
@@ -117,7 +117,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="24e8a995-31f1-4051-a0dd-2e501ce0d745" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="8a2d3914-8a00-4df6-8557-27f9fb05c492" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>NetTopologySuite</name>
           <display>NetTopologySuite (2.6.0)</display>
           <isAbstract>false</isAbstract>
@@ -131,7 +131,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="cb1dcd2a-b30d-401e-9d6b-89abf68d39a0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6ccc456a-e129-4725-9d3d-f531e8f478bc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>NetTopologySuite.IO.SqlServerBytes</name>
           <display>NetTopologySuite.IO.SqlServerBytes (2.1.0)</display>
           <isAbstract>false</isAbstract>
@@ -292,8 +292,8 @@
     </childElement>
     <childElement id="f065132e-ed92-4e48-8389-6b4ebcf54623" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <comment>Not all the .net8 providers  (Oracle and MySql) have upgraded to support 9.0.0.</comment>
-      <name>8.0.22</name>
-      <display>8.0.22 ( &gt;= .NETCoreApp,Version=v8.0 ) [locked]</display>
+      <name>8.0.23</name>
+      <display>8.0.23 ( &gt;= .NETCoreApp,Version=v8.0 ) [locked]</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -317,8 +317,8 @@
     <childElement id="26d2b64a-7186-491e-adbf-bd489bf38205" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <comment>Not all the .net8 providers  (Oracle and MySql) have upgraded to support 9.0.0.
 Created this entry so .net9 gets 9.0.0</comment>
-      <name>9.0.11</name>
-      <display>9.0.11 ( &gt;= .NETCoreApp,Version=v9.0 ) [locked]</display>
+      <name>9.0.12</name>
+      <display>9.0.12 ( &gt;= .NETCoreApp,Version=v9.0 ) [locked]</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />

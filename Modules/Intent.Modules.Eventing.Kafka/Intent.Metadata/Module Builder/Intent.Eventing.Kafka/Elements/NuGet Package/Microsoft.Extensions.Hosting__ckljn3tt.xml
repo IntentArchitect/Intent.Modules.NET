@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="3105bfba-4f6c-4ffe-b502-2c6b34fe8fe5" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.0</name>
+      <name>10.0.2</name>
       <display>10.0.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,310 +47,244 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="c7b3a807-4662-434e-8ef2-b8cd7024e12b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration</name>
-          <display>Microsoft.Extensions.Configuration (10.0.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>3105bfba-4f6c-4ffe-b502-2c6b34fe8fe5</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="571f1e99-d579-461f-8feb-b1bf9d824ae7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="5f7f6316-9dde-4213-9036-46d52b52720c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Abstractions</name>
-          <display>Microsoft.Extensions.Configuration.Abstractions (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3105bfba-4f6c-4ffe-b502-2c6b34fe8fe5</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="8e8c4593-6e6d-4dca-8cc1-5818006ae4c3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="be4dbc61-4495-48dd-a5c3-96ae5af36b80" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Binder</name>
-          <display>Microsoft.Extensions.Configuration.Binder (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3105bfba-4f6c-4ffe-b502-2c6b34fe8fe5</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="39a362d3-72f8-497c-ad15-07a8457a7389" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6d240c9a-5fac-4fae-a9b0-496ecd5098f2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.CommandLine</name>
-          <display>Microsoft.Extensions.Configuration.CommandLine (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3105bfba-4f6c-4ffe-b502-2c6b34fe8fe5</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="a6ee83ee-8ce7-45a0-a392-1d1f0281193f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="85568ea0-b5c5-437e-bc8b-259bf49f0aa0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.EnvironmentVariables</name>
-          <display>Microsoft.Extensions.Configuration.EnvironmentVariables (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3105bfba-4f6c-4ffe-b502-2c6b34fe8fe5</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="b96e905d-251b-4f72-bfb5-91281d608650" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f6b87976-e8fc-4641-8356-0cce521eaabc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.FileExtensions</name>
-          <display>Microsoft.Extensions.Configuration.FileExtensions (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3105bfba-4f6c-4ffe-b502-2c6b34fe8fe5</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d88db971-9264-400c-8552-3e2161494704" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e68f11ad-d5bc-42ac-957f-c23ee6e81fec" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Json</name>
-          <display>Microsoft.Extensions.Configuration.Json (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3105bfba-4f6c-4ffe-b502-2c6b34fe8fe5</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="85547f4e-581f-4644-8bf1-bda6a4b9d682" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="269e6777-8536-4761-acb9-027f3f3a76b6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.UserSecrets</name>
-          <display>Microsoft.Extensions.Configuration.UserSecrets (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3105bfba-4f6c-4ffe-b502-2c6b34fe8fe5</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="31e17842-b21a-4db0-94f6-91ed42150851" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.DependencyInjection</name>
-          <display>Microsoft.Extensions.DependencyInjection (10.0.0)</display>
+        <childElement id="4ccc2b8c-b2c0-4731-8610-0aac991276a3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration</name>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3105bfba-4f6c-4ffe-b502-2c6b34fe8fe5</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="42c17f41-db09-4feb-aa58-55d86664f86b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="8e83d95d-f370-42b7-8920-bab60a74ce0d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
-          <display>Microsoft.Extensions.DependencyInjection.Abstractions (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3105bfba-4f6c-4ffe-b502-2c6b34fe8fe5</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="78da3667-12d5-4f12-9072-5825abe263f0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="483d6ad1-489f-4116-b740-893838141cdf" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.DependencyInjection</name>
+          <isAbstract>false</isAbstract>
+          <value>10.0.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>3105bfba-4f6c-4ffe-b502-2c6b34fe8fe5</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="8bc67da1-9c9a-4f83-932a-d374d26d280b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics</name>
-          <display>Microsoft.Extensions.Diagnostics (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3105bfba-4f6c-4ffe-b502-2c6b34fe8fe5</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="28a21f18-9543-4566-a5ba-901b69ad62c7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="7af6d1c5-d01c-4371-8dab-852f368f86ea" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Abstractions</name>
-          <display>Microsoft.Extensions.FileProviders.Abstractions (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3105bfba-4f6c-4ffe-b502-2c6b34fe8fe5</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="fc9d094a-b59f-437d-8a78-a7ee8809bab5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6a39fd3c-6666-4cc3-b63d-28b2e5e568e2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Physical</name>
-          <display>Microsoft.Extensions.FileProviders.Physical (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3105bfba-4f6c-4ffe-b502-2c6b34fe8fe5</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="3e2a12ae-0cd0-4709-8c1f-44294f6f70ab" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="de6220dc-0d09-4f8c-912d-ec10fe07fdf3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Hosting.Abstractions</name>
-          <display>Microsoft.Extensions.Hosting.Abstractions (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3105bfba-4f6c-4ffe-b502-2c6b34fe8fe5</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="97016ccf-982a-4f12-bfcd-0c31e52e8c67" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging</name>
-          <display>Microsoft.Extensions.Logging (10.0.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>3105bfba-4f6c-4ffe-b502-2c6b34fe8fe5</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="c1922f94-195a-4f3c-bcc1-b7c004276a7f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ec6078da-a4bb-4562-a68a-e26692c54ed9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
-          <display>Microsoft.Extensions.Logging.Abstractions (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3105bfba-4f6c-4ffe-b502-2c6b34fe8fe5</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="701b0996-4bca-44e3-9074-fb41366a9c3f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="72ed242a-17b5-4f54-8802-d474cb1d5df6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Configuration</name>
-          <display>Microsoft.Extensions.Logging.Configuration (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3105bfba-4f6c-4ffe-b502-2c6b34fe8fe5</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="a67d1ce3-d437-42c8-a8f3-8c9fed29b5a7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="0f789b6f-4e6c-4dff-86f6-1289fa3d28bd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Console</name>
-          <display>Microsoft.Extensions.Logging.Console (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3105bfba-4f6c-4ffe-b502-2c6b34fe8fe5</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="a36804a3-27aa-4280-bced-6388eb8b413d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6c8e274f-4d82-4bd8-b443-bba95b141892" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Debug</name>
-          <display>Microsoft.Extensions.Logging.Debug (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3105bfba-4f6c-4ffe-b502-2c6b34fe8fe5</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="36c21efb-ca8f-4b3a-a458-4c547c5d0831" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="1527616e-1d0f-48e7-9123-2425bbc9826d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.EventLog</name>
-          <display>Microsoft.Extensions.Logging.EventLog (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3105bfba-4f6c-4ffe-b502-2c6b34fe8fe5</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="07b61e9b-651f-4c87-9d1e-cfeda6de9073" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="cabca07a-3ed4-406f-9171-598ed7297e26" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.EventSource</name>
-          <display>Microsoft.Extensions.Logging.EventSource (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3105bfba-4f6c-4ffe-b502-2c6b34fe8fe5</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="a77f1807-adbc-4648-ad3d-23f129e37cfd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Options</name>
-          <display>Microsoft.Extensions.Options (10.0.0)</display>
+        <childElement id="3f9c262b-c3b9-4d2c-9cbe-16ed25cbf3b8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging</name>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3105bfba-4f6c-4ffe-b502-2c6b34fe8fe5</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="168a7ae7-7b65-4691-8310-a376c53cc4e6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Options</name>
+          <isAbstract>false</isAbstract>
+          <value>10.0.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>3105bfba-4f6c-4ffe-b502-2c6b34fe8fe5</parentFolderId>
           <stereotypes />
           <metadata />
           <childElements />
@@ -358,7 +292,7 @@
       </childElements>
     </childElement>
     <childElement id="afed4079-a015-48ed-850c-f5526572c99d" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.0</name>
+      <name>10.0.2</name>
       <display>10.0.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -380,338 +314,266 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="d0417694-d958-4a33-80bd-de3c4a1362ee" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d5af849c-7416-4b03-a988-2d264fc3ba29" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Bcl.AsyncInterfaces</name>
-          <display>Microsoft.Bcl.AsyncInterfaces (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>afed4079-a015-48ed-850c-f5526572c99d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="cb140a06-53e4-4516-8ff7-ff9501fbc43c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration</name>
-          <display>Microsoft.Extensions.Configuration (10.0.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>afed4079-a015-48ed-850c-f5526572c99d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="a128bde6-477c-4b17-b429-84dbf8874b0c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="327cef27-9fcf-42ab-a218-9c687a48c27c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Abstractions</name>
-          <display>Microsoft.Extensions.Configuration.Abstractions (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>afed4079-a015-48ed-850c-f5526572c99d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="94b2c21d-b690-427d-b253-ebecbdfa94ee" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="15c233b8-d391-4182-95af-ff14d2c5efab" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Binder</name>
-          <display>Microsoft.Extensions.Configuration.Binder (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>afed4079-a015-48ed-850c-f5526572c99d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="3f8d27cd-5c1f-42f5-bb9c-11e131837744" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="186489c5-1fab-4511-8865-8311573b2bbd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.CommandLine</name>
-          <display>Microsoft.Extensions.Configuration.CommandLine (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>afed4079-a015-48ed-850c-f5526572c99d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="fcb4865a-ddeb-44ae-b6a5-b8c93330e56c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c0275f25-76e4-4a5b-83bd-a7fdaf640111" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.EnvironmentVariables</name>
-          <display>Microsoft.Extensions.Configuration.EnvironmentVariables (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>afed4079-a015-48ed-850c-f5526572c99d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c0c825c6-07ca-40ab-8f3c-9e312717ecba" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="68c06ccf-c59e-4543-b30b-e439532d2bcf" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.FileExtensions</name>
-          <display>Microsoft.Extensions.Configuration.FileExtensions (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>afed4079-a015-48ed-850c-f5526572c99d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="ec4f73db-deae-4cdb-a4b9-bf5e5d868b07" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="bca3205d-4bdd-4808-b34b-6a44aa82599d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Json</name>
-          <display>Microsoft.Extensions.Configuration.Json (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>afed4079-a015-48ed-850c-f5526572c99d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="fa37550b-99ca-482f-9051-b6ea56c8b09c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a5459ece-a75d-4b2c-995b-febc67edc3d0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.UserSecrets</name>
-          <display>Microsoft.Extensions.Configuration.UserSecrets (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>afed4079-a015-48ed-850c-f5526572c99d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="3c4a5da3-58da-4fea-b430-48aafb1bf745" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.DependencyInjection</name>
-          <display>Microsoft.Extensions.DependencyInjection (10.0.0)</display>
+        <childElement id="8b6156ec-1659-4866-9a5b-6ff7a772e3f0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration</name>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>afed4079-a015-48ed-850c-f5526572c99d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="5ad0e5f7-be38-41c0-baae-a666d250e8c2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9715cdd9-f9f4-4759-90f9-1b2a45ea9ee3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
-          <display>Microsoft.Extensions.DependencyInjection.Abstractions (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>afed4079-a015-48ed-850c-f5526572c99d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="4d2f8689-2932-42d9-91f9-ead51d603dbf" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a08fc20e-bb77-46eb-a4e5-3acbfac94cb3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.DependencyInjection</name>
+          <isAbstract>false</isAbstract>
+          <value>10.0.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>afed4079-a015-48ed-850c-f5526572c99d</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="e56e0468-a1d8-47ea-9eb3-96144aca3dcf" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics</name>
-          <display>Microsoft.Extensions.Diagnostics (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>afed4079-a015-48ed-850c-f5526572c99d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="8029e5d1-70bf-4f8c-9d95-67946d67c216" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="890d82e7-0add-49cc-bb68-0f8ea0926ea9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Abstractions</name>
-          <display>Microsoft.Extensions.FileProviders.Abstractions (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>afed4079-a015-48ed-850c-f5526572c99d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="0ffdfc9c-61e9-40e6-affc-e3dc3a0bd00a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="8066866c-3cae-4cc3-9857-3ac5befcda2f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Physical</name>
-          <display>Microsoft.Extensions.FileProviders.Physical (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>afed4079-a015-48ed-850c-f5526572c99d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="08e8ee42-671d-43f1-9fdf-67781ac1f676" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c7273ffc-4fe9-4722-beb3-eb92ebff47bd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Hosting.Abstractions</name>
-          <display>Microsoft.Extensions.Hosting.Abstractions (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>afed4079-a015-48ed-850c-f5526572c99d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="503ad38a-2002-4ab6-b27c-dc7b6558c8c8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging</name>
-          <display>Microsoft.Extensions.Logging (10.0.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>afed4079-a015-48ed-850c-f5526572c99d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="bb6388db-6395-45e4-b2ef-0b966ce0b68a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="cea8df9d-6130-4996-8d0d-aeb86cad0412" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
-          <display>Microsoft.Extensions.Logging.Abstractions (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>afed4079-a015-48ed-850c-f5526572c99d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="a09d48a9-693f-4b28-8bd2-a670d7192f03" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f70e3e18-1049-4d5a-af57-2dde42dbc27e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Configuration</name>
-          <display>Microsoft.Extensions.Logging.Configuration (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>afed4079-a015-48ed-850c-f5526572c99d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="fe5494f9-1392-458b-a1fb-62f9a865a5f8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="02ef6f88-9384-4451-8745-2a2020432487" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Console</name>
-          <display>Microsoft.Extensions.Logging.Console (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>afed4079-a015-48ed-850c-f5526572c99d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="00d341da-4ebf-4249-91c9-59426373cb9a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="4cb95ff4-b2c8-491a-9fcd-a51da19c7b2f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Debug</name>
-          <display>Microsoft.Extensions.Logging.Debug (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>afed4079-a015-48ed-850c-f5526572c99d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c148c71b-fe36-4c1e-915c-03fb714d6be7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="fb1ffaf1-6b9c-4934-9fc6-3be870882fba" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.EventLog</name>
-          <display>Microsoft.Extensions.Logging.EventLog (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>afed4079-a015-48ed-850c-f5526572c99d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="51ad6439-a934-4e4b-8aa4-762c985d0eb7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="2b26a303-99f3-4272-a7ea-967c3ab600ad" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.EventSource</name>
-          <display>Microsoft.Extensions.Logging.EventSource (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>afed4079-a015-48ed-850c-f5526572c99d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="924f4067-2a5f-4fb7-8c70-790af9ed4901" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="2015a1d0-f931-4510-ae0e-c4011ef21bea" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging</name>
+          <isAbstract>false</isAbstract>
+          <value>10.0.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>afed4079-a015-48ed-850c-f5526572c99d</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="84e2248b-10ae-455c-bb3d-fba5efbf1515" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options</name>
-          <display>Microsoft.Extensions.Options (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>afed4079-a015-48ed-850c-f5526572c99d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="a4466c02-c6ae-4a7b-a4f6-c28186272653" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6b8cc6b3-2072-4c41-9647-158545012fa9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Threading.Tasks.Extensions</name>
-          <display>System.Threading.Tasks.Extensions (4.6.3)</display>
           <isAbstract>false</isAbstract>
           <value>4.6.3</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>afed4079-a015-48ed-850c-f5526572c99d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -719,7 +581,7 @@
       </childElements>
     </childElement>
     <childElement id="68cd29c7-3ef5-409e-bcfd-22f32015941d" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.0</name>
+      <name>10.0.2</name>
       <display>10.0.0 ( &gt;= .NETStandard,Version=v2.1 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -741,310 +603,244 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="88adab96-dc23-445d-b0f4-f9a853136bb8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration</name>
-          <display>Microsoft.Extensions.Configuration (10.0.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>68cd29c7-3ef5-409e-bcfd-22f32015941d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="f98721d6-50d0-40eb-8dc2-76d969b9d90b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9a5b84b6-6690-491b-a518-da0dfbefc220" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Abstractions</name>
-          <display>Microsoft.Extensions.Configuration.Abstractions (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>68cd29c7-3ef5-409e-bcfd-22f32015941d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="9a70d463-d47b-4273-87bd-a30928b633c8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d34dde63-4149-4379-af46-0da061bf8b5c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Binder</name>
-          <display>Microsoft.Extensions.Configuration.Binder (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>68cd29c7-3ef5-409e-bcfd-22f32015941d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="8ad06e48-e96f-42e6-9c46-b2d3957249a9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="47928461-c6b9-4fde-bda8-09751d874636" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.CommandLine</name>
-          <display>Microsoft.Extensions.Configuration.CommandLine (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>68cd29c7-3ef5-409e-bcfd-22f32015941d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="ed09b4d9-bc43-49dc-b5bc-4c5ddf2c86be" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c8af4e5d-c606-4cb3-af37-4e506612aedf" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.EnvironmentVariables</name>
-          <display>Microsoft.Extensions.Configuration.EnvironmentVariables (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>68cd29c7-3ef5-409e-bcfd-22f32015941d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="e00c3712-1b55-4ca5-a924-5f4377cc8131" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="82b2761d-1b9a-43a1-b472-4db5a84c5b36" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.FileExtensions</name>
-          <display>Microsoft.Extensions.Configuration.FileExtensions (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>68cd29c7-3ef5-409e-bcfd-22f32015941d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="2746f534-e80f-4666-bc7f-c3278f86a3c6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e75f9496-5cbf-4d6f-b939-7547f1a88e3f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Json</name>
-          <display>Microsoft.Extensions.Configuration.Json (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>68cd29c7-3ef5-409e-bcfd-22f32015941d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="3a26e989-f0ec-4dfd-b9ed-84b0d352763e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a0cf1fb2-1506-48fd-9e45-33a9431497e8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.UserSecrets</name>
-          <display>Microsoft.Extensions.Configuration.UserSecrets (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>68cd29c7-3ef5-409e-bcfd-22f32015941d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="3f377894-8f35-41b4-9f38-3d71bcdbd010" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.DependencyInjection</name>
-          <display>Microsoft.Extensions.DependencyInjection (10.0.0)</display>
+        <childElement id="9a722bf7-e4b8-435f-be85-8da76e7c8b25" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration</name>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>68cd29c7-3ef5-409e-bcfd-22f32015941d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="19c19c6b-830e-437e-ba9a-00797d13c077" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="491cfc63-1daf-44dd-a699-2e9ed06d93b9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
-          <display>Microsoft.Extensions.DependencyInjection.Abstractions (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>68cd29c7-3ef5-409e-bcfd-22f32015941d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="84302b04-ab2b-466e-8dd8-d3a52b9a104d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="7ac8247d-1e18-4f96-b2da-54ce7420ea04" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.DependencyInjection</name>
+          <isAbstract>false</isAbstract>
+          <value>10.0.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>68cd29c7-3ef5-409e-bcfd-22f32015941d</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="5de2d4e7-458f-401c-b33b-c27a65934c08" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics</name>
-          <display>Microsoft.Extensions.Diagnostics (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>68cd29c7-3ef5-409e-bcfd-22f32015941d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="dff516ad-b174-45db-b6b8-4067f3579359" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="2ff5d44e-6f43-46f1-8527-81ea160a3c0e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Abstractions</name>
-          <display>Microsoft.Extensions.FileProviders.Abstractions (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>68cd29c7-3ef5-409e-bcfd-22f32015941d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="26ef2d2b-37eb-4ef2-a7a1-5ea4b8c1b6e4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="887a8633-8b76-4948-bdb5-2749bb8b77e1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Physical</name>
-          <display>Microsoft.Extensions.FileProviders.Physical (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>68cd29c7-3ef5-409e-bcfd-22f32015941d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="b7db7df9-2a87-496a-89f4-04e21c71c2a6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e2efe96d-e619-4a72-84da-299e4df735fd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Hosting.Abstractions</name>
-          <display>Microsoft.Extensions.Hosting.Abstractions (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>68cd29c7-3ef5-409e-bcfd-22f32015941d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c54ff37a-976d-4a62-a6a7-acda988fc54d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging</name>
-          <display>Microsoft.Extensions.Logging (10.0.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>68cd29c7-3ef5-409e-bcfd-22f32015941d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="6e51cee8-0191-4edf-8282-b8654a14cdf0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="de3e25a9-a5ed-4295-ae75-5b1f17b7396a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
-          <display>Microsoft.Extensions.Logging.Abstractions (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>68cd29c7-3ef5-409e-bcfd-22f32015941d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d5bce33f-e290-4b6e-bd5a-4871c471c4ed" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="1ae10d2b-80e8-44f9-b83d-962b7ca252fd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Configuration</name>
-          <display>Microsoft.Extensions.Logging.Configuration (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>68cd29c7-3ef5-409e-bcfd-22f32015941d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="3ac19ab5-dbfd-4e1b-aaa4-a9d1985af4c9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="2e46554e-ec46-443e-8768-3464c3a87e89" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Console</name>
-          <display>Microsoft.Extensions.Logging.Console (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>68cd29c7-3ef5-409e-bcfd-22f32015941d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="9270cedd-ecea-450d-b032-09254c1fef76" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="7b967440-68c1-4d6d-bda7-fadc41e430ff" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Debug</name>
-          <display>Microsoft.Extensions.Logging.Debug (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>68cd29c7-3ef5-409e-bcfd-22f32015941d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="ba2057f0-20aa-4f61-87be-3d58bab2bbec" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="34bb11a1-def1-41e7-b68d-ab1423acd689" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.EventLog</name>
-          <display>Microsoft.Extensions.Logging.EventLog (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>68cd29c7-3ef5-409e-bcfd-22f32015941d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="96013963-f864-43ab-b41b-70e9bd422c4d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f388843c-d195-4506-af90-3244018810f8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.EventSource</name>
-          <display>Microsoft.Extensions.Logging.EventSource (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>68cd29c7-3ef5-409e-bcfd-22f32015941d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="75637382-9a1e-451d-bd9b-43cd40d48ca2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Options</name>
-          <display>Microsoft.Extensions.Options (10.0.0)</display>
+        <childElement id="503dbecc-da9d-47f6-ad85-a332412799cd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging</name>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>68cd29c7-3ef5-409e-bcfd-22f32015941d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="c4b6d77f-530f-49ab-9c97-793918294c99" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Options</name>
+          <isAbstract>false</isAbstract>
+          <value>10.0.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>68cd29c7-3ef5-409e-bcfd-22f32015941d</parentFolderId>
           <stereotypes />
           <metadata />
           <childElements />
@@ -1052,7 +848,7 @@
       </childElements>
     </childElement>
     <childElement id="ae862c66-af61-4ab8-9871-6f8f6bd0228d" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.0</name>
+      <name>10.0.2</name>
       <display>10.0.0 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -1074,310 +870,244 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="8c8a713d-d707-4532-a31f-6fda03572229" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration</name>
-          <display>Microsoft.Extensions.Configuration (10.0.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>ae862c66-af61-4ab8-9871-6f8f6bd0228d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="c1757442-90c2-4ab9-818c-0b6d3b004d06" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="7f8c49bc-11de-4004-9b82-2fced1eb246a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Abstractions</name>
-          <display>Microsoft.Extensions.Configuration.Abstractions (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ae862c66-af61-4ab8-9871-6f8f6bd0228d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c847825e-b46b-4963-921b-09fd9642f3c6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="11ab7926-830c-4527-9884-fbc15f90eccb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Binder</name>
-          <display>Microsoft.Extensions.Configuration.Binder (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ae862c66-af61-4ab8-9871-6f8f6bd0228d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="8dd65916-b0a8-4f05-993f-70fbb9aa5260" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="2a3aa569-a589-4dd7-8803-5192ea5652bc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.CommandLine</name>
-          <display>Microsoft.Extensions.Configuration.CommandLine (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ae862c66-af61-4ab8-9871-6f8f6bd0228d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="5c4aea76-e3cc-4369-aa6c-a248c22bc12a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="94add8d9-8f99-4354-b063-08312f8e1633" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.EnvironmentVariables</name>
-          <display>Microsoft.Extensions.Configuration.EnvironmentVariables (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ae862c66-af61-4ab8-9871-6f8f6bd0228d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="85be232f-fdd2-4b95-a237-50fdc76b02b6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b5e82aaf-18c1-4ad1-a6ac-1abd4b4d3fbb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.FileExtensions</name>
-          <display>Microsoft.Extensions.Configuration.FileExtensions (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ae862c66-af61-4ab8-9871-6f8f6bd0228d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="64580d43-0952-4167-b185-745c8366c859" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="928ead1f-9015-4f7b-8d94-5d0f18c8d31d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Json</name>
-          <display>Microsoft.Extensions.Configuration.Json (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ae862c66-af61-4ab8-9871-6f8f6bd0228d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="98cc6432-c97f-482c-bd8d-4c914be5ada7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="97aa0adf-38bd-473c-8dd1-9995a6ea8481" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.UserSecrets</name>
-          <display>Microsoft.Extensions.Configuration.UserSecrets (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ae862c66-af61-4ab8-9871-6f8f6bd0228d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="3c619039-ac92-4a16-bff1-c0c46dab2a51" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.DependencyInjection</name>
-          <display>Microsoft.Extensions.DependencyInjection (10.0.0)</display>
+        <childElement id="f2770814-3d20-43c6-be07-4dc52de0f27d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration</name>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ae862c66-af61-4ab8-9871-6f8f6bd0228d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="23fbda47-b763-4144-90dc-5bc352688534" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c15351e1-1a2d-4298-b4f5-bb2b4d09c1c6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
-          <display>Microsoft.Extensions.DependencyInjection.Abstractions (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ae862c66-af61-4ab8-9871-6f8f6bd0228d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="88588d65-db3a-4a57-b5aa-00e809f4864b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="7059adfa-8dbe-4ee4-b45d-7e476decdb1d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.DependencyInjection</name>
+          <isAbstract>false</isAbstract>
+          <value>10.0.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ae862c66-af61-4ab8-9871-6f8f6bd0228d</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="dd38882f-f6aa-4d4e-9556-321cb4b6a1a1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics</name>
-          <display>Microsoft.Extensions.Diagnostics (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ae862c66-af61-4ab8-9871-6f8f6bd0228d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c52603c6-7c0a-45bc-bf18-a048b5e9299e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f7c16fdf-7b85-4fda-8ac0-1e6d7987c9b5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Abstractions</name>
-          <display>Microsoft.Extensions.FileProviders.Abstractions (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ae862c66-af61-4ab8-9871-6f8f6bd0228d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d1a49688-9fcc-4ceb-94a7-9a4b783306dd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="8b8537ed-8c4d-40c2-9ed6-1ee19f4426ac" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Physical</name>
-          <display>Microsoft.Extensions.FileProviders.Physical (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ae862c66-af61-4ab8-9871-6f8f6bd0228d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="fda3d1f9-0adf-41db-a5c9-d0d9e502d21e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="15167b32-c072-469d-aef2-cc36eabff391" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Hosting.Abstractions</name>
-          <display>Microsoft.Extensions.Hosting.Abstractions (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ae862c66-af61-4ab8-9871-6f8f6bd0228d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d74b5e93-8ae5-457d-82c8-58cc029d5c57" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging</name>
-          <display>Microsoft.Extensions.Logging (10.0.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>ae862c66-af61-4ab8-9871-6f8f6bd0228d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="fb8c01ac-fa82-4013-92c6-92e4dcb6e7b0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="bced2c32-7d5e-4be2-b872-3d3aef8280fe" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
-          <display>Microsoft.Extensions.Logging.Abstractions (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ae862c66-af61-4ab8-9871-6f8f6bd0228d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="9e86076f-43fa-4fc2-97ae-5a19fca4b5ae" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b25cd848-37c9-4cbf-911c-21a07e286c1e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Configuration</name>
-          <display>Microsoft.Extensions.Logging.Configuration (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ae862c66-af61-4ab8-9871-6f8f6bd0228d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="86a505e4-5d86-4b48-b53f-d3e2eb6758cc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="431b2c20-443d-464a-b941-8092e691e33b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Console</name>
-          <display>Microsoft.Extensions.Logging.Console (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ae862c66-af61-4ab8-9871-6f8f6bd0228d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="0e7eff4f-7dd6-401d-a80f-1d2e8f91329e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c377f3f7-6b9c-4703-a78d-f6281b006de4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Debug</name>
-          <display>Microsoft.Extensions.Logging.Debug (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ae862c66-af61-4ab8-9871-6f8f6bd0228d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="5a3d3c10-a75a-42e3-8083-e2f5c7a0fdf2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9a6b25d6-c711-4d44-8330-9b34e9d874d8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.EventLog</name>
-          <display>Microsoft.Extensions.Logging.EventLog (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ae862c66-af61-4ab8-9871-6f8f6bd0228d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c2c2b1f4-bcae-43ca-9834-82e8e4e39991" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="fdd9535e-ad92-4d7c-b05b-06e3aa577235" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.EventSource</name>
-          <display>Microsoft.Extensions.Logging.EventSource (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ae862c66-af61-4ab8-9871-6f8f6bd0228d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="7e78ef16-7c03-4542-9f92-c814a6a6f1ac" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Options</name>
-          <display>Microsoft.Extensions.Options (10.0.0)</display>
+        <childElement id="eed9f782-42cf-4184-8c8f-c8a76ec9da51" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging</name>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ae862c66-af61-4ab8-9871-6f8f6bd0228d</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="5f2223c8-e9bb-44d5-8baa-3387b47c01ea" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Options</name>
+          <isAbstract>false</isAbstract>
+          <value>10.0.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ae862c66-af61-4ab8-9871-6f8f6bd0228d</parentFolderId>
           <stereotypes />
           <metadata />
           <childElements />
@@ -1385,7 +1115,7 @@
       </childElements>
     </childElement>
     <childElement id="a52a7c77-e150-47f8-9164-868464bc0eee" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.0</name>
+      <name>10.0.2</name>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -1403,10 +1133,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="7a3574fd-5e9c-4b15-8343-e53b3b0c4a07" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="0ef7403b-2192-492c-9a92-06783593e40d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Abstractions</name>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a52a7c77-e150-47f8-9164-868464bc0eee</parentFolderId>
@@ -1414,10 +1144,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="a9f4e610-fb7d-4c2e-b70e-b8a1cdf7f02a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="fd577591-e88e-4481-8d01-75ba0aafe046" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Binder</name>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a52a7c77-e150-47f8-9164-868464bc0eee</parentFolderId>
@@ -1425,10 +1155,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="691504ab-561a-436e-a4b2-0640c39d3c0e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f5efbce6-d847-4755-a980-f827a45311f6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.CommandLine</name>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a52a7c77-e150-47f8-9164-868464bc0eee</parentFolderId>
@@ -1436,10 +1166,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="0ea6aae9-b85a-46c8-a0eb-60e55884d81e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="aec42c6e-b9b8-494c-a014-72bed23d5072" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.EnvironmentVariables</name>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a52a7c77-e150-47f8-9164-868464bc0eee</parentFolderId>
@@ -1447,10 +1177,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="2283c69a-c695-4ef1-bf51-24ec85ac92b6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="fb2dd00b-a545-40e5-89aa-8f49aa3417d8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.FileExtensions</name>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a52a7c77-e150-47f8-9164-868464bc0eee</parentFolderId>
@@ -1458,10 +1188,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="5df63bdd-a98d-46e9-81c7-20cbb8d07b32" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="8bcd9021-3ca9-467b-8367-406836d6ceed" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Json</name>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a52a7c77-e150-47f8-9164-868464bc0eee</parentFolderId>
@@ -1469,10 +1199,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="3141a91e-3bbb-40ef-b971-89049048fd3a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c43a57a7-956d-47e2-8c5a-24adae9cc6e4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.UserSecrets</name>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a52a7c77-e150-47f8-9164-868464bc0eee</parentFolderId>
@@ -1480,10 +1210,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="7f9d2f2f-7309-469c-9657-8c8986d93a3d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="37c6bdd3-c1ac-4be4-ab28-52e74f5110c3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration</name>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a52a7c77-e150-47f8-9164-868464bc0eee</parentFolderId>
@@ -1491,10 +1221,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d275253a-fe9f-4a81-a01e-c48fe86b697c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="169d2178-175d-4471-9900-ae00c16c5443" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a52a7c77-e150-47f8-9164-868464bc0eee</parentFolderId>
@@ -1502,10 +1232,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="2a2cc6bd-8e97-4eca-be0e-c78bc70f4bd1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f4ba45ee-feab-4132-b1ab-1bed3d652abd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection</name>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a52a7c77-e150-47f8-9164-868464bc0eee</parentFolderId>
@@ -1513,10 +1243,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="4318a389-c5e6-41ab-9d93-403fad9682b5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f6025713-1eff-467b-8766-958c5a7c9e1e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics</name>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a52a7c77-e150-47f8-9164-868464bc0eee</parentFolderId>
@@ -1524,10 +1254,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="4c53601c-d65b-4eea-be0b-773c1698fa5e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="8fc1b45d-12e1-4e84-9956-263a710f3999" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Abstractions</name>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a52a7c77-e150-47f8-9164-868464bc0eee</parentFolderId>
@@ -1535,10 +1265,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="e41fcf59-61d0-41d6-b07a-c7697909f679" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d04d2008-c2f5-4022-bede-12bb4388d01d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Physical</name>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a52a7c77-e150-47f8-9164-868464bc0eee</parentFolderId>
@@ -1546,10 +1276,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="61598ef4-fbc1-4d93-a5a3-8c8ab9edcc51" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b738af54-cd0d-499f-82a6-436f1e41f71b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Hosting.Abstractions</name>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a52a7c77-e150-47f8-9164-868464bc0eee</parentFolderId>
@@ -1557,10 +1287,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="5a478043-11f8-4aac-96e4-dd6bcbeed653" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d68bf513-1f0b-4dee-b1ae-415efe00e7e5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a52a7c77-e150-47f8-9164-868464bc0eee</parentFolderId>
@@ -1568,10 +1298,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="f977e201-1a21-4c02-b1fa-416f48b95547" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="37028426-1824-4881-95b4-5dd7912f24e8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Configuration</name>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a52a7c77-e150-47f8-9164-868464bc0eee</parentFolderId>
@@ -1579,10 +1309,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="107874c0-3a53-4aa9-965a-decf9f6d26cc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="51cf1b66-2f7c-461c-ae49-c5a695d66523" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Console</name>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a52a7c77-e150-47f8-9164-868464bc0eee</parentFolderId>
@@ -1590,10 +1320,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="64084004-b22b-4b4d-88ae-7b1a792d1db7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="bb0913f9-e917-404f-8dd9-5086c3f21166" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Debug</name>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a52a7c77-e150-47f8-9164-868464bc0eee</parentFolderId>
@@ -1601,10 +1331,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="314c5d01-e4f8-429c-9c71-24ce27026670" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="84db7e36-bf66-4bc8-8bd1-12f3b7ccc224" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.EventLog</name>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a52a7c77-e150-47f8-9164-868464bc0eee</parentFolderId>
@@ -1612,10 +1342,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="ae05b35d-94b0-4f07-82a6-ec30214129ba" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="99e5f868-a608-4cc7-8a39-acb3125ff111" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.EventSource</name>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a52a7c77-e150-47f8-9164-868464bc0eee</parentFolderId>
@@ -1623,10 +1353,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="6fe3c591-2914-4b8d-aee5-a7c3fea6f1d9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9200e6ff-3762-4a59-a7f1-9660ecd9e6bc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging</name>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a52a7c77-e150-47f8-9164-868464bc0eee</parentFolderId>
@@ -1634,10 +1364,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="8e3d40ed-9a8f-4dbb-b4b8-2ad59e5b1786" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9d93b09d-bd71-4674-8efe-84c54785d0c1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options</name>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a52a7c77-e150-47f8-9164-868464bc0eee</parentFolderId>

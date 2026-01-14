@@ -27,7 +27,7 @@ namespace Intent.Modules.CosmosDB
             NugetRegistry.Register(IEvangelistAzureCosmosRepositoryPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("9.0.2")
+                        ( >= 10, >= 0) => new PackageVersion("10.0.1")
                             .WithNugetDependency("Azure.Identity", "1.13.1")
                             .WithNugetDependency("Microsoft.Azure.Cosmos", "3.46.0")
                             .WithNugetDependency("Microsoft.Extensions.Hosting.Abstractions", "9.0.0")
@@ -35,8 +35,8 @@ namespace Intent.Modules.CosmosDB
                             .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Options.ConfigurationExtensions", "9.0.0")
                             .WithNugetDependency("Newtonsoft.Json", "13.0.3")
-                            .WithNugetDependency("OpenTelemetry.Extensions.Hosting", "1.10.0"),
-                        ( >= 8, >= 0) => new PackageVersion("9.0.2")
+                            .WithNugetDependency("OpenTelemetry.Extensions.Hosting", "1.13.0"),
+                        ( >= 9, >= 0) => new PackageVersion("10.0.1")
                             .WithNugetDependency("Azure.Identity", "1.13.1")
                             .WithNugetDependency("Microsoft.Azure.Cosmos", "3.46.0")
                             .WithNugetDependency("Microsoft.Extensions.Hosting.Abstractions", "9.0.0")
@@ -44,8 +44,8 @@ namespace Intent.Modules.CosmosDB
                             .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Options.ConfigurationExtensions", "9.0.0")
                             .WithNugetDependency("Newtonsoft.Json", "13.0.3")
-                            .WithNugetDependency("OpenTelemetry.Extensions.Hosting", "1.10.0"),
-                        ( >= 2, >= 0) => new PackageVersion("9.0.2")
+                            .WithNugetDependency("OpenTelemetry.Extensions.Hosting", "1.13.0"),
+                        ( >= 8, >= 0) => new PackageVersion("10.0.1")
                             .WithNugetDependency("Azure.Identity", "1.13.1")
                             .WithNugetDependency("Microsoft.Azure.Cosmos", "3.46.0")
                             .WithNugetDependency("Microsoft.Extensions.Hosting.Abstractions", "9.0.0")
@@ -53,7 +53,16 @@ namespace Intent.Modules.CosmosDB
                             .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Options.ConfigurationExtensions", "9.0.0")
                             .WithNugetDependency("Newtonsoft.Json", "13.0.3")
-                            .WithNugetDependency("OpenTelemetry.Extensions.Hosting", "1.10.0"),
+                            .WithNugetDependency("OpenTelemetry.Extensions.Hosting", "1.13.0"),
+                        ( >= 2, >= 0) => new PackageVersion("10.0.1")
+                            .WithNugetDependency("Azure.Identity", "1.13.1")
+                            .WithNugetDependency("Microsoft.Azure.Cosmos", "3.46.0")
+                            .WithNugetDependency("Microsoft.Extensions.Hosting.Abstractions", "9.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Http", "9.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Options.ConfigurationExtensions", "9.0.0")
+                            .WithNugetDependency("Newtonsoft.Json", "13.0.3")
+                            .WithNugetDependency("OpenTelemetry.Extensions.Hosting", "1.13.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{IEvangelistAzureCosmosRepositoryPackageName}'"),
                     }
                 );

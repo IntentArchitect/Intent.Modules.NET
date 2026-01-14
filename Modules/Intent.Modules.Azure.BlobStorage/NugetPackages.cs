@@ -18,15 +18,18 @@ namespace Intent.Modules.Azure.BlobStorage
             NugetRegistry.Register(AzureStorageBlobsPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, >= 0) => new PackageVersion("12.26.0")
-                            .WithNugetDependency("Azure.Storage.Common", "12.25.0")
-                            .WithNugetDependency("Azure.Core", "1.47.3"),
-                        ( >= 2, >= 1) => new PackageVersion("12.26.0")
-                            .WithNugetDependency("Azure.Core", "1.47.3")
-                            .WithNugetDependency("Azure.Storage.Common", "12.25.0"),
-                        ( >= 2, >= 0) => new PackageVersion("12.26.0")
-                            .WithNugetDependency("Azure.Core", "1.47.3")
-                            .WithNugetDependency("Azure.Storage.Common", "12.25.0"),
+                        ( >= 10, >= 0) => new PackageVersion("12.27.0")
+                            .WithNugetDependency("Azure.Storage.Common", "12.26.0")
+                            .WithNugetDependency("Azure.Core", "1.50.0"),
+                        ( >= 8, >= 0) => new PackageVersion("12.27.0")
+                            .WithNugetDependency("Azure.Storage.Common", "12.26.0")
+                            .WithNugetDependency("Azure.Core", "1.50.0"),
+                        ( >= 2, >= 1) => new PackageVersion("12.27.0")
+                            .WithNugetDependency("Azure.Core", "1.50.0")
+                            .WithNugetDependency("Azure.Storage.Common", "12.26.0"),
+                        ( >= 2, >= 0) => new PackageVersion("12.27.0")
+                            .WithNugetDependency("Azure.Core", "1.50.0")
+                            .WithNugetDependency("Azure.Storage.Common", "12.26.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AzureStorageBlobsPackageName}'"),
                     }
                 );

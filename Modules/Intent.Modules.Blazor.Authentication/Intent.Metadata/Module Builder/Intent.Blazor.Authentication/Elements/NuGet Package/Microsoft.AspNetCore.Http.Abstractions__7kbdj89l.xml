@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="fbcb8330-069e-4d84-9327-90fd6912e0d1" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>2.3.0</name>
+      <name>2.3.9</name>
       <display>2.3.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,30 +47,24 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="8f29480a-984e-435a-97ab-644e2ce5f65f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="283df963-5b86-4f9b-aed1-e82446dc8e8f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Http.Features</name>
-          <display>Microsoft.AspNetCore.Http.Features (2.3.0)</display>
           <isAbstract>false</isAbstract>
           <value>2.3.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>fbcb8330-069e-4d84-9327-90fd6912e0d1</parentFolderId>
-          <packageId>b9d38f7c-7a8d-4007-b33d-7f386ccf119a</packageId>
-          <packageName>Intent.Blazor.Authentication</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="51ed78c7-61bf-4992-953a-f269b6d1e29c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="2c550de0-21a5-4b9b-9319-69d8fcf69843" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Text.Encodings.Web</name>
-          <display>System.Text.Encodings.Web (8.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>fbcb8330-069e-4d84-9327-90fd6912e0d1</parentFolderId>
-          <packageId>b9d38f7c-7a8d-4007-b33d-7f386ccf119a</packageId>
-          <packageName>Intent.Blazor.Authentication</packageName>
           <stereotypes />
           <metadata />
           <childElements />

@@ -38,16 +38,16 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController
             NugetRegistry.Register(MicrosoftAspNetCoreAuthenticationJwtBearerPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 10, >= 0) => new PackageVersion("10.0.0")
+                        ( >= 10, >= 0) => new PackageVersion("10.0.2")
                             .WithNugetDependency("Microsoft.IdentityModel.Protocols.OpenIdConnect", "8.0.1"),
-                        ( >= 9, >= 0) => new PackageVersion("9.0.11")
+                        ( >= 9, >= 0) => new PackageVersion("9.0.12")
                             .WithNugetDependency("Microsoft.IdentityModel.Protocols.OpenIdConnect", "8.0.1"),
-                        ( >= 8, >= 0) => new PackageVersion("8.0.22")
+                        ( >= 8, >= 0) => new PackageVersion("8.0.23")
                             .WithNugetDependency("Microsoft.IdentityModel.Protocols.OpenIdConnect", "7.1.2"),
                         ( >= 7, >= 0) => new PackageVersion("7.0.20"),
                         ( >= 6, >= 0) => new PackageVersion("6.0.36")
                             .WithNugetDependency("Microsoft.IdentityModel.Protocols.OpenIdConnect", "6.35.0"),
-                        ( >= 2, >= 0) => new PackageVersion("2.3.0")
+                        ( >= 2, >= 0) => new PackageVersion("2.3.9")
                             .WithNugetDependency("Microsoft.AspNetCore.Authentication", "2.3.0")
                             .WithNugetDependency("Microsoft.IdentityModel.Protocols.OpenIdConnect", "5.7.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftAspNetCoreAuthenticationJwtBearerPackageName}'"),
