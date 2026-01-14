@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="dbcbf520-97f1-4c7c-85a7-a1ac2f80b3d5" type="On-Uninstall Migration" typeId="d95b829a-fabc-4f12-b044-b3fa198885aa">
+  <name>On-Uninstall</name>
+  <display>On-Uninstall</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>c15835ff-946b-401d-a666-ea6b45484fa1</parentFolderId>
+  <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
+  <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

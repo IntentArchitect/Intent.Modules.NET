@@ -1,3 +1,7 @@
+### Version 3.6.2
+
+- Fixed: Updated `Intent.Persistence.SDK` to latest version to resolve compatibility issues.
+
 ### Version 3.6.1
 
 - Improvement: Documentation and ProjectUrl link added.

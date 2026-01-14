@@ -1,3 +1,7 @@
+### Version 2.0.16
+
+- Improvement: IntegrationTest project no longer defaults to .NET8, but will be based on the selection or target framework of the main application project.
+
 ### Version 2.0.15
 
 - Improvement: Updated NuGet package versions.
