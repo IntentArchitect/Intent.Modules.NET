@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c15835ff-946b-401d-a666-ea6b45484fa1" type="Module Migrations" typeId="8cfd2eab-c1bf-46bc-a86f-3ed0263a380f">
+  <name>Migrations</name>
+  <display>Migrations</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>4ece5953-d069-4257-9f0e-6c14afb2bb67</parentFolderId>
+  <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
+  <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

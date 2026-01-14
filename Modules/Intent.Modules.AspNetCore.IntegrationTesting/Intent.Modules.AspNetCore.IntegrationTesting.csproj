@@ -26,6 +26,7 @@
     </PackageReference>
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.7" />
     <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.9.0" />
+	<PackageReference Include="Intent.Persistence.SDK" Version="1.0.2" />
   </ItemGroup>
 
   <ItemGroup>
