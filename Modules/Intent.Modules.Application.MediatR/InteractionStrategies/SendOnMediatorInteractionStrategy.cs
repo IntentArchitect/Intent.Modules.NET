@@ -22,7 +22,9 @@ namespace Intent.Modules.Application.Contracts.InteractionStrategies
 
         public bool IsMatch(IElement interaction)
         {
-            return interaction.IsPerformInvocationTargetEndModel() && (interaction.TypeReference.Element.IsCommandModel() || interaction.TypeReference.Element.IsQueryModel());
+            return interaction.IsPerformInvocationTargetEndModel() && 
+                   (interaction.TypeReference.Element.IsCommandModel() || interaction.TypeReference.Element.IsQueryModel()) &&
+                   (interaction as IAssociationEnd)?.Mappings.Count() == 1;
         }
 
         public void ImplementInteraction(ICSharpClassMethodDeclaration method, IElement interactionElement)

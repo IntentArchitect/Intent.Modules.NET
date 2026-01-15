@@ -1,3 +1,7 @@
+### Version 4.5.4
+
+- Fixed: SendOnMediatorInteractionStrategy didn't match on how many mappings were available causing an exception with unclear message.
+
 ### Version 4.5.3
 
 - Improvement: XML Documentation improvements for Command and Query models.
