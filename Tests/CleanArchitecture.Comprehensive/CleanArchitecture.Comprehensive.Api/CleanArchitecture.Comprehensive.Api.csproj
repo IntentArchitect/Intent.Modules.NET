@@ -15,8 +15,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Asp.Versioning.Mvc" Version="8.1.0" />
-    <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.0" />
+    <PackageReference Include="Asp.Versioning.Mvc" Version="8.1.1" />
+    <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.1" />
     <PackageReference Include="AspNetcore.HealthChecks.Publisher.ApplicationInsights" Version="7.0.0-rc2.5" />
     <PackageReference Include="AspNetCore.HealthChecks.UI" Version="9.0.0" />
     <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="9.0.0" />
@@ -24,12 +24,12 @@
     <PackageReference Include="FastEndpoints" Version="5.30.0" />
     <PackageReference Include="FastEndpoints.Swagger.Swashbuckle" Version="2.3.0" />
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="3.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.22" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.23" />
     <PackageReference Include="Microsoft.AspNetCore.OData" Version="9.4.1" />
     <PackageReference Include="NetTopologySuite" Version="2.5.0" />
     <PackageReference Include="NetTopologySuite.IO.GeoJSON4STJ" Version="4.0.0" />
     <PackageReference Include="Serilog.AspNetCore" Version="10.0.0" />
-    <PackageReference Include="SonarAnalyzer.CSharp" Version="10.16.1.129956">
+    <PackageReference Include="SonarAnalyzer.CSharp" Version="10.18.0.131500">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentFiles; analyzers; buildTransitive</IncludeAssets>
     </PackageReference>

@@ -21,7 +21,7 @@ namespace Intent.Modules.AspNetCore.IdentityService
             NugetRegistry.Register(MicrosoftAspNetCoreIdentityPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 2, >= 0) => new PackageVersion("2.3.1")
+                        ( >= 2, >= 0) => new PackageVersion("2.3.9")
                             .WithNugetDependency("Microsoft.AspNetCore.Authentication.Cookies", "2.3.0")
                             .WithNugetDependency("Microsoft.AspNetCore.Cryptography.KeyDerivation", "2.3.0")
                             .WithNugetDependency("Microsoft.AspNetCore.Hosting.Abstractions", "2.3.0")
@@ -32,15 +32,15 @@ namespace Intent.Modules.AspNetCore.IdentityService
             NugetRegistry.Register(MicrosoftAspNetCoreIdentityEntityFrameworkCorePackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 10, >= 0) => new PackageVersion("10.0.0")
-                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "10.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Identity.Stores", "10.0.0"),
-                        ( >= 9, >= 0) => new PackageVersion("9.0.11")
-                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "9.0.11")
-                            .WithNugetDependency("Microsoft.Extensions.Identity.Stores", "9.0.11"),
-                        ( >= 8, >= 0) => new PackageVersion("8.0.22")
-                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "8.0.22")
-                            .WithNugetDependency("Microsoft.Extensions.Identity.Stores", "8.0.22"),
+                        ( >= 10, >= 0) => new PackageVersion("10.0.2")
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "10.0.2")
+                            .WithNugetDependency("Microsoft.Extensions.Identity.Stores", "10.0.2"),
+                        ( >= 9, >= 0) => new PackageVersion("9.0.12")
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "9.0.12")
+                            .WithNugetDependency("Microsoft.Extensions.Identity.Stores", "9.0.12"),
+                        ( >= 8, >= 0) => new PackageVersion("8.0.23")
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "8.0.23")
+                            .WithNugetDependency("Microsoft.Extensions.Identity.Stores", "8.0.23"),
                         ( >= 7, >= 0) => new PackageVersion("7.0.20")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "7.0.20")
                             .WithNugetDependency("Microsoft.Extensions.Identity.Stores", "7.0.20"),
@@ -50,10 +50,10 @@ namespace Intent.Modules.AspNetCore.IdentityService
                         ( >= 2, >= 1) => new PackageVersion("5.0.17")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "5.0.17")
                             .WithNugetDependency("Microsoft.Extensions.Identity.Stores", "5.0.17"),
-                        ( >= 2, >= 0) => new PackageVersion("2.3.0")
-                            .WithNugetDependency("Microsoft.AspNetCore.Identity", "2.3.0")
+                        ( >= 2, >= 0) => new PackageVersion("2.3.9")
+                            .WithNugetDependency("Microsoft.AspNetCore.Identity", "2.3.8")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "2.1.14")
-                            .WithNugetDependency("Microsoft.Extensions.Identity.Stores", "2.3.0"),
+                            .WithNugetDependency("Microsoft.Extensions.Identity.Stores", "2.3.8"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftAspNetCoreIdentityEntityFrameworkCorePackageName}'"),
                     }
                 );

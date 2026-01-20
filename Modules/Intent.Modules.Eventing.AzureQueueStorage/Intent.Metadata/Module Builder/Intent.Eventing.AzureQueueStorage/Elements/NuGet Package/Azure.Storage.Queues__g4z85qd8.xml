@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="23e5cc26-9c67-4bb8-96c5-28c6830842bc" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>12.24.0</name>
+      <name>12.25.0</name>
       <display>12.24.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,30 +47,24 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="109dc5ab-8015-4744-ae6f-a71495257fb1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Azure.Core</name>
-          <display>Azure.Core (1.47.3)</display>
+        <childElement id="ccde1277-e909-48ed-86eb-2224ac5f565c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Azure.Storage.Common</name>
           <isAbstract>false</isAbstract>
-          <value>1.47.3</value>
+          <value>12.26.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>23e5cc26-9c67-4bb8-96c5-28c6830842bc</parentFolderId>
-          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
-          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="7a2951bd-aed7-4305-ab88-5a5e8f6967ea" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Azure.Storage.Common</name>
-          <display>Azure.Storage.Common (12.25.0)</display>
+        <childElement id="7dbbc259-5935-4c7e-aa50-69863503ca2f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Azure.Core</name>
           <isAbstract>false</isAbstract>
-          <value>12.25.0</value>
+          <value>1.50.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>23e5cc26-9c67-4bb8-96c5-28c6830842bc</parentFolderId>
-          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
-          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -78,7 +72,7 @@
       </childElements>
     </childElement>
     <childElement id="10d83695-b973-4359-9983-b93a7308d570" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>12.24.0</name>
+      <name>12.25.0</name>
       <display>12.24.0 ( &gt;= .NETStandard,Version=v2.1 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -100,30 +94,24 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="c8b68779-aac8-4f6a-b240-51554ac69db1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Azure.Core</name>
-          <display>Azure.Core (1.47.3)</display>
+        <childElement id="bd2119ce-001e-43fd-8421-7a003942ef0f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Azure.Storage.Common</name>
           <isAbstract>false</isAbstract>
-          <value>1.47.3</value>
+          <value>12.26.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>10d83695-b973-4359-9983-b93a7308d570</parentFolderId>
-          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
-          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d536ceaa-f664-45c1-b167-f17fed9c413f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Azure.Storage.Common</name>
-          <display>Azure.Storage.Common (12.25.0)</display>
+        <childElement id="681c0153-38d5-4450-bd98-5d2c5d59e4ae" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Azure.Core</name>
           <isAbstract>false</isAbstract>
-          <value>12.25.0</value>
+          <value>1.50.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>10d83695-b973-4359-9983-b93a7308d570</parentFolderId>
-          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
-          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -131,7 +119,7 @@
       </childElements>
     </childElement>
     <childElement id="0e4dd5a6-f9e3-4c70-8bba-77125721e416" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>12.24.0</name>
+      <name>12.25.0</name>
       <display>12.24.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -153,30 +141,67 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="36a2da9f-bde2-4c19-9c27-dc8a787ab5f1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Azure.Core</name>
-          <display>Azure.Core (1.47.3)</display>
+        <childElement id="a3c0e756-f02b-44b4-8007-9f01ac117e8e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Azure.Storage.Common</name>
           <isAbstract>false</isAbstract>
-          <value>1.47.3</value>
+          <value>12.26.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0e4dd5a6-f9e3-4c70-8bba-77125721e416</parentFolderId>
-          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
-          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="ab86a26e-fbbb-4811-b263-1ae92fbacd8f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Azure.Storage.Common</name>
-          <display>Azure.Storage.Common (12.25.0)</display>
+        <childElement id="07797815-a892-4bc4-90a3-b8dd61f5e0a2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Azure.Core</name>
           <isAbstract>false</isAbstract>
-          <value>12.25.0</value>
+          <value>1.50.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0e4dd5a6-f9e3-4c70-8bba-77125721e416</parentFolderId>
-          <packageId>f924ae65-9274-415c-a1c4-9682f8b463d1</packageId>
-          <packageName>Intent.Eventing.AzureQueueStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="8066cad8-71a0-4833-8c28-7ac893fa9ba1" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>12.25.0</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a503e4cc-c715-4ddd-8fc9-cafea3c5cb2e</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v10.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="70ecda5e-a41f-46a3-aed7-622ed94b2d50" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Azure.Storage.Common</name>
+          <isAbstract>false</isAbstract>
+          <value>12.26.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>8066cad8-71a0-4833-8c28-7ac893fa9ba1</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="93b469ed-d73c-4c8b-931c-f64a9f78d9d0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Azure.Core</name>
+          <isAbstract>false</isAbstract>
+          <value>1.50.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>8066cad8-71a0-4833-8c28-7ac893fa9ba1</parentFolderId>
           <stereotypes />
           <metadata />
           <childElements />

@@ -1,3 +1,7 @@
+### Version 1.0.10
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 1.0.9
 
 - Fixed: Updated `Intent.Persistence.SDK` to latest version to resolve compatibility issues.

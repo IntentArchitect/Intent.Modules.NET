@@ -1,3 +1,7 @@
+### Version 6.0.13
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 6.0.12
 
 - Fixed: Updated `Intent.Persistence.SDK` to latest version to resolve compatibility issues.

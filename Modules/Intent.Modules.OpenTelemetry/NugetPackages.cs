@@ -198,15 +198,15 @@ namespace Intent.Modules.OpenTelemetry
             NugetRegistry.Register(OpenTelemetryInstrumentationSqlClientPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 10, >= 0) => new PackageVersion("1.14.0-beta.1")
+                        ( >= 10, >= 0) => new PackageVersion("1.14.0-rc.1")
                             .WithNugetDependency("Microsoft.Extensions.Configuration", "10.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Options", "10.0.0")
                             .WithNugetDependency("OpenTelemetry.Api.ProviderBuilderExtensions", "1.14.0"),
-                        ( >= 8, >= 0) => new PackageVersion("1.14.0-beta.1")
+                        ( >= 8, >= 0) => new PackageVersion("1.14.0-rc.1")
                             .WithNugetDependency("Microsoft.Extensions.Configuration", "8.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Options", "8.0.0")
                             .WithNugetDependency("OpenTelemetry.Api.ProviderBuilderExtensions", "1.14.0"),
-                        ( >= 2, >= 0) => new PackageVersion("1.14.0-beta.1")
+                        ( >= 2, >= 0) => new PackageVersion("1.14.0-rc.1")
                             .WithNugetDependency("Microsoft.Extensions.Configuration", "10.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Options", "10.0.0")
                             .WithNugetDependency("OpenTelemetry.Api.ProviderBuilderExtensions", "1.14.0"),

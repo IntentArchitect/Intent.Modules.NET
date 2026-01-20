@@ -1,3 +1,7 @@
+### Version 4.7.18
+
+- Fixed: correct variable encoding for reserved words being used as variables for stored procedures.
+
 ### Version 4.7.17
 
 - Fixed: Handling stored procedure operations which have UDTs.

@@ -18,17 +18,17 @@ namespace Intent.Modules.ApiGateway.Ocelot
             NugetRegistry.Register(OcelotPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("24.0.1")
-                            .WithNugetDependency("FluentValidation", "11.11.0")
-                            .WithNugetDependency("IPAddressRange", "6.2.0")
-                            .WithNugetDependency("Microsoft.AspNetCore.MiddlewareAnalysis", "9.0.4")
-                            .WithNugetDependency("Microsoft.AspNetCore.Mvc.NewtonsoftJson", "9.0.4")
+                        ( >= 9, >= 0) => new PackageVersion("24.1.0")
+                            .WithNugetDependency("FluentValidation", "12.1.1")
+                            .WithNugetDependency("IPAddressRange", "6.3.0")
+                            .WithNugetDependency("Microsoft.AspNetCore.MiddlewareAnalysis", "9.0.11")
+                            .WithNugetDependency("Microsoft.AspNetCore.Mvc.NewtonsoftJson", "9.0.11")
                             .WithNugetDependency("Microsoft.Extensions.DiagnosticAdapter", "3.1.32"),
-                        ( >= 8, >= 0) => new PackageVersion("24.0.1")
-                            .WithNugetDependency("FluentValidation", "11.11.0")
-                            .WithNugetDependency("IPAddressRange", "6.2.0")
-                            .WithNugetDependency("Microsoft.AspNetCore.MiddlewareAnalysis", "8.0.15")
-                            .WithNugetDependency("Microsoft.AspNetCore.Mvc.NewtonsoftJson", "8.0.15")
+                        ( >= 8, >= 0) => new PackageVersion("24.1.0")
+                            .WithNugetDependency("FluentValidation", "12.1.1")
+                            .WithNugetDependency("IPAddressRange", "6.3.0")
+                            .WithNugetDependency("Microsoft.AspNetCore.MiddlewareAnalysis", "8.0.22")
+                            .WithNugetDependency("Microsoft.AspNetCore.Mvc.NewtonsoftJson", "8.0.22")
                             .WithNugetDependency("Microsoft.Extensions.DiagnosticAdapter", "3.1.32"),
                         ( >= 7, >= 0) => new PackageVersion("23.4.3")
                             .WithNugetDependency("FluentValidation", "11.11.0")

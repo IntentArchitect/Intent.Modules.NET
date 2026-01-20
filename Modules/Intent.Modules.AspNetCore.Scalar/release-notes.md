@@ -1,3 +1,7 @@
+### Version 1.0.6
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 1.0.5
 
 - Improvement: Compatibility added for `Microsoft.AspNetCore.OpenApi` versions 10 and greater applied conditionally depending on the target framework of the project.

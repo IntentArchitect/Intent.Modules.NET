@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="902ed9d6-41de-4771-8855-b751938a0f41" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>2.3.0</name>
+      <name>2.3.9</name>
       <display>2.3.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,58 +47,46 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="13b19716-14f4-43c3-8080-6aaa11f70c82" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="52d16046-c025-4a58-b2fb-097a7081d901" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Http.Abstractions</name>
-          <display>Microsoft.AspNetCore.Http.Abstractions (2.3.0)</display>
           <isAbstract>false</isAbstract>
           <value>2.3.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>902ed9d6-41de-4771-8855-b751938a0f41</parentFolderId>
-          <packageId>078cefb0-8647-40bf-9099-a7c96c4d8e85</packageId>
-          <packageName>Intent.Integration.HttpClients</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="ab2327f5-2117-43c9-a809-d59aa50f163b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a7fb1b5a-3960-40b5-a049-c26f58eec9aa" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Abstractions</name>
-          <display>Microsoft.Extensions.FileProviders.Abstractions (8.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>902ed9d6-41de-4771-8855-b751938a0f41</parentFolderId>
-          <packageId>078cefb0-8647-40bf-9099-a7c96c4d8e85</packageId>
-          <packageName>Intent.Integration.HttpClients</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="b2efd4fc-7550-40d0-8002-39ff83987d64" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a5040d94-fe2d-4361-9c78-d570f381ac26" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Net.Http.Headers</name>
-          <display>Microsoft.Net.Http.Headers (2.3.0)</display>
           <isAbstract>false</isAbstract>
-          <value>2.3.0</value>
+          <value>2.3.8</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>902ed9d6-41de-4771-8855-b751938a0f41</parentFolderId>
-          <packageId>078cefb0-8647-40bf-9099-a7c96c4d8e85</packageId>
-          <packageName>Intent.Integration.HttpClients</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="7c06d84e-738a-44c5-a192-7bfd209aa0f2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="31f21560-27ed-43c0-ae38-03a52f263264" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Buffers</name>
-          <display>System.Buffers (4.6.0)</display>
           <isAbstract>false</isAbstract>
           <value>4.6.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>902ed9d6-41de-4771-8855-b751938a0f41</parentFolderId>
-          <packageId>078cefb0-8647-40bf-9099-a7c96c4d8e85</packageId>
-          <packageName>Intent.Integration.HttpClients</packageName>
           <stereotypes />
           <metadata />
           <childElements />

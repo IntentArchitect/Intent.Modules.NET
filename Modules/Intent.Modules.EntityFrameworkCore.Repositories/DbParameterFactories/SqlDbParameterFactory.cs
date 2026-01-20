@@ -159,12 +159,12 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.DbParameterFactories
 
         public string GenerateTypeElementSqlStatement(string storeProcedureName, List<SqlParameter> parameters)
         {
-            return $"$\"EXECUTE {storeProcedureName}{string.Join(",", parameters.Select(x => $" {{{x.VariableName}}}{x.OutputKeyword}"))}\"";
+            return $"$\"EXECUTE {storeProcedureName}{string.Join(",", parameters.Select(x => $" {{{x.VariableName.ToParameterName()}}}{x.OutputKeyword}"))}\"";
         }
 
         public string GenerateTableTypeSqlStatement(string storeProcedureName, List<SqlParameter> parameters)
         {
-            return $"$\"EXECUTE {storeProcedureName}{string.Join(",", parameters.Select(x => $" {{{x.VariableName}}}{x.OutputKeyword}"))}\"";
+            return $"$\"EXECUTE {storeProcedureName}{string.Join(",", parameters.Select(x => $" {{{x.VariableName.ToParameterName()}}}{x.OutputKeyword}"))}\"";
         }
     }
 }

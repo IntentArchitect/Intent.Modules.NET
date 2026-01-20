@@ -1,3 +1,7 @@
+### Version 2.2.30
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 2.2.29
 
 - Improvement: Updated NuGet package versions.

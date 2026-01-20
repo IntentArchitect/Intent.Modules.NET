@@ -25,8 +25,8 @@
   <metadata />
   <childElements>
     <childElement id="7b0cf953-2152-47f0-9471-893c5fa67e02" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.0</name>
-      <display>10.0.0 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
+      <name>10.0.2</name>
+      <display>10.0.2 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -47,11 +47,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="f984e3a7-a20e-4692-8455-b0a85254cf9d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="aa825ac0-aa23-4463-a215-0bbdbb457140" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore</name>
-          <display>Microsoft.EntityFrameworkCore (10.0.0)</display>
+          <display>Microsoft.EntityFrameworkCore (10.0.2)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7b0cf953-2152-47f0-9471-893c5fa67e02</parentFolderId>
@@ -61,11 +61,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="2a15242e-0ed0-4aff-8a45-bf35438c7243" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="8008010f-f0ff-420e-839e-7c5ec093f5c5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Caching.Memory</name>
-          <display>Microsoft.Extensions.Caching.Memory (10.0.0)</display>
+          <display>Microsoft.Extensions.Caching.Memory (10.0.2)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7b0cf953-2152-47f0-9471-893c5fa67e02</parentFolderId>
@@ -75,11 +75,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="fdf5d3a9-d178-4049-bc2c-fb1dd92cca12" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a331e815-ca8f-4fd6-a285-60c806ce97c4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging</name>
-          <display>Microsoft.Extensions.Logging (10.0.0)</display>
+          <display>Microsoft.Extensions.Logging (10.0.2)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7b0cf953-2152-47f0-9471-893c5fa67e02</parentFolderId>
@@ -194,8 +194,8 @@
     </childElement>
     <childElement id="505f9a16-5c6a-4b45-bd16-68e08cb0ce88" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <comment>Not all the .net8 providers  (Oracle and MySql) have upgraded to support 9.0.0.</comment>
-      <name>8.0.22</name>
-      <display>8.0.22 ( &gt;= .NETCoreApp,Version=v8.0 ) [locked]</display>
+      <name>8.0.23</name>
+      <display>8.0.23 ( &gt;= .NETCoreApp,Version=v8.0 ) [locked]</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -219,8 +219,8 @@
     <childElement id="30cd1b7a-7e92-4cdc-8f62-4a5171d35f49" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <comment>Not all the .net8 providers  (Oracle and MySql) have upgraded to support 9.0.0.
 Created this entry so .net9 gets 9.0.0</comment>
-      <name>9.0.11</name>
-      <display>9.0.11 ( &gt;= .NETCoreApp,Version=v9.0 ) [locked]</display>
+      <name>9.0.12</name>
+      <display>9.0.12 ( &gt;= .NETCoreApp,Version=v9.0 ) [locked]</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />

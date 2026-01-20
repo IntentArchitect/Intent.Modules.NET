@@ -1,3 +1,7 @@
+### Version 5.1.21
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 5.1.20
 
 - Improvement: Improved error message around unsupported scenarios.

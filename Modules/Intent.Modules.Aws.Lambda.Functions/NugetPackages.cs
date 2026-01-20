@@ -27,20 +27,20 @@ namespace Intent.Modules.Aws.Lambda.Functions
             NugetRegistry.Register(AmazonLambdaAnnotationsPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, >= 0) => new PackageVersion("1.7.0")
-                            .WithNugetDependency("Amazon.Lambda.Core", "2.5.1"),
-                        ( >= 6, >= 0) => new PackageVersion("1.7.0")
-                            .WithNugetDependency("Amazon.Lambda.Core", "2.5.1"),
-                        ( >= 2, >= 0) => new PackageVersion("1.7.0")
-                            .WithNugetDependency("Amazon.Lambda.Core", "2.5.1"),
+                        ( >= 8, >= 0) => new PackageVersion("1.8.0")
+                            .WithNugetDependency("Amazon.Lambda.Core", "2.8.0"),
+                        ( >= 6, >= 0) => new PackageVersion("1.8.0")
+                            .WithNugetDependency("Amazon.Lambda.Core", "2.8.0"),
+                        ( >= 2, >= 0) => new PackageVersion("1.8.0")
+                            .WithNugetDependency("Amazon.Lambda.Core", "2.8.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AmazonLambdaAnnotationsPackageName}'"),
                     }
                 );
             NugetRegistry.Register(AmazonLambdaAPIGatewayEventsPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, >= 0) => new PackageVersion("2.7.2"),
-                        ( >= 2, >= 0) => new PackageVersion("2.7.2")
+                        ( >= 8, >= 0) => new PackageVersion("2.7.3"),
+                        ( >= 2, >= 0) => new PackageVersion("2.7.3")
                             .WithNugetDependency("Newtonsoft.Json", "13.0.1"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AmazonLambdaAPIGatewayEventsPackageName}'"),
                     }
@@ -88,19 +88,19 @@ namespace Intent.Modules.Aws.Lambda.Functions
             NugetRegistry.Register(MicrosoftExtensionsConfigurationBinderPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 10, >= 0) => new PackageVersion("10.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "10.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration", "10.0.0"),
-                        ( >= 9, >= 0) => new PackageVersion("10.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration", "10.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "10.0.0"),
-                        ( >= 8, >= 0) => new PackageVersion("10.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration", "10.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "10.0.0"),
+                        ( >= 10, >= 0) => new PackageVersion("10.0.2")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "10.0.2")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration", "10.0.2"),
+                        ( >= 9, >= 0) => new PackageVersion("10.0.2")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration", "10.0.2")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "10.0.2"),
+                        ( >= 8, >= 0) => new PackageVersion("10.0.2")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration", "10.0.2")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "10.0.2"),
                         ( >= 6, >= 0) => new PackageVersion("6.0.0", locked: true),
-                        ( >= 2, >= 0) => new PackageVersion("10.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration", "10.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "10.0.0"),
+                        ( >= 2, >= 0) => new PackageVersion("10.0.2")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration", "10.0.2")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "10.0.2"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftExtensionsConfigurationBinderPackageName}'"),
                     }
                 );
@@ -126,18 +126,18 @@ namespace Intent.Modules.Aws.Lambda.Functions
             NugetRegistry.Register(MicrosoftExtensionsDependencyInjectionPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 10, >= 0) => new PackageVersion("10.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "10.0.0"),
-                        ( >= 9, >= 0) => new PackageVersion("10.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "10.0.0"),
-                        ( >= 8, >= 0) => new PackageVersion("10.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "10.0.0"),
+                        ( >= 10, >= 0) => new PackageVersion("10.0.2")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "10.0.2"),
+                        ( >= 9, >= 0) => new PackageVersion("10.0.2")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "10.0.2"),
+                        ( >= 8, >= 0) => new PackageVersion("10.0.2")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "10.0.2"),
                         ( >= 6, >= 0) => new PackageVersion("6.0.1", locked: true),
-                        ( >= 2, >= 1) => new PackageVersion("10.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "10.0.0"),
-                        ( >= 2, >= 0) => new PackageVersion("10.0.0")
-                            .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "10.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "10.0.0")
+                        ( >= 2, >= 1) => new PackageVersion("10.0.2")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "10.0.2"),
+                        ( >= 2, >= 0) => new PackageVersion("10.0.2")
+                            .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "10.0.2")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "10.0.2")
                             .WithNugetDependency("System.Threading.Tasks.Extensions", "4.6.3"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftExtensionsDependencyInjectionPackageName}'"),
                     }
@@ -145,30 +145,30 @@ namespace Intent.Modules.Aws.Lambda.Functions
             NugetRegistry.Register(MicrosoftExtensionsLoggingPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 10, >= 0) => new PackageVersion("10.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "10.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Options", "10.0.0"),
-                        ( >= 9, >= 0) => new PackageVersion("10.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "10.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Options", "10.0.0"),
-                        ( >= 8, >= 0) => new PackageVersion("10.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "10.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Options", "10.0.0"),
+                        ( >= 10, >= 0) => new PackageVersion("10.0.2")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "10.0.2")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.2")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "10.0.2"),
+                        ( >= 9, >= 0) => new PackageVersion("10.0.2")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "10.0.2")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.2")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "10.0.2"),
+                        ( >= 8, >= 0) => new PackageVersion("10.0.2")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "10.0.2")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.2")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "10.0.2"),
                         ( >= 6, >= 0) => new PackageVersion("6.0.0", locked: true),
-                        ( >= 2, >= 1) => new PackageVersion("10.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "10.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Options", "10.0.0")
-                            .WithNugetDependency("System.Diagnostics.DiagnosticSource", "10.0.0"),
-                        ( >= 2, >= 0) => new PackageVersion("10.0.0")
-                            .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "10.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "10.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Options", "10.0.0")
-                            .WithNugetDependency("System.Diagnostics.DiagnosticSource", "10.0.0"),
+                        ( >= 2, >= 1) => new PackageVersion("10.0.2")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "10.0.2")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.2")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "10.0.2")
+                            .WithNugetDependency("System.Diagnostics.DiagnosticSource", "10.0.2"),
+                        ( >= 2, >= 0) => new PackageVersion("10.0.2")
+                            .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "10.0.2")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "10.0.2")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.2")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "10.0.2")
+                            .WithNugetDependency("System.Diagnostics.DiagnosticSource", "10.0.2"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftExtensionsLoggingPackageName}'"),
                     }
                 );

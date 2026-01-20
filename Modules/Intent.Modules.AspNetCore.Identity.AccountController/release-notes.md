@@ -1,3 +1,7 @@
+### Version 4.1.16
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 4.1.15
 
 - Improvement: Bumped persistence dependency version.

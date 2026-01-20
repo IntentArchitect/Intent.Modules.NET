@@ -1,8 +1,4 @@
 ﻿#nullable enable
-using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using Intent.Engine;
 using Intent.EntityFrameworkCore.Api;
 using Intent.Exceptions;
@@ -25,6 +21,11 @@ using Intent.Modules.EntityFrameworkCore.Templates;
 using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.Modules.Modelers.Domain.StoredProcedures.Api;
 using Intent.Utils;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
+using System.Security.Claims;
 using OperationModel = Intent.Modelers.Domain.Api.OperationModel;
 using OperationModelExtensions = Intent.Modelers.Domain.Api.OperationModelExtensions;
 using ParameterModel = Intent.Modelers.Domain.Api.ParameterModel;
@@ -52,7 +53,9 @@ internal static class EntityFrameworkRepositoryHelpers
                     var operationModel = OperationModelExtensions.AsOperationModel(childElement);
                     if (operationModel != null)
                     {
-                        var interfaceMethod = @interface.Methods.First(m => m.Name == operationModel.Name.ToPascalCase());
+                        var interfaceMethods = @interface.Methods.Where(m => m.Name == operationModel.Name.ToPascalCase());
+                        var interfaceMethod = interfaceMethods.Count() == 1 ? interfaceMethods.First() : interfaceMethods.First(m => m.GetMetadata<OperationModel>("model").Id == operationModel.Id);
+
 
                         var hasStoredProcStereotype = false;
                         if (operationModel.TryGetStoredProcedure(out var stereotype))
@@ -150,7 +153,8 @@ internal static class EntityFrameworkRepositoryHelpers
             {
                 template.CSharpFile.OnBuild(file =>
                 {
-                    var method = @class.Methods.First(m => m.Name == operationModel.Name.ToPascalCase());
+                    var methods = @class.Methods.Where(m => m.Name == operationModel.Name.ToPascalCase());
+                    var method = methods.Count() == 1 ? methods.First() : methods.First(m => m.GetMetadata<OperationModel>("model").Id == operationModel.Id);
 
                     var hasStoredProcStereotype = false;
                     if (operationModel.TryGetStoredProcedure(out var stereotype))

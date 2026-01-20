@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="9244c7ad-3c03-494a-be65-f0199cbbe76a" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.0</name>
+      <name>10.0.2</name>
       <display>10.0.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,30 +47,24 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="ccf4b0b3-d0fc-4e1e-a9f3-51048382ca31" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="bc037e0d-a150-40e1-a6f4-65a18937f436" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.IO.Pipelines</name>
-          <display>System.IO.Pipelines (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>9244c7ad-3c03-494a-be65-f0199cbbe76a</parentFolderId>
-          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
-          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="8f4fa538-7ac7-4065-a166-512f532bc8be" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b5dd5282-5025-48fa-be89-aa33970620c3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Text.Encodings.Web</name>
-          <display>System.Text.Encodings.Web (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>9244c7ad-3c03-494a-be65-f0199cbbe76a</parentFolderId>
-          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
-          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -78,7 +72,7 @@
       </childElements>
     </childElement>
     <childElement id="deafbf63-c409-4116-95bb-312ba62d0086" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.0</name>
+      <name>10.0.2</name>
       <display>10.0.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -100,100 +94,79 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="03bf4f36-1def-45ab-b994-ac2cf9e06c13" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="48a2171b-2d6a-434a-bceb-15fcc7e59b5e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Bcl.AsyncInterfaces</name>
-          <display>Microsoft.Bcl.AsyncInterfaces (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>deafbf63-c409-4116-95bb-312ba62d0086</parentFolderId>
-          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
-          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="6ab59198-d89d-48c5-b837-e06a17a6ad33" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="fc2852f1-5f4a-4243-8948-4092aa59034b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.IO.Pipelines</name>
+          <isAbstract>false</isAbstract>
+          <value>10.0.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>deafbf63-c409-4116-95bb-312ba62d0086</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="354b453b-976f-4b58-a54d-b2a46d886110" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Text.Encodings.Web</name>
+          <isAbstract>false</isAbstract>
+          <value>10.0.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>deafbf63-c409-4116-95bb-312ba62d0086</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="bfa7abb9-1a70-43da-8a5c-c9813220c0f9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Buffers</name>
-          <display>System.Buffers (4.6.1)</display>
           <isAbstract>false</isAbstract>
           <value>4.6.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>deafbf63-c409-4116-95bb-312ba62d0086</parentFolderId>
-          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
-          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="f5f82430-eb25-4b33-8e13-056e713c5c8f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.IO.Pipelines</name>
-          <display>System.IO.Pipelines (10.0.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>deafbf63-c409-4116-95bb-312ba62d0086</parentFolderId>
-          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
-          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="834e96ec-2295-48f5-a9b7-89cabbe1a5b7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ce40d2ee-711f-48cf-8f14-2f6d49ec9912" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Memory</name>
-          <display>System.Memory (4.6.3)</display>
           <isAbstract>false</isAbstract>
           <value>4.6.3</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>deafbf63-c409-4116-95bb-312ba62d0086</parentFolderId>
-          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
-          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="64887d67-0235-4996-87a6-a26a7e43811a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="4d44b787-4f84-48e1-b846-1dd9b5c6743c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Runtime.CompilerServices.Unsafe</name>
-          <display>System.Runtime.CompilerServices.Unsafe (6.1.2)</display>
           <isAbstract>false</isAbstract>
           <value>6.1.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>deafbf63-c409-4116-95bb-312ba62d0086</parentFolderId>
-          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
-          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c320bcf2-deca-41ab-b9f5-280545e2ca86" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.Text.Encodings.Web</name>
-          <display>System.Text.Encodings.Web (10.0.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>deafbf63-c409-4116-95bb-312ba62d0086</parentFolderId>
-          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
-          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="4e69dc99-e605-418b-a57c-a42fcbadf91f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="94bf9763-a5f0-4aff-a5ed-dcb3a397ec0a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Threading.Tasks.Extensions</name>
-          <display>System.Threading.Tasks.Extensions (4.6.3)</display>
           <isAbstract>false</isAbstract>
           <value>4.6.3</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>deafbf63-c409-4116-95bb-312ba62d0086</parentFolderId>
-          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
-          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -201,7 +174,7 @@
       </childElements>
     </childElement>
     <childElement id="77ee49b6-e0fd-4122-8586-41665060934c" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.0</name>
+      <name>10.0.2</name>
       <display>10.0.0 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -223,30 +196,24 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="21a50b26-3f4e-4c0c-8793-f9f1cea3fa0c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="923d3ae7-4edc-49f6-9558-f228cdaae507" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.IO.Pipelines</name>
-          <display>System.IO.Pipelines (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>77ee49b6-e0fd-4122-8586-41665060934c</parentFolderId>
-          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
-          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="6fa6c554-b2d1-4f2a-a75c-0a50db74777b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="2303a2fe-9ced-4126-a5a8-ac48c0858364" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Text.Encodings.Web</name>
-          <display>System.Text.Encodings.Web (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>77ee49b6-e0fd-4122-8586-41665060934c</parentFolderId>
-          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
-          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -254,7 +221,7 @@
       </childElements>
     </childElement>
     <childElement id="745ff2e3-d240-4e68-9670-7930c1d29b2c" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.0</name>
+      <name>10.0.2</name>
       <display>10.0.0 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />

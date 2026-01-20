@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="cb3e411f-f9b2-4fbb-8e88-5e5b3ca2d050" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.0</name>
+      <name>10.0.2</name>
       <display>10.0.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,44 +47,35 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="3b8f7209-27ae-4e28-a659-e80819537853" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="7c5ce138-f9ec-43f3-ba44-7f5c5c6ca97d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Bcl.AsyncInterfaces</name>
-          <display>Microsoft.Bcl.AsyncInterfaces (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cb3e411f-f9b2-4fbb-8e88-5e5b3ca2d050</parentFolderId>
-          <packageId>4741e086-f1fa-4135-88df-1a329c15a271</packageId>
-          <packageName>Intent.Aws.Lambda.Functions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="313879bc-6a94-4372-b34d-a398b92e5e5e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d381f73b-44c8-489c-8433-0211ad5fa260" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
-          <display>Microsoft.Extensions.DependencyInjection.Abstractions (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cb3e411f-f9b2-4fbb-8e88-5e5b3ca2d050</parentFolderId>
-          <packageId>4741e086-f1fa-4135-88df-1a329c15a271</packageId>
-          <packageName>Intent.Aws.Lambda.Functions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d93d8f9d-2f21-41b0-b845-25aa0de9a5fe" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a8a929da-e2f7-43b5-8549-0c5436bd788b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Threading.Tasks.Extensions</name>
-          <display>System.Threading.Tasks.Extensions (4.6.3)</display>
           <isAbstract>false</isAbstract>
           <value>4.6.3</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cb3e411f-f9b2-4fbb-8e88-5e5b3ca2d050</parentFolderId>
-          <packageId>4741e086-f1fa-4135-88df-1a329c15a271</packageId>
-          <packageName>Intent.Aws.Lambda.Functions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -92,7 +83,7 @@
       </childElements>
     </childElement>
     <childElement id="ae8858c2-6a41-4b8a-bd8d-f1be18306c33" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.0</name>
+      <name>10.0.2</name>
       <display>10.0.0 ( &gt;= .NETStandard,Version=v2.1 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -114,16 +105,13 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="f630651c-f453-4297-826e-928b13f25e15" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="3032a53c-658d-40bc-8c22-54d57e83a72f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
-          <display>Microsoft.Extensions.DependencyInjection.Abstractions (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ae8858c2-6a41-4b8a-bd8d-f1be18306c33</parentFolderId>
-          <packageId>4741e086-f1fa-4135-88df-1a329c15a271</packageId>
-          <packageName>Intent.Aws.Lambda.Functions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -131,7 +119,7 @@
       </childElements>
     </childElement>
     <childElement id="17985057-5d8c-4bf3-8153-6eaca86d3231" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.0</name>
+      <name>10.0.2</name>
       <display>10.0.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -153,16 +141,13 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="2023a641-f7bd-4539-99fb-99a03b251da8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="8c950d44-783d-4876-815d-744519a45382" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
-          <display>Microsoft.Extensions.DependencyInjection.Abstractions (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>17985057-5d8c-4bf3-8153-6eaca86d3231</parentFolderId>
-          <packageId>4741e086-f1fa-4135-88df-1a329c15a271</packageId>
-          <packageName>Intent.Aws.Lambda.Functions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -170,7 +155,7 @@
       </childElements>
     </childElement>
     <childElement id="dba6a11c-4b7c-4d31-a4f8-64aee8bd9ef3" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.0</name>
+      <name>10.0.2</name>
       <display>10.0.0 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -192,16 +177,13 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="65823f72-9603-40bd-98a9-32257aaa9e52" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="8b061bb2-b73f-4af9-bcb2-1bdba2e603a4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
-          <display>Microsoft.Extensions.DependencyInjection.Abstractions (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>dba6a11c-4b7c-4d31-a4f8-64aee8bd9ef3</parentFolderId>
-          <packageId>4741e086-f1fa-4135-88df-1a329c15a271</packageId>
-          <packageName>Intent.Aws.Lambda.Functions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -232,7 +214,7 @@
       <childElements />
     </childElement>
     <childElement id="1b786517-b264-4c80-ab8e-c0d4bcf564d9" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.0</name>
+      <name>10.0.2</name>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -250,10 +232,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="5165e9e7-61d9-4088-8b57-d29a95f13418" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d0f065ad-88c2-45ff-a83f-3683c4a8b1ff" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
           <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
+          <value>10.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>1b786517-b264-4c80-ab8e-c0d4bcf564d9</parentFolderId>
