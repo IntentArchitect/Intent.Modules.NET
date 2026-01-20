@@ -461,7 +461,7 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
 
             foreach (var property in properties)
             {
-                var typeReference = TryGetTypeReference(property.TypeName ?? property.OldTypeName!, Model.InternalElement.Package, out var reference)
+                var typeReference = TryGetTypeReference((property.Current ?? property.Generated)!.TypeName!, Model.InternalElement.Package, out var reference)
                     ? CodeToModelOperationFactory.Instance.TypeReference(reference)
                     : null;
 
@@ -471,19 +471,24 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
                         changes.Add(CodeToModelOperationFactory.Instance.CreateChildElement(
                             parent: Model.InternalElement,
                             newElementId: Guid.NewGuid().ToString(),
-                            name: property.Identifier!,
+                            name: property.Current!.Identifier!,
                             specialization: DTOFieldModel.SpecializationType,
                             specializationId: DTOFieldModel.SpecializationTypeId,
                             typeReference: typeReference));
                         break;
                     case CSharpDifferenceType.Changed:
-                        changes.Add(CodeToModelOperationFactory.Instance.UpdateElement(
-                            element: Model.InternalElement,
-                            name: property.Identifier.ToPascalCase(),
-                            typeReference: typeReference));
+                        var fieldToUpdate = Model.Fields.FirstOrDefault(x => string.Equals(x.Name, property.Generated!.Identifier, StringComparison.OrdinalIgnoreCase));
+                        if (fieldToUpdate != null)
+                        {
+                            changes.Add(CodeToModelOperationFactory.Instance.UpdateElement(
+                                element: fieldToUpdate.InternalElement,
+                                name: property.Current!.Identifier.ToPascalCase(),
+                                typeReference: typeReference));
+                        }
+
                         break;
                     case CSharpDifferenceType.Removed:
-                        var fieldToRemove = Model.Fields.FirstOrDefault(x => string.Equals(x.Name, property.OldIdentifier, StringComparison.OrdinalIgnoreCase));
+                        var fieldToRemove = Model.Fields.FirstOrDefault(x => string.Equals(x.Name, property.Generated!.Identifier, StringComparison.OrdinalIgnoreCase));
                         if (fieldToRemove != null)
                         {
                             changes.Add(CodeToModelOperationFactory.Instance.DeleteElement(fieldToRemove.InternalElement));

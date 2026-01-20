@@ -31,7 +31,7 @@
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.10.0-pre.1" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.10.0-pre.1" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.10.0-pre.3" />
     <PackageReference Include="Intent.Packager" Version="3.6.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
