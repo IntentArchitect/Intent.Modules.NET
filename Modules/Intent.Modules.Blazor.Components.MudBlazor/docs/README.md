@@ -1,4 +1,7 @@
-﻿# Intent.Blazor.Components.MudBlazor
+﻿---
+uid: modules-dotnet.intent-blazor-components-mudblazor
+---
+# Intent.Blazor.Components.MudBlazor
 
 MudBlazor is a modern, open-source UI component library for Blazor that follows Material Design principles, providing a rich set of customizable components for building sleek and responsive web applications.
 It simplifies Blazor development by offering built-in theming, form validation, and a wide range of ready-to-use components like tables, dialogs, and charts.

@@ -1,3 +1,6 @@
+---
+uid: modules-dotnet.intent-application-fluentvalidation
+---
 # Intent.Application.FluentValidation
 
 This module provides a designer stereotype and common logic used by various other modules to generate [FluentValidation](https://fluentvalidation.net/) files for different implementations of data contracts.

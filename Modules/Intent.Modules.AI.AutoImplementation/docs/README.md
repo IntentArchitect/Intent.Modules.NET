@@ -1,3 +1,6 @@
+---
+uid: modules-dotnet.intent-ai-autoimplementation
+---
 # Intent.AI.AutoImplementation
 
 The **Intent.AI.AutoImplementation** module uses  AI to automatically implement the `Handler` method of a `Command` or `Query`, based on the full context provided by generated code and model metadata from Intent Architect.

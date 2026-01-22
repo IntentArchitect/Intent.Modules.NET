@@ -1,4 +1,7 @@
-﻿# Intent.Blazor
+﻿---
+uid: modules-dotnet.intent-blazor
+---
+# Intent.Blazor
 
 Blazor is a modern web framework from Microsoft that enables you to build rich, interactive web UIs using C# instead of JavaScript. It runs on WebAssembly (Blazor WebAssembly) or on the server via SignalR (Blazor Server), allowing you to share code and libraries across your client and server.
 
