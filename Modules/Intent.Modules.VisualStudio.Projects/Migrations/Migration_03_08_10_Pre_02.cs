@@ -3,6 +3,7 @@ using System.Linq;
 using Intent.Engine;
 using Intent.IArchitect.Agent.Persistence.Model;
 using Intent.IArchitect.Agent.Persistence.Model.Common;
+using Intent.Modelers.CodebaseStructure.Api;
 using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Plugins;
 using Intent.RoslynWeaver.Attributes;
@@ -30,7 +31,7 @@ namespace Intent.Modules.VisualStudio.Projects.Migrations
         public void Up()
         {
             var app = ApplicationPersistable.Load(_configurationProvider.GetApplicationConfig().FilePath);
-            var designer = app.GetDesigner(ApiMetadataDesignerExtensions.VisualStudioDesignerId);
+            var designer = app.GetDesigner(ApiMetadataDesignerExtensions.CodebaseStructureDesignerId); // The Codebase Structure designer re-used the old visual studio designer id.
             var packages = designer.GetPackages();
 
             foreach (var package in packages)

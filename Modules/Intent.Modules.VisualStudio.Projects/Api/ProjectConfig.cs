@@ -2,6 +2,9 @@
 using System.Linq;
 using Intent.Configuration;
 using Intent.Metadata.Models;
+using Intent.Modelers.CodebaseStructure.Api;
+using Intent.Modules.Common.CSharp.Api;
+using Intent.Modules.Common.Types.Api;
 
 namespace Intent.Modules.VisualStudio.Projects.Api
 {
@@ -45,7 +48,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         public IEnumerable<string> SupportedFrameworks => _project.TargetFrameworkVersion()
             .Select(x => x.Trim())
             .ToArray();
-        public IEnumerable<IOutputTargetRole> Roles => _project.Roles;
+        public IEnumerable<IOutputTargetRole> Roles => _project.OutputAnchors;
         public IEnumerable<IOutputTargetTemplate> Templates => _project.TemplateOutputs.DetectDuplicates();
         public IDictionary<string, object> Metadata { get; }
         public IEnumerable<string> ReferencedOutputTargetIds { get; }
@@ -53,12 +56,12 @@ namespace Intent.Modules.VisualStudio.Projects.Api
 
     internal class FolderOutputTarget : IOutputTargetConfig
     {
-        private readonly FolderModel _model;
+        private readonly Intent.Modelers.CodebaseStructure.Api.FolderExtensionModel _model;
 
         public FolderOutputTarget(FolderModel model)
         {
-            _model = model;
-            Metadata = new Dictionary<string, object>()
+            _model = new Intent.Modelers.CodebaseStructure.Api.FolderExtensionModel(model.InternalElement);
+            Metadata = new Dictionary<string, object>
             {
                 { "Namespace Provider", model.GetFolderOptions()?.NamespaceProvider() ?? true }
             };
@@ -71,7 +74,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         public string ParentId => _model.InternalElement.ParentId;
 
         public IEnumerable<string> SupportedFrameworks => [];
-        public IEnumerable<IOutputTargetRole> Roles => _model.Roles;
+        public IEnumerable<IOutputTargetRole> Roles => _model.OutputAnchors;
         public IEnumerable<IOutputTargetTemplate> Templates => _model.TemplateOutputs.DetectDuplicates();
         public IDictionary<string, object> Metadata { get; }
     }

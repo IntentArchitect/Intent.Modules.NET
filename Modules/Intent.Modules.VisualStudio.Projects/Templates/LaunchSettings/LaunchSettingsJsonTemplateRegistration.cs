@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Linq;
 using Intent.Engine;
+using Intent.Modelers.CodebaseStructure.Api;
 using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Persistence;
 using Intent.Registrations;
@@ -22,11 +23,11 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
 
         public void DoRegistration(ITemplateInstanceRegistry registry, IApplication application)
         {
-            var modelIds = _metadataManager.VisualStudio(application).GetASPNETCoreWebApplicationModels()
+            var modelIds = _metadataManager.CodebaseStructure(application).GetASPNETCoreWebApplicationModels()
                 .Select(x => x.Id)
-                .Union(_metadataManager.VisualStudio(application).GetCSharpProjectNETModels()
-                    .Where(x => x.GetNETSettings().SDK().IsMicrosoftNETSdkWeb() || 
-                                x.GetNETSettings().SDK().IsMicrosoftNETSdkBlazorWebAssembly() || 
+                .Union(_metadataManager.CodebaseStructure(application).GetCSharpProjectNETModels()
+                    .Where(x => x.GetNETSettings().SDK().IsMicrosoftNETSdkWeb() ||
+                                x.GetNETSettings().SDK().IsMicrosoftNETSdkBlazorWebAssembly() ||
                                 x.GetNETSettings().SDK().IsMicrosoftNETSdkWorker() ||
                                 (x.GetNETSettings().SDK().IsMicrosoftNETSdk() && x.GetNETSettings().GenerateLaunchSettingsFile()))
                     .Select(x => x.Id));

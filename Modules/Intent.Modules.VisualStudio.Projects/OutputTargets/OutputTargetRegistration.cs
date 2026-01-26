@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Exceptions;
+using Intent.Modelers.CodebaseStructure.Api;
+using Intent.Modules.Common.Types.Api;
 using Intent.Modules.VisualStudio.Projects.Api;
-using Intent.Modules.VisualStudio.Projects.Templates.JavaScriptProject;
 using Intent.Registrations;
 
 namespace Intent.Modules.VisualStudio.Projects.OutputTargets
@@ -28,13 +29,13 @@ namespace Intent.Modules.VisualStudio.Projects.OutputTargets
                 }
             }
 
-            var solutionFolders = _metadataManager.VisualStudio(application).GetSolutionFolderModels();
+            var solutionFolders = _metadataManager.CodebaseStructure(application).GetSolutionFolderModels();
             foreach (var solutionFolder in solutionFolders)
             {
                 registry.RegisterOutputTarget(solutionFolder.ToOutputTarget());
             }
 
-            var javaScriptProjects = _metadataManager.VisualStudio(application).GetJavaScriptProjectModels();
+            var javaScriptProjects = _metadataManager.CodebaseStructure(application).GetJavaScriptProjectModels();
             foreach (var model in javaScriptProjects)
             {
                 registry.RegisterOutputTarget(model.ToOutputTargetConfig());
@@ -48,7 +49,7 @@ namespace Intent.Modules.VisualStudio.Projects.OutputTargets
         private static void Register(IOutputTargetRegistry registry, FolderModel folder)
         {
             var outputTargetConfig = folder.ToOutputTargetConfig();
-            
+
             registry.RegisterOutputTarget(outputTargetConfig);
             foreach (var child in folder.Folders.DetectDuplicates())
             {

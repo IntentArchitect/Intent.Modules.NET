@@ -4,22 +4,22 @@
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#FFD54A85-9362-48AC-B646-C93AB9AC63D2</correlationId>
       <path>Intent.Modules.VisualStudio.Projects/Api/ASPNETCoreWebApplicationModel.cs</path>
-      <count>13</count>
-      <updatedByAccountName>theunis.vanderstoep@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Theunis van der Stoep</updatedByDisplayName>
-      <updatedAt>2025-08-01T07:55:11.0078664Z</updatedAt>
-      <deviationsHash>52096BC3FAFDC81331492C26C61F5E879E8017CAC2D238EBBD4D1F9B58516F31</deviationsHash>
-      <fileHash>5FE3A49C4790C3E178562FF8991B0AEAE879A9CC5F42E4986B513F9D30D9AFC5</fileHash>
+      <count>12</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-01-25T14:04:30.2265019Z</updatedAt>
+      <deviationsHash>9B5D6A2C5216A953A5713E0C5D2A724E54160637884CF8091ABBAC823145B144</deviationsHash>
+      <fileHash>845AED8C7776A12603C717E1C15193482A849224F157914B71EF8AC659A9ED6C</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#8AF747CF-58F0-449C-8B95-46080FEFC8C0</correlationId>
       <path>Intent.Modules.VisualStudio.Projects/Api/ASPNETWebApplicationNETFrameworkModel.cs</path>
-      <count>13</count>
-      <updatedByAccountName>theunis.vanderstoep@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Theunis van der Stoep</updatedByDisplayName>
-      <updatedAt>2025-08-01T07:55:11.0078811Z</updatedAt>
-      <deviationsHash>ACAA642F36625A8CC2011D9336459C95A4F55CD8F5AB2DAD4C3085FE7C411F3E</deviationsHash>
-      <fileHash>D6C3D9DECDB19AF6DC4ECE761BDBEE8B7C17ADB1496FF57C11AF6A1E96446718</fileHash>
+      <count>12</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-01-25T14:04:30.2265249Z</updatedAt>
+      <deviationsHash>93D438C8FB805D95D7E8FC2D116D47631A5E102E79ED8FFD2EEDDDB7A5D6F174</deviationsHash>
+      <fileHash>5A668A7ABD4E68EC395B9F2ED573AC9CB7492F2F800E879A62CB6F5276A88814</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#73e51385-5e20-4e2c-aa0b-6eb2dc8de52e</correlationId>
@@ -29,27 +29,27 @@
       <updatedByDisplayName>Theunis van der Stoep</updatedByDisplayName>
       <updatedAt>2025-08-01T07:55:11.0078939Z</updatedAt>
       <deviationsHash>ED74533172CA98CD34215F41349D23B88069FFE5BCCFD602ED8EF7770F091011</deviationsHash>
-      <fileHash>4936654B8B91363569BB8D52CB37810B4C064D3E847003F52221A7E1421A51CE</fileHash>
+      <fileHash>0FE85EB4C7A14252D9C67DC7F521B54CEEF8457E91133124838FC6E3CAFE2F75</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE</correlationId>
       <path>Intent.Modules.VisualStudio.Projects/Api/ClassLibraryNETCoreModel.cs</path>
-      <count>13</count>
-      <updatedByAccountName>theunis.vanderstoep@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Theunis van der Stoep</updatedByDisplayName>
-      <updatedAt>2025-08-01T07:55:11.0079222Z</updatedAt>
-      <deviationsHash>C3E6EC810153BC097161B2434AA4943C1386140535B17B0BC00C6F6337822587</deviationsHash>
-      <fileHash>CAEF11753710D1502C14BE9754036956A086FEA17232F28F033103BD734DCE55</fileHash>
+      <count>12</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-01-25T14:04:30.226581Z</updatedAt>
+      <deviationsHash>78A3211123430D0D32C02BD5B42CDA9EC03CC0828480BCA64D533843437262B4</deviationsHash>
+      <fileHash>476FD46FCCC4819CFE012594112BD5857C5B470FE6A79D9F22349F7860CB8597</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#0FEBBF41-7C8E-4F98-85A5-F8B5236CFD7D</correlationId>
       <path>Intent.Modules.VisualStudio.Projects/Api/ClassLibraryNETFrameworkModel.cs</path>
-      <count>13</count>
-      <updatedByAccountName>theunis.vanderstoep@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Theunis van der Stoep</updatedByDisplayName>
-      <updatedAt>2025-08-01T07:55:11.0079357Z</updatedAt>
-      <deviationsHash>66991D8244D8BDAC936158710FF1775E4CFBD19B627C3129226EE3F60998CA05</deviationsHash>
-      <fileHash>98CA7B34E2745091C4499FF8505329EBD9D5FA045D89A54F5686F85899225B73</fileHash>
+      <count>12</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-01-25T14:04:30.2266049Z</updatedAt>
+      <deviationsHash>4F4F01E82134BD80D19898478138E7FAFA8864127821D6E5D171DF8DD20EAA22</deviationsHash>
+      <fileHash>9C2B3D5769B3DDDC6D017E4996403FDC65A69252BF80DEF6D6D0F3992E938EA7</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#27b265c8-e185-4c33-9908-8d23d5e945d1</correlationId>
@@ -59,17 +59,17 @@
       <updatedByDisplayName>Theunis van der Stoep</updatedByDisplayName>
       <updatedAt>2025-08-01T07:55:11.0079488Z</updatedAt>
       <deviationsHash>AD7B185A0779A13ACBE12C25C6BE48156885F191A8D7BB66003D9361F2C7DCE0</deviationsHash>
-      <fileHash>01701085A007F91CEF00A8867CFF3BC1F51340F6939AC1AD92133F86D639963C</fileHash>
+      <fileHash>EA102693BB0090ABA252300B6B61CA9788C6ED2AAF5C545F5C4AA8EFE548C6B6</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#673AAE96-C9B1-4B7E-9A52-ADE5F9218CFC</correlationId>
       <path>Intent.Modules.VisualStudio.Projects/Api/ConsoleAppNETFrameworkModel.cs</path>
-      <count>13</count>
-      <updatedByAccountName>theunis.vanderstoep@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Theunis van der Stoep</updatedByDisplayName>
-      <updatedAt>2025-08-01T07:55:11.0079658Z</updatedAt>
-      <deviationsHash>13C0AE916BC1E9567661654F6861BF98C8F32D99BA61989A0BEFE3AA555AAB4C</deviationsHash>
-      <fileHash>4E7ACEC30668F0250372027BC0209B6A6EB9C35BA431604C3FCBB9AD64CD73B8</fileHash>
+      <count>12</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-01-25T14:04:30.2266391Z</updatedAt>
+      <deviationsHash>BA4F9F67EAAC192FB0F9593D2880F61E87A018A81D79CED4CBC0F5A861C166AC</deviationsHash>
+      <fileHash>4C1F07D2AFDA0922F80420BCD60A59E3D98922596ED2FFA43D5CA650FA0C38AA</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#8e9e6693-2888-4f48-a0d6-0f163baab740</correlationId>
@@ -79,17 +79,7 @@
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
       <updatedAt>2025-10-18T13:28:20.9746567Z</updatedAt>
       <deviationsHash>83994445C2AB8880E72AC86853179B9D16F6AB3EB0A8E3E436D935682BDBC3F1</deviationsHash>
-      <fileHash>0891417EC6047131CE0DFFA8BDA69A07FA0045D75EC8F682E56B145E3E73AC76</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#3407a825-1331-4f3f-89a4-901903ed97ce</correlationId>
-      <path>Intent.Modules.VisualStudio.Projects/Api/FolderModel.cs</path>
-      <count>14</count>
-      <updatedByAccountName>theunis.vanderstoep@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Theunis van der Stoep</updatedByDisplayName>
-      <updatedAt>2025-08-01T07:55:11.0079988Z</updatedAt>
-      <deviationsHash>FAC79AE646D092A5A27D5BB69EBE90A63D532D01D40535ABA07FCA879B389063</deviationsHash>
-      <fileHash>D5AE14D21098E7A3259821F65961E42E07EB9CBC93A715F1A3AA40504A1710E0</fileHash>
+      <fileHash>0DC0F571360856863E2EBC59402F979351D8E477BCDCCEDBC6126E564DB15D90</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#69af0b31-9d69-4b5a-a6a2-fc9314f11d92</correlationId>
@@ -99,7 +89,7 @@
       <updatedByDisplayName>Theunis van der Stoep</updatedByDisplayName>
       <updatedAt>2025-08-01T07:55:11.0080185Z</updatedAt>
       <deviationsHash>58E804F4C1B441BFED2AE4BAD856FDFC9238BF2E1A739BFB16D95333FE40328D</deviationsHash>
-      <fileHash>54AB9F373A4FDD6D0B90D3E0A21998B823ADAFC303ECD485EE2DEF9BD927399E</fileHash>
+      <fileHash>4AA8EBD12C2D9D0A0FD81AFA417D13387DF85BD4421452B002ED41E64CC11BE7</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#65fb2757-ce97-41a8-9c53-b03d53c2c03f</correlationId>
@@ -128,16 +118,6 @@
       <fileHash>6FF3100C94321EC960F55BDB8CEA507F780775EF5F1FDD5533FE937316879B26</fileHash>
     </file>
     <file>
-      <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#025e933b-b602-4b6d-95ab-0ec36ae940da</correlationId>
-      <path>Intent.Modules.VisualStudio.Projects/Api/RoleModel.cs</path>
-      <count>11</count>
-      <updatedByAccountName>theunis.vanderstoep@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Theunis van der Stoep</updatedByDisplayName>
-      <updatedAt>2025-08-01T07:55:11.0080291Z</updatedAt>
-      <deviationsHash>6BB5FDAB252B2B6BBA02DE958BC404C3BD1BC943F72C8D803046EE5C3D22EF8C</deviationsHash>
-      <fileHash>E9BAA21F41590D08EB76B92A3F9C7A353208136A696DAF9DEF7D870DD77215BA</fileHash>
-    </file>
-    <file>
       <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#9edf270e-3f38-406c-ac94-07b9737bb531</correlationId>
       <path>Intent.Modules.VisualStudio.Projects/Api/RuntimeEnvironmentModel.cs</path>
       <count>1</count>
@@ -158,7 +138,7 @@
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
       <updatedAt>2025-09-02T22:29:52.6302212Z</updatedAt>
       <deviationsHash>30ECA838C582EF8DEE14C5B649D6A50C8862A1FF8C9D10F2E507D65CFD970009</deviationsHash>
-      <fileHash>A1744354480CDDFF434BDA2FBCEE84205DE0CFD56A2C7D740274381CFF548796</fileHash>
+      <fileHash>B83ACCBDB27284A28175B5C78FFC61CF84C27C527D1EE798534A09066ECEAB36</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#0dc2b846-c968-49eb-99b7-8776919313a8</correlationId>
@@ -168,7 +148,7 @@
       <updatedByDisplayName>Theunis van der Stoep</updatedByDisplayName>
       <updatedAt>2025-08-01T07:55:11.0080541Z</updatedAt>
       <deviationsHash>A49EC86C8A7C49BB2DCB1453AB994191EDA541972581EAB03F78239CFE9E6E7A</deviationsHash>
-      <fileHash>1F8E7EE5201904B7F9EFD852893FEB98D4B8906C3F44C3E05CF725B92A10638C</fileHash>
+      <fileHash>74E91795288D021E361EA8F7625423CB1D4CB52CCE746980CC02B0A17456638E</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#00D1A9C2-B5F0-4AF3-8072-F6C62B433612</correlationId>
@@ -178,47 +158,37 @@
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
       <updatedAt>2025-05-08T10:09:27.0972585Z</updatedAt>
       <deviationsHash>2A09238A88F75A640CA2731349A9E0149D9BE440F73D601008C8DB3C515FF63D</deviationsHash>
-      <fileHash>4371AB990087D5AE47B3F4A867A7F1BE7C56023DF1956B7AA18471161CB80303</fileHash>
+      <fileHash>90E93AE68C0FDC6C5383BE194BEC7AA77303F620FDA235523F5C1424C0794B6A</fileHash>
     </file>
     <file>
-      <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#d421c322-7a51-4094-89fa-e5d8a0a97b27</correlationId>
-      <path>Intent.Modules.VisualStudio.Projects/Api/TemplateOutputModel.cs</path>
-      <count>5</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2025-09-02T22:29:52.6303004Z</updatedAt>
-      <deviationsHash>8F7279B39E7F724A8059E624D68FDB6A07CCABF7FB7299020E6EB36ED531F00D</deviationsHash>
-      <fileHash>270DBF1E976E4CC6C45CA69427E80B58BB591525557446EBFBAFFD8D0BBFC0BA</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.ModuleBuilder.Templates.Api.ApiPackageModel#07e7b690-a59d-4b72-8440-4308a121d32c</correlationId>
+      <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#769a45a2-119f-434f-8c27-bd4a399b915c</correlationId>
       <path>Intent.Modules.VisualStudio.Projects/Api/VisualStudioSolutionModel.cs</path>
       <count>1</count>
-      <updatedByAccountName>theunis.vanderstoep@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Theunis van der Stoep</updatedByDisplayName>
-      <updatedAt>2025-08-01T07:55:11.0081158Z</updatedAt>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-01-25T14:10:57.436064Z</updatedAt>
       <deviationsHash>C75DBF4D92C8F2496508E5B0AB110E5BD68D66B60D27808D7F70B71343B3636C</deviationsHash>
-      <fileHash>76166477E87E2B9B69014EE49464F511B8FDE8FB0D03AEDEF4DE017C56B9BAD0</fileHash>
+      <fileHash>62628A1EC0E30D7A9EA419E585140956A3456B15921E9B57FEBA65AC8AC5509D</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#3CDFF513-03D8-4BAB-9435-160108A086A3</correlationId>
       <path>Intent.Modules.VisualStudio.Projects/Api/WCFServiceApplicationModel.cs</path>
-      <count>13</count>
-      <updatedByAccountName>theunis.vanderstoep@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Theunis van der Stoep</updatedByDisplayName>
-      <updatedAt>2025-08-01T07:55:11.0081024Z</updatedAt>
-      <deviationsHash>4269BB089403EFA8C9252BBEFB31AC7B75043C491647F007580723F84C753E55</deviationsHash>
-      <fileHash>32A6AE9DFF85E787F22ABD938ABF571B3A750A8EA29AB081B89C4E364C3ACD92</fileHash>
+      <count>12</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-01-25T14:04:30.2267547Z</updatedAt>
+      <deviationsHash>FDB385E967263D1762F4E42B63B4B7A756F0EB43398B374E0318FBD3D8C463BC</deviationsHash>
+      <fileHash>B6F5C59C9C4682F9FA4D7C416A47046CA8FDC3FBB33F3F7ACA777E7135C15AB0</fileHash>
     </file>
     <file>
-      <correlationId>Intent.ModuleBuilder.Templates.Api.ApiMetadataProviderExtensions</correlationId>
+      <correlationId>Intent.ModuleBuilder.Templates.Api.ApiMetadataProviderExtensions#a59dce69-7866-4648-a195-1e0a012f01b2</correlationId>
       <path>Intent.Modules.VisualStudio.Projects/ApiMetadataProviderExtensions.cs</path>
       <count>2</count>
-      <updatedByAccountName>theunis.vanderstoep@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Theunis van der Stoep</updatedByDisplayName>
-      <updatedAt>2025-08-01T07:55:11.0078234Z</updatedAt>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2026-01-25T14:04:30.22644Z</updatedAt>
       <deviationsHash>583C18A564727C998BE2270ECC820B31C3594CF458F19F0BEC31EA04730B6095</deviationsHash>
-      <fileHash>4466E0F75BE679834B9A26FC233B6CDD1291E1603432A4B1D2C01BFFD428207C</fileHash>
+      <fileHash>9403A51E5BE1ABB12B7C77254880299CED6C7A396B672E7EBCB6965E6DD552CA</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#8b11dd91-de7f-48c0-a4a9-206b1108d703</correlationId>
@@ -254,7 +224,7 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T12:30:39.7741001Z</approvedAt>
       <deviationsHash>95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B</deviationsHash>
-      <fileHash>77E37D635897EE31FFB667BD88CF6D11E6AF7B75DD460D531F53CF7DF61B388F</fileHash>
+      <fileHash>6FBC8C4C199CF709F6E83906C96746B47E480BEBABE3B8F9A22765829EA04B74</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#bb4e8c29-f58b-4191-b034-61d9d9793637</correlationId>
@@ -306,7 +276,7 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T12:30:39.7876106Z</approvedAt>
       <deviationsHash>95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B</deviationsHash>
-      <fileHash>BFF25292FA91246CEDFA41287653940297BA2DDA431C42B15AB35441AB2C3AAB</fileHash>
+      <fileHash>5D678B2DEF8C523020321135A9C63462E674DDB0663ECDF4BF7D458D4F25C3C0</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation#807ee533-3ab8-4fe6-a06c-30d45eecf014</correlationId>
@@ -339,7 +309,7 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T12:30:39.795107Z</approvedAt>
       <deviationsHash>6D944B68C67E0F3D844AF312A2401B2370272FFAABABA14E5883C8E8698CB505</deviationsHash>
-      <fileHash>9DD159290C4D7374CC9DE63BA53E86AEB350FF926CB34F5A041D2041FDE486F5</fileHash>
+      <fileHash>57252045D9988DFEF8E5D3874BF08273B829385C5D1D7737E1E6A18008E4BB8C</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation#20d3fffa-8d62-4f26-b4b7-5c9360db382b</correlationId>
@@ -378,7 +348,7 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-11-14T16:16:52.9914216Z</approvedAt>
       <deviationsHash>F76FBAF3842459C7A8F44D5187DB9A8F4EED856B62C030FB176243020416511A</deviationsHash>
-      <fileHash>235B90B149EF3215C705F9835F7DF08B9654658570D27EE8CB3C7AF60997833F</fileHash>
+      <fileHash>802A8A36906E513D3B26CC299D5C4770595A0DE3D403640B7B1AAE3E5FBBF42D</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#4144a321-e6b5-4ada-9dec-ef35ab8ea5b0</correlationId>
@@ -431,7 +401,7 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T12:30:39.7972034Z</approvedAt>
       <deviationsHash>95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B</deviationsHash>
-      <fileHash>5B146B9CA7E28BFB476A545A8CB5C3EDD27EAA32DBEC0B816D5BF716C21C99D1</fileHash>
+      <fileHash>C8EA5901152B73AA815327275B66A2A2C75D7AA448211BDD5B534716DAC565EE</fileHash>
     </file>
   </files>
 </deviationsLog>

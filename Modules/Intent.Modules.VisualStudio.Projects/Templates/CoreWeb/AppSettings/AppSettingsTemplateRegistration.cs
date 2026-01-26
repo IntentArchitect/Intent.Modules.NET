@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
+using Intent.Modelers.CodebaseStructure.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
 using Intent.Modules.VisualStudio.Projects.Api;
@@ -29,7 +30,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public void DoRegistration(ITemplateInstanceRegistry registry, IApplication applicationManager)
         {
-            var projects = _metadataManager.VisualStudio(applicationManager).GetASPNETCoreWebApplicationModels()
+            var projects = _metadataManager.CodebaseStructure(applicationManager).GetASPNETCoreWebApplicationModels()
                 .Select(x => new
                 {
                     x.Id,
@@ -39,7 +40,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
                     IncludeAllowHosts = true,
                     IncludeAspNetCoreLoggingLevel = true,
                 })
-                .Union(_metadataManager.VisualStudio(applicationManager).GetCSharpProjectNETModels()
+                .Union(_metadataManager.CodebaseStructure(applicationManager).GetCSharpProjectNETModels()
                     .Where(x => x.GetNETSettings().SDK().IsMicrosoftNETSdkWeb())
                     .Select(x => new
                     {
@@ -50,7 +51,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
                         IncludeAllowHosts = true,
                         IncludeAspNetCoreLoggingLevel = true,
                     }))
-                .Union(_metadataManager.VisualStudio(applicationManager).GetCSharpProjectNETModels()
+                .Union(_metadataManager.CodebaseStructure(applicationManager).GetCSharpProjectNETModels()
                     .Where(x => x.GetNETSettings().SDK().IsMicrosoftNETSdkWorker())
                     .Select(x => new
                     {
@@ -61,7 +62,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
                         IncludeAllowHosts = false,
                         IncludeAspNetCoreLoggingLevel = false,
                     }))
-                .Union(_metadataManager.VisualStudio(applicationManager).GetCSharpProjectNETModels()
+                .Union(_metadataManager.CodebaseStructure(applicationManager).GetCSharpProjectNETModels()
                     .Where(x => x.GetNETSettings().SDK().IsMicrosoftNETSdkBlazorWebAssembly())
                     .Select(x => new
                     {
@@ -72,7 +73,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
                         IncludeAllowHosts = true,
                         IncludeAspNetCoreLoggingLevel = false,
                     }))
-                .Union(_metadataManager.VisualStudio(applicationManager).GetCSharpProjectNETModels()
+                .Union(_metadataManager.CodebaseStructure(applicationManager).GetCSharpProjectNETModels()
                     .Where(x => x.GetNETSettings().SDK().IsMicrosoftNETSdk() && 
                                 x.GetNETSettings().GenerateAppSettingsFile())
                     .Select(x => new

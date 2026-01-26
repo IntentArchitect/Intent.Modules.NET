@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Linq;
 using Intent.Engine;
+using Intent.Modelers.CodebaseStructure.Api;
 using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Registrations;
 
@@ -19,13 +20,13 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution
 
         public void DoRegistration(IApplicationTemplateInstanceRegistry registry, IApplication application)
         {
-            var vsSolutions = _metadataManager.VisualStudio(application).GetVisualStudioSolutionModels();
+            var vsSolutions = _metadataManager.CodebaseStructure(application).GetVisualStudioSolutionModels();
             foreach (var vsSolution in vsSolutions)
             {
                 var projects = _metadataManager
                     .GetAllProjectModels(application)
                     .Cast<IVisualStudioSolutionProject>()
-                    .Concat(_metadataManager.VisualStudio(application).GetJavaScriptProjectModels())
+                    .Concat(_metadataManager.CodebaseStructure(application).GetJavaScriptProjectModels())
                     .Where(x => x.Solution.Id == vsSolution.Id)
                     .ToList();
 

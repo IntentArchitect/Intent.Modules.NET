@@ -1,5 +1,6 @@
 using System.Linq;
 using Intent.Engine;
+using Intent.Modelers.CodebaseStructure.Api;
 using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Registrations;
 using Intent.RoslynWeaver.Attributes;
@@ -23,7 +24,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.DirectoryPackagesProps
 
         public void DoRegistration(IApplicationTemplateInstanceRegistry registry, IApplication application)
         {
-            var vsSolutions = _metadataManager.VisualStudio(application).GetVisualStudioSolutionModels();
+            var vsSolutions = _metadataManager.CodebaseStructure(application).GetVisualStudioSolutionModels();
             foreach (var vsSolution in vsSolutions)
             {
                 var projects = _metadataManager.GetAllProjectModels(application).Where(x => x.Solution.Id == vsSolution.Id).ToList();

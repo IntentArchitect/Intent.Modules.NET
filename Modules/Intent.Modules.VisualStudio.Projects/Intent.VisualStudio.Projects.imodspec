@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.VisualStudio.Projects</id>
-  <version>3.9.10</version>
+  <version>4.0.0-pre.0</version>
   <supportedClientVersions>[4.5.18-a, 5.0.0-a)</supportedClientVersions>
   <summary>Visual Studio solution and project layout designer</summary>
   <description>Visual Studio solution and project layout designer</description>
@@ -156,13 +156,13 @@
     <dependency id="Intent.Common" version="3.9.0" />
     <dependency id="Intent.Common.CSharp" version="3.9.5" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
+    <dependency id="Intent.Modelers.CodebaseStructure" version="1.0.0-pre.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
   </dependencies>
   <metadata>
-    <install target="Visual Studio" src="Intent.Metadata/Module Builder/Intent.VisualStudio.Projects/Intent.VisualStudio.Projects.pkg.config" externalReference="a0636ab7-d3a1-430b-9609-11a18aa3cc7f" />
+    <install target="Codebase Structure" src="Intent.Metadata/Module Builder/Intent.VisualStudio.Projects/Intent.VisualStudio.Projects.pkg.config" externalReference="a0636ab7-d3a1-430b-9609-11a18aa3cc7f" />
     <install target="Visual Studio" src="Intent.Metadata/Visual Studio/Intent.VisualStudio.Projects.Frameworks" externalReference="a0636ab7-d3a1-430b-9609-11a18aa3cc7f" />
     <install src="modelers/Visual Studio Types.designer.settings" externalReference="2ef69545-61ca-42b7-89bd-4ae3d5970280" />
-    <install src="modelers/Visual Studio.designer.config" externalReference="0701433c-36c0-4569-b1f4-9204986b587d" />
   </metadata>
   <files>
     <file src="$outDir$/$id$.dll" />
