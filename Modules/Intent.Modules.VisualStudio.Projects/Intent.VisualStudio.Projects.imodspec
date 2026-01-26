@@ -161,8 +161,8 @@
   </dependencies>
   <metadata>
     <install target="Codebase Structure" src="Intent.Metadata/Module Builder/Intent.VisualStudio.Projects/Intent.VisualStudio.Projects.pkg.config" externalReference="a0636ab7-d3a1-430b-9609-11a18aa3cc7f" />
-    <install target="Visual Studio" src="Intent.Metadata/Visual Studio/Intent.VisualStudio.Projects.Frameworks" externalReference="a0636ab7-d3a1-430b-9609-11a18aa3cc7f" />
-    <install src="modelers/Visual Studio Types.designer.settings" externalReference="2ef69545-61ca-42b7-89bd-4ae3d5970280" />
+    <install target="Codebase Structure" src="Intent.Metadata/Visual Studio/Intent.VisualStudio.Projects.Frameworks" externalReference="a0636ab7-d3a1-430b-9609-11a18aa3cc7f" />
+    <install src="modelers/Visual Studio Types.designer.settings" externalReference="2ef69545-61ca-42b7-89bd-4ae3d5970280" target="Codebase Structure" />
   </metadata>
   <files>
     <file src="$outDir$/$id$.dll" />
