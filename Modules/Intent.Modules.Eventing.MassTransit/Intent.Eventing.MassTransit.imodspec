@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.MassTransit</id>
-  <version>7.1.1-pre.0</version>
+  <version>7.1.1-pre.1</version>
   <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>MassTransit is a free, open-source distributed application framework for .NET which integrates with the Intent Architect Eventing designer.</summary>
   <description>MassTransit is a free, open-source distributed application framework for .NET which integrates with the Intent Architect Eventing designer.</description>
@@ -107,6 +107,10 @@
             <option value="retry-exponential" description="Exponential" />
             <option value="retry-none" description="None" />
           </options>
+        </setting>
+        <setting id="979a65ec-d5f6-46bd-920a-348c49e712a0" title="Use Pre-Commercial Version" type="switch">
+          <hint>Lock to pre-commercial [licensing terms NuGet version](https://masstransit.io/introduction/v9-announcement).</hint>
+          <defaultValue>true</defaultValue>
         </setting>
       </settings>
     </group>

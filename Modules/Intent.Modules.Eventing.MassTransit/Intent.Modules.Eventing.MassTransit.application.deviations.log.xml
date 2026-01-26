@@ -11,5 +11,15 @@
       <deviationsHash>918C58D82E037F27DA08C9480ED8D0CC66BE561AA43A3B7C8F256086D208D843</deviationsHash>
       <fileHash>6067CD7CD7460FDB7EFEF10CC93F79A83DCCECFC44031726941C5ACBD56BB3B7</fileHash>
     </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</correlationId>
+      <path>Intent.Modules.Eventing.MassTransit/NugetPackages.cs</path>
+      <count>4</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-01-26T12:33:36.590368Z</updatedAt>
+      <deviationsHash>359A1E7459F3AF334AA2AA4C7D27AE1AA05F07DB0F67177C5F44FD84A28598EC</deviationsHash>
+      <fileHash>3A05A1C44953A886ED87EB99D03542985786F8E5AA61B1F45243E5B40D4B9D83</fileHash>
+    </file>
   </files>
 </deviationsLog>

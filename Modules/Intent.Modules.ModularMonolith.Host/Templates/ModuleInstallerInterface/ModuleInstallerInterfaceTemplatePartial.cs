@@ -94,7 +94,7 @@ namespace Intent.Modules.ModularMonolith.Host.Templates.ModuleInstallerInterface
             // This block is because version 8.5.0 of MassTransit is only compatible with EF9 (not EF8). 
             // With Modular Monolith, EF is installed in the Modules, so we cannot know if EF is being installed nor which version.
             // We are making the assumption that if the Framework is NET8, then EF8 will be used and thus MT 8.4.1 must be used
-            if (!OutputTarget.Parent.TargetFramework().Contains("9.0"))
+            if (!HelperExtensions.IsNetAbove(OutputTarget.Parent.TargetFramework(), new Version(8, 0)))
             {
                 NugetRegistry.Register("MassTransit.Abstractions", v => new PackageVersion("8.4.1", true));
                 NugetRegistry.Register(NugetPackages.MassTransitPackageName, v => new PackageVersion("8.4.1", true)

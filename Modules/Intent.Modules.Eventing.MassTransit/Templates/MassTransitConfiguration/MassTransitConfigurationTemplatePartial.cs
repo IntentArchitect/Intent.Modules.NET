@@ -137,7 +137,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
         if (OutputTarget.ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.EntityFrameworkCore"))
         {
             var efVersion = NugetRegistry.GetVersion("Microsoft.EntityFrameworkCore", OutputTarget.GetMaxNetAppVersion());
-            if (efVersion != null && int.TryParse(efVersion.Version.First().ToString(), out int majorVersion) && majorVersion < 9)
+            if (efVersion != null && int.TryParse(efVersion.Version.Split(".").First().ToString(), out int majorVersion) && majorVersion < 9)
             {
                 NugetRegistry.Register(NugetPackages.MassTransitAbstractionsPackageName, v => new PackageVersion("8.4.1", true));
                 NugetRegistry.Register(NugetPackages.MassTransitPackageName, v => new PackageVersion("8.4.1", true)
