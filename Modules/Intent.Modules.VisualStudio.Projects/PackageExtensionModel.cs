@@ -21,12 +21,6 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         }
 
         [IntentManaged(Mode.Fully)]
-        public IList<FolderModel> Folders => UnderlyingPackage.ChildElements
-            .GetElementsOfType(FolderModel.SpecializationTypeId)
-            .Select(x => new FolderModel(x))
-            .ToList();
-
-        [IntentManaged(Mode.Fully)]
         public IList<VisualStudioSolutionModel> VisualStudioSolutions => UnderlyingPackage.ChildElements
             .GetElementsOfType(VisualStudioSolutionModel.SpecializationTypeId)
             .Select(x => new VisualStudioSolutionModel(x))
