@@ -3,7 +3,6 @@
   <name>IntegrationEventHandlers</name>
   <display>IntegrationEventHandlers</display>
   <isAbstract>false</isAbstract>
-  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>1ef84a78-a6e6-4746-bb31-9648b7057c04</parentFolderId>
