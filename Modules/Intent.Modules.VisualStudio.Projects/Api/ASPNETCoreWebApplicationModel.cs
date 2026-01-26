@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Configuration;
 using Intent.Metadata.Models;
+using Intent.Modelers.CodebaseStructure.Api;
 using Intent.Modules.Common;
+using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 
@@ -37,7 +39,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         public string Type => SpecializationType;
         public string ProjectTypeId => VisualStudioProjectTypeIds.CoreWebApp;
         public SolutionFolderModel ParentFolder { get; }
-        public VisualStudioSolutionModel Solution => new VisualStudioSolutionModel(InternalElement.Package);
+        public VisualStudioSolutionModel Solution => VisualStudioSolutionModel.GetVisualStudioProject(_element);
         public string LanguageVersion { get; }
         public bool NullableEnabled { get; }
         public string FileExtension => "csproj";
@@ -65,12 +67,6 @@ namespace Intent.Modules.VisualStudio.Projects.Api
 
         [IntentManaged(Mode.Fully)]
         public IElement InternalElement => _element;
-
-        [IntentManaged(Mode.Fully)]
-        public IList<RoleModel> Roles => _element.ChildElements
-            .GetElementsOfType(RoleModel.SpecializationTypeId)
-            .Select(x => new RoleModel(x))
-            .ToList();
 
         public IList<RuntimeEnvironmentModel> RuntimeEnvironments => _element.ChildElements
             .GetElementsOfType(RuntimeEnvironmentModel.SpecializationTypeId)
@@ -113,6 +109,11 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         public IList<TemplateOutputModel> TemplateOutputs => _element.ChildElements
             .GetElementsOfType(TemplateOutputModel.SpecializationTypeId)
             .Select(x => new TemplateOutputModel(x))
+            .ToList();
+
+        public IList<OutputAnchorModel> OutputAnchors => _element.ChildElements
+            .GetElementsOfType(OutputAnchorModel.SpecializationTypeId)
+            .Select(x => new OutputAnchorModel(x))
             .ToList();
 
         public string Comment => _element.Comment;

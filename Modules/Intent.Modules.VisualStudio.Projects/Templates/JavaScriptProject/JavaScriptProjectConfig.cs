@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Intent.Configuration;
 using Intent.Metadata.Models;
+using Intent.Modelers.CodebaseStructure.Api;
 using Intent.Modules.VisualStudio.Projects.Api;
 
 namespace Intent.Modules.VisualStudio.Projects.Templates.JavaScriptProject
@@ -23,7 +24,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.JavaScriptProject
         public string RelativeLocation { get; }
         public string ParentId => null;
         public IEnumerable<string> SupportedFrameworks { get; } = [];
-        public IEnumerable<IOutputTargetRole> Roles => Model.Roles;
+        public IEnumerable<IOutputTargetRole> Roles => Model.OutputAnchors;
         public IEnumerable<IOutputTargetTemplate> Templates => Model.TemplateOutputs.DetectDuplicates();
         public IDictionary<string, object> Metadata { get; } = new Dictionary<string, object>();
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
+using Intent.Modelers.CodebaseStructure.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
 using Intent.Modules.VisualStudio.Projects.Api;
@@ -31,7 +32,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.SqlServerDatabase.SqlPr
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public void DoRegistration(ITemplateInstanceRegistry registry, IApplication applicationManager)
         {
-            var models = _metadataManager.VisualStudio(applicationManager).GetSQLServerDatabaseProjectModels();
+            var models = _metadataManager.CodebaseStructure(applicationManager).GetSQLServerDatabaseProjectModels();
 
             foreach (var model in models)
             {

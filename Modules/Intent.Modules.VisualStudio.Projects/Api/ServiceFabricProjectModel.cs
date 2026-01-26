@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Configuration;
 using Intent.Metadata.Models;
+using Intent.Modelers.CodebaseStructure.Api;
 using Intent.Modules.Common;
+using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 
@@ -50,9 +52,9 @@ namespace Intent.Modules.VisualStudio.Projects.Api
             .Select(x => new TemplateOutputModel(x))
             .ToList();
 
-        public IList<RoleModel> Roles => _element.ChildElements
-            .GetElementsOfType(RoleModel.SpecializationTypeId)
-            .Select(x => new RoleModel(x))
+        public IList<OutputAnchorModel> OutputAnchors => _element.ChildElements
+            .GetElementsOfType(OutputAnchorModel.SpecializationTypeId)
+            .Select(x => new OutputAnchorModel(x))
             .ToList();
 
         public ServicesModel Services => _element.ChildElements
@@ -71,7 +73,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         public string FileExtension => "sfproj";
         public string ProjectTypeId => VisualStudioProjectTypeIds.ServiceFabricProject;
         public string RelativeLocation => string.Empty;
-        public VisualStudioSolutionModel Solution => new(InternalElement.Package);
+        public VisualStudioSolutionModel Solution => VisualStudioSolutionModel.GetVisualStudioProject(_element);
         public string Type => SpecializationType;
         public IEnumerable<string> TargetFrameworkVersion() =>
             [this.GetNETFrameworkSettings()?.TargetFramework().AsNETFrameworkVersionModel()?.GetNETFrameworkVersionSettings()?.LegacyVersionIdentifier() ?? "v4.8"];

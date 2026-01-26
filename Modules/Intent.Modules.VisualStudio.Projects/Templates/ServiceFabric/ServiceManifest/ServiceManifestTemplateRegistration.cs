@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
+using Intent.Modelers.CodebaseStructure.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
 using Intent.Modules.VisualStudio.Projects.Api;
@@ -31,7 +32,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.ServiceFabric.ServiceMa
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public void DoRegistration(ITemplateInstanceRegistry registry, IApplication applicationManager)
         {
-            var models = _metadataManager.VisualStudio(applicationManager).GetCSharpProjectNETModels()
+            var models = _metadataManager.CodebaseStructure(applicationManager).GetCSharpProjectNETModels()
                 .Where(x => x.HasServiceFabric());
 
             foreach (var model in models)

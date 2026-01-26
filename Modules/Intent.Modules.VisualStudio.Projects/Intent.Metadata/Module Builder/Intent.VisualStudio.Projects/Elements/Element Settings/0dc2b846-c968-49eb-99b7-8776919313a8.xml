@@ -611,8 +611,8 @@
           <childElements />
         </childElement>
         <childElement id="b0a38ffd-586a-4a1d-a570-6f101c394e38" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
-          <name>Add Role</name>
-          <display>Add Role: Role</display>
+          <name>Add Output Anchor</name>
+          <display>Add Output Anchor: Output Anchor</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
           <typeReference id="93e424ee-b0c7-4905-9fe1-2aee7853300f">
@@ -621,8 +621,8 @@
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
             <isRequired>true</isRequired>
-            <typePackageName>Intent.VisualStudio.Projects</typePackageName>
-            <typePackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</typePackageId>
+            <typePackageName>Intent.Modelers.CodebaseStructure</typePackageName>
+            <typePackageId>525868ff-adc0-4ab6-a90e-352288da941f</typePackageId>
             <stereotypes />
             <genericTypeParameters />
           </typeReference>
@@ -663,8 +663,8 @@
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
             <isRequired>true</isRequired>
-            <typePackageName>Intent.VisualStudio.Projects</typePackageName>
-            <typePackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</typePackageId>
+            <typePackageName>Intent.Modelers.CodebaseStructure</typePackageName>
+            <typePackageId>525868ff-adc0-4ab6-a90e-352288da941f</typePackageId>
             <stereotypes />
             <genericTypeParameters />
           </typeReference>

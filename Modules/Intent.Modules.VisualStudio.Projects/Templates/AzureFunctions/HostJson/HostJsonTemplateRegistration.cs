@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
+using Intent.Modelers.CodebaseStructure.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
 using Intent.Modules.VisualStudio.Projects.Api;
@@ -30,11 +31,11 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.HostJson
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public void DoRegistration(ITemplateInstanceRegistry registry, IApplication applicationManager)
         {
-            var azureFunctionsProjectModelIds = _metadataManager.VisualStudio(applicationManager)
+            var azureFunctionsProjectModelIds = _metadataManager.CodebaseStructure(applicationManager)
                 .GetAzureFunctionsProjectModels()
                 .Select(x => x.Id);
 
-            var genericProjectModelIds = _metadataManager.VisualStudio(applicationManager)
+            var genericProjectModelIds = _metadataManager.CodebaseStructure(applicationManager)
                 .GetCSharpProjectNETModels()
                 .Where(x => x.TryGetNETSettings(out var s) && !string.IsNullOrWhiteSpace(s.AzureFunctionsVersion().Value))
                 .Select(x => x.Id);

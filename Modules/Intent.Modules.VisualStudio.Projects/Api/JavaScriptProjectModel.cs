@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Configuration;
 using Intent.Metadata.Models;
+using Intent.Modelers.CodebaseStructure.Api;
 using Intent.Modules.Common;
+using Intent.Modules.Common.Types.Api;
 using Intent.Modules.VisualStudio.Projects.Templates.JavaScriptProject;
 using Intent.RoslynWeaver.Attributes;
 
@@ -49,7 +51,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         public string ProjectTypeId => "54A90642-561A-4BB1-A94E-469ADEE60C69";
         public string RelativeLocation => this.GetJavaScriptProjectOptions()?.RelativeLocation();
 
-        public VisualStudioSolutionModel Solution => new(InternalElement.Package);
+        public VisualStudioSolutionModel Solution => VisualStudioSolutionModel.GetVisualStudioProject(_element);
 
         public IList<FolderModel> Folders => _element.ChildElements
             .GetElementsOfType(FolderModel.SpecializationTypeId)
@@ -61,9 +63,9 @@ namespace Intent.Modules.VisualStudio.Projects.Api
             .Select(x => new TemplateOutputModel(x))
             .ToList();
 
-        public IList<RoleModel> Roles => _element.ChildElements
-            .GetElementsOfType(RoleModel.SpecializationTypeId)
-            .Select(x => new RoleModel(x))
+        public IList<OutputAnchorModel> OutputAnchors => _element.ChildElements
+            .GetElementsOfType(OutputAnchorModel.SpecializationTypeId)
+            .Select(x => new OutputAnchorModel(x))
             .ToList();
 
         public override string ToString()

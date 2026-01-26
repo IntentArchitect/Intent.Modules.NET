@@ -4,8 +4,10 @@ using System.IO;
 using System.Linq;
 using Intent.Configuration;
 using Intent.Metadata.Models;
+using Intent.Modelers.CodebaseStructure.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 
@@ -114,7 +116,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         }
 
         public SolutionFolderModel ParentFolder { get; }
-        public VisualStudioSolutionModel Solution => new(InternalElement.Package);
+        public VisualStudioSolutionModel Solution => VisualStudioSolutionModel.GetVisualStudioProject(_element);
         public string LanguageVersion { get; }
         public bool NullableEnabled { get; }
         public string FileExtension => "csproj";
@@ -145,9 +147,9 @@ namespace Intent.Modules.VisualStudio.Projects.Api
             .Select(x => new TemplateOutputModel(x))
             .ToList();
 
-        public IList<RoleModel> Roles => _element.ChildElements
-            .GetElementsOfType(RoleModel.SpecializationTypeId)
-            .Select(x => new RoleModel(x))
+        public IList<OutputAnchorModel> OutputAnchors => _element.ChildElements
+            .GetElementsOfType(OutputAnchorModel.SpecializationTypeId)
+            .Select(x => new OutputAnchorModel(x))
             .ToList();
 
         public CustomImplicitUsingsModel CustomImplicitUsings => _element.ChildElements

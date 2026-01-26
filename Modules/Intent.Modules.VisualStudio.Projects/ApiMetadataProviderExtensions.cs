@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
-using Intent.Modules.VisualStudio.Projects.Api;
+using Intent.Modelers.CodebaseStructure.Api;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -16,17 +16,17 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         [IntentManaged(Mode.Ignore)]
         public static IList<IVisualStudioProject> GetAllProjectModels(this IMetadataManager metadataManager, IApplication application)
         {
-            return metadataManager.VisualStudio(application).GetASPNETCoreWebApplicationModels().Cast<IVisualStudioProject>()
-                .Concat(metadataManager.VisualStudio(application).GetASPNETWebApplicationNETFrameworkModels())
-                .Concat(metadataManager.VisualStudio(application).GetClassLibraryNETCoreModels())
-                .Concat(metadataManager.VisualStudio(application).GetClassLibraryNETFrameworkModels())
-                .Concat(metadataManager.VisualStudio(application).GetConsoleAppNETFrameworkModels())
-                .Concat(metadataManager.VisualStudio(application).GetWCFServiceApplicationModels())
-                .Concat(metadataManager.VisualStudio(application).GetSQLServerDatabaseProjectModels())
-                .Concat(metadataManager.VisualStudio(application).GetAzureFunctionsProjectModels())
-                .Concat(metadataManager.VisualStudio(application).GetConsoleAppNETCoreModels())
-                .Concat(metadataManager.VisualStudio(application).GetCSharpProjectNETModels())
-                .Concat(metadataManager.VisualStudio(application).GetServiceFabricProjectModels())
+            return metadataManager.CodebaseStructure(application).GetASPNETCoreWebApplicationModels().Cast<IVisualStudioProject>()
+                .Concat(metadataManager.CodebaseStructure(application).GetASPNETWebApplicationNETFrameworkModels())
+                .Concat(metadataManager.CodebaseStructure(application).GetClassLibraryNETCoreModels())
+                .Concat(metadataManager.CodebaseStructure(application).GetClassLibraryNETFrameworkModels())
+                .Concat(metadataManager.CodebaseStructure(application).GetConsoleAppNETFrameworkModels())
+                .Concat(metadataManager.CodebaseStructure(application).GetWCFServiceApplicationModels())
+                .Concat(metadataManager.CodebaseStructure(application).GetSQLServerDatabaseProjectModels())
+                .Concat(metadataManager.CodebaseStructure(application).GetAzureFunctionsProjectModels())
+                .Concat(metadataManager.CodebaseStructure(application).GetConsoleAppNETCoreModels())
+                .Concat(metadataManager.CodebaseStructure(application).GetCSharpProjectNETModels())
+                .Concat(metadataManager.CodebaseStructure(application).GetServiceFabricProjectModels())
                 .ToList();
         }
 
@@ -94,13 +94,6 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 .ToList();
         }
 
-        public static IList<FolderModel> GetFolderModels(this IDesigner designer)
-        {
-            return designer.GetElementsOfType(FolderModel.SpecializationTypeId)
-                .Select(x => new FolderModel(x))
-                .ToList();
-        }
-
         public static IList<JavaScriptProjectModel> GetJavaScriptProjectModels(this IDesigner designer)
         {
             return designer.GetElementsOfType(JavaScriptProjectModel.SpecializationTypeId)
@@ -126,6 +119,13 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         {
             return designer.GetElementsOfType(SQLServerDatabaseProjectModel.SpecializationTypeId)
                 .Select(x => new SQLServerDatabaseProjectModel(x))
+                .ToList();
+        }
+
+        public static IList<VisualStudioSolutionModel> GetVisualStudioSolutionModels(this IDesigner designer)
+        {
+            return designer.GetElementsOfType(VisualStudioSolutionModel.SpecializationTypeId)
+                .Select(x => new VisualStudioSolutionModel(x))
                 .ToList();
         }
 

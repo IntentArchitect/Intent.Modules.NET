@@ -70,13 +70,13 @@
           <isAbstract>false</isAbstract>
           <genericTypes />
           <typeReference id="43f325d2-f534-4229-826f-15c850204713">
-            <typeId>3407a825-1331-4f3f-89a4-901903ed97ce</typeId>
+            <typeId>4d95d53a-8855-4f35-aa82-e312643f5c5f</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
             <isRequired>true</isRequired>
-            <typePackageName>Intent.VisualStudio.Projects</typePackageName>
-            <typePackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</typePackageId>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
             <stereotypes />
             <genericTypeParameters />
           </typeReference>
@@ -159,8 +159,8 @@
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
             <isRequired>true</isRequired>
-            <typePackageName>Intent.VisualStudio.Projects</typePackageName>
-            <typePackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</typePackageId>
+            <typePackageName>Intent.Modelers.CodebaseStructure</typePackageName>
+            <typePackageId>525868ff-adc0-4ab6-a90e-352288da941f</typePackageId>
             <stereotypes />
             <genericTypeParameters />
           </typeReference>
@@ -191,8 +191,8 @@
           <childElements />
         </childElement>
         <childElement id="bae1f609-a7e5-43ca-979b-f65b32e93daf" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
-          <name>Add Role</name>
-          <display>Add Role: Role</display>
+          <name>Add Output Anchor</name>
+          <display>Add Output Anchor: Output Anchor</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
           <typeReference id="fe218fdc-4c38-4cae-b852-e7dc3f32b8ee">
@@ -201,8 +201,8 @@
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
             <isRequired>true</isRequired>
-            <typePackageName>Intent.VisualStudio.Projects</typePackageName>
-            <typePackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</typePackageId>
+            <typePackageName>Intent.Modelers.CodebaseStructure</typePackageName>
+            <typePackageId>525868ff-adc0-4ab6-a90e-352288da941f</typePackageId>
             <stereotypes />
             <genericTypeParameters />
           </typeReference>

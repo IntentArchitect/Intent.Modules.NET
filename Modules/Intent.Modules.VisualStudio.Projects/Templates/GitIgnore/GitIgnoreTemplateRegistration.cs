@@ -1,14 +1,9 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
-using Intent.Metadata.Models;
-using Intent.Modules.Common;
-using Intent.Modules.Common.Registrations;
+using Intent.Modelers.CodebaseStructure.Api;
 using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Registrations;
 using Intent.RoslynWeaver.Attributes;
-using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Ignore)]
 [assembly: DefaultIntentManaged(Mode.Ignore, Targets = Targets.Usings)]
@@ -29,7 +24,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.GitIgnore
 
         public void DoRegistration(IApplicationTemplateInstanceRegistry registry, IApplication application)
         {
-            var vsSolutions = _metadataManager.VisualStudio(application).GetVisualStudioSolutionModels();
+            var vsSolutions = _metadataManager.CodebaseStructure(application).GetVisualStudioSolutionModels();
             foreach (var vsSolution in vsSolutions)
             {
                 var projects = _metadataManager.GetAllProjectModels(application).Where(x => x.Solution.Id == vsSolution.Id).ToList();

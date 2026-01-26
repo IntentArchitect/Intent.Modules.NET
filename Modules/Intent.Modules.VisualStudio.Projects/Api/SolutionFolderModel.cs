@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Intent.Metadata.Models;
+using Intent.Modelers.CodebaseStructure.Api;
 using Intent.Modules.Common;
 using Intent.RoslynWeaver.Attributes;
 
@@ -78,7 +79,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         public IElement InternalElement => _element;
 
         public string RelativeLocation { get; }
-        
+
         [IntentManaged(Mode.Fully)]
         public IList<SolutionFolderModel> Folders => _element.ChildElements
             .GetElementsOfType(SolutionFolderModel.SpecializationTypeId)
@@ -159,6 +160,11 @@ namespace Intent.Modules.VisualStudio.Projects.Api
             .Select(x => new ServiceFabricProjectModel(x))
             .ToList();
 
+        public IList<OutputAnchorModel> OutputAnchors => _element.ChildElements
+            .GetElementsOfType(OutputAnchorModel.SpecializationTypeId)
+            .Select(x => new OutputAnchorModel(x))
+            .ToList();
+
         public IList<AzureFunctionsProjectModel> AzureFunctionsProjects => _element.ChildElements
             .GetElementsOfType(AzureFunctionsProjectModel.SpecializationTypeId)
             .Select(x => new AzureFunctionsProjectModel(x))
@@ -177,11 +183,6 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         public IList<ConsoleAppNETCoreModel> ConsoleAppNETCores => _element.ChildElements
             .GetElementsOfType(ConsoleAppNETCoreModel.SpecializationTypeId)
             .Select(x => new ConsoleAppNETCoreModel(x))
-            .ToList();
-
-        public IList<RoleModel> Roles => _element.ChildElements
-            .GetElementsOfType(RoleModel.SpecializationTypeId)
-            .Select(x => new RoleModel(x))
             .ToList();
 
         public IList<TemplateOutputModel> TemplateOutputs => _element.ChildElements

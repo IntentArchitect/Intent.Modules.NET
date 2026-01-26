@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Linq;
 using Intent.Engine;
+using Intent.Modelers.CodebaseStructure.Api;
 using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Registrations;
 
@@ -19,7 +20,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.WebApiServiceCSProjectF
 
         public void DoRegistration(ITemplateInstanceRegistry registry, IApplication application)
         {
-            var models = _metadataManager.VisualStudio(application).GetASPNETWebApplicationNETFrameworkModels();
+            var models = _metadataManager.CodebaseStructure(application).GetASPNETWebApplicationNETFrameworkModels();
 
             foreach (var model in models)
             {

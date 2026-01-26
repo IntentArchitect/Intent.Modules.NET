@@ -1,87 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="3407a825-1331-4f3f-89a4-901903ed97ce" type="Element Settings" typeId="727577aa-3e07-4b41-be7d-7359bb1e48c8">
-  <name>Folder</name>
-  <display>Folder</display>
+<class id="62e31d71-733f-4810-8690-1ed78138f749" type="Element Extension" typeId="e3c7b1ca-f080-45c1-b56f-8d44226c8e20">
+  <name>Folder Extensions</name>
+  <display>Folder Extensions: Folder</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
+  <typeReference id="f99a5668-a7eb-4614-a1eb-cb20d4381620">
+    <typeId>4d95d53a-8855-4f35-aa82-e312643f5c5f</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.Common.Types</typePackageName>
+    <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
   <isMapped>false</isMapped>
   <parentFolderId>2ef69545-61ca-42b7-89bd-4ae3d5970280</parentFolderId>
   <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
   <packageName>Intent.VisualStudio.Projects</packageName>
   <stereotypes>
-    <stereotype stereotypeDefinitionId="d8f6f331-d4f0-4c75-aa91-f2e715cd9591" name="Type Reference Settings">
+    <stereotype stereotypeDefinitionId="159cbc8e-a910-40f7-8e45-3edadbb863c2" name="Type Reference Extension Settings">
       <addedByDefault>true</addedByDefault>
       <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
       <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
       <properties>
-        <property name="8da796ff-e5b8-4a53-9c18-9176bfff8fbc" display="Mode" value="Disabled" isActive="true" />
-        <property name="07613cf6-d1bf-411c-96db-65daad7d07f4" display="Display Name" isActive="false" />
-        <property name="3941cc0b-503e-495a-bef3-9923a6554cee" display="Hint" isActive="false" />
-        <property name="b94f760c-0ce7-4176-bbae-97e26914b39c" display="Target Types" isActive="false" />
-        <property name="52f3c2e8-6438-494a-b0a7-7a9e61c8aae8" display="Target Traits" isActive="true" />
-        <property name="eedd06e4-e2b8-42f2-b882-c8ae9cecabb8" display="Represents" value="Reference" isActive="false" />
-        <property name="ff4b18c5-397b-4639-ba79-89939deb9834" display="Default Type Id" isActive="false" />
-        <property name="229dcbe7-f000-4ee9-a06a-febad727f7e1" display="Allow Nullable" value="true" isActive="false" />
-        <property name="d04ec558-6f6a-462b-b16a-9da1d7b4e9db" display="Allow Collection" value="true" isActive="false" />
+        <property name="35226a83-3965-4224-8aef-20c68a0c5180" display="Mode" value="Inherit" isActive="true" />
+        <property name="7d3859d4-084d-4ff0-8b31-850b4a8f8cd0" display="Display Name" isActive="false" />
+        <property name="17223dbd-8df0-4700-8b81-02274ca3ed7f" display="Hint" isActive="false" />
+        <property name="b2cef034-5706-45d2-8554-f4dc582a18ff" display="Target Types" isActive="false" />
+        <property name="08ec0581-c90a-489b-858f-ee265327c948" display="Target Traits" isActive="true" />
+        <property name="93e4efa9-186d-4e88-ae0a-491bcd6e6f5e" display="Default Type Id" isActive="false" />
+        <property name="7a0c4185-1c08-4d3e-9185-14683d7a3bd0" display="Allow Collection" value="Inherit" isActive="false" />
+        <property name="e3dc90ec-4f5f-4f20-b271-e28a5094dc91" display="Allow Nullable" value="Inherit" isActive="false" />
       </properties>
     </stereotype>
-    <stereotype stereotypeDefinitionId="f406222b-31a8-435e-80f6-6a08f9108649" name="Settings">
+    <stereotype stereotypeDefinitionId="312eab00-f6db-492e-bbb4-e41383c8d3d8" name="Extension Settings">
       <addedByDefault>true</addedByDefault>
       <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
       <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
       <properties>
-        <property name="5a9277a9-b808-4ade-bb57-840b51b0da3a" display="Save Mode" value="Default" isActive="true" />
-        <property name="736b1337-6f35-4e38-85a8-69ff5d69fb7d" display="Icon" value="{&quot;source&quot;:&quot;./img/icons/uml/Folder_02_256x.png&quot;,&quot;type&quot;:0,&quot;absolutePathRelativeTo&quot;:null}" isActive="true" />
-        <property name="32086823-bd72-4be0-a765-2d9530f4ce06" display="Expanded Icon" value="{&quot;type&quot;:0,&quot;source&quot;:&quot;./img/icons/uml/FolderOpen_02_256x.png&quot;}" isActive="true" />
-        <property name="b966a8e9-f298-4741-8397-fe49f29c248b" display="Icon Function" isActive="true" />
-        <property name="0632053a-6b40-47a0-857f-6840e322344c" display="Display Text Function" value="" isActive="true" />
-        <property name="1e5a5798-220b-4a92-993d-c4ebd4123e53" display="Validate Function" value="" isActive="true" />
-        <property name="c48d9593-c1f4-4610-9cb3-54de9c2f0c06" display="Allow Rename" value="true" isActive="true" />
-        <property name="581e77d6-4587-4041-86f6-880bd57d5848" display="Name Must Be Unique" value="true" isActive="true" />
-        <property name="4b17e907-bd58-4f70-b376-383c6046ad8a" display="Allow Abstract" value="false" isActive="true" />
-        <property name="ad2bbaa1-becc-477b-83d2-97179678e4bb" display="Allow Static" value="false" isActive="true" />
-        <property name="0eb8bcd6-4120-47c5-ac74-9a9e4a7d4536" display="Allow Set Value" value="false" isActive="true" />
-        <property name="8ad604ab-7edf-4a6c-86a5-e27f0f95dfac" display="Allow Generic Types" value="false" isActive="true" />
-        <property name="ad5ce0fc-72ab-4aa3-92e9-238954c2aedb" display="Allow Sorting" value="false" isActive="true" />
-        <property name="3a68e3cb-8014-4c43-9965-f6fc35589d37" display="Sort Children" isActive="true" />
-        <property name="46180320-9a7e-4fe3-8351-f7524612a52c" display="Allow Find in View" value="false" isActive="true" />
+        <property name="8c964307-9d03-4a14-9fd3-40ea2607955a" display="Display Text Function" isActive="true" />
+        <property name="996ed45f-2318-4587-9618-73db3d7cfed0" display="Validate Function" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="9f13564f-e47b-47d8-a73d-e07f643f9c3a" type="Context Menu" typeId="d45e383d-90ba-4b64-aca7-34ca100cea21">
+    <childElement id="3a755a71-57b0-4667-be3e-474860791c8e" type="Context Menu" typeId="d45e383d-90ba-4b64-aca7-34ca100cea21">
       <name>[context menu]</name>
       <display>[context menu]</display>
       <isAbstract>false</isAbstract>
       <sort-children>manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>3407a825-1331-4f3f-89a4-901903ed97ce</parentFolderId>
+      <parentFolderId>62e31d71-733f-4810-8690-1ed78138f749</parentFolderId>
       <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
       <packageName>Intent.VisualStudio.Projects</packageName>
       <stereotypes />
       <metadata />
       <childElements>
-        <childElement id="dd391810-79a8-44df-ae44-e98febeef2bc" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
+        <childElement id="626eaf05-1947-4760-884b-8f4d02111475" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
           <name>New Folder</name>
           <display>New Folder: Folder</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="45f4a576-6b80-4c6a-9a91-136af6073d1b">
-            <typeId>3407a825-1331-4f3f-89a4-901903ed97ce</typeId>
+          <typeReference id="db79a967-d466-43bf-bfbe-fd81ad9a2317">
+            <typeId>4d95d53a-8855-4f35-aa82-e312643f5c5f</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
             <isRequired>true</isRequired>
-            <typePackageName>Intent.VisualStudio.Projects</typePackageName>
-            <typePackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</typePackageId>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
             <stereotypes />
             <genericTypeParameters />
           </typeReference>
           <isMapped>false</isMapped>
-          <parentFolderId>9f13564f-e47b-47d8-a73d-e07f643f9c3a</parentFolderId>
+          <parentFolderId>3a755a71-57b0-4667-be3e-474860791c8e</parentFolderId>
           <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
           <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes>
@@ -106,13 +103,13 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="6ca27917-e282-43d0-bd21-d48a94b26a32" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
-          <name>Add Template Output</name>
-          <display>Add Template Output: Template Output</display>
+        <childElement id="9525a35c-552d-4361-8880-c836bc71918c" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
+          <name>New Visual Studio Solution</name>
+          <display>New Visual Studio Solution: Visual Studio Solution</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="3c3061bb-e4f5-4c17-bc84-907b7e0d4b21">
-            <typeId>d421c322-7a51-4094-89fa-e5d8a0a97b27</typeId>
+          <typeReference id="13e6d206-92be-4dc2-8613-fb531ff8c323">
+            <typeId>769a45a2-119f-434f-8c27-bd4a399b915c</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -123,7 +120,7 @@
             <genericTypeParameters />
           </typeReference>
           <isMapped>false</isMapped>
-          <parentFolderId>9f13564f-e47b-47d8-a73d-e07f643f9c3a</parentFolderId>
+          <parentFolderId>3a755a71-57b0-4667-be3e-474860791c8e</parentFolderId>
           <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
           <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes>
@@ -132,12 +129,12 @@
               <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
               <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
               <properties>
-                <property name="9df41a97-0a8b-42c6-9d95-becf3d6d1e0b" display="Shortcut" isActive="true" />
+                <property name="9df41a97-0a8b-42c6-9d95-becf3d6d1e0b" display="Shortcut" value="ctrl + shift + v" isActive="true" />
                 <property name="5572d05e-dd37-47f6-944a-73710c07f4f1" display="Shortcut (macOS)" isActive="true" />
                 <property name="ba8a3ecd-0f08-499e-bb5b-929d40f56a45" display="Default Name" isActive="true" />
                 <property name="8e092aa6-7d1a-4a06-af82-903e7642cef6" display="Allow Multiple" value="true" isActive="true" />
                 <property name="719e9dff-2b8d-407d-912d-fac99a158721" display="Api Model Name" isActive="true" />
-                <property name="77a9993c-40ba-47a9-a2a4-0974548a3f27" display="Is Option Visible Function" value="return false;" isActive="true" />
+                <property name="77a9993c-40ba-47a9-a2a4-0974548a3f27" display="Is Option Visible Function" isActive="true" />
                 <property name="A43F388B-DAFF-422C-BD8D-FB433EFEC51B" display="Type Order" isActive="true" />
                 <property name="fdea9028-8611-4eb0-b1a5-4d54d267af41" display="Menu Group" isActive="true" />
                 <property name="aeaeff9b-f55b-4888-92e9-5317b5c14016" display="Top Divider" value="false" isActive="true" />
@@ -148,24 +145,24 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c8b9f252-68a3-4056-9672-935903edbdea" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
-          <name>Add Role</name>
-          <display>Add Role: Role</display>
+        <childElement id="dd097d27-4c69-4790-ad24-d599059c6983" type="Stereotype-Definition Creation Option" typeId="0c721d5d-7721-414c-adaf-4c9f5c5531a9">
+          <name>New Stereotype-Definition</name>
+          <display>New Stereotype-Definition: Stereotype-Definition</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="c8d51240-8fe7-476b-b0ff-a7dfb54ceec3">
-            <typeId>025e933b-b602-4b6d-95ab-0ec36ae940da</typeId>
+          <typeReference id="964cc72e-2521-4ac2-b905-7c37894f1cc4">
+            <typeId>54eff27b-2dfc-4853-8498-1a2c4700e385</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
             <isRequired>true</isRequired>
-            <typePackageName>Intent.VisualStudio.Projects</typePackageName>
-            <typePackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</typePackageId>
+            <typePackageName>Intent.ModuleBuilder</typePackageName>
+            <typePackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</typePackageId>
             <stereotypes />
             <genericTypeParameters />
           </typeReference>
           <isMapped>false</isMapped>
-          <parentFolderId>9f13564f-e47b-47d8-a73d-e07f643f9c3a</parentFolderId>
+          <parentFolderId>3a755a71-57b0-4667-be3e-474860791c8e</parentFolderId>
           <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
           <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes>

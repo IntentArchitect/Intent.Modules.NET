@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Intent.Configuration;
 using Intent.Metadata.Models;
+using Intent.Modelers.CodebaseStructure.Api;
 
 namespace Intent.Modules.VisualStudio.Projects.Api
 {
@@ -32,7 +33,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         public string RelativeLocation => _model.RelativeLocation;
         public string ParentId => null;
         public IEnumerable<string> SupportedFrameworks => Array.Empty<string>();
-        public IEnumerable<IOutputTargetRole> Roles => _model.Roles;
+        public IEnumerable<IOutputTargetRole> Roles => _model.OutputAnchors;
         public IEnumerable<IOutputTargetTemplate> Templates => _model.TemplateOutputs.DetectDuplicates();
         public IDictionary<string, object> Metadata { get; }
     }
