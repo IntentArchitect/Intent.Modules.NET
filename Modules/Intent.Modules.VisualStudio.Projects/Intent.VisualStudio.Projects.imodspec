@@ -195,5 +195,6 @@
   <migrations has-on-install-migration="true">
     <migration version="3.8.10-pre.2" />
     <migration version="3.9.2-pre.0" />
+    <migration version="4.0.0-pre.0" />
   </migrations>
 </package>
