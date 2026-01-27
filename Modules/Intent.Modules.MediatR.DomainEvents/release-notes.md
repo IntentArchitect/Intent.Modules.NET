@@ -1,3 +1,7 @@
+### Version 5.2.5
+
+- Improvement: Domain Events now support inheriting from other Domain Events. Implementation generation will correctly wire up inherited class property mappings.
+
 ### Version 5.2.4
 
 - Improvement: Added a setting for opting out of Implicit domain event handlers, for team who only want to explicitly model these.

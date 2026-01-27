@@ -1,3 +1,7 @@
+### Version 5.0.13
+
+- Improvement: Generating Domain Event classes which can now recognize inheriting from other Domain Event classes.
+
 ### Version 5.0.12
 
 - Improvement: Updated `Intent.Modelers.Domain.Events` to `4.4.5`.

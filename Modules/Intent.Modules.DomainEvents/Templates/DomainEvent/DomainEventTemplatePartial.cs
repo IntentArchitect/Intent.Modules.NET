@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Domain.Events.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -34,32 +35,71 @@ namespace Intent.Modules.DomainEvents.Templates.DomainEvent
 
             var csharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath());
             csharpFile.AddClass($"{Model.Name}");
-            csharpFile.OnBuild((Action<CSharpFile>)(file =>
-                {
-                    file.AddUsing("System");
-                    file.AddUsing("System.Collections.Generic");
+            csharpFile.OnBuild(file =>
+            {
+                file.AddUsing("System");
+                file.AddUsing("System.Collections.Generic");
 
-                    var @class = file.Classes.First();
+                var @class = file.Classes.First();
+                
+                var baseDomainEvent = Model.Generalizations().Select(x => x.Element?.AsDomainEventModel()).FirstOrDefault();
+                if (baseDomainEvent is null)
+                {
                     @class.WithBaseType(GetBaseClass());
-                    @class.TryAddXmlDocComments(Model.InternalElement);
-                    @class.AddConstructor(ctor =>
+                }
+                else
+                {
+                    @class.WithBaseType(this.GetDomainEventName(baseDomainEvent));
+                }
+
+                var inheritedProperties = GetPropertiesHierarchally(Model).ToList();
+                
+                @class.TryAddXmlDocComments(Model.InternalElement);
+                @class.AddConstructor(ctor =>
+                {
+                    foreach (var inheritedProperty in inheritedProperties)
                     {
-                        foreach (var propertyModel in Model.Properties)
+                        ctor.AddParameter(base.GetTypeName(inheritedProperty.PropertyModel.TypeReference), inheritedProperty.PropertyModel.Name.ToParameterName(), arg =>
                         {
-                            ctor.AddParameter(base.GetTypeName(propertyModel.TypeReference), propertyModel.Name.ToParameterName(), arg =>
+                            if (!inheritedProperty.IsInherited)
                             {
                                 arg.IntroduceProperty(property =>
                                 {
-                                    property.TryAddXmlDocComments(propertyModel.InternalElement);
+                                    property.TryAddXmlDocComments(inheritedProperty.PropertyModel.InternalElement);
                                     property.ReadOnly();
-                                    property.RepresentsModel(propertyModel);
+                                    property.RepresentsModel(inheritedProperty.PropertyModel);
                                 });
-                            });
-                        }
-                    });
+                            }
+                        });
+                    }
 
-                }));
+                    if (inheritedProperties.Count != 0)
+                    {
+                        ctor.CallsBase(callBase =>
+                        {
+                            foreach (var inheritedProperty in inheritedProperties)
+                            {
+                                if (inheritedProperty.IsInherited)
+                                {
+                                    callBase.AddArgument(inheritedProperty.PropertyModel.Name.ToParameterName());
+                                }
+                            }
+                        });
+                    }
+                });
+            });
             CSharpFile = csharpFile;
+        }
+
+        private sealed record InheritedPropertyModel(PropertyModel PropertyModel, bool IsInherited);
+        private static IEnumerable<InheritedPropertyModel> GetPropertiesHierarchally(DomainEventModel model, bool isInheritModel = false)
+        {
+            var inheritModel = model.DomainEventGeneralizationEnds().FirstOrDefault(x => x.IsTargetEnd())?.Element.AsDomainEventModel();
+            if (inheritModel is not null)
+            {
+                return GetPropertiesHierarchally(inheritModel, true).Concat(model.Properties.Select(x => new InheritedPropertyModel(x, isInheritModel)));
+            }
+            return model.Properties.Select(x => new InheritedPropertyModel(x, isInheritModel));
         }
 
         [IntentManaged(Mode.Fully)]

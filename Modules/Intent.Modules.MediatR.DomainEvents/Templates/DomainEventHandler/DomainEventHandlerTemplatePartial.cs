@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Exceptions;
+using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Domain.Events.Api;
 using Intent.Modelers.Services.Api;
@@ -93,6 +94,15 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventHandler
                             // TODO: These can go to the handler template:
                             csharpMapping.SetFromReplacement(handler.Model, "domainEvent");
                             csharpMapping.SetFromReplacement(handler.Model.InternalElement, "domainEvent");
+                            
+                            // Inheritance handling
+                            var domainEventModel = handler.Model.InternalElement.TypeReference?.Element?.AsDomainEventModel();
+                            var generalization = domainEventModel?.Generalizations().SingleOrDefault();
+                            if (generalization != null)
+                            {
+                                csharpMapping.SetFromReplacement(generalization, "domainEvent");
+                                csharpMapping.SetToReplacement(generalization, null);
+                            }
 
                             //csharpMapping.SetFromReplacement(handledDomainEvents, "notification.DomainEvent");
                             method.ImplementInteractions(interactions);
