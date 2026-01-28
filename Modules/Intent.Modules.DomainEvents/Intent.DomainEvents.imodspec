@@ -49,11 +49,11 @@
     <factoryExtension id="Intent.DomainEvents.DomainEventsDecoratorExtension" externalReference="1a2243e2-e591-40e0-a4b5-be7f1fec9de8" />
   </factoryExtensions>
   <dependencies>
-    <dependency id="Intent.Common" version="3.7.3" />
+    <dependency id="Intent.Common" version="3.8.0" />
     <dependency id="Intent.Common.CSharp" version="3.8.3" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
-    <dependency id="Intent.Modelers.Domain" version="3.4.1" />
-    <dependency id="Intent.Modelers.Domain.Events" version="4.4.5" />
+    <dependency id="Intent.Modelers.Domain" version="3.12.2" />
+    <dependency id="Intent.Modelers.Domain.Events" version="4.4.6-pre.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
   </dependencies>
   <files>
@@ -65,7 +65,7 @@
   <interoperability>
     <detect id="Intent.Application.MediatR">
       <install>
-        <package id="Intent.MediatR.DomainEvents" version="5.0.27" />
+        <package id="Intent.MediatR.DomainEvents" version="5.2.5-pre.0" />
       </install>
     </detect>
   </interoperability>

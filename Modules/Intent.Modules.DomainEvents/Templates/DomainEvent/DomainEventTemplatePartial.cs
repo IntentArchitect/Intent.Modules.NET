@@ -97,7 +97,7 @@ namespace Intent.Modules.DomainEvents.Templates.DomainEvent
             var inheritModel = model.DomainEventGeneralizationEnds().FirstOrDefault(x => x.IsTargetEnd())?.Element.AsDomainEventModel();
             if (inheritModel is not null)
             {
-                return GetPropertiesHierarchally(inheritModel, true).Concat(model.Properties.Select(x => new InheritedPropertyModel(x, isInheritModel)));
+                return model.Properties.Select(x => new InheritedPropertyModel(x, isInheritModel)).Concat(GetPropertiesHierarchally(inheritModel, true));
             }
             return model.Properties.Select(x => new InheritedPropertyModel(x, isInheritModel));
         }
