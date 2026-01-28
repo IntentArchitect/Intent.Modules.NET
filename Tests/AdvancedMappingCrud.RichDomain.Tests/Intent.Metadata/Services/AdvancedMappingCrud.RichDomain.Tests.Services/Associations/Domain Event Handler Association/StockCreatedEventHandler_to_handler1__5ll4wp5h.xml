@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="09430551-aab9-4be4-8033-780e04f5ec95">
+  <sourceEnd id="c491ecc9-0fc4-46dd-a18e-3cb0ffdc3439" type="Domain Event Handler Association Source End" typeId="79f048d4-4c09-4405-be8f-95473a981556">
+    <display>: StockCreatedEventHandler</display>
+    <order>0</order>
+    <typeReference id="737b907d-2ef4-4cbb-a728-b340cf5c1d28">
+      <typeId>500603dc-83b9-44d5-bf9f-237ea2369f16</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Services</typePackageName>
+      <typePackageId>4cb1decc-0bf9-44b4-86fd-2301923ae3ab</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="09430551-aab9-4be4-8033-780e04f5ec95" type="Domain Event Handler Association Target End" typeId="f45dfee9-f62b-45ac-bfce-a3878e04b73f">
+    <name>handler1</name>
+    <display>[handles] StockLevelUpdatedEvent</display>
+    <order>1</order>
+    <traits>
+      <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+    </traits>
+    <typeReference id="ac4719e9-19e3-4852-951b-abf7d56e5b86">
+      <typeId>87405da1-e98f-4577-89d9-2b2b45b2132e</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Domain</typePackageName>
+      <typePackageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Domain Event Handler Association</associationType>
+  <associationTypeId>90831494-f069-44eb-b488-ab2dba7518ea</associationTypeId>
+  <stereotypes />
+</association>

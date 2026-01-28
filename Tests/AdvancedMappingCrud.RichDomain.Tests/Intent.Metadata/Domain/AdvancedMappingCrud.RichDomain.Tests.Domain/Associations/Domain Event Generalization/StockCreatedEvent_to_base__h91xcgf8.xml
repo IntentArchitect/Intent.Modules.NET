@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="4f4844dd-e2f0-48f9-bc8d-a4e98a5be5f2">
+  <sourceEnd id="0c1636e3-c05f-438d-b295-c270670eb34d" type="Domain Event Generalization Source End" typeId="9d77f404-ca00-46ea-9ec8-8734274cb3f7">
+    <display>: StockCreatedEvent</display>
+    <order>0</order>
+    <typeReference id="591e2f88-2af6-47af-bb3a-0fd807f2f114">
+      <typeId>f795458e-fef9-4560-99c3-58014cdcbe1f</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Domain</typePackageName>
+      <typePackageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="4f4844dd-e2f0-48f9-bc8d-a4e98a5be5f2" type="Domain Event Generalization Target End" typeId="1540252f-51ba-48e4-a7ad-f52ac32389e6">
+    <name>base</name>
+    <display>extends StockBaseEvent</display>
+    <order>0</order>
+    <typeReference id="d627db87-7b22-4ad0-b049-edaf33e990c1">
+      <typeId>fbf5186b-cfd2-415f-8734-eb04b1ca6ed3</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Domain</typePackageName>
+      <typePackageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Domain Event Generalization</associationType>
+  <associationTypeId>fa57ec52-536d-46a8-8aa0-4589812665c1</associationTypeId>
+  <stereotypes />
+</association>

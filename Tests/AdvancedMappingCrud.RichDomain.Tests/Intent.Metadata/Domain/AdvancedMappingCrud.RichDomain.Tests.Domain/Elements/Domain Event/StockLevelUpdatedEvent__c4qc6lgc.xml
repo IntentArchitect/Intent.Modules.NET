@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="87405da1-e98f-4577-89d9-2b2b45b2132e" type="Domain Event" typeId="0814e459-fb9b-47db-b7eb-32ce30397e8a">
   <name>StockLevelUpdatedEvent</name>
-  <display>StockLevelUpdatedEvent</display>
+  <display>StockLevelUpdatedEvent : StockBaseEvent</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
@@ -19,30 +19,6 @@
       <genericTypes />
       <typeReference id="edd9e5c5-d154-4c59-b89a-f19d4e42fd51">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
-        <isNavigable>true</isNavigable>
-        <isNullable>false</isNullable>
-        <isCollection>false</isCollection>
-        <isRequired>true</isRequired>
-        <typePackageName>Intent.Common.Types</typePackageName>
-        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
-        <stereotypes />
-        <genericTypeParameters />
-      </typeReference>
-      <isMapped>false</isMapped>
-      <parentFolderId>87405da1-e98f-4577-89d9-2b2b45b2132e</parentFolderId>
-      <packageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</packageId>
-      <packageName>AdvancedMappingCrud.RichDomain.Tests.Domain</packageName>
-      <stereotypes />
-      <metadata />
-      <childElements />
-    </childElement>
-    <childElement id="86a87c09-42ec-49e4-99b8-89e522ba2079" type="Property" typeId="b4d69073-5abb-4968-b41b-545b2f7408ed">
-      <name>Total</name>
-      <display>Total: int</display>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <typeReference id="f3f30f26-1cf1-4fcf-8f7d-4cc7f78dd66b">
-        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="3dcfd67f-7564-4d6f-b1b4-045303e20290">
+  <sourceEnd id="67c77ee0-dea0-4b8d-98c1-331eb39d5467" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : StockCreatedEventHandler.handler1</display>
+    <order>0</order>
+    <typeReference id="af2f10e2-c738-4e44-9885-a3344e09aebf">
+      <typeId>09430551-aab9-4be4-8033-780e04f5ec95</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Services</typePackageName>
+      <typePackageId>4cb1decc-0bf9-44b4-86fd-2301923ae3ab</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="3dcfd67f-7564-4d6f-b1b4-045303e20290" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>stock</name>
+    <display>[update] stock: UpdateStockLevel</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="e14b6aaa-0e34-49d9-bbb5-dc23535bc313">
+      <typeId>c77ffdbc-b4dd-4357-9e5c-a893ef360721</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Domain</typePackageName>
+      <typePackageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="09430551-aab9-4be4-8033-780e04f5ec95" location="[AdvancedMappingCrud.RichDomain.Tests].[Services].[handler1]" />
+        <target applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="324d1cb5-f694-48bb-b758-494d14ba3b6b" location="[AdvancedMappingCrud.RichDomain.Tests].[Services].[Stock]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="324d1cb5-f694-48bb-b758-494d14ba3b6b" name="Stock" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="32891a35-467f-47b0-b4a3-8112dee0c6d3" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="09430551-aab9-4be4-8033-780e04f5ec95" name="handler1" type="association" specialization="Domain Event Handler Association Target End" specializationId="f45dfee9-f62b-45ac-bfce-a3878e04b73f" />
+                  <target id="8b64a0f9-a59c-4d8b-a211-1381c0cea1b9" name="Id" type="element" specialization="Property" specializationId="b4d69073-5abb-4968-b41b-545b2f7408ed" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="09430551-aab9-4be4-8033-780e04f5ec95" location="[AdvancedMappingCrud.RichDomain.Tests].[Services].[handler1]" />
+        <target applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="324d1cb5-f694-48bb-b758-494d14ba3b6b" location="[AdvancedMappingCrud.RichDomain.Tests].[Services].[Stock]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{handler1}</expression>
+            <path>
+              <target id="324d1cb5-f694-48bb-b758-494d14ba3b6b" name="Stock" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="c77ffdbc-b4dd-4357-9e5c-a893ef360721" name="UpdateStockLevel" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+            </path>
+            <sources>
+              <source identifier="handler1" mappingType="Invocation Mapping" mappingTypeId="d30bdba1-9c47-4917-b81d-29230fed5d6a">
+                <path>
+                  <target id="09430551-aab9-4be4-8033-780e04f5ec95" name="handler1" type="association" specialization="Domain Event Handler Association Target End" specializationId="f45dfee9-f62b-45ac-bfce-a3878e04b73f" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="324d1cb5-f694-48bb-b758-494d14ba3b6b" name="Stock" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="c77ffdbc-b4dd-4357-9e5c-a893ef360721" name="UpdateStockLevel" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+              <target id="7d5c57e1-107b-4431-b59e-da11f04b0de0" name="id" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="09430551-aab9-4be4-8033-780e04f5ec95" name="handler1" type="association" specialization="Domain Event Handler Association Target End" specializationId="f45dfee9-f62b-45ac-bfce-a3878e04b73f" />
+                  <target id="8b64a0f9-a59c-4d8b-a211-1381c0cea1b9" name="Id" type="element" specialization="Property" specializationId="b4d69073-5abb-4968-b41b-545b2f7408ed" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{base.Total}</expression>
+            <path>
+              <target id="324d1cb5-f694-48bb-b758-494d14ba3b6b" name="Stock" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="c77ffdbc-b4dd-4357-9e5c-a893ef360721" name="UpdateStockLevel" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+              <target id="e358f1c3-6e7b-4a9b-bad5-1eab136c1d13" name="total" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+            </path>
+            <sources>
+              <source identifier="base.Total" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="09430551-aab9-4be4-8033-780e04f5ec95" name="handler1" type="association" specialization="Domain Event Handler Association Target End" specializationId="f45dfee9-f62b-45ac-bfce-a3878e04b73f" />
+                  <target id="1db54542-4963-47dc-a416-79b5b0c406f8" name="base" type="association" specialization="Domain Event Generalization Target End" specializationId="1540252f-51ba-48e4-a7ad-f52ac32389e6" />
+                  <target id="12cf92fa-6549-4e14-aa2a-0ca6b6f0111e" name="Total" type="element" specialization="Property" specializationId="b4d69073-5abb-4968-b41b-545b2f7408ed" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{DateUpdated}</expression>
+            <path>
+              <target id="324d1cb5-f694-48bb-b758-494d14ba3b6b" name="Stock" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="c77ffdbc-b4dd-4357-9e5c-a893ef360721" name="UpdateStockLevel" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+              <target id="35fda651-6b94-4552-94be-3c303bb064ee" name="dateUpdated" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+            </path>
+            <sources>
+              <source identifier="DateUpdated" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="09430551-aab9-4be4-8033-780e04f5ec95" name="handler1" type="association" specialization="Domain Event Handler Association Target End" specializationId="f45dfee9-f62b-45ac-bfce-a3878e04b73f" />
+                  <target id="7045b0a2-c8dd-4393-93b8-550e9f5480a1" name="DateUpdated" type="element" specialization="Property" specializationId="b4d69073-5abb-4968-b41b-545b2f7408ed" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>
