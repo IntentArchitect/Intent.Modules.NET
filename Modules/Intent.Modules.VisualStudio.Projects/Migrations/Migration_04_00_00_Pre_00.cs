@@ -1,15 +1,12 @@
 using System;
 using System.IO;
 using System.Linq;
-using System.Text;
-using Intent.IArchitect.Agent.Persistence.Model;
 using Intent.Modules.Common.CSharp.Api;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Persistence;
 using Intent.Plugins;
 using Intent.RoslynWeaver.Attributes;
-using FolderExtensions = Intent.Modules.Common.Types.Api.FolderExtensions;
 using IElementPersistable = Intent.Persistence.IElementPersistable;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -84,32 +81,33 @@ namespace Intent.Modules.VisualStudio.Projects.Migrations
                 }
 
                 package.Save();
-
-
             }
 
             var designerReference = application.GetDesignerReference(DesignerId);
+            var applicationDirectory = Path.GetDirectoryName(application.AbsolutePath);
 
             var oldRelativeLocation = designerReference.RelativeLocation;
-            var oldAbsolutePath = Path.Join(application.AbsolutePath, oldRelativeLocation);
+            var oldAbsolutePath = Path.Join(applicationDirectory, oldRelativeLocation);
             var oldDirectoryName = Path.GetDirectoryName(oldAbsolutePath);
             var oldFileName = Path.GetFileName(oldAbsolutePath);
 
             var newRelativeLocation = oldRelativeLocation.Replace("Visual Studio", "Codebase Structure");
-            var newAbsolutePath = Path.Join(application.AbsolutePath, newRelativeLocation);
+            var newAbsolutePath = Path.Join(applicationDirectory, newRelativeLocation);
             var newDirectoryName = Path.GetDirectoryName(newAbsolutePath);
             var newFileName = oldFileName.Replace("Visual Studio", "Codebase Structure");
 
             designerReference.RelativeLocation = newRelativeLocation;
-            application.SaveAllChanges();
 
             Directory.Move(oldDirectoryName, newDirectoryName);
             File.Move(Path.Join(newDirectoryName, oldFileName), Path.Join(newDirectoryName, newFileName));
+
+            application.SaveAllChanges();
         }
 
         private static void UpdateElement(IElementPersistable element, string packageId, string vsElementId)
         {
-            if (element.ParentFolderId == packageId)
+            if (element.ParentFolderId == packageId &&
+                element.SpecializationTypeId != VisualStudioSolutionModel.SpecializationTypeId)
             {
                 element.ParentFolderId = vsElementId;
             }
