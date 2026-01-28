@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain.Common;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -8,17 +7,15 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain.Events
 {
-    public class StockCreatedEvent : DomainEvent
+    public class StockCreatedEvent : StockBaseEvent
     {
-        public StockCreatedEvent(string name, int total, string addedUser)
+        public StockCreatedEvent(string name, string addedUser, int total) : base(total)
         {
             Name = name;
-            Total = total;
             AddedUser = addedUser;
         }
 
         public string Name { get; }
-        public int Total { get; }
         public string AddedUser { get; }
     }
 }

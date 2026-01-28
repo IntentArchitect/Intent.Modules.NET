@@ -508,6 +508,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>b3e7fe5f-1134-44cc-ac09-f190c201d15c</ProjectId>
+      <CorrelationId>Intent.MediatR.DomainEvents.DefaultDomainEventHandler#fbf5186b-cfd2-415f-8734-eb04b1ca6ed3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Application/EventHandlers/StockBaseEventHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>StockBaseEventHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b3e7fe5f-1134-44cc-ac09-f190c201d15c</ProjectId>
       <CorrelationId>Intent.MediatR.DomainEvents.DefaultDomainEventHandler#f795458e-fef9-4560-99c3-58014cdcbe1f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Application/EventHandlers/StockCreatedEventHandler.cs</ApplicationRelativeFilePath>
@@ -1344,6 +1352,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Domain/Entities/User.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>User.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4262bd73-8bd1-4acd-a1ac-7452a65219bb</ProjectId>
+      <CorrelationId>Intent.DomainEvents.DomainEvent#fbf5186b-cfd2-415f-8734-eb04b1ca6ed3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Domain/Events/StockBaseEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>StockBaseEvent.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

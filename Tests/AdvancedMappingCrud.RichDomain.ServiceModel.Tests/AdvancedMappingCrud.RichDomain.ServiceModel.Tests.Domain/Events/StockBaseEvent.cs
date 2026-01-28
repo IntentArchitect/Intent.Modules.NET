@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Domain.Common;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -7,15 +8,13 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Domain.Events
 {
-    public class StockCreatedEvent : StockBaseEvent
+    public class StockBaseEvent : DomainEvent
     {
-        public StockCreatedEvent(string name, string addedUser, int total) : base(total)
+        public StockBaseEvent(int total)
         {
-            Name = name;
-            AddedUser = addedUser;
+            Total = total;
         }
 
-        public string Name { get; }
-        public string AddedUser { get; }
+        public int Total { get; }
     }
 }

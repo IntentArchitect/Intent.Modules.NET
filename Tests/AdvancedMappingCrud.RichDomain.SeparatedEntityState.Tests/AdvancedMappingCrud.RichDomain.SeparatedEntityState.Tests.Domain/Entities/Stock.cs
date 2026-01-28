@@ -12,16 +12,16 @@ namespace AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain.Entit
         {
             DomainEvents.Add(new StockCreatedEvent(
                 name: name,
-                total: total,
-                addedUser: addedUser));
+                addedUser: addedUser,
+                total: total));
         }
 
         public void UpdateStockLevel(Guid id, int total, DateTime dateUpdated)
         {
             DomainEvents.Add(new StockLevelUpdatedEvent(
                 id: id,
-                total: total,
-                dateUpdated: dateUpdated));
+                dateUpdated: dateUpdated,
+                total: total));
         }
     }
 }
