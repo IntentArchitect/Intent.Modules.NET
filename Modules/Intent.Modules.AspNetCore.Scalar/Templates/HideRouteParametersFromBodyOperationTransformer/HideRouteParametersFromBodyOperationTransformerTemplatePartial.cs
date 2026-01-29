@@ -61,73 +61,67 @@ namespace Intent.Modules.AspNetCore.Scalar.Templates.HideRouteParametersFromBody
                         method.AddStatement("// Only process operations with both route parameters and a request body");
                         method.AddIfStatement("operation.Parameters == null || operation.RequestBody?.Content == null", stmt =>
                         {
+                            stmt.BeforeSeparator = CSharpCodeSeparatorType.None;
                             stmt.AddStatement("return Task.CompletedTask;");
                         });
-                        method.AddStatement("");
-
-                        method.AddStatement("// Get all route parameter names (case-insensitive for matching)");
-                        method.AddStatement(@"var routeParameters = operation.Parameters
-            .Where(p => p.In == ParameterLocation.Path)
-            .Select(p => p.Name?.ToLowerInvariant())
-            .Where(p => !string.IsNullOrEmpty(p))
-            .ToHashSet();");
-                        method.AddStatement("");
-
+                        method.AddStatement("// Get all route parameter names (case-insensitive for matching)", c => c.SeparatedFromPrevious());
+                        method.AddStatements(
+                            """
+                            var routeParameters = operation.Parameters
+                                .Where(p => p.In == ParameterLocation.Path)
+                                .Select(p => p.Name?.ToLowerInvariant())
+                                .Where(p => !string.IsNullOrEmpty(p))
+                                .ToHashSet();
+                            """.ConvertToStatements());
                         method.AddIfStatement("routeParameters.Count == 0", stmt =>
                         {
                             stmt.AddStatement("return Task.CompletedTask;");
                         });
-                        method.AddStatement("");
-
-                        method.AddStatement("// Process each content type in the request body");
+                        method.AddStatement("// Process each content type in the request body", c => c.SeparatedFromPrevious());
                         method.AddForEachStatement("contentType", "operation.RequestBody.Content.Keys.ToList()", forEach =>
                         {
+                            forEach.BeforeSeparator = CSharpCodeSeparatorType.None;
                             forEach.AddStatement("var content = operation.RequestBody.Content[contentType];");
                             forEach.AddStatement("var schema = content.Schema;");
-                            forEach.AddStatement("");
-
                             forEach.AddIfStatement("schema == null", stmt =>
                             {
                                 stmt.AddStatement("continue;");
                             });
-                            forEach.AddStatement("");
-
                             if (!usesMicrosoftOpenApiV2)
                             {
                                 // For .NET 9 - skip reference resolution as context doesn't provide document access
-                                forEach.AddStatement("// Note: Schema references are typically already resolved at this stage");
+                                forEach.AddStatement("// Note: Schema references are typically already resolved at this stage", s => s.SeparatedFromPrevious());
                                 forEach.AddIfStatement("schema.Reference != null", stmt =>
                                 {
+                                    stmt.BeforeSeparator = CSharpCodeSeparatorType.None;
                                     stmt.AddStatement("// Schema is a reference, properties may not be directly accessible");
                                     stmt.AddStatement("continue;");
                                 });
-                                forEach.AddStatement("");
                             }
 
                             forEach.AddIfStatement("schema.Properties == null || schema.Properties.Count == 0", stmt =>
                             {
                                 stmt.AddStatement("continue;");
                             });
-                            forEach.AddStatement("");
-
-                            forEach.AddStatement("// Find properties that match route parameter names (case-insensitive)");
-                            forEach.AddStatement(@"var propertiesToRemove = schema.Properties.Keys
-                .Where(key => routeParameters.Contains(key?.ToLowerInvariant()))
-                .ToList();");
-                            forEach.AddStatement("");
-
+                            forEach.AddStatement("// Find properties that match route parameter names (case-insensitive)", s => s.SeparatedFromPrevious());
+                            forEach.AddStatements(
+                                """
+                                var propertiesToRemove = schema.Properties.Keys
+                                    .Where(key => routeParameters.Contains(key?.ToLowerInvariant()))
+                                    .ToList();
+                                """.ConvertToStatements());
                             forEach.AddIfStatement("propertiesToRemove.Count == 0", stmt =>
                             {
                                 stmt.AddStatement("continue;");
                             });
-                            forEach.AddStatement("");
 
                             if (usesMicrosoftOpenApiV2)
                             {
                                 // For .NET 10+ - OpenAPI v2 approach
-                                forEach.AddStatement("// Remove matching properties directly from the schema");
+                                forEach.AddStatement("// Remove matching properties directly from the schema", c => c.SeparatedFromPrevious());
                                 forEach.AddForEachStatement("propertyName", "propertiesToRemove", innerForEach =>
                                 {
+                                    innerForEach.BeforeSeparator = CSharpCodeSeparatorType.None;
                                     innerForEach.AddIfStatement("propertyName != null", ifStmt =>
                                     {
                                         ifStmt.AddStatement("schema.Properties.Remove(propertyName);");
@@ -138,25 +132,20 @@ namespace Intent.Modules.AspNetCore.Scalar.Templates.HideRouteParametersFromBody
                             else
                             {
                                 // For .NET 9 - OpenAPI v1 approach with schema cloning
-                                forEach.AddStatement("// Create a new schema with the filtered properties");
+                                forEach.AddStatement("// Create a new schema with the filtered properties", s => s.SeparatedFromPrevious());
                                 forEach.AddStatement("var newSchema = new OpenApiSchema(schema);");
-                                forEach.AddStatement("");
-
-                                forEach.AddStatement("// Remove matching properties from the new schema");
+                                forEach.AddStatement("// Remove matching properties from the new schema", s => s.SeparatedFromPrevious());
                                 forEach.AddForEachStatement("propertyName", "propertiesToRemove", innerForEach =>
                                 {
+                                    innerForEach.BeforeSeparator = CSharpCodeSeparatorType.None;
                                     innerForEach.AddStatement("newSchema.Properties.Remove(propertyName);");
                                     innerForEach.AddStatement("newSchema.Required?.Remove(propertyName);");
                                 });
-                                forEach.AddStatement("");
-
-                                forEach.AddStatement("// Replace the content schema with the new filtered schema");
+                                forEach.AddStatement("// Replace the content schema with the new filtered schema", s => s.SeparatedFromPrevious());
                                 forEach.AddStatement("operation.RequestBody.Content[contentType].Schema = newSchema;");
                             }
                         });
-                        method.AddStatement("");
-
-                        method.AddStatement("return Task.CompletedTask;");
+                        method.AddStatement("return Task.CompletedTask;", m => m.SeparatedFromPrevious());
                     });
                 });
         }
