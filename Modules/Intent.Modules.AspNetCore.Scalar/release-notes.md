@@ -1,3 +1,7 @@
+### Version 1.0.7
+
+- Improvement: Added `HideRouteParametersFromBodyOperationTransformer` operation transformer that automatically removes properties from request body schemas when they are already defined as route parameters, preventing duplicate documentation of parameters that are supplied via the URL.
+
 ### Version 1.0.6
 
 - Improvement: Updated NuGet package versions.
