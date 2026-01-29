@@ -3,6 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Application.Common.Models;
 using AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain.Common.Exceptions;
+using AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain.Entities;
 using AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain.Events;
 using AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
@@ -30,7 +31,10 @@ namespace AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Application.
             CancellationToken cancellationToken)
         {
             var domainEvent = notification.DomainEvent;
-            var stock = new Constructor(name: domainEvent.Name, total: domainEvent.Total, addedUser: domainEvent.AddedUser);
+            var stock = new Stock(
+                name: domainEvent.Name,
+                total: domainEvent.Total,
+                addedUser: domainEvent.AddedUser);
 
             _stockRepository.Add(stock);
         }

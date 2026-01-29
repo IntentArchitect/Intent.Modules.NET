@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<association id="1a8f2459-a84f-48c0-ac64-79590e2c7739">
-  <sourceEnd id="88a3922f-0ae0-4f5e-9f8e-54766fdbb7e2" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
+<association id="13904a81-2506-4b8d-ad69-7a43ae50b3d8">
+  <sourceEnd id="c5537a34-6cdf-4ba4-a816-9e19295a961d" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
     <display>created by : StockCreatedEventHandler.handler</display>
     <order>0</order>
-    <typeReference id="d38033a8-a5bf-4875-9aca-4ba2d633453b">
+    <typeReference id="6d58cc72-8a6c-41a4-8271-08750bdb4985">
       <typeId>f3bc21cf-a61c-43d6-8d95-21245bfa20ab</typeId>
       <isNavigable>false</isNavigable>
       <isNullable>false</isNullable>
@@ -18,15 +18,15 @@
     <metadata />
     <childElements />
   </sourceEnd>
-  <targetEnd id="1a8f2459-a84f-48c0-ac64-79590e2c7739" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
+  <targetEnd id="13904a81-2506-4b8d-ad69-7a43ae50b3d8" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
     <name>stock</name>
-    <display>[create] stock: Stock</display>
+    <display>[create] stock: Constructor</display>
     <order>0</order>
     <traits>
       <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
     </traits>
-    <typeReference id="e9c63f92-747a-49fc-b53f-d9873c476a51">
-      <typeId>324d1cb5-f694-48bb-b758-494d14ba3b6b</typeId>
+    <typeReference id="ada627cb-bd29-4d9a-838b-e3cabe986e97">
+      <typeId>593c1575-0a69-45d9-8bba-3b03a2be90fa</typeId>
       <isNavigable>true</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
