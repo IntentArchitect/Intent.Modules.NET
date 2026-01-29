@@ -599,7 +599,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             return !attribute.InternalElement.ParentElement.IsClassModel() ||
                    attribute.Class.GetExplicitPrimaryKey().All(keyAttribute => !keyAttribute.Equals(attribute)) ||
                    // add additional rules as/when required
-                   IsQualifyingStringPrimaryKey(attribute) || 
+                   IsQualifyingStringPrimaryKey(attribute) ||
                    IsQualifyingDecimalPrimaryKey(attribute, dbSettings);
         }
 
@@ -614,7 +614,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         private static bool IsQualifyingDecimalPrimaryKey(AttributeModel attribute, DatabaseSettings dbSettings)
         {
             // if its a decimal field and it has precision/scale set OR its a decimal field and the app settings precision/scale been set
-            return ((attribute.HasPrimaryKey() && attribute.HasDecimalConstraints() && (attribute.GetDecimalConstraints().Precision() > 0 || attribute.GetDecimalConstraints().Scale() > 0) ) ||
+            return ((attribute.HasPrimaryKey() && attribute.HasDecimalConstraints() && (attribute.GetDecimalConstraints().Precision() > 0 || attribute.GetDecimalConstraints().Scale() > 0)) ||
                 (attribute.HasPrimaryKey() && attribute.HasDecimalConstraints() && !string.IsNullOrWhiteSpace(dbSettings.DecimalPrecisionAndScale())));
         }
 
