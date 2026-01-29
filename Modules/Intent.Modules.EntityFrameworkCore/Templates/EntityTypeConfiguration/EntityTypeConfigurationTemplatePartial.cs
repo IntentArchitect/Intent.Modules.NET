@@ -242,7 +242,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             }
 
             statements.AddRange(GetAttributes(targetType)
-                .Where(RequiresConfiguration)
+                .Where(a => RequiresConfiguration(a, ExecutionContext.Settings.GetDatabaseSettings()))
                 .Select(x => GetAttributeMapping(x, @class, ownedRelationship)));
 
             if (targetType.IsClassModel())
@@ -594,10 +594,28 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             }
         }
 
-        private static bool RequiresConfiguration(AttributeModel attribute)
+        private static bool RequiresConfiguration(AttributeModel attribute, DatabaseSettings dbSettings)
         {
             return !attribute.InternalElement.ParentElement.IsClassModel() ||
-                   attribute.Class.GetExplicitPrimaryKey().All(keyAttribute => !keyAttribute.Equals(attribute));
+                   attribute.Class.GetExplicitPrimaryKey().All(keyAttribute => !keyAttribute.Equals(attribute)) ||
+                   // add additional rules as/when required
+                   IsQualifyingStringPrimaryKey(attribute) || 
+                   IsQualifyingDecimalPrimaryKey(attribute, dbSettings);
+        }
+
+        private static bool IsQualifyingStringPrimaryKey(AttributeModel attribute)
+        {
+            // if it is a text field, and any of the text fields are not the default
+            return attribute.HasPrimaryKey() && attribute.HasTextConstraints() &&
+                    (attribute.GetTextConstraints().SQLDataType().AsEnum() != Intent.Metadata.RDBMS.Api.AttributeModelStereotypeExtensions.TextConstraints.SQLDataTypeOptionsEnum.DEFAULT ||
+                     attribute.GetTextConstraints().MaxLength() > 0 || attribute.GetTextConstraints().IsUnicode());
+        }
+
+        private static bool IsQualifyingDecimalPrimaryKey(AttributeModel attribute, DatabaseSettings dbSettings)
+        {
+            // if its a decimal field and it has precision/scale set OR its a decimal field and the app settings precision/scale been set
+            return ((attribute.HasPrimaryKey() && attribute.HasDecimalConstraints() && (attribute.GetDecimalConstraints().Precision() > 0 || attribute.GetDecimalConstraints().Scale() > 0) ) ||
+                (attribute.HasPrimaryKey() && attribute.HasDecimalConstraints() && !string.IsNullOrWhiteSpace(dbSettings.DecimalPrecisionAndScale())));
         }
 
         private bool RequiresConfiguration(AssociationEndModel associationEnd)
@@ -853,7 +871,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             }
 
             attributes.AddRange(model.ChildElements
-                .Where(x => x.IsAttributeModel() && RequiresConfiguration(x.AsAttributeModel()))
+                .Where(x => x.IsAttributeModel() && RequiresConfiguration(x.AsAttributeModel(), ExecutionContext.Settings.GetDatabaseSettings()))
                 .Select(x => x.AsAttributeModel())
                 .ToList());
             return attributes;

@@ -1,3 +1,7 @@
+### Version 5.0.37
+
+- Fixed: Text and decimal constraints on PK now correctly output in the configuration
+
 ### Version 5.0.36
 
 - Improvement: Updated NuGet package versions.
