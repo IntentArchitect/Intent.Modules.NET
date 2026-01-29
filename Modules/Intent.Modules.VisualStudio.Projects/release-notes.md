@@ -1,3 +1,7 @@
+### Version 4.0.0
+
+- The Visual Studio Designer has been removed and its functionality has been moved into a new `Codebase Structure` designer. This designer has changed Visual Studio solutions from being modelled as packages to instead be modelled as elements within a package, allowing you to make multiple Visual Studio solutions without needing to make multiple packages.
+
 ### Version 3.9.10
 
 - Fixed: Updated `Intent.Persistence.SDK` to latest version to resolve compatibility issues.
