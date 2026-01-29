@@ -65,7 +65,12 @@ namespace EntityFrameworkCore.SqlServer.EF10.Infrastructure.Persistence
             _currentUserService = currentUserService;
         }
 
+        public DbSet<DecimalKeyDefault> DecimalKeyDefaults { get; set; }
+        public DbSet<DecimalKeySet> DecimalKeySets { get; set; }
+
         public DbSet<SchemaParent> SchemaParents { get; set; }
+        public DbSet<StringKeyDefault> StringKeyDefaults { get; set; }
+        public DbSet<StringKeySet> StringKeySets { get; set; }
         public DbSet<Table> Tables { get; set; }
         public DbSet<TableExplicitSchema> TableExplicitSchemas { get; set; }
         public DbSet<TableOverride> TableOverrides { get; set; }
@@ -245,7 +250,11 @@ namespace EntityFrameworkCore.SqlServer.EF10.Infrastructure.Persistence
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
+            modelBuilder.ApplyConfiguration(new DecimalKeyDefaultConfiguration());
+            modelBuilder.ApplyConfiguration(new DecimalKeySetConfiguration());
             modelBuilder.ApplyConfiguration(new SchemaParentConfiguration(_currentUserService));
+            modelBuilder.ApplyConfiguration(new StringKeyDefaultConfiguration());
+            modelBuilder.ApplyConfiguration(new StringKeySetConfiguration());
             modelBuilder.ApplyConfiguration(new TableConfiguration());
             modelBuilder.ApplyConfiguration(new TableExplicitSchemaConfiguration());
             modelBuilder.ApplyConfiguration(new TableOverrideConfiguration());

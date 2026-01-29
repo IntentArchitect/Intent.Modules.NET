@@ -71,7 +71,11 @@ namespace EntityFrameworkCore.Postgres.Infrastructure
                 options.AddInterceptors(sp.GetService<SoftDeleteInterceptor>()!);
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
+            services.AddTransient<IDecimalKeyDefaultRepository, DecimalKeyDefaultRepository>();
+            services.AddTransient<IDecimalKeySetRepository, DecimalKeySetRepository>();
             services.AddTransient<ISchemaParentRepository, SchemaParentRepository>();
+            services.AddTransient<IStringKeyDefaultRepository, StringKeyDefaultRepository>();
+            services.AddTransient<IStringKeySetRepository, StringKeySetRepository>();
             services.AddTransient<ITableRepository, TableRepository>();
             services.AddTransient<ITableExplicitSchemaRepository, TableExplicitSchemaRepository>();
             services.AddTransient<ITableOverrideRepository, TableOverrideRepository>();

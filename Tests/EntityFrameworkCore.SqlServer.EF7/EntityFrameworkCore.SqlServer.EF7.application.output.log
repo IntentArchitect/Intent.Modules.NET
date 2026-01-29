@@ -580,6 +580,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>1889c19a-4c9e-4960-81fc-6f57a716e796</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#ac5e21f3-8ac4-47eb-b9e2-b477ae650211</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Domain/Entities/DecimalKeyDefault.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DecimalKeyDefault.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1889c19a-4c9e-4960-81fc-6f57a716e796</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#16da7bd2-0f72-47e9-a321-3cd96c0d4102</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Domain/Entities/DecimalKeySet.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DecimalKeySet.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1889c19a-4c9e-4960-81fc-6f57a716e796</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#a6ce48b8-577c-426d-a85c-c012cf036ceb</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Domain/Entities/Enums/AddressInfo.cs</ApplicationRelativeFilePath>
@@ -936,6 +952,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Domain/Entities/SoftDelete/ClassWithSoftDelete.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SoftDelete/ClassWithSoftDelete.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1889c19a-4c9e-4960-81fc-6f57a716e796</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#23aa7fd9-1875-4947-b591-095068709712</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Domain/Entities/StringKeyDefault.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>StringKeyDefault.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1889c19a-4c9e-4960-81fc-6f57a716e796</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#7acbb43b-b81f-40a7-a002-2d78a6b1c83e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Domain/Entities/StringKeySet.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>StringKeySet.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1892,6 +1924,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>9bd4094d-1dc3-4cd3-87d2-4e7005f2d2a8</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#ac5e21f3-8ac4-47eb-b9e2-b477ae650211</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Domain/Repositories/IDecimalKeyDefaultRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IDecimalKeyDefaultRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9bd4094d-1dc3-4cd3-87d2-4e7005f2d2a8</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#16da7bd2-0f72-47e9-a321-3cd96c0d4102</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Domain/Repositories/IDecimalKeySetRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IDecimalKeySetRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9bd4094d-1dc3-4cd3-87d2-4e7005f2d2a8</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface#8dde0cd1-ff38-4293-9638-15170c5a71ea</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Domain/Repositories/IEFRepository.cs</ApplicationRelativeFilePath>
@@ -2000,6 +2048,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Domain/Repositories/ISchemaParentRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ISchemaParentRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9bd4094d-1dc3-4cd3-87d2-4e7005f2d2a8</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#23aa7fd9-1875-4947-b591-095068709712</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Domain/Repositories/IStringKeyDefaultRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IStringKeyDefaultRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9bd4094d-1dc3-4cd3-87d2-4e7005f2d2a8</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#7acbb43b-b81f-40a7-a002-2d78a6b1c83e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Domain/Repositories/IStringKeySetRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IStringKeySetRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -3044,6 +3108,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>a3451ed3-3890-4518-8a8b-31b7941f4ec2</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#ac5e21f3-8ac4-47eb-b9e2-b477ae650211</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Infrastructure/Persistence/Configurations/DecimalKeyDefaultConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DecimalKeyDefaultConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a3451ed3-3890-4518-8a8b-31b7941f4ec2</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#16da7bd2-0f72-47e9-a321-3cd96c0d4102</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Infrastructure/Persistence/Configurations/DecimalKeySetConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DecimalKeySetConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a3451ed3-3890-4518-8a8b-31b7941f4ec2</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#a6ce48b8-577c-426d-a85c-c012cf036ceb</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Infrastructure/Persistence/Configurations/Enums/AddressInfoConfiguration.cs</ApplicationRelativeFilePath>
@@ -3360,6 +3440,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Infrastructure/Persistence/Configurations/SoftDelete/ClassWithSoftDeleteConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SoftDelete/ClassWithSoftDeleteConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a3451ed3-3890-4518-8a8b-31b7941f4ec2</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#23aa7fd9-1875-4947-b591-095068709712</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Infrastructure/Persistence/Configurations/StringKeyDefaultConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>StringKeyDefaultConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a3451ed3-3890-4518-8a8b-31b7941f4ec2</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#7acbb43b-b81f-40a7-a002-2d78a6b1c83e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Infrastructure/Persistence/Configurations/StringKeySetConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>StringKeySetConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -4188,6 +4284,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>5aa5f510-6a2e-41d5-8e9c-1acc09cb770e</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#ac5e21f3-8ac4-47eb-b9e2-b477ae650211</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Infrastructure/Repositories/DecimalKeyDefaultRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DecimalKeyDefaultRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5aa5f510-6a2e-41d5-8e9c-1acc09cb770e</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#16da7bd2-0f72-47e9-a321-3cd96c0d4102</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Infrastructure/Repositories/DecimalKeySetRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DecimalKeySetRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5aa5f510-6a2e-41d5-8e9c-1acc09cb770e</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#a6ce48b8-577c-426d-a85c-c012cf036ceb</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Infrastructure/Repositories/Enums/AddressInfoRepository.cs</ApplicationRelativeFilePath>
@@ -4488,6 +4600,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Infrastructure/Repositories/SoftDelete/ClassWithSoftDeleteRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SoftDelete/ClassWithSoftDeleteRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5aa5f510-6a2e-41d5-8e9c-1acc09cb770e</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#23aa7fd9-1875-4947-b591-095068709712</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Infrastructure/Repositories/StringKeyDefaultRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>StringKeyDefaultRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5aa5f510-6a2e-41d5-8e9c-1acc09cb770e</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#7acbb43b-b81f-40a7-a002-2d78a6b1c83e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Infrastructure/Repositories/StringKeySetRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>StringKeySetRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -5035,7 +5163,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#eee79cda-e2b5-4c4f-b24e-fd6fe4686047</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#13b6f69d-bbf6-40c3-bf9a-40f8d8c322dd</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
