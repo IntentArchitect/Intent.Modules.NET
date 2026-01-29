@@ -4,11 +4,8 @@ using System.IO;
 using Intent.Engine;
 using Intent.Eventing;
 using Intent.Metadata.Models;
-using Intent.Modules.Common.Templates;
-using Intent.Modules.Constants;
 using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Modules.VisualStudio.Projects.Templates.DirectoryPackagesProps;
-using Intent.Templates;
 using Intent.Utils;
 using NSubstitute;
 using Shouldly;
@@ -19,7 +16,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.Templates.DirectoryPackages
 public class DirectoryPackagesPropsTemplateTests
 {
     private readonly IApplication _application;
-    private readonly IPackage _package;
+    private readonly IElement _element;
     private readonly VisualStudioSolutionModel _model;
     private readonly Dictionary<string, string> _fileSystem;
     private readonly ISoftwareFactoryEventDispatcher _eventDispatcher;
@@ -27,9 +24,9 @@ public class DirectoryPackagesPropsTemplateTests
     public DirectoryPackagesPropsTemplateTests()
     {
         _application = Substitute.For<IApplication>();
-        _package = Substitute.For<IPackage>();
-        _package.SpecializationTypeId.Returns(VisualStudioSolutionModel.SpecializationTypeId);
-        _model = new VisualStudioSolutionModel(_package);
+        _element = Substitute.For<IElement>();
+        _element.SpecializationTypeId.Returns(VisualStudioSolutionModel.SpecializationTypeId);
+        _model = new VisualStudioSolutionModel(_element);
         _fileSystem = new Dictionary<string, string>();
         _eventDispatcher = Substitute.For<ISoftwareFactoryEventDispatcher>();
         Logging.SetTracing(Substitute.For<ITracing>());

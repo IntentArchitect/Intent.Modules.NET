@@ -13,7 +13,7 @@
   <stereotypes />
   <metadata />
   <childElements>
-    <childElement id="06d10559-c421-467f-8d31-5bab97ed0244" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+    <childElement id="06d10559-c421-467f-8d31-5bab97ed0244" type="Output Anchor" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
       <name>Dapr.Components</name>
       <display>Dapr.Components</display>
       <externalReference>a2c39c39-e44d-40dd-8ad4-e89743f37fbb</externalReference>
@@ -23,7 +23,16 @@
       <parentFolderId>067f1acb-7998-4db2-81e4-fe28e43a07a7</parentFolderId>
       <packageId>77896063-2cc6-46a0-9f31-84703d132fa9</packageId>
       <packageName>CleanArchitecture.Dapr</packageName>
-      <stereotypes />
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="a23c7901-31a5-4cbf-b8bf-1be128977e6d" name="Output Anchor Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="8d79a350-96f1-4d50-bb0a-f65a5c53ec62" display="Create Sub-Folders" value="true" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata />
       <childElements />
     </childElement>
@@ -37,7 +46,17 @@
       <parentFolderId>067f1acb-7998-4db2-81e4-fe28e43a07a7</parentFolderId>
       <packageId>77896063-2cc6-46a0-9f31-84703d132fa9</packageId>
       <packageName>CleanArchitecture.Dapr</packageName>
-      <stereotypes />
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
@@ -53,7 +72,17 @@
       <parentFolderId>067f1acb-7998-4db2-81e4-fe28e43a07a7</parentFolderId>
       <packageId>77896063-2cc6-46a0-9f31-84703d132fa9</packageId>
       <packageName>CleanArchitecture.Dapr</packageName>
-      <stereotypes />
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
@@ -69,7 +98,17 @@
       <parentFolderId>067f1acb-7998-4db2-81e4-fe28e43a07a7</parentFolderId>
       <packageId>77896063-2cc6-46a0-9f31-84703d132fa9</packageId>
       <packageName>CleanArchitecture.Dapr</packageName>
-      <stereotypes />
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
@@ -85,7 +124,17 @@
       <parentFolderId>067f1acb-7998-4db2-81e4-fe28e43a07a7</parentFolderId>
       <packageId>77896063-2cc6-46a0-9f31-84703d132fa9</packageId>
       <packageName>CleanArchitecture.Dapr</packageName>
-      <stereotypes />
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>

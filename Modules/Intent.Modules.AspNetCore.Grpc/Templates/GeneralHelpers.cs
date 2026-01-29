@@ -198,8 +198,10 @@ internal static class GeneralHelpers
                 continue;
             }
 
-            var stereotype = element.GetStereotype(MetadataIds.FolderOptionsStereotypeId);
-            if (stereotype?.TryGetProperty(MetadataIds.FolderOptionsStereotypePropertyId, out var a) == true &&
+            var stereotype = element.GetStereotype(MetadataIds.VisualStudioFolderOptionsStereotypeId) ??
+                             element.GetStereotype(MetadataIds.CSharpFolderOptionsStereotypeId);
+            if ((stereotype?.TryGetProperty(MetadataIds.VisualStudioFolderOptionsStereotypePropertyId, out var a) == true ||
+                 stereotype?.TryGetProperty(MetadataIds.CSharpFolderOptionsStereotypePropertyId, out a) == true) &&
                 !string.Equals(a.Value, true.ToString(), StringComparison.OrdinalIgnoreCase))
             {
                 element = element.ParentElement;
@@ -261,7 +263,7 @@ internal static class GeneralHelpers
         {
             element = element.ParentElement;
 
-            while (element?.SpecializationTypeId is MetadataIds.VisualStudioFolderTypeId)
+            while (element?.SpecializationTypeId is MetadataIds.VisualStudioFolderTypeId or MetadataIds.FolderTypeId)
             {
                 yield return element.Name;
                 element = element.ParentElement;

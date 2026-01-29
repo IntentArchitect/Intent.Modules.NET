@@ -103,7 +103,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
 
                     return new
                     {
-                        VsSolutionId = model.InternalElement.Package.Id,
+                        VsSolutionId = model.Solution.Id,
                         Model = model,
                         Events = events
                     };

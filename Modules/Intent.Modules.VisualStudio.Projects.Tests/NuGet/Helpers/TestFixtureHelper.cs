@@ -22,12 +22,12 @@ internal static class TestFixtureHelper
 {
     public static IVisualStudioProjectTemplate CreateProject(VisualStudioProjectScheme? scheme, TestVersion testVersion, TestPackage testPackage, IDictionary<string, string> nugetPackagesToInstall)
     {
-        var package = Substitute.For<IPackage>();
-        package.Id.Returns(string.Empty);
-        package.Stereotypes.Returns(Enumerable.Empty<IStereotype>());
-        package.SpecializationTypeId.Returns(VisualStudioSolutionModel.SpecializationTypeId);
+        var element = Substitute.For<IElement>();
+        element.Id.Returns(string.Empty);
+        element.Stereotypes.Returns(Enumerable.Empty<IStereotype>());
+        element.SpecializationTypeId.Returns(VisualStudioSolutionModel.SpecializationTypeId);
 
-        var solution = new VisualStudioSolutionModel(package);
+        var solution = new VisualStudioSolutionModel(element);
 
         var project = Substitute.For<IVisualStudioProject>();
         project.Solution.Returns(solution);

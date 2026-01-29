@@ -2,7 +2,7 @@
 <package>
   <id>Intent.VisualStudio.Projects</id>
   <version>4.0.0-pre.0</version>
-  <supportedClientVersions>[4.5.18-a, 5.0.0-a)</supportedClientVersions>
+  <supportedClientVersions>[4.6.0-beta.2, 5.0.0-a)</supportedClientVersions>
   <summary>Visual Studio solution and project layout designer</summary>
   <description>Visual Studio solution and project layout designer</description>
   <projectUrl>https://docs.intentarchitect.com/articles/modules-dotnet/intent-visualstudio-projects/intent-visualstudio-projects.html</projectUrl>
@@ -148,6 +148,11 @@
     <detect id="Intent.Common.UnitOfWork">
       <install>
         <package id="Intent.Common.UnitOfWork" version="1.0.1" />
+      </install>
+    </detect>
+    <detect id="Intent.AspNetCore.Grpc">
+      <install>
+        <package id="Intent.AspNetCore.Grpc" version="1.0.4-pre.0" />
       </install>
     </detect>
     <!-- /Minimum Compatible Versions -->

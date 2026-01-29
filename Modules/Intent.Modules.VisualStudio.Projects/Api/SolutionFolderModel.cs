@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.CodebaseStructure.Api;
 using Intent.Modules.Common;
@@ -65,6 +66,25 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         public SolutionFolderModel ParentFolder => InternalElement.ParentElement.IsSolutionFolderModel()
             ? InternalElement.ParentElement.AsSolutionFolderModel()
             : null;
+
+        public VisualStudioSolutionModel Solution
+        {
+            get
+            {
+                var currentElement = InternalElement;
+                while (currentElement != null)
+                {
+                    if (currentElement.SpecializationTypeId == VisualStudioSolutionModel.SpecializationTypeId)
+                    {
+                        return new VisualStudioSolutionModel(currentElement);
+                    }
+
+                    currentElement = currentElement.ParentElement;
+                }
+
+                throw new ElementException(InternalElement, "Could not find Visual Studio Solution for Solution Folder");
+            }
+        }
 
         [IntentManaged(Mode.Fully)]
         public string Id => _element.Id;

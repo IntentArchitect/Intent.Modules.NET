@@ -1,3 +1,7 @@
+### Version 1.0.4
+
+- Fixed: Compatibility issue with version `4.0.0` or greater of the `Intent.VisualStudio.Projects` module.
+
 ### Version 1.0.3
 
 - Improvement: Updated NuGet package versions.

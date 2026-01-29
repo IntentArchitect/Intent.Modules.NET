@@ -31,35 +31,17 @@
       <parentFolderId>7877def9-5911-4ae8-be0e-7dd7603021de</parentFolderId>
       <packageId>fe0fd886-be7e-4739-94ec-79db831f2e80</packageId>
       <packageName>GrpcServer</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="7fa9454e-fb81-484f-a170-930e0796461b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AspNetCore.Identity.AccountController.TokenServiceConcrete</name>
-      <display>Intent.AspNetCore.Identity.AccountController.TokenServiceConcrete</display>
-      <externalReference>Intent.AspNetCore.Identity.AccountController</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>7877def9-5911-4ae8-be0e-7dd7603021de</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="c33f44e0-09fc-4ee9-b8e1-f8964c4e472c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AspNetCore.Identity.AccountController.TokenServiceInterface</name>
-      <display>Intent.AspNetCore.Identity.AccountController.TokenServiceInterface</display>
-      <externalReference>Intent.AspNetCore.Identity.AccountController</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>7877def9-5911-4ae8-be0e-7dd7603021de</parentFolderId>
-      <stereotypes />
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
@@ -73,7 +55,19 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>7877def9-5911-4ae8-be0e-7dd7603021de</parentFolderId>
-      <stereotypes />
+      <packageId>fe0fd886-be7e-4739-94ec-79db831f2e80</packageId>
+      <packageName>GrpcServer</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
@@ -87,7 +81,71 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>7877def9-5911-4ae8-be0e-7dd7603021de</parentFolderId>
-      <stereotypes />
+      <packageId>fe0fd886-be7e-4739-94ec-79db831f2e80</packageId>
+      <packageName>GrpcServer</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="7fa9454e-fb81-484f-a170-930e0796461b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Identity.AccountController.TokenServiceConcrete</name>
+      <display>Intent.AspNetCore.Identity.AccountController.TokenServiceConcrete</display>
+      <externalReference>Intent.AspNetCore.Identity.AccountController</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>7877def9-5911-4ae8-be0e-7dd7603021de</parentFolderId>
+      <packageId>fe0fd886-be7e-4739-94ec-79db831f2e80</packageId>
+      <packageName>GrpcServer</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="c33f44e0-09fc-4ee9-b8e1-f8964c4e472c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Identity.AccountController.TokenServiceInterface</name>
+      <display>Intent.AspNetCore.Identity.AccountController.TokenServiceInterface</display>
+      <externalReference>Intent.AspNetCore.Identity.AccountController</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>7877def9-5911-4ae8-be0e-7dd7603021de</parentFolderId>
+      <packageId>fe0fd886-be7e-4739-94ec-79db831f2e80</packageId>
+      <packageName>GrpcServer</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
