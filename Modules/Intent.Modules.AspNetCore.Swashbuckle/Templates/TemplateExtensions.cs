@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Intent.Modules.AspNetCore.Swashbuckle.Templates.HideRouteParametersFromBodyOperationFilter;
 using Intent.Modules.AspNetCore.Swashbuckle.Templates.SwashbuckleConfiguration;
 using Intent.Modules.AspNetCore.Swashbuckle.Templates.TypeSchemaFilter;
 using Intent.Modules.Common.Templates;
@@ -20,6 +21,11 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Templates
         public static string GetTypeSchemaFilterName(this IIntentTemplate template)
         {
             return template.GetTypeName(TypeSchemaFilterTemplate.TemplateId);
+        }
+
+        public static string GetHideRouteParametersFromBodyOperationFilterName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(HideRouteParametersFromBodyOperationFilterTemplate.TemplateId);
         }
 
     }
