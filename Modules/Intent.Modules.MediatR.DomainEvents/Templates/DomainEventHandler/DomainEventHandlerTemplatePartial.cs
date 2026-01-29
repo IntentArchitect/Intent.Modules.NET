@@ -37,11 +37,8 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventHandler
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public DomainEventHandlerTemplate(IOutputTarget outputTarget, DomainEventHandlerModel model) : base(TemplateId, outputTarget, model)
         {
-            // Advanced mapping issues can truly send you down a rabbit hole.
-            // Not sure why this template needs this TypeSource, but it worked to allow
-            // the instantiation of an Entity to generate properly when the Implementation and State
-            // are separated.
-            AddTypeSource(TemplateRoles.Domain.Entity.EntityImplementation);
+            // So that the mapping system can find the constructor when Separated State and Behaviours enabled in domain.
+            AddTypeSource(TemplateRoles.Domain.Entity.Behaviour);
             
             AddTypeSource(TemplateRoles.Domain.Entity.Primary);
             AddTypeSource(TemplateRoles.Domain.Enum);

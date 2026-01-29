@@ -64,8 +64,7 @@ public class CqrsHandlerCrudExtension : FactoryExtensionBase
                     t.AddTypeSource(TemplateRoles.Domain.Entity.Primary);
                     t.AddTypeSource(TemplateRoles.Domain.ValueObject);
                     t.AddTypeSource(TemplateRoles.Domain.DataContract);
-                    t.AddTypeSource(TemplateRoles.Domain.Entity
-                        .Behaviour); // So that the mapping system can find the constructor when Separated State and Behaviours enabled in domain.
+                    t.AddTypeSource(TemplateRoles.Domain.Entity.Behaviour); // So that the mapping system can find the constructor when Separated State and Behaviours enabled in domain.
 
                     var @class = t.CSharpFile.Classes.First(x => x.FindMethod("Handle") is not null);
                     var handleMethod = @class.FindMethod("Handle")!;
