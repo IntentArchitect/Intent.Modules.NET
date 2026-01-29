@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="0f2dec41-bb50-4d3a-9c76-60ab03379aa4" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>1 - Api</name>
+  <display>1 - Api</display>
+  <externalReference>a307c07a-f7b8-41d5-82dd-f9ce10e89a82</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>c9db8932-3414-4488-8b21-9e0877b7e8a2</parentFolderId>
+  <packageId>0ab81258-6725-401d-bdd5-f9885802d8f1</packageId>
+  <packageName>Subscribe.CleanArchDapr.TestApplication</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f4fff1d7-8de7-4a86-bad0-11bb1c504675" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>4 - Infrastructure</name>
+  <display>4 - Infrastructure</display>
+  <externalReference>03755119-cb3c-4cca-a0d0-532c2b817667</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>61060d14-33e8-47ac-a0de-303fecb3e31b</parentFolderId>
+  <packageId>137f5938-aeca-428f-8bf9-326c432e2192</packageId>
+  <packageName>Entities.Interfaces.EF</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

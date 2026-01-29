@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="2fe56c1d-7b92-456f-8783-564e3d88089e" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>3 - Domain</name>
+  <display>3 - Domain</display>
+  <externalReference>9bb4214b-c7f4-4a07-ba31-0c8d9d826541</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>bd0acf8a-cfc4-410e-8ff4-ace736bac8f5</parentFolderId>
+  <packageId>0869b96e-b1a4-43f4-892a-c68e14a898a5</packageId>
+  <packageName>SignalR</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

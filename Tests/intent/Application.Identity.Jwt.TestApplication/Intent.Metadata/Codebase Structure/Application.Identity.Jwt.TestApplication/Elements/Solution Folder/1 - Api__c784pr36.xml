@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="23f18ca2-2c37-45ee-84c8-d7ac06d61962" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>1 - Api</name>
+  <display>1 - Api</display>
+  <externalReference>f2a117ac-89a8-44c5-b8c1-f5568d9438cb</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>a14e036e-f762-483a-8da3-829e82912006</parentFolderId>
+  <packageId>c2b4a780-047f-4f48-bf01-0c021ce8721d</packageId>
+  <packageName>Application.Identity.Jwt.TestApplication</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

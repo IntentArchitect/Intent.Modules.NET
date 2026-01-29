@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f2118a53-4d88-4534-9340-9ca30db9bf2e" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>4 - Infrastructure</name>
+  <display>4 - Infrastructure</display>
+  <externalReference>7b15410d-dfdf-4692-a562-7c173e4c8373</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>a50ae00d-daf9-4a73-819d-7afa6b437f6e</parentFolderId>
+  <packageId>3666517d-3a27-4747-8c60-5172ece34e91</packageId>
+  <packageName>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

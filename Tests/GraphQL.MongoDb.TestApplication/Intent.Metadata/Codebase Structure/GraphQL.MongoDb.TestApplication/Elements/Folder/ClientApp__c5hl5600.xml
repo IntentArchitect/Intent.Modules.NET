@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="7a9fbaa1-29af-46ce-a8b6-c37ba7cd9f73" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>ClientApp</name>
+  <display>ClientApp</display>
+  <externalReference>060a63b7-71dc-488a-8c31-3e0e32c9e87d</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>8e7ffd1c-c720-4129-835c-461134115f05</parentFolderId>
+  <packageId>e7bb0f4e-f966-469b-b10f-2e6cafd531df</packageId>
+  <packageName>GraphQL.MongoDb.TestApplication</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.Common.CSharp</definitionPackageName>
+      <definitionPackageId>730e1275-0c32-44f7-991a-9619d07ca68d</definitionPackageId>
+      <properties>
+        <property name="96df2fa6-7361-4e43-9acf-dbcea23b650a" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="d1ab3ced-8407-439d-a7a1-c69be34209d1" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>Front End</name>
+      <display>Front End</display>
+      <externalReference>164d4bd8-c4f0-4ca1-baa1-2549cc348c20</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>7a9fbaa1-29af-46ce-a8b6-c37ba7cd9f73</parentFolderId>
+      <packageId>e7bb0f4e-f966-469b-b10f-2e6cafd531df</packageId>
+      <packageName>GraphQL.MongoDb.TestApplication</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6cf22a3f-0824-449a-9537-944a18232ff8" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>3 - Domain</name>
+  <display>3 - Domain</display>
+  <externalReference>85f2cf72-fa85-488f-8e75-8dc579b2bb2f</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>fd21e186-85c1-4fdb-a0de-47bb69c96db7</parentFolderId>
+  <packageId>8ab04101-bcc2-4325-baab-7570faf71b83</packageId>
+  <packageName>GraphQL.AzureFunction.TestApplication</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

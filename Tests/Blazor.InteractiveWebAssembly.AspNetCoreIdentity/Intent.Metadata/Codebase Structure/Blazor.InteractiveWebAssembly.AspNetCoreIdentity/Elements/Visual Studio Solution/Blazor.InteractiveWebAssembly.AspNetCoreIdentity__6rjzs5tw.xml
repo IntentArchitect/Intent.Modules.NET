@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="fa4ece61-1d07-47a3-86e7-2f251e2355c9" type="Visual Studio Solution" typeId="769a45a2-119f-434f-8c27-bd4a399b915c">
+  <name>Blazor.InteractiveWebAssembly.AspNetCoreIdentity</name>
+  <display>Blazor.InteractiveWebAssembly.AspNetCoreIdentity</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>f2bd840d-ba01-42e7-8fb2-a8437f253287</parentFolderId>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="90085088-b29b-4386-b87e-f7f62c76c5de" name="Visual Studio Solution Options">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="49e78350-c77b-4f83-88d8-5841e6cb3ab9" display="Manage Package Versions Centrally" value="false" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements />
+</class>

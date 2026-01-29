@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="44fdd214-6662-4922-b63d-fa6417d1ca4d" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>1 - Api</name>
+  <display>1 - Api</display>
+  <externalReference>41cb10af-3a20-4190-aac0-c2cda45f1446</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>71011710-688e-4690-a4a4-29fd104e35e3</parentFolderId>
+  <packageId>8e852e06-5210-402f-9eca-815be03ce0b7</packageId>
+  <packageName>AwsLambdaFunction.Sqs.GroupB</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

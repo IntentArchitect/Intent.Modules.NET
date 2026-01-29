@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ca9466f9-0bc8-4b5b-8c0c-900e970154af" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>2 - Application</name>
+  <display>2 - Application</display>
+  <externalReference>b44dfcb9-e9e9-43a2-855e-abf9c45a0359</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>2237de55-a5d7-4d89-8dc2-95c9e5cba657</parentFolderId>
+  <packageId>e7fd613b-cd98-4863-9b6e-1e7057221865</packageId>
+  <packageName>MassTransit.RetryPolicy.Immediate</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

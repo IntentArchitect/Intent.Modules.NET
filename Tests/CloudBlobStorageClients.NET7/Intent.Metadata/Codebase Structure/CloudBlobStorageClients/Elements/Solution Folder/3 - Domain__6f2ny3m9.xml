@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6c40ec5c-6d85-4677-9622-5061b8ae84c0" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>3 - Domain</name>
+  <display>3 - Domain</display>
+  <externalReference>9bb4214b-c7f4-4a07-ba31-0c8d9d826541</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>589f8e86-5da8-4906-a59b-e65a80c7891b</parentFolderId>
+  <packageId>62b340d7-6049-4668-9e56-7f1575ce29ea</packageId>
+  <packageName>CloudBlobStorageClients</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

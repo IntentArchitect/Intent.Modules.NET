@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5fa334c0-19ca-4f7c-91ee-2d3ee2c0344c" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>3 - Domain</name>
+  <display>3 - Domain</display>
+  <externalReference>9bb4214b-c7f4-4a07-ba31-0c8d9d826541</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>1ef9e1b9-fd96-40c3-8257-9ede45f5d787</parentFolderId>
+  <packageId>d8fd623c-89bd-4f09-9c9a-41f4db054184</packageId>
+  <packageName>Subscribe.MassTransit.OutboxMemory</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

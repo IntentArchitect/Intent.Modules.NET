@@ -54,8 +54,7 @@ namespace Intent.Modules.VisualStudio.Projects.Migrations
                     name: package.Name,
                     parentId: package.Id);
 
-                var packageStereotype = package.Stereotypes.Get(VisualStudioSolutionModelStereotypeExtensions.VisualStudioSolutionOptions.DefinitionId);
-                if (packageStereotype != null)
+                if (package.Stereotypes.TryGet(VisualStudioSolutionModelStereotypeExtensions.VisualStudioSolutionOptions.DefinitionId, out var packageStereotype))
                 {
                     var elementStereotype = vsElement.Stereotypes.Add(
                         definitionId: packageStereotype.DefinitionId,
@@ -176,8 +175,7 @@ namespace Intent.Modules.VisualStudio.Projects.Migrations
 
                 var vsElement = vsElements[0];
 
-                var elementStereotype = vsElement.Stereotypes.Get(VisualStudioSolutionModelStereotypeExtensions.VisualStudioSolutionOptions.DefinitionId);
-                if (elementStereotype != null)
+                if (vsElement.Stereotypes.TryGet(VisualStudioSolutionModelStereotypeExtensions.VisualStudioSolutionOptions.DefinitionId, out var elementStereotype))
                 {
                     var packageStereotype = package.Stereotypes.Add(
                         definitionId: elementStereotype.DefinitionId,

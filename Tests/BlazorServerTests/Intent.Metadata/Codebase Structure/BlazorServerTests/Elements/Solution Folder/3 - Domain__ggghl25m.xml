@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="792252d1-f521-415d-bb81-5ed0ba0bcc71" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>3 - Domain</name>
+  <display>3 - Domain</display>
+  <externalReference>9bb4214b-c7f4-4a07-ba31-0c8d9d826541</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>bc592eaf-b7b7-4bb0-a6af-4701984b6c64</parentFolderId>
+  <packageId>1efb6e83-f955-4a31-8ba3-5d51f7229db6</packageId>
+  <packageName>BlazorServerTests</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

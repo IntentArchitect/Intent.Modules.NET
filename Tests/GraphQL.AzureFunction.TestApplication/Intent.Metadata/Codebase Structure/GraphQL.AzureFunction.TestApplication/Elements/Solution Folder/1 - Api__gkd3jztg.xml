@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="0f64afd2-fa55-48ab-8428-5546782c2059" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>1 - Api</name>
+  <display>1 - Api</display>
+  <externalReference>1f28e28f-41b5-453c-ac71-809c984c86cb</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>fd21e186-85c1-4fdb-a0de-47bb69c96db7</parentFolderId>
+  <packageId>8ab04101-bcc2-4325-baab-7570faf71b83</packageId>
+  <packageName>GraphQL.AzureFunction.TestApplication</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b63925f2-746f-44d4-9467-76201072c907" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>0 - Solution Items</name>
+  <display>0 - Solution Items</display>
+  <externalReference>a2afecb9-c16c-43d8-86f5-43e19aae8feb</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>b4c755ec-2795-4796-9cc2-68b1ee02d44b</parentFolderId>
+  <packageId>48870279-6a6e-44cf-b876-5d7bc32b1816</packageId>
+  <packageName>Publish.CleanArchDapr.TestApplication</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

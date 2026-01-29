@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="06ba8eca-0a1d-4dc5-8932-416c5a4b5131" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>2 - Application</name>
+  <display>2 - Application</display>
+  <externalReference>b44dfcb9-e9e9-43a2-855e-abf9c45a0359</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>7aae1418-e024-40d0-93fb-ad10040e808a</parentFolderId>
+  <packageId>9a3a04f0-fa2e-4239-bf35-d2e480a03267</packageId>
+  <packageName>DtoSettings.Class.Init</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

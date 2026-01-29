@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9f703eff-d629-4a32-a0c1-da0d75acfa02" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>ClientApp</name>
+  <display>ClientApp</display>
+  <externalReference>060a63b7-71dc-488a-8c31-3e0e32c9e87d</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>27cbcca6-d040-4a6c-a96f-780edf3e1d36</parentFolderId>
+  <packageId>e7fd613b-cd98-4863-9b6e-1e7057221865</packageId>
+  <packageName>MassTransit.RetryPolicy.Immediate</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.Common.CSharp</definitionPackageName>
+      <definitionPackageId>730e1275-0c32-44f7-991a-9619d07ca68d</definitionPackageId>
+      <properties>
+        <property name="96df2fa6-7361-4e43-9acf-dbcea23b650a" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="269ca6d2-0258-4089-9c44-949c21f84297" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>Front End</name>
+      <display>Front End</display>
+      <externalReference>164d4bd8-c4f0-4ca1-baa1-2549cc348c20</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>9f703eff-d629-4a32-a0c1-da0d75acfa02</parentFolderId>
+      <packageId>e7fd613b-cd98-4863-9b6e-1e7057221865</packageId>
+      <packageName>MassTransit.RetryPolicy.Immediate</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

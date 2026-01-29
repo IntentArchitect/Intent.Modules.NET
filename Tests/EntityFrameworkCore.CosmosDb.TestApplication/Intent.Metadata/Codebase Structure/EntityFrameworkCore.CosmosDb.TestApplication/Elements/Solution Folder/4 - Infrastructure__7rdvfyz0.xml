@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1c743670-75b9-4a76-b3d6-d22ea5c92946" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>4 - Infrastructure</name>
+  <display>4 - Infrastructure</display>
+  <externalReference>03755119-cb3c-4cca-a0d0-532c2b817667</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>2a64a366-ddbf-4ba2-8e97-65b8927d8040</parentFolderId>
+  <packageId>56d31717-e6fb-4f75-a58a-879b4d0daef9</packageId>
+  <packageName>EntityFrameworkCore.CosmosDb.TestApplication</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

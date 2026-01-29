@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="bd6f31a0-b7db-4b2e-9602-6b7b8f017779" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>1 - Api</name>
+  <display>1 - Api</display>
+  <externalReference>2b76d8c9-dd09-40ff-9955-8ab74ee9512a</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9f091e97-de1c-4127-abed-2396e8022002</parentFolderId>
+  <packageId>d92d09ee-db5e-42de-986e-feba7197d5e9</packageId>
+  <packageName>MassTransit.RetryPolicy.Interval</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

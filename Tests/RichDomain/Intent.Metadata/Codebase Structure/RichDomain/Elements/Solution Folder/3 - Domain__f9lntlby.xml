@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ddaa94c0-f1cc-4735-ac48-60784dd0e462" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>3 - Domain</name>
+  <display>3 - Domain</display>
+  <externalReference>9bb4214b-c7f4-4a07-ba31-0c8d9d826541</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>382d19be-42df-4b26-a2c1-16d1d675aa8f</parentFolderId>
+  <packageId>076efad2-3524-475f-981d-f7bb06ea9c21</packageId>
+  <packageName>RichDomain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

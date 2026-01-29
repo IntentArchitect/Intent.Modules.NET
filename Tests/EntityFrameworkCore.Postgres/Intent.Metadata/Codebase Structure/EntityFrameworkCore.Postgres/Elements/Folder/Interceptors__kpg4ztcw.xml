@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="0388fdff-fbf7-4624-aa04-d3b96c60208f" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Interceptors</name>
+  <display>Interceptors</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>8817d69f-712c-4502-a270-f1fd66d469ee</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="f23147cb-ad0a-4e7a-8edc-e61e8f523d4c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.EntityFrameworkCore.DataMasking.DataMaskConverter</name>
+      <display>Intent.EntityFrameworkCore.DataMasking.DataMaskConverter</display>
+      <externalReference>Intent.EntityFrameworkCore.DataMasking</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>0388fdff-fbf7-4624-aa04-d3b96c60208f</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

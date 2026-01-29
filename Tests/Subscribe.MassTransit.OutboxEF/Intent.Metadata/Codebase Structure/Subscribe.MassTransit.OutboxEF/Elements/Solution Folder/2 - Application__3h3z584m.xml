@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="bbec7732-fdca-4efb-b562-68a343c1174d" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>2 - Application</name>
+  <display>2 - Application</display>
+  <externalReference>b44dfcb9-e9e9-43a2-855e-abf9c45a0359</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>4de04506-d209-4033-a5af-ecbd39a4b95f</parentFolderId>
+  <packageId>8188001b-6643-4f2a-b829-376a4ba8c8fe</packageId>
+  <packageName>Subscribe.MassTransit.OutboxEF</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

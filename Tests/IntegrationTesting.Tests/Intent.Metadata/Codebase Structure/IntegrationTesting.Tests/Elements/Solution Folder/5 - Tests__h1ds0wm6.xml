@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8b3eb2d9-526a-4e6e-af51-96a53e354d7f" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>5 - Tests</name>
+  <display>5 - Tests</display>
+  <externalReference>2eec150a-ef65-4692-858c-cbea692eca44</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>0ef411ad-2d5e-41a7-b82b-e4767a321797</parentFolderId>
+  <packageId>ed2e9f22-69ec-440e-9501-bb8da652ab6f</packageId>
+  <packageName>IntegrationTesting.Tests</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="5902594c-1365-4d6a-8a13-3045c5ef03f7" type="C# Project (.NET)" typeId="8e9e6693-2888-4f48-a0d6-0f163baab740">
+      <name>IntegrationTesting.Tests.Application.UnitTests</name>
+      <display>IntegrationTesting.Tests.Application.UnitTests</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8b3eb2d9-526a-4e6e-af51-96a53e354d7f</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+          <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+          <properties>
+            <property name="d53ab03c-90cf-4b6a-b733-73b6983ab603" display="Target Framework" value="f8b1618d-1e64-4c2c-9787-e0725c3633a1" isActive="true" />
+            <property name="1f0cdbc4-7a18-40a5-aeca-90452cce4fcf" display="SDK" value="Microsoft.NET.Sdk" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="5e517da7-f7f6-4086-b929-22aac81c7d25" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+          <name>UnitTests</name>
+          <display>UnitTests</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>5902594c-1365-4d6a-8a13-3045c5ef03f7</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="2553df50-77cd-4cba-a23c-8f816ef3affc" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.UnitTesting.CommandHandlerTest</name>
+          <display>Intent.UnitTesting.CommandHandlerTest</display>
+          <externalReference>Intent.UnitTesting</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>5902594c-1365-4d6a-8a13-3045c5ef03f7</parentFolderId>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="758082b4-96fe-4f90-a267-05c04e2303b3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.UnitTesting.QueryHandlerTest</name>
+          <display>Intent.UnitTesting.QueryHandlerTest</display>
+          <externalReference>Intent.UnitTesting</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>5902594c-1365-4d6a-8a13-3045c5ef03f7</parentFolderId>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="7ab3ae1b-f1d4-4b5b-8e4c-facb9b969e01" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.UnitTesting.ServiceOperationTest</name>
+          <display>Intent.UnitTesting.ServiceOperationTest</display>
+          <externalReference>Intent.UnitTesting</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>5902594c-1365-4d6a-8a13-3045c5ef03f7</parentFolderId>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="69f39e54-7834-4cac-af58-fbec19e70628" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.UnitTesting.DomainEventHandlerTest</name>
+          <display>Intent.UnitTesting.DomainEventHandlerTest</display>
+          <externalReference>Intent.UnitTesting</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>5902594c-1365-4d6a-8a13-3045c5ef03f7</parentFolderId>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="ef641b01-aebf-4b31-b2e9-a64df9a39cb7" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.UnitTesting.DomainServiceTest</name>
+          <display>Intent.UnitTesting.DomainServiceTest</display>
+          <externalReference>Intent.UnitTesting</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>5902594c-1365-4d6a-8a13-3045c5ef03f7</parentFolderId>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="e90039ca-d2d5-4041-988d-3790dfd04455" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.UnitTesting.IntegrationEventHandlerTest</name>
+          <display>Intent.UnitTesting.IntegrationEventHandlerTest</display>
+          <externalReference>Intent.UnitTesting</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>5902594c-1365-4d6a-8a13-3045c5ef03f7</parentFolderId>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

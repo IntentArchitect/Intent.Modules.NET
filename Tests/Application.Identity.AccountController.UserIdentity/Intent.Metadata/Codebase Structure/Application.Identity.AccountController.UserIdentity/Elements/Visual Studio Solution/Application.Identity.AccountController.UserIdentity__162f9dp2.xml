@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="08634e11-3c62-49e3-a3a2-ecaebc1123e3" type="Visual Studio Solution" typeId="769a45a2-119f-434f-8c27-bd4a399b915c">
+  <name>Application.Identity.AccountController.UserIdentity</name>
+  <display>Application.Identity.AccountController.UserIdentity</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>47b321f9-5e9d-413f-9115-a63dbdf2982f</parentFolderId>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="90085088-b29b-4386-b87e-f7f62c76c5de" name="Visual Studio Solution Options">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="49e78350-c77b-4f83-88d8-5841e6cb3ab9" display="Manage Package Versions Centrally" value="false" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements />
+</class>

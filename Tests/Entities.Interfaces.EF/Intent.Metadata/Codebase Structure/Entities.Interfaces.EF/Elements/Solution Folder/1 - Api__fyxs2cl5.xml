@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c95b11ca-1ab3-4d41-a567-a2310291b9e1" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>1 - Api</name>
+  <display>1 - Api</display>
+  <externalReference>2b76d8c9-dd09-40ff-9955-8ab74ee9512a</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>61060d14-33e8-47ac-a0de-303fecb3e31b</parentFolderId>
+  <packageId>137f5938-aeca-428f-8bf9-326c432e2192</packageId>
+  <packageName>Entities.Interfaces.EF</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

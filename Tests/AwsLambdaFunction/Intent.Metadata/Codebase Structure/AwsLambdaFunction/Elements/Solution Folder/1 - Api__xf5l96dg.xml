@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3871440d-12f3-42df-b57b-caaa61e5cf8c" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>1 - Api</name>
+  <display>1 - Api</display>
+  <externalReference>41cb10af-3a20-4190-aac0-c2cda45f1446</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>e5aaa638-6b22-4cc2-ac38-6c11168fe20c</parentFolderId>
+  <packageId>981fe5b0-e27f-4763-9e15-1269456523fd</packageId>
+  <packageName>AwsLambdaFunction</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="131cff8d-da61-4076-82d1-c33ee16104a9" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Interfaces</name>
+  <display>Interfaces</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>f71f6721-8bd9-4563-a5cb-6a4398e1b12b</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

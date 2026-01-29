@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d670a5c4-3b08-442d-b5c9-2970d4e6029c" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>3 - Domain</name>
+  <display>3 - Domain</display>
+  <externalReference>a84ef5e8-2d37-4ba8-a1a2-e412a3404665</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>eda3cff7-04c2-4ac5-af09-1effba917bff</parentFolderId>
+  <packageId>b7000dca-c61c-4308-b864-74f62d3b2ed8</packageId>
+  <packageName>Application.Identity.MSAL.TestApplication</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

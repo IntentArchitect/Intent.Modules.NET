@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="cadd6024-3f97-45c3-b7a5-87dfa46a6d85" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>4 - Infrastructure</name>
+  <display>4 - Infrastructure</display>
+  <externalReference>03755119-cb3c-4cca-a0d0-532c2b817667</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>25eb4e8d-4a70-467e-b2d9-677b96b4ed1a</parentFolderId>
+  <packageId>62529060-9af2-4e23-8b08-da066f8c4400</packageId>
+  <packageName>OcelotTest</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

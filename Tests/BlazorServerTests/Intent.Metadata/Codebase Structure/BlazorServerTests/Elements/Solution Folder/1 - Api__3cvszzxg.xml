@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="33fcf130-ee17-4dfb-8216-8f8c659f2183" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>1 - Api</name>
+  <display>1 - Api</display>
+  <externalReference>2b76d8c9-dd09-40ff-9955-8ab74ee9512a</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>bc592eaf-b7b7-4bb0-a6af-4701984b6c64</parentFolderId>
+  <packageId>1efb6e83-f955-4a31-8ba3-5d51f7229db6</packageId>
+  <packageName>BlazorServerTests</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

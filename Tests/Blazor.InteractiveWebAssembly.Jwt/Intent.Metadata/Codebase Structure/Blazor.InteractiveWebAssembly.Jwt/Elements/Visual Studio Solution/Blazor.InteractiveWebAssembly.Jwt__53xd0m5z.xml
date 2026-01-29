@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a0622c4a-f77a-4449-9748-69e41cf8aa9d" type="Visual Studio Solution" typeId="769a45a2-119f-434f-8c27-bd4a399b915c">
+  <name>Blazor.InteractiveWebAssembly.Jwt</name>
+  <display>Blazor.InteractiveWebAssembly.Jwt</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>c29b67eb-386e-4877-99db-2bb3d9c281c8</parentFolderId>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="90085088-b29b-4386-b87e-f7f62c76c5de" name="Visual Studio Solution Options">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="49e78350-c77b-4f83-88d8-5841e6cb3ab9" display="Manage Package Versions Centrally" value="false" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements />
+</class>

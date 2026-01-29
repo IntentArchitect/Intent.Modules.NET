@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="7cc5bfa3-b1d3-4525-8704-d8b830ff70e8" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>4 - Infrastructure</name>
+  <display>4 - Infrastructure</display>
+  <externalReference>7b15410d-dfdf-4692-a562-7c173e4c8373</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>2ca00632-818d-4a2a-87f7-248988327f5e</parentFolderId>
+  <packageId>34805a6b-0c48-47ef-aa88-3389c0b4d72b</packageId>
+  <packageName>MongoDb.TestApplication</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

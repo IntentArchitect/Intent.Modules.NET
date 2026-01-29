@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="535c8a2f-620b-4791-85c0-4e88010ee69b" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>4 - Infrastructure</name>
+  <display>4 - Infrastructure</display>
+  <externalReference>03755119-cb3c-4cca-a0d0-532c2b817667</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>b99bdfda-3cc0-477c-8b9e-ec54c1f69d28</parentFolderId>
+  <packageId>8774feb9-d75a-4e76-aac9-aa40d984b235</packageId>
+  <packageName>CleanArchitecture.ServiceModelling.ComplexTypes</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

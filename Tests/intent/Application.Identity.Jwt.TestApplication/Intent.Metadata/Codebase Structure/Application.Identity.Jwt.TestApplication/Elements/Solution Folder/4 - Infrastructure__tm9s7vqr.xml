@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="efa0f50b-afa3-471d-96b3-d992d3d43de0" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>4 - Infrastructure</name>
+  <display>4 - Infrastructure</display>
+  <externalReference>7b15410d-dfdf-4692-a562-7c173e4c8373</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>a14e036e-f762-483a-8da3-829e82912006</parentFolderId>
+  <packageId>c2b4a780-047f-4f48-bf01-0c021ce8721d</packageId>
+  <packageName>Application.Identity.Jwt.TestApplication</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

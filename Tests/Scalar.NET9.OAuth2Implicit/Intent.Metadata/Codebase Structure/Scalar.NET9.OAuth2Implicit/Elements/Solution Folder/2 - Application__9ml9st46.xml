@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="77c35d8b-fee8-4a3d-9ce1-c637891a2d8d" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>2 - Application</name>
+  <display>2 - Application</display>
+  <externalReference>b44dfcb9-e9e9-43a2-855e-abf9c45a0359</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>2f356706-f140-4f0b-a859-5b26b8b89bb3</parentFolderId>
+  <packageId>7ac5ae64-c08a-4cff-9b3a-19005167f0cf</packageId>
+  <packageName>Scalar.NET9.OAuth2Implicit</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5caafa48-3832-4d8a-84e9-8e0661ca6a58" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>4 - Infrastructure</name>
+  <display>4 - Infrastructure</display>
+  <externalReference>f65a1336-b640-466b-bee4-8f9b276b6745</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>e5aaa638-6b22-4cc2-ac38-6c11168fe20c</parentFolderId>
+  <packageId>981fe5b0-e27f-4763-9e15-1269456523fd</packageId>
+  <packageName>AwsLambdaFunction</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

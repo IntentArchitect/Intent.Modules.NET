@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="55321364-748c-4c2e-9baf-adc36e0913b3" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>4 - Infrastructure</name>
+  <display>4 - Infrastructure</display>
+  <externalReference>03755119-cb3c-4cca-a0d0-532c2b817667</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>6ad6bdad-9a7c-4a03-8073-b2c549e8d4b2</parentFolderId>
+  <packageId>a6f3be8b-db13-47fa-9df8-a1a2a7f5124c</packageId>
+  <packageName>AspNetCoreMvc</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

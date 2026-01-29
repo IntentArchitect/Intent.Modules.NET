@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9c03076d-a488-48d8-bfcf-c8bb23782d16" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>4 - Infrastructure</name>
+  <display>4 - Infrastructure</display>
+  <externalReference>03755119-cb3c-4cca-a0d0-532c2b817667</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>8cf568d1-a460-4987-a434-c1b4b2978d75</parentFolderId>
+  <packageId>0493fdad-7fe2-4658-9e30-6bdc4addd42b</packageId>
+  <packageName>MassTransit.RetryPolicy.Incremental</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

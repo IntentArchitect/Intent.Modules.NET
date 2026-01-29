@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5b488a06-c73c-4c35-9b27-3b5f74c2738c" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Queries</name>
+  <display>Queries</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d9ff2235-7609-4df2-94fc-34eb6bb4d4b9</parentFolderId>
+  <packageId>0856bf34-b8ca-4b71-b85d-9f328d486e41</packageId>
+  <packageName>GraphQL.CQRS.TestApplication</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.Common.CSharp</definitionPackageName>
+      <definitionPackageId>730e1275-0c32-44f7-991a-9619d07ca68d</definitionPackageId>
+      <properties>
+        <property name="96df2fa6-7361-4e43-9acf-dbcea23b650a" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="7ac78d2b-cd4b-4b7f-9f99-496948a625b6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.HotChocolate.GraphQL.QueryType</name>
+      <display>Intent.HotChocolate.GraphQL.QueryType</display>
+      <externalReference>Intent.HotChocolate.GraphQL</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>5b488a06-c73c-4c35-9b27-3b5f74c2738c</parentFolderId>
+      <packageId>0856bf34-b8ca-4b71-b85d-9f328d486e41</packageId>
+      <packageName>GraphQL.CQRS.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

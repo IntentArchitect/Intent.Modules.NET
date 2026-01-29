@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a304995a-cad1-468d-b926-f3503757c539" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>4 - Infrastructure</name>
+  <display>4 - Infrastructure</display>
+  <externalReference>03755119-cb3c-4cca-a0d0-532c2b817667</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>5f2ed2df-89bd-4e50-9282-7ec6b5c1f56a</parentFolderId>
+  <packageId>11d71a8d-e02a-4bfc-9a15-ba1756f154cc</packageId>
+  <packageName>MassTransitFinbuckle.Test</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

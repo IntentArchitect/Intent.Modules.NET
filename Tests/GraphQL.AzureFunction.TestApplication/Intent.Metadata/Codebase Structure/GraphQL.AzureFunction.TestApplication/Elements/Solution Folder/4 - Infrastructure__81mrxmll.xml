@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="28818474-98e9-4586-9c07-3fb84d27a0b7" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>4 - Infrastructure</name>
+  <display>4 - Infrastructure</display>
+  <externalReference>433b1a34-b38f-4936-868f-a37be4d9944d</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>fd21e186-85c1-4fdb-a0de-47bb69c96db7</parentFolderId>
+  <packageId>8ab04101-bcc2-4325-baab-7570faf71b83</packageId>
+  <packageName>GraphQL.AzureFunction.TestApplication</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

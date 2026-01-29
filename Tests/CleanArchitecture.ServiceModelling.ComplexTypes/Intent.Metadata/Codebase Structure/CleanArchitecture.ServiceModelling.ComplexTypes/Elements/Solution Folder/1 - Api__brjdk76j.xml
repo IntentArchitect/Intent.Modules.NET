@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6a72ac9b-c7b1-4c3e-9184-3dd00bbe0ce3" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>1 - Api</name>
+  <display>1 - Api</display>
+  <externalReference>2b76d8c9-dd09-40ff-9955-8ab74ee9512a</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>b99bdfda-3cc0-477c-8b9e-ec54c1f69d28</parentFolderId>
+  <packageId>8774feb9-d75a-4e76-aac9-aa40d984b235</packageId>
+  <packageName>CleanArchitecture.ServiceModelling.ComplexTypes</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

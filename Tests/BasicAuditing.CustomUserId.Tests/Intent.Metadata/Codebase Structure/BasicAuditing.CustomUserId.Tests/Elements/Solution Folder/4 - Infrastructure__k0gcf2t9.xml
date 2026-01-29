@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="cd1931f6-a105-4a80-84a1-16cb2bb1d508" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>4 - Infrastructure</name>
+  <display>4 - Infrastructure</display>
+  <externalReference>03755119-cb3c-4cca-a0d0-532c2b817667</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>32bd8b62-9894-4a75-90ee-3aba67654122</parentFolderId>
+  <packageId>266990af-580e-4b5b-9d78-54639dd67747</packageId>
+  <packageName>BasicAuditing.CustomUserId.Tests</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
