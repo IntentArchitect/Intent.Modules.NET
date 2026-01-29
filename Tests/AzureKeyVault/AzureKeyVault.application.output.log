@@ -76,6 +76,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>fdc92ebb-5a48-4601-a325-a129abe746a4</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter#ea8d312b-28fe-4c6b-8394-0c658ae308bf</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureKeyVault.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HideRouteParametersFromBodyOperationFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fdc92ebb-5a48-4601-a325-a129abe746a4</ProjectId>
       <CorrelationId>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter#52074b8a-f4f9-4efe-a5da-6dae466013be</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureKeyVault.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
@@ -459,7 +467,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#8c7739dc-ee05-4ffa-99f5-5dbe9bf42b10</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#f6c78595-00c7-40fe-ac1d-1bb1b266a7ec</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureKeyVault.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

@@ -108,6 +108,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>ccf34479-997c-4b72-a111-84e0bf5cae28</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter#007f8434-4e03-4e4b-a36e-ae8a42d54a79</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDBMultiTenancy.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HideRouteParametersFromBodyOperationFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ccf34479-997c-4b72-a111-84e0bf5cae28</ProjectId>
       <CorrelationId>Intent.Modules.AspNetCore.MultiTenancy.Swashbuckle.TenantHeaderOperationFilter#86502d17-6593-4b32-b6aa-fa337bf4ef7b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDBMultiTenancy.Api/Filters/TenantHeaderOperationFilter.cs</ApplicationRelativeFilePath>
@@ -683,7 +691,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#941894ee-9173-4b5e-aae9-d4fb9d409961</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#7f650a48-1e4c-4d91-ba0c-0515543b9adc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDBMultiTenancy.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

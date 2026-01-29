@@ -3,7 +3,7 @@
   <ApplicationId>85910570-7e99-4f58-8f6c-38f0342ec8bc</ApplicationId>
   <FileLogs>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.GitIgnore#35f90acd-253f-4eba-8251-a11921d97b47</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.GitIgnore#e59a6763-1b03-4fc8-9ece-ffd08d6d4867</CorrelationId>
       <OverwriteBehaviour>overwrite-disabled</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/.gitignore</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -242,6 +242,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>5944c82a-8b54-42bc-8389-0fe31118158f</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter#ac2903ec-b352-44d5-bec4-c4831a61ad2f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Intent.Modules.NET.Tests.Host/Filters/HideRouteParametersFromBodyOperationFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HideRouteParametersFromBodyOperationFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5944c82a-8b54-42bc-8389-0fe31118158f</ProjectId>
       <CorrelationId>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter#fc0c1395-ad01-407d-8670-e5b18538879a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Intent.Modules.NET.Tests.Host/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
@@ -305,7 +313,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#35f90acd-253f-4eba-8251-a11921d97b47</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#e59a6763-1b03-4fc8-9ece-ffd08d6d4867</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Intent.Modules.NET.Tests.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BasicAuditing.CustomUserId.Tests.Api.Transformers;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
@@ -65,6 +66,8 @@ namespace BasicAuditing.CustomUserId.Tests.Api.Configuration
                         document.SecurityRequirements.Add(securityStatement);
                         return Task.CompletedTask;
                     });
+
+                    options.AddOperationTransformer(new HideRouteParametersFromBodyOperationTransformer());
                 });
             return services;
         }

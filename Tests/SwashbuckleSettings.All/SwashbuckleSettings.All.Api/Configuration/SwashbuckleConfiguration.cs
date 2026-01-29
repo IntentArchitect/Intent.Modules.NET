@@ -44,6 +44,7 @@ namespace SwashbuckleSettings.All.Api.Configuration
                     {
                         options.IncludeXmlComments(applicationXmlFile);
                     }
+                    options.OperationFilter<HideRouteParametersFromBodyOperationFilter>();
                     options.SchemaFilter<TypeSchemaFilter>();
                 });
             return services;

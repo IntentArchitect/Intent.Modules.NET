@@ -76,6 +76,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>fa47c822-e2a8-422b-9556-3944b3b4f6e1</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter#7dac8432-4b36-446b-b3d1-1876317f193c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.MultiDbContext.DbContextInterface.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HideRouteParametersFromBodyOperationFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fa47c822-e2a8-422b-9556-3944b3b4f6e1</ProjectId>
       <CorrelationId>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter#b6a28aef-6784-4bda-b7da-9c766e95080f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.MultiDbContext.DbContextInterface.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
@@ -739,7 +747,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#1549d33f-9e99-44ce-afca-8212d90fc297</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#0e27a94c-6256-4d09-9404-6264ae83db96</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.MultiDbContext.DbContextInterface.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

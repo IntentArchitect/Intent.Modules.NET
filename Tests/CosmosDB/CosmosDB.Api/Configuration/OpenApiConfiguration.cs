@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CosmosDB.Api.Transformers;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi;
@@ -60,6 +61,8 @@ namespace CosmosDB.Api.Configuration
 
                         return Task.CompletedTask;
                     });
+
+                    options.AddOperationTransformer(new HideRouteParametersFromBodyOperationTransformer());
                 });
             return services;
         }

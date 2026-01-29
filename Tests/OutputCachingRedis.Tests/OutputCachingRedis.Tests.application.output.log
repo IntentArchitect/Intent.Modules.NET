@@ -148,6 +148,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>bf7ff033-20b3-4b61-b263-06eba01deb2d</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter#a86683a8-850a-49ce-95f8-c27d4f7fa606</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HideRouteParametersFromBodyOperationFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bf7ff033-20b3-4b61-b263-06eba01deb2d</ProjectId>
       <CorrelationId>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter#b4c81549-c488-40de-a271-72723383f6c5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
@@ -1267,7 +1275,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#e7e70ce9-e318-4d61-bd4a-9e517fc4116c</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#4350a290-5645-44dd-a994-6c113f8eee2e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

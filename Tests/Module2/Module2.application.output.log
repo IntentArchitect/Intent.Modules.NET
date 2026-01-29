@@ -3,7 +3,7 @@
   <ApplicationId>42bb3d2c-d940-43c9-8d76-95250d6ee17e</ApplicationId>
   <FileLogs>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.GitIgnore#7483bc51-4845-4361-8ea5-95051d12d710</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.GitIgnore#c47141f4-9296-4678-81a2-b6e9e96bdb05</CorrelationId>
       <OverwriteBehaviour>overwrite-disabled</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/.gitignore</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -121,7 +121,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#7483bc51-4845-4361-8ea5-95051d12d710</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#c47141f4-9296-4678-81a2-b6e9e96bdb05</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Intent.Modules.NET.Tests.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

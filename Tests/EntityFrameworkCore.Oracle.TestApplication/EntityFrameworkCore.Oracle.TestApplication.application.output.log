@@ -92,6 +92,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>2c4d96aa-dc21-475d-bd99-5dd00b6da816</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter#00933992-c339-41d1-8d24-c4d566ab138f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Oracle.TestApplication.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HideRouteParametersFromBodyOperationFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2c4d96aa-dc21-475d-bd99-5dd00b6da816</ProjectId>
       <CorrelationId>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter#f7afe330-30df-4ea5-8630-f81d9435077e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Oracle.TestApplication.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
@@ -635,7 +643,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#fb467dcd-5f52-42d8-ba2a-8aff7d623799</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#852131cc-15b4-4306-87d6-5edcb63595df</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Oracle.TestApplication.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

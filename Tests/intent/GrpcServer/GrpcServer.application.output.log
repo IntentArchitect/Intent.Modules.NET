@@ -3,7 +3,7 @@
   <ApplicationId>a9c0a7d2-76c4-408d-9d6b-26cfc0c30128</ApplicationId>
   <FileLogs>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.GitIgnore#fe0fd886-be7e-4739-94ec-79db831f2e80</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.GitIgnore#1f0665b0-cde1-477d-b6ae-1c5479a27826</CorrelationId>
       <OverwriteBehaviour>overwrite-disabled</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../../GrpcServer/.gitignore</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -134,6 +134,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../../GrpcServer/GrpcServer.Api/Filters/ExceptionFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ExceptionFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5c1936b-9f41-4653-85cb-a7fb915cc34e</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter#ef33a0b0-ccfd-4b4e-9791-d1b02f9aabfe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../../GrpcServer/GrpcServer.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HideRouteParametersFromBodyOperationFilter.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2649,7 +2657,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#fe0fd886-be7e-4739-94ec-79db831f2e80</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#1f0665b0-cde1-477d-b6ae-1c5479a27826</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../../GrpcServer/GrpcServer.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

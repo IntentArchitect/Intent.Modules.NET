@@ -3,7 +3,7 @@
   <ApplicationId>df2674ce-bd61-4b29-b653-abac88f67c4b</ApplicationId>
   <FileLogs>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.GitIgnore#f2bd840d-ba01-42e7-8fb2-a8437f253287</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.GitIgnore#fa4ece61-1d07-47a3-86e7-2f251e2355c9</CorrelationId>
       <OverwriteBehaviour>overwrite-disabled</OverwriteBehaviour>
       <ApplicationRelativeFilePath>.gitignore</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -185,7 +185,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#f2bd840d-ba01-42e7-8fb2-a8437f253287</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#fa4ece61-1d07-47a3-86e7-2f251e2355c9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Blazor.InteractiveWebAssembly.AspNetCoreIdentity.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

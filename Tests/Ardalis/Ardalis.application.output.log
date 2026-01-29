@@ -84,6 +84,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>3aa4bb7c-d323-48c1-85c5-64c5bdfcbf3a</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter#c52b3ed0-b318-4d65-806e-e1fed3e2e88b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Ardalis.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HideRouteParametersFromBodyOperationFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3aa4bb7c-d323-48c1-85c5-64c5bdfcbf3a</ProjectId>
       <CorrelationId>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter#92054be9-f863-4f5b-b96b-188a058979b2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Ardalis.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
@@ -627,7 +635,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#b695b5f3-a088-4f5d-bdb1-df2a0de63c81</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#5888cd8a-7b21-4436-941c-63f228b71b81</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Ardalis.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

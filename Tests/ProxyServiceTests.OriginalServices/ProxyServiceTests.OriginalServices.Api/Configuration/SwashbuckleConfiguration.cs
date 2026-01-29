@@ -54,6 +54,7 @@ namespace ProxyServiceTests.OriginalServices.Api.Configuration
                     }
 
                     options.OperationFilter<BinaryContentFilter>();
+                    options.OperationFilter<HideRouteParametersFromBodyOperationFilter>();
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
 
                     var securityScheme = new OpenApiSecurityScheme()

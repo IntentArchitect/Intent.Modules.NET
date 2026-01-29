@@ -3,7 +3,7 @@
   <ApplicationId>481b3f15-06af-424a-bd6c-40f99ce14793</ApplicationId>
   <FileLogs>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#ee92094a-40b1-4395-84d1-94de082dfe06</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#6549df1a-60de-43d7-a6f8-ec57f15b1366</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BugSnagTest.ServiceHost.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

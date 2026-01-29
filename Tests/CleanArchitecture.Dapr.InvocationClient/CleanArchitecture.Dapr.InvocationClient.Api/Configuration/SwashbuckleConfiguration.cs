@@ -45,6 +45,7 @@ namespace CleanArchitecture.Dapr.InvocationClient.Api.Configuration
                         options.IncludeXmlComments(domainXmlFile);
                     }
 
+                    options.OperationFilter<HideRouteParametersFromBodyOperationFilter>();
                     options.SchemaFilter<TypeSchemaFilter>();
                 });
             return services;

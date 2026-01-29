@@ -123,6 +123,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>7397bbe2-37ea-414a-bcc9-8e38a908e18d</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Scalar.HideRouteParametersFromBodyOperationTransformer#c5750576-c6c7-485e-bfc8-02b377824fed</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>BugSnagTest.AspNetCore.Api/Transformers/HideRouteParametersFromBodyOperationTransformer.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HideRouteParametersFromBodyOperationTransformer.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>e9f4a3cc-e325-49cc-a800-5b92f251cce1</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#e9f4a3cc-e325-49cc-a800-5b92f251cce1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -219,7 +227,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#04efcf03-925e-4fd9-9eff-433f8fd7cd82</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#51944284-b4c6-41b2-b914-df821fd6abb4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BugSnagTest.AspNetCore.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

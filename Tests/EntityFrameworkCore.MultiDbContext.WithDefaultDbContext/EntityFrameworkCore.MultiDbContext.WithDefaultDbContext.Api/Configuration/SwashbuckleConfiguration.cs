@@ -51,6 +51,7 @@ namespace EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Api.Configurat
                     {
                         options.IncludeXmlComments(domainXmlFile);
                     }
+                    options.OperationFilter<HideRouteParametersFromBodyOperationFilter>();
                     options.SchemaFilter<TypeSchemaFilter>();
                 });
             return services;

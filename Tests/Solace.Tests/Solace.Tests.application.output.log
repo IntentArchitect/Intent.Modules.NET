@@ -108,6 +108,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>7ebec2d0-f9b8-4b95-8268-0eb548c9699f</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter#c3d13179-561d-4350-bfe7-885c19dcd5f3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Solace.Tests.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HideRouteParametersFromBodyOperationFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7ebec2d0-f9b8-4b95-8268-0eb548c9699f</ProjectId>
       <CorrelationId>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter#092bbda1-0e6b-40e7-9b01-b58dac489afb</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
@@ -1291,7 +1299,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#75f1ef17-a2ae-4938-a619-51c9702b58a8</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#819ee924-45a1-4bca-948b-8c66d1ed045d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

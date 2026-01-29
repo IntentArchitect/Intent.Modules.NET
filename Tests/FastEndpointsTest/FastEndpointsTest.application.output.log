@@ -3,7 +3,7 @@
   <ApplicationId>3a41b4eb-4b1f-4028-91a4-9225b2873c35</ApplicationId>
   <FileLogs>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.GitIgnore#ae7e9cce-5d79-48b9-94ed-b23e7b14311e</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.GitIgnore#39d23849-0bb8-4c60-a333-9be62fd80d95</CorrelationId>
       <OverwriteBehaviour>overwrite-disabled</OverwriteBehaviour>
       <ApplicationRelativeFilePath>.gitignore</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -630,6 +630,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>FastEndpointsTest.Api/Filters/AuthorizeCheckOperationFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AuthorizeCheckOperationFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e020d34a-05ba-481f-b10c-dc9b4ac78e5e</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter#92f2147c-eac0-44d5-88f0-1f22a05adf7b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FastEndpointsTest.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HideRouteParametersFromBodyOperationFilter.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -3497,7 +3505,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#ae7e9cce-5d79-48b9-94ed-b23e7b14311e</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#39d23849-0bb8-4c60-a333-9be62fd80d95</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>FastEndpointsTest.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

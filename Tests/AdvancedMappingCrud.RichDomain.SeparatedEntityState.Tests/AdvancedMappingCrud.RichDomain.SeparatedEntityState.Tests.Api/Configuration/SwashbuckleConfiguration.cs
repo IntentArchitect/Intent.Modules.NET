@@ -52,6 +52,7 @@ namespace AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Api.Configur
                     {
                         options.IncludeXmlComments(domainXmlFile);
                     }
+                    options.OperationFilter<HideRouteParametersFromBodyOperationFilter>();
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
 
                     var securityScheme = new OpenApiSecurityScheme()

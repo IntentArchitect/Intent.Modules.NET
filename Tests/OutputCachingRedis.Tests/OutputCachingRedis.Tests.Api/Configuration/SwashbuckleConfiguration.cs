@@ -53,6 +53,7 @@ namespace OutputCachingRedis.Tests.Api.Configuration
                         options.IncludeXmlComments(domainXmlFile);
                     }
                     options.OperationFilter<BinaryContentFilter>();
+                    options.OperationFilter<HideRouteParametersFromBodyOperationFilter>();
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
 
                     var securityScheme = new OpenApiSecurityScheme()

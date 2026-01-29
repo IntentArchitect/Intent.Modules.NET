@@ -3,7 +3,7 @@
   <ApplicationId>5a489c24-afd9-43d1-bb80-25be7266b05c</ApplicationId>
   <FileLogs>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.GitIgnore#23be055a-f72a-4551-9d5e-67ca5cc2342f</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.GitIgnore#f4d6f37c-6e6c-4b64-94ff-bb2c5de2b7ab</CorrelationId>
       <OverwriteBehaviour>overwrite-disabled</OverwriteBehaviour>
       <ApplicationRelativeFilePath>.gitignore</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -2193,7 +2193,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#23be055a-f72a-4551-9d5e-67ca5cc2342f</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#f4d6f37c-6e6c-4b64-94ff-bb2c5de2b7ab</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.MongoDb.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

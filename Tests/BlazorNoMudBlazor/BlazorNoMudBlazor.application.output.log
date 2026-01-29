@@ -3,7 +3,7 @@
   <ApplicationId>173c43c8-b2df-4d84-bd99-45f63320cc26</ApplicationId>
   <FileLogs>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.GitIgnore#7d76c0bf-cca8-4ef8-86d0-980c9d5a862d</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.GitIgnore#ac2cc165-6c05-48be-b9fe-b34692c8398b</CorrelationId>
       <OverwriteBehaviour>overwrite-disabled</OverwriteBehaviour>
       <ApplicationRelativeFilePath>.gitignore</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -889,7 +889,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#7d76c0bf-cca8-4ef8-86d0-980c9d5a862d</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#ac2cc165-6c05-48be-b9fe-b34692c8398b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BlazorNoMudBlazor.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

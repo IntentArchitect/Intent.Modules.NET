@@ -3,7 +3,7 @@
   <ApplicationId>9534342e-b577-43f8-86d3-ad489ac18b60</ApplicationId>
   <FileLogs>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.GitIgnore#997f7960-8997-4da0-9094-7d88e90f8035</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.GitIgnore#85d2d69d-9f77-4833-b8a5-ee03e79a9590</CorrelationId>
       <OverwriteBehaviour>overwrite-disabled</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CentralPackageManagement/.gitignore</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -105,13 +105,13 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#997f7960-8997-4da0-9094-7d88e90f8035</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#85d2d69d-9f77-4833-b8a5-ee03e79a9590</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CentralPackageManagement/CentralPackageManagement.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.DirectoryPackagesProps#997f7960-8997-4da0-9094-7d88e90f8035</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.DirectoryPackagesProps#85d2d69d-9f77-4833-b8a5-ee03e79a9590</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Directory.Packages.props</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

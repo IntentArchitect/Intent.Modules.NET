@@ -3,7 +3,7 @@
   <ApplicationId>c3ac2e0f-34c5-4509-9652-5f90a99106e8</ApplicationId>
   <FileLogs>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.GitIgnore#052d546e-4ea0-402e-a5c2-87b19ddbcf8a</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.GitIgnore#9219a37e-1735-45f5-be08-3097157779c9</CorrelationId>
       <OverwriteBehaviour>overwrite-disabled</OverwriteBehaviour>
       <ApplicationRelativeFilePath>.gitignore</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -497,7 +497,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#052d546e-4ea0-402e-a5c2-87b19ddbcf8a</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#9219a37e-1735-45f5-be08-3097157779c9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.HttpClients.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

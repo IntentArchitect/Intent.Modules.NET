@@ -52,6 +52,7 @@ namespace EFCore.Lazy.Loading.Tests.Api.Configuration
                     {
                         options.IncludeXmlComments(domainXmlFile);
                     }
+                    options.OperationFilter<HideRouteParametersFromBodyOperationFilter>();
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
 
                     var securityScheme = new OpenApiSecurityScheme()

@@ -54,6 +54,7 @@ namespace Entities.PrivateSetters.MongoDb.Api.Configuration
                     {
                         options.IncludeXmlComments(domainXmlFile);
                     }
+                    options.OperationFilter<HideRouteParametersFromBodyOperationFilter>();
                     options.SchemaFilter<TypeSchemaFilter>();
                 });
             return services;

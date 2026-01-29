@@ -54,6 +54,7 @@ namespace CleanArchitecture.Comprehensive.Api.Configuration
                     }
                     options.SchemaFilter<GeoJsonSchemaFilter>();
                     options.OperationFilter<ODataQueryFilter>();
+                    options.OperationFilter<HideRouteParametersFromBodyOperationFilter>();
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
 
                     var securityScheme = new OpenApiSecurityScheme()

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="7397bbe2-37ea-414a-bcc9-8e38a908e18d" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Transformers</name>
+  <display>Transformers</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>ec86453e-3687-49ef-bc6b-89cebfb86d04</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="c5750576-c6c7-485e-bfc8-02b377824fed" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Scalar.HideRouteParametersFromBodyOperationTransformer</name>
+      <display>Intent.AspNetCore.Scalar.HideRouteParametersFromBodyOperationTransformer</display>
+      <externalReference>Intent.AspNetCore.Scalar</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>7397bbe2-37ea-414a-bcc9-8e38a908e18d</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

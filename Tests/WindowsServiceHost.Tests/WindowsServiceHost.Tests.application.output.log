@@ -3,7 +3,7 @@
   <ApplicationId>2442638e-5601-4d9a-a9bc-493024ec6e4e</ApplicationId>
   <FileLogs>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#90605a66-3dd0-4586-889a-8ab72b9a3fc9</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#ef3a67b3-3f8e-48b2-ae81-e40fca72031b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>WindowsServiceHost.Tests.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

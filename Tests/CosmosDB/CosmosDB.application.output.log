@@ -155,6 +155,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>a953dee1-a0b6-453f-92cc-069d9d6d60b5</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Scalar.HideRouteParametersFromBodyOperationTransformer#d3e639b6-4136-47f3-bfb3-a5cd1da519a6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Api/Transformers/HideRouteParametersFromBodyOperationTransformer.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HideRouteParametersFromBodyOperationTransformer.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#44764a3b-8a8d-4e7b-b34e-76b6bc6f2f2b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -3651,7 +3659,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#b2b770fb-ba9f-4ad7-ae67-a09278526c40</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#d019d1af-79e8-42d2-b6a9-4abe21670d02</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

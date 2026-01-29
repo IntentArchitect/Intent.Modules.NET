@@ -92,6 +92,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>b3da117e-3c5d-48e2-8ef7-6aee3de35697</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter#f5fb8866-9c37-4bf0-a96d-c2e8903b99b5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransitFinbuckle.Test.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HideRouteParametersFromBodyOperationFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b3da117e-3c5d-48e2-8ef7-6aee3de35697</ProjectId>
       <CorrelationId>Intent.Modules.AspNetCore.MultiTenancy.Swashbuckle.TenantHeaderOperationFilter#a78464ff-cb58-43d1-9928-452c89303d33</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransitFinbuckle.Test.Api/Filters/TenantHeaderOperationFilter.cs</ApplicationRelativeFilePath>
@@ -683,7 +691,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#11d71a8d-e02a-4bfc-9a15-ba1756f154cc</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#5f2ed2df-89bd-4e50-9282-7ec6b5c1f56a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransitFinbuckle.Test.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

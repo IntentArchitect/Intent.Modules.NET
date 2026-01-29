@@ -3,7 +3,7 @@
   <ApplicationId>f3921aeb-ec7e-49d2-9a3a-a839ad54ca60</ApplicationId>
   <FileLogs>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.GitIgnore#f9da845b-890d-4e2b-ac46-70d3ca12fd5c</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.GitIgnore#79b1912d-d2a0-4428-bf55-411ba32d0527</CorrelationId>
       <OverwriteBehaviour>overwrite-disabled</OverwriteBehaviour>
       <ApplicationRelativeFilePath>.gitignore</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -625,7 +625,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#f9da845b-890d-4e2b-ac46-70d3ca12fd5c</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#79b1912d-d2a0-4428-bf55-411ba32d0527</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureServiceBus.GroupB.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

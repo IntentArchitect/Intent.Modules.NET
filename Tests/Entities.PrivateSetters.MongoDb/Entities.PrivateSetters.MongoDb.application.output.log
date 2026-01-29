@@ -60,6 +60,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>2447f33b-6def-4c4b-8e09-fc664432db70</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter#b309e8cb-35e6-4360-b3d7-781c548e9b1f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Entities.PrivateSetters.MongoDb.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HideRouteParametersFromBodyOperationFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2447f33b-6def-4c4b-8e09-fc664432db70</ProjectId>
       <CorrelationId>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter#644c1f84-dc67-4a7f-9e27-66fb09a59eef</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Entities.PrivateSetters.MongoDb.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
@@ -435,7 +443,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#172c7f13-c7ba-41a9-b36f-5bcf6d76c60c</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#c619bf76-f6b7-491e-a3bc-b123d95c1645</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Entities.PrivateSetters.MongoDb.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

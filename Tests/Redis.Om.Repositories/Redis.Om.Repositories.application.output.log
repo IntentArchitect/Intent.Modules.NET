@@ -92,6 +92,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>2eea3979-c5bd-4382-b8cc-f88f1bd73bc0</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter#9275b78d-8ba1-4a05-a9cb-ba3974fbe062</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Redis.Om.Repositories.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HideRouteParametersFromBodyOperationFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2eea3979-c5bd-4382-b8cc-f88f1bd73bc0</ProjectId>
       <CorrelationId>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter#5d5d5625-f1c1-4cbc-8a03-eb48d2cde91e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Redis.Om.Repositories.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
@@ -1507,7 +1515,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#abf2f944-ff01-4ba4-aadd-386844042c82</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#e4e079d8-8039-4ec7-bba3-a1ffe5be484a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Redis.Om.Repositories.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

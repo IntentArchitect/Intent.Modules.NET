@@ -52,6 +52,7 @@ namespace ProxyServiceTests.Proxy.TMS.Api.Configuration
                     {
                         options.IncludeXmlComments(domainXmlFile);
                     }
+                    options.OperationFilter<HideRouteParametersFromBodyOperationFilter>();
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
 
                     var securityScheme = new OpenApiSecurityScheme()

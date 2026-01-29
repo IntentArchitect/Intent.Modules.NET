@@ -1,5 +1,6 @@
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.OpenApi;
+using Scalar.NET10.Bearer.Api.Transformers;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.Scalar.OpenApiConfiguration", Version = "1.0")]
@@ -55,6 +56,8 @@ namespace Scalar.NET10.Bearer.Api.Configuration
 
                         return Task.CompletedTask;
                     });
+
+                    options.AddOperationTransformer(new HideRouteParametersFromBodyOperationTransformer());
                 });
             return services;
         }

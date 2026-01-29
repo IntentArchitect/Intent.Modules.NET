@@ -3,7 +3,7 @@
   <ApplicationId>90057001-3f88-4be0-8a65-cc23cafbf6a6</ApplicationId>
   <FileLogs>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.GitIgnore#26f37117-0ecc-44af-a071-ec064ed9c22f</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.GitIgnore#30656ab2-8ebf-4c2a-803b-c16480061036</CorrelationId>
       <OverwriteBehaviour>overwrite-disabled</OverwriteBehaviour>
       <ApplicationRelativeFilePath>.gitignore</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -121,7 +121,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#26f37117-0ecc-44af-a071-ec064ed9c22f</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#30656ab2-8ebf-4c2a-803b-c16480061036</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetControllers.SecuredByDefault.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

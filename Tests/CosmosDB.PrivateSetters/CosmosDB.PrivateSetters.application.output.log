@@ -124,6 +124,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>c234d03a-9776-4943-8095-406b851a39aa</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter#68e68d90-25b3-476d-b768-ddea06d4188e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.PrivateSetters.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HideRouteParametersFromBodyOperationFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c234d03a-9776-4943-8095-406b851a39aa</ProjectId>
       <CorrelationId>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter#dc8510b2-1458-4dbf-b5fd-c805e675e774</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.PrivateSetters.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
@@ -2971,7 +2979,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#b2b770fb-ba9f-4ad7-ae67-a09278526c40</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#fb234847-6ecf-416a-ab22-9885bffcbde4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.PrivateSetters.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

@@ -92,6 +92,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>849d6a98-3051-47d5-9f3c-5577070c6611</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter#bfe12c84-5402-4a69-90b1-a10c809c148c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HideRouteParametersFromBodyOperationFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>849d6a98-3051-47d5-9f3c-5577070c6611</ProjectId>
       <CorrelationId>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter#4f6f1e50-b442-4fd4-9eac-a9456b82f42b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
@@ -1267,7 +1275,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#2b40d123-6d46-4759-89e7-a360ec7e29be</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#483bb013-5325-48e7-9398-2c8a8de47324</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.RabbitMQ.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

@@ -1,5 +1,6 @@
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.OpenApi.Models;
+using Scalar.NET9.OAuth2Implicit.Api.Transformers;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.Scalar.OpenApiConfiguration", Version = "1.0")]
@@ -75,6 +76,8 @@ namespace Scalar.NET9.OAuth2Implicit.Api.Configuration
                         document.SecurityRequirements.Add(securityStatement);
                         return Task.CompletedTask;
                     });
+
+                    options.AddOperationTransformer(new HideRouteParametersFromBodyOperationTransformer());
                 });
             return services;
         }

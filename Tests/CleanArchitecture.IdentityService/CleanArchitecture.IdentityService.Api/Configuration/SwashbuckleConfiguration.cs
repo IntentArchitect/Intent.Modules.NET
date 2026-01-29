@@ -46,6 +46,7 @@ namespace CleanArchitecture.IdentityService.Api.Configuration
                         options.IncludeXmlComments(domainXmlFile);
                     }
 
+                    options.OperationFilter<HideRouteParametersFromBodyOperationFilter>();
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
 
                     var securityScheme = new OpenApiSecurityScheme()

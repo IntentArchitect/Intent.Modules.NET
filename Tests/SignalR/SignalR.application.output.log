@@ -84,6 +84,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>53e1426a-098c-49da-9cdf-7d1745401e8f</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter#91a14760-298a-45f3-84bc-9c6bd94e9299</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>SignalR.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HideRouteParametersFromBodyOperationFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>53e1426a-098c-49da-9cdf-7d1745401e8f</ProjectId>
       <CorrelationId>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter#8ca536c3-8015-4be9-ac84-cfb056e1d5f5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SignalR.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
@@ -571,7 +579,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#0869b96e-b1a4-43f4-892a-c68e14a898a5</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#bd0acf8a-cfc4-410e-8ff4-ace736bac8f5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SignalR.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

@@ -3,7 +3,7 @@
   <ApplicationId>53c3cfa0-1a1c-4f2f-be99-0b1c3f52f2a1</ApplicationId>
   <FileLogs>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.GitIgnore#2a799202-62a3-44a8-b75f-73545050c3b3</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.GitIgnore#e8101248-e0b5-412c-9dec-1ad0dc594204</CorrelationId>
       <OverwriteBehaviour>overwrite-disabled</OverwriteBehaviour>
       <ApplicationRelativeFilePath>.gitignore</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -102,6 +102,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.MultiTenancy.SeperateDb.Api/Filters/ExceptionFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ExceptionFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8f131183-cf5a-4f7a-af0c-16d4cfcf4025</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter#b8196d8f-c41e-499a-aefd-66ac14b3e339</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.MultiTenancy.SeperateDb.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HideRouteParametersFromBodyOperationFilter.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -697,7 +705,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#2a799202-62a3-44a8-b75f-73545050c3b3</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#e8101248-e0b5-412c-9dec-1ad0dc594204</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.MultiTenancy.SeperateDb.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

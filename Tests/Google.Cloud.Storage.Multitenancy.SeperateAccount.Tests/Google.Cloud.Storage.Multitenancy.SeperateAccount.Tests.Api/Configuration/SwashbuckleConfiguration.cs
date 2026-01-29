@@ -54,6 +54,7 @@ namespace Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Api.Configurat
                     }
 
                     options.OperationFilter<TenantHeaderOperationFilter>();
+                    options.OperationFilter<HideRouteParametersFromBodyOperationFilter>();
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
 
                     var securityScheme = new OpenApiSecurityScheme()

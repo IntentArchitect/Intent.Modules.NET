@@ -3,7 +3,7 @@
   <ApplicationId>3cb9add1-3f80-4669-87fd-9abd5ebf5c86</ApplicationId>
   <FileLogs>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.GitIgnore#448c6202-8f16-4f16-8072-e0fa98559341</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.GitIgnore#4a20c32f-14db-43d6-8d12-7a1938522ffc</CorrelationId>
       <OverwriteBehaviour>overwrite-disabled</OverwriteBehaviour>
       <ApplicationRelativeFilePath>.gitignore</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -70,6 +70,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.EntityInterfaces.Api/Filters/ExceptionFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ExceptionFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9c3dc826-9412-44c8-9d43-3a68c8f4ec12</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter#a6366fa7-fcef-4ab6-9d36-bd9c32662586</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DynamoDbTests.EntityInterfaces.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HideRouteParametersFromBodyOperationFilter.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1537,7 +1545,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#448c6202-8f16-4f16-8072-e0fa98559341</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#4a20c32f-14db-43d6-8d12-7a1938522ffc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.EntityInterfaces.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

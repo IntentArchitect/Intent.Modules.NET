@@ -55,6 +55,7 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api.Configura
                     {
                         options.IncludeXmlComments(domainXmlFile);
                     }
+                    options.OperationFilter<HideRouteParametersFromBodyOperationFilter>();
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
 
                     var securityScheme = new OpenApiSecurityScheme()

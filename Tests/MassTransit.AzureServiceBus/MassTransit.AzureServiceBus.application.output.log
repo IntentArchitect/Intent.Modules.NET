@@ -84,6 +84,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>5df48f5c-568a-465d-8494-c7e0081c11d9</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter#f113544e-30af-4a6b-9d2e-a3f11fbc60d3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HideRouteParametersFromBodyOperationFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5df48f5c-568a-465d-8494-c7e0081c11d9</ProjectId>
       <CorrelationId>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter#8cd19a49-876a-433a-8f21-f3e2bbf9030d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
@@ -1251,7 +1259,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#ace25762-8d03-4a07-860f-0391c331ba2a</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#bbc77a25-a98a-4304-8702-512a65842196</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

@@ -3,7 +3,7 @@
   <ApplicationId>7bab7f92-fc1f-48ea-b44e-ce8530d75e88</ApplicationId>
   <FileLogs>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.GitIgnore#50cf010a-dd49-4285-bdb4-b2c7f9d85886</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.GitIgnore#07b2c093-12f6-4668-9941-2147242e1303</CorrelationId>
       <OverwriteBehaviour>overwrite-disabled</OverwriteBehaviour>
       <ApplicationRelativeFilePath>.gitignore</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -481,7 +481,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#50cf010a-dd49-4285-bdb4-b2c7f9d85886</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#07b2c093-12f6-4668-9941-2147242e1303</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Dapr.DomainEntityInterfaces.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

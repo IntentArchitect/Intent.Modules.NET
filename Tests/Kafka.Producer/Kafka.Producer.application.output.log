@@ -92,6 +92,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>d6f99b62-c218-4cd4-b8e2-ef5f99112497</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter#62806c19-57fb-4a2c-9088-3f293222bb70</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Kafka.Producer.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HideRouteParametersFromBodyOperationFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d6f99b62-c218-4cd4-b8e2-ef5f99112497</ProjectId>
       <CorrelationId>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter#65ad051a-366d-43d8-89ef-9419a0d9faf7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Kafka.Producer.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
@@ -779,7 +787,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#a79b795a-5e40-4aa0-9ee6-1403804372cf</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#aa9aabd9-8c0a-406e-9d6f-667cf90207bd</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Kafka.Producer.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

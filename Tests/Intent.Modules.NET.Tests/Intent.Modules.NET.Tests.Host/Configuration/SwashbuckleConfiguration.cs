@@ -50,6 +50,7 @@ namespace Intent.Modules.NET.Tests.Host.Configuration
                     }
 
                     moduleInstallers.ConfigureSwagger(options);
+                    options.OperationFilter<HideRouteParametersFromBodyOperationFilter>();
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
 
                     var securityScheme = new OpenApiSecurityScheme()

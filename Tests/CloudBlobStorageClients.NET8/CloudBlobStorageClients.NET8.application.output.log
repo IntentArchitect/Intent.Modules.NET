@@ -84,6 +84,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>d7dcbb5b-9470-497b-928a-df2fbcc9e6f2</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter#ff792109-256a-4fa8-b80b-a767e15e8619</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CloudBlobStorageClients.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HideRouteParametersFromBodyOperationFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7dcbb5b-9470-497b-928a-df2fbcc9e6f2</ProjectId>
       <CorrelationId>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter#192404d4-0083-4fc0-86cc-4e1f15991027</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CloudBlobStorageClients.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
@@ -435,7 +443,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#62b340d7-6049-4668-9e56-7f1575ce29ea</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#f30d1e01-ab92-428b-9e0c-c4f626328b44</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CloudBlobStorageClients.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

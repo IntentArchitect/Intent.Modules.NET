@@ -54,6 +54,7 @@ namespace MinimalHostingModel.Api.Configuration
                     }
                     options.OperationFilter<TenantHeaderOperationFilter>();
                     options.OperationFilter<ODataQueryFilter>();
+                    options.OperationFilter<HideRouteParametersFromBodyOperationFilter>();
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
 
                     var securityScheme = new OpenApiSecurityScheme()

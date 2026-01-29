@@ -92,6 +92,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>01dfb610-b5c5-4b62-85c4-b0e97e33eb7e</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter#b22ca7b1-0f85-4346-a1ef-88292fb17e36</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MinimalHostingModel.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HideRouteParametersFromBodyOperationFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>01dfb610-b5c5-4b62-85c4-b0e97e33eb7e</ProjectId>
       <CorrelationId>Intent.AspNetCore.ODataQuery.ODataQuerySwaggerFilter#2386989e-2a9b-40e2-b2bb-d461dd5d8fca</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.Api/Filters/ODataQueryFilter.cs</ApplicationRelativeFilePath>
@@ -1043,7 +1051,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#7a254ecf-09b1-431f-83b1-ef39009b2028</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#f87d387a-00e9-4745-b9d1-0409e8b9ec20</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

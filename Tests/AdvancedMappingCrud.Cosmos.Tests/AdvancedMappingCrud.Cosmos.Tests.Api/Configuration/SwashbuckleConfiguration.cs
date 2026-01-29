@@ -53,6 +53,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Api.Configuration
                         options.IncludeXmlComments(domainXmlFile);
                     }
                     options.OperationFilter<ODataQueryFilter>();
+                    options.OperationFilter<HideRouteParametersFromBodyOperationFilter>();
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
 
                     var securityScheme = new OpenApiSecurityScheme()

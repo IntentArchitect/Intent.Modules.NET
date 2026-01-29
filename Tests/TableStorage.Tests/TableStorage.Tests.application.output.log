@@ -92,6 +92,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>f1064b67-06c0-4800-aad5-791d248e2cbc</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter#f3feab86-5d6e-4c77-b319-5d7d6729144a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>TableStorage.Tests.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HideRouteParametersFromBodyOperationFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f1064b67-06c0-4800-aad5-791d248e2cbc</ProjectId>
       <CorrelationId>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter#55701a76-715e-459a-b479-745ef4579fd4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>TableStorage.Tests.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
@@ -1059,7 +1067,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#73585c35-a67b-4ddd-b57c-ca2aeba01d74</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#db829627-4127-488d-b9e8-06e5dc81b727</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>TableStorage.Tests.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

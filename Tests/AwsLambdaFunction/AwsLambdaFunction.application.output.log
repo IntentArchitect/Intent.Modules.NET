@@ -3,7 +3,7 @@
   <ApplicationId>a3d5e72b-6cfe-4489-bc5e-6bd915f60cb6</ApplicationId>
   <FileLogs>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.GitIgnore#981fe5b0-e27f-4763-9e15-1269456523fd</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.GitIgnore#e5aaa638-6b22-4cc2-ac38-6c11168fe20c</CorrelationId>
       <OverwriteBehaviour>overwrite-disabled</OverwriteBehaviour>
       <ApplicationRelativeFilePath>.gitignore</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -1065,7 +1065,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#981fe5b0-e27f-4763-9e15-1269456523fd</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#e5aaa638-6b22-4cc2-ac38-6c11168fe20c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AwsLambdaFunction.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>

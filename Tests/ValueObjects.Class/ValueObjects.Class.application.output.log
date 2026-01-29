@@ -76,6 +76,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>b3af574e-5de3-42db-8c99-b04ac5815bc1</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter#7863de84-b07f-416f-bede-dcb3f1d75621</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>ValueObjects.Class.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HideRouteParametersFromBodyOperationFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b3af574e-5de3-42db-8c99-b04ac5815bc1</ProjectId>
       <CorrelationId>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter#dd709f58-e1ed-4af7-add2-4708f1510e59</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>ValueObjects.Class.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
@@ -1035,7 +1043,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#14644780-87bf-4f5b-a4c7-a924424cccf9</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#db2287c9-6d9f-43e3-8823-4717cc27da01</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>ValueObjects.Class.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
