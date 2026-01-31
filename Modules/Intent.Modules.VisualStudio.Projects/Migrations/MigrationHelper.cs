@@ -1,49 +1,56 @@
-﻿using Intent.Modules.Constants;
+﻿using System;
+using System.Linq;
+using Intent.Modules.Constants;
 using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Persistence;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Threading.Tasks.Sources;
 using static Intent.Modules.VisualStudio.Projects.Api.CSharpProjectNETModelStereotypeExtensions;
 using static Intent.Modules.VisualStudio.Projects.Api.CSharpProjectNETModelStereotypeExtensions.NETSettings;
 
 namespace Intent.Modules.VisualStudio.Projects.Migrations;
+
 internal static class MigrationHelper
 {
     public static void ApplyLaunchSettingsStereotype(IApplicationPersistable application, bool setValue = false)
     {
         foreach (var package in application.GetDesigners().Where(s => s.Id == Designers.VisualStudioId).SelectMany(x => x.GetPackages()))
         {
-            bool requiresSave = false;
+            var requiresSave = false;
 
             var projects = package.GetElementsOfType(ASPNETCoreWebApplicationModel.SpecializationTypeId)
                 .Select(x => x)
                 .Union(
                     package.GetElementsOfType(CSharpProjectNETModel.SpecializationTypeId)
-                    .Where(x => GetLaunchSettings(x))
-                    .Select(x => x));
+                        .Where(HasLaunchSettings)
+                        .Select(x => x));
 
             foreach (var project in projects)
             {
-                if (project.Stereotypes.Any(s => s.DefinitionId == LaunchSettings.DefinitionId))
+                if (!project.Stereotypes.TryGet(LaunchSettings.DefinitionId, out var launchSettings))
                 {
-                    continue;
+                    launchSettings = project.Stereotypes.Add(
+                        definitionId: ProjectStereotypes.LaunchSettings.Id,
+                        name: "Launch Settings",
+                        definitionPackageId: "a0636ab7-d3a1-430b-9609-11a18aa3cc7f",
+                        definitionPackageName: "Intent.VisualStudio.Projects");
                 }
 
-                project.Stereotypes.Add(ProjectStereotypes.LaunchSettings.Id, "Launch Settings",
-                    "a0636ab7-d3a1-430b-9609-11a18aa3cc7f", "Intent.VisualStudio.Projects", config =>
-                    {
-                        config.Properties.Add(ProjectStereotypes.LaunchSettings.BaseUrlId, "Base URL", setValue ? GetNewBaseUrl() : "", propConfig =>
+                if (!launchSettings!.Properties.TryGet(ProjectStereotypes.LaunchSettings.BaseUrlId, out var property))
+                {
+                    property = launchSettings.Properties.Add(
+                        id: ProjectStereotypes.LaunchSettings.BaseUrlId,
+                        name: "Base URL",
+                        value: "",
+                        configure: config =>
                         {
-                            propConfig.IsActive = true;
+                            config.IsActive = true;
                         });
-                    });
+                }
 
-                requiresSave = true;
+                if (setValue && string.IsNullOrWhiteSpace(property!.Value))
+                {
+                    property.Value = GetNewBaseUrl();
+                    requiresSave = true;
+                }
             }
 
             if (requiresSave)
@@ -53,7 +60,7 @@ internal static class MigrationHelper
         }
     }
 
-    public static bool GetLaunchSettings(Persistence.IElementPersistable element)
+    public static bool HasLaunchSettings(Persistence.IElementPersistable element)
     {
         if (!element.Stereotypes.Any(s => s.Name == ".NET Settings"))
         {
@@ -83,7 +90,7 @@ internal static class MigrationHelper
 
     public static string GetNewBaseUrl()
     {
-        var portNumber = new Random().Next(44300, 44399);
+        var portNumber = Random.Shared.Next(44300, 44399);
         return $"https://localhost:{portNumber}/";
     }
 }
