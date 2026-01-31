@@ -62,6 +62,8 @@ namespace Intent.Modules.VisualStudio.Projects.Migrations
                         definitionPackageId: packageStereotype.DefinitionPackageId,
                         definitionPackageName: packageStereotype.DefinitionPackageName);
 
+                    elementStereotype.AddedByDefault = true;
+
                     foreach (var property in packageStereotype.Properties)
                     {
                         elementStereotype.Properties.Add(
@@ -182,6 +184,8 @@ namespace Intent.Modules.VisualStudio.Projects.Migrations
                         name: elementStereotype.Name,
                         definitionPackageId: elementStereotype.DefinitionPackageId,
                         definitionPackageName: elementStereotype.DefinitionPackageName);
+
+                    packageStereotype.AddedByDefault = true;
 
                     foreach (var property in elementStereotype.Properties)
                     {
