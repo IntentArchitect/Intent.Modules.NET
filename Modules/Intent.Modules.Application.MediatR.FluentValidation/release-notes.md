@@ -1,3 +1,7 @@
+### Version 4.9.7
+
+- Fixed: Gracefully handle when target elements are missing (deleted) so that upstream processes can handle them.
+
 ### Version 4.9.6
 
 - Improvement: Updated NuGet package versions.

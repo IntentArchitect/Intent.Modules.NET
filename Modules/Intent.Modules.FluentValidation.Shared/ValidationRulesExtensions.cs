@@ -782,7 +782,7 @@ internal static class ValidationRulesExtensions
     private static bool TryGetMappedAttribute(DTOFieldModel field, out AttributeModel attribute) => TryGetMappedAttribute(field.InternalElement, out attribute);
     private static bool TryGetMappedAttribute(IElement field, out AttributeModel attribute, bool checkAdvancedMappings = true)
     {
-        var mappedElement = field.MappedElement?.Element as IElement;
+        var mappedElement = field?.MappedElement?.Element as IElement;
         // The loop is not needed on the service side where a Command/Query/DTO is mapped
         // to an Attribute but it is needed when mapping from a Service Proxy to a DTO Field and then to an Attribute.
         while (mappedElement is not null)
