@@ -63,6 +63,10 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
             {
                 throw;
             }
+            catch (FriendlyException ex)
+            {
+                throw new ElementException(interaction, ex.Message, ex);
+            }
             catch (Exception ex)
             {
                 throw new ElementException(interaction, "An error occurred while generating the domain interactions logic", ex);

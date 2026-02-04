@@ -65,7 +65,7 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
                 if (mapping != null)
                 {
                     statements.AddRange(dataAccess.GetAggregateEntityRetrievalStatements(method, mapping, csharpMapping));
-                    
+
                     var constructionStatement = csharpMapping.GenerateCreationStatement(mapping);
 
                     handlerClass.WireUpDomainServicesForConstructors(createAction, constructionStatement);
@@ -84,6 +84,14 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
                 {
                     AddSaveChangesStatements(method, interaction.OtherEnd().TypeReference.Element.TypeReference);
                 }
+            }
+            catch (ElementException)
+            {
+                throw;
+            }
+            catch (FriendlyException ex)
+            {
+                throw new ElementException(interaction, ex.Message, ex);
             }
             catch (Exception ex)
             {

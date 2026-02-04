@@ -113,6 +113,14 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
                     method.AddStatement(ExecutionPhases.Persistence, new CSharpStatement($"{entityDetails.DataAccessProvider.SaveChangesAsync()}"));
                 }
             }
+            catch (ElementException)
+            {
+                throw;
+            }
+            catch (FriendlyException ex)
+            {
+                throw new ElementException(updateAction.InternalAssociationEnd, ex.Message, ex);
+            }
             catch (Exception ex)
             {
                 throw new ElementException(updateAction.InternalAssociationEnd, "An error occurred while generating the domain interactions logic", ex);

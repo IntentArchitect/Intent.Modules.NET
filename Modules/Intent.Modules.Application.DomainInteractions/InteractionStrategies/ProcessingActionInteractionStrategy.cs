@@ -47,6 +47,14 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
                 processingStatements.FirstOrDefault()?.SeparatedFromPrevious();
                 method.AddStatements(ExecutionPhases.BusinessLogic, processingStatements);
             }
+            catch (ElementException)
+            {
+                throw;
+            }
+            catch (FriendlyException ex)
+            {
+                throw new ElementException(actions.InternalElement, ex.Message, ex);
+            }
             catch (Exception ex)
             {
                 throw new ElementException(actions.InternalElement, "An error occurred while generating processing action logic", ex);

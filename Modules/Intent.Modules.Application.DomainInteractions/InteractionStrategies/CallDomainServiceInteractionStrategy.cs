@@ -87,6 +87,14 @@ public class CallDomainServiceInteractionStrategy : IInteractionStrategy
 
             method.AddStatements(ExecutionPhases.BusinessLogic, statements);
         }
+        catch (ElementException)
+        {
+            throw;
+        }
+        catch (FriendlyException ex)
+        {
+            throw new ElementException(interaction, ex.Message, ex);
+        }
         catch (Exception ex)
         {
             throw new ElementException(interaction, $"An error occurred while generating the interaction logic: {ex.Message}\nSee inner exception for more details.", ex);
