@@ -37,19 +37,26 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
                 ? queryContext.GetDtoProjectionReturnType()
                 : null;
 
-            method.AddStatements(ExecutionPhases.BusinessLogic, method.GetQueryStatements(
-                dataAccessProviderInjector: DataAccessProviderInjector.Instance,
-                dataAccessProvider: dataAccess,
-                interaction: interaction,
-                foundEntity: foundEntity,
-                projectedType: projectedType,
-                mustAccessEntityThroughAggregate: dataAccess.MustAccessEntityThroughAggregate(),
-                compositeEntityAccessor: (dataAccess as CompositeDataAccessProvider)?.Accessor,
-                aggregateDetails: out _));
+            var deleteAction = interaction.AsDeleteEntityActionTargetEndModel();
+            try
+            {
+                method.AddStatements(ExecutionPhases.BusinessLogic, method.GetQueryStatements(
+                    dataAccessProviderInjector: DataAccessProviderInjector.Instance,
+                    dataAccessProvider: dataAccess,
+                    interaction: interaction,
+                    foundEntity: foundEntity,
+                    projectedType: projectedType,
+                    mustAccessEntityThroughAggregate: dataAccess.MustAccessEntityThroughAggregate(),
+                    compositeEntityAccessor: (dataAccess as CompositeDataAccessProvider)?.Accessor,
+                    aggregateDetails: out _));
+            }
+            catch (FriendlyException ex)
+            {
+                throw new ElementException(deleteAction.InternalAssociationEnd, ex.Message, ex);
+            }
 
             method.AddStatement(ExecutionPhases.BusinessLogic, string.Empty);
-
-            var deleteAction = interaction.AsDeleteEntityActionTargetEndModel();
+            
             try
             {
                 var entityDetails = method.TrackedEntities()[deleteAction.Id];

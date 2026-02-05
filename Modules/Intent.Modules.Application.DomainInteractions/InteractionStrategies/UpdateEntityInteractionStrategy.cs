@@ -35,20 +35,27 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
             var projectedType = queryContext.ImplementWithProjections() && dataAccess.IsUsingProjections
                 ? queryContext.GetDtoProjectionReturnType()
                 : null;
-            
-            method.AddStatements(ExecutionPhases.BusinessLogic, method.GetQueryStatements(
-                dataAccessProviderInjector: DataAccessProviderInjector.Instance,
-                dataAccessProvider: dataAccess,
-                interaction: interaction,
-                foundEntity: foundEntity,
-                projectedType: projectedType,
-                mustAccessEntityThroughAggregate: dataAccess.MustAccessEntityThroughAggregate(),
-                compositeEntityAccessor: (dataAccess as CompositeDataAccessProvider)?.Accessor,
-                aggregateDetails: out _));
-
-            method.AddStatement(ExecutionPhases.BusinessLogic, string.Empty);
 
             var updateAction = interaction.AsUpdateEntityActionTargetEndModel();
+            try
+            {
+                method.AddStatements(ExecutionPhases.BusinessLogic, method.GetQueryStatements(
+                    dataAccessProviderInjector: DataAccessProviderInjector.Instance,
+                    dataAccessProvider: dataAccess,
+                    interaction: interaction,
+                    foundEntity: foundEntity,
+                    projectedType: projectedType,
+                    mustAccessEntityThroughAggregate: dataAccess.MustAccessEntityThroughAggregate(),
+                    compositeEntityAccessor: (dataAccess as CompositeDataAccessProvider)?.Accessor,
+                    aggregateDetails: out _));
+            }
+            catch (FriendlyException ex)
+            {
+                throw new ElementException(updateAction.InternalAssociationEnd, ex.Message, ex);
+            }
+
+            method.AddStatement(ExecutionPhases.BusinessLogic, string.Empty);
+            
             var csharpMapping = method.GetMappingManager();
             var template = method.File.Template;
             try

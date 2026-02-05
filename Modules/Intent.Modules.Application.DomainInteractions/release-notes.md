@@ -1,6 +1,7 @@
 ### Version 1.1.11
 
 - Improvement: Exception handling with FriendlyExceptions being thrown.
+- Improvement: When Accessing Composite Entities directly without accessing the parent will result in a friendlier error message.
 
 ### Version 1.1.10
 

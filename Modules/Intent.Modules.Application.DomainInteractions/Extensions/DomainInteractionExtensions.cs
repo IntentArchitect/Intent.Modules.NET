@@ -70,7 +70,11 @@ public static class DomainInteractionExtensions
         var idFields = GetAggregatePkFindCriteria(requestElement, aggregateEntity, foundEntity);
         if (!idFields.Any())
         {
-            Logging.Log.Warning($"Unable to determine how to load Aggregate : {aggregateEntity.Name} for {requestElement.Name}. Try adding a '{aggregateEntity.Name}Id' property to your request.");
+            throw new FriendlyException(
+                $"""
+                Generating code inside {requestElement.Name} to access the {foundEntity.Name} composite entity requires that the aggregate entity {aggregateEntity.Name} be fetched using an Id field.
+                Either ensure that you have a field such as '{aggregateEntity.Name}Id' or if you want to access the entity directly, add the Repository stereotype on that entity.
+                """);
         }
 
         statements.Add(new CSharpAssignmentStatement(new CSharpVariableDeclaration(aggregateVariableName), aggregateDataAccess.FindByIdAsync(idFields)));
