@@ -1,3 +1,7 @@
+### Version 5.2.1
+
+- Improvement: Adding C# Attributes on Properties of Entities are now in `Merge` mode so that you no longer need to manually override Intent annotations yourself.
+
 ### Version 5.2.0
 
 - Improvement: Added support for importing changes from code base to designers.

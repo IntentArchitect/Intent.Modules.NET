@@ -112,7 +112,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                     }
 
                     @class.AddAttribute(CSharpIntentManagedAttribute.Merge().WithSignatureFully())
-                        .AddAttribute("DefaultIntentManaged(Mode.Fully, Targets = Targets.Properties)")
+                        .AddAttribute("DefaultIntentManaged(Mode.Fully, Targets = Targets.Properties, Attributes = Mode.Merge)")
                         .AddAttribute("DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods | Targets.Constructors, Body = Mode.Merge, AccessModifiers = AccessModifiers.Public)");
 
                     if (!ExecutionContext.Settings.GetDomainSettings().SeparateStateFromBehaviour())
