@@ -58,8 +58,8 @@ namespace BlazorStandalone
             }
             app.UseExceptionHandler();
             app.UseHttpsRedirection();
-            app.UseRouting();
             app.UseStaticFiles();
+            app.UseRouting();
             app.UseAntiforgery();
             app.UseEndpoints(endpoints =>
             {

@@ -67,10 +67,10 @@ namespace Blazor.InteractiveAuto.Oidc
             }
             app.UseExceptionHandler();
             app.UseHttpsRedirection();
+            app.UseStaticFiles();
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
-            app.UseStaticFiles();
             app.UseAntiforgery();
             app.UseEndpoints(endpoints =>
             {

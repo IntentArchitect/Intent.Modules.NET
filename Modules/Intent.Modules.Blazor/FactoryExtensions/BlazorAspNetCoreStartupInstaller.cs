@@ -95,9 +95,9 @@ namespace Intent.Modules.Blazor.FactoryExtensions
                     {
                         if (startup.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveWebAssembly() || startup.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveAuto())
                         {
-                            ifDevelopmentStatement.AddStatement("app.UseWebAssemblyDebugging();");                            
+                            ifDevelopmentStatement.AddStatement("app.UseWebAssemblyDebugging();");
                         }
-                            
+
                         ifDevelopmentStatement.InsertBelow(new CSharpElseStatement(), statement =>
                         {
                             var elseStatement = (CSharpElseStatement)statement;
@@ -112,7 +112,7 @@ namespace Intent.Modules.Blazor.FactoryExtensions
                         statements.FindStatement(m => m.Text.StartsWith("app.UseExceptionHandler"))?.Remove();
                         var position = statements.FindStatement(m => m.Text.StartsWith("app.UseHttpsRedirection"));
                         var ifDevStatement = new CSharpIfStatement("!app.Environment.IsDevelopment()");
-                        position.InsertBelow(ifDevStatement, statement => 
+                        position.InsertBelow(ifDevStatement, statement =>
                         {
                             var ifs = (CSharpIfStatement)statement;
                             ifs.AddStatement("app.UseExceptionHandler(\"/Error\");");
@@ -134,14 +134,26 @@ namespace Intent.Modules.Blazor.FactoryExtensions
                         statements.FindStatement(m => m.Text.StartsWith("app.UseAuthorization"))?.Remove();
                     }
 
-                    statements.FindStatement(m => m.Text.StartsWith("app.UseRouting"))?
-                        .InsertAbove("app.UseStaticFiles();")
-                        .InsertBelow(new CSharpStatement("app.UseAntiforgery();"));
+                    var authStatement = statements.FindStatement(m => m.Text.StartsWith("app.UseAuthorization"));
+                    var routingStatement = statements.FindStatement(m => m.Text.StartsWith("app.UseRouting"));
+
+                    // static files before routing, otherwise Blazor won't be able to find the _framework files it needs to run
+                    routingStatement?.InsertAbove("app.UseStaticFiles();");
+
+                    if (authStatement is not null)
+                    {
+                        authStatement.InsertBelow(new CSharpStatement("app.UseAntiforgery();"));
+                    }
+                    else
+                    {
+                        routingStatement?.InsertBelow(new CSharpStatement("app.UseAntiforgery();"));
+                    }
+
                 });
 
                 startup.StartupFile.ConfigureEndpoints((statements, context) =>
                 {
-                    
+
                     var addRazorComponents = new CSharpMethodChainStatement($"{context.Endpoints}.MapRazorComponents<{startup.GetAppRazorTemplateName()}>()");
 
                     if (startup.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveWebAssembly() || startup.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveAuto())
@@ -154,19 +166,19 @@ namespace Intent.Modules.Blazor.FactoryExtensions
                     }
                     if (!startup.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveServer())
                     {
-                        addRazorComponents.AddChainStatement($"AddAdditionalAssemblies(typeof({startup.GetClientImportsRazorTemplateName()}).Assembly)");                            
+                        addRazorComponents.AddChainStatement($"AddAdditionalAssemblies(typeof({startup.GetClientImportsRazorTemplateName()}).Assembly)");
                     }
                     addRazorComponents.WithSemicolon();
                     statements.AddStatement(addRazorComponents);
                 });
             });
         }
-        
+
         private static void ApplyAddAuthorizationConfiguration(IHasCSharpStatements statements, IAppStartupFile.IServiceConfigurationContext context)
         {
             if (statements.FindStatement(m => m.Text.Contains("AddAuthorization")) is null)
             {
-                statements.AddStatement($"{context.Services}.AddAuthorization();");                
+                statements.AddStatement($"{context.Services}.AddAuthorization();");
             }
         }
     }
