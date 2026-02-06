@@ -1,3 +1,7 @@
+### Version 1.0.11
+
+- Fixed: `UseStaticFiles` to be called before `UseRouting` in program.cs.
+
 ### Version 1.0.10
 
 - Improvement: Updated NuGet package versions.

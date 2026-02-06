@@ -134,9 +134,9 @@ namespace Intent.Modules.Blazor.FactoryExtensions
                         statements.FindStatement(m => m.Text.StartsWith("app.UseAuthorization"))?.Remove();
                     }
 
-                    statements.FindStatement(m => m.Text.StartsWith("app.UseEndpoints"))?
+                    statements.FindStatement(m => m.Text.StartsWith("app.UseRouting"))?
                         .InsertAbove("app.UseStaticFiles();")
-                        .InsertAbove("app.UseAntiforgery();");
+                        .InsertBelow(new CSharpStatement("app.UseAntiforgery();"));
                 });
 
                 startup.StartupFile.ConfigureEndpoints((statements, context) =>
