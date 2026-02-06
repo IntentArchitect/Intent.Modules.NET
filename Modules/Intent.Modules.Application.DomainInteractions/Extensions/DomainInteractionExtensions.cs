@@ -35,16 +35,16 @@ public static class DomainInteractionExtensions
             case 0:
                 break;
             case 1:
+            {
+                if (compositionalAssociations.Single().Class.IsAggregateRoot())
                 {
-                    if (compositionalAssociations.Single().Class.IsAggregateRoot())
-                    {
-                        return compositionalAssociations;
-                    }
-
-                    var list = compositionalAssociations.Single().Class.GetAssociationsToAggregateRoot();
-                    list.AddRange(compositionalAssociations);
-                    return list;
+                    return compositionalAssociations;
                 }
+
+                var list = compositionalAssociations.Single().Class.GetAssociationsToAggregateRoot();
+                list.AddRange(compositionalAssociations);
+                return list;
+            }
             default:
                 Logging.Log.Warning($"{entity.Name} has multiple owning relationships.");
                 break;
@@ -72,9 +72,9 @@ public static class DomainInteractionExtensions
         {
             throw new FriendlyException(
                 $"""
-                Generating code inside {requestElement.Name} to access the {foundEntity.Name} composite entity requires that the aggregate entity {aggregateEntity.Name} be fetched using an Id field.
-                Either ensure that you have a field such as '{aggregateEntity.Name}Id' or if you want to access the entity directly, add the Repository stereotype on that entity.
-                """);
+                 '{requestElement.Name}' is required to access the '{foundEntity.Name}' composite entity via the '{aggregateEntity.Name}' aggregate entity - ensure there is an input field such as '{aggregateEntity.Name}Id', alternatively add the Repository stereotype to the '{foundEntity.Name}' entity to access it directly.
+                 """
+            );
         }
 
         statements.Add(new CSharpAssignmentStatement(new CSharpVariableDeclaration(aggregateVariableName), aggregateDataAccess.FindByIdAsync(idFields)));
@@ -112,7 +112,8 @@ public static class DomainInteractionExtensions
                 : $"x => {string.Join(" && ", requestProperties.Select(pkMap => $"x.{pkMap.Property} == {pkMap.ValueExpression}"))}";
 
             statements.Add(new CSharpAssignmentStatement(new CSharpVariableDeclaration(targetEntity.Name.ToLocalVariableName()),
-                $"{currentVariable}.{associationEndModel.OtherEnd().Name.ToPropertyName()}.SingleOrDefault({expression})").WithSemicolon().SeparatedFromPrevious());
+                    $"{currentVariable}.{associationEndModel.OtherEnd().Name.ToPropertyName()}.SingleOrDefault({expression})").WithSemicolon()
+                .SeparatedFromPrevious());
 
             currentVariable = targetEntity.Name.ToLocalVariableName();
 
@@ -203,7 +204,8 @@ public static class DomainInteractionExtensions
 
             // USE THE FindByIdAsync/FindByIdsAsync METHODS:
             if (queryMapping.MappedEnds.Any() && queryMapping.MappedEnds.All(x => x.TargetElement.AsAttributeModel()?.IsPrimaryKey() == true)
-                                              && foundEntity.GetTypesInHierarchy().SelectMany(c => c.Attributes).Count(x => x.IsPrimaryKey()) == queryMapping.MappedEnds.Count)
+                                              && foundEntity.GetTypesInHierarchy().SelectMany(c => c.Attributes).Count(x => x.IsPrimaryKey()) ==
+                                              queryMapping.MappedEnds.Count)
             {
                 var idFields = queryMapping.MappedEnds
                     .OrderBy(x => ((IElement)x.TargetElement).Order)
@@ -253,23 +255,23 @@ public static class DomainInteractionExtensions
         statements.Add(new CSharpAssignmentStatement(new CSharpVariableDeclaration(entityVariableName), queryInvocation).SeparatedFromPrevious());
 
         if (!interaction.TypeReference.IsNullable &&
-             !interaction.TypeReference.IsCollection &&
-             !interaction.OtherEnd().TypeReference.Element.TypeReference.IsResultPaginated() &&
-             !interaction.OtherEnd().TypeReference.Element.TypeReference.IsResultCursorPaginated())
+            !interaction.TypeReference.IsCollection &&
+            !interaction.OtherEnd().TypeReference.Element.TypeReference.IsResultPaginated() &&
+            !interaction.OtherEnd().TypeReference.Element.TypeReference.IsResultCursorPaginated())
         {
             var queryFields = queryMapping.MappedEnds
                 .Select(x => new CSharpStatement($"{{{csharpMapping.GenerateSourceStatementForMapping(queryMapping, x)}}}"))
                 .ToList();
             if (queryFields.Count == 0)
             {
-                throw new ElementException(interaction, "Query for single entity has no mappings specified. Either indicate mappings or set Is Collection to true if trying to fetch all entities as a collection.");
+                throw new ElementException(interaction,
+                    "Query for single entity has no mappings specified. Either indicate mappings or set Is Collection to true if trying to fetch all entities as a collection.");
             }
 
             statements.Add(CreateIfNullThrowNotFoundStatement(
                 template: template,
                 variable: entityVariableName,
                 message: $"Could not find {foundEntity.Name} '{queryFields.AsSingleOrTuple()}'"));
-
         }
 
         method.TrackedEntities().Add(interaction.Id, new EntityDetails(
@@ -290,6 +292,7 @@ public static class DomainInteractionExtensions
         {
             throw new Exception("No return type specified");
         }
+
         var statements = new List<CSharpStatement>();
 
         var mapperIsInstalled = MappingStrategyProvider.Instance.HasMappingStrategy(method);
@@ -317,30 +320,33 @@ public static class DomainInteractionExtensions
         else if (mapperIsInstalled &&
                  (returnType.IsResultPaginated() || returnType.IsResultCursorPaginated()) &&
                  returnType.GenericTypeParameters.FirstOrDefault()?.Element.AsDTOModel()?.IsMapped == true &&
-                 method.TrackedEntities().Values.Any(x => x.ElementModel?.Id == returnType.GenericTypeParameters.First().Element.AsDTOModel().Mapping.ElementId) &&
+                 method.TrackedEntities().Values
+                     .Any(x => x.ElementModel?.Id == returnType.GenericTypeParameters.First().Element.AsDTOModel().Mapping.ElementId) &&
                  template.TryGetTypeName("Application.Contract.Dto", returnType.GenericTypeParameters.First().Element, out returnDto))
         {
             var mappingMethod = returnType.IsResultPaginated() ? "MapToPagedResult" : "MapToCursorPagedResult";
 
-            var entityDetails = method.TrackedEntities().Values.First(x => x.ElementModel.Id == returnType.GenericTypeParameters.First().Element.AsDTOModel().Mapping.ElementId);
+            var entityDetails = method.TrackedEntities().Values
+                .First(x => x.ElementModel.Id == returnType.GenericTypeParameters.First().Element.AsDTOModel().Mapping.ElementId);
             if (entityDetails.ProjectedType == returnDto)
             {
                 statements.Add(new CSharpReturnStatement($"{entityDetails.VariableName}.{mappingMethod}()"));
             }
             else
             {
-
                 var mapper = MappingStrategyProvider.Instance.GetMappingStrategy(method)!;
                 mapper.ImplementPagedMappingStatement(method, statements, entityDetails, template, returnType, returnDto, mappingMethod);
             }
         }
-        else if (returnType.Element.IsTypeDefinitionModel() && (nonUserSuppliedEntitiesReturningPks.Count == 1 || entitiesReturningPk.Count == 1)) // No need for TrackedEntities thus no check for it
+        else if (returnType.Element.IsTypeDefinitionModel() &&
+                 (nonUserSuppliedEntitiesReturningPks.Count == 1 || entitiesReturningPk.Count == 1)) // No need for TrackedEntities thus no check for it
         {
             var entityDetails = nonUserSuppliedEntitiesReturningPks.Count == 1
                 ? nonUserSuppliedEntitiesReturningPks[0]
                 : entitiesReturningPk[0];
             var entity = entityDetails.ElementModel.AsClassModel();
-            statements.Add(new CSharpReturnStatement($"{entityDetails.VariableName}.{entity.GetTypesInHierarchy().SelectMany(x => x.Attributes).FirstOrDefault(x => x.IsPrimaryKey(isUserSupplied: false))?.Name ?? "Id"}"));
+            statements.Add(new CSharpReturnStatement(
+                $"{entityDetails.VariableName}.{entity.GetTypesInHierarchy().SelectMany(x => x.Attributes).FirstOrDefault(x => x.IsPrimaryKey(isUserSupplied: false))?.Name ?? "Id"}"));
         }
         else if (method.TrackedEntities().Values.Any(x => returnType.Element.Id == x.ElementModel.Id))
         {
@@ -398,9 +404,11 @@ public static class DomainInteractionExtensions
             {
                 names.Add(aggPk.Name);
             }
+
             names.Add($"{aggregatePrefix}{aggPk.Name}");
             //May have renamed the FK attribute and as such it maybe a valid name
-            var fkAttributes = compositeEntity.Attributes.Where(a => a.IsForeignKey() && a.GetForeignKeyAssociation()!.OtherEnd().Class.Id == aggregateEntity.Id).ToList();
+            var fkAttributes = compositeEntity.Attributes
+                .Where(a => a.IsForeignKey() && a.GetForeignKeyAssociation()!.OtherEnd().Class.Id == aggregateEntity.Id).ToList();
             if (fkAttributes.Count > i)
             {
                 names.Add(fkAttributes[i].Name);
@@ -413,8 +421,10 @@ public static class DomainInteractionExtensions
         if (keyMappings.All(x => !string.IsNullOrEmpty(x.Match)))
         {
             var prefix = requestElement.SpecializationType == "Operation" ? "" : "request.";
-            return keyMappings.Select(x => new PrimaryKeyFilterMapping($"{prefix}{x.Match}", $"{x.Key.Name}", new ElementToElementMappedEndStub(requestElement, aggregateEntity.InternalElement))).ToList();
+            return keyMappings.Select(x => new PrimaryKeyFilterMapping($"{prefix}{x.Match}", $"{x.Key.Name}",
+                new ElementToElementMappedEndStub(requestElement, aggregateEntity.InternalElement))).ToList();
         }
+
         return new List<PrimaryKeyFilterMapping>();
     }
 
@@ -438,7 +448,6 @@ public static class DomainInteractionExtensions
             return method.TrackedEntities().Values
                 .Where(x => x.ElementModel.IsClassModel() && mappedPks.Contains(x.ElementModel.Id))
                 .ToList();
-
         }
 
         return method.TrackedEntities().Values
@@ -533,7 +542,8 @@ public static class DomainInteractionExtensions
         };
     }
 
-    private static bool TryGetCursorPaginationValues(IAssociationEnd associationEnd, CSharpClassMappingManager mappingManager, out string pageSize, out string? cursorToken)
+    private static bool TryGetCursorPaginationValues(IAssociationEnd associationEnd, CSharpClassMappingManager mappingManager, out string pageSize,
+        out string? cursorToken)
     {
         var handler = (IElement)associationEnd.OtherEnd().TypeReference.Element;
         var returnsPagedResult = handler.TypeReference.IsResultCursorPaginated();
@@ -566,7 +576,8 @@ public static class DomainInteractionExtensions
         return returnsPagedResult;
     }
 
-    private static bool TryGetPaginationValues(IAssociationEnd associationEnd, CSharpClassMappingManager mappingManager, out string pageNo, out string pageSize, out string? orderBy, out bool orderByIsNullable)
+    private static bool TryGetPaginationValues(IAssociationEnd associationEnd, CSharpClassMappingManager mappingManager, out string pageNo, out string pageSize,
+        out string? orderBy, out bool orderByIsNullable)
     {
         orderByIsNullable = false;
         var handler = (IElement)associationEnd.OtherEnd().TypeReference.Element;
@@ -589,6 +600,7 @@ public static class DomainInteractionExtensions
         {
             throw new ElementException(handler, "Paged endpoints require a 'PageNo' or 'PageIndex' property");
         }
+
         if (string.IsNullOrEmpty(pageSizeVar))
         {
             throw new ElementException(handler, "Paged endpoints require a 'PageSize' property");
