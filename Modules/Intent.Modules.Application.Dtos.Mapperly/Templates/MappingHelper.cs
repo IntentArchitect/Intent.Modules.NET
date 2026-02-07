@@ -7,12 +7,14 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
+using Intent.Templates;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using Intent.Utils;
 using DataContractGeneralizationModel = Intent.Modelers.Domain.Api.DataContractGeneralizationModel;
 using GeneralizationModel = Intent.Modelers.Domain.Api.GeneralizationModel;
 using OperationModel = Intent.Modelers.Domain.Api.OperationModel;
@@ -184,6 +186,88 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates
 
             var joinedCheck = string.Join(" && ", checks);
             return !string.IsNullOrWhiteSpace(joinedCheck) ? $"{joinedCheck} ?" : string.Empty;
+        }
+
+        /// <summary>
+        /// Discovers all mapper dependencies for a given DTO by inspecting its fields.
+        /// Returns a list of mapper templates that this DTO's mapper needs to depend on.
+        /// </summary>
+        internal static List<ICSharpFileBuilderTemplate> DiscoverMapperDependencies(
+            IntentTemplateBase template,
+            DTOModel dtoModel)
+        {
+            var dependencies = new List<ICSharpFileBuilderTemplate>();
+            var visitedDtoIds = new HashSet<string>();
+
+            DiscoverRecursive(template, dtoModel, dependencies, visitedDtoIds);
+
+            return dependencies;
+        }
+
+        private static void DiscoverRecursive(
+            IntentTemplateBase template,
+            DTOModel dtoModel,
+            List<ICSharpFileBuilderTemplate> dependencies,
+            HashSet<string> visitedDtoIds)
+        {
+            // Prevent circular references
+            if (!visitedDtoIds.Add(dtoModel.Id))
+            {
+                return;
+            }
+
+            // Iterate through all fields that have mappings
+            foreach (var field in dtoModel.Fields.Where(f => f.Mapping != null))
+            {
+                // Get the target element ID (handles both direct types and collection element types)
+                var targetElementId = field.TypeReference.Element?.Id;
+                if (string.IsNullOrEmpty(targetElementId))
+                {
+                    continue;
+                }
+
+                // DEBUG: Log field inspection
+                Logging.Log.Debug($"[Mapperly Discovery] {dtoModel.Name}.{field.Name}: Checking if {field.TypeReference.Element?.Name} is a DTO (ID: {targetElementId})");
+
+                // Check if this field's type is a DTO
+                if (template.TryGetTemplate(
+                    TemplateRoles.Application.Contracts.Dto,
+                    targetElementId,
+                    out ICSharpFileBuilderTemplate nestedDtoTemplate))
+                {
+                    Logging.Log.Debug($"[Mapperly Discovery] Found DTO template for {field.TypeReference.Element?.Name}, looking for mapper...");
+
+                    // Get the DTOModel from the DTO template - this is the key!
+                    var nestedDtoAsTemplateWithModel = nestedDtoTemplate as ITemplateWithModel;
+                    var nestedDtoModel = nestedDtoAsTemplateWithModel?.Model as DTOModel;
+                    
+                    if (nestedDtoModel == null)
+                    {
+                        Logging.Log.Debug($"[Mapperly Discovery] Could not get DTOModel from DTO template");
+                        continue;
+                    }
+
+                    Logging.Log.Debug($"[Mapperly Discovery] Got DTOModel {nestedDtoModel.Name} (ID: {nestedDtoModel.Id}), looking for its mapper...");
+
+                    // Found a nested DTO - now find its mapper template using the DTOModel ID
+                    if (template.TryGetTemplate(
+                        "Intent.Application.Dtos.Mapperly.DtoMappingProfile",
+                        nestedDtoModel.Id,
+                        out ICSharpFileBuilderTemplate mapperTemplate))
+                    {
+                        // Add to dependencies if not already present
+                        if (!dependencies.Any(d => d.Id == mapperTemplate.Id))
+                        {
+                            dependencies.Add(mapperTemplate);
+                            Logging.Log.Debug($"[Mapperly Discovery] Added dependency: {mapperTemplate.ClassName}");
+                        }
+                    }
+                    else
+                    {
+                        Logging.Log.Debug($"[Mapperly Discovery] No mapper template found for DTOModel {nestedDtoModel.Name} (DTOModel ID: {nestedDtoModel.Id})");
+                    }
+                }
+            }
         }
     }
 }

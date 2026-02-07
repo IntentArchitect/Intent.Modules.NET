@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
@@ -9,6 +10,7 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using Intent.Utils;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -31,8 +33,46 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
                 {
                     @class.Partial();
                     @class.AddAttribute("Mapper");
+
+                    // Discover mapper dependencies INSIDE the class builder callback
+                    var mapperDependencies = MappingHelper.DiscoverMapperDependencies(this, Model);
+                    
+                    // DEBUG: Log what we found
+                    Logging.Log.Debug($"[Mapperly] {Model.Name}Mapper: Found {mapperDependencies.Count} dependencies: {string.Join(", ", mapperDependencies.Select(d => d.ClassName))}");
+
                     var entityTemplate = MappingHelper.GetEntityTemplate(this, Model);
                     string dtoModelName = GetTypeName(TemplateRoles.Application.Contracts.Dto, Model);
+
+                    // Generate [UseMapper] fields for each dependency
+                    foreach (var dependency in mapperDependencies)
+                    {
+                        var fieldName = $"_{dependency.ClassName.ToCamelCase()}";
+                        @class.AddField(this.GetTypeName(dependency), fieldName, field =>
+                        {
+                            field.PrivateReadOnly();
+                            field.AddAttribute("UseMapper");
+                        });
+                    }
+
+                    // Generate constructor if there are dependencies
+                    if (mapperDependencies.Any())
+                    {
+                        @class.AddConstructor(ctor =>
+                        {
+                            ctor.Public();
+
+                            foreach (var dependency in mapperDependencies)
+                            {
+                                var paramName = dependency.ClassName.ToCamelCase();
+                                var fieldName = $"_{paramName}";
+
+                                ctor.AddParameter(this.GetTypeName(dependency), paramName);
+                                ctor.AddStatement($"{fieldName} = {paramName};");
+                            }
+                        });
+                    }
+
+                    // Generate mapping methods
                     @class.AddMethod(dtoModelName, $"{this.GetTypeName(entityTemplate)}To{dtoModelName}", method =>
                     {
                         method.Public().Partial();
