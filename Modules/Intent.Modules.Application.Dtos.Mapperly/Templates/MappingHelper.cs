@@ -33,7 +33,7 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates
                 return entityTemplate;
             }
 
-            return entityTemplate;
+            throw new InvalidOperationException($"Could not resolve mapped type '{templateModel.Mapping.Element.Name}' for DTO '{templateModel.Name}'.");
         }
 
         //If your persistence layer has different persistence models from the domain models
@@ -186,6 +186,22 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates
 
             var joinedCheck = string.Join(" && ", checks);
             return !string.IsNullOrWhiteSpace(joinedCheck) ? $"{joinedCheck} ?" : string.Empty;
+        }
+
+        internal static string BuildNullCheckAlternative(ICSharpFileBuilderTemplate template, DTOFieldModel field, string nullChecks)
+        {
+            if (string.IsNullOrWhiteSpace(nullChecks))
+            {
+                return string.Empty;
+            }
+
+            var type = template.GetTypeName(field.TypeReference);
+            if (!type.EndsWith("?"))
+            {
+                type = $"{type}?";
+            }
+
+            return template.GetTypeInfo(field.TypeReference).IsPrimitive ? $" : ({type})null" : " : null";
         }
 
         /// <summary>

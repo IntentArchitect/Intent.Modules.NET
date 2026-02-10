@@ -20,9 +20,6 @@
     </template>
   </templates>
   <decorators></decorators>
-  <factoryExtensions>
-    <factoryExtension id="Intent.Application.Dtos.Mapperly.MapperlyRegistrationExtension" />
-  </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
     <dependency id="Intent.Common" version="3.7.2" />
