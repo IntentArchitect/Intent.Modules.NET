@@ -49,6 +49,10 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
                     var mappingConfigurations = BuildMappingConfigurations(entityTypeName);
                     Logging.Log.Debug($"[Mapperly FieldMappings] {Model.Name}Mapper: Found {mappingConfigurations.Count} fields requiring explicit mapping");
 
+                    // Identify unmapped source properties that need [MapperIgnoreSource] suppression
+                    var unmappedSourceProperties = MappingHelper.GetUnmappedSourceProperties(this, Model);
+                    Logging.Log.Debug($"[Mapperly UnmappedSource] {Model.Name}Mapper: Found {unmappedSourceProperties.Count} unmapped source properties to suppress");
+
                     // Generate [UseMapper] fields for each dependency
                     foreach (var dependency in mapperDependencies)
                     {
@@ -83,6 +87,15 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
                     {
                         method.Public().Partial();
                         method.AddParameter(entityTypeName, entityTypeName.ToCamelCase()).WithoutMethodModifier();
+
+                        // Add [MapperIgnoreSource] attributes for unmapped source properties
+                        foreach (var unmappedProp in unmappedSourceProperties)
+                        {
+                            method.AddAttribute("MapperIgnoreSource", attribute =>
+                            {
+                                attribute.AddArgument($"nameof({entityTypeName}.{unmappedProp})");
+                            });
+                        }
 
                         // Add mapping configuration attributes
                         foreach (var config in mappingConfigurations)

@@ -242,5 +242,77 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates
                 }
             }
         }
+
+        /// <summary>
+        /// Identifies source entity properties that are not mapped to any DTO property.
+        /// These unmapped properties can cause Mapperly RMG020 warnings and should be suppressed
+        /// using [MapperIgnoreSource] if they are intentionally excluded from the DTO.
+        /// </summary>
+        internal static List<string> GetUnmappedSourceProperties(
+            ICSharpFileBuilderTemplate template,
+            DTOModel dtoModel)
+        {
+            var unmapped = new List<string>();
+
+            // Get the entity element
+            var entityElement = dtoModel.Mapping?.Element;
+            if (entityElement == null)
+            {
+                return unmapped;
+            }
+
+            // Convert to ClassModel to access all attributes
+            var entityClass = entityElement.AsClassModel();
+            if (entityClass == null)
+            {
+                return unmapped;
+            }
+
+            // Collect all DTO field's mapped source property paths
+            var mappedSourcePaths = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+
+            foreach (var field in dtoModel.Fields.Where(f => f.Mapping != null))
+            {
+                // Get the mapping path (e.g., "Product.Name" or "OrderId")
+                var mappingPath = string.Join(".", field.Mapping.Path
+                    .Select(p => p.Name.ToPascalCase()));
+
+                mappedSourcePaths.Add(mappingPath);
+
+                // Also add variations for nested paths (e.g., "Product" from "Product.Name")
+                if (mappingPath.Contains("."))
+                {
+                    var parts = mappingPath.Split('.');
+                    for (int i = 0; i < parts.Length - 1; i++)
+                    {
+                        mappedSourcePaths.Add(string.Join(".", parts.Take(i + 1)));
+                    }
+                }
+            }
+
+            Logging.Log.Debug($"[Mapperly UnmappedSource] {dtoModel.Name}: Entity class has {entityClass.Attributes.Count()} attributes, DTO has {dtoModel.Fields.Count()} fields");
+            Logging.Log.Debug($"[Mapperly UnmappedSource] {dtoModel.Name}: Mapped source paths: {string.Join(", ", mappedSourcePaths)}");
+
+            // Check each entity attribute to see if it's mapped
+            foreach (var entityAttr in entityClass.Attributes)
+            {
+                var attrName = entityAttr.Name.ToPascalCase();
+
+                // Check if this attribute is explicitly mapped
+                if (mappedSourcePaths.Contains(attrName))
+                {
+                    Logging.Log.Debug($"[Mapperly UnmappedSource]   {attrName}: MAPPED");
+                    continue;
+                }
+
+                // This property is not mapped - add it to unmapped list
+                unmapped.Add(attrName);
+                Logging.Log.Debug($"[Mapperly UnmappedSource]   {attrName}: UNMAPPED (not in any DTO field mapping)");
+            }
+
+            Logging.Log.Debug($"[Mapperly UnmappedSource] {dtoModel.Name}: Found {unmapped.Count} unmapped source properties");
+
+            return unmapped;
+        }
     }
 }
