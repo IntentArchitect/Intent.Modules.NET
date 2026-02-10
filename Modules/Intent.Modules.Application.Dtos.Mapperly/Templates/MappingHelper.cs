@@ -3,7 +3,6 @@ using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
-using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
@@ -11,9 +10,6 @@ using Intent.Templates;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using Intent.Utils;
 using DataContractGeneralizationModel = Intent.Modelers.Domain.Api.DataContractGeneralizationModel;
 using GeneralizationModel = Intent.Modelers.Domain.Api.GeneralizationModel;
@@ -96,14 +92,6 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates
             };
         }
 
-        private static void AddFieldMapping(CSharpMethodChainStatement statement, DTOFieldModel field, string mapping)
-        {
-            statement.AddChainStatement(mapping, chain =>
-            {
-                chain.AddMetadata("field", field);
-            });
-        }
-
         private static bool IsCosmosModel(IElement? mappedElement)
         {
             if (!mappedElement.Package.HasStereotype("Document Database"))
@@ -155,37 +143,6 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates
                 })).TrimEnd('!');
 
             return (Path: path, MethodName: MethodName.ForMember);
-        }
-
-        public static string BuildNullChecks(string expression)
-        {
-            var rawParts = expression.Split('.');
-            var checks = new List<string>();
-
-            // a bit rudamentary, but basically if the expression already contains a ternary operation
-            // then don't add a null check as we will assume this is performing that. This is for custom mappings
-            if(expression.Contains(" ? ") && expression.Contains(" : "))
-            {
-                return string.Empty;
-            }
-
-            var currentPath = rawParts[0]; // e.g. "src"
-
-            for (int i = 1; i < rawParts.Length - 1; i++)
-            {
-                // Keep clean version of the part for building the path
-                var part = rawParts[i].Replace("!", "");
-                currentPath += "." + part;
-
-                // Only add a check if the original part DID have !
-                if (rawParts[i].Contains("!"))
-                {
-                    checks.Add($"{currentPath} != null");
-                }
-            }
-
-            var joinedCheck = string.Join(" && ", checks);
-            return !string.IsNullOrWhiteSpace(joinedCheck) ? $"{joinedCheck} ?" : string.Empty;
         }
 
         internal static string BuildNullCheckAlternative(ICSharpFileBuilderTemplate template, DTOFieldModel field, string nullChecks)

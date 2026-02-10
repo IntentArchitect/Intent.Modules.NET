@@ -99,7 +99,7 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
                             {
                                 method.AddAttribute("MapProperty", attribute =>
                                 {
-                                    attribute.AddArgument($"\"{config.SourcePath}\"");
+                                    attribute.AddArgument($"nameof({entityTypeName}.{config.SourcePath})");
                                     attribute.AddArgument($"nameof({dtoModelName}.{config.TargetPropertyName})");
                                 });
                             }
@@ -254,24 +254,6 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
             if (config.ShouldCast)
             {
                 expression = $"({GetTypeName(config.Field.TypeReference)}){expression}";
-            }
-
-            var nullChecks = MappingHelper.BuildNullChecks(expression);
-
-            if (!string.IsNullOrWhiteSpace(nullChecks))
-            {
-                    var dtoFieldIsNullable = GetTypeInfo(config.Field.TypeReference).IsNullable;
-
-                    if (dtoFieldIsNullable == true)
-                    {
-                        // DTO accepts null
-                        expression = $"{nullChecks}{expression} : null";
-                    }
-                    else
-                    {
-                        // DTO requires non-null, throw exception
-                        expression = $"{nullChecks}{expression} : throw new ArgumentNullException(nameof(source))";
-                    }
             }
 
             return expression;
