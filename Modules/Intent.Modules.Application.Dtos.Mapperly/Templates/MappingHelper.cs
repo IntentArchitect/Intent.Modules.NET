@@ -196,12 +196,8 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates
                 var targetElementId = field.TypeReference.Element?.Id;
                 if (string.IsNullOrEmpty(targetElementId))
                 {
-                    Logging.Log.Debug($"[Mapperly Discovery] {dtoModel.Name}.{field.Name}: No element ID found, skipping");
                     continue;
                 }
-
-                // DEBUG: Log field inspection
-                Logging.Log.Debug($"[Mapperly Discovery] {dtoModel.Name}.{field.Name}: Checking if {field.TypeReference.Element?.Name} is a DTO (ID: {targetElementId})");
 
                 // Check if this field's type is a DTO
                 if (template.TryGetTemplate(
@@ -209,19 +205,14 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates
                     targetElementId,
                     out ICSharpFileBuilderTemplate nestedDtoTemplate))
                 {
-                    Logging.Log.Debug($"[Mapperly Discovery] Found DTO template for {field.TypeReference.Element?.Name}, looking for mapper...");
-
                     // Get the DTOModel from the DTO template - this is the key!
                     var nestedDtoAsTemplateWithModel = nestedDtoTemplate as ITemplateWithModel;
                     var nestedDtoModel = nestedDtoAsTemplateWithModel?.Model as DTOModel;
                     
                     if (nestedDtoModel == null)
                     {
-                        Logging.Log.Debug($"[Mapperly Discovery] Could not get DTOModel from DTO template");
                         continue;
                     }
-
-                    Logging.Log.Debug($"[Mapperly Discovery] Got DTOModel {nestedDtoModel.Name} (ID: {nestedDtoModel.Id}), looking for its mapper...");
 
                     // Found a nested DTO - now find its mapper template using the DTOModel ID
                     var mapperLookupResult = template.TryGetTemplate(
@@ -229,32 +220,14 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates
                         nestedDtoModel.Id,
                         out ICSharpFileBuilderTemplate mapperTemplate);
 
-                    Logging.Log.Debug($"[Mapperly Discovery] Mapper template lookup for DTOModel ID '{nestedDtoModel.Id}': {(mapperLookupResult ? "FOUND" : "NOT FOUND")}");
-
                     if (mapperLookupResult)
                     {
-                        Logging.Log.Debug($"[Mapperly Discovery] Mapper template details: ClassName={mapperTemplate.ClassName}, TemplateId={mapperTemplate.Id}");
-
                         // Add to dependencies if not already present
                         if (dependencies.All(d => d.ClassName != mapperTemplate.ClassName))
                         {
                             dependencies.Add(mapperTemplate);
-                            Logging.Log.Debug($"[Mapperly Discovery] Added dependency: {mapperTemplate.ClassName} (Mapper ID: {mapperTemplate.Id})");
-                        }
-                        else
-                        {
-                            Logging.Log.Debug($"[Mapperly Discovery] Mapper {mapperTemplate.ClassName} already in dependencies (ID: {mapperTemplate.Id}), skipping duplicate");
                         }
                     }
-                    else
-                    {
-                        Logging.Log.Debug($"[Mapperly Discovery] FAILED to find mapper template for DTOModel '{nestedDtoModel.Name}' (DTOModel ID: {nestedDtoModel.Id})");
-                        Logging.Log.Debug($"[Mapperly Discovery] Expected template role: 'Intent.Application.Dtos.Mapperly.DtoMappingProfile', element ID: {nestedDtoModel.Id}");
-                    }
-                }
-                else
-                {
-                    Logging.Log.Debug($"[Mapperly Discovery] {field.TypeReference.Element?.Name} (ID: {targetElementId}) is not a DTO template");
                 }
             }
         }
@@ -306,9 +279,6 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates
                 }
             }
 
-            Logging.Log.Debug($"[Mapperly UnmappedSource] {dtoModel.Name}: Entity class has {entityClass.Attributes.Count()} attributes, DTO has {dtoModel.Fields.Count()} fields");
-            Logging.Log.Debug($"[Mapperly UnmappedSource] {dtoModel.Name}: Mapped source paths: {string.Join(", ", mappedSourcePaths)}");
-
             // Check each entity attribute to see if it's mapped
             foreach (var entityAttr in entityClass.Attributes)
             {
@@ -317,16 +287,12 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates
                 // Check if this attribute is explicitly mapped
                 if (mappedSourcePaths.Contains(attrName))
                 {
-                    Logging.Log.Debug($"[Mapperly UnmappedSource]   {attrName}: MAPPED");
                     continue;
                 }
 
                 // This property is not mapped - add it to unmapped list
                 unmapped.Add(attrName);
-                Logging.Log.Debug($"[Mapperly UnmappedSource]   {attrName}: UNMAPPED (not in any DTO field mapping)");
             }
-
-            Logging.Log.Debug($"[Mapperly UnmappedSource] {dtoModel.Name}: Found {unmapped.Count} unmapped source properties");
 
             return unmapped;
         }

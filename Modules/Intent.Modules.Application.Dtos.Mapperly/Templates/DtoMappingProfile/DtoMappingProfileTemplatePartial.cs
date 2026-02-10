@@ -38,20 +38,15 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
                     // Discover mapper dependencies INSIDE the class builder callback
                     var mapperDependencies = MappingHelper.DiscoverMapperDependencies(this, Model);
 
-                    // DEBUG: Log what we found
-                    Logging.Log.Debug($"[Mapperly] {Model.Name}Mapper: Found {mapperDependencies.Count} dependencies: {string.Join(", ", mapperDependencies.Select(d => d.ClassName))}");
-
                     var entityTemplate = MappingHelper.GetEntityTemplate(this, Model);
-                    string dtoModelName = GetTypeName(TemplateRoles.Application.Contracts.Dto, Model);
-                    string entityTypeName = this.GetTypeName(entityTemplate);
+                    var dtoModelName = GetTypeName(TemplateRoles.Application.Contracts.Dto, Model);
+                    var entityTypeName = GetTypeName(entityTemplate);
 
                     // Analyze field mappings to determine what custom methods/attributes are needed
-                    var mappingConfigurations = BuildMappingConfigurations(entityTypeName);
-                    Logging.Log.Debug($"[Mapperly FieldMappings] {Model.Name}Mapper: Found {mappingConfigurations.Count} fields requiring explicit mapping");
+                    var mappingConfigurations = BuildMappingConfigurations();
 
                     // Identify unmapped source properties that need [MapperIgnoreSource] suppression
                     var unmappedSourceProperties = MappingHelper.GetUnmappedSourceProperties(this, Model);
-                    Logging.Log.Debug($"[Mapperly UnmappedSource] {Model.Name}Mapper: Found {unmappedSourceProperties.Count} unmapped source properties to suppress");
 
                     // Generate [UseMapper] fields for each dependency
                     foreach (var dependency in mapperDependencies)
@@ -170,26 +165,16 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
             bool ShouldCast,
             string CustomMethodName);
 
-        private IReadOnlyList<MappingConfiguration> BuildMappingConfigurations(string entityTypeName)
+        private IReadOnlyList<MappingConfiguration> BuildMappingConfigurations()
         {
             var configs = new List<MappingConfiguration>();
 
-            Logging.Log.Debug($"[Mapperly FieldMappings] {Model.Name}: Analyzing {Model.Fields.Count} fields");
-
             foreach (var field in Model.Fields)
             {
-                // DEBUG: Log each field
-                var hasMappingStr = field.Mapping != null ? "YES" : "NO";
-                Logging.Log.Debug($"[Mapperly FieldMappings]   Field: {field.Name}, HasMapping: {hasMappingStr}");
-
                 if (field.Mapping == null)
                 {
                     continue;
                 }
-
-                // DEBUG: Log mapping path
-                var pathStr = string.Join(" -> ", field.Mapping.Path.Select(p => $"{p.Name}({p.Specialization})"));
-                Logging.Log.Debug($"[Mapperly FieldMappings]     Mapping Path: {pathStr}");
 
                 var shouldCast = field.Mapping.Path.All(p => !string.IsNullOrEmpty(p.Id) &&
                                  GetTypeInfo(field.TypeReference).IsPrimitive &&
@@ -197,7 +182,6 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
                                  GetFullyQualifiedTypeName(field.TypeReference) != GetFullyQualifiedTypeName(field.Mapping.Element.TypeReference));
 
                 var (mappingExpression, _) = MappingHelper.GetMappingExpression(this, field);
-                Logging.Log.Debug($"[Mapperly FieldMappings]     Mapping Expression: {mappingExpression}");
 
                 var requiresExplicitMapping = mappingExpression != $"src.{field.Name}" || shouldCast;
 
@@ -208,7 +192,6 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
 
                 if (!requiresExplicitMapping)
                 {
-                    Logging.Log.Debug($"[Mapperly FieldMappings]     SKIPPED: Convention mapping will work");
                     continue;
                 }
 
@@ -226,18 +209,11 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
 
                     if (mapperlyConventionName == actualTargetName)
                     {
-                        Logging.Log.Debug($"[Mapperly FieldMappings]     SKIPPED: {sourcePath} → {actualTargetName} matches Mapperly flattening convention");
                         continue;
-                    }
-                    else
-                    {
-                        Logging.Log.Debug($"[Mapperly FieldMappings]     EXPLICIT: {sourcePath} convention={mapperlyConventionName} but field={actualTargetName}");
                     }
                 }
 
                 var customMethodName = useCustomMethod ? $"Map{targetPropertyName}" : string.Empty;
-
-                Logging.Log.Debug($"[Mapperly FieldMappings]     EXPLICIT MAPPING NEEDED: UseCustomMethod={useCustomMethod}, SourcePath={sourcePath}");
 
                 configs.Add(new MappingConfiguration(
                     Field: field,
