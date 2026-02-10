@@ -1,7 +1,7 @@
 using AdvancedMapping.Repositories.Mapperly.Tests.Domain.Common.Interfaces;
-using AdvancedMapping.Repositories.Mapperly.Tests.Domain.Repositories;
+using AdvancedMapping.Repositories.Mapperly.Tests.Domain.Repositories.Sales;
 using AdvancedMapping.Repositories.Mapperly.Tests.Infrastructure.Persistence;
-using AdvancedMapping.Repositories.Mapperly.Tests.Infrastructure.Repositories;
+using AdvancedMapping.Repositories.Mapperly.Tests.Infrastructure.Repositories.Sales;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -23,6 +23,10 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Infrastructure
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<ICustomerRepository, CustomerRepository>();
+            services.AddTransient<IDiscountRepository, DiscountRepository>();
+            services.AddTransient<IOrderRepository, OrderRepository>();
+            services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<IProductCategoryRepository, ProductCategoryRepository>();
             return services;
         }
     }

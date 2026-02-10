@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="381b911d-ba73-4f89-8af3-91b7e79ee721">
+  <sourceEnd id="c215f3bf-fa8d-4136-8fc8-772770b904ef" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Order</name>
+    <display>Order: Order</display>
+    <order>0</order>
+    <typeReference id="17bffb1b-0ea3-4601-a4a8-3db78dfd5263">
+      <typeId>337519c7-8aeb-481f-aa3b-93d8ac11dc74</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMapping.Repositories.Mapperly.Tests.Domain</typePackageName>
+      <typePackageId>9804eb76-4b5e-4998-8c95-0116febd73cd</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="381b911d-ba73-4f89-8af3-91b7e79ee721" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Shipments</name>
+    <display>Shipments: Shipment[*]</display>
+    <order>11</order>
+    <typeReference id="a59e8832-b4cb-4206-9f00-497809a92120">
+      <typeId>6b13f0ba-38d3-47c4-9999-935e3a5dabeb</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMapping.Repositories.Mapperly.Tests.Domain</typePackageName>
+      <typePackageId>9804eb76-4b5e-4998-8c95-0116febd73cd</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="2e771165-0bdd-47f3-b77c-e9bc50f0ed07" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Orders</name>
+  <display>Orders</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>3aec9436-5815-4011-94d1-29ee83b6400e</parentFolderId>
+  <packageId>5acc1023-d19a-4150-9b5f-ce23f31ef1cb</packageId>
+  <packageName>AdvancedMapping.Repositories.Mapperly.Tests.Services</packageName>
+  <diagram>
+    <targetPackageId>2e771165-0bdd-47f3-b77c-e9bc50f0ed07</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -1,6 +1,6 @@
 using AdvancedMapping.Repositories.Mapperly.Tests.Domain.Common.Interfaces;
-using AdvancedMapping.Repositories.Mapperly.Tests.Domain.Entities;
-using AdvancedMapping.Repositories.Mapperly.Tests.Infrastructure.Persistence.Configurations;
+using AdvancedMapping.Repositories.Mapperly.Tests.Domain.Entities.Sales;
+using AdvancedMapping.Repositories.Mapperly.Tests.Infrastructure.Persistence.Configurations.Sales;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,6 +16,10 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Infrastructure.Persistence
         }
 
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<Discount> Discounts { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<ProductCategory> ProductCategories { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -23,6 +27,10 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Infrastructure.Persistence
 
             ConfigureModel(modelBuilder);
             modelBuilder.ApplyConfiguration(new CustomerConfiguration());
+            modelBuilder.ApplyConfiguration(new DiscountConfiguration());
+            modelBuilder.ApplyConfiguration(new OrderConfiguration());
+            modelBuilder.ApplyConfiguration(new ProductConfiguration());
+            modelBuilder.ApplyConfiguration(new ProductCategoryConfiguration());
         }
 
         [IntentManaged(Mode.Ignore)]

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="8d99c437-7fde-485e-a74f-826fac36d8a2">
+  <sourceEnd id="4f668563-085c-424e-aee3-94991e3bd938" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Order</name>
+    <display>Order: Order</display>
+    <order>0</order>
+    <typeReference id="9fa362d4-80ed-4fbf-94e4-9e1a9f1e359d">
+      <typeId>337519c7-8aeb-481f-aa3b-93d8ac11dc74</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMapping.Repositories.Mapperly.Tests.Domain</typePackageName>
+      <typePackageId>9804eb76-4b5e-4998-8c95-0116febd73cd</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="8d99c437-7fde-485e-a74f-826fac36d8a2" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Lines</name>
+    <display>Lines: OrderLine[*]</display>
+    <order>8</order>
+    <typeReference id="1ed15217-7c23-4cac-9cf4-b222041f670a">
+      <typeId>1729deb1-3dc8-41e1-91c3-9e1feca2378c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMapping.Repositories.Mapperly.Tests.Domain</typePackageName>
+      <typePackageId>9804eb76-4b5e-4998-8c95-0116febd73cd</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

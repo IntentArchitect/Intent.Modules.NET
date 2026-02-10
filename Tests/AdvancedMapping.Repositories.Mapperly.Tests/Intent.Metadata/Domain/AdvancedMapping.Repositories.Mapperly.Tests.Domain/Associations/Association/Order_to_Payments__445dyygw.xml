@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="b93cd33b-750e-4f84-aeaa-a4fb6c3b5702">
+  <sourceEnd id="7b942ee4-8fbf-4416-b087-69abaf19ba15" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Order</name>
+    <display>Order: Order</display>
+    <order>0</order>
+    <typeReference id="7f2c64c8-58b9-41a7-9d93-b61c6fecc66d">
+      <typeId>337519c7-8aeb-481f-aa3b-93d8ac11dc74</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMapping.Repositories.Mapperly.Tests.Domain</typePackageName>
+      <typePackageId>9804eb76-4b5e-4998-8c95-0116febd73cd</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="b93cd33b-750e-4f84-aeaa-a4fb6c3b5702" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Payments</name>
+    <display>Payments: Payment[*]</display>
+    <order>10</order>
+    <typeReference id="b2f10cf1-7123-4b2a-9c39-61fdca5bd392">
+      <typeId>8028db9f-af27-418a-9352-cc24554a9a45</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMapping.Repositories.Mapperly.Tests.Domain</typePackageName>
+      <typePackageId>9804eb76-4b5e-4998-8c95-0116febd73cd</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

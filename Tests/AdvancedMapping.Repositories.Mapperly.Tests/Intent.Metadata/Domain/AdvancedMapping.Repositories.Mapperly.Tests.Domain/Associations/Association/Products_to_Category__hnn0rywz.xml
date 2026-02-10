@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="9571ace2-7aa7-4277-b0d9-3f148cbe4c96">
+  <sourceEnd id="2993e0fc-be4b-4af7-9ef2-70588058d7e0" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Products</name>
+    <display>Products: Product[*]</display>
+    <order>0</order>
+    <typeReference id="4e88dcde-7b83-4683-a6e6-bb70c41aa7b3">
+      <typeId>0363354e-a071-44e7-a330-ba91e9991b64</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMapping.Repositories.Mapperly.Tests.Domain</typePackageName>
+      <typePackageId>9804eb76-4b5e-4998-8c95-0116febd73cd</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="9571ace2-7aa7-4277-b0d9-3f148cbe4c96" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Category</name>
+    <display>Category: ProductCategory</display>
+    <order>6</order>
+    <typeReference id="996fb646-a631-40f9-880b-24359157b5b4">
+      <typeId>98258dc0-2e28-4077-8d0d-2210b7225d4a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMapping.Repositories.Mapperly.Tests.Domain</typePackageName>
+      <typePackageId>9804eb76-4b5e-4998-8c95-0116febd73cd</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

@@ -1,6 +1,7 @@
 using System.Reflection;
 using AdvancedMapping.Repositories.Mapperly.Tests.Application.Common.Behaviours;
 using AdvancedMapping.Repositories.Mapperly.Tests.Application.Common.Validation;
+using AdvancedMapping.Repositories.Mapperly.Tests.Application.Mappings.Orders;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
@@ -25,6 +26,15 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application
                 cfg.AddOpenBehavior(typeof(ValidationBehaviour<,>));
                 cfg.AddOpenBehavior(typeof(UnitOfWorkBehaviour<,>));
             });
+            services.AddSingleton<OrderAddressDtoMapper>();
+            services.AddSingleton<OrderCustomerDtoMapper>();
+            services.AddSingleton<OrderDiscountDtoMapper>();
+            services.AddSingleton<OrderDtoMapper>();
+            services.AddSingleton<OrderOrderLineDtoMapper>();
+            services.AddSingleton<OrderPaymentDtoMapper>();
+            services.AddSingleton<OrderProductCategoryDtoMapper>();
+            services.AddSingleton<OrderProductDtoMapper>();
+            services.AddSingleton<OrderShipmentDtoMapper>();
             services.AddScoped<IValidatorProvider, ValidatorProvider>();
             return services;
         }
