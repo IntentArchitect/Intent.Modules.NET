@@ -196,6 +196,7 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates
                 var targetElementId = field.TypeReference.Element?.Id;
                 if (string.IsNullOrEmpty(targetElementId))
                 {
+                    Logging.Log.Debug($"[Mapperly Discovery] {dtoModel.Name}.{field.Name}: No element ID found, skipping");
                     continue;
                 }
 
@@ -223,22 +224,37 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates
                     Logging.Log.Debug($"[Mapperly Discovery] Got DTOModel {nestedDtoModel.Name} (ID: {nestedDtoModel.Id}), looking for its mapper...");
 
                     // Found a nested DTO - now find its mapper template using the DTOModel ID
-                    if (template.TryGetTemplate(
+                    var mapperLookupResult = template.TryGetTemplate(
                         "Intent.Application.Dtos.Mapperly.DtoMappingProfile",
                         nestedDtoModel.Id,
-                        out ICSharpFileBuilderTemplate mapperTemplate))
+                        out ICSharpFileBuilderTemplate mapperTemplate);
+
+                    Logging.Log.Debug($"[Mapperly Discovery] Mapper template lookup for DTOModel ID '{nestedDtoModel.Id}': {(mapperLookupResult ? "FOUND" : "NOT FOUND")}");
+
+                    if (mapperLookupResult)
                     {
+                        Logging.Log.Debug($"[Mapperly Discovery] Mapper template details: ClassName={mapperTemplate.ClassName}, TemplateId={mapperTemplate.Id}");
+
                         // Add to dependencies if not already present
-                        if (!dependencies.Any(d => d.Id == mapperTemplate.Id))
+                        if (dependencies.All(d => d.ClassName != mapperTemplate.ClassName))
                         {
                             dependencies.Add(mapperTemplate);
-                            Logging.Log.Debug($"[Mapperly Discovery] Added dependency: {mapperTemplate.ClassName}");
+                            Logging.Log.Debug($"[Mapperly Discovery] Added dependency: {mapperTemplate.ClassName} (Mapper ID: {mapperTemplate.Id})");
+                        }
+                        else
+                        {
+                            Logging.Log.Debug($"[Mapperly Discovery] Mapper {mapperTemplate.ClassName} already in dependencies (ID: {mapperTemplate.Id}), skipping duplicate");
                         }
                     }
                     else
                     {
-                        Logging.Log.Debug($"[Mapperly Discovery] No mapper template found for DTOModel {nestedDtoModel.Name} (DTOModel ID: {nestedDtoModel.Id})");
+                        Logging.Log.Debug($"[Mapperly Discovery] FAILED to find mapper template for DTOModel '{nestedDtoModel.Name}' (DTOModel ID: {nestedDtoModel.Id})");
+                        Logging.Log.Debug($"[Mapperly Discovery] Expected template role: 'Intent.Application.Dtos.Mapperly.DtoMappingProfile', element ID: {nestedDtoModel.Id}");
                     }
+                }
+                else
+                {
+                    Logging.Log.Debug($"[Mapperly Discovery] {field.TypeReference.Element?.Name} (ID: {targetElementId}) is not a DTO template");
                 }
             }
         }
