@@ -19,16 +19,29 @@ internal class MapperlyMappingStrategy : IMappingStrategy
         EntityDetails entity, ICSharpTemplate template, ITypeReference returnType, string? returnDto)
     {
         template.TryGetTypeName("Intent.Application.Dtos.Mapperly.DtoMappingProfile", returnType.Element, out var _);
-        statements.Add($"var mapper = new {entity.ElementModel.Name}DtoMapper();");
-        statements.Add($"return mapper.{entity.ElementModel.Name}To{returnDto}{(returnType.IsCollection ? "List" : "")}({entity.VariableName}{(returnType.IsCollection ? ".ToList()" : "")});");
+        var ctor = method.Class.Constructors.FirstOrDefault();
+        if (ctor is null)
+        {
+            method.Class.AddConstructor();
+            ctor = method.Class.Constructors.First();
+        }
+        ctor.AddParameter($"{entity.ElementModel.Name}DtoMapper", "mapper", param => param.IntroduceReadonlyField());
+        statements.Add($"return _mapper.{entity.ElementModel.Name}To{returnDto}{(returnType.IsCollection ? "List" : "")}({entity.VariableName}{(returnType.IsCollection ? ".ToList()" : "")});");
     }
 
     public void ImplementPagedMappingStatement(ICSharpClassMethodDeclaration method, List<CSharpStatement> statements, EntityDetails entity,
         ICSharpTemplate template, ITypeReference returnType, string? returnDto, string? mappingMethod)
     {
         template.TryGetTypeName("Intent.Application.Dtos.Mapperly.DtoMappingProfile", returnType.Element, out var _);
-        statements.Add($"var mapper = new {entity.ElementModel.Name}DtoMapper();");
-        statements.Add($"return {entity.VariableName}.{mappingMethod}(x => mapper.{entity.ElementModel.Name}To{returnDto}(x));");
+        var ctor = method.Class.Constructors.FirstOrDefault();
+        if (ctor is null)
+        {
+            method.Class.AddConstructor();
+            ctor = method.Class.Constructors.First();
+        }
+
+        ctor.AddParameter($"{entity.ElementModel.Name}DtoMapper", "mapper", param => param.IntroduceReadonlyField());
+        statements.Add($"return {entity.VariableName}.{mappingMethod}(x => _mapper.{entity.ElementModel.Name}To{returnDto}(x));");
     }
 
     public bool HasProjectTo() => false;

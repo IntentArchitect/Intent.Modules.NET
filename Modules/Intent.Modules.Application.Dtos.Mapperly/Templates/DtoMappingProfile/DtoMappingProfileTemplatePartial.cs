@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
@@ -9,9 +12,6 @@ using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using Intent.Utils;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -37,7 +37,7 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
 
                     // Discover mapper dependencies INSIDE the class builder callback
                     var mapperDependencies = MappingHelper.DiscoverMapperDependencies(this, Model);
-                    
+
                     // DEBUG: Log what we found
                     Logging.Log.Debug($"[Mapperly] {Model.Name}Mapper: Found {mapperDependencies.Count} dependencies: {string.Join(", ", mapperDependencies.Select(d => d.ClassName))}");
 
@@ -82,7 +82,7 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
                     @class.AddMethod(dtoModelName, $"{entityTypeName}To{dtoModelName}", method =>
                     {
                         method.Public().Partial();
-                            method.AddParameter(entityTypeName, entityTypeName.ToCamelCase()).WithoutMethodModifier();
+                        method.AddParameter(entityTypeName, entityTypeName.ToCamelCase()).WithoutMethodModifier();
 
                         // Add mapping configuration attributes
                         foreach (var config in mappingConfigurations)
@@ -109,7 +109,7 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
                     @class.AddMethod($"List<{dtoModelName}>", $"{entityTypeName}To{dtoModelName}List", method =>
                     {
                         method.Public().Partial();
-                            method.AddParameter($"List<{entityTypeName}>", entityTypeName.ToCamelCase().Pluralize()).WithoutMethodModifier();
+                        method.AddParameter($"List<{entityTypeName}>", entityTypeName.ToCamelCase().Pluralize()).WithoutMethodModifier();
                     });
 
                     // Generate custom mapping methods
@@ -205,26 +205,26 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
                     : mappingExpression;
                 var useCustomMethod = shouldCast || RequiresCustomMethod(mappingExpression);
 
-                    // Check if Mapperly can handle nested property flattening by convention
-                    if (!useCustomMethod && sourcePath.Contains(".") && !sourcePath.Contains("("))
+                // Check if Mapperly can handle nested property flattening by convention
+                if (!useCustomMethod && sourcePath.Contains(".") && !sourcePath.Contains("("))
+                {
+                    var mapperlyConventionName = sourcePath.Replace(".", "");
+                    var actualTargetName = targetPropertyName;
+
+                    if (mapperlyConventionName == actualTargetName)
                     {
-                        var mapperlyConventionName = sourcePath.Replace(".", "");
-                        var actualTargetName = targetPropertyName;
-
-                        if (mapperlyConventionName == actualTargetName)
-                        {
-                            Logging.Log.Debug($"[Mapperly FieldMappings]     SKIPPED: {sourcePath} → {actualTargetName} matches Mapperly flattening convention");
-                            continue;
-                        }
-                        else
-                        {
-                            Logging.Log.Debug($"[Mapperly FieldMappings]     EXPLICIT: {sourcePath} convention={mapperlyConventionName} but field={actualTargetName}");
-                        }
+                        Logging.Log.Debug($"[Mapperly FieldMappings]     SKIPPED: {sourcePath} → {actualTargetName} matches Mapperly flattening convention");
+                        continue;
                     }
+                    else
+                    {
+                        Logging.Log.Debug($"[Mapperly FieldMappings]     EXPLICIT: {sourcePath} convention={mapperlyConventionName} but field={actualTargetName}");
+                    }
+                }
 
-                    var customMethodName = useCustomMethod ? $"Map{targetPropertyName}" : string.Empty;
+                var customMethodName = useCustomMethod ? $"Map{targetPropertyName}" : string.Empty;
 
-                    Logging.Log.Debug($"[Mapperly FieldMappings]     EXPLICIT MAPPING NEEDED: UseCustomMethod={useCustomMethod}, SourcePath={sourcePath}");
+                Logging.Log.Debug($"[Mapperly FieldMappings]     EXPLICIT MAPPING NEEDED: UseCustomMethod={useCustomMethod}, SourcePath={sourcePath}");
 
                 configs.Add(new MappingConfiguration(
                     Field: field,
