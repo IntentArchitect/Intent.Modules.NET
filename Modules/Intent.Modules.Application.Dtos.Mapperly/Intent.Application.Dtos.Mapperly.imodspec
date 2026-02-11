@@ -9,6 +9,7 @@
   <iconUrl>data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoCiAgICAgICAgZmlsbD0iIzI3NzE0OCIKICAgICAgICBkPSJNNCAxMWgydjZoLTJ2LTZ6bTUtN2gtNXY1aDJ2LTNoM3YtMnptMTUgN2gtMnY2aDJ2LTZ6bS03LTV2LTJoLTZ2Mmg2em0yIDBoM3YzaDJ2LTVoLTV2MnptLTIgMTh2LTJoLTZ2Mmg2em0tOC0yaC0zdi0zaC0ydjVoNXYtMnptMTMtM3YzaC0zdjJoNXYtNWgtMnptLTEtMTloLTIxdjIxaDJ2LTE5aDE5di0yeiIvPgo8L3N2Zz4K</iconUrl>
   <releaseNotes>release-notes.md</releaseNotes>
   <tags>csharp dotnet dtos mapperly mapper</tags>
+  <projectUrl>https://docs.intentarchitect.com/articles/modules-dotnet/intent-application-dtos-mapperly/intent-application-dtos-mapperly.html</projectUrl>
   <templates>
     <template id="Intent.Application.Dtos.Mapperly.DtoMappingProfile" externalReference="0a7a0b61-e9ba-4e80-9bcd-cc19c506b416">
       <config>
