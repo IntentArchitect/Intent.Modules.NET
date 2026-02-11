@@ -25,7 +25,10 @@ internal class MapperlyMappingStrategy : IMappingStrategy
             method.Class.AddConstructor();
             ctor = method.Class.Constructors.First();
         }
-        ctor.AddParameter($"{entity.ElementModel.Name}DtoMapper", "mapper", param => param.IntroduceReadonlyField());
+        if (ctor.Parameters.All(x => x.Type != $"{entity.ElementModel.Name}DtoMapper"))
+        {
+            ctor.AddParameter($"{entity.ElementModel.Name}DtoMapper", "mapper", param => param.IntroduceReadonlyField());
+        }
         statements.Add($"return _mapper.{entity.ElementModel.Name}To{returnDto}{(returnType.IsCollection ? "List" : "")}({entity.VariableName}{(returnType.IsCollection ? ".ToList()" : "")});");
     }
 
@@ -39,8 +42,10 @@ internal class MapperlyMappingStrategy : IMappingStrategy
             method.Class.AddConstructor();
             ctor = method.Class.Constructors.First();
         }
-
-        ctor.AddParameter($"{entity.ElementModel.Name}DtoMapper", "mapper", param => param.IntroduceReadonlyField());
+        if (ctor.Parameters.All(x => x.Type != $"{entity.ElementModel.Name}DtoMapper"))
+        {
+            ctor.AddParameter($"{entity.ElementModel.Name}DtoMapper", "mapper", param => param.IntroduceReadonlyField());
+        }
         statements.Add($"return {entity.VariableName}.{mappingMethod}(x => _mapper.{entity.ElementModel.Name}To{returnDto}(x));");
     }
 
