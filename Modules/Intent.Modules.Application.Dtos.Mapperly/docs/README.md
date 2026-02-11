@@ -1,7 +1,7 @@
 ﻿# Intent.Application.Dtos.Mapperly
 
 ## What This Module Does
-Generates Mapperly mapping classes and extension methods for DTOs produced by `Intent.Application.Dtos`, enabling automatic mapping between Domain Entities and their DTO representations.
+Generates [Mapperly](https://mapperly.riok.app) mapping classes and extension methods for DTOs produced by `Intent.Application.Dtos`, enabling automatic mapping between Domain Entities and their DTO representations.
 
 ## Generated Artifacts
 - Mapper classes (e.g., `[Entity]To[Dto]Mapper`) with `Map` methods for converting entities to DTOs. Location configurable by template; often `Mappings/`.

@@ -1,12 +1,12 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.Dtos.Mapperly</id>
-  <version>1.0.3-pre.0</version>
+  <version>1.0.3-pre.1</version>
   <supportedClientVersions>[4.5.18-a,5.0.0)</supportedClientVersions>
   <summary>Generates mapping specifications using Mapperly for DTOs that are mapped from Domain Entities</summary>
   <description>Generates mapping specifications using Mapperly for DTOs that are mapped from Domain Entities</description>
   <authors>Intent Architect</authors>
-  <iconUrl>data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoCiAgICAgICAgZmlsbD0iIzI3NzE0OCIKICAgICAgICBkPSJNNCAxMWgydjZoLTJ2LTZ6bTUtN2gtNXY1aDJ2LTNoM3YtMnptMTUgN2gtMnY2aDJ2LTZ6bS03LTV2LTJoLTZ2Mmg2em0yIDBoM3YzaDJ2LTVoLTV2MnptLTIgMTh2LTJoLTZ2Mmg2em0tOC0yaC0zdi0zaC0ydjVoNXYtMnptMTMtM3YzaC0zdjJoNXYtNWgtMnptLTEtMTloLTIxdjIxaDJ2LTE5aDE5di0yeiIvPgo8L3N2Zz4K</iconUrl>
+  <iconUrl>data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+CiAgICA8cGF0aAogICAgICAgIGZpbGw9IiMyNzcxNDgiCiAgICAgICAgZD0iTTQgMTFoMnY2aC0ydi02em01LTdoLTV2NWgydi0zaDN2LTJ6bTE1IDdoLTJ2Nmgydi02em0tNy01di0yaC02djJoNnptMiAwaDN2M2gydi01aC01djJ6bS0yIDE4di0yaC02djJoNnptLTgtMmgtM3YtM2gtMnY1aDV2LTJ6bTEzLTN2M2gtM3YyaDV2LTVoLTJ6bS0xLTE5aC0yMXYyMWgydi0xOWgxOXYtMnoiLz4KPC9zdmc+Cg==</iconUrl>
   <releaseNotes>release-notes.md</releaseNotes>
   <tags>csharp dotnet dtos mapperly mapper</tags>
   <projectUrl>https://docs.intentarchitect.com/articles/modules-dotnet/intent-application-dtos-mapperly/intent-application-dtos-mapperly.html</projectUrl>
