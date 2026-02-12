@@ -16,7 +16,6 @@ using Intent.Modules.Constants;
 using Intent.Modules.DomainEvents.Settings;
 using Intent.Modules.DomainEvents.Templates.DomainEvent;
 using Intent.Modules.DomainEvents.Templates.DomainEventBase;
-using Intent.Modules.DomainEvents.Templates.DomainEventServiceInterface;
 using Intent.Modules.DomainEvents.Templates.HasDomainEventInterface;
 using Intent.Modules.Modelers.Domain.Settings;
 using Intent.Plugins.FactoryExtensions;
@@ -44,81 +43,81 @@ namespace Intent.Modules.DomainEvents.FactoryExtensions
                 template.CSharpFile.OnBuild(file =>
                 {
                     var @class = file.Classes.FirstOrDefault();
-                    if (@class?.TryGetMetadata<ClassModel>("model", out var model) == true &&
-                        model.IsAggregateRoot() &&
-                        model.ParentClass == null &&
-                        AggregateGetsDomainEventing(application, model)
-                       )
+                    if (@class?.TryGetMetadata<ClassModel>("model", out var model) != true ||
+                        !RequiresHasDomainEventsImplementation(application, model) ||
+                        model.ParentClass?.GetTypesInHierarchy().Any(x => RequiresHasDomainEventsImplementation(application, x)) == true)
                     {
-                        @class.ImplementsInterface(template.GetTypeName(HasDomainEventInterfaceTemplate.TemplateId));
-                        @class.AddProperty($"{template.UseType("System.Collections.Generic.List")}<{template.GetTypeName(DomainEventBaseTemplate.TemplateId)}>", "DomainEvents",
-                            property =>
-                            {
-                                var initValue = template.OutputTarget.GetProject().GetLanguageVersion().Major < 12 ? $"new {property.Type}()" : "[]";
-                                property.WithInitialValue(initValue);
-                                property.AddMetadata("non-persistent", true);
-                            });
+                        return;
                     }
+
+                    @class.ImplementsInterface(template.GetTypeName(HasDomainEventInterfaceTemplate.TemplateId));
+                    @class.AddProperty($"{template.UseType("System.Collections.Generic.List")}<{template.GetTypeName(DomainEventBaseTemplate.TemplateId)}>", "DomainEvents",
+                        property =>
+                        {
+                            var initValue = template.OutputTarget.GetProject().GetLanguageVersion().Major < 12 ? $"new {property.Type}()" : "[]";
+                            property.WithInitialValue(initValue);
+                            property.AddMetadata("non-persistent", true);
+                        });
                 });
             }
 
-            var entityImplTemplates =
-                application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateRoles.Domain.Entity.EntityImplementation));
+            var entityImplTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateRoles.Domain.Entity.EntityImplementation));
             foreach (var template in entityImplTemplates)
             {
                 template.AddTypeSource(DomainEventTemplate.TemplateId);
                 template.CSharpFile.OnBuild(file =>
                 {
                     var @class = file.Classes.FirstOrDefault();
-                    if (@class?.TryGetMetadata<ClassModel>("model", out var model) == true &&
-                        model.IsAggregateRoot() &&
-                        AggregateGetsDomainEventing(application, model)
-                       )
+                    if (@class?.TryGetMetadata<ClassModel>("model", out var model) != true ||
+                        !MayPublishDomainEvents(application, model))
                     {
-                        foreach (var ctorModel in model.Constructors.Where(x => x.PublishedDomainEvents().Any()))
-                        {
-                            var ctor = @class.Constructors.FirstOrDefault(x => x.TryGetMetadata("model", out var m) && Equals(m, ctorModel));
-                            if (ctor != null)
-                            {
-                                foreach (var publishedDomainEvent in ctorModel.PublishedDomainEvents())
-                                {
+                        return;
+                    }
 
-                                    ctor.Statements.FirstOrDefault(x => x.ToString().Contains("// TODO: Implement"))?.Remove();
-                                    ctor.Statements.FirstOrDefault(x => x.ToString().Contains("NotImplementedException"))?.Remove();
-                                    var mapping = publishedDomainEvent.Mappings.SingleOrDefault();
-                                    if (mapping != null)
-                                    {
-                                        ctor.AddStatement(new CSharpInvocationStatement($"DomainEvents.Add").AddArgument(ConstructDomainEvent(template, publishedDomainEvent)));
-                                    }
-                                    else
-                                    {
-                                        ctor.AddStatement(new CSharpInvocationStatement($"DomainEvents.Add").AddArgument(ConstructDomainEvent(template,
-                                            ctor.Parameters.Select(x => x.Name).ToList(), publishedDomainEvent.Element.AsDomainEventModel())));
-                                    }
-                                }
-                            }
+                    foreach (var ctor in @class.Constructors)
+                    {
+                        if (!ctor.TryGetMetadata<ClassConstructorModel>("model", out var ctorModel))
+                        {
+                            continue;
                         }
 
-                        foreach (var operationModel in model.Operations.Where(x => x.PublishedDomainEvents().Any()))
+                        foreach (var publishedDomainEvent in ctorModel.PublishedDomainEvents())
                         {
-                            var method = @class.Methods.FirstOrDefault(x => x.TryGetMetadata("model", out var m) && Equals(m, operationModel));
-                            if (method != null)
+                            ctor.Statements.FirstOrDefault(x => x.ToString().Contains("// TODO: Implement"))?.Remove();
+                            ctor.Statements.FirstOrDefault(x => x.ToString().Contains("NotImplementedException"))?.Remove();
+                            var mapping = publishedDomainEvent.Mappings.SingleOrDefault();
+                            if (mapping != null)
                             {
-                                foreach (var publishedDomainEvent in operationModel.PublishedDomainEvents())
-                                {
-                                    method.Statements.FirstOrDefault(x => x.ToString().Contains("// TODO: Implement"))?.Remove();
-                                    method.Statements.FirstOrDefault(x => x.ToString().Contains("NotImplementedException"))?.Remove();
-                                    var mapping = publishedDomainEvent.Mappings.SingleOrDefault();
-                                    if (mapping != null)
-                                    {
-                                        method.AddStatement(new CSharpInvocationStatement($"DomainEvents.Add").AddArgument(ConstructDomainEvent(template, publishedDomainEvent)));
-                                    }
-                                    else
-                                    {
-                                        method.AddStatement(new CSharpInvocationStatement($"DomainEvents.Add").AddArgument(ConstructDomainEvent(template,
-                                            method.Parameters.Select(x => x.Name).ToList(), publishedDomainEvent.Element.AsDomainEventModel())));
-                                    }
-                                }
+                                ctor.AddStatement(new CSharpInvocationStatement("DomainEvents.Add").AddArgument(ConstructDomainEvent(template, publishedDomainEvent)));
+                            }
+                            else
+                            {
+                                ctor.AddStatement(new CSharpInvocationStatement("DomainEvents.Add").AddArgument(ConstructDomainEvent(template,
+                                    ctor.Parameters.Select(x => x.Name).ToList(), publishedDomainEvent.Element.AsDomainEventModel())));
+                            }
+                        }
+                    }
+
+                    foreach (var method in @class.Methods)
+                    {
+                        if (!method.TryGetMetadata<OperationModel>("model", out var operationModel))
+                        {
+                            continue;
+                        }
+
+                        foreach (var publishedDomainEvent in operationModel.PublishedDomainEvents())
+                        {
+                            method.Statements.FirstOrDefault(x => x.ToString().Contains("// TODO: Implement"))?.Remove();
+                            method.Statements.FirstOrDefault(x => x.ToString().Contains("NotImplementedException"))?.Remove();
+                            var mapping = publishedDomainEvent.Mappings.SingleOrDefault();
+                            if (mapping != null)
+                            {
+                                method.AddStatement(new CSharpInvocationStatement("DomainEvents.Add").AddArgument(ConstructDomainEvent(template, publishedDomainEvent)));
+                            }
+                            else
+                            {
+                                method.AddStatement(new CSharpInvocationStatement("DomainEvents.Add").AddArgument(ConstructDomainEvent(template,
+                                    method.Parameters.Select(x => x.Name).ToList(), publishedDomainEvent.Element.AsDomainEventModel())));
                             }
                         }
                     }
@@ -140,16 +139,32 @@ namespace Intent.Modules.DomainEvents.FactoryExtensions
             }
         }
 
-        private bool AggregateGetsDomainEventing(IApplication application, ClassModel model)
+        private static bool RequiresHasDomainEventsImplementation(
+            IApplication application,
+            ClassModel model)
         {
-            if (application.Settings.GetDomainSettings().ImplementDomainEventingOn().IsModelledEvents())
+            return application.Settings.GetDomainSettings().ImplementDomainEventingOn().AsEnum() switch
             {
-                return model.Constructors.Where(x => x.PublishedDomainEvents().Any()).Any() ||
-                       model.Operations.Where(x => x.PublishedDomainEvents().Any()).Any();
-            }
+                DomainSettingsExtensions.ImplementDomainEventingOnOptionsEnum.AllEntities => true,
+                // Note: For backwards compatibility reasons this name of "All" is misleading and the setting label is actually "All Aggregates"
+                DomainSettingsExtensions.ImplementDomainEventingOnOptionsEnum.All => model.IsAggregateRoot(),
+                DomainSettingsExtensions.ImplementDomainEventingOnOptionsEnum.ModelledEvents =>
+                    model.Constructors.Any(x => x.PublishedDomainEvents().Any()) ||
+                    model.Operations.Any(x => x.PublishedDomainEvents().Any()),
+                _ => throw new Exception($"Unknown option: {application.Settings.GetDomainSettings().ImplementDomainEventingOn().Value}")
+            };
+        }
 
-            //Default is they all get
-            return true;
+        private static bool MayPublishDomainEvents(IApplication application, ClassModel model)
+        {
+            return application.Settings.GetDomainSettings().ImplementDomainEventingOn().AsEnum() switch
+            {
+                DomainSettingsExtensions.ImplementDomainEventingOnOptionsEnum.AllEntities => true,
+                // Note: For backwards compatibility reasons this name of "All" is misleading and the setting label is actually "All Aggregates"
+                DomainSettingsExtensions.ImplementDomainEventingOnOptionsEnum.All => model.GetTypesInHierarchy().Any(x => x.IsAggregateRoot()),
+                DomainSettingsExtensions.ImplementDomainEventingOnOptionsEnum.ModelledEvents => true,
+                _ => throw new Exception($"Unknown option: {application.Settings.GetDomainSettings().ImplementDomainEventingOn().Value}")
+            };
         }
 
         private CSharpStatement ConstructDomainEvent(ICSharpFileBuilderTemplate template,
@@ -162,38 +177,6 @@ namespace Intent.Modules.DomainEvents.FactoryExtensions
             manager.SetFromReplacement(model.OtherEnd().Element, null); // the constructor element
 
             return manager.GenerateCreationStatement(mapping);
-        }
-
-        private static string GetPath(IList<IElementMappingPathTarget> path, params IMetadataModel[] rootModels)
-        {
-            if (path.Count == 1 && rootModels.Any(x => x.Id == path[0].Id))
-            {
-                return "this";
-            }
-
-            var mappedPath = new List<string>();
-            foreach (var pathItem in path)
-            {
-                if (rootModels.Any(x => x.Id == pathItem.Id))
-                {
-                    continue;
-                }
-
-                switch (pathItem.Specialization)
-                {
-                    case OperationModel.SpecializationType:
-                        mappedPath.Add($"{pathItem.Element.Name.ToPascalCase()}()");
-                        continue;
-                    case ParameterModel.SpecializationType:
-                        mappedPath.Add($"{pathItem.Element.Name.ToParameterName()}");
-                        continue;
-                    default:
-                        mappedPath.Add($"{pathItem.Element.Name.ToPascalCase()}");
-                        continue;
-                }
-            }
-
-            return string.Join(".", mappedPath);
         }
 
         private string ConstructDomainEvent(ICSharpFileBuilderTemplate template,
@@ -225,9 +208,9 @@ namespace Intent.Modules.DomainEvents.FactoryExtensions
                 {
                     invocation.AddArgument(property.Name.ToPascalCase());
                 }
-                else if (classModel.Attributes.Any(x => ($@"{classModel.Name}{x.Name}").Equals(property.Name, StringComparison.InvariantCultureIgnoreCase)))
+                else if (classModel.Attributes.Any(x => ($"{classModel.Name}{x.Name}").Equals(property.Name, StringComparison.InvariantCultureIgnoreCase)))
                 {
-                    var attribute = classModel.Attributes.First(x => ($@"{classModel.Name}{x.Name}").Equals(property.Name, StringComparison.InvariantCultureIgnoreCase));
+                    var attribute = classModel.Attributes.First(x => ($"{classModel.Name}{x.Name}").Equals(property.Name, StringComparison.InvariantCultureIgnoreCase));
                     invocation.AddArgument(attribute.Name.ToPascalCase());
                 }
                 else

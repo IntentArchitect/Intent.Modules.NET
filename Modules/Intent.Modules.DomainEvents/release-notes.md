@@ -1,3 +1,7 @@
+### Version 5.0.14
+
+- Improvement: Domain events can now be published for all entity types (not just aggregates) based on the "Implement Domain Eventing on" setting.
+
 ### Version 5.0.13
 
 - Improvement: Generating Domain Event classes which can now recognize inheriting from other Domain Event classes.

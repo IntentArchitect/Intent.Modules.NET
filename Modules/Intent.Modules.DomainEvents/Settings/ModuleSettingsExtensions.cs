@@ -28,10 +28,16 @@ namespace Intent.Modules.DomainEvents.Settings
             {
                 return Value switch
                 {
+                    "all-entities" => ImplementDomainEventingOnOptionsEnum.AllEntities,
                     "all" => ImplementDomainEventingOnOptionsEnum.All,
                     "modelled-events" => ImplementDomainEventingOnOptionsEnum.ModelledEvents,
                     _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
                 };
+            }
+
+            public bool IsAllEntities()
+            {
+                return Value == "all-entities";
             }
 
             public bool IsAll()
@@ -47,6 +53,7 @@ namespace Intent.Modules.DomainEvents.Settings
 
         public enum ImplementDomainEventingOnOptionsEnum
         {
+            AllEntities,
             All,
             ModelledEvents,
         }

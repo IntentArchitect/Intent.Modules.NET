@@ -42,7 +42,7 @@
             <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Select" isActive="true" />
             <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="false" />
             <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" isActive="true" />
-            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="all" isActive="true" />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="all-entities" isActive="true" />
             <property name="c3456e79-0607-41a5-9b85-e0712f4f4834" display="Is Active Function" value="" isActive="true" />
             <property name="fa54329f-d4e5-48bc-8027-e17206e9fc89" display="Is Required Function" value="" isActive="true" />
             <property name="29696a13-bf1d-4fbd-bdf3-adb802430cb4" display="Order Priority" isActive="true" />
@@ -51,7 +51,22 @@
       </stereotypes>
       <metadata />
       <childElements>
+        <childElement id="d2096bda-d3c3-4f52-abc2-d7ccd32012af" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>All Entities</name>
+          <display>All Entities = all-entities</display>
+          <isAbstract>false</isAbstract>
+          <value>all-entities</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>afc698a3-1188-43e9-9ba4-df44a5f343d3</parentFolderId>
+          <packageId>40ce7dd1-89e1-4505-be73-c89c5bc47d16</packageId>
+          <packageName>Intent.DomainEvents</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
         <childElement id="ff379a8d-337b-4de4-91ea-00821340aca1" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <comment>The "all" value for this is to maintain backwards compatibility with when it had a label of "all aggregates".</comment>
           <name>All Aggregates</name>
           <display>All Aggregates = all</display>
           <isAbstract>false</isAbstract>
@@ -66,8 +81,8 @@
           <childElements />
         </childElement>
         <childElement id="fc42b3d3-e864-4cac-998b-d78411cc1493" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
-          <name>Aggregates with Modelled Domain Events</name>
-          <display>Aggregates with Modelled Domain Events = modelled-events</display>
+          <name>Only Entities with Modelled Domain Events</name>
+          <display>Only Entities with Modelled Domain Events = modelled-events</display>
           <isAbstract>false</isAbstract>
           <value>modelled-events</value>
           <genericTypes />
