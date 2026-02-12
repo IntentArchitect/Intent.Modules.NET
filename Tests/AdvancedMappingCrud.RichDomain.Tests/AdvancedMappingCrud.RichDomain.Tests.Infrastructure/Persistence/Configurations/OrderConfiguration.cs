@@ -48,6 +48,8 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Infrastructure.Persistence.Config
                 .WithMany()
                 .HasForeignKey(x => x.ProductId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Ignore(e => e.DomainEvents);
         }
     }
 }

@@ -1,11 +1,14 @@
 using System;
+using System.Collections.Generic;
+using AdvancedMappingCrud.RichDomain.Tests.Domain.Common;
+using AdvancedMappingCrud.RichDomain.Tests.Domain.Events;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: IntentTemplate("Intent.Entities.DomainEntity", Version = "2.0")]
 
 namespace AdvancedMappingCrud.RichDomain.Tests.Domain.Entities
 {
-    public class Address
+    public class Address : IHasDomainEvent
     {
         public Address(string line1, string line2, string city, int postal)
         {
@@ -13,6 +16,8 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Domain.Entities
             Line2 = line2;
             City = city;
             Postal = postal;
+            DomainEvents.Add(new OnAddressCreated(
+                address: this));
         }
 
         /// <summary>
@@ -35,5 +40,7 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Domain.Entities
         public string City { get; private set; }
 
         public int Postal { get; private set; }
+
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

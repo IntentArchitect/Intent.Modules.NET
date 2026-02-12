@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="80e38ee6-d419-4abe-873f-bf66b8581c64" type="Domain Event" typeId="0814e459-fb9b-47db-b7eb-32ce30397e8a">
+  <name>OnAddressCreated</name>
+  <display>OnAddressCreated</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>42d31ce9-1395-4a0a-b86c-7af2682124b9</parentFolderId>
+  <packageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</packageId>
+  <packageName>AdvancedMappingCrud.RichDomain.Tests.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="18346596-b753-4a71-b399-4b4d880e8175" type="Property" typeId="b4d69073-5abb-4968-b41b-545b2f7408ed">
+      <name>Address</name>
+      <display>Address: Address</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="fe9171a0-52b2-4867-88c5-7fed0e9865c3">
+        <typeId>3ecc716a-8ede-45fe-a235-d68ce85ded79</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Domain</typePackageName>
+        <typePackageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>80e38ee6-d419-4abe-873f-bf66b8581c64</parentFolderId>
+      <packageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</packageId>
+      <packageName>AdvancedMappingCrud.RichDomain.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

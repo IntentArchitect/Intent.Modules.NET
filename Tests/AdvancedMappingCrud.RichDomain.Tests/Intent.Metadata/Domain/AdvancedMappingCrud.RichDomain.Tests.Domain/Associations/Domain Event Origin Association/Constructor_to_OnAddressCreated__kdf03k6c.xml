@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="9dafc5fb-a2cc-4410-bb65-452e5f83bcc0">
+  <sourceEnd id="dc9fe78a-ab22-44f4-a620-b73ec169956d" type="Domain Event Origin Association Source End" typeId="2495d3ef-f7a2-441d-b749-b51b2546b45e">
+    <display>published by : Address.Constructor</display>
+    <order>0</order>
+    <typeReference id="e4a59be6-c984-439c-bd7c-dca41e1534e8">
+      <typeId>e93c7810-9ff0-4d51-b747-589d4c110d29</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Domain</typePackageName>
+      <typePackageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="9dafc5fb-a2cc-4410-bb65-452e5f83bcc0" type="Domain Event Origin Association Target End" typeId="17046427-14e2-4081-8463-ef16c0fda399">
+    <display>publishes : OnAddressCreated</display>
+    <order>4</order>
+    <typeReference id="cc6f9c65-929d-4c74-9161-2f8e0287536b">
+      <typeId>80e38ee6-d419-4abe-873f-bf66b8581c64</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Domain</typePackageName>
+      <typePackageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Entity to Domain Event Mapping" typeId="86cb62b5-412d-493b-a901-d6e08cf88059">
+        <source applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="3ecc716a-8ede-45fe-a235-d68ce85ded79" location="[AdvancedMappingCrud.RichDomain.Tests].[Domain].[Address]" />
+        <target applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="80e38ee6-d419-4abe-873f-bf66b8581c64" location="[AdvancedMappingCrud.RichDomain.Tests].[Domain].[OnAddressCreated]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Address}</expression>
+            <path>
+              <target id="80e38ee6-d419-4abe-873f-bf66b8581c64" name="OnAddressCreated" type="element" specialization="Domain Event" specializationId="0814e459-fb9b-47db-b7eb-32ce30397e8a" />
+              <target id="18346596-b753-4a71-b399-4b4d880e8175" name="Address" type="element" specialization="Property" specializationId="b4d69073-5abb-4968-b41b-545b2f7408ed" />
+            </path>
+            <sources>
+              <source identifier="Address" mappingType="Data Mapping" mappingTypeId="ddfefa35-caf3-48f8-aeed-7beabc8b2f5c">
+                <path>
+                  <target id="3ecc716a-8ede-45fe-a235-d68ce85ded79" name="Address" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Domain Event Origin Association</associationType>
+  <associationTypeId>4c0cc50b-8a9d-43cd-b731-9f354f69f3c9</associationTypeId>
+  <stereotypes />
+</association>

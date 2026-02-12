@@ -52,6 +52,8 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Infrastructure.Persistence.Config
 
             builder.Property(x => x.Postal)
                 .IsRequired();
+
+            builder.Ignore(e => e.DomainEvents);
         }
 
         public static void ConfigureContactDetails(OwnedNavigationBuilder<User, ContactDetailsVO> builder)

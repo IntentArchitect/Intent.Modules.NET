@@ -1,11 +1,13 @@
 using System;
+using System.Collections.Generic;
+using AdvancedMappingCrud.RichDomain.Tests.Domain.Common;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: IntentTemplate("Intent.Entities.DomainEntity", Version = "2.0")]
 
 namespace AdvancedMappingCrud.RichDomain.Tests.Domain.Entities
 {
-    public class OrderItem
+    public class OrderItem : IHasDomainEvent
     {
         public OrderItem(Guid productId, int quantity, decimal amount)
         {
@@ -33,6 +35,8 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Domain.Entities
         public decimal Amount { get; private set; }
 
         public virtual Product Product { get; private set; }
+
+        public List<DomainEvent> DomainEvents { get; set; } = [];
 
         public void UpdateDetails(Guid productId, int quantity, decimal amount)
         {
