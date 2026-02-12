@@ -1,3 +1,7 @@
+### Version 5.0.38
+
+- Fixed: `builder.Ignore(...)` was not being generated for owned entities.
+
 ### Version 5.0.37
 
 - Fixed: Text and decimal constraints on PK now correctly output in the configuration

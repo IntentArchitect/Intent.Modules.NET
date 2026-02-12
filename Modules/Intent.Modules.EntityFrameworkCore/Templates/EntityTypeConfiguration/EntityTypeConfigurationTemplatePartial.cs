@@ -131,7 +131,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 foreach (var property in GetAllBuilderProperties(classModel))
                 {
                     if (property.TryGetMetadata("non-persistent", out bool nonPersistent) && nonPersistent &&
-                        !isOwned && !HasInheritanceTypeAbleToConfigureProperty(classModel))
+                        !HasInheritanceTypeAbleToConfigureProperty(classModel))
                     {
                         method.AddStatement($"builder.Ignore(e => e.{property.Name});");
                     }
