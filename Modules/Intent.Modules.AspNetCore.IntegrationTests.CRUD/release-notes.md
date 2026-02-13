@@ -1,3 +1,7 @@
+### Version 1.0.19
+
+- Fixed: Upgraded to require the latest version of the `Intent.AspNetCore.IntegrationTesting` module to avoid issues when installing when the newer Codebase Structure is installed.
+
 ### Version 1.0.18
 
 - Fixed: ProjectUrl link.
