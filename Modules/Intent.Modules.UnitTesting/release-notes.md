@@ -1,3 +1,8 @@
+### Version 1.0.5
+
+- Improvement: Will now create the test project in the same solution folder as the application project.
+- Fixed: Would cause software factory errors if being installed when the newer `Codebase Structure` designer was in use.
+
 ### Version 1.0.4
 
 - Improvement: Updated NuGet package versions.
