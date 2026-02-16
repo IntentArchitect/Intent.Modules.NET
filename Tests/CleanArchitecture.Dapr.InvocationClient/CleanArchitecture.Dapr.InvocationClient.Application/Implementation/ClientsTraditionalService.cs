@@ -64,5 +64,20 @@ namespace CleanArchitecture.Dapr.InvocationClient.Application.Implementation
                 TagsIds = tagsIds
             }, cancellationToken);
         }
+
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        public async Task CallGetClientExtraFieldsQuery(
+            Guid id,
+            string field1,
+            string field2,
+            CancellationToken cancellationToken = default)
+        {
+            var result = await _clientsService.GetClientExtraFieldsAsync(new GetClientExtraFieldsQuery
+            {
+                Id = id,
+                Field1 = field1,
+                Field2 = field2
+            }, cancellationToken);
+        }
     }
 }

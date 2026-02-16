@@ -20,7 +20,7 @@
   </sourceEnd>
   <targetEnd id="dbc5445b-9ffa-49ef-9dbc-d4d2d61b5cbf" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
     <name>update</name>
-    <display>[call] update: UpdateClientCommand(...): null</display>
+    <display>[call] update = UpdateClientCommand(...): void</display>
     <order>3</order>
     <traits>
       <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />

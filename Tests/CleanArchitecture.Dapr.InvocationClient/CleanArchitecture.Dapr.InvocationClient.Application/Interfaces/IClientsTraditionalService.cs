@@ -12,5 +12,6 @@ namespace CleanArchitecture.Dapr.InvocationClient.Application.Interfaces
         Task CallCreateClientCommand(string name, List<string> tagsIds, CancellationToken cancellationToken = default);
         Task CallDeleteClientCommand(string id, CancellationToken cancellationToken = default);
         Task CallUpdateClientCommand(string id, string name, List<string> tagsIds, CancellationToken cancellationToken = default);
+        Task CallGetClientExtraFieldsQuery(Guid id, string field1, string field2, CancellationToken cancellationToken = default);
     }
 }

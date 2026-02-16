@@ -308,6 +308,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#cf440251-8be2-4de7-868a-7ee9c63d71c1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/AdvancedMappingSystem/Clients/GetClientExtraFields/GetClientExtraFieldsQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AdvancedMappingSystem/Clients/GetClientExtraFields/GetClientExtraFieldsQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#cf440251-8be2-4de7-868a-7ee9c63d71c1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/AdvancedMappingSystem/Clients/GetClientExtraFields/GetClientExtraFieldsQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AdvancedMappingSystem/Clients/GetClientExtraFields/GetClientExtraFieldsQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#cf440251-8be2-4de7-868a-7ee9c63d71c1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/AdvancedMappingSystem/Clients/GetClientExtraFields/GetClientExtraFieldsQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AdvancedMappingSystem/Clients/GetClientExtraFields/GetClientExtraFieldsQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
       <CorrelationId>Intent.Application.MediatR.QueryModels#956f521c-4c19-481b-b0b8-98286980ef87</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/AdvancedMappingSystem/Clients/GetClients/GetClientsQuery.cs</ApplicationRelativeFilePath>

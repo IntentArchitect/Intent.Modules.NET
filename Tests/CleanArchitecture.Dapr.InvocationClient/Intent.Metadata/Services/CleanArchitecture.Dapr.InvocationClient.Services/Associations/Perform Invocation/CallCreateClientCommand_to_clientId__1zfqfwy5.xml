@@ -20,7 +20,7 @@
   </sourceEnd>
   <targetEnd id="1c9dad1c-41eb-44b5-85d1-a2259f5b8d93" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
     <name>clientId</name>
-    <display>[call] clientId: CreateClientCommand(...): string</display>
+    <display>[call] clientId = CreateClientCommand(...): string</display>
     <order>2</order>
     <traits>
       <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />

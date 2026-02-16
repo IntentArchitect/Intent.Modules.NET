@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="85e136f2-0852-4801-8c0a-99031eef0997">
+  <sourceEnd id="d8440075-ae50-458d-849d-754668f4d265" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : Clients.CallGetClientExtraFieldsCommand</display>
+    <order>0</order>
+    <typeReference id="5b2957fc-73aa-4199-9f0d-32b0d6842c68">
+      <typeId>892afcd6-3b92-438e-bc3a-5a6e97d791cf</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Dapr.InvocationClient.Services</typePackageName>
+      <typePackageId>7442ed3f-6347-40be-8117-0a55997c7070</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="85e136f2-0852-4801-8c0a-99031eef0997" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <name>result</name>
+    <display>[call] result = GetClientExtraFieldsQuery(...): ClientDto[*]</display>
+    <order>3</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="bc7570b3-70d0-4072-adac-fe9f9ede8993">
+      <typeId>cf440251-8be2-4de7-868a-7ee9c63d71c1</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Dapr.Services</typePackageName>
+      <typePackageId>54dc2464-246c-461d-9fbd-d03956c25688</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Invocation Mapping" typeId="a4c4c5cc-76df-48ed-9d4e-c35caf44b567">
+        <source applicationId="9e282f05-7636-4f1f-8d76-c849d13508c3" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="892afcd6-3b92-438e-bc3a-5a6e97d791cf" location="[CleanArchitecture.Dapr.InvocationClient].[Services].[CallGetClientExtraFieldsCommand]" />
+        <target applicationId="d4e2dacd-90bd-4d8e-829b-bed69f1b8631" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="cf440251-8be2-4de7-868a-7ee9c63d71c1" location="[CleanArchitecture.Dapr.InvocationClient].[Services].[GetClientExtraFieldsQuery]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CallGetClientExtraFieldsCommand}</expression>
+            <path>
+              <target id="cf440251-8be2-4de7-868a-7ee9c63d71c1" name="GetClientExtraFieldsQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+            </path>
+            <sources>
+              <source identifier="CallGetClientExtraFieldsCommand" mappingType="Invocation Mapping" mappingTypeId="7ca5c18a-bdbe-434b-a68a-421899a077e7">
+                <path>
+                  <target id="892afcd6-3b92-438e-bc3a-5a6e97d791cf" name="CallGetClientExtraFieldsCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="cf440251-8be2-4de7-868a-7ee9c63d71c1" name="GetClientExtraFieldsQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+              <target id="95836a9a-37d5-4402-af84-02305e38770c" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Data Mapping" mappingTypeId="1ad97d12-2aa8-4f03-8cb0-3a8a4e71b4d9">
+                <path>
+                  <target id="892afcd6-3b92-438e-bc3a-5a6e97d791cf" name="CallGetClientExtraFieldsCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="46f30cd5-dfc1-494f-b329-314f1ffacf0d" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Field1}</expression>
+            <path>
+              <target id="cf440251-8be2-4de7-868a-7ee9c63d71c1" name="GetClientExtraFieldsQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+              <target id="a09d894a-40d9-4f47-83f8-e83a11837bee" name="Field1" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="Field1" mappingType="Data Mapping" mappingTypeId="1ad97d12-2aa8-4f03-8cb0-3a8a4e71b4d9">
+                <path>
+                  <target id="892afcd6-3b92-438e-bc3a-5a6e97d791cf" name="CallGetClientExtraFieldsCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="5f0e8cec-52d4-4063-868f-2ab142b6af7d" name="Field1" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Field2}</expression>
+            <path>
+              <target id="cf440251-8be2-4de7-868a-7ee9c63d71c1" name="GetClientExtraFieldsQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+              <target id="a9f35705-9f0d-4465-a85e-68de4003aee5" name="Field2" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="Field2" mappingType="Data Mapping" mappingTypeId="1ad97d12-2aa8-4f03-8cb0-3a8a4e71b4d9">
+                <path>
+                  <target id="892afcd6-3b92-438e-bc3a-5a6e97d791cf" name="CallGetClientExtraFieldsCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="7bdce251-b3ce-4aea-b178-102f603a51b9" name="Field2" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Perform Invocation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>

@@ -8,6 +8,7 @@ using CleanArchitecture.Dapr.Application.AdvancedMappingSystem.Clients;
 using CleanArchitecture.Dapr.Application.AdvancedMappingSystem.Clients.CreateClient;
 using CleanArchitecture.Dapr.Application.AdvancedMappingSystem.Clients.DeleteClient;
 using CleanArchitecture.Dapr.Application.AdvancedMappingSystem.Clients.GetClientById;
+using CleanArchitecture.Dapr.Application.AdvancedMappingSystem.Clients.GetClientExtraFields;
 using CleanArchitecture.Dapr.Application.AdvancedMappingSystem.Clients.GetClients;
 using CleanArchitecture.Dapr.Application.AdvancedMappingSystem.Clients.UpdateClient;
 using Intent.RoslynWeaver.Attributes;
@@ -110,6 +111,26 @@ namespace CleanArchitecture.Dapr.Api.Controllers.AdvancedMappingSystem
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetClientByIdQuery(id: id), cancellationToken);
+            return result == null ? NotFound() : Ok(result);
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="200">Returns the specified List&lt;ClientDto&gt;.</response>
+        /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">No List&lt;ClientDto&gt; could be found with the provided parameters.</response>
+        [HttpGet("api/advanced-mapping-system/clients/extra-fields")]
+        [ProducesResponseType(typeof(List<ClientDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<List<ClientDto>>> GetClientExtraFields(
+            [FromQuery] Guid id,
+            [FromQuery] string field1,
+            [FromQuery] string field2,
+            CancellationToken cancellationToken = default)
+        {
+            var result = await _mediator.Send(new GetClientExtraFieldsQuery(id: id, field1: field1, field2: field2), cancellationToken);
             return result == null ? NotFound() : Ok(result);
         }
 

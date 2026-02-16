@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6b7e160a-83f3-441e-b192-d2a7f6be249b" type="Command" typeId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">
+  <name>CallGetCustomerExtraFieldsQuery</name>
+  <display>CallGetCustomerExtraFieldsQuery: CustomerDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <typeReference id="b2f18896-11f2-4ccd-8a7b-adc9652eea65">
+    <typeId>3a316199-cea4-41b3-81d0-4df3abc97a8f</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>CleanArchitecture.Comprehensive.Services</typePackageName>
+    <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>80ad1d69-631b-4764-ae7f-18da91e0e37f</parentFolderId>
+  <packageId>5d4b36a8-cabe-4268-85ee-239d3b05a77a</packageId>
+  <packageName>CleanArchitecture.Comprehensive.HttpClients.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="9fe9153d-81ae-4686-8afd-9abd39c0aef5" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Id</name>
+      <display>Id: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="a006d136-296f-4f0d-800a-ead194899f2b">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>6b7e160a-83f3-441e-b192-d2a7f6be249b</parentFolderId>
+      <packageId>5d4b36a8-cabe-4268-85ee-239d3b05a77a</packageId>
+      <packageName>CleanArchitecture.Comprehensive.HttpClients.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="4d98d4ef-41a5-4acf-9f92-385635d78d72" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Field1</name>
+      <display>Field1: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="324308cd-adf0-46de-93ea-97c46098c7a0">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>6b7e160a-83f3-441e-b192-d2a7f6be249b</parentFolderId>
+      <packageId>5d4b36a8-cabe-4268-85ee-239d3b05a77a</packageId>
+      <packageName>CleanArchitecture.Comprehensive.HttpClients.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="303ed8d9-80f1-48b2-b356-7460c95c5c30" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Field2</name>
+      <display>Field2: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="e94e355b-aad8-46c6-aaf0-dcb92b71cd0e">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>6b7e160a-83f3-441e-b192-d2a7f6be249b</parentFolderId>
+      <packageId>5d4b36a8-cabe-4268-85ee-239d3b05a77a</packageId>
+      <packageName>CleanArchitecture.Comprehensive.HttpClients.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

@@ -313,5 +313,104 @@
         </childElement>
       </childElements>
     </childElement>
+    <childElement id="7e84018e-e7a5-4f03-9731-4fc5aa14a70f" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>CallGetClientExtraFieldsQuery</name>
+      <display>CallGetClientExtraFieldsQuery(id: guid, field1: string, field2: string): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="0bbb523c-729b-42f3-a0a3-4941c41584cd">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>c4675f6c-51f1-4727-95ed-ab6df0042777</parentFolderId>
+      <packageId>7442ed3f-6347-40be-8117-0a55997c7070</packageId>
+      <packageName>CleanArchitecture.Dapr.InvocationClient.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="ccb4c006-c405-4de4-8a23-f17f1da2e583" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="1b768e1f-58d7-4aaa-8d92-fabd31cec86e">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>7e84018e-e7a5-4f03-9731-4fc5aa14a70f</parentFolderId>
+          <packageId>7442ed3f-6347-40be-8117-0a55997c7070</packageId>
+          <packageName>CleanArchitecture.Dapr.InvocationClient.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="cd6ab8e5-8050-4058-8a31-dfbc67b623ad" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>field1</name>
+          <display>in : field1: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="a2a94ca4-aabc-4bc5-893d-dac0c4fae5e0">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>7e84018e-e7a5-4f03-9731-4fc5aa14a70f</parentFolderId>
+          <packageId>7442ed3f-6347-40be-8117-0a55997c7070</packageId>
+          <packageName>CleanArchitecture.Dapr.InvocationClient.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="8813d5fc-4dd1-47a1-9046-423bef1df917" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>field2</name>
+          <display>in : field2: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="2d48892e-2d7c-42a5-891d-3ff428194d07">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>7e84018e-e7a5-4f03-9731-4fc5aa14a70f</parentFolderId>
+          <packageId>7442ed3f-6347-40be-8117-0a55997c7070</packageId>
+          <packageName>CleanArchitecture.Dapr.InvocationClient.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>

@@ -5,6 +5,7 @@ using CleanArchitecture.Comprehensive.HttpClients.Application.Common.Exceptions;
 using CleanArchitecture.Comprehensive.HttpClients.Application.IntegrationServices;
 using CleanArchitecture.Comprehensive.HttpClients.Application.IntegrationServices.Contracts.Services.Customers;
 using Intent.RoslynWeaver.Attributes;
+using Microsoft.AspNetCore.WebUtilities;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]
@@ -85,6 +86,33 @@ namespace CleanArchitecture.Comprehensive.HttpClients.Infrastructure.HttpClients
                 using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
                 {
                     return (await JsonSerializer.DeserializeAsync<CustomerDto>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false))!;
+                }
+            }
+        }
+
+        public async Task<List<CustomerDto>> GetCustomerExtraFieldsAsync(
+            GetCustomerExtraFieldsQuery query,
+            CancellationToken cancellationToken = default)
+        {
+            var relativeUri = $"api/customers/{query.Id}/extra-fields";
+
+            var queryParams = new Dictionary<string, string?>();
+            queryParams.Add("field1", query.Field1);
+            queryParams.Add("field2", query.Field2);
+            relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
+
+            using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
+            {
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, httpRequest, response, cancellationToken).ConfigureAwait(false);
+                }
+
+                using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
+                {
+                    return (await JsonSerializer.DeserializeAsync<List<CustomerDto>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false))!;
                 }
             }
         }

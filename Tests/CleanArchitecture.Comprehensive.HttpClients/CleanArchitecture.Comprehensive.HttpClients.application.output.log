@@ -290,6 +290,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>507cfa0a-628b-422b-9693-d3f1bb5b28f3</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#6b7e160a-83f3-441e-b192-d2a7f6be249b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.HttpClients.Application/Customers/CallGetCustomerExtraFieldsQuery/CallGetCustomerExtraFieldsQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/CallGetCustomerExtraFieldsQuery/CallGetCustomerExtraFieldsQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>507cfa0a-628b-422b-9693-d3f1bb5b28f3</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#6b7e160a-83f3-441e-b192-d2a7f6be249b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.HttpClients.Application/Customers/CallGetCustomerExtraFieldsQuery/CallGetCustomerExtraFieldsQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/CallGetCustomerExtraFieldsQuery/CallGetCustomerExtraFieldsQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>507cfa0a-628b-422b-9693-d3f1bb5b28f3</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#24c45704-bfb0-4e3c-ae3c-c928a6159be4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.HttpClients.Application/Customers/CallGetCustomers/CallGetCustomersCommand.cs</ApplicationRelativeFilePath>
@@ -374,6 +390,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.HttpClients.Application/IntegrationServices/Contracts/Services/Customers/CustomerDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Services/Customers/CustomerDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>925c7adf-0506-4c79-af8e-b062750adedf</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#02d2ee19-239b-461b-ad57-49ad7cc05560</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.HttpClients.Application/IntegrationServices/Contracts/Services/Customers/GetCustomerExtraFieldsQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Customers/GetCustomerExtraFieldsQuery.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -6,6 +6,7 @@ using CleanArchitecture.Dapr.InvocationClient.Application.Common.Exceptions;
 using CleanArchitecture.Dapr.InvocationClient.Application.IntegrationServices;
 using CleanArchitecture.Dapr.InvocationClient.Application.IntegrationServices.Contracts.Services.AdvancedMappingSystem.Clients;
 using Intent.RoslynWeaver.Attributes;
+using Microsoft.AspNetCore.WebUtilities;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]
@@ -88,6 +89,34 @@ namespace CleanArchitecture.Dapr.InvocationClient.Infrastructure.HttpClients.Adv
                 using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
                 {
                     return (await JsonSerializer.DeserializeAsync<ClientDto>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false))!;
+                }
+            }
+        }
+
+        public async Task<List<ClientDto>> GetClientExtraFieldsAsync(
+            GetClientExtraFieldsQuery query,
+            CancellationToken cancellationToken = default)
+        {
+            var relativeUri = $"api/advanced-mapping-system/clients/extra-fields";
+
+            var queryParams = new Dictionary<string, string?>();
+            queryParams.Add("id", query.Id.ToString("D"));
+            queryParams.Add("field1", query.Field1);
+            queryParams.Add("field2", query.Field2);
+            relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
+
+            using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
+            {
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, httpRequest, response, cancellationToken).ConfigureAwait(false);
+                }
+
+                using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
+                {
+                    return (await JsonSerializer.DeserializeAsync<List<ClientDto>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false))!;
                 }
             }
         }

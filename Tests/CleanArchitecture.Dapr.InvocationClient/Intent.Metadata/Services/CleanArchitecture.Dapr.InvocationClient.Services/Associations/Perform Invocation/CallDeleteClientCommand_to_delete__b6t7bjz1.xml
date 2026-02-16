@@ -20,7 +20,7 @@
   </sourceEnd>
   <targetEnd id="fe34df93-ecb8-4b81-8548-ab534baf4c16" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
     <name>delete</name>
-    <display>[call] delete: DeleteClientCommand(...): null</display>
+    <display>[call] delete = DeleteClientCommand(...): void</display>
     <order>1</order>
     <traits>
       <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />

@@ -9,6 +9,7 @@ using CleanArchitecture.Comprehensive.Application.Customers.ChangeName;
 using CleanArchitecture.Comprehensive.Application.Customers.CreateCustomer;
 using CleanArchitecture.Comprehensive.Application.Customers.DeleteCustomer;
 using CleanArchitecture.Comprehensive.Application.Customers.GetCustomerById;
+using CleanArchitecture.Comprehensive.Application.Customers.GetCustomerExtraFields;
 using CleanArchitecture.Comprehensive.Application.Customers.GetCustomers;
 using CleanArchitecture.Comprehensive.Application.Customers.UpdateCustomer;
 using Intent.RoslynWeaver.Attributes;
@@ -140,6 +141,26 @@ namespace CleanArchitecture.Comprehensive.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetCustomerByIdQuery(id: id), cancellationToken);
+            return result == null ? NotFound() : Ok(result);
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="200">Returns the specified List&lt;CustomerDto&gt;.</response>
+        /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">No List&lt;CustomerDto&gt; could be found with the provided parameters.</response>
+        [HttpGet("api/customers/{id}/extra-fields")]
+        [ProducesResponseType(typeof(List<CustomerDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<List<CustomerDto>>> GetCustomerExtraFields(
+            [FromRoute] Guid id,
+            [FromQuery] string field1,
+            [FromQuery] string field2,
+            CancellationToken cancellationToken = default)
+        {
+            var result = await _mediator.Send(new GetCustomerExtraFieldsQuery(id: id, field1: field1, field2: field2), cancellationToken);
             return result == null ? NotFound() : Ok(result);
         }
 

@@ -81,5 +81,23 @@ namespace CleanArchitecture.Comprehensive.HttpClients.Application.Implementation
             // TODO: Implement CreateCustomerNameCommand (CustomerService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
+
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        public async Task<List<CustomerDto>> GetCustomerExtraFieldsQuery(
+            Guid id,
+            string field1,
+            string field2,
+            CancellationToken cancellationToken = default)
+        {
+            var result = await _customersService.GetCustomerExtraFieldsAsync(new GetCustomerExtraFieldsQuery
+            {
+                Id = id,
+                Field1 = field1,
+                Field2 = field2
+            }, cancellationToken);
+
+            // TODO: Implement return type mapping...
+            throw new NotImplementedException("Implement return type mapping...");
+        }
     }
 }

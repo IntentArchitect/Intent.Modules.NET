@@ -1,3 +1,4 @@
+using CleanArchitecture.Comprehensive.HttpClients.Application.IntegrationServices.Contracts.Services.Customers;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -13,5 +14,6 @@ namespace CleanArchitecture.Comprehensive.HttpClients.Application.Interfaces.Cus
         Task DeleteCustomerCommand(CancellationToken cancellationToken = default);
         Task CreateCustomerCommand(CancellationToken cancellationToken = default);
         Task CreateCustomerNameCommand(string customerName, CancellationToken cancellationToken = default);
+        Task<List<CustomerDto>> GetCustomerExtraFieldsQuery(Guid id, string field1, string field2, CancellationToken cancellationToken = default);
     }
 }

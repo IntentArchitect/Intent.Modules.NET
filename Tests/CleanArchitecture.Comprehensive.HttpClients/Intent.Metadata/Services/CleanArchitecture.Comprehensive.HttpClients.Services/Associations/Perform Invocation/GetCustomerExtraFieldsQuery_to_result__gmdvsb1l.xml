@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="1641a1d3-29f4-4f3d-87b3-902d70199ae4">
+  <sourceEnd id="4006c24e-2ffe-4e49-abd1-38c06522b61f" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : CustomerService.GetCustomerExtraFieldsQuery</display>
+    <order>0</order>
+    <typeReference id="5cd4968b-15a7-41ad-93c3-2c287b1a900d">
+      <typeId>cd2bbb0c-6f64-445e-a525-bf93fb563224</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.HttpClients.Services</typePackageName>
+      <typePackageId>5d4b36a8-cabe-4268-85ee-239d3b05a77a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="1641a1d3-29f4-4f3d-87b3-902d70199ae4" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <name>result</name>
+    <display>[call] result = GetCustomerExtraFieldsQuery(...): CustomerDto[*]</display>
+    <order>3</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="d56f900c-61b8-4936-9489-acc5ea903ab7">
+      <typeId>02d2ee19-239b-461b-ad57-49ad7cc05560</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.Services</typePackageName>
+      <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Invocation Mapping" typeId="a4c4c5cc-76df-48ed-9d4e-c35caf44b567">
+        <source applicationId="c3ac2e0f-34c5-4509-9652-5f90a99106e8" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="cd2bbb0c-6f64-445e-a525-bf93fb563224" location="[CleanArchitecture.Comprehensive.HttpClients].[Services].[GetCustomerExtraFieldsQuery]" />
+        <target applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="02d2ee19-239b-461b-ad57-49ad7cc05560" location="[CleanArchitecture.Comprehensive.HttpClients].[Services].[GetCustomerExtraFieldsQuery]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{GetCustomerExtraFieldsQuery}</expression>
+            <path>
+              <target id="02d2ee19-239b-461b-ad57-49ad7cc05560" name="GetCustomerExtraFieldsQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+            </path>
+            <sources>
+              <source identifier="GetCustomerExtraFieldsQuery" mappingType="Invocation Mapping" mappingTypeId="7ca5c18a-bdbe-434b-a68a-421899a077e7">
+                <path>
+                  <target id="cd2bbb0c-6f64-445e-a525-bf93fb563224" name="GetCustomerExtraFieldsQuery" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{id}</expression>
+            <path>
+              <target id="02d2ee19-239b-461b-ad57-49ad7cc05560" name="GetCustomerExtraFieldsQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+              <target id="72e0548d-3a62-47f7-be99-db939495c66f" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="id" mappingType="Data Mapping" mappingTypeId="1ad97d12-2aa8-4f03-8cb0-3a8a4e71b4d9">
+                <path>
+                  <target id="cd2bbb0c-6f64-445e-a525-bf93fb563224" name="GetCustomerExtraFieldsQuery" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="199d33e0-d365-4272-ac50-9b4566f8fb05" name="id" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{field1}</expression>
+            <path>
+              <target id="02d2ee19-239b-461b-ad57-49ad7cc05560" name="GetCustomerExtraFieldsQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+              <target id="54cf9873-3156-4df1-b366-37daa18ab80d" name="Field1" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="field1" mappingType="Data Mapping" mappingTypeId="1ad97d12-2aa8-4f03-8cb0-3a8a4e71b4d9">
+                <path>
+                  <target id="cd2bbb0c-6f64-445e-a525-bf93fb563224" name="GetCustomerExtraFieldsQuery" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="96c6d413-988e-4ec8-b412-c2bbb86a5593" name="field1" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{field2}</expression>
+            <path>
+              <target id="02d2ee19-239b-461b-ad57-49ad7cc05560" name="GetCustomerExtraFieldsQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+              <target id="12502039-e6ca-4e32-8cd8-5e41dfdfed72" name="Field2" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="field2" mappingType="Data Mapping" mappingTypeId="1ad97d12-2aa8-4f03-8cb0-3a8a4e71b4d9">
+                <path>
+                  <target id="cd2bbb0c-6f64-445e-a525-bf93fb563224" name="GetCustomerExtraFieldsQuery" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="2597ec42-ab52-4a13-87ae-81130947c0ab" name="field2" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Perform Invocation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>
