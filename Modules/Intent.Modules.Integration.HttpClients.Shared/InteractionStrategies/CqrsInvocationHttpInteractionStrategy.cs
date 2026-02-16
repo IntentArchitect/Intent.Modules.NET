@@ -62,6 +62,7 @@ internal class CqrsInvocationHttpInteractionStrategy : IInteractionStrategy
             {
                 var csharpMapping = method.GetMappingManager();
                 csharpMapping.AddMappingResolver(new SingleParameterRequestMappingTypeResolver(template), priority: -10);
+                csharpMapping.AddMappingResolver(new MultiParameterRequestMappingTypeResolver(template), priority: -9);
                 var creationExpression = csharpMapping.GenerateCreationStatement(interaction.Mappings.First());
 
                 invocation.AddArgument(creationExpression);
@@ -106,6 +107,84 @@ internal class CqrsInvocationHttpInteractionStrategy : IInteractionStrategy
         {
             var child = Children.First();
             return child.GetSourceStatement();
+        }
+    }
+
+    private class MultiParameterRequestMappingTypeResolver(ICSharpFileBuilderTemplate template) : IMappingTypeResolver
+    {
+        public ICSharpMapping? ResolveMappings(MappingModel mappingModel)
+        {
+            // Only handle Commands/Queries
+            if (mappingModel.Model.SpecializationTypeId is not (CommandModel.SpecializationTypeId or QueryModel.SpecializationTypeId))
+            {
+                return null;
+            }
+
+            // Only handle when there are 2+ parameters
+            var fieldCount = ((IElement)mappingModel.Model).ChildElements.Count(x => x.IsDTOFieldModel());
+            if (fieldCount <= 1)
+            {
+                return null;
+            }
+
+            return new MultiParameterRequestMapping(mappingModel, template);
+        }
+    }
+
+    private class MultiParameterRequestMapping : ObjectInitializationMapping
+    {
+        private readonly MappingModel _mappingModel;
+        private readonly ICSharpTemplate _template;
+
+        public MultiParameterRequestMapping(MappingModel model, ICSharpTemplate template) 
+            : base(model, template)
+        {
+            _mappingModel = model;
+            _template = template;
+        }
+
+        public override CSharpStatement GetSourceStatement(bool? withNullConditionalOperators = null)
+        {
+            // Handle null TypeReference
+            if (Model.TypeReference == null)
+            {
+                SetTargetReplacement(Model, null);
+                return CreateObjectInitializer();
+            }
+
+            // Handle no children - just return the source path
+            if (Children.Count == 0)
+            {
+                return $"{GetSourcePathText()}";
+            }
+
+            // KEY DIFFERENCE: Skip the Model.TypeReference.IsCollection check!
+            // Even if the command returns a collection, we're creating the INPUT command (the argument)
+            // So we go directly to object initialization, not SelectToListMapping
+
+            // Set replacements for proper path resolution (same as parent non-collection path)
+            var lastTargetPathElement = GetTargetPath().Last().Element;
+            SetTargetReplacement(lastTargetPathElement, null);
+            if (lastTargetPathElement.TypeReference.Element is not null)
+            {
+                SetTargetReplacement(lastTargetPathElement.TypeReference.Element, null);
+            }
+
+            return CreateObjectInitializer();
+        }
+
+        private CSharpStatement CreateObjectInitializer()
+        {
+            // Create object initializer with property mappings
+            // This generates: new CommandName { Field1 = ..., Field2 = ..., Field3 = ... }
+            var objectInit = new CSharpObjectInitializerBlock($"new {_template.GetTypeName((IElement)Model)}");
+            
+            foreach (var child in Children)
+            {
+                objectInit.AddStatements(child.GetMappingStatements());
+            }
+
+            return objectInit;
         }
     }
 }

@@ -1,3 +1,7 @@
+### Version 6.0.14
+
+- Fixed: Resolved code generation failure when performing invocations to external HTTP services where the target command/query has multiple parameters (2+) and returns a collection type. The mapping system now correctly generates object initializer syntax for multi-parameter commands regardless of their return type.
+
 ### Version 6.0.13
 
 - Improvement: Updated NuGet package versions.
