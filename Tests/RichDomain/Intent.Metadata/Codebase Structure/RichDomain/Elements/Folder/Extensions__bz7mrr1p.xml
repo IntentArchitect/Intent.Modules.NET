@@ -20,22 +20,5 @@
     </stereotype>
   </stereotypes>
   <metadata />
-  <childElements>
-    <childElement id="8382f607-71e3-4690-9565-e01793b84784" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.MediatR.CRUD.Tests.Extensions.RepositoryExtensions</name>
-      <display>Intent.Application.MediatR.CRUD.Tests.Extensions.RepositoryExtensions</display>
-      <externalReference>Intent.Application.MediatR.CRUD.Tests</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>4210cf9e-caf6-4e21-aaba-8958e7df4d02</parentFolderId>
-      <packageId>076efad2-3524-475f-981d-f7bb06ea9c21</packageId>
-      <packageName>RichDomain</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-  </childElements>
+  <childElements />
 </class>

@@ -1057,14 +1057,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>13593b0a-b508-414b-a2ed-b30db193b119</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Extensions.RepositoryExtensions#420278bb-b783-4278-9fea-85843ac555e0</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MinimalHostingModel.Tests/Extensions/RepositoryExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>RepositoryExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
