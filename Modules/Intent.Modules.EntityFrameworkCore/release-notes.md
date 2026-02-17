@@ -1,3 +1,8 @@
+### Version 5.0.38
+
+- Fixed: `builder.Ignore(...)` was not being generated for owned entities.
+- Fixed: Certain types of model changes would not be picked up until the Software Factory was completely closed and restarted, e.g. EF Core Type Configuration files might not re-generate correctly after saved model changes.
+
 ### Version 5.0.37
 
 - Fixed: Text and decimal constraints on PK now correctly output in the configuration
