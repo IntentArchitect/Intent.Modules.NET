@@ -7,11 +7,11 @@ using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.FactoryExtensions;
 using Intent.Modules.Common.Registrations;
 using Intent.Modules.Constants;
 using Intent.Modules.EntityFrameworkCore.Settings;
 using Intent.Modules.Metadata.RDBMS.Settings;
-//using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -53,6 +53,18 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
     public static class EntityTypeConfigurationTemplateExtensions
     {
+        private static readonly Dictionary<string, HashSet<string>> _optOutCache = new();
+        private static string _cacheKey = "";
+
+        static EntityTypeConfigurationTemplateExtensions()
+        {
+            ExecutionLifeCycle.OnStart(() =>
+            {
+                _optOutCache.Clear();
+                _cacheKey = "";
+            });
+        }
+
         public static bool IsOwned(this ClassModel @class, ISoftwareFactoryExecutionContext executionContext)
         {
             return IsOwned(@class.InternalElement, executionContext);
@@ -72,14 +84,11 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             return type.IsValueObject(executionContext);
         }
 
-        private static readonly Dictionary<string, HashSet<string>> _optOutCache = new();
-        private static string _cacheKey = "";
-
         public static bool ShouldOptOutOfCompositeModel(this ClassModel model, ISoftwareFactoryExecutionContext executionContext)
         {
             // Create a cache key based on the application context to handle multiple applications
             var currentCacheKey = executionContext.GetApplicationConfig()?.Name ?? "default";
-            
+
             // Reset cache if we're dealing with a different application
             if (_cacheKey != currentCacheKey)
             {
