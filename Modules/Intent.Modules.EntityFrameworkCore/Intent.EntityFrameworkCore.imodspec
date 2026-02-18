@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore</id>
-  <version>5.0.38-pre.1</version>
+  <version>5.0.38-pre.2</version>
   <supportedClientVersions>[4.5.18-a, 5.0.0-a)</supportedClientVersions>
   <summary>Provides the Entity Framework Core, Object Relational Mapper framework</summary>
   <description>Provides the Entity Framework Core, Object Relational Mapper framework</description>
@@ -177,6 +177,11 @@
             <option value="pluralized" description="Pluralized" />
             <option value="same-as-entity" description="Same as entity" />
           </options>
+        </setting>
+        <setting id="f34e458f-70c6-4c01-8361-834d35a77b64" title="Suppress Connection String Setting" type="switch">
+          <isRequired>false</isRequired>
+          <hint>Opt-out of having the Connection String added to appsettings.json</hint>
+          <defaultValue>false</defaultValue>
         </setting>
       </settings>
     </groupExtension>

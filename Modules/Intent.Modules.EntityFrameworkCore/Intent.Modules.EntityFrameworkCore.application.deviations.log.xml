@@ -51,7 +51,7 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T12:20:32.9394616Z</approvedAt>
       <deviationsHash>67712BBD9D92F06392D23CA6C17AC8ED892D2D68519E998F62B6442BF57A4B39</deviationsHash>
-      <fileHash>304F0D2342594EA7172DC465CEB888A6AF6BC4F6BBC0D7C936D20B7C537032CE</fileHash>
+      <fileHash>CA2B65E7FD18022F717750DCE1CB1EB1E79A1063422D29D45C054F1B8E8C320A</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#aba7dad6-c66b-4476-9470-0ab8786b5b4d</correlationId>
@@ -64,7 +64,7 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T12:20:32.9424087Z</approvedAt>
       <deviationsHash>7468690C68912D35A16EA4BC8C15A6D84FAEB1D4C9ACF80541A1207FBFB7467F</deviationsHash>
-      <fileHash>2F0433CDC013D55911BE82F18D07DDEF2B9C05475F0203F169E3938A3EE866BC</fileHash>
+      <fileHash>03C4468A2B2EDA45217535BE38170F99AC0854176987CC0450D31B2A00166F63</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#09506297-8b03-44b4-9f6b-09c0cdeaa5ef</correlationId>

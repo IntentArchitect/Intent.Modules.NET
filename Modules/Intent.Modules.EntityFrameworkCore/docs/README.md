@@ -107,6 +107,12 @@ This setting comes with the following options:
 - **Default**: Uses the default value generation behaviour depending on the `Data Source` option on `Primary Key` Entity attributes.
 - **None**: Disables value generation for primary keys and instead configured them to use `ValueGeneratedNever`.
 
+### Database Settings - `Suppress Connection String Setting`
+
+When enabled, this setting prevents automatic registration of connection string settings in the `appsettings.json` configuration during dependency injection setup. This is useful when you want to manually manage connection string configuration or when using alternative configuration providers.
+
+By default, this setting is **disabled**, meaning connection strings are automatically registered. When **enabled**, connection string settings will not be added to the application configuration.
+
 ## Domain Designer modeling
 
 The `Domain Designer` has been extended with many stereotypes for modeling RDBMS technology specific concepts in your domain.

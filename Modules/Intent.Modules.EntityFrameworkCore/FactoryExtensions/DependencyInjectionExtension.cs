@@ -58,11 +58,14 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                     case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlLite:
                         dependencyInjectionTemplate.AddNugetDependency(NugetPackages.MicrosoftEntityFrameworkCoreSqlite(dependencyInjectionTemplate.OutputTarget.GetProject()));
 
-                        application.EventDispatcher.Publish(new ConnectionStringRegistrationRequest(
-                            name: dbContextInstance.ConnectionStringName,
-                            connectionString:
-                            $"Data Source={dependencyInjectionTemplate.OutputTarget.ApplicationName()}.db",
-                            providerName: "System.Data.SqlClient"));
+                        if (!application.Settings.GetDatabaseSettings().SuppressConnectionStringSetting())
+                        {
+                            application.EventDispatcher.Publish(new ConnectionStringRegistrationRequest(
+                                name: dbContextInstance.ConnectionStringName,
+                                connectionString:
+                                $"Data Source={dependencyInjectionTemplate.OutputTarget.ApplicationName()}.db",
+                                providerName: "System.Data.SqlClient"));
+                        }
 
                         break;
 
@@ -81,55 +84,77 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                                 dependencyInjectionTemplate.OutputTarget));
                         }
 
-                        application.EventDispatcher.Publish(new ConnectionStringRegistrationRequest(
-                            name: dbContextInstance.ConnectionStringName,
-                            connectionString:
-                            $"Server=.;Initial Catalog={dependencyInjectionTemplate.OutputTarget.ApplicationName()};Integrated Security=true;MultipleActiveResultSets=True{GetSqlServerExtendedConnectionString(dependencyInjectionTemplate.OutputTarget.GetProject())}",
-                            providerName: "System.Data.SqlClient"));
+                        if (!application.Settings.GetDatabaseSettings().SuppressConnectionStringSetting())
+                        {
+                            application.EventDispatcher.Publish(new ConnectionStringRegistrationRequest(
+                                name: dbContextInstance.ConnectionStringName,
+                                connectionString:
+                                $"Server=.;Initial Catalog={dependencyInjectionTemplate.OutputTarget.ApplicationName()};Integrated Security=true;MultipleActiveResultSets=True{GetSqlServerExtendedConnectionString(dependencyInjectionTemplate.OutputTarget.GetProject())}",
+                                providerName: "System.Data.SqlClient"));
+                        }
+
                         application.EventDispatcher.Publish(new InfrastructureRegisteredEvent(Infrastructure.SqlServer.Name)
                             .WithProperty(Infrastructure.SqlServer.Property.ConnectionStringName, dbContextInstance.ConnectionStringName));
                         break;
 
                     case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Postgresql:
                         dependencyInjectionTemplate.AddNugetDependency(NugetPackages.NpgsqlEntityFrameworkCorePostgreSQL(dependencyInjectionTemplate.OutputTarget.GetProject()));
-                        application.EventDispatcher.Publish(new ConnectionStringRegistrationRequest(
-                            name: dbContextInstance.ConnectionStringName,
-                            connectionString:
-                            $"Host=127.0.0.1;Port=5432;Database={dependencyInjectionTemplate.OutputTarget.ApplicationName()};Username=postgres;Password=password;",
-                            providerName: ""));
+                        if (!application.Settings.GetDatabaseSettings().SuppressConnectionStringSetting())
+                        {
+                            application.EventDispatcher.Publish(new ConnectionStringRegistrationRequest(
+                                name: dbContextInstance.ConnectionStringName,
+                                connectionString:
+                                $"Host=127.0.0.1;Port=5432;Database={dependencyInjectionTemplate.OutputTarget.ApplicationName()};Username=postgres;Password=password;",
+                                providerName: ""));
+                        }
+
                         application.EventDispatcher.Publish(new InfrastructureRegisteredEvent(Infrastructure.PostgreSql.Name)
                             .WithProperty(Infrastructure.PostgreSql.Property.ConnectionStringName, dbContextInstance.ConnectionStringName));
                         break;
 
                     case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.MySql:
                         dependencyInjectionTemplate.AddNugetDependency(NugetPackages.PomeloEntityFrameworkCoreMySql(dependencyInjectionTemplate.OutputTarget.GetProject()));
-                        application.EventDispatcher.Publish(new ConnectionStringRegistrationRequest(
-                            name: dbContextInstance.ConnectionStringName,
-                            connectionString: $"Server=localhost;Database={dependencyInjectionTemplate.OutputTarget.ApplicationName()};Uid=root;Pwd=P@ssw0rd;",
-                            providerName: ""));
+                        if (!application.Settings.GetDatabaseSettings().SuppressConnectionStringSetting())
+                        {
+                            application.EventDispatcher.Publish(new ConnectionStringRegistrationRequest(
+                                name: dbContextInstance.ConnectionStringName,
+                                connectionString:
+                                $"Server=localhost;Database={dependencyInjectionTemplate.OutputTarget.ApplicationName()};Uid=root;Pwd=P@ssw0rd;",
+                                providerName: ""));
+                        }
+
                         application.EventDispatcher.Publish(new InfrastructureRegisteredEvent(Infrastructure.MySql.Name)
                             .WithProperty(Infrastructure.MySql.Property.ConnectionStringName, dbContextInstance.ConnectionStringName));
                         break;
 
                     case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Cosmos:
                         dependencyInjectionTemplate.AddNugetDependency(NugetPackages.MicrosoftEntityFrameworkCoreCosmos(dependencyInjectionTemplate.OutputTarget.GetProject()));
-                        application.EventDispatcher.Publish(new AppSettingRegistrationRequest($"{ConfigSectionCosmos}:AccountEndpoint", "https://localhost:8081"));
-                        application.EventDispatcher.Publish(new AppSettingRegistrationRequest($"{ConfigSectionCosmos}:AccountKey",
-                            "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw=="));
-                        application.EventDispatcher.Publish(new AppSettingRegistrationRequest($"{ConfigSectionCosmos}:DatabaseName",
-                            $"{dependencyInjectionTemplate.OutputTarget.GetProject().ApplicationName()}DB"));
-                        application.EventDispatcher.Publish(new AppSettingRegistrationRequest($"{ConfigSectionCosmos}:EnsureDbCreated", true));
+                        if (!application.Settings.GetDatabaseSettings().SuppressConnectionStringSetting())
+                        {
+                            application.EventDispatcher.Publish(new AppSettingRegistrationRequest($"{ConfigSectionCosmos}:AccountEndpoint",
+                                "https://localhost:8081"));
+                            application.EventDispatcher.Publish(new AppSettingRegistrationRequest($"{ConfigSectionCosmos}:AccountKey",
+                                "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw=="));
+                            application.EventDispatcher.Publish(new AppSettingRegistrationRequest($"{ConfigSectionCosmos}:DatabaseName",
+                                $"{dependencyInjectionTemplate.OutputTarget.GetProject().ApplicationName()}DB"));
+                            application.EventDispatcher.Publish(new AppSettingRegistrationRequest($"{ConfigSectionCosmos}:EnsureDbCreated", true));
+                        }
+
                         application.EventDispatcher.Publish(new InfrastructureRegisteredEvent(Infrastructure.CosmosDb.Name)
                             .WithProperty(Infrastructure.CosmosDb.Property.ConnectionStringName, dbContextInstance.ConnectionStringName));
                         break;
 
                     case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Oracle:
                         dependencyInjectionTemplate.AddNugetDependency(NugetPackages.OracleEntityFrameworkCore(dependencyInjectionTemplate.OutputTarget.GetProject()));
-                        application.EventDispatcher.Publish(new ConnectionStringRegistrationRequest(
-                            name: dbContextInstance.ConnectionStringName,
-                            connectionString:
-                            $"Data Source={dependencyInjectionTemplate.OutputTarget.ApplicationName()};User Id=myUsername;Password=myPassword;Integrated Security=no;",
-                            providerName: ""));
+                        if (!application.Settings.GetDatabaseSettings().SuppressConnectionStringSetting())
+                        {
+                            application.EventDispatcher.Publish(new ConnectionStringRegistrationRequest(
+                                name: dbContextInstance.ConnectionStringName,
+                                connectionString:
+                                $"Data Source={dependencyInjectionTemplate.OutputTarget.ApplicationName()};User Id=myUsername;Password=myPassword;Integrated Security=no;",
+                                providerName: ""));
+                        }
+
                         application.EventDispatcher.Publish(new InfrastructureRegisteredEvent(Infrastructure.Oracle.Name)
                             .WithProperty(Infrastructure.Oracle.Property.ConnectionStringName, dbContextInstance.ConnectionStringName));
                         break;
