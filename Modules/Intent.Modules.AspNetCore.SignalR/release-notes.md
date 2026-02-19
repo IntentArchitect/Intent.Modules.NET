@@ -1,3 +1,7 @@
+### Version 1.0.9
+
+- Improvement: Prevent certain required stereotypes from being removed from the element.
+
 ### Version 1.0.8
 
 - Improvement: Updated module documentation to use centralized documentation site.
