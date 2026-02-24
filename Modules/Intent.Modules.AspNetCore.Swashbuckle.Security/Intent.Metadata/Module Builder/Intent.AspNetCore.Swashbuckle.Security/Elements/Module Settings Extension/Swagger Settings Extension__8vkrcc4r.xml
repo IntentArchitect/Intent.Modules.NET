@@ -65,9 +65,23 @@
           <metadata />
           <childElements />
         </childElement>
+        <childElement id="64065242-90e4-4012-a7fc-b2d893834d74" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>OAuth 2.0 - Authorization Code</name>
+          <display>OAuth 2.0 - Authorization Code = Authorization Code</display>
+          <isAbstract>false</isAbstract>
+          <value>Authorization Code</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>64312cd3-8742-4fa9-b42f-8e27d66407b1</parentFolderId>
+          <packageId>6fcd0a39-d869-42ad-bb23-ef687f068a58</packageId>
+          <packageName>Intent.AspNetCore.Swashbuckle.Security</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
         <childElement id="d388b178-03cd-4ec1-8254-75d6cdc26166" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
-          <name>OAuth 2.0 - Implicit</name>
-          <display>OAuth 2.0 - Implicit = Implicit</display>
+          <name>OAuth 2.0 - Implicit (deprecated)</name>
+          <display>OAuth 2.0 - Implicit (deprecated) = Implicit</display>
           <isAbstract>false</isAbstract>
           <value>Implicit</value>
           <genericTypes />

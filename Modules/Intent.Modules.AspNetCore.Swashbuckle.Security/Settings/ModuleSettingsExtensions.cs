@@ -29,6 +29,7 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Security.Settings
                 return Value switch
                 {
                     "Bearer" => AuthenticationOptionsEnum.Bearer,
+                    "Authorization Code" => AuthenticationOptionsEnum.AuthorizationCode,
                     "Implicit" => AuthenticationOptionsEnum.Implicit,
                     _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
                 };
@@ -43,12 +44,18 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Security.Settings
             {
                 return Value == "Implicit";
             }
+
+            public bool IsAuthorizationCode()
+            {
+                return Value == "Authorization Code";
+            }
         }
 
         public enum AuthenticationOptionsEnum
         {
             Bearer,
             Implicit,
+            AuthorizationCode,
         }
     }
 }

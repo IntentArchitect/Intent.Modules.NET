@@ -74,6 +74,9 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Security.FactoryExtensions
 
             switch (application.Settings.GetSwaggerSettings().Authentication().AsEnum())
             {
+                case SwaggerSettingsExtensions.AuthenticationOptionsEnum.AuthorizationCode:
+                    AddOAuth2AuthorizationCodeSecurityScheme(application.Settings.GetSwaggerSettings().Authentication().Value, template, configureSwaggerOptionsBlock, swaggerUiOptionsBlock);
+                    break;
                 case SwaggerSettingsExtensions.AuthenticationOptionsEnum.Implicit:
                     AddOAuth2ImplicitSecurityScheme(application.Settings.GetSwaggerSettings().Authentication().Value, template, configureSwaggerOptionsBlock, swaggerUiOptionsBlock);
                     break;
@@ -178,6 +181,71 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Security.FactoryExtensions
             swaggerUiOptionsBlock.AddStatement($"}}");
         }
 
+        private void AddOAuth2AuthorizationCodeSecurityScheme(string schemeName, ICSharpFileBuilderTemplate template, CSharpLambdaBlock configureSwaggerOptionsBlock, CSharpLambdaBlock swaggerUiOptionsBlock)
+        {
+            //"Authorization Code";
+            string configPrefix = $"Swashbuckle:Security:OAuth2:{schemeName}:";
+
+            var castTemplate = ((IntentTemplateBase)template);
+            castTemplate.ApplyAppSetting($@"{configPrefix}AuthorizationUrl", "https://login.microsoftonline.com/{TenantId}/oauth2/v2.0/authorize");
+            castTemplate.ApplyAppSetting($@"{configPrefix}TokenUrl", "https://login.microsoftonline.com/{TenantId}/oauth2/v2.0/token");
+            castTemplate.ApplyAppSetting($@"{configPrefix}Scope", new Dictionary<string, string>() { { "{Scope Description}", "api://{ClientId}/Scope" } });
+            castTemplate.ApplyAppSetting($@"{configPrefix}ClientId", "{ClientId}");
+
+            configureSwaggerOptionsBlock.AddStatement($"var authorizationUrl = configuration.GetValue<Uri>(\"{configPrefix}AuthorizationUrl\");");
+            configureSwaggerOptionsBlock.AddStatement($"var tokenUrl = configuration.GetValue<Uri>(\"{configPrefix}TokenUrl\");");
+            configureSwaggerOptionsBlock.AddStatement($"var clientId = configuration.GetValue<string>(\"{configPrefix}ClientId\");");
+            configureSwaggerOptionsBlock.AddStatement($"var scopes = configuration.GetSection(\"{configPrefix}Scope\").Get<Dictionary<string, string>>()!.ToDictionary(x => x.Value, x => x.Key);");
+
+            var isSwashbuckleV10 = ((IntentTemplateBase)template).OutputTarget.GetMaxNetAppVersion().Major >= 8;
+            if (isSwashbuckleV10)
+            {
+                configureSwaggerOptionsBlock.AddStatement(new CSharpObjectInitializerBlock("var securityScheme = new OpenApiSecurityScheme()")
+                    .AddInitStatement("Type", "SecuritySchemeType.OAuth2")
+                    .AddInitStatement("Flows", new CSharpObjectInitializerBlock("new OpenApiOAuthFlows")
+                        .AddInitStatement("AuthorizationCode ", new CSharpObjectInitializerBlock("new OpenApiOAuthFlow")
+                            .AddInitStatement("Scopes", "scopes")
+                            .AddInitStatement("AuthorizationUrl", $"authorizationUrl")
+                            .AddInitStatement("TokenUrl", $"tokenUrl"))
+                        )
+                    .WithSemicolon());
+                configureSwaggerOptionsBlock.AddStatement(new CSharpInvocationStatement("options.AddSecurityDefinition")
+                    .AddArgument($"\"{schemeName}\"")
+                    .AddArgument("securityScheme"));
+                configureSwaggerOptionsBlock.AddStatement(
+                    $@"options.AddSecurityRequirement(document => new OpenApiSecurityRequirement
+                {{
+                    {{ new OpenApiSecuritySchemeReference(""{schemeName}"", document), scopes.Select(s => s.Key).ToList() }}
+                }});");
+            }
+            else
+            {
+                configureSwaggerOptionsBlock.AddStatement(new CSharpObjectInitializerBlock("var securityScheme = new OpenApiSecurityScheme()")
+                    .AddInitStatement("Type", "SecuritySchemeType.OAuth2")
+                    .AddInitStatement("Flows", new CSharpObjectInitializerBlock("new OpenApiOAuthFlows")
+                        .AddInitStatement("AuthorizationCode ", new CSharpObjectInitializerBlock("new OpenApiOAuthFlow")
+                            .AddInitStatement("Scopes", "scopes")
+                            .AddInitStatement("AuthorizationUrl", $"authorizationUrl")
+                            .AddInitStatement("TokenUrl", $"tokenUrl"))
+                        )
+                    .AddInitStatement("Reference", new CSharpObjectInitializerBlock("new OpenApiReference")
+                        .AddInitStatement("Id", $"\"{schemeName}\"")
+                        .AddInitStatement("Type", "ReferenceType.SecurityScheme"))
+                    .WithSemicolon());
+                configureSwaggerOptionsBlock.AddStatement(new CSharpInvocationStatement("options.AddSecurityDefinition")
+                    .AddArgument($"\"{schemeName}\"")
+                    .AddArgument("securityScheme"));
+                configureSwaggerOptionsBlock.AddStatement(new CSharpInvocationStatement("options.AddSecurityRequirement")
+                    .AddArgument(new CSharpObjectInitializerBlock("new OpenApiSecurityRequirement")
+                        .AddKeyAndValue("securityScheme", "scopes.Select(s => s.Key).ToArray()"))
+                    .WithArgumentsOnNewLines());
+            }
+
+            //SwaggerUI Block
+            swaggerUiOptionsBlock.AddStatement($"var clientId = configuration.GetValue<string>(\"{configPrefix}ClientId\");");
+            swaggerUiOptionsBlock.AddStatement($"options.OAuthClientId(clientId);");
+            swaggerUiOptionsBlock.AddStatement($"options.OAuthUsePkce();");
+        }
 
         private void AddAdditionSecurityScheme(CSharpLambdaBlock configureSwaggerOptionsBlock, CSharpLambdaBlock swaggerUiOptionsBlock,
             ICSharpFileBuilderTemplate template, IApplication application)
