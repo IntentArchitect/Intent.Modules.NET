@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.Swashbuckle.Security</id>
-  <version>4.0.11</version>
+  <version>4.1.0-pre.0</version>
   <supportedClientVersions>[4.5.15-a, 5.0.0-a)</supportedClientVersions>
   <summary>Supports various Authentications for the Swagger UI</summary>
   <description>Supports various Authentications for the Swagger UI</description>
@@ -41,7 +41,7 @@
     <groupExtension id="9be72780-a417-4b3a-a3ac-ed267cc96709" groupId="7182f792-547f-46f3-b178-a92ceefeb4f8" externalReference="9be72780-a417-4b3a-a3ac-ed267cc96709">
       <settings>
         <setting id="64312cd3-8742-4fa9-b42f-8e27d66407b1" title="Authentication" type="select">
-          <isRequired>true</isRequired>
+          <isRequired>false</isRequired>
           <hint>Swagger Security Scheme</hint>
           <defaultValue>Bearer</defaultValue>
           <options>

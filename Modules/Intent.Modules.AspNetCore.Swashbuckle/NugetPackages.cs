@@ -18,17 +18,18 @@ namespace Intent.Modules.AspNetCore.Swashbuckle
             NugetRegistry.Register(SwashbuckleAspNetCorePackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("9.0.6", locked: true)
+                        ( >= 9, >= 0) => new PackageVersion("10.1.4")
                             .WithNugetDependency("Microsoft.Extensions.ApiDescription.Server", "9.0.0")
-                            .WithNugetDependency("Swashbuckle.AspNetCore.Swagger", "9.0.6")
-                            .WithNugetDependency("Swashbuckle.AspNetCore.SwaggerGen", "9.0.6")
-                            .WithNugetDependency("Swashbuckle.AspNetCore.SwaggerUI", "9.0.6"),
-                        ( >= 8, >= 0) => new PackageVersion("9.0.6", locked: true)
+                            .WithNugetDependency("Swashbuckle.AspNetCore.Swagger", "10.1.4")
+                            .WithNugetDependency("Swashbuckle.AspNetCore.SwaggerGen", "10.1.4")
+                            .WithNugetDependency("Swashbuckle.AspNetCore.SwaggerUI", "10.1.4"),
+                        ( >= 8, >= 0) => new PackageVersion("10.1.4")
                             .WithNugetDependency("Microsoft.Extensions.ApiDescription.Server", "8.0.0")
-                            .WithNugetDependency("Swashbuckle.AspNetCore.Swagger", "9.0.6")
-                            .WithNugetDependency("Swashbuckle.AspNetCore.SwaggerGen", "9.0.6")
-                            .WithNugetDependency("Swashbuckle.AspNetCore.SwaggerUI", "9.0.6"),
-                        ( >= 2, >= 0) => new PackageVersion("8.1.4", locked: true)
+                            .WithNugetDependency("Swashbuckle.AspNetCore.Swagger", "10.1.4")
+                            .WithNugetDependency("Swashbuckle.AspNetCore.SwaggerGen", "10.1.4")
+                            .WithNugetDependency("Swashbuckle.AspNetCore.SwaggerUI", "10.1.4"),
+                        ( >= 6, >= 0) => new PackageVersion("6.5.0"),
+                        ( >= 2, >= 0) => new PackageVersion("8.1.4")
                             .WithNugetDependency("Microsoft.Extensions.ApiDescription.Server", "6.0.5")
                             .WithNugetDependency("Swashbuckle.AspNetCore.Swagger", "8.1.4")
                             .WithNugetDependency("Swashbuckle.AspNetCore.SwaggerGen", "8.1.4")

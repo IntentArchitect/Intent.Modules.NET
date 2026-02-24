@@ -7,6 +7,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.VisualStudio;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -23,25 +24,51 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Security.Templates.AuthorizeChec
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public AuthorizeCheckOperationFilterTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            var isSwashbuckleV10 = OutputTarget.GetMaxNetAppVersion().Major >= 8;
+            var openApiNamespace = isSwashbuckleV10 ? "Microsoft.OpenApi" : "Microsoft.OpenApi.Models";
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("System.Collections")
                 .AddUsing("System.Collections.Generic")
                 .AddUsing("System.Linq")
                 .AddUsing("Microsoft.AspNetCore.Authorization")
+                .AddUsing(openApiNamespace)
                 .AddClass($"AuthorizeCheckOperationFilter", @class =>
                 {
                     @class.ImplementsInterface(UseType("Swashbuckle.AspNetCore.SwaggerGen.IOperationFilter"));
 
                     @class.AddMethod("void", "Apply", method =>
                     {
-                        method.AddParameter(UseType("Microsoft.OpenApi.Models.OpenApiOperation"), "operation")
+                        method.AddParameter(UseType($"{openApiNamespace}.OpenApiOperation"), "operation")
                             .AddParameter(UseType("Swashbuckle.AspNetCore.SwaggerGen.OperationFilterContext"), "context");
 
-                        method.AddIfStatement("!HasAuthorize(context)", block =>
+                        if (isSwashbuckleV10)
                         {
-                            block.AddObjectInitStatement("var securityScheme", "new OpenApiSecurityScheme();");
-                            block.AddObjectInitStatement("operation.Security", @"new List<OpenApiSecurityRequirement>
+                            var authValue = ExecutionContext.Settings.GetSwaggerSettings().Authentication().Value;
+
+                            method.AddIfStatement("!HasAuthorize(context)", block =>
+                            {
+                                block.AddStatement("return;");
+                            });
+
+                            method.AddIfStatement("operation.Security == null", block =>
+                            {
+                                block.AddStatement("operation.Security = new List<OpenApiSecurityRequirement>();");
+                            });
+
+                            method.AddStatement($@"var securityRequirement = new OpenApiSecurityRequirement
+            {{
+                {{ new OpenApiSecuritySchemeReference(""{authValue}"", context.Document), new List<string>() }}
+            }};");
+                            method.AddStatement("operation.Security.Add(securityRequirement);");
+                        }
+                        else
+                        {
+                            method.AddIfStatement("!HasAuthorize(context)", block =>
+                            {
+                                block.AddObjectInitStatement("var securityScheme", "new OpenApiSecurityScheme();");
+                                block.AddObjectInitStatement("operation.Security", @"new List<OpenApiSecurityRequirement>
                 {
                     new OpenApiSecurityRequirement
                     {
@@ -49,11 +76,11 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Security.Templates.AuthorizeChec
                     }
                 };");
 
-                            block.AddStatement("return;");
-                            block.SeparatedFromNext();
-                        });
+                                block.AddStatement("return;");
+                                block.SeparatedFromNext();
+                            });
 
-                        method.AddStatement(@$"operation.Security.Add(new OpenApiSecurityRequirement
+                            method.AddStatement(@$"operation.Security.Add(new OpenApiSecurityRequirement
             {{
                 [new OpenApiSecurityScheme
                 {{
@@ -64,6 +91,7 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Security.Templates.AuthorizeChec
                     }}
                 }}] = Array.Empty<string>()
             }});");
+                        }
 
                     });
 

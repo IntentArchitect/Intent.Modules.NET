@@ -6,6 +6,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.VisualStudio;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -25,12 +26,22 @@ namespace Intent.Modules.AspNetCore.Versioning.Templates.ApiVersionSwaggerGenOpt
             AddNugetDependency(NugetPackages.AspVersioningMvc(outputTarget));
             AddNugetDependency(NugetPackages.AspVersioningMvcApiExplorer(outputTarget));
 
+            var isSwashbuckleV10 = OutputTarget.GetMaxNetAppVersion().Major >= 8;
+
+            if (isSwashbuckleV10)
+            {
+                AddUsing("Microsoft.OpenApi");
+            }
+            else
+            {
+                AddUsing("Microsoft.OpenApi.Models");
+            }
+            
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Asp.Versioning")
                 .AddUsing("Asp.Versioning.ApiExplorer")
                 .AddUsing("Microsoft.Extensions.Options")
                 .AddUsing("Swashbuckle.AspNetCore.SwaggerGen")
-                .AddUsing("Microsoft.OpenApi.Models")
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
                 .AddUsing("System.Linq")
                 .AddClass($"ApiVersionSwaggerGenOptions", @class =>

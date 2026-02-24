@@ -6,6 +6,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.VisualStudio;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -23,6 +24,7 @@ public partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<objec
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public SwashbuckleConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
     {
+        var isSwashbuckleV10 = OutputTarget.GetMaxNetAppVersion().Major >= 8;
         var useSimpleSchemaIdentifiers = ExecutionContext.Settings.GetSwaggerSettings().UseSimpleSchemaIdentifiers();
         var markNonNullableFieldsAsRequired = ExecutionContext.Settings.GetSwaggerSettings().MarkNonNullableFieldsAsRequired();
 
@@ -34,8 +36,16 @@ public partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<objec
         AddUsing("Microsoft.AspNetCore.Builder");
         AddUsing("Microsoft.Extensions.Configuration");
         AddUsing("Microsoft.Extensions.DependencyInjection");
-        AddUsing("Microsoft.OpenApi.Models");
         AddUsing("Swashbuckle.AspNetCore.SwaggerUI");
+        
+        if (isSwashbuckleV10)
+        {
+            AddUsing("Microsoft.OpenApi");
+        }
+        else
+        {
+            AddUsing("Microsoft.OpenApi.Models");
+        }
 
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
             .AddClass("SwashbuckleConfiguration", @class =>
@@ -219,7 +229,12 @@ public partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<objec
 
     private void CreateRequireNonNullablePropertiesSchemaFilter(CSharpFile cSharpFile)
     {
+        var isSwashbuckleV10 = OutputTarget.GetMaxNetAppVersion().Major >= 8;
         cSharpFile.AddUsing("System.Linq");
+        if (!isSwashbuckleV10)
+        {
+            cSharpFile.AddUsing("System.Text.Json.Nodes");
+        }
         cSharpFile
             .AddClass("RequireNonNullablePropertiesSchemaFilter", @class =>
             {
@@ -227,16 +242,43 @@ public partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<objec
                 @class.ExtendsClass(UseType("Swashbuckle.AspNetCore.SwaggerGen.ISchemaFilter"));
                 @class.AddMethod("void", "Apply", method =>
                 {
-                    method.AddParameter("OpenApiSchema", "schema");
-                    method.AddParameter("SchemaFilterContext", "context");
-
-                    method.AddObjectInitStatement("var additionalRequiredProps", @"schema.Properties
+                    if (isSwashbuckleV10)
+                    {
+                        method.AddParameter("IOpenApiSchema", "schema");
+                        method.AddParameter("SchemaFilterContext", "context");
+                        method.AddIfStatement("schema is not OpenApiSchema concreteSchema", stmt =>
+                        {
+                            stmt.AddStatement("return;");
+                        });
+                        method.AddIfStatement("concreteSchema.Properties == null || concreteSchema.Required == null", stmt =>
+                        {
+                            stmt.AddStatement("return;");
+                        });
+                        method.AddObjectInitStatement("var additionalRequiredProps", @"concreteSchema.Properties
+                .Where(x => (x.Value is OpenApiSchema propSchema)
+                    && (propSchema.Type & JsonSchemaType.Null) == 0
+                    && !concreteSchema.Required.Contains(x.Key))
+                .Select(x => x.Key);");
+                    }
+                    else
+                    {
+                        method.AddParameter("OpenApiSchema", "schema");
+                        method.AddParameter("SchemaFilterContext", "context");
+                        method.AddObjectInitStatement("var additionalRequiredProps", @"schema.Properties
                 .Where(x => !x.Value.Nullable && !schema.Required.Contains(x.Key))
                 .Select(x => x.Key);");
+                    }
 
                     method.AddForEachStatement("propKey", "additionalRequiredProps", @foreach =>
                     {
-                        @foreach.AddStatement("schema.Required.Add(propKey);");
+                        if (isSwashbuckleV10)
+                        {
+                            @foreach.AddStatement("concreteSchema.Required.Add(propKey);");
+                        }
+                        else
+                        {
+                            @foreach.AddStatement("schema.Required.Add(propKey);");
+                        }
                     });
                 });
             });

@@ -13,6 +13,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.VisualStudio;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -85,28 +86,54 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Security.FactoryExtensions
             AddAdditionSecurityScheme(configureSwaggerOptionsBlock, swaggerUiOptionsBlock, template, application);
         }
 
-        private void AddBearerSecurityScheme(string schemeName, ICSharpFileBuilderTemplate template, CSharpLambdaBlock configureSwaggerOptionsBlock)
+        private static void AddBearerSecurityScheme(string schemeName, ICSharpFileBuilderTemplate template, CSharpLambdaBlock configureSwaggerOptionsBlock)
         {
-            //Bearer
             template.CSharpFile.AddUsing("Microsoft.AspNetCore.Authentication.JwtBearer");
-            configureSwaggerOptionsBlock.AddStatement(new CSharpObjectInitializerBlock("var securityScheme = new OpenApiSecurityScheme()")
-                .AddInitStatement("Name", @"""Authorization""")
+            
+            var isSwashbuckleV10 = ((IntentTemplateBase)template).OutputTarget.GetMaxNetAppVersion().Major >= 8;
+            if (isSwashbuckleV10)
+            {
+                //Bearer v10 - no Reference property, use new OpenApiSecuritySchemeReference lambda overload
+                var schemeBlock = new CSharpObjectInitializerBlock("var securityScheme = new OpenApiSecurityScheme()")
+                    .AddInitStatement("Name", @"""Authorization""")
                     .AddInitStatement("Description", @"""Enter a Bearer Token into the `Value` field to have it automatically prefixed with `Bearer ` and used as an `Authorization` header value for requests.""")
-                .AddInitStatement("In", "ParameterLocation.Header")
-                .AddInitStatement("Type", "SecuritySchemeType.Http")
-                .AddInitStatement("Scheme", @"""bearer""")
-                .AddInitStatement("BearerFormat", @"""JWT""")
-                .AddInitStatement("Reference", new CSharpObjectInitializerBlock("new OpenApiReference")
-                    .AddInitStatement("Id", "JwtBearerDefaults.AuthenticationScheme")
-                    .AddInitStatement("Type", "ReferenceType.SecurityScheme"))
-                .WithSemicolon());
-            configureSwaggerOptionsBlock.AddStatement(new CSharpInvocationStatement("options.AddSecurityDefinition")
-                .AddArgument($"\"{schemeName}\"")
-                .AddArgument("securityScheme"));
-            configureSwaggerOptionsBlock.AddStatement(new CSharpInvocationStatement("options.AddSecurityRequirement")
-                .AddArgument(new CSharpObjectInitializerBlock("new OpenApiSecurityRequirement")
-                    .AddKeyAndValue("securityScheme", "Array.Empty<string>()"))
-                .WithArgumentsOnNewLines());
+                    .AddInitStatement("In", "ParameterLocation.Header")
+                    .AddInitStatement("Type", "SecuritySchemeType.Http")
+                    .AddInitStatement("Scheme", @"""bearer""")
+                    .AddInitStatement("BearerFormat", @"""JWT""")
+                    .WithSemicolon();
+                configureSwaggerOptionsBlock.AddStatement(schemeBlock);
+                configureSwaggerOptionsBlock.AddStatement(new CSharpInvocationStatement("options.AddSecurityDefinition")
+                    .AddArgument($"\"{schemeName}\"")
+                    .AddArgument("securityScheme"));
+                configureSwaggerOptionsBlock.AddStatement(
+                    $@"options.AddSecurityRequirement(document => new OpenApiSecurityRequirement
+                {{
+                    {{ new OpenApiSecuritySchemeReference(""{schemeName}"", document), new List<string>() }}
+                }});");
+            }
+            else
+            {
+                //Bearer legacy
+                configureSwaggerOptionsBlock.AddStatement(new CSharpObjectInitializerBlock("var securityScheme = new OpenApiSecurityScheme()")
+                    .AddInitStatement("Name", @"""Authorization""")
+                    .AddInitStatement("Description", @"""Enter a Bearer Token into the `Value` field to have it automatically prefixed with `Bearer ` and used as an `Authorization` header value for requests.""")
+                    .AddInitStatement("In", "ParameterLocation.Header")
+                    .AddInitStatement("Type", "SecuritySchemeType.Http")
+                    .AddInitStatement("Scheme", @"""bearer""")
+                    .AddInitStatement("BearerFormat", @"""JWT""")
+                    .AddInitStatement("Reference", new CSharpObjectInitializerBlock("new OpenApiReference")
+                        .AddInitStatement("Id", "JwtBearerDefaults.AuthenticationScheme")
+                        .AddInitStatement("Type", "ReferenceType.SecurityScheme"))
+                    .WithSemicolon());
+                configureSwaggerOptionsBlock.AddStatement(new CSharpInvocationStatement("options.AddSecurityDefinition")
+                    .AddArgument($"\"{schemeName}\"")
+                    .AddArgument("securityScheme"));
+                configureSwaggerOptionsBlock.AddStatement(new CSharpInvocationStatement("options.AddSecurityRequirement")
+                    .AddArgument(new CSharpObjectInitializerBlock("new OpenApiSecurityRequirement")
+                        .AddKeyAndValue("securityScheme", "Array.Empty<string>()"))
+                    .WithArgumentsOnNewLines());
+            }
         }
 
         private void AddOAuth2ImplicitSecurityScheme(string schemeName, ICSharpFileBuilderTemplate template, CSharpLambdaBlock configureSwaggerOptionsBlock, CSharpLambdaBlock swaggerUiOptionsBlock)
