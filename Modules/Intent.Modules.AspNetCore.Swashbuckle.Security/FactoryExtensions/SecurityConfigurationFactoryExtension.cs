@@ -187,10 +187,10 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Security.FactoryExtensions
             string configPrefix = $"Swashbuckle:Security:OAuth2:{schemeName}:";
 
             var castTemplate = ((IntentTemplateBase)template);
-            castTemplate.ApplyAppSetting($@"{configPrefix}AuthorizationUrl", "https://login.microsoftonline.com/{TenantId}/oauth2/v2.0/authorize");
-            castTemplate.ApplyAppSetting($@"{configPrefix}TokenUrl", "https://login.microsoftonline.com/{TenantId}/oauth2/v2.0/token");
-            castTemplate.ApplyAppSetting($@"{configPrefix}Scope", new Dictionary<string, string>() { { "{Scope Description}", "api://{ClientId}/Scope" } });
-            castTemplate.ApplyAppSetting($@"{configPrefix}ClientId", "{ClientId}");
+            castTemplate.ApplyAppSetting($@"{configPrefix}AuthorizationUrl", "https://your-oauth-provider.com/connect/authorize");
+            castTemplate.ApplyAppSetting($@"{configPrefix}TokenUrl", "https://your-oauth-provider.com/connect/token");
+            castTemplate.ApplyAppSetting($@"{configPrefix}Scope", new Dictionary<string, string>() { { "API", "api" }, { "OpenID", "openid" }, { "Profile", "profile" }, { "OfflineAccess", "offline_access" } });
+            castTemplate.ApplyAppSetting($@"{configPrefix}ClientId", "your-client-id");
 
             configureSwaggerOptionsBlock.AddStatement($"var authorizationUrl = configuration.GetValue<Uri>(\"{configPrefix}AuthorizationUrl\");");
             configureSwaggerOptionsBlock.AddStatement($"var tokenUrl = configuration.GetValue<Uri>(\"{configPrefix}TokenUrl\");");
