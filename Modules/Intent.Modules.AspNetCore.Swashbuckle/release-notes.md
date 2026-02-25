@@ -1,3 +1,7 @@
+### Version 5.3.0
+
+- Improvement: Updated to work with latest Microsoft.OpenApi library versions.
+
 ### Version 5.2.3
 
 - Improvement: Added `HideRouteParametersFromBodyOperationFilter` operation filter that automatically removes properties from request body schemas when they are already defined as route parameters, preventing duplicate documentation of parameters that are supplied via the URL.

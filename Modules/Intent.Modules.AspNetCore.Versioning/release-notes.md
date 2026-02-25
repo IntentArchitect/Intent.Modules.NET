@@ -1,3 +1,7 @@
+### Version 1.1.11
+
+- Improvement: Updated to work with latest Microsoft.OpenApi library versions.
+
 ### Version 1.1.10
 
 - Improvement: Updated NuGet package versions.
