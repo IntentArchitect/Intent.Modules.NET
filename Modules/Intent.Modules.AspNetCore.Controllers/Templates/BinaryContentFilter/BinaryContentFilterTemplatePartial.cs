@@ -5,6 +5,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.VisualStudio;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using Newtonsoft.Json;
@@ -22,11 +23,14 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.BinaryContentFilter
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public BinaryContentFilterTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            var isMicrosoftOpenApi_2_4_1 = OutputTarget.GetMaxNetAppVersion().Major >= 8;
+            var openApiModelsNamespace = isMicrosoftOpenApi_2_4_1 ? "Microsoft.OpenApi" : "Microsoft.OpenApi.Models";
+            
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddClass($"BinaryContentFilter", @class =>
                 {
                     AddUsing("System.Linq");
-                    AddUsing("Microsoft.OpenApi.Models");
+                    AddUsing(openApiModelsNamespace);
                     AddUsing("Swashbuckle.AspNetCore.SwaggerGen");
                     @class.ImplementsInterface(UseType("Swashbuckle.AspNetCore.SwaggerGen.IOperationFilter"));
 
@@ -51,28 +55,71 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.BinaryContentFilter
                             stmt.AddStatement("return;");
                         });
 
-                        method.AddStatements(@"operation.Parameters.Add(new OpenApiParameter
-            {
-                Name = ""Content-Disposition"",
-                In = ParameterLocation.Header,
-                Required = false,
-                Schema = new OpenApiSchema
-                {                    
-                    Type = ""string""
-                },
-                Description = ""e.g. form-data; name=\""file\""; filename=example.txt""
-            });
-".ConvertToStatements());
+                        if (isMicrosoftOpenApi_2_4_1)
+                        {
+                            method.AddStatements(
+                                """
+                                operation.Parameters.Add(new OpenApiParameter
+                                {
+                                    Name = "Content-Disposition",
+                                    In = ParameterLocation.Header,
+                                    Required = false,
+                                    Schema = new OpenApiSchema
+                                    {                    
+                                        Type = JsonSchemaType.String
+                                    },
+                                    Description = "e.g. form-data; name=\"file\"; filename=example.txt"
+                                });
+                                """ .ConvertToStatements());
+                        }
+                        else
+                        {
+                            method.AddStatements(
+                                """
+                                operation.Parameters.Add(new OpenApiParameter
+                                {
+                                    Name = "Content-Disposition",
+                                    In = ParameterLocation.Header,
+                                    Required = false,
+                                    Schema = new OpenApiSchema
+                                    {                    
+                                        Type = "string"
+                                    },
+                                    Description = "e.g. form-data; name=\"file\"; filename=example.txt"
+                                });
+                                """ .ConvertToStatements());
+                        }
+                        
                         method.AddStatement("operation.RequestBody = new OpenApiRequestBody() {Required = true};");
-                        method.AddStatement(@"operation.RequestBody.Content.Add(""application/octet-stream"", new OpenApiMediaType()
-            {
-                Schema = new OpenApiSchema()
-                {
-                    Type = ""string"",
-                    Format = ""binary"",
-                },
-            });");
 
+                        if (isMicrosoftOpenApi_2_4_1)
+                        {
+                            method.AddStatements(
+                                """
+                                operation.RequestBody.Content.Add("application/octet-stream", new OpenApiMediaType()
+                                {
+                                    Schema = new OpenApiSchema()
+                                    {
+                                        Type = JsonSchemaType.String,
+                                        Format = "binary",
+                                    },
+                                });
+                                """.ConvertToStatements());
+                        }
+                        else
+                        {
+                            method.AddStatements(
+                                """
+                                operation.RequestBody.Content.Add("application/octet-stream", new OpenApiMediaType()
+                                {
+                                    Schema = new OpenApiSchema()
+                                    {
+                                        Type = "string",
+                                        Format = "binary",
+                                    },
+                                });
+                                """.ConvertToStatements());
+                        }
                     });
                 });
         }

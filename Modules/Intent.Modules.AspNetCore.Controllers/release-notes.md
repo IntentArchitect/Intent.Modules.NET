@@ -1,3 +1,7 @@
+### Version 7.1.9
+
+- Improvement: Updated to work with Microsoft.OpenApi (2.4.1 and up) library version.
+
 ### Version 7.1.8
 
 - Improvement: Updated dependencies to latest versions.

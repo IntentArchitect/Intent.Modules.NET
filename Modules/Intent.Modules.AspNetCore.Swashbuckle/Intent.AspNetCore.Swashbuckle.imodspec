@@ -65,7 +65,7 @@
     </detect>
     <detect id="Intent.AspNetCore.Controllers">
       <install>
-        <package id="Intent.AspNetCore.Controllers" version="6.1.1" />
+        <package id="Intent.AspNetCore.Controllers" version="7.1.9-pre.0" />
       </install>
     </detect>
     <detect id="Intent.AspNetCore.Swashbuckle.Security">

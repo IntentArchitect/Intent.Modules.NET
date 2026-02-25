@@ -5,6 +5,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.VisualStudio;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -21,9 +22,12 @@ namespace Intent.Modules.AspNetCore.OData.EntityFramework.Templates.ExcludeOData
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public ExcludeODataDocumentFilterTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            var isMicrosoftOpenApi_2_4_1 = OutputTarget.GetMaxNetAppVersion().Major >= 8;
+            var openApiModelsNamespace = isMicrosoftOpenApi_2_4_1 ? "Microsoft.OpenApi" : "Microsoft.OpenApi.Models";
+            
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Swashbuckle.AspNetCore.SwaggerGen")
-                .AddUsing("Microsoft.OpenApi.Models")
+                .AddUsing(openApiModelsNamespace)
                 .AddUsing("System.Linq")
                 .AddUsing("System")
                 .AddClass($"ExcludeODataDocumentFilter", @class =>
