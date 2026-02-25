@@ -26,9 +26,9 @@ namespace Intent.Modules.AspNetCore.Versioning.Templates.ApiVersionSwaggerGenOpt
             AddNugetDependency(NugetPackages.AspVersioningMvc(outputTarget));
             AddNugetDependency(NugetPackages.AspVersioningMvcApiExplorer(outputTarget));
 
-            var isSwashbuckleV10 = OutputTarget.GetMaxNetAppVersion().Major >= 8;
+            var isMicrosoftOpenApi_2_4_1 = OutputTarget.GetMaxNetAppVersion().Major >= 8;
 
-            if (isSwashbuckleV10)
+            if (isMicrosoftOpenApi_2_4_1)
             {
                 AddUsing("Microsoft.OpenApi");
             }

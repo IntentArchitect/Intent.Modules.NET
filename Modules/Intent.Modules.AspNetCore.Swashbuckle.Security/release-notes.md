@@ -1,7 +1,7 @@
 ### Version 4.1.0
 
 - Improvement: Now supports OAuth2 - Authorization Code flow with improved code generation using builder patterns.
-- Improvement: Updated to work with latest Microsoft.OpenApi library versions.
+- Improvement: Updated to work with Microsoft.OpenApi (2.4.1) library version.
 
 ### Version 4.0.11
 

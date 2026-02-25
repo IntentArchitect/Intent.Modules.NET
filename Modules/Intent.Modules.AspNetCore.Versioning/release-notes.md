@@ -1,6 +1,6 @@
 ### Version 1.1.11
 
-- Improvement: Updated to work with latest Microsoft.OpenApi library versions.
+- Improvement: Updated to work with Microsoft.OpenApi (2.4.1 and up) library version.
 
 ### Version 1.1.10
 

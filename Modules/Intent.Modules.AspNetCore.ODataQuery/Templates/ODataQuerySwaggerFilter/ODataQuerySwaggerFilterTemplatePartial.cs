@@ -6,6 +6,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -32,11 +33,20 @@ namespace Intent.Modules.AspNetCore.ODataQuery.Templates.ODataQuerySwaggerFilter
                     AddUsing("System.Reflection");
                     AddUsing("System.Threading.Tasks");
                     AddUsing("Microsoft.AspNetCore.Mvc");
-                    AddUsing("Microsoft.OpenApi.Models");
                     AddUsing("Microsoft.AspNetCore.OData.Query");
                     AddUsing("Swashbuckle.AspNetCore.SwaggerGen");
                     @class.ImplementsInterface(UseType("Swashbuckle.AspNetCore.SwaggerGen.IOperationFilter"));
 
+                    var isMicrosoftOpenApi_2_4_1 = OutputTarget.GetMaxNetAppVersion().Major >= 8;
+                    if (isMicrosoftOpenApi_2_4_1)
+                    {
+                        AddUsing("Microsoft.OpenApi");
+                    }
+                    else
+                    {
+                        AddUsing("Microsoft.OpenApi.Models");
+                    }
+                    
                     @class.AddMethod("void", "Apply", method =>
                     {
                         method
@@ -99,14 +109,33 @@ namespace Intent.Modules.AspNetCore.ODataQuery.Templates.ODataQuerySwaggerFilter
                             .Static()
                             .AddParameter("string", "name")
                             .AddParameter("string", "description");
-                        method.AddStatement(@"return new() 
-        {
-            Name = name,
-            Description = description,
-            Required = false,
-            Schema = new OpenApiSchema { Type = ""string"" },
-            In = ParameterLocation.Query
-        };");
+
+                        if (isMicrosoftOpenApi_2_4_1)
+                        {
+                            method.AddStatements("""
+                                                return new() 
+                                                        {
+                                                            Name = name,
+                                                            Description = description,
+                                                            Required = false,
+                                                            Schema = new OpenApiSchema { Type = JsonSchemaType.String },
+                                                            In = ParameterLocation.Query
+                                                        };
+                                                """.ConvertToStatements());
+                        }
+                        else
+                        {
+                            method.AddStatements("""
+                                                return new() 
+                                                        {
+                                                            Name = name,
+                                                            Description = description,
+                                                            Required = false,
+                                                            Schema = new OpenApiSchema { Type = "string" },
+                                                            In = ParameterLocation.Query
+                                                        };
+                                                """.ConvertToStatements());
+                        }
                     });
                 });
         }

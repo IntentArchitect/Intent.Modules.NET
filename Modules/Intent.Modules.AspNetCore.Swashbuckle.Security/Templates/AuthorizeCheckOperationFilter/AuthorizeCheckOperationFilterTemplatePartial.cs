@@ -24,8 +24,8 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Security.Templates.AuthorizeChec
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public AuthorizeCheckOperationFilterTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            var isSwashbuckleV10 = OutputTarget.GetMaxNetAppVersion().Major >= 8;
-            var openApiNamespace = isSwashbuckleV10 ? "Microsoft.OpenApi" : "Microsoft.OpenApi.Models";
+            var isMicrosoftOpenApi_2_4_1 = OutputTarget.GetMaxNetAppVersion().Major >= 8;
+            var openApiNamespace = isMicrosoftOpenApi_2_4_1 ? "Microsoft.OpenApi" : "Microsoft.OpenApi.Models";
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
@@ -43,7 +43,7 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Security.Templates.AuthorizeChec
                         method.AddParameter(UseType($"{openApiNamespace}.OpenApiOperation"), "operation")
                             .AddParameter(UseType("Swashbuckle.AspNetCore.SwaggerGen.OperationFilterContext"), "context");
 
-                        if (isSwashbuckleV10)
+                        if (isMicrosoftOpenApi_2_4_1)
                         {
                             var authValue = ExecutionContext.Settings.GetSwaggerSettings().Authentication().Value;
 

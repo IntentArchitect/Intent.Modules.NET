@@ -1,6 +1,6 @@
 ### Version 5.3.0
 
-- Improvement: Updated to work with latest Microsoft.OpenApi library versions.
+- Improvement: Updated to work with Microsoft.OpenApi (2.4.1) library version.
 
 ### Version 5.2.3
 

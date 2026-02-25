@@ -23,8 +23,8 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Templates.HideRouteParametersFro
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public HideRouteParametersFromBodyOperationFilterTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            var isSwashbuckleV10 = OutputTarget.GetMaxNetAppVersion().Major >= 8;
-            var openApiNamespace = isSwashbuckleV10 ? "Microsoft.OpenApi" : "Microsoft.OpenApi.Models";
+            var isMicrosoftOpenApi_2_4_1 = OutputTarget.GetMaxNetAppVersion().Major >= 8;
+            var openApiNamespace = isMicrosoftOpenApi_2_4_1 ? "Microsoft.OpenApi" : "Microsoft.OpenApi.Models";
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System.Linq")
@@ -53,7 +53,7 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Templates.HideRouteParametersFro
                             stmt.BeforeSeparator = CSharpCodeSeparatorType.None;
                         });
                         
-                        if (isSwashbuckleV10)
+                        if (isMicrosoftOpenApi_2_4_1)
                         {
                             method.AddStatement("var parameters = operation.Parameters!;");
                             method.AddStatement("var requestBody = operation.RequestBody!;");
@@ -88,7 +88,7 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Templates.HideRouteParametersFro
                             stmt.AddReturn("");
                         });
                         method.AddStatement("// Process each content type in the request body", c => c.SeparatedFromPrevious());
-                        if (isSwashbuckleV10)
+                        if (isMicrosoftOpenApi_2_4_1)
                         {
                             method.AddForEachStatement("contentType", "requestBodyContent.Keys.ToList()", forEach =>
                             {

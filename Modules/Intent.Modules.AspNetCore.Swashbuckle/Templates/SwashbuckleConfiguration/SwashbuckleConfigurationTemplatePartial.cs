@@ -24,7 +24,7 @@ public partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<objec
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public SwashbuckleConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
     {
-        var isSwashbuckleV10 = OutputTarget.GetMaxNetAppVersion().Major >= 8;
+        var isMicrosoftOpenApi_2_4_1 = OutputTarget.GetMaxNetAppVersion().Major >= 8;
         var useSimpleSchemaIdentifiers = ExecutionContext.Settings.GetSwaggerSettings().UseSimpleSchemaIdentifiers();
         var markNonNullableFieldsAsRequired = ExecutionContext.Settings.GetSwaggerSettings().MarkNonNullableFieldsAsRequired();
 
@@ -38,7 +38,7 @@ public partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<objec
         AddUsing("Microsoft.Extensions.DependencyInjection");
         AddUsing("Swashbuckle.AspNetCore.SwaggerUI");
         
-        if (isSwashbuckleV10)
+        if (isMicrosoftOpenApi_2_4_1)
         {
             AddUsing("Microsoft.OpenApi");
         }
@@ -229,9 +229,9 @@ public partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<objec
 
     private void CreateRequireNonNullablePropertiesSchemaFilter(CSharpFile cSharpFile)
     {
-        var isSwashbuckleV10 = OutputTarget.GetMaxNetAppVersion().Major >= 8;
+        var isMicrosoftOpenApi_2_4_1 = OutputTarget.GetMaxNetAppVersion().Major >= 8;
         cSharpFile.AddUsing("System.Linq");
-        if (!isSwashbuckleV10)
+        if (!isMicrosoftOpenApi_2_4_1)
         {
             cSharpFile.AddUsing("System.Text.Json.Nodes");
         }
@@ -242,7 +242,7 @@ public partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<objec
                 @class.ExtendsClass(UseType("Swashbuckle.AspNetCore.SwaggerGen.ISchemaFilter"));
                 @class.AddMethod("void", "Apply", method =>
                 {
-                    if (isSwashbuckleV10)
+                    if (isMicrosoftOpenApi_2_4_1)
                     {
                         method.AddParameter("IOpenApiSchema", "schema");
                         method.AddParameter("SchemaFilterContext", "context");
@@ -271,7 +271,7 @@ public partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<objec
 
                     method.AddForEachStatement("propKey", "additionalRequiredProps", @foreach =>
                     {
-                        if (isSwashbuckleV10)
+                        if (isMicrosoftOpenApi_2_4_1)
                         {
                             @foreach.AddStatement("concreteSchema.Required.Add(propKey);");
                         }

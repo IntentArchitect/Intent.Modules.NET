@@ -93,8 +93,8 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Security.FactoryExtensions
         {
             template.CSharpFile.AddUsing("Microsoft.AspNetCore.Authentication.JwtBearer");
             
-            var isSwashbuckleV10 = ((IntentTemplateBase)template).OutputTarget.GetMaxNetAppVersion().Major >= 8;
-            if (isSwashbuckleV10)
+            var isMicrosoftOpenApi_2_4_1 = ((IntentTemplateBase)template).OutputTarget.GetMaxNetAppVersion().Major >= 8;
+            if (isMicrosoftOpenApi_2_4_1)
             {
                 //Bearer v10 - no Reference property, use new OpenApiSecuritySchemeReference lambda overload
                 var schemeBlock = new CSharpObjectInitializerBlock("var securityScheme = new OpenApiSecurityScheme()")
@@ -196,8 +196,8 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Security.FactoryExtensions
             configureSwaggerOptionsBlock.AddStatement($"var clientId = configuration.GetValue<string>(\"{configPrefix}ClientId\");");
             configureSwaggerOptionsBlock.AddStatement($"var scopes = configuration.GetSection(\"{configPrefix}Scope\").Get<Dictionary<string, string>>()!.ToDictionary(x => x.Value, x => x.Key);");
 
-            var isSwashbuckleV10 = ((IntentTemplateBase)template).OutputTarget.GetMaxNetAppVersion().Major >= 8;
-            if (isSwashbuckleV10)
+            var isMicrosoftOpenApi_2_4_1 = ((IntentTemplateBase)template).OutputTarget.GetMaxNetAppVersion().Major >= 8;
+            if (isMicrosoftOpenApi_2_4_1)
             {
                 configureSwaggerOptionsBlock.AddStatement(new CSharpObjectInitializerBlock("var securityScheme = new OpenApiSecurityScheme()")
                     .AddInitStatement("Type", "SecuritySchemeType.OAuth2")

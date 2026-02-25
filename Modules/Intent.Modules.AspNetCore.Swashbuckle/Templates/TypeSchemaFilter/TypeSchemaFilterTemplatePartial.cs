@@ -23,15 +23,15 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Templates.TypeSchemaFilter
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public TypeSchemaFilterTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            var isSwashbuckleV10 = OutputTarget.GetMaxNetAppVersion().Major >= 8;
-            var openApiNamespace = isSwashbuckleV10 ? "Microsoft.OpenApi" : "Microsoft.OpenApi.Models";
+            var isMicrosoftOpenApi_2_4_1 = OutputTarget.GetMaxNetAppVersion().Major >= 8;
+            var openApiNamespace = isMicrosoftOpenApi_2_4_1 ? "Microsoft.OpenApi" : "Microsoft.OpenApi.Models";
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing(openApiNamespace)
                 .AddUsing("Swashbuckle.AspNetCore.SwaggerGen");
             
-            if (isSwashbuckleV10)
+            if (isMicrosoftOpenApi_2_4_1)
             {
                 CSharpFile.AddUsing("System.Text.Json.Nodes");
             }
@@ -45,7 +45,7 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Templates.TypeSchemaFilter
                     @class.ImplementsInterface("ISchemaFilter");
                     @class.AddMethod("void", "Apply", method =>
                     {
-                        if (isSwashbuckleV10)
+                        if (isMicrosoftOpenApi_2_4_1)
                         {
                             method
                                 .AddParameter("IOpenApiSchema", "schema")
