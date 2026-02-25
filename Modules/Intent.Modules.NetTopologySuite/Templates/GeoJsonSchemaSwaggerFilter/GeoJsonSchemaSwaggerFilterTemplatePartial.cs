@@ -5,6 +5,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.VisualStudio;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -22,27 +23,57 @@ namespace Intent.Modules.NetTopologySuite.Templates.GeoJsonSchemaSwaggerFilter
         public GeoJsonSchemaSwaggerFilterTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NugetPackages.NetTopologySuite);
+            
+            var isMicrosoftOpenApi_2_4_1 = OutputTarget.GetMaxNetAppVersion().Major >= 8;
+            
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
-                .AddUsing("Microsoft.OpenApi.Any")
-                .AddUsing("Microsoft.OpenApi.Models")
                 .AddUsing("Swashbuckle.AspNetCore.SwaggerGen")
                 .AddUsing("NetTopologySuite.Geometries")
                 .AddClass($"GeoJsonSchemaFilter", @class =>
                 {
                     @class.ImplementsInterface("ISchemaFilter");
-                    @class.AddMethod("void", "Apply", method =>
+
+                    if (isMicrosoftOpenApi_2_4_1)
                     {
-                        method.AddParameter("OpenApiSchema", "schema");
-                        method.AddParameter("SchemaFilterContext", "context");
-                        method.AddIfStatement("context.Type == typeof(Point)", stmt => stmt
-                            .AddStatement(@"schema.Format = ""geojson"";")
-                            .AddStatement(new CSharpAssignmentStatement("schema.Example", new CSharpObjectInitializerBlock("new OpenApiObject")
-                                .AddKeyAndValue(@"""type""", @"new OpenApiString(""Point"")")
-                                .AddKeyAndValue(@"""coordinates""", "new OpenApiArray { new OpenApiDouble(1.0), new OpenApiDouble(2.0) }"))
-                                .WithSemicolon())
-                        );
-                    });
+                        @class.AddMethod("void", "Apply", method =>
+                        {
+                            method.AddParameter("IOpenApiSchema", "schema");
+                            method.AddParameter("SchemaFilterContext", "context");
+                            method.AddIfStatement("schema is OpenApiSchema concreteSchema && context.Type == typeof(Point)", stmt => stmt
+                                .AddStatement(@"concreteSchema.Format = ""geojson"";")
+                                .AddStatement(new CSharpAssignmentStatement("concreteSchema.Example", new CSharpObjectInitializerBlock("new JsonObject")
+                                        .AddKeyAndValue(@"""type""", @"""Point""")
+                                        .AddKeyAndValue(@"""coordinates""", "new JsonArray { 1.0, 2.0 }"))
+                                    .WithSemicolon())
+                            );
+                        });
+                    }
+                    else
+                    {
+                        @class.AddMethod("void", "Apply", method =>
+                        {
+                            method.AddParameter("OpenApiSchema", "schema");
+                            method.AddParameter("SchemaFilterContext", "context");
+                            method.AddIfStatement("context.Type == typeof(Point)", stmt => stmt
+                                .AddStatement(@"schema.Format = ""geojson"";")
+                                .AddStatement(new CSharpAssignmentStatement("schema.Example", new CSharpObjectInitializerBlock("new OpenApiObject")
+                                        .AddKeyAndValue(@"""type""", @"new OpenApiString(""Point"")")
+                                        .AddKeyAndValue(@"""coordinates""", "new OpenApiArray { new OpenApiDouble(1.0), new OpenApiDouble(2.0) }"))
+                                    .WithSemicolon())
+                            );
+                        });
+                    }
                 });
+            
+            if (isMicrosoftOpenApi_2_4_1)
+            {
+                CSharpFile.AddUsing("Microsoft.OpenApi");
+            }
+            else
+            {
+                CSharpFile.AddUsing("Microsoft.OpenApi.Any");
+                CSharpFile.AddUsing("Microsoft.OpenApi.Models");
+            }
         }
 
         public override bool CanRunTemplate()

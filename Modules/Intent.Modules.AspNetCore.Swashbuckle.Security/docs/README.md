@@ -14,11 +14,48 @@ This module specifically deals with:
 This module introduces the `Swagger Settings -> Authentication`, this setting has the following options:
 
 - **Bearer**, this setting configures the Swagger UI so you can authenticate using a bearer token.
-- **OAuth 2.0 - Implicit**, this setting configures the Swagger UI so you can authenticate using OAuth 2.0 implicit flows.
+- **OAuth 2.0 - Authorization Code**, this setting configures the Swagger UI so you can authenticate using OAuth 2.0 authorization code flow.
+- **OAuth 2.0 - Implicit**, this setting configures the Swagger UI so you can authenticate using OAuth 2.0 implicit flows (deprecated due to security concerns - Authorization Code flow is recommended instead).
+
+### OAuth 2.0 - Authorization Code
+
+For this setting you will need to:
+
+1. **Configure your Identity Provider** to include the Swagger OAuth2 redirect URL in the list of allowed redirect URIs. For example:
+   - `https://localhost:44366/swagger/oauth2-redirect.html` (for local development)
+   - `https://your-domain.com/swagger/oauth2-redirect.html` (for production)
+
+2. **Add the relevant configuration** into your `appsettings.json`:
+
+```JSON
+"Swashbuckle": {
+  "Security": {
+    "OAuth2": {
+      "AuthorizationCode": {
+        "AuthorizationUrl": "[AuthorizationUrl]",
+        "TokenUrl": "[TokenUrl]",
+        "Scope": {
+          "[Scope Description]": "[Scope URL]"
+        },
+        "ClientId": "[ClientId]"
+        //"ClientSecret": "2baa1cc5-1006-40ee-8db1-1abcc54ff08b" OPTIONAL
+      }
+    }
+  }
+}
+```
 
 ### OAuth 2.0 - Implicit
 
-For this setting you will need to add the relevant configuration into you `app.settings`:
+> ⚠️ **Deprecated:** The Implicit flow is considered less secure than the Authorization Code flow because the access token is exposed in the browser URL and can be intercepted. It is recommended to use **OAuth 2.0 - Authorization Code** instead, which provides better security by exchanging an authorization code for a token via a secure back-channel.
+
+For this setting you will need to:
+
+1. **Configure your Identity Provider** to include the Swagger OAuth2 redirect URL in the list of allowed redirect URIs. For example:
+   - `https://localhost:44366/swagger/oauth2-redirect.html` (for local development)
+   - `https://your-domain.com/swagger/oauth2-redirect.html` (for production)
+
+2. **Add the relevant configuration** into your `appsettings.json`:
 
 ```JSON
 "Swashbuckle": {
@@ -26,7 +63,7 @@ For this setting you will need to add the relevant configuration into you `app.s
     "OAuth2": {
       "Implicit": {
         "AuthorizationUrl": "[AuthorizationUrl]",
-        "TokenUrl": "[TokenUrl]]",
+        "TokenUrl": "[TokenUrl]",
         "Scope": {
           "[Scope Description]": "[Scope URL]"
         },

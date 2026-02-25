@@ -8,8 +8,16 @@ This module specifically deals with:
 
 - Dependency Injection wiring
 - Swashbuckle - Swagger and Swagger UI Configuration
+- Automatic removal of duplicate route parameters from request body schemas
+- XML documentation comments integration
 
 For more information on `Swashbuckle.AspNetCore`, check out their [GitHub](https://github.com/domaindrivendev/Swashbuckle.AspNetCore).
+
+## Features
+
+### Automatic Route Parameter Handling
+
+This module automatically includes the `HideRouteParametersFromBodyOperationFilter` operation filter, which removes properties from request body schemas when they are already defined as route parameters. This prevents duplicate documentation of parameters that are supplied via the URL, ensuring cleaner and more accurate API documentation.
 
 ## Settings
 
@@ -25,9 +33,16 @@ Default setting: _disabled_
 
 By default, schema identifiers have been configured to be the fully qualified type name so as to avoid conflicts with otherwise identically named types. When this option is enabled "simple" identifiers without a namespace are generated instead.
 
+**Schema Identifier Format:**
+- **Nested types:** Separated by `.` (e.g., `ParentType.NestedType`)
+- **Generic types with simple identifiers:** Use `Of` and `And` to separate generic types and parameters (e.g., `ListOfString`)
+- **Generic types with full-namespace identifiers:** Use `_Of_` and `_And_` to separate generic types and parameters (e.g., `System.Collections.Generic.List_Of_System.String`)
+
 ## Inclusion of XML documentation comments
 
-To enable inclusion of XML documentation comments, ensure that in the Visual Studio designer, `Generate Documentation File` is set to `true` for both the `<ApplicationName>.Api` and `<ApplicationName>.Application` projects. It is also recommended on these projects to append `;1591` to the `Suppress Warnings` property so as to prevent generation of [Missing XML comment for publicly visible type or member 'Type_or_Member'](https://learn.microsoft.com/dotnet/csharp/language-reference/compiler-messages/cs1591) warnings.
+To enable inclusion of XML documentation comments, ensure that in the Visual Studio designer, `Generate Documentation File` is set to `true` for the `<ApplicationName>.Api`, `<ApplicationName>.Application`, and optionally the `<ApplicationName>.Domain` projects. It is also recommended on these projects to append `;1591` to the `Suppress Warnings` property so as to prevent generation of [Missing XML comment for publicly visible type or member 'Type_or_Member'](https://learn.microsoft.com/dotnet/csharp/language-reference/compiler-messages/cs1591) warnings.
+
+**Note:** Comments from the Domain Model are automatically included in the generated Swagger documentation when XML comments are enabled for the Domain project.
 
 ## Related Modules
 

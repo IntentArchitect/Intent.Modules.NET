@@ -25,7 +25,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.BinaryContentFilter
         {
             var isMicrosoftOpenApi_2_4_1 = OutputTarget.GetMaxNetAppVersion().Major >= 8;
             var openApiModelsNamespace = isMicrosoftOpenApi_2_4_1 ? "Microsoft.OpenApi" : "Microsoft.OpenApi.Models";
-            
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddClass($"BinaryContentFilter", @class =>
                 {
@@ -70,7 +70,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.BinaryContentFilter
                                     },
                                     Description = "e.g. form-data; name=\"file\"; filename=example.txt"
                                 });
-                                """ .ConvertToStatements());
+                                """.ConvertToStatements());
                         }
                         else
                         {
@@ -87,9 +87,9 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.BinaryContentFilter
                                     },
                                     Description = "e.g. form-data; name=\"file\"; filename=example.txt"
                                 });
-                                """ .ConvertToStatements());
+                                """.ConvertToStatements());
                         }
-                        
+
                         method.AddStatement("operation.RequestBody = new OpenApiRequestBody() {Required = true};");
 
                         if (isMicrosoftOpenApi_2_4_1)
