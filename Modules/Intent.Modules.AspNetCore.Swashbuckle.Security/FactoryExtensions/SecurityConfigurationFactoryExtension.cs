@@ -175,10 +175,9 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Security.FactoryExtensions
             swaggerUiOptionsBlock.AddStatement($"var clientId = configuration.GetValue<string>(\"{configPrefix}ClientId\");");
             swaggerUiOptionsBlock.AddStatement($"var clientSecret = configuration.GetValue<string>(\"{configPrefix}ClientSecret\");");
             swaggerUiOptionsBlock.AddStatement($"options.OAuthClientId(clientId);");
-            swaggerUiOptionsBlock.AddStatement($"if (!string.IsNullOrWhiteSpace(clientSecret))");
-            swaggerUiOptionsBlock.AddStatement($"{{");
-            swaggerUiOptionsBlock.AddStatement($"   options.OAuthClientSecret(clientSecret);");
-            swaggerUiOptionsBlock.AddStatement($"}}");
+            
+            swaggerUiOptionsBlock.AddIfStatement("!string.IsNullOrWhiteSpace(clientSecret)",
+                ifStmt => ifStmt.AddStatement("options.OAuthClientSecret(clientSecret);"));
         }
 
         private void AddOAuth2AuthorizationCodeSecurityScheme(string schemeName, ICSharpFileBuilderTemplate template, CSharpLambdaBlock configureSwaggerOptionsBlock, CSharpLambdaBlock swaggerUiOptionsBlock)
@@ -212,11 +211,11 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Security.FactoryExtensions
                 configureSwaggerOptionsBlock.AddStatement(new CSharpInvocationStatement("options.AddSecurityDefinition")
                     .AddArgument($"\"{schemeName}\"")
                     .AddArgument("securityScheme"));
-                configureSwaggerOptionsBlock.AddStatement(
-                    $@"options.AddSecurityRequirement(document => new OpenApiSecurityRequirement
-                {{
-                    {{ new OpenApiSecuritySchemeReference(""{schemeName}"", document), scopes.Select(s => s.Key).ToList() }}
-                }});");
+                configureSwaggerOptionsBlock.AddInvocationStatement("options.AddSecurityRequirement", inv => inv
+                    .AddArgument(new CSharpLambdaBlock("document").WithExpressionBody(
+                        new CSharpObjectInitializerBlock("new OpenApiSecurityRequirement")
+                            .AddKeyAndValue($"new OpenApiSecuritySchemeReference(\"{schemeName}\", document)", "scopes.Select(s => s.Key).ToList()")))
+                    .WithArgumentsOnNewLines());
             }
             else
             {
