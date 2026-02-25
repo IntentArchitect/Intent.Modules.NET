@@ -30,6 +30,7 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Templates.HideRouteParametersFro
                 .AddUsing("System.Linq")
                 .AddUsing(openApiNamespace)
                 .AddUsing("Swashbuckle.AspNetCore.SwaggerGen")
+                .AddUsing("System.Collections.Generic")
                 .AddClass($"HideRouteParametersFromBodyOperationFilter", @class =>
                 {
                     @class.ImplementsInterface("IOperationFilter");
