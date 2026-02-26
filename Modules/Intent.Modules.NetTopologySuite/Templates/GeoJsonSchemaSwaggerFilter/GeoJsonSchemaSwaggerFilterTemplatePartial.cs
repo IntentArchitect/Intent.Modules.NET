@@ -68,6 +68,7 @@ namespace Intent.Modules.NetTopologySuite.Templates.GeoJsonSchemaSwaggerFilter
             if (isMicrosoftOpenApi_2_4_1)
             {
                 CSharpFile.AddUsing("Microsoft.OpenApi");
+                CSharpFile.AddUsing("System.Text.Json.Nodes");
             }
             else
             {
