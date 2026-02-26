@@ -1,6 +1,9 @@
-### Version 5.3.0
+### Version 6.0.0
 
 - Improvement: Updated to work with Microsoft.OpenApi (2.4.1) library version.
+
+> ⚠️ NOTE
+> The migration to Microsoft.OpenApi (2.4.1) includes API changes that may impact custom Swashbuckle Filters. Please review and update your filter implementations to ensure compatibility after upgrading.
 
 ### Version 5.2.3
 

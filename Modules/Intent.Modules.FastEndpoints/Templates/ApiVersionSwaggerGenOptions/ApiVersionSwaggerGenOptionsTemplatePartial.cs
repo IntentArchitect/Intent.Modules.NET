@@ -5,6 +5,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.VisualStudio;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -23,12 +24,15 @@ namespace Intent.Modules.FastEndpoints.Templates.ApiVersionSwaggerGenOptions
         {
             AddNugetDependency(NugetPackages.FastEndpointsAspVersioning(OutputTarget));
 
+            var isMicrosoftOpenApi_2_4_1 = OutputTarget.GetMaxNetAppVersion().Major >= 8;
+            var openApiNamespace = isMicrosoftOpenApi_2_4_1 ? "Microsoft.OpenApi" : "Microsoft.OpenApi.Models";
+            
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Asp.Versioning")
                 .AddUsing("Asp.Versioning.ApiExplorer")
                 .AddUsing("Microsoft.Extensions.Options")
                 .AddUsing("Swashbuckle.AspNetCore.SwaggerGen")
-                .AddUsing("Microsoft.OpenApi.Models")
+                .AddUsing(openApiNamespace)
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
                 .AddUsing("System.Linq")
                 .AddClass($"ApiVersionSwaggerGenOptions", @class =>

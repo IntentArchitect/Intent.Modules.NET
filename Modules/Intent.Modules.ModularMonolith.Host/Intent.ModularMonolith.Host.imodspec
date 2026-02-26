@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.ModularMonolith.Host</id>
-  <version>1.0.12</version>
-  <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
+  <version>2.0.0-pre.0</version>
+  <supportedClientVersions>[4.4.0-a,5.0.0)</supportedClientVersions>
   <summary>Module for configuring Modular Monolith Host</summary>
   <description>Module for configuring Modular Monolith Host</description>
   <authors>Intent Architect</authors>
@@ -36,6 +36,13 @@
     <factoryExtension id="Intent.ModularMonolith.Host.TemplateSuppressorExtension" externalReference="a33c4bdf-5547-4b37-a2e2-a4790a894883" />
   </factoryExtensions>
   <moduleSettings></moduleSettings>
+  <interoperability>
+    <detect id="Intent.AspNetCore.Swashbuckle">
+      <install>
+        <package id="Intent.AspNetCore.Swashbuckle" version="6.0.0-pre.0" />
+      </install>
+    </detect>
+  </interoperability>
   <dependencies>
     <dependency id="Intent.Common" version="3.7.2" />
     <dependency id="Intent.Common.CSharp" version="3.8.14" />

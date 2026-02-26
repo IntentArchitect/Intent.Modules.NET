@@ -71,7 +71,7 @@
     </detect>
     <detect id="Intent.AspNetCore.Swashbuckle">
       <install>
-        <package id="Intent.AspNetCore.Swashbuckle" version="5.3.0-pre.0" />
+        <package id="Intent.AspNetCore.Swashbuckle" version="6.0.0-pre.0" />
       </install>
     </detect>
   </interoperability>

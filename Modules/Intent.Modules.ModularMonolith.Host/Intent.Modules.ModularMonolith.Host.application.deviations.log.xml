@@ -2,14 +2,14 @@
 <deviationsLog>
   <files>
     <file>
-      <correlationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</correlationId>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages#234c8bf3-f527-4349-84e1-07c9971fdb77</correlationId>
       <path>Intent.Modules.ModularMonolith.Host/NugetPackages.cs</path>
       <count>4</count>
-      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-01-26T14:12:57.3576136Z</updatedAt>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-02-26T12:16:22.1681893Z</updatedAt>
       <deviationsHash>B78F48AEC081E4A916FC9F17463C487197612F0E04040C7161D70A1A9F6C59D9</deviationsHash>
-      <fileHash>ACAF94D8CC05CC9FDAF876E681AE3594D9F96CC354977115CCC9C6D208B7B00B</fileHash>
+      <fileHash>4900DF5DB94220DCB3F057F9E2E9CE978D638AFD6FC3A9B05339EEF90DFE164D</fileHash>
     </file>
   </files>
 </deviationsLog>

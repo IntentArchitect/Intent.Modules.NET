@@ -1,7 +1,10 @@
-### Version 4.1.0
+### Version 5.0.0
 
 - Improvement: Now supports OAuth2 - Authorization Code flow with improved code generation using builder patterns.
 - Improvement: Updated to work with Microsoft.OpenApi (2.4.1) library version.
+
+> ⚠️ NOTE
+> The migration to Microsoft.OpenApi (2.4.1) includes API changes that may impact custom Swashbuckle Filters. Please review and update your filter implementations to ensure compatibility after upgrading.
 
 ### Version 4.0.11
 
