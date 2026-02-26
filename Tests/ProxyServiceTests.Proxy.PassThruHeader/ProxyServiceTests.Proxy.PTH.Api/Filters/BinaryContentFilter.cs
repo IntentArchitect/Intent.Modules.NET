@@ -1,6 +1,6 @@
 using System.Linq;
 using Intent.RoslynWeaver.Attributes;
-using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi;
 using ProxyServiceTests.Proxy.PTH.Api.Controllers.FileTransfer;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
@@ -31,7 +31,7 @@ namespace ProxyServiceTests.Proxy.PTH.Api.Filters
                 Required = false,
                 Schema = new OpenApiSchema
                 {
-                    Type = "string"
+                    Type = JsonSchemaType.String
                 },
                 Description = "e.g. form-data; name=\"file\"; filename=example.txt"
             });
@@ -40,7 +40,7 @@ namespace ProxyServiceTests.Proxy.PTH.Api.Filters
             {
                 Schema = new OpenApiSchema()
                 {
-                    Type = "string",
+                    Type = JsonSchemaType.String,
                     Format = "binary",
                 },
             });

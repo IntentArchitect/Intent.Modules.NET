@@ -1,7 +1,7 @@
 using System.Linq;
 using AdvancedMappingCrud.Repositories.Tests.Api.Controllers.FileTransfer;
 using Intent.RoslynWeaver.Attributes;
-using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -31,7 +31,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Filters
                 Required = false,
                 Schema = new OpenApiSchema
                 {
-                    Type = "string"
+                    Type = JsonSchemaType.String
                 },
                 Description = "e.g. form-data; name=\"file\"; filename=example.txt"
             });
@@ -40,7 +40,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Filters
             {
                 Schema = new OpenApiSchema()
                 {
-                    Type = "string",
+                    Type = JsonSchemaType.String,
                     Format = "binary",
                 },
             });

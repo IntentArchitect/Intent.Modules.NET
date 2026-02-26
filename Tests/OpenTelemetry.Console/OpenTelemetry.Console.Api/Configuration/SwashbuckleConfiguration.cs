@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi;
 using OpenTelemetry.Console.Api.Filters;
 using OpenTelemetry.Console.Application;
 using Swashbuckle.AspNetCore.SwaggerGen;
@@ -109,15 +109,26 @@ namespace OpenTelemetry.Console.Api.Configuration
 
     internal class RequireNonNullablePropertiesSchemaFilter : ISchemaFilter
     {
-        public void Apply(OpenApiSchema schema, SchemaFilterContext context)
+        public void Apply(IOpenApiSchema schema, SchemaFilterContext context)
         {
-            var additionalRequiredProps = schema.Properties
-                .Where(x => !x.Value.Nullable && !schema.Required.Contains(x.Key))
+            if (schema is not OpenApiSchema concreteSchema)
+            {
+                return;
+            }
+
+            if (concreteSchema.Properties == null || concreteSchema.Required == null)
+            {
+                return;
+            }
+            var additionalRequiredProps = concreteSchema.Properties
+                .Where(x => (x.Value is OpenApiSchema propSchema)
+                    && (propSchema.Type & JsonSchemaType.Null) == 0
+                    && !concreteSchema.Required.Contains(x.Key))
                 .Select(x => x.Key);
 
             foreach (var propKey in additionalRequiredProps)
             {
-                schema.Required.Add(propKey);
+                concreteSchema.Required.Add(propKey);
             }
         }
     }

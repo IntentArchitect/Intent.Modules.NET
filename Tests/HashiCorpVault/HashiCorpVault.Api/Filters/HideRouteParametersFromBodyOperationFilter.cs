@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.OpenApi.Models;
@@ -73,7 +74,17 @@ namespace HashiCorpVault.Api.Filters
                 }
 
                 // Create a new schema with the filtered properties
-                var newSchema = new OpenApiSchema(schema);
+                var newSchema = new OpenApiSchema
+                {
+                    Type = schema.Type,
+                    Format = schema.Format,
+                    Description = schema.Description,
+                    Nullable = schema.Nullable,
+                    Properties = new Dictionary<string, OpenApiSchema>(schema.Properties),
+                    Required = new HashSet<string>(schema.Required),
+                    AdditionalPropertiesAllowed = schema.AdditionalPropertiesAllowed,
+                    AdditionalProperties = schema.AdditionalProperties
+                };
 
                 // Remove matching properties from the new schema
                 foreach (var propertyName in propertiesToRemove)

@@ -1,5 +1,5 @@
 using Intent.RoslynWeaver.Attributes;
-using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -20,11 +20,19 @@ namespace OcelotTest.Api.Filters
             {
                 return;
             }
+            var parameters = operation.Parameters!;
+            var requestBody = operation.RequestBody!;
+
+            if (requestBody?.Content == null)
+            {
+                return;
+            }
+            var requestBodyContent = requestBody.Content;
 
             // Get all route parameter names (case-insensitive for matching)
-            var routeParameters = operation.Parameters
-                .Where(p => p.In == ParameterLocation.Path)
-                .Select(p => p.Name.ToLowerInvariant())
+            var routeParameters = parameters
+                .Where(p => p.In == ParameterLocation.Path && !string.IsNullOrEmpty(p.Name))
+                .Select(p => p.Name!.ToLowerInvariant())
                 .ToHashSet();
 
             if (routeParameters.Count == 0)
@@ -33,9 +41,14 @@ namespace OcelotTest.Api.Filters
             }
 
             // Process each content type in the request body
-            foreach (var contentType in operation.RequestBody.Content.Keys.ToList())
+            foreach (var contentType in requestBodyContent.Keys.ToList())
             {
-                var content = operation.RequestBody.Content[contentType];
+                var content = requestBodyContent[contentType];
+
+                if (content == null)
+                {
+                    continue;
+                }
                 var schema = content.Schema;
 
                 if (schema == null)
@@ -43,46 +56,48 @@ namespace OcelotTest.Api.Filters
                     continue;
                 }
 
-                // Handle schema references
-                if (schema.Reference != null)
+                // Handle schema references - resolve them from the schema repository
+                OpenApiSchema? concreteSchema = null;
+                if (schema is OpenApiSchemaReference schemaReference)
                 {
-                    // Get the actual schema from the context
-                    var schemaRepository = context.SchemaRepository.Schemas;
-                    var schemaId = schema.Reference.Id;
+                    // Resolve the referenced schema from the schema repository
+                    var schemaId = schemaReference.Reference.Id;
 
-                    if (schemaRepository.TryGetValue(schemaId, out var referencedSchema))
+                    if (context.SchemaRepository.Schemas.TryGetValue(schemaId, out var resolvedSchema))
                     {
-                        schema = referencedSchema;
+                        concreteSchema = resolvedSchema as OpenApiSchema;
                     }
                 }
+                else if (schema is OpenApiSchema directSchema)
+                {
+                    concreteSchema = directSchema;
+                }
 
-                if (schema.Properties == null || !schema.Properties.Any())
+                if (concreteSchema?.Properties == null || !concreteSchema.Properties.Any())
                 {
                     continue;
                 }
 
                 // Find properties that match route parameter names (case-insensitive)
-                var propertiesToRemove = schema.Properties.Keys
+                var propertyKeysToRemove = concreteSchema.Properties.Keys
                     .Where(key => routeParameters.Contains(key.ToLowerInvariant()))
                     .ToList();
 
-                if (propertiesToRemove.Count == 0)
+                if (propertyKeysToRemove.Count == 0)
                 {
                     continue;
                 }
 
-                // Create a new schema with the filtered properties
-                var newSchema = new OpenApiSchema(schema);
-
-                // Remove matching properties from the new schema
-                foreach (var propertyName in propertiesToRemove)
+                // Remove matching properties from the schema
+                foreach (var propertyKey in propertyKeysToRemove)
                 {
-                    newSchema.Properties.Remove(propertyName);
-                    newSchema.Required.Remove(propertyName);
-                }
+                    concreteSchema.Properties.Remove(propertyKey);
 
-                // Replace the content schema with the new filtered schema
-                operation.RequestBody.Content[contentType].Schema = newSchema;
+                    if (concreteSchema.Required != null)
+                    {
+                        concreteSchema.Required.Remove(propertyKey);
+                    }
+                }
             }
         }
     }

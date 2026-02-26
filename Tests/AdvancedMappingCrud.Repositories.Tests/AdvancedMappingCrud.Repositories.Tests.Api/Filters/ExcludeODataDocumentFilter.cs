@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 using Intent.RoslynWeaver.Attributes;
-using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]

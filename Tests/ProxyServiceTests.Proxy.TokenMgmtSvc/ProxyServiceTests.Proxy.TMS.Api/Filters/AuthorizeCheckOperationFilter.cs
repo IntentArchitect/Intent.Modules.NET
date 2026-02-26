@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -18,27 +18,18 @@ namespace ProxyServiceTests.Proxy.TMS.Api.Filters
         {
             if (!HasAuthorize(context))
             {
-                var securityScheme = new OpenApiSecurityScheme();
-                operation.Security = new List<OpenApiSecurityRequirement>
-                {
-                    new OpenApiSecurityRequirement
-                    {
-                        { securityScheme, Array.Empty<string>() }
-                    }
-                };
                 return;
             }
-            operation.Security.Add(new OpenApiSecurityRequirement
+
+            if (operation.Security == null)
             {
-                [new OpenApiSecurityScheme
-                {
-                    Reference = new OpenApiReference
-                    {
-                        Type = ReferenceType.SecurityScheme,
-                        Id = "Bearer"
-                    }
-                }] = Array.Empty<string>()
-            });
+                operation.Security = new List<OpenApiSecurityRequirement>();
+            }
+            var securityRequirement = new OpenApiSecurityRequirement
+            {
+                { new OpenApiSecuritySchemeReference("Bearer", context.Document), new List<string>() }
+            };
+            operation.Security.Add(securityRequirement);
         }
 
         private static bool HasAuthorize(OperationFilterContext context)

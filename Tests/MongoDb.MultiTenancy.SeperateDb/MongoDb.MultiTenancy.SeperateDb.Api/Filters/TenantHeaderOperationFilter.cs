@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
-using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -12,7 +12,7 @@ namespace MongoDb.MultiTenancy.SeperateDb.Api.Filters
     {
         public void Apply(OpenApiOperation operation, OperationFilterContext context)
         {
-            operation.Parameters ??= new List<OpenApiParameter>();
+            operation.Parameters ??= new List<IOpenApiParameter>();
 
             operation.Parameters.Add(new OpenApiParameter
             {

@@ -7,7 +7,7 @@ using EntityFramework.Application.LinqExtensions.Tests.Domain.Common.Exceptions;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Options;
-using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Swashbuckle.AspNetCore.SwaggerUI;
 
@@ -56,20 +56,14 @@ namespace EntityFramework.Application.LinqExtensions.Tests.Api.Configuration
                         In = ParameterLocation.Header,
                         Type = SecuritySchemeType.Http,
                         Scheme = "bearer",
-                        BearerFormat = "JWT",
-                        Reference = new OpenApiReference
-                        {
-                            Id = JwtBearerDefaults.AuthenticationScheme,
-                            Type = ReferenceType.SecurityScheme
-                        }
+                        BearerFormat = "JWT"
                     };
 
                     options.AddSecurityDefinition("Bearer", securityScheme);
-                    options.AddSecurityRequirement(
-                        new OpenApiSecurityRequirement
-                        {
-                            { securityScheme, Array.Empty<string>() }
-                        });
+                    options.AddSecurityRequirement(document => new OpenApiSecurityRequirement
+                {
+                    { new OpenApiSecuritySchemeReference("Bearer", document), new List<string>() }
+                });
                     options.SchemaFilter<TypeSchemaFilter>();
                 });
             return services;
@@ -135,15 +129,26 @@ namespace EntityFramework.Application.LinqExtensions.Tests.Api.Configuration
 
     internal class RequireNonNullablePropertiesSchemaFilter : ISchemaFilter
     {
-        public void Apply(OpenApiSchema schema, SchemaFilterContext context)
+        public void Apply(IOpenApiSchema schema, SchemaFilterContext context)
         {
-            var additionalRequiredProps = schema.Properties
-                .Where(x => !x.Value.Nullable && !schema.Required.Contains(x.Key))
+            if (schema is not OpenApiSchema concreteSchema)
+            {
+                return;
+            }
+
+            if (concreteSchema.Properties == null || concreteSchema.Required == null)
+            {
+                return;
+            }
+            var additionalRequiredProps = concreteSchema.Properties
+                .Where(x => (x.Value is OpenApiSchema propSchema)
+                    && (propSchema.Type & JsonSchemaType.Null) == 0
+                    && !concreteSchema.Required.Contains(x.Key))
                 .Select(x => x.Key);
 
             foreach (var propKey in additionalRequiredProps)
             {
-                schema.Required.Add(propKey);
+                concreteSchema.Required.Add(propKey);
             }
         }
     }

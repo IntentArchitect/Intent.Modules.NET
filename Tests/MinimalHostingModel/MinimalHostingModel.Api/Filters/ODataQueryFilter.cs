@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Query;
-using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -60,7 +60,7 @@ namespace MinimalHostingModel.Api.Filters
                 Name = name,
                 Description = description,
                 Required = false,
-                Schema = new OpenApiSchema { Type = "string" },
+                Schema = new OpenApiSchema { Type = JsonSchemaType.String },
                 In = ParameterLocation.Query
             };
         }

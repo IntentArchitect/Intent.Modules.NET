@@ -1,6 +1,6 @@
+using System.Text.Json.Nodes;
 using Intent.RoslynWeaver.Attributes;
-using Microsoft.OpenApi.Any;
-using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi;
 using NetTopologySuite.Geometries;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
@@ -11,15 +11,15 @@ namespace CleanArchitecture.Comprehensive.Api.Filters;
 
 public class GeoJsonSchemaFilter : ISchemaFilter
 {
-    public void Apply(OpenApiSchema schema, SchemaFilterContext context)
+    public void Apply(IOpenApiSchema schema, SchemaFilterContext context)
     {
-        if (context.Type == typeof(Point))
+        if (schema is OpenApiSchema concreteSchema && context.Type == typeof(Point))
         {
-            schema.Format = "geojson";
-            schema.Example = new OpenApiObject
+            concreteSchema.Format = "geojson";
+            concreteSchema.Example = new JsonObject
                 {
-                    { "type", new OpenApiString("Point") },
-                    { "coordinates", new OpenApiArray { new OpenApiDouble(1.0), new OpenApiDouble(2.0) } }
+                    { "type", "Point" },
+                    { "coordinates", new JsonArray { 1.0, 2.0 } }
                 };
         }
     }

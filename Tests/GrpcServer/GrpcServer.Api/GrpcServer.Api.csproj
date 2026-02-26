@@ -84,7 +84,7 @@
       <PackageReference Include="Grpc.StatusProto" Version="2.76.0" />
       <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.23" />
       <PackageReference Include="Serilog.AspNetCore" Version="10.0.0" />
-      <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.6" />
+      <PackageReference Include="Swashbuckle.AspNetCore" Version="10.1.4" />
     </ItemGroup>
 
 </Project>
