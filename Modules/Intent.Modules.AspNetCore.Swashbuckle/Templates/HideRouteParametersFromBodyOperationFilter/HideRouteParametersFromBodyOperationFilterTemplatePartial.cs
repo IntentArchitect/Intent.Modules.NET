@@ -111,6 +111,7 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Templates.HideRouteParametersFro
                                     stmt.BeforeSeparator = CSharpCodeSeparatorType.None;
                                     stmt.AddStatement("// Resolve the referenced schema from the schema repository");
                                     stmt.AddStatement("var schemaId = schemaReference.Reference.Id;");
+                                    stmt.AddIfStatement("schemaId == null", ifStmt => ifStmt.AddStatement("continue;"));
                                     stmt.AddIfStatement("context.SchemaRepository.Schemas.TryGetValue(schemaId, out var resolvedSchema)", innerStmt =>
                                     {
                                         innerStmt.AddStatement("concreteSchema = resolvedSchema as OpenApiSchema;");
