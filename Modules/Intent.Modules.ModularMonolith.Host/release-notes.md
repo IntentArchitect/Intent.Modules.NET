@@ -1,3 +1,11 @@
+### Version 2.0.0
+
+- Improvement: Updated to work with Microsoft.OpenApi (2.4.1) library version.
+- Improvement: Supported module updates.
+
+> ⚠️ NOTE
+> The migration to Microsoft.OpenApi (2.4.1) includes API changes that may impact custom Swashbuckle Filters. Please review and update your filter implementations to ensure compatibility after upgrading.
+
 ### Version 1.0.12
 
 - Improvement: Updated NuGet package versions.
