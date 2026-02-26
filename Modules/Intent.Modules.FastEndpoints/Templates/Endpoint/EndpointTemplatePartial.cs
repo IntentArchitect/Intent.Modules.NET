@@ -432,6 +432,7 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
     }
 }
 
+[IntentIgnore]
 internal static class EndpointUtilExtensions
 {
     public static CSharpInvocationStatement AddArgumentIfNotNull(

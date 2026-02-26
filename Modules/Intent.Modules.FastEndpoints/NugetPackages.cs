@@ -51,9 +51,9 @@ namespace Intent.Modules.FastEndpoints
                 (framework) => (framework.Major, framework.Minor) switch
                     {
                         ( >= 10, >= 0) => new PackageVersion("7.2.0")
-                            .WithNugetDependency("FastEndpoints", "7.2.0")
                             .WithNugetDependency("Asp.Versioning.Http", "8.1.1")
                             .WithNugetDependency("Asp.Versioning.Mvc.ApiExplorer", "8.1.1")
+                            .WithNugetDependency("FastEndpoints", "7.2.0")
                             .WithNugetDependency("NSwag.Generation.AspNetCore", "14.6.3"),
                         ( >= 9, >= 0) => new PackageVersion("7.2.0")
                             .WithNugetDependency("Asp.Versioning.Http", "8.1.1")

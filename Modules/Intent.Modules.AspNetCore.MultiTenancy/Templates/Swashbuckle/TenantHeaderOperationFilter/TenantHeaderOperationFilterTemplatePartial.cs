@@ -6,6 +6,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.VisualStudio;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -22,19 +23,24 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.Swashbuckle.TenantHea
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public TenantHeaderOperationFilterTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            var isMicrosoftOpenApi_2_4_1 = OutputTarget.GetMaxNetAppVersion().Major >= 8;
+            var openApiNamespace = isMicrosoftOpenApi_2_4_1 ? "Microsoft.OpenApi" : "Microsoft.OpenApi.Models";
+            
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System.Collections.Generic")
-                .AddUsing("Microsoft.OpenApi.Models")
+                .AddUsing(openApiNamespace)
                 .AddUsing("Swashbuckle.AspNetCore.SwaggerGen")
                 .AddClass("TenantHeaderOperationFilter", @class =>
                 {
                     @class.ImplementsInterface("IOperationFilter");
                     @class.AddMethod("void", "Apply", method =>
                     {
+                        var apiParameterType = isMicrosoftOpenApi_2_4_1 ? "IOpenApiParameter" : "OpenApiParameter";
+                        
                         method
                             .AddParameter("OpenApiOperation", "operation")
                             .AddParameter("OperationFilterContext", "context");
-                        method.AddStatement("operation.Parameters ??= new List<OpenApiParameter>();");
+                        method.AddStatement($"operation.Parameters ??= new List<{apiParameterType}>();");
                         method.AddStatement(@"operation.Parameters.Add(new OpenApiParameter 
             {
                 Name = ""X-Tenant-Identifier"",

@@ -5,27 +5,31 @@
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#a3891593-98b6-49e4-86ee-98d138f3527e</correlationId>
       <path>Intent.Modules.AspNetCore.MultiTenancy/Templates/MultiTenancyConfiguration/MultiTenancyConfigurationTemplatePartial.cs</path>
       <count>3</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-08-19T09:26:18.9546442Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-08-20T12:04:30.0895507Z</approvedAt>
-      <deviationsHash>BB7D9A01994B4AC151B724B0DF4854C7206B574B07703AB73E68A643DC7BA438</deviationsHash>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-02-26T06:54:05.9996144Z</updatedAt>
+      <deviationsHash>79BED6D6BD01B6B2E78BB121FDAC54550632960687A9D5DF252FA380F21DBEAD</deviationsHash>
       <fileHash>0B39819FC1779D91EA2B417BE6442C9600E6E5052DE5592418EAA30755A72F94</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#0010a2e5-2a3a-4c32-a2c3-b125afe9f750</correlationId>
       <path>Intent.Modules.AspNetCore.MultiTenancy/Templates/MultiTenantStoreDbContext/MultiTenantStoreDbContextTemplatePartial.cs</path>
       <count>3</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-08-19T09:26:18.9546552Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-08-20T12:04:30.0845215Z</approvedAt>
-      <deviationsHash>3427AA18F8F9414304953030E0D3CA3292CE25A55F9DBEFFAF7C018E2EC6A500</deviationsHash>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-02-26T06:54:05.9996251Z</updatedAt>
+      <deviationsHash>841A5E6E1C59E46D491C9A25285B2E49C7062786C62959C6597FD2079BA21625</deviationsHash>
       <fileHash>525A55599D5F816640D0885C65AB7BD5E02C12651B4D49F6F5CB7DB26ADB311B</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#0010a2e5-2a3a-4c32-a2c3-b125afe9f750</correlationId>
+      <path>Intent.Modules.AspNetCore.MultiTenancy/Templates/MultiTenantStoreDbContext/MultiTenantStoreDbContextTemplateRegistration.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-02-26T06:54:05.9997036Z</updatedAt>
+      <deviationsHash>DB6D390436DB71CCCFCBB9738F236FFC1232457A5191DA35D14433ABEC2722BF</deviationsHash>
+      <fileHash>172753591A426D8B02EDE8F1F5959AD4490424AF58415AFA16E1AEE67CBE6565</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#c51b6146-73a7-4724-a229-d8d9fed6bed4</correlationId>
@@ -38,18 +42,15 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-11-13T15:06:56.9764423Z</approvedAt>
       <deviationsHash>F04BC5A92FB4777AF3E7D8FB6FF303B640A01B4A09CBAEBCDF11D7487AA86742</deviationsHash>
-      <fileHash>974577550A5B7102F718A4007B7F9AFC4811E5FB29293A63FF9BC2F62D1FFB04</fileHash>
+      <fileHash>7C77C6D596588608EBA58C154A745BE9C6FAF95086260A38611C49815F91AEE6</fileHash>
     </file>
     <file>
-      <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions</correlationId>
+      <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions#f59f1208-0510-4564-9121-b0695b3450be</correlationId>
       <path>Intent.Modules.AspNetCore.MultiTenancy/Templates/TemplateExtensions.cs</path>
       <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-08-19T09:26:18.9547146Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-08-20T12:04:30.0915167Z</approvedAt>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-02-26T06:54:05.9997251Z</updatedAt>
       <deviationsHash>B7203BFB9686F060DB0ACAA7C53E52041597E3DB8BC78F5BAE12E1FBA6835020</deviationsHash>
       <fileHash>E330C274B4E3E445A27059EE5F6C7DED29F9A373B9F5B218B5A9DBDD84D55F08</fileHash>
     </file>

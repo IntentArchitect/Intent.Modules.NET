@@ -5,14 +5,11 @@
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#1547a142-247a-49b6-be59-b3aa2b157fdd</correlationId>
       <path>Intent.Modules.FastEndpoints/Templates/Endpoint/EndpointTemplatePartial.cs</path>
       <count>2</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-11-22T06:30:40.3688182Z</updatedAt>
-      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-11-22T06:30:40.3688184Z</approvedAt>
-      <deviationsHash>3C04F6881B58D30E3B319855BBE76992F6B1CD214B017E967516B8DAEC6DC30F</deviationsHash>
-      <fileHash>58C9F09C09699ED9EC31397DA8145577A38471AFF08C504C7F82781A7F88D522</fileHash>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-02-26T10:35:40.0838872Z</updatedAt>
+      <deviationsHash>B65596896DA69EBF60D0E6C83C0A18C3BCFA893AD3D0E1D40A1116F4A026C224</deviationsHash>
+      <fileHash>F1C4CAEB4F2A8A2B19AAB0B4D5D3C3BDCB5325FBB7BD8BC5F6FC2E92DCFB766A</fileHash>
     </file>
   </files>
 </deviationsLog>
