@@ -65,6 +65,11 @@ namespace Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Api.Filters
                     // Resolve the referenced schema from the schema repository
                     var schemaId = schemaReference.Reference.Id;
 
+                    if (schemaId == null)
+                    {
+                        continue;
+                    }
+
                     if (context.SchemaRepository.Schemas.TryGetValue(schemaId, out var resolvedSchema))
                     {
                         concreteSchema = resolvedSchema as OpenApiSchema;
