@@ -1,4 +1,4 @@
-Microsoft Visual Studio Solution File, Format Version 12.00
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
 VisualStudioVersion = 18.0.11104.47
 MinimumVisualStudioVersion = 10.0.40219.1
@@ -141,8 +141,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Dapr.AspNetCore", "Intent.Modules.Dapr.AspNetCore\Intent.Modules.Dapr.AspNetCore.csproj", "{66E8A974-5617-4DD2-8D46-A35BF0587A20}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Dapr.AspNetCore.StateManagement", "Intent.Modules.Dapr.AspNetCore.StateManagement\Intent.Modules.Dapr.AspNetCore.StateManagement.csproj", "{99BACB3D-E9BD-4F8E-8646-59F298895049}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.MediatR.CRUD.Tests", "Intent.Modules.Application.MediatR.CRUD.Tests\Intent.Modules.Application.MediatR.CRUD.Tests.csproj", "{7CEB4296-5077-4311-AB2A-59C12839EAB3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR", "Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR\Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR.csproj", "{482C7EA6-B975-4CEA-A0A0-7D915685568E}"
 EndProject
@@ -674,10 +672,6 @@ Global
 		{99BACB3D-E9BD-4F8E-8646-59F298895049}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99BACB3D-E9BD-4F8E-8646-59F298895049}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99BACB3D-E9BD-4F8E-8646-59F298895049}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7CEB4296-5077-4311-AB2A-59C12839EAB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7CEB4296-5077-4311-AB2A-59C12839EAB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7CEB4296-5077-4311-AB2A-59C12839EAB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7CEB4296-5077-4311-AB2A-59C12839EAB3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{482C7EA6-B975-4CEA-A0A0-7D915685568E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{482C7EA6-B975-4CEA-A0A0-7D915685568E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{482C7EA6-B975-4CEA-A0A0-7D915685568E}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -1156,7 +1150,6 @@ Global
 		{8857D329-9CB0-449A-9C01-94EB3DFB73E0} = {72E974DA-AFD2-446C-9D03-4AF176931A11}
 		{66E8A974-5617-4DD2-8D46-A35BF0587A20} = {72E974DA-AFD2-446C-9D03-4AF176931A11}
 		{99BACB3D-E9BD-4F8E-8646-59F298895049} = {72E974DA-AFD2-446C-9D03-4AF176931A11}
-		{7CEB4296-5077-4311-AB2A-59C12839EAB3} = {BD882ECC-9AA8-4455-AC46-45BD045553EB}
 		{482C7EA6-B975-4CEA-A0A0-7D915685568E} = {F75494CA-24E5-4CF2-8123-55A41BC20BC6}
 		{99E1B9D5-0149-4CE6-90A9-DE13B21590CF} = {F75494CA-24E5-4CF2-8123-55A41BC20BC6}
 		{46039F50-4110-455C-8288-22DEC8A0D340} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
