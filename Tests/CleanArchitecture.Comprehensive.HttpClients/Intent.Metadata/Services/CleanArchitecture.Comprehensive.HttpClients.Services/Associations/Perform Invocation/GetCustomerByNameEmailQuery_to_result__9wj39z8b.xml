@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="7025118f-b623-4c04-9577-3201b6185980">
+  <sourceEnd id="79688eae-cdac-4fac-b482-250ac83e262a" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : Customers.GetCustomerByNameEmailQuery</display>
+    <order>0</order>
+    <typeReference id="9e9c8c98-1d07-4059-a591-9acaca31c061">
+      <typeId>76d1325c-048c-483c-8ef9-11db09b2f3f3</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.HttpClients.Services</typePackageName>
+      <typePackageId>5d4b36a8-cabe-4268-85ee-239d3b05a77a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="7025118f-b623-4c04-9577-3201b6185980" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <name>result</name>
+    <display>[call] result = GetCustomerByNameEmailQuery(...): CustomerDto[*]</display>
+    <order>2</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="09e9548b-5f12-4703-b897-f6b33fa4ef96">
+      <typeId>db45140b-225d-4fcf-a964-5577001b5aac</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.Services</typePackageName>
+      <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Invocation Mapping" typeId="a4c4c5cc-76df-48ed-9d4e-c35caf44b567">
+        <source applicationId="c3ac2e0f-34c5-4509-9652-5f90a99106e8" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="76d1325c-048c-483c-8ef9-11db09b2f3f3" location="[CleanArchitecture.Comprehensive.HttpClients].[Services].[GetCustomerByNameEmailQuery]" />
+        <target applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="db45140b-225d-4fcf-a964-5577001b5aac" location="[CleanArchitecture.Comprehensive.HttpClients].[Services].[GetCustomerByNameEmailQuery]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{GetCustomerByNameEmailQuery}</expression>
+            <path>
+              <target id="db45140b-225d-4fcf-a964-5577001b5aac" name="GetCustomerByNameEmailQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+            </path>
+            <sources>
+              <source identifier="GetCustomerByNameEmailQuery" mappingType="Invocation Mapping" mappingTypeId="7ca5c18a-bdbe-434b-a68a-421899a077e7">
+                <path>
+                  <target id="76d1325c-048c-483c-8ef9-11db09b2f3f3" name="GetCustomerByNameEmailQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="db45140b-225d-4fcf-a964-5577001b5aac" name="GetCustomerByNameEmailQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+              <target id="8bde1b4e-2464-4e22-9e23-abb3069b9faa" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="1ad97d12-2aa8-4f03-8cb0-3a8a4e71b4d9">
+                <path>
+                  <target id="76d1325c-048c-483c-8ef9-11db09b2f3f3" name="GetCustomerByNameEmailQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+                  <target id="7ce0bd95-905e-4a47-89ac-f0d36cbe3907" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Email}</expression>
+            <path>
+              <target id="db45140b-225d-4fcf-a964-5577001b5aac" name="GetCustomerByNameEmailQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+              <target id="a641b875-4ab4-4249-9304-c292c83102cd" name="Email" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="Email" mappingType="Data Mapping" mappingTypeId="1ad97d12-2aa8-4f03-8cb0-3a8a4e71b4d9">
+                <path>
+                  <target id="76d1325c-048c-483c-8ef9-11db09b2f3f3" name="GetCustomerByNameEmailQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+                  <target id="3ad832ff-aaa2-46e5-b93a-fd51935b3ee7" name="Email" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Perform Invocation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>

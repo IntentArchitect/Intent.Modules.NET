@@ -9,6 +9,7 @@ using CleanArchitecture.Comprehensive.Application.Customers.ChangeName;
 using CleanArchitecture.Comprehensive.Application.Customers.CreateCustomer;
 using CleanArchitecture.Comprehensive.Application.Customers.DeleteCustomer;
 using CleanArchitecture.Comprehensive.Application.Customers.GetCustomerById;
+using CleanArchitecture.Comprehensive.Application.Customers.GetCustomerByNameEmail;
 using CleanArchitecture.Comprehensive.Application.Customers.GetCustomerExtraFields;
 using CleanArchitecture.Comprehensive.Application.Customers.GetCustomers;
 using CleanArchitecture.Comprehensive.Application.Customers.UpdateCustomer;
@@ -142,6 +143,23 @@ namespace CleanArchitecture.Comprehensive.Api.Controllers
         {
             var result = await _mediator.Send(new GetCustomerByIdQuery(id: id), cancellationToken);
             return result == null ? NotFound() : Ok(result);
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="200">Returns the specified List&lt;CustomerDto&gt;.</response>
+        /// <response code="400">One or more validation errors have occurred.</response>
+        [HttpGet("api/customers/by-name-email")]
+        [ProducesResponseType(typeof(List<CustomerDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<List<CustomerDto>>> GetCustomerByNameEmail(
+            [FromQuery] string name,
+            [FromQuery] string email,
+            CancellationToken cancellationToken = default)
+        {
+            var result = await _mediator.Send(new GetCustomerByNameEmailQuery(name: name, email: email), cancellationToken);
+            return Ok(result);
         }
 
         /// <summary>

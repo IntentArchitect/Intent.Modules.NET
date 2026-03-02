@@ -12,6 +12,7 @@ namespace CleanArchitecture.Comprehensive.HttpClients.Application.IntegrationSer
         Task<Guid> CreateCustomerAsync(CreateCustomerCommand command, CancellationToken cancellationToken = default);
         Task DeleteCustomerAsync(Guid id, CancellationToken cancellationToken = default);
         Task<CustomerDto> GetCustomerByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<List<CustomerDto>> GetCustomerByNameEmailAsync(GetCustomerByNameEmailQuery query, CancellationToken cancellationToken = default);
         Task<List<CustomerDto>> GetCustomerExtraFieldsAsync(GetCustomerExtraFieldsQuery query, CancellationToken cancellationToken = default);
         Task<List<CustomerDto>> GetCustomersAsync(CancellationToken cancellationToken = default);
         Task UpdateCustomerAsync(UpdateCustomerCommand command, CancellationToken cancellationToken = default);

@@ -90,6 +90,33 @@ namespace CleanArchitecture.Comprehensive.HttpClients.Infrastructure.HttpClients
             }
         }
 
+        public async Task<List<CustomerDto>> GetCustomerByNameEmailAsync(
+            GetCustomerByNameEmailQuery query,
+            CancellationToken cancellationToken = default)
+        {
+            var relativeUri = $"api/customers/by-name-email";
+
+            var queryParams = new Dictionary<string, string?>();
+            queryParams.Add("name", query.Name);
+            queryParams.Add("email", query.Email);
+            relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
+
+            using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
+            {
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, httpRequest, response, cancellationToken).ConfigureAwait(false);
+                }
+
+                using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
+                {
+                    return (await JsonSerializer.DeserializeAsync<List<CustomerDto>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false))!;
+                }
+            }
+        }
+
         public async Task<List<CustomerDto>> GetCustomerExtraFieldsAsync(
             GetCustomerExtraFieldsQuery query,
             CancellationToken cancellationToken = default)
