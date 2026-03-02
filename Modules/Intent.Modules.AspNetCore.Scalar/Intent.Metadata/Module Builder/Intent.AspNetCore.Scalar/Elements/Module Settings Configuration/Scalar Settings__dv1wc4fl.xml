@@ -63,9 +63,23 @@
           <metadata />
           <childElements />
         </childElement>
+        <childElement id="d6e2ffc1-8358-4274-a768-e05a758f58c2" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>OAuth 2.0 - Authorization Code</name>
+          <display>OAuth 2.0 - Authorization Code = Authorization Code</display>
+          <isAbstract>false</isAbstract>
+          <value>Authorization Code</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d845a606-c05b-4a11-9212-c5f099d890c6</parentFolderId>
+          <packageId>26ad62ab-3eab-479d-be93-ac6c6cd8046c</packageId>
+          <packageName>Intent.AspNetCore.Scalar</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
         <childElement id="1680076a-cf8b-4c5e-ae7c-c6bfd7f5b383" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
-          <name>OAuth 2.0 - Implicit</name>
-          <display>OAuth 2.0 - Implicit = Implicit</display>
+          <name>OAuth 2.0 - Implicit (deprecated)</name>
+          <display>OAuth 2.0 - Implicit (deprecated) = Implicit</display>
           <isAbstract>false</isAbstract>
           <value>Implicit</value>
           <genericTypes />

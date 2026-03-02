@@ -54,6 +54,7 @@ namespace Intent.Modules.AspNetCore.Scalar.Settings
                 return Value switch
                 {
                     "Bearer" => AuthenticationOptionsEnum.Bearer,
+                    "Authorization Code" => AuthenticationOptionsEnum.AuthorizationCode,
                     "Implicit" => AuthenticationOptionsEnum.Implicit,
                     "None" => AuthenticationOptionsEnum.None,
                     _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
@@ -63,6 +64,11 @@ namespace Intent.Modules.AspNetCore.Scalar.Settings
             public bool IsBearer()
             {
                 return Value == "Bearer";
+            }
+
+            public bool IsAuthorizationCode()
+            {
+                return Value == "Authorization Code";
             }
 
             public bool IsImplicit()
@@ -79,6 +85,7 @@ namespace Intent.Modules.AspNetCore.Scalar.Settings
         public enum AuthenticationOptionsEnum
         {
             Bearer,
+            AuthorizationCode,
             Implicit,
             None,
         }

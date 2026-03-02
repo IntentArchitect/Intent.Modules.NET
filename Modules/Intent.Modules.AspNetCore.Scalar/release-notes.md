@@ -1,3 +1,9 @@
+### Version 1.0.8
+
+- Improvement: Added OAuth 2.0 Authorization Code authentication support to OpenAPI security document generation for Scalar.
+- Improvement: Added automatic `appsettings.json` scaffolding for OIDC settings under `OpenApi:Oidc` for OAuth flows.
+- Improvement: Updated module documentation to include Authorization Code configuration details and corrected Scalar migration URL examples.
+
 ### Version 1.0.7
 
 - Improvement: Added `HideRouteParametersFromBodyOperationTransformer` operation transformer that automatically removes properties from request body schemas when they are already defined as route parameters, preventing duplicate documentation of parameters that are supplied via the URL.

@@ -22,7 +22,11 @@ By default, schema identifiers have been configured to be the fully qualified ty
 
 ### Authentication
 
-This module supports authentication in your API documentation by adding security schemes for both **Bearer tokens** and **OIDC Implicit Flow**. This enables the Scalar UI to provide an "Authorize" button where developers can authenticate and test endpoints against a secured API.
+This module supports authentication in your API documentation and can configure the OpenAPI document for the following authentication modes:
+
+- **Bearer**
+- **OAuth 2.0 - Authorization Code**
+- **OAuth 2.0 - Implicit**
 
 #### Bearer Token Authentication
 
@@ -33,11 +37,48 @@ Bearer authentication is automatically configured with the following security sc
 
 This allows developers to paste a raw JWT token into the Scalar "Authorize" dialog and have it automatically included in all requests.
 
-#### OIDC Implicit Flow Authentication
+#### OAuth 2.0 - Authorization Code Authentication
 
-This module also supports OIDC (OpenID Connect) using the Implicit Flow. When enabled, the Scalar UI will provide a login button that redirects the user to your identity provider's `authorize` endpoint and automatically obtains an access token for use in API calls.
+When enabled, the OpenAPI document is configured with an OAuth 2.0 Authorization Code flow.
 
-To enable OIDC implicit flow, you must provide the configuration values in `appsettings.json`:
+The module also applies default placeholders to `appsettings.json` for:
+
+- `OpenApi:Oidc:AuthorizationUrl`
+- `OpenApi:Oidc:TokenUrl`
+- `OpenApi:Oidc:Scopes`
+
+Update these values to match your identity provider configuration.
+
+Example:
+
+```jsonc
+{
+  "OpenApi": {
+    "Oidc": {
+      "AuthorizationUrl": "https://your-oauth-provider.com/connect/authorize",
+      "TokenUrl": "https://your-oauth-provider.com/connect/token",
+      "Scopes": [
+        "openid",
+        "profile",
+        "api"
+      ]
+    }
+  }
+}
+```
+
+#### OAuth 2.0 - Implicit Authentication
+
+> ⚠️ **Deprecated:** The Implicit flow is considered less secure than Authorization Code and is generally not recommended for new implementations.
+
+When enabled, the OpenAPI document is configured with an OAuth 2.0 Implicit flow.
+
+The module applies default placeholders to `appsettings.json` for:
+
+- `OpenApi:Oidc:AuthorizationUrl`
+- `OpenApi:Oidc:Scopes`
+
+Update these values to match your identity provider configuration.
 
 ```jsonc
 {
@@ -110,7 +151,7 @@ Example, replace https://localhost:44339/swagger with https://localhost:44339/sc
       "commandName": "Project",
       "launchBrowser": true,
       "applicationUrl": "https://localhost:44339/",
-      "launchUrl": "https://localhost:44339/scalar/1",
+      "launchUrl": "https://localhost:44339/scalar/v1",
       "publishAllPorts": false,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"

@@ -24,6 +24,14 @@ namespace Intent.Modules.AspNetCore.Scalar.Templates.OpenApiConfiguration
     public partial class OpenApiConfigurationTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
         public const string TemplateId = "Intent.AspNetCore.Scalar.OpenApiConfiguration";
+        private const string OpenApiOidcAuthorizationUrlKey = "OpenApi:Oidc:AuthorizationUrl";
+        private const string OpenApiOidcTokenUrlKey = "OpenApi:Oidc:TokenUrl";
+        private const string OpenApiOidcScopesKey = "OpenApi:Oidc:Scopes";
+
+        private const string DefaultAuthorizationUrl = "https://your-oauth-provider.com/connect/authorize";
+        private const string DefaultTokenUrl = "https://your-oauth-provider.com/connect/token";
+
+        private static readonly string[] DefaultOpenApiOidcScopes = ["api", "openid", "profile", "offline_access"];
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public OpenApiConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
@@ -187,8 +195,70 @@ namespace Intent.Modules.AspNetCore.Scalar.Templates.OpenApiConfiguration
                                                             c.AddArgument(new CSharpObjectInitializerBlock("new OpenApiSecurityScheme")
                                                                 .AddInitStatement("Type", "SecuritySchemeType.OAuth2")
                                                                 .AddInitStatement("Flows", new CSharpObjectInitializerBlock("new OpenApiOAuthFlows")
+                                                                    .AddInitStatement("Implicit", new CSharpObjectInitializerBlock("new OpenApiOAuthFlow")
+                                                                        .AddInitStatement("AuthorizationUrl", "new Uri(authorizationUrl)")
+                                                                        .AddInitStatement("Scopes", "scopes.ToDictionary(s => s, s => $\"Access to {s}\")"))));
+                                                        });
+
+                                                        configure.AddStatement("document.Security ??= new List<OpenApiSecurityRequirement>();", s => s.SeparatedFromPrevious());
+                                                        configure.AddInvocationStatement("document.Security.Add", c =>
+                                                        {
+                                                            c.AddArgument(new CSharpObjectInitializerBlock("new OpenApiSecurityRequirement")
+                                                                .AddStatement(new CSharpObjectInitializerBlock(null)
+                                                                    .AddStatement("new OpenApiSecuritySchemeReference(\"oauth2\")")
+                                                                    .AddStatement("scopes.ToList()")));
+                                                        });
+
+                                                        configure.AddStatement("document.SetReferenceHostDocument();", s => s.SeparatedFromPrevious());
+                                                    }
+                                                    break;
+                                                case AuthenticationOptionsEnum.AuthorizationCode:
+                                                    configure.AddStatement("var configuration = context.ApplicationServices.GetRequiredService<IConfiguration>();");
+                                                    configure.AddStatement("var oidcSection = configuration.GetSection(\"OpenApi:Oidc\");");
+                                                    configure.AddStatement("var authorizationUrl = oidcSection.GetValue<string>(\"AuthorizationUrl\");");
+                                                    configure.AddStatement("var tokenUrl = oidcSection.GetValue<string>(\"TokenUrl\");");
+                                                    configure.AddStatement("var scopes = oidcSection.GetSection(\"Scopes\").Get<string[]>() ?? Array.Empty<string>();");
+                                                    configure.AddIfStatement("string.IsNullOrEmpty(authorizationUrl)", @if => @if.AddStatement("throw new ArgumentException(\"You have not configured your AuthorizationUrl\", nameof(authorizationUrl));"));
+                                                    configure.AddIfStatement("string.IsNullOrEmpty(tokenUrl)", @if => @if.AddStatement("throw new ArgumentException(\"You have not configured your TokenUrl\", nameof(tokenUrl));"));
+
+                                                    if (!usesMicrosoftOpenApiV2)
+                                                    {
+                                                        configure.AddStatement("document.Components ??= new();", s => s.SeparatedFromPrevious());
+                                                        configure.AddStatement(new CSharpObjectInitializerBlock("document.Components.SecuritySchemes[\"OidcAuthCode\"] = new()")
+                                                            .AddInitStatement("Type", "SecuritySchemeType.OAuth2")
+                                                            .AddInitStatement("Flows", new CSharpObjectInitializerBlock("new OpenApiOAuthFlows")
+                                                                .AddInitStatement("AuthorizationCode", new CSharpObjectInitializerBlock("new OpenApiOAuthFlow")
+                                                                    .AddInitStatement("AuthorizationUrl", "new Uri(authorizationUrl)")
+                                                                    .AddInitStatement("TokenUrl", "new Uri(tokenUrl)")
+                                                                    .AddInitStatement("Scopes", "scopes.ToDictionary(s => s, s => $\"Access to {s}\")")))
+                                                            .WithSemicolon());
+
+                                                        configure.AddStatement(new CSharpObjectInitializerBlock("var authCodeSchemeReference = new OpenApiSecurityScheme")
+                                                            .AddInitStatement("Reference", new CSharpObjectInitializerBlock("new OpenApiReference")
+                                                                .AddInitStatement("Id", "\"OidcAuthCode\"")
+                                                                .AddInitStatement("Type", "ReferenceType.SecurityScheme")
+                                                            )
+                                                            .WithSemicolon());
+
+                                                        configure.AddStatement(new CSharpObjectInitializerBlock("var securityStatement = new OpenApiSecurityRequirement")
+                                                            .AddInitStatement("[authCodeSchemeReference]", "scopes.ToList()").WithSemicolon());
+
+                                                        configure.AddStatement("document.SecurityRequirements.Add(securityStatement);");
+                                                    }
+                                                    else
+                                                    {
+                                                        AddUsing("Microsoft.OpenApi");
+                                                        configure.AddStatement("document.Components ??= new OpenApiComponents();", s => s.SeparatedFromPrevious());
+                                                        configure.AddStatement("document.Components.SecuritySchemes ??= new Dictionary<string, IOpenApiSecurityScheme>();");
+                                                        configure.AddInvocationStatement("document.Components.SecuritySchemes.Add", c =>
+                                                        {
+                                                            c.AddArgument("\"oauth2\"");
+                                                            c.AddArgument(new CSharpObjectInitializerBlock("new OpenApiSecurityScheme")
+                                                                .AddInitStatement("Type", "SecuritySchemeType.OAuth2")
+                                                                .AddInitStatement("Flows", new CSharpObjectInitializerBlock("new OpenApiOAuthFlows")
                                                                     .AddInitStatement("AuthorizationCode", new CSharpObjectInitializerBlock("new OpenApiOAuthFlow")
                                                                         .AddInitStatement("AuthorizationUrl", "new Uri(authorizationUrl)")
+                                                                        .AddInitStatement("TokenUrl", "new Uri(tokenUrl)")
                                                                         .AddInitStatement("Scopes", "scopes.ToDictionary(s => s, s => $\"Access to {s}\")"))));
                                                         });
 
@@ -206,7 +276,7 @@ namespace Intent.Modules.AspNetCore.Scalar.Templates.OpenApiConfiguration
                                                     break;
                                                 case AuthenticationOptionsEnum.None:
                                                 default:
-                                                    throw new ArgumentOutOfRangeException();
+                                                    throw new ArgumentOutOfRangeException($"Unsupported authentication type {authenticationType}");
                                             }
 
                                             configure.AddStatement("return Task.CompletedTask;");
@@ -278,6 +348,27 @@ namespace Intent.Modules.AspNetCore.Scalar.Templates.OpenApiConfiguration
                         });
                     }
                 });
+        }
+
+        public override void BeforeTemplateExecution()
+        {
+            switch (ExecutionContext.GetSettings().GetScalarSettings().Authentication().AsEnum())
+            {
+                case AuthenticationOptionsEnum.AuthorizationCode:
+                    this.ApplyAppSetting(OpenApiOidcAuthorizationUrlKey, DefaultAuthorizationUrl);
+                    this.ApplyAppSetting(OpenApiOidcTokenUrlKey, DefaultTokenUrl);
+                    this.ApplyAppSetting(OpenApiOidcScopesKey, DefaultOpenApiOidcScopes);
+                    break;
+                case AuthenticationOptionsEnum.Implicit:
+                    this.ApplyAppSetting(OpenApiOidcAuthorizationUrlKey, DefaultAuthorizationUrl);
+                    this.ApplyAppSetting(OpenApiOidcScopesKey, DefaultOpenApiOidcScopes);
+                    break;
+                case AuthenticationOptionsEnum.Bearer:
+                case AuthenticationOptionsEnum.None:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
 
         [IntentManaged(Mode.Fully)]
