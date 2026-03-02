@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture" version="5.1.18-pre.4" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture" version="5.1.25" />
   <applications>
     <application id="a3039e69-7ab0-4ab4-8784-54706aa3fcd8" name="Standard.AspNetCore.TestApplication" relativePath="Standard.AspNetCore.TestApplication/Standard.AspNetCore.TestApplication.application.config" />
     <application id="859f5adf-c40e-40fb-9e68-e41da908d768" name="AzureFunctions.TestApplication" relativePath="AzureFunctions.TestApplication/AzureFunctions.TestApplication.application.config" />
@@ -194,5 +194,6 @@
     <application id="08faffbb-9f31-42d2-bbc4-cdf37b00cc77" name="Scalar.NET10.OAuth2Implicit" solutionFolder="Scalar" relativePath="Scalar.NET10.OAuth2Implicit/Scalar.NET10.OAuth2Implicit.application.config" />
     <application id="1955332e-854d-46d7-ab61-72c14b1da1b8" name="Scalar.NET9.OAuth2Implicit" solutionFolder="Scalar" relativePath="Scalar.NET9.OAuth2Implicit/Scalar.NET9.OAuth2Implicit.application.config" />
     <application id="2fc52b83-de44-46be-9ee0-bfb16405021e" name="Scalar.NET9.Bearer" solutionFolder="Scalar" relativePath="Scalar.NET9.Bearer/Scalar.NET9.Bearer.application.config" />
+    <application id="5159fdd6-5f13-4cb5-ac2e-3ccabd837119" name="Scalar.NET10.AuthCode" solutionFolder="Scalar" relativePath="Scalar.NET10.AuthCode/Scalar.NET10.AuthCode.application.config" />
   </applications>
 </solution>

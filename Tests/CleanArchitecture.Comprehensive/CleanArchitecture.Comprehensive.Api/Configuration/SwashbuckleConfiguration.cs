@@ -9,7 +9,6 @@ using CleanArchitecture.Comprehensive.Api.Filters;
 using CleanArchitecture.Comprehensive.Application;
 using CleanArchitecture.Comprehensive.Domain.Common.Exceptions;
 using Intent.RoslynWeaver.Attributes;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -56,22 +55,31 @@ namespace CleanArchitecture.Comprehensive.Api.Configuration
                     options.OperationFilter<ODataQueryFilter>();
                     options.OperationFilter<HideRouteParametersFromBodyOperationFilter>();
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
+                    var authorizationUrl = configuration.GetValue<Uri>("Swashbuckle:Security:OAuth2:Authorization Code:AuthorizationUrl");
+                    var tokenUrl = configuration.GetValue<Uri>("Swashbuckle:Security:OAuth2:Authorization Code:TokenUrl");
+                    var clientId = configuration.GetValue<string>("Swashbuckle:Security:OAuth2:Authorization Code:ClientId");
+                    var scopes = configuration.GetSection("Swashbuckle:Security:OAuth2:Authorization Code:Scope").Get<Dictionary<string, string>>()!.ToDictionary(x => x.Value, x => x.Key);
 
                     var securityScheme = new OpenApiSecurityScheme()
                     {
-                        Name = "Authorization",
-                        Description = "Enter a Bearer Token into the `Value` field to have it automatically prefixed with `Bearer ` and used as an `Authorization` header value for requests.",
-                        In = ParameterLocation.Header,
-                        Type = SecuritySchemeType.Http,
-                        Scheme = "bearer",
-                        BearerFormat = "JWT"
+                        Type = SecuritySchemeType.OAuth2,
+                        Flows = new OpenApiOAuthFlows
+                        {
+                            AuthorizationCode = new OpenApiOAuthFlow
+                            {
+                                Scopes = scopes,
+                                AuthorizationUrl = authorizationUrl,
+                                TokenUrl = tokenUrl
+                            }
+                        }
                     };
 
-                    options.AddSecurityDefinition("Bearer", securityScheme);
-                    options.AddSecurityRequirement(document => new OpenApiSecurityRequirement
-                {
-                    { new OpenApiSecuritySchemeReference("Bearer", document), new List<string>() }
-                });
+                    options.AddSecurityDefinition("Authorization Code", securityScheme);
+                    options.AddSecurityRequirement(
+                        document => new OpenApiSecurityRequirement
+                        {
+                            { new OpenApiSecuritySchemeReference("Authorization Code", document), scopes.Select(s => s.Key).ToList() }
+                        });
                     options.SchemaFilter<TypeSchemaFilter>();
                 });
 
@@ -94,6 +102,9 @@ namespace CleanArchitecture.Comprehensive.Api.Configuration
                     options.ShowExtensions();
                     options.EnableFilter(string.Empty);
                     AddSwaggerEndpoints(app, options);
+                    var clientId = configuration.GetValue<string>("Swashbuckle:Security:OAuth2:Authorization Code:ClientId");
+                    options.OAuthClientId(clientId);
+                    options.OAuthUsePkce();
                     options.OAuthScopeSeparator(" ");
                 });
         }

@@ -36,7 +36,7 @@ namespace CleanArchitecture.Comprehensive.Api.Filters
             }
             var securityRequirement = new OpenApiSecurityRequirement
             {
-                { new OpenApiSecuritySchemeReference("Bearer", context.Document), new List<string>() }
+                { new OpenApiSecuritySchemeReference("Authorization Code", context.Document), new List<string>() }
             };
             operation.Security.Add(securityRequirement);
         }

@@ -52,7 +52,7 @@ namespace Scalar.NET10.OAuth2Implicit.Api.Configuration
                             Type = SecuritySchemeType.OAuth2,
                             Flows = new OpenApiOAuthFlows
                             {
-                                AuthorizationCode = new OpenApiOAuthFlow
+                                Implicit = new OpenApiOAuthFlow
                                 {
                                     AuthorizationUrl = new Uri(authorizationUrl),
                                     Scopes = scopes.ToDictionary(s => s, s => $"Access to {s}")
