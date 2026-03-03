@@ -1,4 +1,8 @@
-﻿### Version 7.1.3
+﻿### Version 7.2.0
+
+- Improvement: Module dependencies updated.
+
+### Version 7.1.3
 
 - Improvement: Documentation and ProjectUrl link added.
 

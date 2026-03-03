@@ -21,16 +21,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common" Version="3.8.0" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.8.3" />
-    <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.12.2" />
-    <PackageReference Include="Intent.Modules.Modelers.Domain.Events" Version="4.4.5" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.9.1" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.9.10" />
+    <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.12.14" />
+    <PackageReference Include="Intent.Modules.Modelers.Domain.Events" Version="4.4.7" />
     <PackageReference Include="Intent.Packager" Version="3.6.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="3.0.0" />
-    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.7.0" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.11.0" />
   </ItemGroup>
 
   <ItemGroup>

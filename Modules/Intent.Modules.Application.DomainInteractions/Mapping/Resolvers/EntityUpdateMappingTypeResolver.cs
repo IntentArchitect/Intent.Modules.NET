@@ -18,7 +18,7 @@ public class EntityUpdateMappingTypeResolver : IMappingTypeResolver
 
     public ICSharpMapping ResolveMappings(MappingModel mappingModel)
     {
-        if (mappingModel.MappingTypeId != "01721b1a-a85d-4320-a5cd-8bd39247196a")
+        if (mappingModel.MappingTypeId != "01721b1a-a85d-4320-a5cd-8bd39247196a" && mappingModel.MappingTypeId != "01bc7593-a6a2-45aa-8497-b4b6a269ab68")
         {
             return null;
         }

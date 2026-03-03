@@ -1,3 +1,7 @@
+### Version 5.3.0
+
+- Improvement: Module dependencies updated.
+
 ### Version 5.2.5
 
 - Improvement: Domain Events now support inheriting from other Domain Events. Implementation generation will correctly wire up inherited class property mappings.

@@ -1,3 +1,7 @@
+### Version 5.3.0
+
+- Improvement: Module dependencies updated.
+
 ### Version 5.2.3
 
 - Fixed: ProjectUrl link.

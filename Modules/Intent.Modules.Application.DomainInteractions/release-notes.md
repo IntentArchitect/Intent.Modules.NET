@@ -1,3 +1,7 @@
+### Version 1.2.0
+
+- Improvement: Module dependencies updated.
+
 ### Version 1.1.12
 
 - Improvement: Mapperly mapping classes are now injected as opposed to being instantiated directly.

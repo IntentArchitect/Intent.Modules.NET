@@ -1,3 +1,8 @@
+### Version 4.6.0
+
+- Improvement: Module dependencies updated.
+- Fixed: `CommandQueryMappingResolver` is now internal and allocated to a namespace to prevent it from being confused with the one in `Intent.Application.DomainInteractions`.
+
 ### Version 4.5.4
 
 - Fixed: SendOnMediatorInteractionStrategy didn't match on how many mappings were available causing an exception with unclear message.

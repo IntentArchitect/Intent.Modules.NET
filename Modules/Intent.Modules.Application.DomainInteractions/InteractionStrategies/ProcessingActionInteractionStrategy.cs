@@ -24,7 +24,7 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
 
             var t = (ICSharpFileBuilderTemplate)method.File.Template;
             var csharpMapping = method.GetMappingManager();
-            csharpMapping.AddMappingResolver(new EntityUpdateMappingTypeResolver(t));
+            csharpMapping.AddMappingResolver(new EntityUpdateMappingTypeResolver(t), -1);
             csharpMapping.AddMappingResolver(new StandardDomainMappingTypeResolver(t));
             csharpMapping.AddMappingResolver(new ValueObjectMappingTypeResolver(t));
             csharpMapping.AddMappingResolver(new DataContractMappingTypeResolver(t));
@@ -32,7 +32,8 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
             var actions = interactionElement.AsProcessingActionModel();
             try
             {
-                var processingStatements = csharpMapping.GenerateUpdateStatements(actions.InternalElement.Mappings.Single())
+                var mappingModel = actions.InternalElement.Mappings.Single();
+                var processingStatements = csharpMapping.GenerateUpdateStatements(mappingModel)
                     .Select(x =>
                     {
                         if (x is CSharpAssignmentStatement)
