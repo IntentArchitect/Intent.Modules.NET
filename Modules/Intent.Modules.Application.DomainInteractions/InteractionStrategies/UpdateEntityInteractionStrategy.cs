@@ -20,7 +20,12 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
     {
         public bool IsMatch(IElement interaction)
         {
-            return interaction.IsUpdateEntityActionTargetEndModel();
+            if (!interaction.IsUpdateEntityActionTargetEndModel())
+            {
+                return false;
+            }
+            var action = interaction.AsUpdateEntityActionTargetEndModel();
+            return action?.TypeReference?.Element != null && action.Mappings.Any();
         }
 
         public void ImplementInteraction(ICSharpClassMethodDeclaration method, IElement interactionElement)
@@ -29,8 +34,18 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
             var interaction = (IAssociationEnd)interactionElement;
 
             var queryContext = new QueryActionContext(method, ActionType.Update, interaction);
+            var entityName = interaction.TypeReference.Element.Name;
             var foundEntity = interaction.TypeReference.Element.AsClassModel() ??
-                              interaction.TypeReference.Element.AsOperationModel().ParentClass;
+                              interaction.TypeReference.Element.AsOperationModel()?.ParentClass ??
+                              throw new ElementException(interactionElement, 
+                                  $"""
+                                   In order for Update Entity Action to model how to update an instance of {entityName} it needs to reference either:
+                                   1. The {entityName} entity itself.
+                                   2. The constructor of {entityName}.
+                                   3. Static operation of {entityName} that acts as a factory.
+                                   
+                                   Review to see whether it meets these requirements.
+                                   """);
             var dataAccess = method.InjectDataAccessProvider(foundEntity, queryContext);
             var projectedType = queryContext.ImplementWithProjections() && dataAccess.IsUsingProjections
                 ? queryContext.GetDtoProjectionReturnType()

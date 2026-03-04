@@ -23,7 +23,12 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
     {
         public bool IsMatch(IElement interaction)
         {
-            return interaction.IsCreateEntityActionTargetEndModel();
+            if (!interaction.IsCreateEntityActionTargetEndModel())
+            {
+                return false;
+            }
+            var action = interaction.AsCreateEntityActionTargetEndModel();
+            return action?.TypeReference?.Element != null && action.Mappings.Any();
         }
 
         public void ImplementInteraction(ICSharpClassMethodDeclaration method, IElement interactionElement)
@@ -34,10 +39,19 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
             try
             {
                 var createAction = interaction.AsCreateEntityActionTargetEndModel();
+                var entityName = createAction.TypeReference.Element.Name;
                 var entity = createAction.TypeReference.Element.AsClassModel() ??
                              createAction.TypeReference.Element.AsClassConstructorModel()?.ParentClass ??
                              OperationModelExtensions.AsOperationModel(createAction.TypeReference.Element)?.ParentClass ??
-                             throw new InvalidOperationException("Could not determine entity");
+                             throw new ElementException(interactionElement, 
+                                 $"""
+                                  In order for Create Entity Action to model how to create an instance of {entityName} it needs to reference either:
+                                  1. The {entityName} entity itself.
+                                  2. The constructor of {entityName}.
+                                  3. Static operation of {entityName} that acts as a factory.
+                                  
+                                  Review to see whether it meets these requirements.
+                                  """);
                 var handlerClass = method.Class;
                 var entityVariableName = createAction.Name.ToCSharpIdentifier(CapitalizationBehaviour.MakeFirstLetterLower);
                 var dataAccess = method.InjectDataAccessProvider(entity);

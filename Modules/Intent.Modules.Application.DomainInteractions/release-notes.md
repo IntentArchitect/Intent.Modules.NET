@@ -1,6 +1,7 @@
 ### Version 1.2.0
 
 - Improvement: Module dependencies updated.
+- Improvement: Interaction Strategies enhanced to have better detection regarding actions with mappings to prevent ugly errors being raised during Software Factory runs.
 
 ### Version 1.1.12
 

@@ -15,7 +15,13 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
     {
         public bool IsMatch(IElement interaction)
         {
-            return interaction.IsProcessingActionModel();
+            if (!interaction.IsProcessingActionModel())
+            {
+                return false;
+            }
+            var action = interaction.AsProcessingActionModel();
+            return action != null &&
+                   action.InternalElement.Mappings.Any();
         }
 
         public void ImplementInteraction(ICSharpClassMethodDeclaration method, IElement interactionElement)

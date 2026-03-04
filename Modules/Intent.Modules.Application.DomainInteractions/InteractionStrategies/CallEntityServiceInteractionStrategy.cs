@@ -21,7 +21,13 @@ internal class CallEntityServiceInteractionStrategy : IInteractionStrategy
 
     public bool IsMatch(IElement interaction)
     {
-        return interaction.IsPerformInvocationTargetEndModel() &&
+        if (!interaction.IsPerformInvocationTargetEndModel())
+        {
+            return false;
+        }
+        var action = interaction;
+        return action?.TypeReference?.Element != null &&
+               action.Mappings.Any() &&
                interaction.TypeReference.Element.SpecializationType == "Operation" &&
                ((IElement)interaction.TypeReference.Element).ParentElement.SpecializationType == "Class";
     }
@@ -39,7 +45,7 @@ internal class CallEntityServiceInteractionStrategy : IInteractionStrategy
         {
             var statements = new List<CSharpStatement>();
             var serviceModel = ((IElement)interaction.TypeReference.Element).ParentElement;
-            if (interaction.Mappings.Any() is false || !HasServiceDependency(serviceModel, out var serviceInterfaceTemplate))
+            if (!HasServiceDependency(serviceModel, out var serviceInterfaceTemplate))
             {
                 return;
             }

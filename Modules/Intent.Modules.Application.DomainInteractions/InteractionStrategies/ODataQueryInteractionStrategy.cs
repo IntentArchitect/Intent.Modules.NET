@@ -16,8 +16,13 @@ public class ODataQueryInteractionStrategy : IInteractionStrategy
     private const string ODataQueryStereoType = "ODataQuery"; // Note that IDs should work too.
     public bool IsMatch(IElement interaction)
     {
-        return interaction.IsQueryEntityActionTargetEndModel() &&
-               interaction.AsQueryEntityActionTargetEndModel().OtherEnd().Element.HasStereotype(ODataQueryStereoType);
+        if (!interaction.IsQueryEntityActionTargetEndModel())
+        {
+            return false;
+        }
+        var action = interaction.AsQueryEntityActionTargetEndModel();
+        return action?.TypeReference?.Element != null &&
+               action.OtherEnd().Element.HasStereotype(ODataQueryStereoType);
     }
 
     public void ImplementInteraction(ICSharpClassMethodDeclaration method, IElement interactionElement)

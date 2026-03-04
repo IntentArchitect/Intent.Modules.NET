@@ -21,7 +21,13 @@ public class CallDomainServiceInteractionStrategy : IInteractionStrategy
 
     public bool IsMatch(IElement interaction)
     {
-        return interaction.IsPerformInvocationTargetEndModel() &&
+        if (!interaction.IsPerformInvocationTargetEndModel())
+        {
+            return false;
+        }
+        var action = interaction;
+        return action?.TypeReference?.Element != null &&
+               action.Mappings.Any() &&
                interaction.TypeReference.Element.SpecializationType is "Operation" or "Stored Procedure" &&
                ((IElement)interaction.TypeReference.Element).ParentElement.SpecializationType != "Class"; // This check is a smell. Would rather check for traits?
     }
@@ -136,5 +142,26 @@ public class CallDomainServiceInteractionStrategy : IInteractionStrategy
                 dependencyInfo = null;
                 return false;
         }
+    }
+}
+
+public class CallServiceOperationMappingResolver : IMappingTypeResolver
+{
+    private readonly ICSharpFileBuilderTemplate _template;
+
+    public CallServiceOperationMappingResolver(ICSharpFileBuilderTemplate template)
+    {
+        _template = template;
+    }
+
+    public ICSharpMapping? ResolveMappings(MappingModel mappingModel)
+    {
+        return mappingModel.Model.SpecializationType switch
+        {
+            "Operation" => new MethodInvocationMapping(mappingModel, _template),
+            "Parameter" => new ObjectInitializationMapping(mappingModel, _template),
+            "DTO-Field" => new ObjectInitializationMapping(mappingModel, _template),
+            _ => null
+        };
     }
 }

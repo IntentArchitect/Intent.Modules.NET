@@ -22,7 +22,12 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
     {
         public bool IsMatch(IElement interaction)
         {
-            return interaction.IsDeleteEntityActionTargetEndModel();
+            if (!interaction.IsDeleteEntityActionTargetEndModel())
+            {
+                return false;
+            }
+            var action = interaction.AsDeleteEntityActionTargetEndModel();
+            return action?.TypeReference?.Element != null && action.Mappings.Any();
         }
 
         public void ImplementInteraction(ICSharpClassMethodDeclaration method, IElement interactionElement)
