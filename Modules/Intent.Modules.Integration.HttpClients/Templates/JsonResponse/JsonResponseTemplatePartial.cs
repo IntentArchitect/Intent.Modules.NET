@@ -33,7 +33,8 @@ namespace Intent.Modules.Integration.HttpClients.Templates.JsonResponse
             const string serviceProxiesDesignerId = "2799aa83-e256-46fe-9589-b96f7d6b09f7";
             return metadataManager.GetServiceProxyModels(
                 applicationId,
-                applicationId => metadataManager.GetDesigner(applicationId, serviceProxiesDesignerId), // for backward compatibility
+                ExecutionContext,
+                appId => metadataManager.GetDesigner(appId, serviceProxiesDesignerId), // for backward compatibility
                 metadataManager.Services);
         }
     }

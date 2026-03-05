@@ -1,3 +1,7 @@
+### Version 1.3.0
+
+- Improvement: Updated module dependencies.
+
 ### Version 1.2.9
 
 - Improvement: Updated module documentation to use centralized documentation site.

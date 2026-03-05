@@ -40,6 +40,7 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.HttpClientC
         {
             return _metadataManager.GetServiceProxyModels(
                 application.Id,
+                application,
                 _metadataManager.ServiceProxies,
                 _metadataManager.Services);
         }

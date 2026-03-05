@@ -1,6 +1,7 @@
 ### Version 2.3.0
 
 - Improvement: Updated Dependencies and versions.
+- Fixed: Services secured by default will now correctly propagate to HttpClients.
 
 ### Version 2.2.31
 

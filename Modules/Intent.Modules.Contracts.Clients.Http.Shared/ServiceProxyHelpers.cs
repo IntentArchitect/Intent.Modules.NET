@@ -45,7 +45,7 @@ public static class ServiceProxyHelpers
             .Select(HttpEndpointModelFactory.GetEndpoint);
     }
 
-    public static IEnumerable<IHttpEndpointModel> GetMappedEndpoints(ServiceProxyModel model, ISoftwareFactoryExecutionContext context)
+    public static IEnumerable<IHttpEndpointModel> GetMappedEndpoints(this ServiceProxyModel model, ISoftwareFactoryExecutionContext context)
     {
         // Backwards compatibility - when we didn't have operations on service proxies
         if (model.Mapping?.Element?.IsServiceModel() == true && !model.Operations.Any())

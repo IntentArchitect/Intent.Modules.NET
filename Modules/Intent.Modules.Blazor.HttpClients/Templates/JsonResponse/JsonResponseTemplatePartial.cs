@@ -31,6 +31,7 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.JsonResponse
         {
             return metadataManager.GetServiceProxyModels(
                 applicationId,
+                ExecutionContext,
                 metadataManager.UserInterface);
         }
     }

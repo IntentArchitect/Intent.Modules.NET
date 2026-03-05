@@ -1,3 +1,7 @@
+### Version 1.2.0
+
+- Improvement: Updated module dependencies.
+
 ### Version 1.1.8
 
 - Improvement: Updated NuGet package versions.

@@ -1,22 +1,11 @@
-using System;
-using System.Buffers;
-using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Runtime.InteropServices;
 using Intent.Engine;
-using Intent.Metadata.Models;
-using Intent.Metadata.WebApi.Api;
-using Intent.Modelers.Services.Api;
-using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Plugins;
-using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
-using Intent.Modules.Contracts.Clients.Http.Shared;
 using Intent.Modules.Integration.HttpClients.Settings;
 using Intent.Modules.Integration.HttpClients.Shared;
 using Intent.Modules.Integration.HttpClients.Shared.Templates;
@@ -25,7 +14,6 @@ using Intent.Modules.Integration.HttpClients.Templates.HttpClientConfiguration;
 using Intent.Modules.Metadata.WebApi.Models;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
-using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -37,7 +25,8 @@ namespace Intent.Modules.Integration.HttpClients.FactoryExtensions
     {
         public override string Id => "Intent.Integration.HttpClients.HttpClientHeaderConfiguratorExtension";
 
-        [IntentManaged(Mode.Ignore)] public override int Order => 0;
+        [IntentManaged(Mode.Ignore)]
+        public override int Order => 0;
 
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
@@ -59,11 +48,13 @@ namespace Intent.Modules.Integration.HttpClients.FactoryExtensions
         }
 
 
-        private void UpdateProxyTokenRefreshPopulation(IApplication application)
+        private static void UpdateProxyTokenRefreshPopulation(IApplication application)
         {
             var httpClientConfigurationTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(HttpClientConfigurationTemplate.TemplateId);
-
-            if (httpClientConfigurationTemplate is null) return;
+            if (httpClientConfigurationTemplate is null)
+            {
+                return;
+            }
 
             httpClientConfigurationTemplate.CSharpFile.OnBuild(file =>
             {
@@ -110,7 +101,7 @@ namespace Intent.Modules.Integration.HttpClients.FactoryExtensions
                 {
                     var proxyModel = proxyConfiguration.GetMetadata<IServiceProxyModel>("model");
 
-                    if (RequiresSecurity(proxyModel, application))
+                    if (RequiresSecurity(proxyModel))
                     {
                         proxyConfiguration.AddChainStatement(new CSharpInvocationStatement(dotNetVersion.Major >= 8 ? $"AddClientCredentialsTokenHandler" : $"AddClientAccessTokenHandler")
                                           .AddArgument($@"configuration.GetValue<string>(""{HttpClientConfigurationTemplate.GetConfigKey(proxyModel, KeyType.Service, "IdentityClientKey")}"") ?? 
@@ -121,12 +112,22 @@ namespace Intent.Modules.Integration.HttpClients.FactoryExtensions
             }, 1000);
         }
 
-        [IntentIgnore]
-        private static bool RequiresSecurity(IServiceProxyModel proxy, IApplication application)
+        private static bool RequiresSecurity(IServiceProxyModel proxy)
         {
-            var parentSecured = default(bool?);
-            return !proxy.Endpoints
-                .All(x => !x.RequiresAuthorization && (parentSecured ??= x.InternalElement.ParentElement?.TryGetSecured(out _)) != true);
+            bool? parentSecured = null;
+
+            foreach (var endpoint in proxy.Endpoints)
+            {
+                if (endpoint.RequiresAuthorization)
+                    return true;
+
+                parentSecured ??= endpoint.InternalElement.ParentElement?.TryGetSecured(out _) ?? false;
+
+                if (parentSecured == true)
+                    return true;
+            }
+
+            return false;
         }
     }
 }

@@ -39,6 +39,7 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.HttpClientConfiguration
         {
             return _metadataManager.GetServiceProxyModels(
                 application.Id,
+                application,
                 _metadataManager.UserInterface);
         }
     }

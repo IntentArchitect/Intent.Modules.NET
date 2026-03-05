@@ -14,11 +14,12 @@ internal static class ServiceProxyHelpers
     public static IList<IServiceProxyModel> GetServiceProxyModels(
         this IMetadataManager metadataManager,
         string applicationId,
+        ISoftwareFactoryExecutionContext context,
         params Func<string, IDesigner>[] getDesigners)
     {
         var @explicit = getDesigners
             .SelectMany(getDesigner => getDesigner(applicationId).GetServiceProxyModels())
-            .Select(IServiceProxyModel (p) => new ServiceProxyModelAdapter(p))
+            .Select(IServiceProxyModel (p) => new ServiceProxyModelAdapter(p, context))
             .Where(x => x.Endpoints.Count > 0);
 
         var @implicit = metadataManager.GetImplicitHttpProxyEndpoints(applicationId, getDesigners)

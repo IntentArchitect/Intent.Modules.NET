@@ -1,3 +1,8 @@
+### Version 4.1.0
+
+- Improvement: Updated module dependencies.
+- Fixed: Services secured by default will now correctly propagate to HttpClients.
+
 ### Version 4.0.22
 
 - Improvement: Updated NuGet package versions.

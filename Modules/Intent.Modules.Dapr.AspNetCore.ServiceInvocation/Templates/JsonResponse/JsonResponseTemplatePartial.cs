@@ -32,6 +32,7 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.JsonRespons
         {
             return metadataManager.GetServiceProxyModels(
                 applicationId,
+                ExecutionContext,
                 metadataManager.ServiceProxies,
                 metadataManager.Services);
         }

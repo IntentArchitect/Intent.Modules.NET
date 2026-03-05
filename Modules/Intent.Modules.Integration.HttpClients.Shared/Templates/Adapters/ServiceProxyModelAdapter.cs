@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Common.Types.Api;
@@ -12,10 +13,10 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.Adapters
     {
         private readonly ServiceProxyModel _model;
 
-        public ServiceProxyModelAdapter(ServiceProxyModel model)
+        public ServiceProxyModelAdapter(ServiceProxyModel model, ISoftwareFactoryExecutionContext context)
         {
             _model = model;
-            Endpoints = model.GetMappedEndpoints().ToArray();
+            Endpoints = model.GetMappedEndpoints(context).ToArray();
         }
 
         public string Name => _model.Name;

@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Blazor.HttpClients</id>
-  <version>4.0.22</version>
-  <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
+  <version>4.1.0-pre.0</version>
+  <supportedClientVersions>[4.5.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Introduces an HTTP Client implementation for Blazor applications that can make service calls against a referenced service Restful API.</summary>
   <description>Introduces an HTTP Client implementation for Blazor applications that can make service calls against a referenced service Restful API.</description>
   <tags>csharp dotnet blazor httpclients</tags>
@@ -86,13 +86,12 @@
   </templates>
   <decorators></decorators>
   <factoryExtensions>
-    <factoryExtension id="Intent.Blazor.HttpClients.InteractionStrategyRegistration" externalReference="8c8d88cd-4b63-48d2-baf9-873f4db3632f" />
     <factoryExtension id="Intent.Blazor.HttpClients.WebAssemblyProgramIntegrationFactoryExtension" externalReference="a51ff2c8-8ea5-4c37-855e-3c5ec711e580" />
   </factoryExtensions>
   <interoperability>
     <detect id="Intent.Blazor.FluentValidation">
       <install>
-        <package id="Intent.Blazor.HttpClients.Dtos.FluentValidation" version="1.2.0" />
+        <package id="Intent.Blazor.HttpClients.Dtos.FluentValidation" version="1.3.0-pre.0" />
       </install>
       <detect id="Intent.Common.UnitOfWork">
         <install>
@@ -105,10 +104,11 @@
   <dependencies>
     <dependency id="Intent.Common" version="3.8.0" />
     <dependency id="Intent.Common.CSharp" version="3.9.1" />
-    <dependency id="Intent.Common.Types" version="4.0.0" />
+    <dependency id="Intent.Common.Types" version="4.1.2" />
     <dependency id="Intent.Metadata.WebApi" version="4.3.2" />
-    <dependency id="Intent.Modelers.Types.ServiceProxies" version="5.5.0" />
-    <dependency id="Intent.Modelers.UI" version="1.0.0" />
+    <dependency id="Intent.Modelers.Services" version="4.0.10" />
+    <dependency id="Intent.Modelers.Types.ServiceProxies" version="5.5.3" />
+    <dependency id="Intent.Modelers.UI" version="1.0.6" />
     <dependency id="Intent.Modelers.UI.ServiceProxies" version="1.0.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.8.0" />
   </dependencies>
