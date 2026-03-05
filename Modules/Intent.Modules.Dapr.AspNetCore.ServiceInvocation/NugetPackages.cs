@@ -122,8 +122,8 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "10.0.2")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "10.0.2")
                             .WithNugetDependency("Microsoft.Extensions.Diagnostics", "10.0.2")
-                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.2")
                             .WithNugetDependency("Microsoft.Extensions.Logging", "10.0.2")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.2")
                             .WithNugetDependency("Microsoft.Extensions.Options", "10.0.2"),
                         ( >= 9, >= 0) => new PackageVersion("10.0.2")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "10.0.2")

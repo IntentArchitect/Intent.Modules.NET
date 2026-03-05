@@ -1,3 +1,7 @@
+### Version 2.3.0
+
+- Improvement: Updated Dependencies and versions.
+
 ### Version 2.2.31
 
 - Fixed: Resolved code generation failure when performing invocations to external HTTP services where the target command/query has multiple parameters (2+) and returns a collection type. The mapping system now correctly generates object initializer syntax for multi-parameter commands regardless of their return type.

@@ -1,3 +1,7 @@
+### Version 5.2.0
+
+- Improvement: Updated Dependencies and versions.
+
 ### Version 5.1.6
 
 - Improvement: Documentation and ProjectUrl link added.
