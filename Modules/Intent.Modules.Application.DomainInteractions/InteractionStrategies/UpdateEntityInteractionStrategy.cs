@@ -41,8 +41,7 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
                                   $"""
                                    In order for Update Entity Action to model how to update an instance of {entityName} it needs to reference either:
                                    1. The {entityName} entity itself.
-                                   2. The constructor of {entityName}.
-                                   3. Static operation of {entityName} that acts as a factory.
+                                   2. Instance operation of {entityName} to invoke as part of the update.
                                    
                                    Review to see whether it meets these requirements.
                                    """);
