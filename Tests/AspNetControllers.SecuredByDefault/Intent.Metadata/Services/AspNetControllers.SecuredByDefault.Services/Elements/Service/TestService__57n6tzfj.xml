@@ -38,6 +38,10 @@
       <parentFolderId>a6daea4b-84e9-4b4b-847d-376de264200f</parentFolderId>
       <packageId>aa584bc9-14b7-4bc9-9dec-60a485fbe618</packageId>
       <packageName>AspNetControllers.SecuredByDefault.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
           <addedByDefault>false</addedByDefault>

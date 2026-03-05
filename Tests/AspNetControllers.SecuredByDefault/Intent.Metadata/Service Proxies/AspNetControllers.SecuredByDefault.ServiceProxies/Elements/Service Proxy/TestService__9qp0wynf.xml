@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8aaece8c-39ed-4e88-8fb2-2e5c10d3eadd" type="Service Proxy" typeId="07d8d1a9-6b9f-4676-b7d3-8db06299e35c">
+  <name>TestService</name>
+  <display>TestService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>true</isMapped>
+  <mappedClass isRoot="true">
+    <applicationId>90057001-3f88-4be0-8a65-cc23cafbf6a6</applicationId>
+    <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
+    <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+    <autoSyncTypeReference>true</autoSyncTypeReference>
+    <mappedPath>
+      <target id="a6daea4b-84e9-4b4b-847d-376de264200f" name="TestService" type="element" specialization="Service" specializationId="b16578a5-27b1-4047-a8df-f0b783d706bd" />
+    </mappedPath>
+  </mappedClass>
+  <parentFolderId>ee8d7849-8109-4839-85d8-ffb2e96c3cef</parentFolderId>
+  <packageId>ee8d7849-8109-4839-85d8-ffb2e96c3cef</packageId>
+  <packageName>AspNetControllers.SecuredByDefault.ServiceProxies</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="43215774-bc90-4bea-a06e-19cbd234bc9b" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>Operation</name>
+      <display>Operation(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="60227b6d-6eb9-4009-a200-b34ada7278af">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="ea33f23c-1736-4d4b-8124-f0924cea3d09" name="Operation" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>8aaece8c-39ed-4e88-8fb2-2e5c10d3eadd</parentFolderId>
+      <packageId>ee8d7849-8109-4839-85d8-ffb2e96c3cef</packageId>
+      <packageName>AspNetControllers.SecuredByDefault.ServiceProxies</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

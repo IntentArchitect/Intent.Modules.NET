@@ -73,6 +73,38 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>d8f1d4f9-340e-4745-88b6-6afb2cf997e7</ProjectId>
+      <CorrelationId>Intent.Integration.HttpClients.HttpClientRequestException#36e12cf9-11c2-44b1-8b4c-9f9092a0a0b9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetControllers.SecuredByDefault.Application/Common/Exceptions/HttpClientRequestException.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HttpClientRequestException.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d8f1d4f9-340e-4745-88b6-6afb2cf997e7</ProjectId>
+      <CorrelationId>Intent.Integration.HttpClients.ProblemDetailsWithErrors#4707a363-bd53-4c11-841a-a6cc1f403148</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetControllers.SecuredByDefault.Application/Common/Exceptions/ProblemDetailsWithErrors.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProblemDetailsWithErrors.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a74bb88b-10c5-40cb-b6a4-43f4baa89e72</ProjectId>
+      <CorrelationId>Intent.AspNetCore.DistributedCaching.IDistributedCacheExtensions#702f8c7d-f226-414c-a9b6-a2abedee12ee</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetControllers.SecuredByDefault.Application/Common/Interfaces/DistributedCacheExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DistributedCacheExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a74bb88b-10c5-40cb-b6a4-43f4baa89e72</ProjectId>
+      <CorrelationId>Intent.AspNetCore.DistributedCaching.DistributedCacheWithUnitOfWorkInterface#b431f331-3775-4d59-a9d5-69d8d2d5de1e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetControllers.SecuredByDefault.Application/Common/Interfaces/IDistributedCacheWithUnitOfWork.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IDistributedCacheWithUnitOfWork.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>cf0231e4-07e0-48bc-b765-05b5509a569b</ProjectId>
       <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection#26cef937-b284-4a94-8c8e-9df43eea3438</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -86,6 +118,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetControllers.SecuredByDefault.Application/Implementation/TestService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TestService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>73b17ed0-26f6-4534-a01d-6868df0a94d6</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#8aaece8c-39ed-4e88-8fb2-2e5c10d3eadd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetControllers.SecuredByDefault.Application/IntegrationServices/ITestService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ITestService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -113,11 +153,35 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>ac3ff9bb-0e6d-4e57-b2a8-58e70693bfb3</ProjectId>
+      <CorrelationId>Intent.AspNetCore.DistributedCaching.DistributedCacheWithUnitOfWork#77bdfad5-711e-4335-aaf1-9a62c23958d9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetControllers.SecuredByDefault.Infrastructure/Caching/DistributedCacheWithUnitOfWork.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DistributedCacheWithUnitOfWork.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>366e0c1c-a9ae-435f-adc6-86ee0d5d5790</ProjectId>
+      <CorrelationId>Intent.Integration.HttpClients.HttpClientConfiguration#6a497db4-71c3-41de-b7b6-b2b355230e93</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetControllers.SecuredByDefault.Infrastructure/Configuration/HttpClientConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HttpClientConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>1fe74517-dc48-44ce-b851-d03968df356d</ProjectId>
       <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#1c33236f-16da-4a77-8965-e48bace53372</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetControllers.SecuredByDefault.Infrastructure/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ef63e5dd-9180-42a8-904a-5cb1f678da68</ProjectId>
+      <CorrelationId>Intent.Integration.HttpClients.HttpClient#8aaece8c-39ed-4e88-8fb2-2e5c10d3eadd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetControllers.SecuredByDefault.Infrastructure/HttpClients/TestServiceHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestServiceHttpClient.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

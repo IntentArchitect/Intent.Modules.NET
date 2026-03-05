@@ -1,3 +1,6 @@
+using AspNetControllers.SecuredByDefault.Application.Common.Interfaces;
+using AspNetControllers.SecuredByDefault.Infrastructure.Caching;
+using AspNetControllers.SecuredByDefault.Infrastructure.Configuration;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,6 +14,9 @@ namespace AspNetControllers.SecuredByDefault.Infrastructure
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
+            services.AddDistributedMemoryCache();
+            services.AddSingleton<IDistributedCacheWithUnitOfWork, DistributedCacheWithUnitOfWork>();
+            services.AddHttpClients(configuration);
             return services;
         }
     }
