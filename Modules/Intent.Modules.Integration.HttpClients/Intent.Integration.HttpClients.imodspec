@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Integration.HttpClients</id>
-  <version>6.1.0-pre.0</version>
+  <version>6.1.0-pre.1</version>
   <supportedClientVersions>[4.5.18-a, 5.0.0-a)</supportedClientVersions>
   <summary>Introduces an Http Client implementation that can make service calls against a referenced service Restful API.</summary>
   <description>Introduces an Http Client implementation that can make service calls against a referenced service Restful API.</description>
@@ -114,7 +114,7 @@
     <dependency id="Intent.Metadata.WebApi" version="4.7.1" />
     <dependency id="Intent.Modelers.Services" version="4.0.10" />
     <dependency id="Intent.Modelers.Services.CQRS" version="6.0.5" />
-    <dependency id="Intent.Modelers.Types.ServiceProxies" version="5.5.3" />
+    <dependency id="Intent.Modelers.Types.ServiceProxies" version="5.5.4-pre.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
   </dependencies>
   <files>
