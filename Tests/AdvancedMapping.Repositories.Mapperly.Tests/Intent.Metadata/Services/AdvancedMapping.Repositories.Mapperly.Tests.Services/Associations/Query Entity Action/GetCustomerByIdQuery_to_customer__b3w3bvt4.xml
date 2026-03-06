@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="59f57f92-c818-490e-a846-c61f2dbefa56">
+  <sourceEnd id="336a5475-55b8-46b3-8caa-ff717f9f43a8" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetCustomerByIdQuery</display>
+    <order>0</order>
+    <typeReference id="a84d8e1b-cc01-4450-98cc-1b913ef04956">
+      <typeId>f1788e6b-8717-4f6e-8355-70c8cde7207a</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMapping.Repositories.Mapperly.Tests.Services</typePackageName>
+      <typePackageId>5acc1023-d19a-4150-9b5f-ce23f31ef1cb</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="59f57f92-c818-490e-a846-c61f2dbefa56" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>customer</name>
+    <display>[query] customer: Customer</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="9dfd4b3c-13ca-49fb-8f6c-49a3cc9872a4">
+      <typeId>8710f1f5-5778-466f-a69a-e7b4e5d1b3d6</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMapping.Repositories.Mapperly.Tests.Domain</typePackageName>
+      <typePackageId>9804eb76-4b5e-4998-8c95-0116febd73cd</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="3bf3dc59-97c7-4633-b5f2-147e9c2ee45c" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="f1788e6b-8717-4f6e-8355-70c8cde7207a" location="[AdvancedMapping.Repositories.Mapperly.Tests].[Services].[GetCustomerByIdQuery]" />
+        <target applicationId="3bf3dc59-97c7-4633-b5f2-147e9c2ee45c" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="8710f1f5-5778-466f-a69a-e7b4e5d1b3d6" location="[AdvancedMapping.Repositories.Mapperly.Tests].[Services].[Customer]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="8710f1f5-5778-466f-a69a-e7b4e5d1b3d6" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="f1983132-b6af-4c78-a907-a8d88485a457" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="f1788e6b-8717-4f6e-8355-70c8cde7207a" name="GetCustomerByIdQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+                  <target id="73cd3b2a-9192-489c-8a2e-33bfdbd684ac" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

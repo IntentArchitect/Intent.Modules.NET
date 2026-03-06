@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="0405bd4d-4186-4356-aa2a-658ac5b0ad77" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetCustomersQuery</name>
+  <display>GetCustomersQuery: CustomerDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="a80dd6b8-bf7a-426c-ada6-1364ae59df82">
+    <typeId>063e8c2f-8d23-445f-ac80-fc0736e0c85b</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>AdvancedMapping.Repositories.Mapperly.Tests.Services</typePackageName>
+    <typePackageId>5acc1023-d19a-4150-9b5f-ce23f31ef1cb</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>c8afedca-2ff1-4bf5-9710-413df82a2408</parentFolderId>
+  <packageId>5acc1023-d19a-4150-9b5f-ce23f31ef1cb</packageId>
+  <packageName>AdvancedMapping.Repositories.Mapperly.Tests.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -1,3 +1,4 @@
+using AdvancedMapping.Repositories.Mapperly.Tests.Domain.Entities;
 using AdvancedMapping.Repositories.Mapperly.Tests.Domain.Entities.Sales;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
@@ -28,6 +29,8 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Infrastructure.Persistence
             builder.Property(x => x.MetadataJson);
 
             builder.OwnsMany(x => x.Addresses, ConfigureAddresses);
+
+            builder.OwnsOne(x => x.Preferences, ConfigurePreferences);
         }
 
         public static void ConfigureAddresses(OwnedNavigationBuilder<Customer, Address> builder)
@@ -49,6 +52,20 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Infrastructure.Persistence
                 .IsRequired();
 
             builder.Property(x => x.PostCode)
+                .IsRequired();
+        }
+
+        public static void ConfigurePreferences(OwnedNavigationBuilder<Customer, Preferences> builder)
+        {
+            builder.WithOwner()
+                .HasForeignKey(x => x.Id);
+
+            builder.HasKey(x => x.Id);
+
+            builder.Property(x => x.Newsletter)
+                .IsRequired();
+
+            builder.Property(x => x.Specials)
                 .IsRequired();
         }
     }

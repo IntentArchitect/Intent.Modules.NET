@@ -25,5 +25,7 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Domain.Entities.Sales
         public string? MetadataJson { get; set; }
 
         public virtual ICollection<Address> Addresses { get; set; } = [];
+
+        public virtual Preferences? Preferences { get; set; }
     }
 }

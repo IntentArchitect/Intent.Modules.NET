@@ -1,0 +1,36 @@
+using AdvancedMapping.Repositories.Mapperly.Tests.Application.Mappings.Customers;
+using AdvancedMapping.Repositories.Mapperly.Tests.Domain.Common.Exceptions;
+using AdvancedMapping.Repositories.Mapperly.Tests.Domain.Repositories.Sales;
+using Intent.RoslynWeaver.Attributes;
+using MediatR;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.Application.MediatR.QueryHandler", Version = "1.0")]
+
+namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Customers.GetCustomerById
+{
+    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+    public class GetCustomerByIdQueryHandler : IRequestHandler<GetCustomerByIdQuery, CustomerDto>
+    {
+        private readonly ICustomerRepository _customerRepository;
+        private readonly CustomerDtoMapper _mapper;
+
+        [IntentManaged(Mode.Merge)]
+        public GetCustomerByIdQueryHandler(ICustomerRepository customerRepository, CustomerDtoMapper mapper)
+        {
+            _customerRepository = customerRepository;
+            _mapper = mapper;
+        }
+
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        public async Task<CustomerDto> Handle(GetCustomerByIdQuery request, CancellationToken cancellationToken)
+        {
+            var customer = await _customerRepository.FindByIdAsync(request.Id, cancellationToken);
+            if (customer is null)
+            {
+                throw new NotFoundException($"Could not find Customer '{request.Id}'");
+            }
+            return _mapper.CustomerToCustomerDto(customer);
+        }
+    }
+}

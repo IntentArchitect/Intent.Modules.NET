@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="cc683a76-9dc4-4246-a220-571907973aa7" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Customers</name>
+  <display>Customers</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>c8afedca-2ff1-4bf5-9710-413df82a2408</parentFolderId>
+  <packageId>5acc1023-d19a-4150-9b5f-ce23f31ef1cb</packageId>
+  <packageName>AdvancedMapping.Repositories.Mapperly.Tests.Services</packageName>
+  <diagram>
+    <targetPackageId>cc683a76-9dc4-4246-a220-571907973aa7</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="aa564791-36b6-402e-9b88-a88f59db3692">
+  <sourceEnd id="c2bcebe7-9920-4201-a01d-152e56742106" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Customer</name>
+    <display>Customer: Customer</display>
+    <order>0</order>
+    <typeReference id="82125fca-3fa3-4a00-81fc-69b20ba44f71">
+      <typeId>8710f1f5-5778-466f-a69a-e7b4e5d1b3d6</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMapping.Repositories.Mapperly.Tests.Domain</typePackageName>
+      <typePackageId>9804eb76-4b5e-4998-8c95-0116febd73cd</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="aa564791-36b6-402e-9b88-a88f59db3692" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Preferences</name>
+    <display>Preferences: Preferences?</display>
+    <order>7</order>
+    <typeReference id="a016d708-f387-4d33-bf18-8739cb1ae643">
+      <typeId>67af50ae-bce4-468c-996c-d2cdd2743347</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMapping.Repositories.Mapperly.Tests.Domain</typePackageName>
+      <typePackageId>9804eb76-4b5e-4998-8c95-0116febd73cd</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

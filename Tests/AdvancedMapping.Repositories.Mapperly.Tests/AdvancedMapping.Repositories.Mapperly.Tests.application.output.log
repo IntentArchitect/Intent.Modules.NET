@@ -282,10 +282,162 @@
     </FileLog>
     <FileLog>
       <ProjectId>aa08f102-b2e6-4bab-bbc8-1d9b2c838129</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#6e50c390-e001-4b19-a285-abd1e438cc4e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMapping.Repositories.Mapperly.Tests.Application/Customers/CreateCustomer/CreateCustomerCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/CreateCustomer/CreateCustomerCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>aa08f102-b2e6-4bab-bbc8-1d9b2c838129</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#6e50c390-e001-4b19-a285-abd1e438cc4e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMapping.Repositories.Mapperly.Tests.Application/Customers/CreateCustomer/CreateCustomerCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/CreateCustomer/CreateCustomerCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>aa08f102-b2e6-4bab-bbc8-1d9b2c838129</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#6e50c390-e001-4b19-a285-abd1e438cc4e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMapping.Repositories.Mapperly.Tests.Application/Customers/CreateCustomer/CreateCustomerCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/CreateCustomer/CreateCustomerCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>aa08f102-b2e6-4bab-bbc8-1d9b2c838129</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#063e8c2f-8d23-445f-ac80-fc0736e0c85b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMapping.Repositories.Mapperly.Tests.Application/Customers/CustomerDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/CustomerDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>aa08f102-b2e6-4bab-bbc8-1d9b2c838129</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#64838507-65a8-4eb0-90df-d26b0d7de11c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMapping.Repositories.Mapperly.Tests.Application/Customers/CustomerPreferencesDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/CustomerPreferencesDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>aa08f102-b2e6-4bab-bbc8-1d9b2c838129</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#b79eeb99-bdfc-4bf1-95ae-a4323da1681f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMapping.Repositories.Mapperly.Tests.Application/Customers/DeleteCustomer/DeleteCustomerCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/DeleteCustomer/DeleteCustomerCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>aa08f102-b2e6-4bab-bbc8-1d9b2c838129</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#b79eeb99-bdfc-4bf1-95ae-a4323da1681f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMapping.Repositories.Mapperly.Tests.Application/Customers/DeleteCustomer/DeleteCustomerCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/DeleteCustomer/DeleteCustomerCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>aa08f102-b2e6-4bab-bbc8-1d9b2c838129</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#b79eeb99-bdfc-4bf1-95ae-a4323da1681f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMapping.Repositories.Mapperly.Tests.Application/Customers/DeleteCustomer/DeleteCustomerCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/DeleteCustomer/DeleteCustomerCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>aa08f102-b2e6-4bab-bbc8-1d9b2c838129</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#f1788e6b-8717-4f6e-8355-70c8cde7207a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMapping.Repositories.Mapperly.Tests.Application/Customers/GetCustomerById/GetCustomerByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/GetCustomerById/GetCustomerByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>aa08f102-b2e6-4bab-bbc8-1d9b2c838129</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#f1788e6b-8717-4f6e-8355-70c8cde7207a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMapping.Repositories.Mapperly.Tests.Application/Customers/GetCustomerById/GetCustomerByIdQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/GetCustomerById/GetCustomerByIdQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>aa08f102-b2e6-4bab-bbc8-1d9b2c838129</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#f1788e6b-8717-4f6e-8355-70c8cde7207a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMapping.Repositories.Mapperly.Tests.Application/Customers/GetCustomerById/GetCustomerByIdQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/GetCustomerById/GetCustomerByIdQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>aa08f102-b2e6-4bab-bbc8-1d9b2c838129</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#0405bd4d-4186-4356-aa2a-658ac5b0ad77</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMapping.Repositories.Mapperly.Tests.Application/Customers/GetCustomers/GetCustomersQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/GetCustomers/GetCustomersQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>aa08f102-b2e6-4bab-bbc8-1d9b2c838129</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#0405bd4d-4186-4356-aa2a-658ac5b0ad77</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMapping.Repositories.Mapperly.Tests.Application/Customers/GetCustomers/GetCustomersQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/GetCustomers/GetCustomersQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>aa08f102-b2e6-4bab-bbc8-1d9b2c838129</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#0405bd4d-4186-4356-aa2a-658ac5b0ad77</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMapping.Repositories.Mapperly.Tests.Application/Customers/GetCustomers/GetCustomersQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/GetCustomers/GetCustomersQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>aa08f102-b2e6-4bab-bbc8-1d9b2c838129</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#647198fd-e994-4816-84f3-ecdbf074a7a2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMapping.Repositories.Mapperly.Tests.Application/Customers/UpdateCustomer/UpdateCustomerCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/UpdateCustomer/UpdateCustomerCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>aa08f102-b2e6-4bab-bbc8-1d9b2c838129</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#647198fd-e994-4816-84f3-ecdbf074a7a2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMapping.Repositories.Mapperly.Tests.Application/Customers/UpdateCustomer/UpdateCustomerCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/UpdateCustomer/UpdateCustomerCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>aa08f102-b2e6-4bab-bbc8-1d9b2c838129</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#647198fd-e994-4816-84f3-ecdbf074a7a2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMapping.Repositories.Mapperly.Tests.Application/Customers/UpdateCustomer/UpdateCustomerCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/UpdateCustomer/UpdateCustomerCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>aa08f102-b2e6-4bab-bbc8-1d9b2c838129</ProjectId>
       <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection#a0959f3d-6635-412d-bdd5-1d2608ad1776</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMapping.Repositories.Mapperly.Tests.Application/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>756b5c7f-1883-4c5c-a81a-02a28a1ad945</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.Mapperly.DtoMappingProfile#063e8c2f-8d23-445f-ac80-fc0736e0c85b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMapping.Repositories.Mapperly.Tests.Application/Mappings/Customers/CustomerDtoMapper.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/CustomerDtoMapper.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>756b5c7f-1883-4c5c-a81a-02a28a1ad945</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.Mapperly.DtoMappingProfile#64838507-65a8-4eb0-90df-d26b0d7de11c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMapping.Repositories.Mapperly.Tests.Application/Mappings/Customers/CustomerPreferencesDtoMapper.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/CustomerPreferencesDtoMapper.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -590,6 +742,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMapping.Repositories.Mapperly.Tests.Domain/Common/UpdateHelper.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UpdateHelper.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dde6be80-126b-470f-9203-26f72ef4da08</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#67af50ae-bce4-468c-996c-d2cdd2743347</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMapping.Repositories.Mapperly.Tests.Domain/Entities/Preferences.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Preferences.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

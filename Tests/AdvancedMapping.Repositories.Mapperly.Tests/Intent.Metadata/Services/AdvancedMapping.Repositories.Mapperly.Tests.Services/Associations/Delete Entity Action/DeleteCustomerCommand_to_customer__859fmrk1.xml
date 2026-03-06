@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="3fa13a76-966c-4176-aebd-0c9c64af0eb4">
+  <sourceEnd id="bad29d22-f3f2-4a4d-aeb9-1e901df86617" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : Customers.DeleteCustomerCommand</display>
+    <order>0</order>
+    <typeReference id="d24940ac-e51b-493c-862e-44aeaac79a5b">
+      <typeId>b79eeb99-bdfc-4bf1-95ae-a4323da1681f</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMapping.Repositories.Mapperly.Tests.Services</typePackageName>
+      <typePackageId>5acc1023-d19a-4150-9b5f-ce23f31ef1cb</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="3fa13a76-966c-4176-aebd-0c9c64af0eb4" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>customer</name>
+    <display>[delete] customer: Customer</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="36a1f656-d44d-40e0-ad56-85e3d079f94f">
+      <typeId>8710f1f5-5778-466f-a69a-e7b4e5d1b3d6</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMapping.Repositories.Mapperly.Tests.Domain</typePackageName>
+      <typePackageId>9804eb76-4b5e-4998-8c95-0116febd73cd</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="3bf3dc59-97c7-4633-b5f2-147e9c2ee45c" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="b79eeb99-bdfc-4bf1-95ae-a4323da1681f" location="[AdvancedMapping.Repositories.Mapperly.Tests].[Services].[DeleteCustomerCommand]" />
+        <target applicationId="3bf3dc59-97c7-4633-b5f2-147e9c2ee45c" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="8710f1f5-5778-466f-a69a-e7b4e5d1b3d6" location="[AdvancedMapping.Repositories.Mapperly.Tests].[Services].[Customer]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="8710f1f5-5778-466f-a69a-e7b4e5d1b3d6" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="f1983132-b6af-4c78-a907-a8d88485a457" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="b79eeb99-bdfc-4bf1-95ae-a4323da1681f" name="DeleteCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="4f78fefd-9ea6-4504-a4ee-b19b4c3ef73f" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>
