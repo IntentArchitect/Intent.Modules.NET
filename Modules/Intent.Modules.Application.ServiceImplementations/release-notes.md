@@ -1,3 +1,7 @@
+### Version 4.6.0
+
+- Improvement: Updated dependency modules.
+
 ### Version 4.5.14
 
 - Improvement: Documentation and ProjectUrl link added.
