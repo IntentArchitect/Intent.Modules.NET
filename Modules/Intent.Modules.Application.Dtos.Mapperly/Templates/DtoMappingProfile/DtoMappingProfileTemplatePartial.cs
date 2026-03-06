@@ -107,7 +107,7 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
                             {
                                 method.AddAttribute("MapProperty", attribute =>
                                 {
-                                    attribute.AddArgument($"nameof({entityTypeName}.{config.SourcePath})");
+                                    attribute.AddArgument($"nameof({entityTypeName}.{config.AttributePath})");
                                     attribute.AddArgument($"nameof({dtoModelName}.{config.TargetPropertyName})");
                                 });
                             }
@@ -161,6 +161,7 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
             string TargetPropertyName,
             string SourceExpression,
             string SourcePath,
+            string AttributePath,
             bool UseCustomMethod,
             bool ShouldCast,
             string CustomMethodName);
@@ -181,7 +182,7 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
                                  field.Mapping.Element?.TypeReference != null &&
                                  GetFullyQualifiedTypeName(field.TypeReference) != GetFullyQualifiedTypeName(field.Mapping.Element.TypeReference));
 
-                var (mappingExpression, _) = MappingHelper.GetMappingExpression(this, field);
+                var (mappingExpression, attributePath) = MappingHelper.GetMappingExpression(this, field);
 
                 var requiresExplicitMapping = mappingExpression != $"src.{field.Name}" || shouldCast;
 
@@ -202,9 +203,9 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
                 var useCustomMethod = shouldCast || RequiresCustomMethod(mappingExpression);
 
                 // Check if Mapperly can handle nested property flattening by convention
-                if (!useCustomMethod && sourcePath.Contains(".") && !sourcePath.Contains("("))
+                if (!useCustomMethod && attributePath.Contains(".") && !attributePath.Contains("("))
                 {
-                    var mapperlyConventionName = sourcePath.Replace(".", "");
+                    var mapperlyConventionName = attributePath.Replace(".", "");
                     var actualTargetName = targetPropertyName;
 
                     if (mapperlyConventionName == actualTargetName)
@@ -220,6 +221,7 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
                     TargetPropertyName: targetPropertyName,
                     SourceExpression: mappingExpression,
                     SourcePath: sourcePath,
+                    AttributePath: attributePath,
                     UseCustomMethod: useCustomMethod,
                     ShouldCast: shouldCast,
                     CustomMethodName: customMethodName));
@@ -232,6 +234,7 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
         {
             var result = mappingExpression.Contains("(")
                    || mappingExpression.Contains("!")
+                   || mappingExpression.Contains("?")
                    || mappingExpression.Contains(" ? ")
                    || mappingExpression.Contains(" : ");
             return result;
