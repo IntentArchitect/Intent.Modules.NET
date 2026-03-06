@@ -1,3 +1,7 @@
+### Version 5.1.3
+
+- Improvement: Interaction Strategies enhanced to have better detection regarding actions with mappings to prevent ugly errors being raised during Software Factory runs.
+
 ### Version 5.1.2
 
 - Improvement: Documentation and ProjectUrl link added.
