@@ -466,6 +466,50 @@ When persisted to the database, the primitive collection property saved in a sin
 
 ![Primitive Collection Mapping](images/primitrive-collection-database.png)
 
+## JSON Column Storage
+
+When you configure Value Objects with JSON serialization (see [Intent.Modules.ValueObjects - JSON Serialization](https://docs.intentarchitect.com/articles/modules-dotnet/intent-valueobjects/intent-valueobjects.html#json-serialization)) or use primitive collections, Entity Framework Core automatically applies your database provider's native JSON type via the `.ToJson()` method.
+
+### Database-Specific Behavior
+
+Entity Framework Core 8+ selects the optimal JSON storage format for each database provider:
+
+| Database | Column Type | Storage | Querying | Indexing | Use Case |
+|----------|-----------|---------|----------|----------|----------|
+| **PostgreSQL** | `jsonb` | Binary JSON (optimized) | Native JSONB operators (`@>`, `->`) | Yes, GIN indices | ✓ **Best** for structured data with queries |
+| **SQL Server** | `nvarchar(max)` | JSON text format | `JSON_VALUE()`, `JSON_QUERY()` functions | Limited | Good, requires SQL Server JSON syntax |
+| **MySQL** | `JSON` | Native JSON type | Native JSON functions (`JSON_EXTRACT()`) | Virtual columns | Good, native support |
+| **SQLite** | `TEXT` | JSON as text | JSON functions available | No native index | Simple storage, no complex queries |
+
+### Generated Code
+
+When you model a Value Object with JSON serialization, the generated Entity Type Configuration automatically applies the appropriate column type:
+
+**PostgreSQL migration example:**
+```csharp
+modelBuilder.Entity<Client>(entity =>
+{
+    entity.Property(e => e.Addresses)
+        .HasColumnType("jsonb")  // PostgreSQL native JSONB type
+        .ToJson();  // EF Core serialization + PostgreSQL JSONB mapping
+});
+```
+
+**SQL Server migration example:**
+```csharp
+modelBuilder.Entity<Client>(entity =>
+{
+    entity.Property(e => e.Addresses)
+        .HasColumnType("nvarchar(max)")  // SQL Server text JSON storage
+        .ToJson();  // EF Core serialization
+});
+```
+
+This automatically:
+- **Serializes** the collection to JSON when saving to the database
+- **Deserializes** JSON when loading from the database
+- **Stores** in each database's native or optimized JSON type
+
 ## Related Modules
 
 ### Intent.Metadata.RDBMS
