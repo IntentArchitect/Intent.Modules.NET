@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -74,7 +75,8 @@ namespace MassTransit.AzureServiceBus.Domain.Common
         /// <remarks>
         /// This method does not create new entities or update existing ones. It only adds and removes items.
         /// Typically used for many-to-many relationships where both sides already exist.
-        /// If the changed collection is <see langword="null" />, the base collection will be cleared.
+        /// If the changed collection is <see langword="null" />, the base collection will be cleared
+        /// (in a way that is safe for frameworks that track changes).
         /// </remarks>
         public static ICollection<TEntity> SynchronizeCollection<TEntity>(
             ICollection<TEntity> baseCollection,
@@ -83,7 +85,7 @@ namespace MassTransit.AzureServiceBus.Domain.Common
         {
             if (changedCollection == null)
             {
-                foreach (var entity in baseCollection)
+                foreach (var entity in baseCollection.ToList())
                 {
                     baseCollection.Remove(entity);
                 }
