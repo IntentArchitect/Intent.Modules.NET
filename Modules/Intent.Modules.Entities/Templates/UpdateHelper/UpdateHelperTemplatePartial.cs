@@ -23,6 +23,7 @@ namespace Intent.Modules.Entities.Templates.UpdateHelper
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
+                .AddUsing("System.Linq")
                 .AddUsing("System.Collections.Generic")
                 .AddClass($"UpdateHelper", @class =>
                 {
@@ -107,16 +108,17 @@ namespace Intent.Modules.Entities.Templates.UpdateHelper
                                             /// <remarks>
                                             /// This method does not create new entities or update existing ones. It only adds and removes items.
                                             /// Typically used for many-to-many relationships where both sides already exist.
-                                            /// If the changed collection is <see langword="null" />, the base collection will be cleared.
+                                            /// If the changed collection is <see langword="null" />, the base collection will be cleared
+                                            /// (in a way that is safe for frameworks that track changes).
                                             /// </remarks>
                                             """);
                         method.AddParameter($"ICollection<{TEntity}>", "baseCollection");
                         method.AddParameter($"IEnumerable<{TEntity}>?", "changedCollection");
                         method.AddParameter($"Func<{TEntity}, {TEntity}, bool>", "equalityCheck");
-                        method.AddStatement($$"""
+                        method.AddStatement("""
                                             if (changedCollection == null)
                                             {
-                                                foreach (var entity in baseCollection)
+                                                foreach (var entity in baseCollection.ToList())
                                                 {
                                                     baseCollection.Remove(entity);
                                                 }

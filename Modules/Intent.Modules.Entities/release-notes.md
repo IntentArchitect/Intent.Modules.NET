@@ -1,3 +1,7 @@
+### Version 5.2.2
+
+- Fixed: `SynchronizeCollection`: when `changedCollection` is `null`, the `baseCollection` will iterate safely to clear out all its entries.
+
 ### Version 5.2.1
 
 - Improvement: Adding C# Attributes on Properties of Entities are now in `Merge` mode so that you no longer need to manually override Intent annotations yourself.
