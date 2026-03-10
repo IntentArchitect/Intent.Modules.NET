@@ -57,24 +57,30 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.Validati
                             .AddParameter("RequestHandlerDelegate<TResponse>", "next")
                             .AddParameter("CancellationToken", "cancellationToken");
 
-                        method.AddIfStatement("_validators.Any()", ifconfig =>
-                        {
-                            ifconfig.AddObjectInitStatement("var context", "new ValidationContext<TRequest>(request);")
-                                .SeparatedFromNext();
-
-                            ifconfig.AddObjectInitStatement("var validationResults", "await Task.WhenAll(_validators.Select(v => v.ValidateAsync(context, cancellationToken)));");
-                            ifconfig.AddObjectInitStatement("var failures", "validationResults.SelectMany(r => r.Errors).Where(f => f != null).ToList();").SeparatedFromNext();
-
-                            ifconfig.AddIfStatement("failures.Count != 0", validationif =>
-                            {
-                                validationif.AddStatement("throw new ValidationException(failures);");
-                            });
-                        });
-
                         var cancellationToken = Project.TryGetMaxNetAppVersion(out var version) &&
                                                 version.Major is <= 2 or > 6
                             ? "cancellationToken"
                             : string.Empty;
+                        
+                        method.AddIfStatement($"request is {this.GetBypassPipelineValidationInterfaceName()}", stmt =>
+                        {
+                            stmt.AddReturn($"await next({cancellationToken})");
+                        });
+                        
+                        method.AddIfStatement("_validators.Any()", anyValidatorStmt =>
+                        {
+                            anyValidatorStmt.AddObjectInitStatement("var context", "new ValidationContext<TRequest>(request);")
+                                .SeparatedFromNext();
+
+                            anyValidatorStmt.AddObjectInitStatement("var validationResults", "await Task.WhenAll(_validators.Select(v => v.ValidateAsync(context, cancellationToken)));");
+                            anyValidatorStmt.AddObjectInitStatement("var failures", "validationResults.SelectMany(r => r.Errors).Where(f => f != null).ToList();").SeparatedFromNext();
+
+                            anyValidatorStmt.AddIfStatement("failures.Count != 0", countStmt =>
+                            {
+                                countStmt.AddStatement("throw new ValidationException(failures);");
+                            });
+                        });
+                        
                         method.AddReturn($"await next({cancellationToken})");
                     });
                 });
