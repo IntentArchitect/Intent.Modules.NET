@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="4.1.10-pre.1" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="4.1.20" />
   <applications>
     <application id="ad79943a-b771-42b0-9563-9e01f7ea2dbc" name="VisualStudio.Projects" solutionFolder="Developer Tooling" relativePath="Intent.Modules.VisualStudio.Projects\VisualStudio.Projects.application.config" />
     <application id="b6fc9928-d295-416f-a408-a1730334a2e9" name="Intent.Modules.Application.Contracts" solutionFolder="Application" relativePath="Intent.Modules.Application.Contracts\Intent.Modules.Application.Contracts.application.config" />
@@ -178,5 +178,6 @@
     <application id="d78fb3f4-7ed2-4562-aa18-f09b10de3afa" name="Intent.Modules.AzureFunctions.AzureQueueStorage" solutionFolder="API Frameworks" relativePath="Intent.Modules.AzureFunctions.AzureQueueStorage/Intent.Modules.AzureFunctions.AzureQueueStorage.application.config" />
     <application id="6a0d6a5d-e77c-4d6c-afbe-9796731b00f2" name="Intent.Modules.Aws.Lambda.Functions.Sqs" solutionFolder="API Frameworks" relativePath="Intent.Modules.Aws.Lambda.Functions.Sqs/Intent.Modules.Aws.Lambda.Functions.Sqs.application.config" />
     <application id="b05c458b-71a3-47f2-b6eb-860f17d64775" name="Eventing.AzureQueueStorage" solutionFolder="Eventing Integration" relativePath="Intent.Modules.Eventing.AzureQueueStorage/Intent.Modules.Eventing.AzureQueueStorage.application.config" />
+    <application id="b7db91ac-8839-48cd-8389-8b32ff4eaf41" name="Intent.Modules.AspNetCore.JsonPatch" solutionFolder="API Frameworks" relativePath="Intent.Modules.AspNetCore.JsonPatch/Intent.Modules.AspNetCore.JsonPatch.application.config" />
   </applications>
 </solution>
