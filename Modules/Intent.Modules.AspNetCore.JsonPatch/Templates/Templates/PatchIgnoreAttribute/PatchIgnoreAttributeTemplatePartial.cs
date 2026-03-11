@@ -16,7 +16,7 @@ namespace Intent.Modules.AspNetCore.JsonPatch.Templates.Templates.PatchIgnoreAtt
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public partial class PatchIgnoreAttributeTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
-        public const string TemplateId = "Intent.AspNetCore.JsonPatch.Templates.PatchIgnoreAttributeTemplate";
+        public const string TemplateId = "Intent.AspNetCore.JsonPatch.Templates.PatchIgnoreAttribute";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public PatchIgnoreAttributeTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
@@ -24,7 +24,11 @@ namespace Intent.Modules.AspNetCore.JsonPatch.Templates.Templates.PatchIgnoreAtt
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddClass($"PatchIgnoreAttribute", @class =>
                 {
-                    @class.WithComments("Prevents a property from being included in a JSON Merge Patch operation schema.");
+                    @class.WithComments("""
+                                        /// <summary>
+                                        ///  Prevents a property from being included in a JSON Merge Patch operation schema.
+                                        /// </summary>
+                                        """);
                     @class.WithBaseType("Attribute");
                     @class.AddAttribute("AttributeUsage", attr => attr.AddArgument("AttributeTargets.Property"));
                 });
