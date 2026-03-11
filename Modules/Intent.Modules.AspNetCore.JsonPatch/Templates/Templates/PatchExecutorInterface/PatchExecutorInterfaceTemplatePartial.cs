@@ -16,7 +16,7 @@ namespace Intent.Modules.AspNetCore.JsonPatch.Templates.Templates.PatchExecutorI
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public partial class PatchExecutorInterfaceTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
-        public const string TemplateId = "Intent.AspNetCore.JsonPatch.Templates.PatchExecutorInterfaceTemplate";
+        public const string TemplateId = "Intent.AspNetCore.JsonPatch.Templates.PatchExecutorInterface";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public PatchExecutorInterfaceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
