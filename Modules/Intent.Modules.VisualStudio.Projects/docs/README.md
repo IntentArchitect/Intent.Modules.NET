@@ -99,6 +99,21 @@ To split out templates into a separate project:
 
 *Refactored structure with HttpClients in a separate project.*
 
+## Folder Options
+
+### Namespace Provider
+
+The `Namespace Provider` option controls whether a folder's name contributes to generated code namespaces.
+
+- **Enabled**: The folder name is included in the namespace.
+- **Disabled**: Files are still generated into the folder, but the folder name is excluded from the namespace.
+
+This is useful when you want to organize files on disk without forcing that structure into your code namespaces.
+
+For example, if `Orders` is marked as a namespace provider and `Internal` is not, a class in `Orders/Internal` would use a namespace like `MyApp.Orders` (not `MyApp.Orders.Internal`).
+
+This option is available on folders in **all designers**. Configure it in the designer where the folder is modeled to control which parts of the folder hierarchy participate in namespaces.
+
 ## Stereotype details
 
 ### The *.NET Settings* stereotype
