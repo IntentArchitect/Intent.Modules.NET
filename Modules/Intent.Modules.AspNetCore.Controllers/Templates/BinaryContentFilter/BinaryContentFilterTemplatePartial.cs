@@ -90,13 +90,19 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.BinaryContentFilter
                                 """.ConvertToStatements());
                         }
 
-                        method.AddStatement("operation.RequestBody = new OpenApiRequestBody() {Required = true};");
+                        AddUsing("System.Collections.Generic");
+
+                        method.AddStatement(@"operation.RequestBody = new OpenApiRequestBody() 
+            { 
+                Required = true,
+                Content = new Dictionary<string, OpenApiMediaType>()
+            };");
 
                         if (isMicrosoftOpenApi_2_4_1)
                         {
                             method.AddStatements(
                                 """
-                                operation.RequestBody.Content.Add("application/octet-stream", new OpenApiMediaType()
+                                operation.RequestBody!.Content!.Add("application/octet-stream", new OpenApiMediaType()
                                 {
                                     Schema = new OpenApiSchema()
                                     {
@@ -110,7 +116,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.BinaryContentFilter
                         {
                             method.AddStatements(
                                 """
-                                operation.RequestBody.Content.Add("application/octet-stream", new OpenApiMediaType()
+                                operation.RequestBody!.Content!.Add("application/octet-stream", new OpenApiMediaType()
                                 {
                                     Schema = new OpenApiSchema()
                                     {
