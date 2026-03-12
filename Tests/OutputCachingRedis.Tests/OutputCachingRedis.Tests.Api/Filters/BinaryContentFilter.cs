@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.OpenApi;
@@ -35,8 +36,12 @@ namespace OutputCachingRedis.Tests.Api.Filters
                 },
                 Description = "e.g. form-data; name=\"file\"; filename=example.txt"
             });
-            operation.RequestBody = new OpenApiRequestBody() { Required = true };
-            operation.RequestBody.Content.Add("application/octet-stream", new OpenApiMediaType()
+            operation.RequestBody = new OpenApiRequestBody()
+            {
+                Required = true,
+                Content = new Dictionary<string, OpenApiMediaType>()
+            };
+            operation.RequestBody!.Content!.Add("application/octet-stream", new OpenApiMediaType()
             {
                 Schema = new OpenApiSchema()
                 {

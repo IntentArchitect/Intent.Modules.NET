@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using AdvancedMappingCrud.Repositories.Tests.Api.Controllers.FileTransfer;
 using Intent.RoslynWeaver.Attributes;
@@ -35,8 +36,12 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Filters
                 },
                 Description = "e.g. form-data; name=\"file\"; filename=example.txt"
             });
-            operation.RequestBody = new OpenApiRequestBody() { Required = true };
-            operation.RequestBody.Content.Add("application/octet-stream", new OpenApiMediaType()
+            operation.RequestBody = new OpenApiRequestBody()
+            {
+                Required = true,
+                Content = new Dictionary<string, OpenApiMediaType>()
+            };
+            operation.RequestBody!.Content!.Add("application/octet-stream", new OpenApiMediaType()
             {
                 Schema = new OpenApiSchema()
                 {
