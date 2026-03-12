@@ -221,7 +221,7 @@ namespace Intent.Modules.AspNetCore.JsonPatch.Templates.Templates.JsonMergePatch
         // This is a new Swashbuckle Filter so no need to support earlier versions, so if this somehow 
         // runs on an earlier OpenAPI version just don't generate.
         private bool IsMicrosoftOpenApi_2_4_1 => OutputTarget.GetMaxNetAppVersion().Major >= 8;
-        
+
         public override bool CanRunTemplate()
         {
             return base.CanRunTemplate() &&
@@ -235,7 +235,7 @@ namespace Intent.Modules.AspNetCore.JsonPatch.Templates.Templates.JsonMergePatch
             {
                 return;
             }
-            
+
             var templates =
                 ExecutionContext.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Distribution.SwashbuckleConfiguration"));
 
@@ -263,7 +263,8 @@ namespace Intent.Modules.AspNetCore.JsonPatch.Templates.Templates.JsonMergePatch
             return cSharpLambdaBlock;
         }
 
-        [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
+        [IntentManaged(Mode.Fully)]
+        public CSharpFile CSharpFile { get; }
 
         [IntentManaged(Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()
