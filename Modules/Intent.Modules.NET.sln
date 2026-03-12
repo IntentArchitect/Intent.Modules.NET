@@ -404,7 +404,7 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intent.Modules.Integration.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Aws.Lambda.Functions.Sqs", "Intent.Modules.Aws.Lambda.Functions.Sqs\Intent.Modules.Aws.Lambda.Functions.Sqs.csproj", "{E8EE9F41-D5B2-4A78-B2BB-281A4C60A3AE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.JsonPatch", "Intent.Modules.AspNetCore.JsonPatch\Intent.Modules.AspNetCore.JsonPatch.csproj", "{E949417C-4BD9-4E2D-AC3B-8E9D50D05A5F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.Controllers.JsonPatch", "Intent.Modules.AspNetCore.Controllers.JsonPatch\Intent.Modules.AspNetCore.Controllers.JsonPatch.csproj", "{E949417C-4BD9-4E2D-AC3B-8E9D50D05A5F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
