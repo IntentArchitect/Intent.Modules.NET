@@ -32,14 +32,6 @@
       <role>Application.PatchExecutorInterface</role>
       <location>Common/Patching</location>
     </template>
-    <template id="Intent.AspNetCore.JsonPatch.Templates.PatchIgnoreAttribute" externalReference="f9402510-1ab3-48cb-b080-a876c4a89409">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Application.PatchIgnoreAttribute</role>
-      <location>Common/Patching</location>
-    </template>
     <template id="Intent.AspNetCore.JsonPatch.Templates.PatchIgnoreMetadataProvider" externalReference="57326746-def6-42bb-98a9-9c14dbba88c8">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
@@ -50,7 +42,9 @@
     </template>
   </templates>
   <decorators></decorators>
-  <factoryExtensions></factoryExtensions>
+  <factoryExtensions>
+    <factoryExtension id="Intent.AspNetCore.JsonPatch.MediatRCommandExtension" externalReference="e1ed7572-a9d4-49c9-9335-a9b5464f9d1b" />
+  </factoryExtensions>
   <moduleSettings></moduleSettings>
   <interoperability>
     <detect id="Intent.AspNetCore.Swashbuckle">
@@ -68,6 +62,8 @@
     <dependency id="Intent.Common" version="3.10.0" />
     <dependency id="Intent.Common.CSharp" version="3.10.1" />
     <dependency id="Intent.Common.Types" version="4.1.3" />
+    <dependency id="Intent.Metadata.WebApi" version="4.7.1" />
+    <dependency id="Intent.Modelers.Services" version="4.0.10" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
   </dependencies>
   <files>
