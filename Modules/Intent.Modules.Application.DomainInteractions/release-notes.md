@@ -1,3 +1,7 @@
+### Version 1.2.1
+
+- Improvement: Introduced components for upcoming JSON Patch module.
+
 ### Version 1.2.0
 
 - Improvement: Module dependencies updated.
