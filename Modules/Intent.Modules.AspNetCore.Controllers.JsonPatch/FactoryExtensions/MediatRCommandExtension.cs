@@ -70,15 +70,13 @@ namespace Intent.Modules.AspNetCore.Controllers.JsonPatch.FactoryExtensions
                     }
 
                     cls.ImplementsInterface(bypassValidationInterface);
-
-                    // Get the constructor
+                    
                     var ctor = cls.Constructors.FirstOrDefault();
                     if (ctor == null)
                     {
                         return;
                     }
-
-                    // Remove all parameters that are NOT route parameters
+                    
                     var parametersToRemove = ctor.Parameters
                         .Where(param => param.TryGetMetadata<DTOFieldModel>("model", out var m) && !routeParameterIds.Contains(m.Id))
                         .ToList();
@@ -87,8 +85,7 @@ namespace Intent.Modules.AspNetCore.Controllers.JsonPatch.FactoryExtensions
                     {
                         ctor.Parameters.Remove(param);
                     }
-
-                    // Remove corresponding assignment statements from constructor body
+                    
                     if (ctor.Statements == null)
                     {
                         return;
@@ -103,8 +100,19 @@ namespace Intent.Modules.AspNetCore.Controllers.JsonPatch.FactoryExtensions
                         ctor.Statements.Remove(stmt);
                     }
 
-                    ctor.InsertParameter(routeParameterIds.Count, $"{template.GetPatchExecutorInterfaceName()}<{cls.Name}>", "patchExecutor",
-                        param => param.IntroduceProperty());
+                    foreach (var property in cls.Properties)
+                    {
+                        if (property.TryGetMetadata<DTOFieldModel>("model", out var m) && routeParameterIds.Contains(m.Id))
+                        {
+                            property.PrivateSetter();
+                        }
+                    }
+
+                    ctor.AddParameter($"{template.GetPatchExecutorInterfaceName()}<{cls.Name}>", "patchExecutor",
+                        param => param.IntroduceProperty(prop =>
+                        {
+                            prop.PrivateSetter();
+                        }));
                 });
             }
         }

@@ -44,7 +44,8 @@
   <decorators></decorators>
   <factoryExtensions>
     <factoryExtension id="Intent.AspNetCore.Controllers.JsonPatch.MediatRCommandExtension" externalReference="e1ed7572-a9d4-49c9-9335-a9b5464f9d1b" />
-    <factoryExtension id="Intent.AspNetCore.Controllers.JsonPatch.MvcControllerExtension" externalReference="ee1d424d-1789-4d82-bbef-d6f49671f66f" />
+    <factoryExtension id="Intent.AspNetCore.Controllers.JsonPatch.MediatRCommandHandlerExtension" externalReference="d63f9166-9a5c-446a-ab04-2e90cd0fe263" />
+    <factoryExtension id="Intent.AspNetCore.Controllers.JsonPatch.MvcControllerMediatRCommandExtension" externalReference="ee1d424d-1789-4d82-bbef-d6f49671f66f" />
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <interoperability>
@@ -69,6 +70,7 @@
     <dependency id="Intent.Metadata.WebApi" version="4.7.18" />
     <dependency id="Intent.Modelers.Services" version="4.0.10" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
+    <dependency id="Intent.Application.DomainInteractions" version="1.2.1-pre.0" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />
