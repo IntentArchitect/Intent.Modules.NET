@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="ee1d424d-1789-4d82-bbef-d6f49671f66f" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
-  <name>MvcControllerExtension</name>
-  <display>MvcControllerExtension</display>
+<class id="d63f9166-9a5c-446a-ab04-2e90cd0fe263" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>MediatRCommandHandlerExtension</name>
+  <display>MediatRCommandHandlerExtension</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
   <isMapped>false</isMapped>
