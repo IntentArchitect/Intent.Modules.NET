@@ -34,4 +34,10 @@
     <Folder Include="Settings\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
+      <_Parameter1>Intent.Modules.AspNetCore.Controllers.JsonPatch</_Parameter1>
+    </AssemblyAttribute>
+  </ItemGroup>
+
 </Project>
