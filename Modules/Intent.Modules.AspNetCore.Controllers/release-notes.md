@@ -1,3 +1,7 @@
+### Version 7.1.10
+
+- Fixed: Issue with generated code in BinaryContentFilter resulting in null at runtime.
+
 ### Version 7.1.9
 
 - Improvement: Updated to work with Microsoft.OpenApi (2.4.1 and up) library version.
