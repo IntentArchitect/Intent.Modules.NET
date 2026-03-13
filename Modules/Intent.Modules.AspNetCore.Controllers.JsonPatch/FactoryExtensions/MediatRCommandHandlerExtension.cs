@@ -24,9 +24,5 @@ namespace Intent.Modules.AspNetCore.Controllers.JsonPatch.FactoryExtensions
             // Override the default UpdateEntityInteractionStrategy for PATCH commands.
             InteractionStrategyProvider.Instance.Register(new PatchUpdateEntityInteractionStrategy(), priority: -100);
         }
-
-        protected override void OnAfterTemplateRegistrations(IApplication application)
-        {
-        }
     }
 }

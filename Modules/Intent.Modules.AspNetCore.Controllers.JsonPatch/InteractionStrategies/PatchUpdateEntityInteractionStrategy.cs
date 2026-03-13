@@ -9,6 +9,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Interactions;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.DomainInteractions.Api;
+using Intent.Modules.Constants;
 using Intent.Modules.Metadata.WebApi.Models;
 
 namespace Intent.Modules.AspNetCore.Controllers.JsonPatch.InteractionStrategies
@@ -80,13 +81,15 @@ namespace Intent.Modules.AspNetCore.Controllers.JsonPatch.InteractionStrategies
                 // Use tracked entity details to determine the variable name.
                 var entityDetails = method.TrackedEntities()[updateAction.Id];
 
+                EnsurePatchHelperMethods(method, updateAction, foundEntity);
+
                 method.AddStatements(ExecutionPhases.BusinessLogic,
                 [
-                    new CSharpStatement($"{entityDetails.VariableName}.LoadOriginalState(request)")
+                    new CSharpStatement($"LoadOriginalState({entityDetails.VariableName}, request)")
                         .WithSemicolon(),
-                    new CSharpStatement("request.PatchExecutor.ApplyAndValidate(request)")
+                    new CSharpStatement("request.PatchExecutor.ApplyTo(request)")
                         .WithSemicolon(),
-                    new CSharpStatement($"request.ApplyChangesTo({entityDetails.VariableName})")
+                    new CSharpStatement($"ApplyChangesTo(request, {entityDetails.VariableName})")
                         .WithSemicolon()
                 ]);
             }
@@ -102,6 +105,70 @@ namespace Intent.Modules.AspNetCore.Controllers.JsonPatch.InteractionStrategies
             {
                 throw new ElementException(updateAction.InternalAssociationEnd, "An error occurred while generating the JsonPatch update logic", ex);
             }
+        }
+
+        private static void EnsurePatchHelperMethods(
+            ICSharpClassMethodDeclaration handleMethod,
+            UpdateEntityActionTargetEndModel updateAction,
+            ClassModel foundEntity)
+        {
+            var requestParameter = handleMethod.Parameters.FirstOrDefault(p => p.Name == "request") ??
+                                   handleMethod.Parameters.First();
+
+            var entityTypeName = handleMethod.File.Template.GetTypeName(TemplateRoles.Domain.Entity.Primary, foundEntity)!;
+            var commandTypeName = requestParameter.Type;
+
+            var @class = handleMethod.Class;
+
+            @class.AddMethod(commandTypeName, "LoadOriginalState", method =>
+            {
+                method.Static();
+                method.Private();
+                method.AddParameter(entityTypeName, "entity");
+                method.AddParameter(commandTypeName, "command");
+                    
+                method.AddStatement("ArgumentNullException.ThrowIfNull(entity);");
+                method.AddStatement("ArgumentNullException.ThrowIfNull(command);");
+                method.AddStatement("// TODO: Populate the command with the entity's current state.");
+                method.AddStatement("return command;");
+            });
+
+            @class.AddMethod(entityTypeName, "ApplyChangesTo", method =>
+            {
+                method.Static();
+                method.Private();
+                method.AddParameter(commandTypeName, "command");
+                method.AddParameter(entityTypeName, "entity");
+
+                method.AddStatement("ArgumentNullException.ThrowIfNull(command);");
+                method.AddStatement("ArgumentNullException.ThrowIfNull(entity);");
+
+                var updateMapping = updateAction.Mappings.GetUpdateEntityMapping();
+                if (updateMapping == null)
+                {
+                    throw new ElementException(updateAction.InternalAssociationEnd, "No Update Entity mapping was found for PATCH update interaction.");
+                }
+
+                var mappingManager = handleMethod.GetMappingManager();
+
+                // Ensure mapping statements target the helper method parameters.
+                mappingManager.SetFromReplacement((IElement)updateAction.OtherEnd().Element, "command");
+                mappingManager.SetToReplacement(foundEntity, "entity");
+                mappingManager.SetToReplacement(updateAction, "entity");
+
+                var updateStatements = mappingManager.GenerateUpdateStatements(updateMapping);
+
+                foreach (var statement in updateStatements)
+                {
+                    if (statement is CSharpAssignmentStatement)
+                    {
+                        statement.WithSemicolon();
+                    }
+                    method.AddStatement(statement);
+                }
+
+                method.AddStatement("return entity;");
+            });
         }
     }
 }
