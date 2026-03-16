@@ -21,6 +21,9 @@
   <targetEnd id="5cca800e-a319-44c0-853d-1e8d24629fc1" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
     <display>[publish] PersonDeletedEvent</display>
     <order>2</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="c0ff55b2-c5e1-4d36-b84e-4fb95cb018e6">
       <typeId>da0b23e2-7bc7-4d69-9929-9295a540fdb0</typeId>
       <isNavigable>true</isNavigable>

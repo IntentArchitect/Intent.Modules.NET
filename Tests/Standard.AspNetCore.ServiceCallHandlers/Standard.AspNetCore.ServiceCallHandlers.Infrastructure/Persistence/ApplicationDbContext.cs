@@ -15,6 +15,8 @@ namespace Standard.AspNetCore.ServiceCallHandlers.Infrastructure.Persistence
         {
         }
 
+        public DbSet<Address> Addresses { get; set; }
+
         public DbSet<Person> People { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -22,6 +24,7 @@ namespace Standard.AspNetCore.ServiceCallHandlers.Infrastructure.Persistence
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
+            modelBuilder.ApplyConfiguration(new AddressConfiguration());
             modelBuilder.ApplyConfiguration(new PersonConfiguration());
         }
 

@@ -44,10 +44,34 @@
     </FileLog>
     <FileLog>
       <ProjectId>2710ad42-68a1-4855-8fa4-19eefe1faa9e</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#9e94734b-d097-448c-b1f1-474caac5b3e9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.ServiceCallHandlers.Api/Controllers/Addresses/AddressServiceCustomController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Addresses/AddressServiceCustomController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2710ad42-68a1-4855-8fa4-19eefe1faa9e</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#631209c7-2ce5-4504-beb2-6a37e1b928d5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.ServiceCallHandlers.Api/Controllers/AddressesController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AddressesController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2710ad42-68a1-4855-8fa4-19eefe1faa9e</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#d065ffc7-1701-4c3d-83fa-dbda3fb52c67</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.ServiceCallHandlers.Api/Controllers/PeopleController.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PeopleController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>15f8fdc7-06be-4387-aeba-322935199dcf</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.JsonResponse#bd18128e-03b6-4c19-8306-1e899618c923</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.ServiceCallHandlers.Api/Controllers/ResponseTypes/JsonResponse.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>JsonResponse.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -112,6 +136,54 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.ServiceCallHandlers.Api/Startup.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Startup.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6e063b21-0902-4e72-8a91-b01a2ec5e662</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#024fbe75-0d35-4f50-a381-db7c1e095271</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.ServiceCallHandlers.Application/Addresses/AddressDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Addresses/AddressDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6e063b21-0902-4e72-8a91-b01a2ec5e662</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#024fbe75-0d35-4f50-a381-db7c1e095271</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.ServiceCallHandlers.Application/Addresses/AddressDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Addresses/AddressDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6e063b21-0902-4e72-8a91-b01a2ec5e662</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#97243dfd-2b4e-4611-9ce5-7b42032db7c1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.ServiceCallHandlers.Application/Addresses/CreateAddressDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Addresses/CreateAddressDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6e063b21-0902-4e72-8a91-b01a2ec5e662</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#97243dfd-2b4e-4611-9ce5-7b42032db7c1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.ServiceCallHandlers.Application/Addresses/CreateAddressDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Addresses/CreateAddressDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6e063b21-0902-4e72-8a91-b01a2ec5e662</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#b2de2976-ef4a-4b57-a840-6cff0c7d06f4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.ServiceCallHandlers.Application/Addresses/UpdateAddressDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Addresses/UpdateAddressDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6e063b21-0902-4e72-8a91-b01a2ec5e662</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#b2de2976-ef4a-4b57-a840-6cff0c7d06f4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.ServiceCallHandlers.Application/Addresses/UpdateAddressDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Addresses/UpdateAddressDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -220,6 +292,78 @@
     </FileLog>
     <FileLog>
       <ProjectId>7f450fec-eff4-41b8-a19e-660645525363</ProjectId>
+      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#9e94734b-d097-448c-b1f1-474caac5b3e9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.ServiceCallHandlers.Application/Implementation/Addresses/AddressServiceCustomService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Addresses/AddressServiceCustomService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7f450fec-eff4-41b8-a19e-660645525363</ProjectId>
+      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#631209c7-2ce5-4504-beb2-6a37e1b928d5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.ServiceCallHandlers.Application/Implementation/AddressesService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AddressesService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7f450fec-eff4-41b8-a19e-660645525363</ProjectId>
+      <CorrelationId>Intent.Application.ServiceCallHandlers.ServiceCallHandlerImplementation#73b3a3a3-2134-46d6-aed2-bc9911c0a511</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.ServiceCallHandlers.Application/Implementation/AddressesServiceHandlers/CreateAddressSCH.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AddressesServiceHandlers/CreateAddressSCH.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7f450fec-eff4-41b8-a19e-660645525363</ProjectId>
+      <CorrelationId>Intent.Application.ServiceCallHandlers.ServiceCallHandlerImplementation#31214801-6ca7-4f27-ad71-8d9852246bf6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.ServiceCallHandlers.Application/Implementation/AddressesServiceHandlers/DeleteAddressSCH.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AddressesServiceHandlers/DeleteAddressSCH.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7f450fec-eff4-41b8-a19e-660645525363</ProjectId>
+      <CorrelationId>Intent.Application.ServiceCallHandlers.ServiceCallHandlerImplementation#08f7d0b6-245f-46a4-a34d-b4184290155c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.ServiceCallHandlers.Application/Implementation/AddressesServiceHandlers/FindAddressByIdSCH.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AddressesServiceHandlers/FindAddressByIdSCH.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7f450fec-eff4-41b8-a19e-660645525363</ProjectId>
+      <CorrelationId>Intent.Application.ServiceCallHandlers.ServiceCallHandlerImplementation#79bece27-19d0-4d64-8ce2-bd61c1418415</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.ServiceCallHandlers.Application/Implementation/AddressesServiceHandlers/FindAddressesSCH.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AddressesServiceHandlers/FindAddressesSCH.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7f450fec-eff4-41b8-a19e-660645525363</ProjectId>
+      <CorrelationId>Intent.Application.ServiceCallHandlers.ServiceCallHandlerImplementation#727c218a-a83f-42f9-a995-a0f458c2f253</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.ServiceCallHandlers.Application/Implementation/AddressesServiceHandlers/UpdateAddressSCH.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AddressesServiceHandlers/UpdateAddressSCH.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7f450fec-eff4-41b8-a19e-660645525363</ProjectId>
+      <CorrelationId>Intent.Application.ServiceCallHandlers.ServiceCallHandlerImplementation#2963e91c-dbdc-40a3-94d5-e415ea17509a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.ServiceCallHandlers.Application/Implementation/AddressServiceCustomHandlers/CreateAddressNoTokenSCH.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AddressServiceCustomHandlers/CreateAddressNoTokenSCH.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7f450fec-eff4-41b8-a19e-660645525363</ProjectId>
+      <CorrelationId>Intent.Application.ServiceCallHandlers.ServiceCallHandlerImplementation#7e6e438e-578d-43da-ad3f-f59add849318</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.ServiceCallHandlers.Application/Implementation/AddressServiceCustomHandlers/UpdateAddressSyncSCH.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AddressServiceCustomHandlers/UpdateAddressSyncSCH.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7f450fec-eff4-41b8-a19e-660645525363</ProjectId>
       <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#d065ffc7-1701-4c3d-83fa-dbda3fb52c67</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.ServiceCallHandlers.Application/Implementation/PeopleService.cs</ApplicationRelativeFilePath>
@@ -288,6 +432,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.ServiceCallHandlers.Application/IntegrationEvents/PersonUpdatedEvent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PersonUpdatedEvent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7b6b0627-2746-49b5-8e34-f2eecb7f989c</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.ServiceContract#9e94734b-d097-448c-b1f1-474caac5b3e9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.ServiceCallHandlers.Application/Interfaces/Addresses/IAddressServiceCustomService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Addresses/IAddressServiceCustomService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7b6b0627-2746-49b5-8e34-f2eecb7f989c</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.ServiceContract#631209c7-2ce5-4504-beb2-6a37e1b928d5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.ServiceCallHandlers.Application/Interfaces/IAddressesService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IAddressesService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -388,10 +548,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>40f6e6e2-652b-41db-bdc6-597682113fe9</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#ef23b9e6-fc55-43e5-8c72-1c88edf99a5b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.ServiceCallHandlers.Domain/Entities/Address.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Address.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>40f6e6e2-652b-41db-bdc6-597682113fe9</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#dae4966e-ded7-4c54-9362-332816989698</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.ServiceCallHandlers.Domain/Entities/Person.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Person.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c9659e95-7644-4e65-896f-cc5dbe485d5c</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#ef23b9e6-fc55-43e5-8c72-1c88edf99a5b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.ServiceCallHandlers.Domain/Repositories/IAddressRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IAddressRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -484,10 +660,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>67c68f78-3b8d-458b-95fd-ede8b3607e34</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#ef23b9e6-fc55-43e5-8c72-1c88edf99a5b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.ServiceCallHandlers.Infrastructure/Persistence/Configurations/AddressConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AddressConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>67c68f78-3b8d-458b-95fd-ede8b3607e34</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#dae4966e-ded7-4c54-9362-332816989698</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.ServiceCallHandlers.Infrastructure/Persistence/Configurations/PersonConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PersonConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4c7a2c09-107c-4870-a652-925cc74b2031</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#ef23b9e6-fc55-43e5-8c72-1c88edf99a5b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.ServiceCallHandlers.Infrastructure/Repositories/AddressRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AddressRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

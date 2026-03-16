@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8836345e-900d-4655-8c53-811598924b08" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Addresses</name>
+  <display>Addresses</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>4a8ab560-a272-4156-aed7-26345ec6acd4</parentFolderId>
+  <packageId>344bc1bc-a4a6-4fb0-ab91-949b7ba4a55e</packageId>
+  <packageName>Standard.AspNetCore.ServiceCallHandlers.Services</packageName>
+  <diagram>
+    <targetPackageId>8836345e-900d-4655-8c53-811598924b08</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

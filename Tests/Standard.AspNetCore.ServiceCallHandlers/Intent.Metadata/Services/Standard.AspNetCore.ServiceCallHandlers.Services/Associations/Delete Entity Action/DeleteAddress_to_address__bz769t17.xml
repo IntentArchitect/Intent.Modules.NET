@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="2964cd9e-6c53-4a15-9110-35e356e7f2c7">
+  <sourceEnd id="c8f79f79-0a01-43de-8e92-34baf613f7c2" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : AddressesService.DeleteAddress</display>
+    <order>0</order>
+    <typeReference id="40b6e0d4-948e-40b1-afc7-661870881de8">
+      <typeId>31214801-6ca7-4f27-ad71-8d9852246bf6</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Standard.AspNetCore.ServiceCallHandlers.Services</typePackageName>
+      <typePackageId>344bc1bc-a4a6-4fb0-ab91-949b7ba4a55e</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="2964cd9e-6c53-4a15-9110-35e356e7f2c7" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>address</name>
+    <display>[delete] address: Address</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="2bc3564d-bcef-4873-8f9f-9cac5543e620">
+      <typeId>ef23b9e6-fc55-43e5-8c72-1c88edf99a5b</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Standard.AspNetCore.ServiceCallHandlers.Domain</typePackageName>
+      <typePackageId>94033a31-4f5e-40cf-897f-b1cf565edce1</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="082fa5cd-1a81-468f-b7ce-46c47709d532" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="31214801-6ca7-4f27-ad71-8d9852246bf6" location="[Standard.AspNetCore.ServiceCallHandlers].[Services].[DeleteAddress]" />
+        <target applicationId="082fa5cd-1a81-468f-b7ce-46c47709d532" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="ef23b9e6-fc55-43e5-8c72-1c88edf99a5b" location="[Standard.AspNetCore.ServiceCallHandlers].[Services].[Address]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{id}</expression>
+            <path>
+              <target id="ef23b9e6-fc55-43e5-8c72-1c88edf99a5b" name="Address" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="b71a39a2-d5d0-4b8c-9419-ddb3ecb82db1" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="31214801-6ca7-4f27-ad71-8d9852246bf6" name="DeleteAddress" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="e8a68bbb-77d1-49ee-93ab-62a2c9eb4bc1" name="id" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="3310fa5e-96bf-4ef5-9c52-c4f5f239c3a2">
+  <sourceEnd id="4f72ff4c-500e-4376-9a19-2baf5577ae18" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: FindAddresses</display>
+    <order>0</order>
+    <typeReference id="7e2f5b54-fd51-43ea-ae72-fae7244fc97a">
+      <typeId>79bece27-19d0-4d64-8ce2-bd61c1418415</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Standard.AspNetCore.ServiceCallHandlers.Services</typePackageName>
+      <typePackageId>344bc1bc-a4a6-4fb0-ab91-949b7ba4a55e</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="3310fa5e-96bf-4ef5-9c52-c4f5f239c3a2" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>addresses</name>
+    <display>[query] addresses: Address[*]</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="16a01355-5c95-4d50-b2e4-dd87fa8d49af">
+      <typeId>ef23b9e6-fc55-43e5-8c72-1c88edf99a5b</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Standard.AspNetCore.ServiceCallHandlers.Domain</typePackageName>
+      <typePackageId>94033a31-4f5e-40cf-897f-b1cf565edce1</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="082fa5cd-1a81-468f-b7ce-46c47709d532" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="79bece27-19d0-4d64-8ce2-bd61c1418415" location="[Standard.AspNetCore.ServiceCallHandlers].[Services].[FindAddresses]" />
+        <target applicationId="082fa5cd-1a81-468f-b7ce-46c47709d532" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="ef23b9e6-fc55-43e5-8c72-1c88edf99a5b" location="[Standard.AspNetCore.ServiceCallHandlers].[Services].[Address]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

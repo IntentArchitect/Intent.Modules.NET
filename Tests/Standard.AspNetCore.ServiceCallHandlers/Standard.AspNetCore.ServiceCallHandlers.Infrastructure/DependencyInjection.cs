@@ -23,6 +23,7 @@ namespace Standard.AspNetCore.ServiceCallHandlers.Infrastructure
                 options.UseLazyLoadingProxies();
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
+            services.AddTransient<IAddressRepository, AddressRepository>();
             services.AddTransient<IPersonRepository, PersonRepository>();
             services.AddMassTransitConfiguration(configuration);
             return services;
