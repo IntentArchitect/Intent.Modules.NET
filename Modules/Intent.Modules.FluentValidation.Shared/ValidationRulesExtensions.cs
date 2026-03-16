@@ -321,9 +321,9 @@ internal static class ValidationRulesExtensions
                 AddValidatorsFromFluentValidationStereotype(field, validationRuleChain, customValidationEnabled, template);
             }
 
-            AddValidatorsFromMappedDomain(validationRuleChain, dtoModel, field, indexFields, sourceElementAdvancedMappings);
+            AddValidatorsFromMappedDomain(validationRuleChain, field, indexFields, sourceElementAdvancedMappings);
 
-            AddValidatorsBasedOnTypeReference(template, dtoTemplateId, dtoValidatorTemplateId, field, validationRuleChain);
+            AddValidatorsBasedOnTypeReference(template, validationRuleChain, dtoTemplateId, dtoValidatorTemplateId, dtoModel, field);
 
             if (!validationRuleChain.Statements.Any())
             {
@@ -494,7 +494,6 @@ internal static class ValidationRulesExtensions
 
     private static void AddValidatorsFromMappedDomain(
         CSharpMethodChainStatement validationRuleChain,
-        DTOModel dtoModel,
         DTOFieldModel field,
         IReadOnlyCollection<ConstraintField> indexFields,
         IEnumerable<IAssociationEnd> associationedElements)
@@ -524,8 +523,13 @@ internal static class ValidationRulesExtensions
         }
     }
 
-    private static void AddValidatorsBasedOnTypeReference<TModel>(CSharpTemplateBase<TModel> template, string dtoTemplateId, string dtoValidatorTemplateId, DTOFieldModel property,
-        CSharpMethodChainStatement validationRuleChain)
+    private static void AddValidatorsBasedOnTypeReference<TModel>(
+        CSharpTemplateBase<TModel> template,
+        CSharpMethodChainStatement validationRuleChain, 
+        string dtoTemplateId, 
+        string dtoValidatorTemplateId, 
+        DTOModel dtoModel, 
+        DTOFieldModel property)
     {
         if (Common.Types.Api.EnumModelExtensions.IsEnumModel(property.TypeReference.Element))
         {
@@ -544,6 +548,15 @@ internal static class ValidationRulesExtensions
                      model: property.TypeReference.Element.AsDTOModel(),
                      typeName: out var dtoTemplateName))
         {
+            // We have a self-referencing DTO
+            if (property.TypeReference.Element.Id == dtoModel.Id)
+            {
+                validationRuleChain.AddChainStatement(property.TypeReference.IsCollection
+                    ? $"ForEach(x => x.SetValidator(this))"
+                    : $"SetValidator(this)");    
+                return;
+            }
+            
             validationRuleChain.AddChainStatement(property.TypeReference.IsCollection
                 ? $"ForEach(x => x.SetValidator(provider.GetValidator<{dtoTemplateName}>()!))"
                 : $"SetValidator(provider.GetValidator<{dtoTemplateName}>()!)");

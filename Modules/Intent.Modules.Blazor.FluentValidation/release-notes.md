@@ -1,3 +1,7 @@
+### Version 1.2.1
+
+- Fixed: Ensure that DTOs that reference themselves won't cause an infinite loop in terms of setting up validators.
+
 ### Version 1.2.0
 
 - Improvement: Updated module dependencies.

@@ -105,7 +105,7 @@ public static class SimpleValidationRulesExtensions
                 AddValidatorsFromFluentValidationStereotype(validationRuleChain, field);
             }
 
-            AddValidatorsBasedOnTypeReference(validationRuleChain, template, field);
+            AddValidatorsBasedOnTypeReference(validationRuleChain, template, dtoModel, field);
 
             foreach (var configureValidation in configureFieldValidations)
             {
@@ -206,6 +206,7 @@ public static class SimpleValidationRulesExtensions
     private static void AddValidatorsBasedOnTypeReference(
         CSharpMethodChainStatement validationRuleChain,
         IFluentValidationTemplate template,
+        IElement dtoModel,
         IElement property)
     {
         if (property.TypeReference.Element.IsEnumModel())
@@ -225,6 +226,15 @@ public static class SimpleValidationRulesExtensions
                      model: property.TypeReference.Element.AsDTOModel(),
                      typeName: out var dtoTemplateName))
         {
+            // We have a self-referencing DTO
+            if (property.TypeReference.Element.Id == dtoModel.Id)
+            {
+                validationRuleChain.AddChainStatement(property.TypeReference.IsCollection
+                    ? $"ForEach(x => x.SetValidator(this))"
+                    : $"SetValidator(this)");    
+                return;
+            }
+            
             EnsureValidatorProviderInjected(template);
 
             validationRuleChain.AddChainStatement(property.TypeReference.IsCollection

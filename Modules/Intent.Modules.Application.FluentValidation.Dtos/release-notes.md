@@ -1,3 +1,7 @@
+### Version 3.12.6
+
+- Fixed: Ensure that DTOs that reference themselves won't cause an infinite loop in terms of setting up validators.
+
 ### Version 3.12.5
 
 - Improvement: Updated NuGet package versions.
