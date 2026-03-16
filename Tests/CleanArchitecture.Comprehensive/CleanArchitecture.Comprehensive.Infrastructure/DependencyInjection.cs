@@ -66,11 +66,6 @@ namespace CleanArchitecture.Comprehensive.Infrastructure
             services.AddDistributedMemoryCache();
             services.AddSingleton<IDistributedCacheWithUnitOfWork, DistributedCacheWithUnitOfWork>();
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
-            services.AddTransient<IFinalRepository, FinalRepository>();
-            services.AddTransient<IFourRepository, FourRepository>();
-            services.AddTransient<IOneRepository, OneRepository>();
-            services.AddTransient<ISecondRepository, SecondRepository>();
-            services.AddTransient<IThreeRepository, ThreeRepository>();
             services.AddTransient<ITypeNameRepository, TypeNameRepository>();
             services.AddTransient<IAsyncOperationsClassRepository, AsyncOperationsClassRepository>();
             services.AddTransient<ISubmissionRepository, SubmissionRepository>();

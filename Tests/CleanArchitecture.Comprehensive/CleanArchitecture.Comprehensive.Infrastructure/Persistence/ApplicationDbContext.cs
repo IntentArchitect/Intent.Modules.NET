@@ -59,12 +59,6 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.Persistence
             _domainEventService = domainEventService;
         }
 
-        public DbSet<Final> Finals { get; set; }
-        public DbSet<Four> Fours { get; set; }
-        public DbSet<One> Ones { get; set; }
-        public DbSet<Second> Seconds { get; set; }
-        public DbSet<Three> Threes { get; set; }
-
         public DbSet<Person> People { get; set; }
 
         public DbSet<Camera> Cameras { get; set; }
@@ -128,11 +122,6 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.Persistence
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
-            modelBuilder.ApplyConfiguration(new FinalConfiguration());
-            modelBuilder.ApplyConfiguration(new FourConfiguration());
-            modelBuilder.ApplyConfiguration(new OneConfiguration());
-            modelBuilder.ApplyConfiguration(new SecondConfiguration());
-            modelBuilder.ApplyConfiguration(new ThreeConfiguration());
             modelBuilder.ApplyConfiguration(new TypeNameConfiguration());
             modelBuilder.ApplyConfiguration(new AsyncOperationsClassConfiguration());
             modelBuilder.ApplyConfiguration(new SubmissionConfiguration());
