@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="e8902ae4-8501-43f4-a5d0-b17189464eaf">
+  <sourceEnd id="1b899da1-a568-404a-a17c-513e9cd6f005" type="Navigation Source End" typeId="97a3de8a-c9bf-4cf2-bc0a-b8692b02211b">
+    <display>: ExamplePage</display>
+    <order>0</order>
+    <typeReference id="bdf1fdee-d91e-441b-aa0f-c0ef9224299a">
+      <typeId>8a40e041-1122-4e4b-92ea-2eb7552462e1</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>FluentValidationTest.Blazor.UI</typePackageName>
+      <typePackageId>50b0a76b-e381-4607-b612-0f38dd4ba6b3</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="e8902ae4-8501-43f4-a5d0-b17189464eaf" type="Navigation Target End" typeId="2b191288-ecae-4743-b069-cbdd927ef349">
+    <name>NavigateToHome</name>
+    <display>[navigate] Home</display>
+    <order>3</order>
+    <traits>
+      <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+    </traits>
+    <typeReference id="101607c9-4aeb-4c16-beca-4d88d332d6f0">
+      <typeId>19704e03-6920-417c-8fa9-b19dfb183dc2</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>FluentValidationTest.Blazor.UI</typePackageName>
+      <typePackageId>50b0a76b-e381-4607-b612-0f38dd4ba6b3</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <externalReference>e9626fc0-0be4-4af9-91f8-2aaa5919edbf</externalReference>
+    <childElements />
+  </targetEnd>
+  <associationType>Navigation</associationType>
+  <associationTypeId>6d2b2070-c1cb-4cd2-88b4-4e5f8414bd9e</associationTypeId>
+  <externalReference>e9626fc0-0be4-4af9-91f8-2aaa5919edbf</externalReference>
+  <stereotypes />
+</association>

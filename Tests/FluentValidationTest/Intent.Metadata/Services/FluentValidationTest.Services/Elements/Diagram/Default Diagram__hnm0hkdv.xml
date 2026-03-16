@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="398ea8e2-106b-4870-ac21-a7fc4a5805b2" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>169f3801-8244-4b9e-ac2f-3eaede785048</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>e1abeceb-9b9b-4095-85d4-f3eb571670f6</parentFolderId>
+  <packageId>e1abeceb-9b9b-4095-85d4-f3eb571670f6</packageId>
+  <packageName>FluentValidationTest.Services</packageName>
+  <diagram>
+    <targetPackageId>e1abeceb-9b9b-4095-85d4-f3eb571670f6</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

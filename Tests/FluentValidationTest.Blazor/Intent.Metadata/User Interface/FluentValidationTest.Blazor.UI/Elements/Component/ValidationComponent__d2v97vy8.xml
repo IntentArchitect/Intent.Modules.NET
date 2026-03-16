@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="938df5ae-5976-4e87-bc7f-6b94e268b08a" type="Component" typeId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b">
+  <name>ValidationComponent</name>
+  <display>ValidationComponent</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>80a5a1ab-ebd2-4623-b888-5859be25dd78</parentFolderId>
+  <packageId>50b0a76b-e381-4607-b612-0f38dd4ba6b3</packageId>
+  <packageName>FluentValidationTest.Blazor.UI</packageName>
+  <traits>
+    <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+    <trait id="ea4adc09-8978-4ede-ba5f-265debb2b60c" name="Page" />
+  </traits>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="ea4adc09-8978-4ede-ba5f-265debb2b60c" name="Page">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Modelers.UI</definitionPackageName>
+      <definitionPackageId>5c4628ec-679e-4f3d-afda-137c978deae0</definitionPackageId>
+      <properties>
+        <property name="9dff9df1-a993-4bf6-9aa7-c16811142228" display="Route" value="/validation-component" isActive="true" />
+        <property name="0a8627ba-ec45-4023-9c36-b0999f43e982" display="Title" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <mappings>
+    <mapping type="View Binding" typeId="c33f86ad-423a-4a6f-a80c-a3206eafe5cd">
+      <source applicationId="808c2adc-22e6-445e-82d2-5394f2bb3067" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="938df5ae-5976-4e87-bc7f-6b94e268b08a" location="[FluentValidationTest.Blazor].[User Interface].[ValidationComponent]" />
+      <target applicationId="808c2adc-22e6-445e-82d2-5394f2bb3067" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="0282ecb0-0c75-4ee1-b661-012ae70075c5" location="[FluentValidationTest.Blazor].[User Interface].[[view]]" />
+      <mappedEnds />
+    </mapping>
+  </mappings>
+  <metadata />
+  <childElements>
+    <childElement id="8e61d53d-54a4-4d2a-885a-a96b6830dc59" type="Component Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>OnInitializedAsync</name>
+      <display>OnInitializedAsync(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="5ff82316-d3ae-4251-86e2-cd22fd18c788">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>938df5ae-5976-4e87-bc7f-6b94e268b08a</parentFolderId>
+      <packageId>50b0a76b-e381-4607-b612-0f38dd4ba6b3</packageId>
+      <packageName>FluentValidationTest.Blazor.UI</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="35602b14-c5ce-400b-9e70-748a8685672a" type="Component Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>UploadSelfRefDtoCommand</name>
+      <display>UploadSelfRefDtoCommand(entry: string, entries: SelfRefDto[*]): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="d5d322ab-59c8-40aa-93a1-efe05ef44144">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>938df5ae-5976-4e87-bc7f-6b94e268b08a</parentFolderId>
+      <packageId>50b0a76b-e381-4607-b612-0f38dd4ba6b3</packageId>
+      <packageName>FluentValidationTest.Blazor.UI</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="4a993692-e139-46fb-883a-efc703edd316" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>entry</name>
+          <display>in : entry: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="5f6fb86d-4587-4e28-bff2-cc5618fb27a8">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>35602b14-c5ce-400b-9e70-748a8685672a</parentFolderId>
+          <packageId>50b0a76b-e381-4607-b612-0f38dd4ba6b3</packageId>
+          <packageName>FluentValidationTest.Blazor.UI</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="d61c78a4-115e-489c-adf9-d6d68183d85e" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>entries</name>
+          <display>in : entries: SelfRefDto[*]</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="777acbd9-3842-4e94-b558-e4c9d624c779">
+            <typeId>26db35ca-0ae6-4c28-8469-3e6b772d1080</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>true</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>FluentValidationTest.Services</typePackageName>
+            <typePackageId>e1abeceb-9b9b-4095-85d4-f3eb571670f6</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>35602b14-c5ce-400b-9e70-748a8685672a</parentFolderId>
+          <packageId>50b0a76b-e381-4607-b612-0f38dd4ba6b3</packageId>
+          <packageName>FluentValidationTest.Blazor.UI</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="c41c089a-9c0e-4195-8722-a0c25f7b4f0f" type="Component Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>SelfRefDtoServiceUpload</name>
+      <display>SelfRefDtoServiceUpload(param: UploadWrapperDto): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="558317c9-f96a-4ba4-aa6c-6aebe19e8c29">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>938df5ae-5976-4e87-bc7f-6b94e268b08a</parentFolderId>
+      <packageId>50b0a76b-e381-4607-b612-0f38dd4ba6b3</packageId>
+      <packageName>FluentValidationTest.Blazor.UI</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="1c729b78-8469-4101-bb50-5d1b111dae96" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>param</name>
+          <display>in : param: UploadWrapperDto</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="ed656cf2-63f0-4960-8249-24cfead30bd0">
+            <typeId>d2e6678e-1be3-413e-9288-b450fcbb890f</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>FluentValidationTest.Services</typePackageName>
+            <typePackageId>e1abeceb-9b9b-4095-85d4-f3eb571670f6</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>c41c089a-9c0e-4195-8722-a0c25f7b4f0f</parentFolderId>
+          <packageId>50b0a76b-e381-4607-b612-0f38dd4ba6b3</packageId>
+          <packageName>FluentValidationTest.Blazor.UI</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

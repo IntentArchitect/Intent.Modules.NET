@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="7ebbc90b-de7b-49fb-9072-c29daf616912" type="Component View" typeId="624513a6-cba8-4dde-8ebe-6b19f00f0364">
+  <name>[view]</name>
+  <display>[view]</display>
+  <externalReference>df564f66-db25-4356-8f5f-f481b3de9fe5</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>manually</sort-children>
+  <order>0</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>19704e03-6920-417c-8fa9-b19dfb183dc2</parentFolderId>
+  <packageId>50b0a76b-e381-4607-b612-0f38dd4ba6b3</packageId>
+  <packageName>FluentValidationTest.Blazor.UI</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="d982582e-5303-49dd-bec7-27107c555f1c" type="Text" typeId="922150d2-42e6-4805-a002-f9580cdf7f6f">
+      <name>Head</name>
+      <display>Head = ###Hello, world!</display>
+      <externalReference>7f8968fe-e7ee-4719-bc8c-6d357b2fa7ed</externalReference>
+      <isAbstract>false</isAbstract>
+      <value>###Hello, world!</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>7ebbc90b-de7b-49fb-9072-c29daf616912</parentFolderId>
+      <packageId>50b0a76b-e381-4607-b612-0f38dd4ba6b3</packageId>
+      <packageName>FluentValidationTest.Blazor.UI</packageName>
+      <traits>
+        <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+      </traits>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="45230c11-7995-4cbb-a57f-0dcbfe3c2278" type="Text" typeId="922150d2-42e6-4805-a002-f9580cdf7f6f">
+      <name>Text</name>
+      <display>Text = Welcome to your new app, code-automated by Intent Architect,</display>
+      <externalReference>be4cad91-1a36-47b1-9168-e55611e51558</externalReference>
+      <isAbstract>false</isAbstract>
+      <value>Welcome to your new app, code-automated by Intent Architect,</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>7ebbc90b-de7b-49fb-9072-c29daf616912</parentFolderId>
+      <packageId>50b0a76b-e381-4607-b612-0f38dd4ba6b3</packageId>
+      <packageName>FluentValidationTest.Blazor.UI</packageName>
+      <traits>
+        <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+      </traits>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="34632702-bb66-459a-8f07-dbacaafd0ed2" type="Text" typeId="922150d2-42e6-4805-a002-f9580cdf7f6f">
+      <name>Text2</name>
+      <display>Text2 = and powered by MudBlazor and .NET 8!</display>
+      <externalReference>991229f0-d10f-47b1-8499-fc679a245c1d</externalReference>
+      <isAbstract>false</isAbstract>
+      <value>and powered by MudBlazor and .NET 8!</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>7ebbc90b-de7b-49fb-9072-c29daf616912</parentFolderId>
+      <packageId>50b0a76b-e381-4607-b612-0f38dd4ba6b3</packageId>
+      <packageName>FluentValidationTest.Blazor.UI</packageName>
+      <traits>
+        <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+      </traits>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="0282ecb0-0c75-4ee1-b661-012ae70075c5" type="Component View" typeId="624513a6-cba8-4dde-8ebe-6b19f00f0364">
+  <name>[view]</name>
+  <display>[view]</display>
+  <isAbstract>false</isAbstract>
+  <order>0</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>938df5ae-5976-4e87-bc7f-6b94e268b08a</parentFolderId>
+  <packageId>50b0a76b-e381-4607-b612-0f38dd4ba6b3</packageId>
+  <packageName>FluentValidationTest.Blazor.UI</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

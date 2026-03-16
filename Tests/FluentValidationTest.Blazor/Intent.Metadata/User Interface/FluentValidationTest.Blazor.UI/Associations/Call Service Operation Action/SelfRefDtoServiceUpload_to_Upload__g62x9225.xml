@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="959069cd-f55f-4ee4-b1e7-2c46d0955ed4">
+  <sourceEnd id="913d40f7-cdd1-4ec1-b42d-e420d665cce1" type="Call Service Operation Action Source End" typeId="936e090c-8408-429d-b2f6-2eb8deecc428">
+    <display>: SelfRefDtoServiceUpload</display>
+    <order>0</order>
+    <typeReference id="b0bc910f-ee31-4cb4-9e73-b2afa01dbd82">
+      <typeId>c41c089a-9c0e-4195-8722-a0c25f7b4f0f</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>FluentValidationTest.Blazor.UI</typePackageName>
+      <typePackageId>50b0a76b-e381-4607-b612-0f38dd4ba6b3</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="959069cd-f55f-4ee4-b1e7-2c46d0955ed4" type="Call Service Operation Action Target End" typeId="475f0810-2b4a-40da-8eb8-697cb62f7dbe">
+    <name>Upload</name>
+    <display>[call] SelfRefDtoService.Upload(param: UploadWrapperDto): void</display>
+    <order>1</order>
+    <traits>
+      <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+    </traits>
+    <typeReference id="16b09f57-4fd9-4000-a6ca-e68d93630e19">
+      <typeId>f2a6067f-612a-4982-9b0f-54c4650b234f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>FluentValidationTest.Services</typePackageName>
+      <typePackageId>e1abeceb-9b9b-4095-85d4-f3eb571670f6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Call Service Mapping" typeId="e4a4111b-cf13-4efe-8a5d-fea9457ac8ad">
+        <source applicationId="808c2adc-22e6-445e-82d2-5394f2bb3067" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="938df5ae-5976-4e87-bc7f-6b94e268b08a" location="[FluentValidationTest.Blazor].[User Interface].[ValidationComponent]" />
+        <target applicationId="05b9e9af-b4b0-4123-bf41-20f81b07930b" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="f2a6067f-612a-4982-9b0f-54c4650b234f" location="[FluentValidationTest.Blazor].[User Interface].[Upload]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{SelfRefDtoServiceUpload.Upload}</expression>
+            <path>
+              <target id="f2a6067f-612a-4982-9b0f-54c4650b234f" name="Upload" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+            </path>
+            <sources>
+              <source identifier="SelfRefDtoServiceUpload.Upload" mappingType="Invocation Mapping" mappingTypeId="ab447316-1252-49bc-a695-f34cb00a3cdc">
+                <path>
+                  <target id="938df5ae-5976-4e87-bc7f-6b94e268b08a" name="ValidationComponent" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="c41c089a-9c0e-4195-8722-a0c25f7b4f0f" name="SelfRefDtoServiceUpload" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="959069cd-f55f-4ee4-b1e7-2c46d0955ed4" name="Upload" type="association" specialization="Call Service Operation Action Target End" specializationId="475f0810-2b4a-40da-8eb8-697cb62f7dbe" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{SelfRefDtoServiceUpload.param}</expression>
+            <path>
+              <target id="f2a6067f-612a-4982-9b0f-54c4650b234f" name="Upload" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+              <target id="c3e0cc6f-31ec-4c2a-aafd-802a165cc1d7" name="param" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+            </path>
+            <sources>
+              <source identifier="SelfRefDtoServiceUpload.param" mappingType="Data Mapping" mappingTypeId="ce70308a-e29d-4644-8410-f9e6bbd214fc">
+                <path>
+                  <target id="938df5ae-5976-4e87-bc7f-6b94e268b08a" name="ValidationComponent" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="c41c089a-9c0e-4195-8722-a0c25f7b4f0f" name="SelfRefDtoServiceUpload" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="1c729b78-8469-4101-bb50-5d1b111dae96" name="param" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Call Service Operation Action</associationType>
+  <associationTypeId>fe5a5cd8-aabd-472f-8d42-f5c233e658dc</associationTypeId>
+  <stereotypes />
+</association>

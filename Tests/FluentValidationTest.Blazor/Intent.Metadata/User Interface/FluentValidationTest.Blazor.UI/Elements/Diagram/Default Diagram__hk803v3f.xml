@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="04a617e1-103f-4405-abdc-d991c8476fde" type="Diagram" typeId="4912c89a-77eb-497e-a3f4-7408b6a20886">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>aba7806c-72bd-4b20-8aa1-15af62253841</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>80a5a1ab-ebd2-4623-b888-5859be25dd78</parentFolderId>
+  <packageId>50b0a76b-e381-4607-b612-0f38dd4ba6b3</packageId>
+  <packageName>FluentValidationTest.Blazor.UI</packageName>
+  <diagram>
+    <targetPackageId>80a5a1ab-ebd2-4623-b888-5859be25dd78</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
