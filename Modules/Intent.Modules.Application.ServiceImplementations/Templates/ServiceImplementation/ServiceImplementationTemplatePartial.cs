@@ -85,9 +85,12 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
 
                             if (operation.IsAsync())
                             {
-                                method
-                                    .Async()
-                                    .AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken", p => p.WithDefaultValue("default"));
+                                method.Async();
+                            }
+
+                            if (operation.IsAsync() && !operation.NoCancellationToken())
+                            {
+                                method.AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken", p => p.WithDefaultValue("default"));
                             }
 
                             method.AddStatement("// IntentInitialGen");

@@ -65,9 +65,13 @@ namespace Intent.Modules.Application.ServiceCallHandlers.Templates.ServiceCallHa
 
                         if (model.IsAsync())
                         {
+                            method.Async();
+                        }
+
+                        if (model.IsAsync() && !model.NoCancellationToken())
+                        {
                             AddUsing("System.Threading");
                             AddUsing("System.Threading.Tasks");
-                            method.Async();
                             method.AddOptionalCancellationTokenParameter(this);
                         }
 

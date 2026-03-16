@@ -8,6 +8,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Common.UnitOfWork.Shared;
 using Intent.Modules.Constants;
 using Intent.Modules.FastEndpoints.Templates.Endpoint;
@@ -85,7 +86,10 @@ namespace Intent.Modules.FastEndpoints.Dispatch.Services.FactoryExtensions
                 }
 
                 CSharpStatement invocation = serviceInvocation;
-                if (!endpointTemplate.Model.InternalElement.HasStereotype("Synchronous"))
+                if (!endpointTemplate.Model.InternalElement.HasStereotype("Synchronous") &&
+                    !(endpointTemplate.Model.InternalElement.HasStereotype("Asynchronous") &&
+                    endpointTemplate.Model.InternalElement.GetStereotype("Asynchronous").TryGetProperty("2801e2a9-5797-406f-b289-43af8fbb2d7e", out var property) &&
+                    property.Value == "true"))
                 {
                     serviceInvocation.AddArgument("ct");
                     invocation = new CSharpAwaitExpression(invocation);
@@ -181,7 +185,7 @@ namespace Intent.Modules.FastEndpoints.Dispatch.Services.FactoryExtensions
                 var ctor = @class.Constructors.First();
 
                 var busVariableName = GetBusVariableName(endpointTemplate);
-                
+
                 ctor.AddParameter(GetMessageBusInterfaceName(endpointTemplate), busVariableName,
                     p => p.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException()));
 
@@ -190,7 +194,7 @@ namespace Intent.Modules.FastEndpoints.Dispatch.Services.FactoryExtensions
                     ?.InsertAbove($"await _{busVariableName}.FlushAllAsync(ct);", stmt => stmt.AddMetadata("eventbus-flush", true));
             }, order: -100);
         }
-        
+
         private static string GetBusVariableName(IIntentTemplate template)
         {
             // Legacy support first since both interfaces have the MessageBusInterface role assigned
@@ -198,7 +202,7 @@ namespace Intent.Modules.FastEndpoints.Dispatch.Services.FactoryExtensions
             {
                 return "eventBus";
             }
-            
+
             if (template.TryGetTypeName(TemplateRoles.Application.Eventing.MessageBusInterface, out _))
             {
                 return "messageBus";
@@ -207,7 +211,7 @@ namespace Intent.Modules.FastEndpoints.Dispatch.Services.FactoryExtensions
             throw new InvalidOperationException(
                 $"Could not find Message Bus interface with template role '{TemplateRoles.Application.Eventing.MessageBusInterface}' (or older legacy template with role '{TemplateRoles.Application.Eventing.EventBusInterface}').");
         }
-        
+
         private static string GetMessageBusInterfaceName(IIntentTemplate template)
         {
             // Legacy support first since both interfaces have the MessageBusInterface role assigned
@@ -215,7 +219,7 @@ namespace Intent.Modules.FastEndpoints.Dispatch.Services.FactoryExtensions
             {
                 return typeName;
             }
-            
+
             if (template.TryGetTypeName(TemplateRoles.Application.Eventing.MessageBusInterface, out typeName))
             {
                 return typeName;

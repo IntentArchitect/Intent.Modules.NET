@@ -1,3 +1,7 @@
+### Version 4.6.1
+
+- Improvement: Prevent `CancellationToken` automatically applied with `Asyncronous` stereotype applied with `No Cancellation Token` set to true.
+
 ### Version 4.6.0
 
 - Improvement: Updated dependency modules.

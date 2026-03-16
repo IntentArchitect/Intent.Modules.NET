@@ -116,6 +116,15 @@ namespace Intent.Modules.Aws.Lambda.Functions.Dispatch.Services.FactoryExtension
                     if (!operationModel.InternalElement.HasStereotype("Synchronous"))
                     {
                         awaitModifier = "await ";
+                    }
+
+                    // if NOT async or IS async but the "no cancellation token" property is not true
+                    if (!operationModel.InternalElement.HasStereotype("Synchronous") &&
+                        !(operationModel.InternalElement.HasStereotype("Asynchronous") &&
+                         operationModel.InternalElement.GetStereotype("Asynchronous").TryGetProperty("2801e2a9-5797-406f-b289-43af8fbb2d7e", out var property) &&
+                         property.Value == "true"))
+                    {
+                        
                         arguments = string.IsNullOrEmpty(arguments)
                             ? "cancellationToken"
                             : $"{arguments}, cancellationToken";

@@ -11,6 +11,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Common.UnitOfWork.Shared;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
@@ -126,9 +127,18 @@ namespace Intent.Modules.AspNetCore.Grpc.Templates.TraditionalService
                             method.AddParameter(UseType("Grpc.Core.ServerCallContext"), "context");
 
                             var await = string.Empty;
+
                             if (!operation.HasStereotype("Synchronous"))
                             {
                                 await = "await ";
+                            }
+
+                            // if NOT async or IS async but the "no cancellation token" property is not true
+                            if (!operation.HasStereotype("Synchronous") &&
+                                !(operation.HasStereotype("Asynchronous") &&
+                                operation.GetStereotype("Asynchronous").TryGetProperty("2801e2a9-5797-406f-b289-43af8fbb2d7e", out var property) &&
+                                property.Value == "true"))
+                            {
                                 callArguments.Add("context.CancellationToken");
                             }
 
@@ -229,7 +239,7 @@ namespace Intent.Modules.AspNetCore.Grpc.Templates.TraditionalService
                 variableName = "eventBus";
                 return true;
             }
-            
+
             if (this.TryGetTypeName(TemplateRoles.Application.Eventing.MessageBusInterface, out _))
             {
                 variableName = "messageBus";
@@ -247,7 +257,7 @@ namespace Intent.Modules.AspNetCore.Grpc.Templates.TraditionalService
             {
                 return true;
             }
-            
+
             if (this.TryGetTypeName(TemplateRoles.Application.Eventing.MessageBusInterface, out typeName))
             {
                 return true;

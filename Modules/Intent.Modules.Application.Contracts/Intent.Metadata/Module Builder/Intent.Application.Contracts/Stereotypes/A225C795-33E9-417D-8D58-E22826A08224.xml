@@ -20,5 +20,14 @@
   <order>0</order>
   <packageId>b258d75f-f895-43b9-bb91-6500664716f9</packageId>
   <packageName>Intent.Application.Contracts</packageName>
-  <properties />
+  <properties>
+    <property id="2801e2a9-5797-406f-b289-43af8fbb2d7e">
+      <hint>Prevents the automatic inclusion of a cancellation token parameter.</hint>
+      <name>No Cancellation Token</name>
+      <type>string</type>
+      <controlType>checkbox</controlType>
+      <optionsSource>n/a</optionsSource>
+      <defaultValue>false</defaultValue>
+    </property>
+  </properties>
 </stereotypeDefinition>

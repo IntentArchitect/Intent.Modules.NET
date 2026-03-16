@@ -1,3 +1,7 @@
+### Version 5.2.20
+
+- Improvement: Prevent `CancellationToken` automatically applied with `Asyncronous` stereotype applied with `No Cancellation Token` set to true.
+
 ### Version 5.2.19
 
 - Improvement: Updated to use `IMessageBus` instead of `IEventBus` (variable name changed from `eventBus` to `messageBus`). Maintains backward compatibility by supporting both `IEventBus` and `IMessageBus` interfaces.

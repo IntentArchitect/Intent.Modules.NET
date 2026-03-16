@@ -64,7 +64,12 @@ namespace Intent.Modules.FastEndpoints.Dispatch.MediatR.FactoryExtensions
                 }
 
                 CSharpStatement invocation = serviceInvocation;
-                if (!endpointTemplate.Model.InternalElement.HasStereotype("Synchronous"))
+
+                // if NOT async or IS async but the "no cancellation token" property is not true
+                if (!endpointTemplate.Model.InternalElement.HasStereotype("Synchronous") &&
+                    !(endpointTemplate.Model.InternalElement.HasStereotype("Asynchronous") &&
+                     endpointTemplate.Model.InternalElement.GetStereotype("Asynchronous").TryGetProperty("2801e2a9-5797-406f-b289-43af8fbb2d7e", out var prop) &&
+                     prop.Value == "true"))
                 {
                     serviceInvocation.AddArgument("ct");
                     invocation = new CSharpAwaitExpression(invocation);

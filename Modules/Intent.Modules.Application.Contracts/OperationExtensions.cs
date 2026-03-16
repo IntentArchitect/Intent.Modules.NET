@@ -10,5 +10,10 @@ namespace Intent.Modules.Application.Contracts
         {
             return !operation.HasSynchronous();
         }
+
+        public static bool NoCancellationToken(this OperationModel operation)
+        {
+            return operation.HasAsynchronous() && operation.GetAsynchronous().NoCancellationToken();
+        }
     }
 }

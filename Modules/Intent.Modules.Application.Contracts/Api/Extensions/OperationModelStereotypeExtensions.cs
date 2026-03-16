@@ -72,6 +72,11 @@ namespace Intent.Modules.Application.Contracts.Api
 
             public string Name => _stereotype.Name;
 
+            public bool NoCancellationToken()
+            {
+                return _stereotype.GetProperty<bool>("No Cancellation Token");
+            }
+
         }
 
         public class Synchronous

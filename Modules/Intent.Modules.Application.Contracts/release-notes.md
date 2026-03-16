@@ -1,3 +1,7 @@
+### Version 5.1.4
+
+- Improvement: Added `No Cancellation Token` option to the `Asyncronous` stereotype.
+
 ### Version 5.1.3
 
 - Improvement: Interaction Strategies enhanced to have better detection regarding actions with mappings to prevent ugly errors being raised during Software Factory runs.

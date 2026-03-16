@@ -68,6 +68,10 @@ public partial class ServiceContractTemplate : CSharpTemplateBase<ServiceModel, 
                         if (operation.IsAsync())
                         {
                             method.Async();
+                        }
+
+                        if (operation.IsAsync() && !operation.NoCancellationToken())
+                        {
                             method.AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken", p => p.WithDefaultValue("default"));
                         }
                     });

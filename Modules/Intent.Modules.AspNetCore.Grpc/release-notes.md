@@ -1,3 +1,7 @@
+### Version 1.0.5
+
+- Improvement: Prevent `CancellationToken` automatically applied with `Asyncronous` stereotype applied with `No Cancellation Token` set to true.
+
 ### Version 1.0.4
 
 - Fixed: Compatibility issue with version `4.0.0` or greater of the `Intent.VisualStudio.Projects` module.
