@@ -1,3 +1,7 @@
+### Version 5.3.7
+
+- Fixed: Missing AutoMapper version update added for commercial version.
+
 ### Version 5.3.6
 
 - Fixed: Updated AutoMapper commercial version to 16.1.1 due to this [security vulnerability](https://github.com/advisories/GHSA-rvv3-g6hj-g44x).
