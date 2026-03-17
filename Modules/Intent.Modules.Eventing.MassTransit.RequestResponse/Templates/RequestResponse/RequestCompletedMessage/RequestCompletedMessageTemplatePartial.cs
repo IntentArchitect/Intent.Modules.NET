@@ -10,6 +10,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Contracts.Clients.Shared;
 using Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.ClientContracts;
 using Intent.RoslynWeaver.Attributes;
@@ -49,25 +50,41 @@ namespace Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.RequestR
             return relevantCommands.Any();
         }
 
-        private IEnumerable<HybridDtoModel> GetRelevantElements()
+        private IEnumerable<ElementWrapper> GetRelevantElements()
         {
             var services = ExecutionContext.MetadataManager.Services(ExecutionContext.GetApplicationConfig().Id);
             var relevantCommands = services.GetElementsOfType("Command")
                 .Where(p => p.HasStereotype(Constants.MessageTriggered));
+
+            foreach (var command in relevantCommands)
+            {
+                yield return new ElementWrapper(command);
+            }
+            
             var relevantQueries = services.GetElementsOfType("Query")
                 .Where(p => p.HasStereotype(Constants.MessageTriggered));
 
-            var serviceProxies = this.ExecutionContext.MetadataManager
-                .ServiceProxies(this.ExecutionContext.GetApplicationConfig().Id)
-                .GetServiceProxyModels();
-            var relevantProxyElements = serviceProxies
-                .Select(proxyModel => new MassTransitServiceContractModel(proxyModel))
-                .SelectMany(s => s.Operations)
-                .Select(s => s.TypeReference?.Element)
-                .Where(p => p is not null)
-                .Cast<IElement>();
+            foreach (var query in relevantQueries)
+            {
+                yield return new ElementWrapper(query);
+            }
+            
+            var serviceProxies = ExecutionContext.MetadataManager.ServiceProxies(ExecutionContext.GetApplicationConfig().Id).GetServiceProxyModels();
+            foreach (var proxyModel in serviceProxies)
+            {
+                if (proxyModel.InternalElement.MappedElement?.Element is not null)
+                {
+                    yield return new ElementWrapper((IElement)proxyModel.InternalElement.MappedElement.Element);
+                }
+            }
+        }
 
-            return relevantCommands.Concat(relevantQueries).Concat(relevantProxyElements).Select(element => new HybridDtoModel(element));
+        private record ElementWrapper(IElement InternalElement)
+            : IHasFolder, IElementWrapper
+        {
+            public FolderModel Folder => InternalElement.ParentElement?.SpecializationTypeId == FolderModel.SpecializationTypeId 
+                ? new FolderModel(InternalElement.ParentElement) 
+                : null!;
         }
 
         [IntentManaged(Mode.Fully)]
