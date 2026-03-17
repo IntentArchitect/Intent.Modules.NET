@@ -8,8 +8,11 @@
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
       <updatedAt>2026-03-16T18:34:08.433522Z</updatedAt>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-03-17T08:41:36.9380957Z</approvedAt>
       <deviationsHash>7AE0949213719C3DDBB02A75A7619C691880BAFA99C0CE494AFC1091D8FB5CA8</deviationsHash>
-      <fileHash>D7F6210CACA47347DBCC6458213C16D8A594B24314D5EAF9BB0E7AE3E197EEB0</fileHash>
+      <fileHash>AF3143797FD4A3B50CB2C4999EB3CF9249B19C925BE05A2A51B8115619CFCBF9</fileHash>
     </file>
     <file>
       <correlationId>Intent.Eventing.MassTransit.MassTransitConfiguration#0d104f34-f4bd-4c02-acbc-aab02d46a002</correlationId>
@@ -18,8 +21,11 @@
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
       <updatedAt>2026-03-17T06:58:31.6203157Z</updatedAt>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2026-03-17T08:41:38.0348615Z</approvedAt>
       <deviationsHash>119595912D7981F382F5BF7C263B1A2E3B9CD50FA7D6E48BEDB24D427DC81390</deviationsHash>
-      <fileHash>4362B4D4F4D91E25588D6A37C2C496C7305003EC42BAC9F064A3ECE0CB3BC8A7</fileHash>
+      <fileHash>B7B9CE9C3A6A29BD202E6B0EB4BF63687A485E13F6DBEA3A0CCBE91EC154ABC7</fileHash>
     </file>
   </files>
 </deviationsLog>
