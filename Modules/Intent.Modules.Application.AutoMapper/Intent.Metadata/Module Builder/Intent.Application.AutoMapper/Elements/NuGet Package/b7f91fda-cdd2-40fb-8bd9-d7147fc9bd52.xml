@@ -25,8 +25,8 @@
   <metadata />
   <childElements>
     <childElement id="eee4d67b-30a2-4fe2-896e-476a4b83fcbf" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>16.0.0</name>
-      <display>16.0.0 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
+      <name>16.1.1</name>
+      <display>16.1.1 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -47,7 +47,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="db078bfc-45cc-4cd9-98bc-26e816862c8c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="fef2dbdd-eb4f-4315-9241-01fec346d687" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
           <display>Microsoft.Extensions.Logging.Abstractions (10.0.0)</display>
           <isAbstract>false</isAbstract>
@@ -61,7 +61,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="2c97444b-2d6a-4128-93a6-000bfc22c7a5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c10734e0-716c-4241-b9e6-6be60491407a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options</name>
           <display>Microsoft.Extensions.Options (10.0.0)</display>
           <isAbstract>false</isAbstract>
@@ -75,7 +75,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="3db5b34c-3da3-4b32-852e-de9acb933da1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="7c867a08-a2ab-4cd8-828c-291c96cce865" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.JsonWebTokens</name>
           <display>Microsoft.IdentityModel.JsonWebTokens (8.14.0)</display>
           <isAbstract>false</isAbstract>
