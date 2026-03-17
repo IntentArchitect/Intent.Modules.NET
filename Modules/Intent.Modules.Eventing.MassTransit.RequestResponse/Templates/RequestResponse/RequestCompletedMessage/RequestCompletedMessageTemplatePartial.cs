@@ -72,9 +72,10 @@ namespace Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.RequestR
             var serviceProxies = ExecutionContext.MetadataManager.ServiceProxies(ExecutionContext.GetApplicationConfig().Id).GetServiceProxyModels();
             foreach (var proxyModel in serviceProxies)
             {
-                if (proxyModel.InternalElement.MappedElement?.Element is not null)
+                if (proxyModel.InternalElement.MappedElement?.Element is IElement mappedProxyElement &&
+                    mappedProxyElement.ChildElements.FirstOrDefault() != null)
                 {
-                    yield return new ElementWrapper((IElement)proxyModel.InternalElement.MappedElement.Element);
+                    yield return new ElementWrapper(mappedProxyElement.ChildElements.FirstOrDefault());
                 }
             }
         }
