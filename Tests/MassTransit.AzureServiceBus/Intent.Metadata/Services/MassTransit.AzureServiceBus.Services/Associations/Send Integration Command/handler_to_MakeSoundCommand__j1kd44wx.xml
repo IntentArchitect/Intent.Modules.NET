@@ -21,6 +21,9 @@
   <targetEnd id="7b233ce8-b938-4d56-ad39-776dbc4f654b" type="Send Integration Command Target End" typeId="35a14f76-71e0-45f2-a17f-f8d1483510f7">
     <display>[send] MakeSoundCommand</display>
     <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="a4f45a84-e2b9-4390-94a8-f1879a856bdf">
       <typeId>8288be28-bece-4691-988b-1902c524287c</typeId>
       <isNavigable>true</isNavigable>

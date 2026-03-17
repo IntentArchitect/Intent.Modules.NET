@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration#4d8ff888-a6f5-467f-a9ab-74f7420233a9</correlationId>
+      <path>MassTransit.RequestResponse.Client.Api/Configuration/SwashbuckleConfiguration.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-03-16T18:34:08.433522Z</updatedAt>
+      <deviationsHash>7AE0949213719C3DDBB02A75A7619C691880BAFA99C0CE494AFC1091D8FB5CA8</deviationsHash>
+      <fileHash>D7F6210CACA47347DBCC6458213C16D8A594B24314D5EAF9BB0E7AE3E197EEB0</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Eventing.MassTransit.MassTransitConfiguration#0d104f34-f4bd-4c02-acbc-aab02d46a002</correlationId>
+      <path>MassTransit.RequestResponse.Client.Infrastructure/Configuration/MassTransitConfiguration.cs</path>
+      <count>2</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-03-17T06:58:31.6203157Z</updatedAt>
+      <deviationsHash>119595912D7981F382F5BF7C263B1A2E3B9CD50FA7D6E48BEDB24D427DC81390</deviationsHash>
+      <fileHash>4362B4D4F4D91E25588D6A37C2C496C7305003EC42BAC9F064A3ECE0CB3BC8A7</fileHash>
+    </file>
+  </files>
+</deviationsLog>

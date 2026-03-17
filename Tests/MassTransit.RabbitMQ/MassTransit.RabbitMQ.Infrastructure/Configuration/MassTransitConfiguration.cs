@@ -65,7 +65,6 @@ namespace MassTransit.RabbitMQ.Infrastructure.Configuration
 
         private static void AddConsumers(this IRegistrationConfigurator cfg)
         {
-            cfg.AddConsumer<IntegrationEventConsumer<IIntegrationEventHandler<AnotherTestMessageEvent>, AnotherTestMessageEvent>>(typeof(IntegrationEventConsumerDefinition<IIntegrationEventHandler<AnotherTestMessageEvent>, AnotherTestMessageEvent>)).ExcludeFromConfigureEndpoints();
             cfg.AddConsumer<IntegrationEventConsumer<IIntegrationEventHandler<StandardMessageCustomSubscribeEvent>, StandardMessageCustomSubscribeEvent>>(typeof(IntegrationEventConsumerDefinition<IIntegrationEventHandler<StandardMessageCustomSubscribeEvent>, StandardMessageCustomSubscribeEvent>)).ExcludeFromConfigureEndpoints();
             cfg.AddConsumer<IntegrationEventConsumer<IIntegrationEventHandler<OverrideMessageStandardSubscribeEvent>, OverrideMessageStandardSubscribeEvent>>(typeof(IntegrationEventConsumerDefinition<IIntegrationEventHandler<OverrideMessageStandardSubscribeEvent>, OverrideMessageStandardSubscribeEvent>)).Endpoint(config => config.InstanceId = "MassTransit-RabbitMQ");
             cfg.AddConsumer<IntegrationEventConsumer<IIntegrationEventHandler<OverrideMessageCustomSubscribeEvent>, OverrideMessageCustomSubscribeEvent>>(typeof(IntegrationEventConsumerDefinition<IIntegrationEventHandler<OverrideMessageCustomSubscribeEvent>, OverrideMessageCustomSubscribeEvent>)).ExcludeFromConfigureEndpoints();
@@ -144,31 +143,12 @@ namespace MassTransit.RabbitMQ.Infrastructure.Configuration
             EndpointConvention.Map<MassTransit.RabbitMQ.Services.Animals.MakeSoundCommand>(new Uri("queue:mass-transit.rabbit-mq.services.animals.make-sound-command"));
             EndpointConvention.Map<MassTransit.RabbitMQ.Services.Animals.OrderAnimal>(new Uri("queue:mass-transit.rabbit-mq.services.animals.order-animal"));
             EndpointConvention.Map<MassTransit.RabbitMQ.Services.People.TalkToPersonCommand>(new Uri("queue:Person"));
-            EndpointConvention.Map<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.CommandDtoReturn>(new Uri("queue:mass-transit.rabbit-mq.services.request-response.cqrs.command-dto-return"));
-            EndpointConvention.Map<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.CommandGuidReturn>(new Uri("queue:mass-transit.rabbit-mq.services.request-response.cqrs.command-guid-return"));
-            EndpointConvention.Map<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.CommandNoParam>(new Uri("queue:mass-transit.rabbit-mq.services.request-response.cqrs.command-no-param"));
-            EndpointConvention.Map<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.CommandVoidReturn>(new Uri("queue:mass-transit.rabbit-mq.services.request-response.cqrs.command-void-return"));
-            EndpointConvention.Map<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.QueryGuidReturn>(new Uri("queue:mass-transit.rabbit-mq.services.request-response.cqrs.query-guid-return"));
-            EndpointConvention.Map<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.QueryNoInputDtoReturnCollection>(new Uri("queue:mass-transit.rabbit-mq.services.request-response.cqrs.query-no-input-dto-return-collection"));
-            EndpointConvention.Map<MassTransit.RabbitMQ.Services.RequestResponse.CQRS.QueryResponseDtoReturn>(new Uri("queue:mass-transit.rabbit-mq.services.request-response.cqrs.query-response-dto-return"));
         }
 
         private static void ConfigureNonDefaultEndpoints(
             this IRabbitMqBusFactoryConfigurator cfg,
             IBusRegistrationContext context)
         {
-            cfg.AddConsumerReceiveEndpoint<IntegrationEventConsumer<IIntegrationEventHandler<AnotherTestMessageEvent>, AnotherTestMessageEvent>>(
-                context,
-                definition => definition.InstanceId = "MassTransit-RabbitMQ",
-                endpoint =>
-                {
-                    endpoint.PrefetchCount = 15;
-                    endpoint.Lazy = true;
-                    endpoint.Durable = true;
-                    endpoint.PurgeOnStartup = true;
-                    endpoint.Exclusive = true;
-                    endpoint.ConcurrentMessageLimit = 10;
-                });
             cfg.AddConsumerReceiveEndpoint<IntegrationEventConsumer<IIntegrationEventHandler<StandardMessageCustomSubscribeEvent>, StandardMessageCustomSubscribeEvent>>(
                 context,
                 definition => definition.Name = "custom-receive-endpoint",

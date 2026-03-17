@@ -620,18 +620,18 @@
     </FileLog>
     <FileLog>
       <ProjectId>3297fd77-c0a1-42de-841f-3475ef067814</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.MapperRequestMessage#af742b22-8708-48c2-92c4-3971a8d95e6e</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MassTransitFinbuckle.Test.Infrastructure/Eventing/Messages/RequestResponse/TestCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>RequestResponse/TestCommand.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>3297fd77-c0a1-42de-841f-3475ef067814</ProjectId>
       <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.ResponseMappingFactory#5cc7e236-e732-41b5-81ac-c03829b7ea63</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransitFinbuckle.Test.Infrastructure/Eventing/Messages/ResponseMappingFactory.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ResponseMappingFactory.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3297fd77-c0a1-42de-841f-3475ef067814</ProjectId>
+      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.MapperRequestMessage#af742b22-8708-48c2-92c4-3971a8d95e6e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransitFinbuckle.Test.Infrastructure/Eventing/Messages/Services/RequestResponse/TestCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/RequestResponse/TestCommand.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

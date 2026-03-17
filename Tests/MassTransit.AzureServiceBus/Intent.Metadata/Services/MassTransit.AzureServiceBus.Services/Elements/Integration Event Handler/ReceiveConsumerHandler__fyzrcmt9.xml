@@ -8,6 +8,9 @@
   <parentFolderId>ed09a467-a165-4b52-a757-8a105cf8def3</parentFolderId>
   <packageId>13f85863-e934-4433-8ce6-ff5b15c25868</packageId>
   <packageName>MassTransit.AzureServiceBus.Services</packageName>
+  <traits>
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
   <stereotypes />
   <metadata />
   <childElements />

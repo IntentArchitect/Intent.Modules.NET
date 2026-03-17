@@ -30,6 +30,10 @@
       <parentFolderId>dd525f1e-87ea-4eb7-8be6-9fae3662b315</parentFolderId>
       <packageId>13f85863-e934-4433-8ce6-ff5b15c25868</packageId>
       <packageName>MassTransit.AzureServiceBus.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>

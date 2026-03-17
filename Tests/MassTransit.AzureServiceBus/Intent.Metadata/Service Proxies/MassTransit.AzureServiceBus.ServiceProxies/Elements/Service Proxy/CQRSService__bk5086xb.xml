@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e998b398-28c1-4592-bc53-4103a69917d8" type="Service Proxy" typeId="07d8d1a9-6b9f-4676-b7d3-8db06299e35c">
+  <name>CQRSService</name>
+  <display>CQRSService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>true</isMapped>
+  <mappedClass isRoot="true">
+    <applicationId>947683f4-e363-421d-b7dc-387173a9aaea</applicationId>
+    <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
+    <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+    <autoSyncTypeReference>true</autoSyncTypeReference>
+    <mappedPath>
+      <target id="13f85863-e934-4433-8ce6-ff5b15c25868" name="MassTransit.AzureServiceBus.Services" type="package-reference" specialization="Services Package" specializationId="df45eaf6-9202-4c25-8dd5-677e9ba1e906" />
+      <target id="0ab078c4-355c-444c-a62b-321c7db0cd31" name="RequestResponse" type="element" specialization="Folder" specializationId="4d95d53a-8855-4f35-aa82-e312643f5c5f" />
+      <target id="ac781ec5-5afd-4bf1-8943-33063dbf59a1" name="CQRS" type="element" specialization="Folder" specializationId="4d95d53a-8855-4f35-aa82-e312643f5c5f" />
+    </mappedPath>
+  </mappedClass>
+  <parentFolderId>0d4355f6-0a71-4e79-ab8b-46b9519b6760</parentFolderId>
+  <packageId>0d4355f6-0a71-4e79-ab8b-46b9519b6760</packageId>
+  <packageName>MassTransit.AzureServiceBus.ServiceProxies</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="7b95e21d-330c-4cfd-9176-67def7d0d05b" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>CommandDtoReturn</name>
+      <display>CommandDtoReturn(): CommandResponseDto</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="0b30d229-1f32-4497-98ba-630c7e3ae574">
+        <typeId>8ffc28b8-26a2-425a-981f-9958e03e44c6</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>MassTransit.AzureServiceBus.Services</typePackageName>
+        <typePackageId>13f85863-e934-4433-8ce6-ff5b15c25868</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="6ec6529d-f2f0-459e-9eef-2d685935900f" name="CommandDtoReturn" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>e998b398-28c1-4592-bc53-4103a69917d8</parentFolderId>
+      <packageId>0d4355f6-0a71-4e79-ab8b-46b9519b6760</packageId>
+      <packageName>MassTransit.AzureServiceBus.ServiceProxies</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="e8eaf275-8da4-4dde-8cc1-79bb1c6936c4" name="Message Request Endpoint">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Eventing.MassTransit.RequestResponse</definitionPackageName>
+          <definitionPackageId>9eff564b-5c0b-461d-a2ce-44696e445a8f</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

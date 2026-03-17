@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="52a312b4-319f-44f9-8bf2-2eced2ca9bd0" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Messages</name>
+  <display>Messages</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>1e51b402-8936-4a71-8bb4-0e4dfde823d2</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="e582513a-2bc6-4fc1-8df1-270fd0636cde" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.MapperRequestMessage</name>
+      <display>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.MapperRequestMessage</display>
+      <externalReference>Intent.Eventing.MassTransit.RequestResponse</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>52a312b4-319f-44f9-8bf2-2eced2ca9bd0</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="22db968e-8aaa-46c2-a6d3-9eaa3d7f5019" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.MapperResponseMessage</name>
+      <display>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.MapperResponseMessage</display>
+      <externalReference>Intent.Eventing.MassTransit.RequestResponse</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>52a312b4-319f-44f9-8bf2-2eced2ca9bd0</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="b58072a6-fdc1-4487-b197-f4f0536ee778" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.RequestCompletedMessage</name>
+      <display>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.RequestCompletedMessage</display>
+      <externalReference>Intent.Eventing.MassTransit.RequestResponse</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>52a312b4-319f-44f9-8bf2-2eced2ca9bd0</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="21aec496-9ca9-45ea-9f56-9fcc3c881065" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.ResponseMappingFactory</name>
+      <display>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.ResponseMappingFactory</display>
+      <externalReference>Intent.Eventing.MassTransit.RequestResponse</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>52a312b4-319f-44f9-8bf2-2eced2ca9bd0</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

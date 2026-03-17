@@ -67,7 +67,6 @@ namespace MassTransit.AzureServiceBus.Infrastructure.Configuration
             cfg.AddConsumer<IntegrationEventConsumer<IIntegrationEventHandler<StandardMessageCustomSubscribeEvent>, StandardMessageCustomSubscribeEvent>>(typeof(IntegrationEventConsumerDefinition<IIntegrationEventHandler<StandardMessageCustomSubscribeEvent>, StandardMessageCustomSubscribeEvent>)).ExcludeFromConfigureEndpoints();
             cfg.AddConsumer<IntegrationEventConsumer<IIntegrationEventHandler<OverrideMessageCustomSubscribeEvent>, OverrideMessageCustomSubscribeEvent>>(typeof(IntegrationEventConsumerDefinition<IIntegrationEventHandler<OverrideMessageCustomSubscribeEvent>, OverrideMessageCustomSubscribeEvent>)).ExcludeFromConfigureEndpoints();
             cfg.AddConsumer<IntegrationEventConsumer<IIntegrationEventHandler<TestMessageEvent>, TestMessageEvent>>(typeof(IntegrationEventConsumerDefinition<IIntegrationEventHandler<TestMessageEvent>, TestMessageEvent>)).Endpoint(config => config.InstanceId = "MassTransit-AzureServiceBus");
-            cfg.AddConsumer<IntegrationEventConsumer<IIntegrationEventHandler<AnotherTestMessageEvent>, AnotherTestMessageEvent>>(typeof(IntegrationEventConsumerDefinition<IIntegrationEventHandler<AnotherTestMessageEvent>, AnotherTestMessageEvent>)).ExcludeFromConfigureEndpoints();
             cfg.AddConsumer<IntegrationEventConsumer<IIntegrationEventHandler<OrderAnimal>, OrderAnimal>>(typeof(IntegrationEventConsumerDefinition<IIntegrationEventHandler<OrderAnimal>, OrderAnimal>)).ExcludeFromConfigureEndpoints();
             cfg.AddConsumer<IntegrationEventConsumer<IIntegrationEventHandler<MakeSoundCommand>, MakeSoundCommand>>(typeof(IntegrationEventConsumerDefinition<IIntegrationEventHandler<MakeSoundCommand>, MakeSoundCommand>)).ExcludeFromConfigureEndpoints();
             cfg.AddConsumer<IntegrationEventConsumer<IIntegrationEventHandler<CreatePersonIdentity>, CreatePersonIdentity>>(typeof(IntegrationEventConsumerDefinition<IIntegrationEventHandler<CreatePersonIdentity>, CreatePersonIdentity>)).ExcludeFromConfigureEndpoints();
@@ -146,12 +145,6 @@ namespace MassTransit.AzureServiceBus.Infrastructure.Configuration
             EndpointConvention.Map<MassTransit.AzureServiceBus.Services.People.CreatePersonIdentity>(new Uri("queue:Person"));
             EndpointConvention.Map<MassTransit.AzureServiceBus.Services.Animals.OrderAnimal>(new Uri("queue:mass-transit.azure-service-bus.services.animals.order-animal"));
             EndpointConvention.Map<MassTransit.AzureServiceBus.Services.RequestResponse.CQRS.CommandDtoReturn>(new Uri("queue:mass-transit.azure-service-bus.services.request-response.cqrs.command-dto-return"));
-            EndpointConvention.Map<MassTransit.AzureServiceBus.Services.RequestResponse.CQRS.CommandGuidReturn>(new Uri("queue:mass-transit.azure-service-bus.services.request-response.cqrs.command-guid-return"));
-            EndpointConvention.Map<MassTransit.AzureServiceBus.Services.RequestResponse.CQRS.CommandNoParam>(new Uri("queue:mass-transit.azure-service-bus.services.request-response.cqrs.command-no-param"));
-            EndpointConvention.Map<MassTransit.AzureServiceBus.Services.RequestResponse.CQRS.CommandVoidReturn>(new Uri("queue:mass-transit.azure-service-bus.services.request-response.cqrs.command-void-return"));
-            EndpointConvention.Map<MassTransit.AzureServiceBus.Services.RequestResponse.CQRS.QueryGuidReturn>(new Uri("queue:mass-transit.azure-service-bus.services.request-response.cqrs.query-guid-return"));
-            EndpointConvention.Map<MassTransit.AzureServiceBus.Services.RequestResponse.CQRS.QueryNoInputDtoReturnCollection>(new Uri("queue:mass-transit.azure-service-bus.services.request-response.cqrs.query-no-input-dto-return-collection"));
-            EndpointConvention.Map<MassTransit.AzureServiceBus.Services.RequestResponse.CQRS.QueryResponseDtoReturn>(new Uri("queue:mass-transit.azure-service-bus.services.request-response.cqrs.query-response-dto-return"));
         }
 
         private static void ConfigureNonDefaultEndpoints(
@@ -205,21 +198,6 @@ namespace MassTransit.AzureServiceBus.Infrastructure.Configuration
                 endpoint.EnableDeadLetteringOnMessageExpiration = true;
                 endpoint.ConfigureConsumer<IntegrationEventConsumer<IIntegrationEventHandler<OverrideMessageCustomSubscribeEvent>, OverrideMessageCustomSubscribeEvent>>(context);
             });
-            cfg.AddConsumerReceiveEndpoint<IntegrationEventConsumer<IIntegrationEventHandler<AnotherTestMessageEvent>, AnotherTestMessageEvent>>(
-                context,
-                definition => definition.InstanceId = "MassTransit-AzureServiceBus",
-                endpoint =>
-                {
-                    endpoint.PrefetchCount = 15;
-                    endpoint.RequiresSession = false;
-                    endpoint.DefaultMessageTimeToLive = TimeSpan.Parse("00:15:00");
-                    endpoint.RequiresDuplicateDetection = true;
-                    endpoint.DuplicateDetectionHistoryTimeWindow = TimeSpan.Parse("00:10:00");
-                    endpoint.EnableBatchedOperations = true;
-                    endpoint.EnableDeadLetteringOnMessageExpiration = true;
-                    endpoint.MaxSizeInMegabytes = 2048;
-                    endpoint.ConcurrentMessageLimit = 10;
-                });
         }
 
         private static void AddConsumerReceiveEndpoint<TConsumer>(

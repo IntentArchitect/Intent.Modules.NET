@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c608acd4-07cc-4c29-901d-9697f8e80a82" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>169f3801-8244-4b9e-ac2f-3eaede785048</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>e2a06f8f-43d2-4249-822d-31e870d867e6</parentFolderId>
+  <packageId>e2a06f8f-43d2-4249-822d-31e870d867e6</packageId>
+  <packageName>MassTransit.RequestResponse.Client.Services</packageName>
+  <diagram>
+    <targetPackageId>e2a06f8f-43d2-4249-822d-31e870d867e6</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

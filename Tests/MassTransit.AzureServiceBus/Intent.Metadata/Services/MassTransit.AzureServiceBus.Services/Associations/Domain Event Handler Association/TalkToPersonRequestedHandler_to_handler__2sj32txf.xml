@@ -20,8 +20,11 @@
   </sourceEnd>
   <targetEnd id="d2f26128-04b3-4365-955e-913409fa1b5e" type="Domain Event Handler Association Target End" typeId="f45dfee9-f62b-45ac-bfce-a3878e04b73f">
     <name>handler</name>
-    <display>handles : TalkToPersonRequested</display>
+    <display>[handles] TalkToPersonRequested</display>
     <order>0</order>
+    <traits>
+      <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+    </traits>
     <typeReference id="5ce1f90f-b0fa-458f-95d0-410a39ad3e97">
       <typeId>47ad9563-8a53-4ca2-b83c-62a1d846649d</typeId>
       <isNavigable>true</isNavigable>

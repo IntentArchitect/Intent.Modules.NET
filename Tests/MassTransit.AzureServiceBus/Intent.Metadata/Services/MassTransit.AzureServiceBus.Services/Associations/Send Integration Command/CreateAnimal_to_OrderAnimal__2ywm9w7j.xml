@@ -21,6 +21,9 @@
   <targetEnd id="ebcce32a-9ef6-47ed-ba8e-63f6069cfa3f" type="Send Integration Command Target End" typeId="35a14f76-71e0-45f2-a17f-f8d1483510f7">
     <display>[send] OrderAnimal</display>
     <order>2</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="2637bce5-66a3-47da-a7a0-6562c378e5c3">
       <typeId>cfefcaa5-cf3b-4306-ba46-adb1144d99d9</typeId>
       <isNavigable>true</isNavigable>

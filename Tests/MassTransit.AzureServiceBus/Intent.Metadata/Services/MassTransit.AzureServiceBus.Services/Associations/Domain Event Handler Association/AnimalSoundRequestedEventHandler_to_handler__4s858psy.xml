@@ -20,8 +20,11 @@
   </sourceEnd>
   <targetEnd id="68963345-14e8-4dc7-aea7-04eb1bbcf563" type="Domain Event Handler Association Target End" typeId="f45dfee9-f62b-45ac-bfce-a3878e04b73f">
     <name>handler</name>
-    <display>handles : AnimalSoundRequestedEvent</display>
+    <display>[handles] AnimalSoundRequestedEvent</display>
     <order>0</order>
+    <traits>
+      <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+    </traits>
     <typeReference id="78669657-72c6-4a13-9963-0e119778a562">
       <typeId>787afc0a-f6fc-4d08-84fd-82a1d61f2242</typeId>
       <isNavigable>true</isNavigable>

@@ -67,14 +67,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>e0f6067f-b87c-4c76-a190-ecb04b2bd707</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.Controller#3ef5f7c1-f1c2-4145-a746-13f29e8e0ab1</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Api/Controllers/TestController.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>TestController.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>849d6a98-3051-47d5-9f3c-5577070c6611</ProjectId>
       <CorrelationId>Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter#cb9b6af2-80b4-47df-a82b-36d497ec82f9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -475,14 +467,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>9c18de05-441a-4210-bf6e-fd91bca65228</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#90003f19-f74f-4c25-b667-46a9fd762fbb</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/IntegrationEvents/AnotherTestMessageEvent.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AnotherTestMessageEvent.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>83315458-eabb-411d-b730-df88aff6fccd</ProjectId>
       <CorrelationId>Intent.Eventing.Contracts.IntegrationEventHandler#5d2c6008-6d5e-4892-a53f-4de2c4625916</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -496,14 +480,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/IntegrationEvents/EventHandlers/NamingOverrides/StandardMessageCustomSubscribeHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>NamingOverrides/StandardMessageCustomSubscribeHandler.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>83315458-eabb-411d-b730-df88aff6fccd</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventHandler#deac8939-84b1-4219-a8a7-4763c2aa7c01</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/IntegrationEvents/EventHandlers/Test/AnotherTestMessageHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Test/AnotherTestMessageHandler.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -560,86 +536,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/IntegrationEvents/TestMessageEvent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TestMessageEvent.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>3e2f8304-1f1b-462b-a71b-48869c7abd13</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.ClientContracts.DtoContract#d6fbd90c-7f0d-4cab-9646-fa982d5d064a</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/IntegrationServices/Contracts/Services/RequestResponse/CQRS/CommandDtoReturn.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/RequestResponse/CQRS/CommandDtoReturn.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>3e2f8304-1f1b-462b-a71b-48869c7abd13</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.ClientContracts.DtoContract#7f44d750-2f01-4b95-8b2d-87876840e06f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/IntegrationServices/Contracts/Services/RequestResponse/CQRS/CommandGuidReturn.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/RequestResponse/CQRS/CommandGuidReturn.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>3e2f8304-1f1b-462b-a71b-48869c7abd13</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.ClientContracts.DtoContract#2f58a8dd-e86f-46ed-86c3-46a7129c54b0</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/IntegrationServices/Contracts/Services/RequestResponse/CQRS/CommandNoParam.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/RequestResponse/CQRS/CommandNoParam.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>3e2f8304-1f1b-462b-a71b-48869c7abd13</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.ClientContracts.DtoContract#62105f8f-139a-4a0f-bc46-cbc6d41a69d1</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/IntegrationServices/Contracts/Services/RequestResponse/CQRS/CommandResponseDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/RequestResponse/CQRS/CommandResponseDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>3e2f8304-1f1b-462b-a71b-48869c7abd13</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.ClientContracts.DtoContract#11bb273c-e5f9-49a3-a035-4e98d3c66562</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/IntegrationServices/Contracts/Services/RequestResponse/CQRS/CommandVoidReturn.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/RequestResponse/CQRS/CommandVoidReturn.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>3e2f8304-1f1b-462b-a71b-48869c7abd13</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.ClientContracts.DtoContract#d3f8951b-524e-4fa6-b5e3-69c71c1b2161</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/IntegrationServices/Contracts/Services/RequestResponse/CQRS/QueryGuidReturn.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/RequestResponse/CQRS/QueryGuidReturn.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>3e2f8304-1f1b-462b-a71b-48869c7abd13</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.ClientContracts.DtoContract#a16f5896-0def-4855-9a64-319f63859ae6</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/IntegrationServices/Contracts/Services/RequestResponse/CQRS/QueryNoInputDtoReturnCollection.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/RequestResponse/CQRS/QueryNoInputDtoReturnCollection.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>3e2f8304-1f1b-462b-a71b-48869c7abd13</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.ClientContracts.DtoContract#dea34361-9f33-49b9-9354-3228ac2e711f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/IntegrationServices/Contracts/Services/RequestResponse/CQRS/QueryResponseDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/RequestResponse/CQRS/QueryResponseDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>3e2f8304-1f1b-462b-a71b-48869c7abd13</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.ClientContracts.DtoContract#b3410afe-2509-49fd-9047-7e497712bf0a</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/IntegrationServices/Contracts/Services/RequestResponse/CQRS/QueryResponseDtoReturn.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/RequestResponse/CQRS/QueryResponseDtoReturn.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>5a5da127-c1e1-4ded-9266-aca7317629c4</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.ClientContracts.ServiceContract#04e63d9d-a4a0-403f-bd9f-e207aa9bb927</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/IntegrationServices/ICQRSService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ICQRSService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -907,30 +803,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>eee6378a-6323-4705-8a5a-f59bfe340e11</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandModels#24974f58-4a31-445c-a2b0-354981da3bc4</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/Test/SendTest/SendTestCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Test/SendTest/SendTestCommand.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>eee6378a-6323-4705-8a5a-f59bfe340e11</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandHandler#24974f58-4a31-445c-a2b0-354981da3bc4</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/Test/SendTest/SendTestCommandHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Test/SendTest/SendTestCommandHandler.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>eee6378a-6323-4705-8a5a-f59bfe340e11</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#24974f58-4a31-445c-a2b0-354981da3bc4</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/Test/SendTest/SendTestCommandValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Test/SendTest/SendTestCommandValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>c79a2e61-53c6-46b1-a99c-43d09e088558</ProjectId>
       <CorrelationId>Intent.Entities.CollectionExtensions#22823333-e340-4496-b905-fd8a4240c6aa</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -1076,14 +948,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>952230b6-1093-4174-8f48-57fb6a6a87dc</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.ClientImplementations.ServiceRequestClient#04e63d9d-a4a0-403f-bd9f-e207aa9bb927</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Infrastructure/Eventing/CQRSService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CQRSService.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>952230b6-1093-4174-8f48-57fb6a6a87dc</ProjectId>
       <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.MapperRequestInterface#bf150ee0-9f41-48f0-9cc0-8bf48a2ca442</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Infrastructure/Eventing/IMapperRequest.cs</ApplicationRelativeFilePath>
@@ -1124,82 +988,82 @@
     </FileLog>
     <FileLog>
       <ProjectId>9a37c19f-b86b-4e26-8d16-985e290376b3</ProjectId>
+      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.ResponseMappingFactory#472f68ea-1e16-41f1-9fd6-b39fd37d467d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Infrastructure/Eventing/Messages/ResponseMappingFactory.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ResponseMappingFactory.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9a37c19f-b86b-4e26-8d16-985e290376b3</ProjectId>
       <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.MapperRequestMessage#d6fbd90c-7f0d-4cab-9646-fa982d5d064a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Infrastructure/Eventing/Messages/RequestResponse/CQRS/CommandDtoReturn.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>RequestResponse/CQRS/CommandDtoReturn.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Infrastructure/Eventing/Messages/Services/RequestResponse/CQRS/CommandDtoReturn.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/RequestResponse/CQRS/CommandDtoReturn.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>9a37c19f-b86b-4e26-8d16-985e290376b3</ProjectId>
       <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.MapperRequestMessage#7f44d750-2f01-4b95-8b2d-87876840e06f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Infrastructure/Eventing/Messages/RequestResponse/CQRS/CommandGuidReturn.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>RequestResponse/CQRS/CommandGuidReturn.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Infrastructure/Eventing/Messages/Services/RequestResponse/CQRS/CommandGuidReturn.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/RequestResponse/CQRS/CommandGuidReturn.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>9a37c19f-b86b-4e26-8d16-985e290376b3</ProjectId>
       <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.MapperRequestMessage#2f58a8dd-e86f-46ed-86c3-46a7129c54b0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Infrastructure/Eventing/Messages/RequestResponse/CQRS/CommandNoParam.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>RequestResponse/CQRS/CommandNoParam.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Infrastructure/Eventing/Messages/Services/RequestResponse/CQRS/CommandNoParam.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/RequestResponse/CQRS/CommandNoParam.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>9a37c19f-b86b-4e26-8d16-985e290376b3</ProjectId>
       <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.MapperResponseMessage#62105f8f-139a-4a0f-bc46-cbc6d41a69d1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Infrastructure/Eventing/Messages/RequestResponse/CQRS/CommandResponseDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>RequestResponse/CQRS/CommandResponseDto.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Infrastructure/Eventing/Messages/Services/RequestResponse/CQRS/CommandResponseDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/RequestResponse/CQRS/CommandResponseDto.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>9a37c19f-b86b-4e26-8d16-985e290376b3</ProjectId>
       <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.MapperRequestMessage#11bb273c-e5f9-49a3-a035-4e98d3c66562</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Infrastructure/Eventing/Messages/RequestResponse/CQRS/CommandVoidReturn.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>RequestResponse/CQRS/CommandVoidReturn.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Infrastructure/Eventing/Messages/Services/RequestResponse/CQRS/CommandVoidReturn.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/RequestResponse/CQRS/CommandVoidReturn.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>9a37c19f-b86b-4e26-8d16-985e290376b3</ProjectId>
       <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.MapperRequestMessage#d3f8951b-524e-4fa6-b5e3-69c71c1b2161</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Infrastructure/Eventing/Messages/RequestResponse/CQRS/QueryGuidReturn.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>RequestResponse/CQRS/QueryGuidReturn.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Infrastructure/Eventing/Messages/Services/RequestResponse/CQRS/QueryGuidReturn.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/RequestResponse/CQRS/QueryGuidReturn.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>9a37c19f-b86b-4e26-8d16-985e290376b3</ProjectId>
       <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.MapperRequestMessage#a16f5896-0def-4855-9a64-319f63859ae6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Infrastructure/Eventing/Messages/RequestResponse/CQRS/QueryNoInputDtoReturnCollection.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>RequestResponse/CQRS/QueryNoInputDtoReturnCollection.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Infrastructure/Eventing/Messages/Services/RequestResponse/CQRS/QueryNoInputDtoReturnCollection.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/RequestResponse/CQRS/QueryNoInputDtoReturnCollection.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>9a37c19f-b86b-4e26-8d16-985e290376b3</ProjectId>
       <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.MapperResponseMessage#dea34361-9f33-49b9-9354-3228ac2e711f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Infrastructure/Eventing/Messages/RequestResponse/CQRS/QueryResponseDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>RequestResponse/CQRS/QueryResponseDto.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Infrastructure/Eventing/Messages/Services/RequestResponse/CQRS/QueryResponseDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/RequestResponse/CQRS/QueryResponseDto.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>9a37c19f-b86b-4e26-8d16-985e290376b3</ProjectId>
       <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.MapperRequestMessage#b3410afe-2509-49fd-9047-7e497712bf0a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Infrastructure/Eventing/Messages/RequestResponse/CQRS/QueryResponseDtoReturn.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>RequestResponse/CQRS/QueryResponseDtoReturn.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>9a37c19f-b86b-4e26-8d16-985e290376b3</ProjectId>
-      <CorrelationId>Intent.Eventing.MassTransit.RequestResponse.RequestResponse.ResponseMappingFactory#472f68ea-1e16-41f1-9fd6-b39fd37d467d</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Infrastructure/Eventing/Messages/ResponseMappingFactory.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ResponseMappingFactory.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Infrastructure/Eventing/Messages/Services/RequestResponse/CQRS/QueryResponseDtoReturn.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/RequestResponse/CQRS/QueryResponseDtoReturn.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
