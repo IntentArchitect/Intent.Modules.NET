@@ -1,3 +1,7 @@
+### Version 1.1.1
+
+- Fixed: When DTOs were set to `record` it would fail to run in SF.
+
 ### Version 1.1.0
 
 - Improvement: Updated to work with Microsoft.OpenApi (2.4.1 and up) library version.

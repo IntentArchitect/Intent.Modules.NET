@@ -97,7 +97,7 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
                 {
                     foreach (var parameter in Model.Parameters)
                     {
-                        if (file.Classes.First().TryGetReferenceForModel(parameter, out var reference)
+                        if (file.TypeDeclarations.First().TryGetReferenceForModel(parameter, out var reference)
                             && reference is CSharpProperty property)
                         {
                             AddHttpInputAttributesToProperty(property, parameter);
