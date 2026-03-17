@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="972560c3-f6e2-4c87-afe6-76cc19dce678" type="Visual Studio Solution" typeId="769a45a2-119f-434f-8c27-bd4a399b915c">
-  <name>JavaScriptProject</name>
-  <display>JavaScriptProject</display>
+<class id="0a9dcc9a-abb8-4988-a3d4-b93ad86499a5" type="Visual Studio Solution" typeId="769a45a2-119f-434f-8c27-bd4a399b915c">
+  <name>Intent.Modules.NET</name>
+  <display>Intent.Modules.NET</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>c6f345ee-fcf0-4fe5-9b3f-e4c8e039f1b8</parentFolderId>
-  <packageId>c6f345ee-fcf0-4fe5-9b3f-e4c8e039f1b8</packageId>
-  <packageName>JavaScriptProject</packageName>
+  <parentFolderId>18c0eba7-dd73-4630-b235-e3d5949e33eb</parentFolderId>
+  <packageId>18c0eba7-dd73-4630-b235-e3d5949e33eb</packageId>
+  <packageName>root</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="90085088-b29b-4386-b87e-f7f62c76c5de" name="Visual Studio Solution Options">
-      <addedByDefault>false</addedByDefault>
+      <addedByDefault>true</addedByDefault>
       <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
       <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
       <properties>

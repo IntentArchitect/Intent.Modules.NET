@@ -8,7 +8,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>62c19c80-6648-4440-acb4-ace861b273b8</parentFolderId>
   <packageId>18c0eba7-dd73-4630-b235-e3d5949e33eb</packageId>
-  <packageName>Intent.Modules.NET</packageName>
+  <packageName>root</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
       <addedByDefault>true</addedByDefault>
@@ -16,6 +16,7 @@
       <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
       <properties>
         <property name="1f0cdbc4-7a18-40a5-aeca-90452cce4fcf" display="SDK" value="Microsoft.NET.Sdk" isActive="true" />
+        <property name="abba11c7-3b43-4228-9eac-72311a302668" display="Aspire SDK Version" value="13.0" isActive="false" />
         <property name="252d4572-8255-4e87-9bd9-ede6220f44c1" display="Use top-level statements" value="false" isActive="true" />
         <property name="8f218e6c-9115-42d1-ad23-9b0403bfbcb4" display="Use minimal hosting model" value="false" isActive="false" />
         <property name="6a7d81d7-351e-4cdf-a596-142a74507455" display="Output Type" isActive="true" />
@@ -33,6 +34,8 @@
         <property name="8ee6e435-e556-439c-9712-a3f287972813" display="Runtime Identifiers" isActive="true" />
         <property name="575dbd4e-f038-4c92-a411-63c1e3e0d8d7" display="Suppress Warnings" value="$(NoWarn)" isActive="true" />
         <property name="6de4cc6f-2476-461c-9be9-b6ac0592a827" display="Manage Package Versions Centrally" isActive="true" />
+        <property name="a811d3f2-253e-46de-ae72-bd6ec9f30d54" display="Generate AppSettings File" value="false" isActive="true" />
+        <property name="4fe561b9-333e-4341-8243-d569db8cd8f4" display="Generate LaunchSettings File" value="false" isActive="true" />
       </properties>
     </stereotype>
     <stereotype stereotypeDefinitionId="d9b43864-0370-401b-9e71-b1d286919500" name="C# Project Options">
@@ -58,8 +61,18 @@
       <isMapped>false</isMapped>
       <parentFolderId>42fe8b17-26e9-4af8-acb1-f546a193c70e</parentFolderId>
       <packageId>18c0eba7-dd73-4630-b235-e3d5949e33eb</packageId>
-      <packageName>Intent.Modules.NET</packageName>
-      <stereotypes />
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
@@ -74,8 +87,18 @@
       <isMapped>false</isMapped>
       <parentFolderId>42fe8b17-26e9-4af8-acb1-f546a193c70e</parentFolderId>
       <packageId>18c0eba7-dd73-4630-b235-e3d5949e33eb</packageId>
-      <packageName>Intent.Modules.NET</packageName>
-      <stereotypes />
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
@@ -90,8 +113,18 @@
       <isMapped>false</isMapped>
       <parentFolderId>42fe8b17-26e9-4af8-acb1-f546a193c70e</parentFolderId>
       <packageId>18c0eba7-dd73-4630-b235-e3d5949e33eb</packageId>
-      <packageName>Intent.Modules.NET</packageName>
-      <stereotypes />
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
@@ -106,8 +139,18 @@
       <isMapped>false</isMapped>
       <parentFolderId>42fe8b17-26e9-4af8-acb1-f546a193c70e</parentFolderId>
       <packageId>18c0eba7-dd73-4630-b235-e3d5949e33eb</packageId>
-      <packageName>Intent.Modules.NET</packageName>
-      <stereotypes />
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
@@ -122,8 +165,18 @@
       <isMapped>false</isMapped>
       <parentFolderId>42fe8b17-26e9-4af8-acb1-f546a193c70e</parentFolderId>
       <packageId>18c0eba7-dd73-4630-b235-e3d5949e33eb</packageId>
-      <packageName>Intent.Modules.NET</packageName>
-      <stereotypes />
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
@@ -138,14 +191,24 @@
       <isMapped>false</isMapped>
       <parentFolderId>42fe8b17-26e9-4af8-acb1-f546a193c70e</parentFolderId>
       <packageId>18c0eba7-dd73-4630-b235-e3d5949e33eb</packageId>
-      <packageName>Intent.Modules.NET</packageName>
-      <stereotypes />
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="2beb5bdd-77a9-4d82-ba06-306f6a770cdf" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+    <childElement id="2beb5bdd-77a9-4d82-ba06-306f6a770cdf" type="Output Anchor" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
       <name>Api</name>
       <display>Api</display>
       <externalReference>5db7fdaf-f264-4513-9e7d-daa3c5a6d0cb</externalReference>
@@ -154,12 +217,21 @@
       <isMapped>false</isMapped>
       <parentFolderId>42fe8b17-26e9-4af8-acb1-f546a193c70e</parentFolderId>
       <packageId>18c0eba7-dd73-4630-b235-e3d5949e33eb</packageId>
-      <packageName>Intent.Modules.NET</packageName>
-      <stereotypes />
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="a23c7901-31a5-4cbf-b8bf-1be128977e6d" name="Output Anchor Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="8d79a350-96f1-4d50-bb0a-f65a5c53ec62" display="Create Sub-Folders" value="true" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="9cd50333-8cf7-4ef7-a18c-62de88ff3c17" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+    <childElement id="9cd50333-8cf7-4ef7-a18c-62de88ff3c17" type="Output Anchor" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
       <name>Decorators</name>
       <display>Decorators</display>
       <externalReference>40cc9431-b446-4168-af80-2f3747b6f063</externalReference>
@@ -168,12 +240,21 @@
       <isMapped>false</isMapped>
       <parentFolderId>42fe8b17-26e9-4af8-acb1-f546a193c70e</parentFolderId>
       <packageId>18c0eba7-dd73-4630-b235-e3d5949e33eb</packageId>
-      <packageName>Intent.Modules.NET</packageName>
-      <stereotypes />
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="a23c7901-31a5-4cbf-b8bf-1be128977e6d" name="Output Anchor Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="8d79a350-96f1-4d50-bb0a-f65a5c53ec62" display="Create Sub-Folders" value="true" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="11d2b8d2-fbec-402a-9db0-83c93f55d264" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+    <childElement id="11d2b8d2-fbec-402a-9db0-83c93f55d264" type="Output Anchor" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
       <name>DesignerConfig</name>
       <display>DesignerConfig</display>
       <externalReference>8ace95f8-22fe-4922-9ca0-12d7820cb8bb</externalReference>
@@ -182,12 +263,21 @@
       <isMapped>false</isMapped>
       <parentFolderId>42fe8b17-26e9-4af8-acb1-f546a193c70e</parentFolderId>
       <packageId>18c0eba7-dd73-4630-b235-e3d5949e33eb</packageId>
-      <packageName>Intent.Modules.NET</packageName>
-      <stereotypes />
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="a23c7901-31a5-4cbf-b8bf-1be128977e6d" name="Output Anchor Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="8d79a350-96f1-4d50-bb0a-f65a5c53ec62" display="Create Sub-Folders" value="true" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="dad809ea-384e-41b5-9a57-3a4e82cf4262" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+    <childElement id="dad809ea-384e-41b5-9a57-3a4e82cf4262" type="Output Anchor" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
       <name>IModSpec</name>
       <display>IModSpec</display>
       <externalReference>cf6e41be-aa79-4d0b-85d5-2908102fb131</externalReference>
@@ -196,12 +286,21 @@
       <isMapped>false</isMapped>
       <parentFolderId>42fe8b17-26e9-4af8-acb1-f546a193c70e</parentFolderId>
       <packageId>18c0eba7-dd73-4630-b235-e3d5949e33eb</packageId>
-      <packageName>Intent.Modules.NET</packageName>
-      <stereotypes />
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="a23c7901-31a5-4cbf-b8bf-1be128977e6d" name="Output Anchor Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="8d79a350-96f1-4d50-bb0a-f65a5c53ec62" display="Create Sub-Folders" value="true" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="4095866a-716f-47b3-b354-7086537ccc25" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+    <childElement id="4095866a-716f-47b3-b354-7086537ccc25" type="Output Anchor" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
       <name>Templates</name>
       <display>Templates</display>
       <externalReference>21bb58b7-6c18-4926-980f-35ea567706e6</externalReference>
@@ -210,8 +309,17 @@
       <isMapped>false</isMapped>
       <parentFolderId>42fe8b17-26e9-4af8-acb1-f546a193c70e</parentFolderId>
       <packageId>18c0eba7-dd73-4630-b235-e3d5949e33eb</packageId>
-      <packageName>Intent.Modules.NET</packageName>
-      <stereotypes />
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="a23c7901-31a5-4cbf-b8bf-1be128977e6d" name="Output Anchor Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="8d79a350-96f1-4d50-bb0a-f65a5c53ec62" display="Create Sub-Folders" value="true" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata />
       <childElements />
     </childElement>

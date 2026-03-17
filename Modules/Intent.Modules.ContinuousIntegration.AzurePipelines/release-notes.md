@@ -1,3 +1,7 @@
+### Version 1.1.0
+
+- Fixed: Moved over to `Codebase Structure` and ensures correct solution structure.
+
 ### Version 1.0.5
 
 - Improvement: Updated module documentation to use centralized documentation site.

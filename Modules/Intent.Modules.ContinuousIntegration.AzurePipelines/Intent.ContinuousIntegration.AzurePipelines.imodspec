@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.ContinuousIntegration.AzurePipelines</id>
-  <version>1.0.5</version>
-  <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
+  <version>1.1.0</version>
+  <supportedClientVersions>[4.4.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Scaffolds a basic Azure Pipelines pipeline which will attempt to compile your solution on every commit and ensure there are no outstanding Intent Architect changes.</summary>
   <description>Scaffolds a basic Azure Pipelines pipeline which will attempt to compile your solution on every commit and ensure there are no outstanding Intent Architect changes.</description>
   <authors>Intent Architect</authors>
@@ -18,6 +18,13 @@
   <decorators></decorators>
   <factoryExtensions></factoryExtensions>
   <moduleSettings></moduleSettings>
+  <interoperability>
+    <detect id="Intent.VisualStudio.Projects">
+      <install>
+        <package id="Intent.VisualStudio.Projects" version="4.0.0" />
+      </install>
+    </detect>
+  </interoperability>
   <dependencies>
     <dependency id="Intent.Common" version="3.7.2" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
