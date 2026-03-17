@@ -6,15 +6,15 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace FastEndpointsTest.Application.AggregateRoots
 {
-    public class UpdateAggregateRootCommandCompositeDto2
+    public record UpdateAggregateRootCommandCompositeDto2
     {
         public UpdateAggregateRootCommandCompositeDto2()
         {
             CompositeAttr = null!;
         }
 
-        public Guid Id { get; set; }
-        public string CompositeAttr { get; set; }
+        public Guid Id { get; init; }
+        public string CompositeAttr { get; init; }
 
         public static UpdateAggregateRootCommandCompositeDto2 Create(Guid id, string compositeAttr)
         {

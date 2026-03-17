@@ -9,7 +9,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace FastEndpointsTest.Application.AggregateWithUniqueConstraintIndexElements
 {
-    public class AggregateWithUniqueConstraintIndexElementDto : IMapFrom<AggregateWithUniqueConstraintIndexElement>
+    public record AggregateWithUniqueConstraintIndexElementDto : IMapFrom<AggregateWithUniqueConstraintIndexElement>
     {
         public AggregateWithUniqueConstraintIndexElementDto()
         {
@@ -18,10 +18,10 @@ namespace FastEndpointsTest.Application.AggregateWithUniqueConstraintIndexElemen
             CompUniqueFieldB = null!;
         }
 
-        public Guid Id { get; set; }
-        public string SingleUniqueField { get; set; }
-        public string CompUniqueFieldA { get; set; }
-        public string CompUniqueFieldB { get; set; }
+        public Guid Id { get; init; }
+        public string SingleUniqueField { get; init; }
+        public string CompUniqueFieldA { get; init; }
+        public string CompUniqueFieldB { get; init; }
 
         public static AggregateWithUniqueConstraintIndexElementDto Create(
             Guid id,

@@ -5,7 +5,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace FastEndpointsTest.Application.Validation
 {
-    public class DummyResultDto
+    public record DummyResultDto
     {
         public DummyResultDto()
         {

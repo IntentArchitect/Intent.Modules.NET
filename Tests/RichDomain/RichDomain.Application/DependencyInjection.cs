@@ -25,7 +25,10 @@ namespace RichDomain.Application
                 cfg.AddOpenBehavior(typeof(ValidationBehaviour<,>));
                 cfg.AddOpenBehavior(typeof(UnitOfWorkBehaviour<,>));
             });
-            services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddAutoMapper(cfg =>
+            {
+                cfg.LicenseKey = configuration["AutoMapper:LicenseKey"] ?? string.Empty;
+            }, Assembly.GetExecutingAssembly());
             services.AddScoped<IValidatorProvider, ValidatorProvider>();
             return services;
         }

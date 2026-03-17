@@ -9,17 +9,17 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace FastEndpointsTest.Application.AggregateRoots
 {
-    public class AggregateRootCompositeManyBDto : IMapFrom<CompositeManyB>
+    public record AggregateRootCompositeManyBDto : IMapFrom<CompositeManyB>
     {
         public AggregateRootCompositeManyBDto()
         {
             CompositeAttr = null!;
         }
 
-        public Guid AggregateRootId { get; set; }
-        public Guid Id { get; set; }
-        public string CompositeAttr { get; set; }
-        public DateTime? SomeDate { get; set; }
+        public Guid AggregateRootId { get; init; }
+        public Guid Id { get; init; }
+        public string CompositeAttr { get; init; }
+        public DateTime? SomeDate { get; init; }
 
         public static AggregateRootCompositeManyBDto Create(
             Guid aggregateRootId,

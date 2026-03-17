@@ -53,15 +53,15 @@ namespace Intent.Modules.Application.AutoMapper
                             .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Options", "10.0.0")
                             .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.14.0"),
-                        ( >= 9, >= 0) => new PackageVersion("16.0.0")
+                        ( >= 9, >= 0) => new PackageVersion("16.1.1")
                             .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Options", "10.0.0")
                             .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.14.0"),
-                        ( >= 8, >= 0) => new PackageVersion("16.0.0")
+                        ( >= 8, >= 0) => new PackageVersion("16.1.1")
                             .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Options", "10.0.0")
                             .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.14.0"),
-                        ( >= 2, >= 0) => new PackageVersion("16.0.0")
+                        ( >= 2, >= 0) => new PackageVersion("16.1.1")
                             .WithNugetDependency("Microsoft.Bcl.HashCode", "6.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Options", "10.0.0")

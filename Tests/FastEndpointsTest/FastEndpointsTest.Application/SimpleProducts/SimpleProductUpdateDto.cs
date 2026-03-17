@@ -6,7 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace FastEndpointsTest.Application.SimpleProducts
 {
-    public class SimpleProductUpdateDto
+    public record SimpleProductUpdateDto
     {
         public SimpleProductUpdateDto()
         {
@@ -14,9 +14,9 @@ namespace FastEndpointsTest.Application.SimpleProducts
             Value = null!;
         }
 
-        public Guid Id { get; set; }
-        public string Name { get; set; }
-        public string Value { get; set; }
+        public Guid Id { get; init; }
+        public string Name { get; init; }
+        public string Value { get; init; }
 
         public static SimpleProductUpdateDto Create(Guid id, string name, string value)
         {

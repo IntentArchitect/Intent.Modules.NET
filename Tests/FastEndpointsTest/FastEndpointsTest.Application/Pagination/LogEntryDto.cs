@@ -9,16 +9,16 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace FastEndpointsTest.Application.Pagination
 {
-    public class LogEntryDto : IMapFrom<LogEntry>
+    public record LogEntryDto : IMapFrom<LogEntry>
     {
         public LogEntryDto()
         {
             Message = null!;
         }
 
-        public Guid Id { get; set; }
-        public string Message { get; set; }
-        public DateTime TimeStamp { get; set; }
+        public Guid Id { get; init; }
+        public string Message { get; init; }
+        public DateTime TimeStamp { get; init; }
 
         public static LogEntryDto Create(Guid id, string message, DateTime timeStamp)
         {

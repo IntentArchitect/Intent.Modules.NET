@@ -9,7 +9,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace FastEndpointsTest.Application.Pagination
 {
-    public class PersonEntryDto : IMapFrom<PersonEntry>
+    public record PersonEntryDto : IMapFrom<PersonEntry>
     {
         public PersonEntryDto()
         {
@@ -17,9 +17,9 @@ namespace FastEndpointsTest.Application.Pagination
             LastName = null!;
         }
 
-        public Guid Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public Guid Id { get; init; }
+        public string FirstName { get; init; }
+        public string LastName { get; init; }
 
         public static PersonEntryDto Create(Guid id, string firstName, string lastName)
         {

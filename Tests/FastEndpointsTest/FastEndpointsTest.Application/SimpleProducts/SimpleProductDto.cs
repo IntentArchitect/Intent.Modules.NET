@@ -9,7 +9,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace FastEndpointsTest.Application.SimpleProducts
 {
-    public class SimpleProductDto : IMapFrom<SimpleProduct>
+    public record SimpleProductDto : IMapFrom<SimpleProduct>
     {
         public SimpleProductDto()
         {
@@ -17,9 +17,9 @@ namespace FastEndpointsTest.Application.SimpleProducts
             Value = null!;
         }
 
-        public string Name { get; set; }
-        public string Value { get; set; }
-        public Guid Id { get; set; }
+        public string Name { get; init; }
+        public string Value { get; init; }
+        public Guid Id { get; init; }
 
         public static SimpleProductDto Create(string name, string value, Guid id)
         {
