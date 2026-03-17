@@ -49,7 +49,7 @@ namespace Intent.Modules.Application.AutoMapper
             NugetRegistry.Register(AutoMapperPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 10, >= 0) => new PackageVersion("16.0.0")
+                        ( >= 10, >= 0) => new PackageVersion("16.1.1")
                             .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Options", "10.0.0")
                             .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.14.0"),
