@@ -6,9 +6,9 @@
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>18c0eba7-dd73-4630-b235-e3d5949e33eb</parentFolderId>
+  <parentFolderId>0a9dcc9a-abb8-4988-a3d4-b93ad86499a5</parentFolderId>
   <packageId>18c0eba7-dd73-4630-b235-e3d5949e33eb</packageId>
-  <packageName>Intent.Modules.NET</packageName>
+  <packageName>root</packageName>
   <stereotypes />
   <metadata />
   <childElements />
