@@ -30,7 +30,7 @@ namespace Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.RequestR
             AddTypeSource(TemplateRoles.Application.Contracts.Dto);
             AddTypeSource(TemplateRoles.Application.Contracts.Enum);
 
-            CSharpFile = new CSharpFile(_namespaceProvider.GetFileNamespace(this), this.GetFolderPath())
+            CSharpFile = new CSharpFile(_namespaceProvider.GetFileNamespace(this), _namespaceProvider.GetFileLocation(this))
                 .AddClass($"{Model.Name}", @class =>
                 {
                     @class.AddConstructor();

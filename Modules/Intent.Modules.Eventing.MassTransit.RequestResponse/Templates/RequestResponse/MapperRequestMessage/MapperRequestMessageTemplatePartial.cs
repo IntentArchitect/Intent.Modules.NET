@@ -32,7 +32,7 @@ namespace Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.RequestR
             AddTypeSource(TemplateRoles.Application.Query);
             AddTypeSource(TemplateRoles.Application.Contracts.Dto);
 
-            CSharpFile = new CSharpFile(_namespaceProvider.GetFileNamespace(this), this.GetFolderPath())
+            CSharpFile = new CSharpFile(_namespaceProvider.GetFileNamespace(this), _namespaceProvider.GetFileLocation(this))
                 .AddClass(model.Name, @class =>
                 {
                     var hasMapperRequestInterface = TryGetTemplate<ITemplate>(MapperRequestInterfaceTemplate.TemplateId, out var requestTemplate) && requestTemplate.CanRunTemplate();

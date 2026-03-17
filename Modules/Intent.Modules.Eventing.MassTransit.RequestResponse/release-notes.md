@@ -1,3 +1,7 @@
+### Version 1.2.1
+
+- Fixed: Client transport contract generation now uses source package context, preventing file collisions when multiple proxies expose the same operation names from different receiver packages.
+
 ### Version 1.2.0
 
 - Improvement: Updated dependencies due to changes made in `Intent.Eventing.MassTransit`.

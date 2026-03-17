@@ -75,9 +75,8 @@ public static class ExtensionMethods
     {
         var element = model switch
         {
-            EnumModel enumModel => enumModel.InternalElement,
-            DTOModel dtoModel => dtoModel.InternalElement,
-            _ => throw new InvalidOperationException()
+            IElementWrapper wrapper => wrapper.InternalElement,
+            _ => throw new InvalidOperationException($"Model type '{typeof(T).Name}' does not implement {nameof(IElementWrapper)}.")
         };
 
         var outputTargetParts = new Queue<string>(outputTarget.GetNamespace().Split('.'));
