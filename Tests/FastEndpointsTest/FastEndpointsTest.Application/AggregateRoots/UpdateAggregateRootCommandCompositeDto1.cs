@@ -7,7 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace FastEndpointsTest.Application.AggregateRoots
 {
-    public class UpdateAggregateRootCommandCompositeDto1
+    public record UpdateAggregateRootCommandCompositeDto1
     {
         public UpdateAggregateRootCommandCompositeDto1()
         {
@@ -15,10 +15,10 @@ namespace FastEndpointsTest.Application.AggregateRoots
             Composites = null!;
         }
 
-        public Guid Id { get; set; }
-        public string CompositeAttr { get; set; }
-        public List<UpdateAggregateRootCommandCompositesDto2> Composites { get; set; }
-        public UpdateAggregateRootCommandCompositeDto2? Composite { get; set; }
+        public Guid Id { get; init; }
+        public string CompositeAttr { get; init; }
+        public List<UpdateAggregateRootCommandCompositesDto2> Composites { get; init; }
+        public UpdateAggregateRootCommandCompositeDto2? Composite { get; init; }
 
         public static UpdateAggregateRootCommandCompositeDto1 Create(
             Guid id,

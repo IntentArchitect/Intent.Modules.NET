@@ -8,16 +8,16 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace FastEndpointsTest.Application.AggregateRootLongs
 {
-    public class AggregateRootLongDto : IMapFrom<AggregateRootLong>
+    public record AggregateRootLongDto : IMapFrom<AggregateRootLong>
     {
         public AggregateRootLongDto()
         {
             Attribute = null!;
         }
 
-        public long Id { get; set; }
-        public string Attribute { get; set; }
-        public AggregateRootLongCompositeOfAggrLongDto? CompositeOfAggrLong { get; set; }
+        public long Id { get; init; }
+        public string Attribute { get; init; }
+        public AggregateRootLongCompositeOfAggrLongDto? CompositeOfAggrLong { get; init; }
 
         public static AggregateRootLongDto Create(
             long id,

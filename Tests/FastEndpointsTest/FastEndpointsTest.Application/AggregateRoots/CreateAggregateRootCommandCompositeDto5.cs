@@ -5,14 +5,14 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace FastEndpointsTest.Application.AggregateRoots
 {
-    public class CreateAggregateRootCommandCompositeDto5
+    public record CreateAggregateRootCommandCompositeDto5
     {
         public CreateAggregateRootCommandCompositeDto5()
         {
             CompositeAttr = null!;
         }
 
-        public string CompositeAttr { get; set; }
+        public string CompositeAttr { get; init; }
 
         public static CreateAggregateRootCommandCompositeDto5 Create(string compositeAttr)
         {

@@ -7,7 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace FastEndpointsTest.Application.AggregateRoots
 {
-    public class CreateAggregateRootCommandCompositesDto
+    public record CreateAggregateRootCommandCompositesDto
     {
         public CreateAggregateRootCommandCompositesDto()
         {
@@ -15,10 +15,10 @@ namespace FastEndpointsTest.Application.AggregateRoots
             Composites = null!;
         }
 
-        public string CompositeAttr { get; set; }
-        public DateTime? SomeDate { get; set; }
-        public List<CreateAggregateRootCommandCompositesDto1> Composites { get; set; }
-        public CreateAggregateRootCommandCompositeDto? Composite { get; set; }
+        public string CompositeAttr { get; init; }
+        public DateTime? SomeDate { get; init; }
+        public List<CreateAggregateRootCommandCompositesDto1> Composites { get; init; }
+        public CreateAggregateRootCommandCompositeDto? Composite { get; init; }
 
         public static CreateAggregateRootCommandCompositesDto Create(
             string compositeAttr,

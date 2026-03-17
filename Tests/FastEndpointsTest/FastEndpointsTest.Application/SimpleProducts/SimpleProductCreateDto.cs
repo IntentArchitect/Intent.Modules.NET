@@ -5,7 +5,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace FastEndpointsTest.Application.SimpleProducts
 {
-    public class SimpleProductCreateDto
+    public record SimpleProductCreateDto
     {
         public SimpleProductCreateDto()
         {
@@ -13,8 +13,8 @@ namespace FastEndpointsTest.Application.SimpleProducts
             Value = null!;
         }
 
-        public string Name { get; set; }
-        public string Value { get; set; }
+        public string Name { get; init; }
+        public string Value { get; init; }
 
         public static SimpleProductCreateDto Create(string name, string value)
         {

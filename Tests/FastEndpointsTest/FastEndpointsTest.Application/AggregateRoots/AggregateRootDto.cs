@@ -10,7 +10,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace FastEndpointsTest.Application.AggregateRoots
 {
-    public class AggregateRootDto : IMapFrom<AggregateRoot>
+    public record AggregateRootDto : IMapFrom<AggregateRoot>
     {
         public AggregateRootDto()
         {
@@ -19,14 +19,14 @@ namespace FastEndpointsTest.Application.AggregateRoots
             LimitedService = null!;
         }
 
-        public Guid Id { get; set; }
-        public string AggregateAttr { get; set; }
-        public string LimitedDomain { get; set; }
-        public string LimitedService { get; set; }
-        public EnumWithoutValues EnumType1 { get; set; }
-        public EnumWithDefaultLiteral EnumType2 { get; set; }
-        public EnumWithoutDefaultLiteral EnumType3 { get; set; }
-        public Guid? AggregateId { get; set; }
+        public Guid Id { get; init; }
+        public string AggregateAttr { get; init; }
+        public string LimitedDomain { get; init; }
+        public string LimitedService { get; init; }
+        public EnumWithoutValues EnumType1 { get; init; }
+        public EnumWithDefaultLiteral EnumType2 { get; init; }
+        public EnumWithoutDefaultLiteral EnumType3 { get; init; }
+        public Guid? AggregateId { get; init; }
 
         public static AggregateRootDto Create(
             Guid id,
