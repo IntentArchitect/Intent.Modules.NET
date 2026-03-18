@@ -1,3 +1,7 @@
+### Version 5.0.40
+
+- Fixed: Entity Validation had bug which would cause an infinite loop in some cases. This has been alleviated.
+
 ### Version 5.0.39
 
 - Improvement: `Suppress Connection String` setting introduced to opt-out of adding connection string settings to appsettings.json files.

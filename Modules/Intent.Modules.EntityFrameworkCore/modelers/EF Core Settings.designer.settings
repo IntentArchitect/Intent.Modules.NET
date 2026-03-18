@@ -416,7 +416,7 @@ function getSurrogateKeyType() {
     }
     return typeNameToIdMap.get("guid");
 }
-;
+/// &lt;reference path="../../typings/elementmacro.context.api.d.ts"/&gt;
 /// &lt;reference path="getSurrogateKeyType.ts"/&gt;
 /// &lt;reference path="attributeWithMapPath.ts"/&gt;
 class DomainHelper {
@@ -498,16 +498,18 @@ class DomainHelper {
             id: key.id,
             name: key.getName(),
             typeId: key.typeReference.typeId,
+            typeReferenceModel: key.typeReference.toModel(),
             mapPath: [key.id],
             isNullable: false,
             isCollection: false
         });
-        traverseInheritanceHierarchyForPrimaryKeys(keydict, entity, []);
+        traverseInheritanceHierarchyForPrimaryKeys(keydict, entity, [], new Set());
         return keydict;
-        function traverseInheritanceHierarchyForPrimaryKeys(keydict, curEntity, generalizationStack) {
-            if (!curEntity) {
+        function traverseInheritanceHierarchyForPrimaryKeys(keydict, curEntity, generalizationStack, visited) {
+            if (!curEntity || visited.has(curEntity.id)) {
                 return;
             }
+            visited.add(curEntity.id);
             let generalizations = curEntity.getAssociations("Generalization").filter(x =&gt; x.isTargetEnd());
             if (generalizations.length == 0) {
                 return;
@@ -521,12 +523,13 @@ class DomainHelper {
                     id: key.id,
                     name: key.getName(),
                     typeId: key.typeReference.typeId,
+                    typeReferenceModel: key.typeReference.toModel(),
                     mapPath: generalizationStack.concat([key.id]),
                     isNullable: key.typeReference.isNullable,
                     isCollection: key.typeReference.isCollection
                 };
             });
-            traverseInheritanceHierarchyForPrimaryKeys(keydict, nextEntity, generalizationStack);
+            traverseInheritanceHierarchyForPrimaryKeys(keydict, nextEntity, generalizationStack, visited);
         }
     }
     static getForeignKeys(entity, owningAggregate) {
@@ -556,6 +559,7 @@ class DomainHelper {
         return foreignKeys.map(x =&gt; ({
             name: DomainHelper.getAttributeNameFormat(x.getName()),
             typeId: x.typeReference.typeId,
+            typeReferenceModel: x.typeReference.toModel(),
             id: x.id,
             mapPath: [x.id],
             isCollection: x.typeReference.isCollection,
@@ -580,6 +584,7 @@ class DomainHelper {
             id: attr.id,
             name: attr.getName(),
             typeId: attr.typeReference.typeId,
+            typeReferenceModel: attr.typeReference.toModel(),
             mapPath: [attr.id],
             isNullable: attr.typeReference.isNullable,
             isCollection: attr.typeReference.isCollection
@@ -600,16 +605,18 @@ class DomainHelper {
             id: attr.id,
             name: attr.getName(),
             typeId: attr.typeReference.typeId,
+            typeReferenceModel: attr.typeReference.toModel(),
             mapPath: [attr.id],
             isNullable: false,
             isCollection: false
         });
-        traverseInheritanceHierarchyForAttributes(attrDict, entity, []);
+        traverseInheritanceHierarchyForAttributes(attrDict, entity, [], new Set());
         return Object.values(attrDict);
-        function traverseInheritanceHierarchyForAttributes(attrDict, curEntity, generalizationStack) {
-            if (!curEntity) {
+        function traverseInheritanceHierarchyForAttributes(attrDict, curEntity, generalizationStack, visited) {
+            if (!curEntity || visited.has(curEntity.id)) {
                 return;
             }
+            visited.add(curEntity.id);
             let generalizations = curEntity.getAssociations("Generalization").filter(x =&gt; x.isTargetEnd());
             if (generalizations.length == 0) {
                 return;
@@ -623,17 +630,22 @@ class DomainHelper {
                     id: attr.id,
                     name: attr.getName(),
                     typeId: attr.typeReference.typeId,
+                    typeReferenceModel: attr.typeReference.toModel(),
                     mapPath: generalizationStack.concat([attr.id]),
                     isNullable: attr.typeReference.isNullable,
                     isCollection: attr.typeReference.isCollection
                 };
             });
-            traverseInheritanceHierarchyForAttributes(attrDict, nextEntity, generalizationStack);
+            traverseInheritanceHierarchyForAttributes(attrDict, nextEntity, generalizationStack, visited);
         }
     }
     static getMandatoryAssociationsWithMapPath(entity) {
-        return traverseInheritanceHierarchy(entity, [], []);
-        function traverseInheritanceHierarchy(entity, results, generalizationStack) {
+        return traverseInheritanceHierarchy(entity, [], [], new Set());
+        function traverseInheritanceHierarchy(entity, results, generalizationStack, visited) {
+            if (!entity || visited.has(entity.id)) {
+                return results;
+            }
+            visited.add(entity.id);
             entity
                 .getAssociations("Association")
                 .filter(x =&gt; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable &amp;&amp; x.typeReference.isNavigable &amp;&amp;
@@ -643,6 +655,7 @@ class DomainHelper {
                     id: association.id,
                     name: association.getName(),
                     typeId: null,
+                    typeReferenceModel: null,
                     mapPath: generalizationStack.concat([association.id]),
                     isNullable: false,
                     isCollection: false
@@ -654,7 +667,7 @@ class DomainHelper {
             }
             let generalization = generalizations[0];
             generalizationStack.push(generalization.id);
-            return traverseInheritanceHierarchy(generalization.typeReference.getType(), results, generalizationStack);
+            return traverseInheritanceHierarchy(generalization.typeReference.getType(), results, generalizationStack, visited);
         }
     }
     static getAttributeNameFormat(str) {
@@ -700,10 +713,11 @@ class DomainHelper {
         }
         return owners[0];
     }
-    static getOwnersRecursive(entity) {
-        if (!entity || entity.specialization != "Class") {
-            return null;
+    static getOwnersRecursive(entity, visited = new Set()) {
+        if (!entity || entity.specialization != "Class" || visited.has(entity.id)) {
+            return [];
         }
+        visited.add(entity.id);
         let results = entity.getAssociations("Association").filter(x =&gt; DomainHelper.isOwnedByAssociation(x));
         let result = [];
         for (let i = 0; i &lt; results.length; i++) {
@@ -712,7 +726,7 @@ class DomainHelper {
                 result.push(owner);
             }
             else {
-                result.push(...DomainHelper.getOwnersRecursive(owner));
+                result.push(...DomainHelper.getOwnersRecursive(owner, visited));
             }
         }
         return result;
@@ -722,10 +736,14 @@ class DomainHelper {
             !association.typeReference.isNullable &amp;&amp;
             !association.typeReference.isCollection;
     }
-    static getOwningAggregateKeyChain(entity) {
+    static getOwningAggregateKeyChain(entity, visited = new Set()) {
         if (!entity || entity.specialization != "Class") {
             return null;
         }
+        if (visited.has(entity.id)) {
+            return [];
+        }
+        visited.add(entity.id);
         let results = entity.getAssociations("Association").filter(x =&gt; DomainHelper.isOwnedByAssociation(x));
         let result = [];
         if (results.length == 0)
@@ -745,7 +763,7 @@ class DomainHelper {
             result.push({ attribute: attribute, expectedName: expectedName });
         });
         if (!DomainHelper.isAggregateRoot(owner)) {
-            result.unshift(...DomainHelper.getOwningAggregateKeyChain(owner));
+            result.unshift(...DomainHelper.getOwningAggregateKeyChain(owner, visited));
         }
         return result;
     }
@@ -783,7 +801,6 @@ function isCosmosDbProvider() {
  * https://github.com/IntentArchitect/Intent.Modules/blob/development/DesignerMacros/src/rdbms/composite-validation/composite-validation.ts
  */
 return validateDomainEntity(element);
-//validateDomainEntity(element);
 </validateFunctionOverride>
       <mappingSettings />
       <macros>
