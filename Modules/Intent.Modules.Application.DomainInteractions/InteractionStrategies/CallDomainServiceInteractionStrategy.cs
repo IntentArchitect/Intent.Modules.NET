@@ -5,11 +5,13 @@ using System.Linq;
 using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
+using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Interactions;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Constants;
+using Intent.Modules.Application.DomainInteractions.Extensions;
 
 namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies;
 
@@ -61,10 +63,15 @@ public class CallDomainServiceInteractionStrategy : IInteractionStrategy
             var invStatement = methodInvocation as CSharpInvocationStatement;
             if (invStatement?.IsAsyncInvocation() == true)
             {
-                if (method.Parameters.Any(x => x.Type == "CancellationToken"))
+                var element = (IElement)interaction.TypeReference.Element;
+                if (!element.NoCancellationToken())
                 {
-                    invStatement.AddArgument(method.Parameters.Single(x => x.Type == "CancellationToken").Name);
+                    if (method.Parameters.Any(x => x.Type == "CancellationToken"))
+                    {
+                        invStatement.AddArgument(method.Parameters.Single(x => x.Type == "CancellationToken").Name);
+                    }
                 }
+
                 invoke = new CSharpAwaitExpression(invoke);
             }
 
@@ -106,6 +113,8 @@ public class CallDomainServiceInteractionStrategy : IInteractionStrategy
             throw new ElementException(interaction, $"An error occurred while generating the interaction logic: {ex.Message}\nSee inner exception for more details.", ex);
         }
     }
+
+    
 
     private const string DomainServiceSpecializationId = "07f936ea-3756-48c8-babd-24ac7271daac";
     private const string ApplicationServiceSpecializationId = "b16578a5-27b1-4047-a8df-f0b783d706bd";

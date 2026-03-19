@@ -108,6 +108,13 @@ public static class DomainServiceInjectionExtensions
         }
     }
 
+    public static bool NoCancellationToken(this IElement element)
+    {
+        return element.Stereotypes.Any(s => s.DefinitionId == "A225C795-33E9-417D-8D58-E22826A08224") &&
+            element.Stereotypes.First(s => s.DefinitionId == "A225C795-33E9-417D-8D58-E22826A08224").TryGetProperty("2801e2a9-5797-406f-b289-43af8fbb2d7e", out var noToken)
+            && noToken.Value == "true";
+    }
+
     //private static void WireUpDomainServicesForOperations(ICSharpClass handlerClass, IAssociationEnd callServiceOperation, List<CSharpStatement> statements)
     //{
     //    var operation = callServiceOperation.TypeReference.Element.AsOperationModel();

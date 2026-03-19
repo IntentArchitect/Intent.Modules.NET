@@ -1,15 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using Intent.Exceptions;
+﻿using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
+using Intent.Modules.Application.DomainInteractions.Extensions;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Interactions;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Constants;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 
 namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies;
 
@@ -64,9 +65,13 @@ internal class CallEntityServiceInteractionStrategy : IInteractionStrategy
             var invStatement = methodInvocation as CSharpInvocationStatement;
             if (invStatement?.IsAsyncInvocation() == true)
             {
-                if (method.Parameters.Any(x => x.Type == "CancellationToken"))
+                var element = (IElement)interaction.TypeReference.Element;
+                if (!element.NoCancellationToken())
                 {
-                    invStatement.AddArgument(method.Parameters.Single(x => x.Type == "CancellationToken").Name);
+                    if (method.Parameters.Any(x => x.Type == "CancellationToken"))
+                    {
+                        invStatement.AddArgument(method.Parameters.Single(x => x.Type == "CancellationToken").Name);
+                    }
                 }
                 invoke = new CSharpAwaitExpression(invoke);
             }
