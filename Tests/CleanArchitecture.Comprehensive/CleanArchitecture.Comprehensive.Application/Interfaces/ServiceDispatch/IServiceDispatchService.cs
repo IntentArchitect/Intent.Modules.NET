@@ -17,5 +17,6 @@ namespace CleanArchitecture.Comprehensive.Application.Interfaces.ServiceDispatch
         string Query6();
         Task<string> Query7Async(CancellationToken cancellationToken = default);
         Task<string> Query8Async(string param, CancellationToken cancellationToken = default);
+        Task Query9NoToken(int input);
     }
 }

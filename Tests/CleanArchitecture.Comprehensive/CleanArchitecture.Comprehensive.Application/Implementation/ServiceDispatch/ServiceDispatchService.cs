@@ -73,5 +73,12 @@ namespace CleanArchitecture.Comprehensive.Application.Implementation.ServiceDisp
             // TODO: Implement Query8Async (ServiceDispatchService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
+
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
+        public async Task Query9NoToken(int input)
+        {
+            // TODO: Implement Query9NoToken (ServiceDispatchService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
+        }
     }
 }

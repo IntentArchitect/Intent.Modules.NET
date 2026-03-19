@@ -457,5 +457,65 @@
         </childElement>
       </childElements>
     </childElement>
+    <childElement id="f5c6577d-336e-480e-bf30-cbd96d5e425c" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>Query9NoToken</name>
+      <display>Query9NoToken(input: int): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="cee4e021-c17d-4e7e-8f62-873d182efbb3">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>fac7c4e9-0a70-47df-94c4-eb0da4d64ced</parentFolderId>
+      <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+      <packageName>CleanArchitecture.Comprehensive.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="A225C795-33E9-417D-8D58-E22826A08224" name="Asynchronous">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Application.Contracts</definitionPackageName>
+          <definitionPackageId>b258d75f-f895-43b9-bb91-6500664716f9</definitionPackageId>
+          <properties>
+            <property name="2801e2a9-5797-406f-b289-43af8fbb2d7e" display="No Cancellation Token" value="true" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="b2345a8a-b37f-4b7b-ab18-ee94603c7969" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>input</name>
+          <display>in : input: int</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="0a4acbee-e0db-4bec-885d-49001ff4b3aa">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>f5c6577d-336e-480e-bf30-cbd96d5e425c</parentFolderId>
+          <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+          <packageName>CleanArchitecture.Comprehensive.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>
