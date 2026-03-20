@@ -1,6 +1,7 @@
 ### Version 5.0.40
 
 - Fixed: Entity Validation had bug which would cause an infinite loop in some cases. This has been alleviated.
+- Fixed: Implicit composite detection wrongfully used in logic to check whether Table / View stereotype was applied together.
 
 ### Version 5.0.39
 

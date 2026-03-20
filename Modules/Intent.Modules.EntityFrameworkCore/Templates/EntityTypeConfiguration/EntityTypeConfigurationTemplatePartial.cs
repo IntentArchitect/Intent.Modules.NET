@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Intent.Engine;
 using Intent.EntityFrameworkCore.Api;
+using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Metadata.RDBMS.Api;
 using Intent.Modules.Common;
@@ -277,15 +278,16 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
         private IEnumerable<CSharpStatement> GetTableMapping(ClassExtensionModel model)
         {
-            if (model.HasView() && model.ShouldOptOutOfCompositeModel(ExecutionContext))
+            if (model.HasView() && model.HasTable())
             {
-                throw new Exception($"Class \"{model.Name}\" [{model.Id}] has both a \"Table\" and \"View\" stereotype applied to it.");
+                throw new ElementException(model.InternalElement, $"Entity \"{model.Name}\" [{model.Id}] has both a \"Table\" and \"View\" stereotype applied to it.");
             }
 
             if (model.HasView())
             {
-                yield return
-                    $@"builder.ToView(""{model.GetView()?.Name() ?? GetTableNameByConvention(model.Name)}""{(!string.IsNullOrWhiteSpace(model.FindSchema()) ? @$", ""{model.FindSchema()}""" : "")});";
+                var viewName = model.GetView()?.Name() ?? GetTableNameByConvention(model.Name);
+                var viewSchemaExpression = !string.IsNullOrWhiteSpace(model.FindSchema()) ? $@", ""{model.FindSchema()}""" : "";
+                yield return $@"builder.ToView(""{viewName}""{viewSchemaExpression});";
             }
             else if (model.ShouldOptOutOfCompositeModel(ExecutionContext) && (IsInheriting(model) || !string.IsNullOrWhiteSpace(model.GetTable()?.Name()) || !string.IsNullOrWhiteSpace(model.FindSchema())))
             {
