@@ -1,3 +1,8 @@
+### Version 4.1.17
+
+- Fixed: `ApplicationIdentityUser` to have `Table` stereotype to ensure `IdentityUser<T>` table doesn't get created.
+- Fixed: `Register` would break when trying to `SetEmailAsync` before `CreateAsync` since user is expected to be in the DB before being created.
+
 ### Version 4.1.16
 
 - Improvement: Updated NuGet package versions.

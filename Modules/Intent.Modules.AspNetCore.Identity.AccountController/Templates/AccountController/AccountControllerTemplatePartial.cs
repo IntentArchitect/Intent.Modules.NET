@@ -88,8 +88,9 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.Account
 
                             var user = new {this.GetIdentityUserClass()} {{ Id = Guid.NewGuid().ToString() }};
 
+                            var emailStore = (IUserEmailStore<{this.GetIdentityUserClass()}>)_userStore;
                             await _userStore.SetUserNameAsync(user, input.Email, CancellationToken.None);
-                            await _userManager.SetEmailAsync(user, input.Email);
+                            await emailStore.SetEmailAsync(user, input.Email, CancellationToken.None);
                             var result = await _userManager.CreateAsync(user, input.Password!);
 
                             if (!result.Succeeded)

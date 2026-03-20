@@ -1,3 +1,7 @@
+### Version 1.0.13
+
+- Fixed: `ApplicationIdentityUser` to have `Table` stereotype to ensure `IdentityUser<T>` table doesn't get created.
+
 ### Version 1.0.12
 
 - Improvement: Updated NuGet package versions.

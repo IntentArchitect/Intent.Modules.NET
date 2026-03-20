@@ -71,7 +71,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Migrations
             var updateTwoFactorEndpointId = Guid.NewGuid().ToString();
             var accessTokenResponseDtoId = Guid.NewGuid().ToString();
 
-            package.Classes.Add(new ElementPersistable
+            var item = new ElementPersistable
             {
                 Id = identityFolderId,
                 SpecializationType = "Folder",
@@ -84,27 +84,26 @@ namespace Intent.Modules.AspNetCore.IdentityService.Migrations
                 ParentFolderId = package.Id,
                 PackageId = package.Id,
                 PackageName = package.Name,
-                Stereotypes = new List<StereotypePersistable>
+                Stereotypes = new List<StereotypePersistable>()
+            };
+            item.Stereotypes.Add(new StereotypePersistable
+            {
+                DefinitionId = Guid.Parse("66fd9e66-42c7-4ef9-a778-b68e009272b9").ToString(),
+                Name = "Folder Options",
+                AddedByDefault = true,
+                DefinitionPackageName = "Intent.Common.CSharp",
+                DefinitionPackageId = Guid.Parse("730e1275-0c32-44f7-991a-9619d07ca68d").ToString(),
+                Properties = new List<StereotypePropertyPersistable>
+                {
+                    new StereotypePropertyPersistable
                     {
-                        new StereotypePersistable
-                        {
-                            DefinitionId = Guid.Parse("66fd9e66-42c7-4ef9-a778-b68e009272b9").ToString(),
-                            Name = "Folder Options",
-                            AddedByDefault = true,
-                            DefinitionPackageName = "Intent.Common.CSharp",
-                            DefinitionPackageId = Guid.Parse("730e1275-0c32-44f7-991a-9619d07ca68d").ToString(),
-                            Properties = new List<StereotypePropertyPersistable>
-                            {
-                                new StereotypePropertyPersistable
-                                {
-                                    Name = "Namespace Provider",
-                                    Value = "true",
-                                    IsActive = true
-                                }
-                            }
-                        }
+                        Name = "Namespace Provider",
+                        Value = "true",
+                        IsActive = true
                     }
+                }
             });
+            package.Classes.Add(item);
 
             CreateDto(package, accessTokenResponseDtoId, "AccessTokenResponseDto", "AccessTokenResponseDto", identityFolderId, new List<ElementPersistable>
                 {
@@ -146,388 +145,656 @@ namespace Intent.Modules.AspNetCore.IdentityService.Migrations
                         PackageName = package.Name,
                         SpecializationType = "Service",
                         SpecializationTypeId = "b16578a5-27b1-4047-a8df-f0b783d706bd",
-                        Stereotypes = new List<StereotypePersistable>
-                        {
-                                new StereotypePersistable
+                        Stereotypes =
+                        [
+                            new StereotypePersistable
+                            {
+                                DefinitionId = "c29224ec-d473-4b95-ad4a-ec55c676c4fd",
+                                Name = "Http Service Settings",
+                                AddedByDefault = false,
+                                DefinitionPackageId = "0011387a-b122-45d7-9cdb-8e21b315ab9f",
+                                DefinitionPackageName = "Intent.Metadata.WebApi",
+                                Properties = new List<StereotypePropertyPersistable>
                                 {
-                                    DefinitionId = "c29224ec-d473-4b95-ad4a-ec55c676c4fd",
-                                    Name = "Http Service Settings",
-                                    AddedByDefault = false,
-                                    DefinitionPackageId = "0011387a-b122-45d7-9cdb-8e21b315ab9f",
-                                    DefinitionPackageName = "Intent.Metadata.WebApi",
-                                    Properties = new List<StereotypePropertyPersistable>
-                                    {
-                                        new StereotypePropertyPersistable { DefinitionId = "1e223bd0-7a72-435a-8741-a612d88e4a12", Name = "Route", Value="", IsActive = true}
-                                    }
-                                },
-                                new StereotypePersistable
-                                {
-                                    DefinitionId = "8ef84001-167a-4cbb-8950-e519937e7981",
-                                    AddedByDefault = false,
-                                    DefinitionPackageName = "Intent.AspNetCore.IdentityService",
-                                    DefinitionPackageId = "a1a75470-3437-43b1-be57-f2187693929b",
-                                    Name = "Identity Service"
+                                    new StereotypePropertyPersistable
+                                        { DefinitionId = "1e223bd0-7a72-435a-8741-a612d88e4a12", Name = "Route", Value = "", IsActive = true }
                                 }
-                        },
-                        ChildElements = new List<ElementPersistable>
-                        {
-                                CreateEndpoint(confirmEmailEndpointId, "ConfirmEmail", "ConfirmEmail(userId: string, code: string, changedEmail: string?): string",
-                                identityServiceId, package.Id, package.Name, StringTypeReference(), new List<StereotypePropertyPersistable>
-                                {
-                                    new StereotypePropertyPersistable { DefinitionId = "801c3e61-4431-4d81-93fa-7e57d33cb3fa", Name = "Verb",  Value="GET", IsActive = true },
-                                    new StereotypePropertyPersistable { DefinitionId = "5dd3e07d-76eb-45d4-9956-4325fb068acc", Name = "Route", Value="confirmEmail", IsActive = true },
-                                    new StereotypePropertyPersistable { DefinitionId = "4490e212-1e99-43ce-b3dd-048ed2a6bae8", Name = "Return Type Mediatype", Value="Default",IsActive = true },
-                                    new StereotypePropertyPersistable { DefinitionId = "e3870725-34b3-4684-85f2-ec4a667207fb", Name = "Success Response Code", IsActive = true }
-                                },
+                            },
+
+                            new StereotypePersistable
+                            {
+                                DefinitionId = "8ef84001-167a-4cbb-8950-e519937e7981",
+                                AddedByDefault = false,
+                                DefinitionPackageName = "Intent.AspNetCore.IdentityService",
+                                DefinitionPackageId = "a1a75470-3437-43b1-be57-f2187693929b",
+                                Name = "Identity Service"
+                            }
+                        ],
+                        ChildElements =
+                        [
+                            CreateEndpoint(confirmEmailEndpointId, "ConfirmEmail", "ConfirmEmail(userId: string, code: string, changedEmail: string?): string",
+                                identityServiceId, package.Id, package.Name, StringTypeReference(), 
+                                [
+                                    new StereotypePropertyPersistable
+                                        { DefinitionId = "801c3e61-4431-4d81-93fa-7e57d33cb3fa", Name = "Verb", Value = "GET", IsActive = true },
+
+                                    new StereotypePropertyPersistable
+                                        { DefinitionId = "5dd3e07d-76eb-45d4-9956-4325fb068acc", Name = "Route", Value = "confirmEmail", IsActive = true },
+
+                                    new StereotypePropertyPersistable
+                                    {
+                                        DefinitionId = "4490e212-1e99-43ce-b3dd-048ed2a6bae8", Name = "Return Type Mediatype", Value = "Default",
+                                        IsActive = true
+                                    },
+
+                                    new StereotypePropertyPersistable
+                                        { DefinitionId = "e3870725-34b3-4684-85f2-ec4a667207fb", Name = "Success Response Code", IsActive = true }
+                                ],
                                 new List<ElementPersistable>
                                 {
                                     CreateInParameter(Guid.NewGuid().ToString(), "userId", "in : userId: string", confirmEmailEndpointId, package.Id,
-                                    package.Name, new List<StereotypePropertyPersistable>
-                                    {
-                                        new StereotypePropertyPersistable { DefinitionId = "d2630e0f-f930-404f-b453-1e8052a712f5", Name = "Source",  Value="From Query", IsActive = true },
-                                        new StereotypePropertyPersistable { DefinitionId = "7a331e9b-f13c-4b33-9013-bd59b4a4999c", Name = "Header Name", IsActive = false },
-                                        new StereotypePropertyPersistable { DefinitionId = "c8caa58e-972a-42f2-983e-652ceee762b2", Name = "Query String Name", IsActive = true }
-                                    }, StringTypeReference()),
-                                    CreateInParameter(Guid.NewGuid().ToString(), "code", "in : code: string", confirmEmailEndpointId, package.Id,
-                                    package.Name, new List<StereotypePropertyPersistable>
-                                    {
-                                        new StereotypePropertyPersistable { DefinitionId = "d2630e0f-f930-404f-b453-1e8052a712f5", Name = "Source",  Value="From Query", IsActive = true },
-                                        new StereotypePropertyPersistable { DefinitionId = "7a331e9b-f13c-4b33-9013-bd59b4a4999c", Name = "Header Name", IsActive = false },
-                                        new StereotypePropertyPersistable { DefinitionId = "c8caa58e-972a-42f2-983e-652ceee762b2", Name = "Query String Name", IsActive = true }
-                                    }, StringTypeReference()),
-                                    CreateInParameter(Guid.NewGuid().ToString(), "changedEmail", "in : changedEmail: string", confirmEmailEndpointId, package.Id,
-                                    package.Name, new List<StereotypePropertyPersistable>
-                                    {
-                                        new StereotypePropertyPersistable { DefinitionId = "d2630e0f-f930-404f-b453-1e8052a712f5", Name = "Source",  Value="From Query", IsActive = true },
-                                        new StereotypePropertyPersistable { DefinitionId = "7a331e9b-f13c-4b33-9013-bd59b4a4999c", Name = "Header Name", IsActive = false },
-                                        new StereotypePropertyPersistable { DefinitionId = "c8caa58e-972a-42f2-983e-652ceee762b2", Name = "Query String Name", IsActive = true }
-                                    }, StringTypeReference(true))
-                                }),
-                                CreateEndpoint(forgotPasswordEndpointId, "ForgotPassword", "ForgotPassword(resetRequest: ForgotPasswordRequestDto): void",
-                                identityServiceId, package.Id, package.Name, VoidTypeReference(), new List<StereotypePropertyPersistable>
-                                {
-                                    new StereotypePropertyPersistable { DefinitionId = "801c3e61-4431-4d81-93fa-7e57d33cb3fa", Name = "Verb",  Value="POST", IsActive = true },
-                                    new StereotypePropertyPersistable { DefinitionId = "5dd3e07d-76eb-45d4-9956-4325fb068acc", Name = "Route", Value="forgotPassword", IsActive = true },
-                                    new StereotypePropertyPersistable { DefinitionId = "4490e212-1e99-43ce-b3dd-048ed2a6bae8", Name = "Return Type Mediatype", Value="Default",IsActive = true },
-                                    new StereotypePropertyPersistable { DefinitionId = "e3870725-34b3-4684-85f2-ec4a667207fb", Name = "Success Response Code", Value="200 (Ok)", IsActive = true }
-                                },
-                                new List<ElementPersistable>
-                                {
-                                    CreateInParameter(Guid.NewGuid().ToString(), "resetRequest", "in : resetRequest: ForgotPasswordRequestDto", forgotPasswordEndpointId, package.Id,
-                                    package.Name, new List<StereotypePropertyPersistable>
-                                    {
-                                        new StereotypePropertyPersistable { DefinitionId = "d2630e0f-f930-404f-b453-1e8052a712f5", Name = "Source",  Value="From Body", IsActive = true },
-                                        new StereotypePropertyPersistable { DefinitionId = "7a331e9b-f13c-4b33-9013-bd59b4a4999c", Name = "Header Name", IsActive = false },
-                                        new StereotypePropertyPersistable { DefinitionId = "c8caa58e-972a-42f2-983e-652ceee762b2", Name = "Query String Name", IsActive = false }
-                                    }, CustomTypeReference(package.Name, package.Id, CreateDto(package, "0fb483ce-b561-46e8-b9b5-6d07082792e6", "ForgotPasswordRequestDto", "ForgotPasswordRequestDto", identityFolderId, new List<ElementPersistable>
-                                    {
-                                        CreateDtoField("Email", "Email: string", "0fb483ce-b561-46e8-b9b5-6d07082792e6", package.Id, package.Name, StringTypeReference(),
-                                        new List<StereotypePersistable>
-                                        {
-                                           CreateValidationsStereotype(true, true)
-                                        })
-                                    }
-                                    )))
-                                }),
-                                CreateEndpoint(getInfoEndpointId, "GetInfo", "GetInfo(): InfoResponseDto",
-                                identityServiceId, package.Id, package.Name,
-                                CustomTypeReference(package.Name, package.Id, CreateDto(package, "8b6cbf88-5100-4505-b6ce-4a880dd55e2c", "InfoResponseDto", "InfoResponseDto", identityFolderId, new List<ElementPersistable>
-                                {
-                                    CreateDtoField("Email", "Email: string", "8b6cbf88-5100-4505-b6ce-4a880dd55e2c", package.Id, package.Name, StringTypeReference(), new List<StereotypePersistable>
-                                    {
-                                        CreateValidationsStereotype(true, true)
-                                    }),
-                                    CreateDtoField("IsEmailConfirmed", "IsEmailConfirmed: bool", "8b6cbf88-5100-4505-b6ce-4a880dd55e2c", package.Id, package.Name, BoolTypeReference(), new List<StereotypePersistable>
-                                    {
-                                        CreateValidationsStereotype(true, false)
-                                    })
-                                })), new List<StereotypePropertyPersistable>
-                                {
-                                    new StereotypePropertyPersistable { DefinitionId = "801c3e61-4431-4d81-93fa-7e57d33cb3fa", Name = "Verb",  Value="GET", IsActive = true },
-                                    new StereotypePropertyPersistable { DefinitionId = "5dd3e07d-76eb-45d4-9956-4325fb068acc", Name = "Route", Value="manage/info", IsActive = true },
-                                    new StereotypePropertyPersistable { DefinitionId = "4490e212-1e99-43ce-b3dd-048ed2a6bae8", Name = "Return Type Mediatype", Value="Default",IsActive = true },
-                                    new StereotypePropertyPersistable { DefinitionId = "e3870725-34b3-4684-85f2-ec4a667207fb", Name = "Success Response Code", IsActive = true }
-                                },
-                                new List<ElementPersistable>
-                                {
+                                        package.Name, 
+                                        [
+                                            new StereotypePropertyPersistable
+                                            {
+                                                DefinitionId = "d2630e0f-f930-404f-b453-1e8052a712f5", Name = "Source", Value = "From Query", IsActive = true
+                                            },
 
-                                }, true),
-                                CreateEndpoint(loginEndpointId, "Login", "Login(login: LoginRequestDto, useCookies: bool?, useSessionCookies: bool?): void",
-                                identityServiceId, package.Id, package.Name, CustomTypeReference(package.Name, package.Id,accessTokenResponseDtoId), new List<StereotypePropertyPersistable>
-                                {
-                                    new StereotypePropertyPersistable { DefinitionId = "801c3e61-4431-4d81-93fa-7e57d33cb3fa", Name = "Verb",  Value="POST", IsActive = true },
-                                    new StereotypePropertyPersistable { DefinitionId = "5dd3e07d-76eb-45d4-9956-4325fb068acc", Name = "Route", Value="login", IsActive = true },
-                                    new StereotypePropertyPersistable { DefinitionId = "4490e212-1e99-43ce-b3dd-048ed2a6bae8", Name = "Return Type Mediatype", Value="Default",IsActive = true },
-                                    new StereotypePropertyPersistable { DefinitionId = "e3870725-34b3-4684-85f2-ec4a667207fb", Name = "Success Response Code", Value="200 (Ok)", IsActive = true }
-                                },
-                                new List<ElementPersistable>
-                                {
+                                            new StereotypePropertyPersistable
+                                                { DefinitionId = "7a331e9b-f13c-4b33-9013-bd59b4a4999c", Name = "Header Name", IsActive = false },
+
+                                            new StereotypePropertyPersistable
+                                                { DefinitionId = "c8caa58e-972a-42f2-983e-652ceee762b2", Name = "Query String Name", IsActive = true }
+                                        ], StringTypeReference()),
+                                    CreateInParameter(Guid.NewGuid().ToString(), "code", "in : code: string", confirmEmailEndpointId, package.Id,
+                                        package.Name, 
+                                        [
+                                            new StereotypePropertyPersistable
+                                            {
+                                                DefinitionId = "d2630e0f-f930-404f-b453-1e8052a712f5", Name = "Source", Value = "From Query", IsActive = true
+                                            },
+
+                                            new StereotypePropertyPersistable
+                                                { DefinitionId = "7a331e9b-f13c-4b33-9013-bd59b4a4999c", Name = "Header Name", IsActive = false },
+
+                                            new StereotypePropertyPersistable
+                                                { DefinitionId = "c8caa58e-972a-42f2-983e-652ceee762b2", Name = "Query String Name", IsActive = true }
+                                        ], StringTypeReference()),
+                                    CreateInParameter(Guid.NewGuid().ToString(), "changedEmail", "in : changedEmail: string", confirmEmailEndpointId,
+                                        package.Id,
+                                        package.Name, 
+                                        [
+                                            new StereotypePropertyPersistable
+                                            {
+                                                DefinitionId = "d2630e0f-f930-404f-b453-1e8052a712f5", Name = "Source", Value = "From Query", IsActive = true
+                                            },
+
+                                            new StereotypePropertyPersistable
+                                                { DefinitionId = "7a331e9b-f13c-4b33-9013-bd59b4a4999c", Name = "Header Name", IsActive = false },
+
+                                            new StereotypePropertyPersistable
+                                                { DefinitionId = "c8caa58e-972a-42f2-983e-652ceee762b2", Name = "Query String Name", IsActive = true }
+                                        ], StringTypeReference(true))
+                                }),
+
+                            CreateEndpoint(forgotPasswordEndpointId, "ForgotPassword", "ForgotPassword(resetRequest: ForgotPasswordRequestDto): void",
+                                identityServiceId, package.Id, package.Name, VoidTypeReference(), 
+                                [
+                                    new StereotypePropertyPersistable
+                                        { DefinitionId = "801c3e61-4431-4d81-93fa-7e57d33cb3fa", Name = "Verb", Value = "POST", IsActive = true },
+
+                                    new StereotypePropertyPersistable
+                                        { DefinitionId = "5dd3e07d-76eb-45d4-9956-4325fb068acc", Name = "Route", Value = "forgotPassword", IsActive = true },
+
+                                    new StereotypePropertyPersistable
+                                    {
+                                        DefinitionId = "4490e212-1e99-43ce-b3dd-048ed2a6bae8", Name = "Return Type Mediatype", Value = "Default",
+                                        IsActive = true
+                                    },
+
+                                    new StereotypePropertyPersistable
+                                    {
+                                        DefinitionId = "e3870725-34b3-4684-85f2-ec4a667207fb", Name = "Success Response Code", Value = "200 (Ok)",
+                                        IsActive = true
+                                    }
+                                ],
+                                [
+                                    CreateInParameter(Guid.NewGuid().ToString(), "resetRequest", "in : resetRequest: ForgotPasswordRequestDto",
+                                        forgotPasswordEndpointId, package.Id,
+                                        package.Name, [
+                                            new StereotypePropertyPersistable
+                                            {
+                                                DefinitionId = "d2630e0f-f930-404f-b453-1e8052a712f5", Name = "Source", Value = "From Body", IsActive = true
+                                            },
+
+                                            new StereotypePropertyPersistable
+                                                { DefinitionId = "7a331e9b-f13c-4b33-9013-bd59b4a4999c", Name = "Header Name", IsActive = false },
+
+                                            new StereotypePropertyPersistable
+                                                { DefinitionId = "c8caa58e-972a-42f2-983e-652ceee762b2", Name = "Query String Name", IsActive = false }
+                                        ], CustomTypeReference(package.Name, package.Id, CreateDto(package, "0fb483ce-b561-46e8-b9b5-6d07082792e6",
+                                            "ForgotPasswordRequestDto", "ForgotPasswordRequestDto", identityFolderId, new List<ElementPersistable>
+                                            {
+                                                CreateDtoField("Email", "Email: string", "0fb483ce-b561-46e8-b9b5-6d07082792e6", package.Id, package.Name,
+                                                    StringTypeReference(),
+                                                    [
+                                                        CreateValidationsStereotype(true, true)
+                                                    ])
+                                            }
+                                        )))
+                                ]),
+
+                            CreateEndpoint(getInfoEndpointId, "GetInfo", "GetInfo(): InfoResponseDto",
+                                identityServiceId, package.Id, package.Name,
+                                CustomTypeReference(package.Name, package.Id, CreateDto(package, "8b6cbf88-5100-4505-b6ce-4a880dd55e2c", "InfoResponseDto",
+                                    "InfoResponseDto", identityFolderId, 
+                                    [
+                                        CreateDtoField("Email", "Email: string", "8b6cbf88-5100-4505-b6ce-4a880dd55e2c", package.Id, package.Name,
+                                            StringTypeReference(), 
+                                            [
+                                                CreateValidationsStereotype(true, true)
+                                            ]),
+
+                                        CreateDtoField("IsEmailConfirmed", "IsEmailConfirmed: bool", "8b6cbf88-5100-4505-b6ce-4a880dd55e2c", package.Id,
+                                            package.Name, BoolTypeReference(), 
+                                            [
+                                                CreateValidationsStereotype(true, false)
+                                            ])
+                                    ])), 
+                                [
+                                    new StereotypePropertyPersistable
+                                        { DefinitionId = "801c3e61-4431-4d81-93fa-7e57d33cb3fa", Name = "Verb", Value = "GET", IsActive = true },
+
+                                    new StereotypePropertyPersistable
+                                        { DefinitionId = "5dd3e07d-76eb-45d4-9956-4325fb068acc", Name = "Route", Value = "manage/info", IsActive = true },
+
+                                    new StereotypePropertyPersistable
+                                    {
+                                        DefinitionId = "4490e212-1e99-43ce-b3dd-048ed2a6bae8", Name = "Return Type Mediatype", Value = "Default",
+                                        IsActive = true
+                                    },
+
+                                    new StereotypePropertyPersistable
+                                        { DefinitionId = "e3870725-34b3-4684-85f2-ec4a667207fb", Name = "Success Response Code", IsActive = true }
+                                ],
+                                [], 
+                                true),
+
+                            CreateEndpoint(loginEndpointId, "Login", "Login(login: LoginRequestDto, useCookies: bool?, useSessionCookies: bool?): void",
+                                identityServiceId, package.Id, package.Name, CustomTypeReference(package.Name, package.Id, accessTokenResponseDtoId),
+                                [
+                                    new StereotypePropertyPersistable
+                                        { DefinitionId = "801c3e61-4431-4d81-93fa-7e57d33cb3fa", Name = "Verb", Value = "POST", IsActive = true },
+
+                                    new StereotypePropertyPersistable
+                                        { DefinitionId = "5dd3e07d-76eb-45d4-9956-4325fb068acc", Name = "Route", Value = "login", IsActive = true },
+
+                                    new StereotypePropertyPersistable
+                                    {
+                                        DefinitionId = "4490e212-1e99-43ce-b3dd-048ed2a6bae8", Name = "Return Type Mediatype", Value = "Default",
+                                        IsActive = true
+                                    },
+
+                                    new StereotypePropertyPersistable
+                                    {
+                                        DefinitionId = "e3870725-34b3-4684-85f2-ec4a667207fb", Name = "Success Response Code", Value = "200 (Ok)",
+                                        IsActive = true
+                                    }
+                                ],
+                                [
                                     CreateInParameter(Guid.NewGuid().ToString(), "login", "in : login: LoginRequestDto", loginEndpointId, package.Id,
-                                    package.Name, new List<StereotypePropertyPersistable>
-                                    {
-                                        new StereotypePropertyPersistable { DefinitionId = "d2630e0f-f930-404f-b453-1e8052a712f5", Name = "Source",  Value="From Body", IsActive = true },
-                                        new StereotypePropertyPersistable { DefinitionId = "7a331e9b-f13c-4b33-9013-bd59b4a4999c", Name = "Header Name", IsActive = false },
-                                        new StereotypePropertyPersistable { DefinitionId = "c8caa58e-972a-42f2-983e-652ceee762b2", Name = "Query String Name", IsActive = false }
-                                    }, CustomTypeReference(package.Name, package.Id, CreateDto(package, "3775e275-50c9-4fc9-b450-03d0386cdf91", "LoginRequestDto", "LoginRequestDto", identityFolderId, new List<ElementPersistable>
-                                    {
-                                        CreateDtoField("Email", "Email: string", "3775e275-50c9-4fc9-b450-03d0386cdf91", package.Id, package.Name, StringTypeReference(),
-                                        new List<StereotypePersistable>
-                                        {
-                                           CreateValidationsStereotype(true, true)
-                                        }),
-                                        CreateDtoField("Password", "Password: string", "3775e275-50c9-4fc9-b450-03d0386cdf91", package.Id, package.Name, StringTypeReference(),
-                                        new List<StereotypePersistable>
-                                        {
-                                           CreateValidationsStereotype(true, false)
-                                        }),
-                                        CreateDtoField("TwoFactorCode", "TwoFactorCode: string?", "3775e275-50c9-4fc9-b450-03d0386cdf91", package.Id, package.Name, StringTypeReference(true),
-                                        new List<StereotypePersistable>
-                                        {
-                                           CreateValidationsStereotype(false, false)
-                                        })
-                                        ,
-                                        CreateDtoField("TwoFactorRecoveryCode", "TwoFactorRecoveryCode: string?", "3775e275-50c9-4fc9-b450-03d0386cdf91", package.Id, package.Name, StringTypeReference(true),
-                                        new List<StereotypePersistable>
-                                        {
-                                           CreateValidationsStereotype(false, false)
-                                        })
-                                    }
-                                    ))),
+                                        package.Name, 
+                                        [
+                                            new StereotypePropertyPersistable
+                                            {
+                                                DefinitionId = "d2630e0f-f930-404f-b453-1e8052a712f5", Name = "Source", Value = "From Body", IsActive = true
+                                            },
+
+                                            new StereotypePropertyPersistable
+                                                { DefinitionId = "7a331e9b-f13c-4b33-9013-bd59b4a4999c", Name = "Header Name", IsActive = false },
+
+                                            new StereotypePropertyPersistable
+                                                { DefinitionId = "c8caa58e-972a-42f2-983e-652ceee762b2", Name = "Query String Name", IsActive = false }
+                                        ], CustomTypeReference(package.Name, package.Id, CreateDto(package, "3775e275-50c9-4fc9-b450-03d0386cdf91",
+                                            "LoginRequestDto", "LoginRequestDto", identityFolderId, 
+                                            [
+                                                CreateDtoField("Email", "Email: string", "3775e275-50c9-4fc9-b450-03d0386cdf91", package.Id, package.Name,
+                                                    StringTypeReference(),
+                                                    [
+                                                        CreateValidationsStereotype(true, true)
+                                                    ]),
+
+                                                CreateDtoField("Password", "Password: string", "3775e275-50c9-4fc9-b450-03d0386cdf91", package.Id, package.Name,
+                                                    StringTypeReference(),
+                                                    [
+                                                        CreateValidationsStereotype(true, false)
+                                                    ]),
+
+                                                CreateDtoField("TwoFactorCode", "TwoFactorCode: string?", "3775e275-50c9-4fc9-b450-03d0386cdf91", package.Id,
+                                                    package.Name, StringTypeReference(true),
+                                                    [
+                                                        CreateValidationsStereotype(false, false)
+                                                    ]),
+
+                                                CreateDtoField("TwoFactorRecoveryCode", "TwoFactorRecoveryCode: string?",
+                                                    "3775e275-50c9-4fc9-b450-03d0386cdf91", package.Id, package.Name, StringTypeReference(true),
+                                                    [
+                                                        CreateValidationsStereotype(false, false)
+                                                    ])
+                                            ]
+                                        ))),
+
                                     CreateInParameter(Guid.NewGuid().ToString(), "useCookies", "in : useCookies: bool?", loginEndpointId, package.Id,
-                                    package.Name, new List<StereotypePropertyPersistable>
-                                    {
-                                        new StereotypePropertyPersistable { DefinitionId = "d2630e0f-f930-404f-b453-1e8052a712f5", Name = "Source",  Value="From Query", IsActive = true },
-                                        new StereotypePropertyPersistable { DefinitionId = "7a331e9b-f13c-4b33-9013-bd59b4a4999c", Name = "Header Name", IsActive = false },
-                                        new StereotypePropertyPersistable { DefinitionId = "c8caa58e-972a-42f2-983e-652ceee762b2", Name = "Query String Name", IsActive = true }
-                                    }, BoolTypeReference(true)),
-                                    CreateInParameter(Guid.NewGuid().ToString(), "useSessionCookies", "in : useSessionCookies: bool?", loginEndpointId, package.Id,
-                                    package.Name, new List<StereotypePropertyPersistable>
-                                    {
-                                        new StereotypePropertyPersistable { DefinitionId = "d2630e0f-f930-404f-b453-1e8052a712f5", Name = "Source",  Value="From Query", IsActive = true },
-                                        new StereotypePropertyPersistable { DefinitionId = "7a331e9b-f13c-4b33-9013-bd59b4a4999c", Name = "Header Name", IsActive = false },
-                                        new StereotypePropertyPersistable { DefinitionId = "c8caa58e-972a-42f2-983e-652ceee762b2", Name = "Query String Name", IsActive = true }
-                                    }, BoolTypeReference(true))
-                                }),
-                                CreateEndpoint(refreshTokenEndpointId, "Refresh", "Refresh(refreshRequest: RefreshRequestDto): AccessTokenResponseDto",
-                                identityServiceId, package.Id, package.Name, CustomTypeReference(package.Name, package.Id,accessTokenResponseDtoId), new List<StereotypePropertyPersistable>
-                                {
-                                    new StereotypePropertyPersistable { DefinitionId = "801c3e61-4431-4d81-93fa-7e57d33cb3fa", Name = "Verb",  Value="POST", IsActive = true },
-                                    new StereotypePropertyPersistable { DefinitionId = "5dd3e07d-76eb-45d4-9956-4325fb068acc", Name = "Route", Value="refresh", IsActive = true },
-                                    new StereotypePropertyPersistable { DefinitionId = "4490e212-1e99-43ce-b3dd-048ed2a6bae8", Name = "Return Type Mediatype", Value="Default",IsActive = true },
-                                    new StereotypePropertyPersistable { DefinitionId = "e3870725-34b3-4684-85f2-ec4a667207fb", Name = "Success Response Code", Value="200 (Ok)", IsActive = true }
-                                },
-                                new List<ElementPersistable>
-                                {
-                                    CreateInParameter(Guid.NewGuid().ToString(), "refreshRequest", "in : refreshRequest: RefreshRequestDto", refreshTokenEndpointId, package.Id,
-                                    package.Name, new List<StereotypePropertyPersistable>
-                                    {
-                                        new StereotypePropertyPersistable { DefinitionId = "d2630e0f-f930-404f-b453-1e8052a712f5", Name = "Source",  Value="From Body", IsActive = true },
-                                        new StereotypePropertyPersistable { DefinitionId = "7a331e9b-f13c-4b33-9013-bd59b4a4999c", Name = "Header Name", IsActive = false },
-                                        new StereotypePropertyPersistable { DefinitionId = "c8caa58e-972a-42f2-983e-652ceee762b2", Name = "Query String Name", IsActive = false }
-                                    }, CustomTypeReference(package.Name, package.Id, CreateDto(package, "e68ed718-58c2-4fb9-953a-aa250d459321", "RefreshRequestDto", "RefreshRequestDto", identityFolderId, new List<ElementPersistable>
-                                    {
-                                        CreateDtoField("RefreshToken", "RefreshToken: string", "e68ed718-58c2-4fb9-953a-aa250d459321", package.Id, package.Name, StringTypeReference(),
-                                        new List<StereotypePersistable>
-                                        {
-                                           CreateValidationsStereotype(true, false)
-                                        })
-                                    }
-                                    )))
-                                }),
-                                CreateEndpoint(registerEndpointId, "Register", "Register(registration: RegisterRequestDto): void",
-                                identityServiceId, package.Id, package.Name, VoidTypeReference(), new List<StereotypePropertyPersistable>
-                                {
-                                    new StereotypePropertyPersistable { DefinitionId = "801c3e61-4431-4d81-93fa-7e57d33cb3fa", Name = "Verb",  Value="POST", IsActive = true },
-                                    new StereotypePropertyPersistable { DefinitionId = "5dd3e07d-76eb-45d4-9956-4325fb068acc", Name = "Route", Value="register", IsActive = true },
-                                    new StereotypePropertyPersistable { DefinitionId = "4490e212-1e99-43ce-b3dd-048ed2a6bae8", Name = "Return Type Mediatype", Value="Default",IsActive = true },
-                                    new StereotypePropertyPersistable { DefinitionId = "e3870725-34b3-4684-85f2-ec4a667207fb", Name = "Success Response Code", Value="200 (Ok)", IsActive = true }
-                                },
-                                new List<ElementPersistable>
-                                {
-                                    CreateInParameter(Guid.NewGuid().ToString(), "register", "in : register: RegisterRequestDto", registerEndpointId, package.Id,
-                                    package.Name, new List<StereotypePropertyPersistable>
-                                    {
-                                        new StereotypePropertyPersistable { DefinitionId = "d2630e0f-f930-404f-b453-1e8052a712f5", Name = "Source",  Value="From Body", IsActive = true },
-                                        new StereotypePropertyPersistable { DefinitionId = "7a331e9b-f13c-4b33-9013-bd59b4a4999c", Name = "Header Name", IsActive = false },
-                                        new StereotypePropertyPersistable { DefinitionId = "c8caa58e-972a-42f2-983e-652ceee762b2", Name = "Query String Name", IsActive = false }
-                                    }, CustomTypeReference(package.Name, package.Id, CreateDto(package, "34c256c7-379a-4d09-abe4-cced74dc1b83", "RegisterRequestDto", "RegisterRequestDto", identityFolderId, new List<ElementPersistable>
-                                    {
-                                        CreateDtoField("Email", "Email: string", "34c256c7-379a-4d09-abe4-cced74dc1b83", package.Id, package.Name, StringTypeReference(),
-                                        new List<StereotypePersistable>
-                                        {
-                                           CreateValidationsStereotype(true, true)
-                                        }),
-                                        CreateDtoField("Password", "Password: string", "34c256c7-379a-4d09-abe4-cced74dc1b83", package.Id, package.Name, StringTypeReference(),
-                                        new List<StereotypePersistable>
-                                        {
-                                           CreateValidationsStereotype(true, false)
-                                        })
-                                    }
-                                    )))
-                                }),
-                                CreateEndpoint(resendConfirmationEmailEndpointId, "ResendConfirmationEmail", "ResendConfirmationEmail(resendRequest: ResendConfirmationEmailRequestDto): void",
-                                identityServiceId, package.Id, package.Name, VoidTypeReference(), new List<StereotypePropertyPersistable>
-                                {
-                                    new StereotypePropertyPersistable { DefinitionId = "801c3e61-4431-4d81-93fa-7e57d33cb3fa", Name = "Verb",  Value="POST", IsActive = true },
-                                    new StereotypePropertyPersistable { DefinitionId = "5dd3e07d-76eb-45d4-9956-4325fb068acc", Name = "Route", Value="resendConfirmationEmail", IsActive = true },
-                                    new StereotypePropertyPersistable { DefinitionId = "4490e212-1e99-43ce-b3dd-048ed2a6bae8", Name = "Return Type Mediatype", Value="Default",IsActive = true },
-                                    new StereotypePropertyPersistable { DefinitionId = "e3870725-34b3-4684-85f2-ec4a667207fb", Name = "Success Response Code", Value="200 (Ok)", IsActive = true }
-                                },
-                                new List<ElementPersistable>
-                                {
-                                    CreateInParameter(Guid.NewGuid().ToString(), "resendRequest", "in : resendRequest: ResendConfirmationEmailRequestDto", resendConfirmationEmailEndpointId, package.Id,
-                                    package.Name, new List<StereotypePropertyPersistable>
-                                    {
-                                        new StereotypePropertyPersistable { DefinitionId = "d2630e0f-f930-404f-b453-1e8052a712f5", Name = "Source",  Value="From Body", IsActive = true },
-                                        new StereotypePropertyPersistable { DefinitionId = "7a331e9b-f13c-4b33-9013-bd59b4a4999c", Name = "Header Name", IsActive = false },
-                                        new StereotypePropertyPersistable { DefinitionId = "c8caa58e-972a-42f2-983e-652ceee762b2", Name = "Query String Name", IsActive = false }
-                                    }, CustomTypeReference(package.Name, package.Id, CreateDto(package, "83019f86-e9da-4a3b-8cf3-8489cfd88a9e", "ResendConfirmationEmailRequestDto", "ResendConfirmationEmailRequestDto", identityFolderId, new List<ElementPersistable>
-                                    {
-                                        CreateDtoField("Email", "Email: string", "83019f86-e9da-4a3b-8cf3-8489cfd88a9e", package.Id, package.Name, StringTypeReference(),
-                                        new List<StereotypePersistable>
-                                        {
-                                           CreateValidationsStereotype(true, true)
-                                        })
-                                    }
-                                    )))
-                                }),
-                                CreateEndpoint(resetPasswordEndpointId, "ResetPassword", "ResetPassword(resetRequest: ResetPasswordRequestDto): void",
-                                identityServiceId, package.Id, package.Name, VoidTypeReference(), new List<StereotypePropertyPersistable>
-                                {
-                                    new StereotypePropertyPersistable { DefinitionId = "801c3e61-4431-4d81-93fa-7e57d33cb3fa", Name = "Verb",  Value="POST", IsActive = true },
-                                    new StereotypePropertyPersistable { DefinitionId = "5dd3e07d-76eb-45d4-9956-4325fb068acc", Name = "Route", Value="resetPassword", IsActive = true },
-                                    new StereotypePropertyPersistable { DefinitionId = "4490e212-1e99-43ce-b3dd-048ed2a6bae8", Name = "Return Type Mediatype", Value="Default",IsActive = true },
-                                    new StereotypePropertyPersistable { DefinitionId = "e3870725-34b3-4684-85f2-ec4a667207fb", Name = "Success Response Code", Value="200 (Ok)", IsActive = true }
-                                },
-                                new List<ElementPersistable>
-                                {
-                                    CreateInParameter(Guid.NewGuid().ToString(), "resetRequest", "in : resetRequest: ResetPasswordRequestDto", resetPasswordEndpointId, package.Id,
-                                    package.Name, new List<StereotypePropertyPersistable>
-                                    {
-                                        new StereotypePropertyPersistable { DefinitionId = "d2630e0f-f930-404f-b453-1e8052a712f5", Name = "Source",  Value="From Body", IsActive = true },
-                                        new StereotypePropertyPersistable { DefinitionId = "7a331e9b-f13c-4b33-9013-bd59b4a4999c", Name = "Header Name", IsActive = false },
-                                        new StereotypePropertyPersistable { DefinitionId = "c8caa58e-972a-42f2-983e-652ceee762b2", Name = "Query String Name", IsActive = false }
-                                    }, CustomTypeReference(package.Name, package.Id, CreateDto(package, "379bada3-e556-4918-983e-b0d67a68260f", "ResetPasswordRequestDto", "ResetPasswordRequestDto", identityFolderId, new List<ElementPersistable>
-                                    {
-                                        CreateDtoField("Email", "Email: string", "379bada3-e556-4918-983e-b0d67a68260f", package.Id, package.Name, StringTypeReference(),
-                                        new List<StereotypePersistable>
-                                        {
-                                           CreateValidationsStereotype(true, true)
-                                        }),
-                                        CreateDtoField("ResetCode", "ResetCode: string", "379bada3-e556-4918-983e-b0d67a68260f", package.Id, package.Name, StringTypeReference(),
-                                        new List<StereotypePersistable>
-                                        {
-                                           CreateValidationsStereotype(true, false)
-                                        }),
-                                        CreateDtoField("NewPassword", "NewPassword: string", "379bada3-e556-4918-983e-b0d67a68260f", package.Id, package.Name, StringTypeReference(),
-                                        new List<StereotypePersistable>
-                                        {
-                                           CreateValidationsStereotype(true, false)
-                                        })
-                                    }
-                                    )))
-                                }),
-                                CreateEndpoint(updateInfoEndpointId, "UpdateInfo", "UpdateInfo(infoRequest: InfoRequestDto): InfoResponseDto",
-                                identityServiceId, package.Id, package.Name, CustomTypeReference(package.Name, package.Id, "8b6cbf88-5100-4505-b6ce-4a880dd55e2c"), new List<StereotypePropertyPersistable>
-                                {
-                                    new StereotypePropertyPersistable { DefinitionId = "801c3e61-4431-4d81-93fa-7e57d33cb3fa", Name = "Verb",  Value="POST", IsActive = true },
-                                    new StereotypePropertyPersistable { DefinitionId = "5dd3e07d-76eb-45d4-9956-4325fb068acc", Name = "Route", Value="manage/info", IsActive = true },
-                                    new StereotypePropertyPersistable { DefinitionId = "4490e212-1e99-43ce-b3dd-048ed2a6bae8", Name = "Return Type Mediatype", Value="Default",IsActive = true },
-                                    new StereotypePropertyPersistable { DefinitionId = "e3870725-34b3-4684-85f2-ec4a667207fb", Name = "Success Response Code", Value="200 (Ok)", IsActive = true }
-                                },
-                                new List<ElementPersistable>
-                                {
-                                    CreateInParameter(Guid.NewGuid().ToString(), "infoRequest", "in : infoRequest: InfoRequestDto", updateInfoEndpointId, package.Id,
-                                    package.Name, new List<StereotypePropertyPersistable>
-                                    {
-                                        new StereotypePropertyPersistable { DefinitionId = "d2630e0f-f930-404f-b453-1e8052a712f5", Name = "Source",  Value="From Body", IsActive = true },
-                                        new StereotypePropertyPersistable { DefinitionId = "7a331e9b-f13c-4b33-9013-bd59b4a4999c", Name = "Header Name", IsActive = false },
-                                        new StereotypePropertyPersistable { DefinitionId = "c8caa58e-972a-42f2-983e-652ceee762b2", Name = "Query String Name", IsActive = false }
-                                    }, CustomTypeReference(package.Name, package.Id, CreateDto(package, "d57d393c-507b-4c50-8eaf-6a5005787c08", "InfoRequestDto", "InfoRequestDto", identityFolderId, new List<ElementPersistable>
-                                    {
-                                        CreateDtoField("NewEmail", "NewEmail: string?", "d57d393c-507b-4c50-8eaf-6a5005787c08", package.Id, package.Name, StringTypeReference(),
-                                        new List<StereotypePersistable>
-                                        {
-                                           CreateValidationsStereotype(false, true)
-                                        }),
-                                        CreateDtoField("NewPassword", "NewPassword: string?", "d57d393c-507b-4c50-8eaf-6a5005787c08", package.Id, package.Name, StringTypeReference(),
-                                        new List<StereotypePersistable>
-                                        {
-                                           CreateValidationsStereotype(false, false)
-                                        }),
-                                        CreateDtoField("OldPassword", "OldPassword: string", "d57d393c-507b-4c50-8eaf-6a5005787c08", package.Id, package.Name, StringTypeReference(),
-                                        new List<StereotypePersistable>
-                                        {
-                                           CreateValidationsStereotype(false, false)
-                                        })
-                                    }
-                                    )))
-                                }, true),
-                                CreateEndpoint(updateTwoFactorEndpointId, "UpdateTwoFactor", "UpdateTwoFactor(tfaRequest: TwoFactorRequestDto): TwoFactorResponseDto",
-                                identityServiceId, package.Id, package.Name, CustomTypeReference(package.Name, package.Id, CreateDto(package, "d26e5694-d249-43c8-95c9-2621a85b6ca4", "TwoFactorResponseDto",
-                                "TwoFactorResponseDto", identityFolderId, new List<ElementPersistable>
-                                {
-                                    CreateDtoField("SharedKey", "SharedKey: string", "d26e5694-d249-43c8-95c9-2621a85b6ca4", package.Id, package.Name, StringTypeReference(), new List<StereotypePersistable>
-                                    {
-                                        CreateValidationsStereotype(true, false)
-                                    }),
-                                    CreateDtoField("RecoveryCodesLeft", "RecoveryCodesLeft: int", "d26e5694-d249-43c8-95c9-2621a85b6ca4", package.Id, package.Name, IntTypeReference(), new List<StereotypePersistable>
-                                    {
-                                        CreateValidationsStereotype(true, false)
-                                    }),
-                                    CreateDtoField("RecoveryCodes", "RecoveryCodes: string[]?", "d26e5694-d249-43c8-95c9-2621a85b6ca4", package.Id, package.Name, StringArrayTypeReference(true), new List<StereotypePersistable>
-                                    {
-                                        CreateValidationsStereotype(false, false)
-                                    }),
-                                    CreateDtoField("IsTwoFactorEnabled", "IsTwoFactorEnabled: bool", "d26e5694-d249-43c8-95c9-2621a85b6ca4", package.Id, package.Name, BoolTypeReference(), new List<StereotypePersistable>
-                                    {
-                                        CreateValidationsStereotype(true, false)
-                                    }),
-                                    CreateDtoField("IsMachineRemembered", "IsMachineRemembered: bool", "d26e5694-d249-43c8-95c9-2621a85b6ca4", package.Id, package.Name, BoolTypeReference(), new List<StereotypePersistable>
-                                    {
-                                        CreateValidationsStereotype(true, false)
-                                    })
-                                })), new List<StereotypePropertyPersistable>
-                                {
-                                    new StereotypePropertyPersistable { DefinitionId = "801c3e61-4431-4d81-93fa-7e57d33cb3fa", Name = "Verb",  Value="POST", IsActive = true },
-                                    new StereotypePropertyPersistable { DefinitionId = "5dd3e07d-76eb-45d4-9956-4325fb068acc", Name = "Route", Value="manage/2fa", IsActive = true },
-                                    new StereotypePropertyPersistable { DefinitionId = "4490e212-1e99-43ce-b3dd-048ed2a6bae8", Name = "Return Type Mediatype", Value="Default",IsActive = true },
-                                    new StereotypePropertyPersistable { DefinitionId = "e3870725-34b3-4684-85f2-ec4a667207fb", Name = "Success Response Code", Value="200 (Ok)", IsActive = true }
-                                },
-                                new List<ElementPersistable>
-                                {
-                                    CreateInParameter(Guid.NewGuid().ToString(), "tfaRequest", "in : tfaRequest: TwoFactorRequestDto", updateTwoFactorEndpointId, package.Id,
-                                    package.Name, new List<StereotypePropertyPersistable>
-                                    {
-                                        new StereotypePropertyPersistable { DefinitionId = "d2630e0f-f930-404f-b453-1e8052a712f5", Name = "Source",  Value="From Body", IsActive = true },
-                                        new StereotypePropertyPersistable { DefinitionId = "7a331e9b-f13c-4b33-9013-bd59b4a4999c", Name = "Header Name", IsActive = false },
-                                        new StereotypePropertyPersistable { DefinitionId = "c8caa58e-972a-42f2-983e-652ceee762b2", Name = "Query String Name", IsActive = false }
-                                    }, CustomTypeReference(package.Name, package.Id, CreateDto(package, "4bc3ad74-244d-405e-9aa0-3d1c6b9b7e94", "TwoFactorRequestDto",
-                                        "TwoFactorRequestDto", identityFolderId, new List<ElementPersistable>
-                                        {
-                                            CreateDtoField("Enable", "Enable: bool?", "4bc3ad74-244d-405e-9aa0-3d1c6b9b7e94", package.Id, package.Name, BoolTypeReference(true), new List<StereotypePersistable>
+                                        package.Name, 
+                                        [
+                                            new StereotypePropertyPersistable
                                             {
+                                                DefinitionId = "d2630e0f-f930-404f-b453-1e8052a712f5", Name = "Source", Value = "From Query", IsActive = true
+                                            },
+
+                                            new StereotypePropertyPersistable
+                                                { DefinitionId = "7a331e9b-f13c-4b33-9013-bd59b4a4999c", Name = "Header Name", IsActive = false },
+
+                                            new StereotypePropertyPersistable
+                                                { DefinitionId = "c8caa58e-972a-42f2-983e-652ceee762b2", Name = "Query String Name", IsActive = true }
+                                        ], BoolTypeReference(true)),
+
+                                    CreateInParameter(Guid.NewGuid().ToString(), "useSessionCookies", "in : useSessionCookies: bool?", loginEndpointId,
+                                        package.Id,
+                                        package.Name, 
+                                        [
+                                            new StereotypePropertyPersistable
+                                            {
+                                                DefinitionId = "d2630e0f-f930-404f-b453-1e8052a712f5", Name = "Source", Value = "From Query", IsActive = true
+                                            },
+
+                                            new StereotypePropertyPersistable
+                                                { DefinitionId = "7a331e9b-f13c-4b33-9013-bd59b4a4999c", Name = "Header Name", IsActive = false },
+
+                                            new StereotypePropertyPersistable
+                                                { DefinitionId = "c8caa58e-972a-42f2-983e-652ceee762b2", Name = "Query String Name", IsActive = true }
+                                        ], BoolTypeReference(true))
+                                ]),
+
+                            CreateEndpoint(refreshTokenEndpointId, "Refresh", "Refresh(refreshRequest: RefreshRequestDto): AccessTokenResponseDto",
+                                identityServiceId, package.Id, package.Name, CustomTypeReference(package.Name, package.Id, accessTokenResponseDtoId),
+                                [
+                                    new StereotypePropertyPersistable
+                                        { DefinitionId = "801c3e61-4431-4d81-93fa-7e57d33cb3fa", Name = "Verb", Value = "POST", IsActive = true },
+
+                                    new StereotypePropertyPersistable
+                                        { DefinitionId = "5dd3e07d-76eb-45d4-9956-4325fb068acc", Name = "Route", Value = "refresh", IsActive = true },
+
+                                    new StereotypePropertyPersistable
+                                    {
+                                        DefinitionId = "4490e212-1e99-43ce-b3dd-048ed2a6bae8", Name = "Return Type Mediatype", Value = "Default",
+                                        IsActive = true
+                                    },
+
+                                    new StereotypePropertyPersistable
+                                    {
+                                        DefinitionId = "e3870725-34b3-4684-85f2-ec4a667207fb", Name = "Success Response Code", Value = "200 (Ok)",
+                                        IsActive = true
+                                    }
+                                ],
+                                [
+                                    CreateInParameter(Guid.NewGuid().ToString(), "refreshRequest", "in : refreshRequest: RefreshRequestDto",
+                                        refreshTokenEndpointId, package.Id,
+                                        package.Name, 
+                                        [
+                                            new StereotypePropertyPersistable
+                                            {
+                                                DefinitionId = "d2630e0f-f930-404f-b453-1e8052a712f5", Name = "Source", Value = "From Body", IsActive = true
+                                            },
+
+                                            new StereotypePropertyPersistable
+                                                { DefinitionId = "7a331e9b-f13c-4b33-9013-bd59b4a4999c", Name = "Header Name", IsActive = false },
+
+                                            new StereotypePropertyPersistable
+                                                { DefinitionId = "c8caa58e-972a-42f2-983e-652ceee762b2", Name = "Query String Name", IsActive = false }
+                                        ], CustomTypeReference(package.Name, package.Id, CreateDto(package, "e68ed718-58c2-4fb9-953a-aa250d459321",
+                                            "RefreshRequestDto", "RefreshRequestDto", identityFolderId, 
+                                            [
+                                                CreateDtoField("RefreshToken", "RefreshToken: string", "e68ed718-58c2-4fb9-953a-aa250d459321", package.Id,
+                                                    package.Name, StringTypeReference(),
+                                                    [
+                                                        CreateValidationsStereotype(true, false)
+                                                    ])
+                                            ]
+                                        )))
+                                ]),
+
+                            CreateEndpoint(registerEndpointId, "Register", "Register(registration: RegisterRequestDto): void",
+                                identityServiceId, package.Id, package.Name, VoidTypeReference(), 
+                                [
+                                    new StereotypePropertyPersistable
+                                        { DefinitionId = "801c3e61-4431-4d81-93fa-7e57d33cb3fa", Name = "Verb", Value = "POST", IsActive = true },
+
+                                    new StereotypePropertyPersistable
+                                        { DefinitionId = "5dd3e07d-76eb-45d4-9956-4325fb068acc", Name = "Route", Value = "register", IsActive = true },
+
+                                    new StereotypePropertyPersistable
+                                    {
+                                        DefinitionId = "4490e212-1e99-43ce-b3dd-048ed2a6bae8", Name = "Return Type Mediatype", Value = "Default",
+                                        IsActive = true
+                                    },
+
+                                    new StereotypePropertyPersistable
+                                    {
+                                        DefinitionId = "e3870725-34b3-4684-85f2-ec4a667207fb", Name = "Success Response Code", Value = "200 (Ok)",
+                                        IsActive = true
+                                    }
+                                ],
+                                [
+                                    CreateInParameter(Guid.NewGuid().ToString(), "register", "in : register: RegisterRequestDto", registerEndpointId,
+                                        package.Id,
+                                        package.Name, 
+                                        [
+                                            new StereotypePropertyPersistable
+                                            {
+                                                DefinitionId = "d2630e0f-f930-404f-b453-1e8052a712f5", Name = "Source", Value = "From Body", IsActive = true
+                                            },
+
+                                            new StereotypePropertyPersistable
+                                                { DefinitionId = "7a331e9b-f13c-4b33-9013-bd59b4a4999c", Name = "Header Name", IsActive = false },
+
+                                            new StereotypePropertyPersistable
+                                                { DefinitionId = "c8caa58e-972a-42f2-983e-652ceee762b2", Name = "Query String Name", IsActive = false }
+                                        ], CustomTypeReference(package.Name, package.Id, CreateDto(package, "34c256c7-379a-4d09-abe4-cced74dc1b83",
+                                            "RegisterRequestDto", "RegisterRequestDto", identityFolderId, 
+                                            [
+                                                CreateDtoField("Email", "Email: string", "34c256c7-379a-4d09-abe4-cced74dc1b83", package.Id, package.Name,
+                                                    StringTypeReference(),
+                                                    [
+                                                        CreateValidationsStereotype(true, true)
+                                                    ]),
+
+                                                CreateDtoField("Password", "Password: string", "34c256c7-379a-4d09-abe4-cced74dc1b83", package.Id, package.Name,
+                                                    StringTypeReference(),
+                                                    [
+                                                        CreateValidationsStereotype(true, false)
+                                                    ])
+                                            ]
+                                        )))
+                                ]),
+
+                            CreateEndpoint(resendConfirmationEmailEndpointId, "ResendConfirmationEmail",
+                                "ResendConfirmationEmail(resendRequest: ResendConfirmationEmailRequestDto): void",
+                                identityServiceId, package.Id, package.Name, VoidTypeReference(), 
+                                [
+                                    new StereotypePropertyPersistable
+                                        { DefinitionId = "801c3e61-4431-4d81-93fa-7e57d33cb3fa", Name = "Verb", Value = "POST", IsActive = true },
+
+                                    new StereotypePropertyPersistable
+                                    {
+                                        DefinitionId = "5dd3e07d-76eb-45d4-9956-4325fb068acc", Name = "Route", Value = "resendConfirmationEmail",
+                                        IsActive = true
+                                    },
+
+                                    new StereotypePropertyPersistable
+                                    {
+                                        DefinitionId = "4490e212-1e99-43ce-b3dd-048ed2a6bae8", Name = "Return Type Mediatype", Value = "Default",
+                                        IsActive = true
+                                    },
+
+                                    new StereotypePropertyPersistable
+                                    {
+                                        DefinitionId = "e3870725-34b3-4684-85f2-ec4a667207fb", Name = "Success Response Code", Value = "200 (Ok)",
+                                        IsActive = true
+                                    }
+                                ],
+                                [
+                                    CreateInParameter(Guid.NewGuid().ToString(), "resendRequest", "in : resendRequest: ResendConfirmationEmailRequestDto",
+                                        resendConfirmationEmailEndpointId, package.Id,
+                                        package.Name, 
+                                        [
+                                            new StereotypePropertyPersistable
+                                            {
+                                                DefinitionId = "d2630e0f-f930-404f-b453-1e8052a712f5", Name = "Source", Value = "From Body", IsActive = true
+                                            },
+
+                                            new StereotypePropertyPersistable
+                                                { DefinitionId = "7a331e9b-f13c-4b33-9013-bd59b4a4999c", Name = "Header Name", IsActive = false },
+
+                                            new StereotypePropertyPersistable
+                                                { DefinitionId = "c8caa58e-972a-42f2-983e-652ceee762b2", Name = "Query String Name", IsActive = false }
+                                        ], CustomTypeReference(package.Name, package.Id, CreateDto(package, "83019f86-e9da-4a3b-8cf3-8489cfd88a9e",
+                                            "ResendConfirmationEmailRequestDto", "ResendConfirmationEmailRequestDto", identityFolderId,
+                                            [
+                                                CreateDtoField("Email", "Email: string", "83019f86-e9da-4a3b-8cf3-8489cfd88a9e", package.Id, package.Name,
+                                                    StringTypeReference(),
+                                                    [
+                                                        CreateValidationsStereotype(true, true)
+                                                    ])
+                                            ]
+                                        )))
+                                ]),
+
+                            CreateEndpoint(resetPasswordEndpointId, "ResetPassword", "ResetPassword(resetRequest: ResetPasswordRequestDto): void",
+                                identityServiceId, package.Id, package.Name, VoidTypeReference(), 
+                                [
+                                    new StereotypePropertyPersistable
+                                        { DefinitionId = "801c3e61-4431-4d81-93fa-7e57d33cb3fa", Name = "Verb", Value = "POST", IsActive = true },
+
+                                    new StereotypePropertyPersistable
+                                        { DefinitionId = "5dd3e07d-76eb-45d4-9956-4325fb068acc", Name = "Route", Value = "resetPassword", IsActive = true },
+
+                                    new StereotypePropertyPersistable
+                                    {
+                                        DefinitionId = "4490e212-1e99-43ce-b3dd-048ed2a6bae8", Name = "Return Type Mediatype", Value = "Default",
+                                        IsActive = true
+                                    },
+
+                                    new StereotypePropertyPersistable
+                                    {
+                                        DefinitionId = "e3870725-34b3-4684-85f2-ec4a667207fb", Name = "Success Response Code", Value = "200 (Ok)",
+                                        IsActive = true
+                                    }
+                                ],
+                                [
+                                    CreateInParameter(Guid.NewGuid().ToString(), "resetRequest", "in : resetRequest: ResetPasswordRequestDto",
+                                        resetPasswordEndpointId, package.Id,
+                                        package.Name, 
+                                        [
+                                            new StereotypePropertyPersistable
+                                            {
+                                                DefinitionId = "d2630e0f-f930-404f-b453-1e8052a712f5", Name = "Source", Value = "From Body", IsActive = true
+                                            },
+
+                                            new StereotypePropertyPersistable
+                                                { DefinitionId = "7a331e9b-f13c-4b33-9013-bd59b4a4999c", Name = "Header Name", IsActive = false },
+
+                                            new StereotypePropertyPersistable
+                                                { DefinitionId = "c8caa58e-972a-42f2-983e-652ceee762b2", Name = "Query String Name", IsActive = false }
+                                        ], CustomTypeReference(package.Name, package.Id, CreateDto(package, "379bada3-e556-4918-983e-b0d67a68260f",
+                                            "ResetPasswordRequestDto", "ResetPasswordRequestDto", identityFolderId, 
+                                            [
+                                                CreateDtoField("Email", "Email: string", "379bada3-e556-4918-983e-b0d67a68260f", package.Id, package.Name,
+                                                    StringTypeReference(),
+                                                    [
+                                                        CreateValidationsStereotype(true, true)
+                                                    ]),
+
+                                                CreateDtoField("ResetCode", "ResetCode: string", "379bada3-e556-4918-983e-b0d67a68260f", package.Id,
+                                                    package.Name, StringTypeReference(),
+                                                    [
+                                                        CreateValidationsStereotype(true, false)
+                                                    ]),
+
+                                                CreateDtoField("NewPassword", "NewPassword: string", "379bada3-e556-4918-983e-b0d67a68260f", package.Id,
+                                                    package.Name, StringTypeReference(),
+                                                    [
+                                                        CreateValidationsStereotype(true, false)
+                                                    ])
+                                            ]
+                                        )))
+                                ]),
+
+                            CreateEndpoint(updateInfoEndpointId, "UpdateInfo", "UpdateInfo(infoRequest: InfoRequestDto): InfoResponseDto",
+                                identityServiceId, package.Id, package.Name,
+                                CustomTypeReference(package.Name, package.Id, "8b6cbf88-5100-4505-b6ce-4a880dd55e2c"), 
+                                [
+                                    new StereotypePropertyPersistable
+                                        { DefinitionId = "801c3e61-4431-4d81-93fa-7e57d33cb3fa", Name = "Verb", Value = "POST", IsActive = true },
+
+                                    new StereotypePropertyPersistable
+                                        { DefinitionId = "5dd3e07d-76eb-45d4-9956-4325fb068acc", Name = "Route", Value = "manage/info", IsActive = true },
+
+                                    new StereotypePropertyPersistable
+                                    {
+                                        DefinitionId = "4490e212-1e99-43ce-b3dd-048ed2a6bae8", Name = "Return Type Mediatype", Value = "Default",
+                                        IsActive = true
+                                    },
+
+                                    new StereotypePropertyPersistable
+                                    {
+                                        DefinitionId = "e3870725-34b3-4684-85f2-ec4a667207fb", Name = "Success Response Code", Value = "200 (Ok)",
+                                        IsActive = true
+                                    }
+                                ],
+                                [
+                                    CreateInParameter(Guid.NewGuid().ToString(), "infoRequest", "in : infoRequest: InfoRequestDto", updateInfoEndpointId,
+                                        package.Id,
+                                        package.Name, new List<StereotypePropertyPersistable>
+                                        {
+                                            new StereotypePropertyPersistable
+                                            {
+                                                DefinitionId = "d2630e0f-f930-404f-b453-1e8052a712f5", Name = "Source", Value = "From Body", IsActive = true
+                                            },
+                                            new StereotypePropertyPersistable
+                                                { DefinitionId = "7a331e9b-f13c-4b33-9013-bd59b4a4999c", Name = "Header Name", IsActive = false },
+                                            new StereotypePropertyPersistable
+                                                { DefinitionId = "c8caa58e-972a-42f2-983e-652ceee762b2", Name = "Query String Name", IsActive = false }
+                                        }, CustomTypeReference(package.Name, package.Id, CreateDto(package, "d57d393c-507b-4c50-8eaf-6a5005787c08",
+                                            "InfoRequestDto", "InfoRequestDto", identityFolderId, 
+                                            [
+                                                CreateDtoField("NewEmail", "NewEmail: string?", "d57d393c-507b-4c50-8eaf-6a5005787c08", package.Id,
+                                                    package.Name, StringTypeReference(),
+                                                    [
+                                                        CreateValidationsStereotype(false, true)
+                                                    ]),
+
+                                                CreateDtoField("NewPassword", "NewPassword: string?", "d57d393c-507b-4c50-8eaf-6a5005787c08", package.Id,
+                                                    package.Name, StringTypeReference(),
+                                                    [
+                                                        CreateValidationsStereotype(false, false)
+                                                    ]),
+
+                                                CreateDtoField("OldPassword", "OldPassword: string", "d57d393c-507b-4c50-8eaf-6a5005787c08", package.Id,
+                                                    package.Name, StringTypeReference(),
+                                                    [
+                                                        CreateValidationsStereotype(false, false)
+                                                    ])
+                                            ]
+                                        )))
+                                ], true),
+
+                            CreateEndpoint(updateTwoFactorEndpointId, "UpdateTwoFactor",
+                                "UpdateTwoFactor(tfaRequest: TwoFactorRequestDto): TwoFactorResponseDto",
+                                identityServiceId, package.Id, package.Name, CustomTypeReference(package.Name, package.Id, CreateDto(package,
+                                    "d26e5694-d249-43c8-95c9-2621a85b6ca4", "TwoFactorResponseDto",
+                                    "TwoFactorResponseDto", identityFolderId, 
+                                    [
+                                        CreateDtoField("SharedKey", "SharedKey: string", "d26e5694-d249-43c8-95c9-2621a85b6ca4", package.Id, package.Name,
+                                            StringTypeReference(), 
+                                            [
+                                                CreateValidationsStereotype(true, false)
+                                            ]),
+
+                                        CreateDtoField("RecoveryCodesLeft", "RecoveryCodesLeft: int", "d26e5694-d249-43c8-95c9-2621a85b6ca4", package.Id,
+                                            package.Name, IntTypeReference(), 
+                                            [
+                                                CreateValidationsStereotype(true, false)
+                                            ]),
+
+                                        CreateDtoField("RecoveryCodes", "RecoveryCodes: string[]?", "d26e5694-d249-43c8-95c9-2621a85b6ca4", package.Id,
+                                            package.Name, StringArrayTypeReference(true), 
+                                            [
                                                 CreateValidationsStereotype(false, false)
-                                            }),
-                                            CreateDtoField("TwoFactorCode", "TwoFactorCode: string?", "4bc3ad74-244d-405e-9aa0-3d1c6b9b7e94", package.Id, package.Name, StringTypeReference(true), new List<StereotypePersistable>
-                                            {
-                                                CreateValidationsStereotype(false, false)
-                                            }),
-                                            CreateDtoField("ResetSharedKey", "ResetSharedKey: bool", "4bc3ad74-244d-405e-9aa0-3d1c6b9b7e94", package.Id, package.Name, BoolTypeReference(), new List<StereotypePersistable>
-                                            {
+                                            ]),
+
+                                        CreateDtoField("IsTwoFactorEnabled", "IsTwoFactorEnabled: bool", "d26e5694-d249-43c8-95c9-2621a85b6ca4", package.Id,
+                                            package.Name, BoolTypeReference(), 
+                                            [
                                                 CreateValidationsStereotype(true, false)
-                                            }),
-                                            CreateDtoField("ResetRecoveryCodes", "ResetRecoveryCodes: bool", "4bc3ad74-244d-405e-9aa0-3d1c6b9b7e94", package.Id, package.Name, BoolTypeReference(), new List<StereotypePersistable>
-                                            {
+                                            ]),
+
+                                        CreateDtoField("IsMachineRemembered", "IsMachineRemembered: bool", "d26e5694-d249-43c8-95c9-2621a85b6ca4", package.Id,
+                                            package.Name, BoolTypeReference(), 
+                                            [
                                                 CreateValidationsStereotype(true, false)
-                                            }),
-                                            CreateDtoField("ForgetMachine", "ForgetMachine: bool", "4bc3ad74-244d-405e-9aa0-3d1c6b9b7e94", package.Id, package.Name, BoolTypeReference(), new List<StereotypePersistable>
+                                            ])
+                                    ])), 
+                                [
+                                    new StereotypePropertyPersistable
+                                        { DefinitionId = "801c3e61-4431-4d81-93fa-7e57d33cb3fa", Name = "Verb", Value = "POST", IsActive = true },
+
+                                    new StereotypePropertyPersistable
+                                        { DefinitionId = "5dd3e07d-76eb-45d4-9956-4325fb068acc", Name = "Route", Value = "manage/2fa", IsActive = true },
+
+                                    new StereotypePropertyPersistable
+                                    {
+                                        DefinitionId = "4490e212-1e99-43ce-b3dd-048ed2a6bae8", Name = "Return Type Mediatype", Value = "Default",
+                                        IsActive = true
+                                    },
+
+                                    new StereotypePropertyPersistable
+                                    {
+                                        DefinitionId = "e3870725-34b3-4684-85f2-ec4a667207fb", Name = "Success Response Code", Value = "200 (Ok)",
+                                        IsActive = true
+                                    }
+                                ],
+                                [
+                                    CreateInParameter(Guid.NewGuid().ToString(), "tfaRequest", "in : tfaRequest: TwoFactorRequestDto",
+                                        updateTwoFactorEndpointId, package.Id,
+                                        package.Name, 
+                                        [
+                                            new StereotypePropertyPersistable
                                             {
-                                                CreateValidationsStereotype(true, false)
-                                            })
-                                        })))
-                                }, true)
-                        }
+                                                DefinitionId = "d2630e0f-f930-404f-b453-1e8052a712f5", Name = "Source", Value = "From Body", IsActive = true
+                                            },
+
+                                            new StereotypePropertyPersistable
+                                                { DefinitionId = "7a331e9b-f13c-4b33-9013-bd59b4a4999c", Name = "Header Name", IsActive = false },
+
+                                            new StereotypePropertyPersistable
+                                                { DefinitionId = "c8caa58e-972a-42f2-983e-652ceee762b2", Name = "Query String Name", IsActive = false }
+                                        ], CustomTypeReference(package.Name, package.Id, CreateDto(package, "4bc3ad74-244d-405e-9aa0-3d1c6b9b7e94",
+                                            "TwoFactorRequestDto",
+                                            "TwoFactorRequestDto", identityFolderId, 
+                                            [
+                                                CreateDtoField("Enable", "Enable: bool?", "4bc3ad74-244d-405e-9aa0-3d1c6b9b7e94", package.Id, package.Name,
+                                                    BoolTypeReference(true), new List<StereotypePersistable>
+                                                    {
+                                                        CreateValidationsStereotype(false, false)
+                                                    }),
+
+                                                CreateDtoField("TwoFactorCode", "TwoFactorCode: string?", "4bc3ad74-244d-405e-9aa0-3d1c6b9b7e94", package.Id,
+                                                    package.Name, StringTypeReference(true), new List<StereotypePersistable>
+                                                    {
+                                                        CreateValidationsStereotype(false, false)
+                                                    }),
+
+                                                CreateDtoField("ResetSharedKey", "ResetSharedKey: bool", "4bc3ad74-244d-405e-9aa0-3d1c6b9b7e94", package.Id,
+                                                    package.Name, BoolTypeReference(), new List<StereotypePersistable>
+                                                    {
+                                                        CreateValidationsStereotype(true, false)
+                                                    }),
+
+                                                CreateDtoField("ResetRecoveryCodes", "ResetRecoveryCodes: bool", "4bc3ad74-244d-405e-9aa0-3d1c6b9b7e94",
+                                                    package.Id, package.Name, BoolTypeReference(), new List<StereotypePersistable>
+                                                    {
+                                                        CreateValidationsStereotype(true, false)
+                                                    }),
+
+                                                CreateDtoField("ForgetMachine", "ForgetMachine: bool", "4bc3ad74-244d-405e-9aa0-3d1c6b9b7e94", package.Id,
+                                                    package.Name, BoolTypeReference(), new List<StereotypePersistable>
+                                                    {
+                                                        CreateValidationsStereotype(true, false)
+                                                    })
+                                            ])))
+                                ], true)
+                        ]
                     });
 
 
@@ -535,8 +802,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Migrations
             package.Save();
 
             app = ApplicationPersistable.Load(_configurationProvider.GetApplicationConfig().FilePath);
-
-
+            
             if (app.Modules.Any(m => m.ModuleId == "Intent.ModularMonolith.Module"))
             {
                 app = null;
@@ -621,10 +887,10 @@ namespace Intent.Modules.AspNetCore.IdentityService.Migrations
             }
 
             var identityDiagram = diagrams.First(d => d.Name == "Identity Diagram");
-            if (!package.Classes.Any(c => c.Name == "ApplicationIdentityUser"))
+            if (package.Classes.All(c => c.Name != "ApplicationIdentityUser"))
             {
                 var applicationIdentityUserId = Guid.NewGuid().ToString();
-                package.Classes.Add(new ElementPersistable
+                var persistable = new ElementPersistable
                 {
                     Id = applicationIdentityUserId,
                     SpecializationType = "Class",
@@ -636,70 +902,108 @@ namespace Intent.Modules.AspNetCore.IdentityService.Migrations
                     ParentFolderId = package.Id,
                     PackageId = package.Id,
                     PackageName = package.Name,
-                    ChildElements = new System.Collections.Generic.List<ElementPersistable>
-                {
-                    new ElementPersistable
-                    {
-                        Id = Guid.NewGuid().ToString(),
-                        SpecializationType = "Attribute",
-                        SpecializationTypeId = "0090fb93-483e-41af-a11d-5ad2dc796adf",
-                        ParentFolderId = applicationIdentityUserId,
-                        PackageId= package.Id,
-                        PackageName = package.Name,
-                        Name = "RefreshToken",
-                        Display = "RefreshToken: string",
-                        TypeReference = new TypeReferencePersistable
+                    Stereotypes = 
+                    [
+                        new StereotypePersistable
+                        {
+                            DefinitionId = "dd205b32-b48b-4c77-98f5-faefb2c047ce",
+                            Name = "Table",
+                            AddedByDefault = false,
+                            DefinitionPackageName="Intent.Metadata.RDBMS",
+                            DefinitionPackageId="AF8F3810-745C-42A2-93C8-798860DC45B1",
+                            Properties = 
+                            [
+                                new StereotypePropertyPersistable
+                                {
+                                    DefinitionId = "2b3a9df7-65e1-4800-b919-bef1a6b8f5a9",
+                                    Name = "Name",
+                                    IsActive = true
+                                },
+                                new StereotypePropertyPersistable
+                                {
+                                    DefinitionId = "13e6101f-0e37-4eda-a6ae-ec48cd9f8f4b",
+                                    Name = "Schema",
+                                    IsActive = true
+                                }
+                            ]
+                        }
+                    ],
+                    ChildElements =
+                    [
+                        new ElementPersistable
                         {
                             Id = Guid.NewGuid().ToString(),
-                            TypeId = "d384db9c-a279-45e1-801e-e4e8099625f2",
-                            TypePackageName = "Intent.Common.Types",
-                            TypePackageId = "870ad967-cbd4-4ea9-b86d-9c3a5d55ea67",
-                            IsRequired = true,
-                            IsNavigable = true,
-                            IsNullable = true,
-                            IsCollection = false
-                        },
-                        Stereotypes = new System.Collections.Generic.List<IArchitect.Agent.Persistence.Model.Common.StereotypePersistable>
-                        {
-                            new IArchitect.Agent.Persistence.Model.Common.StereotypePersistable
+                            SpecializationType = "Attribute",
+                            SpecializationTypeId = "0090fb93-483e-41af-a11d-5ad2dc796adf",
+                            ParentFolderId = applicationIdentityUserId,
+                            PackageId = package.Id,
+                            PackageName = package.Name,
+                            Name = "RefreshToken",
+                            Display = "RefreshToken: string",
+                            TypeReference = new TypeReferencePersistable
                             {
-                                DefinitionId = "6347286E-A637-44D6-A5D7-D9BE5789CA7A",
-                                Name = "Text CConstraints",
-                                DefinitionPackageId = "AF8F3810-745C-42A2-93C8-798860DC45B1",
-                                DefinitionPackageName = "Intent.Metadata.RDBMS",
-                                Properties = new System.Collections.Generic.List<IArchitect.Agent.Persistence.Model.Common.StereotypePropertyPersistable>
+                                Id = Guid.NewGuid().ToString(),
+                                TypeId = "d384db9c-a279-45e1-801e-e4e8099625f2",
+                                TypePackageName = "Intent.Common.Types",
+                                TypePackageId = "870ad967-cbd4-4ea9-b86d-9c3a5d55ea67",
+                                IsRequired = true,
+                                IsNavigable = true,
+                                IsNullable = true,
+                                IsCollection = false
+                            },
+                            Stereotypes =
+                            [
+                                new StereotypePersistable
                                 {
-                                    new IArchitect.Agent.Persistence.Model.Common.StereotypePropertyPersistable { DefinitionId = "1288cfcd-ee51-437e-9713-73b80118f026", Name = "SQL Data Type", Value = "DEFAULT", IsActive = true },
-                                    new IArchitect.Agent.Persistence.Model.Common.StereotypePropertyPersistable { DefinitionId = "A04CC24D-81FB-4EA2-A34A-B3C58E04DCFD", Name = "MaxLength", IsActive = true },
-                                    new IArchitect.Agent.Persistence.Model.Common.StereotypePropertyPersistable { DefinitionId = "67EC4CF4-7706-4B39-BC7C-DF539EE2B0AF", Name = "IsUnicode", Value = "false", IsActive = true }
+                                    DefinitionId = "6347286E-A637-44D6-A5D7-D9BE5789CA7A",
+                                    Name = "Text CConstraints",
+                                    DefinitionPackageId = "AF8F3810-745C-42A2-93C8-798860DC45B1",
+                                    DefinitionPackageName = "Intent.Metadata.RDBMS",
+                                    Properties =
+                                    [
+                                        new StereotypePropertyPersistable
+                                        {
+                                            DefinitionId = "1288cfcd-ee51-437e-9713-73b80118f026", Name = "SQL Data Type", Value = "DEFAULT", IsActive = true
+                                        },
+
+                                        new StereotypePropertyPersistable
+                                            { DefinitionId = "A04CC24D-81FB-4EA2-A34A-B3C58E04DCFD", Name = "MaxLength", IsActive = true },
+
+                                        new StereotypePropertyPersistable
+                                        {
+                                            DefinitionId = "67EC4CF4-7706-4B39-BC7C-DF539EE2B0AF", Name = "IsUnicode", Value = "false", IsActive = true
+                                        }
+                                    ]
                                 }
+                            ]
+                        },
+
+                        new ElementPersistable
+                        {
+                            Id = Guid.NewGuid().ToString(),
+                            SpecializationType = "Attribute",
+                            SpecializationTypeId = "0090fb93-483e-41af-a11d-5ad2dc796adf",
+                            ParentFolderId = applicationIdentityUserId,
+                            PackageId = package.Id,
+                            PackageName = package.Name,
+                            Name = "RefreshTokenExpired",
+                            Display = "RefreshTokenExpired: datetime",
+                            TypeReference = new TypeReferencePersistable
+                            {
+                                Id = Guid.NewGuid().ToString(),
+                                TypeId = "a4107c29-7851-4121-9416-cf1236908f1e",
+                                TypePackageName = "Intent.Common.Types",
+                                TypePackageId = "870ad967-cbd4-4ea9-b86d-9c3a5d55ea67",
+                                IsRequired = true,
+                                IsNavigable = true,
+                                IsNullable = true,
+                                IsCollection = false
                             }
                         }
-                    },
-                    new ElementPersistable
-                    {
-                        Id = Guid.NewGuid().ToString(),
-                        SpecializationType = "Attribute",
-                        SpecializationTypeId = "0090fb93-483e-41af-a11d-5ad2dc796adf",
-                        ParentFolderId = applicationIdentityUserId,
-                        PackageId= package.Id,
-                        PackageName = package.Name,
-                        Name = "RefreshTokenExpired",
-                        Display = "RefreshTokenExpired: datetime",
-                        TypeReference = new TypeReferencePersistable
-                        {
-                            Id = Guid.NewGuid().ToString(),
-                            TypeId = "a4107c29-7851-4121-9416-cf1236908f1e",
-                            TypePackageName = "Intent.Common.Types",
-                            TypePackageId = "870ad967-cbd4-4ea9-b86d-9c3a5d55ea67",
-                            IsRequired = true,
-                            IsNavigable = true,
-                            IsNullable = true,
-                            IsCollection = false
-                        }
-                    }
-                }
-                });
+
+                    ]
+                };
+                package.Classes.Add(persistable);
 
                 var associationVisualId = Guid.NewGuid().ToString();
 
@@ -745,21 +1049,21 @@ namespace Intent.Modules.AspNetCore.IdentityService.Migrations
                             IsNavigable = false,
                             IsNullable = false,
                             IsCollection = false,
-                            GenericTypeParameters = new System.Collections.Generic.List<TypeReferencePersistable>
-                        {
-                            new TypeReferencePersistable
-                            {
-                                Id = Guid.NewGuid().ToString(),
-                                TypeId = "d384db9c-a279-45e1-801e-e4e8099625f2",
-                                TypePackageName = "Intent.Common.Types",
-                                TypePackageId = "870ad967-cbd4-4ea9-b86d-9c3a5d55ea67",
-                                IsRequired = true,
-                                IsNavigable = true,
-                                IsNullable = false,
-                                IsCollection = false,
-                                GenericTypeId = "d618eff4-adab-4f6d-a758-6ecad2eb8429"
-                            }
-                        }
+                            GenericTypeParameters =
+                            [
+                                new TypeReferencePersistable
+                                {
+                                    Id = Guid.NewGuid().ToString(),
+                                    TypeId = "d384db9c-a279-45e1-801e-e4e8099625f2",
+                                    TypePackageName = "Intent.Common.Types",
+                                    TypePackageId = "870ad967-cbd4-4ea9-b86d-9c3a5d55ea67",
+                                    IsRequired = true,
+                                    IsNavigable = true,
+                                    IsNullable = false,
+                                    IsCollection = false,
+                                    GenericTypeId = "d618eff4-adab-4f6d-a758-6ecad2eb8429"
+                                }
+                            ]
                         }
                     }
                 });

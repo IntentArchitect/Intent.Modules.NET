@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using Intent.Engine;
 using Intent.IArchitect.Agent.Persistence.Model;
+using Intent.IArchitect.Agent.Persistence.Model.Common;
 using Intent.Plugins;
 using Intent.RoslynWeaver.Attributes;
 
@@ -92,7 +93,7 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Migrations
             var package = designer.GetPackages().FirstOrDefault();
             var diagrams = package.GetElementsOfType("4d66fecd-e9b8-436f-aa50-c59040ad0879");
 
-            if (!diagrams.Any(d => d.Name == "Identity Diagram"))
+            if (diagrams.All(d => d.Name != "Identity Diagram"))
             {
                 return;
             }
@@ -164,21 +165,21 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Migrations
                             IsNavigable = false,
                             IsNullable = false,
                             IsCollection = false,
-                            GenericTypeParameters = new System.Collections.Generic.List<TypeReferencePersistable>
-                        {
-                            new TypeReferencePersistable
-                            {
-                                Id = Guid.NewGuid().ToString(),
-                                TypeId = "d384db9c-a279-45e1-801e-e4e8099625f2",
-                                TypePackageName = "Intent.Common.Types",
-                                TypePackageId = "870ad967-cbd4-4ea9-b86d-9c3a5d55ea67",
-                                IsRequired = true,
-                                IsNavigable = true,
-                                IsNullable = false,
-                                IsCollection = false,
-                                GenericTypeId = "d618eff4-adab-4f6d-a758-6ecad2eb8429"
-                            }
-                        }
+                            GenericTypeParameters =
+                            [
+                                new TypeReferencePersistable
+                                {
+                                    Id = Guid.NewGuid().ToString(),
+                                    TypeId = "d384db9c-a279-45e1-801e-e4e8099625f2",
+                                    TypePackageName = "Intent.Common.Types",
+                                    TypePackageId = "870ad967-cbd4-4ea9-b86d-9c3a5d55ea67",
+                                    IsRequired = true,
+                                    IsNavigable = true,
+                                    IsNullable = false,
+                                    IsCollection = false,
+                                    GenericTypeId = "d618eff4-adab-4f6d-a758-6ecad2eb8429"
+                                }
+                            ]
                         }
                     }
                 });
@@ -201,7 +202,7 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Migrations
                     ZIndex = 14
                 });
             }
-            else if (!package.Classes.Any(c => c.Name == "ApplicationIdentityUser"))
+            else if (package.Classes.All(c => c.Name != "ApplicationIdentityUser"))
             {
                 var applicationIdentityUserId = Guid.NewGuid().ToString();
                 package.Classes.Add(new ElementPersistable
@@ -216,69 +217,105 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Migrations
                     ParentFolderId = package.Id,
                     PackageId = package.Id,
                     PackageName = package.Name,
-                    ChildElements = new System.Collections.Generic.List<ElementPersistable>
-                {
-                    new ElementPersistable
-                    {
-                        Id = Guid.NewGuid().ToString(),
-                        SpecializationType = "Attribute",
-                        SpecializationTypeId = "0090fb93-483e-41af-a11d-5ad2dc796adf",
-                        ParentFolderId = applicationIdentityUserId,
-                        PackageId= package.Id,
-                        PackageName = package.Name,
-                        Name = "RefreshToken",
-                        Display = "RefreshToken: string",
-                        TypeReference = new TypeReferencePersistable
+                    ChildElements =
+                    [
+                        new ElementPersistable
                         {
                             Id = Guid.NewGuid().ToString(),
-                            TypeId = "d384db9c-a279-45e1-801e-e4e8099625f2",
-                            TypePackageName = "Intent.Common.Types",
-                            TypePackageId = "870ad967-cbd4-4ea9-b86d-9c3a5d55ea67",
-                            IsRequired = true,
-                            IsNavigable = true,
-                            IsNullable = true,
-                            IsCollection = false
-                        },
-                        Stereotypes = new System.Collections.Generic.List<IArchitect.Agent.Persistence.Model.Common.StereotypePersistable>
-                        {
-                            new IArchitect.Agent.Persistence.Model.Common.StereotypePersistable
+                            SpecializationType = "Attribute",
+                            SpecializationTypeId = "0090fb93-483e-41af-a11d-5ad2dc796adf",
+                            ParentFolderId = applicationIdentityUserId,
+                            PackageId = package.Id,
+                            PackageName = package.Name,
+                            Name = "RefreshToken",
+                            Display = "RefreshToken: string",
+                            TypeReference = new TypeReferencePersistable
                             {
-                                DefinitionId = "6347286E-A637-44D6-A5D7-D9BE5789CA7A",
-                                Name = "Text CConstraints",
-                                DefinitionPackageId = "AF8F3810-745C-42A2-93C8-798860DC45B1",
-                                DefinitionPackageName = "Intent.Metadata.RDBMS",
-                                Properties = new System.Collections.Generic.List<IArchitect.Agent.Persistence.Model.Common.StereotypePropertyPersistable>
+                                Id = Guid.NewGuid().ToString(),
+                                TypeId = "d384db9c-a279-45e1-801e-e4e8099625f2",
+                                TypePackageName = "Intent.Common.Types",
+                                TypePackageId = "870ad967-cbd4-4ea9-b86d-9c3a5d55ea67",
+                                IsRequired = true,
+                                IsNavigable = true,
+                                IsNullable = true,
+                                IsCollection = false
+                            },
+                            Stereotypes =
+                            [
+                                new StereotypePersistable
                                 {
-                                    new IArchitect.Agent.Persistence.Model.Common.StereotypePropertyPersistable { DefinitionId = "1288cfcd-ee51-437e-9713-73b80118f026", Name = "SQL Data Type", Value = "DEFAULT", IsActive = true },
-                                    new IArchitect.Agent.Persistence.Model.Common.StereotypePropertyPersistable { DefinitionId = "A04CC24D-81FB-4EA2-A34A-B3C58E04DCFD", Name = "MaxLength", IsActive = true },
-                                    new IArchitect.Agent.Persistence.Model.Common.StereotypePropertyPersistable { DefinitionId = "67EC4CF4-7706-4B39-BC7C-DF539EE2B0AF", Name = "IsUnicode", Value = "false", IsActive = true }
+                                    DefinitionId = "6347286E-A637-44D6-A5D7-D9BE5789CA7A",
+                                    Name = "Text CConstraints",
+                                    DefinitionPackageId = "AF8F3810-745C-42A2-93C8-798860DC45B1",
+                                    DefinitionPackageName = "Intent.Metadata.RDBMS",
+                                    Properties =
+                                    [
+                                        new StereotypePropertyPersistable
+                                        {
+                                            DefinitionId = "1288cfcd-ee51-437e-9713-73b80118f026", Name = "SQL Data Type", Value = "DEFAULT", IsActive = true
+                                        },
+
+                                        new StereotypePropertyPersistable
+                                            { DefinitionId = "A04CC24D-81FB-4EA2-A34A-B3C58E04DCFD", Name = "MaxLength", IsActive = true },
+
+                                        new StereotypePropertyPersistable
+                                        {
+                                            DefinitionId = "67EC4CF4-7706-4B39-BC7C-DF539EE2B0AF", Name = "IsUnicode", Value = "false", IsActive = true
+                                        }
+                                    ]
                                 }
+                            ]
+                        },
+
+                        new ElementPersistable
+                        {
+                            Id = Guid.NewGuid().ToString(),
+                            SpecializationType = "Attribute",
+                            SpecializationTypeId = "0090fb93-483e-41af-a11d-5ad2dc796adf",
+                            ParentFolderId = applicationIdentityUserId,
+                            PackageId = package.Id,
+                            PackageName = package.Name,
+                            Name = "RefreshTokenExpired",
+                            Display = "RefreshTokenExpired: datetime",
+                            TypeReference = new TypeReferencePersistable
+                            {
+                                Id = Guid.NewGuid().ToString(),
+                                TypeId = "a4107c29-7851-4121-9416-cf1236908f1e",
+                                TypePackageName = "Intent.Common.Types",
+                                TypePackageId = "870ad967-cbd4-4ea9-b86d-9c3a5d55ea67",
+                                IsRequired = true,
+                                IsNavigable = true,
+                                IsNullable = true,
+                                IsCollection = false
                             }
                         }
-                    },
-                    new ElementPersistable
-                    {
-                        Id = Guid.NewGuid().ToString(),
-                        SpecializationType = "Attribute",
-                        SpecializationTypeId = "0090fb93-483e-41af-a11d-5ad2dc796adf",
-                        ParentFolderId = applicationIdentityUserId,
-                        PackageId= package.Id,
-                        PackageName = package.Name,
-                        Name = "RefreshTokenExpired",
-                        Display = "RefreshTokenExpired: datetime",
-                        TypeReference = new TypeReferencePersistable
+                    ],
+                    Stereotypes = 
+                    [
+                        new StereotypePersistable
                         {
-                            Id = Guid.NewGuid().ToString(),
-                            TypeId = "a4107c29-7851-4121-9416-cf1236908f1e",
-                            TypePackageName = "Intent.Common.Types",
-                            TypePackageId = "870ad967-cbd4-4ea9-b86d-9c3a5d55ea67",
-                            IsRequired = true,
-                            IsNavigable = true,
-                            IsNullable = true,
-                            IsCollection = false
+                            DefinitionId = "dd205b32-b48b-4c77-98f5-faefb2c047ce",
+                            Name = "Table",
+                            AddedByDefault = false,
+                            DefinitionPackageName="Intent.Metadata.RDBMS",
+                            DefinitionPackageId="AF8F3810-745C-42A2-93C8-798860DC45B1",
+                            Properties = 
+                            [
+                                new StereotypePropertyPersistable
+                                {
+                                    DefinitionId = "2b3a9df7-65e1-4800-b919-bef1a6b8f5a9",
+                                    Name = "Name",
+                                    IsActive = true
+                                },
+                                new StereotypePropertyPersistable
+                                {
+                                    DefinitionId = "13e6101f-0e37-4eda-a6ae-ec48cd9f8f4b",
+                                    Name = "Schema",
+                                    IsActive = true
+                                }
+                            ]
                         }
-                    }
-                }
+                    ]
                 });
 
                 var associationVisualId = Guid.NewGuid().ToString();
@@ -325,21 +362,21 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Migrations
                             IsNavigable = false,
                             IsNullable = false,
                             IsCollection = false,
-                            GenericTypeParameters = new System.Collections.Generic.List<TypeReferencePersistable>
-                        {
-                            new TypeReferencePersistable
-                            {
-                                Id = Guid.NewGuid().ToString(),
-                                TypeId = "d384db9c-a279-45e1-801e-e4e8099625f2",
-                                TypePackageName = "Intent.Common.Types",
-                                TypePackageId = "870ad967-cbd4-4ea9-b86d-9c3a5d55ea67",
-                                IsRequired = true,
-                                IsNavigable = true,
-                                IsNullable = false,
-                                IsCollection = false,
-                                GenericTypeId = "d618eff4-adab-4f6d-a758-6ecad2eb8429"
-                            }
-                        }
+                            GenericTypeParameters =
+                            [
+                                new TypeReferencePersistable
+                                {
+                                    Id = Guid.NewGuid().ToString(),
+                                    TypeId = "d384db9c-a279-45e1-801e-e4e8099625f2",
+                                    TypePackageName = "Intent.Common.Types",
+                                    TypePackageId = "870ad967-cbd4-4ea9-b86d-9c3a5d55ea67",
+                                    IsRequired = true,
+                                    IsNavigable = true,
+                                    IsNullable = false,
+                                    IsCollection = false,
+                                    GenericTypeId = "d618eff4-adab-4f6d-a758-6ecad2eb8429"
+                                }
+                            ]
                         }
                     }
                 });
