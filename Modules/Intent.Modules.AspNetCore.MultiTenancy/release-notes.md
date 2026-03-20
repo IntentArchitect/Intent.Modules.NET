@@ -1,3 +1,7 @@
+### Version 5.2.1
+
+- Improvement: Updated setting name and hint descriptions.
+
 ### Version 5.2.0
 
 - Improvement: Updated to work with Microsoft.OpenApi (2.4.1 and up) library version.
