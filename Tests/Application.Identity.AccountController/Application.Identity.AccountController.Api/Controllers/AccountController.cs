@@ -70,8 +70,10 @@ namespace Application.Identity.AccountController.Api.Controllers
 
             var user = new ApplicationIdentityUser { Id = Guid.NewGuid().ToString() };
 
+            var emailStore = (IUserEmailStore<ApplicationIdentityUser>)_userStore;
+
             await _userStore.SetUserNameAsync(user, input.Email, CancellationToken.None);
-            await _userManager.SetEmailAsync(user, input.Email);
+            await emailStore.SetEmailAsync(user, input.Email, CancellationToken.None);
             var result = await _userManager.CreateAsync(user, input.Password!);
 
             if (!result.Succeeded)

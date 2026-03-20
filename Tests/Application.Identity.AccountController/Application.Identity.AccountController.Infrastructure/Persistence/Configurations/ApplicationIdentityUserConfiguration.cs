@@ -2,7 +2,6 @@ using System;
 using Application.Identity.AccountController.Domain;
 using Application.Identity.AccountController.Domain.Entities;
 using Intent.RoslynWeaver.Attributes;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -15,7 +14,7 @@ namespace Application.Identity.AccountController.Infrastructure.Persistence.Conf
     {
         public void Configure(EntityTypeBuilder<ApplicationIdentityUser> builder)
         {
-            builder.HasBaseType<IdentityUser<string>>();
+            builder.ToTable("ApplicationIdentityUsers");
             builder.Property(x => x.RefreshToken);
 
             builder.Property(x => x.RefreshTokenExpired);

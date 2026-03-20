@@ -1,19 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="33c07b31-1b73-40ce-8331-ff14e2fd7136" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
   <name>ApplicationIdentityUser</name>
-  <display>ApplicationIdentityUser: IdentityUser&lt;string&gt;</display>
+  <display>ApplicationIdentityUser : IdentityUser&lt;string&gt;</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>0f6a46f7-686d-4b68-865c-43fdcd7d3e5b</parentFolderId>
   <packageId>0f6a46f7-686d-4b68-865c-43fdcd7d3e5b</packageId>
   <packageName>GrpcServer.Domain</packageName>
-  <stereotypes />
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="dd205b32-b48b-4c77-98f5-faefb2c047ce" name="Table">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+      <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+      <properties>
+        <property name="2b3a9df7-65e1-4800-b919-bef1a6b8f5a9" display="Name" isActive="true" />
+        <property name="13e6101f-0e37-4eda-a6ae-ec48cd9f8f4b" display="Schema" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
   <metadata />
   <childElements>
     <childElement id="d01fbd58-cd80-4bac-a680-0f125a8f901e" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>RefreshToken</name>
-      <display>RefreshToken: string</display>
+      <display>RefreshToken: string?</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="b528d08e-b404-4bf8-a82c-742fc30de386">
@@ -32,7 +43,7 @@
       <packageId>0f6a46f7-686d-4b68-865c-43fdcd7d3e5b</packageId>
       <packageName>GrpcServer.Domain</packageName>
       <stereotypes>
-        <stereotype stereotypeDefinitionId="6347286E-A637-44D6-A5D7-D9BE5789CA7A" name="Text CConstraints">
+        <stereotype stereotypeDefinitionId="6347286E-A637-44D6-A5D7-D9BE5789CA7A" name="Text Constraints">
           <addedByDefault>false</addedByDefault>
           <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
           <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
@@ -48,7 +59,7 @@
     </childElement>
     <childElement id="3171f1f9-3b22-44c9-b94b-6ad97bc3adac" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>RefreshTokenExpired</name>
-      <display>RefreshTokenExpired: datetime</display>
+      <display>RefreshTokenExpired: datetime?</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="947ceaa2-e357-4d10-b710-22173fc2ae36">

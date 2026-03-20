@@ -1,6 +1,5 @@
 using GrpcServer.Domain.Entities;
 using Intent.RoslynWeaver.Attributes;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -13,7 +12,7 @@ namespace GrpcServer.Infrastructure.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<ApplicationIdentityUser> builder)
         {
-            builder.HasBaseType<IdentityUser<string>>();
+            builder.ToTable("ApplicationIdentityUsers");
             builder.Property(x => x.RefreshToken);
 
             builder.Property(x => x.RefreshTokenExpired);
