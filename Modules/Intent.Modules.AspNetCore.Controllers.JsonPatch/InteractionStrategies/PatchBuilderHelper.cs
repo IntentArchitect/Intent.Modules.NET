@@ -136,13 +136,13 @@ internal static class PatchBuilderHelper
         IElementToElementMapping updateMapping,
         string payloadRootVariable)
     {
-        const string OperationSpecialization = "Operation";
-        const string ConstructorSpecialization = "Constructor";
-        const string ReverseCommentPrefix = "[JsonPatch Reverse Map]";
-        const string UnsupportedExpressionReason = "unsupported mapping expression";
-        const string UnsupportedOperationReason = "operation mappings are not supported";
-        const string UnsupportedConstructorReason = "constructor mappings are not supported";
-        const string UnsupportedCollectionShapeReason = "unsupported collection mapping shape";
+        const string operationSpecialization = "Operation";
+        const string constructorSpecialization = "Constructor";
+        const string reverseCommentPrefix = "[JsonPatch Reverse Map]";
+        const string unsupportedExpressionReason = "unsupported mapping expression";
+        const string unsupportedOperationReason = "operation mappings are not supported";
+        const string unsupportedConstructorReason = "constructor mappings are not supported";
+        const string unsupportedCollectionShapeReason = "unsupported collection mapping shape";
 
         var collectionGroups = new Dictionary<string, CollectionGroup>();
 
@@ -161,7 +161,7 @@ internal static class PatchBuilderHelper
             var collectionKey = GetCollectionGroupKey(mappedEnd);
             if (collectionKey != null && !processedCollections.Contains(collectionKey))
             {
-                var collectionStatement = TryCreateCollectionProjectionStatement(collectionGroups[collectionKey]);
+                var collectionStatement = TryCreateCollectionProjectionStatement(collectionGroups[collectionKey], handleMethod, payloadRootVariable);
                 if (collectionStatement != null)
                 {
                     statements.Add(collectionStatement.WithSemicolon());
@@ -169,7 +169,7 @@ internal static class PatchBuilderHelper
                 else
                 {
                     var group = collectionGroups[collectionKey];
-                    statements.Add(new CSharpStatement($"// {ReverseCommentPrefix} Skipped '{group.TargetCollectionPathText}': {UnsupportedCollectionShapeReason}."));
+                    statements.Add(new CSharpStatement($"// {reverseCommentPrefix} Skipped '{group.TargetCollectionPathText}': {unsupportedCollectionShapeReason}."));
                 }
 
                 processedCollections.Add(collectionKey);
@@ -183,7 +183,7 @@ internal static class PatchBuilderHelper
 
             if (TryGetUnsupportedReason(mappedEnd, out var reason))
             {
-                statements.Add(new CSharpStatement($"// {ReverseCommentPrefix} Skipped '{GetPathText(mappedEnd.TargetPath, payloadRootVariable)}': {reason}."));
+                statements.Add(new CSharpStatement($"// {reverseCommentPrefix} Skipped '{GetPathText(mappedEnd.TargetPath, payloadRootVariable)}': {reason}."));
                 continue;
             }
 
@@ -230,7 +230,7 @@ internal static class PatchBuilderHelper
             return $"{string.Join("/", targetCollectionPath.Select(x => x.Element.Id))}|{string.Join("/", sourceCollectionPath.Select(x => x.Element.Id))}";
         }
 
-        CSharpStatement? TryCreateCollectionProjectionStatement(CollectionGroup group)
+        static CSharpStatement? TryCreateCollectionProjectionStatement(CollectionGroup group, ICSharpClassMethodDeclaration handleMethod, string payloadRootVariable)
         {
             var targetCollectionElement = group.TargetCollectionPath.Last().Element;
             var sourceCollectionElement = group.SourceCollectionPath.Last().Element;
@@ -241,7 +241,7 @@ internal static class PatchBuilderHelper
                 return null;
             }
 
-            var projectionMappings = new List<string>();
+            var projectionMappings = new List<(string, string)>();
             foreach (var mappedEnd in group.MappedEnds)
             {
                 if (TryGetUnsupportedReason(mappedEnd, out _))
@@ -264,7 +264,7 @@ internal static class PatchBuilderHelper
                     continue;
                 }
 
-                projectionMappings.Add($"{targetTail[0].Name} = item.{sourceTail[0].Name}");
+                projectionMappings.Add((targetTail[0].Name, sourceTail[0].Name));
             }
 
             if (projectionMappings.Count == 0)
@@ -275,15 +275,20 @@ internal static class PatchBuilderHelper
             var targetCollectionPath = GetPathText(group.TargetCollectionPath, payloadRootVariable);
             var sourceCollectionPath = GetPathText(group.SourceCollectionPath, "entity");
             var targetItemTypeName = handleMethod.File.Template.GetTypeName(targetCollectionType);
-            var initializer = string.Join($",{Environment.NewLine}                ", projectionMappings);
 
-            var statement =
-                $"{targetCollectionPath} = {sourceCollectionPath}.Select(item => new {targetItemTypeName}{Environment.NewLine}" +
-                "            {" + Environment.NewLine +
-                $"                {initializer}{Environment.NewLine}" +
-                "            }).ToList()";
+            var objInit = new CSharpObjectInitializerBlock($"new {targetItemTypeName}");
+            foreach (var projectionMapping in projectionMappings)
+            {
+                objInit.AddInitStatement(projectionMapping.Item1, $"item.{projectionMapping.Item2}");
+            }
 
-            return new CSharpStatement(statement);
+            var assignStatement = new CSharpAssignmentStatement(
+                lhs: targetCollectionPath,
+                rhs: new CSharpStatement(sourceCollectionPath)
+                    .AddInvocation("Select", select => select.AddArgument(new CSharpLambdaBlock("item").WithExpressionBody(objInit)))
+                    .WithoutSemicolon());
+
+            return assignStatement.AddInvocation("ToList");
         }
 
         static bool TryGetUnsupportedReason(IElementToElementMappedEnd mappedEnd, out string reason)
@@ -292,19 +297,19 @@ internal static class PatchBuilderHelper
 
             if (!IsSimpleReverseExpression(mappedEnd))
             {
-                reason = UnsupportedExpressionReason;
+                reason = unsupportedExpressionReason;
                 return true;
             }
 
-            if (ContainsUnsupportedSpecialization(mappedEnd, OperationSpecialization))
+            if (ContainsUnsupportedSpecialization(mappedEnd, operationSpecialization))
             {
-                reason = UnsupportedOperationReason;
+                reason = unsupportedOperationReason;
                 return true;
             }
 
-            if (ContainsUnsupportedSpecialization(mappedEnd, ConstructorSpecialization))
+            if (ContainsUnsupportedSpecialization(mappedEnd, constructorSpecialization))
             {
-                reason = UnsupportedConstructorReason;
+                reason = unsupportedConstructorReason;
                 return true;
             }
 
