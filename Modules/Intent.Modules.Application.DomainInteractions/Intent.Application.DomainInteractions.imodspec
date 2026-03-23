@@ -51,7 +51,7 @@
     </detect>
     <detect id="Intent.Application.MediatR.CRUD">
       <install>
-        <package id="Intent.Application.MediatR.CRUD" version="7.2.0" />
+        <package id="Intent.Application.MediatR.CRUD" version="7.2.1-pre.0" />
       </install>
     </detect>
   </interoperability>
