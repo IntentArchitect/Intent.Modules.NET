@@ -20,8 +20,6 @@ internal record PayloadInfo(string VarName, string Type);
 
 internal static class PatchBuilderHelper
 {
-    private static readonly bool UseCollectionProjectionFallback = false;
-
     public static void EnsurePatchHelperMethods(
         ICSharpClassMethodDeclaration handleMethod,
         UpdateEntityActionTargetEndModel updateAction,
@@ -299,135 +297,7 @@ internal static class PatchBuilderHelper
             {
                 Logging.Log.Warning($"{reverseCommentPrefix} No collection root mapped end was found for '{targetCollectionPathText}' from '{sourceCollectionPathText}'.");
             }
-
-            if (!UseCollectionProjectionFallback)
-            {
-                Logging.Log.Info($"{reverseCommentPrefix} Collection projection fallback disabled for '{targetCollectionPathText}' from '{sourceCollectionPathText}'.");
-                return null;
-            }
-
-            var targetCollectionElement = group.TargetCollectionPath.Last().Element;
-            var sourceCollectionElement = group.SourceCollectionPath.Last().Element;
-
-            if (targetCollectionElement.TypeReference?.Element is not IElement targetCollectionType ||
-                sourceCollectionElement.TypeReference?.Element is not IElement)
-            {
-                return null;
-            }
-
-            var projectionMappings = new List<(IList<IElementMappingPathTarget> TargetTail, IList<IElementMappingPathTarget> SourceTail)>();
-            foreach (var mappedEnd in group.MappedEnds)
-            {
-                if (TryGetUnsupportedReason(mappedEnd, out _))
-                {
-                    continue;
-                }
-
-                if (mappedEnd.TargetPath.Count <= group.TargetCollectionIndex + 1 ||
-                    mappedEnd.SourcePath.Count <= group.SourceCollectionIndex + 1)
-                {
-                    continue;
-                }
-
-                var targetTail = mappedEnd.TargetPath.Skip(group.TargetCollectionIndex + 1).ToList();
-                var sourceTail = mappedEnd.SourcePath.Skip(group.SourceCollectionIndex + 1).ToList();
-
-                projectionMappings.Add((targetTail, sourceTail));
-            }
-
-            if (projectionMappings.Count == 0)
-            {
-                return null;
-            }
-
-            if (!TryBuildObjectInitializer(targetCollectionType, projectionMappings, "item", handleMethod, out var objInit))
-            {
-                return null;
-            }
-
-            var assignStatement = new CSharpAssignmentStatement(
-                lhs: targetCollectionPathText,
-                rhs: new CSharpStatement(sourceCollectionPathText)
-                    .AddInvocation("Select", select => select.AddArgument(new CSharpLambdaBlock("item").WithExpressionBody(objInit)))
-                    .WithoutSemicolon());
-
-            return assignStatement.AddInvocation("ToList");
-        }
-
-        static bool TryBuildObjectInitializer(
-            IElement targetType,
-            IReadOnlyList<(IList<IElementMappingPathTarget> TargetTail, IList<IElementMappingPathTarget> SourceTail)> mappings,
-            string sourceVariable,
-            ICSharpClassMethodDeclaration handleMethod,
-            out CSharpObjectInitializerBlock objectInitializer)
-        {
-            var targetItemTypeName = handleMethod.File.Template.GetTypeName(targetType);
-            objectInitializer = new CSharpObjectInitializerBlock($"new {targetItemTypeName}");
-            var hasMappings = false;
-
-            foreach (var (targetTail, sourceTail) in mappings)
-            {
-                if (targetTail.Count != 1 || sourceTail.Count != 1)
-                {
-                    continue;
-                }
-
-                if (targetTail[0].Element.TypeReference?.IsCollection == true ||
-                    sourceTail[0].Element.TypeReference?.IsCollection == true)
-                {
-                    continue;
-                }
-
-                objectInitializer.AddInitStatement(targetTail[0].Name, $"{sourceVariable}.{sourceTail[0].Name}");
-                hasMappings = true;
-            }
-
-            var nestedCollectionGroups = mappings
-                .Where(x => x.TargetTail.Count > 0 && x.SourceTail.Count > 0)
-                .Where(x => x.TargetTail[0].Element.TypeReference?.IsCollection == true &&
-                            x.SourceTail[0].Element.TypeReference?.IsCollection == true)
-                .GroupBy(x => $"{x.TargetTail[0].Element.Id}|{x.SourceTail[0].Element.Id}")
-                .ToList();
-
-            foreach (var nestedCollectionGroup in nestedCollectionGroups)
-            {
-                var collectionNode = nestedCollectionGroup.First();
-                if (collectionNode.TargetTail[0].Element.TypeReference?.Element is not IElement nestedTargetType)
-                {
-                    continue;
-                }
-
-                var nestedMappings = nestedCollectionGroup
-                    .Where(x => x.TargetTail.Count > 1 && x.SourceTail.Count > 1)
-                    .Select(x =>
-                    (
-                        TargetTail: (IList<IElementMappingPathTarget>)x.TargetTail.Skip(1).ToList(),
-                        SourceTail: (IList<IElementMappingPathTarget>)x.SourceTail.Skip(1).ToList()
-                    ))
-                    .ToList();
-
-                if (nestedMappings.Count == 0)
-                {
-                    continue;
-                }
-
-                if (!TryBuildObjectInitializer(nestedTargetType, nestedMappings, "nestedItem", handleMethod, out var nestedInitializer))
-                {
-                    continue;
-                }
-
-                var nestedProjection = new CSharpStatement($"{sourceVariable}.{collectionNode.SourceTail[0].Name}")
-                    .AddInvocation("Select", select =>
-                        select.AddArgument(new CSharpLambdaBlock("nestedItem").WithExpressionBody(nestedInitializer)))
-                    .WithoutSemicolon()
-                    .AddInvocation("ToList")
-                    .WithoutSemicolon();
-
-                objectInitializer.AddInitStatement(collectionNode.TargetTail[0].Name, nestedProjection);
-                hasMappings = true;
-            }
-
-            return hasMappings;
+            return null;
         }
 
         static bool TryGetUnsupportedReason(IElementToElementMappedEnd mappedEnd, out string reason)
