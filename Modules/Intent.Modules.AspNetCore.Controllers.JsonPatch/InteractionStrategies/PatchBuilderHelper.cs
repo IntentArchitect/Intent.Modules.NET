@@ -8,8 +8,11 @@ using Intent.Modelers.Services.DomainInteractions.Api;
 using Intent.Modules.Application.DomainInteractions.Extensions;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Mapping;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Common.CSharp.Interactions;
+using Intent.Modules.AspNetCore.Controllers.JsonPatch.Mapping.Resolvers;
+using Intent.Utils;
 
 namespace Intent.Modules.AspNetCore.Controllers.JsonPatch.InteractionStrategies;
 
@@ -17,6 +20,8 @@ internal record PayloadInfo(string VarName, string Type);
 
 internal static class PatchBuilderHelper
 {
+    private static readonly bool UseCollectionProjectionFallback = false;
+
     public static void EnsurePatchHelperMethods(
         ICSharpClassMethodDeclaration handleMethod,
         UpdateEntityActionTargetEndModel updateAction,
@@ -150,6 +155,7 @@ internal static class PatchBuilderHelper
         var reverseMapping = ReverseMappingAdapter.Create(updateMapping);
         var statements = new List<CSharpStatement>();
         var mappingManager = handleMethod.GetMappingManager();
+        EnsureJsonPatchReverseResolverRegistered(handleMethod, mappingManager);
 
         if (reverseMapping.SourceElement is IElement reverseSourceRoot)
         {
@@ -259,6 +265,8 @@ internal static class PatchBuilderHelper
             CSharpClassMappingManager mappingManager,
             IElementToElementMapping reverseMapping)
         {
+            var targetCollectionPathText = GetPathText(group.TargetCollectionPath, payloadRootVariable);
+            var sourceCollectionPathText = GetPathText(group.SourceCollectionPath, "entity");
             var collectionRootMappedEnd = group.MappedEnds.FirstOrDefault(x =>
                 x.TargetPath.Count == group.TargetCollectionIndex + 1 &&
                 x.SourcePath.Count == group.SourceCollectionIndex + 1);
@@ -276,13 +284,26 @@ internal static class PatchBuilderHelper
                     if (sourceText.Contains("Select(", StringComparison.Ordinal) ||
                         sourceText.Contains(".Select(", StringComparison.Ordinal))
                     {
+                        Logging.Log.Debug($"{reverseCommentPrefix} Mapping-manager projection accepted for '{targetPath}' from '{sourceCollectionPathText}'.");
                         return new CSharpAssignmentStatement(targetPath, sourceStatement);
                     }
+
+                    Logging.Log.Warning($"{reverseCommentPrefix} Mapping-manager projection rejected for '{targetPath}'. Source was '{sourceText}'.");
                 }
-                catch
+                catch (Exception ex)
                 {
-                    // Fall through to custom recursive projection generation.
+                    Logging.Log.Warning($"{reverseCommentPrefix} Mapping-manager projection threw for '{targetCollectionPathText}' from '{sourceCollectionPathText}'. Reason: {ex.Message}");
                 }
+            }
+            else
+            {
+                Logging.Log.Warning($"{reverseCommentPrefix} No collection root mapped end was found for '{targetCollectionPathText}' from '{sourceCollectionPathText}'.");
+            }
+
+            if (!UseCollectionProjectionFallback)
+            {
+                Logging.Log.Info($"{reverseCommentPrefix} Collection projection fallback disabled for '{targetCollectionPathText}' from '{sourceCollectionPathText}'.");
+                return null;
             }
 
             var targetCollectionElement = group.TargetCollectionPath.Last().Element;
@@ -324,12 +345,9 @@ internal static class PatchBuilderHelper
                 return null;
             }
 
-            var targetCollectionPath = GetPathText(group.TargetCollectionPath, payloadRootVariable);
-            var sourceCollectionPath = GetPathText(group.SourceCollectionPath, "entity");
-
             var assignStatement = new CSharpAssignmentStatement(
-                lhs: targetCollectionPath,
-                rhs: new CSharpStatement(sourceCollectionPath)
+                lhs: targetCollectionPathText,
+                rhs: new CSharpStatement(sourceCollectionPathText)
                     .AddInvocation("Select", select => select.AddArgument(new CSharpLambdaBlock("item").WithExpressionBody(objInit)))
                     .WithoutSemicolon());
 
@@ -543,6 +561,23 @@ internal static class PatchBuilderHelper
             return string.IsNullOrWhiteSpace(suffix)
                 ? rootReplacement
                 : $"{rootReplacement}.{suffix}";
+        }
+    }
+
+    private static void EnsureJsonPatchReverseResolverRegistered(
+        ICSharpClassMethodDeclaration handleMethod,
+        CSharpClassMappingManager mappingManager)
+    {
+        const string metadataKey = "jsonpatch-reverse-update-resolver-registered";
+        if (handleMethod.TryGetMetadata<bool>(metadataKey, out var registered) && registered)
+        {
+            return;
+        }
+
+        if (handleMethod.File.Template is ICSharpFileBuilderTemplate fileBuilderTemplate)
+        {
+            mappingManager.AddMappingResolver(new JsonPatchReverseUpdateMappingTypeResolver(fileBuilderTemplate), priority: -2);
+            handleMethod.AddMetadata(metadataKey, true);
         }
     }
 
