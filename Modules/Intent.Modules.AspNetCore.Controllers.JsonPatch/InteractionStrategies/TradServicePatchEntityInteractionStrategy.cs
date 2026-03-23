@@ -1,24 +1,23 @@
-using System;
+﻿using System;
 using System.Linq;
 using Intent.Exceptions;
 using Intent.Metadata.Models;
+using Intent.Modelers.Domain.Api;
+using Intent.Modelers.Services.Api;
+using Intent.Modelers.Services.DomainInteractions.Api;
 using Intent.Modules.Application.DomainInteractions;
 using Intent.Modules.Application.DomainInteractions.DataAccessProviders;
 using Intent.Modules.Application.DomainInteractions.Extensions;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Interactions;
-using Intent.Modelers.Domain.Api;
-using Intent.Modelers.Services.DomainInteractions.Api;
-using Intent.Modules.Constants;
 using Intent.Modules.Metadata.WebApi.Models;
-
 
 namespace Intent.Modules.AspNetCore.Controllers.JsonPatch.InteractionStrategies;
 
 /// <summary>
-/// Overrides the default update entity interaction strategy for HTTP PATCH commands.
+/// Overrides the default update entity interaction strategy for HTTP PATCH service operations.
 /// </summary>
-internal class CommandPatchEntityInteractionStrategy : IInteractionStrategy
+internal class TradServicePatchEntityInteractionStrategy : IInteractionStrategy
 {
     public bool IsMatch(IElement interaction)
     {
@@ -34,7 +33,7 @@ internal class CommandPatchEntityInteractionStrategy : IInteractionStrategy
         }
 
         // Determine if the source end of the interaction is a Command and whether it is an HTTP PATCH endpoint.
-        if (action.OtherEnd().Element is not IElement { SpecializationType: "Command" } commandElement)
+        if (action.OtherEnd().Element is not IElement { SpecializationType: "Operation" } commandElement)
         {
             return false;
         }
@@ -55,7 +54,7 @@ internal class CommandPatchEntityInteractionStrategy : IInteractionStrategy
         }
 
         var foundEntity = interaction.TypeReference.Element.AsClassModel() ??
-                          interaction.TypeReference.Element.AsOperationModel()?.ParentClass ??
+                          Intent.Modelers.Domain.Api.OperationModelExtensions.AsOperationModel(interaction.TypeReference.Element)?.ParentClass ??
                           throw new ElementException(interactionElement,
                               $"Unable to determine entity for update interaction targeting '{interaction.TypeReference.Element.Name}'.");
 
@@ -82,19 +81,19 @@ internal class CommandPatchEntityInteractionStrategy : IInteractionStrategy
             // Use tracked entity details to determine the variable name.
             var entityDetails = method.TrackedEntities()[updateAction.Id];
 
-            PatchBuilderHelper.EnsurePatchHelperMethods(method, updateAction, foundEntity, handleMethod =>
-            {
-                return handleMethod.Parameters.FirstOrDefault(p => p.Name == "request") ??
-                       handleMethod.Parameters.First();
-            });
+            var param = method.Parameters.FirstOrDefault(param =>
+                param.TryGetMetadata<Intent.Modelers.Services.Api.ParameterModel>("model", out var paramModel)
+                && paramModel.TypeReference.Element.IsDTOModel())!;
+            
+            PatchBuilderHelper.EnsurePatchHelperMethods(method, updateAction, foundEntity, handleMethod => param);
 
             method.AddStatements(ExecutionPhases.BusinessLogic,
             [
-                new CSharpStatement($"LoadOriginalState({entityDetails.VariableName}, request)")
+                new CSharpStatement($"LoadOriginalState({entityDetails.VariableName}, {param.Name})")
                     .WithSemicolon(),
-                new CSharpStatement("request.PatchExecutor.ApplyTo(request)")
+                new CSharpStatement($"{param.Name}.PatchExecutor.ApplyTo({param.Name})")
                     .WithSemicolon(),
-                new CSharpStatement($"ApplyChangesTo(request, {entityDetails.VariableName})")
+                new CSharpStatement($"ApplyChangesTo({param.Name}, {entityDetails.VariableName})")
                     .WithSemicolon()
             ]);
         }
