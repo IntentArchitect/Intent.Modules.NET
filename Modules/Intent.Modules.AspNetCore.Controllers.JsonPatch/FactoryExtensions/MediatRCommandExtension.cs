@@ -61,7 +61,7 @@ namespace Intent.Modules.AspNetCore.Controllers.JsonPatch.FactoryExtensions
 
                 template.CSharpFile.OnBuild(file =>
                 {
-                    var cls = file.Classes.First(x => x.Interfaces.Any(y => y == "IRequest"));
+                    var classType = file.TypeDeclarations.First(x => x.Interfaces.Any(y => y == "IRequest"));
 
                     if (!template.TryGetTypeName("Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface",
                             out var bypassValidationInterface))
@@ -69,9 +69,9 @@ namespace Intent.Modules.AspNetCore.Controllers.JsonPatch.FactoryExtensions
                         return;
                     }
 
-                    cls.ImplementsInterface(bypassValidationInterface);
+                    classType.ImplementsInterface(bypassValidationInterface);
                     
-                    var ctor = cls.Constructors.FirstOrDefault();
+                    var ctor = classType.Constructors.FirstOrDefault();
                     if (ctor == null)
                     {
                         return;
@@ -100,7 +100,7 @@ namespace Intent.Modules.AspNetCore.Controllers.JsonPatch.FactoryExtensions
                         ctor.Statements.Remove(stmt);
                     }
 
-                    foreach (var property in cls.Properties)
+                    foreach (var property in classType.Properties)
                     {
                         if (property.TryGetMetadata<DTOFieldModel>("model", out var m) && routeParameterIds.Contains(m.Id))
                         {
@@ -108,7 +108,7 @@ namespace Intent.Modules.AspNetCore.Controllers.JsonPatch.FactoryExtensions
                         }
                     }
 
-                    ctor.AddParameter($"{template.GetPatchExecutorInterfaceName()}<{cls.Name}>", "patchExecutor",
+                    ctor.AddParameter($"{template.GetPatchExecutorInterfaceName()}<{classType.Name}>", "patchExecutor",
                         param => param.IntroduceProperty(prop =>
                         {
                             prop.PrivateSetter();
