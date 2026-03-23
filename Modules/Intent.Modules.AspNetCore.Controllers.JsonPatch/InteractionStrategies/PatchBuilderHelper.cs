@@ -135,7 +135,7 @@ internal static class PatchBuilderHelper
         return false;
     }
 
-    private static IReadOnlyList<CSharpStatement> GenerateJsonPatchLoadOriginalStateStatements(
+    private static List<CSharpStatement> GenerateJsonPatchLoadOriginalStateStatements(
         ICSharpClassMethodDeclaration handleMethod,
         IElementToElementMapping updateMapping,
         string payloadRootVariable)
@@ -184,7 +184,6 @@ internal static class PatchBuilderHelper
             {
                 var collectionStatement = TryCreateCollectionProjectionStatement(
                     collectionGroups[collectionKey],
-                    handleMethod,
                     payloadRootVariable,
                     mappingManager,
                     reverseMapping);
@@ -258,7 +257,6 @@ internal static class PatchBuilderHelper
 
         static CSharpStatement? TryCreateCollectionProjectionStatement(
             CollectionGroup group,
-            ICSharpClassMethodDeclaration handleMethod,
             string payloadRootVariable,
             CSharpClassMappingManager mappingManager,
             IElementToElementMapping reverseMapping)
@@ -444,11 +442,12 @@ internal static class PatchBuilderHelper
             return;
         }
 
-        if (handleMethod.File.Template is ICSharpFileBuilderTemplate fileBuilderTemplate)
+        if (handleMethod.File.Template is not ICSharpFileBuilderTemplate fileBuilderTemplate)
         {
-            mappingManager.AddMappingResolver(new JsonPatchReverseUpdateMappingTypeResolver(fileBuilderTemplate), priority: -2);
-            handleMethod.AddMetadata(metadataKey, true);
+            return;
         }
+        mappingManager.AddMappingResolver(new JsonPatchReverseUpdateMappingTypeResolver(fileBuilderTemplate), priority: -2);
+        handleMethod.AddMetadata(metadataKey, true);
     }
 
     private sealed class CollectionGroup
@@ -463,7 +462,7 @@ internal static class PatchBuilderHelper
             SourceCollectionPath = sourceCollectionPath;
             TargetCollectionIndex = targetCollectionIndex;
             SourceCollectionIndex = sourceCollectionIndex;
-            MappedEnds = new List<IElementToElementMappedEnd>();
+            MappedEnds = [];
         }
 
         public IList<IElementMappingPathTarget> TargetCollectionPath { get; }
@@ -488,7 +487,7 @@ internal static class PatchBuilderHelper
             public ICanBeReferencedType HostElement => Inner.HostElement;
             public ICanBeReferencedType SourceElement => Inner.TargetElement;
             public ICanBeReferencedType TargetElement => Inner.SourceElement;
-            public IList<IElementToElementMappedEnd> MappedEnds => Inner.MappedEnds.Select(x => (IElementToElementMappedEnd)new ReverseMappedEnd(x)).ToList();
+            public IList<IElementToElementMappedEnd> MappedEnds => Inner.MappedEnds.Select(IElementToElementMappedEnd (x) => new ReverseMappedEnd(x)).ToList();
         }
 
         private sealed record ReverseMappedEnd(IElementToElementMappedEnd Inner) : IElementToElementMappedEnd
@@ -496,21 +495,16 @@ internal static class PatchBuilderHelper
             public string MappingType => Inner.MappingType;
             public string MappingTypeId => Inner.MappingTypeId;
             public string MappingExpression => Inner.MappingExpression;
-            public IList<IElementMappingPathTarget> TargetPath => Inner.SourcePath.Select(x => (IElementMappingPathTarget)new ReversePathTarget(x)).ToList();
+            public IList<IElementMappingPathTarget> TargetPath => Inner.SourcePath.Select(IElementMappingPathTarget (x) => new ReversePathTarget(x)).ToList();
             public ICanBeReferencedType TargetElement => Inner.SourceElement;
-            public IEnumerable<IElementToElementMappedEndSource> Sources => Inner.Sources.Select(x => (IElementToElementMappedEndSource)new ReverseMappedEndSource(x, Inner.TargetPath));
-            public IList<IElementMappingPathTarget> SourcePath => Inner.TargetPath.Select(x => (IElementMappingPathTarget)new ReversePathTarget(x)).ToList();
+            public IEnumerable<IElementToElementMappedEndSource> Sources => Inner.Sources.Select(IElementToElementMappedEndSource (x) => new ReverseMappedEndSource(x, Inner.TargetPath));
+            public IList<IElementMappingPathTarget> SourcePath => Inner.TargetPath.Select(IElementMappingPathTarget (x) => new ReversePathTarget(x)).ToList();
             public ICanBeReferencedType SourceElement => Inner.TargetElement;
 
             public IElementToElementMappedEndSource GetSource(string identifier)
             {
                 var source = Sources.FirstOrDefault(x => string.Equals(x.ExpressionIdentifier, identifier, StringComparison.Ordinal));
-                if (source != null)
-                {
-                    return source;
-                }
-
-                return Sources.First();
+                return source ?? Sources.First();
             }
         }
 
@@ -522,7 +516,7 @@ internal static class PatchBuilderHelper
             public string MappingType => Inner.MappingType;
             public string MappingTypeId => Inner.MappingTypeId;
             public ICanBeReferencedType Element => Inner.Element;
-            public IList<IElementMappingPathTarget> Path => ReverseSourcePath.Select(x => (IElementMappingPathTarget)new ReversePathTarget(x)).ToList();
+            public IList<IElementMappingPathTarget> Path => ReverseSourcePath.Select(IElementMappingPathTarget (x) => new ReversePathTarget(x)).ToList();
         }
 
         private sealed record ReversePathTarget(IElementMappingPathTarget Inner) : IElementMappingPathTarget
