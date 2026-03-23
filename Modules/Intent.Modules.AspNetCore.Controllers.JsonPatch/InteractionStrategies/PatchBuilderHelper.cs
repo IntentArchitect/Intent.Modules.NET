@@ -49,7 +49,7 @@ internal static class PatchBuilderHelper
             method.AddStatement("ArgumentNullException.ThrowIfNull(entity);");
             method.AddStatement($"ArgumentNullException.ThrowIfNull({payloadInfo.VarName});");
 
-            var generator = new JsonPatchLoadOriginalStateGenerator(handleMethod, updateMapping);
+            var generator = new JsonPatchLoadOriginalStateGenerator(handleMethod, updateMapping, payloadInfo.VarName);
             foreach (var statement in generator.Generate())
             {
                 if (statement is CSharpAssignmentStatement)
@@ -76,6 +76,11 @@ internal static class PatchBuilderHelper
 
             // Ensure mapping statements target the helper method parameters.
             mappingManager.SetFromReplacement((IElement)updateAction.OtherEnd().Element, payloadInfo.VarName);
+            if (TryGetDtoParameterAfterOperation(updateMapping, out var dtoParameter))
+            {
+                // Avoid duplicated roots (e.g. dto.dto.Name) when operation and parameter both appear in source path.
+                mappingManager.SetFromReplacement(dtoParameter, string.Empty);
+            }
             mappingManager.SetToReplacement(foundEntity, "entity");
             mappingManager.SetToReplacement(updateAction, "entity");
 
@@ -92,5 +97,37 @@ internal static class PatchBuilderHelper
 
             method.AddStatement("return entity;");
         });
+    }
+
+    private static bool TryGetDtoParameterAfterOperation(
+        IElementToElementMapping updateMapping,
+        out IElement parameterElement)
+    {
+        parameterElement = null!;
+
+        foreach (var mappedEnd in updateMapping.MappedEnds)
+        {
+            var sourcePath = mappedEnd.SourcePath;
+            for (var index = 0; index < sourcePath.Count - 1; index++)
+            {
+                var current = sourcePath[index].Element;
+                var next = sourcePath[index + 1].Element;
+
+                if (!string.Equals(current.SpecializationType, "Operation", StringComparison.OrdinalIgnoreCase))
+                {
+                    continue;
+                }
+
+                if (!string.Equals(next.SpecializationType, "Parameter", StringComparison.OrdinalIgnoreCase))
+                {
+                    continue;
+                }
+
+                parameterElement = (IElement)next;
+                return true;
+            }
+        }
+
+        return false;
     }
 }

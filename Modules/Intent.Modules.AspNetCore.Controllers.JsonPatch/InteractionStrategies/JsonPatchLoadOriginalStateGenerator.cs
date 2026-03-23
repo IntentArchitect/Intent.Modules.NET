@@ -22,14 +22,17 @@ internal class JsonPatchLoadOriginalStateGenerator
 
     private readonly ICSharpClassMethodDeclaration _handleMethod;
     private readonly IElementToElementMapping _updateMapping;
+    private readonly string _payloadRootVariable;
     private readonly Dictionary<string, CollectionGroup> _collectionGroups;
 
     public JsonPatchLoadOriginalStateGenerator(
         ICSharpClassMethodDeclaration handleMethod,
-        IElementToElementMapping updateMapping)
+        IElementToElementMapping updateMapping,
+        string payloadRootVariable)
     {
         _handleMethod = handleMethod;
         _updateMapping = updateMapping;
+        _payloadRootVariable = payloadRootVariable;
         _collectionGroups = new Dictionary<string, CollectionGroup>();
     }
 
@@ -72,11 +75,11 @@ internal class JsonPatchLoadOriginalStateGenerator
 
             if (TryGetUnsupportedReason(mappedEnd, out var reason))
             {
-                statements.Add(new CSharpStatement($"// {ReverseCommentPrefix} Skipped '{GetPathText(mappedEnd.TargetPath, "command")}': {reason}."));
+                statements.Add(new CSharpStatement($"// {ReverseCommentPrefix} Skipped '{GetPathText(mappedEnd.TargetPath, _payloadRootVariable)}': {reason}."));
                 continue;
             }
 
-            var targetPath = GetPathText(mappedEnd.TargetPath, "command");
+            var targetPath = GetPathText(mappedEnd.TargetPath, _payloadRootVariable);
             var sourcePath = GetPathText(mappedEnd.SourcePath, "entity");
             statements.Add(new CSharpAssignmentStatement(targetPath, sourcePath));
         }
@@ -161,7 +164,7 @@ internal class JsonPatchLoadOriginalStateGenerator
             return null;
         }
 
-        var targetCollectionPath = GetPathText(group.TargetCollectionPath, "command");
+        var targetCollectionPath = GetPathText(group.TargetCollectionPath, _payloadRootVariable);
         var sourceCollectionPath = GetPathText(group.SourceCollectionPath, "entity");
         var targetItemTypeName = _handleMethod.File.Template.GetTypeName(targetCollectionType);
         var initializer = string.Join($",{Environment.NewLine}                ", projectionMappings);
@@ -185,13 +188,13 @@ internal class JsonPatchLoadOriginalStateGenerator
             return true;
         }
 
-        if (ContainsSpecialization(mappedEnd, OperationSpecialization))
+        if (ContainsUnsupportedSpecialization(mappedEnd, OperationSpecialization))
         {
             reason = UnsupportedOperationReason;
             return true;
         }
 
-        if (ContainsSpecialization(mappedEnd, ConstructorSpecialization))
+        if (ContainsUnsupportedSpecialization(mappedEnd, ConstructorSpecialization))
         {
             reason = UnsupportedConstructorReason;
             return true;
@@ -217,10 +220,23 @@ internal class JsonPatchLoadOriginalStateGenerator
         return string.Equals(expression, $"{{{source.ExpressionIdentifier}}}", StringComparison.Ordinal);
     }
 
-    private static bool ContainsSpecialization(IElementToElementMappedEnd mappedEnd, string specialization)
+    private static bool ContainsUnsupportedSpecialization(IElementToElementMappedEnd mappedEnd, string specialization)
     {
-        return mappedEnd.SourcePath.Any(x => string.Equals(x.Element.SpecializationType, specialization, StringComparison.OrdinalIgnoreCase)) ||
-               mappedEnd.TargetPath.Any(x => string.Equals(x.Element.SpecializationType, specialization, StringComparison.OrdinalIgnoreCase));
+        return ContainsNonRootSpecialization(mappedEnd.SourcePath, specialization) ||
+               ContainsNonRootSpecialization(mappedEnd.TargetPath, specialization);
+    }
+
+    private static bool ContainsNonRootSpecialization(IList<IElementMappingPathTarget> path, string specialization)
+    {
+        for (var index = 1; index < path.Count; index++)
+        {
+            if (string.Equals(path[index].Element.SpecializationType, specialization, StringComparison.OrdinalIgnoreCase))
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private static bool TryGetCollectionPathInfo(
@@ -253,7 +269,12 @@ internal class JsonPatchLoadOriginalStateGenerator
             return rootReplacement;
         }
 
-        var members = path.Skip(1).Select(x => x.Name);
+        var members = path.Skip(1).Select(x => x.Name).ToList();
+        if (members.Count > 0 && string.Equals(members[0], rootReplacement, StringComparison.OrdinalIgnoreCase))
+        {
+            members.RemoveAt(0);
+        }
+
         var suffix = string.Join(".", members);
         return string.IsNullOrWhiteSpace(suffix)
             ? rootReplacement
