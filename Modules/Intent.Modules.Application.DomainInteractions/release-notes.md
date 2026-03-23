@@ -1,6 +1,9 @@
+### Version 1.2.2
+
+- Improvement: Introduced components for upcoming JSON Patch module.
+
 ### Version 1.2.1
 - Fixed: Cancellation token always being added to service call, even when service did not have a cancellation token parameter.
-- Improvement: Introduced components for upcoming JSON Patch module.
 
 ### Version 1.2.0
 
