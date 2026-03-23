@@ -204,7 +204,7 @@ internal static class PatchBuilderHelper
             }
 
             var targetPath = mappingManager.GenerateTargetStatementForMapping(reverseMapping, mappedEnd).ToString();
-            var sourcePath = mappingManager.GenerateSourceStatementForMapping(reverseMapping, mappedEnd).ToString();
+            var sourcePath = GetPathText(mappedEnd.SourcePath, "entity");
             statements.Add(new CSharpAssignmentStatement(targetPath, sourcePath));
         }
 
