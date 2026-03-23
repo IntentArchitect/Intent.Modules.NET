@@ -18,7 +18,7 @@ namespace Intent.Modules.AspNetCore.Controllers.JsonPatch.InteractionStrategies
     /// <summary>
     /// Overrides the default update entity interaction strategy for HTTP PATCH commands.
     /// </summary>
-    public class PatchUpdateEntityInteractionStrategy : IInteractionStrategy
+    public class CommandPatchEntityInteractionStrategy : IInteractionStrategy
     {
         public bool IsMatch(IElement interaction)
         {

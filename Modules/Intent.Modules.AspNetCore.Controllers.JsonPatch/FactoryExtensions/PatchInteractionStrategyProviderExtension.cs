@@ -12,9 +12,9 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Modules.AspNetCore.Controllers.JsonPatch.FactoryExtensions
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public class MediatRCommandHandlerExtension : FactoryExtensionBase
+    public class PatchInteractionStrategyProviderExtension : FactoryExtensionBase
     {
-        public override string Id => "Intent.AspNetCore.Controllers.JsonPatch.MediatRCommandHandlerExtension";
+        public override string Id => "Intent.AspNetCore.Controllers.JsonPatch.PatchInteractionStrategyProviderExtension";
 
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;
@@ -22,7 +22,7 @@ namespace Intent.Modules.AspNetCore.Controllers.JsonPatch.FactoryExtensions
         protected override void OnBeforeTemplateRegistrations(IApplication application)
         {
             // Override the default UpdateEntityInteractionStrategy for PATCH commands.
-            InteractionStrategyProvider.Instance.Register(new PatchUpdateEntityInteractionStrategy(), priority: -100);
+            InteractionStrategyProvider.Instance.Register(new CommandPatchEntityInteractionStrategy(), priority: -100);
         }
     }
 }
