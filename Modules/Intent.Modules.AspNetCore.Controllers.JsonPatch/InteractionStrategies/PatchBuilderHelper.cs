@@ -148,6 +148,22 @@ internal static class PatchBuilderHelper
 
         var reverseMapping = ReverseMappingAdapter.Create(updateMapping);
         var statements = new List<CSharpStatement>();
+        var mappingManager = handleMethod.GetMappingManager();
+
+        if (reverseMapping.SourceElement is IElement reverseSourceRoot)
+        {
+            mappingManager.SetFromReplacement(reverseSourceRoot, "entity");
+        }
+
+        if (reverseMapping.TargetElement is IElement reverseTargetRoot)
+        {
+            mappingManager.SetToReplacement(reverseTargetRoot, payloadRootVariable);
+        }
+
+        if (TryGetParameterAfterOperationInTargetPath(reverseMapping, out var reverseParameter))
+        {
+            mappingManager.SetToReplacement(reverseParameter, string.Empty);
+        }
             
         // Process in original mapping order to preserve the sequence of assignments
         var mappedEnds = reverseMapping.MappedEnds.ToList();
@@ -187,8 +203,8 @@ internal static class PatchBuilderHelper
                 continue;
             }
 
-            var targetPath = GetPathText(mappedEnd.TargetPath, payloadRootVariable);
-            var sourcePath = GetPathText(mappedEnd.SourcePath, "entity");
+            var targetPath = mappingManager.GenerateTargetStatementForMapping(reverseMapping, mappedEnd).ToString();
+            var sourcePath = mappingManager.GenerateSourceStatementForMapping(reverseMapping, mappedEnd).ToString();
             statements.Add(new CSharpAssignmentStatement(targetPath, sourcePath));
         }
 
@@ -241,7 +257,7 @@ internal static class PatchBuilderHelper
                 return null;
             }
 
-            var projectionMappings = new List<(string, string)>();
+            var projectionMappings = new List<(IList<IElementMappingPathTarget> TargetTail, IList<IElementMappingPathTarget> SourceTail)>();
             foreach (var mappedEnd in group.MappedEnds)
             {
                 if (TryGetUnsupportedReason(mappedEnd, out _))
@@ -258,13 +274,7 @@ internal static class PatchBuilderHelper
                 var targetTail = mappedEnd.TargetPath.Skip(group.TargetCollectionIndex + 1).ToList();
                 var sourceTail = mappedEnd.SourcePath.Skip(group.SourceCollectionIndex + 1).ToList();
 
-                // Only generate direct item-property projections for now.
-                if (targetTail.Count != 1 || sourceTail.Count != 1)
-                {
-                    continue;
-                }
-
-                projectionMappings.Add((targetTail[0].Name, sourceTail[0].Name));
+                projectionMappings.Add((targetTail, sourceTail));
             }
 
             if (projectionMappings.Count == 0)
@@ -272,15 +282,13 @@ internal static class PatchBuilderHelper
                 return null;
             }
 
+            if (!TryBuildObjectInitializer(targetCollectionType, projectionMappings, "item", handleMethod, out var objInit))
+            {
+                return null;
+            }
+
             var targetCollectionPath = GetPathText(group.TargetCollectionPath, payloadRootVariable);
             var sourceCollectionPath = GetPathText(group.SourceCollectionPath, "entity");
-            var targetItemTypeName = handleMethod.File.Template.GetTypeName(targetCollectionType);
-
-            var objInit = new CSharpObjectInitializerBlock($"new {targetItemTypeName}");
-            foreach (var projectionMapping in projectionMappings)
-            {
-                objInit.AddInitStatement(projectionMapping.Item1, $"item.{projectionMapping.Item2}");
-            }
 
             var assignStatement = new CSharpAssignmentStatement(
                 lhs: targetCollectionPath,
@@ -289,6 +297,82 @@ internal static class PatchBuilderHelper
                     .WithoutSemicolon());
 
             return assignStatement.AddInvocation("ToList");
+        }
+
+        static bool TryBuildObjectInitializer(
+            IElement targetType,
+            IReadOnlyList<(IList<IElementMappingPathTarget> TargetTail, IList<IElementMappingPathTarget> SourceTail)> mappings,
+            string sourceVariable,
+            ICSharpClassMethodDeclaration handleMethod,
+            out CSharpObjectInitializerBlock objectInitializer)
+        {
+            var targetItemTypeName = handleMethod.File.Template.GetTypeName(targetType);
+            objectInitializer = new CSharpObjectInitializerBlock($"new {targetItemTypeName}");
+            var hasMappings = false;
+
+            foreach (var (targetTail, sourceTail) in mappings)
+            {
+                if (targetTail.Count != 1 || sourceTail.Count != 1)
+                {
+                    continue;
+                }
+
+                if (targetTail[0].Element.TypeReference?.IsCollection == true ||
+                    sourceTail[0].Element.TypeReference?.IsCollection == true)
+                {
+                    continue;
+                }
+
+                objectInitializer.AddInitStatement(targetTail[0].Name, $"{sourceVariable}.{sourceTail[0].Name}");
+                hasMappings = true;
+            }
+
+            var nestedCollectionGroups = mappings
+                .Where(x => x.TargetTail.Count > 0 && x.SourceTail.Count > 0)
+                .Where(x => x.TargetTail[0].Element.TypeReference?.IsCollection == true &&
+                            x.SourceTail[0].Element.TypeReference?.IsCollection == true)
+                .GroupBy(x => $"{x.TargetTail[0].Element.Id}|{x.SourceTail[0].Element.Id}")
+                .ToList();
+
+            foreach (var nestedCollectionGroup in nestedCollectionGroups)
+            {
+                var collectionNode = nestedCollectionGroup.First();
+                if (collectionNode.TargetTail[0].Element.TypeReference?.Element is not IElement nestedTargetType)
+                {
+                    continue;
+                }
+
+                var nestedMappings = nestedCollectionGroup
+                    .Where(x => x.TargetTail.Count > 1 && x.SourceTail.Count > 1)
+                    .Select(x =>
+                    (
+                        TargetTail: (IList<IElementMappingPathTarget>)x.TargetTail.Skip(1).ToList(),
+                        SourceTail: (IList<IElementMappingPathTarget>)x.SourceTail.Skip(1).ToList()
+                    ))
+                    .ToList();
+
+                if (nestedMappings.Count == 0)
+                {
+                    continue;
+                }
+
+                if (!TryBuildObjectInitializer(nestedTargetType, nestedMappings, "nestedItem", handleMethod, out var nestedInitializer))
+                {
+                    continue;
+                }
+
+                var nestedProjection = new CSharpStatement($"{sourceVariable}.{collectionNode.SourceTail[0].Name}")
+                    .AddInvocation("Select", select =>
+                        select.AddArgument(new CSharpLambdaBlock("nestedItem").WithExpressionBody(nestedInitializer)))
+                    .WithoutSemicolon()
+                    .AddInvocation("ToList")
+                    .WithoutSemicolon();
+
+                objectInitializer.AddInitStatement(collectionNode.TargetTail[0].Name, nestedProjection);
+                hasMappings = true;
+            }
+
+            return hasMappings;
         }
 
         static bool TryGetUnsupportedReason(IElementToElementMappedEnd mappedEnd, out string reason)
@@ -345,6 +429,36 @@ internal static class PatchBuilderHelper
             {
                 if (string.Equals(path[index].Element.SpecializationType, specialization, StringComparison.OrdinalIgnoreCase))
                 {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        static bool TryGetParameterAfterOperationInTargetPath(IElementToElementMapping mapping, out IElement parameterElement)
+        {
+            parameterElement = null!;
+
+            foreach (var mappedEnd in mapping.MappedEnds)
+            {
+                var targetPath = mappedEnd.TargetPath;
+                for (var index = 0; index < targetPath.Count - 1; index++)
+                {
+                    var current = targetPath[index].Element;
+                    var next = targetPath[index + 1].Element;
+
+                    if (!string.Equals(current.SpecializationType, "Operation", StringComparison.OrdinalIgnoreCase))
+                    {
+                        continue;
+                    }
+
+                    if (!string.Equals(next.SpecializationType, "Parameter", StringComparison.OrdinalIgnoreCase))
+                    {
+                        continue;
+                    }
+
+                    parameterElement = (IElement)next;
                     return true;
                 }
             }

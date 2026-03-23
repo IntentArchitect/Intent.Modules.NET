@@ -45,6 +45,7 @@
   <factoryExtensions>
     <factoryExtension id="Intent.AspNetCore.Controllers.JsonPatch.MediatRCommandExtension" externalReference="e1ed7572-a9d4-49c9-9335-a9b5464f9d1b" />
     <factoryExtension id="Intent.AspNetCore.Controllers.JsonPatch.MvcControllerMediatRCommandExtension" externalReference="ee1d424d-1789-4d82-bbef-d6f49671f66f" />
+    <factoryExtension id="Intent.AspNetCore.Controllers.JsonPatch.MvcControllerTraditionalServiceExtension" externalReference="df5828de-b2b6-4942-87db-ae945387c137" />
     <factoryExtension id="Intent.AspNetCore.Controllers.JsonPatch.PatchInteractionStrategyProviderExtension" externalReference="d63f9166-9a5c-446a-ab04-2e90cd0fe263" />
     <factoryExtension id="Intent.AspNetCore.Controllers.JsonPatch.TraditionalServiceDtoExtension" externalReference="82b05524-7952-45bb-a891-6992f76d99d2" />
   </factoryExtensions>
