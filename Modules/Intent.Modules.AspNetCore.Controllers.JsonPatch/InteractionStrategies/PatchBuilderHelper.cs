@@ -275,8 +275,10 @@ internal static class PatchBuilderHelper
                     var sourceStatement = mappingManager.GenerateSourceStatementForMapping(reverseMapping, collectionRootMappedEnd).WithoutSemicolon();
                     var sourceText = sourceStatement.ToString();
 
-                    // Only use mapping-manager output when it produces a collection projection.
-                    // Some reverse shapes resolve to direct collection assignment, which is unsafe for DTO hydration.
+                    // Reverse collection mapping must materialize DTO items via projection.
+                    // Accept manager output only when it includes Select(...), e.g. entity.Items.Select(...).ToList().
+                    // If it resolves to direct assignment (e.g. entity.Items), the generated reverse code would
+                    // incorrectly assign an entity collection to a DTO collection, so we reject it.
                     if (sourceText.Contains("Select(", StringComparison.Ordinal) ||
                         sourceText.Contains(".Select(", StringComparison.Ordinal))
                     {
