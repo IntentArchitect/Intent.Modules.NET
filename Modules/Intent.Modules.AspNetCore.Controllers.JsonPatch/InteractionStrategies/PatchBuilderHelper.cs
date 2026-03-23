@@ -7,6 +7,7 @@ using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.DomainInteractions.Api;
 using Intent.Modules.Application.DomainInteractions.Extensions;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Constants;
 using Intent.Modules.Common.CSharp.Interactions;
 
@@ -177,7 +178,12 @@ internal static class PatchBuilderHelper
             var collectionKey = GetCollectionGroupKey(mappedEnd);
             if (collectionKey != null && !processedCollections.Contains(collectionKey))
             {
-                var collectionStatement = TryCreateCollectionProjectionStatement(collectionGroups[collectionKey], handleMethod, payloadRootVariable);
+                var collectionStatement = TryCreateCollectionProjectionStatement(
+                    collectionGroups[collectionKey],
+                    handleMethod,
+                    payloadRootVariable,
+                    mappingManager,
+                    reverseMapping);
                 if (collectionStatement != null)
                 {
                     statements.Add(collectionStatement.WithSemicolon());
@@ -204,7 +210,7 @@ internal static class PatchBuilderHelper
             }
 
             var targetPath = mappingManager.GenerateTargetStatementForMapping(reverseMapping, mappedEnd).ToString();
-            var sourcePath = GetPathText(mappedEnd.SourcePath, "entity");
+            var sourcePath = mappingManager.GenerateSourceStatementForMapping(reverseMapping, mappedEnd).ToString();
             statements.Add(new CSharpAssignmentStatement(targetPath, sourcePath));
         }
 
@@ -246,8 +252,39 @@ internal static class PatchBuilderHelper
             return $"{string.Join("/", targetCollectionPath.Select(x => x.Element.Id))}|{string.Join("/", sourceCollectionPath.Select(x => x.Element.Id))}";
         }
 
-        static CSharpStatement? TryCreateCollectionProjectionStatement(CollectionGroup group, ICSharpClassMethodDeclaration handleMethod, string payloadRootVariable)
+        static CSharpStatement? TryCreateCollectionProjectionStatement(
+            CollectionGroup group,
+            ICSharpClassMethodDeclaration handleMethod,
+            string payloadRootVariable,
+            CSharpClassMappingManager mappingManager,
+            IElementToElementMapping reverseMapping)
         {
+            var collectionRootMappedEnd = group.MappedEnds.FirstOrDefault(x =>
+                x.TargetPath.Count == group.TargetCollectionIndex + 1 &&
+                x.SourcePath.Count == group.SourceCollectionIndex + 1);
+
+            if (collectionRootMappedEnd != null)
+            {
+                try
+                {
+                    var targetPath = mappingManager.GenerateTargetStatementForMapping(reverseMapping, collectionRootMappedEnd).ToString();
+                    var sourceStatement = mappingManager.GenerateSourceStatementForMapping(reverseMapping, collectionRootMappedEnd).WithoutSemicolon();
+                    var sourceText = sourceStatement.ToString();
+
+                    // Only use mapping-manager output when it produces a collection projection.
+                    // Some reverse shapes resolve to direct collection assignment, which is unsafe for DTO hydration.
+                    if (sourceText.Contains("Select(", StringComparison.Ordinal) ||
+                        sourceText.Contains(".Select(", StringComparison.Ordinal))
+                    {
+                        return new CSharpAssignmentStatement(targetPath, sourceStatement);
+                    }
+                }
+                catch
+                {
+                    // Fall through to custom recursive projection generation.
+                }
+            }
+
             var targetCollectionElement = group.TargetCollectionPath.Last().Element;
             var sourceCollectionElement = group.SourceCollectionPath.Last().Element;
 
@@ -556,14 +593,31 @@ internal static class PatchBuilderHelper
             public string MappingExpression => Inner.MappingExpression;
             public IList<IElementMappingPathTarget> TargetPath => Inner.SourcePath.Select(x => (IElementMappingPathTarget)new ReversePathTarget(x)).ToList();
             public ICanBeReferencedType TargetElement => Inner.SourceElement;
-            public IEnumerable<IElementToElementMappedEndSource> Sources => Inner.Sources;
+            public IEnumerable<IElementToElementMappedEndSource> Sources => Inner.Sources.Select(x => (IElementToElementMappedEndSource)new ReverseMappedEndSource(x, Inner.TargetPath));
             public IList<IElementMappingPathTarget> SourcePath => Inner.TargetPath.Select(x => (IElementMappingPathTarget)new ReversePathTarget(x)).ToList();
             public ICanBeReferencedType SourceElement => Inner.TargetElement;
 
             public IElementToElementMappedEndSource GetSource(string identifier)
             {
-                return Inner.GetSource(identifier);
+                var source = Sources.FirstOrDefault(x => string.Equals(x.ExpressionIdentifier, identifier, StringComparison.Ordinal));
+                if (source != null)
+                {
+                    return source;
+                }
+
+                return Sources.First();
             }
+        }
+
+        private sealed record ReverseMappedEndSource(
+            IElementToElementMappedEndSource Inner,
+            IList<IElementMappingPathTarget> ReverseSourcePath) : IElementToElementMappedEndSource
+        {
+            public string ExpressionIdentifier => Inner.ExpressionIdentifier;
+            public string MappingType => Inner.MappingType;
+            public string MappingTypeId => Inner.MappingTypeId;
+            public ICanBeReferencedType Element => Inner.Element;
+            public IList<IElementMappingPathTarget> Path => ReverseSourcePath.Select(x => (IElementMappingPathTarget)new ReversePathTarget(x)).ToList();
         }
 
         private sealed record ReversePathTarget(IElementMappingPathTarget Inner) : IElementMappingPathTarget
