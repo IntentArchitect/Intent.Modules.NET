@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.Contracts</id>
-  <version>5.1.4-pre.0</version>
+  <version>5.1.4</version>
   <supportedClientVersions>[4.5.8-a, 5.0.0-a)</supportedClientVersions>
   <releaseNotes>release-notes.md</releaseNotes>
   <summary>Generates code for your Application Service that applies the Interface segregation principal</summary>
@@ -27,14 +27,14 @@
   <interoperability>
     <detect id="Intent.Application.ServiceImplementations">
       <install>
-        <package id="Intent.Application.ServiceImplementations" version="4.6.1-pre.0" />
+        <package id="Intent.Application.ServiceImplementations" version="4.6.1" />
       </install>
     </detect>
-	<detect id="Intent.AspNetCore.Controllers.Dispatch.ServiceContract">
-	  <install>
-		<package id="Intent.AspNetCore.Controllers.Dispatch.ServiceContract" version="5.2.20-pre.0" />
-	  </install>
-	</detect>
+    <detect id="Intent.AspNetCore.Controllers.Dispatch.ServiceContract">
+      <install>
+        <package id="Intent.AspNetCore.Controllers.Dispatch.ServiceContract" version="5.2.20" />
+      </install>
+    </detect>
   </interoperability>
   <files>
     <file src="$outDir$/$id$.dll" />
