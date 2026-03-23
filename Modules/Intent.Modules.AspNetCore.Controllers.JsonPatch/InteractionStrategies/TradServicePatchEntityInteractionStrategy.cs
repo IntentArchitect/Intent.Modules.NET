@@ -85,7 +85,7 @@ internal class TradServicePatchEntityInteractionStrategy : IInteractionStrategy
                 param.TryGetMetadata<Intent.Modelers.Services.Api.ParameterModel>("model", out var paramModel)
                 && paramModel.TypeReference.Element.IsDTOModel())!;
             
-            PatchBuilderHelper.EnsurePatchHelperMethods(method, updateAction, foundEntity, handleMethod => param);
+            PatchBuilderHelper.EnsurePatchHelperMethods(method, updateAction, foundEntity, _ => new PayloadInfo(param.Name, param.Type));
 
             method.AddStatements(ExecutionPhases.BusinessLogic,
             [

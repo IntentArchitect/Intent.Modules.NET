@@ -84,8 +84,8 @@ internal class CommandPatchEntityInteractionStrategy : IInteractionStrategy
 
             PatchBuilderHelper.EnsurePatchHelperMethods(method, updateAction, foundEntity, handleMethod =>
             {
-                return handleMethod.Parameters.FirstOrDefault(p => p.Name == "request") ??
-                       handleMethod.Parameters.First();
+                var param = handleMethod.Parameters.First(p => p.Name == "request");
+                return new PayloadInfo("command", param.Type);
             });
 
             method.AddStatements(ExecutionPhases.BusinessLogic,
