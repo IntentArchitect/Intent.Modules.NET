@@ -12,6 +12,7 @@ using Intent.Modelers.Services.DomainInteractions.Api;
 using Intent.Modules.Constants;
 using Intent.Modules.Metadata.WebApi.Models;
 
+
 namespace Intent.Modules.AspNetCore.Controllers.JsonPatch.InteractionStrategies
 {
     /// <summary>
@@ -117,6 +118,11 @@ namespace Intent.Modules.AspNetCore.Controllers.JsonPatch.InteractionStrategies
 
             var entityTypeName = handleMethod.File.Template.GetTypeName(TemplateRoles.Domain.Entity.Primary, foundEntity)!;
             var commandTypeName = requestParameter.Type;
+            var updateMapping = updateAction.Mappings.GetUpdateEntityMapping();
+            if (updateMapping == null)
+            {
+                throw new ElementException(updateAction.InternalAssociationEnd, "No Update Entity mapping was found for PATCH update interaction.");
+            }
 
             var @class = handleMethod.Class;
 
@@ -129,7 +135,17 @@ namespace Intent.Modules.AspNetCore.Controllers.JsonPatch.InteractionStrategies
                     
                 method.AddStatement("ArgumentNullException.ThrowIfNull(entity);");
                 method.AddStatement("ArgumentNullException.ThrowIfNull(command);");
-                method.AddStatement("// TODO: Populate the command with the entity's current state.");
+
+                var generator = new JsonPatchLoadOriginalStateGenerator(handleMethod, updateMapping);
+                foreach (var statement in generator.Generate())
+                {
+                    if (statement is CSharpAssignmentStatement)
+                    {
+                        statement.WithSemicolon();
+                    }
+                    method.AddStatement(statement);
+                }
+
                 method.AddStatement("return command;");
             });
 
@@ -142,12 +158,6 @@ namespace Intent.Modules.AspNetCore.Controllers.JsonPatch.InteractionStrategies
 
                 method.AddStatement("ArgumentNullException.ThrowIfNull(command);");
                 method.AddStatement("ArgumentNullException.ThrowIfNull(entity);");
-
-                var updateMapping = updateAction.Mappings.GetUpdateEntityMapping();
-                if (updateMapping == null)
-                {
-                    throw new ElementException(updateAction.InternalAssociationEnd, "No Update Entity mapping was found for PATCH update interaction.");
-                }
 
                 var mappingManager = handleMethod.GetMappingManager();
 
