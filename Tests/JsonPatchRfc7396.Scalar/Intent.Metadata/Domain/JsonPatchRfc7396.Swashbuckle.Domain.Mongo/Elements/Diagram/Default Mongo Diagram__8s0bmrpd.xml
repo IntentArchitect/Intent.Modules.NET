@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="94d2f57e-bdbc-4509-a639-332a84c97450" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Mongo Diagram</name>
+  <display>Default Mongo Diagram</display>
+  <externalReference>1b7fb00b-5ce4-45b8-876c-8f0f1874fdbb</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>7f2d79d9-3380-48b8-b124-e8dc6d90c90a</parentFolderId>
+  <packageId>7f2d79d9-3380-48b8-b124-e8dc6d90c90a</packageId>
+  <packageName>JsonPatchRfc7396.Swashbuckle.Domain.Mongo</packageName>
+  <diagram>
+    <targetPackageId>7f2d79d9-3380-48b8-b124-e8dc6d90c90a</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

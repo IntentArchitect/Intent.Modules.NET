@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\JsonPatchRfc7396.Scalar.Application\JsonPatchRfc7396.Scalar.Application.csproj" />
+    <ProjectReference Include="..\JsonPatchRfc7396.Scalar.Infrastructure\JsonPatchRfc7396.Scalar.Infrastructure.csproj" />
+    <ProjectReference Include="..\JsonPatchRfc7396.Scalar.Domain\JsonPatchRfc7396.Scalar.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.2" />
+    <PackageReference Include="Morcatko.AspNetCore.JsonMergePatch.NewtonsoftJson" Version="6.0.4" />
+    <PackageReference Include="Scalar.AspNetCore" Version="2.12.6" />
+    <PackageReference Include="Serilog.AspNetCore" Version="10.0.0" />
+  </ItemGroup>
+  </Project>

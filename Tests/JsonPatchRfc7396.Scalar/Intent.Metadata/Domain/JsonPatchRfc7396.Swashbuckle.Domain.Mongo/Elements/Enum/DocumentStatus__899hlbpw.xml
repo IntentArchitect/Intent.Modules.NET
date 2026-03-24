@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="47d21878-a470-4fa1-93ef-59c4e252bfbc" type="Enum" typeId="85fba0e9-9161-4c85-a603-a229ef312beb">
+  <comment>Lifecycle state of a document.</comment>
+  <name>DocumentStatus</name>
+  <display>DocumentStatus</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>eff86667-f3e3-432f-81e7-260ddf6a962a</parentFolderId>
+  <packageId>7f2d79d9-3380-48b8-b124-e8dc6d90c90a</packageId>
+  <packageName>JsonPatchRfc7396.Swashbuckle.Domain.Mongo</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="6832fb6b-296c-4e3f-a6a7-d82b6b807435" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Draft</name>
+      <display>Draft</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>47d21878-a470-4fa1-93ef-59c4e252bfbc</parentFolderId>
+      <packageId>7f2d79d9-3380-48b8-b124-e8dc6d90c90a</packageId>
+      <packageName>JsonPatchRfc7396.Swashbuckle.Domain.Mongo</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="5d92e268-237b-466e-91ba-66a878644fbe" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Published</name>
+      <display>Published</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>47d21878-a470-4fa1-93ef-59c4e252bfbc</parentFolderId>
+      <packageId>7f2d79d9-3380-48b8-b124-e8dc6d90c90a</packageId>
+      <packageName>JsonPatchRfc7396.Swashbuckle.Domain.Mongo</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="1fe081e3-1e3b-4414-8fec-1202a6453f59" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Archived</name>
+      <display>Archived</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>47d21878-a470-4fa1-93ef-59c4e252bfbc</parentFolderId>
+      <packageId>7f2d79d9-3380-48b8-b124-e8dc6d90c90a</packageId>
+      <packageName>JsonPatchRfc7396.Swashbuckle.Domain.Mongo</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

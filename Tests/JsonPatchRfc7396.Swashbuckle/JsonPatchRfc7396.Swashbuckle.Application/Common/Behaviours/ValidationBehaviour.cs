@@ -1,5 +1,6 @@
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
+using JsonPatchRfc7396.Swashbuckle.Application.Common.Interfaces;
 using MediatR;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]

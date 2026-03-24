@@ -3,7 +3,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface", Version = "1.0")]
 
-namespace JsonPatchRfc7396.Swashbuckle.Application
+namespace JsonPatchRfc7396.Scalar.Application.Common.Interfaces
 {
     /// <summary>
     /// Defines a marker interface that, when implemented by a request, instructs the 

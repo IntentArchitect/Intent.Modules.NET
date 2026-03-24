@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="64d79046-cd24-4921-a630-1e264d446387">
+  <sourceEnd id="6ab20def-7f8f-40c6-af3d-a525270191f7" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Document</name>
+    <display>Document: Document</display>
+    <order>0</order>
+    <typeReference id="ab8191c1-1ba2-411d-828b-9de5f6b0e94e">
+      <typeId>53e3740d-b988-47b7-9a31-88c84193c4ac</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>JsonPatchRfc7396.Swashbuckle.Domain.Mongo</typePackageName>
+      <typePackageId>7f2d79d9-3380-48b8-b124-e8dc6d90c90a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="64d79046-cd24-4921-a630-1e264d446387" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Permissions</name>
+    <display>Permissions: DocumentPermission[*]</display>
+    <order>11</order>
+    <typeReference id="4d0a7008-22e6-4936-a512-84cd8c919c71">
+      <typeId>e0f8d1c8-070c-4595-b7ee-1c8192364361</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>JsonPatchRfc7396.Swashbuckle.Domain.Mongo</typePackageName>
+      <typePackageId>7f2d79d9-3380-48b8-b124-e8dc6d90c90a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>
