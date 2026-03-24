@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Exceptions;
@@ -44,22 +45,61 @@ namespace Intent.Modules.AspNetCore.Controllers.JsonPatch.FactoryExtensions
                 }
 
                 var payloadDto = payloads.First();
-                var dtoTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateRoles.Application.Contracts.Dto, payloadDto);
-                if (dtoTemplate is null)
+
+                var allDtos = GetAllDtosFromHierarchy(payloadDto);
+
+                foreach (var dtoModel in allDtos)
+                {
+                    var dtoTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateRoles.Application.Contracts.Dto, dtoModel);
+                    if (dtoTemplate is null)
+                    {
+                        continue;
+                    }
+
+                    dtoTemplate.CSharpFile.OnBuild(file =>
+                    {
+                        var classType = file.TypeDeclarations.First();
+                        foreach (var property in classType.Properties)
+                        {
+                            property.Setter.Public();
+                        }
+
+                        if (dtoModel.Equals(payloadDto))
+                        {
+                            classType.AddProperty($"{dtoTemplate.GetPatchExecutorInterfaceName()}<{classType.Name}>", "PatchExecutor", prop =>
+                            {
+                                prop.Init();
+                                prop.Required();
+                            });   
+                        }
+                    });   
+                }
+            }
+        }
+
+        private static List<DTOModel> GetAllDtosFromHierarchy(DTOModel rootDto)
+        {
+            var visitedDtos = new HashSet<DTOModel>();
+            var visitStack = new Stack<DTOModel>([rootDto]);
+
+            while (visitStack.TryPop(out var dto))
+            {
+                if (!visitedDtos.Add(dto))
                 {
                     continue;
                 }
-
-                dtoTemplate.CSharpFile.OnBuild(file =>
+                
+                foreach (var field in dto.Fields)
                 {
-                    var classType = file.TypeDeclarations.First();
-                    classType.AddProperty($"{dtoTemplate.GetPatchExecutorInterfaceName()}<{classType.Name}>", "PatchExecutor", prop =>
+                    if (field?.TypeReference.Element?.IsDTOModel() != true)
                     {
-                        prop.Init();
-                        prop.Required();
-                    });
-                });
+                        continue;
+                    }
+                    visitStack.Push(field.TypeReference.Element.AsDTOModel());
+                }
             }
+
+            return visitedDtos.ToList();
         }
     }
 }

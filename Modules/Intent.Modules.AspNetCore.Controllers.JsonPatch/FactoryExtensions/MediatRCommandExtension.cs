@@ -106,6 +106,10 @@ namespace Intent.Modules.AspNetCore.Controllers.JsonPatch.FactoryExtensions
                         {
                             property.PrivateSetter();
                         }
+                        else
+                        {
+                            property.Setter.Public();
+                        }
                     }
 
                     ctor.AddParameter($"{template.GetPatchExecutorInterfaceName()}<{classType.Name}>", "patchExecutor",
