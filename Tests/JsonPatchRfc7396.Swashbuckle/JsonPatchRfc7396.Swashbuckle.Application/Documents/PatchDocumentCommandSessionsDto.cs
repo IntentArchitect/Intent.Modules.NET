@@ -19,7 +19,7 @@ namespace JsonPatchRfc7396.Swashbuckle.Application.Documents
         public string ConnectionId { get; set; }
         public DateTime StartedAtUtc { get; set; }
         public DateTime LastSeenAtUtc { get; set; }
-        public object CursorJson { get; set; }
-        public object SelectionJson { get; set; }
+        public string CursorJson { get; set; }
+        public string SelectionJson { get; set; }
     }
 }

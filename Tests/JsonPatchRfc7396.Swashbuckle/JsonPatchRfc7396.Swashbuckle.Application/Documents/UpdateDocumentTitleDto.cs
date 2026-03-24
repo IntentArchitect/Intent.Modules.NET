@@ -12,6 +12,6 @@ namespace JsonPatchRfc7396.Swashbuckle.Application.Documents
             Value = null!;
         }
 
-        public string Value { get; set; }
+        public string Value { get; init; }
     }
 }

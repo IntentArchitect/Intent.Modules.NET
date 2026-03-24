@@ -65,11 +65,11 @@ Kept separate from DocumentChange which stores incremental changes.</comment>
     </childElement>
     <childElement id="e14891a2-6b52-422b-8157-242f8a779b67" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>Json</name>
-      <display>Json: object</display>
+      <display>Json: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="1ae46f61-c6d7-48b7-a20b-52b5dcdc5c43">
-        <typeId>341DD965-D06C-4A40-9437-9516ADA77FF5</typeId>
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>

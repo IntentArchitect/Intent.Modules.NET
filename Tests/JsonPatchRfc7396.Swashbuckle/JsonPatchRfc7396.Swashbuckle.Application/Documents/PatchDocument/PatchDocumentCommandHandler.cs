@@ -34,6 +34,8 @@ namespace JsonPatchRfc7396.Swashbuckle.Application.Documents.PatchDocument
             LoadOriginalState(document, request);
             request.PatchExecutor.ApplyTo(request);
             ApplyChangesTo(request, document);
+
+            _documentRepository.Update(document);
         }
 
         private static PatchDocumentCommand LoadOriginalState(Document entity, PatchDocumentCommand command)
@@ -43,7 +45,9 @@ namespace JsonPatchRfc7396.Swashbuckle.Application.Documents.PatchDocument
             command.CreatedAtUtc = entity.CreatedAtUtc;
             command.UpdatedAtUtc = entity.UpdatedAtUtc;
             command.Status = entity.Status;
+            command.Title ??= new PatchDocumentCommandTitleDto();
             command.Title.Value = entity.Title.Value;
+            command.Content ??= new PatchDocumentCommandContentDto();
             command.Content.Format = entity.Content.Format;
             command.Content.Text = entity.Content.Text;
             command.Content.Json = entity.Content.Json;

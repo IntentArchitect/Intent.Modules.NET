@@ -18,7 +18,7 @@ namespace JsonPatchRfc7396.Swashbuckle.Application.Documents
         public string Id { get; set; }
         public int BaseRevision { get; set; }
         public int ResultingRevision { get; set; }
-        public object PatchJson { get; set; }
+        public string PatchJson { get; set; }
         public DateTime ChangedAtUtc { get; set; }
         public PatchDocumentCommandActorDto Actor { get; set; }
         public string ClientChangeId { get; set; }

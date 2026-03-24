@@ -43,7 +43,9 @@ namespace JsonPatchRfc7396.Scalar.Application.Documents.PatchDocument
             command.CreatedAtUtc = entity.CreatedAtUtc;
             command.UpdatedAtUtc = entity.UpdatedAtUtc;
             command.Status = entity.Status;
+            command.Title ??= new UpdateDocumentTitleDto();
             command.Title.Value = entity.Title.Value;
+            command.Content ??= new UpdateDocumentContentDto();
             command.Content.Format = entity.Content.Format;
             command.Content.Text = entity.Content.Text;
             command.Content.Json = entity.Content.Json;

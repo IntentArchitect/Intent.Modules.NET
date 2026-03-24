@@ -11,7 +11,11 @@ namespace JsonPatchRfc7396.Swashbuckle.Application.Documents
     {
         public DocumentDtoProfile()
         {
-            CreateMap<Document, DocumentDto>();
+            CreateMap<Document, DocumentDto>()
+                .ForMember(d => d.Changes, opt => opt.MapFrom(src => src.Changes))
+                .ForMember(d => d.Permissions, opt => opt.MapFrom(src => src.Permissions))
+                .ForMember(d => d.Revisions, opt => opt.MapFrom(src => src.Revisions))
+                .ForMember(d => d.Sessions, opt => opt.MapFrom(src => src.Sessions));
         }
     }
 

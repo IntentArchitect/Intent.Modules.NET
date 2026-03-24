@@ -124,11 +124,11 @@ This is typically short-lived and can be TTL'd in Mongo.</comment>
     </childElement>
     <childElement id="26a7aa70-9468-48b6-939a-a69486b4be7d" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>CursorJson</name>
-      <display>CursorJson: object</display>
+      <display>CursorJson: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="c969b7e8-d31b-4ff1-8ab9-afde5b24aaad">
-        <typeId>341DD965-D06C-4A40-9437-9516ADA77FF5</typeId>
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -148,11 +148,11 @@ This is typically short-lived and can be TTL'd in Mongo.</comment>
     </childElement>
     <childElement id="d4256819-73eb-4120-8172-38ddaaf15e54" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>SelectionJson</name>
-      <display>SelectionJson: object</display>
+      <display>SelectionJson: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="0fda22be-10f5-4e6f-8035-525cb47e6e6f">
-        <typeId>341DD965-D06C-4A40-9437-9516ADA77FF5</typeId>
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>

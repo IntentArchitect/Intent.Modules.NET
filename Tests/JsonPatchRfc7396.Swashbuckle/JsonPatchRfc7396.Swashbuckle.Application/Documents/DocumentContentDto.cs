@@ -16,6 +16,6 @@ namespace JsonPatchRfc7396.Swashbuckle.Application.Documents
 
         public string Format { get; init; }
         public string Text { get; init; }
-        public object Json { get; init; }
+        public string Json { get; init; }
     }
 }

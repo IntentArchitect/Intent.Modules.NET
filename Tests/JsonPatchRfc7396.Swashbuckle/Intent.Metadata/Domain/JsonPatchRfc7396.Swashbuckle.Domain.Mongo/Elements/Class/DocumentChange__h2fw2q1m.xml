@@ -100,11 +100,11 @@ Stored as an event-like append-only record: JSON Merge Patch (RFC 7396) + metada
     </childElement>
     <childElement id="31c00797-1257-4775-8282-e8dddf90fb4f" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>PatchJson</name>
-      <display>PatchJson: object</display>
+      <display>PatchJson: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="ecb193d0-412a-4e3d-b521-bbdba0bc9d06">
-        <typeId>341DD965-D06C-4A40-9437-9516ADA77FF5</typeId>
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
