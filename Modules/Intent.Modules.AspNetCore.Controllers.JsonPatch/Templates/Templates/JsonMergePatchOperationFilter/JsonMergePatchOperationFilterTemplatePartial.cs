@@ -24,7 +24,6 @@ namespace Intent.Modules.AspNetCore.Controllers.JsonPatch.Templates.Templates.Js
         public JsonMergePatchOperationFilterTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
-                .AddUsing("Microsoft.AspNetCore.Mvc.ModelBinding")
                 .AddUsing("Microsoft.OpenApi")
                 .AddUsing("Morcatko.AspNetCore.JsonMergePatch")
                 .AddUsing("Swashbuckle.AspNetCore.SwaggerGen")
@@ -37,181 +36,43 @@ namespace Intent.Modules.AspNetCore.Controllers.JsonPatch.Templates.Templates.Js
                         method.AddParameter("OpenApiOperation", "operation");
                         method.AddParameter("OperationFilterContext", "context");
                         method.AddStatements(
-                            $$"""
-                                  var bodyParameters = context.ApiDescription.ParameterDescriptions.Where(p => p.Source == BindingSource.Body).ToList();
-
-                                  foreach (var parameter in bodyParameters)
-                                  {
-                                      if (IsJsonMergePatchDocumentType(parameter.Type) && operation.RequestBody?.Content != null &&
-                                          operation.RequestBody.Content.TryGetValue(JsonMergePatchDocument.ContentType, out var patchContent))
-                                      {
-                                          var schemaReference = (patchContent.Schema as OpenApiSchemaReference)?.Reference?.Id;
-                                          if (!string.IsNullOrEmpty(schemaReference))
-                                          {
-                                              CleanUpSchemas(context, schemaReference);
-                                          }
-
-                                          var underlyingType = parameter.Type.GenericTypeArguments[0];
-                                          var generatedSchema = GenerateSchema(context, underlyingType);
-                                          RemovePatchIgnoredProperties(context, underlyingType, generatedSchema);
-                                          if (generatedSchema is OpenApiSchema concreteGeneratedSchema)
-                                          {
-                                              patchContent.Schema = concreteGeneratedSchema;
-                                          }
-                                      }
-                                      else if ((parameter.Type != null) && parameter.Type.IsGenericType && (parameter.Type.GetGenericTypeDefinition() == typeof(IEnumerable<>)))
-                                      {
-                                          var jsonMergeType = parameter.Type.GenericTypeArguments[0];
-                                          if (!IsJsonMergePatchDocumentType(jsonMergeType) || operation.RequestBody?.Content == null ||
-                                              !operation.RequestBody.Content.TryGetValue(JsonMergePatchDocument.ContentType, out var enumerableContent))
-                                          {
-                                              continue;
-                                          }
-
-                                          string? itemsReference = null;
-                                          if (enumerableContent.Schema is OpenApiSchemaReference schemaRef)
-                                          {
-                                              itemsReference = schemaRef.Reference?.Id;
-                                          }
-                                          else if (enumerableContent.Schema is OpenApiSchema concreteSchema && concreteSchema.Items is OpenApiSchemaReference itemsRef)
-                                          {
-                                              itemsReference = itemsRef.Reference?.Id;
-                                          }
-
-                                          if (!string.IsNullOrEmpty(itemsReference))
-                                          {
-                                              CleanUpSchemas(context, itemsReference);
-                                          }
-
-                                          var enumerableType = typeof(IEnumerable<>);
-                                          var underlyingType = jsonMergeType.GenericTypeArguments[0];
-                                          var genericEnumerableType = enumerableType.MakeGenericType(underlyingType);
-                                          var generatedSchema = GenerateSchema(context, genericEnumerableType);
-                                          RemovePatchIgnoredProperties(context, underlyingType, generatedSchema);
-                                          if (generatedSchema is OpenApiSchema concreteEnumerableSchema)
-                                          {
-                                              enumerableContent.Schema = concreteEnumerableSchema;
-                                          }
-                                      }
-                                  }
-                                  """.ConvertToStatements());
-                    });
-
-                    @class.AddMethod("bool", "IsJsonMergePatchDocumentType", method =>
-                    {
-                        method.Private();
-                        method.Static();
-                        method.AddParameter("Type?", "t");
-                        method.AddStatement("return (t != null) && t.IsGenericType && (t.GetGenericTypeDefinition() == typeof(JsonMergePatchDocument<>));");
-                    });
-
-                    @class.AddMethod("IOpenApiSchema", "GenerateSchema", method =>
-                    {
-                        method.Private();
-                        method.Static();
-                        method.AddParameter("OperationFilterContext", "context");
-                        method.AddParameter("Type", "type");
-                        method.AddStatement("return context.SchemaGenerator.GenerateSchema(type, context.SchemaRepository);");
-                    });
-
-                    @class.AddMethod("void", "CleanUpSchemas", method =>
-                    {
-                        method.Private();
-                        method.Static();
-                        method.AddParameter("OperationFilterContext", "context");
-                        method.AddParameter("string", "jsonMergePatchSchemaId");
-                        method.AddStatements(
                             """
-                                var schemas = context.SchemaRepository.Schemas;
-                                if (!schemas.TryGetValue(jsonMergePatchSchemaId, out var jsonMergePatchSchema))
+                                if (context.ApiDescription.HttpMethod != "PATCH")
                                 {
                                     return;
                                 }
-                                
-                                if (jsonMergePatchSchema is not OpenApiSchema concreteSchema)
+
+                                if (operation.RequestBody?.Content == null)
                                 {
                                     return;
                                 }
-                                
-                                var contractResolverSchema = concreteSchema.Properties?["contractResolver"];
-                                var operationsSchema = concreteSchema.Properties?["operations"];
-                                schemas.Remove(jsonMergePatchSchemaId);
-                                
-                                if (contractResolverSchema?.AllOf?.Count > 0)
-                                {
-                                    var allOfFirstItem = contractResolverSchema.AllOf.First() as OpenApiSchemaReference;
-                                    var contractResolverSchemaId = allOfFirstItem?.Reference?.Id;
-                                    if (!string.IsNullOrEmpty(contractResolverSchemaId))
-                                    {
-                                        schemas.Remove(contractResolverSchemaId);
-                                    }
-                                }
-                                
-                                if (operationsSchema?.Items is OpenApiSchemaReference itemsRef)
-                                {
-                                    schemas.Remove(itemsRef.Reference.Id);
-                                }
-                                """.ConvertToStatements());
-                    });
 
-                    @class.AddMethod("void", "RemovePatchIgnoredProperties", method =>
-                    {
-                        method.Private();
-                        method.Static();
-                        method.AddParameter("OperationFilterContext", "context");
-                        method.AddParameter("Type", "type");
-                        method.AddParameter("IOpenApiSchema", "schema");
-                        method.AddStatements(
-                            """
-                                if (schema is OpenApiSchemaReference schemaRef)
-                                {
-                                    var schemaId = schemaRef.Reference.Id;
-                                    if (context.SchemaRepository.Schemas.TryGetValue(schemaId, out var referencedSchema))
-                                    {
-                                        if (referencedSchema is OpenApiSchema referencedConcreteSchema)
-                                        {
-                                            RemovePatchIgnoredPropertiesFromSchema(type, referencedConcreteSchema);
-                                        }
-                                    }
-                                }
-                                else if (schema is OpenApiSchema concreteSchema)
-                                {
-                                    RemovePatchIgnoredPropertiesFromSchema(type, concreteSchema);
-                                }
-                                """.ConvertToStatements());
-                    });
+                                var patchParam = context.ApiDescription.ParameterDescriptions
+                                    .FirstOrDefault(param => param.Type.IsGenericType && param.Type.GetGenericTypeDefinition() == typeof(JsonMergePatchDocument<>));
 
-                    @class.AddMethod("void", "RemovePatchIgnoredPropertiesFromSchema", method =>
-                    {
-                        method.Private();
-                        method.Static();
-                        method.AddParameter("Type", "type");
-                        method.AddParameter("OpenApiSchema", "schema");
-                        method.AddStatements(
-                            """
-                                if (schema?.Properties == null) return;
-                                
-                                var properties = type.GetProperties();
-                                var propertiesToRemove = new List<string>();
-                                
-                                foreach (var property in properties)
+                                if (patchParam == null)
                                 {
-                                    var hasIgnoreAttribute = property.GetCustomAttributes(true)
-                                        .Any(a => a.GetType().Name == "PatchIgnoreAttribute");
-                                    var hasPublicSetter = property.CanWrite && property.GetSetMethod(nonPublic: false) != null;
-                                    if (!hasIgnoreAttribute && hasPublicSetter)
-                                    {
-                                        continue;
-                                    }
-                                
-                                    var propertyName = char.ToLowerInvariant(property.Name[0]) + property.Name.Substring(1);
-                                    if (schema.Properties.ContainsKey(propertyName)) propertiesToRemove.Add(propertyName);
-                                    else if (schema.Properties.ContainsKey(property.Name)) propertiesToRemove.Add(property.Name);
+                                    return;
                                 }
-                                
-                                foreach (var propertyName in propertiesToRemove)
+
+                                var payloadType = patchParam.Type.GetGenericArguments()[0];
+
+                                var payloadSchemaReference = context.SchemaGenerator.GenerateSchema(payloadType, context.SchemaRepository) as OpenApiSchemaReference;
+
+                                if (payloadSchemaReference == null || string.IsNullOrEmpty(payloadSchemaReference.Reference.Id))
                                 {
-                                    schema.Properties.Remove(propertyName);
+                                    return;
+                                }
+
+                                if (context.SchemaRepository.Schemas.TryGetValue(payloadSchemaReference.Reference.Id, out var actualSchema))
+                                {
+                                    actualSchema?.Required?.Remove("patchExecutor");
+                                    actualSchema?.Properties?.Remove("patchExecutor");
+                                }
+
+                                if (operation.RequestBody.Content.TryGetValue(JsonMergePatchDocument.ContentType, out var content))
+                                {
+                                    content.Schema = payloadSchemaReference;
                                 }
                                 """.ConvertToStatements());
                     });
@@ -255,7 +116,7 @@ namespace Intent.Modules.AspNetCore.Controllers.JsonPatch.Templates.Templates.Js
             }
         }
 
-        private static CSharpLambdaBlock GetConfigureSwaggerOptionsBlock(CSharpClass @class)
+        private static CSharpLambdaBlock? GetConfigureSwaggerOptionsBlock(CSharpClass @class)
         {
             var configureSwaggerMethod = @class.FindMethod("ConfigureSwagger");
             var addSwaggerGen = configureSwaggerMethod?.FindStatement(p => p.HasMetadata("AddSwaggerGen")) as CSharpInvocationStatement;

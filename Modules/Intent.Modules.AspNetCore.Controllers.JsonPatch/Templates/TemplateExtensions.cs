@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Intent.Modules.AspNetCore.Controllers.JsonPatch.Templates.Templates.JsonMergePatchExecutor;
 using Intent.Modules.AspNetCore.Controllers.JsonPatch.Templates.Templates.JsonMergePatchOperationFilter;
+using Intent.Modules.AspNetCore.Controllers.JsonPatch.Templates.Templates.JsonMergePatchOperationTransformer;
 using Intent.Modules.AspNetCore.Controllers.JsonPatch.Templates.Templates.PatchExecutorInterface;
 using Intent.Modules.AspNetCore.Controllers.JsonPatch.Templates.Templates.PatchIgnoreMetadataProvider;
 using Intent.Modules.Common.Templates;
@@ -22,6 +23,11 @@ namespace Intent.Modules.AspNetCore.Controllers.JsonPatch.Templates
         public static string GetJsonMergePatchOperationFilterName(this IIntentTemplate template)
         {
             return template.GetTypeName(JsonMergePatchOperationFilterTemplate.TemplateId);
+        }
+
+        public static string GetJsonMergePatchOperationTransformerName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(JsonMergePatchOperationTransformerTemplate.TemplateId);
         }
 
         public static string GetPatchExecutorInterfaceName(this IIntentTemplate template)
