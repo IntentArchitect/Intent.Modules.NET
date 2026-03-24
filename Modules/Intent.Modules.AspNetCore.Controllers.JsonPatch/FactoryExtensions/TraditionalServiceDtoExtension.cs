@@ -2,7 +2,9 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Exceptions;
+using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
+using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.AspNetCore.Controllers.JsonPatch.Templates;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
@@ -27,12 +29,17 @@ namespace Intent.Modules.AspNetCore.Controllers.JsonPatch.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            var services = application.MetadataManager.Services(application.Id).GetServiceModels();
+            var serviceDesigner = application.MetadataManager.Services(application.Id);
+            var services = serviceDesigner.GetServiceModels();
             var operationsWithPatch = services
                 .SelectMany(service => service.Operations)
                 .Where(operation => HttpEndpointModelFactory.TryGetEndpoint(operation.InternalElement, null, false, out var endpoint) &&
                              endpoint.Verb == HttpVerb.Patch)
                 .ToArray();
+
+            var dtosToProcess = new List<DTOModel>();
+            var rootDtos = new HashSet<DTOModel>();
+            
             foreach (var operationModel in operationsWithPatch)
             {
                 var payloads = operationModel.Parameters
@@ -45,35 +52,50 @@ namespace Intent.Modules.AspNetCore.Controllers.JsonPatch.FactoryExtensions
                 }
 
                 var payloadDto = payloads.First();
-
+                rootDtos.Add(payloadDto);
                 var allDtos = GetAllDtosFromHierarchy(payloadDto);
+                dtosToProcess.AddRange(allDtos);
+            }
 
-                foreach (var dtoModel in allDtos)
+            var commands = serviceDesigner.GetElementsOfType("Command");
+            var commandsWithPatch = commands
+                .Where(command => HttpEndpointModelFactory.TryGetEndpoint(command, null, false, out var endpoint) &&
+                                    endpoint.Verb == HttpVerb.Patch)
+                .ToArray();
+            foreach (var commandElement in commandsWithPatch)
+            {
+                var propertiesWithDtos = commandElement.ChildElements
+                    .Where(x => x?.TypeReference.Element?.IsDTOModel() == true)
+                    .Select(x => x.TypeReference.Element.AsDTOModel())
+                    .ToArray();
+                dtosToProcess.AddRange(propertiesWithDtos.SelectMany(GetAllDtosFromHierarchy));
+            }
+
+            foreach (var dtoModel in dtosToProcess)
+            {
+                var dtoTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateRoles.Application.Contracts.Dto, dtoModel);
+                if (dtoTemplate is null)
                 {
-                    var dtoTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateRoles.Application.Contracts.Dto, dtoModel);
-                    if (dtoTemplate is null)
+                    continue;
+                }
+
+                dtoTemplate.CSharpFile.OnBuild(file =>
+                {
+                    var classType = file.TypeDeclarations.First();
+                    foreach (var property in classType.Properties)
                     {
-                        continue;
+                        property.Setter.Public();
                     }
 
-                    dtoTemplate.CSharpFile.OnBuild(file =>
+                    if (rootDtos.Contains(dtoModel))
                     {
-                        var classType = file.TypeDeclarations.First();
-                        foreach (var property in classType.Properties)
+                        classType.AddProperty($"{dtoTemplate.GetPatchExecutorInterfaceName()}<{classType.Name}>", "PatchExecutor", prop =>
                         {
-                            property.Setter.Public();
-                        }
-
-                        if (dtoModel.Equals(payloadDto))
-                        {
-                            classType.AddProperty($"{dtoTemplate.GetPatchExecutorInterfaceName()}<{classType.Name}>", "PatchExecutor", prop =>
-                            {
-                                prop.Init();
-                                prop.Required();
-                            });   
-                        }
-                    });   
-                }
+                            prop.Init();
+                            prop.Required();
+                        });
+                    }
+                });
             }
         }
 
