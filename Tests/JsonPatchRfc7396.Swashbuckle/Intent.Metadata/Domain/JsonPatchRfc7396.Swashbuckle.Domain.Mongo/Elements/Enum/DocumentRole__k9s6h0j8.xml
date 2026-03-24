@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="4e6a8afa-9c1a-460c-91aa-9204b3649d8a" type="Enum" typeId="85fba0e9-9161-4c85-a603-a229ef312beb">
+  <comment>Roles supported for document collaboration.</comment>
+  <name>DocumentRole</name>
+  <display>DocumentRole</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>4349157c-747a-4add-9cbf-5b130f3c53aa</parentFolderId>
+  <packageId>cca802e5-68f0-4884-8036-44d99dc3ca25</packageId>
+  <packageName>JsonPatchRfc7396.Swashbuckle.Domain.Mongo</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="778760a4-5b54-4eb3-8367-472079e72649" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Owner</name>
+      <display>Owner</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>4e6a8afa-9c1a-460c-91aa-9204b3649d8a</parentFolderId>
+      <packageId>cca802e5-68f0-4884-8036-44d99dc3ca25</packageId>
+      <packageName>JsonPatchRfc7396.Swashbuckle.Domain.Mongo</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="610b8b34-611f-4011-954e-a9e0569ae3ca" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Editor</name>
+      <display>Editor</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>4e6a8afa-9c1a-460c-91aa-9204b3649d8a</parentFolderId>
+      <packageId>cca802e5-68f0-4884-8036-44d99dc3ca25</packageId>
+      <packageName>JsonPatchRfc7396.Swashbuckle.Domain.Mongo</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="cb220ed0-51eb-4665-950c-75dbd5f39c7f" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Commenter</name>
+      <display>Commenter</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>4e6a8afa-9c1a-460c-91aa-9204b3649d8a</parentFolderId>
+      <packageId>cca802e5-68f0-4884-8036-44d99dc3ca25</packageId>
+      <packageName>JsonPatchRfc7396.Swashbuckle.Domain.Mongo</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="baf6f49a-5675-45df-b1a7-1a04c2963830" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Viewer</name>
+      <display>Viewer</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>4e6a8afa-9c1a-460c-91aa-9204b3649d8a</parentFolderId>
+      <packageId>cca802e5-68f0-4884-8036-44d99dc3ca25</packageId>
+      <packageName>JsonPatchRfc7396.Swashbuckle.Domain.Mongo</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

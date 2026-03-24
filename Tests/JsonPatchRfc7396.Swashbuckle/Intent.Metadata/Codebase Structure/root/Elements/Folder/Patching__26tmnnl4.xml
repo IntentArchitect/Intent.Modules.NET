@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="4bee1f20-c3f5-4277-b502-b49f5394ce50" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Patching</name>
+  <display>Patching</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>da38d23f-0985-49cd-b107-4c212743bc81</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="f53fc82e-b5d0-4063-929a-1ebf3448939e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Controllers.JsonPatch.Templates.JsonMergePatchExecutor</name>
+      <display>Intent.AspNetCore.Controllers.JsonPatch.Templates.JsonMergePatchExecutor</display>
+      <externalReference>Intent.AspNetCore.Controllers.JsonPatch</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>4bee1f20-c3f5-4277-b502-b49f5394ce50</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

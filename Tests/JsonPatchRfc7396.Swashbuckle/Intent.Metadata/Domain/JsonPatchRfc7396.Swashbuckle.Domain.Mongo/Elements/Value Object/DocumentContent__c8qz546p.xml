@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a08e3da3-652c-43f6-8481-19e223a09539" type="Value Object" typeId="5fe6bb0a-7fc3-42ae-a351-d9188f5b8bc5">
+  <comment>Materialized content of the document.
+
+Kept separate from DocumentChange which stores incremental changes.</comment>
+  <name>DocumentContent</name>
+  <display>DocumentContent</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>4349157c-747a-4add-9cbf-5b130f3c53aa</parentFolderId>
+  <packageId>cca802e5-68f0-4884-8036-44d99dc3ca25</packageId>
+  <packageName>JsonPatchRfc7396.Swashbuckle.Domain.Mongo</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="616fdfb1-5f2d-4ad0-9779-d3c5e25bb713" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Format</name>
+      <display>Format: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="f259e04d-c729-4ddb-94f3-98013aafae25">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>a08e3da3-652c-43f6-8481-19e223a09539</parentFolderId>
+      <packageId>cca802e5-68f0-4884-8036-44d99dc3ca25</packageId>
+      <packageName>JsonPatchRfc7396.Swashbuckle.Domain.Mongo</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="7c078cb8-eed1-4d18-9f93-32afa869c99f" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Text</name>
+      <display>Text: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="ec3a79b6-c579-43b3-8b32-acce9591ea28">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>a08e3da3-652c-43f6-8481-19e223a09539</parentFolderId>
+      <packageId>cca802e5-68f0-4884-8036-44d99dc3ca25</packageId>
+      <packageName>JsonPatchRfc7396.Swashbuckle.Domain.Mongo</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="e14891a2-6b52-422b-8157-242f8a779b67" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Json</name>
+      <display>Json: object</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="1ae46f61-c6d7-48b7-a20b-52b5dcdc5c43">
+        <typeId>341DD965-D06C-4A40-9437-9516ADA77FF5</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>a08e3da3-652c-43f6-8481-19e223a09539</parentFolderId>
+      <packageId>cca802e5-68f0-4884-8036-44d99dc3ca25</packageId>
+      <packageName>JsonPatchRfc7396.Swashbuckle.Domain.Mongo</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

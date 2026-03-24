@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d7545588-99fd-472c-9d47-173e2ace2937" type="Value Object" typeId="5fe6bb0a-7fc3-42ae-a351-d9188f5b8bc5">
+  <comment>Identifies who performed an action.
+
+Kept as a Value Object to embed in change/session records.</comment>
+  <name>Actor</name>
+  <display>Actor</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>4349157c-747a-4add-9cbf-5b130f3c53aa</parentFolderId>
+  <packageId>cca802e5-68f0-4884-8036-44d99dc3ca25</packageId>
+  <packageName>JsonPatchRfc7396.Swashbuckle.Domain.Mongo</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="83b29bbf-12de-4a54-9475-337bac73199a" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>UserId</name>
+      <display>UserId: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="4621e045-32e8-4ed2-9a4c-855a67c6abcc">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>d7545588-99fd-472c-9d47-173e2ace2937</parentFolderId>
+      <packageId>cca802e5-68f0-4884-8036-44d99dc3ca25</packageId>
+      <packageName>JsonPatchRfc7396.Swashbuckle.Domain.Mongo</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="5b194a3e-1a26-47d8-9aa5-80295ecd6fca" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>DisplayName</name>
+      <display>DisplayName: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="ff5f04dc-f4b8-48b6-b15f-da4015b3b4d2">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>d7545588-99fd-472c-9d47-173e2ace2937</parentFolderId>
+      <packageId>cca802e5-68f0-4884-8036-44d99dc3ca25</packageId>
+      <packageName>JsonPatchRfc7396.Swashbuckle.Domain.Mongo</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

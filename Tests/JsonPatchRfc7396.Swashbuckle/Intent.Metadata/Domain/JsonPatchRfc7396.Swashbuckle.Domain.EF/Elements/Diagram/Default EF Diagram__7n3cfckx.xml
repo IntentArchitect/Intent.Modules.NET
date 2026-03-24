@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="576fab6e-23a7-4181-8478-d7173772ba2c" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default EF Diagram</name>
+  <display>Default EF Diagram</display>
+  <externalReference>421a4727-539a-4288-8126-c32f7ad1a26d</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>129d506c-11ea-4e5f-a2f5-07062fdee4a6</parentFolderId>
+  <packageId>129d506c-11ea-4e5f-a2f5-07062fdee4a6</packageId>
+  <packageName>JsonPatchRfc7396.Swashbuckle.Domain.EF</packageName>
+  <diagram>
+    <targetPackageId>4bc1b8bf-c3a2-47fe-b454-f67c2a66ed7f</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
