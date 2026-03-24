@@ -16,8 +16,8 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Application.Validation</role>
-      <location></location>
+      <role>Application.Common.BypassPipelineValidationInterface</role>
+      <location>Common/Interfaces</location>
     </template>
     <template id="Intent.Application.MediatR.FluentValidation.CommandValidator" externalReference="499883b5-ee38-4e92-8c12-436eef8b2c0d">
       <config>
