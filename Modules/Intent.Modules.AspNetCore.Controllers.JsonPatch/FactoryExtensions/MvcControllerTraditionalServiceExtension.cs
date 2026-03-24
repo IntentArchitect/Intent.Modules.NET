@@ -1,5 +1,6 @@
 using System.Linq;
 using Intent.Engine;
+using Intent.Modules.AspNetCore.Controllers.JsonPatch.Templates;
 using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -40,6 +41,18 @@ namespace Intent.Modules.AspNetCore.Controllers.JsonPatch.FactoryExtensions
 
                     var cls = file.Classes.First();
 
+                    if (template.TryGetTypeName("Application.Common.ValidatorProviderInterface", out var fluentValidatorProviderName))
+                    {
+                        var ctor = cls.Constructors.First();
+                        if (ctor.Parameters.All(x => x.Type != "IValidatorProvider"))
+                        {
+                            ctor.AddParameter(fluentValidatorProviderName, "validatorProvider", param =>
+                            {
+                                param.IntroduceReadonlyField((_, stmt) => stmt.ThrowArgumentNullException());
+                            });
+                        }
+                    }
+                    
                     foreach (var method in cls.Methods)
                     {
                         if (!method.TryGetMetadata<IControllerOperationModel>("model", out var operation))
@@ -70,11 +83,11 @@ namespace Intent.Modules.AspNetCore.Controllers.JsonPatch.FactoryExtensions
                             continue;
                         }
 
-                        var commandParamIndex = method.Parameters.FindIndex(p =>
+                        var payloadParamIndex = method.Parameters.FindIndex(p =>
                             p.TryGetMetadata<IControllerParameterModel>("model", out var m) &&
                             m.TypeReference.Element?.SpecializationType == "DTO");
 
-                        if (commandParamIndex < 0)
+                        if (payloadParamIndex < 0)
                         {
                             continue;
                         }
@@ -84,19 +97,52 @@ namespace Intent.Modules.AspNetCore.Controllers.JsonPatch.FactoryExtensions
                             method.AddAttribute("Consumes", attr => attr.AddArgument("JsonMergePatchDocument.ContentType"));
                         }
 
-                        var commandTypeName = template.GetTypeName(payloadParam.TypeReference);
+                        var payloadTypeName = template.GetTypeName(payloadParam.TypeReference)!;
 
-                        method.Parameters.RemoveAt(commandParamIndex);
+                        method.Parameters.RemoveAt(payloadParamIndex);
 
-                        method.InsertParameter(commandParamIndex,
-                            $"JsonMergePatchDocument<{commandTypeName}>",
+                        method.InsertParameter(payloadParamIndex,
+                            $"JsonMergePatchDocument<{payloadTypeName}>",
                             "mergePatchDocument",
                             param => param.AddAttribute("FromBody"));
 
-                        
+                        var validationStatement = method.Statements.FirstOrDefault(x => x.GetText("").Contains("_validationService.Handle"));
+                        if (validationStatement is not null)
+                        {
+                            method.RemoveStatement(validationStatement);
+                        }
+
+                        method.InsertStatements(0,
+                        [
+                            new CSharpIfStatement("mergePatchDocument == null")
+                                .AddStatement("return BadRequest(\"Merge patch document cannot be null\");"),
+                            GetJsonMergePatchExecutorStatement(template, payloadTypeName, fluentValidatorProviderName != null)
+                                .SeparatedFromPrevious(),
+                            new CSharpAssignmentStatement(
+                                lhs: new CSharpVariableDeclaration(payloadParam.Name),
+                                rhs: new CSharpObjectInitializerBlock($"new {payloadTypeName}")
+                                    .AddInitStatement("PatchExecutor", "patchExecutor"))
+                                .WithSemicolon()
+                                .SeparatedFromPrevious()
+                                .SeparatedFromNext()
+                        ]);
                     }
                 }, 20);
             }
+        }
+        
+        private static CSharpAssignmentStatement GetJsonMergePatchExecutorStatement(
+            ICSharpFileBuilderTemplate template,
+            string payloadType,
+            bool addValidatorProvider)
+        {
+            var instantiation = new CSharpInvocationStatement($"new {template.GetJsonMergePatchExecutorName()}<{payloadType}>");
+            instantiation.AddArgument("mergePatchDocument");
+            if (addValidatorProvider)
+            {
+                instantiation.AddArgument("_validatorProvider");
+            }
+            return new CSharpAssignmentStatement(new CSharpVariableDeclaration("patchExecutor"), instantiation);
         }
     }
 }
