@@ -152,6 +152,7 @@ internal static class PatchBuilderHelper
 
         var reverseMapping = ReverseMappingAdapter.Create(updateMapping);
         var statements = new List<CSharpStatement>();
+        var initializedTargetPaths = new HashSet<string>(StringComparer.Ordinal);
         var mappingManager = handleMethod.GetMappingManager();
         EnsureJsonPatchReverseResolverRegistered(handleMethod, mappingManager);
 
@@ -210,6 +211,15 @@ internal static class PatchBuilderHelper
             {
                 statements.Add(new CSharpStatement($"// {reverseCommentPrefix} Skipped '{GetPathText(mappedEnd.TargetPath, payloadRootVariable)}': {reason}."));
                 continue;
+            }
+
+            foreach (var guardStatement in CreateTargetInstantiationGuardStatements(
+                         mappedEnd.TargetPath,
+                         payloadRootVariable,
+                         handleMethod,
+                         initializedTargetPaths))
+            {
+                statements.Add(guardStatement.WithSemicolon());
             }
 
             var targetPath = mappingManager.GenerateTargetStatementForMapping(reverseMapping, mappedEnd).ToString();
@@ -432,6 +442,105 @@ internal static class PatchBuilderHelper
                 ? rootReplacement
                 : $"{rootReplacement}.{suffix}";
         }
+    }
+
+    private static IEnumerable<CSharpStatement> CreateTargetInstantiationGuardStatements(
+        IList<IElementMappingPathTarget> targetPath,
+        string rootReplacement,
+        ICSharpClassMethodDeclaration handleMethod,
+        ISet<string> initializedTargetPaths)
+    {
+        if (targetPath.Count < 3)
+        {
+            yield break;
+        }
+
+        if (handleMethod.File.Template is not ICSharpFileBuilderTemplate template)
+        {
+            yield break;
+        }
+
+        for (var index = 1; index < targetPath.Count - 1; index++)
+        {
+            var pathTarget = targetPath[index];
+            if (string.Equals(pathTarget.Element.SpecializationType, "Operation", StringComparison.OrdinalIgnoreCase) ||
+                string.Equals(pathTarget.Element.SpecializationType, "Parameter", StringComparison.OrdinalIgnoreCase))
+            {
+                continue;
+            }
+
+            if (pathTarget.Element.TypeReference?.IsCollection == true)
+            {
+                yield break;
+            }
+
+            var targetPathText = GetPathTextCore(targetPath.Take(index + 1).ToList(), rootReplacement);
+            if (string.Equals(targetPathText, rootReplacement, StringComparison.Ordinal))
+            {
+                continue;
+            }
+
+            if (!initializedTargetPaths.Add(targetPathText))
+            {
+                continue;
+            }
+
+            if (!TryResolveInstantiationTypeName(pathTarget, template, out var typeName))
+            {
+                continue;
+            }
+
+            yield return new CSharpStatement($"{targetPathText} ??= new {typeName}()");
+        }
+    }
+
+    private static bool TryResolveInstantiationTypeName(
+        IElementMappingPathTarget pathTarget,
+        ICSharpFileBuilderTemplate template,
+        out string typeName)
+    {
+        typeName = null!;
+
+        if (pathTarget.Element is not IElement element)
+        {
+            return false;
+        }
+
+        var targetType = element.TypeReference?.Element as IElement;
+        if (targetType == null || element.TypeReference?.IsCollection == true)
+        {
+            return false;
+        }
+
+        return template.TryGetTypeName(TemplateRoles.Application.Contracts.Dto, targetType, out typeName) ||
+               template.TryGetTypeName("Application.Contract.Command", targetType, out typeName) ||
+               template.TryGetTypeName(TemplateRoles.Domain.DataContract, targetType, out typeName) ||
+               TryUseFallbackTypeName(targetType, out typeName);
+    }
+
+    private static bool TryUseFallbackTypeName(IElement targetType, out string typeName)
+    {
+        typeName = targetType.Name;
+        return !string.IsNullOrWhiteSpace(typeName);
+    }
+
+    private static string GetPathTextCore(IList<IElementMappingPathTarget> path, string rootReplacement)
+    {
+        if (path.Count == 0)
+        {
+            return rootReplacement;
+        }
+
+        var members = path.Skip(1).Select(x => x.Name).ToList();
+        if (members.Count > 0 && string.Equals(members[0], rootReplacement, StringComparison.OrdinalIgnoreCase))
+        {
+            members.RemoveAt(0);
+        }
+
+        var suffix = string.Join(".", members);
+        return string.IsNullOrWhiteSpace(suffix)
+            ? rootReplacement
+            : $"{rootReplacement}.{suffix}";
     }
 
     private static void EnsureJsonPatchReverseResolverRegistered(

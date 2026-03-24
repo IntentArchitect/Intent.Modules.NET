@@ -9,6 +9,9 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Interactions;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.DomainInteractions.Api;
+using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.UnitOfWork.Settings;
 using Intent.Modules.Constants;
 using Intent.Modules.Metadata.WebApi.Models;
 
@@ -97,6 +100,20 @@ internal class CommandPatchEntityInteractionStrategy : IInteractionStrategy
                 new CSharpStatement($"ApplyChangesTo(request, {entityDetails.VariableName})")
                     .WithSemicolon()
             ]);
+            
+            if (RepositoryRequiresExplicitUpdate(method.File.Template, foundEntity))
+            {
+                method.AddStatement(entityDetails.DataAccessProvider.Update(entityDetails.VariableName.Singularize())
+                    .SeparatedFromPrevious());
+            }
+            
+            var automaticallyPersistUnitOfWork = method.Class.File.Template.ExecutionContext.GetSettings()
+                .GetUnitOfWorkSettings()?.AutomaticallyPersistUnitOfWork() ?? true;
+            var saveAlreadyCalled = method.FindStatement(x => x.ToString().Trim().Contains(entityDetails.DataAccessProvider.SaveChangesAsync().ToString().Trim())) != null;
+            if (!saveAlreadyCalled && !automaticallyPersistUnitOfWork)
+            {
+                method.AddStatement(ExecutionPhases.Persistence, new CSharpStatement($"{entityDetails.DataAccessProvider.SaveChangesAsync()}"));
+            }
         }
         catch (ElementException)
         {
@@ -110,5 +127,15 @@ internal class CommandPatchEntityInteractionStrategy : IInteractionStrategy
         {
             throw new ElementException(updateAction.InternalAssociationEnd, "An error occurred while generating the JsonPatch update logic", ex);
         }
+    }
+    
+    private static bool RepositoryRequiresExplicitUpdate(ICSharpTemplate template, IMetadataModel forEntity)
+    {
+        return template.TryGetTemplate<ICSharpFileBuilderTemplate>(
+                   TemplateRoles.Repository.Interface.Entity,
+                   forEntity,
+                   out var repositoryInterfaceTemplate) &&
+               repositoryInterfaceTemplate.CSharpFile.Interfaces[0].TryGetMetadata<bool>("requires-explicit-update", out var requiresUpdate) &&
+               requiresUpdate;
     }
 }
