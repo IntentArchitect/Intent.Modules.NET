@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d7edd9f1-9d97-4357-b412-589cca49ba83" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+  <name>DocumentCollaboratorSessionDto</name>
+  <display>DocumentCollaboratorSessionDto</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>true</isMapped>
+  <mappedClass isRoot="true">
+    <applicationId>4e2e78cb-a7d2-4b5c-9653-399737bb308f</applicationId>
+    <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
+    <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
+    <autoSyncTypeReference>true</autoSyncTypeReference>
+    <mappedPath>
+      <target id="25c2f5ef-975e-49fd-bbfe-c58ed5ff43dc" name="CollaboratorSession" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+    </mappedPath>
+  </mappedClass>
+  <parentFolderId>3bd0d252-5c82-47e4-8155-aebf95c03b59</parentFolderId>
+  <packageId>bad7a0c9-068e-4536-b712-02ce98947979</packageId>
+  <packageName>JsonPatchRfc7396.Swashbuckle.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="a4fa69ed-6fa8-4bce-b303-2776c9d5b49b" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Id</name>
+      <display>Id: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="97e6eff7-b287-4d7b-b7a0-75f98364451e">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="fbafbd57-9c6d-4369-890b-c6a8a408cd7b" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>d7edd9f1-9d97-4357-b412-589cca49ba83</parentFolderId>
+      <packageId>bad7a0c9-068e-4536-b712-02ce98947979</packageId>
+      <packageName>JsonPatchRfc7396.Swashbuckle.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4b54a612-2664-4493-a1f7-dc0623aa03da" name="Validations">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Application.FluentValidation</definitionPackageName>
+          <definitionPackageId>55856e5d-8217-4c17-8fbb-082ac75baaf5</definitionPackageId>
+          <properties>
+            <property name="d144e1aa-b506-407a-b60b-716ce38b70bb" display="Not Empty" value="false" isActive="true" />
+            <property name="8d844d65-bf88-4023-85e1-4d3d7f8784cd" display="Equal" isActive="true" />
+            <property name="490e08cd-5fb4-4bfd-80cf-fda3b88f745e" display="Not Equal" isActive="true" />
+            <property name="c94dc001-4ec7-42a0-a1e0-5b75502e7bec" display="Min Length" isActive="true" />
+            <property name="cbd52384-0f1e-4f41-9e98-314231b731e1" display="Max Length" isActive="true" />
+            <property name="f9802e6b-b033-4280-ad83-e4b064943d87" display="Min" isActive="false" />
+            <property name="aca206a8-cb7e-4537-b3f5-c5c301863c14" display="Max" isActive="false" />
+            <property name="ad0c1113-ee22-4275-8177-576494ecfa45" display="Regular Expression" isActive="true" />
+            <property name="a4fdee2f-36d9-463c-bb2e-54579a16083e" display="Regular Expression Message" isActive="false" />
+            <property name="25d15e9b-7dbd-403e-837d-2fcfc786d3f2" display="Regular Expression Timeout" value="1" isActive="false" />
+            <property name="9023c463-1cce-4f11-baa5-96561697fc7f" display="Predicate" isActive="true" />
+            <property name="13d364d0-975e-47e9-ae0c-a3137326ee60" display="Predicate Message" isActive="false" />
+            <property name="85282cb5-5e12-4eb0-9568-7ccee0685e12" display="Email Address" value="false" isActive="true" />
+            <property name="e441d802-9aea-4d74-b5f9-1cd2527f3719" display="Has Custom Validation" value="false" isActive="false" />
+            <property name="e94008f2-3d5b-4157-ba72-69b3d6812617" display="Custom" value="false" isActive="true" />
+            <property name="60e7953f-29b8-4e56-a2c9-c02fae7de91e" display="Must" value="false" isActive="true" />
+            <property name="f43fcab6-5f8f-42e4-96d2-83d79cedfab9" display="Must Message" isActive="false" />
+            <property name="9ce77ae5-9ad5-4436-8ae0-c6c296de8492" display="CascadeMode" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="44a52f74-9feb-41ef-8f89-4c4ef7b4adb0" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>ConnectionId</name>
+      <display>ConnectionId: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="f1a20ed6-7754-4282-882f-858c2e24ac64">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="1b1a76a9-2690-44d5-93a2-78274786cd8a" name="ConnectionId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>d7edd9f1-9d97-4357-b412-589cca49ba83</parentFolderId>
+      <packageId>bad7a0c9-068e-4536-b712-02ce98947979</packageId>
+      <packageName>JsonPatchRfc7396.Swashbuckle.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4b54a612-2664-4493-a1f7-dc0623aa03da" name="Validations">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Application.FluentValidation</definitionPackageName>
+          <definitionPackageId>55856e5d-8217-4c17-8fbb-082ac75baaf5</definitionPackageId>
+          <properties>
+            <property name="d144e1aa-b506-407a-b60b-716ce38b70bb" display="Not Empty" value="false" isActive="true" />
+            <property name="8d844d65-bf88-4023-85e1-4d3d7f8784cd" display="Equal" isActive="true" />
+            <property name="490e08cd-5fb4-4bfd-80cf-fda3b88f745e" display="Not Equal" isActive="true" />
+            <property name="c94dc001-4ec7-42a0-a1e0-5b75502e7bec" display="Min Length" isActive="true" />
+            <property name="cbd52384-0f1e-4f41-9e98-314231b731e1" display="Max Length" isActive="true" />
+            <property name="f9802e6b-b033-4280-ad83-e4b064943d87" display="Min" isActive="false" />
+            <property name="aca206a8-cb7e-4537-b3f5-c5c301863c14" display="Max" isActive="false" />
+            <property name="ad0c1113-ee22-4275-8177-576494ecfa45" display="Regular Expression" isActive="true" />
+            <property name="a4fdee2f-36d9-463c-bb2e-54579a16083e" display="Regular Expression Message" isActive="false" />
+            <property name="25d15e9b-7dbd-403e-837d-2fcfc786d3f2" display="Regular Expression Timeout" value="1" isActive="false" />
+            <property name="9023c463-1cce-4f11-baa5-96561697fc7f" display="Predicate" isActive="true" />
+            <property name="13d364d0-975e-47e9-ae0c-a3137326ee60" display="Predicate Message" isActive="false" />
+            <property name="85282cb5-5e12-4eb0-9568-7ccee0685e12" display="Email Address" value="false" isActive="true" />
+            <property name="e441d802-9aea-4d74-b5f9-1cd2527f3719" display="Has Custom Validation" value="false" isActive="false" />
+            <property name="e94008f2-3d5b-4157-ba72-69b3d6812617" display="Custom" value="false" isActive="true" />
+            <property name="60e7953f-29b8-4e56-a2c9-c02fae7de91e" display="Must" value="false" isActive="true" />
+            <property name="f43fcab6-5f8f-42e4-96d2-83d79cedfab9" display="Must Message" isActive="false" />
+            <property name="9ce77ae5-9ad5-4436-8ae0-c6c296de8492" display="CascadeMode" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="774bf10d-5cb9-48ba-b707-a37c44a9feff" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>StartedAtUtc</name>
+      <display>StartedAtUtc: datetime</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="8aab30b5-7892-4685-be27-14c83e4c0206">
+        <typeId>a4107c29-7851-4121-9416-cf1236908f1e</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="bf664faa-3d2b-4976-9a5c-655e55c93d00" name="StartedAtUtc" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>d7edd9f1-9d97-4357-b412-589cca49ba83</parentFolderId>
+      <packageId>bad7a0c9-068e-4536-b712-02ce98947979</packageId>
+      <packageName>JsonPatchRfc7396.Swashbuckle.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4b54a612-2664-4493-a1f7-dc0623aa03da" name="Validations">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Application.FluentValidation</definitionPackageName>
+          <definitionPackageId>55856e5d-8217-4c17-8fbb-082ac75baaf5</definitionPackageId>
+          <properties>
+            <property name="d144e1aa-b506-407a-b60b-716ce38b70bb" display="Not Empty" value="false" isActive="true" />
+            <property name="8d844d65-bf88-4023-85e1-4d3d7f8784cd" display="Equal" isActive="true" />
+            <property name="490e08cd-5fb4-4bfd-80cf-fda3b88f745e" display="Not Equal" isActive="true" />
+            <property name="c94dc001-4ec7-42a0-a1e0-5b75502e7bec" display="Min Length" isActive="false" />
+            <property name="cbd52384-0f1e-4f41-9e98-314231b731e1" display="Max Length" isActive="false" />
+            <property name="f9802e6b-b033-4280-ad83-e4b064943d87" display="Min" isActive="false" />
+            <property name="aca206a8-cb7e-4537-b3f5-c5c301863c14" display="Max" isActive="false" />
+            <property name="ad0c1113-ee22-4275-8177-576494ecfa45" display="Regular Expression" isActive="true" />
+            <property name="a4fdee2f-36d9-463c-bb2e-54579a16083e" display="Regular Expression Message" isActive="false" />
+            <property name="25d15e9b-7dbd-403e-837d-2fcfc786d3f2" display="Regular Expression Timeout" value="1" isActive="false" />
+            <property name="9023c463-1cce-4f11-baa5-96561697fc7f" display="Predicate" isActive="true" />
+            <property name="13d364d0-975e-47e9-ae0c-a3137326ee60" display="Predicate Message" isActive="false" />
+            <property name="85282cb5-5e12-4eb0-9568-7ccee0685e12" display="Email Address" value="false" isActive="false" />
+            <property name="e441d802-9aea-4d74-b5f9-1cd2527f3719" display="Has Custom Validation" value="false" isActive="false" />
+            <property name="e94008f2-3d5b-4157-ba72-69b3d6812617" display="Custom" value="false" isActive="true" />
+            <property name="60e7953f-29b8-4e56-a2c9-c02fae7de91e" display="Must" value="false" isActive="true" />
+            <property name="f43fcab6-5f8f-42e4-96d2-83d79cedfab9" display="Must Message" isActive="false" />
+            <property name="9ce77ae5-9ad5-4436-8ae0-c6c296de8492" display="CascadeMode" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="2f1111e8-bf62-4172-a820-cd330aec3b32" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>LastSeenAtUtc</name>
+      <display>LastSeenAtUtc: datetime</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="b6ba7906-7ced-43b2-9cf4-7647dbe81bb7">
+        <typeId>a4107c29-7851-4121-9416-cf1236908f1e</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="a2bfc8de-00ea-4c71-808d-ebcb7f22508d" name="LastSeenAtUtc" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>d7edd9f1-9d97-4357-b412-589cca49ba83</parentFolderId>
+      <packageId>bad7a0c9-068e-4536-b712-02ce98947979</packageId>
+      <packageName>JsonPatchRfc7396.Swashbuckle.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4b54a612-2664-4493-a1f7-dc0623aa03da" name="Validations">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Application.FluentValidation</definitionPackageName>
+          <definitionPackageId>55856e5d-8217-4c17-8fbb-082ac75baaf5</definitionPackageId>
+          <properties>
+            <property name="d144e1aa-b506-407a-b60b-716ce38b70bb" display="Not Empty" value="false" isActive="true" />
+            <property name="8d844d65-bf88-4023-85e1-4d3d7f8784cd" display="Equal" isActive="true" />
+            <property name="490e08cd-5fb4-4bfd-80cf-fda3b88f745e" display="Not Equal" isActive="true" />
+            <property name="c94dc001-4ec7-42a0-a1e0-5b75502e7bec" display="Min Length" isActive="false" />
+            <property name="cbd52384-0f1e-4f41-9e98-314231b731e1" display="Max Length" isActive="false" />
+            <property name="f9802e6b-b033-4280-ad83-e4b064943d87" display="Min" isActive="false" />
+            <property name="aca206a8-cb7e-4537-b3f5-c5c301863c14" display="Max" isActive="false" />
+            <property name="ad0c1113-ee22-4275-8177-576494ecfa45" display="Regular Expression" isActive="true" />
+            <property name="a4fdee2f-36d9-463c-bb2e-54579a16083e" display="Regular Expression Message" isActive="false" />
+            <property name="25d15e9b-7dbd-403e-837d-2fcfc786d3f2" display="Regular Expression Timeout" value="1" isActive="false" />
+            <property name="9023c463-1cce-4f11-baa5-96561697fc7f" display="Predicate" isActive="true" />
+            <property name="13d364d0-975e-47e9-ae0c-a3137326ee60" display="Predicate Message" isActive="false" />
+            <property name="85282cb5-5e12-4eb0-9568-7ccee0685e12" display="Email Address" value="false" isActive="false" />
+            <property name="e441d802-9aea-4d74-b5f9-1cd2527f3719" display="Has Custom Validation" value="false" isActive="false" />
+            <property name="e94008f2-3d5b-4157-ba72-69b3d6812617" display="Custom" value="false" isActive="true" />
+            <property name="60e7953f-29b8-4e56-a2c9-c02fae7de91e" display="Must" value="false" isActive="true" />
+            <property name="f43fcab6-5f8f-42e4-96d2-83d79cedfab9" display="Must Message" isActive="false" />
+            <property name="9ce77ae5-9ad5-4436-8ae0-c6c296de8492" display="CascadeMode" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="14c3eaad-c770-4d05-aedb-42c750120182" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>CursorJson</name>
+      <display>CursorJson: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="670bd2e8-733f-4d8f-b9c4-78ab88128187">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="26a7aa70-9468-48b6-939a-a69486b4be7d" name="CursorJson" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>d7edd9f1-9d97-4357-b412-589cca49ba83</parentFolderId>
+      <packageId>bad7a0c9-068e-4536-b712-02ce98947979</packageId>
+      <packageName>JsonPatchRfc7396.Swashbuckle.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4b54a612-2664-4493-a1f7-dc0623aa03da" name="Validations">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Application.FluentValidation</definitionPackageName>
+          <definitionPackageId>55856e5d-8217-4c17-8fbb-082ac75baaf5</definitionPackageId>
+          <properties>
+            <property name="d144e1aa-b506-407a-b60b-716ce38b70bb" display="Not Empty" value="false" isActive="true" />
+            <property name="8d844d65-bf88-4023-85e1-4d3d7f8784cd" display="Equal" isActive="true" />
+            <property name="490e08cd-5fb4-4bfd-80cf-fda3b88f745e" display="Not Equal" isActive="true" />
+            <property name="c94dc001-4ec7-42a0-a1e0-5b75502e7bec" display="Min Length" isActive="true" />
+            <property name="cbd52384-0f1e-4f41-9e98-314231b731e1" display="Max Length" isActive="true" />
+            <property name="f9802e6b-b033-4280-ad83-e4b064943d87" display="Min" isActive="false" />
+            <property name="aca206a8-cb7e-4537-b3f5-c5c301863c14" display="Max" isActive="false" />
+            <property name="ad0c1113-ee22-4275-8177-576494ecfa45" display="Regular Expression" isActive="true" />
+            <property name="a4fdee2f-36d9-463c-bb2e-54579a16083e" display="Regular Expression Message" isActive="false" />
+            <property name="25d15e9b-7dbd-403e-837d-2fcfc786d3f2" display="Regular Expression Timeout" value="1" isActive="false" />
+            <property name="9023c463-1cce-4f11-baa5-96561697fc7f" display="Predicate" isActive="true" />
+            <property name="13d364d0-975e-47e9-ae0c-a3137326ee60" display="Predicate Message" isActive="false" />
+            <property name="85282cb5-5e12-4eb0-9568-7ccee0685e12" display="Email Address" value="false" isActive="true" />
+            <property name="e441d802-9aea-4d74-b5f9-1cd2527f3719" display="Has Custom Validation" value="false" isActive="false" />
+            <property name="e94008f2-3d5b-4157-ba72-69b3d6812617" display="Custom" value="false" isActive="true" />
+            <property name="60e7953f-29b8-4e56-a2c9-c02fae7de91e" display="Must" value="false" isActive="true" />
+            <property name="f43fcab6-5f8f-42e4-96d2-83d79cedfab9" display="Must Message" isActive="false" />
+            <property name="9ce77ae5-9ad5-4436-8ae0-c6c296de8492" display="CascadeMode" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="aa5d7845-fcea-4cb8-8770-d99b0785d3a8" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>SelectionJson</name>
+      <display>SelectionJson: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="4af1617f-2ad6-4763-a151-a51d3f57a4ea">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="d4256819-73eb-4120-8172-38ddaaf15e54" name="SelectionJson" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>d7edd9f1-9d97-4357-b412-589cca49ba83</parentFolderId>
+      <packageId>bad7a0c9-068e-4536-b712-02ce98947979</packageId>
+      <packageName>JsonPatchRfc7396.Swashbuckle.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4b54a612-2664-4493-a1f7-dc0623aa03da" name="Validations">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Application.FluentValidation</definitionPackageName>
+          <definitionPackageId>55856e5d-8217-4c17-8fbb-082ac75baaf5</definitionPackageId>
+          <properties>
+            <property name="d144e1aa-b506-407a-b60b-716ce38b70bb" display="Not Empty" value="false" isActive="true" />
+            <property name="8d844d65-bf88-4023-85e1-4d3d7f8784cd" display="Equal" isActive="true" />
+            <property name="490e08cd-5fb4-4bfd-80cf-fda3b88f745e" display="Not Equal" isActive="true" />
+            <property name="c94dc001-4ec7-42a0-a1e0-5b75502e7bec" display="Min Length" isActive="true" />
+            <property name="cbd52384-0f1e-4f41-9e98-314231b731e1" display="Max Length" isActive="true" />
+            <property name="f9802e6b-b033-4280-ad83-e4b064943d87" display="Min" isActive="false" />
+            <property name="aca206a8-cb7e-4537-b3f5-c5c301863c14" display="Max" isActive="false" />
+            <property name="ad0c1113-ee22-4275-8177-576494ecfa45" display="Regular Expression" isActive="true" />
+            <property name="a4fdee2f-36d9-463c-bb2e-54579a16083e" display="Regular Expression Message" isActive="false" />
+            <property name="25d15e9b-7dbd-403e-837d-2fcfc786d3f2" display="Regular Expression Timeout" value="1" isActive="false" />
+            <property name="9023c463-1cce-4f11-baa5-96561697fc7f" display="Predicate" isActive="true" />
+            <property name="13d364d0-975e-47e9-ae0c-a3137326ee60" display="Predicate Message" isActive="false" />
+            <property name="85282cb5-5e12-4eb0-9568-7ccee0685e12" display="Email Address" value="false" isActive="true" />
+            <property name="e441d802-9aea-4d74-b5f9-1cd2527f3719" display="Has Custom Validation" value="false" isActive="false" />
+            <property name="e94008f2-3d5b-4157-ba72-69b3d6812617" display="Custom" value="false" isActive="true" />
+            <property name="60e7953f-29b8-4e56-a2c9-c02fae7de91e" display="Must" value="false" isActive="true" />
+            <property name="f43fcab6-5f8f-42e4-96d2-83d79cedfab9" display="Must Message" isActive="false" />
+            <property name="9ce77ae5-9ad5-4436-8ae0-c6c296de8492" display="CascadeMode" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

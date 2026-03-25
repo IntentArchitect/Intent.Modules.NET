@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture" version="5.1.26" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture" version="5.1.29" />
   <applications>
     <application id="a3039e69-7ab0-4ab4-8784-54706aa3fcd8" name="Standard.AspNetCore.TestApplication" relativePath="Standard.AspNetCore.TestApplication/Standard.AspNetCore.TestApplication.application.config" />
     <application id="859f5adf-c40e-40fb-9e68-e41da908d768" name="AzureFunctions.TestApplication" relativePath="AzureFunctions.TestApplication/AzureFunctions.TestApplication.application.config" />
@@ -198,5 +198,7 @@
     <application id="05b9e9af-b4b0-4123-bf41-20f81b07930b" name="FluentValidationTest" relativePath="FluentValidationTest/FluentValidationTest.application.config" />
     <application id="808c2adc-22e6-445e-82d2-5394f2bb3067" name="FluentValidationTest.Blazor" relativePath="FluentValidationTest.Blazor/FluentValidationTest.Blazor.application.config" />
     <application id="4f5687ca-1e59-4826-998d-9c6e907721c8" name="MassTransit.RequestResponse.Client" solutionFolder="Eventing/MassTransit" relativePath="MassTransit.RequestResponse.Client/MassTransit.RequestResponse.Client.application.config" />
+    <application id="4e2e78cb-a7d2-4b5c-9653-399737bb308f" name="JsonPatchRfc7396.Swashbuckle" solutionFolder="JsonPatch" relativePath="JsonPatchRfc7396.Swashbuckle/JsonPatchRfc7396.Swashbuckle.application.config" />
+    <application id="935d7481-7030-4594-9d73-d00f99484a4e" name="JsonPatchRfc7396.Scalar" solutionFolder="JsonPatch" relativePath="JsonPatchRfc7396.Scalar/JsonPatchRfc7396.Scalar.application.config" />
   </applications>
 </solution>

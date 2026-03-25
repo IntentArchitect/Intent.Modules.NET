@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="15dc95f8-7642-4a94-9829-7f5ffff66bc7">
+  <sourceEnd id="e71f87e1-9f9a-4430-8f5d-7e703710ed2a" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Document</name>
+    <display>Document: Document</display>
+    <order>0</order>
+    <typeReference id="3614aa5e-cc22-47ba-915c-02aa6ed6477d">
+      <typeId>c8247a82-8f91-4b18-9b8f-518ca4fa1b78</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>JsonPatchRfc7396.Scalar.Domain.Mongo</typePackageName>
+      <typePackageId>7f2d79d9-3380-48b8-b124-e8dc6d90c90a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="15dc95f8-7642-4a94-9829-7f5ffff66bc7" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Changes</name>
+    <display>Changes: DocumentChange[*]</display>
+    <order>9</order>
+    <typeReference id="fefea56e-2421-423a-892f-cf4ace6afb91">
+      <typeId>82c4f816-52d3-4a8a-9aeb-c3228ab1e493</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>JsonPatchRfc7396.Scalar.Domain.Mongo</typePackageName>
+      <typePackageId>7f2d79d9-3380-48b8-b124-e8dc6d90c90a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

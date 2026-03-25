@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="fa5ff389-2a8d-4083-b7c6-cb2329f4fe71" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>169f3801-8244-4b9e-ac2f-3eaede785048</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>bad7a0c9-068e-4536-b712-02ce98947979</parentFolderId>
+  <packageId>bad7a0c9-068e-4536-b712-02ce98947979</packageId>
+  <packageName>JsonPatchRfc7396.Swashbuckle.Services</packageName>
+  <diagram>
+    <targetPackageId>bad7a0c9-068e-4536-b712-02ce98947979</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

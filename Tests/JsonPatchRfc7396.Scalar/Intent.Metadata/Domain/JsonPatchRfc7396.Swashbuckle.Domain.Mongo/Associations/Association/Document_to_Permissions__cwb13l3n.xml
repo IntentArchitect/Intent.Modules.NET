@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="94f2e9ab-30f0-494b-b105-ef52f03e64a4">
+  <sourceEnd id="85a1e25b-e1e7-41a9-9696-e1647a9ab9be" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Document</name>
+    <display>Document: Document</display>
+    <order>0</order>
+    <typeReference id="2d7801f7-b87f-4df2-a5b8-2a6f1149a23d">
+      <typeId>c8247a82-8f91-4b18-9b8f-518ca4fa1b78</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>JsonPatchRfc7396.Scalar.Domain.Mongo</typePackageName>
+      <typePackageId>7f2d79d9-3380-48b8-b124-e8dc6d90c90a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="94f2e9ab-30f0-494b-b105-ef52f03e64a4" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Permissions</name>
+    <display>Permissions: DocumentPermission[*]</display>
+    <order>11</order>
+    <typeReference id="853117f4-9ceb-4faa-b840-0a2f365cb8d3">
+      <typeId>21237e65-395b-4ace-957c-c98252b2b46d</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>JsonPatchRfc7396.Scalar.Domain.Mongo</typePackageName>
+      <typePackageId>7f2d79d9-3380-48b8-b124-e8dc6d90c90a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

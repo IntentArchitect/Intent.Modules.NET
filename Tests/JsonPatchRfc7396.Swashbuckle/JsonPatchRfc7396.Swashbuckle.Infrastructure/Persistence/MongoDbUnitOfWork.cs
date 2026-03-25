@@ -1,0 +1,37 @@
+using System.Collections.Concurrent;
+using Intent.RoslynWeaver.Attributes;
+using JsonPatchRfc7396.Swashbuckle.Domain.Common.Interfaces;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.MongoDb.MongoDbUnitOfWork", Version = "1.0")]
+
+namespace JsonPatchRfc7396.Swashbuckle.Infrastructure.Persistence
+{
+    internal class MongoDbUnitOfWork : IMongoDbUnitOfWork
+    {
+        private readonly ConcurrentQueue<Func<CancellationToken, Task>> _actions = new();
+        private readonly ConcurrentDictionary<object, byte> _trackedEntities = new();
+
+        public void Track(object? entity)
+        {
+            if (entity is null)
+            {
+                return;
+            }
+            _trackedEntities.TryAdd(entity, default);
+        }
+
+        public void Enqueue(Func<CancellationToken, Task> action)
+        {
+            _actions.Enqueue(action);
+        }
+
+        public async Task SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            while (_actions.TryDequeue(out var action))
+            {
+                await action(cancellationToken);
+            }
+        }
+    }
+}

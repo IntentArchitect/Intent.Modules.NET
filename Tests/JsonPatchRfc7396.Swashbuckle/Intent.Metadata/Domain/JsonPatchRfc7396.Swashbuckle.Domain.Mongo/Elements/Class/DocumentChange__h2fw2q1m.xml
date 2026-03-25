@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="57f72dda-ab9e-43be-8bdf-3cb43f0d1164" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <comment>A single atomic change applied to a document.
+
+Stored as an event-like append-only record: JSON Merge Patch (RFC 7396) + metadata.</comment>
+  <name>DocumentChange</name>
+  <display>DocumentChange</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>4349157c-747a-4add-9cbf-5b130f3c53aa</parentFolderId>
+  <packageId>cca802e5-68f0-4884-8036-44d99dc3ca25</packageId>
+  <packageName>JsonPatchRfc7396.Swashbuckle.Domain.Mongo</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="d4c20901-c47b-4b0d-b57c-415dfd9d7e28" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id</name>
+      <display>Id: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="fc04d303-265f-4385-baf8-251b17a78fe0">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>57f72dda-ab9e-43be-8bdf-3cb43f0d1164</parentFolderId>
+      <packageId>cca802e5-68f0-4884-8036-44d99dc3ca25</packageId>
+      <packageName>JsonPatchRfc7396.Swashbuckle.Domain.Mongo</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="64f6a994-4909-4a9d-a0a9-afc5adf2ef74" name="Primary Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.DocumentDB</definitionPackageName>
+          <definitionPackageId>1c7eab18-9482-4b4e-b61b-1fbd2d2427b6</definitionPackageId>
+          <properties>
+            <property name="ce12cf69-e97f-401b-9b08-7e2c62171d4e" display="Data source" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="managed" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="c203e8c7-8905-4c5c-ab51-1e8856843c0a" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>BaseRevision</name>
+      <display>BaseRevision: int</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="d6eacfa0-eddc-4381-b33a-2fc9346ec621">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>57f72dda-ab9e-43be-8bdf-3cb43f0d1164</parentFolderId>
+      <packageId>cca802e5-68f0-4884-8036-44d99dc3ca25</packageId>
+      <packageName>JsonPatchRfc7396.Swashbuckle.Domain.Mongo</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="640f23da-2f0a-4263-89dc-ae91b25d1d6b" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>ResultingRevision</name>
+      <display>ResultingRevision: int</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="042274e2-732e-4425-9e31-7c157273915d">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>57f72dda-ab9e-43be-8bdf-3cb43f0d1164</parentFolderId>
+      <packageId>cca802e5-68f0-4884-8036-44d99dc3ca25</packageId>
+      <packageName>JsonPatchRfc7396.Swashbuckle.Domain.Mongo</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="31c00797-1257-4775-8282-e8dddf90fb4f" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>PatchJson</name>
+      <display>PatchJson: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="ecb193d0-412a-4e3d-b521-bbdba0bc9d06">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>57f72dda-ab9e-43be-8bdf-3cb43f0d1164</parentFolderId>
+      <packageId>cca802e5-68f0-4884-8036-44d99dc3ca25</packageId>
+      <packageName>JsonPatchRfc7396.Swashbuckle.Domain.Mongo</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="079d45a9-c0c9-4f0d-a100-de6ed9f759f3" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>ChangedAtUtc</name>
+      <display>ChangedAtUtc: datetime</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="030c71d1-2358-4efd-8d43-44c66f882cf6">
+        <typeId>a4107c29-7851-4121-9416-cf1236908f1e</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>57f72dda-ab9e-43be-8bdf-3cb43f0d1164</parentFolderId>
+      <packageId>cca802e5-68f0-4884-8036-44d99dc3ca25</packageId>
+      <packageName>JsonPatchRfc7396.Swashbuckle.Domain.Mongo</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="d5a1f21a-9d41-44c1-b5e0-d51b99625bc7" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Actor</name>
+      <display>Actor: Actor</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="a3e71ce6-7e45-4a35-be1c-54a1e80951e0">
+        <typeId>d7545588-99fd-472c-9d47-173e2ace2937</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>JsonPatchRfc7396.Swashbuckle.Domain.Mongo</typePackageName>
+        <typePackageId>cca802e5-68f0-4884-8036-44d99dc3ca25</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>57f72dda-ab9e-43be-8bdf-3cb43f0d1164</parentFolderId>
+      <packageId>cca802e5-68f0-4884-8036-44d99dc3ca25</packageId>
+      <packageName>JsonPatchRfc7396.Swashbuckle.Domain.Mongo</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="02ff8f30-d847-40e6-80a5-18c8eff4b592" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>ClientChangeId</name>
+      <display>ClientChangeId: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="7095a724-4939-4d75-9241-b2c3121a03bc">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>57f72dda-ab9e-43be-8bdf-3cb43f0d1164</parentFolderId>
+      <packageId>cca802e5-68f0-4884-8036-44d99dc3ca25</packageId>
+      <packageName>JsonPatchRfc7396.Swashbuckle.Domain.Mongo</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9980b98b-28f9-4f01-b123-c2c149a00892" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>169f3801-8244-4b9e-ac2f-3eaede785048</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d0278df6-e29f-419c-9f1f-ea5612b17658</parentFolderId>
+  <packageId>d0278df6-e29f-419c-9f1f-ea5612b17658</packageId>
+  <packageName>JsonPatchRfc7396.Scalar.Services</packageName>
+  <diagram>
+    <targetPackageId>d0278df6-e29f-419c-9f1f-ea5612b17658</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

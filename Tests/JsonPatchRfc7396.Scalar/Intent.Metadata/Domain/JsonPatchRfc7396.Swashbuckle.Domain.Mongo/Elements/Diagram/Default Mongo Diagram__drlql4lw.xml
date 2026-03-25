@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e29aa5b8-3e7e-46fb-af4e-3dc3825aa732" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Mongo Diagram</name>
+  <display>Default Mongo Diagram</display>
+  <externalReference>421a4727-539a-4288-8126-c32f7ad1a26d</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>7f2d79d9-3380-48b8-b124-e8dc6d90c90a</parentFolderId>
+  <packageId>7f2d79d9-3380-48b8-b124-e8dc6d90c90a</packageId>
+  <packageName>JsonPatchRfc7396.Scalar.Domain.Mongo</packageName>
+  <diagram>
+    <targetPackageId>4bc1b8bf-c3a2-47fe-b454-f67c2a66ed7f</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="584bc666-1351-4771-b9b8-f14dc098e0f8">
+  <sourceEnd id="1ad33cbf-9d67-4183-b43d-43ee5d0e2592" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : ConfigurationStoresService.DeleteConfigurationStore</display>
+    <order>0</order>
+    <typeReference id="ab84b45a-4bd6-47a4-9f29-5eaad0ce1126">
+      <typeId>8fbbc2d1-f13c-495c-8232-3ca9894eb3da</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>JsonPatchRfc7396.Swashbuckle.Services</typePackageName>
+      <typePackageId>bad7a0c9-068e-4536-b712-02ce98947979</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="584bc666-1351-4771-b9b8-f14dc098e0f8" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>configurationStore</name>
+    <display>[delete] configurationStore: ConfigurationStore</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="70ec5277-eac9-477d-8e0a-9b1aa19461d3">
+      <typeId>5df3db5e-4be4-4333-a2be-2ae226bc1bb7</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>JsonPatchRfc7396.Swashbuckle.Domain.EF</typePackageName>
+      <typePackageId>129d506c-11ea-4e5f-a2f5-07062fdee4a6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="4e2e78cb-a7d2-4b5c-9653-399737bb308f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="8fbbc2d1-f13c-495c-8232-3ca9894eb3da" location="[JsonPatchRfc7396.Swashbuckle].[Services].[DeleteConfigurationStore]" />
+        <target applicationId="4e2e78cb-a7d2-4b5c-9653-399737bb308f" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="5df3db5e-4be4-4333-a2be-2ae226bc1bb7" location="[JsonPatchRfc7396.Swashbuckle].[Services].[ConfigurationStore]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{id}</expression>
+            <path>
+              <target id="5df3db5e-4be4-4333-a2be-2ae226bc1bb7" name="ConfigurationStore" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="7e9c82a9-63fb-41d8-9d61-c9484639df2e" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="8fbbc2d1-f13c-495c-8232-3ca9894eb3da" name="DeleteConfigurationStore" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="d9f10483-09b3-4ada-95ea-dbf3fb433c3c" name="id" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

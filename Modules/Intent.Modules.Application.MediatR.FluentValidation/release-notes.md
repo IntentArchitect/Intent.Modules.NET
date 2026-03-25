@@ -1,3 +1,8 @@
+### Version 4.10.0
+
+- Improvement: Module Dependency version updates.
+- Improvement: Introduced `IBypassPipelineValidation` in preparation for JSON Patch functionality in order to defer validation to a later stage for Patch requests.
+
 ### Version 4.9.7
 
 - Fixed: Gracefully handle when target elements are missing (deleted) so that upstream processes can handle them.

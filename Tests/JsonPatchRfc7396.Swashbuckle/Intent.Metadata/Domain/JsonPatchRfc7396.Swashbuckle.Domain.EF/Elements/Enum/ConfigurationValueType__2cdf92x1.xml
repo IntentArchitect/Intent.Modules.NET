@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="71774222-f684-4061-bbfc-719218c2f3d2" type="Enum" typeId="85fba0e9-9161-4c85-a603-a229ef312beb">
+  <comment>Provides a hint about how to interpret `Value`.</comment>
+  <name>ConfigurationValueType</name>
+  <display>ConfigurationValueType</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>f9e78ec6-a4dc-40ac-a5c5-5fc14b62ce3f</parentFolderId>
+  <packageId>129d506c-11ea-4e5f-a2f5-07062fdee4a6</packageId>
+  <packageName>JsonPatchRfc7396.Swashbuckle.Domain.EF</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="2cc3404a-aeab-4e1e-8d81-f3732d3e9c28" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>String</name>
+      <display>String</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>71774222-f684-4061-bbfc-719218c2f3d2</parentFolderId>
+      <packageId>129d506c-11ea-4e5f-a2f5-07062fdee4a6</packageId>
+      <packageName>JsonPatchRfc7396.Swashbuckle.Domain.EF</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="dda7ae5f-8d9b-4305-b8b1-f33141d8c132" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Int</name>
+      <display>Int</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>71774222-f684-4061-bbfc-719218c2f3d2</parentFolderId>
+      <packageId>129d506c-11ea-4e5f-a2f5-07062fdee4a6</packageId>
+      <packageName>JsonPatchRfc7396.Swashbuckle.Domain.EF</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="003b9272-a320-46b3-af72-1ec3157d2259" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Decimal</name>
+      <display>Decimal</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>71774222-f684-4061-bbfc-719218c2f3d2</parentFolderId>
+      <packageId>129d506c-11ea-4e5f-a2f5-07062fdee4a6</packageId>
+      <packageName>JsonPatchRfc7396.Swashbuckle.Domain.EF</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="e393bd04-c3e5-4707-a2db-79af167dc548" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Bool</name>
+      <display>Bool</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>71774222-f684-4061-bbfc-719218c2f3d2</parentFolderId>
+      <packageId>129d506c-11ea-4e5f-a2f5-07062fdee4a6</packageId>
+      <packageName>JsonPatchRfc7396.Swashbuckle.Domain.EF</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="32e4aac2-0970-4a41-9729-bc4f81d4c7c9" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Json</name>
+      <display>Json</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>71774222-f684-4061-bbfc-719218c2f3d2</parentFolderId>
+      <packageId>129d506c-11ea-4e5f-a2f5-07062fdee4a6</packageId>
+      <packageName>JsonPatchRfc7396.Swashbuckle.Domain.EF</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="5008a71c-9e1d-46f4-b9c8-cfa7b10db76e" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Secret</name>
+      <display>Secret</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>71774222-f684-4061-bbfc-719218c2f3d2</parentFolderId>
+      <packageId>129d506c-11ea-4e5f-a2f5-07062fdee4a6</packageId>
+      <packageName>JsonPatchRfc7396.Swashbuckle.Domain.EF</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

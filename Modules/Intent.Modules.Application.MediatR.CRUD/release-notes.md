@@ -1,4 +1,8 @@
-﻿### Version 7.2.0
+﻿### Version 7.2.1
+
+- Improvement: Relocated basic entity patch logic for upcoming JSON Patch module.
+
+### Version 7.2.0
 
 - Improvement: Module dependencies updated.
 

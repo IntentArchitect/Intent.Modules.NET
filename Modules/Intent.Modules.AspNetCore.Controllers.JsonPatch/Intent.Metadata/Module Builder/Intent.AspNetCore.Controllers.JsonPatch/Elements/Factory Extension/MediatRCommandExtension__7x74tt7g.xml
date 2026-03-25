@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e1ed7572-a9d4-49c9-9335-a9b5464f9d1b" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>MediatRCommandExtension</name>
+  <display>MediatRCommandExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>ce2b2a8a-287c-4706-8811-326be2045bdb</parentFolderId>
+  <packageId>ce2b2a8a-287c-4706-8811-326be2045bdb</packageId>
+  <packageName>Intent.AspNetCore.Controllers.JsonPatch</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

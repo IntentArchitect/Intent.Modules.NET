@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="39caf600-a200-4a6f-9f5f-5f217495eb11">
+  <sourceEnd id="9aff7972-aa7f-49ea-873f-4a7dd3834dca" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetDocumentsQuery</display>
+    <order>0</order>
+    <typeReference id="a3c8ac8f-2cbb-44ab-8b3b-c0b4f2ed3f47">
+      <typeId>e17cac5e-5394-4b19-b70c-1e7f8e6a866a</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>JsonPatchRfc7396.Scalar.Services</typePackageName>
+      <typePackageId>d0278df6-e29f-419c-9f1f-ea5612b17658</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="39caf600-a200-4a6f-9f5f-5f217495eb11" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>documents</name>
+    <display>[query] documents: Document[*]</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="bac7e8ae-35ea-47d9-b535-cb54b528cc34">
+      <typeId>c8247a82-8f91-4b18-9b8f-518ca4fa1b78</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>JsonPatchRfc7396.Scalar.Domain.Mongo</typePackageName>
+      <typePackageId>7f2d79d9-3380-48b8-b124-e8dc6d90c90a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="935d7481-7030-4594-9d73-d00f99484a4e" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="e17cac5e-5394-4b19-b70c-1e7f8e6a866a" location="[JsonPatchRfc7396.Scalar].[Services].[GetDocumentsQuery]" />
+        <target applicationId="935d7481-7030-4594-9d73-d00f99484a4e" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="c8247a82-8f91-4b18-9b8f-518ca4fa1b78" location="[JsonPatchRfc7396.Scalar].[Services].[Document]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

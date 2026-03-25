@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="cf0356ca-f83e-4277-be77-db3341ccef5d">
+  <sourceEnd id="610d35d4-c4a2-4f2a-8011-1c5f294f8bf8" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>ConfigurationItem</name>
+    <display>ConfigurationItem: ConfigurationItem?</display>
+    <order>0</order>
+    <typeReference id="1137c65b-3c00-4996-a4c1-1e3a326f00fc">
+      <typeId>233d63cc-5e57-4dcc-85db-d3a8dcbf1674</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>JsonPatchRfc7396.Swashbuckle.Domain.EF</typePackageName>
+      <typePackageId>129d506c-11ea-4e5f-a2f5-07062fdee4a6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="cf0356ca-f83e-4277-be77-db3341ccef5d" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>LatestChange</name>
+    <display>LatestChange: ConfigurationChange?</display>
+    <order>10</order>
+    <typeReference id="1e935b80-a63e-4075-8203-1345a0c2fba0">
+      <typeId>c1bf92df-8605-4359-8ca9-845914ec818e</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>JsonPatchRfc7396.Swashbuckle.Domain.EF</typePackageName>
+      <typePackageId>129d506c-11ea-4e5f-a2f5-07062fdee4a6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

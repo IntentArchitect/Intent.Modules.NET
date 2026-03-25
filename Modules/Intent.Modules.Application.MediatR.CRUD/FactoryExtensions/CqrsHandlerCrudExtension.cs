@@ -77,11 +77,6 @@ public class CqrsHandlerCrudExtension : FactoryExtensionBase
 
                     var csharpMapping = handleMethod.GetMappingManager();
 
-                    if (model.GetStereotype("Http Settings")?.TryGetProperty("Verb", out var verb) == true && verb.Value == "PATCH")
-                    {
-                        csharpMapping.AddMappingResolver(new EntityPatchMappingTypeResolver(t));
-                    }
-
                     csharpMapping.AddMappingResolver(new EntityCreationMappingTypeResolver(t));
                     csharpMapping.AddMappingResolver(new EntityUpdateMappingTypeResolver(t));
                     csharpMapping.AddMappingResolver(new StandardDomainMappingTypeResolver(t));

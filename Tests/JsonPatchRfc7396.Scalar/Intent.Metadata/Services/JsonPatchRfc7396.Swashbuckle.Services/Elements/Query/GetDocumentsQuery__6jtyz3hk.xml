@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e17cac5e-5394-4b19-b70c-1e7f8e6a866a" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetDocumentsQuery</name>
+  <display>GetDocumentsQuery: DocumentDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="fd2870e7-f06a-48a5-9a62-5715ebd80ffb">
+    <typeId>00b6a4d3-1610-42dd-aa4e-f5a8a8e943fc</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>JsonPatchRfc7396.Scalar.Services</typePackageName>
+    <typePackageId>d0278df6-e29f-419c-9f1f-ea5612b17658</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>ebd335c9-dfea-4d72-ab25-5fdc32b991d9</parentFolderId>
+  <packageId>d0278df6-e29f-419c-9f1f-ea5612b17658</packageId>
+  <packageName>JsonPatchRfc7396.Scalar.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+      <properties>
+        <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" isActive="true" />
+        <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="api/documents" isActive="true" />
+        <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+        <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements />
+</class>

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Intent.Modelers.Services.CQRS.Api;
+using Intent.Modules.Application.MediatR.FluentValidation.Templates.BypassPipelineValidationInterface;
 using Intent.Modules.Application.MediatR.FluentValidation.Templates.CommandValidator;
 using Intent.Modules.Application.MediatR.FluentValidation.Templates.QueryValidator;
 using Intent.Modules.Application.MediatR.FluentValidation.Templates.ValidationBehaviour;
@@ -13,6 +14,10 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates
 {
     public static class TemplateExtensions
     {
+        public static string GetBypassPipelineValidationInterfaceName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(BypassPipelineValidationInterfaceTemplate.TemplateId);
+        }
         public static string GetCommandValidatorName<T>(this IIntentTemplate<T> template) where T : CommandModel
         {
             return template.GetTypeName(CommandValidatorTemplate.TemplateId, template.Model);

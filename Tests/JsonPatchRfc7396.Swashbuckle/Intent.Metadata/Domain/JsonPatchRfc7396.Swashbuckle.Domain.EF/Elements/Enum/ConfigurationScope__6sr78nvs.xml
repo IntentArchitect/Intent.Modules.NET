@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c9da5d62-4a84-484b-a967-1bd38af0042a" type="Enum" typeId="85fba0e9-9161-4c85-a603-a229ef312beb">
+  <comment>Indicates where a configuration entry applies.</comment>
+  <name>ConfigurationScope</name>
+  <display>ConfigurationScope</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>f9e78ec6-a4dc-40ac-a5c5-5fc14b62ce3f</parentFolderId>
+  <packageId>129d506c-11ea-4e5f-a2f5-07062fdee4a6</packageId>
+  <packageName>JsonPatchRfc7396.Swashbuckle.Domain.EF</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="29414f8f-9113-481d-994e-b75c83ccc679" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Global</name>
+      <display>Global</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c9da5d62-4a84-484b-a967-1bd38af0042a</parentFolderId>
+      <packageId>129d506c-11ea-4e5f-a2f5-07062fdee4a6</packageId>
+      <packageName>JsonPatchRfc7396.Swashbuckle.Domain.EF</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="187e4e06-a141-438c-a171-07fae6dff9a5" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Tenant</name>
+      <display>Tenant</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c9da5d62-4a84-484b-a967-1bd38af0042a</parentFolderId>
+      <packageId>129d506c-11ea-4e5f-a2f5-07062fdee4a6</packageId>
+      <packageName>JsonPatchRfc7396.Swashbuckle.Domain.EF</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="4bd77d2e-bf71-4a39-a817-acdcf9c0784e" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Environment</name>
+      <display>Environment</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c9da5d62-4a84-484b-a967-1bd38af0042a</parentFolderId>
+      <packageId>129d506c-11ea-4e5f-a2f5-07062fdee4a6</packageId>
+      <packageName>JsonPatchRfc7396.Swashbuckle.Domain.EF</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="10f62c05-49c3-4648-85b6-3f642f033545" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>User</name>
+      <display>User</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c9da5d62-4a84-484b-a967-1bd38af0042a</parentFolderId>
+      <packageId>129d506c-11ea-4e5f-a2f5-07062fdee4a6</packageId>
+      <packageName>JsonPatchRfc7396.Swashbuckle.Domain.EF</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="5888a360-dd92-437c-a7a2-e07a237d0d13" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Service</name>
+      <display>Service</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c9da5d62-4a84-484b-a967-1bd38af0042a</parentFolderId>
+      <packageId>129d506c-11ea-4e5f-a2f5-07062fdee4a6</packageId>
+      <packageName>JsonPatchRfc7396.Swashbuckle.Domain.EF</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

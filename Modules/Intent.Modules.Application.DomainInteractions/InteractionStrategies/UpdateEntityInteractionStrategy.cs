@@ -13,6 +13,9 @@ using Intent.Modules.Constants;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Modelers.Services.CQRS.Api;
+using Intent.Modules.Application.DomainInteractions.Mapping.Resolvers;
+using Intent.Modules.Common;
 
 namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
 {
@@ -71,7 +74,16 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
             method.AddStatement(ExecutionPhases.BusinessLogic, string.Empty);
             
             var csharpMapping = method.GetMappingManager();
-            var template = method.File.Template;
+            
+            var template = (ICSharpFileBuilderTemplate)method.File.Template;
+
+            // For those using the basic patch implementation
+            var sourceElement = updateAction.IsTargetEnd() ? updateAction.OtherEnd().Element : updateAction.Element;
+            if (sourceElement?.GetStereotype("Http Settings")?.TryGetProperty("Verb", out var verb) == true && verb.Value == "PATCH")
+            {
+                csharpMapping.AddMappingResolver(new EntityPatchMappingTypeResolver(template), -1);
+            }
+            
             try
             {
                 var entityDetails = method.TrackedEntities()[updateAction.Id];

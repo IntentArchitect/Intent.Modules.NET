@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="4833f65c-0979-4313-ab77-51d1995fbff7" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <comment>Append-only audit log of configuration changes.</comment>
+  <name>ConfigurationChange</name>
+  <display>ConfigurationChange</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>28b00503-e160-4fe1-8738-7688d479c1b1</parentFolderId>
+  <packageId>731394da-f1d4-4b71-8972-70c9de510bea</packageId>
+  <packageName>JsonPatchRfc7396.Scalar.Domain.EF</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="6c8b5c7b-057b-4ece-b773-96cde128866f" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id</name>
+      <display>Id: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="7b99ab1c-ab3a-43ff-b77a-1e916dd125d3">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>4833f65c-0979-4313-ab77-51d1995fbff7</parentFolderId>
+      <packageId>731394da-f1d4-4b71-8972-70c9de510bea</packageId>
+      <packageName>JsonPatchRfc7396.Scalar.Domain.EF</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b99aac21-9ca4-467f-a3a6-046255a9eed6" name="Primary Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="a7a5e921-18b9-43b4-8078-b4ac4e5dae6f" display="Data source" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="6deff19d-b5e1-43d5-ab69-566353ef6c33" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Key</name>
+      <display>Key: ConfigurationKey</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="36ed9765-1b93-4aae-8c91-4036abd4c075">
+        <typeId>952a0b4f-166a-4512-afe4-a8b8c69ef70c</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>JsonPatchRfc7396.Scalar.Domain.EF</typePackageName>
+        <typePackageId>731394da-f1d4-4b71-8972-70c9de510bea</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>4833f65c-0979-4313-ab77-51d1995fbff7</parentFolderId>
+      <packageId>731394da-f1d4-4b71-8972-70c9de510bea</packageId>
+      <packageName>JsonPatchRfc7396.Scalar.Domain.EF</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="bdd68e10-353a-40ef-a7c0-e0b61cee268c" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>ScopeKey</name>
+      <display>ScopeKey: ConfigurationScopeKey</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="7b7efba4-1dbc-4c12-ab72-0598695d398d">
+        <typeId>0554eac7-f140-4624-a35b-2827f6e411c6</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>JsonPatchRfc7396.Scalar.Domain.EF</typePackageName>
+        <typePackageId>731394da-f1d4-4b71-8972-70c9de510bea</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>4833f65c-0979-4313-ab77-51d1995fbff7</parentFolderId>
+      <packageId>731394da-f1d4-4b71-8972-70c9de510bea</packageId>
+      <packageName>JsonPatchRfc7396.Scalar.Domain.EF</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="fca7c086-7c8e-4eda-8123-fd8e822c6668" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>OldValue</name>
+      <display>OldValue: string?</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="afbaf995-c8d9-4556-8cd3-3377090406ad">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>true</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>4833f65c-0979-4313-ab77-51d1995fbff7</parentFolderId>
+      <packageId>731394da-f1d4-4b71-8972-70c9de510bea</packageId>
+      <packageName>JsonPatchRfc7396.Scalar.Domain.EF</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="6347286E-A637-44D6-A5D7-D9BE5789CA7A" name="Text Constraints">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="1288cfcd-ee51-437e-9713-73b80118f026" display="SQL Data Type" value="DEFAULT" isActive="true" />
+            <property name="A04CC24D-81FB-4EA2-A34A-B3C58E04DCFD" display="MaxLength" isActive="true" />
+            <property name="67EC4CF4-7706-4B39-BC7C-DF539EE2B0AF" display="IsUnicode" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="9980d68d-e2db-4390-b454-b411da0d7e74" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>NewValue</name>
+      <display>NewValue: string?</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="4f0ba232-d1c5-42a3-9480-7ab80ca6b4e3">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>true</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>4833f65c-0979-4313-ab77-51d1995fbff7</parentFolderId>
+      <packageId>731394da-f1d4-4b71-8972-70c9de510bea</packageId>
+      <packageName>JsonPatchRfc7396.Scalar.Domain.EF</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="6347286E-A637-44D6-A5D7-D9BE5789CA7A" name="Text Constraints">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="1288cfcd-ee51-437e-9713-73b80118f026" display="SQL Data Type" value="DEFAULT" isActive="true" />
+            <property name="A04CC24D-81FB-4EA2-A34A-B3C58E04DCFD" display="MaxLength" isActive="true" />
+            <property name="67EC4CF4-7706-4B39-BC7C-DF539EE2B0AF" display="IsUnicode" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="f8a9802c-1f03-455f-8432-bff57db2f627" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>ChangedAtUtc</name>
+      <display>ChangedAtUtc: datetime</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="9cabbe23-6489-456a-b1e6-c6ea2fcbc5fe">
+        <typeId>a4107c29-7851-4121-9416-cf1236908f1e</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>4833f65c-0979-4313-ab77-51d1995fbff7</parentFolderId>
+      <packageId>731394da-f1d4-4b71-8972-70c9de510bea</packageId>
+      <packageName>JsonPatchRfc7396.Scalar.Domain.EF</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="207607ca-5511-44a7-bb4e-36f9640646ed" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <comment>Identifier of the actor making the change (e.g. user id / service principal).</comment>
+      <name>ChangedBy</name>
+      <display>ChangedBy: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="ac92a305-d6ad-452f-abeb-2d7993efc88e">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>4833f65c-0979-4313-ab77-51d1995fbff7</parentFolderId>
+      <packageId>731394da-f1d4-4b71-8972-70c9de510bea</packageId>
+      <packageName>JsonPatchRfc7396.Scalar.Domain.EF</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="6347286E-A637-44D6-A5D7-D9BE5789CA7A" name="Text Constraints">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="1288cfcd-ee51-437e-9713-73b80118f026" display="SQL Data Type" value="DEFAULT" isActive="true" />
+            <property name="A04CC24D-81FB-4EA2-A34A-B3C58E04DCFD" display="MaxLength" isActive="true" />
+            <property name="67EC4CF4-7706-4B39-BC7C-DF539EE2B0AF" display="IsUnicode" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="dd240346-5248-4968-bf43-db773c037bfd" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>ConfigurationStoreId</name>
+      <display>ConfigurationStoreId: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="cc0194fe-340e-4a5f-a360-65da8977fa1c">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>4833f65c-0979-4313-ab77-51d1995fbff7</parentFolderId>
+      <packageId>731394da-f1d4-4b71-8972-70c9de510bea</packageId>
+      <packageName>JsonPatchRfc7396.Scalar.Domain.EF</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="793a5128-57a1-440b-a206-af5722b752a6" name="Foreign Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="42e4f9b5-f834-4e5f-86aa-d3a35c505076" display="Association" value="14dc8222-a81b-4f85-b386-31649464ef6e" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="fk-original-name" value="ConfigurationStoreId" />
+        <entry key="association" value="14dc8222-a81b-4f85-b386-31649464ef6e" />
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

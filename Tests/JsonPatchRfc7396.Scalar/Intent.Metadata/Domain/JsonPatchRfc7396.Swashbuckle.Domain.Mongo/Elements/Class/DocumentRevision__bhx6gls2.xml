@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e10b1e98-81b8-4abf-ad12-2bbff2892b46" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <comment>Immutable snapshot of a document at a point in time.
+
+Useful for audit/history and for rebuilding derived read models.</comment>
+  <name>DocumentRevision</name>
+  <display>DocumentRevision</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>b41aa85c-13a8-443d-9483-0c36438b5dd2</parentFolderId>
+  <packageId>7f2d79d9-3380-48b8-b124-e8dc6d90c90a</packageId>
+  <packageName>JsonPatchRfc7396.Scalar.Domain.Mongo</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="e6d435c1-9c5e-4d3d-ba7b-0711bd0f050e" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id</name>
+      <display>Id: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="a334991a-1dc1-4a38-ab73-b6f6ba88f2bd">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>e10b1e98-81b8-4abf-ad12-2bbff2892b46</parentFolderId>
+      <packageId>7f2d79d9-3380-48b8-b124-e8dc6d90c90a</packageId>
+      <packageName>JsonPatchRfc7396.Scalar.Domain.Mongo</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="64f6a994-4909-4a9d-a0a9-afc5adf2ef74" name="Primary Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.DocumentDB</definitionPackageName>
+          <definitionPackageId>1c7eab18-9482-4b4e-b61b-1fbd2d2427b6</definitionPackageId>
+          <properties>
+            <property name="ce12cf69-e97f-401b-9b08-7e2c62171d4e" display="Data source" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="managed" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="ebd7b0d1-f476-4cde-8f70-40b38012d7c5" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Revision</name>
+      <display>Revision: int</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="06a0a024-26cf-44cd-a057-41402b637bab">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>e10b1e98-81b8-4abf-ad12-2bbff2892b46</parentFolderId>
+      <packageId>7f2d79d9-3380-48b8-b124-e8dc6d90c90a</packageId>
+      <packageName>JsonPatchRfc7396.Scalar.Domain.Mongo</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="3cd9627b-3e52-4555-8f01-f7bd9f46f238" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>CreatedAtUtc</name>
+      <display>CreatedAtUtc: datetime</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="9595f479-d369-49ea-93cb-a6ac051a6269">
+        <typeId>a4107c29-7851-4121-9416-cf1236908f1e</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>e10b1e98-81b8-4abf-ad12-2bbff2892b46</parentFolderId>
+      <packageId>7f2d79d9-3380-48b8-b124-e8dc6d90c90a</packageId>
+      <packageName>JsonPatchRfc7396.Scalar.Domain.Mongo</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="46c095fa-a72d-4e06-919c-5d4d9d835189" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Content</name>
+      <display>Content: DocumentContent</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="c0a13b0f-fee9-40a5-937a-4e836e1fac2f">
+        <typeId>d83c4da3-c5b6-4333-87a3-d431b9f438f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>JsonPatchRfc7396.Scalar.Domain.Mongo</typePackageName>
+        <typePackageId>7f2d79d9-3380-48b8-b124-e8dc6d90c90a</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>e10b1e98-81b8-4abf-ad12-2bbff2892b46</parentFolderId>
+      <packageId>7f2d79d9-3380-48b8-b124-e8dc6d90c90a</packageId>
+      <packageName>JsonPatchRfc7396.Scalar.Domain.Mongo</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="ef44c77b-fa27-498d-891d-c3446a95cfd7" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Author</name>
+      <display>Author: Actor</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="f16bde8d-1962-4e6b-ab53-c185479528ae">
+        <typeId>8a04d37e-c7b5-4999-8dd5-dd5286d97bbc</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>JsonPatchRfc7396.Scalar.Domain.Mongo</typePackageName>
+        <typePackageId>7f2d79d9-3380-48b8-b124-e8dc6d90c90a</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>e10b1e98-81b8-4abf-ad12-2bbff2892b46</parentFolderId>
+      <packageId>7f2d79d9-3380-48b8-b124-e8dc6d90c90a</packageId>
+      <packageName>JsonPatchRfc7396.Scalar.Domain.Mongo</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

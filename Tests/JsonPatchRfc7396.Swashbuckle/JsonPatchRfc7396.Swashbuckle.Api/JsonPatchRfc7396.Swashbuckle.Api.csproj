@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\JsonPatchRfc7396.Swashbuckle.Application\JsonPatchRfc7396.Swashbuckle.Application.csproj" />
+    <ProjectReference Include="..\JsonPatchRfc7396.Swashbuckle.Infrastructure\JsonPatchRfc7396.Swashbuckle.Infrastructure.csproj" />
+    <ProjectReference Include="..\JsonPatchRfc7396.Swashbuckle.Domain\JsonPatchRfc7396.Swashbuckle.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.1" />
+    <PackageReference Include="Morcatko.AspNetCore.JsonMergePatch.NewtonsoftJson" Version="6.0.4" />
+    <PackageReference Include="Serilog.AspNetCore" Version="10.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="10.1.4" />
+  </ItemGroup>
+  </Project>

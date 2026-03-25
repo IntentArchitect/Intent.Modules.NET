@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="930021dc-8ee6-4667-90d8-04b13675f928">
+  <sourceEnd id="479e6098-c04e-49ca-8eb3-c685acae3a76" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: FindConfigurationStoreById</display>
+    <order>0</order>
+    <typeReference id="df61bb07-1d7d-49f1-9b93-231921d83ca6">
+      <typeId>ac9c8c23-b59d-441b-b71e-21caa18cf1a4</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>JsonPatchRfc7396.Swashbuckle.Services</typePackageName>
+      <typePackageId>bad7a0c9-068e-4536-b712-02ce98947979</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="930021dc-8ee6-4667-90d8-04b13675f928" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>configurationStore</name>
+    <display>[query] configurationStore: ConfigurationStore</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="6c6d4d3c-2a58-490b-b047-fd8ce0d5585f">
+      <typeId>5df3db5e-4be4-4333-a2be-2ae226bc1bb7</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>JsonPatchRfc7396.Swashbuckle.Domain.EF</typePackageName>
+      <typePackageId>129d506c-11ea-4e5f-a2f5-07062fdee4a6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="4e2e78cb-a7d2-4b5c-9653-399737bb308f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="ac9c8c23-b59d-441b-b71e-21caa18cf1a4" location="[JsonPatchRfc7396.Swashbuckle].[Services].[FindConfigurationStoreById]" />
+        <target applicationId="4e2e78cb-a7d2-4b5c-9653-399737bb308f" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="5df3db5e-4be4-4333-a2be-2ae226bc1bb7" location="[JsonPatchRfc7396.Swashbuckle].[Services].[ConfigurationStore]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{id}</expression>
+            <path>
+              <target id="5df3db5e-4be4-4333-a2be-2ae226bc1bb7" name="ConfigurationStore" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="7e9c82a9-63fb-41d8-9d61-c9484639df2e" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="ac9c8c23-b59d-441b-b71e-21caa18cf1a4" name="FindConfigurationStoreById" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="4c95234a-0f92-4b55-843f-bc1cec190978" name="id" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

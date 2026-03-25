@@ -1,0 +1,751 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="2540150d-ac22-4576-841c-a0f5ed913ff4">
+  <sourceEnd id="86b0521d-adf7-48ce-8e16-830adbfcc848" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : Documents.PatchDocumentCommand</display>
+    <order>0</order>
+    <typeReference id="33dc9af0-1020-4ac0-bfc6-e27c014374ee">
+      <typeId>047212fb-a5ee-4ee1-b470-5b5267bd3e20</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>JsonPatchRfc7396.Scalar.Services</typePackageName>
+      <typePackageId>d0278df6-e29f-419c-9f1f-ea5612b17658</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="2540150d-ac22-4576-841c-a0f5ed913ff4" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>document</name>
+    <display>[update] document: Document</display>
+    <order>12</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="6f12e277-82d1-4de7-b21a-96d63362c1a0">
+      <typeId>c8247a82-8f91-4b18-9b8f-518ca4fa1b78</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>JsonPatchRfc7396.Scalar.Domain.Mongo</typePackageName>
+      <typePackageId>7f2d79d9-3380-48b8-b124-e8dc6d90c90a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="935d7481-7030-4594-9d73-d00f99484a4e" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="047212fb-a5ee-4ee1-b470-5b5267bd3e20" location="[JsonPatchRfc7396.Scalar].[Services].[PatchDocumentCommand]" />
+        <target applicationId="935d7481-7030-4594-9d73-d00f99484a4e" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="c8247a82-8f91-4b18-9b8f-518ca4fa1b78" location="[JsonPatchRfc7396.Scalar].[Services].[Document]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="c8247a82-8f91-4b18-9b8f-518ca4fa1b78" name="Document" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="af7a6593-0f15-4c9f-96af-da69126a86d1" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="047212fb-a5ee-4ee1-b470-5b5267bd3e20" name="PatchDocumentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="11ea5ec2-fdb1-4fc7-843b-84237acbe27b" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="935d7481-7030-4594-9d73-d00f99484a4e" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="047212fb-a5ee-4ee1-b470-5b5267bd3e20" location="[JsonPatchRfc7396.Scalar].[Services].[PatchDocumentCommand]" />
+        <target applicationId="935d7481-7030-4594-9d73-d00f99484a4e" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="c8247a82-8f91-4b18-9b8f-518ca4fa1b78" location="[JsonPatchRfc7396.Scalar].[Services].[Document]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CreatedAtUtc}</expression>
+            <path>
+              <target id="c8247a82-8f91-4b18-9b8f-518ca4fa1b78" name="Document" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="53307973-a01d-458c-87c9-a8fe08118875" name="CreatedAtUtc" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="CreatedAtUtc" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="047212fb-a5ee-4ee1-b470-5b5267bd3e20" name="PatchDocumentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="3fb472fd-2884-4586-8cc9-cdd2146f7f0a" name="CreatedAtUtc" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{UpdatedAtUtc}</expression>
+            <path>
+              <target id="c8247a82-8f91-4b18-9b8f-518ca4fa1b78" name="Document" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="7265b73c-3deb-49b7-85b6-b137363d0e23" name="UpdatedAtUtc" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="UpdatedAtUtc" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="047212fb-a5ee-4ee1-b470-5b5267bd3e20" name="PatchDocumentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="20142e51-0266-4e24-ae57-0ca4041ece8a" name="UpdatedAtUtc" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Status}</expression>
+            <path>
+              <target id="c8247a82-8f91-4b18-9b8f-518ca4fa1b78" name="Document" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="36087057-d1c0-4918-9150-65509fa0d2ed" name="Status" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Status" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="047212fb-a5ee-4ee1-b470-5b5267bd3e20" name="PatchDocumentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="d5944f9b-0924-49e8-b36a-62d225ce6cac" name="Status" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Title.Value}</expression>
+            <path>
+              <target id="c8247a82-8f91-4b18-9b8f-518ca4fa1b78" name="Document" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="ff7e0e17-400a-44ae-af66-d6c314016ff2" name="Title" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+              <target id="6364b3cc-a7b0-4217-987e-3f51f919220c" name="Value" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Title.Value" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="047212fb-a5ee-4ee1-b470-5b5267bd3e20" name="PatchDocumentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="9482b34c-d7d2-498e-a20d-7b26b6831256" name="Title" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="7ffeae5e-b766-4b9e-844d-54f8307fe585" name="Value" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Content.Format}</expression>
+            <path>
+              <target id="c8247a82-8f91-4b18-9b8f-518ca4fa1b78" name="Document" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="48be2f71-bead-4b78-b899-70018a0272d8" name="Content" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+              <target id="37ee9784-66f7-46ce-9883-771e29b366be" name="Format" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Content.Format" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="047212fb-a5ee-4ee1-b470-5b5267bd3e20" name="PatchDocumentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="39fbecfb-4083-4a15-a2c7-7c7e793cc6ae" name="Content" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="119c9987-848b-499e-bdd6-6bedbed7f574" name="Format" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Content.Text}</expression>
+            <path>
+              <target id="c8247a82-8f91-4b18-9b8f-518ca4fa1b78" name="Document" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="48be2f71-bead-4b78-b899-70018a0272d8" name="Content" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+              <target id="a36999a5-c2f1-435a-9b57-1c659670f2da" name="Text" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Content.Text" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="047212fb-a5ee-4ee1-b470-5b5267bd3e20" name="PatchDocumentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="39fbecfb-4083-4a15-a2c7-7c7e793cc6ae" name="Content" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="1a2a0bf9-5dfa-42ec-9668-61a45e84ff23" name="Text" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Content.Json}</expression>
+            <path>
+              <target id="c8247a82-8f91-4b18-9b8f-518ca4fa1b78" name="Document" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="48be2f71-bead-4b78-b899-70018a0272d8" name="Content" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+              <target id="caddd372-246d-4a1f-9b40-49c34908ce2c" name="Json" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Content.Json" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="047212fb-a5ee-4ee1-b470-5b5267bd3e20" name="PatchDocumentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="39fbecfb-4083-4a15-a2c7-7c7e793cc6ae" name="Content" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="5b95276d-44f0-4bfa-a019-0fbd12981a0d" name="Json" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Revision}</expression>
+            <path>
+              <target id="c8247a82-8f91-4b18-9b8f-518ca4fa1b78" name="Document" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="803157e0-06ca-4e5c-af8e-d564197a4b1a" name="Revision" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Revision" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="047212fb-a5ee-4ee1-b470-5b5267bd3e20" name="PatchDocumentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="030049a5-c201-4e22-8584-4d4eeeb96c9b" name="Revision" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{IsDeleted}</expression>
+            <path>
+              <target id="c8247a82-8f91-4b18-9b8f-518ca4fa1b78" name="Document" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="e2679657-fb01-4333-87e1-849cbb3a4967" name="IsDeleted" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="IsDeleted" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="047212fb-a5ee-4ee1-b470-5b5267bd3e20" name="PatchDocumentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="bbf9c9bf-04d1-4f74-892b-acdedc8229ac" name="IsDeleted" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Changes}</expression>
+            <path>
+              <target id="c8247a82-8f91-4b18-9b8f-518ca4fa1b78" name="Document" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="15dc95f8-7642-4a94-9829-7f5ffff66bc7" name="Changes" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+            </path>
+            <sources>
+              <source identifier="Changes" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="047212fb-a5ee-4ee1-b470-5b5267bd3e20" name="PatchDocumentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="07c6bd2d-778f-44d8-8c27-18f6691903c1" name="Changes" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Changes.Id}</expression>
+            <path>
+              <target id="c8247a82-8f91-4b18-9b8f-518ca4fa1b78" name="Document" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="15dc95f8-7642-4a94-9829-7f5ffff66bc7" name="Changes" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="884389a1-4c0c-4af4-abdd-31558cfc39fe" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Changes.Id" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="047212fb-a5ee-4ee1-b470-5b5267bd3e20" name="PatchDocumentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="07c6bd2d-778f-44d8-8c27-18f6691903c1" name="Changes" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="2e5bca22-7f54-4197-9343-4fdd4d5684c1" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Changes.BaseRevision}</expression>
+            <path>
+              <target id="c8247a82-8f91-4b18-9b8f-518ca4fa1b78" name="Document" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="15dc95f8-7642-4a94-9829-7f5ffff66bc7" name="Changes" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="d7c75963-6f5d-487f-b5a0-e6b2dc386862" name="BaseRevision" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Changes.BaseRevision" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="047212fb-a5ee-4ee1-b470-5b5267bd3e20" name="PatchDocumentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="07c6bd2d-778f-44d8-8c27-18f6691903c1" name="Changes" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="48bb2e03-0d8b-4956-ab11-ebb5463c0dee" name="BaseRevision" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Changes.ResultingRevision}</expression>
+            <path>
+              <target id="c8247a82-8f91-4b18-9b8f-518ca4fa1b78" name="Document" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="15dc95f8-7642-4a94-9829-7f5ffff66bc7" name="Changes" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="783643c1-349c-4be2-b4a8-ad2a495bf58b" name="ResultingRevision" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Changes.ResultingRevision" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="047212fb-a5ee-4ee1-b470-5b5267bd3e20" name="PatchDocumentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="07c6bd2d-778f-44d8-8c27-18f6691903c1" name="Changes" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="f08d1769-fa68-4911-bcb6-baa7c52e1105" name="ResultingRevision" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Changes.PatchJson}</expression>
+            <path>
+              <target id="c8247a82-8f91-4b18-9b8f-518ca4fa1b78" name="Document" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="15dc95f8-7642-4a94-9829-7f5ffff66bc7" name="Changes" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="c018e222-f66b-4755-a10d-9e36f75a25ac" name="PatchJson" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Changes.PatchJson" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="047212fb-a5ee-4ee1-b470-5b5267bd3e20" name="PatchDocumentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="07c6bd2d-778f-44d8-8c27-18f6691903c1" name="Changes" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="ec4e3330-9c5e-4f2e-8930-acfc55feeb04" name="PatchJson" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Changes.ChangedAtUtc}</expression>
+            <path>
+              <target id="c8247a82-8f91-4b18-9b8f-518ca4fa1b78" name="Document" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="15dc95f8-7642-4a94-9829-7f5ffff66bc7" name="Changes" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="9341439e-8340-4b4d-9ee4-a2043593f6ec" name="ChangedAtUtc" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Changes.ChangedAtUtc" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="047212fb-a5ee-4ee1-b470-5b5267bd3e20" name="PatchDocumentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="07c6bd2d-778f-44d8-8c27-18f6691903c1" name="Changes" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="b46caf4e-0eb8-40dc-afe2-dff4a44e86c3" name="ChangedAtUtc" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Changes.Actor.UserId}</expression>
+            <path>
+              <target id="c8247a82-8f91-4b18-9b8f-518ca4fa1b78" name="Document" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="15dc95f8-7642-4a94-9829-7f5ffff66bc7" name="Changes" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="7aec1189-956d-442b-bb16-a641285b7203" name="Actor" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+              <target id="40a81d73-d674-42ea-a2ce-fc1e032545c1" name="UserId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Changes.Actor.UserId" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="047212fb-a5ee-4ee1-b470-5b5267bd3e20" name="PatchDocumentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="07c6bd2d-778f-44d8-8c27-18f6691903c1" name="Changes" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="e0a61713-b524-4fc0-b69c-5c78ce6b3e52" name="Actor" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="f1ce6fae-03a9-4564-904b-1421285f114f" name="UserId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Changes.Actor.DisplayName}</expression>
+            <path>
+              <target id="c8247a82-8f91-4b18-9b8f-518ca4fa1b78" name="Document" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="15dc95f8-7642-4a94-9829-7f5ffff66bc7" name="Changes" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="7aec1189-956d-442b-bb16-a641285b7203" name="Actor" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+              <target id="4b0d3527-1a57-4fa4-8679-3c0d3ab41e8e" name="DisplayName" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Changes.Actor.DisplayName" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="047212fb-a5ee-4ee1-b470-5b5267bd3e20" name="PatchDocumentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="07c6bd2d-778f-44d8-8c27-18f6691903c1" name="Changes" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="e0a61713-b524-4fc0-b69c-5c78ce6b3e52" name="Actor" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="1ab1fb67-a8eb-4642-9aa3-4fa0ecafda88" name="DisplayName" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Changes.ClientChangeId}</expression>
+            <path>
+              <target id="c8247a82-8f91-4b18-9b8f-518ca4fa1b78" name="Document" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="15dc95f8-7642-4a94-9829-7f5ffff66bc7" name="Changes" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="a8aced8f-fced-4e11-a77e-d02d3d7c5ea8" name="ClientChangeId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Changes.ClientChangeId" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="047212fb-a5ee-4ee1-b470-5b5267bd3e20" name="PatchDocumentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="07c6bd2d-778f-44d8-8c27-18f6691903c1" name="Changes" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="50afc70a-50cf-4172-9706-1cc6913810d8" name="ClientChangeId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Permissions}</expression>
+            <path>
+              <target id="c8247a82-8f91-4b18-9b8f-518ca4fa1b78" name="Document" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="94f2e9ab-30f0-494b-b105-ef52f03e64a4" name="Permissions" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+            </path>
+            <sources>
+              <source identifier="Permissions" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="047212fb-a5ee-4ee1-b470-5b5267bd3e20" name="PatchDocumentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="3c982da2-3a01-4051-b4db-516141461c4d" name="Permissions" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Permissions.Id}</expression>
+            <path>
+              <target id="c8247a82-8f91-4b18-9b8f-518ca4fa1b78" name="Document" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="94f2e9ab-30f0-494b-b105-ef52f03e64a4" name="Permissions" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="0aca8c65-1296-4606-b07e-a22ba99d2927" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Permissions.Id" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="047212fb-a5ee-4ee1-b470-5b5267bd3e20" name="PatchDocumentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="3c982da2-3a01-4051-b4db-516141461c4d" name="Permissions" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="38e42512-d94c-4cdf-84c8-cd8b34e2b1ae" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Permissions.Role}</expression>
+            <path>
+              <target id="c8247a82-8f91-4b18-9b8f-518ca4fa1b78" name="Document" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="94f2e9ab-30f0-494b-b105-ef52f03e64a4" name="Permissions" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="917860d9-a5f1-46fa-ad31-a47e1d01845a" name="Role" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Permissions.Role" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="047212fb-a5ee-4ee1-b470-5b5267bd3e20" name="PatchDocumentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="3c982da2-3a01-4051-b4db-516141461c4d" name="Permissions" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="a2dc875b-a02c-42af-b089-58e450f28e19" name="Role" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Permissions.PrincipalId}</expression>
+            <path>
+              <target id="c8247a82-8f91-4b18-9b8f-518ca4fa1b78" name="Document" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="94f2e9ab-30f0-494b-b105-ef52f03e64a4" name="Permissions" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="289b49b0-23f3-4204-8f2d-bf5d9c15e21f" name="PrincipalId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Permissions.PrincipalId" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="047212fb-a5ee-4ee1-b470-5b5267bd3e20" name="PatchDocumentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="3c982da2-3a01-4051-b4db-516141461c4d" name="Permissions" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="3956e12f-4823-4817-b2e2-a5f5d29ec558" name="PrincipalId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Permissions.PrincipalType}</expression>
+            <path>
+              <target id="c8247a82-8f91-4b18-9b8f-518ca4fa1b78" name="Document" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="94f2e9ab-30f0-494b-b105-ef52f03e64a4" name="Permissions" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="bd450131-9c09-46ac-86a0-ba26aac341d2" name="PrincipalType" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Permissions.PrincipalType" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="047212fb-a5ee-4ee1-b470-5b5267bd3e20" name="PatchDocumentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="3c982da2-3a01-4051-b4db-516141461c4d" name="Permissions" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="0f71114d-b1d4-4376-9feb-24aa524b9d54" name="PrincipalType" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Permissions.GrantedAtUtc}</expression>
+            <path>
+              <target id="c8247a82-8f91-4b18-9b8f-518ca4fa1b78" name="Document" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="94f2e9ab-30f0-494b-b105-ef52f03e64a4" name="Permissions" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="ba6606e6-414d-4d57-bc1c-937a714c4559" name="GrantedAtUtc" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Permissions.GrantedAtUtc" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="047212fb-a5ee-4ee1-b470-5b5267bd3e20" name="PatchDocumentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="3c982da2-3a01-4051-b4db-516141461c4d" name="Permissions" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="6b4b3c55-ca57-4a35-9bf8-0a56e13d6cf8" name="GrantedAtUtc" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Revisions}</expression>
+            <path>
+              <target id="c8247a82-8f91-4b18-9b8f-518ca4fa1b78" name="Document" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="d014b558-d74f-4eda-bea8-f8a7eea37b06" name="Revisions" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+            </path>
+            <sources>
+              <source identifier="Revisions" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="047212fb-a5ee-4ee1-b470-5b5267bd3e20" name="PatchDocumentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="17b1129d-4dc2-4536-a6e6-0609d7b95dd5" name="Revisions" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Revisions.Id}</expression>
+            <path>
+              <target id="c8247a82-8f91-4b18-9b8f-518ca4fa1b78" name="Document" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="d014b558-d74f-4eda-bea8-f8a7eea37b06" name="Revisions" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="e6d435c1-9c5e-4d3d-ba7b-0711bd0f050e" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Revisions.Id" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="047212fb-a5ee-4ee1-b470-5b5267bd3e20" name="PatchDocumentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="17b1129d-4dc2-4536-a6e6-0609d7b95dd5" name="Revisions" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="18bcfc44-5fb2-4e79-a742-c80e43c515e1" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Revisions.Revision}</expression>
+            <path>
+              <target id="c8247a82-8f91-4b18-9b8f-518ca4fa1b78" name="Document" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="d014b558-d74f-4eda-bea8-f8a7eea37b06" name="Revisions" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="ebd7b0d1-f476-4cde-8f70-40b38012d7c5" name="Revision" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Revisions.Revision" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="047212fb-a5ee-4ee1-b470-5b5267bd3e20" name="PatchDocumentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="17b1129d-4dc2-4536-a6e6-0609d7b95dd5" name="Revisions" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="2143eb9d-daf6-47ca-8b18-1cf89c31d69f" name="Revision" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Revisions.CreatedAtUtc}</expression>
+            <path>
+              <target id="c8247a82-8f91-4b18-9b8f-518ca4fa1b78" name="Document" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="d014b558-d74f-4eda-bea8-f8a7eea37b06" name="Revisions" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="3cd9627b-3e52-4555-8f01-f7bd9f46f238" name="CreatedAtUtc" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Revisions.CreatedAtUtc" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="047212fb-a5ee-4ee1-b470-5b5267bd3e20" name="PatchDocumentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="17b1129d-4dc2-4536-a6e6-0609d7b95dd5" name="Revisions" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="fbbb5c5f-d250-49b4-80f9-1f7184399eaf" name="CreatedAtUtc" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Revisions.Content.Format}</expression>
+            <path>
+              <target id="c8247a82-8f91-4b18-9b8f-518ca4fa1b78" name="Document" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="d014b558-d74f-4eda-bea8-f8a7eea37b06" name="Revisions" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="46c095fa-a72d-4e06-919c-5d4d9d835189" name="Content" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+              <target id="37ee9784-66f7-46ce-9883-771e29b366be" name="Format" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Revisions.Content.Format" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="047212fb-a5ee-4ee1-b470-5b5267bd3e20" name="PatchDocumentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="17b1129d-4dc2-4536-a6e6-0609d7b95dd5" name="Revisions" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="4785c2af-5754-44ce-a5c6-0409f7c8e71d" name="Content" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="119c9987-848b-499e-bdd6-6bedbed7f574" name="Format" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Revisions.Content.Text}</expression>
+            <path>
+              <target id="c8247a82-8f91-4b18-9b8f-518ca4fa1b78" name="Document" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="d014b558-d74f-4eda-bea8-f8a7eea37b06" name="Revisions" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="46c095fa-a72d-4e06-919c-5d4d9d835189" name="Content" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+              <target id="a36999a5-c2f1-435a-9b57-1c659670f2da" name="Text" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Revisions.Content.Text" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="047212fb-a5ee-4ee1-b470-5b5267bd3e20" name="PatchDocumentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="17b1129d-4dc2-4536-a6e6-0609d7b95dd5" name="Revisions" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="4785c2af-5754-44ce-a5c6-0409f7c8e71d" name="Content" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="1a2a0bf9-5dfa-42ec-9668-61a45e84ff23" name="Text" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Revisions.Content.Json}</expression>
+            <path>
+              <target id="c8247a82-8f91-4b18-9b8f-518ca4fa1b78" name="Document" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="d014b558-d74f-4eda-bea8-f8a7eea37b06" name="Revisions" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="46c095fa-a72d-4e06-919c-5d4d9d835189" name="Content" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+              <target id="caddd372-246d-4a1f-9b40-49c34908ce2c" name="Json" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Revisions.Content.Json" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="047212fb-a5ee-4ee1-b470-5b5267bd3e20" name="PatchDocumentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="17b1129d-4dc2-4536-a6e6-0609d7b95dd5" name="Revisions" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="4785c2af-5754-44ce-a5c6-0409f7c8e71d" name="Content" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="5b95276d-44f0-4bfa-a019-0fbd12981a0d" name="Json" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Revisions.Author.UserId}</expression>
+            <path>
+              <target id="c8247a82-8f91-4b18-9b8f-518ca4fa1b78" name="Document" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="d014b558-d74f-4eda-bea8-f8a7eea37b06" name="Revisions" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="ef44c77b-fa27-498d-891d-c3446a95cfd7" name="Author" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+              <target id="40a81d73-d674-42ea-a2ce-fc1e032545c1" name="UserId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Revisions.Author.UserId" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="047212fb-a5ee-4ee1-b470-5b5267bd3e20" name="PatchDocumentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="17b1129d-4dc2-4536-a6e6-0609d7b95dd5" name="Revisions" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="73c30eea-1cf9-4a3b-affe-06a5494b8634" name="Author" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="f1ce6fae-03a9-4564-904b-1421285f114f" name="UserId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Revisions.Author.DisplayName}</expression>
+            <path>
+              <target id="c8247a82-8f91-4b18-9b8f-518ca4fa1b78" name="Document" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="d014b558-d74f-4eda-bea8-f8a7eea37b06" name="Revisions" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="ef44c77b-fa27-498d-891d-c3446a95cfd7" name="Author" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+              <target id="4b0d3527-1a57-4fa4-8679-3c0d3ab41e8e" name="DisplayName" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Revisions.Author.DisplayName" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="047212fb-a5ee-4ee1-b470-5b5267bd3e20" name="PatchDocumentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="17b1129d-4dc2-4536-a6e6-0609d7b95dd5" name="Revisions" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="73c30eea-1cf9-4a3b-affe-06a5494b8634" name="Author" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="1ab1fb67-a8eb-4642-9aa3-4fa0ecafda88" name="DisplayName" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Sessions}</expression>
+            <path>
+              <target id="c8247a82-8f91-4b18-9b8f-518ca4fa1b78" name="Document" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="c8192856-130f-48e2-9df5-a85b62f94af5" name="Sessions" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+            </path>
+            <sources>
+              <source identifier="Sessions" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="047212fb-a5ee-4ee1-b470-5b5267bd3e20" name="PatchDocumentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="ff380b10-b1e0-4178-9092-db05d8f705ac" name="Sessions" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Sessions.Id}</expression>
+            <path>
+              <target id="c8247a82-8f91-4b18-9b8f-518ca4fa1b78" name="Document" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="c8192856-130f-48e2-9df5-a85b62f94af5" name="Sessions" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="7e3ef5c2-9fe7-4054-8a3a-94d5d0f57f2f" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Sessions.Id" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="047212fb-a5ee-4ee1-b470-5b5267bd3e20" name="PatchDocumentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="ff380b10-b1e0-4178-9092-db05d8f705ac" name="Sessions" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="c71bfe9b-5e86-42b8-9f22-302e738044e8" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Sessions.ConnectionId}</expression>
+            <path>
+              <target id="c8247a82-8f91-4b18-9b8f-518ca4fa1b78" name="Document" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="c8192856-130f-48e2-9df5-a85b62f94af5" name="Sessions" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="fa781897-2946-437e-bdb5-de757d25621a" name="ConnectionId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Sessions.ConnectionId" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="047212fb-a5ee-4ee1-b470-5b5267bd3e20" name="PatchDocumentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="ff380b10-b1e0-4178-9092-db05d8f705ac" name="Sessions" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="aaefce3c-1559-408a-9db0-8c4ec0fa7c28" name="ConnectionId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Sessions.StartedAtUtc}</expression>
+            <path>
+              <target id="c8247a82-8f91-4b18-9b8f-518ca4fa1b78" name="Document" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="c8192856-130f-48e2-9df5-a85b62f94af5" name="Sessions" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="5a0393fe-5dfc-4aa9-9f3f-9a45e562388d" name="StartedAtUtc" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Sessions.StartedAtUtc" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="047212fb-a5ee-4ee1-b470-5b5267bd3e20" name="PatchDocumentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="ff380b10-b1e0-4178-9092-db05d8f705ac" name="Sessions" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="8b8897df-4912-4614-88c9-00d9299c7826" name="StartedAtUtc" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Sessions.LastSeenAtUtc}</expression>
+            <path>
+              <target id="c8247a82-8f91-4b18-9b8f-518ca4fa1b78" name="Document" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="c8192856-130f-48e2-9df5-a85b62f94af5" name="Sessions" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="de09f8f8-08fa-4ac8-b831-944510cd1148" name="LastSeenAtUtc" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Sessions.LastSeenAtUtc" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="047212fb-a5ee-4ee1-b470-5b5267bd3e20" name="PatchDocumentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="ff380b10-b1e0-4178-9092-db05d8f705ac" name="Sessions" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="c53abdfa-4d55-4f2d-b176-c43b930ac4b4" name="LastSeenAtUtc" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Sessions.CursorJson}</expression>
+            <path>
+              <target id="c8247a82-8f91-4b18-9b8f-518ca4fa1b78" name="Document" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="c8192856-130f-48e2-9df5-a85b62f94af5" name="Sessions" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="a664b203-ee3c-4dd9-91ca-2bc7b9bb6273" name="CursorJson" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Sessions.CursorJson" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="047212fb-a5ee-4ee1-b470-5b5267bd3e20" name="PatchDocumentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="ff380b10-b1e0-4178-9092-db05d8f705ac" name="Sessions" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="687c4b2d-158e-4d51-9392-266ca2090d75" name="CursorJson" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Sessions.SelectionJson}</expression>
+            <path>
+              <target id="c8247a82-8f91-4b18-9b8f-518ca4fa1b78" name="Document" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="c8192856-130f-48e2-9df5-a85b62f94af5" name="Sessions" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="646de549-f8f0-4c5a-9c48-bbdb7d595e8a" name="SelectionJson" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Sessions.SelectionJson" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="047212fb-a5ee-4ee1-b470-5b5267bd3e20" name="PatchDocumentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="ff380b10-b1e0-4178-9092-db05d8f705ac" name="Sessions" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="6fa7542b-0d6c-4931-91b2-9f1ac2c21d7c" name="SelectionJson" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

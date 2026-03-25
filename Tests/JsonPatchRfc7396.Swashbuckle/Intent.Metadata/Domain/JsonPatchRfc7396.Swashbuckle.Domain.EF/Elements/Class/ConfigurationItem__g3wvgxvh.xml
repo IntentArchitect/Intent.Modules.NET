@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="233d63cc-5e57-4dcc-85db-d3a8dcbf1674" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <comment>Stores a single configuration value for a key, optionally scoped.
+
+Do not store secrets in plain text; use an external secret store and store a reference.</comment>
+  <name>ConfigurationItem</name>
+  <display>ConfigurationItem</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>f9e78ec6-a4dc-40ac-a5c5-5fc14b62ce3f</parentFolderId>
+  <packageId>129d506c-11ea-4e5f-a2f5-07062fdee4a6</packageId>
+  <packageName>JsonPatchRfc7396.Swashbuckle.Domain.EF</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="8e28b9b3-e035-45c7-ac59-a69cec490408" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id</name>
+      <display>Id: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="6e3e0663-e17e-462b-847e-41c3148bd77b">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>233d63cc-5e57-4dcc-85db-d3a8dcbf1674</parentFolderId>
+      <packageId>129d506c-11ea-4e5f-a2f5-07062fdee4a6</packageId>
+      <packageName>JsonPatchRfc7396.Swashbuckle.Domain.EF</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b99aac21-9ca4-467f-a3a6-046255a9eed6" name="Primary Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="a7a5e921-18b9-43b4-8078-b4ac4e5dae6f" display="Data source" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="6c929134-917b-4824-a4e0-8dfd3da1d7fc" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Key</name>
+      <display>Key: ConfigurationKey</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="6a05dea2-6f9e-4b9d-b3a1-088e2eb3933b">
+        <typeId>4db0ecb5-80b5-4d3f-8393-1663faea9387</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>JsonPatchRfc7396.Swashbuckle.Domain.EF</typePackageName>
+        <typePackageId>129d506c-11ea-4e5f-a2f5-07062fdee4a6</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>233d63cc-5e57-4dcc-85db-d3a8dcbf1674</parentFolderId>
+      <packageId>129d506c-11ea-4e5f-a2f5-07062fdee4a6</packageId>
+      <packageName>JsonPatchRfc7396.Swashbuckle.Domain.EF</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="fac3644a-66a2-469b-b640-4831fe8aa47f" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>ScopeKey</name>
+      <display>ScopeKey: ConfigurationScopeKey</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="cc853204-fbdd-4ec9-a2ce-6b2c6a146897">
+        <typeId>38eac747-8135-4df4-b91e-0f673a72415c</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>JsonPatchRfc7396.Swashbuckle.Domain.EF</typePackageName>
+        <typePackageId>129d506c-11ea-4e5f-a2f5-07062fdee4a6</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>233d63cc-5e57-4dcc-85db-d3a8dcbf1674</parentFolderId>
+      <packageId>129d506c-11ea-4e5f-a2f5-07062fdee4a6</packageId>
+      <packageName>JsonPatchRfc7396.Swashbuckle.Domain.EF</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="a098090b-9aff-4d59-9515-7820d6ff5b0a" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>ValueType</name>
+      <display>ValueType: ConfigurationValueType</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="c4c7ba30-67ae-48ad-9f1b-ef45a1ff406b">
+        <typeId>71774222-f684-4061-bbfc-719218c2f3d2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>JsonPatchRfc7396.Swashbuckle.Domain.EF</typePackageName>
+        <typePackageId>129d506c-11ea-4e5f-a2f5-07062fdee4a6</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>233d63cc-5e57-4dcc-85db-d3a8dcbf1674</parentFolderId>
+      <packageId>129d506c-11ea-4e5f-a2f5-07062fdee4a6</packageId>
+      <packageName>JsonPatchRfc7396.Swashbuckle.Domain.EF</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="14d2b999-742d-4887-aeab-b3f02cbc830e" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <comment>Serialized representation of the value. Interpretation depends on `ValueType`.</comment>
+      <name>Value</name>
+      <display>Value: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="b484c4ed-3bb1-416b-b9e5-a5ab02ce2615">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>233d63cc-5e57-4dcc-85db-d3a8dcbf1674</parentFolderId>
+      <packageId>129d506c-11ea-4e5f-a2f5-07062fdee4a6</packageId>
+      <packageName>JsonPatchRfc7396.Swashbuckle.Domain.EF</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="6347286E-A637-44D6-A5D7-D9BE5789CA7A" name="Text Constraints">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="1288cfcd-ee51-437e-9713-73b80118f026" display="SQL Data Type" value="DEFAULT" isActive="true" />
+            <property name="A04CC24D-81FB-4EA2-A34A-B3C58E04DCFD" display="MaxLength" isActive="true" />
+            <property name="67EC4CF4-7706-4B39-BC7C-DF539EE2B0AF" display="IsUnicode" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="37e8694b-a60e-469e-b9c4-8df5132b3481" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>IsActive</name>
+      <display>IsActive: bool = true</display>
+      <isAbstract>false</isAbstract>
+      <value>true</value>
+      <genericTypes />
+      <typeReference id="bb926552-eb06-40f3-a3e2-fde897ce3487">
+        <typeId>e6f92b09-b2c5-4536-8270-a4d9e5bbd930</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>233d63cc-5e57-4dcc-85db-d3a8dcbf1674</parentFolderId>
+      <packageId>129d506c-11ea-4e5f-a2f5-07062fdee4a6</packageId>
+      <packageName>JsonPatchRfc7396.Swashbuckle.Domain.EF</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="f9579c44-85b2-4eeb-aa96-06454e1e23cc" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <comment>Monotonically increasing version for cache invalidation / optimistic concurrency.</comment>
+      <name>Version</name>
+      <display>Version: int</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="e89fb9ca-5cc1-452a-ba67-a81d649ce260">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>233d63cc-5e57-4dcc-85db-d3a8dcbf1674</parentFolderId>
+      <packageId>129d506c-11ea-4e5f-a2f5-07062fdee4a6</packageId>
+      <packageName>JsonPatchRfc7396.Swashbuckle.Domain.EF</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="76197dd5-97b8-4b46-ab5d-1bf7bd9d4f6e" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>UpdatedAtUtc</name>
+      <display>UpdatedAtUtc: datetime</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="3e8ad74c-9c3a-47f2-82eb-e33acce35df4">
+        <typeId>a4107c29-7851-4121-9416-cf1236908f1e</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>233d63cc-5e57-4dcc-85db-d3a8dcbf1674</parentFolderId>
+      <packageId>129d506c-11ea-4e5f-a2f5-07062fdee4a6</packageId>
+      <packageName>JsonPatchRfc7396.Swashbuckle.Domain.EF</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="c847e987-8791-4ef2-a9da-a8403ba96124" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>ConfigurationStoreId</name>
+      <display>ConfigurationStoreId: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="72326e9b-091e-48e1-9d89-d7858d84614d">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>233d63cc-5e57-4dcc-85db-d3a8dcbf1674</parentFolderId>
+      <packageId>129d506c-11ea-4e5f-a2f5-07062fdee4a6</packageId>
+      <packageName>JsonPatchRfc7396.Swashbuckle.Domain.EF</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="793a5128-57a1-440b-a206-af5722b752a6" name="Foreign Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="42e4f9b5-f834-4e5f-86aa-d3a35c505076" display="Association" value="0bd53088-2a68-446f-8bfb-e53a70adf012" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="fk-original-name" value="ConfigurationStoreId" />
+        <entry key="association" value="0bd53088-2a68-446f-8bfb-e53a70adf012" />
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="4c2513e5-f91b-4767-9028-420e8a3697c2" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>LatestChangeId</name>
+      <display>LatestChangeId: guid?</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="4a6db596-7cb7-40cc-8ebf-2348e8b448fe">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>true</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>233d63cc-5e57-4dcc-85db-d3a8dcbf1674</parentFolderId>
+      <packageId>129d506c-11ea-4e5f-a2f5-07062fdee4a6</packageId>
+      <packageName>JsonPatchRfc7396.Swashbuckle.Domain.EF</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="793a5128-57a1-440b-a206-af5722b752a6" name="Foreign Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="42e4f9b5-f834-4e5f-86aa-d3a35c505076" display="Association" value="cf0356ca-f83e-4277-be77-db3341ccef5d" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="fk-original-name" value="LatestChangeId" />
+        <entry key="association" value="cf0356ca-f83e-4277-be77-db3341ccef5d" />
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

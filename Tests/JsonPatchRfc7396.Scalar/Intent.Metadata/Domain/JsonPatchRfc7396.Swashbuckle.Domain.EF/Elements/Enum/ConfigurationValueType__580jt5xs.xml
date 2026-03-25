@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="327e164c-73ad-4a64-97a8-73174204a8df" type="Enum" typeId="85fba0e9-9161-4c85-a603-a229ef312beb">
+  <comment>Provides a hint about how to interpret `Value`.</comment>
+  <name>ConfigurationValueType</name>
+  <display>ConfigurationValueType</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>28b00503-e160-4fe1-8738-7688d479c1b1</parentFolderId>
+  <packageId>731394da-f1d4-4b71-8972-70c9de510bea</packageId>
+  <packageName>JsonPatchRfc7396.Scalar.Domain.EF</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="1d045202-3374-45a0-a6c7-c834f9ea0c1c" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>String</name>
+      <display>String</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>327e164c-73ad-4a64-97a8-73174204a8df</parentFolderId>
+      <packageId>731394da-f1d4-4b71-8972-70c9de510bea</packageId>
+      <packageName>JsonPatchRfc7396.Scalar.Domain.EF</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="c97fa18d-ca28-4d29-9699-b1162b1eaa54" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Int</name>
+      <display>Int</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>327e164c-73ad-4a64-97a8-73174204a8df</parentFolderId>
+      <packageId>731394da-f1d4-4b71-8972-70c9de510bea</packageId>
+      <packageName>JsonPatchRfc7396.Scalar.Domain.EF</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="30390e62-24ed-4d8e-bff2-78a8def3466d" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Decimal</name>
+      <display>Decimal</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>327e164c-73ad-4a64-97a8-73174204a8df</parentFolderId>
+      <packageId>731394da-f1d4-4b71-8972-70c9de510bea</packageId>
+      <packageName>JsonPatchRfc7396.Scalar.Domain.EF</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="ef7652bd-2aab-4fc8-9df3-44bbe3549ed9" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Bool</name>
+      <display>Bool</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>327e164c-73ad-4a64-97a8-73174204a8df</parentFolderId>
+      <packageId>731394da-f1d4-4b71-8972-70c9de510bea</packageId>
+      <packageName>JsonPatchRfc7396.Scalar.Domain.EF</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="1417486a-0222-4f27-a301-cd5cfb85fc4d" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Json</name>
+      <display>Json</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>327e164c-73ad-4a64-97a8-73174204a8df</parentFolderId>
+      <packageId>731394da-f1d4-4b71-8972-70c9de510bea</packageId>
+      <packageName>JsonPatchRfc7396.Scalar.Domain.EF</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="4b391808-5a58-48a6-917a-5fc951f76b53" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Secret</name>
+      <display>Secret</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>327e164c-73ad-4a64-97a8-73174204a8df</parentFolderId>
+      <packageId>731394da-f1d4-4b71-8972-70c9de510bea</packageId>
+      <packageName>JsonPatchRfc7396.Scalar.Domain.EF</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

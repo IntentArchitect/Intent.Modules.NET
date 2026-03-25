@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="e1ad1556-d666-43bf-90ac-251e345fd77e">
+  <sourceEnd id="d1b7862b-ee2c-4a98-8ce2-ff0c7d224c0d" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
+    <display>created by : ConfigurationStoresService.CreateConfigurationStore</display>
+    <order>0</order>
+    <typeReference id="21784b0d-4b2d-4b2b-868e-591c12a86fe7">
+      <typeId>efbbca07-75d4-49bd-8b96-a66b6168babd</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>JsonPatchRfc7396.Scalar.Services</typePackageName>
+      <typePackageId>d0278df6-e29f-419c-9f1f-ea5612b17658</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="e1ad1556-d666-43bf-90ac-251e345fd77e" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
+    <name>configurationStore</name>
+    <display>[create] configurationStore: ConfigurationStore</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="24315cd9-3980-464d-b7c8-2f5a1b5bef8d">
+      <typeId>639fc9c4-3a80-4e89-895a-9a13c5c8536c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>JsonPatchRfc7396.Scalar.Domain.EF</typePackageName>
+      <typePackageId>731394da-f1d4-4b71-8972-70c9de510bea</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Create Entity Mapping" typeId="5f172141-fdba-426b-980e-163e782ff53e">
+        <source applicationId="935d7481-7030-4594-9d73-d00f99484a4e" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="efbbca07-75d4-49bd-8b96-a66b6168babd" location="[JsonPatchRfc7396.Scalar].[Services].[CreateConfigurationStore]" />
+        <target applicationId="935d7481-7030-4594-9d73-d00f99484a4e" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="639fc9c4-3a80-4e89-895a-9a13c5c8536c" location="[JsonPatchRfc7396.Scalar].[Services].[ConfigurationStore]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CreateConfigurationStore}</expression>
+            <path>
+              <target id="639fc9c4-3a80-4e89-895a-9a13c5c8536c" name="ConfigurationStore" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+            </path>
+            <sources>
+              <source identifier="CreateConfigurationStore" mappingType="Invocation Mapping" mappingTypeId="47dc4a51-30a3-4ee8-8c7d-25a35bb965b9">
+                <path>
+                  <target id="efbbca07-75d4-49bd-8b96-a66b6168babd" name="CreateConfigurationStore" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{dto.Name}</expression>
+            <path>
+              <target id="639fc9c4-3a80-4e89-895a-9a13c5c8536c" name="ConfigurationStore" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="8c3209cc-c312-449e-89f3-cf84d8f04daf" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="dto.Name" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="efbbca07-75d4-49bd-8b96-a66b6168babd" name="CreateConfigurationStore" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="37329e7b-8d2e-4bd9-a9d3-c7411f4ac102" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="18ce9686-01e2-4437-915e-c5d75d8546ce" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{dto.Changes}</expression>
+            <path>
+              <target id="639fc9c4-3a80-4e89-895a-9a13c5c8536c" name="ConfigurationStore" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="14dc8222-a81b-4f85-b386-31649464ef6e" name="Changes" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+            </path>
+            <sources>
+              <source identifier="dto.Changes" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="efbbca07-75d4-49bd-8b96-a66b6168babd" name="CreateConfigurationStore" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="37329e7b-8d2e-4bd9-a9d3-c7411f4ac102" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="5d1e10e4-6da8-4007-8cb8-2d8d3986c874" name="Changes" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{dto.Changes.Key.Value}</expression>
+            <path>
+              <target id="639fc9c4-3a80-4e89-895a-9a13c5c8536c" name="ConfigurationStore" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="14dc8222-a81b-4f85-b386-31649464ef6e" name="Changes" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="6deff19d-b5e1-43d5-ab69-566353ef6c33" name="Key" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+              <target id="920728eb-ab2d-4cd3-8e9a-660ea705470f" name="Value" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="dto.Changes.Key.Value" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="efbbca07-75d4-49bd-8b96-a66b6168babd" name="CreateConfigurationStore" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="37329e7b-8d2e-4bd9-a9d3-c7411f4ac102" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="5d1e10e4-6da8-4007-8cb8-2d8d3986c874" name="Changes" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="f986bf56-0cee-401b-8711-ed57270af8cf" name="Key" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="5276607a-9037-4df6-8152-0fb0f331f44d" name="Value" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{dto.Changes.ScopeKey.Scope}</expression>
+            <path>
+              <target id="639fc9c4-3a80-4e89-895a-9a13c5c8536c" name="ConfigurationStore" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="14dc8222-a81b-4f85-b386-31649464ef6e" name="Changes" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="bdd68e10-353a-40ef-a7c0-e0b61cee268c" name="ScopeKey" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+              <target id="ffea9755-6ce9-44e6-8944-59bfbd750913" name="Scope" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="dto.Changes.ScopeKey.Scope" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="efbbca07-75d4-49bd-8b96-a66b6168babd" name="CreateConfigurationStore" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="37329e7b-8d2e-4bd9-a9d3-c7411f4ac102" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="5d1e10e4-6da8-4007-8cb8-2d8d3986c874" name="Changes" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="548b08b5-f7c5-40d6-9daa-bca091d32e18" name="ScopeKey" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="d35717df-b58d-4911-8c76-4e118a7dcab0" name="Scope" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{dto.Changes.ScopeKey.ScopeId}</expression>
+            <path>
+              <target id="639fc9c4-3a80-4e89-895a-9a13c5c8536c" name="ConfigurationStore" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="14dc8222-a81b-4f85-b386-31649464ef6e" name="Changes" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="bdd68e10-353a-40ef-a7c0-e0b61cee268c" name="ScopeKey" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+              <target id="257fbfa6-3158-4dc6-9878-543faf10b9ac" name="ScopeId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="dto.Changes.ScopeKey.ScopeId" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="efbbca07-75d4-49bd-8b96-a66b6168babd" name="CreateConfigurationStore" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="37329e7b-8d2e-4bd9-a9d3-c7411f4ac102" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="5d1e10e4-6da8-4007-8cb8-2d8d3986c874" name="Changes" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="548b08b5-f7c5-40d6-9daa-bca091d32e18" name="ScopeKey" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="15e60333-b623-4ef0-bb65-23532b266528" name="ScopeId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{dto.Changes.OldValue}</expression>
+            <path>
+              <target id="639fc9c4-3a80-4e89-895a-9a13c5c8536c" name="ConfigurationStore" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="14dc8222-a81b-4f85-b386-31649464ef6e" name="Changes" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="fca7c086-7c8e-4eda-8123-fd8e822c6668" name="OldValue" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="dto.Changes.OldValue" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="efbbca07-75d4-49bd-8b96-a66b6168babd" name="CreateConfigurationStore" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="37329e7b-8d2e-4bd9-a9d3-c7411f4ac102" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="5d1e10e4-6da8-4007-8cb8-2d8d3986c874" name="Changes" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="a0822410-b6cb-4b11-be1b-f339a9b431f4" name="OldValue" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{dto.Changes.NewValue}</expression>
+            <path>
+              <target id="639fc9c4-3a80-4e89-895a-9a13c5c8536c" name="ConfigurationStore" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="14dc8222-a81b-4f85-b386-31649464ef6e" name="Changes" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="9980d68d-e2db-4390-b454-b411da0d7e74" name="NewValue" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="dto.Changes.NewValue" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="efbbca07-75d4-49bd-8b96-a66b6168babd" name="CreateConfigurationStore" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="37329e7b-8d2e-4bd9-a9d3-c7411f4ac102" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="5d1e10e4-6da8-4007-8cb8-2d8d3986c874" name="Changes" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="3f7a504f-e596-4d7f-97b9-eb80e8ce483d" name="NewValue" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{dto.Changes.ChangedAtUtc}</expression>
+            <path>
+              <target id="639fc9c4-3a80-4e89-895a-9a13c5c8536c" name="ConfigurationStore" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="14dc8222-a81b-4f85-b386-31649464ef6e" name="Changes" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="f8a9802c-1f03-455f-8432-bff57db2f627" name="ChangedAtUtc" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="dto.Changes.ChangedAtUtc" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="efbbca07-75d4-49bd-8b96-a66b6168babd" name="CreateConfigurationStore" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="37329e7b-8d2e-4bd9-a9d3-c7411f4ac102" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="5d1e10e4-6da8-4007-8cb8-2d8d3986c874" name="Changes" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="3d5a5eec-76a8-42b6-8fc5-ad90f6711aca" name="ChangedAtUtc" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{dto.Changes.ChangedBy}</expression>
+            <path>
+              <target id="639fc9c4-3a80-4e89-895a-9a13c5c8536c" name="ConfigurationStore" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="14dc8222-a81b-4f85-b386-31649464ef6e" name="Changes" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="207607ca-5511-44a7-bb4e-36f9640646ed" name="ChangedBy" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="dto.Changes.ChangedBy" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="efbbca07-75d4-49bd-8b96-a66b6168babd" name="CreateConfigurationStore" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="37329e7b-8d2e-4bd9-a9d3-c7411f4ac102" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="5d1e10e4-6da8-4007-8cb8-2d8d3986c874" name="Changes" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="a2e31ee0-9892-4583-9d1b-e10013180696" name="ChangedBy" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{dto.Items}</expression>
+            <path>
+              <target id="639fc9c4-3a80-4e89-895a-9a13c5c8536c" name="ConfigurationStore" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="87ff1b53-8e2e-41a5-b410-62c99513f3cb" name="Items" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+            </path>
+            <sources>
+              <source identifier="dto.Items" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="efbbca07-75d4-49bd-8b96-a66b6168babd" name="CreateConfigurationStore" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="37329e7b-8d2e-4bd9-a9d3-c7411f4ac102" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="b3c90b16-1ddb-4992-862b-99eca08ddc7a" name="Items" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{dto.Items.Key.Value}</expression>
+            <path>
+              <target id="639fc9c4-3a80-4e89-895a-9a13c5c8536c" name="ConfigurationStore" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="87ff1b53-8e2e-41a5-b410-62c99513f3cb" name="Items" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="319b8493-5c7b-42e5-abf1-0d7f3a3bc35a" name="Key" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+              <target id="920728eb-ab2d-4cd3-8e9a-660ea705470f" name="Value" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="dto.Items.Key.Value" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="efbbca07-75d4-49bd-8b96-a66b6168babd" name="CreateConfigurationStore" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="37329e7b-8d2e-4bd9-a9d3-c7411f4ac102" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="b3c90b16-1ddb-4992-862b-99eca08ddc7a" name="Items" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="8bdf8a03-c569-4052-8ad0-3f5707d1ccec" name="Key" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="5276607a-9037-4df6-8152-0fb0f331f44d" name="Value" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{dto.Items.ScopeKey.Scope}</expression>
+            <path>
+              <target id="639fc9c4-3a80-4e89-895a-9a13c5c8536c" name="ConfigurationStore" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="87ff1b53-8e2e-41a5-b410-62c99513f3cb" name="Items" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="4125f73e-d177-468a-a340-f4966ea3c65d" name="ScopeKey" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+              <target id="ffea9755-6ce9-44e6-8944-59bfbd750913" name="Scope" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="dto.Items.ScopeKey.Scope" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="efbbca07-75d4-49bd-8b96-a66b6168babd" name="CreateConfigurationStore" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="37329e7b-8d2e-4bd9-a9d3-c7411f4ac102" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="b3c90b16-1ddb-4992-862b-99eca08ddc7a" name="Items" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="a4297147-0740-44da-b132-44c9ad1348c2" name="ScopeKey" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="d35717df-b58d-4911-8c76-4e118a7dcab0" name="Scope" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{dto.Items.ScopeKey.ScopeId}</expression>
+            <path>
+              <target id="639fc9c4-3a80-4e89-895a-9a13c5c8536c" name="ConfigurationStore" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="87ff1b53-8e2e-41a5-b410-62c99513f3cb" name="Items" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="4125f73e-d177-468a-a340-f4966ea3c65d" name="ScopeKey" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+              <target id="257fbfa6-3158-4dc6-9878-543faf10b9ac" name="ScopeId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="dto.Items.ScopeKey.ScopeId" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="efbbca07-75d4-49bd-8b96-a66b6168babd" name="CreateConfigurationStore" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="37329e7b-8d2e-4bd9-a9d3-c7411f4ac102" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="b3c90b16-1ddb-4992-862b-99eca08ddc7a" name="Items" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="a4297147-0740-44da-b132-44c9ad1348c2" name="ScopeKey" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="15e60333-b623-4ef0-bb65-23532b266528" name="ScopeId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{dto.Items.Value}</expression>
+            <path>
+              <target id="639fc9c4-3a80-4e89-895a-9a13c5c8536c" name="ConfigurationStore" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="87ff1b53-8e2e-41a5-b410-62c99513f3cb" name="Items" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="8924a5f3-21c7-41e5-8c8a-379bd38d07df" name="Value" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="dto.Items.Value" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="efbbca07-75d4-49bd-8b96-a66b6168babd" name="CreateConfigurationStore" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="37329e7b-8d2e-4bd9-a9d3-c7411f4ac102" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="b3c90b16-1ddb-4992-862b-99eca08ddc7a" name="Items" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="5e94bf26-8ca5-4810-8da7-8f153e2b729f" name="Value" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{dto.Items.IsActive}</expression>
+            <path>
+              <target id="639fc9c4-3a80-4e89-895a-9a13c5c8536c" name="ConfigurationStore" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="87ff1b53-8e2e-41a5-b410-62c99513f3cb" name="Items" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="748bed78-8b3a-4048-9070-c91c67f699a7" name="IsActive" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="dto.Items.IsActive" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="efbbca07-75d4-49bd-8b96-a66b6168babd" name="CreateConfigurationStore" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="37329e7b-8d2e-4bd9-a9d3-c7411f4ac102" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="b3c90b16-1ddb-4992-862b-99eca08ddc7a" name="Items" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="431984f1-1afd-423e-9029-a2d8087f36fa" name="IsActive" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{dto.Items.Version}</expression>
+            <path>
+              <target id="639fc9c4-3a80-4e89-895a-9a13c5c8536c" name="ConfigurationStore" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="87ff1b53-8e2e-41a5-b410-62c99513f3cb" name="Items" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="3cf0d2d4-17ac-4942-bd70-8db53993967a" name="Version" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="dto.Items.Version" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="efbbca07-75d4-49bd-8b96-a66b6168babd" name="CreateConfigurationStore" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="37329e7b-8d2e-4bd9-a9d3-c7411f4ac102" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="b3c90b16-1ddb-4992-862b-99eca08ddc7a" name="Items" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="6d3a1836-73e9-450b-a622-fb234814151f" name="Version" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{dto.Items.UpdatedAtUtc}</expression>
+            <path>
+              <target id="639fc9c4-3a80-4e89-895a-9a13c5c8536c" name="ConfigurationStore" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="87ff1b53-8e2e-41a5-b410-62c99513f3cb" name="Items" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="73056d9f-07fd-429f-a3d8-b8ea8ad09d57" name="UpdatedAtUtc" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="dto.Items.UpdatedAtUtc" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="efbbca07-75d4-49bd-8b96-a66b6168babd" name="CreateConfigurationStore" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="37329e7b-8d2e-4bd9-a9d3-c7411f4ac102" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="b3c90b16-1ddb-4992-862b-99eca08ddc7a" name="Items" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="2a798435-00d9-498e-8b38-1ea7d031d487" name="UpdatedAtUtc" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{dto.Items.LatestChangeId}</expression>
+            <path>
+              <target id="639fc9c4-3a80-4e89-895a-9a13c5c8536c" name="ConfigurationStore" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="87ff1b53-8e2e-41a5-b410-62c99513f3cb" name="Items" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="df8c7f3f-d63d-4595-af11-db4fe9cd54da" name="LatestChangeId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="dto.Items.LatestChangeId" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="efbbca07-75d4-49bd-8b96-a66b6168babd" name="CreateConfigurationStore" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="37329e7b-8d2e-4bd9-a9d3-c7411f4ac102" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="b3c90b16-1ddb-4992-862b-99eca08ddc7a" name="Items" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="1e4cfaea-66be-419e-a7be-66ef9c455273" name="LatestChangeId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Create Entity Action</associationType>
+  <associationTypeId>7a3f0474-3cf8-4249-baac-8c07c49465e0</associationTypeId>
+  <stereotypes />
+</association>

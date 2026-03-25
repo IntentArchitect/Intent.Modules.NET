@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="d014b558-d74f-4eda-bea8-f8a7eea37b06">
+  <sourceEnd id="8c0269d3-c688-4c49-ac1b-86260c7909d1" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Document</name>
+    <display>Document: Document</display>
+    <order>0</order>
+    <typeReference id="4b9042a6-4c99-4993-82a6-9c9e224c41e1">
+      <typeId>c8247a82-8f91-4b18-9b8f-518ca4fa1b78</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>JsonPatchRfc7396.Scalar.Domain.Mongo</typePackageName>
+      <typePackageId>7f2d79d9-3380-48b8-b124-e8dc6d90c90a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="d014b558-d74f-4eda-bea8-f8a7eea37b06" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Revisions</name>
+    <display>Revisions: DocumentRevision[*]</display>
+    <order>8</order>
+    <typeReference id="ff1cd68d-5f2d-4e76-8216-525e60b0bb99">
+      <typeId>e10b1e98-81b8-4abf-ad12-2bbff2892b46</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>JsonPatchRfc7396.Scalar.Domain.Mongo</typePackageName>
+      <typePackageId>7f2d79d9-3380-48b8-b124-e8dc6d90c90a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>
