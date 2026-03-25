@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Application.DomainInteractions" Version="1.2.1-pre.0" />
+    <PackageReference Include="Intent.Modules.Application.DomainInteractions" Version="1.2.2-pre.1" />
     <PackageReference Include="Intent.Modules.AspNetCore.Controllers" Version="7.1.9" />
     <PackageReference Include="Intent.Modules.Common" Version="3.10.0" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.10.4-pre.0" />
