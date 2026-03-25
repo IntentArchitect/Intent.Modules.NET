@@ -10,9 +10,10 @@ namespace JsonPatchRfc7396.Scalar.Application.Interfaces
     {
         Task<Guid> CreateConfigurationStore(CreateConfigurationStoreDto dto, CancellationToken cancellationToken = default);
         Task UpdateConfigurationStore(Guid id, UpdateConfigurationStoreDto dto, CancellationToken cancellationToken = default);
-        Task PatchConfigurationStore(Guid id, PatchConfigurationStoreDto dto, CancellationToken cancellationToken = default);
+        Task<ConfigurationStoreDto> PatchConfigurationStore(Guid id, PatchConfigurationStoreDto dto, CancellationToken cancellationToken = default);
         Task<ConfigurationStoreDto> FindConfigurationStoreById(Guid id, CancellationToken cancellationToken = default);
         Task<List<ConfigurationStoreDto>> FindConfigurationStores(CancellationToken cancellationToken = default);
         Task DeleteConfigurationStore(Guid id, CancellationToken cancellationToken = default);
+        Task<ConfigurationConfigurationItemDto> PatchConfigurationItem(Guid configurationStoreId, Guid id, PatchConfigurationItemDto dto, CancellationToken cancellationToken = default);
     }
 }

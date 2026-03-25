@@ -18,7 +18,7 @@ namespace JsonPatchRfc7396.Scalar.Application.Documents
         public string Id { get; init; }
         public int BaseRevision { get; init; }
         public int ResultingRevision { get; init; }
-        public object PatchJson { get; init; }
+        public string PatchJson { get; init; }
         public DateTime ChangedAtUtc { get; init; }
         public UpdateDocumentCommandActorDto Actor { get; init; }
         public string ClientChangeId { get; init; }

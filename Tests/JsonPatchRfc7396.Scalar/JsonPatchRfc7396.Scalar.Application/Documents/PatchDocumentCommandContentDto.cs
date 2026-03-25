@@ -16,6 +16,6 @@ namespace JsonPatchRfc7396.Scalar.Application.Documents
 
         public string Format { get; set; }
         public string Text { get; set; }
-        public object Json { get; set; }
+        public string Json { get; set; }
     }
 }

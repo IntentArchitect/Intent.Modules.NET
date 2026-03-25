@@ -99,16 +99,16 @@ namespace JsonPatchRfc7396.Scalar.Api.Controllers
 
         /// <summary>
         /// </summary>
-        /// <response code="204">Successfully updated.</response>
+        /// <response code="200">Successfully updated.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
-        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
+        /// <response code="404">No ConfigurationStoreDto could be found with the provided parameters.</response>
         [HttpPatch("{id}")]
-        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(typeof(ConfigurationStoreDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         [Consumes(JsonMergePatchDocument.ContentType)]
-        public async Task<ActionResult> PatchConfigurationStore(
+        public async Task<ActionResult<ConfigurationStoreDto>> PatchConfigurationStore(
             [FromRoute] Guid id,
             [FromBody] JsonMergePatchDocument<PatchConfigurationStoreDto> mergePatchDocument,
             CancellationToken cancellationToken = default)
@@ -125,16 +125,18 @@ namespace JsonPatchRfc7396.Scalar.Api.Controllers
                 PatchExecutor = patchExecutor
             };
 
+            var result = default(ConfigurationStoreDto);
+
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                await _appService.PatchConfigurationStore(id, dto, cancellationToken);
+                result = await _appService.PatchConfigurationStore(id, dto, cancellationToken);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
             }
 
             await _mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);
-            return NoContent();
+            return result == null ? NotFound() : Ok(result);
         }
 
         /// <summary>
@@ -193,6 +195,49 @@ namespace JsonPatchRfc7396.Scalar.Api.Controllers
 
             await _mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);
             return Ok();
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="200">Successfully updated.</response>
+        /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">No ConfigurationConfigurationItemDto could be found with the provided parameters.</response>
+        [HttpPatch("{configurationStoreId}/configuration-items/{id}")]
+        [ProducesResponseType(typeof(ConfigurationConfigurationItemDto), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        [Consumes(JsonMergePatchDocument.ContentType)]
+        public async Task<ActionResult<ConfigurationConfigurationItemDto>> PatchConfigurationItem(
+            [FromRoute] Guid configurationStoreId,
+            [FromRoute] Guid id,
+            [FromBody] JsonMergePatchDocument<PatchConfigurationItemDto> mergePatchDocument,
+            CancellationToken cancellationToken = default)
+        {
+            if (mergePatchDocument == null)
+            {
+                return BadRequest("Merge patch document cannot be null");
+            }
+
+            var patchExecutor = new JsonMergePatchExecutor<PatchConfigurationItemDto>(mergePatchDocument, _validatorProvider);
+
+            var dto = new PatchConfigurationItemDto
+            {
+                PatchExecutor = patchExecutor
+            };
+
+            var result = default(ConfigurationConfigurationItemDto);
+
+            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+                new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
+            {
+                result = await _appService.PatchConfigurationItem(configurationStoreId, id, dto, cancellationToken);
+                await _unitOfWork.SaveChangesAsync(cancellationToken);
+                transaction.Complete();
+            }
+
+            await _mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);
+            return result == null ? NotFound() : Ok(result);
         }
     }
 }

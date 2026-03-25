@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="87ff1b53-8e2e-41a5-b410-62c99513f3cb">
+  <sourceEnd id="44ba0571-f93e-4283-8088-320dbdcd6b5d" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>ConfigurationStore</name>
+    <display>ConfigurationStore: ConfigurationStore</display>
+    <order>0</order>
+    <typeReference id="002a7a6d-d1ca-4fd7-bfe2-f861d0bdf9b1">
+      <typeId>639fc9c4-3a80-4e89-895a-9a13c5c8536c</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>JsonPatchRfc7396.Scalar.Domain.EF</typePackageName>
+      <typePackageId>731394da-f1d4-4b71-8972-70c9de510bea</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="87ff1b53-8e2e-41a5-b410-62c99513f3cb" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Items</name>
+    <display>Items: ConfigurationItem[*]?</display>
+    <order>2</order>
+    <typeReference id="27fb3f97-df84-4f53-b590-db179982bce3">
+      <typeId>0ed0b844-ea2a-4888-83d0-706d711caab2</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>JsonPatchRfc7396.Scalar.Domain.EF</typePackageName>
+      <typePackageId>731394da-f1d4-4b71-8972-70c9de510bea</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

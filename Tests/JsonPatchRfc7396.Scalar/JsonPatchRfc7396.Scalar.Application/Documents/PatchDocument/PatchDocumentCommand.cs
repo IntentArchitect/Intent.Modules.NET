@@ -9,7 +9,7 @@ using MediatR;
 
 namespace JsonPatchRfc7396.Scalar.Application.Documents.PatchDocument
 {
-    public class PatchDocumentCommand : IRequest, ICommand, IBypassPipelineValidation
+    public class PatchDocumentCommand : IRequest<DocumentDto>, ICommand, IBypassPipelineValidation
     {
         public PatchDocumentCommand(string id, IPatchExecutor<PatchDocumentCommand> patchExecutor)
         {
@@ -21,8 +21,8 @@ namespace JsonPatchRfc7396.Scalar.Application.Documents.PatchDocument
         public DateTime CreatedAtUtc { get; set; }
         public DateTime UpdatedAtUtc { get; set; }
         public DocumentStatus Status { get; set; }
-        public UpdateDocumentTitleDto Title { get; set; }
-        public UpdateDocumentContentDto Content { get; set; }
+        public PatchDocumentCommandTitleDto Title { get; set; }
+        public PatchDocumentCommandContentDto Content { get; set; }
         public int Revision { get; set; }
         public bool IsDeleted { get; set; }
         public List<PatchDocumentCommandChangesDto> Changes { get; set; }

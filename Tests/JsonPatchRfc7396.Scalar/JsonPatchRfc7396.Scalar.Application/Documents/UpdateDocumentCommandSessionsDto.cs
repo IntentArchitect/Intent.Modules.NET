@@ -19,7 +19,7 @@ namespace JsonPatchRfc7396.Scalar.Application.Documents
         public string ConnectionId { get; init; }
         public DateTime StartedAtUtc { get; init; }
         public DateTime LastSeenAtUtc { get; init; }
-        public object CursorJson { get; init; }
-        public object SelectionJson { get; init; }
+        public string CursorJson { get; init; }
+        public string SelectionJson { get; init; }
     }
 }

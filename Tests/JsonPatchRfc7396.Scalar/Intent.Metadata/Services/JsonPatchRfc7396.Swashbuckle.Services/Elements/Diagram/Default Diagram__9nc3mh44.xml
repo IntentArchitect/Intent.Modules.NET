@@ -8,7 +8,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>d0278df6-e29f-419c-9f1f-ea5612b17658</parentFolderId>
   <packageId>d0278df6-e29f-419c-9f1f-ea5612b17658</packageId>
-  <packageName>JsonPatchRfc7396.Swashbuckle.Services</packageName>
+  <packageName>JsonPatchRfc7396.Scalar.Services</packageName>
   <diagram>
     <targetPackageId>d0278df6-e29f-419c-9f1f-ea5612b17658</targetPackageId>
   </diagram>

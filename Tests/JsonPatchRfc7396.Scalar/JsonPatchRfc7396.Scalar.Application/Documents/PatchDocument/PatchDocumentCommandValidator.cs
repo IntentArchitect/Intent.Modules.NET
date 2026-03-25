@@ -27,11 +27,11 @@ namespace JsonPatchRfc7396.Scalar.Application.Documents.PatchDocument
 
             RuleFor(v => v.Title)
                 .NotNull()
-                .SetValidator(provider.GetValidator<UpdateDocumentTitleDto>()!);
+                .SetValidator(provider.GetValidator<PatchDocumentCommandTitleDto>()!);
 
             RuleFor(v => v.Content)
                 .NotNull()
-                .SetValidator(provider.GetValidator<UpdateDocumentContentDto>()!);
+                .SetValidator(provider.GetValidator<PatchDocumentCommandContentDto>()!);
 
             RuleFor(v => v.Changes)
                 .NotNull()

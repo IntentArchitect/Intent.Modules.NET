@@ -32,7 +32,7 @@ namespace JsonPatchRfc7396.Scalar.Domain.Entities.CollaborativeEditing
 
         public int ResultingRevision { get; set; }
 
-        public object PatchJson { get; set; }
+        public string PatchJson { get; set; }
 
         public DateTime ChangedAtUtc { get; set; }
 

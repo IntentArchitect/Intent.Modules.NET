@@ -13,6 +13,10 @@ namespace JsonPatchRfc7396.Scalar.Application.Documents
             Id = null!;
             Title = null!;
             Content = null!;
+            Changes = null!;
+            Permissions = null!;
+            Revisions = null!;
+            Sessions = null!;
         }
 
         public string Id { get; init; }
@@ -23,5 +27,9 @@ namespace JsonPatchRfc7396.Scalar.Application.Documents
         public DocumentContentDto Content { get; init; }
         public int Revision { get; init; }
         public bool IsDeleted { get; init; }
+        public List<DocumentDocumentChangeDto> Changes { get; init; }
+        public List<DocumentDocumentPermissionDto> Permissions { get; init; }
+        public List<DocumentDocumentRevisionDto> Revisions { get; init; }
+        public List<DocumentCollaboratorSessionDto> Sessions { get; init; }
     }
 }

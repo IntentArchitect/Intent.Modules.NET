@@ -7,7 +7,7 @@ namespace JsonPatchRfc7396.Scalar.Domain.CollaborativeEditing
 {
     public class DocumentContent : ValueObject
     {
-        public DocumentContent(string format, string text, object json)
+        public DocumentContent(string format, string text, string json)
         {
             Format = format;
             Text = text;
@@ -24,7 +24,7 @@ namespace JsonPatchRfc7396.Scalar.Domain.CollaborativeEditing
 
         public string Format { get; private set; }
         public string Text { get; private set; }
-        public object Json { get; private set; }
+        public string Json { get; private set; }
 
         protected override IEnumerable<object> GetEqualityComponents()
         {

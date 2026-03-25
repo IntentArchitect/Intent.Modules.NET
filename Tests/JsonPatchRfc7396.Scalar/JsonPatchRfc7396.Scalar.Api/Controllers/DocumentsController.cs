@@ -9,6 +9,7 @@ using JsonPatchRfc7396.Scalar.Application.Documents.DeleteDocument;
 using JsonPatchRfc7396.Scalar.Application.Documents.GetDocumentById;
 using JsonPatchRfc7396.Scalar.Application.Documents.GetDocuments;
 using JsonPatchRfc7396.Scalar.Application.Documents.PatchDocument;
+using JsonPatchRfc7396.Scalar.Application.Documents.PatchDocumentChange;
 using JsonPatchRfc7396.Scalar.Application.Documents.UpdateDocument;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -70,16 +71,44 @@ namespace JsonPatchRfc7396.Scalar.Api.Controllers
 
         /// <summary>
         /// </summary>
-        /// <response code="204">Successfully updated.</response>
+        /// <response code="200">Successfully updated.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
-        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
-        [HttpPatch("api/documents/{id}")]
-        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        /// <response code="404">No DocumentDocumentChangeDto could be found with the provided parameters.</response>
+        [HttpPatch("api/documents/{documentId}/document-changes/{id}")]
+        [ProducesResponseType(typeof(DocumentDocumentChangeDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         [Consumes(JsonMergePatchDocument.ContentType)]
-        public async Task<ActionResult> PatchDocument(
+        public async Task<ActionResult<DocumentDocumentChangeDto>> PatchDocumentChange(
+            [FromRoute] string documentId,
+            [FromRoute] string id,
+            [FromBody] JsonMergePatchDocument<PatchDocumentChangeCommand> mergePatchDocument,
+            CancellationToken cancellationToken = default)
+        {
+            if (mergePatchDocument == null)
+            {
+                return BadRequest("Merge patch document cannot be null");
+            }
+            var patchExecutor = new JsonMergePatchExecutor<PatchDocumentChangeCommand>(mergePatchDocument, _validatorProvider);
+            var command = new PatchDocumentChangeCommand(documentId, id, patchExecutor);
+
+            var result = await _mediator.Send(command, cancellationToken);
+            return result == null ? NotFound() : Ok(result);
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="200">Successfully updated.</response>
+        /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">No DocumentDto could be found with the provided parameters.</response>
+        [HttpPatch("api/documents/{id}")]
+        [ProducesResponseType(typeof(DocumentDto), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        [Consumes(JsonMergePatchDocument.ContentType)]
+        public async Task<ActionResult<DocumentDto>> PatchDocument(
             [FromRoute] string id,
             [FromBody] JsonMergePatchDocument<PatchDocumentCommand> mergePatchDocument,
             CancellationToken cancellationToken = default)
@@ -91,8 +120,8 @@ namespace JsonPatchRfc7396.Scalar.Api.Controllers
             var patchExecutor = new JsonMergePatchExecutor<PatchDocumentCommand>(mergePatchDocument, _validatorProvider);
             var command = new PatchDocumentCommand(id, patchExecutor);
 
-            await _mediator.Send(command, cancellationToken);
-            return NoContent();
+            var result = await _mediator.Send(command, cancellationToken);
+            return result == null ? NotFound() : Ok(result);
         }
 
         /// <summary>

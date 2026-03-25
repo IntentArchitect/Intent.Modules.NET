@@ -1,3 +1,4 @@
+using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 using JsonPatchRfc7396.Scalar.Domain.CollaborativeEditing;
 using JsonPatchRfc7396.Scalar.Domain.Common;
@@ -12,18 +13,20 @@ using MediatR;
 namespace JsonPatchRfc7396.Scalar.Application.Documents.PatchDocument
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class PatchDocumentCommandHandler : IRequestHandler<PatchDocumentCommand>
+    public class PatchDocumentCommandHandler : IRequestHandler<PatchDocumentCommand, DocumentDto>
     {
         private readonly IDocumentRepository _documentRepository;
+        private readonly IMapper _mapper;
 
         [IntentManaged(Mode.Merge)]
-        public PatchDocumentCommandHandler(IDocumentRepository documentRepository)
+        public PatchDocumentCommandHandler(IDocumentRepository documentRepository, IMapper mapper)
         {
             _documentRepository = documentRepository;
+            _mapper = mapper;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task Handle(PatchDocumentCommand request, CancellationToken cancellationToken)
+        public async Task<DocumentDto> Handle(PatchDocumentCommand request, CancellationToken cancellationToken)
         {
             var document = await _documentRepository.FindByIdAsync(request.Id, cancellationToken);
             if (document is null)
@@ -34,6 +37,9 @@ namespace JsonPatchRfc7396.Scalar.Application.Documents.PatchDocument
             LoadOriginalState(document, request);
             request.PatchExecutor.ApplyTo(request);
             ApplyChangesTo(request, document);
+
+            _documentRepository.Update(document);
+            return document.MapToDocumentDto(_mapper);
         }
 
         private static PatchDocumentCommand LoadOriginalState(Document entity, PatchDocumentCommand command)
@@ -43,9 +49,9 @@ namespace JsonPatchRfc7396.Scalar.Application.Documents.PatchDocument
             command.CreatedAtUtc = entity.CreatedAtUtc;
             command.UpdatedAtUtc = entity.UpdatedAtUtc;
             command.Status = entity.Status;
-            command.Title ??= new UpdateDocumentTitleDto();
+            command.Title ??= new PatchDocumentCommandTitleDto();
             command.Title.Value = entity.Title.Value;
-            command.Content ??= new UpdateDocumentContentDto();
+            command.Content ??= new PatchDocumentCommandContentDto();
             command.Content.Format = entity.Content.Format;
             command.Content.Text = entity.Content.Text;
             command.Content.Json = entity.Content.Json;

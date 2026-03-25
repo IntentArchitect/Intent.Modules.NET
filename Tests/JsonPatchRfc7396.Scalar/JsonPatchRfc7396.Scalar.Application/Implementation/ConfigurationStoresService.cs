@@ -42,7 +42,6 @@ namespace JsonPatchRfc7396.Scalar.Application.Implementation
                         ScopeKey = new ConfigurationScopeKey(
                             scope: i.ScopeKey.Scope,
                             scopeId: i?.ScopeKey.ScopeId),
-                        ValueType = i.ValueType,
                         Value = i.Value,
                         IsActive = i.IsActive,
                         Version = i.Version,
@@ -89,7 +88,7 @@ namespace JsonPatchRfc7396.Scalar.Application.Implementation
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task PatchConfigurationStore(
+        public async Task<ConfigurationStoreDto> PatchConfigurationStore(
             Guid id,
             PatchConfigurationStoreDto dto,
             CancellationToken cancellationToken = default)
@@ -103,6 +102,7 @@ namespace JsonPatchRfc7396.Scalar.Application.Implementation
             LoadOriginalState(configurationStore, dto);
             dto.PatchExecutor.ApplyTo(dto);
             ApplyChangesTo(dto, configurationStore);
+            return configurationStore.MapToConfigurationStoreDto(_mapper);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
@@ -136,6 +136,30 @@ namespace JsonPatchRfc7396.Scalar.Application.Implementation
 
 
             _configurationStoreRepository.Remove(configurationStore);
+        }
+
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        public async Task<ConfigurationConfigurationItemDto> PatchConfigurationItem(
+            Guid configurationStoreId,
+            Guid id,
+            PatchConfigurationItemDto dto,
+            CancellationToken cancellationToken = default)
+        {
+            var configurationStore = await _configurationStoreRepository.FindByIdAsync(configurationStoreId, cancellationToken);
+            if (configurationStore is null)
+            {
+                throw new NotFoundException($"Could not find ConfigurationStore '{configurationStoreId}'");
+            }
+
+            var configurationItem = configurationStore.Items.FirstOrDefault(x => x.Id == id);
+            if (configurationItem is null)
+            {
+                throw new NotFoundException($"Could not find ConfigurationItem '{id}'");
+            }
+            LoadOriginalState(configurationItem, dto);
+            dto.PatchExecutor.ApplyTo(dto);
+            ApplyChangesTo(dto, configurationItem);
+            return configurationItem.MapToConfigurationConfigurationItemDto(_mapper);
         }
 
         private static PatchConfigurationStoreDto LoadOriginalState(
@@ -188,6 +212,24 @@ namespace JsonPatchRfc7396.Scalar.Application.Implementation
             return dto;
         }
 
+        private static PatchConfigurationItemDto LoadOriginalState(ConfigurationItem entity, PatchConfigurationItemDto dto)
+        {
+            ArgumentNullException.ThrowIfNull(entity);
+            ArgumentNullException.ThrowIfNull(dto);
+            dto.Key ??= new PatchConfigurationItemKeyDto1();
+            dto.Key.Value = entity.Key.Value;
+            dto.ScopeKey ??= new PatchConfigurationItemScopeKeyDto1();
+            dto.ScopeKey.Scope = entity.ScopeKey.Scope;
+            dto.ScopeKey.ScopeId = entity.ScopeKey.ScopeId;
+            dto.ValueType = entity.ValueType;
+            dto.Value = entity.Value;
+            dto.IsActive = entity.IsActive;
+            dto.Version = entity.Version;
+            dto.UpdatedAtUtc = entity.UpdatedAtUtc;
+            dto.LatestChangeId = entity.LatestChangeId;
+            return dto;
+        }
+
         private static ConfigurationStore ApplyChangesTo(PatchConfigurationStoreDto dto, ConfigurationStore entity)
         {
             ArgumentNullException.ThrowIfNull(dto);
@@ -195,6 +237,24 @@ namespace JsonPatchRfc7396.Scalar.Application.Implementation
             entity.Name = dto.Name;
             entity.Items = UpdateHelper.CreateOrUpdateCollection(entity.Items, dto.Items, (e, d) => e.Id == d.Id, CreateOrUpdateConfigurationItem);
             entity.Changes = UpdateHelper.CreateOrUpdateCollection(entity.Changes, dto.Changes, (e, d) => e.Id == d.Id, CreateOrUpdateConfigurationChange);
+            return entity;
+        }
+
+        private static ConfigurationItem ApplyChangesTo(PatchConfigurationItemDto dto, ConfigurationItem entity)
+        {
+            ArgumentNullException.ThrowIfNull(dto);
+            ArgumentNullException.ThrowIfNull(entity);
+            entity.Key = new ConfigurationKey(
+                value: dto.Key.Value);
+            entity.ScopeKey = new ConfigurationScopeKey(
+                scope: dto.ScopeKey.Scope,
+                scopeId: dto.ScopeKey.ScopeId);
+            entity.ValueType = dto.ValueType;
+            entity.Value = dto.Value;
+            entity.IsActive = dto.IsActive;
+            entity.Version = dto.Version;
+            entity.UpdatedAtUtc = dto.UpdatedAtUtc;
+            entity.LatestChangeId = dto.LatestChangeId;
             return entity;
         }
 

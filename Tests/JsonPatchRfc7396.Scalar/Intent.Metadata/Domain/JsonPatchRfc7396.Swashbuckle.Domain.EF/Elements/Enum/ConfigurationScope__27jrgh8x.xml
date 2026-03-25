@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="65337520-000d-4479-88ab-10cbc35a5730" type="Enum" typeId="85fba0e9-9161-4c85-a603-a229ef312beb">
+  <comment>Indicates where a configuration entry applies.</comment>
+  <name>ConfigurationScope</name>
+  <display>ConfigurationScope</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>28b00503-e160-4fe1-8738-7688d479c1b1</parentFolderId>
+  <packageId>731394da-f1d4-4b71-8972-70c9de510bea</packageId>
+  <packageName>JsonPatchRfc7396.Scalar.Domain.EF</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="00bf2fea-a5e8-4a53-96ce-85eaad785052" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Global</name>
+      <display>Global</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>65337520-000d-4479-88ab-10cbc35a5730</parentFolderId>
+      <packageId>731394da-f1d4-4b71-8972-70c9de510bea</packageId>
+      <packageName>JsonPatchRfc7396.Scalar.Domain.EF</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="a9f6963b-c0b5-42fb-8897-b8a76b24aa5f" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Tenant</name>
+      <display>Tenant</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>65337520-000d-4479-88ab-10cbc35a5730</parentFolderId>
+      <packageId>731394da-f1d4-4b71-8972-70c9de510bea</packageId>
+      <packageName>JsonPatchRfc7396.Scalar.Domain.EF</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="cf64ac68-77dc-439c-820e-a0cb037d2f47" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Environment</name>
+      <display>Environment</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>65337520-000d-4479-88ab-10cbc35a5730</parentFolderId>
+      <packageId>731394da-f1d4-4b71-8972-70c9de510bea</packageId>
+      <packageName>JsonPatchRfc7396.Scalar.Domain.EF</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="e0876e80-6095-4c1f-8565-a003fea75cb4" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>User</name>
+      <display>User</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>65337520-000d-4479-88ab-10cbc35a5730</parentFolderId>
+      <packageId>731394da-f1d4-4b71-8972-70c9de510bea</packageId>
+      <packageName>JsonPatchRfc7396.Scalar.Domain.EF</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="bf7e5f65-0912-4bd7-aa32-c5d1e3b9392a" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Service</name>
+      <display>Service</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>65337520-000d-4479-88ab-10cbc35a5730</parentFolderId>
+      <packageId>731394da-f1d4-4b71-8972-70c9de510bea</packageId>
+      <packageName>JsonPatchRfc7396.Scalar.Domain.EF</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

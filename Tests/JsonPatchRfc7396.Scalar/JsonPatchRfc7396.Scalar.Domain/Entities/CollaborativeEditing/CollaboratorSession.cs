@@ -33,8 +33,8 @@ namespace JsonPatchRfc7396.Scalar.Domain.Entities.CollaborativeEditing
 
         public DateTime LastSeenAtUtc { get; set; }
 
-        public object CursorJson { get; set; }
+        public string CursorJson { get; set; }
 
-        public object SelectionJson { get; set; }
+        public string SelectionJson { get; set; }
     }
 }
