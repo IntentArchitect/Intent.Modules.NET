@@ -1,3 +1,4 @@
+using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 using JsonPatchRfc7396.Swashbuckle.Domain.CollaborativeEditing;
 using JsonPatchRfc7396.Swashbuckle.Domain.Common;
@@ -12,18 +13,20 @@ using MediatR;
 namespace JsonPatchRfc7396.Swashbuckle.Application.Documents.PatchDocument
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class PatchDocumentCommandHandler : IRequestHandler<PatchDocumentCommand>
+    public class PatchDocumentCommandHandler : IRequestHandler<PatchDocumentCommand, DocumentDto>
     {
         private readonly IDocumentRepository _documentRepository;
+        private readonly IMapper _mapper;
 
         [IntentManaged(Mode.Merge)]
-        public PatchDocumentCommandHandler(IDocumentRepository documentRepository)
+        public PatchDocumentCommandHandler(IDocumentRepository documentRepository, IMapper mapper)
         {
             _documentRepository = documentRepository;
+            _mapper = mapper;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task Handle(PatchDocumentCommand request, CancellationToken cancellationToken)
+        public async Task<DocumentDto> Handle(PatchDocumentCommand request, CancellationToken cancellationToken)
         {
             var document = await _documentRepository.FindByIdAsync(request.Id, cancellationToken);
             if (document is null)
@@ -36,6 +39,7 @@ namespace JsonPatchRfc7396.Swashbuckle.Application.Documents.PatchDocument
             ApplyChangesTo(request, document);
 
             _documentRepository.Update(document);
+            return document.MapToDocumentDto(_mapper);
         }
 
         private static PatchDocumentCommand LoadOriginalState(Document entity, PatchDocumentCommand command)

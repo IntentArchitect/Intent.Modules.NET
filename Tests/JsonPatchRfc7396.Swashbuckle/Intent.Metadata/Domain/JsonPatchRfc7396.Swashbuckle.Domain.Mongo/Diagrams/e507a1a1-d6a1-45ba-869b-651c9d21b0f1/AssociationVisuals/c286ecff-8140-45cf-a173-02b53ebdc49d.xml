@@ -3,5 +3,7 @@
   <sourceId>20db7919-6da9-4573-bbc1-e52742ffdf61</sourceId>
   <targetId>1dcbdfab-314b-469d-ae18-b436c5489be7</targetId>
   <targetPrefPoint x="100" y="65" />
-  <fixedPoints />
+  <fixedPoints>
+    <point x="600" y="740" />
+  </fixedPoints>
 </associationVisual>

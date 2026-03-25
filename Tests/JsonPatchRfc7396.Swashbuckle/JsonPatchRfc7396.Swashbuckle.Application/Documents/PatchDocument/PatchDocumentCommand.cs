@@ -9,7 +9,7 @@ using MediatR;
 
 namespace JsonPatchRfc7396.Swashbuckle.Application.Documents.PatchDocument
 {
-    public class PatchDocumentCommand : IRequest, ICommand, IBypassPipelineValidation
+    public class PatchDocumentCommand : IRequest<DocumentDto>, ICommand, IBypassPipelineValidation
     {
         public PatchDocumentCommand(string id, IPatchExecutor<PatchDocumentCommand> patchExecutor)
         {

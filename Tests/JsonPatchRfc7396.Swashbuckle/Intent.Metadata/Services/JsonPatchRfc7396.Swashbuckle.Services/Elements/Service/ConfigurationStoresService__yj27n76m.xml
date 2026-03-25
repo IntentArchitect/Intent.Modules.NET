@@ -209,15 +209,18 @@
     </childElement>
     <childElement id="56728551-8755-446e-a366-18d211d9e35c" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>PatchConfigurationStore</name>
-      <display>PatchConfigurationStore(id: guid, dto: PatchConfigurationStoreDto): void</display>
+      <display>PatchConfigurationStore(id: guid, dto: PatchConfigurationStoreDto): ConfigurationStoreDto</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="ba66256b-f085-45c1-82a5-457a2db2e543">
+        <typeId>94939f7e-965f-4713-a68b-aaeff0249ef5</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
         <isRequired>true</isRequired>
+        <typePackageName>JsonPatchRfc7396.Swashbuckle.Services</typePackageName>
+        <typePackageId>bad7a0c9-068e-4536-b712-02ce98947979</typePackageId>
         <stereotypes />
         <genericTypeParameters />
       </typeReference>
@@ -488,6 +491,153 @@
           </typeReference>
           <isMapped>false</isMapped>
           <parentFolderId>8fbbc2d1-f13c-495c-8232-3ca9894eb3da</parentFolderId>
+          <packageId>bad7a0c9-068e-4536-b712-02ce98947979</packageId>
+          <packageName>JsonPatchRfc7396.Swashbuckle.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>false</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="279bbd16-359e-4abb-8c46-59fabca1f551" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>PatchConfigurationItem</name>
+      <display>PatchConfigurationItem(configurationStoreId: guid, id: guid, dto: PatchConfigurationItemDto): ConfigurationConfigurationItemDto</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="bfe63aba-0b0e-4d5e-9015-da6984639591">
+        <typeId>80266848-04a2-42fa-be1f-afb8effa86d6</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>JsonPatchRfc7396.Swashbuckle.Services</typePackageName>
+        <typePackageId>bad7a0c9-068e-4536-b712-02ce98947979</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>b413c70d-2dc0-4b37-8d55-ab8d4b5bc5f0</parentFolderId>
+      <packageId>bad7a0c9-068e-4536-b712-02ce98947979</packageId>
+      <packageName>JsonPatchRfc7396.Swashbuckle.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="PATCH" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="{configurationStoreId}/configuration-items/{id}" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="d41b317f-9137-47a2-ab29-272144c974b0" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>configurationStoreId</name>
+          <display>in : configurationStoreId: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="a1e73301-d03e-40a9-bd33-490dba7e72a8">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>279bbd16-359e-4abb-8c46-59fabca1f551</parentFolderId>
+          <packageId>bad7a0c9-068e-4536-b712-02ce98947979</packageId>
+          <packageName>JsonPatchRfc7396.Swashbuckle.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>false</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="1f753d52-51be-4980-9395-42ee4fef3838" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="35080611-d9f7-40de-9136-23ad42ee3543">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>279bbd16-359e-4abb-8c46-59fabca1f551</parentFolderId>
+          <packageId>bad7a0c9-068e-4536-b712-02ce98947979</packageId>
+          <packageName>JsonPatchRfc7396.Swashbuckle.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>false</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="0fa5c018-8efd-4134-a821-25d7492cef53" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>dto</name>
+          <display>in : dto: PatchConfigurationItemDto</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="557f264e-efdb-4c09-9e0f-8b5a2d27317e">
+            <typeId>ab3fd226-ab4b-40a8-9ac3-310218342fd8</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>JsonPatchRfc7396.Swashbuckle.Services</typePackageName>
+            <typePackageId>bad7a0c9-068e-4536-b712-02ce98947979</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>279bbd16-359e-4abb-8c46-59fabca1f551</parentFolderId>
           <packageId>bad7a0c9-068e-4536-b712-02ce98947979</packageId>
           <packageName>JsonPatchRfc7396.Swashbuckle.Services</packageName>
           <stereotypes>

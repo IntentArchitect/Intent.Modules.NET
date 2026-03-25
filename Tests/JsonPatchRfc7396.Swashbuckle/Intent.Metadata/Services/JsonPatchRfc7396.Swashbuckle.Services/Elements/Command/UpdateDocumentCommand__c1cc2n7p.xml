@@ -448,6 +448,8 @@
         <isNullable>false</isNullable>
         <isCollection>true</isCollection>
         <isRequired>true</isRequired>
+        <typePackageName>JsonPatchRfc7396.Swashbuckle.Services</typePackageName>
+        <typePackageId>bad7a0c9-068e-4536-b712-02ce98947979</typePackageId>
         <stereotypes />
         <genericTypeParameters />
       </typeReference>
@@ -496,6 +498,8 @@
         <isNullable>false</isNullable>
         <isCollection>true</isCollection>
         <isRequired>true</isRequired>
+        <typePackageName>JsonPatchRfc7396.Swashbuckle.Services</typePackageName>
+        <typePackageId>bad7a0c9-068e-4536-b712-02ce98947979</typePackageId>
         <stereotypes />
         <genericTypeParameters />
       </typeReference>
@@ -544,6 +548,8 @@
         <isNullable>false</isNullable>
         <isCollection>true</isCollection>
         <isRequired>true</isRequired>
+        <typePackageName>JsonPatchRfc7396.Swashbuckle.Services</typePackageName>
+        <typePackageId>bad7a0c9-068e-4536-b712-02ce98947979</typePackageId>
         <stereotypes />
         <genericTypeParameters />
       </typeReference>
@@ -592,6 +598,8 @@
         <isNullable>false</isNullable>
         <isCollection>true</isCollection>
         <isRequired>true</isRequired>
+        <typePackageName>JsonPatchRfc7396.Swashbuckle.Services</typePackageName>
+        <typePackageId>bad7a0c9-068e-4536-b712-02ce98947979</typePackageId>
         <stereotypes />
         <genericTypeParameters />
       </typeReference>
