@@ -80,8 +80,6 @@ internal class TradServicePatchEntityInteractionStrategy : IInteractionStrategy
                 compositeEntityAccessor: (dataAccess as CompositeDataAccessProvider)?.Accessor,
                 aggregateDetails: out _));
 
-            method.AddStatement(ExecutionPhases.BusinessLogic, string.Empty);
-
             // Use tracked entity details to determine the variable name.
             var entityDetails = method.TrackedEntities()[updateAction.Id];
 
@@ -90,12 +88,6 @@ internal class TradServicePatchEntityInteractionStrategy : IInteractionStrategy
                 && paramModel.TypeReference.Element.IsDTOModel())!;
             
             PatchBuilderHelper.EnsurePatchHelperMethods(method, updateAction, foundEntity, _ => new PayloadInfo(param.Name, param.Type));
-
-            if (RequiresAggregateExplicitUpdate(entityDetails))
-            {
-                method.AddStatement(entityDetails.DataAccessProvider.Update(entityDetails.VariableName)
-                    .SeparatedFromPrevious());
-            }
             
             method.AddStatements(ExecutionPhases.BusinessLogic,
             [
@@ -107,9 +99,9 @@ internal class TradServicePatchEntityInteractionStrategy : IInteractionStrategy
                     .WithSemicolon()
             ]);
             
-            if (RepositoryRequiresExplicitUpdate(method.File.Template, foundEntity))
+            if (RepositoryRequiresExplicitUpdate(method.File.Template, foundEntity) || RequiresAggregateExplicitUpdate(entityDetails))
             {
-                method.AddStatement(entityDetails.DataAccessProvider.Update(entityDetails.VariableName.Singularize())
+                method.AddStatement(ExecutionPhases.Persistence, entityDetails.DataAccessProvider.Update(entityDetails.VariableName.Singularize())
                     .SeparatedFromPrevious());
             }
             

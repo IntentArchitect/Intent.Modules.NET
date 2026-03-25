@@ -61,7 +61,7 @@ namespace Intent.Modules.AspNetCore.Controllers.JsonPatch.FactoryExtensions
 
                 template.CSharpFile.OnBuild(file =>
                 {
-                    var classType = file.TypeDeclarations.First(x => x.Interfaces.Any(y => y == "IRequest"));
+                    var classType = file.TypeDeclarations.First(x => x.Interfaces.Any(y => y.Contains("IRequest")));
 
                     if (!template.TryGetTypeName("Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface",
                             out var bypassValidationInterface))
