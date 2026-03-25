@@ -42,6 +42,9 @@ internal static class PatchBuilderHelper
             throw new ElementException(updateAction.InternalAssociationEnd, "No Update Entity mapping was found for PATCH update interaction.");
         }
 
+        // Validate that the update mapping does not contain unsupported specializations (e.g., operations)
+        ValidateUpdateMappingForUnsupportedSpecializations(updateMapping, updateAction.InternalAssociationEnd);
+
         var @class = handleMethod.Class;
 
         @class.AddMethod(parameterType, "LoadOriginalState", method =>
@@ -101,6 +104,50 @@ internal static class PatchBuilderHelper
 
             method.AddStatement("return entity;");
         });
+    }
+
+    private static void ValidateUpdateMappingForUnsupportedSpecializations(
+        IElementToElementMapping updateMapping,
+        IAssociationEnd updateActionAssociationEnd)
+    {
+        const string operationSpecialization = "Operation";
+        const string constructorSpecialization = "Constructor";
+
+        foreach (var mappedEnd in updateMapping.MappedEnds)
+        {
+            // Check source and target paths for unsupported specializations
+            if (PathContainsNonRootSpecialization(mappedEnd.SourcePath, operationSpecialization) ||
+                PathContainsNonRootSpecialization(mappedEnd.TargetPath, operationSpecialization))
+            {
+                throw new ElementException(
+                    updateActionAssociationEnd,
+                    "JSON Patch Update association does not support mapping to or from operations. " +
+                    "Please remove the mapping that includes an operation from the Update Entity Action.");
+            }
+
+            if (PathContainsNonRootSpecialization(mappedEnd.SourcePath, constructorSpecialization) ||
+                PathContainsNonRootSpecialization(mappedEnd.TargetPath, constructorSpecialization))
+            {
+                throw new ElementException(
+                    updateActionAssociationEnd,
+                    "JSON Patch Update association does not support mapping to or from constructors. " +
+                    "Please remove the mapping that includes a constructor from the Update Entity Action.");
+            }
+        }
+    }
+
+    private static bool PathContainsNonRootSpecialization(IList<IElementMappingPathTarget> path, string specialization)
+    {
+        // Skip the root element (index 0) and check the rest of the path
+        for (var index = 1; index < path.Count; index++)
+        {
+            if (string.Equals(path[index].Element.SpecializationType, specialization, StringComparison.OrdinalIgnoreCase))
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private static bool TryGetDtoParameterAfterOperation(
