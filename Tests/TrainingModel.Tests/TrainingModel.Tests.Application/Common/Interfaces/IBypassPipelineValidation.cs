@@ -8,7 +8,7 @@ namespace TrainingModel.Tests.Application.Common.Interfaces
 {
     /// <summary>
     /// Defines a marker interface that, when implemented by a request, instructs the 
-    /// <see cref="ValidationBehaviour{TRequest,TResponse}"/> to skip the execution 
+    /// <see cref="ValidationBehaviour{TRequest, TResponse}"/> to skip the execution 
     /// of all registered validators.
     /// </summary>
     /// <remarks>
