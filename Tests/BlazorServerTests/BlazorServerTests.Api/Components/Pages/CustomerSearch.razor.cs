@@ -53,7 +53,7 @@ namespace BlazorServerTests.Api.Components.Pages
 
         private void NavigateToExamplePage(string title = "Example Page")
         {
-            NavigationManager.NavigateTo("example-page/{title}");
+            NavigationManager.NavigateTo($"example-page/{title}");
         }
 
         public async Task<TableData<CustomerDto>> LoadServerData(TableState state, CancellationToken cancellationToken)

@@ -12,11 +12,6 @@
 </MudPaper>
 
 <MudCard Class="ux-fade-in-up" Style="animation-delay: 0.1s">
-    <MudCardHeader>
-        <CardHeaderContent>
-            <MudText Typo="Typo.h5">Customers</MudText>
-        </CardHeaderContent>
-    </MudCardHeader>
     <MudCardContent>
         <MudGrid>
             <MudItem xs="12" md="6">
@@ -46,10 +41,10 @@
                     <MudText>Search</MudText>
                 </MudButton>
                 <MudButton Variant="Variant.Filled"
-                           StartIcon="@Icons.Material.Filled.Add"
-                           Color="Color.Secondary"
-                           OnClick="@AddCustomer"
-                           Class="mb-4 ml-md-4">
+                        StartIcon="@Icons.Material.Filled.Add"
+                        Color="Color.Secondary"
+                        OnClick="@NavigateToCustomerAddPage"
+                        Class="mb-4 ml-md-4">
                     <MudText>Add Customer</MudText>
                 </MudButton>
             </MudItem>
@@ -98,13 +93,13 @@
                             <MudTooltip Text="View Customer">
                                 <MudIconButton Icon="@Icons.Material.Filled.Visibility"
                                                Color="Color.Info"
-                                               OnClick="@(() => ViewCustomer(context.Id))"
+                                               OnClick="@(() => NavigateToCustomerViewPage(context.Id))"
                                                Title="View" />
                             </MudTooltip>
                             <MudTooltip Text="Edit Customer">
                                 <MudIconButton Icon="@Icons.Material.Filled.Edit"
                                                Color="Color.Primary"
-                                               OnClick="@(() => EditCustomer(context.Id))"
+                                               OnClick="@(() => NavigateToCustomerEditPage(context.Id))"
                                                Title="Edit" />
                             </MudTooltip>
                             <MudTooltip Text="Delete Customer">
