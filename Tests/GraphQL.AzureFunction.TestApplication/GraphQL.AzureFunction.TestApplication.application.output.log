@@ -180,6 +180,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>2a8aedc1-db1a-481b-80de-885a4488d644</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface#9d87d95c-f810-4f00-b113-b9cfaadd64f6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Common/Interfaces/IBypassPipelineValidation.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IBypassPipelineValidation.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2a8aedc1-db1a-481b-80de-885a4488d644</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandInterface#1ce3cb30-afcb-4d4b-9dd1-0b0db2bdfbc9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Application/Common/Interfaces/ICommand.cs</ApplicationRelativeFilePath>

@@ -196,6 +196,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>e7d53be2-26c8-4de1-9d8a-eac1172d4ce0</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface#e026160d-7d27-46ef-8184-a9c09d39539d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureKeyVault.Application/Common/Interfaces/IBypassPipelineValidation.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IBypassPipelineValidation.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e7d53be2-26c8-4de1-9d8a-eac1172d4ce0</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandInterface#bde3aa4c-102d-4b05-aa17-dac7fd6e970c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureKeyVault.Application/Common/Interfaces/ICommand.cs</ApplicationRelativeFilePath>

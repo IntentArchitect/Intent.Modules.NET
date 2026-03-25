@@ -252,6 +252,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>cbecc0c0-f7cc-401b-8c45-faa1cd640550</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface#fdde201e-7308-4a76-982d-14a40c6e5553</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/Common/Interfaces/IBypassPipelineValidation.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IBypassPipelineValidation.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>cbecc0c0-f7cc-401b-8c45-faa1cd640550</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandInterface#068af7ff-3123-4369-a5dc-c1924cc2da3b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/Common/Interfaces/ICommand.cs</ApplicationRelativeFilePath>

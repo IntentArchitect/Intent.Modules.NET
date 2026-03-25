@@ -218,6 +218,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>a6c4a4bb-2258-4bde-aba5-ed8f00d2ec2c</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface#6cf6ae29-cfe9-4aac-844c-3a9f24bbfff9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OcelotTest.Application/Common/Interfaces/IBypassPipelineValidation.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IBypassPipelineValidation.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a6c4a4bb-2258-4bde-aba5-ed8f00d2ec2c</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandInterface#27c26dd8-3872-4b8b-9da8-6cd4f4c4afcd</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OcelotTest.Application/Common/Interfaces/ICommand.cs</ApplicationRelativeFilePath>

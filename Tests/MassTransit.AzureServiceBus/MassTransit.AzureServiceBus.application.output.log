@@ -244,6 +244,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>d9e3b4ee-9a92-4dea-8dc5-db7c89a05b6a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface#afca5a5b-741b-46d8-8487-289b0caeeb4d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/Common/Interfaces/IBypassPipelineValidation.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IBypassPipelineValidation.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d9e3b4ee-9a92-4dea-8dc5-db7c89a05b6a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandInterface#ec9a5f69-33c2-4e92-a0ce-4e6ab8f77465</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/Common/Interfaces/ICommand.cs</ApplicationRelativeFilePath>

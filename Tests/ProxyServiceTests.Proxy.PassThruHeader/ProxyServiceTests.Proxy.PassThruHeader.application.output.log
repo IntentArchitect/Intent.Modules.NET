@@ -444,6 +444,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>e5266496-468b-400e-9e1f-c01640d845c0</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface#03011b75-3ac1-4f9c-8882-b0061e51b6c4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.PTH.Application/Common/Interfaces/IBypassPipelineValidation.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IBypassPipelineValidation.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e5266496-468b-400e-9e1f-c01640d845c0</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandInterface#ed324b24-69ee-406d-9162-7496a4e69d85</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.PTH.Application/Common/Interfaces/ICommand.cs</ApplicationRelativeFilePath>

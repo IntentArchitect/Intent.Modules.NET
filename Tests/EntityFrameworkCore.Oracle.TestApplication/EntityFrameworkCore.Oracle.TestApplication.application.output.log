@@ -204,6 +204,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>67219b39-b25f-48a0-a8b2-245543d5af9f</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface#5ae18782-240f-467c-83f8-13ea0fd6b745</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Oracle.TestApplication.Application/Common/Interfaces/IBypassPipelineValidation.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IBypassPipelineValidation.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>67219b39-b25f-48a0-a8b2-245543d5af9f</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandInterface#b3e6f405-a44f-4f6b-927a-21bedeec622c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Oracle.TestApplication.Application/Common/Interfaces/ICommand.cs</ApplicationRelativeFilePath>

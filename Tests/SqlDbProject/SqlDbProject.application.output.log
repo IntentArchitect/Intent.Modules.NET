@@ -194,6 +194,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>61fd1a1f-5435-4417-a7a7-9cb85f179b9f</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface#bb5708b9-719b-4526-b770-3a7b78749cb1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>SqlDbProject.Application/Common/Interfaces/IBypassPipelineValidation.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IBypassPipelineValidation.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>61fd1a1f-5435-4417-a7a7-9cb85f179b9f</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandInterface#fc85686e-3708-4bed-983f-b0527fab0cb5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SqlDbProject.Application/Common/Interfaces/ICommand.cs</ApplicationRelativeFilePath>

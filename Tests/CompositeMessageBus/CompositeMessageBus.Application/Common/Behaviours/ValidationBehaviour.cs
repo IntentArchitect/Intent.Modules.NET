@@ -1,3 +1,4 @@
+using CompositeMessageBus.Application.Common.Interfaces;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -22,6 +23,10 @@ namespace CompositeMessageBus.Application.Common.Behaviours
             RequestHandlerDelegate<TResponse> next,
             CancellationToken cancellationToken)
         {
+            if (request is IBypassPipelineValidation)
+            {
+                return await next(cancellationToken);
+            }
             if (_validators.Any())
             {
                 var context = new ValidationContext<TRequest>(request);

@@ -196,6 +196,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>b11893a6-254f-4003-b008-480f6221ca8b</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface#ce311d0b-a437-44e2-b1dd-df7e69617497</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCore.SecondLevelCaching.Application/Common/Interfaces/IBypassPipelineValidation.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IBypassPipelineValidation.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b11893a6-254f-4003-b008-480f6221ca8b</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandInterface#6be968ea-251d-4ee6-bd2b-045c373c478d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCore.SecondLevelCaching.Application/Common/Interfaces/ICommand.cs</ApplicationRelativeFilePath>

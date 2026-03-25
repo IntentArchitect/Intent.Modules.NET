@@ -226,6 +226,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>3b953e17-c5ea-4588-aeb9-046fd00d475b</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface#ccc9c9b1-585d-4b2a-9b2f-4a93d4b003d0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Blazor.ProductService.Application/Common/Interfaces/IBypassPipelineValidation.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IBypassPipelineValidation.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3b953e17-c5ea-4588-aeb9-046fd00d475b</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandInterface#19b3c874-48d3-4800-853f-051699f1b10d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Blazor.ProductService.Application/Common/Interfaces/ICommand.cs</ApplicationRelativeFilePath>

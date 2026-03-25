@@ -636,6 +636,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>7f6a981d-048a-4911-8eea-3e29471cf84f</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface#576bc050-3cf9-4210-9298-266cb69f936e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Common/Interfaces/IBypassPipelineValidation.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IBypassPipelineValidation.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7f6a981d-048a-4911-8eea-3e29471cf84f</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandInterface#ad58bb9a-0c1d-44c4-9630-45d4e0a8b3fb</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Common/Interfaces/ICommand.cs</ApplicationRelativeFilePath>

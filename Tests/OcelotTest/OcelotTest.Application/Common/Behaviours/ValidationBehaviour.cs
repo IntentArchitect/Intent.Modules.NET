@@ -1,6 +1,7 @@
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
+using OcelotTest.Application.Common.Interfaces;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.MediatR.FluentValidation.ValidationBehaviour", Version = "1.0")]
@@ -22,6 +23,10 @@ namespace OcelotTest.Application.Common.Behaviours
             RequestHandlerDelegate<TResponse> next,
             CancellationToken cancellationToken)
         {
+            if (request is IBypassPipelineValidation)
+            {
+                return await next(cancellationToken);
+            }
             if (_validators.Any())
             {
                 var context = new ValidationContext<TRequest>(request);

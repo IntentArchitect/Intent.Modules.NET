@@ -228,6 +228,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>b1340a3c-649f-4b77-9c33-159029370782</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface#4937cceb-e47f-4784-9e2a-33b817c90b1b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Hangfire.Tests.Application/Common/Interfaces/IBypassPipelineValidation.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IBypassPipelineValidation.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b1340a3c-649f-4b77-9c33-159029370782</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandInterface#bd571367-31c5-4873-9bf3-1f2c1848f295</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Hangfire.Tests.Application/Common/Interfaces/ICommand.cs</ApplicationRelativeFilePath>

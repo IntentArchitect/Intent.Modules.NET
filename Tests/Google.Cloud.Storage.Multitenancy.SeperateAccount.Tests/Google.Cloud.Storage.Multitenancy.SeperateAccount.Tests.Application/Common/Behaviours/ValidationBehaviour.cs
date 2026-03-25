@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using FluentValidation;
+using Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Application.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
@@ -26,6 +27,10 @@ namespace Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Application.Co
             RequestHandlerDelegate<TResponse> next,
             CancellationToken cancellationToken)
         {
+            if (request is IBypassPipelineValidation)
+            {
+                return await next(cancellationToken);
+            }
             if (_validators.Any())
             {
                 var context = new ValidationContext<TRequest>(request);

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using CosmosDB.EnumStrings.Application.Common.Interfaces;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -26,6 +27,10 @@ namespace CosmosDB.EnumStrings.Application.Common.Behaviours
             RequestHandlerDelegate<TResponse> next,
             CancellationToken cancellationToken)
         {
+            if (request is IBypassPipelineValidation)
+            {
+                return await next(cancellationToken);
+            }
             if (_validators.Any())
             {
                 var context = new ValidationContext<TRequest>(request);

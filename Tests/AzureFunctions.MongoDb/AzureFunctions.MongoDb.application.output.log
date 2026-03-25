@@ -154,6 +154,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>1c7c47c9-351e-4308-b3d1-c0afca9b2516</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface#af1460ca-feb9-42ac-99d8-3346a2aedf26</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.MongoDb.Application/Common/Interfaces/IBypassPipelineValidation.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IBypassPipelineValidation.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1c7c47c9-351e-4308-b3d1-c0afca9b2516</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandInterface#126387c3-1b12-4bed-82a9-4cb24dc54979</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.MongoDb.Application/Common/Interfaces/ICommand.cs</ApplicationRelativeFilePath>

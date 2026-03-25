@@ -202,6 +202,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>fc3010e8-7d16-4faa-8454-dc3dac660773</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface#9663b19f-98bd-4757-a229-ce3a5d21f1cb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AwsLambdaFunction.Application/Common/Interfaces/IBypassPipelineValidation.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IBypassPipelineValidation.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fc3010e8-7d16-4faa-8454-dc3dac660773</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandInterface#78fff7bc-a0d9-4191-8b13-e0352750c95d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AwsLambdaFunction.Application/Common/Interfaces/ICommand.cs</ApplicationRelativeFilePath>

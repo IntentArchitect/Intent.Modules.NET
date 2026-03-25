@@ -180,6 +180,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>9927902f-3de2-40a3-a8a9-f4a1d2c3561b</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface#6fedf356-6de0-4814-9d36-502eca7b2cc0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Application/Common/Interfaces/IBypassPipelineValidation.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IBypassPipelineValidation.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9927902f-3de2-40a3-a8a9-f4a1d2c3561b</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandInterface#b0f4732b-b1c7-470e-8d92-01545722efa3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Application/Common/Interfaces/ICommand.cs</ApplicationRelativeFilePath>

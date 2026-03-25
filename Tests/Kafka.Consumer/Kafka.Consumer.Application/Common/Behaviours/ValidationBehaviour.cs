@@ -4,6 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
+using Kafka.Consumer.Application.Common.Interfaces;
 using MediatR;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -26,6 +27,10 @@ namespace Kafka.Consumer.Application.Common.Behaviours
             RequestHandlerDelegate<TResponse> next,
             CancellationToken cancellationToken)
         {
+            if (request is IBypassPipelineValidation)
+            {
+                return await next(cancellationToken);
+            }
             if (_validators.Any())
             {
                 var context = new ValidationContext<TRequest>(request);

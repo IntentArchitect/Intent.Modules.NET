@@ -1,4 +1,5 @@
 using FluentValidation;
+using FluentValidationTest.Application.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
@@ -22,6 +23,10 @@ namespace FluentValidationTest.Application.Common.Behaviours
             RequestHandlerDelegate<TResponse> next,
             CancellationToken cancellationToken)
         {
+            if (request is IBypassPipelineValidation)
+            {
+                return await next(cancellationToken);
+            }
             if (_validators.Any())
             {
                 var context = new ValidationContext<TRequest>(request);

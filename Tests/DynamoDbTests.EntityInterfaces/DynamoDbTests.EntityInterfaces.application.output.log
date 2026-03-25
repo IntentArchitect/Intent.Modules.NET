@@ -178,6 +178,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>3d02245d-ae70-462b-9832-08e1ca154808</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface#8cba3f17-90ef-4c64-82b5-617b6900f8f5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DynamoDbTests.EntityInterfaces.Application/Common/Interfaces/IBypassPipelineValidation.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IBypassPipelineValidation.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3d02245d-ae70-462b-9832-08e1ca154808</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandInterface#e6759972-a860-439f-a49e-37d38291cb14</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.EntityInterfaces.Application/Common/Interfaces/ICommand.cs</ApplicationRelativeFilePath>

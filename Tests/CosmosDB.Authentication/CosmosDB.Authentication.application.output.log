@@ -194,6 +194,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>f9b72b0c-2ea7-4855-ac45-0436e2259368</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface#b73422a8-c259-4177-b111-f7b5faffec0c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Authentication.Application/Common/Interfaces/IBypassPipelineValidation.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IBypassPipelineValidation.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f9b72b0c-2ea7-4855-ac45-0436e2259368</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandInterface#9e25e1d9-8ead-4104-97c2-57acf4021975</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.Authentication.Application/Common/Interfaces/ICommand.cs</ApplicationRelativeFilePath>

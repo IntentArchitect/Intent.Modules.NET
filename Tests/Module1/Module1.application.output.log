@@ -359,6 +359,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>720be573-1f7f-44af-908c-3c7c5cce6995</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface#5228bc49-b07d-458c-9099-34d3c2ca4aca</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Common/Interfaces/IBypassPipelineValidation.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IBypassPipelineValidation.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>fd217d19-d8d0-43e5-a7a2-cd6cf005a28c</ProjectId>
       <CorrelationId>Intent.MediatR.DomainEvents.DomainEventNotification#5a47ecb2-ce53-42f1-9e73-7c42f11296dd</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

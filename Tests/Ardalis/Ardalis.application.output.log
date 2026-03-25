@@ -364,6 +364,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>f91ff7ba-f5a7-4e6f-b0cd-8ff7d2b83a2d</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface#1b95cc2c-ee26-404a-9ae9-cb94a2601763</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Ardalis.Application/Common/Interfaces/IBypassPipelineValidation.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IBypassPipelineValidation.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f91ff7ba-f5a7-4e6f-b0cd-8ff7d2b83a2d</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandInterface#520139d3-1b10-4362-bf85-e43e3094ddc9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Ardalis.Application/Common/Interfaces/ICommand.cs</ApplicationRelativeFilePath>

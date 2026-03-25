@@ -412,6 +412,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>077f46b5-79ac-4178-9413-033ae96b5440</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface#d7446f24-d7cf-4943-b524-7debbfe6f0b7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Application/Common/Interfaces/IBypassPipelineValidation.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IBypassPipelineValidation.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>077f46b5-79ac-4178-9413-033ae96b5440</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandInterface#d4d0fde4-a1eb-460e-96a5-58ed573150fb</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Application/Common/Interfaces/ICommand.cs</ApplicationRelativeFilePath>

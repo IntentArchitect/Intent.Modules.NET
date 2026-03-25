@@ -404,6 +404,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>b85616df-74f8-494b-b7e8-2025baa35cc7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface#0815ac5f-75c3-4f43-be9f-e130c4add84f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Solace.Tests.Application/Common/Interfaces/IBypassPipelineValidation.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IBypassPipelineValidation.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b85616df-74f8-494b-b7e8-2025baa35cc7</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandInterface#da5922f3-057a-4ef3-bb1d-566d92f4ea52</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Application/Common/Interfaces/ICommand.cs</ApplicationRelativeFilePath>

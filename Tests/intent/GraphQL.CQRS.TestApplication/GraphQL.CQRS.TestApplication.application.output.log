@@ -260,6 +260,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>15880045-9622-478e-8ce7-be4085193b8a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface#adba0883-2179-4680-84e9-c7bc83c5c1e2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Application/Common/Interfaces/IBypassPipelineValidation.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IBypassPipelineValidation.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>15880045-9622-478e-8ce7-be4085193b8a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandInterface#09a36be4-e9b2-42d2-834d-8f1c8c8d653c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Application/Common/Interfaces/ICommand.cs</ApplicationRelativeFilePath>

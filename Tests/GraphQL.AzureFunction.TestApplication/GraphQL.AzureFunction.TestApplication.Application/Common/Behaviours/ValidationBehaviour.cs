@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using FluentValidation;
+using GraphQL.AzureFunction.TestApplication.Application.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
@@ -26,6 +27,10 @@ namespace GraphQL.AzureFunction.TestApplication.Application.Common.Behaviours
             RequestHandlerDelegate<TResponse> next,
             CancellationToken cancellationToken)
         {
+            if (request is IBypassPipelineValidation)
+            {
+                return await next();
+            }
             if (_validators.Any())
             {
                 var context = new ValidationContext<TRequest>(request);

@@ -196,6 +196,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>397bdb55-45be-4ff2-b776-003018bdf00b</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface#876bb5ad-f8af-4fbb-95f0-d92cd372f4ca</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CloudBlobStorageClients.Application/Common/Interfaces/IBypassPipelineValidation.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IBypassPipelineValidation.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>397bdb55-45be-4ff2-b776-003018bdf00b</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandInterface#59c0626b-15c3-4018-a72e-8add8d88bba2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CloudBlobStorageClients.Application/Common/Interfaces/ICommand.cs</ApplicationRelativeFilePath>

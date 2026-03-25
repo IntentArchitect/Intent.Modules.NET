@@ -426,6 +426,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>d65e7373-8766-4c43-8616-9e3d149c31ef</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface#58958b5a-3c45-4e72-ae8c-99cddae548dc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCoreMvc.Application/Common/Interfaces/IBypassPipelineValidation.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IBypassPipelineValidation.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d65e7373-8766-4c43-8616-9e3d149c31ef</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandInterface#7044f4a2-b051-4837-b58e-134773145aa9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCoreMvc.Application/Common/Interfaces/ICommand.cs</ApplicationRelativeFilePath>

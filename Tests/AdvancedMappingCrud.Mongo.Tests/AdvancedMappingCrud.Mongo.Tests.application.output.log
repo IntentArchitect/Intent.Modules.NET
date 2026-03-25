@@ -244,6 +244,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>dbb3edee-697f-49f9-983c-7a8ffc38a13c</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface#38ced24b-7cb7-4d50-9021-ebf612b0b906</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Application/Common/Interfaces/IBypassPipelineValidation.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IBypassPipelineValidation.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dbb3edee-697f-49f9-983c-7a8ffc38a13c</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandInterface#4286576f-64ea-4729-b1af-66b2cfe11245</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Application/Common/Interfaces/ICommand.cs</ApplicationRelativeFilePath>

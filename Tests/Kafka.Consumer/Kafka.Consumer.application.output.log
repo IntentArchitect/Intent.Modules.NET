@@ -244,6 +244,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>c5efc1b4-3588-4ff5-aa3d-277b9fb5996e</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface#c53a4249-abb2-45d9-9c78-a66c750c494b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Kafka.Consumer.Application/Common/Interfaces/IBypassPipelineValidation.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IBypassPipelineValidation.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c5efc1b4-3588-4ff5-aa3d-277b9fb5996e</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandInterface#fa52dad9-aaae-42b8-b3c7-208cd35ac9cb</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Kafka.Consumer.Application/Common/Interfaces/ICommand.cs</ApplicationRelativeFilePath>
