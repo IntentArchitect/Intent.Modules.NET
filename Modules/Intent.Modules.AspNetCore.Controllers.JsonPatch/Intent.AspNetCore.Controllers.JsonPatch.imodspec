@@ -72,7 +72,6 @@
   </interoperability>
   <dependencies>
     <dependency id="Intent.Application.DomainInteractions" version="1.2.2-pre.0" />
-    <dependency id="Intent.Modelers.Services.DomainInteractions" version="2.4.1" />
     <dependency id="Intent.AspNetCore" version="6.1.4" />
     <dependency id="Intent.AspNetCore.Controllers" version="7.1.9" />
     <dependency id="Intent.Common" version="3.10.0" />
@@ -81,6 +80,7 @@
     <dependency id="Intent.Metadata.Security" version="1.1.3" />
     <dependency id="Intent.Metadata.WebApi" version="4.7.18" />
     <dependency id="Intent.Modelers.Services" version="4.0.10" />
+    <dependency id="Intent.Modelers.Services.DomainInteractions" version="2.4.1" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
   </dependencies>
   <files>
@@ -89,7 +89,9 @@
   </files>
   <tags>csharp dotnet aspnetcore controller patch json rfc 7396</tags>
   <moduleSettingsExtensions />
-  <metadata />
+  <metadata>
+    <install target="Services" src="modelers/JSON Patch Services Settings.designer.settings" externalReference="a54a31e3-4648-4373-a79a-9e6bc0c6eee5" />
+  </metadata>
   <releaseNotes>release-notes.md</releaseNotes>
   <migrations />
 </package>

@@ -90,6 +90,12 @@ internal class CommandPatchEntityInteractionStrategy : IInteractionStrategy
                 var param = handleMethod.Parameters.First(p => p.Name == "request");
                 return new PayloadInfo("command", param.Type);
             });
+            
+            if (RequiresAggregateExplicitUpdate(entityDetails))
+            {
+                method.AddStatement(entityDetails.DataAccessProvider.Update(entityDetails.VariableName)
+                    .SeparatedFromPrevious());
+            }
 
             method.AddStatements(ExecutionPhases.BusinessLogic,
             [
@@ -127,6 +133,15 @@ internal class CommandPatchEntityInteractionStrategy : IInteractionStrategy
         {
             throw new ElementException(updateAction.InternalAssociationEnd, "An error occurred while generating the JsonPatch update logic", ex);
         }
+    }
+    
+    private static bool RequiresAggregateExplicitUpdate(EntityDetails entityDetails)
+    {
+        if (entityDetails.DataAccessProvider is CompositeDataAccessProvider cda)
+        {
+            return cda.RequiresExplicitUpdate();
+        }
+        return false;
     }
     
     private static bool RepositoryRequiresExplicitUpdate(ICSharpTemplate template, IMetadataModel forEntity)

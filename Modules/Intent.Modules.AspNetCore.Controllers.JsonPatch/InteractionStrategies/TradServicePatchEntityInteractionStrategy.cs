@@ -91,6 +91,12 @@ internal class TradServicePatchEntityInteractionStrategy : IInteractionStrategy
             
             PatchBuilderHelper.EnsurePatchHelperMethods(method, updateAction, foundEntity, _ => new PayloadInfo(param.Name, param.Type));
 
+            if (RequiresAggregateExplicitUpdate(entityDetails))
+            {
+                method.AddStatement(entityDetails.DataAccessProvider.Update(entityDetails.VariableName)
+                    .SeparatedFromPrevious());
+            }
+            
             method.AddStatements(ExecutionPhases.BusinessLogic,
             [
                 new CSharpStatement($"LoadOriginalState({entityDetails.VariableName}, {param.Name})")
@@ -127,6 +133,15 @@ internal class TradServicePatchEntityInteractionStrategy : IInteractionStrategy
         {
             throw new ElementException(updateAction.InternalAssociationEnd, "An error occurred while generating the JsonPatch update logic", ex);
         }
+    }
+    
+    private static bool RequiresAggregateExplicitUpdate(EntityDetails entityDetails)
+    {
+        if (entityDetails.DataAccessProvider is CompositeDataAccessProvider cda)
+        {
+            return cda.RequiresExplicitUpdate();
+        }
+        return false;
     }
     
     private static bool RepositoryRequiresExplicitUpdate(ICSharpTemplate template, IMetadataModel forEntity)

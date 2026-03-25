@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
@@ -101,7 +102,7 @@ namespace Intent.Modules.AspNetCore.Controllers.JsonPatch.Templates.Templates.Js
                 });
             }
         }
-        
+
         private static CSharpLambdaBlock? GetConfigureOpenApiOptionsBlock(CSharpClass @class)
         {
             var configureOpenApiMethod = @class.FindMethod("ConfigureOpenApi");
