@@ -1,3 +1,8 @@
+### Version 1.0.12
+
+- Fixed: Issue where SF would give an exception in certain situations
+- Fixed: Issue where route URL was not generated correctly when containing route parameters
+
 ### Version 1.0.11
 
 - Fixed: `UseStaticFiles` to be called before `UseRouting` in program.cs.

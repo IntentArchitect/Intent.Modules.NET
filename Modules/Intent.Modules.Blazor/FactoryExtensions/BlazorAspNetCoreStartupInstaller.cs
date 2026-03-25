@@ -109,8 +109,8 @@ namespace Intent.Modules.Blazor.FactoryExtensions
                     }
                     else
                     {
-                        statements.FindStatement(m => m.Text.StartsWith("app.UseExceptionHandler"))?.Remove();
-                        var position = statements.FindStatement(m => m.Text.StartsWith("app.UseHttpsRedirection"));
+                        statements.FindStatement(m => m.Text?.StartsWith("app.UseExceptionHandler") ?? false)?.Remove();
+                        var position = statements.FindStatement(m => m.Text?.StartsWith("app.UseHttpsRedirection") ?? false);
                         var ifDevStatement = new CSharpIfStatement("!app.Environment.IsDevelopment()");
                         position.InsertBelow(ifDevStatement, statement =>
                         {
@@ -130,12 +130,12 @@ namespace Intent.Modules.Blazor.FactoryExtensions
                     //This is a hack because in the way Asp.Identity always registers use.Authentication even if there isn't anything configured. That module needs to be fixed
                     if (!application.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Authentication"))
                     {
-                        statements.FindStatement(m => m.Text.StartsWith("app.UseAuthentication"))?.Remove();
-                        statements.FindStatement(m => m.Text.StartsWith("app.UseAuthorization"))?.Remove();
+                        statements.FindStatement(m => m.Text?.StartsWith("app.UseAuthentication") ?? false)?.Remove();
+                        statements.FindStatement(m => m.Text?.StartsWith("app.UseAuthorization") ?? false)?.Remove();
                     }
 
-                    var authStatement = statements.FindStatement(m => m.Text.StartsWith("app.UseAuthorization"));
-                    var routingStatement = statements.FindStatement(m => m.Text.StartsWith("app.UseRouting"));
+                    var authStatement = statements.FindStatement(m => m.Text?.StartsWith("app.UseAuthorization") ?? false);
+                    var routingStatement = statements.FindStatement(m => m.Text?.StartsWith("app.UseRouting") ?? false);
 
                     // static files before routing, otherwise Blazor won't be able to find the _framework files it needs to run
                     routingStatement?.InsertAbove("app.UseStaticFiles();");

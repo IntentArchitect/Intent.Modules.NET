@@ -428,14 +428,9 @@ public static class RazorFileExtensions
                     }
 
                     var route = routeManager.Route;
-                    if (route.Contains("{"))
-                    {
-                        route = $"${route}";
-                    }
-
                     block.InjectServiceProperty("NavigationManager");
                     //template.RazorFile.AddInjectDirective("NavigationManager");
-                    method.AddStatement($"NavigationManager.NavigateTo({MakePathRelative(route)});");
+                    method.AddStatement($"NavigationManager.NavigateTo({(route.Contains('{') ? "$" : "")}{MakePathRelative(route)});");
                 });
             }
         }

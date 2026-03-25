@@ -85,17 +85,17 @@ namespace UI.AI.Samples.Api.Components.Pages.Templates.Pages
             };
         }
 
-        private void AddCustomer()
+        private void NavigateToCustomerAddPage()
         {
             NavigationManager.NavigateTo("templates/pages/customers/add");
         }
 
-        private void EditCustomer(Guid customerId)
+        private void NavigateToCustomerEditPage(Guid customerId)
         {
             NavigationManager.NavigateTo($"templates/pages/customers/edit/{customerId}");
         }
 
-        private void ViewCustomer(Guid customerId)
+        private void NavigateToCustomerViewPage(Guid customerId)
         {
             NavigationManager.NavigateTo($"templates/pages/customers/view/{customerId}");
         }
@@ -103,7 +103,7 @@ namespace UI.AI.Samples.Api.Components.Pages.Templates.Pages
         /// <summary>
         /// This is how we do confirmation dialogs for example for deletes, using DialogService.ShowMessageBox.(IMPORTANT)
         /// </summary>
-        private async void OnDeleteCustomer(Guid customerId)
+        private async Task OnDeleteCustomer(Guid customerId)
         {
             var confirmed = await DialogService.ShowMessageBox(
                 title: "Delete customer",
@@ -117,6 +117,7 @@ namespace UI.AI.Samples.Api.Components.Pages.Templates.Pages
                 await DeleteCustomer(customerId);
                 if (_table is not null)
                     await _table.ReloadServerData();
+                StateHasChanged();
             }
         }
 
