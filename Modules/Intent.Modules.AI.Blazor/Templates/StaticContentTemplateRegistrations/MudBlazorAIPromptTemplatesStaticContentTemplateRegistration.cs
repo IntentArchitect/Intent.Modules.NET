@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Intent.Configuration;
 using Intent.Engine;
 using Intent.Modules.AI.Prompts.Tasks;
@@ -5,7 +6,6 @@ using Intent.Modules.Common.AI.Configuration;
 using Intent.Modules.Common.Templates.StaticContent;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using System.Collections.Generic;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration", Version = "1.0")]
@@ -20,7 +20,7 @@ namespace Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations
 
 
         public new const string TemplateId = "Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.MudBlazorAIPromptTemplatesStaticContentTemplateRegistration";
-    
+
         [IntentMerge]
         public MudBlazorAIPromptTemplatesStaticContentTemplateRegistration(ISolutionConfig solutionConfig, IApplicationConfigurationProvider applicationConfigurationProvider) : base(TemplateId)
         {
