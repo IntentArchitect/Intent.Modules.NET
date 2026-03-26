@@ -292,6 +292,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>6db6c452-7e2d-4536-9597-540edc452ccd</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#93faa844-c17d-4d27-80c5-d8ca924351e7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Class.Init.Application/Defaults/CollectionDefaults.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Defaults/CollectionDefaults.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6db6c452-7e2d-4536-9597-540edc452ccd</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#bec638dc-c798-4dd4-89d6-6766d9926a73</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Class.Init.Application/Defaults/EndDefaults.cs</ApplicationRelativeFilePath>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="93faa844-c17d-4d27-80c5-d8ca924351e7" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+  <name>CollectionDefaults</name>
+  <display>CollectionDefaults</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>cf87eb23-19c4-48af-9aa1-94099fa63440</parentFolderId>
+  <packageId>24958345-ec60-4d20-9c08-de1c4255fc5d</packageId>
+  <packageName>DtoSettings.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="c6fac480-4cde-4405-b415-63ab0ea3d775" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>One</name>
+      <display>One: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="07a8dd2c-28ed-425b-8d97-c8dfe7cd30ca">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>93faa844-c17d-4d27-80c5-d8ca924351e7</parentFolderId>
+      <packageId>24958345-ec60-4d20-9c08-de1c4255fc5d</packageId>
+      <packageName>DtoSettings.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="4fcb070c-1f0e-4b9d-b30d-cd68bff25c1e" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Two</name>
+      <display>Two: string[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="89cac111-7469-4fd0-8885-d0dcb28a549d">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>93faa844-c17d-4d27-80c5-d8ca924351e7</parentFolderId>
+      <packageId>24958345-ec60-4d20-9c08-de1c4255fc5d</packageId>
+      <packageName>DtoSettings.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="4a4d236b-2ee7-4da0-b296-82cda39b94eb" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Three</name>
+      <display>Three: string[*] = []</display>
+      <isAbstract>false</isAbstract>
+      <value>[]</value>
+      <genericTypes />
+      <typeReference id="e8b30a96-64e0-4140-b8af-2e34aca5e20e">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>93faa844-c17d-4d27-80c5-d8ca924351e7</parentFolderId>
+      <packageId>24958345-ec60-4d20-9c08-de1c4255fc5d</packageId>
+      <packageName>DtoSettings.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
