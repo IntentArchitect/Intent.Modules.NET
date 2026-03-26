@@ -89,21 +89,39 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
                                 .Select(x => x.Index)
                                 .LastOrDefault(0);
 
+                            List<string> nulledFields = [];
                             foreach (var field in dtoFields)
                             {
-                                ctor.AddParameter(GetTypeName(field.TypeReference), field.Name.ToParameterName(), param =>
+                                // should the default value be set, based on the position of it as a argument
+                                var setDefaultValue = ShouldSetDefaultValue(lastNonNullable, field);
+                                // set the type
+                                var typeValue = GetTypeReferenceName(field, setDefaultValue);
+
+                                ctor.AddParameter(typeValue, field.Name.ToParameterName(), param =>
                                 {
                                     // only parameters with a value AFTER the last parameter with a value get the value specified
-                                    if (field.InternalElement.Order >= lastNonNullable && !string.IsNullOrEmpty(field.Value))
+                                    if (setDefaultValue)
                                     {
                                         param.WithDefaultValue(field.Value);
+
+                                        // if is a collection, with a default value, set to null instead
+                                        // and store the fieldId
+                                        if (field.TypeReference?.IsCollection ?? false)
+                                        {
+                                            param.WithDefaultValue("null");
+                                            nulledFields.Add(field.Id);
+                                        }
                                     }
                                 });
                             }
 
                             foreach (var field in Model.Fields)
                             {
-                                ctor.AddStatement($"{field.Name.ToPascalCase()} = {field.Name.ToParameterName()};");
+                                var assignmentStatement = !nulledFields.Contains(field.Id) ?
+                                    field.Name.ToParameterName() :
+                                    $"{field.Name.ToParameterName()} ?? {field.Value}";
+
+                                ctor.AddStatement($"{field.Name.ToPascalCase()} = {assignmentStatement};");
                             }
 
                             var inheritedFields = GetInheritedFields(Model);
@@ -139,16 +157,29 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
                                 .Select((p, i) => new { Item = p, Index = i })
                                 .Where(x => string.IsNullOrEmpty(x.Item.Value))
                                 .Select(x => x.Index)
-                                .LastOrDefault(0); 
+                                .LastOrDefault(0);
 
+                            // keeps track of any (collection) fields which have been set to null instead of the default value specified
+                            List<string> nulledFields = [];
                             foreach (var field in dtoFields)
                             {
-                                method.AddParameter(GetTypeName(field.TypeReference), field.Name.ToParameterName(), param =>
+                                bool setDefaultValue = ShouldSetDefaultValue(lastNonNullable, field);
+                                string typeValue = GetTypeReferenceName(field, setDefaultValue);
+
+                                method.AddParameter(typeValue, field.Name.ToParameterName(), param =>
                                 {
                                     // only parameters with a value AFTER the last parameter with a value get the value specified
-                                    if (field.InternalElement.Order >= lastNonNullable && !string.IsNullOrEmpty(field.Value))
+                                    if (setDefaultValue)
                                     {
                                         param.WithDefaultValue(field.Value);
+
+                                        // if is a collection, with a default value, set to null instead
+                                        // and store the fieldId
+                                        if (field.TypeReference?.IsCollection ?? false)
+                                        {
+                                            param.WithDefaultValue("null");
+                                            nulledFields.Add(field.Id);
+                                        }
                                     }
                                 });
                             }
@@ -169,7 +200,11 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
                                 {
                                     foreach (var field in GetFieldsHierarchally(Model))
                                     {
-                                        block.AddInitStatement(field.Name.ToPascalCase(), field.Name.ToParameterName());
+                                        var assignmentStatement = !nulledFields.Contains(field.Id) ?
+                                            new CSharpStatement(field.Name.ToParameterName()) :
+                                            new CSharpStatement($"{field.Name.ToParameterName()} ?? {field.Value}");
+
+                                        block.AddInitStatement(field.Name.ToPascalCase(), assignmentStatement);
                                     }
                                     block.WithSemicolon();
                                 });
@@ -205,6 +240,26 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
                         @class.AddCodeBlock(line);
                 }));
             CSharpFile = csharpFile;
+        }
+
+        private string GetTypeReferenceName(DTOFieldModel field, bool setDefaultValue)
+        {
+            // set the type
+            var typeValue = GetTypeName(field.TypeReference);
+
+            // if we are setting the default value, and the type is a collection, we need to make it nullable in order to set the default value to null
+            if (setDefaultValue && (field.TypeReference?.IsCollection ?? false))
+            {
+                typeValue = $"{GetTypeName(field.TypeReference)}?";
+            }
+
+            return typeValue;
+        }
+
+        private static bool ShouldSetDefaultValue(int lastNonNullable, DTOFieldModel field)
+        {
+            // should the default value be set, based on the position of it as a argument
+            return field.InternalElement.Order >= lastNonNullable && !string.IsNullOrEmpty(field.Value);
         }
 
         private IEnumerable<DTOFieldModel> GetFieldsHierarchally(DTOModel model)

@@ -1,3 +1,7 @@
+### Version 4.5.1
+
+- Fixed: Default values on collection properties will now be set correctly when a `Create` method or constructor is generated.
+
 ### Version 4.5.0
 
 - Improvement: Added support for importing changes from code base to designers.
