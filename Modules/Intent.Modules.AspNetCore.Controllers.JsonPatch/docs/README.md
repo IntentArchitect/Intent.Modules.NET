@@ -11,6 +11,17 @@ Adds [RFC 7396](https://datatracker.ietf.org/doc/html/rfc7396) JSON Merge Patch 
 
 The module integrates merge patching into generated ASP.NET Core Controllers, Commands, DTOs, handlers, and service operations without leaking HTTP transport concerns into domain logic.
 
+## Making an Existing Command / Service Operation a PATCH Endpoint
+
+If you already have a Command or Service Operation and it is not exposed as an HTTP endpoint yet, you can expose it directly as PATCH from the designer:
+
+1. Select the existing Command or Service Operation.
+2. Open the action/context menu.
+3. Choose **Expose as HTTP Endpoint**.
+4. Select **Expose as HTTP Patch Endpoint**.
+
+After this, generation will wire the operation for RFC 7396 merge-patch semantics using the patterns described below.
+
 ## What This Module Does
 
 When enabled, this module:
@@ -34,6 +45,22 @@ Without this module, update mapping behavior in `Intent.Modules.Application.Doma
 ### What Changes with This Module
 
 This module introduces a merge-patch executor pipeline that preserves [RFC 7396](https://datatracker.ietf.org/doc/html/rfc7396) intent from transport all the way through application handling, so omitted and explicit-null behaviors can be distinguished correctly.
+
+## Design Tradeoffs Considered
+
+### Why Not Expose Entities Directly?
+
+Exposing entities directly was considered because it can reduce processing overhead when service layers are kept thin.
+
+The major downside is contract safety: exposing entity graphs publicly can unintentionally expose internal persistence structure and fields that should remain hidden.
+
+This module deliberately avoids that risk by keeping explicit inbound application contracts (Command / DTO) and explicit mapping boundaries.
+
+### Why JSON Merge PATCH + Contract Mapping?
+
+The chosen approach preserves separation between transport contracts, application contracts, and domain models while still supporting omitted-vs-null semantics required by PATCH.
+
+Data flow remains explicit and mapped. No mapper dependency is required in this pattern, although mapper integration could be added in future if it provides value.
 
 ## Generated Artifacts
 
@@ -76,6 +103,23 @@ For generated PATCH update flows, handlers/service operations follow this order:
 5. Save.
 
 This ordering matters because original state is captured before mutation, [RFC 7396](https://datatracker.ietf.org/doc/html/rfc7396) patch intent is applied once to request state, and then mapped entity updates run in a controlled way.
+
+## Why This Pattern Is Structured This Way
+
+- PATCH hydration requires current persisted values to exist before merge semantics can be applied reliably.
+- The handler/service operation is where all required dependencies already exist (data access, state load, apply, save), so the work can be done once.
+- Moving hydration and patch application into middleware/controller orchestration typically introduces duplicate data lookups, orchestration complexity, or cross-layer state handling.
+- Keeping the flow inside the operation avoids those costs and keeps the read-modify-write cycle cohesive.
+
+### Why Apply Patch to the Incoming Command / DTO?
+
+Using the incoming request object for patch application is a pragmatic tradeoff:
+
+- It avoids creating and synchronizing a second intermediate object.
+- It keeps one coherent object through state load, patch apply, validation, and update mapping.
+- It is a small compromise made specifically for PATCH semantics, where some transport concern naturally influences application flow.
+
+The module minimizes this compromise by containing transport-specific behavior behind `IPatchExecutor<T>`.
 
 ### Command / DTO Shape
 
@@ -121,6 +165,7 @@ The same pattern is applied in traditional service operation generation.
 
 - If a validator provider interface is present (for example with FluentValidation integration), validation executes after patch application in `JsonMergePatchExecutor<T>`.
 - For MediatR PATCH commands, generated code bypasses pre-handler pipeline validation so validation runs against the patched shape, not the incomplete pre-patch shape.
+- Pre-handler validation bypass is opt-in and only applied for PATCH command scenarios.
 
 ### Serialization Behavior
 
@@ -165,5 +210,9 @@ Current support is **ASP.NET Core Controllers only**.
 - You need [RFC 7396-compliant](https://datatracker.ietf.org/doc/html/rfc7396) PATCH semantics.
 - Clients must distinguish omitted vs explicitly-null fields.
 - You want transport-aware merge patching without violating Clean Architecture boundaries.
+
+## Feedback and Improvements
+
+If you have suggestions on how to improve this PATCH pattern, contact [support@intentarchitect.com](mailto:support@intentarchitect.com) or create an Issue on the Intent Architect Support repository.
 
 
