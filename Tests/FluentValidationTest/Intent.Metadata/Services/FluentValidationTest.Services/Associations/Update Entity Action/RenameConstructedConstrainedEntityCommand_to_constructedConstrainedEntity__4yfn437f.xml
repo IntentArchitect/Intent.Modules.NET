@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="54249e47-5e92-4d9a-88de-58adc5581e8e">
+  <sourceEnd id="b43eabbd-4f47-4429-b97e-522d9b1bf233" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : DomainMapped.RenameConstructedConstrainedEntityCommand</display>
+    <order>0</order>
+    <typeReference id="4f9a433c-eb9c-4bdb-91ee-c67426a402db">
+      <typeId>55f5b6e4-c86a-48d5-aedb-0e87ccb3cbb7</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>FluentValidationTest.Services</typePackageName>
+      <typePackageId>e1abeceb-9b9b-4095-85d4-f3eb571670f6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="54249e47-5e92-4d9a-88de-58adc5581e8e" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>constructedConstrainedEntity</name>
+    <display>[update] constructedConstrainedEntity: ConstructedConstrainedEntity</display>
+    <order>3</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="69bf4a54-45c8-4f7b-9830-65135589a1ed">
+      <typeId>6e90e5e6-69d8-40bf-8a44-7445a65ec30c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>FluentValidationTest.Domain</typePackageName>
+      <typePackageId>541ca9b0-4650-482d-b21e-fb0d1d89b6d3</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="05b9e9af-b4b0-4123-bf41-20f81b07930b" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="55f5b6e4-c86a-48d5-aedb-0e87ccb3cbb7" location="[FluentValidationTest].[Services].[RenameConstructedConstrainedEntityCommand]" />
+        <target applicationId="05b9e9af-b4b0-4123-bf41-20f81b07930b" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="6e90e5e6-69d8-40bf-8a44-7445a65ec30c" location="[FluentValidationTest].[Services].[ConstructedConstrainedEntity]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="6e90e5e6-69d8-40bf-8a44-7445a65ec30c" name="ConstructedConstrainedEntity" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="7716fe33-7b4b-4e28-93a6-eb9a2671fa6e" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="55f5b6e4-c86a-48d5-aedb-0e87ccb3cbb7" name="RenameConstructedConstrainedEntityCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="7a398a65-ad5b-48d4-b59c-745ad157ba97" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="05b9e9af-b4b0-4123-bf41-20f81b07930b" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="55f5b6e4-c86a-48d5-aedb-0e87ccb3cbb7" location="[FluentValidationTest].[Services].[RenameConstructedConstrainedEntityCommand]" />
+        <target applicationId="05b9e9af-b4b0-4123-bf41-20f81b07930b" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="6e90e5e6-69d8-40bf-8a44-7445a65ec30c" location="[FluentValidationTest].[Services].[ConstructedConstrainedEntity]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{RenameConstructedConstrainedEntityCommand}</expression>
+            <path>
+              <target id="6e90e5e6-69d8-40bf-8a44-7445a65ec30c" name="ConstructedConstrainedEntity" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="c5875481-0292-4558-be9e-e2ea8e14023e" name="Rename" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+            </path>
+            <sources>
+              <source identifier="RenameConstructedConstrainedEntityCommand" mappingType="Invocation Mapping" mappingTypeId="d30bdba1-9c47-4917-b81d-29230fed5d6a">
+                <path>
+                  <target id="55f5b6e4-c86a-48d5-aedb-0e87ccb3cbb7" name="RenameConstructedConstrainedEntityCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{NewTitle}</expression>
+            <path>
+              <target id="6e90e5e6-69d8-40bf-8a44-7445a65ec30c" name="ConstructedConstrainedEntity" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="c5875481-0292-4558-be9e-e2ea8e14023e" name="Rename" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+              <target id="fa9bc313-177f-415e-929e-f85f33573474" name="newTitle" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+            </path>
+            <sources>
+              <source identifier="NewTitle" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="55f5b6e4-c86a-48d5-aedb-0e87ccb3cbb7" name="RenameConstructedConstrainedEntityCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="f3f46560-5505-4875-8f03-94e7a4c0bb1d" name="NewTitle" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{NewCode}</expression>
+            <path>
+              <target id="6e90e5e6-69d8-40bf-8a44-7445a65ec30c" name="ConstructedConstrainedEntity" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="c5875481-0292-4558-be9e-e2ea8e14023e" name="Rename" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+              <target id="15489a7b-b00d-47b4-bb77-6c7c743d1b2e" name="newCode" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+            </path>
+            <sources>
+              <source identifier="NewCode" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="55f5b6e4-c86a-48d5-aedb-0e87ccb3cbb7" name="RenameConstructedConstrainedEntityCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="a3c2374e-6a96-464f-8a68-8aba0aea2f6f" name="NewCode" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="409da4b8-e024-4e36-8947-d6ffe8602713">
+  <sourceEnd id="1121a3f8-7072-4ca1-a116-9f74f6074125" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : DomainMapped.UpdatePatternConstrainedEntityCommand</display>
+    <order>0</order>
+    <typeReference id="75c090d6-b9a2-4372-bd87-3b0d9dc453a4">
+      <typeId>a5f53b24-50c6-4077-9574-81d58d999e35</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>FluentValidationTest.Services</typePackageName>
+      <typePackageId>e1abeceb-9b9b-4095-85d4-f3eb571670f6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="409da4b8-e024-4e36-8947-d6ffe8602713" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>patternConstrainedEntity</name>
+    <display>[update] patternConstrainedEntity: PatternConstrainedEntity</display>
+    <order>6</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="6e072756-800d-4748-a541-2847816c7c89">
+      <typeId>5f757f23-4e37-44eb-9fbe-74d1486d5ab9</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>FluentValidationTest.Domain</typePackageName>
+      <typePackageId>541ca9b0-4650-482d-b21e-fb0d1d89b6d3</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="05b9e9af-b4b0-4123-bf41-20f81b07930b" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="a5f53b24-50c6-4077-9574-81d58d999e35" location="[FluentValidationTest].[Services].[UpdatePatternConstrainedEntityCommand]" />
+        <target applicationId="05b9e9af-b4b0-4123-bf41-20f81b07930b" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="5f757f23-4e37-44eb-9fbe-74d1486d5ab9" location="[FluentValidationTest].[Services].[PatternConstrainedEntity]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="5f757f23-4e37-44eb-9fbe-74d1486d5ab9" name="PatternConstrainedEntity" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="0811e93c-7df9-4f55-91d3-9a4fe53d241c" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="a5f53b24-50c6-4077-9574-81d58d999e35" name="UpdatePatternConstrainedEntityCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="041cf126-2ad0-4e34-9063-1000f4a8df09" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="05b9e9af-b4b0-4123-bf41-20f81b07930b" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="a5f53b24-50c6-4077-9574-81d58d999e35" location="[FluentValidationTest].[Services].[UpdatePatternConstrainedEntityCommand]" />
+        <target applicationId="05b9e9af-b4b0-4123-bf41-20f81b07930b" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="5f757f23-4e37-44eb-9fbe-74d1486d5ab9" location="[FluentValidationTest].[Services].[PatternConstrainedEntity]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{EmailAddress}</expression>
+            <path>
+              <target id="5f757f23-4e37-44eb-9fbe-74d1486d5ab9" name="PatternConstrainedEntity" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="3d00bd9b-a292-4094-96dd-f6311127dce2" name="EmailAddress" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="EmailAddress" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="a5f53b24-50c6-4077-9574-81d58d999e35" name="UpdatePatternConstrainedEntityCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="9a900663-0d0f-47c4-88d0-d1460051e0ad" name="EmailAddress" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{WebsiteUrl}</expression>
+            <path>
+              <target id="5f757f23-4e37-44eb-9fbe-74d1486d5ab9" name="PatternConstrainedEntity" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="c7e3f4bf-82fa-4f38-9fc1-10512622424b" name="WebsiteUrl" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="WebsiteUrl" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="a5f53b24-50c6-4077-9574-81d58d999e35" name="UpdatePatternConstrainedEntityCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="6fd3035d-1519-426f-9e19-ec497172cdf0" name="WebsiteUrl" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Slug}</expression>
+            <path>
+              <target id="5f757f23-4e37-44eb-9fbe-74d1486d5ab9" name="PatternConstrainedEntity" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="236766d0-3254-4620-9372-d009fb728d24" name="Slug" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Slug" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="a5f53b24-50c6-4077-9574-81d58d999e35" name="UpdatePatternConstrainedEntityCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="4566028f-438d-4513-b2db-efd7a2cd81a7" name="Slug" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{ReferenceNumber}</expression>
+            <path>
+              <target id="5f757f23-4e37-44eb-9fbe-74d1486d5ab9" name="PatternConstrainedEntity" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="68a6f28a-1440-4f36-813c-fedcc78a3571" name="ReferenceNumber" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="ReferenceNumber" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="a5f53b24-50c6-4077-9574-81d58d999e35" name="UpdatePatternConstrainedEntityCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="5928f49a-b66f-4bce-ba17-6ae4a564cb43" name="ReferenceNumber" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OptionalPatternText}</expression>
+            <path>
+              <target id="5f757f23-4e37-44eb-9fbe-74d1486d5ab9" name="PatternConstrainedEntity" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="36d6e1d3-63fd-405d-88e4-532e5a6260b2" name="OptionalPatternText" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="OptionalPatternText" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="a5f53b24-50c6-4077-9574-81d58d999e35" name="UpdatePatternConstrainedEntityCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="2bc0b964-8064-40d1-a736-adacf976e5b0" name="OptionalPatternText" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

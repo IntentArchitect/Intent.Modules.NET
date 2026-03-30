@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6e90e5e6-69d8-40bf-8a44-7445a65ec30c" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>ConstructedConstrainedEntity</name>
+  <display>ConstructedConstrainedEntity</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>aa40c70f-4295-4bc9-94e8-1ca593258398</parentFolderId>
+  <packageId>541ca9b0-4650-482d-b21e-fb0d1d89b6d3</packageId>
+  <packageName>FluentValidationTest.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="7716fe33-7b4b-4e28-93a6-eb9a2671fa6e" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id</name>
+      <display>Id: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="63f7d0da-80fa-4b38-b156-23ae7d161a7c">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>6e90e5e6-69d8-40bf-8a44-7445a65ec30c</parentFolderId>
+      <packageId>541ca9b0-4650-482d-b21e-fb0d1d89b6d3</packageId>
+      <packageName>FluentValidationTest.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b99aac21-9ca4-467f-a3a6-046255a9eed6" name="Primary Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="a7a5e921-18b9-43b4-8078-b4ac4e5dae6f" display="Data source" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="93809276-ec9c-4413-aad3-6349fb601b54" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Title</name>
+      <display>Title: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="ef8eb9ed-f338-4d87-9b79-d7b53a6a1e0b">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>6e90e5e6-69d8-40bf-8a44-7445a65ec30c</parentFolderId>
+      <packageId>541ca9b0-4650-482d-b21e-fb0d1d89b6d3</packageId>
+      <packageName>FluentValidationTest.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="6347286E-A637-44D6-A5D7-D9BE5789CA7A" name="Text Constraints">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="1288cfcd-ee51-437e-9713-73b80118f026" display="SQL Data Type" value="DEFAULT" isActive="true" />
+            <property name="A04CC24D-81FB-4EA2-A34A-B3C58E04DCFD" display="MaxLength" isActive="true" />
+            <property name="67EC4CF4-7706-4B39-BC7C-DF539EE2B0AF" display="IsUnicode" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="7c149ebb-5fd4-4de0-8829-e76168c4880d" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Code</name>
+      <display>Code: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="02555011-69b8-4afc-850d-608308224aab">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>6e90e5e6-69d8-40bf-8a44-7445a65ec30c</parentFolderId>
+      <packageId>541ca9b0-4650-482d-b21e-fb0d1d89b6d3</packageId>
+      <packageName>FluentValidationTest.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="6347286E-A637-44D6-A5D7-D9BE5789CA7A" name="Text Constraints">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="1288cfcd-ee51-437e-9713-73b80118f026" display="SQL Data Type" value="DEFAULT" isActive="true" />
+            <property name="A04CC24D-81FB-4EA2-A34A-B3C58E04DCFD" display="MaxLength" isActive="true" />
+            <property name="67EC4CF4-7706-4B39-BC7C-DF539EE2B0AF" display="IsUnicode" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="e0eff4f2-d803-4464-bd3e-f0ee959e6434" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>OptionalComment</name>
+      <display>OptionalComment: string?</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="39cb8c3c-232a-4ed1-a706-02ad68304ec8">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>true</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>6e90e5e6-69d8-40bf-8a44-7445a65ec30c</parentFolderId>
+      <packageId>541ca9b0-4650-482d-b21e-fb0d1d89b6d3</packageId>
+      <packageName>FluentValidationTest.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="6347286E-A637-44D6-A5D7-D9BE5789CA7A" name="Text Constraints">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="1288cfcd-ee51-437e-9713-73b80118f026" display="SQL Data Type" value="DEFAULT" isActive="true" />
+            <property name="A04CC24D-81FB-4EA2-A34A-B3C58E04DCFD" display="MaxLength" isActive="true" />
+            <property name="67EC4CF4-7706-4B39-BC7C-DF539EE2B0AF" display="IsUnicode" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="3e93399d-3345-4faa-9d69-4cafc62444b8" type="Class Constructor" typeId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b">
+      <name>ConstructedConstrainedEntity</name>
+      <display>ConstructedConstrainedEntity(title: string, code: string)</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>6e90e5e6-69d8-40bf-8a44-7445a65ec30c</parentFolderId>
+      <packageId>541ca9b0-4650-482d-b21e-fb0d1d89b6d3</packageId>
+      <packageName>FluentValidationTest.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="48e684b9-fcf1-4483-9ba7-86d15aa7dd8c" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>title</name>
+          <display>in : title: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="acf5e670-9128-4e4f-a98a-d9a914ae07a9">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>3e93399d-3345-4faa-9d69-4cafc62444b8</parentFolderId>
+          <packageId>541ca9b0-4650-482d-b21e-fb0d1d89b6d3</packageId>
+          <packageName>FluentValidationTest.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="e248bae7-5695-4e54-8c25-103770f53d7c" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>code</name>
+          <display>in : code: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="e507178c-8212-44fa-8bbd-27b180dfc6b5">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>3e93399d-3345-4faa-9d69-4cafc62444b8</parentFolderId>
+          <packageId>541ca9b0-4650-482d-b21e-fb0d1d89b6d3</packageId>
+          <packageName>FluentValidationTest.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="c5875481-0292-4558-be9e-e2ea8e14023e" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>Rename</name>
+      <display>Rename(newTitle: string, newCode: string): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="531a6750-9b85-45af-8d8b-f0d07d70e052">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>6e90e5e6-69d8-40bf-8a44-7445a65ec30c</parentFolderId>
+      <packageId>541ca9b0-4650-482d-b21e-fb0d1d89b6d3</packageId>
+      <packageName>FluentValidationTest.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="fa9bc313-177f-415e-929e-f85f33573474" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>newTitle</name>
+          <display>in : newTitle: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="91589938-7d14-47e9-bc9c-1372ce9029c2">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>c5875481-0292-4558-be9e-e2ea8e14023e</parentFolderId>
+          <packageId>541ca9b0-4650-482d-b21e-fb0d1d89b6d3</packageId>
+          <packageName>FluentValidationTest.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="15489a7b-b00d-47b4-bb77-6c7c743d1b2e" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>newCode</name>
+          <display>in : newCode: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="4f802dc5-bc28-4bc2-bf6f-0b0c3d7c693d">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>c5875481-0292-4558-be9e-e2ea8e14023e</parentFolderId>
+          <packageId>541ca9b0-4650-482d-b21e-fb0d1d89b6d3</packageId>
+          <packageName>FluentValidationTest.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

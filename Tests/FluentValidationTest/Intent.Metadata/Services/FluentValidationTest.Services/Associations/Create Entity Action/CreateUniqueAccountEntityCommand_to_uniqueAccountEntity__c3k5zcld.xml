@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="98d7d1a0-7e98-4654-8e18-054442d891db">
+  <sourceEnd id="68a878c4-3996-4df2-a046-b918eff3d606" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
+    <display>created by : DomainMapped.CreateUniqueAccountEntityCommand</display>
+    <order>0</order>
+    <typeReference id="bf70aa7a-5137-49cd-b474-7ead77776d00">
+      <typeId>32d2845d-95f1-4f3c-ba90-f2f7cb91a58c</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>FluentValidationTest.Services</typePackageName>
+      <typePackageId>e1abeceb-9b9b-4095-85d4-f3eb571670f6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="98d7d1a0-7e98-4654-8e18-054442d891db" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
+    <name>uniqueAccountEntity</name>
+    <display>[create] uniqueAccountEntity: UniqueAccountEntity</display>
+    <order>2</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="1ac446b1-1bef-4726-ab82-ec4633ca7e79">
+      <typeId>762f281f-e2fe-4ae7-958c-f4bae33fd07a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>FluentValidationTest.Domain</typePackageName>
+      <typePackageId>541ca9b0-4650-482d-b21e-fb0d1d89b6d3</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Create Entity Mapping" typeId="5f172141-fdba-426b-980e-163e782ff53e">
+        <source applicationId="05b9e9af-b4b0-4123-bf41-20f81b07930b" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="32d2845d-95f1-4f3c-ba90-f2f7cb91a58c" location="[FluentValidationTest].[Services].[CreateUniqueAccountEntityCommand]" />
+        <target applicationId="05b9e9af-b4b0-4123-bf41-20f81b07930b" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="762f281f-e2fe-4ae7-958c-f4bae33fd07a" location="[FluentValidationTest].[Services].[UniqueAccountEntity]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CreateUniqueAccountEntityCommand}</expression>
+            <path>
+              <target id="762f281f-e2fe-4ae7-958c-f4bae33fd07a" name="UniqueAccountEntity" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+            </path>
+            <sources>
+              <source identifier="CreateUniqueAccountEntityCommand" mappingType="Invocation Mapping" mappingTypeId="47dc4a51-30a3-4ee8-8c7d-25a35bb965b9">
+                <path>
+                  <target id="32d2845d-95f1-4f3c-ba90-f2f7cb91a58c" name="CreateUniqueAccountEntityCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Username}</expression>
+            <path>
+              <target id="762f281f-e2fe-4ae7-958c-f4bae33fd07a" name="UniqueAccountEntity" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="a574c7d6-5cc5-4186-b05e-1cfc5d56a5be" name="Username" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Username" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="32d2845d-95f1-4f3c-ba90-f2f7cb91a58c" name="CreateUniqueAccountEntityCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="935e7714-506a-473e-8b0e-9824eb2f7075" name="Username" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Email}</expression>
+            <path>
+              <target id="762f281f-e2fe-4ae7-958c-f4bae33fd07a" name="UniqueAccountEntity" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="b4ffcb4e-edd3-4f53-aff9-81a1537a2e76" name="Email" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Email" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="32d2845d-95f1-4f3c-ba90-f2f7cb91a58c" name="CreateUniqueAccountEntityCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="eef45d81-defb-416b-a3d1-4a5063f9beed" name="Email" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Create Entity Action</associationType>
+  <associationTypeId>7a3f0474-3cf8-4249-baac-8c07c49465e0</associationTypeId>
+  <stereotypes />
+</association>

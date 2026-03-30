@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="cd6c7583-d500-4ecf-b488-6de017530288" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetNumericConstrainedEntityQuery</name>
+  <display>GetNumericConstrainedEntityQuery: SimplePayloadDto</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="374beb77-8aef-40ac-8fa2-2315d151982b">
+    <typeId>56d6c69b-fe25-4fc7-bf56-e992f5a907b2</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>FluentValidationTest.Services</typePackageName>
+    <typePackageId>e1abeceb-9b9b-4095-85d4-f3eb571670f6</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>ca2bb77b-9c56-4acf-a2ea-2ac6ef5a94ea</parentFolderId>
+  <packageId>e1abeceb-9b9b-4095-85d4-f3eb571670f6</packageId>
+  <packageName>FluentValidationTest.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

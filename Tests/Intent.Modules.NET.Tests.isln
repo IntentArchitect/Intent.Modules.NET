@@ -195,8 +195,8 @@
     <application id="1955332e-854d-46d7-ab61-72c14b1da1b8" name="Scalar.NET9.OAuth2Implicit" solutionFolder="Scalar" relativePath="Scalar.NET9.OAuth2Implicit/Scalar.NET9.OAuth2Implicit.application.config" />
     <application id="2fc52b83-de44-46be-9ee0-bfb16405021e" name="Scalar.NET9.Bearer" solutionFolder="Scalar" relativePath="Scalar.NET9.Bearer/Scalar.NET9.Bearer.application.config" />
     <application id="5159fdd6-5f13-4cb5-ac2e-3ccabd837119" name="Scalar.NET10.AuthCode" solutionFolder="Scalar" relativePath="Scalar.NET10.AuthCode/Scalar.NET10.AuthCode.application.config" />
-    <application id="05b9e9af-b4b0-4123-bf41-20f81b07930b" name="FluentValidationTest" relativePath="FluentValidationTest/FluentValidationTest.application.config" />
-    <application id="808c2adc-22e6-445e-82d2-5394f2bb3067" name="FluentValidationTest.Blazor" relativePath="FluentValidationTest.Blazor/FluentValidationTest.Blazor.application.config" />
+    <application id="05b9e9af-b4b0-4123-bf41-20f81b07930b" name="FluentValidationTest" solutionFolder="Validation" relativePath="FluentValidationTest/FluentValidationTest.application.config" />
+    <application id="808c2adc-22e6-445e-82d2-5394f2bb3067" name="FluentValidationTest.Blazor" solutionFolder="Validation" relativePath="FluentValidationTest.Blazor/FluentValidationTest.Blazor.application.config" />
     <application id="4f5687ca-1e59-4826-998d-9c6e907721c8" name="MassTransit.RequestResponse.Client" solutionFolder="Eventing/MassTransit" relativePath="MassTransit.RequestResponse.Client/MassTransit.RequestResponse.Client.application.config" />
     <application id="4e2e78cb-a7d2-4b5c-9653-399737bb308f" name="JsonPatchRfc7396.Swashbuckle" solutionFolder="JsonPatch" relativePath="JsonPatchRfc7396.Swashbuckle/JsonPatchRfc7396.Swashbuckle.application.config" />
     <application id="935d7481-7030-4594-9d73-d00f99484a4e" name="JsonPatchRfc7396.Scalar" solutionFolder="JsonPatch" relativePath="JsonPatchRfc7396.Scalar/JsonPatchRfc7396.Scalar.application.config" />

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="d36b376f-8b09-4ff4-8f53-a3627a72a5b9">
+  <sourceEnd id="665de40e-17b4-4da8-a370-a20c8d7c2dd2" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
+    <display>created by : DomainMapped.CreateConstructedConstrainedEntityCommand</display>
+    <order>0</order>
+    <typeReference id="1ae9cd97-5e36-4f32-b82d-d1f9ff94f474">
+      <typeId>5fa6b045-c8e0-49cb-9ccc-cc34e4ce0e5a</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>FluentValidationTest.Services</typePackageName>
+      <typePackageId>e1abeceb-9b9b-4095-85d4-f3eb571670f6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="d36b376f-8b09-4ff4-8f53-a3627a72a5b9" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
+    <name>constructedConstrainedEntity</name>
+    <display>[create] constructedConstrainedEntity: ConstructedConstrainedEntity</display>
+    <order>3</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="deaab553-703d-40ad-812c-09f3bf4730e8">
+      <typeId>6e90e5e6-69d8-40bf-8a44-7445a65ec30c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>FluentValidationTest.Domain</typePackageName>
+      <typePackageId>541ca9b0-4650-482d-b21e-fb0d1d89b6d3</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Create Entity Mapping" typeId="5f172141-fdba-426b-980e-163e782ff53e">
+        <source applicationId="05b9e9af-b4b0-4123-bf41-20f81b07930b" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="5fa6b045-c8e0-49cb-9ccc-cc34e4ce0e5a" location="[FluentValidationTest].[Services].[CreateConstructedConstrainedEntityCommand]" />
+        <target applicationId="05b9e9af-b4b0-4123-bf41-20f81b07930b" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="6e90e5e6-69d8-40bf-8a44-7445a65ec30c" location="[FluentValidationTest].[Services].[ConstructedConstrainedEntity]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{OptionalComment}</expression>
+            <path>
+              <target id="6e90e5e6-69d8-40bf-8a44-7445a65ec30c" name="ConstructedConstrainedEntity" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="e0eff4f2-d803-4464-bd3e-f0ee959e6434" name="OptionalComment" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="OptionalComment" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="5fa6b045-c8e0-49cb-9ccc-cc34e4ce0e5a" name="CreateConstructedConstrainedEntityCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="b40c13b7-e85b-42fd-8c33-b690ee875566" name="OptionalComment" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{CreateConstructedConstrainedEntityCommand}</expression>
+            <path>
+              <target id="6e90e5e6-69d8-40bf-8a44-7445a65ec30c" name="ConstructedConstrainedEntity" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="3e93399d-3345-4faa-9d69-4cafc62444b8" name="ConstructedConstrainedEntity" type="element" specialization="Class Constructor" specializationId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b" />
+            </path>
+            <sources>
+              <source identifier="CreateConstructedConstrainedEntityCommand" mappingType="Invocation Mapping" mappingTypeId="47dc4a51-30a3-4ee8-8c7d-25a35bb965b9">
+                <path>
+                  <target id="5fa6b045-c8e0-49cb-9ccc-cc34e4ce0e5a" name="CreateConstructedConstrainedEntityCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Title}</expression>
+            <path>
+              <target id="6e90e5e6-69d8-40bf-8a44-7445a65ec30c" name="ConstructedConstrainedEntity" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="3e93399d-3345-4faa-9d69-4cafc62444b8" name="ConstructedConstrainedEntity" type="element" specialization="Class Constructor" specializationId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b" />
+              <target id="48e684b9-fcf1-4483-9ba7-86d15aa7dd8c" name="title" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+            </path>
+            <sources>
+              <source identifier="Title" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="5fa6b045-c8e0-49cb-9ccc-cc34e4ce0e5a" name="CreateConstructedConstrainedEntityCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="1a44c5ab-2fdb-40bc-8781-9ef94aa23292" name="Title" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Code}</expression>
+            <path>
+              <target id="6e90e5e6-69d8-40bf-8a44-7445a65ec30c" name="ConstructedConstrainedEntity" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="3e93399d-3345-4faa-9d69-4cafc62444b8" name="ConstructedConstrainedEntity" type="element" specialization="Class Constructor" specializationId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b" />
+              <target id="e248bae7-5695-4e54-8c25-103770f53d7c" name="code" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+            </path>
+            <sources>
+              <source identifier="Code" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="5fa6b045-c8e0-49cb-9ccc-cc34e4ce0e5a" name="CreateConstructedConstrainedEntityCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="c2ed76c2-a214-4d70-b1ec-17f70ecf551e" name="Code" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Create Entity Action</associationType>
+  <associationTypeId>7a3f0474-3cf8-4249-baac-8c07c49465e0</associationTypeId>
+  <stereotypes />
+</association>

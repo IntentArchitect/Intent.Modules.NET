@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="d7f43b73-30a1-4532-9ecd-9300e93f904d">
+  <sourceEnd id="1d26ab45-6e57-4da9-9882-0ebcacb9065e" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : DomainMapped.UpdateUniquePersonEntityCommand</display>
+    <order>0</order>
+    <typeReference id="d42074c8-3a10-4a2e-a444-5334a00e31f6">
+      <typeId>4a7a1aca-ab71-4e47-a1ce-912f5f3509d2</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>FluentValidationTest.Services</typePackageName>
+      <typePackageId>e1abeceb-9b9b-4095-85d4-f3eb571670f6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="d7f43b73-30a1-4532-9ecd-9300e93f904d" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>uniquePersonEntity</name>
+    <display>[update] uniquePersonEntity: UniquePersonEntity</display>
+    <order>4</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="cadc353a-fe75-439b-a39e-dc48bf597aaa">
+      <typeId>045da139-4180-42aa-a779-ed795e306887</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>FluentValidationTest.Domain</typePackageName>
+      <typePackageId>541ca9b0-4650-482d-b21e-fb0d1d89b6d3</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="05b9e9af-b4b0-4123-bf41-20f81b07930b" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="4a7a1aca-ab71-4e47-a1ce-912f5f3509d2" location="[FluentValidationTest].[Services].[UpdateUniquePersonEntityCommand]" />
+        <target applicationId="05b9e9af-b4b0-4123-bf41-20f81b07930b" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="045da139-4180-42aa-a779-ed795e306887" location="[FluentValidationTest].[Services].[UniquePersonEntity]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="045da139-4180-42aa-a779-ed795e306887" name="UniquePersonEntity" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="3587db47-5b9c-4aa4-8033-599fcd614dd6" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="4a7a1aca-ab71-4e47-a1ce-912f5f3509d2" name="UpdateUniquePersonEntityCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="3378137d-228a-4b8f-9a5a-41582ea2f66f" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="05b9e9af-b4b0-4123-bf41-20f81b07930b" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="4a7a1aca-ab71-4e47-a1ce-912f5f3509d2" location="[FluentValidationTest].[Services].[UpdateUniquePersonEntityCommand]" />
+        <target applicationId="05b9e9af-b4b0-4123-bf41-20f81b07930b" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="045da139-4180-42aa-a779-ed795e306887" location="[FluentValidationTest].[Services].[UniquePersonEntity]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{FirstName}</expression>
+            <path>
+              <target id="045da139-4180-42aa-a779-ed795e306887" name="UniquePersonEntity" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="6748b76f-16aa-4b9d-b2cc-4af515316296" name="FirstName" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="FirstName" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="4a7a1aca-ab71-4e47-a1ce-912f5f3509d2" name="UpdateUniquePersonEntityCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="4190bc99-a7b2-45d7-ab46-3f43c72b2e3f" name="FirstName" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{LastName}</expression>
+            <path>
+              <target id="045da139-4180-42aa-a779-ed795e306887" name="UniquePersonEntity" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="8d1ba908-8e7e-448e-9c17-fffe1b2d56e0" name="LastName" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="LastName" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="4a7a1aca-ab71-4e47-a1ce-912f5f3509d2" name="UpdateUniquePersonEntityCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="c126302b-4aca-4c11-8c89-6a1ec5d8e70a" name="LastName" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{ContactNumber}</expression>
+            <path>
+              <target id="045da139-4180-42aa-a779-ed795e306887" name="UniquePersonEntity" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="3963d9e4-aaba-4e01-a1a2-080525f2ecec" name="ContactNumber" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="ContactNumber" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="4a7a1aca-ab71-4e47-a1ce-912f5f3509d2" name="UpdateUniquePersonEntityCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="747bb2df-1fd0-4faa-bcb2-e6492ec03f9e" name="ContactNumber" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

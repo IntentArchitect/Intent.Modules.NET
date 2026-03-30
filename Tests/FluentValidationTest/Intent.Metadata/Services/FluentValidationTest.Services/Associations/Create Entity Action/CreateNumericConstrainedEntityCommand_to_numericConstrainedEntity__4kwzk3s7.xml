@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="c88d3b42-170c-4a3d-a3e4-578a42ca3af1">
+  <sourceEnd id="6611d615-90c3-4ae2-81cd-4bf5f11f1b5c" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
+    <display>created by : DomainMapped.CreateNumericConstrainedEntityCommand</display>
+    <order>0</order>
+    <typeReference id="0cabf303-ac11-449c-83f4-8c87e65b3486">
+      <typeId>9a18ef5f-5b11-4b85-a5c2-207cbd7a19fc</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>FluentValidationTest.Services</typePackageName>
+      <typePackageId>e1abeceb-9b9b-4095-85d4-f3eb571670f6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="c88d3b42-170c-4a3d-a3e4-578a42ca3af1" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
+    <name>numericConstrainedEntity</name>
+    <display>[create] numericConstrainedEntity: NumericConstrainedEntity</display>
+    <order>5</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="5b37e320-9604-4515-b2ea-a17ca40b284a">
+      <typeId>17743299-39fa-4f3e-901e-38aae4aeb7d4</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>FluentValidationTest.Domain</typePackageName>
+      <typePackageId>541ca9b0-4650-482d-b21e-fb0d1d89b6d3</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Create Entity Mapping" typeId="5f172141-fdba-426b-980e-163e782ff53e">
+        <source applicationId="05b9e9af-b4b0-4123-bf41-20f81b07930b" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="9a18ef5f-5b11-4b85-a5c2-207cbd7a19fc" location="[FluentValidationTest].[Services].[CreateNumericConstrainedEntityCommand]" />
+        <target applicationId="05b9e9af-b4b0-4123-bf41-20f81b07930b" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="17743299-39fa-4f3e-901e-38aae4aeb7d4" location="[FluentValidationTest].[Services].[NumericConstrainedEntity]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CreateNumericConstrainedEntityCommand}</expression>
+            <path>
+              <target id="17743299-39fa-4f3e-901e-38aae4aeb7d4" name="NumericConstrainedEntity" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+            </path>
+            <sources>
+              <source identifier="CreateNumericConstrainedEntityCommand" mappingType="Invocation Mapping" mappingTypeId="47dc4a51-30a3-4ee8-8c7d-25a35bb965b9">
+                <path>
+                  <target id="9a18ef5f-5b11-4b85-a5c2-207cbd7a19fc" name="CreateNumericConstrainedEntityCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Age}</expression>
+            <path>
+              <target id="17743299-39fa-4f3e-901e-38aae4aeb7d4" name="NumericConstrainedEntity" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="1be0c5d3-dc77-4ec1-8fc1-5e4c0f5f11ee" name="Age" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Age" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="9a18ef5f-5b11-4b85-a5c2-207cbd7a19fc" name="CreateNumericConstrainedEntityCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="049fb74c-a353-4544-b2c5-ecba0cb09bb6" name="Age" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Percentage}</expression>
+            <path>
+              <target id="17743299-39fa-4f3e-901e-38aae4aeb7d4" name="NumericConstrainedEntity" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="9e5ee697-a976-4940-bd7c-3f697d4d0ede" name="Percentage" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Percentage" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="9a18ef5f-5b11-4b85-a5c2-207cbd7a19fc" name="CreateNumericConstrainedEntityCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="6c35d275-b003-4f1d-8b6d-f6f34edbe45b" name="Percentage" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Score}</expression>
+            <path>
+              <target id="17743299-39fa-4f3e-901e-38aae4aeb7d4" name="NumericConstrainedEntity" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="1d616a7e-30e9-4a2e-ae18-5eca42ca29b6" name="Score" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Score" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="9a18ef5f-5b11-4b85-a5c2-207cbd7a19fc" name="CreateNumericConstrainedEntityCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="222bb5cf-8edf-4cac-8c50-6ca85765c015" name="Score" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Price}</expression>
+            <path>
+              <target id="17743299-39fa-4f3e-901e-38aae4aeb7d4" name="NumericConstrainedEntity" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="1bcf365f-69ac-4e02-976a-7f138e99ab38" name="Price" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Price" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="9a18ef5f-5b11-4b85-a5c2-207cbd7a19fc" name="CreateNumericConstrainedEntityCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="d8c2d418-2cdd-47fd-ac24-01dec033f035" name="Price" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OptionalThreshold}</expression>
+            <path>
+              <target id="17743299-39fa-4f3e-901e-38aae4aeb7d4" name="NumericConstrainedEntity" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="f4906f5f-eacf-4584-85e4-43823f1a63e9" name="OptionalThreshold" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="OptionalThreshold" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="9a18ef5f-5b11-4b85-a5c2-207cbd7a19fc" name="CreateNumericConstrainedEntityCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="9371f992-cb91-444c-9dd5-d42950989574" name="OptionalThreshold" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Create Entity Action</associationType>
+  <associationTypeId>7a3f0474-3cf8-4249-baac-8c07c49465e0</associationTypeId>
+  <stereotypes />
+</association>

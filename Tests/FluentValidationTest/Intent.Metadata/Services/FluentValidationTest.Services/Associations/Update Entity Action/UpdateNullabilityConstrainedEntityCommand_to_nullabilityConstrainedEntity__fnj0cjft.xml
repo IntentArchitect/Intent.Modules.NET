@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="20c6acc5-9a46-4420-aa58-64dde1cceca0">
+  <sourceEnd id="9877c07d-1565-4c0e-b9bc-e030855e478d" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : DomainMapped.UpdateNullabilityConstrainedEntityCommand</display>
+    <order>0</order>
+    <typeReference id="c0cf2c06-4557-484a-aa57-bf86e8caf400">
+      <typeId>dea33463-482e-4289-95b9-00cbded5f218</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>FluentValidationTest.Services</typePackageName>
+      <typePackageId>e1abeceb-9b9b-4095-85d4-f3eb571670f6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="20c6acc5-9a46-4420-aa58-64dde1cceca0" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>nullabilityConstrainedEntity</name>
+    <display>[update] nullabilityConstrainedEntity: NullabilityConstrainedEntity</display>
+    <order>9</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="7d009fb5-d6b5-4f1e-9e2d-c9d457d0f169">
+      <typeId>63879780-9072-4dcf-adf8-37ed57adeb45</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>FluentValidationTest.Domain</typePackageName>
+      <typePackageId>541ca9b0-4650-482d-b21e-fb0d1d89b6d3</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="05b9e9af-b4b0-4123-bf41-20f81b07930b" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="dea33463-482e-4289-95b9-00cbded5f218" location="[FluentValidationTest].[Services].[UpdateNullabilityConstrainedEntityCommand]" />
+        <target applicationId="05b9e9af-b4b0-4123-bf41-20f81b07930b" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="63879780-9072-4dcf-adf8-37ed57adeb45" location="[FluentValidationTest].[Services].[NullabilityConstrainedEntity]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="63879780-9072-4dcf-adf8-37ed57adeb45" name="NullabilityConstrainedEntity" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="5310754a-c7a8-4d26-9b80-927a31ea0a14" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="dea33463-482e-4289-95b9-00cbded5f218" name="UpdateNullabilityConstrainedEntityCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="af776d69-d5b6-40ae-ada8-f30455179af7" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="05b9e9af-b4b0-4123-bf41-20f81b07930b" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="dea33463-482e-4289-95b9-00cbded5f218" location="[FluentValidationTest].[Services].[UpdateNullabilityConstrainedEntityCommand]" />
+        <target applicationId="05b9e9af-b4b0-4123-bf41-20f81b07930b" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="63879780-9072-4dcf-adf8-37ed57adeb45" location="[FluentValidationTest].[Services].[NullabilityConstrainedEntity]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{RequiredString}</expression>
+            <path>
+              <target id="63879780-9072-4dcf-adf8-37ed57adeb45" name="NullabilityConstrainedEntity" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="c9b716cc-f5ac-4901-8b0b-43fc9037333b" name="RequiredString" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="RequiredString" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="dea33463-482e-4289-95b9-00cbded5f218" name="UpdateNullabilityConstrainedEntityCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="2f99771c-ae18-4224-b5c7-6ad4eded0a88" name="RequiredString" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OptionalString}</expression>
+            <path>
+              <target id="63879780-9072-4dcf-adf8-37ed57adeb45" name="NullabilityConstrainedEntity" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="2f04c205-4a32-4e76-ab85-45304dd2fb2b" name="OptionalString" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="OptionalString" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="dea33463-482e-4289-95b9-00cbded5f218" name="UpdateNullabilityConstrainedEntityCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="d877b1a2-8342-4fdc-b8b5-6ec506c7a513" name="OptionalString" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{RequiredInt}</expression>
+            <path>
+              <target id="63879780-9072-4dcf-adf8-37ed57adeb45" name="NullabilityConstrainedEntity" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="a8de8013-8b37-4f35-96b6-cf02b798287e" name="RequiredInt" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="RequiredInt" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="dea33463-482e-4289-95b9-00cbded5f218" name="UpdateNullabilityConstrainedEntityCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="e0497a2f-5dbe-405c-bcab-a919faca2a26" name="RequiredInt" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OptionalInt}</expression>
+            <path>
+              <target id="63879780-9072-4dcf-adf8-37ed57adeb45" name="NullabilityConstrainedEntity" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="a660c9a0-cd0a-4fe4-9b29-6c6706f965d4" name="OptionalInt" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="OptionalInt" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="dea33463-482e-4289-95b9-00cbded5f218" name="UpdateNullabilityConstrainedEntityCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="96e30306-086e-442f-9783-0969396ec882" name="OptionalInt" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{RequiredGuidValue}</expression>
+            <path>
+              <target id="63879780-9072-4dcf-adf8-37ed57adeb45" name="NullabilityConstrainedEntity" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="04138137-2cd0-47c8-b493-bb1764fab741" name="RequiredGuidValue" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="RequiredGuidValue" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="dea33463-482e-4289-95b9-00cbded5f218" name="UpdateNullabilityConstrainedEntityCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="d7f6f7bd-00ec-41fa-a425-2e77031445a6" name="RequiredGuidValue" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OptionalGuidValue}</expression>
+            <path>
+              <target id="63879780-9072-4dcf-adf8-37ed57adeb45" name="NullabilityConstrainedEntity" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="e3dc0451-55d9-456e-87d6-f7bc0026cb8b" name="OptionalGuidValue" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="OptionalGuidValue" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="dea33463-482e-4289-95b9-00cbded5f218" name="UpdateNullabilityConstrainedEntityCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="a4739ab3-f7f0-4cd5-88c4-5db9ecc3088c" name="OptionalGuidValue" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{RequiredDateValue}</expression>
+            <path>
+              <target id="63879780-9072-4dcf-adf8-37ed57adeb45" name="NullabilityConstrainedEntity" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="41dbe15e-62da-46c4-9863-2dc4b6d50460" name="RequiredDateValue" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="RequiredDateValue" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="dea33463-482e-4289-95b9-00cbded5f218" name="UpdateNullabilityConstrainedEntityCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="6875cd32-ffc9-4d3c-b6fb-5c4533bab49c" name="RequiredDateValue" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OptionalDateValue}</expression>
+            <path>
+              <target id="63879780-9072-4dcf-adf8-37ed57adeb45" name="NullabilityConstrainedEntity" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="0ffb6b50-a8f9-42ab-aa18-d5c384309260" name="OptionalDateValue" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="OptionalDateValue" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="dea33463-482e-4289-95b9-00cbded5f218" name="UpdateNullabilityConstrainedEntityCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="c88a9fb7-5e24-4ce9-80bf-3875ab79800b" name="OptionalDateValue" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>
