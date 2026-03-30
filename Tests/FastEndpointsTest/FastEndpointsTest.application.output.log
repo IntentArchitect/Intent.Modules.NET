@@ -26,14 +26,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>97a87b85-ecbc-4809-a20e-ee7da15b0076</ProjectId>
-      <CorrelationId>Intent.FastEndpoints.ApiVersionSwaggerGenOptions#1dbb475e-db5f-4d91-bfa5-ce92be40b5e5</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>FastEndpointsTest.Api/Configuration/ApiVersionSwaggerGenOptions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ApiVersionSwaggerGenOptions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>97a87b85-ecbc-4809-a20e-ee7da15b0076</ProjectId>
       <CorrelationId>Intent.Application.Identity.ApplicationSecurityConfiguration#77c1dbd5-bacb-4ba5-9e73-0523b43ecdea</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>FastEndpointsTest.Api/Configuration/ApplicationSecurityConfiguration.cs</ApplicationRelativeFilePath>
@@ -50,18 +42,18 @@
     </FileLog>
     <FileLog>
       <ProjectId>97a87b85-ecbc-4809-a20e-ee7da15b0076</ProjectId>
-      <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration#85676ca7-3366-4183-8655-d634aa4c6bf7</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Scalar.OpenApiConfiguration#d07e6bf6-b184-48ae-99d4-301464188bae</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>FastEndpointsTest.Api/Configuration/ProblemDetailsConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ProblemDetailsConfiguration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>FastEndpointsTest.Api/Configuration/OpenApiConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OpenApiConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>97a87b85-ecbc-4809-a20e-ee7da15b0076</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration#a34eed1b-c039-4f2f-a59b-3f9ae8af53d9</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration#85676ca7-3366-4183-8655-d634aa4c6bf7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>FastEndpointsTest.Api/Configuration/SwashbuckleConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SwashbuckleConfiguration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>FastEndpointsTest.Api/Configuration/ProblemDetailsConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProblemDetailsConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -626,26 +618,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>e020d34a-05ba-481f-b10c-dc9b4ac78e5e</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter#4bea2c71-3dff-4b76-8045-84c760655e2a</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Scalar.HideRouteParametersFromBodyOperationTransformer#8f284b64-4d11-4b49-ae7d-a3bc6125510e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>FastEndpointsTest.Api/Filters/AuthorizeCheckOperationFilter.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AuthorizeCheckOperationFilter.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>e020d34a-05ba-481f-b10c-dc9b4ac78e5e</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter#92f2147c-eac0-44d5-88f0-1f22a05adf7b</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>FastEndpointsTest.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>HideRouteParametersFromBodyOperationFilter.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>e020d34a-05ba-481f-b10c-dc9b4ac78e5e</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter#bc3d3b14-c08c-4d83-927e-95f6f05cfb86</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>FastEndpointsTest.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>TypeSchemaFilter.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>FastEndpointsTest.Api/Filters/HideRouteParametersFromBodyOperationTransformer.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HideRouteParametersFromBodyOperationTransformer.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

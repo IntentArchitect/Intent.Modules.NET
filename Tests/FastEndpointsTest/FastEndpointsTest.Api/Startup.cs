@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FastEndpoints;
-using FastEndpoints.ApiExplorer;
-using FastEndpoints.Swagger.Swashbuckle;
 using FastEndpointsTest.Api.Configuration;
 using FastEndpointsTest.Api.FastEndpoints;
 using FastEndpointsTest.Application;
@@ -17,6 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Scalar.AspNetCore;
 using Serilog;
 using Mode = Intent.RoslynWeaver.Attributes.Mode;
 
@@ -47,8 +46,7 @@ namespace FastEndpointsTest.Api
             {
                 opt.Assemblies = [typeof(Program).Assembly];
             });
-            services.AddFastEndpointsApiExplorer();
-            services.ConfigureSwagger(Configuration);
+            services.ConfigureOpenApi();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -66,13 +64,14 @@ namespace FastEndpointsTest.Api
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapScalarApiReference();
+                endpoints.MapOpenApi();
                 endpoints.MapDefaultHealthChecks();
                 endpoints.MapFastEndpoints(c => c.Endpoints.Configurator = ep =>
                 {
                     ep.PostProcessors(0, new ExceptionProcessor());
                 });
             });
-            app.UseSwashbuckle(Configuration);
         }
     }
 }

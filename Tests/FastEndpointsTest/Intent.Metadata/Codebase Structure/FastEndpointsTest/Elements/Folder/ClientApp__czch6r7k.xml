@@ -22,7 +22,7 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="f22d4399-1532-40d0-9bd3-5e8de5b0e78e" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+    <childElement id="f22d4399-1532-40d0-9bd3-5e8de5b0e78e" type="Output Anchor" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
       <name>Front End</name>
       <display>Front End</display>
       <externalReference>164d4bd8-c4f0-4ca1-baa1-2549cc348c20</externalReference>
@@ -32,7 +32,16 @@
       <parentFolderId>4d0456ad-7f8f-43fd-a88e-c59f33366688</parentFolderId>
       <packageId>ae7e9cce-5d79-48b9-94ed-b23e7b14311e</packageId>
       <packageName>FastEndpointsTest</packageName>
-      <stereotypes />
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="a23c7901-31a5-4cbf-b8bf-1be128977e6d" name="Output Anchor Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="8d79a350-96f1-4d50-bb0a-f65a5c53ec62" display="Create Sub-Folders" value="true" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata />
       <childElements />
     </childElement>

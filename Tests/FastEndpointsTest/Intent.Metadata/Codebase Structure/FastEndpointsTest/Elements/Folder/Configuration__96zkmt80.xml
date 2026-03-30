@@ -31,7 +31,17 @@
       <parentFolderId>97a87b85-ecbc-4809-a20e-ee7da15b0076</parentFolderId>
       <packageId>ae7e9cce-5d79-48b9-94ed-b23e7b14311e</packageId>
       <packageName>FastEndpointsTest</packageName>
-      <stereotypes />
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
@@ -47,7 +57,17 @@
       <parentFolderId>97a87b85-ecbc-4809-a20e-ee7da15b0076</parentFolderId>
       <packageId>ae7e9cce-5d79-48b9-94ed-b23e7b14311e</packageId>
       <packageName>FastEndpointsTest</packageName>
-      <stereotypes />
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
@@ -63,23 +83,43 @@
       <parentFolderId>97a87b85-ecbc-4809-a20e-ee7da15b0076</parentFolderId>
       <packageId>ae7e9cce-5d79-48b9-94ed-b23e7b14311e</packageId>
       <packageName>FastEndpointsTest</packageName>
-      <stereotypes />
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="a34eed1b-c039-4f2f-a59b-3f9ae8af53d9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration</name>
-      <display>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration</display>
-      <externalReference>Intent.AspNetCore.Swashbuckle</externalReference>
+    <childElement id="d07e6bf6-b184-48ae-99d4-301464188bae" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Scalar.OpenApiConfiguration</name>
+      <display>Intent.AspNetCore.Scalar.OpenApiConfiguration</display>
+      <externalReference>Intent.AspNetCore.Scalar</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>97a87b85-ecbc-4809-a20e-ee7da15b0076</parentFolderId>
       <packageId>ae7e9cce-5d79-48b9-94ed-b23e7b14311e</packageId>
       <packageName>FastEndpointsTest</packageName>
-      <stereotypes />
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
@@ -95,7 +135,17 @@
       <parentFolderId>97a87b85-ecbc-4809-a20e-ee7da15b0076</parentFolderId>
       <packageId>ae7e9cce-5d79-48b9-94ed-b23e7b14311e</packageId>
       <packageName>FastEndpointsTest</packageName>
-      <stereotypes />
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
@@ -111,7 +161,17 @@
       <parentFolderId>97a87b85-ecbc-4809-a20e-ee7da15b0076</parentFolderId>
       <packageId>ae7e9cce-5d79-48b9-94ed-b23e7b14311e</packageId>
       <packageName>FastEndpointsTest</packageName>
-      <stereotypes />
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>

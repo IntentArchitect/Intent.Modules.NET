@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <NoWarn>$(NoWarn);1591</NoWarn>
     <Nullable>enable</Nullable>
@@ -23,4 +23,5 @@
     <PackageReference Include="Microsoft.Extensions.Logging" Version="10.0.2" />
     <PackageReference Include="System.Linq.Dynamic.Core" Version="1.6.0" />
   </ItemGroup>
-  </Project>
+
+</Project>
