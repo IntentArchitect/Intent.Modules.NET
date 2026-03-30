@@ -1,5 +1,8 @@
+using System;
 using System.Linq;
 using Intent.Engine;
+using Intent.Exceptions;
+using Intent.IArchitect.Common.Exceptions;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
@@ -9,6 +12,7 @@ using Intent.Modules.Constants;
 using Intent.Modules.FastEndpoints.Templates;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
+using FriendlyException = Intent.Exceptions.FriendlyException;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -26,10 +30,14 @@ namespace Intent.Modules.FastEndpoints.FactoryExtensions
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
             var startupTemplate = application.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
-
             var programTemplate = application.FindTemplateInstance<IProgramTemplate>(TemplateRoles.Distribution.WebApi.Program);
 
             startupTemplate.AddUsing("Mode = Intent.RoslynWeaver.Attributes.Mode");
+
+            if (HasIncompatibleSwashbuckleInstalled(startupTemplate))
+            {
+                throw new FriendlyException("FastEndpoints is incompatible with `Intent.Swashbuckle.AspNetCore` v6+ and `Intent.AspNetCore.Swashbuckle.Security` v5+. Please revert to a compatible Swashbuckle module versions, or switch to an alternative OpenAPI documentation module such as `Intent.AspNetCore.Scalar`.");
+            }
 
             startupTemplate?.CSharpFile.OnBuild(_ =>
             {
@@ -71,5 +79,30 @@ namespace Intent.Modules.FastEndpoints.FactoryExtensions
         {
             return template.ExecutionContext.FindTemplateInstances("Distribution.SwashbuckleConfiguration")?.Any() == true;
         }
+
+        private static bool HasIncompatibleSwashbuckleInstalled(ICSharpTemplate template)
+        {
+            return template.ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.Swashbuckle.AspNetCore"
+                && GetMajorVersion(m.Version) >= 6) ||
+                template.ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.AspNetCore.Swashbuckle.Security"
+                && GetMajorVersion(m.Version) >= 5);
+        }
+
+        private static int GetMajorVersion(string version)
+        {
+            if (string.IsNullOrWhiteSpace(version))
+            {
+                return 0;
+            }
+
+            var parts = version.Split('.');
+            if (parts.Length > 0 && int.TryParse(parts[0], out var majorVersion))
+            {
+                return majorVersion;
+            }
+
+            return 0;
+        }
     }
+
 }

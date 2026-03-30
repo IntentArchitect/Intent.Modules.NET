@@ -1,3 +1,8 @@
+### Version 1.2.0
+
+- Improvement: Additional checks added to ensure compatibile Intent Swashbuckle module used.
+- Fixed: Swagger generation file not output when SwashBuckle module not installed
+
 ### Version 1.1.1
 
 - Fixed: When DTOs were set to `record` it would fail to run in SF.

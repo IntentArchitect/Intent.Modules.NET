@@ -1,3 +1,7 @@
+### Version 1.0.8
+
+- Improvement: Updated reference modules
+
 ### Version 1.0.7
 
 - Improvement: Prevent `CancellationToken` automatically applied with `Asyncronous` stereotype applied with `No Cancellation Token` set to true.
