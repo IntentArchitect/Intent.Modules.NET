@@ -102,7 +102,7 @@
     </detect>
     <detect id="Intent.Application.MediatR.FluentValidation">
       <install>
-        <package id="Intent.Application.MediatR.FluentValidation" version="4.9.7" />
+        <package id="Intent.Application.MediatR.FluentValidation" version="4.10.0-pre.3" />
       </install>
     </detect>
     <detect id="Intent.MediatR.DomainEvents">

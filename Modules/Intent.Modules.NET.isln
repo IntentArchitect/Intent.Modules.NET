@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="4.1.20" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="4.1.21" />
   <applications>
     <application id="ad79943a-b771-42b0-9563-9e01f7ea2dbc" name="VisualStudio.Projects" solutionFolder="Developer Tooling" relativePath="Intent.Modules.VisualStudio.Projects\VisualStudio.Projects.application.config" />
     <application id="b6fc9928-d295-416f-a408-a1730334a2e9" name="Intent.Modules.Application.Contracts" solutionFolder="Application" relativePath="Intent.Modules.Application.Contracts\Intent.Modules.Application.Contracts.application.config" />

@@ -31,7 +31,7 @@ internal static class ValidationRulesExtensions
     {
         var indexFields = GetUniqueConstraintFields(dtoModel, sourceElementAdvancedMappings, uniqueConstraintValidationEnabled);
 
-        return GetValidationRulesStatements<object>(
+        var hasNativeValidationRules = GetValidationRulesStatements<object>(
             template: null,
             dtoModel: dtoModel,
             dtoTemplateId: dtoTemplateId,
@@ -39,6 +39,13 @@ internal static class ValidationRulesExtensions
             indexFields: indexFields,
             customValidationEnabled: customValidationEnabled,
             sourceElementAdvancedMappings: sourceElementAdvancedMappings).Any();
+
+        if (hasNativeValidationRules)
+        {
+            return true;
+        }
+
+        return HasDomainConstraintRules(dtoModel, sourceElementAdvancedMappings);
     }
 
     public static void ConfigureForValidation<TModel>(
@@ -78,29 +85,34 @@ internal static class ValidationRulesExtensions
                 {
                     method.Private();
 
-                    var validationRuleStatements = template.GetValidationRulesStatements(
-                            dtoModel: dtoModel,
-                            dtoTemplateId: dtoTemplateId,
-                            dtoValidatorTemplateId: dtoValidatorTemplateId,
-                            indexFields: indexFields,
-                            customValidationEnabled: customValidationEnabled,
-                            sourceElementAdvancedMappings: associationedElements);
-                    foreach (var propertyStatement in validationRuleStatements)
+                    ((ICSharpFileBuilderTemplate)template).CSharpFile.AfterBuild(file =>
                     {
-                        method.AddStatement(propertyStatement);
+                        var validationRuleStatements = template.GetValidationRulesStatements(
+                                dtoModel: dtoModel,
+                                dtoTemplateId: dtoTemplateId,
+                                dtoValidatorTemplateId: dtoValidatorTemplateId,
+                                indexFields: indexFields,
+                                customValidationEnabled: customValidationEnabled,
+                                sourceElementAdvancedMappings: associationedElements)
+                            .ToList();
 
-                        AddValidatorProviderIfRequired(template, @class, propertyStatement, validatorProviderInterfaceTemplateId);
-                        if (repositoryInjectionEnabled && AddRepositoryIfRequired(template, dtoModel, @class, propertyStatement, associationedElements, out var possibleRepositoryFieldName) &&
-                            string.IsNullOrWhiteSpace(repositoryFieldName))
+                        foreach (var propertyStatement in validationRuleStatements)
                         {
-                            repositoryFieldName = possibleRepositoryFieldName;
-                        }
-                    }
+                            method.AddStatement(propertyStatement);
 
-                    if (!validationRuleStatements.Any())
-                    {
-                        method.AddStatement("// Implement custom validation logic here if required");
-                    }
+                            AddValidatorProviderIfRequired(template, @class, propertyStatement, validatorProviderInterfaceTemplateId);
+                            if (repositoryInjectionEnabled && AddRepositoryIfRequired(template, dtoModel, @class, propertyStatement, associationedElements, out var possibleRepositoryFieldName) &&
+                                string.IsNullOrWhiteSpace(repositoryFieldName))
+                            {
+                                repositoryFieldName = possibleRepositoryFieldName;
+                            }
+                        }
+
+                        if (!validationRuleStatements.Any())
+                        {
+                            method.AddStatement("// Implement custom validation logic here if required");
+                        }
+                    }, 0);
                 });
 
                 foreach (var field in dtoModel.Fields)
@@ -321,7 +333,8 @@ internal static class ValidationRulesExtensions
                 AddValidatorsFromFluentValidationStereotype(field, validationRuleChain, customValidationEnabled, template);
             }
 
-            AddValidatorsFromMappedDomain(validationRuleChain, field, indexFields, sourceElementAdvancedMappings);
+
+            AddValidatorsFromMappedDomain(validationRuleChain, field, indexFields, sourceElementAdvancedMappings, dtoModel);
 
             AddValidatorsBasedOnTypeReference(template, validationRuleChain, dtoTemplateId, dtoValidatorTemplateId, dtoModel, field);
 
@@ -377,7 +390,8 @@ internal static class ValidationRulesExtensions
 
         if (validations.NotEmpty())
         {
-            validationRuleChain.AddChainStatement("NotEmpty()");
+            validationRuleChain.AddChainStatement("NotEmpty()",
+                stmt => stmt.AddMetadata(RuleSpaceMetadataKey, RuleSpace.Required));
         }
 
         if (!string.IsNullOrWhiteSpace(validations.Equal()))
@@ -392,30 +406,35 @@ internal static class ValidationRulesExtensions
 
         if (validations.MinLength() != null && validations.MaxLength() != null)
         {
-            validationRuleChain.AddChainStatement($"Length({validations.MinLength()}, {validations.MaxLength()})");
+            validationRuleChain.AddChainStatement($"Length({validations.MinLength()}, {validations.MaxLength()})",
+                stmt => stmt.AddMetadata(RuleSpaceMetadataKey, RuleSpace.Length));
         }
         else if (validations.MinLength() != null)
         {
-            validationRuleChain.AddChainStatement($"MinimumLength({validations.MinLength()})");
+            validationRuleChain.AddChainStatement($"MinimumLength({validations.MinLength()})",
+                stmt => stmt.AddMetadata(RuleSpaceMetadataKey, RuleSpace.LengthMin));
         }
         else if (validations.MaxLength() != null)
         {
             validationRuleChain.AddChainStatement($"MaximumLength({validations.MaxLength()})",
-                stmt => stmt.AddMetadata("max-length", validations.MaxLength()));
+                stmt => stmt.AddMetadata(RuleSpaceMetadataKey, RuleSpace.LengthMax));
         }
 
         if (validations.Min() != null && validations.Max() != null &&
             int.TryParse(validations.Min(), out var min) && int.TryParse(validations.Max(), out var max))
         {
-            validationRuleChain.AddChainStatement($"InclusiveBetween({min}, {max})");
+            validationRuleChain.AddChainStatement($"InclusiveBetween({min}, {max})",
+                stmt => stmt.AddMetadata(RuleSpaceMetadataKey, RuleSpace.Numeric));
         }
         else if (!string.IsNullOrWhiteSpace(validations.Min()))
         {
-            validationRuleChain.AddChainStatement($"GreaterThanOrEqualTo({validations.Min()})");
+            validationRuleChain.AddChainStatement($"GreaterThanOrEqualTo({validations.Min()})",
+                stmt => stmt.AddMetadata(RuleSpaceMetadataKey, RuleSpace.NumericMin));
         }
         else if (!string.IsNullOrWhiteSpace(validations.Max()))
         {
-            validationRuleChain.AddChainStatement($"LessThanOrEqualTo({validations.Max()})");
+            validationRuleChain.AddChainStatement($"LessThanOrEqualTo({validations.Max()})",
+                stmt => stmt.AddMetadata(RuleSpaceMetadataKey, RuleSpace.NumericMax));
         }
 
         if (!string.IsNullOrWhiteSpace(validations.RegularExpression()))
@@ -429,7 +448,8 @@ internal static class ValidationRulesExtensions
             // if the template is null for use the less efficient method of putting the Regex declaration in the Matches call
             if (template is null || template is not ICSharpFileBuilderTemplate)
             {
-                validationRuleChain.AddChainStatement($@"Matches({invocation})");
+                validationRuleChain.AddChainStatement($@"Matches({invocation})",
+                    stmt => stmt.AddMetadata(RuleSpaceMetadataKey, RuleSpace.Regex));
             }
             else
             {
@@ -449,7 +469,8 @@ internal static class ValidationRulesExtensions
                                 field.WithAssignment(invocation);
                             });
 
-                            validationRuleChain.AddChainStatement($@"Matches({regexName})");
+                            validationRuleChain.AddChainStatement($@"Matches({regexName})",
+                                stmt => stmt.AddMetadata(RuleSpaceMetadataKey, RuleSpace.Regex));
                         }
                     }
                 }
@@ -463,7 +484,8 @@ internal static class ValidationRulesExtensions
 
         if (validations.EmailAddress())
         {
-            validationRuleChain.AddChainStatement("EmailAddress()");
+            validationRuleChain.AddChainStatement("EmailAddress()",
+                stmt => stmt.AddMetadata(RuleSpaceMetadataKey, RuleSpace.Email));
         }
 
         if (!string.IsNullOrWhiteSpace(validations.Predicate()))
@@ -496,10 +518,13 @@ internal static class ValidationRulesExtensions
         CSharpMethodChainStatement validationRuleChain,
         DTOFieldModel field,
         IReadOnlyCollection<ConstraintField> indexFields,
-        IEnumerable<IAssociationEnd> associationedElements)
+        IEnumerable<IAssociationEnd>? associationedElements,
+        DTOModel dtoModel)
     {
-        var hasMappedAttribute = TryGetMappedAttribute(field, out var mappedAttribute) || TryGetAdvancedMappedAttribute(field, out mappedAttribute);
-        if (!validationRuleChain.Statements.Any(x => x.HasMetadata("max-length")) && hasMappedAttribute)
+        var hasMappedAttribute = TryGetMappedAttribute(field, out var mappedAttribute) ||
+                                 TryGetAdvancedMappedAttribute(field, out mappedAttribute) ||
+                                 TryGetAssociationMappedAttribute(field, associationedElements, out mappedAttribute);
+        if (!HasRuleForSpace(validationRuleChain, RuleSpace.LengthMax) && hasMappedAttribute)
         {
             try
             {
@@ -507,7 +532,9 @@ internal static class ValidationRulesExtensions
                     mappedAttribute.GetStereotypeProperty<int?>("Text Constraints", "MaxLength") > 0 &&
                     field.GetValidations()?.MaxLength() == null)
                 {
-                    validationRuleChain.AddChainStatement($"MaximumLength({mappedAttribute.GetStereotypeProperty<int>("Text Constraints", "MaxLength")})");
+                    validationRuleChain.AddChainStatement(
+                        $"MaximumLength({mappedAttribute.GetStereotypeProperty<int>("Text Constraints", "MaxLength")})",
+                        stmt => stmt.AddMetadata(RuleSpaceMetadataKey, RuleSpace.LengthMax));
                 }
             }
             catch (Exception e)
@@ -521,6 +548,47 @@ internal static class ValidationRulesExtensions
             validationRuleChain.AddChainStatement($"MustAsync(CheckUniqueConstraint_{field.Name.ToPascalCase()})", stmt => stmt.AddMetadata("requires-repository", true));
             validationRuleChain.AddChainStatement($@"WithMessage(""{field.Name.ToPascalCase()} already exists."")");
         }
+
+        if (hasMappedAttribute)
+        {
+            AddDomainConstraintValidators(validationRuleChain, field, mappedAttribute!, dtoModel);
+        }
+    }
+
+    private static bool TryGetAssociationMappedAttribute(
+        DTOFieldModel field,
+        IEnumerable<IAssociationEnd>? associationedElements,
+        out AttributeModel attribute)
+    {
+        var parentAssociations = (field.InternalElement.ParentElement as IElement)?.AssociatedElements;
+        var associations = associationedElements?.Any() == true
+            ? associationedElements
+            : parentAssociations;
+        if (associations is null)
+        {
+            attribute = null;
+            return false;
+        }
+
+        foreach (var associationEnd in associations)
+        {
+            foreach (var mapping in associationEnd.Mappings)
+            {
+                var mappedEnd = mapping.MappedEnds.FirstOrDefault(p =>
+                    p.MappingType == "Data Mapping" &&
+                    (p.SourceElement as IElement)?.Id == field.Id);
+
+                if (mappedEnd?.TargetElement is IElement targetElement &&
+                    targetElement.IsAttributeModel())
+                {
+                    attribute = targetElement.AsAttributeModel();
+                    return true;
+                }
+            }
+        }
+
+        attribute = null;
+        return false;
     }
 
     private static void AddValidatorsBasedOnTypeReference<TModel>(
@@ -837,5 +905,270 @@ internal static class ValidationRulesExtensions
 
         attribute = null;
         return false;
+    }
+
+    // Domain Constraints stereotype DefinitionIds (package Intent.Metadata.Domain.Constraints).
+    // Using DefinitionIds instead of display names avoids any compile-time coupling to the
+    // Intent.Metadata.Domain.Constraints assembly and prevents false positives from
+    // identically-named stereotypes in other packages.
+    private const string DcRequired          = "14680476-e24a-490f-ba44-75eb8dc6fb46";
+    private const string DcTextLimits        = "13649b19-4dfe-43ec-967f-0b85a5801dd6";
+    private const string DcNumericLimits     = "cb14e47d-672c-4244-8950-7c4ebf8cf8ed";
+    private const string DcCollectionLimits  = "06daef0d-5be0-43e0-9cc6-2bb8ea35dc86";
+    private const string DcRegularExpression = "3dd144bc-374b-4acd-841a-7323210df66d";
+    private const string DcEmail             = "9fb8d1b1-39b3-4f16-88e0-34d24a4e9bf6";
+
+    // Numeric type DefinitionIds from the domain model — used for proper literal suffixes.
+    private const string TypeIdDecimal = "675c7b84-997a-44e0-82b9-cd724c07c9e6";
+    private const string TypeIdFloat   = "341929e9-e3e7-46aa-acb3-b0438421f4c4";
+
+    /// <summary>
+    /// Returns true when any field in <paramref name="dtoModel"/> maps to a domain attribute
+    /// that carries at least one Domain Constraints stereotype. Detection is purely metadata-driven
+    /// via DefinitionId — no reference to Intent.Metadata.Domain.Constraints is required.
+    /// </summary>
+    private static bool HasDomainConstraintRules(
+        DTOModel dtoModel,
+        IEnumerable<IAssociationEnd>? sourceElementAdvancedMappings)
+    {
+        foreach (var field in dtoModel.Fields)
+        {
+            if (!TryGetMappedAttribute(field, out var attr) &&
+                !TryGetAdvancedMappedAttribute(field, out attr) &&
+                !TryGetAssociationMappedAttribute(field, sourceElementAdvancedMappings, out attr))
+            {
+                continue;
+            }
+
+            if (attr.HasStereotype(DcRequired) ||
+                attr.HasStereotype(DcTextLimits) ||
+                attr.HasStereotype(DcNumericLimits) ||
+                attr.HasStereotype(DcCollectionLimits) ||
+                attr.HasStereotype(DcRegularExpression) ||
+                attr.HasStereotype(DcEmail))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /// <summary>
+    /// Appends FluentValidation chain statements derived from Domain Constraints stereotypes
+    /// on <paramref name="mappedAttribute"/>. Uses generic stereotype access via DefinitionId
+    /// so there is no compile-time reference to Intent.Metadata.Domain.Constraints.
+    /// Conflict detection is performed via <see cref="HasRuleForSpace"/> — a rule is skipped
+    /// if the same rule-space is already occupied by a higher-priority statement (e.g. an
+    /// explicit FluentValidation stereotype rule on the DTO field).
+    /// </summary>
+    private static void AddDomainConstraintValidators(
+        CSharpMethodChainStatement validationRuleChain,
+        DTOFieldModel field,
+        AttributeModel mappedAttribute,
+        DTOModel dtoModel)
+    {
+        // Required → NotEmpty
+        if (mappedAttribute.HasStereotype(DcRequired) && !HasRuleForSpace(validationRuleChain, RuleSpace.Required))
+        {
+            validationRuleChain.AddChainStatement("NotEmpty()",
+                stmt => stmt.AddMetadata(RuleSpaceMetadataKey, RuleSpace.Required));
+        }
+
+        // Text Limits → MinimumLength / MaximumLength / Length(min, max)
+        if (mappedAttribute.HasStereotype(DcTextLimits))
+        {
+            var textLimits   = mappedAttribute.GetStereotype(DcTextLimits);
+            var minLengthStr = textLimits?.GetProperty("Min Length")?.Value;
+            var maxLengthStr = textLimits?.GetProperty("Max Length")?.Value;
+            var hasMin       = int.TryParse(minLengthStr, out var minLength);
+            var hasMax       = int.TryParse(maxLengthStr, out var maxLength);
+
+            if (hasMin && hasMax &&
+                !HasRuleForSpace(validationRuleChain, RuleSpace.LengthMin) &&
+                !HasRuleForSpace(validationRuleChain, RuleSpace.LengthMax))
+            {
+                validationRuleChain.AddChainStatement($"Length({minLength}, {maxLength})",
+                    stmt => stmt.AddMetadata(RuleSpaceMetadataKey, RuleSpace.Length));
+            }
+            else if (hasMin && !HasRuleForSpace(validationRuleChain, RuleSpace.LengthMin))
+            {
+                validationRuleChain.AddChainStatement($"MinimumLength({minLength})",
+                    stmt => stmt.AddMetadata(RuleSpaceMetadataKey, RuleSpace.LengthMin));
+            }
+            else if (hasMax && !HasRuleForSpace(validationRuleChain, RuleSpace.LengthMax))
+            {
+                validationRuleChain.AddChainStatement($"MaximumLength({maxLength})",
+                    stmt => stmt.AddMetadata(RuleSpaceMetadataKey, RuleSpace.LengthMax));
+            }
+        }
+
+        // Numeric Limits → GreaterThanOrEqualTo / LessThanOrEqualTo / InclusiveBetween
+        if (mappedAttribute.HasStereotype(DcNumericLimits))
+        {
+            var numericLimits = mappedAttribute.GetStereotype(DcNumericLimits);
+            var minValStr     = numericLimits?.GetProperty("Min Value")?.Value;
+            var maxValStr     = numericLimits?.GetProperty("Max Value")?.Value;
+            var hasMin        = !string.IsNullOrWhiteSpace(minValStr);
+            var hasMax        = !string.IsNullOrWhiteSpace(maxValStr);
+
+            if (hasMin && hasMax &&
+                !HasRuleForSpace(validationRuleChain, RuleSpace.NumericMin) &&
+                !HasRuleForSpace(validationRuleChain, RuleSpace.NumericMax))
+            {
+                var minLit = FormatNumericLiteral(minValStr!, mappedAttribute);
+                var maxLit = FormatNumericLiteral(maxValStr!, mappedAttribute);
+                validationRuleChain.AddChainStatement($"InclusiveBetween({minLit}, {maxLit})",
+                    stmt => stmt.AddMetadata(RuleSpaceMetadataKey, RuleSpace.Numeric));
+            }
+            else if (hasMin && !HasRuleForSpace(validationRuleChain, RuleSpace.NumericMin))
+            {
+                validationRuleChain.AddChainStatement(
+                    $"GreaterThanOrEqualTo({FormatNumericLiteral(minValStr!, mappedAttribute)})",
+                    stmt => stmt.AddMetadata(RuleSpaceMetadataKey, RuleSpace.NumericMin));
+            }
+            else if (hasMax && !HasRuleForSpace(validationRuleChain, RuleSpace.NumericMax))
+            {
+                validationRuleChain.AddChainStatement(
+                    $"LessThanOrEqualTo({FormatNumericLiteral(maxValStr!, mappedAttribute)})",
+                    stmt => stmt.AddMetadata(RuleSpaceMetadataKey, RuleSpace.NumericMax));
+            }
+        }
+
+        // Collection Limits → Must(c => c.Count >= min && c.Count <= max)
+        if (mappedAttribute.HasStereotype(DcCollectionLimits))
+        {
+            var collectionLimits = mappedAttribute.GetStereotype(DcCollectionLimits);
+            var minLengthStr     = collectionLimits?.GetProperty("Min Length")?.Value;
+            var maxLengthStr     = collectionLimits?.GetProperty("Max Length")?.Value;
+            var hasMin           = int.TryParse(minLengthStr, out var minLength);
+            var hasMax           = int.TryParse(maxLengthStr, out var maxLength);
+
+            if (hasMin && hasMax &&
+                !HasRuleForSpace(validationRuleChain, RuleSpace.CollectionMin) &&
+                !HasRuleForSpace(validationRuleChain, RuleSpace.CollectionMax))
+            {
+                validationRuleChain.AddChainStatement(
+                    $"Must(c => c?.Count >= {minLength} && c?.Count <= {maxLength})",
+                    stmt => stmt.AddMetadata(RuleSpaceMetadataKey, RuleSpace.Collection));
+                validationRuleChain.AddChainStatement(
+                    $@"WithMessage(""'{{PropertyName}}' must contain between {minLength} and {maxLength} items."")");
+            }
+            else if (hasMin && !HasRuleForSpace(validationRuleChain, RuleSpace.CollectionMin))
+            {
+                validationRuleChain.AddChainStatement($"Must(c => c?.Count >= {minLength})",
+                    stmt => stmt.AddMetadata(RuleSpaceMetadataKey, RuleSpace.CollectionMin));
+                validationRuleChain.AddChainStatement(
+                    $@"WithMessage(""'{{PropertyName}}' must contain at least {minLength} items."")");
+            }
+            else if (hasMax && !HasRuleForSpace(validationRuleChain, RuleSpace.CollectionMax))
+            {
+                validationRuleChain.AddChainStatement($"Must(c => c?.Count <= {maxLength})",
+                    stmt => stmt.AddMetadata(RuleSpaceMetadataKey, RuleSpace.CollectionMax));
+                validationRuleChain.AddChainStatement(
+                    $@"WithMessage(""'{{PropertyName}}' must contain at most {maxLength} items."")");
+            }
+        }
+
+        // Regular Expression → Matches
+        if (mappedAttribute.HasStereotype(DcRegularExpression) && !HasRuleForSpace(validationRuleChain, RuleSpace.Regex))
+        {
+            var pattern = mappedAttribute.GetStereotype(DcRegularExpression)?.GetProperty("Pattern")?.Value;
+            if (!string.IsNullOrWhiteSpace(pattern))
+            {
+                var escaped = pattern!.Replace("\"", "\"\"");
+                validationRuleChain.AddChainStatement($@"Matches(@""{escaped}"")",
+                    stmt => stmt.AddMetadata(RuleSpaceMetadataKey, RuleSpace.Regex));
+                var message = mappedAttribute.GetStereotype(DcRegularExpression)?.GetProperty("Message")?.Value;
+                if (!string.IsNullOrWhiteSpace(message))
+                {
+                    validationRuleChain.AddChainStatement($@"WithMessage(@""{message}"")",
+                        stmt => stmt.AddMetadata(RuleSpaceMetadataKey, RuleSpace.Regex));
+                }
+            }
+        }
+
+        // Email → EmailAddress
+        if (mappedAttribute.HasStereotype(DcEmail) && !HasRuleForSpace(validationRuleChain, RuleSpace.Email))
+        {
+            validationRuleChain.AddChainStatement("EmailAddress()",
+                stmt => stmt.AddMetadata(RuleSpaceMetadataKey, RuleSpace.Email));
+        }
+    }
+
+    // Metadata key used to tag each validation chain statement with the rule-space it occupies.
+    // Downstream conflict detection (e.g. domain constraints vs. explicit stereotype rules) is
+    // done through HasRuleForSpace() rather than fragile string-matching on statement text.
+    private const string RuleSpaceMetadataKey = "rule-space";
+
+    private static class RuleSpace
+    {
+        public const string Required      = "required";
+        public const string LengthMax     = "length.max";
+        public const string LengthMin     = "length.min";
+        /// <summary>Covers both <see cref="LengthMin"/> and <see cref="LengthMax"/>.</summary>
+        public const string Length        = "length";
+        public const string NumericMin    = "numeric.min";
+        public const string NumericMax    = "numeric.max";
+        /// <summary>Covers both <see cref="NumericMin"/> and <see cref="NumericMax"/>.</summary>
+        public const string Numeric       = "numeric";
+        public const string CollectionMin = "collection.min";
+        public const string CollectionMax = "collection.max";
+        /// <summary>Covers both <see cref="CollectionMin"/> and <see cref="CollectionMax"/>.</summary>
+        public const string Collection    = "collection";
+        public const string Regex         = "pattern.regex";
+        public const string Email         = "format.email";
+    }
+
+    /// <summary>
+    /// Returns <see langword="true"/> when <paramref name="chain"/> already contains a statement
+    /// that occupies <paramref name="space"/>. Combined spaces (e.g. <c>"length"</c>) are treated
+    /// as covering their constituent parts (<c>"length.min"</c> and <c>"length.max"</c>), so asking
+    /// for <c>"length.max"</c> returns <see langword="true"/> when a <c>"length"</c> statement is
+    /// present — preventing a redundant MaximumLength from being added alongside a Length(min,max).
+    /// </summary>
+    private static bool HasRuleForSpace(CSharpMethodChainStatement chain, string space)
+    {
+        return chain.Statements.Any(s =>
+        {
+            if (!s.TryGetMetadata<string>(RuleSpaceMetadataKey, out var occupied))
+                return false;
+
+            if (string.Equals(occupied, space, StringComparison.Ordinal))
+                return true;
+
+            // Combined spaces cover their constituent parts
+            if (occupied == RuleSpace.Length &&
+                (space == RuleSpace.LengthMin || space == RuleSpace.LengthMax))
+                return true;
+
+            if (occupied == RuleSpace.Numeric &&
+                (space == RuleSpace.NumericMin || space == RuleSpace.NumericMax))
+                return true;
+
+            if (occupied == RuleSpace.Collection &&
+                (space == RuleSpace.CollectionMin || space == RuleSpace.CollectionMax))
+                return true;
+
+            return false;
+        });
+    }
+
+    /// <summary>
+    /// Returns the C# numeric literal string for <paramref name="value"/> with the correct
+    /// suffix for the type of <paramref name="attribute"/> (e.g. <c>m</c> for decimal, <c>f</c>
+    /// for float). Integer and double types need no suffix.
+    /// </summary>
+    private static string FormatNumericLiteral(string value, AttributeModel attribute)
+    {
+        var typeId = attribute.TypeReference?.Element?.Id ?? string.Empty;
+
+        if (string.Equals(typeId, TypeIdDecimal, StringComparison.OrdinalIgnoreCase))
+            return value + "m";
+
+        if (string.Equals(typeId, TypeIdFloat, StringComparison.OrdinalIgnoreCase))
+            return value + "f";
+
+        return value;
     }
 }
