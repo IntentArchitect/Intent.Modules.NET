@@ -62,7 +62,7 @@
     </detect>
   </interoperability>
   <dependencies>
-    <dependency id="Intent.Application.FluentValidation" version="3.11.6" />
+    <dependency id="Intent.Application.FluentValidation" version="3.11.7-pre.1" />
     <dependency id="Intent.Application.MediatR" version="4.6.0" />
     <dependency id="Intent.Common" version="3.8.0" />
     <dependency id="Intent.Common.CSharp" version="3.9.4" />
