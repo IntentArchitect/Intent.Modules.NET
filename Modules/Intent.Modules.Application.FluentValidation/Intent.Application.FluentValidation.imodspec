@@ -40,7 +40,7 @@
     </detect>
     <detect id="Intent.AspNetCore.Controllers.Dispatch.MediatR">
       <install>
-        <package id="Intent.Application.MediatR.FluentValidation" version="4.10.0-pre.3" />
+        <package id="Intent.Application.MediatR.FluentValidation" version="4.10.0-pre.1" />
         <package id="Intent.Application.FluentValidation.Dtos" version="3.12.7-pre.1" />
       </install>
     </detect>
@@ -52,7 +52,7 @@
     </detect>
     <detect id="Intent.AzureFunctions.Dispatch.MediatR">
       <install>
-        <package id="Intent.Application.MediatR.FluentValidation" version="4.10.0-pre.3" />
+        <package id="Intent.Application.MediatR.FluentValidation" version="4.10.0-pre.1" />
       </install>
     </detect>
     <detect id="Intent.Aws.Lambda.Functions.Dispatch.Services">
@@ -62,7 +62,7 @@
     </detect>
     <detect id="Intent.Aws.Lambda.Functions.Dispatch.MediatR">
       <install>
-        <package id="Intent.Application.MediatR.FluentValidation" version="4.10.0-pre.3" />
+        <package id="Intent.Application.MediatR.FluentValidation" version="4.10.0-pre.1" />
       </install>
     </detect>
     <detect id="Intent.FastEndpoints.Dispatch.Services">
@@ -72,7 +72,7 @@
     </detect>
     <detect id="Intent.FastEndpoints.Dispatch.MediatR">
       <install>
-        <package id="Intent.Application.MediatR.FluentValidation" version="4.10.0-pre.3" />
+        <package id="Intent.Application.MediatR.FluentValidation" version="4.10.0-pre.1" />
         <package id="Intent.Application.FluentValidation.Dtos" version="3.12.7-pre.1" />
       </install>
     </detect>
@@ -84,7 +84,7 @@
     </detect>
     <detect id="Intent.Application.MediatR.FluentValidation">
       <install>
-        <package id="Intent.Application.MediatR.FluentValidation" version="4.10.0-pre.3" />
+        <package id="Intent.Application.MediatR.FluentValidation" version="4.10.0-pre.1" />
       </install>
     </detect>
     <!-- /Minimum Compatible Versions -->
