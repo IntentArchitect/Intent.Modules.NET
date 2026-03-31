@@ -29,7 +29,9 @@ internal static class ValidationRulesExtensions
         bool customValidationEnabled,
         IEnumerable<IAssociationEnd>? sourceElementAdvancedMappings)
     {
-        var indexFields = GetUniqueConstraintFields(dtoModel, sourceElementAdvancedMappings, uniqueConstraintValidationEnabled);
+        var sourceElementAdvancedMappingsList = sourceElementAdvancedMappings?.ToList();
+        
+        var indexFields = GetUniqueConstraintFields(dtoModel, sourceElementAdvancedMappingsList, uniqueConstraintValidationEnabled);
 
         var hasNativeValidationRules = GetValidationRulesStatements<object>(
             template: null,
@@ -38,14 +40,14 @@ internal static class ValidationRulesExtensions
             dtoValidatorTemplateId: dtoValidatorTemplateId,
             indexFields: indexFields,
             customValidationEnabled: customValidationEnabled,
-            sourceElementAdvancedMappings: sourceElementAdvancedMappings).Any();
+            sourceElementAdvancedMappings: sourceElementAdvancedMappingsList).Any();
 
         if (hasNativeValidationRules)
         {
             return true;
         }
 
-        return HasDomainConstraintRules(dtoModel, sourceElementAdvancedMappings);
+        return HasDomainConstraintRules(dtoModel, sourceElementAdvancedMappingsList);
     }
 
     public static void ConfigureForValidation<TModel>(
@@ -61,6 +63,8 @@ internal static class ValidationRulesExtensions
         bool customValidationEnabled,
         IEnumerable<IAssociationEnd>? associationedElements)
     {
+        var associationedElementsList = associationedElements?.ToList();
+        
         ((ICSharpFileBuilderTemplate)template).CSharpFile
             .AddUsing("FluentValidation")
             .AddClass($"{dtoModel.Name}Validator", @class =>
@@ -79,7 +83,7 @@ internal static class ValidationRulesExtensions
                     ctor.AddAttribute(CSharpIntentManagedAttribute.Merge());
                 });
 
-                var indexFields = GetUniqueConstraintFields(dtoModel, associationedElements, uniqueConstraintValidationEnabled);
+                var indexFields = GetUniqueConstraintFields(dtoModel, associationedElementsList, uniqueConstraintValidationEnabled);
                 string repositoryFieldName = null;
                 @class.AddMethod("void", "ConfigureValidationRules", method =>
                 {
@@ -91,7 +95,7 @@ internal static class ValidationRulesExtensions
                             dtoValidatorTemplateId: dtoValidatorTemplateId,
                             indexFields: indexFields,
                             customValidationEnabled: customValidationEnabled,
-                            sourceElementAdvancedMappings: associationedElements)
+                            sourceElementAdvancedMappings: associationedElementsList)
                         .ToList();
 
                     foreach (var propertyStatement in validationRuleStatements)
@@ -99,7 +103,9 @@ internal static class ValidationRulesExtensions
                         method.AddStatement(propertyStatement);
 
                         AddValidatorProviderIfRequired(template, @class, propertyStatement, validatorProviderInterfaceTemplateId);
-                        if (repositoryInjectionEnabled && AddRepositoryIfRequired(template, dtoModel, @class, propertyStatement, associationedElements, out var possibleRepositoryFieldName) &&
+                        if (repositoryInjectionEnabled && 
+                            associationedElementsList is not null && 
+                            AddRepositoryIfRequired(template, dtoModel, @class, propertyStatement, associationedElementsList, out var possibleRepositoryFieldName) &&
                             string.IsNullOrWhiteSpace(repositoryFieldName))
                         {
                             repositoryFieldName = possibleRepositoryFieldName;
@@ -217,13 +223,13 @@ internal static class ValidationRulesExtensions
                         CSharpStatement expressionBody;
                         if (IsCreateDto(dtoModel))
                         {
-                            expressionBody = GetDtoAndDomainAttributeComparisonExpression("p", "model", dtoModel, indexGroup.ToArray(), associationedElements);
+                            expressionBody = GetDtoAndDomainAttributeComparisonExpression("p", "model", dtoModel, indexGroup.ToArray(), associationedElementsList);
                         }
                         else
                         {
                             TryGetMappedClass(dtoModel, out var classModel);
                             var fieldIds = dtoModel.Fields.GetEntityIdFields(classModel, template.ExecutionContext);
-                            expressionBody = $"{fieldIds.GetAttributeAndFieldComparison("p", "model", false)} && " + GetDtoAndDomainAttributeComparisonExpression("p", "model", dtoModel, indexGroup.ToArray(), associationedElements);
+                            expressionBody = $"{fieldIds.GetAttributeAndFieldComparison("p", "model", false)} && " + GetDtoAndDomainAttributeComparisonExpression("p", "model", dtoModel, indexGroup.ToArray(), associationedElementsList);
                         }
 
                         method.AddInvocationStatement($"return !await {repositoryFieldName}.AnyAsync", stmt => stmt
@@ -284,13 +290,14 @@ internal static class ValidationRulesExtensions
         return sb.ToString();
     }
 
-    private static IEnumerable<CSharpMethodChainStatement> GetValidationRulesStatements<TModel>(this CSharpTemplateBase<TModel>? template,
+    private static IEnumerable<CSharpMethodChainStatement> GetValidationRulesStatements<TModel>(
+        this CSharpTemplateBase<TModel>? template,
         DTOModel dtoModel,
         string dtoTemplateId,
         string dtoValidatorTemplateId,
         IReadOnlyCollection<ConstraintField> indexFields,
         bool customValidationEnabled,
-        IEnumerable<IAssociationEnd>? sourceElementAdvancedMappings)
+        List<IAssociationEnd>? sourceElementAdvancedMappings)
     {
         // If no template is present, we still need a way to determine what
         // type is primitive.
@@ -331,7 +338,7 @@ internal static class ValidationRulesExtensions
             }
 
 
-            AddValidatorsFromMappedDomain(validationRuleChain, field, indexFields, sourceElementAdvancedMappings, dtoModel);
+            AddValidatorsFromMappedDomain(template, validationRuleChain, field, indexFields, sourceElementAdvancedMappings);
 
             AddValidatorsBasedOnTypeReference(template, validationRuleChain, dtoTemplateId, dtoValidatorTemplateId, dtoModel, field);
 
@@ -512,11 +519,11 @@ internal static class ValidationRulesExtensions
     }
 
     private static void AddValidatorsFromMappedDomain(
+        ICSharpTemplate? template,
         CSharpMethodChainStatement validationRuleChain,
         DTOFieldModel field,
         IReadOnlyCollection<ConstraintField> indexFields,
-        IEnumerable<IAssociationEnd>? associationedElements,
-        DTOModel dtoModel)
+        List<IAssociationEnd>? associationedElements)
     {
         var hasMappedAttribute = TryGetMappedAttribute(field, out var mappedAttribute) ||
                                  TryGetAdvancedMappedAttribute(field, out mappedAttribute) ||
@@ -548,17 +555,17 @@ internal static class ValidationRulesExtensions
 
         if (hasMappedAttribute)
         {
-            AddDomainConstraintValidators(validationRuleChain, field, mappedAttribute!, dtoModel);
+            AddDomainConstraintValidators(template, validationRuleChain, mappedAttribute!);
         }
     }
 
     private static bool TryGetAssociationMappedAttribute(
         DTOFieldModel field,
-        IEnumerable<IAssociationEnd>? associationedElements,
+        List<IAssociationEnd>? associationedElements,
         out AttributeModel attribute)
     {
         var parentAssociations = (field.InternalElement.ParentElement as IElement)?.AssociatedElements;
-        var associations = associationedElements?.Any() == true
+        var associations = associationedElements?.Count > 0
             ? associationedElements
             : parentAssociations;
         if (associations is null)
@@ -914,6 +921,8 @@ internal static class ValidationRulesExtensions
     private const string DcCollectionLimits  = "06daef0d-5be0-43e0-9cc6-2bb8ea35dc86";
     private const string DcRegularExpression = "3dd144bc-374b-4acd-841a-7323210df66d";
     private const string DcEmail             = "9fb8d1b1-39b3-4f16-88e0-34d24a4e9bf6";
+    private const string DcBase64           = "02308621-429c-4af4-9428-2ebb272e53fa";
+    private const string DcUrl              = "1b2dc31a-599f-449b-9646-1a5313d23f91";
 
     // Numeric type DefinitionIds from the domain model — used for proper literal suffixes.
     private const string TypeIdDecimal = "675c7b84-997a-44e0-82b9-cd724c07c9e6";
@@ -926,7 +935,7 @@ internal static class ValidationRulesExtensions
     /// </summary>
     private static bool HasDomainConstraintRules(
         DTOModel dtoModel,
-        IEnumerable<IAssociationEnd>? sourceElementAdvancedMappings)
+        List<IAssociationEnd>? sourceElementAdvancedMappings)
     {
         foreach (var field in dtoModel.Fields)
         {
@@ -942,7 +951,9 @@ internal static class ValidationRulesExtensions
                 attr.HasStereotype(DcNumericLimits) ||
                 attr.HasStereotype(DcCollectionLimits) ||
                 attr.HasStereotype(DcRegularExpression) ||
-                attr.HasStereotype(DcEmail))
+                attr.HasStereotype(DcEmail) ||
+                attr.HasStereotype(DcBase64) ||
+                attr.HasStereotype(DcUrl))
             {
                 return true;
             }
@@ -960,10 +971,9 @@ internal static class ValidationRulesExtensions
     /// explicit FluentValidation stereotype rule on the DTO field).
     /// </summary>
     private static void AddDomainConstraintValidators(
+        ICSharpTemplate? template,
         CSharpMethodChainStatement validationRuleChain,
-        DTOFieldModel field,
-        AttributeModel mappedAttribute,
-        DTOModel dtoModel)
+        AttributeModel mappedAttribute)
     {
         // Required → NotEmpty
         if (mappedAttribute.HasStereotype(DcRequired) && !HasRuleForSpace(validationRuleChain, RuleSpace.Required))
@@ -972,7 +982,6 @@ internal static class ValidationRulesExtensions
                 stmt => stmt.AddMetadata(RuleSpaceMetadataKey, RuleSpace.Required));
         }
 
-        // Text Limits → MinimumLength / MaximumLength / Length(min, max)
         if (mappedAttribute.HasStereotype(DcTextLimits))
         {
             var textLimits   = mappedAttribute.GetStereotype(DcTextLimits);
@@ -1000,7 +1009,6 @@ internal static class ValidationRulesExtensions
             }
         }
 
-        // Numeric Limits → GreaterThanOrEqualTo / LessThanOrEqualTo / InclusiveBetween
         if (mappedAttribute.HasStereotype(DcNumericLimits))
         {
             var numericLimits = mappedAttribute.GetStereotype(DcNumericLimits);
@@ -1032,7 +1040,6 @@ internal static class ValidationRulesExtensions
             }
         }
 
-        // Collection Limits → Must(c => c.Count >= min && c.Count <= max)
         if (mappedAttribute.HasStereotype(DcCollectionLimits))
         {
             var collectionLimits = mappedAttribute.GetStereotype(DcCollectionLimits);
@@ -1049,25 +1056,24 @@ internal static class ValidationRulesExtensions
                     $"Must(c => c?.Count >= {minLength} && c?.Count <= {maxLength})",
                     stmt => stmt.AddMetadata(RuleSpaceMetadataKey, RuleSpace.Collection));
                 validationRuleChain.AddChainStatement(
-                    $@"WithMessage(""'{{PropertyName}}' must contain between {minLength} and {maxLength} items."")");
+                    $@"WithMessage(""{mappedAttribute.Name.ToPascalCase()} must contain between {minLength} and {maxLength} items."")");
             }
             else if (hasMin && !HasRuleForSpace(validationRuleChain, RuleSpace.CollectionMin))
             {
                 validationRuleChain.AddChainStatement($"Must(c => c?.Count >= {minLength})",
                     stmt => stmt.AddMetadata(RuleSpaceMetadataKey, RuleSpace.CollectionMin));
                 validationRuleChain.AddChainStatement(
-                    $@"WithMessage(""'{{PropertyName}}' must contain at least {minLength} items."")");
+                    $@"WithMessage(""{mappedAttribute.Name.ToPascalCase()} must contain at least {minLength} items."")");
             }
             else if (hasMax && !HasRuleForSpace(validationRuleChain, RuleSpace.CollectionMax))
             {
                 validationRuleChain.AddChainStatement($"Must(c => c?.Count <= {maxLength})",
                     stmt => stmt.AddMetadata(RuleSpaceMetadataKey, RuleSpace.CollectionMax));
                 validationRuleChain.AddChainStatement(
-                    $@"WithMessage(""'{{PropertyName}}' must contain at most {maxLength} items."")");
+                    $@"WithMessage(""{mappedAttribute.Name.ToPascalCase()} must contain at most {maxLength} items."")");
             }
         }
 
-        // Regular Expression → Matches
         if (mappedAttribute.HasStereotype(DcRegularExpression) && !HasRuleForSpace(validationRuleChain, RuleSpace.Regex))
         {
             var pattern = mappedAttribute.GetStereotype(DcRegularExpression)?.GetProperty("Pattern")?.Value;
@@ -1085,11 +1091,36 @@ internal static class ValidationRulesExtensions
             }
         }
 
-        // Email → EmailAddress
         if (mappedAttribute.HasStereotype(DcEmail) && !HasRuleForSpace(validationRuleChain, RuleSpace.Email))
         {
             validationRuleChain.AddChainStatement("EmailAddress()",
                 stmt => stmt.AddMetadata(RuleSpaceMetadataKey, RuleSpace.Email));
+        }
+
+        if (mappedAttribute.HasStereotype(DcBase64) && !HasRuleForSpace(validationRuleChain, RuleSpace.Base64))
+        {
+            const string base64FullType = "System.Buffers.Text.Base64";
+            var base64TypeName = template is not null ? template.UseType(base64FullType) : base64FullType;
+            
+            validationRuleChain.AddChainStatement(
+                $"Must(value => {base64TypeName}.IsValid(value))",
+                stmt => stmt.AddMetadata(RuleSpaceMetadataKey, RuleSpace.Base64));
+            validationRuleChain.AddChainStatement(
+                $@"WithMessage(""{mappedAttribute.Name.ToPascalCase()} must be a valid Base64 string."")");
+        }
+
+        if (mappedAttribute.HasStereotype(DcUrl) && !HasRuleForSpace(validationRuleChain, RuleSpace.Url))
+        {
+            const string SystemUriFullType = "System.Uri";
+            const string SystemUriKindFullType = "System.UriKind";
+            var uriTypeName = template is not null ? template.UseType(SystemUriFullType) : SystemUriFullType;
+            var uriKindTypeName = template is not null ? template.UseType(SystemUriKindFullType) : SystemUriKindFullType;
+            
+            validationRuleChain.AddChainStatement(
+                $"Must(value => {uriTypeName}.TryCreate(value, {uriKindTypeName}.Absolute, out _))",
+                stmt => stmt.AddMetadata(RuleSpaceMetadataKey, RuleSpace.Url));
+            validationRuleChain.AddChainStatement(
+                $@"WithMessage(""{mappedAttribute.Name.ToPascalCase()} must be a valid URL."")");
         }
     }
 
@@ -1115,6 +1146,8 @@ internal static class ValidationRulesExtensions
         public const string Collection    = "collection";
         public const string Regex         = "pattern.regex";
         public const string Email         = "format.email";
+        public const string Base64        = "format.base64";
+        public const string Url           = "format.url";
     }
 
     /// <summary>
