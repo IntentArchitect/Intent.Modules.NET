@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="feca1d67-52fb-4a60-bff0-41d1aba4906d">
+  <sourceEnd id="0a044cb0-0a82-4c46-af4f-a28998583fe1" type="Call Service Operation Action Source End" typeId="936e090c-8408-429d-b2f6-2eb8deecc428">
+    <display>: Operation</display>
+    <order>0</order>
+    <typeReference id="ed830ec1-7bcd-48da-b60a-36756ea2a559">
+      <typeId>6c285159-8c85-4a29-a04a-69ec3adc79ee</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>FluentValidationTest.Blazor.UI</typePackageName>
+      <typePackageId>50b0a76b-e381-4607-b612-0f38dd4ba6b3</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="feca1d67-52fb-4a60-bff0-41d1aba4906d" type="Call Service Operation Action Target End" typeId="475f0810-2b4a-40da-8eb8-697cb62f7dbe">
+    <name>ValidateRecursiveNodeCommand</name>
+    <display>[call] RecursiveDtos.ValidateRecursiveNodeCommand: void</display>
+    <order>0</order>
+    <traits>
+      <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+    </traits>
+    <typeReference id="992c7bf9-400e-4424-8045-56208af7bc66">
+      <typeId>9a31936a-8507-40d0-a5c2-2e9eaeb9c73e</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>FluentValidationTest.Services</typePackageName>
+      <typePackageId>e1abeceb-9b9b-4095-85d4-f3eb571670f6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Call Service Mapping" typeId="e4a4111b-cf13-4efe-8a5d-fea9457ac8ad">
+        <source applicationId="808c2adc-22e6-445e-82d2-5394f2bb3067" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="938df5ae-5976-4e87-bc7f-6b94e268b08a" location="[FluentValidationTest.Blazor].[User Interface].[ValidationComponent]" />
+        <target applicationId="05b9e9af-b4b0-4123-bf41-20f81b07930b" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="9a31936a-8507-40d0-a5c2-2e9eaeb9c73e" location="[FluentValidationTest.Blazor].[User Interface].[ValidateRecursiveNodeCommand]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Operation.ValidateRecursiveNodeCommand}</expression>
+            <path>
+              <target id="9a31936a-8507-40d0-a5c2-2e9eaeb9c73e" name="ValidateRecursiveNodeCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+            </path>
+            <sources>
+              <source identifier="Operation.ValidateRecursiveNodeCommand" mappingType="Invocation Mapping" mappingTypeId="ab447316-1252-49bc-a695-f34cb00a3cdc">
+                <path>
+                  <target id="938df5ae-5976-4e87-bc7f-6b94e268b08a" name="ValidationComponent" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="6c285159-8c85-4a29-a04a-69ec3adc79ee" name="Operation" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="feca1d67-52fb-4a60-bff0-41d1aba4906d" name="ValidateRecursiveNodeCommand" type="association" specialization="Call Service Operation Action Target End" specializationId="475f0810-2b4a-40da-8eb8-697cb62f7dbe" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Model}</expression>
+            <path>
+              <target id="9a31936a-8507-40d0-a5c2-2e9eaeb9c73e" name="ValidateRecursiveNodeCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+              <target id="0e28a5a9-7437-47cd-937d-34bc15210743" name="Root" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="Model" mappingType="Data Mapping" mappingTypeId="ce70308a-e29d-4644-8410-f9e6bbd214fc">
+                <path>
+                  <target id="938df5ae-5976-4e87-bc7f-6b94e268b08a" name="ValidationComponent" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="f895b621-73fe-4b70-a8a4-4235f1758336" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Call Service Operation Action</associationType>
+  <associationTypeId>fe5a5cd8-aabd-472f-8d42-f5c233e658dc</associationTypeId>
+  <stereotypes />
+</association>

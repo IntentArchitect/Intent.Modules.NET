@@ -1,7 +1,6 @@
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using FluentValidationTest.Blazor.Client.Contracts.Services.SelfReferenceValidation;
+using FluentValidationTest.Blazor.Client.Contracts.Services.ValidationScenarios.RecursiveDtos;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Components;
 using MudBlazor;
@@ -13,37 +12,20 @@ namespace FluentValidationTest.Blazor.Client.Components.Pages
 {
     public partial class ValidationComponent
     {
+        public RecursiveNodeDto Model { get; set; }
         [Inject]
-        public ISelfReferenceValidationService SelfReferenceValidationService { get; set; } = default!;
-        [Inject]
-        public ISelfRefDtoService SelfRefDtoService { get; set; } = default!;
+        public IRecursiveDtosService RecursiveDtosService { get; set; } = default!;
         [Inject]
         public ISnackbar Snackbar { get; set; } = default!;
         protected override async Task OnInitializedAsync()
         {
         }
 
-        private async Task UploadSelfRefDtoCommand(string entry, List<SelfRefDto> entries)
+        private async Task Operation()
         {
             try
             {
-                await SelfReferenceValidationService.UploadSelfRefDtoAsync(new UploadSelfRefDtoCommand
-                {
-                    Entry = entry,
-                    SelfRefDtos = entries
-                });
-            }
-            catch (Exception e)
-            {
-                Snackbar.Add(e.Message, Severity.Error);
-            }
-        }
-
-        private async Task SelfRefDtoServiceUpload(UploadWrapperDto param)
-        {
-            try
-            {
-                await SelfRefDtoService.UploadAsync(param);
+                await RecursiveDtosService.ValidateRecursiveNodeAsync(Model);
             }
             catch (Exception e)
             {

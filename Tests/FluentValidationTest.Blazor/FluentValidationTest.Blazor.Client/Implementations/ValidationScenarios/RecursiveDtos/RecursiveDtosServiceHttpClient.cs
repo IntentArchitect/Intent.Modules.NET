@@ -6,22 +6,22 @@ using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using FluentValidationTest.Blazor.Client.Common;
-using FluentValidationTest.Blazor.Client.Contracts.Services.SelfReferenceValidation;
+using FluentValidationTest.Blazor.Client.Contracts.Services.ValidationScenarios.RecursiveDtos;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]
 [assembly: IntentTemplate("Intent.Blazor.HttpClients.HttpClient", Version = "2.0")]
 
-namespace FluentValidationTest.Blazor.Client.Implementations.SelfReferenceValidation
+namespace FluentValidationTest.Blazor.Client.Implementations.ValidationScenarios.RecursiveDtos
 {
-    public class SelfReferenceValidationServiceHttpClient : ISelfReferenceValidationService
+    public class RecursiveDtosServiceHttpClient : IRecursiveDtosService
     {
         private const string JSON_MEDIA_TYPE = "application/json";
         private readonly HttpClient _httpClient;
         private readonly JsonSerializerOptions _serializerOptions;
 
-        public SelfReferenceValidationServiceHttpClient(HttpClient httpClient)
+        public RecursiveDtosServiceHttpClient(HttpClient httpClient)
         {
             _httpClient = httpClient;
 
@@ -31,15 +31,13 @@ namespace FluentValidationTest.Blazor.Client.Implementations.SelfReferenceValida
             };
         }
 
-        public async Task UploadSelfRefDtoAsync(
-            UploadSelfRefDtoCommand command,
-            CancellationToken cancellationToken = default)
+        public async Task ValidateRecursiveNodeAsync(RecursiveNodeDto root, CancellationToken cancellationToken = default)
         {
-            var relativeUri = $"api/self-reference-validation/upload-self-ref-dto";
-            using var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
+            var relativeUri = $"api/recursive";
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
-            var content = JsonSerializer.Serialize(command, _serializerOptions);
+            var content = JsonSerializer.Serialize(new { Root = root }, _serializerOptions);
             httpRequest.Content = new StringContent(content, Encoding.UTF8, JSON_MEDIA_TYPE);
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))

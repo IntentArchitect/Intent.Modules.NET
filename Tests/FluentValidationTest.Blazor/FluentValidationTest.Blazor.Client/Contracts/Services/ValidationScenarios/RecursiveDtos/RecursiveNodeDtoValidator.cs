@@ -4,25 +4,24 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator", Version = "2.0")]
 
-namespace FluentValidationTest.Blazor.Client.Contracts.Services.SelfReferenceValidation
+namespace FluentValidationTest.Blazor.Client.Contracts.Services.ValidationScenarios.RecursiveDtos
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public class SelfRefDtoValidator : AbstractValidator<SelfRefDto>
+    public class RecursiveNodeDtoValidator : AbstractValidator<RecursiveNodeDto>
     {
         [IntentManaged(Mode.Merge)]
-        public SelfRefDtoValidator()
+        public RecursiveNodeDtoValidator()
         {
             ConfigureValidationRules();
         }
 
         private void ConfigureValidationRules()
         {
-            RuleFor(v => v.Entry)
+            RuleFor(v => v.Name)
                 .NotNull();
 
-            RuleFor(v => v.SelfRefDtos)
-                .NotNull()
-                .ForEach(x => x.SetValidator(this));
+            RuleFor(v => v.Child)
+                .SetValidator(this);
         }
     }
 }

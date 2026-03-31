@@ -1,6 +1,5 @@
 using System;
-using FluentValidationTest.Blazor.Client.Implementations;
-using FluentValidationTest.Blazor.Client.Implementations.SelfReferenceValidation;
+using FluentValidationTest.Blazor.Client.Implementations.ValidationScenarios.RecursiveDtos;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,13 +15,7 @@ namespace FluentValidationTest.Blazor.Client
         public static void AddHttpClients(this IServiceCollection services, IConfiguration configuration)
         {
             services
-                .AddHttpClient<ISelfRefDtoService, SelfRefDtoServiceHttpClient>(http =>
-                {
-                    http.BaseAddress = GetUrl(configuration, "FluentValidationTest");
-                });
-
-            services
-                .AddHttpClient<ISelfReferenceValidationService, SelfReferenceValidationServiceHttpClient>(http =>
+                .AddHttpClient<IRecursiveDtosService, RecursiveDtosServiceHttpClient>(http =>
                 {
                     http.BaseAddress = GetUrl(configuration, "FluentValidationTest");
                 });

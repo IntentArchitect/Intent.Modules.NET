@@ -1,7 +1,7 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using FluentValidationTest.Blazor.Client.Contracts.Services.SelfReferenceValidation;
+using FluentValidationTest.Blazor.Client.Contracts.Services.ValidationScenarios.RecursiveDtos;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -10,8 +10,8 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace FluentValidationTest.Blazor.Client
 {
-    public interface ISelfRefDtoService : IDisposable
+    public interface IRecursiveDtosService : IDisposable
     {
-        Task UploadAsync(UploadWrapperDto param, CancellationToken cancellationToken = default);
+        Task ValidateRecursiveNodeAsync(RecursiveNodeDto root, CancellationToken cancellationToken = default);
     }
 }
