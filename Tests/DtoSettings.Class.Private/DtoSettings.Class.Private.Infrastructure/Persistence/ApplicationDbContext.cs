@@ -15,6 +15,8 @@ namespace DtoSettings.Class.Private.Infrastructure.Persistence
         {
         }
 
+        public DbSet<CollectionEntity> CollectionEntities { get; set; }
+
         public DbSet<Customer> Customers { get; set; }
 
         public DbSet<Invoice> Invoices { get; set; }
@@ -24,6 +26,7 @@ namespace DtoSettings.Class.Private.Infrastructure.Persistence
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
+            modelBuilder.ApplyConfiguration(new CollectionEntityConfiguration());
             modelBuilder.ApplyConfiguration(new CustomerConfiguration());
             modelBuilder.ApplyConfiguration(new InvoiceConfiguration());
         }

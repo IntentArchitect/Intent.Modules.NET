@@ -300,6 +300,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>b485a01b-41c9-4c91-a217-f59c349bcff5</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#8e1f9d0e-b493-43a7-89b3-cf7a6f623e27</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Class.Protected.Application/Defaults/CollectionInput/CollectionInputCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Defaults/CollectionInput/CollectionInputCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b485a01b-41c9-4c91-a217-f59c349bcff5</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#8e1f9d0e-b493-43a7-89b3-cf7a6f623e27</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Class.Protected.Application/Defaults/CollectionInput/CollectionInputCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Defaults/CollectionInput/CollectionInputCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b485a01b-41c9-4c91-a217-f59c349bcff5</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#bec638dc-c798-4dd4-89d6-6766d9926a73</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Class.Protected.Application/Defaults/EndDefaults.cs</ApplicationRelativeFilePath>
@@ -572,6 +588,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>cdde7773-7c65-4978-bf4c-94dba6a5481a</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#4c6857d4-119a-4c54-9903-a0afe90a3cf4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Class.Protected.Domain/Entities/CollectionEntity.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CollectionEntity.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>cdde7773-7c65-4978-bf4c-94dba6a5481a</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#903959ee-06fa-4831-854d-531bb8ad9b4d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Class.Protected.Domain/Entities/Customer.cs</ApplicationRelativeFilePath>
@@ -600,6 +624,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Class.Protected.Domain/Entities/Person.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Person.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>28fd550a-e6b4-4407-9f30-fc4b622b35a9</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#4c6857d4-119a-4c54-9903-a0afe90a3cf4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Class.Protected.Domain/Repositories/ICollectionEntityRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICollectionEntityRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -676,6 +708,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>7aaf550b-2a8e-460f-910c-4552da75f87d</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#4c6857d4-119a-4c54-9903-a0afe90a3cf4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Class.Protected.Infrastructure/Persistence/Configurations/CollectionEntityConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CollectionEntityConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7aaf550b-2a8e-460f-910c-4552da75f87d</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#903959ee-06fa-4831-854d-531bb8ad9b4d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Class.Protected.Infrastructure/Persistence/Configurations/CustomerConfiguration.cs</ApplicationRelativeFilePath>
@@ -688,6 +728,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Class.Protected.Infrastructure/Persistence/Configurations/InvoiceConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>InvoiceConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>125533a8-f84e-455e-b2c2-337ede9f9eb7</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#4c6857d4-119a-4c54-9903-a0afe90a3cf4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Class.Protected.Infrastructure/Repositories/CollectionEntityRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CollectionEntityRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
