@@ -85,34 +85,31 @@ internal static class ValidationRulesExtensions
                 {
                     method.Private();
 
-                    ((ICSharpFileBuilderTemplate)template).CSharpFile.AfterBuild(file =>
+                    var validationRuleStatements = template.GetValidationRulesStatements(
+                            dtoModel: dtoModel,
+                            dtoTemplateId: dtoTemplateId,
+                            dtoValidatorTemplateId: dtoValidatorTemplateId,
+                            indexFields: indexFields,
+                            customValidationEnabled: customValidationEnabled,
+                            sourceElementAdvancedMappings: associationedElements)
+                        .ToList();
+
+                    foreach (var propertyStatement in validationRuleStatements)
                     {
-                        var validationRuleStatements = template.GetValidationRulesStatements(
-                                dtoModel: dtoModel,
-                                dtoTemplateId: dtoTemplateId,
-                                dtoValidatorTemplateId: dtoValidatorTemplateId,
-                                indexFields: indexFields,
-                                customValidationEnabled: customValidationEnabled,
-                                sourceElementAdvancedMappings: associationedElements)
-                            .ToList();
+                        method.AddStatement(propertyStatement);
 
-                        foreach (var propertyStatement in validationRuleStatements)
+                        AddValidatorProviderIfRequired(template, @class, propertyStatement, validatorProviderInterfaceTemplateId);
+                        if (repositoryInjectionEnabled && AddRepositoryIfRequired(template, dtoModel, @class, propertyStatement, associationedElements, out var possibleRepositoryFieldName) &&
+                            string.IsNullOrWhiteSpace(repositoryFieldName))
                         {
-                            method.AddStatement(propertyStatement);
-
-                            AddValidatorProviderIfRequired(template, @class, propertyStatement, validatorProviderInterfaceTemplateId);
-                            if (repositoryInjectionEnabled && AddRepositoryIfRequired(template, dtoModel, @class, propertyStatement, associationedElements, out var possibleRepositoryFieldName) &&
-                                string.IsNullOrWhiteSpace(repositoryFieldName))
-                            {
-                                repositoryFieldName = possibleRepositoryFieldName;
-                            }
+                            repositoryFieldName = possibleRepositoryFieldName;
                         }
+                    }
 
-                        if (!validationRuleStatements.Any())
-                        {
-                            method.AddStatement("// Implement custom validation logic here if required");
-                        }
-                    }, 0);
+                    if (!validationRuleStatements.Any())
+                    {
+                        method.AddStatement("// Implement custom validation logic here if required");
+                    }
                 });
 
                 foreach (var field in dtoModel.Fields)
