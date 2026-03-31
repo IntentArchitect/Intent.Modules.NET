@@ -1,3 +1,7 @@
+### Version 3.11.7
+
+- Improvement: Updated module dependencies.
+
 ### Version 3.11.6
 
 - Improvement: Updated NuGet package versions.
