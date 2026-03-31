@@ -9,13 +9,14 @@ namespace FluentValidationTest.Application.ValidationScenarios.DomainMapped.Crea
 {
     public class CreatePatternConstrainedEntityCommand : IRequest, ICommand
     {
-        public CreatePatternConstrainedEntityCommand(string emailAddress, string slug, string? websiteUrl, string referenceNumber, string? optionalPatternText)
+        public CreatePatternConstrainedEntityCommand(string emailAddress, string slug, string? websiteUrl, string referenceNumber, string? optionalPatternText, string base64)
         {
             EmailAddress = emailAddress;
             Slug = slug;
             WebsiteUrl = websiteUrl;
             ReferenceNumber = referenceNumber;
             OptionalPatternText = optionalPatternText;
+            Base64 = base64;
         }
 
         public string EmailAddress { get; set; }
@@ -23,5 +24,6 @@ namespace FluentValidationTest.Application.ValidationScenarios.DomainMapped.Crea
         public string? WebsiteUrl { get; set; }
         public string ReferenceNumber { get; set; }
         public string? OptionalPatternText { get; set; }
+        public string Base64 { get; set; }
     }
 }

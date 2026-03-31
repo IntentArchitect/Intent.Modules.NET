@@ -11,6 +11,7 @@ namespace FluentValidationTest.Domain.Entities.ValidationScenarios.PatternConstr
             EmailAddress = null!;
             Slug = null!;
             ReferenceNumber = null!;
+            Base64 = null!;
         }
 
         public Guid Id { get; set; }
@@ -24,5 +25,7 @@ namespace FluentValidationTest.Domain.Entities.ValidationScenarios.PatternConstr
         public string ReferenceNumber { get; set; }
 
         public string? OptionalPatternText { get; set; }
+
+        public string Base64 { get; set; }
     }
 }

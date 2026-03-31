@@ -9,7 +9,7 @@ namespace FluentValidationTest.Application.ValidationScenarios.DomainMapped.Upda
 {
     public class UpdatePatternConstrainedEntityCommand : IRequest, ICommand
     {
-        public UpdatePatternConstrainedEntityCommand(Guid id, string emailAddress, string? websiteUrl, string slug, string referenceNumber, string? optionalPatternText)
+        public UpdatePatternConstrainedEntityCommand(Guid id, string emailAddress, string? websiteUrl, string slug, string referenceNumber, string? optionalPatternText, string base64)
         {
             Id = id;
             EmailAddress = emailAddress;
@@ -17,6 +17,7 @@ namespace FluentValidationTest.Application.ValidationScenarios.DomainMapped.Upda
             Slug = slug;
             ReferenceNumber = referenceNumber;
             OptionalPatternText = optionalPatternText;
+            Base64 = base64;
         }
 
         public Guid Id { get; set; }
@@ -25,5 +26,6 @@ namespace FluentValidationTest.Application.ValidationScenarios.DomainMapped.Upda
         public string Slug { get; set; }
         public string ReferenceNumber { get; set; }
         public string? OptionalPatternText { get; set; }
+        public string Base64 { get; set; }
     }
 }

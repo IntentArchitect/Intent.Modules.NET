@@ -27,7 +27,8 @@ namespace FluentValidationTest.Application.ValidationScenarios.DomainMapped.Crea
                 WebsiteUrl = request.WebsiteUrl,
                 Slug = request.Slug,
                 ReferenceNumber = request.ReferenceNumber,
-                OptionalPatternText = request.OptionalPatternText
+                OptionalPatternText = request.OptionalPatternText,
+                Base64 = request.Base64
             };
 
             _patternConstrainedEntityRepository.Add(patternConstrainedEntity);

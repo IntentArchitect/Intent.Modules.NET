@@ -32,6 +32,7 @@ namespace FluentValidationTest.Application.ValidationScenarios.DomainMapped.Upda
             patternConstrainedEntity.Slug = request.Slug;
             patternConstrainedEntity.ReferenceNumber = request.ReferenceNumber;
             patternConstrainedEntity.OptionalPatternText = request.OptionalPatternText;
+            patternConstrainedEntity.Base64 = request.Base64;
         }
     }
 }

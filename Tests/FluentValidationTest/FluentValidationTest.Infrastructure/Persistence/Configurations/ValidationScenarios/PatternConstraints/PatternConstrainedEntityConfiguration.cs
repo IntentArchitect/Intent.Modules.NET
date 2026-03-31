@@ -26,6 +26,9 @@ namespace FluentValidationTest.Infrastructure.Persistence.Configurations.Validat
                 .IsRequired();
 
             builder.Property(x => x.OptionalPatternText);
+
+            builder.Property(x => x.Base64)
+                .IsRequired();
         }
     }
 }

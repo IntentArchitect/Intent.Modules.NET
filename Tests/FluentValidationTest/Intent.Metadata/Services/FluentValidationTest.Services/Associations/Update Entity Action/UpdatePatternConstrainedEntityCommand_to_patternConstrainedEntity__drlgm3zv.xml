@@ -21,7 +21,7 @@
   <targetEnd id="409da4b8-e024-4e36-8947-d6ffe8602713" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
     <name>patternConstrainedEntity</name>
     <display>[update] patternConstrainedEntity: PatternConstrainedEntity</display>
-    <order>6</order>
+    <order>7</order>
     <traits>
       <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
     </traits>
@@ -134,6 +134,21 @@
                 <path>
                   <target id="a5f53b24-50c6-4077-9574-81d58d999e35" name="UpdatePatternConstrainedEntityCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
                   <target id="2bc0b964-8064-40d1-a736-adacf976e5b0" name="OptionalPatternText" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Base64}</expression>
+            <path>
+              <target id="5f757f23-4e37-44eb-9fbe-74d1486d5ab9" name="PatternConstrainedEntity" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="5f5a2230-9fe9-4014-846d-68d5f97e4428" name="Base64" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Base64" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="a5f53b24-50c6-4077-9574-81d58d999e35" name="UpdatePatternConstrainedEntityCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="1a725d04-6255-43c4-8b7e-5c374f7c0acb" name="Base64" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>
