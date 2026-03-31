@@ -20,6 +20,12 @@ If you already have a Command or Service Operation and it is not exposed as an H
 3. Choose **Expose as HTTP Endpoint**.
 4. Select **Expose as HTTP Patch Endpoint**.
 
+![Expose as HTTP Patch Endpoint](images/expose-as-http-patch-endpoints.png)
+
+If the operation is already exposed as an HTTP endpoint, you can also use **Convert to PATCH** from the same action/context menu.
+
+![Convert to PATCH](images/convert-to-patch.png)
+
 After this, generation will wire the operation for RFC 7396 merge-patch semantics using the patterns described below.
 
 ## What This Module Does
@@ -96,11 +102,11 @@ public interface IPatchExecutor<T>
 
 For generated PATCH update flows, handlers/service operations follow this order:
 
-1. Load entity.
-2. `LoadOriginalState(entity, request)`.
-3. `request.PatchExecutor.ApplyTo(request)`.
-4. `ApplyChangesTo(request, entity)`.
-5. Save.
+1. Query the entity.
+2. Hydrate the incoming request through `LoadOriginalState(entity, request)`.
+3. Apply the incoming json diff on the original request with `request.PatchExecutor.ApplyTo(request)`.
+4. Apply the new request changes to the retrieved entity using `ApplyChangesTo(request, entity)`.
+5. Persist changes.
 
 This ordering matters because original state is captured before mutation, [RFC 7396](https://datatracker.ietf.org/doc/html/rfc7396) patch intent is applied once to request state, and then mapped entity updates run in a controlled way.
 
