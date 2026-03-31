@@ -128,11 +128,32 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                             ctor.RepresentsModel(ctorModel);
                             ctor.TryAddXmlDocComments(ctorModel.InternalElement);
 
+                            // get the last property which has no value. All items occuring before this cannot have a default value set in the constructor
+                            var lastNonNullable = ctorModel.Parameters.LastOrDefault(p => string.IsNullOrEmpty(p.Value))?.InternalElement.Order ?? 0;
+
+                            List<string> nulledFields = [];
                             foreach (var parameter in ctorModel.Parameters)
                             {
-                                ctor.AddParameter(GetOperationTypeName(parameter), parameter.Name.ToCamelCase(), param =>
+                                // should the default value be set, based on the position of it as a argument
+                                var setDefaultValue = ShouldSetDefaultValue(lastNonNullable, parameter);
+                                // set the type
+                                var typeValue = GetTypeReferenceName(parameter, setDefaultValue);
+
+                                ctor.AddParameter(typeValue, parameter.Name.ToCamelCase(), param =>
                                 {
-                                    param.WithDefaultValue(parameter.Value).RepresentsModel(parameter);
+                                    // only parameters with a value AFTER the last parameter with a value get the value specified
+                                    if (setDefaultValue)
+                                    {
+                                        param.WithDefaultValue(parameter.Value);
+                                        param.RepresentsModel(parameter);
+
+                                        // if is a collection, with a default value, set to null instead
+                                        if (parameter.TypeReference?.IsCollection ?? false)
+                                        {
+                                            param.WithDefaultValue("null");
+                                            nulledFields.Add(parameter.Id);
+                                        }
+                                    }
                                 });
                             }
                             if (ctorModel.InternalElement.Mappings.Any())
@@ -195,7 +216,8 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                                                 collectionFormat: UseType("System.Collections.Generic.List<{0}>"))
                                             .Replace("?", string.Empty);
 
-                                        ctor.AddStatement($"{assignmentTarget} = new {mappedTypeAsList}({parameter.Name.ToCamelCase()});");
+                                        var inputCollectionName = !nulledFields.Contains(parameter.Id) ? parameter.Name.ToCamelCase() : $"{parameter.Name.ToCamelCase()} ?? {parameter.Value}";
+                                        ctor.AddStatement($"{assignmentTarget} = new {mappedTypeAsList}({inputCollectionName});");
 
                                         continue;
                                     }
@@ -288,6 +310,26 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
             {
                 CSharpFile.IntentTagModeImplicit();
             }
+        }
+
+        private static bool ShouldSetDefaultValue(int lastNonNullable, Intent.Modelers.Domain.Api.ParameterModel @parameter)
+        {
+            // should the default value be set, based on the position of it as a argument
+            return @parameter.InternalElement.Order >= lastNonNullable && !string.IsNullOrEmpty(@parameter.Value);
+        }
+
+        private string GetTypeReferenceName(Intent.Modelers.Domain.Api.ParameterModel parameter, bool setDefaultValue)
+        {
+            // set the type
+            var typeValue = GetOperationTypeName(parameter);
+
+            // if we are setting the default value, and the type is a collection, we need to make it nullable in order to set the default value to null
+            if (setDefaultValue && (parameter.TypeReference?.IsCollection ?? false) && (!parameter.TypeReference?.IsNullable ?? false))
+            {
+                typeValue = $"{GetOperationTypeName(parameter)}?";
+            }
+
+            return typeValue;
         }
 
         private ClassConstructorModel GetParentConstructor(ClassConstructorModel ctorModel)

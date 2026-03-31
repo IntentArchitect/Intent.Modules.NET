@@ -1,3 +1,7 @@
+### Version 5.2.3
+
+- Improvement: Improved handling of collection default values on constructors
+
 ### Version 5.2.2
 
 - Fixed: `SynchronizeCollection`: when `changedCollection` is `null`, the `baseCollection` will iterate safely to clear out all its entries.

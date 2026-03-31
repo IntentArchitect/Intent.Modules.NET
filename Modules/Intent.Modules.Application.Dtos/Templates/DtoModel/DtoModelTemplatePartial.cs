@@ -248,7 +248,7 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
             var typeValue = GetTypeName(field.TypeReference);
 
             // if we are setting the default value, and the type is a collection, we need to make it nullable in order to set the default value to null
-            if (setDefaultValue && (field.TypeReference?.IsCollection ?? false))
+            if (setDefaultValue && (field.TypeReference?.IsCollection ?? false) && (!field.TypeReference?.IsNullable ?? false))
             {
                 typeValue = $"{GetTypeName(field.TypeReference)}?";
             }

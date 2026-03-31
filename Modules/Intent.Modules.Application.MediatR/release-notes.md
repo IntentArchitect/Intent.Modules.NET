@@ -1,3 +1,7 @@
+### Version 4.6.1
+
+- Improvement: Improved handling of collection default values on constructors
+
 ### Version 4.6.0
 
 - Improvement: Module dependencies updated.

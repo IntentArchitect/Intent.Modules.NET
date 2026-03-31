@@ -1,4 +1,5 @@
 ﻿using Intent.Metadata.Models;
+using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.Settings;
 using Intent.Modules.Common;
@@ -62,5 +63,25 @@ internal static class CqrsTemplateHelpers
                     }
                 });
         }
+    }
+
+    public static bool ShouldSetDefaultValue(this DTOFieldModel property, int lastNonNullable)
+    {
+        // should the default value be set, based on the position of it as a argument
+        return property.InternalElement.Order >= lastNonNullable && !string.IsNullOrEmpty(property.Value);
+    }
+
+    public static string GetTypeReferenceName(this DTOFieldModel field, bool setDefaultValue, IntentTemplateBase template)
+    {
+        // set the type
+        var typeValue = template.GetTypeName(field.TypeReference);
+
+        // if we are setting the default value, and the type is a collection, we need to make it nullable in order to set the default value to null
+        if (setDefaultValue && (field.TypeReference?.IsCollection ?? false) && (!field.TypeReference?.IsNullable ?? false))
+        {
+            typeValue = $"{template.GetTypeName(field.TypeReference)}?";
+        }
+
+        return typeValue;
     }
 }
