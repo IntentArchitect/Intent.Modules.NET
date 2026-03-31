@@ -2,6 +2,7 @@
 
 - Improvement: Module Dependency version updates.
 - Improvement: Introduced `IBypassPipelineValidation` in preparation for JSON Patch functionality in order to defer validation to a later stage for Patch requests.
+- Improvement: Added support for generating rules from Domain Constraints.
 
 ### Version 4.9.7
 

@@ -1,3 +1,7 @@
+### Version 3.12.7
+
+- Improvement: Added support for generating rules from Domain Constraints.
+
 ### Version 3.12.6
 
 - Fixed: Ensure that DTOs that reference themselves won't cause an infinite loop in terms of setting up validators.
