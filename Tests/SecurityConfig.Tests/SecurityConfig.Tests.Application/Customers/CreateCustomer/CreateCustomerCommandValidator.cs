@@ -22,6 +22,10 @@ namespace SecurityConfig.Tests.Application.Customers.CreateCustomer
 
             RuleFor(v => v.Surname)
                 .NotNull();
+
+            RuleFor(v => v.CustomerType)
+                .NotNull()
+                .IsInEnum();
         }
     }
 }

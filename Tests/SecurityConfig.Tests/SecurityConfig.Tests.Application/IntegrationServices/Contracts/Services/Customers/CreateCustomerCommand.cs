@@ -1,4 +1,5 @@
 using Intent.RoslynWeaver.Attributes;
+using SecurityConfig.Tests.Application.IntegrationServices.Contracts.Domain;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]
@@ -16,13 +17,15 @@ namespace SecurityConfig.Tests.Application.IntegrationServices.Contracts.Service
 
         public string Name { get; set; }
         public string Surname { get; set; }
+        public CustomerType CustomerType { get; set; }
 
-        public static CreateCustomerCommand Create(string name, string surname)
+        public static CreateCustomerCommand Create(string name, string surname, CustomerType customerType)
         {
             return new CreateCustomerCommand
             {
                 Name = name,
-                Surname = surname
+                Surname = surname,
+                CustomerType = customerType
             };
         }
     }

@@ -12,7 +12,6 @@ using Microsoft.Extensions.DependencyInjection;
 using SecurityConfig.Tests.Api.Controllers.ResponseTypes;
 using SecurityConfig.Tests.Application.Customers;
 using SecurityConfig.Tests.Application.Customers.CreateCustomer;
-using SecurityConfig.Tests.Application.Customers.DeleteCustomer;
 using SecurityConfig.Tests.Application.Customers.GetCustomerById;
 using SecurityConfig.Tests.Application.Customers.GetCustomers;
 using SecurityConfig.Tests.Application.Customers.UpdateCustomer;
@@ -54,28 +53,6 @@ namespace SecurityConfig.Tests.Api.Controllers
         {
             var result = await _mediator.Send(command, cancellationToken);
             return CreatedAtAction(nameof(GetCustomerById), new { id = result }, new JsonResponse<Guid>(result));
-        }
-
-        /// <summary>
-        /// </summary>
-        /// <response code="200">Successfully deleted.</response>
-        /// <response code="400">One or more validation errors have occurred.</response>
-        /// <response code="401">Unauthorized request.</response>
-        /// <response code="403">Forbidden request.</response>
-        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
-        [HttpDelete("api/customers/{id}")]
-        [Authorize(Policy = Permissions.PolicyCustomer)]
-        [Authorize(Policy = Permissions.PolicyAdmin)]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        [ProducesResponseType(StatusCodes.Status403Forbidden)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> DeleteCustomer([FromRoute] Guid id, CancellationToken cancellationToken = default)
-        {
-            await _mediator.Send(new DeleteCustomerCommand(id: id), cancellationToken);
-            return Ok();
         }
 
         /// <summary>

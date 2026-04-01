@@ -22,6 +22,9 @@
     <name>products</name>
     <display>[query] products: Product[*]</display>
     <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="0a95ea4d-b401-483e-9160-de2ee5a3c7fd">
       <typeId>2e85f6ca-379e-4a69-9838-0253acd7db9c</typeId>
       <isNavigable>true</isNavigable>

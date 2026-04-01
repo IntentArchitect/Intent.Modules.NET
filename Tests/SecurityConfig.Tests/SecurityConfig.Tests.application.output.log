@@ -436,30 +436,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>35939061-0b77-464b-99ce-4dd7f1adc270</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandModels#86e5d2a8-2752-4cb7-8fb6-c73198e8bc38</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>SecurityConfig.Tests.Application/Customers/DeleteCustomer/DeleteCustomerCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Customers/DeleteCustomer/DeleteCustomerCommand.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>35939061-0b77-464b-99ce-4dd7f1adc270</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandHandler#86e5d2a8-2752-4cb7-8fb6-c73198e8bc38</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>SecurityConfig.Tests.Application/Customers/DeleteCustomer/DeleteCustomerCommandHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Customers/DeleteCustomer/DeleteCustomerCommandHandler.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>35939061-0b77-464b-99ce-4dd7f1adc270</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#86e5d2a8-2752-4cb7-8fb6-c73198e8bc38</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>SecurityConfig.Tests.Application/Customers/DeleteCustomer/DeleteCustomerCommandValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Customers/DeleteCustomer/DeleteCustomerCommandValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>35939061-0b77-464b-99ce-4dd7f1adc270</ProjectId>
       <CorrelationId>Intent.Application.MediatR.QueryModels#465edb0b-1a5c-4f01-8844-427b686999c8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SecurityConfig.Tests.Application/Customers/GetCustomerById/GetCustomerByIdQuery.cs</ApplicationRelativeFilePath>
@@ -544,6 +520,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SecurityConfig.Tests.Application/Implementation/ProductsService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ProductsService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5489901c-6a33-4d8b-8c46-8fc8d25e948f</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.EnumContract#39c5849b-5353-4bdf-a0c4-ce36218e4463</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>SecurityConfig.Tests.Application/IntegrationServices/Contracts/Domain/CustomerType.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Domain/CustomerType.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

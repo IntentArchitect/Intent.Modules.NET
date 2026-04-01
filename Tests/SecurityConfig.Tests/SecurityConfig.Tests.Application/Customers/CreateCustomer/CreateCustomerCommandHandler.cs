@@ -28,7 +28,8 @@ namespace SecurityConfig.Tests.Application.Customers.CreateCustomer
             var customer = new Customer
             {
                 Name = request.Name,
-                Surname = request.Surname
+                Surname = request.Surname,
+                CustomerType = request.CustomerType
             };
 
             _customerRepository.Add(customer);

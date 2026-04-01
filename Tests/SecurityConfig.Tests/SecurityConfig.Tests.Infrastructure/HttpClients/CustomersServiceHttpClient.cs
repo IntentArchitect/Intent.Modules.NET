@@ -62,21 +62,6 @@ namespace SecurityConfig.Tests.Infrastructure.HttpClients
             }
         }
 
-        public async Task DeleteCustomerAsync(Guid id, CancellationToken cancellationToken = default)
-        {
-            var relativeUri = $"api/customers/{id}";
-            using var httpRequest = new HttpRequestMessage(HttpMethod.Delete, relativeUri);
-            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
-
-            using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
-            {
-                if (!response.IsSuccessStatusCode)
-                {
-                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, httpRequest, response, cancellationToken).ConfigureAwait(false);
-                }
-            }
-        }
-
         public async Task UpdateCustomerAsync(
             Guid id,
             UpdateCustomerCommand command,

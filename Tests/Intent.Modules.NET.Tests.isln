@@ -20,9 +20,9 @@
     <application id="5ffa2a75-821a-41f2-8232-af7df2460b0b" name="Publish.AspNetCore.MassTransit.OutBoxNone.TestApplication" solutionFolder="Eventing/MassTransit" relativePath="Publish.AspNetCore.MassTransit.OutBoxNone.TestApplication/Publish.AspNetCore.MassTransit.OutBoxNone.TestApplication.application.config" />
     <application id="71eac626-755a-4c5d-89f1-e66511d4df64" name="Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication" solutionFolder="Eventing/MassTransit" relativePath="Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication/Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.application.config" />
     <application id="be4b0466-617b-4d2d-beb1-5ef601d11ec9" name="MongoDb.TestApplication" relativePath="MongoDb.TestApplication/MongoDb.TestApplication.application.config" />
-    <application id="f2ff474a-74a0-4594-8e15-91ab2099d335" name="Application.Identity.Jwt.TestApplication" relativePath="intent/Application.Identity.Jwt.TestApplication/Application.Identity.Jwt.TestApplication.application.config" />
-    <application id="4188da7c-c7fc-4d6a-9d0c-522a695bfe1f" name="Application.Identity.MSAL.TestApplication" relativePath="intent/Application.Identity.MSAL.TestApplication/Application.Identity.MSAL.TestApplication.application.config" />
-    <application id="997b0d31-c393-4b42-9652-3bf4a12e9633" name="Application.Identity.AccountController" relativePath="Application.Identity.AccountController/Application.Identity.AccountController.application.config" />
+    <application id="f2ff474a-74a0-4594-8e15-91ab2099d335" name="Application.Identity.Jwt.TestApplication" solutionFolder="Identity Management" relativePath="intent/Application.Identity.Jwt.TestApplication/Application.Identity.Jwt.TestApplication.application.config" />
+    <application id="4188da7c-c7fc-4d6a-9d0c-522a695bfe1f" name="Application.Identity.MSAL.TestApplication" solutionFolder="Identity Management" relativePath="intent/Application.Identity.MSAL.TestApplication/Application.Identity.MSAL.TestApplication.application.config" />
+    <application id="997b0d31-c393-4b42-9652-3bf4a12e9633" name="Application.Identity.AccountController" solutionFolder="Identity Management" relativePath="Application.Identity.AccountController/Application.Identity.AccountController.application.config" />
     <application id="11c8cc47-1133-4a1f-84a2-cbf0c097e62c" name="Publish.CleanArchDapr.TestApplication" solutionFolder="Eventing/DAPR" relativePath="Publish.CleanArchDapr.TestApplication/Publish.CleanArchDapr.TestApplication.application.config" />
     <application id="a905a5c6-22ed-4c81-aba6-e2d01e40c02a" name="Subscribe.CleanArchDapr.TestApplication" solutionFolder="Eventing/DAPR" relativePath="Subscribe.CleanArchDapr.TestApplication/Subscribe.CleanArchDapr.TestApplication.application.config" />
     <application id="d0a966f2-9858-4ae8-810d-5ceb1379d7eb" name="Entities.PrivateSetters.TestApplication" relativePath="Entities.PrivateSetters.TestApplication/Entities.PrivateSetters.TestApplication.application.config" />
@@ -32,7 +32,7 @@
     <application id="96524c15-c348-4dce-8274-e62c5773ac50" name="GraphQL.CQRS.TestApplication" relativePath="intent/GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.application.config" />
     <application id="23798812-f78d-459a-bfcc-22283674988e" name="GraphQL.MongoDb.TestApplication" relativePath="GraphQL.MongoDb.TestApplication/GraphQL.MongoDb.TestApplication.application.config" />
     <application id="ffccab6d-dd24-4eb8-b4a4-907665740f35" name="Entities.Constants.TestApplication" relativePath="Entities.Constants.TestApplication/Entities.Constants.TestApplication.application.config" />
-    <application id="4eea3781-4b3c-4146-959d-d7ebf26039c6" name="AzureKeyVault" solutionFolder="Security" relativePath="AzureKeyVault/AzureKeyVault.application.config" />
+    <application id="4eea3781-4b3c-4146-959d-d7ebf26039c6" name="AzureKeyVault" solutionFolder="Secrets Management" relativePath="AzureKeyVault/AzureKeyVault.application.config" />
     <application id="65b33b65-b7ce-4175-8344-4522f421ec6e" name="GraphQL.AzureFunction.TestApplication" relativePath="GraphQL.AzureFunction.TestApplication/GraphQL.AzureFunction.TestApplication.application.config" />
     <application id="d4e2dacd-90bd-4d8e-829b-bed69f1b8631" name="CleanArchitecture.Dapr" relativePath="CleanArchitecture.Dapr/CleanArchitecture.Dapr.application.config" />
     <application id="b0cfe26a-d338-4d6d-a8df-a97c4e78f647" name="CosmosDB" relativePath="CosmosDB/CosmosDB.application.config" />
@@ -74,7 +74,7 @@
     <application id="40f7b22d-fc98-4c06-8957-ef909a03365a" name="EntityFrameworkCore.SplitQueries.MySql" relativePath="EntityFrameworkCore.SplitQueries.MySql/EntityFrameworkCore.SplitQueries.MySql.application.config" />
     <application id="887384b0-1607-4815-a01f-fabdb108e39f" name="EntityFrameworkCore.SplitQueries.PostgreSQL" relativePath="EntityFrameworkCore.SplitQueries.PostgreSQL/EntityFrameworkCore.SplitQueries.PostgreSQL.application.config" />
     <application id="51d44bee-1a4b-4c0a-897e-41261c2bfb9c" name="MinimalHostingModel" relativePath="MinimalHostingModel/MinimalHostingModel.application.config" />
-    <application id="e4251ba7-1036-4a2b-b23d-22d286ea81d2" name="AspNetCore.Controllers.Secured" relativePath="AspNetCore.Controllers.Secured/AspNetCore.Controllers.Secured.application.config" />
+    <application id="e4251ba7-1036-4a2b-b23d-22d286ea81d2" name="AspNetCore.Controllers.Secured" solutionFolder="Security" relativePath="AspNetCore.Controllers.Secured/AspNetCore.Controllers.Secured.application.config" />
     <application id="090169cc-05b9-4267-81d7-81ad5bb954a2" name="AdvancedMappingCrud.Repositories.Tests" solutionFolder="Advanced Mapping" relativePath="AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.application.config" />
     <application id="a0f944aa-6954-42a5-9b76-df879ecdc886" name="AdvancedMappingCrud.Cosmos.Tests" solutionFolder="Advanced Mapping" relativePath="AdvancedMappingCrud.Cosmos.Tests/AdvancedMappingCrud.Cosmos.Tests.application.config" />
     <application id="b2a57b08-b2ce-420a-b5c8-f4c4abbd720a" name="Application.Identity.AccountController.UserIdentity" relativePath="Application.Identity.AccountController.UserIdentity/Application.Identity.AccountController.UserIdentity.application.config" />
@@ -119,9 +119,9 @@
     <application id="3e3ebc36-8b69-453a-a151-faad8c1ac9bd" name="ProxyServiceTests.Proxy.PassThruHeader" relativePath="ProxyServiceTests.Proxy.PassThruHeader/ProxyServiceTests.Proxy.PassThruHeader.application.config" />
     <application id="511a26e8-f292-4ea8-b07e-ca9f37b297ae" name="ProxyServiceTests.Proxy.TokenMgmtSvc" relativePath="ProxyServiceTests.Proxy.TokenMgmtSvc/ProxyServiceTests.Proxy.TokenMgmtSvc.application.config" />
     <application id="2528e32a-a0c8-4e88-b1ef-5131f49d12a5" name="AdvancedMappingCrud.Mongo.Tests" solutionFolder="Advanced Mapping" relativePath="AdvancedMappingCrud.Mongo.Tests/AdvancedMappingCrud.Mongo.Tests.application.config" />
-    <application id="ae7dbedc-1ada-4fbe-8b75-c1c56540c79b" name="SecurityConfig.Tests" relativePath="SecurityConfig.Tests/SecurityConfig.Tests.application.config" />
+    <application id="ae7dbedc-1ada-4fbe-8b75-c1c56540c79b" name="SecurityConfig.Tests" solutionFolder="Security" relativePath="SecurityConfig.Tests/SecurityConfig.Tests.application.config" />
     <application id="5c1095ee-898d-46ed-8537-34217f14c8fb" name="ProxyServiceTests.Proxy.AuthHeaderProvider" relativePath="ProxyServiceTests.Proxy.AuthHeaderProvider/ProxyServiceTests.Proxy.AuthHeaderProvider.application.config" />
-    <application id="7f57e139-b7d4-40b6-96ca-624ec08d719f" name="HashiCorpVault" solutionFolder="Security" relativePath="HashiCorpVault/HashiCorpVault.application.config" />
+    <application id="7f57e139-b7d4-40b6-96ca-624ec08d719f" name="HashiCorpVault" solutionFolder="Secrets Management" relativePath="HashiCorpVault/HashiCorpVault.application.config" />
     <application id="91b6bf45-10fb-405d-874c-851233e4fc37" name="EntityFrameworkCore.Postgres" relativePath="EntityFrameworkCore.Postgres/EntityFrameworkCore.Postgres.application.config" />
     <application id="02808467-d0f1-40b4-877a-9206ff897be8" name="EntityFrameworkCore.MySql" relativePath="EntityFrameworkCore.MySql/EntityFrameworkCore.MySql.application.config" />
     <application id="75cf5e5a-53b1-4fa4-8f66-a81e38fc3356" name="BasicAuditing.CustomUserId.Tests" relativePath="BasicAuditing.CustomUserId.Tests/BasicAuditing.CustomUserId.Tests.application.config" />
@@ -142,7 +142,7 @@
     <application id="9534342e-b577-43f8-86d3-ad489ac18b60" name="CentralPackageManagement" relativePath="CentralPackageManagement/CentralPackageManagement.application.config" />
     <application id="a9c0a7d2-76c4-408d-9d6b-26cfc0c30128" name="GrpcServer" relativePath="intent/GrpcServer/GrpcServer.application.config" />
     <application id="05c06fb4-1c1b-4a08-99e5-5d4b81551d3f" name="OcelotTest" relativePath="OcelotTest/OcelotTest.application.config" />
-    <application id="90057001-3f88-4be0-8a65-cc23cafbf6a6" name="AspNetControllers.SecuredByDefault" relativePath="AspNetControllers.SecuredByDefault/AspNetControllers.SecuredByDefault.application.config" />
+    <application id="90057001-3f88-4be0-8a65-cc23cafbf6a6" name="AspNetControllers.SecuredByDefault" solutionFolder="Security" relativePath="AspNetControllers.SecuredByDefault/AspNetControllers.SecuredByDefault.application.config" />
     <application id="7bab7f92-fc1f-48ea-b44e-ce8530d75e88" name="CleanArchitecture.Dapr.DomainEntityInterfaces" relativePath="CleanArchitecture.Dapr.DomainEntityInterfaces/CleanArchitecture.Dapr.DomainEntityInterfaces.application.config" />
     <application id="74dbe983-f492-4a82-909e-005cf26e9110" name="SqlDbProject" relativePath="SqlDbProject/SqlDbProject.application.config" />
     <application id="85910570-7e99-4f58-8f6c-38f0342ec8bc" name="ModularMonolithAppTests" solutionFolder="Modular Monolith" relativePath="ModularMonolithAppTests/ModularMonolithAppTests.application.config" />
@@ -183,7 +183,7 @@
     <application id="3bf3dc59-97c7-4633-b5f2-147e9c2ee45c" name="AdvancedMapping.Repositories.Mapperly.Tests" solutionFolder="Advanced Mapping" relativePath="AdvancedMapping.Repositories.Mapperly.Tests/AdvancedMapping.Repositories.Mapperly.Tests.application.config" />
     <application id="9bc6f694-7776-4f09-82e7-95232c216357" name="Blazor.Standalone" solutionFolder="Blazor" relativePath="Blazor.Standalone/Blazor.Standalone.application.config" />
     <application id="16f05361-898d-4ed2-ad51-0e12259508c7" name="Blazor.ProductService" solutionFolder="Blazor" relativePath="Blazor.ProductService/Blazor.ProductService.application.config" />
-    <application id="bab54172-f442-450b-adcc-c3f83edd7579" name="AwsSecretsManager" solutionFolder="Security" relativePath="AwsSecretsManager/AwsSecretsManager.application.config" />
+    <application id="bab54172-f442-450b-adcc-c3f83edd7579" name="AwsSecretsManager" solutionFolder="Secrets Management" relativePath="AwsSecretsManager/AwsSecretsManager.application.config" />
     <application id="734c7d51-1b2c-43a3-9309-5d07a30c6484" name="AwsLambdaFunction.Sqs.GroupA" solutionFolder="Eventing/AWS SQS" relativePath="AwsLambdaFunction.Sqs.GroupA/AwsLambdaFunction.Sqs.GroupA.application.config" />
     <application id="dc693f0a-0527-436e-b5e7-896a1a85cc21" name="AwsLambdaFunction.Sqs.GroupB" solutionFolder="Eventing/AWS SQS" relativePath="AwsLambdaFunction.Sqs.GroupB/AwsLambdaFunction.Sqs.GroupB.application.config" />
     <application id="fac734d9-84f4-4b63-b59b-2b95f286a230" name="CleanArchitecture.QueueStorage" solutionFolder="Eventing/AzureQueueStorage" relativePath="CleanArchitecture.QueueStorage/CleanArchitecture.QueueStorage.application.config" />

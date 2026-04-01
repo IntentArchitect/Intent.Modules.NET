@@ -14,7 +14,6 @@ namespace SecurityConfig.Tests.Application.IntegrationServices
     public interface ICustomersService : IDisposable
     {
         Task<Guid> CreateCustomerAsync(CreateCustomerCommand command, CancellationToken cancellationToken = default);
-        Task DeleteCustomerAsync(Guid id, CancellationToken cancellationToken = default);
         Task UpdateCustomerAsync(Guid id, UpdateCustomerCommand command, CancellationToken cancellationToken = default);
         Task<CustomerDto> GetCustomerByIdAsync(Guid id, CancellationToken cancellationToken = default);
         Task<List<CustomerDto>> GetCustomersAsync(CancellationToken cancellationToken = default);
