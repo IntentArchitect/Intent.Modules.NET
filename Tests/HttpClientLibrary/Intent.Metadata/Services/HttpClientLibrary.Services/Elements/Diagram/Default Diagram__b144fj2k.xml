@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a5773891-fb29-4a75-a968-612239d8ac50" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>169f3801-8244-4b9e-ac2f-3eaede785048</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>0bf2c47a-f265-47df-896f-2599b835ad22</parentFolderId>
+  <packageId>0bf2c47a-f265-47df-896f-2599b835ad22</packageId>
+  <packageName>HttpClientLibrary.Services</packageName>
+  <diagram>
+    <targetPackageId>0bf2c47a-f265-47df-896f-2599b835ad22</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8984bb00-0133-4b98-8bc7-05c3cad10d91" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>5 - Shared Library</name>
+  <display>5 - Shared Library</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>f498ec26-4b46-4fd6-a720-6877960c50a7</parentFolderId>
+  <packageId>8af24ba9-a0eb-4464-bc47-c80e142de0e7</packageId>
+  <packageName>root</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
