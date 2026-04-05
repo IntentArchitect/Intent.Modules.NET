@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="9cc20dd0-0a24-4ab0-a703-75c2cba9b319">
+  <sourceEnd id="a5cc0e95-4ccf-42f1-b920-8f5fccda529c" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : ComponentTypes.UpdateComponentTypePropertyCommand</display>
+    <order>0</order>
+    <typeReference id="7674d048-d532-41e1-84e7-7fbc856dd2a7">
+      <typeId>8ccdd77c-9769-4870-8fed-48f60d226374</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.Services</typePackageName>
+      <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="9cc20dd0-0a24-4ab0-a703-75c2cba9b319" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>componentTypeProperty</name>
+    <display>[update] componentTypeProperty: ComponentTypeProperty</display>
+    <order>4</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="64a83650-1a89-43c2-b349-8e0cd96ea3b8">
+      <typeId>d1bdc70b-52c7-4f21-985d-28788094c349</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.Domain</typePackageName>
+      <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="8ccdd77c-9769-4870-8fed-48f60d226374" location="[CleanArchitecture.Comprehensive].[Services].[UpdateComponentTypePropertyCommand]" />
+        <target applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="d1bdc70b-52c7-4f21-985d-28788094c349" location="[CleanArchitecture.Comprehensive].[Services].[ComponentTypeProperty]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{PropertyId}</expression>
+            <path>
+              <target id="d1bdc70b-52c7-4f21-985d-28788094c349" name="ComponentTypeProperty" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="909eab5f-9515-4e0e-a585-4b62eb8ff0e2" name="PropertyId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="PropertyId" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="8ccdd77c-9769-4870-8fed-48f60d226374" name="UpdateComponentTypePropertyCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="7ac09996-e458-47ff-9b81-4450913ac886" name="PropertyId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="8ccdd77c-9769-4870-8fed-48f60d226374" location="[CleanArchitecture.Comprehensive].[Services].[UpdateComponentTypePropertyCommand]" />
+        <target applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="d1bdc70b-52c7-4f21-985d-28788094c349" location="[CleanArchitecture.Comprehensive].[Services].[ComponentTypeProperty]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{PropertyName}</expression>
+            <path>
+              <target id="d1bdc70b-52c7-4f21-985d-28788094c349" name="ComponentTypeProperty" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="65ec1535-b2ce-4809-b8b5-6bbcd3937ea9" name="PropertyName" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="PropertyName" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="8ccdd77c-9769-4870-8fed-48f60d226374" name="UpdateComponentTypePropertyCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="d849402c-f47a-4afc-af6d-7328546a9290" name="PropertyName" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{PropertyGroupId}</expression>
+            <path>
+              <target id="d1bdc70b-52c7-4f21-985d-28788094c349" name="ComponentTypeProperty" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="75d662d9-a3b6-49c9-8f94-b4a9b573c417" name="ComponentPropertyGroupPropertyGroupId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="PropertyGroupId" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="8ccdd77c-9769-4870-8fed-48f60d226374" name="UpdateComponentTypePropertyCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="7a3c1866-fc55-40f4-b631-258fccd0ded0" name="PropertyGroupId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

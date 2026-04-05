@@ -22,6 +22,7 @@ using CleanArchitecture.Comprehensive.Domain.Entities.ODataQuery;
 using CleanArchitecture.Comprehensive.Domain.Entities.OperationAndConstructorMapping;
 using CleanArchitecture.Comprehensive.Domain.Entities.Operations;
 using CleanArchitecture.Comprehensive.Domain.Entities.Pagination;
+using CleanArchitecture.Comprehensive.Domain.Entities.PrimaryKeyLookup;
 using CleanArchitecture.Comprehensive.Domain.Entities.UniqueIndexConstraint;
 using CleanArchitecture.Comprehensive.Infrastructure.Persistence.Configurations;
 using CleanArchitecture.Comprehensive.Infrastructure.Persistence.Configurations.Async;
@@ -41,6 +42,7 @@ using CleanArchitecture.Comprehensive.Infrastructure.Persistence.Configurations.
 using CleanArchitecture.Comprehensive.Infrastructure.Persistence.Configurations.OperationAndConstructorMapping;
 using CleanArchitecture.Comprehensive.Infrastructure.Persistence.Configurations.Operations;
 using CleanArchitecture.Comprehensive.Infrastructure.Persistence.Configurations.Pagination;
+using CleanArchitecture.Comprehensive.Infrastructure.Persistence.Configurations.PrimaryKeyLookup;
 using CleanArchitecture.Comprehensive.Infrastructure.Persistence.Configurations.UniqueIndexConstraint;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
@@ -99,6 +101,7 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.Persistence
         public DbSet<OperationsClass> OperationsClasses { get; set; }
         public DbSet<LogEntry> LogEntries { get; set; }
         public DbSet<PersonEntry> PersonEntries { get; set; }
+        public DbSet<ComponentType> ComponentTypes { get; set; }
         public DbSet<AggregateWithUniqueConstraintIndexElement> AggregateWithUniqueConstraintIndexElements { get; set; }
         public DbSet<AggregateWithUniqueConstraintIndexStereotype> AggregateWithUniqueConstraintIndexStereotypes { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
@@ -159,6 +162,7 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new OperationsClassConfiguration());
             modelBuilder.ApplyConfiguration(new LogEntryConfiguration());
             modelBuilder.ApplyConfiguration(new PersonEntryConfiguration());
+            modelBuilder.ApplyConfiguration(new ComponentTypeConfiguration());
             modelBuilder.ApplyConfiguration(new AggregateWithUniqueConstraintIndexElementConfiguration());
             modelBuilder.ApplyConfiguration(new AggregateWithUniqueConstraintIndexStereotypeConfiguration());
         }

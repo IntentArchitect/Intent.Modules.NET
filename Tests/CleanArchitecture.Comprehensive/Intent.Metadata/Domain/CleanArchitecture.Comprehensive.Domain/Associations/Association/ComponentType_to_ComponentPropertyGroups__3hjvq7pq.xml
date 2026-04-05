@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="609aa932-421a-40a7-affa-10327c1aeb3a">
+  <sourceEnd id="5eb926f8-51b6-463f-8c32-82f65b473c67" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>ComponentType</name>
+    <display>ComponentType: ComponentType</display>
+    <order>0</order>
+    <typeReference id="e71c9111-7fcb-407b-8b71-d6e911b5ef9b">
+      <typeId>66c86e60-2677-4b94-bfd7-daaeca57c474</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.Domain</typePackageName>
+      <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="609aa932-421a-40a7-affa-10327c1aeb3a" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>ComponentPropertyGroups</name>
+    <display>ComponentPropertyGroups: ComponentPropertyGroup[*]</display>
+    <order>2</order>
+    <typeReference id="409bd352-6f3b-4762-a3e2-fa80f4e943ee">
+      <typeId>1ce9ad29-af32-4f1c-aa33-265809c44098</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.Domain</typePackageName>
+      <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

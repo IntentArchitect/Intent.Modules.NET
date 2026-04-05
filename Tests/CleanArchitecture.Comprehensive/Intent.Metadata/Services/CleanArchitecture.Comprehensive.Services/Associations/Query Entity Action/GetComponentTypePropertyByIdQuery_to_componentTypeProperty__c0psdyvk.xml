@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="4d177d9f-ad85-44d4-b015-7ad73cc2026e">
+  <sourceEnd id="a0254179-5d86-4a7d-b608-5c9e74669638" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetComponentTypePropertyByIdQuery</display>
+    <order>0</order>
+    <typeReference id="17efcc30-97e0-4097-8ebc-0beb27f7582d">
+      <typeId>75f14340-ef38-4387-b8bb-fbe89cefd1c8</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.Services</typePackageName>
+      <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="4d177d9f-ad85-44d4-b015-7ad73cc2026e" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>componentTypeProperty</name>
+    <display>[query] componentTypeProperty: ComponentTypeProperty</display>
+    <order>3</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="05543653-8f72-47fa-963a-ea0682d89b4d">
+      <typeId>d1bdc70b-52c7-4f21-985d-28788094c349</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.Domain</typePackageName>
+      <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="75f14340-ef38-4387-b8bb-fbe89cefd1c8" location="[CleanArchitecture.Comprehensive].[Services].[GetComponentTypePropertyByIdQuery]" />
+        <target applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="d1bdc70b-52c7-4f21-985d-28788094c349" location="[CleanArchitecture.Comprehensive].[Services].[ComponentTypeProperty]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{PropertyId}</expression>
+            <path>
+              <target id="d1bdc70b-52c7-4f21-985d-28788094c349" name="ComponentTypeProperty" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="909eab5f-9515-4e0e-a585-4b62eb8ff0e2" name="PropertyId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="PropertyId" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="75f14340-ef38-4387-b8bb-fbe89cefd1c8" name="GetComponentTypePropertyByIdQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+                  <target id="d2c4d556-a3f0-4e35-9acf-f818f292d5b7" name="PropertyId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

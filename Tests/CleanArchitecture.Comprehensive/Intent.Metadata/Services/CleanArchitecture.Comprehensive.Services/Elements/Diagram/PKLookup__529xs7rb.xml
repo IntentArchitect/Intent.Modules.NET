@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8cbf6d49-53af-4aa1-9c85-3a2cbf0e0b9b" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>PKLookup</name>
+  <display>PKLookup</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>1454e21e-fffb-4ff2-aa8c-109c0ef54a68</parentFolderId>
+  <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+  <packageName>CleanArchitecture.Comprehensive.Services</packageName>
+  <diagram>
+    <targetPackageId>8cbf6d49-53af-4aa1-9c85-3a2cbf0e0b9b</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
