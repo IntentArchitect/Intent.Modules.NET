@@ -100,7 +100,18 @@ public static class DomainInteractionExtensions
             var requestProperties = primaryKeys.Select(x =>
             {
                 var simplifiedPk = x.Name.StartsWith(targetEntity.Name) ? x.Name.RemovePrefix(targetEntity.Name) : x.Name;
-                var accessorExpression = $"{formatter(targetEntity.Name)}{simplifiedPk}";
+
+                var useSimplifiedPk = false;
+                // if the PK name is not "Id" (the default) AND there is a property on the request that matches the simplified PK name AND
+                // there is not a property which matches the {formatter(targetEntity.Name)}{simplifiedPk}
+                if (!x.Name.Equals("Id", StringComparison.InvariantCultureIgnoreCase) && 
+                    requestElement.ChildElements.Any(c => string.Equals(c.Name, simplifiedPk, StringComparison.InvariantCultureIgnoreCase)) &&
+                    !requestElement.ChildElements.Any(c => string.Equals(c.Name, $"{formatter(targetEntity.Name)}{simplifiedPk}", StringComparison.InvariantCultureIgnoreCase)))
+                {
+                    useSimplifiedPk = true;
+                }
+
+                var accessorExpression = !useSimplifiedPk ? $"{formatter(targetEntity.Name)}{simplifiedPk}" : formatter(simplifiedPk);
                 return (
                     Property: x.Name,
                     ValueExpression: new CSharpStatement(accessorExpression)
