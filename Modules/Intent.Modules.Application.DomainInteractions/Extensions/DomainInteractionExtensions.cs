@@ -106,7 +106,7 @@ public static class DomainInteractionExtensions
                 // there is not a property which matches the {formatter(targetEntity.Name)}{simplifiedPk}
                 if (!x.Name.Equals("Id", StringComparison.InvariantCultureIgnoreCase) && 
                     requestElement.ChildElements.Any(c => string.Equals(c.Name, simplifiedPk, StringComparison.InvariantCultureIgnoreCase)) &&
-                    !requestElement.ChildElements.Any(c => string.Equals(c.Name, $"{formatter(targetEntity.Name)}{simplifiedPk}", StringComparison.InvariantCultureIgnoreCase)))
+                    !requestElement.ChildElements.Any(c => string.Equals(c.Name, $"{targetEntity.Name}{simplifiedPk}", StringComparison.InvariantCultureIgnoreCase)))
                 {
                     useSimplifiedPk = true;
                 }
