@@ -163,7 +163,15 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
                                     var variableName = queryParams.Count(q => q.TypeReference.IsCollection) == 1 ? "index" : $"{queryParameter.Name}Index";
                                     
                                     method.AddStatement($"var {variableName} = 0;");
-                                    method.AddForEachStatement("element", GetSourceExpression(parameterName, endpoint, queryParameter), block =>
+                                    var sourceExpression = GetSourceExpression(parameterName, endpoint, queryParameter);
+
+                                    // if nullable, add the additional check
+                                    if(queryParameter.TypeReference.IsNullable)
+                                    {
+                                        sourceExpression = $"{sourceExpression} ?? []";
+                                    }
+
+                                    method.AddForEachStatement("element", sourceExpression, block =>
                                     {
                                         block.AddStatement($@"queryParams.Add($""{queryParameter.QueryStringName ?? GetSourceExpression(parameterName, endpoint, queryParameter)}[{{{variableName}++}}]"", element.ToString());");
                                     });

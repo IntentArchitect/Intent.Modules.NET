@@ -1,3 +1,7 @@
+### Version 2.3.1
+
+- Fixed: Added additional null check when dealing with nullable collection parameters.
+
 ### Version 2.3.0
 
 - Improvement: Updated Dependencies and versions.
