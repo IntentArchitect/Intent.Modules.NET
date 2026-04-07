@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Application.FluentValidation" Version="3.11.6" />
-    <PackageReference Include="Intent.Modules.Application.MediatR" Version="4.6.0-pre.0" />
+    <PackageReference Include="Intent.Modules.Application.MediatR" Version="4.6.1" />
     <PackageReference Include="Intent.Modules.Common" Version="3.8.0" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.9.4" />
     <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.3.10" />
