@@ -13,6 +13,7 @@ using ProxyServiceTests.OriginalServices.Api.Controllers.ResponseTypes;
 using ProxyServiceTests.OriginalServices.Application.Accounts;
 using ProxyServiceTests.OriginalServices.Application.Accounts.CreateAccount;
 using ProxyServiceTests.OriginalServices.Application.Accounts.DeleteAccount;
+using ProxyServiceTests.OriginalServices.Application.Accounts.GetAccountByCollection;
 using ProxyServiceTests.OriginalServices.Application.Accounts.GetAccountById;
 using ProxyServiceTests.OriginalServices.Application.Accounts.GetAccounts;
 using ProxyServiceTests.OriginalServices.Application.Accounts.UpdateAccount;
@@ -98,6 +99,24 @@ namespace ProxyServiceTests.OriginalServices.Api.Controllers
 
             await _mediator.Send(command, cancellationToken);
             return NoContent();
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="200">Returns the specified AccountDto.</response>
+        /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">No AccountDto could be found with the provided parameters.</response>
+        [HttpGet("api/accounts/by-collection")]
+        [ProducesResponseType(typeof(AccountDto), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<AccountDto>> GetAccountByCollection(
+            [FromQuery] List<string> collection,
+            CancellationToken cancellationToken = default)
+        {
+            var result = await _mediator.Send(new GetAccountByCollectionQuery(collection: collection), cancellationToken);
+            return result == null ? NotFound() : Ok(result);
         }
 
         /// <summary>
