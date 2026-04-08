@@ -1,9 +1,9 @@
-using System;
-using System.Collections.Generic;
+using Intent.AI;
 using Intent.Engine;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.DependencyInjection.MediatR;
 using Intent.Modules.Application.MediatR.Settings;
+using Intent.Modules.Application.MediatR.Templates.CommandHandler;
 using Intent.Modules.Application.MediatR.Templates.QueryModels;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -13,6 +13,12 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Channels;
+using static Intent.Modules.Constants.TemplateRoles.Blazor.Client;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -78,6 +84,56 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryHandler
                     });
                 });
 
+            template.ExecutionContext.AITaskManager.RegisterTaskProvider(new TemplateAITaskProvider((changes, outputFiles) =>
+            {
+                var outputFile = outputFiles.FirstOrDefault(x => x.Template?.Equals(template) == true);
+                if (changes.All(x => x.Template?.Equals(template) != true) 
+                    && outputFile != null && !outputFile.Content.Contains("throw new NotImplementedException"))
+                {
+                    return null;
+                }
+
+                //var outputFile = outputFiles.FirstOrDefault(x => x.Template?.Equals(template) == true);
+                //if (outputFile != null)
+                //{
+                //    outputFile.
+                //}
+
+                var intention = new StringBuilder();
+                foreach (var associationEnd in model.InternalElement.AssociatedElements)
+                {
+                    intention.AppendLine($"- This query must `{associationEnd.SpecializationType}` against the {associationEnd.TypeReference.Element.Name}.");
+                }
+
+                //var isNotImplemented = file.Classes.First().Methods.Any(x => x.FindStatement(x => x.ToString().Contains("NotImplementedException")) != null);
+                return new TemplateAITask(template)
+                {
+                    Type = "Implement Query Handler",
+                    Title = $"Implement Handler: {template.ClassName}",
+                    Instructions =
+                        $"""
+                         Implement the functionality for handling the {model.Name} query in the {template.ClassName} class.
+                         """,
+                    Context =
+                        $"""
+                         ## User has modeled the following intentions:
+                         {intention}
+
+                         ## Implementation Rules:
+                         - ALWAYS follow the architectural guidelines as and when they become apparent.
+                         - NEVER modify the method signature of the Handle method.
+                         - ALWAYS ensure that the `IntentManaged` attribute indicates that the body of the method must be in `Mode.Ignore` (e.g. `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]`).
+                         - Only ever inject in dependencies from the Domain or Application layers.
+                         - Never introduce dependencies on infrastructural nuget packages (e.g. Entity Framework, Dapper, etc.) directly in the handler. If data access is required, use the appropriate repository in the Domain layer and inject that into the handler.
+                         - Follow the user's modeled intentions as best as possible.
+
+                         ## Architectural Guidelines:
+                         - Follow the Single Responsibility Principle. The handler should only be responsible for handling the query and delegating work to other services or components as necessary.
+                         - Use Dependency Injection to inject any required services or repositories into the handler's constructor.
+                         - Ensure that the handler is focused on orchestrating the retrieval of data and does not contain complex data manipulation. Place complex data manipulation logic in the infrastructure layer (e.g. in a repository) if possible.
+                         """,
+                };
+            }));
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
@@ -107,6 +163,17 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryHandler
         private static string GetQueryModelName(ICSharpTemplate template, QueryModel model)
         {
             return template.GetTypeName(QueryModelsTemplate.TemplateId, model);
+        }
+    }
+
+    public class TemplateAITaskProvider(Func<IChange[], IOutputFile[], IAITask?> createTask) : IAITaskProvider
+    {
+
+        public IAITask[] GetTasks(IChange[] changes, IOutputFile[] outputFiles)
+        {
+            var task = createTask(changes, outputFiles);
+
+            return task != null ? [task] : [];
         }
     }
 }
