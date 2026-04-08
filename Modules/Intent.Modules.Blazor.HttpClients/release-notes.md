@@ -1,3 +1,7 @@
+### Version 4.1.1
+
+- Fixed: Added additional null check when dealing with nullable collection parameters.
+
 ### Version 4.1.0
 
 - Improvement: Updated module dependencies.

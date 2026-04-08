@@ -1,3 +1,7 @@
+### Version 2.0.18
+
+- Fixed: Added additional null check when dealing with nullable collection parameters.
+
 ### Version 2.0.17
 
 - Improvement: Will now create the test project in the same solution folder as the application project.
