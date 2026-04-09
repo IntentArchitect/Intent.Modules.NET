@@ -5,26 +5,20 @@
       <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#2b7880a4-d400-404b-b02b-04ed6a199767</correlationId>
       <path>Intent.Modules.Dapr.AspNetCore/Templates/StaticContentTemplateRegistrations/DaprComponentFilesStaticContentTemplateRegistration.cs</path>
       <count>2</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-08-20T12:12:05.7947773Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-08-20T12:12:05.7947775Z</approvedAt>
-      <deviationsHash>3C84AF11D208FAD8C3E45012B919C847C6A449A8062076DADC163C20BFE95E0E</deviationsHash>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-04-09T12:09:02.6684552Z</updatedAt>
+      <deviationsHash>760F98448F11385089B79319BA764E0D8DEDD0EE75BC1FF7A5CF72EB0AC65AEF</deviationsHash>
       <fileHash>3B301C7DD4BF2A9C391C3825005E9E23A0C94069D103E777EB9CDF522C393AB3</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#7f8f1a8e-b5a8-4d62-9f0e-f2a8aed6e913</correlationId>
       <path>Intent.Modules.Dapr.AspNetCore/Templates/StaticContentTemplateRegistrations/DaprFilesStaticContentTemplateRegistration.cs</path>
       <count>2</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-08-20T12:12:05.7990171Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-08-20T12:12:05.7990173Z</approvedAt>
-      <deviationsHash>30055FA3A46ADFC059EE83C046EE7590EC5050BA48595223A6421D80A717B7AD</deviationsHash>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-04-09T12:09:02.668497Z</updatedAt>
+      <deviationsHash>3EF444D9FF77D7CB40A0300C7DB13CDAD4DE37E80C98F524FCC309EAC559E5D0</deviationsHash>
       <fileHash>607A47E68B94215D57022A2BD0A79AABCAA2F0F1CC4733EDF25A00746FE58F21</fileHash>
     </file>
   </files>

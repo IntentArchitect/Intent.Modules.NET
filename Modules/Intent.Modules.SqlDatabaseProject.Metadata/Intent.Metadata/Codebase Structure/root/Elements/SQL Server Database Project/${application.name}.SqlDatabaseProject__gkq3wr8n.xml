@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6dfad5d2-a4d8-4900-8e57-a34125cd1700" type="SQL Server Database Project" typeId="00D1A9C2-B5F0-4AF3-8072-F6C62B433612">
+  <name>${application.name}.SqlDatabaseProject</name>
+  <display>${application.name}.SqlDatabaseProject</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>4251a733-07fc-4fca-b4cc-0d6ddcfae43b</parentFolderId>
+  <packageId>40f2efb7-3f7f-4349-9468-f5937ac5cf3a</packageId>
+  <packageName>root</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="f3fcc35a-4bb2-44e7-aca2-d721e047a4c9" name=".NET Framework Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="117cf9ee-04da-4f1c-915a-b62c61e2c558" display="Target Framework" value="475ed40d-d952-4056-9509-afdec875a10f" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="3d6a3c2c-7608-4184-b7e5-76b6b993440e" type="Output Anchor" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>SqlDatabaseProject</name>
+      <display>SqlDatabaseProject</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>6dfad5d2-a4d8-4900-8e57-a34125cd1700</parentFolderId>
+      <packageId>40f2efb7-3f7f-4349-9468-f5937ac5cf3a</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="a23c7901-31a5-4cbf-b8bf-1be128977e6d" name="Output Anchor Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="8d79a350-96f1-4d50-bb0a-f65a5c53ec62" display="Create Sub-Folders" value="true" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
