@@ -1,3 +1,7 @@
+### Version 1.1.0
+
+- Improvement: Updated module dependencies including moving over to the Codebase Structure designer.
+
 ### Version 1.0.2
 
 - Improvement: Updated module documentation to use centralized documentation site.
