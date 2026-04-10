@@ -188,6 +188,7 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
         {
             Id = ((IntentTemplateBase)template).GetCorrelationId() ?? throw new ArgumentException("CorrelationId could not be found for template", nameof(template));
             _template = template;
+
             RelatedTemplates = _template.GetAllTemplateDependencies()
                 .Select(x => _template.ExecutionContext.FindTemplateInstance(x))
                 .Distinct()
@@ -207,6 +208,8 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
         public string Context { get; init; }
 
         public IList<ITemplate> RelatedTemplates { get; }
+
+        public IList<string> FilesToInclude { get; }
 
         public virtual bool IsApplicableToChanges(IChange[] changes)
         {
