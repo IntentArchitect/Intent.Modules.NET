@@ -84,7 +84,7 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
             {
                 var outputFile = outputFiles.FirstOrDefault(x => x.Template?.Equals(template) == true);
                 if (changes.All(x => x.Template?.Equals(template) != true)
-                    && outputFile != null && !outputFile.Content.Contains("throw new NotImplementedException"))
+                    || (outputFile != null && !outputFile.Content.Contains("throw new NotImplementedException")))
                 {
                     return null;
                 }

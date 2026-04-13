@@ -88,7 +88,7 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryHandler
             {
                 var outputFile = outputFiles.FirstOrDefault(x => x.Template?.Equals(template) == true);
                 if (changes.All(x => x.Template?.Equals(template) != true) 
-                    && outputFile != null && !outputFile.Content.Contains("throw new NotImplementedException"))
+                    || (outputFile != null && !outputFile.Content.Contains("throw new NotImplementedException")))
                 {
                     return null;
                 }
@@ -131,7 +131,7 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryHandler
                          - Follow the Single Responsibility Principle. The handler should only be responsible for handling the query and delegating work to other services or components as necessary.
                          - Use Dependency Injection to inject any required services or repositories into the handler's constructor.
                          - Ensure that the handler is focused on orchestrating the retrieval of data and does not contain complex data manipulation. Place complex data manipulation logic in the infrastructure layer (e.g. in a repository) if possible.
-                         """,
+                         """
                 };
             }));
         }
