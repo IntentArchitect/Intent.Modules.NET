@@ -282,6 +282,12 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
             return TryGetTemplate<EntityTypeConfigurationTemplate>(EntityTypeConfigurationTemplate.TemplateId, Model.Id, out var _);
         }
 
+        public override object GetAIContext()
+        {
+            var baseContext = base.GetAIContext();
+            return baseContext;
+        }
+
         //public override object GetAIContext()
         //{
         //    return new

@@ -87,8 +87,7 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryHandler
             template.ExecutionContext.AITaskManager.RegisterTaskProvider(new TemplateAITaskProvider((changes, outputFiles) =>
             {
                 var outputFile = outputFiles.FirstOrDefault(x => x.Template?.Equals(template) == true);
-                if (changes.All(x => x.Template?.Equals(template) != true) 
-                    || (outputFile != null && !outputFile.Content.Contains("throw new NotImplementedException")))
+                if (outputFile != null && !outputFile.Content.Contains("throw new NotImplementedException"))
                 {
                     return null;
                 }
@@ -126,7 +125,8 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryHandler
                          - Only ever inject in dependencies from the Domain or Application layers.
                          - Never introduce dependencies on infrastructural nuget packages (e.g. Entity Framework, Dapper, etc.) directly in the handler. If data access is required, use the appropriate repository in the Domain layer and inject that into the handler.
                          - Follow the user's modeled intentions as best as possible.
-
+                         - Search code usages to discover a way to implement the required functionality.
+                         
                          ## Architectural Guidelines:
                          - Follow the Single Responsibility Principle. The handler should only be responsible for handling the query and delegating work to other services or components as necessary.
                          - Use Dependency Injection to inject any required services or repositories into the handler's constructor.

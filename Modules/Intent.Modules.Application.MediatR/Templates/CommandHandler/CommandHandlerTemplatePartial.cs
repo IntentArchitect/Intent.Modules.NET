@@ -83,8 +83,7 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
             template.ExecutionContext.AITaskManager.RegisterTaskProvider(new TemplateAITaskProvider((changes, outputFiles) =>
             {
                 var outputFile = outputFiles.FirstOrDefault(x => x.Template?.Equals(template) == true);
-                if (changes.All(x => x.Template?.Equals(template) != true)
-                    || (outputFile != null && !outputFile.Content.Contains("throw new NotImplementedException")))
+                if (outputFile != null && !outputFile.Content.Contains("throw new NotImplementedException"))
                 {
                     return null;
                 }
@@ -100,11 +99,11 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
                     Type = "Implement Command Handler",
                     Title = $"Implement Handler: {template.ClassName}",
                     Instructions =
-                        $"""
+                                $"""
                                  Implement the functionality for handling the {model.Name} command in the {template.ClassName} class.
                                  """,
                     Context =
-                        $"""
+                                $"""
                                  ## User has modeled the following intentions:
                                  {intention}
 
@@ -115,11 +114,14 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
                                  - Only ever inject in dependencies from the Domain or Application layers.
                                  - Never introduce dependencies on infrastructural nuget packages (e.g. Entity Framework, Dapper, etc.) directly in the handler. If data access is required, use the appropriate repository in the Domain layer and inject that into the handler.
                                  - Follow the user's modeled intentions as best as possible.
+                                 - Search code usages to discover a way to implement the required functionality.
+                                 - Calling `SaveChangesAsync` is only required if this command returns a payload that includes a surrogate key (e.g. `Id`).
 
                                  ## Architectural Guidelines:
                                  - Follow the Single Responsibility Principle. The handler should only be responsible for handling the command and delegating work to other services or components as necessary.
                                  - Use Dependency Injection to inject any required services or repositories into the handler's constructor.
                                  - Ensure that the handler is focused on orchestrating the retrieval of data and does not contain complex data manipulation. Place complex data manipulation logic in the infrastructure layer (e.g. in a repository) if possible.
+                                 - If a data aggregation (e.g. Count, Average, Sum, etc) is required, perform this in the infrastructure layer (e.g. in a repository) rather than in the handler itself.
                                  """,
                 };
             }));
