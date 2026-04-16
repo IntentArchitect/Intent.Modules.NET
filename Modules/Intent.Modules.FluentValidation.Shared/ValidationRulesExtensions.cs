@@ -234,13 +234,13 @@ internal static class ValidationRulesExtensions
                         CSharpStatement expressionBody;
                         if (UniqueConstraintRules.IsCreateDto(dtoModel))
                         {
-                            expressionBody = UniqueConstraintRules.GetDtoAndDomainAttributeComparisonExpression("p", "model", dtoModel, indexGroup.ToArray(), associationedElementsList);
+                            expressionBody = UniqueConstraintRules.GetDtoAndDomainAttributeComparisonExpression("p", "model", dtoModel, indexGroup.ToArray());
                         }
                         else
                         {
                             UniqueConstraintRules.TryGetMappedClass(dtoModel, out var classModel);
                             var fieldIds = dtoModel.Fields.GetEntityIdFields(classModel, template.ExecutionContext);
-                            expressionBody = $"{fieldIds.GetAttributeAndFieldComparison("p", "model", false)} && " + UniqueConstraintRules.GetDtoAndDomainAttributeComparisonExpression("p", "model", dtoModel, indexGroup.ToArray(), associationedElementsList);
+                            expressionBody = $"{fieldIds.GetAttributeAndFieldComparison("p", "model", false)} && " + UniqueConstraintRules.GetDtoAndDomainAttributeComparisonExpression("p", "model", dtoModel, indexGroup.ToArray());
                         }
 
                         method.AddInvocationStatement($"return !await {repositoryFieldName}.AnyAsync", stmt => stmt
@@ -303,14 +303,14 @@ internal static class ValidationRulesExtensions
                 var validations = field.GetValidations();
                 if (validations.CascadeMode().Value != null)
                 {
-                    validationRuleChain.AddChainStatement($"Cascade(CascadeMode.{validations.CascadeMode().Value})");
+                    validationRuleChain.AddChainStatement(new CSharpStatement($"Cascade(CascadeMode.{validations.CascadeMode().Value})"));
                 }
             }
 
             if (!resolvedTypeInfo.Get(field.TypeReference).IsPrimitive &&
                 !field.TypeReference.IsNullable)
             {
-                validationRuleChain.AddChainStatement("NotNull()");
+                validationRuleChain.AddChainStatement(new CSharpStatement("NotNull()"));
             }
 
             ApplyAttributeValidationRules(

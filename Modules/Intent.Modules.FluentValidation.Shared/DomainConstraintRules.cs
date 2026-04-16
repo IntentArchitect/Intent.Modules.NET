@@ -60,9 +60,7 @@ internal static class DomainConstraintRules
                 var maxLength = mappedAttribute.GetStereotypeProperty<int?>("Text Constraints", "MaxLength");
                 if (maxLength > 0)
                 {
-                    validationRuleChain.AddChainStatement(
-                        $"MaximumLength({maxLength})",
-                        stmt => stmt.AddMetadata(RuleSpaceMetadataKey, RuleSpaces.LengthMax));
+                    validationRuleChain.AddChainStatement($"MaximumLength({maxLength})", x => x.AddMetadata(RuleSpaceMetadataKey, RuleSpaces.LengthMax));
                     appliedRuleSpaces.Add(RuleSpaces.LengthMax);
                 }
             }
@@ -98,7 +96,7 @@ internal static class DomainConstraintRules
                 {
                     if (isFirst)
                     {
-                        validationRuleChain.AddChainStatement(stmt, s => s.AddMetadata(RuleSpaceMetadataKey, rule.RuleSpace));
+                        validationRuleChain.AddChainStatement(stmt, x => x.AddMetadata(RuleSpaceMetadataKey, rule.RuleSpace));
                         isFirst = false;
                     }
                     else
@@ -117,7 +115,7 @@ internal static class DomainConstraintRules
         if (!IsRuleSpaceApplied(appliedRuleSpaces, RuleSpaces.Required) &&
             attribute.HasStereotype(DomainConstraintStereotypes.Required))
         {
-            chain.AddChainStatement("NotEmpty()", stmt => stmt.AddMetadata(RuleSpaceMetadataKey, RuleSpaces.Required));
+            chain.AddChainStatement("NotEmpty()", x => x.AddMetadata(RuleSpaceMetadataKey, RuleSpaces.Required));
             appliedRuleSpaces.Add(RuleSpaces.Required);
         }
 
@@ -134,24 +132,24 @@ internal static class DomainConstraintRules
 
             if (hasMin && min == 1 && !hasMax && !IsRuleSpaceApplied(appliedRuleSpaces, RuleSpaces.Required))
             {
-                chain.AddChainStatement("NotEmpty()", stmt => stmt.AddMetadata(RuleSpaceMetadataKey, RuleSpaces.Required));
+                chain.AddChainStatement("NotEmpty()", x => x.AddMetadata(RuleSpaceMetadataKey, RuleSpaces.Required));
                 appliedRuleSpaces.Add(RuleSpaces.Required);
             }
             else if (hasMin && hasMax && !IsRuleSpaceApplied(appliedRuleSpaces, RuleSpaces.CollectionMin) && !IsRuleSpaceApplied(appliedRuleSpaces, RuleSpaces.CollectionMax))
             {
-                chain.AddChainStatement($"Must(c => c?.Count >= {min} && c?.Count <= {max})", stmt => stmt.AddMetadata(RuleSpaceMetadataKey, RuleSpaces.Collection));
+                chain.AddChainStatement($"Must(c => c?.Count >= {min} && c?.Count <= {max})", x => x.AddMetadata(RuleSpaceMetadataKey, RuleSpaces.Collection));
                 chain.AddChainStatement($@"WithMessage(""{ToPascalCaseName(attribute.Name)} must contain between {min} and {max} items."")");
                 appliedRuleSpaces.Add(RuleSpaces.Collection);
             }
             else if (hasMin && !IsRuleSpaceApplied(appliedRuleSpaces, RuleSpaces.CollectionMin))
             {
-                chain.AddChainStatement($"Must(c => c?.Count >= {min})", stmt => stmt.AddMetadata(RuleSpaceMetadataKey, RuleSpaces.CollectionMin));
+                chain.AddChainStatement($"Must(c => c?.Count >= {min})", x => x.AddMetadata(RuleSpaceMetadataKey, RuleSpaces.CollectionMin));
                 chain.AddChainStatement($@"WithMessage(""{ToPascalCaseName(attribute.Name)} must contain at least {min} items."")");
                 appliedRuleSpaces.Add(RuleSpaces.CollectionMin);
             }
             else if (hasMax && !IsRuleSpaceApplied(appliedRuleSpaces, RuleSpaces.CollectionMax))
             {
-                chain.AddChainStatement($"Must(c => c?.Count <= {max})", stmt => stmt.AddMetadata(RuleSpaceMetadataKey, RuleSpaces.CollectionMax));
+                chain.AddChainStatement($"Must(c => c?.Count <= {max})", x => x.AddMetadata(RuleSpaceMetadataKey, RuleSpaces.CollectionMax));
                 chain.AddChainStatement($@"WithMessage(""{ToPascalCaseName(attribute.Name)} must contain at most {max} items."")");
                 appliedRuleSpaces.Add(RuleSpaces.CollectionMax);
             }
@@ -254,9 +252,9 @@ internal static class DomainConstraintRules
     internal static bool IsRuleSpaceApplied(HashSet<string> appliedRuleSpaces, string space)
     {
         if (appliedRuleSpaces.Contains(space)) return true;
-        if (appliedRuleSpaces.Contains(RuleSpaces.Length) && (space == RuleSpaces.LengthMin || space == RuleSpaces.LengthMax)) return true;
-        if (appliedRuleSpaces.Contains(RuleSpaces.Numeric) && (space == RuleSpaces.NumericMin || space == RuleSpaces.NumericMax)) return true;
-        if (appliedRuleSpaces.Contains(RuleSpaces.Collection) && (space == RuleSpaces.CollectionMin || space == RuleSpaces.CollectionMax)) return true;
+        if (appliedRuleSpaces.Contains(RuleSpaces.Length) && space is RuleSpaces.LengthMin or RuleSpaces.LengthMax) return true;
+        if (appliedRuleSpaces.Contains(RuleSpaces.Numeric) && space is RuleSpaces.NumericMin or RuleSpaces.NumericMax) return true;
+        if (appliedRuleSpaces.Contains(RuleSpaces.Collection) && space is RuleSpaces.CollectionMin or RuleSpaces.CollectionMax) return true;
         return false;
     }
 

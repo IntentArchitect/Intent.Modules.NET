@@ -102,52 +102,39 @@ public class EfCoreFieldConfigStatement : CSharpStatement, IHasCSharpStatements
     {
         var statements = new List<CSharpStatement>();
         var isStringType = attribute.Type.HasStringType();
-        var textConstraints = attribute.HasTextConstraints()
-            ? attribute.GetTextConstraints()
-            : null;
-        var textConstraintsMaxLength = textConstraints?.MaxLength();
-        var textLimitsRawValue = attribute.GetStereotype(Stereotypes.DomainConstraintStereotypes.TextLimitsStereotypeId)
-            ?.GetProperty("Max Length")
-            ?.Value;
-        var textLimitsMaxLength = int.TryParse(textLimitsRawValue, out var parsedTextLimitsMaxLength)
-            ? parsedTextLimitsMaxLength
-            : (int?)null;
-        var resolvedMaxLength = textConstraintsMaxLength > 0
-            ? textConstraintsMaxLength
-            : textLimitsMaxLength > 0
-                ? textLimitsMaxLength
-                : null;
+        var columnType = attribute.GetColumn()?.Type();
+        var textConstraints = attribute.HasTextConstraints() ? attribute.GetTextConstraints() : null;
+        var resolvedMaxLength = ResolveMaxLength(attribute, textConstraints);
 
+        // Default constraint
         if (attribute.HasDefaultConstraint())
         {
             var treatAsSqlExpression = attribute.GetDefaultConstraint().TreatAsSQLExpression();
             var defaultValue = attribute.GetDefaultConstraint()?.Value() ?? string.Empty;
-
             defaultValue = EscapeHelper.EscapeValueForCSharpStringLiteral(defaultValue, treatAsSqlExpression, isStringType);
-
-            var method = treatAsSqlExpression
-                ? "HasDefaultValueSql"
-                : "HasDefaultValue";
-
+            var method = treatAsSqlExpression ? "HasDefaultValueSql" : "HasDefaultValue";
             statements.Add($".{method}({defaultValue})");
         }
 
-        if (isStringType && (textConstraints is null || textConstraints.SQLDataType().IsDEFAULT()))
+        // Type & Length Configuration (3-Tier Priority)
+        // Tier 1: Explicit Column Override - highest priority
+        if (!string.IsNullOrWhiteSpace(columnType))
         {
-            if (resolvedMaxLength.HasValue)
-            {
-                statements.Add($".HasMaxLength({resolvedMaxLength.Value})");
-            }
+            statements.Add($".HasColumnType(\"{columnType}\")");
         }
-        else if (isStringType && textConstraints is not null)
+        // Tier 2: SQL-Specific String Types (TextConstraints)
+        else if (isStringType && textConstraints is not null && !textConstraints.SQLDataType().IsDEFAULT())
         {
-            switch (textConstraints.SQLDataType().AsEnum())
+            var lengthSuffix = resolvedMaxLength?.ToString() ?? "max";
+            var sqlDataType = textConstraints.SQLDataType().AsEnum();
+
+            switch (sqlDataType)
             {
                 case AttributeModelStereotypeExtensions.TextConstraints.SQLDataTypeOptionsEnum.VARCHAR:
-                    statements.Add($".HasColumnType(\"varchar({resolvedMaxLength?.ToString() ?? "max"})\")");
+                    statements.Add($".HasColumnType(\"varchar({lengthSuffix})\")");
                     break;
                 case AttributeModelStereotypeExtensions.TextConstraints.SQLDataTypeOptionsEnum.NVARCHAR:
-                    statements.Add($".HasColumnType(\"nvarchar({resolvedMaxLength?.ToString() ?? "max"})\")");
+                    statements.Add($".HasColumnType(\"nvarchar({lengthSuffix})\")");
                     break;
                 case AttributeModelStereotypeExtensions.TextConstraints.SQLDataTypeOptionsEnum.TEXT:
                     Logging.Log.Warning($"{attribute.InternalElement.ParentElement.Name}.{attribute.Name}: The ntext, text, and image data types will be removed in a future version of SQL Server. Avoid using these data types in new development work, and plan to modify applications that currently use them. Use nvarchar(max), varchar(max), and varbinary(max) instead.");
@@ -159,21 +146,27 @@ public class EfCoreFieldConfigStatement : CSharpStatement, IHasCSharpStatements
                     break;
                 case AttributeModelStereotypeExtensions.TextConstraints.SQLDataTypeOptionsEnum.DEFAULT:
                 default:
-                    throw new ArgumentOutOfRangeException();
+                    throw new ArgumentOutOfRangeException(nameof(sqlDataType), $"Unsupported TextConstraint SQLDataType: {sqlDataType}");
             }
         }
+        // Tier 3: Standard Fallbacks
+        else if (isStringType)
+        {
+            if (resolvedMaxLength.HasValue)
+            {
+                statements.Add($".HasMaxLength({resolvedMaxLength.Value})");
+            }
+        }
+        // Non-string types and other column type logic
         else
         {
-            var decimalPrecision = attribute.GetDecimalConstraints()?.Precision();
-            var decimalScale = attribute.GetDecimalConstraints()?.Scale();
-            var columnType = attribute.GetColumn()?.Type();
+            var elementName = attribute.Type.Element.Name;
 
-            if (!string.IsNullOrWhiteSpace(columnType))
+            if (elementName == "decimal")
             {
-                statements.Add($".HasColumnType(\"{columnType}\")");
-            }
-            else if (attribute.Type.Element.Name == "decimal")
-            {
+                var decimalPrecision = attribute.GetDecimalConstraints()?.Precision();
+                var decimalScale = attribute.GetDecimalConstraints()?.Scale();
+
                 if (decimalPrecision.HasValue && decimalScale.HasValue)
                 {
                     statements.Add($".HasColumnType(\"decimal({decimalPrecision}, {decimalScale})\")");
@@ -184,14 +177,13 @@ public class EfCoreFieldConfigStatement : CSharpStatement, IHasCSharpStatements
                     statements.Add($".HasColumnType(\"decimal({safeString})\")");
                 }
             }
-            else if (attribute.Type.Element.GetStereotype("C#")?.GetProperty("Namespace")?.Value == "NetTopologySuite.Geometries" &&
-                     dbSettings.DatabaseProvider().IsPostgresql())
+            else if (IsNetTopologySuiteGeometry(attribute) && dbSettings.DatabaseProvider().IsPostgresql())
             {
-                // https://www.npgsql.org/efcore/mapping/nts.html#constraining-your-type-names
-                statements.Add($@".HasColumnType(""geography ({attribute.Type.Element.Name.ToLower()})"")");
+                statements.Add($@".HasColumnType(""geography ({elementName.ToLower()})"")");
             }
         }
 
+        // Metadata Configuration
         var collation = attribute.GetColumn()?.Collation()?.Trim();
         if (!string.IsNullOrWhiteSpace(collation))
         {
@@ -213,9 +205,7 @@ public class EfCoreFieldConfigStatement : CSharpStatement, IHasCSharpStatements
         var computedValueSql = attribute.GetComputedValue()?.SQL();
         if (!string.IsNullOrWhiteSpace(computedValueSql))
         {
-
-            statements.Add(
-                $".HasComputedColumnSql({SanitizeUserInputString(computedValueSql)}{(attribute.GetComputedValue().Stored() ? ", stored: true" : string.Empty)})");
+            statements.Add($".HasComputedColumnSql({SanitizeUserInputString(computedValueSql)}{(attribute.GetComputedValue().Stored() ? ", stored: true" : string.Empty)})");
         }
 
         if (attribute.HasRowVersion())
@@ -229,6 +219,31 @@ public class EfCoreFieldConfigStatement : CSharpStatement, IHasCSharpStatements
         }
 
         return statements;
+    }
+
+    private static int? ResolveMaxLength(AttributeModel attribute, dynamic textConstraints)
+    {
+        var textConstraintsMaxLength = textConstraints?.MaxLength();
+        if (textConstraintsMaxLength is > 0)
+        {
+            return textConstraintsMaxLength;
+        }
+
+        var textLimitsRawValue = attribute.GetStereotype(Stereotypes.DomainConstraintStereotypes.TextLimitsStereotypeId)
+            ?.GetProperty("Max Length")
+            ?.Value;
+
+        if (int.TryParse(textLimitsRawValue, out var textLimitsMaxLength) && textLimitsMaxLength > 0)
+        {
+            return textLimitsMaxLength;
+        }
+
+        return null;
+    }
+
+    private static bool IsNetTopologySuiteGeometry(AttributeModel attribute)
+    {
+        return attribute.Type.Element.GetStereotype("C#")?.GetProperty("Namespace")?.Value == "NetTopologySuite.Geometries";
     }
 
     private static string SanitizeUserInputString(string computedValueSql)

@@ -5,12 +5,9 @@ using System.Text;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
-using Intent.Modules.Application.Shared;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.Templates;
-
-#nullable enable
 
 namespace Intent.Modules.FluentValidation.Shared;
 
@@ -27,7 +24,7 @@ internal static class UniqueConstraintRules
 {
     // ─── Public API ──────────────────────────────────────────────────────────────
 
-    internal static IReadOnlyCollection<ConstraintField> GetConstraintFields(
+    public static IReadOnlyCollection<ConstraintField> GetConstraintFields(
         DTOModel dtoModel,
         IEnumerable<IAssociationEnd>? sourceElementAdvancedMappings,
         bool enabled)
@@ -100,7 +97,7 @@ internal static class UniqueConstraintRules
     /// Appends the <c>MustAsync</c> unique-constraint chain statement for a single-field index.
     /// No-op if <paramref name="field"/> is not part of a single-field unique constraint.
     /// </summary>
-    internal static void ApplyFieldRules(
+    public static void ApplyFieldRules(
         DTOFieldModel field,
         CSharpMethodChainStatement validationRuleChain,
         IReadOnlyCollection<ConstraintField> indexFields)
@@ -110,14 +107,14 @@ internal static class UniqueConstraintRules
             return;
         }
 
-        validationRuleChain.AddChainStatement($"MustAsync(CheckUniqueConstraint_{field.Name.ToPascalCase()})", stmt => stmt.AddMetadata("requires-repository", true));
+        validationRuleChain.AddChainStatement($"MustAsync(CheckUniqueConstraint_{field.Name.ToPascalCase()})", x => x.AddMetadata("requires-repository", true));
         validationRuleChain.AddChainStatement($@"WithMessage(""{field.Name.ToPascalCase()} already exists."")");
     }
 
     /// <summary>
     /// Returns DTO-level <c>RuleFor(v => v)</c> chains for composite (multi-field) unique constraints.
     /// </summary>
-    internal static IEnumerable<CSharpMethodChainStatement> GetDtoLevelValidators(IReadOnlyCollection<ConstraintField> indexFields)
+    public static IEnumerable<CSharpMethodChainStatement> GetDtoLevelValidators(IReadOnlyCollection<ConstraintField> indexFields)
     {
         if (!indexFields.Any(p => p.GroupCount > 1))
         {
@@ -128,19 +125,19 @@ internal static class UniqueConstraintRules
         var indexGroups = indexFields.Where(p => p.GroupCount > 1).GroupBy(g => g.CompositeGroupName).ToArray();
         foreach (var indexGroup in indexGroups)
         {
-            validationRuleChain.AddChainStatement($"MustAsync(CheckUniqueConstraint_{string.Join("_", indexGroup.Select(s => s.FieldName.ToPascalCase()))})", stmt => stmt.AddMetadata("requires-repository", true));
+            validationRuleChain.AddChainStatement($"MustAsync(CheckUniqueConstraint_{string.Join("_", indexGroup.Select(s => s.FieldName.ToPascalCase()))})",
+                x => x.AddMetadata("requires-repository", true));
             validationRuleChain.AddChainStatement($@"WithMessage(""The combination of {string.Join(" and ", indexGroup.Select(s => s.FieldName))} already exists."")");
         }
 
         yield return validationRuleChain;
     }
 
-    internal static CSharpStatement GetDtoAndDomainAttributeComparisonExpression(
+    public static CSharpStatement GetDtoAndDomainAttributeComparisonExpression(
         string domainEntityVarName,
         string dtoModelVarName,
         DTOModel dtoModel,
-        IReadOnlyCollection<ConstraintField> constraintFields,
-        IEnumerable<IAssociationEnd>? associationedElements)
+        IReadOnlyCollection<ConstraintField> constraintFields)
     {
         var sb = new StringBuilder();
 
@@ -165,14 +162,14 @@ internal static class UniqueConstraintRules
 
     // ─── DTO classification helpers ──────────────────────────────────────────────
 
-    internal static bool IsCreateDto(DTOModel dtoModel)
+    public static bool IsCreateDto(DTOModel dtoModel)
     {
         return dtoModel.Name.StartsWith("create", StringComparison.InvariantCultureIgnoreCase) ||
                dtoModel.Name.StartsWith("add", StringComparison.InvariantCultureIgnoreCase) ||
                dtoModel.Name.StartsWith("new", StringComparison.InvariantCultureIgnoreCase);
     }
 
-    internal static bool IsUpdateDto(DTOModel dtoModel)
+    public static bool IsUpdateDto(DTOModel dtoModel)
     {
         return dtoModel.Name.StartsWith("update", StringComparison.InvariantCultureIgnoreCase) ||
                dtoModel.Name.StartsWith("edit", StringComparison.InvariantCultureIgnoreCase);
@@ -180,10 +177,10 @@ internal static class UniqueConstraintRules
 
     // ─── Class mapping resolution helpers ────────────────────────────────────────
 
-    internal static bool TryGetMappedClass(DTOModel dtoModel, out ClassModel? classModel)
+    public static bool TryGetMappedClass(DTOModel dtoModel, out ClassModel? classModel)
     {
         // The loop is not needed on the service side where a Command/Query/DTO is mapped
-        // to an Entity but it is needed when mapping from a Service Proxy to a Command/Query/Service Operation
+        // to an Entity, but it is needed when mapping from a Service Proxy to a Command/Query/Service Operation
         // and then to an Entity.
         if (dtoModel.InternalElement.TryWalkMappingGraph(
                 predicate: static candidate => candidate.IsClassModel(),
@@ -198,7 +195,7 @@ internal static class UniqueConstraintRules
         return false;
     }
 
-    internal static bool TryGetAdvancedMappedClass(DTOModel dtoModel, IEnumerable<IAssociationEnd>? associationedElements, out ClassModel? classModel)
+    public static bool TryGetAdvancedMappedClass(DTOModel dtoModel, IEnumerable<IAssociationEnd>? associationedElements, out ClassModel? classModel)
     {
         if (associationedElements is null)
         {
@@ -234,11 +231,11 @@ internal static class UniqueConstraintRules
 
     // ─── Attribute mapping resolution helpers ────────────────────────────────────
 
-    internal static bool TryGetMappedAttribute(DTOFieldModel field, out AttributeModel? attribute) => TryGetMappedAttribute(field.InternalElement, out attribute);
+    public static bool TryGetMappedAttribute(DTOFieldModel field, out AttributeModel? attribute) => TryGetMappedAttribute(field.InternalElement, out attribute);
     private static bool TryGetMappedAttribute(IElement field, out AttributeModel? attribute, bool checkAdvancedMappings = true)
     {
         // The loop is not needed on the service side where a Command/Query/DTO is mapped
-        // to an Attribute but it is needed when mapping from a Service Proxy to a DTO Field and then to an Attribute.
+        // to an Attribute, but it is needed when mapping from a Service Proxy to a DTO Field and then to an Attribute.
         if (field.TryWalkMappingGraph(
                 predicate: static candidate => candidate.IsAttributeModel(),
                 out var mappedElement) &&
@@ -257,7 +254,7 @@ internal static class UniqueConstraintRules
         return false;
     }
 
-    internal static bool TryGetAdvancedMappedAttribute(DTOFieldModel field, out AttributeModel? attribute) => TryGetAdvancedMappedAttribute(field.InternalElement, out attribute);
+    public static bool TryGetAdvancedMappedAttribute(DTOFieldModel field, out AttributeModel? attribute) => TryGetAdvancedMappedAttribute(field.InternalElement, out attribute);
     private static bool TryGetAdvancedMappedAttribute(IElement field, out AttributeModel? attribute, bool checkBasicMappings = true)
     {
         var mappedEnd = field.MappedToElements.FirstOrDefault(p => p.MappingType == "Data Mapping");
@@ -279,12 +276,12 @@ internal static class UniqueConstraintRules
         return false;
     }
 
-    internal static bool TryGetAssociationMappedAttribute(
+    public static bool TryGetAssociationMappedAttribute(
         DTOFieldModel field,
         List<IAssociationEnd>? associationedElements,
         out AttributeModel? attribute)
     {
-        var parentAssociations = (field.InternalElement.ParentElement as IElement)?.AssociatedElements;
+        var parentAssociations = field.InternalElement.ParentElement?.AssociatedElements;
         var associations = associationedElements?.Count > 0
             ? associationedElements
             : parentAssociations;
@@ -302,12 +299,13 @@ internal static class UniqueConstraintRules
                     p.MappingType == "Data Mapping" &&
                     (p.SourceElement as IElement)?.Id == field.Id);
 
-                if (mappedEnd?.TargetElement is IElement targetElement &&
-                    targetElement.IsAttributeModel())
+                if (mappedEnd?.TargetElement is not IElement targetElement ||
+                    !targetElement.IsAttributeModel())
                 {
-                    attribute = targetElement.AsAttributeModel();
-                    return true;
+                    continue;
                 }
+                attribute = targetElement.AsAttributeModel();
+                return true;
             }
         }
 

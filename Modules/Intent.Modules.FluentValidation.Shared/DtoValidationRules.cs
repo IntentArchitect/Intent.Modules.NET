@@ -47,8 +47,7 @@ internal static class DtoValidationRules
 
         if (validations.NotEmpty())
         {
-            validationRuleChain.AddChainStatement("NotEmpty()",
-                stmt => stmt.AddMetadata(DomainConstraintRules.RuleSpaceMetadataKey, RuleSpaces.Required));
+            validationRuleChain.AddChainStatement("NotEmpty()", x => x.AddMetadata(DomainConstraintRules.RuleSpaceMetadataKey, RuleSpaces.Required));
             appliedRuleSpaces.Add(RuleSpaces.Required);
         }
 
@@ -144,15 +143,7 @@ internal static class DtoValidationRules
 
             if (!string.IsNullOrWhiteSpace(regexRule))
             {
-                if (!string.IsNullOrWhiteSpace(validations.RegularExpressionMessage()))
-                {
-                    itemRules.Add(new RuleData(RuleSpaces.Regex, regexRule, $@"WithMessage(""{validations.RegularExpressionMessage()}"")"));
-                }
-                else
-                {
-                    itemRules.Add(new RuleData(RuleSpaces.Regex, regexRule));
-                }
-
+                itemRules.Add(new RuleData(RuleSpaces.Regex, regexRule));
                 appliedRuleSpaces.Add(RuleSpaces.Regex);
             }
 
@@ -178,6 +169,12 @@ internal static class DtoValidationRules
                     validationRuleChain.AddChainStatement(stmt);
                 }
             }
+        }
+
+        // Add RegularExpression message as a separate chain statement to maintain one-rule-per-line formatting
+        if (!string.IsNullOrWhiteSpace(validations.RegularExpression()) && !string.IsNullOrWhiteSpace(validations.RegularExpressionMessage()))
+        {
+            validationRuleChain.AddChainStatement($@"WithMessage(""{validations.RegularExpressionMessage()}"")");
         }
 
         if (!string.IsNullOrWhiteSpace(validations.Predicate()))
