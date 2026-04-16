@@ -12,8 +12,13 @@
     <Folder Include="$(MSBuildThisFileDirectory)Templates\DtoValidator\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)MappingGraphExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DomainConstraintRules.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DtoValidationRules.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)NuGetPackages.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Templates\DtoValidator\DtoValidatorTemplateBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UniqueConstraintRules.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ValidationRulesExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RuleSpaces.cs" />
   </ItemGroup>
 </Project>

@@ -607,10 +607,38 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
         private static bool IsQualifyingStringPrimaryKey(AttributeModel attribute)
         {
-            // if it is a text field, and any of the text fields are not the default
-            return attribute.HasPrimaryKey() && attribute.HasTextConstraints() &&
-                    (attribute.GetTextConstraints().SQLDataType().AsEnum() != Intent.Metadata.RDBMS.Api.AttributeModelStereotypeExtensions.TextConstraints.SQLDataTypeOptionsEnum.DEFAULT ||
-                     attribute.GetTextConstraints().MaxLength() > 0 || attribute.GetTextConstraints().IsUnicode());
+            if (!attribute.HasPrimaryKey() || !attribute.Type.HasStringType())
+            {
+                return false;
+            }
+
+            var textConstraints = attribute.HasTextConstraints()
+                ? attribute.GetTextConstraints()
+                : null;
+
+            var textConstraintsMaxLength = textConstraints?.MaxLength();
+            var textLimitsMaxLength = GetTextLimitsMaxLength(attribute);
+            var resolvedMaxLength = textConstraintsMaxLength > 0
+                ? textConstraintsMaxLength
+                : textLimitsMaxLength;
+
+            // If it is a string key and any text-configuration setting deviates from defaults,
+            // or a fallback Text Limits max-length is populated, it requires explicit configuration.
+            return (textConstraints is not null &&
+                    (textConstraints.SQLDataType().AsEnum() != Intent.Metadata.RDBMS.Api.AttributeModelStereotypeExtensions.TextConstraints.SQLDataTypeOptionsEnum.DEFAULT ||
+                     textConstraints.IsUnicode())) ||
+                   resolvedMaxLength > 0;
+        }
+
+        private static int? GetTextLimitsMaxLength(AttributeModel attribute)
+        {
+            var textLimitsValue = attribute.GetStereotype(Stereotypes.DomainConstraintStereotypes.TextLimitsStereotypeId)
+                ?.GetProperty("Max Length")
+                ?.Value;
+
+            return int.TryParse(textLimitsValue, out var parsedMaxLength)
+                ? parsedMaxLength
+                : null;
         }
 
         private static bool IsQualifyingDecimalPrimaryKey(AttributeModel attribute, DatabaseSettings dbSettings)

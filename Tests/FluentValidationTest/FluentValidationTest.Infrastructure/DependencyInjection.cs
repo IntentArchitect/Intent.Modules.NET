@@ -4,6 +4,7 @@ using FluentValidationTest.Domain.Repositories.ValidationScenarios.IdentityConst
 using FluentValidationTest.Domain.Repositories.ValidationScenarios.Nullability;
 using FluentValidationTest.Domain.Repositories.ValidationScenarios.NumericConstraints;
 using FluentValidationTest.Domain.Repositories.ValidationScenarios.PatternConstraints;
+using FluentValidationTest.Domain.Repositories.ValidationScenarios.StressSuite;
 using FluentValidationTest.Domain.Repositories.ValidationScenarios.TextConstraints;
 using FluentValidationTest.Infrastructure.Persistence;
 using FluentValidationTest.Infrastructure.Repositories.ValidationScenarios.ConstructorOperationConstraints;
@@ -11,6 +12,7 @@ using FluentValidationTest.Infrastructure.Repositories.ValidationScenarios.Ident
 using FluentValidationTest.Infrastructure.Repositories.ValidationScenarios.Nullability;
 using FluentValidationTest.Infrastructure.Repositories.ValidationScenarios.NumericConstraints;
 using FluentValidationTest.Infrastructure.Repositories.ValidationScenarios.PatternConstraints;
+using FluentValidationTest.Infrastructure.Repositories.ValidationScenarios.StressSuite;
 using FluentValidationTest.Infrastructure.Repositories.ValidationScenarios.TextConstraints;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
@@ -38,6 +40,10 @@ namespace FluentValidationTest.Infrastructure
             services.AddTransient<INullabilityConstrainedEntityRepository, NullabilityConstrainedEntityRepository>();
             services.AddTransient<INumericConstrainedEntityRepository, NumericConstrainedEntityRepository>();
             services.AddTransient<IPatternConstrainedEntityRepository, PatternConstrainedEntityRepository>();
+            services.AddTransient<IInvoiceRepository, InvoiceRepository>();
+            services.AddTransient<IPersistencePrecedenceRepository, PersistencePrecedenceRepository>();
+            services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<IUserAccountRepository, UserAccountRepository>();
             services.AddTransient<ITextConstrainedEntityRepository, TextConstrainedEntityRepository>();
             return services;
         }

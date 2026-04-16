@@ -27,5 +27,10 @@ namespace Intent.Modules.EntityFrameworkCore
                 public const string Name = "RowVersion";
             }
         }
+
+        internal static class DomainConstraintStereotypes
+        {
+            public const string TextLimitsStereotypeId = "13649b19-4dfe-43ec-967f-0b85a5801dd6";
+        }
     }
 }

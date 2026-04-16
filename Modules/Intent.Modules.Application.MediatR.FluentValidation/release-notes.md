@@ -1,3 +1,7 @@
+### Version 4.10.1
+
+- Improvement: Updated Validation rules based on latest Domain Constraint changes.
+
 ### Version 4.10.0
 
 - Improvement: Module Dependency version updates.

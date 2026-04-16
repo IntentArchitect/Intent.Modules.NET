@@ -24,7 +24,7 @@ namespace FluentValidationTest.Application.ValidationScenarios.DomainMapped.Crea
                 .InclusiveBetween(0, 100);
 
             RuleFor(v => v.Score)
-                .InclusiveBetween(0, 100);
+                .InclusiveBetween(0d, 100d);
 
             RuleFor(v => v.Price)
                 .InclusiveBetween(1m, 10000m);
