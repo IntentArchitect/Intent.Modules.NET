@@ -1,3 +1,8 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Channels;
 using Intent.AI;
 using Intent.Engine;
 using Intent.Modelers.Services.CQRS.Api;
@@ -13,11 +18,6 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Channels;
 using static Intent.Modules.Constants.TemplateRoles.Blazor.Client;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -92,12 +92,6 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryHandler
                     return null;
                 }
 
-                //var outputFile = outputFiles.FirstOrDefault(x => x.Template?.Equals(template) == true);
-                //if (outputFile != null)
-                //{
-                //    outputFile.
-                //}
-
                 var intention = new StringBuilder();
                 foreach (var associationEnd in model.InternalElement.AssociatedElements)
                 {
@@ -123,7 +117,7 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryHandler
                          - NEVER modify the method signature of the Handle method.
                          - ALWAYS ensure that the `IntentManaged` attribute indicates that the body of the method must be in `Mode.Ignore` (e.g. `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]`).
                          - Only ever inject in dependencies from the Domain or Application layers.
-                         - Never introduce dependencies on infrastructural nuget packages (e.g. Entity Framework, Dapper, etc.) directly in the handler. If data access is required, use the appropriate repository in the Domain layer and inject that into the handler.
+                         - Never introduce dependencies on infrastructural NuGet packages (e.g. Entity Framework, Dapper, etc.) directly in the handler. If data access is required, use the appropriate repository in the Domain layer and inject that into the handler.
                          - Follow the user's modeled intentions as best as possible.
                          - Search code usages to discover a way to implement the required functionality.
                          
@@ -142,7 +136,19 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryHandler
             return new CSharpFileConfig(
                 className: $"{Model.Name}Handler",
                 @namespace: $"{this.GetNamespace(additionalFolders: Model.GetConceptName())}",
-                relativeLocation: $"{this.GetFolderPath(additionalFolders: Model.GetConceptName())}");
+                relativeLocation: $"{this.GetFolderPath(additionalFolders: Model.GetConceptName())}")
+                    .WithAISummary("MediatR Handler implementation for the " + Model.Name + " query.")
+                    .WithAIContext("""
+                                    ## Implementation Rules:
+                                    - ALWAYS follow the architectural guidelines as and when they become apparent.
+                                    - NEVER modify the method signature of the Handle method.
+                                    - ALWAYS if you modify the `Handle` method, ensure that the `IntentManaged` attribute indicates that the body of the method must be in `Mode.Ignore` (e.g. `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]`).
+                                    
+                                    ## Architectural Guidelines:
+                                    - Follow the Single Responsibility Principle. The handler should only be responsible for handling the query and delegating work to other services or components as necessary.
+                                    - Use Dependency Injection to inject any required services or repositories into the handler's constructor.
+                                    - Ensure that the handler is focused on orchestrating the retrieval of data and does not contain complex data manipulation. Place complex data manipulation logic in the infrastructure layer (e.g. in a repository) if possible.
+                                    """);
         }
 
         public CSharpFile CSharpFile { get; }

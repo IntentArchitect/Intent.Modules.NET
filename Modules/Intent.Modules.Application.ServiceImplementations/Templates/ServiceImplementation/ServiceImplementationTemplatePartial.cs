@@ -1,6 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using Intent.AI;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
@@ -16,6 +14,10 @@ using Intent.Modules.Common.TypeResolution;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using ModelHasFolderTemplateExtensions = Intent.Modules.Common.CSharp.Templates.ModelHasFolderTemplateExtensions;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -124,6 +126,57 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
                     }
                 })
                 .AfterBuild(WorkaroundForGetTypeNameIssue, 1000);
+
+            this.ExecutionContext.AITaskManager.RegisterTaskProvider(new TemplateAITaskProvider((changes, outputFiles) =>
+            {
+                var outputFile = outputFiles.FirstOrDefault(x => x.Template?.Equals(this) == true);
+                if (changes.All(x => x.Template?.Equals(this) != true)
+                    || (outputFile != null && !outputFile.Content.Contains("throw new NotImplementedException")))
+                {
+                    return null;
+                }
+
+                var intention = new StringBuilder();
+                    intention.AppendLine($"## Intentions For the service");
+                    foreach (var operation in model.Operations)
+                    {
+                        intention.AppendLine($"### For Operation {operation.Name}");
+
+                    foreach (var associationEnd in operation.InternalElement.AssociatedElements)
+                    {
+                        intention.AppendLine($" - must `{associationEnd.SpecializationType}` against the {associationEnd.TypeReference.Element.Name}.");
+                    }
+                }
+
+                return new TemplateAITask(this)
+                {
+                    Type = "Implement Service",
+                    Title = $"Implement Service: {this.ClassName}",
+                    Instructions =
+                        $"""
+                        Implement the missing functionality for the {model.Name} service in the {this.ClassName} class.
+                        """,
+                    Context =
+                        $"""
+                        ## User has modeled the following intentions:
+                        {intention}
+
+                        ## Implementation Rules:
+                        - ALWAYS follow the architectural guidelines as and when they become apparent.
+                        - NEVER modify the method signature of the Handle method.
+                        - ALWAYS if you modify the a method, which has an `IntentManaged` attribute, ensure that the body of the method must be in `Mode.Ignore` (e.g. `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]`).
+                        - Only ever inject in dependencies from the Domain or Application layers.
+                        - Never introduce dependencies on infrastructural NuGet packages (e.g. Entity Framework, Dapper, etc.) directly in the handler. If data access is required, use the appropriate repository in the Domain layer and inject that into the service.
+                        - Follow the user's modeled intentions as best as possible.
+
+                        ## Architectural Guidelines:
+                        - Follow the Single Responsibility Principle. The handler should only be responsible for handling the command and delegating work to other services or components as necessary.
+                        - Use Dependency Injection to inject any required services or repositories into the service's constructor.
+                        - Ensure that the handler is focused on orchestrating the retrieval of data and does not contain complex data manipulation. Place complex data manipulation logic in the infrastructure layer (e.g. in a repository) if possible.
+                        """,
+                };
+            }));
+
         }
 
         // Due to the nature of how GetTypeName resolves namespaces
@@ -162,7 +215,20 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
         [IntentManaged(Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()
         {
-            return CSharpFile.GetConfig();
+            return CSharpFile
+                    .GetConfig()
+                    .WithAISummary("Service implementation for the " + Model.Name + " service.")
+                    .WithAIContext("""
+                                    ## Implementation Rules:
+                                    - ALWAYS follow the architectural guidelines as and when they become apparent.
+                                    - ALWAYS if you modify the a method, which has an `IntentManaged` attribute, ensure that the body of the method must be in `Mode.Ignore` (e.g. `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]`).
+                                    
+                                    ## Architectural Guidelines:
+                                    - Follow the Single Responsibility Principle. The handler should only be responsible for handling the query and delegating work to other services or components as necessary.
+                                    - Use Dependency Injection to inject any required services or repositories into the handler's constructor.
+                                    - Ensure that the handler is focused on orchestrating the retrieval of data and does not contain complex data manipulation. Place complex data manipulation logic in the infrastructure layer (e.g. in a repository) if possible.
+                                    """);
+            ;
         }
 
 
@@ -203,6 +269,60 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
                 .Distinct()
                 .ToArray();
             return parameters;
+        }
+    }
+
+    public class TemplateAITask : IAITask
+    {
+        private readonly IIntentTemplate _template;
+        public TemplateAITask(IIntentTemplate template, IList<string> filesToInclude = null)
+        {
+            Id = ((IntentTemplateBase)template).GetCorrelationId() ?? throw new ArgumentException("CorrelationId could not be found for template", nameof(template));
+            _template = template;
+
+            FilesToInclude = filesToInclude ?? new List<string>();
+            RelatedTemplates = _template.GetAllTemplateDependencies()
+                .Select(x => _template.ExecutionContext.FindTemplateInstance(x))
+                .Distinct()
+                .ToList();
+        }
+
+        public string Id { get; }
+
+        public ITemplate Template => _template;
+
+        public string Type { get; init; }
+
+        public string Title { get; init; }
+
+        public string Instructions { get; init; }
+
+        public string Context { get; init; }
+
+        public IList<ITemplate> RelatedTemplates { get; }
+
+        public IList<string> FilesToInclude { get; }
+
+        public virtual bool IsApplicableToChanges(IChange[] changes)
+        {
+            if (changes.Any(change => change.Template == _template)
+                || changes.Any(change => RelatedTemplates.Contains(change.Template)))
+            {
+                return true;
+            }
+
+            return false;
+        }
+    }
+
+    public class TemplateAITaskProvider(Func<IChange[], IOutputFile[], IAITask?> createTask) : IAITaskProvider
+    {
+
+        public IAITask[] GetTasks(IChange[] changes, IOutputFile[] outputFiles)
+        {
+            var task = createTask(changes, outputFiles);
+
+            return task != null ? [task] : [];
         }
     }
 }

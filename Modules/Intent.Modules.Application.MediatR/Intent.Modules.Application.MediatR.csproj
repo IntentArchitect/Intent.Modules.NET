@@ -75,7 +75,7 @@
   <ItemGroup>
     <PackageReference Include="Intent.Architect.Persistence" Version="3.7.0" />
     <PackageReference Include="Intent.Modules.Application.DependencyInjection.MediatR" Version="3.6.3" />
-    <PackageReference Include="Intent.Modules.Common" Version="3.11.0-pre.0" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.11.0-pre.1" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.9.4" />
     <PackageReference Include="Intent.Modules.Metadata.Security" Version="1.0.0" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="4.0.0" />
@@ -102,10 +102,6 @@
 
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="resources\agent\skills\" />
   </ItemGroup>
 
 </Project>
