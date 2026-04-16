@@ -78,21 +78,30 @@ internal static class DtoValidationRules
             appliedRuleSpaces.Add(RuleSpaces.LengthMax);
         }
 
-        if (validations.Min() != null && validations.Max() != null &&
-            int.TryParse(validations.Min(), out var min) && int.TryParse(validations.Max(), out var max))
+        if (!string.IsNullOrWhiteSpace(validations.Min()) || !string.IsNullOrWhiteSpace(validations.Max()))
         {
-            itemRules.Add(new RuleData(RuleSpaces.Numeric, $"InclusiveBetween({min}, {max})"));
-            appliedRuleSpaces.Add(RuleSpaces.Numeric);
-        }
-        else if (!string.IsNullOrWhiteSpace(validations.Min()))
-        {
-            itemRules.Add(new RuleData(RuleSpaces.NumericMin, $"GreaterThanOrEqualTo({validations.Min()})"));
-            appliedRuleSpaces.Add(RuleSpaces.NumericMin);
-        }
-        else if (!string.IsNullOrWhiteSpace(validations.Max()))
-        {
-            itemRules.Add(new RuleData(RuleSpaces.NumericMax, $"LessThanOrEqualTo({validations.Max()})"));
-            appliedRuleSpaces.Add(RuleSpaces.NumericMax);
+            var minLit = !string.IsNullOrWhiteSpace(validations.Min())
+                ? DomainConstraintRules.FormatNumericLiteral(validations.Min()!, field.TypeReference)
+                : null;
+            var maxLit = !string.IsNullOrWhiteSpace(validations.Max())
+                ? DomainConstraintRules.FormatNumericLiteral(validations.Max()!, field.TypeReference)
+                : null;
+
+            if (minLit != null && maxLit != null)
+            {
+                itemRules.Add(new RuleData(RuleSpaces.Numeric, $"InclusiveBetween({minLit}, {maxLit})"));
+                appliedRuleSpaces.Add(RuleSpaces.Numeric);
+            }
+            else if (minLit != null)
+            {
+                itemRules.Add(new RuleData(RuleSpaces.NumericMin, $"GreaterThanOrEqualTo({minLit})"));
+                appliedRuleSpaces.Add(RuleSpaces.NumericMin);
+            }
+            else if (maxLit != null)
+            {
+                itemRules.Add(new RuleData(RuleSpaces.NumericMax, $"LessThanOrEqualTo({maxLit})"));
+                appliedRuleSpaces.Add(RuleSpaces.NumericMax);
+            }
         }
 
         if (!string.IsNullOrWhiteSpace(validations.RegularExpression()))

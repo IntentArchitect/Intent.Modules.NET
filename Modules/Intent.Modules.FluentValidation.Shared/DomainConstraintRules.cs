@@ -173,15 +173,16 @@ internal static class DomainConstraintRules
 
             if (hasMin && hasMax)
             {
-                // CRITICAL FIX: Conflict Resolution Logic
-                if (IsRuleSpaceApplied(appliedRuleSpaces, RuleSpaces.LengthMax))
-                {
-                    yield return new RuleData(RuleSpaces.LengthMin, $"MinimumLength({min})");
-                }
-                else
-                {
+                var minClaimed = IsRuleSpaceApplied(appliedRuleSpaces, RuleSpaces.LengthMin);
+                var maxClaimed = IsRuleSpaceApplied(appliedRuleSpaces, RuleSpaces.LengthMax);
+
+                if (!minClaimed && !maxClaimed)
                     yield return new RuleData(RuleSpaces.Length, $"Length({min}, {max})");
-                }
+                else if (minClaimed && !maxClaimed)
+                    yield return new RuleData(RuleSpaces.LengthMax, $"MaximumLength({max})");
+                else if (!minClaimed && maxClaimed)
+                    yield return new RuleData(RuleSpaces.LengthMin, $"MinimumLength({min})");
+                // both claimed → emit nothing
             }
             else if (hasMin) yield return new RuleData(RuleSpaces.LengthMin, $"MinimumLength({min})");
             else if (hasMax) yield return new RuleData(RuleSpaces.LengthMax, $"MaximumLength({max})");
@@ -198,14 +199,16 @@ internal static class DomainConstraintRules
 
             if (hasMin && hasMax)
             {
-                if (IsRuleSpaceApplied(appliedRuleSpaces, RuleSpaces.NumericMax))
-                {
-                    yield return new RuleData(RuleSpaces.NumericMin, $"GreaterThanOrEqualTo({FormatNumericLiteral(minStr!, attribute)})");
-                }
-                else
-                {
+                var minClaimed = IsRuleSpaceApplied(appliedRuleSpaces, RuleSpaces.NumericMin);
+                var maxClaimed = IsRuleSpaceApplied(appliedRuleSpaces, RuleSpaces.NumericMax);
+
+                if (!minClaimed && !maxClaimed)
                     yield return new RuleData(RuleSpaces.Numeric, $"InclusiveBetween({FormatNumericLiteral(minStr!, attribute)}, {FormatNumericLiteral(maxStr!, attribute)})");
-                }
+                else if (minClaimed && !maxClaimed)
+                    yield return new RuleData(RuleSpaces.NumericMax, $"LessThanOrEqualTo({FormatNumericLiteral(maxStr!, attribute)})");
+                else if (!minClaimed && maxClaimed)
+                    yield return new RuleData(RuleSpaces.NumericMin, $"GreaterThanOrEqualTo({FormatNumericLiteral(minStr!, attribute)})");
+                // both claimed → emit nothing
             }
             else if (hasMin) yield return new RuleData(RuleSpaces.NumericMin, $"GreaterThanOrEqualTo({FormatNumericLiteral(minStr!, attribute)})");
             else if (hasMax) yield return new RuleData(RuleSpaces.NumericMax, $"LessThanOrEqualTo({FormatNumericLiteral(maxStr!, attribute)})");
@@ -258,10 +261,13 @@ internal static class DomainConstraintRules
     }
 
     internal static string FormatNumericLiteral(string value, AttributeModel attribute)
+        => FormatNumericLiteral(value, attribute.TypeReference);
+
+    internal static string FormatNumericLiteral(string value, ITypeReference typeReference)
     {
-        if (attribute.TypeReference.HasDecimalType()) return value + "m";
-        if (attribute.TypeReference.HasFloatType()) return value + "f";
-        if (attribute.TypeReference.HasDoubleType()) return value + "d";
+        if (typeReference.HasDecimalType()) return value + "m";
+        if (typeReference.HasFloatType()) return value + "f";
+        if (typeReference.HasDoubleType()) return value + "d";
         return value;
     }
 

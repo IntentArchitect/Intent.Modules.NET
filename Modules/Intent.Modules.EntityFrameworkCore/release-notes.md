@@ -1,3 +1,7 @@
+### Version 5.0.41
+
+- Improvement: When Domain Constraints are installed, using `Text Limits` can also be used to specify string column lengths if `Text Constraints` are not being used.
+
 ### Version 5.0.40
 
 - Fixed: Entity Validation had bug which would cause an infinite loop in some cases. This has been alleviated.

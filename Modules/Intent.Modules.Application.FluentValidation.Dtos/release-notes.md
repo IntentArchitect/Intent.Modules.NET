@@ -1,3 +1,7 @@
+### Version 3.12.8
+
+- Improvement: Updated Validation rules based on latest Domain Constraint changes.
+
 ### Version 3.12.7
 
 - Improvement: Added support for generating rules from Domain Constraints.
