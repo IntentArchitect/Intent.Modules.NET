@@ -4,12 +4,14 @@ using FluentValidationTest.Domain.Entities.ValidationScenarios.IdentityConstrain
 using FluentValidationTest.Domain.Entities.ValidationScenarios.Nullability;
 using FluentValidationTest.Domain.Entities.ValidationScenarios.NumericConstraints;
 using FluentValidationTest.Domain.Entities.ValidationScenarios.PatternConstraints;
+using FluentValidationTest.Domain.Entities.ValidationScenarios.StressSuite;
 using FluentValidationTest.Domain.Entities.ValidationScenarios.TextConstraints;
 using FluentValidationTest.Infrastructure.Persistence.Configurations.ValidationScenarios.ConstructorOperationConstraints;
 using FluentValidationTest.Infrastructure.Persistence.Configurations.ValidationScenarios.IdentityConstraints;
 using FluentValidationTest.Infrastructure.Persistence.Configurations.ValidationScenarios.Nullability;
 using FluentValidationTest.Infrastructure.Persistence.Configurations.ValidationScenarios.NumericConstraints;
 using FluentValidationTest.Infrastructure.Persistence.Configurations.ValidationScenarios.PatternConstraints;
+using FluentValidationTest.Infrastructure.Persistence.Configurations.ValidationScenarios.StressSuite;
 using FluentValidationTest.Infrastructure.Persistence.Configurations.ValidationScenarios.TextConstraints;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
@@ -31,6 +33,10 @@ namespace FluentValidationTest.Infrastructure.Persistence
         public DbSet<NullabilityConstrainedEntity> NullabilityConstrainedEntities { get; set; }
         public DbSet<NumericConstrainedEntity> NumericConstrainedEntities { get; set; }
         public DbSet<PatternConstrainedEntity> PatternConstrainedEntities { get; set; }
+        public DbSet<Invoice> Invoices { get; set; }
+        public DbSet<PersistencePrecedence> PersistencePrecedences { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<UserAccount> UserAccounts { get; set; }
         public DbSet<TextConstrainedEntity> TextConstrainedEntities { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -44,6 +50,10 @@ namespace FluentValidationTest.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new NullabilityConstrainedEntityConfiguration());
             modelBuilder.ApplyConfiguration(new NumericConstrainedEntityConfiguration());
             modelBuilder.ApplyConfiguration(new PatternConstrainedEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new InvoiceConfiguration());
+            modelBuilder.ApplyConfiguration(new PersistencePrecedenceConfiguration());
+            modelBuilder.ApplyConfiguration(new ProductConfiguration());
+            modelBuilder.ApplyConfiguration(new UserAccountConfiguration());
             modelBuilder.ApplyConfiguration(new TextConstrainedEntityConfiguration());
         }
 

@@ -27,7 +27,7 @@ namespace FluentValidationTest.Application.ValidationScenarios.ExplicitRules.Val
                 .InclusiveBetween(10, 9999);
 
             RuleFor(v => v.BoundedDecimal)
-                .InclusiveBetween(1, 5000);
+                .InclusiveBetween(1m, 5000m);
         }
     }
 }

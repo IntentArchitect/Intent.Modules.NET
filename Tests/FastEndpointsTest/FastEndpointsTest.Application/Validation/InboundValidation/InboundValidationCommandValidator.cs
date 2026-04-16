@@ -49,13 +49,13 @@ namespace FastEndpointsTest.Application.Validation.InboundValidation
                 .NotEmpty();
 
             RuleFor(v => v.DecimalRange)
-                .InclusiveBetween(10, 20);
+                .InclusiveBetween(10m, 20m);
 
             RuleFor(v => v.DecimalMin)
-                .GreaterThanOrEqualTo(0);
+                .GreaterThanOrEqualTo(0m);
 
             RuleFor(v => v.DecimalMax)
-                .LessThanOrEqualTo(1000);
+                .LessThanOrEqualTo(1000m);
 
             RuleFor(v => v.StringOptionNonEmpty)
                 .NotEmpty();

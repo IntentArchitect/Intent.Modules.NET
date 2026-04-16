@@ -26,7 +26,7 @@ namespace MudBlazor.ExampleApp.Application.Products.CreateProduct
                 .MaximumLength(100);
 
             RuleFor(v => v.Price)
-                .GreaterThanOrEqualTo(0);
+                .GreaterThanOrEqualTo(0m);
         }
     }
 }

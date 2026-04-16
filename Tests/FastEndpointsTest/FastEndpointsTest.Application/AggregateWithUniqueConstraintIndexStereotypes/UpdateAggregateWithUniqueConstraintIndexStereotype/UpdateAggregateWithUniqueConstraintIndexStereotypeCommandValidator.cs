@@ -24,9 +24,9 @@ namespace FastEndpointsTest.Application.AggregateWithUniqueConstraintIndexStereo
         {
             RuleFor(v => v.SingleUniqueField)
                 .NotNull()
-                .MaximumLength(256)
                 .MustAsync(CheckUniqueConstraint_SingleUniqueField)
-                .WithMessage("SingleUniqueField already exists.");
+                .WithMessage("SingleUniqueField already exists.")
+                .MaximumLength(256);
 
             RuleFor(v => v.CompUniqueFieldA)
                 .NotNull()
