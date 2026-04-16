@@ -101,13 +101,28 @@ public class EfCoreFieldConfigStatement : CSharpStatement, IHasCSharpStatements
     private static List<CSharpStatement> AddRdbmsMappingStatements(AttributeModel attribute, DatabaseSettings dbSettings, int? implicitColumnOrder)
     {
         var statements = new List<CSharpStatement>();
+        var isStringType = attribute.Type.HasStringType();
+        var textConstraints = attribute.HasTextConstraints()
+            ? attribute.GetTextConstraints()
+            : null;
+        var textConstraintsMaxLength = textConstraints?.MaxLength();
+        var textLimitsRawValue = attribute.GetStereotype(Stereotypes.DomainConstraintStereotypes.TextLimitsStereotypeId)
+            ?.GetProperty("Max Length")
+            ?.Value;
+        var textLimitsMaxLength = int.TryParse(textLimitsRawValue, out var parsedTextLimitsMaxLength)
+            ? parsedTextLimitsMaxLength
+            : (int?)null;
+        var resolvedMaxLength = textConstraintsMaxLength > 0
+            ? textConstraintsMaxLength
+            : textLimitsMaxLength > 0
+                ? textLimitsMaxLength
+                : null;
 
         if (attribute.HasDefaultConstraint())
         {
             var treatAsSqlExpression = attribute.GetDefaultConstraint().TreatAsSQLExpression();
             var defaultValue = attribute.GetDefaultConstraint()?.Value() ?? string.Empty;
-            var isStringType = attribute.Type.Element.Name == "string";
-            
+
             defaultValue = EscapeHelper.EscapeValueForCSharpStringLiteral(defaultValue, treatAsSqlExpression, isStringType);
 
             var method = treatAsSqlExpression
@@ -117,24 +132,22 @@ public class EfCoreFieldConfigStatement : CSharpStatement, IHasCSharpStatements
             statements.Add($".{method}({defaultValue})");
         }
 
-        if (attribute.GetTextConstraints()?.SQLDataType().IsDEFAULT() == true)
+        if (isStringType && (textConstraints is null || textConstraints.SQLDataType().IsDEFAULT()))
         {
-            var maxLength = attribute.GetTextConstraints().MaxLength();
-            if (maxLength.HasValue && attribute.Type.Element.Name == "string")
+            if (resolvedMaxLength.HasValue)
             {
-                statements.Add($".HasMaxLength({maxLength.Value})");
+                statements.Add($".HasMaxLength({resolvedMaxLength.Value})");
             }
         }
-        else if (attribute.HasTextConstraints())
+        else if (isStringType && textConstraints is not null)
         {
-            var maxLength = attribute.GetTextConstraints().MaxLength();
-            switch (attribute.GetTextConstraints().SQLDataType().AsEnum())
+            switch (textConstraints.SQLDataType().AsEnum())
             {
                 case AttributeModelStereotypeExtensions.TextConstraints.SQLDataTypeOptionsEnum.VARCHAR:
-                    statements.Add($".HasColumnType(\"varchar({maxLength?.ToString() ?? "max"})\")");
+                    statements.Add($".HasColumnType(\"varchar({resolvedMaxLength?.ToString() ?? "max"})\")");
                     break;
                 case AttributeModelStereotypeExtensions.TextConstraints.SQLDataTypeOptionsEnum.NVARCHAR:
-                    statements.Add($".HasColumnType(\"nvarchar({maxLength?.ToString() ?? "max"})\")");
+                    statements.Add($".HasColumnType(\"nvarchar({resolvedMaxLength?.ToString() ?? "max"})\")");
                     break;
                 case AttributeModelStereotypeExtensions.TextConstraints.SQLDataTypeOptionsEnum.TEXT:
                     Logging.Log.Warning($"{attribute.InternalElement.ParentElement.Name}.{attribute.Name}: The ntext, text, and image data types will be removed in a future version of SQL Server. Avoid using these data types in new development work, and plan to modify applications that currently use them. Use nvarchar(max), varchar(max), and varbinary(max) instead.");

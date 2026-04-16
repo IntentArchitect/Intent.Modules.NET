@@ -9,9 +9,7 @@
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\CodeSharing\Microsoft.CodeSharing.Common.props" />
   <PropertyGroup />
   <ItemGroup>
-    <Compile Include="NuGetPackages.cs" />
-    <Compile Include="Templates\DtoValidator\DtoValidatorTemplateBase.cs" />
-    <Compile Include="ValidationRulesExtensions.cs" />
+    <Compile Include="**/*.cs" />
   </ItemGroup>
   <Import Project="Intent.Modules.Application.FluentValidation.Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\CodeSharing\Microsoft.CodeSharing.CSharp.targets" />

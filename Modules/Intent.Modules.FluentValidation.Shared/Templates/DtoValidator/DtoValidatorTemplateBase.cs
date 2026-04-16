@@ -137,10 +137,9 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
         return CSharpFile.ToString();
     }
     
-    public override RoslynMergeConfig ConfigureRoslynMerger()
-    {
-        return new RoslynMergeConfig(new TemplateMetadata(Id, "2.0"), new ConstructorSignatureMigration());
-    }
+    public override TemplateMetadata TemplateMetadata => new TemplateMetadata(Id, "2.0");
+
+    public override ITemplateMigration[] Migrations => new ITemplateMigration[] { new ConstructorSignatureMigration() };
 
     public class ConstructorSignatureMigration : ITemplateMigration
     {
