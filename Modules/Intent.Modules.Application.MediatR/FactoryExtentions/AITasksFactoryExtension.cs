@@ -75,8 +75,10 @@ namespace Intent.Modules.Application.MediatR.FactoryExtentions
         private IEnumerable<IAITask> GetMissingQueryHandlerImplementationTasks(IChange[] changes, IApplication application)
         {
             var handlerChanges = changes.Where(c =>
-                IsQueryHandlerTemplate(application, c) &&
-                HasMissingImplementation(c));
+                                            IsQueryHandlerTemplate(application, c) &&
+                                            HasMissingImplementation(c) &&
+                                            c.ChangeType != ChangeType.Delete
+                                            );
 
             foreach (var change in handlerChanges)
             {
@@ -89,9 +91,30 @@ namespace Intent.Modules.Application.MediatR.FactoryExtentions
             }
         }
 
+        private IEnumerable<IAITask> GetMissingCommandHandlerImplementationTasks(IChange[] changes, IApplication application)
+        {
+            var handlerChanges = changes.Where(c =>
+                                            IsCommandHandlerTemplate(application, c) &&
+                                            HasMissingImplementation(c) &&
+                                            c.ChangeType != ChangeType.Delete
+                                            );
+
+            foreach (var change in handlerChanges)
+            {
+                if (!TryGetTemplate<ICSharpFileBuilderTemplate, CommandModel>(change.Template, out var template, out var model))
+                {
+                    continue;
+                }
+
+                yield return CreateImplementCommandHandlerAITask(template, model);
+            }
+        }
+
         private IEnumerable<IAITask> GetOnlyContractChangedCommandTasks(IChange[] changes, IApplication application)
         {
-            var commandChanges = changes.Where(c => c.Template?.Id == CommandModelsTemplate.TemplateId);
+            var commandChanges = changes.Where(c => 
+                                            c.Template?.Id == CommandModelsTemplate.TemplateId &&
+                                            c.ChangeType != ChangeType.Delete);
 
             foreach (var change in commandChanges)
             {
@@ -115,7 +138,9 @@ namespace Intent.Modules.Application.MediatR.FactoryExtentions
 
         private IEnumerable<IAITask> GetOnlyContractChangedQueryTasks(IChange[] changes, IApplication application)
         {
-            var queryChanges = changes.Where(c => c.Template?.Id == QueryModelsTemplate.TemplateId);
+            var queryChanges = changes.Where(c => 
+                                            c.Template?.Id == QueryModelsTemplate.TemplateId &&
+                                            c.ChangeType != ChangeType.Delete);
 
             foreach (var change in queryChanges)
             {
@@ -136,24 +161,6 @@ namespace Intent.Modules.Application.MediatR.FactoryExtentions
                 yield return CreateQueryChangedUpdateQueryHandlerAITask(template, handlerTemplate, model);
             }
         }
-
-        private IEnumerable<IAITask> GetMissingCommandHandlerImplementationTasks(IChange[] changes, IApplication application)
-        {
-            var handlerChanges = changes.Where(c =>
-                IsCommandHandlerTemplate(application, c) &&
-                HasMissingImplementation(c));
-
-            foreach (var change in handlerChanges)
-            {
-                if (!TryGetTemplate<ICSharpFileBuilderTemplate, CommandModel>(change.Template, out var template, out var model))
-                {
-                    continue;
-                }
-                
-                yield return CreateImplementCommandHandlerAITask(template, model);
-            }
-        }
-
 
         private IAITask CreateQueryChangedUpdateQueryHandlerAITask(ICSharpFileBuilderTemplate queryTemplate, ICSharpFileBuilderTemplate handlerTemplate, QueryModel model)
         {

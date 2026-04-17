@@ -10,6 +10,8 @@ Implement command handler business logic inside an existing handler file. Favor 
 ## Core rules
 
 - Treat the existing handler file as the starting point. Update the `Handle` method rather than rewriting unrelated parts.
+- NEVER modify the method signature of the Handle method.
+- ALWAYS if you modify the `Handle` method, ensure that the `IntentManaged` attribute indicates that the body of the method must be in `Mode.Ignore` (e.g. `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]`).
 - Inject only dependencies from the Domain or Application layers.
 - Never introduce direct dependencies on infrastructure packages or infrastructure types in the handler, including Entity Framework, Dapper, concrete DbContexts, SQL clients, or vendor-specific data access abstractions.
 - If data access is required, use an existing repository abstraction from the Domain or Application layers. If the required abstraction does not exist yet, extend the appropriate repository interface in an allowed layer and use that.

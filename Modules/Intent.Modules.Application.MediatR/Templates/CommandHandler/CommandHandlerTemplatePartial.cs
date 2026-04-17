@@ -90,19 +90,10 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
                 @namespace: $"{this.GetNamespace(additionalFolders: Model.GetConceptName())}",
                 relativeLocation: $"{this.GetFolderPath(additionalFolders: Model.GetConceptName())}")
                     .WithAISummary("MediatR Handler implementation for the " + Model.Name + " command.")
-                    .WithAIContext("""
-                                    Use the mediatr-command-handler skill when modifying this handler.
-
-                                    ## Implementation Rules:
-                                    - ALWAYS follow the architectural guidelines as and when they become apparent.
-                                    - NEVER modify the method signature of the Handle method.
-                                    - ALWAYS if you modify the `Handle` method, ensure that the `IntentManaged` attribute indicates that the body of the method must be in `Mode.Ignore` (e.g. `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]`).
-                                    
-                                    ## Architectural Guidelines:
-                                    - Follow the Single Responsibility Principle. The handler should only be responsible for handling the query and delegating work to other services or components as necessary.
-                                    - Use Dependency Injection to inject any required services or repositories into the handler's constructor.
-                                    - Ensure that the handler is focused on orchestrating the retrieval of data and does not contain complex data manipulation. Place complex data manipulation logic in the infrastructure layer (e.g. in a repository) if possible.
-                                    """);
+                    .WithAIContext(
+                                """
+                                Use the mediatr-command-handler skill when modifying this handler.
+                                """);
         }
 
         public CSharpFile CSharpFile { get; }
