@@ -1,3 +1,7 @@
+### Version 4.6.2
+
+- Improvement: Generate `[DefaultValue(...)]` attributes for Command/Query DTO fields with default values.
+
 ### Version 4.6.1
 
 - Improvement: Improved handling of collection default values on constructors
@@ -82,7 +86,6 @@
 
 - Improvement: Default values on Command properties are now used in the Command constructor, provided there are no properties which proceed it without a default value.
 
-
 ### Version 4.2.8
 
 - Improvement: Updated module NuGet packages infrastructure.
@@ -130,10 +133,10 @@
 
 ### Version 4.1.0
 
-- Upgrade - Breaking Changes: Upgrades MediatR package to 12.1.1, updated patterns accordingly. 
+- Upgrade - Breaking Changes: Upgrades MediatR package to 12.1.1, updated patterns accordingly.
 
-NB there are breaking changes in MediatR 12.1.1, if you have custom `IPipelineBehavior`s you will need to update these, of particular importance is the change to the generic constraints 
-i.e. `where TRequest : IRequest<TResponse>` changes to `where TRequest : notnull` 
+NB there are breaking changes in MediatR 12.1.1, if you have custom `IPipelineBehavior`s you will need to update these, of particular importance is the change to the generic constraints
+i.e. `where TRequest : IRequest<TResponse>` changes to `where TRequest : notnull`
 
 ### Version 4.0.10
 

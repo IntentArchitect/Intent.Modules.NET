@@ -48,197 +48,214 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
             var csharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath());
             AddTypeDeclaration(csharpFile);
             csharpFile.OnBuild((Action<CSharpFile>)(file =>
+            {
+                var @class = file.TypeDeclarations.First();
+                @class.RepresentsModel(Model);
+
+                ConfigureClass(@class);
+
+                var enterClass = GetDecorators(d => d.EnterClass());
+                foreach (var line in enterClass)
+                    @class.AddCodeBlock(line);
+
+                // See this article on how to handle NRTs for DTOs
+                // https://github.com/dotnet/docs/issues/18099
+                @class.AddConstructor();
+                var ctor = @class.Constructors.First();
+                if (IsNonPublicPropertyAccessors())
                 {
-                    var @class = file.TypeDeclarations.First();
-                    @class.RepresentsModel(Model);
-
-                    ConfigureClass(@class);
-
-                    var enterClass = GetDecorators(d => d.EnterClass());
-                    foreach (var line in enterClass)
-                        @class.AddCodeBlock(line);
-
-                    // See this article on how to handle NRTs for DTOs
-                    // https://github.com/dotnet/docs/issues/18099
-                    @class.AddConstructor();
-                    var ctor = @class.Constructors.First();
-                    if (IsNonPublicPropertyAccessors())
+                    // if there are no fields, and the second constructor is added
+                    // there are conflicts
+                    if (GetFieldsHierarchally(Model).Any())
                     {
-                        // if there are no fields, and the second constructor is added
-                        // there are conflicts
-                        if (GetFieldsHierarchally(Model).Any())
+                        @class.AddConstructor(protectedCtor =>
                         {
-                            @class.AddConstructor(protectedCtor =>
+                            if (ExecutionContext.Settings.GetDTOSettings().Sealed())
                             {
-                                if (ExecutionContext.Settings.GetDTOSettings().Sealed())
-                                {
-                                    protectedCtor.Private();
-                                }
-                                else
-                                {
-                                    protectedCtor.Protected();
-                                }
-                                PopulateDefaultCtor(protectedCtor);
-                            });
-
-                            var dtoFields = GetFieldsHierarchally(Model);
-                            // get the last property which has no value. All items occuring before this cannot have a default value set in the constructor
-                            var lastNonNullable = dtoFields
-                                .Select((p, i) => new { Item = p, Index = i })
-                                .Where(x => string.IsNullOrEmpty(x.Item.Value))
-                                .Select(x => x.Index)
-                                .LastOrDefault(0);
-
-                            List<string> nulledFields = [];
-                            foreach (var field in dtoFields)
+                                protectedCtor.Private();
+                            }
+                            else
                             {
-                                // should the default value be set, based on the position of it as a argument
-                                var setDefaultValue = ShouldSetDefaultValue(lastNonNullable, field);
-                                // set the type
-                                var typeValue = GetTypeReferenceName(field, setDefaultValue);
+                                protectedCtor.Protected();
+                            }
+                            PopulateDefaultCtor(protectedCtor);
+                        });
 
-                                ctor.AddParameter(typeValue, field.Name.ToParameterName(), param =>
+                        var dtoFields = GetFieldsHierarchally(Model);
+                        // get the last property which has no value. All items occuring before this cannot have a default value set in the constructor
+                        var lastNonNullable = dtoFields
+                            .Select((p, i) => new { Item = p, Index = i })
+                            .Where(x => string.IsNullOrEmpty(x.Item.Value))
+                            .Select(x => x.Index)
+                            .LastOrDefault(0);
+
+                        List<string> nulledFields = [];
+                        foreach (var field in dtoFields)
+                        {
+                            // should the default value be set, based on the position of it as a argument
+                            var setDefaultValue = ShouldSetDefaultValue(lastNonNullable, field);
+                            // set the type
+                            var typeValue = GetTypeReferenceName(field, setDefaultValue);
+
+                            ctor.AddParameter(typeValue, field.Name.ToParameterName(), param =>
+                            {
+                                // only parameters with a value AFTER the last parameter with a value get the value specified
+                                if (setDefaultValue)
                                 {
-                                    // only parameters with a value AFTER the last parameter with a value get the value specified
-                                    if (setDefaultValue)
+                                    param.WithDefaultValue(field.Value);
+
+                                    // if is a collection, with a default value, set to null instead
+                                    // and store the fieldId
+                                    if (field.TypeReference?.IsCollection ?? false)
                                     {
-                                        param.WithDefaultValue(field.Value);
-
-                                        // if is a collection, with a default value, set to null instead
-                                        // and store the fieldId
-                                        if (field.TypeReference?.IsCollection ?? false)
-                                        {
-                                            param.WithDefaultValue("null");
-                                            nulledFields.Add(field.Id);
-                                        }
+                                        param.WithDefaultValue("null");
+                                        nulledFields.Add(field.Id);
                                     }
-                                });
-                            }
+                                }
+                            });
+                        }
 
-                            foreach (var field in Model.Fields)
+                        foreach (var field in Model.Fields)
+                        {
+                            var assignmentStatement = !nulledFields.Contains(field.Id) ?
+                                field.Name.ToParameterName() :
+                                $"{field.Name.ToParameterName()} ?? {field.Value}";
+
+                            ctor.AddStatement($"{field.Name.ToPascalCase()} = {assignmentStatement};");
+                        }
+
+                        var inheritedFields = GetInheritedFields(Model);
+                        if (inheritedFields.Any())
+                        {
+                            ctor.CallsBase(c =>
                             {
-                                var assignmentStatement = !nulledFields.Contains(field.Id) ?
-                                    field.Name.ToParameterName() :
-                                    $"{field.Name.ToParameterName()} ?? {field.Value}";
-
-                                ctor.AddStatement($"{field.Name.ToPascalCase()} = {assignmentStatement};");
-                            }
-
-                            var inheritedFields = GetInheritedFields(Model);
-                            if (inheritedFields.Any())
-                            {
-                                ctor.CallsBase(c =>
+                                foreach (var x in inheritedFields)
                                 {
-                                    foreach (var x in inheritedFields)
+                                    c.AddArgument(x.Name.ToParameterName());
+                                }
+                            });
+                        }
+                    }
+                }
+                else
+                {
+                    PopulateDefaultCtor(ctor);
+                }
+
+                if (!Model.IsAbstract && ExecutionContext.Settings.GetDTOSettings().StaticFactoryMethod())
+                {
+                    var genericTypes = Model.GenericTypes.Any()
+                        ? $"<{string.Join(", ", model.GenericTypes)}>"
+                        : string.Empty;
+                    @class.AddMethod($"{base.GetTypeName(this)}{genericTypes}", "Create", method =>
+                    {
+                        method.Static();
+
+                        var dtoFields = GetFieldsHierarchally(Model);
+                        // get the last property which has no value. All items occuring before this cannot have a default value set in the constructor
+                        var lastNonNullable = dtoFields
+                            .Select((p, i) => new { Item = p, Index = i })
+                            .Where(x => string.IsNullOrEmpty(x.Item.Value))
+                            .Select(x => x.Index)
+                            .LastOrDefault(0);
+
+                        // keeps track of any (collection) fields which have been set to null instead of the default value specified
+                        List<string> nulledFields = [];
+                        foreach (var field in dtoFields)
+                        {
+                            bool setDefaultValue = ShouldSetDefaultValue(lastNonNullable, field);
+                            string typeValue = GetTypeReferenceName(field, setDefaultValue);
+
+                            method.AddParameter(typeValue, field.Name.ToParameterName(), param =>
+                            {
+                                // only parameters with a value AFTER the last parameter with a value get the value specified
+                                if (setDefaultValue)
+                                {
+                                    param.WithDefaultValue(field.Value);
+
+                                    // if is a collection, with a default value, set to null instead
+                                    // and store the fieldId
+                                    if (field.TypeReference?.IsCollection ?? false)
                                     {
-                                        c.AddArgument(x.Name.ToParameterName());
+                                        param.WithDefaultValue("null");
+                                        nulledFields.Add(field.Id);
+                                    }
+                                }
+                            });
+                        }
+
+                        if (IsNonPublicPropertyAccessors())
+                        {
+                            method.AddInvocationStatement($"return new {base.GetTypeName(this)}{genericTypes}", block =>
+                            {
+                                foreach (var field in GetFieldsHierarchally(Model))
+                                {
+                                    block.AddArgument(field.Name.ToParameterName());
+                                }
+                            });
+                        }
+                        else
+                        {
+                            method.AddObjectInitializerBlock($"return new {base.GetTypeName(this)}{genericTypes}", block =>
+                            {
+                                foreach (var field in GetFieldsHierarchally(Model))
+                                {
+                                    var assignmentStatement = !nulledFields.Contains(field.Id) ?
+                                        new CSharpStatement(field.Name.ToParameterName()) :
+                                        new CSharpStatement($"{field.Name.ToParameterName()} ?? {field.Value}");
+
+                                    block.AddInitStatement(field.Name.ToPascalCase(), assignmentStatement);
+                                }
+                                block.WithSemicolon();
+                            });
+                        }
+                    });
+                }
+
+                foreach (var field in Model.Fields)
+                {
+                    @class.AddProperty(base.GetTypeName(field.TypeReference), field.Name.ToPascalCase(), property =>
+                    {
+                        property.RepresentsModel(field);
+                        property.TryAddXmlDocComments(field.InternalElement);
+                        SetAccessLevel(property.Setter);
+                        property.WithComments(field.GetXmlDocLines());
+                        property.AddMetadata("model", field);
+                        AddPropertyAttributes(property, field);
+                        if (!string.IsNullOrWhiteSpace(field.Value))
+                        {
+                            property.WithInitialValue(field.Value);
+
+                            var defaultValueKind = GetDefaultValueAttributeKind(field);
+                            if (defaultValueKind != DefaultValueAttributeKind.None)
+                            {
+                                property.AddAttribute(UseType("System.ComponentModel.DefaultValue"), attribute =>
+                                {
+                                    if (defaultValueKind == DefaultValueAttributeKind.TypeAndString)
+                                    {
+                                        attribute.AddArgument($"typeof({GetTypeName(field.TypeReference)})");
+                                        attribute.AddArgument($"\"{field.Value}\"");
+                                    }
+                                    else
+                                    {
+                                        attribute.AddArgument(field.Value);
                                     }
                                 });
                             }
                         }
-                    }
-                    else
-                    {
-                        PopulateDefaultCtor(ctor);
-                    }
 
-                    if (!Model.IsAbstract && ExecutionContext.Settings.GetDTOSettings().StaticFactoryMethod())
-                    {
-                        var genericTypes = Model.GenericTypes.Any()
-                            ? $"<{string.Join(", ", model.GenericTypes)}>"
-                            : string.Empty;
-                        @class.AddMethod($"{base.GetTypeName(this)}{genericTypes}", "Create", method =>
+                        if (field.HasStereotype("OpenAPI Settings")
+                            && !string.IsNullOrWhiteSpace(field.GetStereotype("OpenAPI Settings").GetProperty("Example Value")?.Value))
                         {
-                            method.Static();
+                            property.WithComments(xmlComments: $"/// <example>{field.GetStereotype("OpenAPI Settings").GetProperty("Example Value")?.Value}</example>");
+                        }
+                    });
+                }
 
-                            var dtoFields = GetFieldsHierarchally(Model);
-                            // get the last property which has no value. All items occuring before this cannot have a default value set in the constructor
-                            var lastNonNullable = dtoFields
-                                .Select((p, i) => new { Item = p, Index = i })
-                                .Where(x => string.IsNullOrEmpty(x.Item.Value))
-                                .Select(x => x.Index)
-                                .LastOrDefault(0);
-
-                            // keeps track of any (collection) fields which have been set to null instead of the default value specified
-                            List<string> nulledFields = [];
-                            foreach (var field in dtoFields)
-                            {
-                                bool setDefaultValue = ShouldSetDefaultValue(lastNonNullable, field);
-                                string typeValue = GetTypeReferenceName(field, setDefaultValue);
-
-                                method.AddParameter(typeValue, field.Name.ToParameterName(), param =>
-                                {
-                                    // only parameters with a value AFTER the last parameter with a value get the value specified
-                                    if (setDefaultValue)
-                                    {
-                                        param.WithDefaultValue(field.Value);
-
-                                        // if is a collection, with a default value, set to null instead
-                                        // and store the fieldId
-                                        if (field.TypeReference?.IsCollection ?? false)
-                                        {
-                                            param.WithDefaultValue("null");
-                                            nulledFields.Add(field.Id);
-                                        }
-                                    }
-                                });
-                            }
-
-                            if (IsNonPublicPropertyAccessors())
-                            {
-                                method.AddInvocationStatement($"return new {base.GetTypeName(this)}{genericTypes}", block =>
-                                {
-                                    foreach (var field in GetFieldsHierarchally(Model))
-                                    {
-                                        block.AddArgument(field.Name.ToParameterName());
-                                    }
-                                });
-                            }
-                            else
-                            {
-                                method.AddObjectInitializerBlock($"return new {base.GetTypeName(this)}{genericTypes}", block =>
-                                {
-                                    foreach (var field in GetFieldsHierarchally(Model))
-                                    {
-                                        var assignmentStatement = !nulledFields.Contains(field.Id) ?
-                                            new CSharpStatement(field.Name.ToParameterName()) :
-                                            new CSharpStatement($"{field.Name.ToParameterName()} ?? {field.Value}");
-
-                                        block.AddInitStatement(field.Name.ToPascalCase(), assignmentStatement);
-                                    }
-                                    block.WithSemicolon();
-                                });
-                            }
-                        });
-                    }
-
-                    foreach (var field in Model.Fields)
-                    {
-                        @class.AddProperty(base.GetTypeName(field.TypeReference), field.Name.ToPascalCase(), property =>
-                        {
-                            property.RepresentsModel(field);
-                            property.TryAddXmlDocComments(field.InternalElement);
-                            SetAccessLevel(property.Setter);
-                            property.WithComments(field.GetXmlDocLines());
-                            property.AddMetadata("model", field);
-                            AddPropertyAttributes(property, field);
-                            if (!string.IsNullOrWhiteSpace(field.Value))
-                            {
-                                property.WithInitialValue(field.Value);
-                            }
-
-                            if (field.HasStereotype("OpenAPI Settings")
-                                && !string.IsNullOrWhiteSpace(field.GetStereotype("OpenAPI Settings").GetProperty("Example Value")?.Value))
-                            {
-                                property.WithComments(xmlComments: $"/// <example>{field.GetStereotype("OpenAPI Settings").GetProperty("Example Value")?.Value}</example>");
-                            }
-                        });
-                    }
-
-                    var exitClass = GetDecorators(d => d.ExitClass());
-                    foreach (var line in exitClass)
-                        @class.AddCodeBlock(line);
-                }));
+                var exitClass = GetDecorators(d => d.ExitClass());
+                foreach (var line in exitClass)
+                    @class.AddCodeBlock(line);
+            }));
             CSharpFile = csharpFile;
         }
 
@@ -317,12 +334,45 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
             }
         }
 
+        private static DefaultValueAttributeKind GetDefaultValueAttributeKind(DTOFieldModel field)
+        {
+            if (field.TypeReference?.IsCollection == true) return DefaultValueAttributeKind.None;
+            var element = field.TypeReference?.Element;
+            if (element == null) return DefaultValueAttributeKind.None;
+
+            if (element.IsEnumModel() ||
+                element.IsStringType() ||
+                element.IsBoolType() ||
+                element.IsCharType() ||
+                element.IsIntType() ||
+                element.IsLongType() ||
+                element.IsFloatType() ||
+                element.IsDoubleType() ||
+                element.IsDecimalType())
+                return DefaultValueAttributeKind.Simple;
+
+            if (element.IsDateType() ||
+                element.IsDateTimeType() ||
+                element.IsDateTimeOffsetType() ||
+                element.IsGuidType())
+                return DefaultValueAttributeKind.TypeAndString;
+
+            return DefaultValueAttributeKind.None;
+        }
+
+        private enum DefaultValueAttributeKind
+        {
+            None,
+            Simple,
+            TypeAndString
+        }
+
         private bool NeedsNullabilityAssignment(IResolvedTypeInfo typeInfo)
         {
             return !(typeInfo.IsPrimitive
-                     || typeInfo.IsNullable == true
-                     || (typeInfo.TypeReference != null && typeInfo.TypeReference.Element.IsEnumModel())
-                     || (Model.GenericTypes.Any(x => typeInfo.Name == x)));
+                || typeInfo.IsNullable == true
+                || (typeInfo.TypeReference != null && typeInfo.TypeReference.Element.IsEnumModel())
+                || (Model.GenericTypes.Any(x => typeInfo.Name == x)));
         }
 
         private void SetAccessLevel(CSharpPropertyAccessor setter)
@@ -343,7 +393,7 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
                     setter.Protected();
                     break;
                 case DTOSettings.PropertySetterAccessibilityOptionsEnum.Public:
-                default:
+                    default:
                     //This property is public so don't want to duplicate the accessor
                     //setter.Public();
                     break;
@@ -463,9 +513,9 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
         private List<string> GetDecorators(Func<DtoModelDecorator, string> decoratorAction)
         {
             return GetDecorators()
-                    .Select(x => decoratorAction(x))
-                    .Where(x => x != null && x.Trim() != string.Empty)
-                    .ToList();
+                .Select(x => decoratorAction(x))
+                .Where(x => x != null && x.Trim() != string.Empty)
+                .ToList();
         }
 
         [IntentManaged(Mode.Fully)]
@@ -488,7 +538,7 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
             return CSharpFile.ToString();
         }
 
-#pragma warning disable IDE0010
+        #pragma warning disable IDE0010
         private string GetTemplateFileName()
         {
             if (!Model.GenericTypes.Any())
@@ -505,7 +555,7 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
                 .ChildNodes.FirstOrDefault(x => x.SyntaxKind == CSharpSyntaxKind.NamespaceDeclaration)?
                 .ChildNodes.FirstOrDefault(x => x.SyntaxKind == CSharpSyntaxKind.ClassDeclaration)?
                 .ChildNodes.Where(x => x.SyntaxKind == CSharpSyntaxKind.PropertyDeclaration)
-                .ToArray();
+                    .ToArray();
 
             if (properties == null || properties.Length == 0)
             {
@@ -555,7 +605,7 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
 
             return changes;
         }
-#pragma warning restore IDE0010
+        #pragma warning restore IDE0010
 
         private ICSharpSemanticComparisonNode _rootComparisonNode;
 

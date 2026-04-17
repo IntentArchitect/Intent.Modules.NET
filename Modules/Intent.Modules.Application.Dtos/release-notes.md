@@ -1,3 +1,7 @@
+### Version 4.5.2
+
+- Improvement: Inbound DTOs (i.e. those used as operation parameters on a Service) will now have a `[DefaultValue(...)]` attribute emitted on properties that have a default value set in the designer.
+
 ### Version 4.5.1
 
 - Fixed: Default values on collection properties will now be set correctly when a `Create` method or constructor is generated.
@@ -37,7 +41,7 @@
 
 ### Version 4.4.0
 
-- Improvement: The filename of DTOs with generic types will now contain the generic type(s) (e.g. the filename for the DTO ProductDto\<T> will now be named ProductOfT). 
+- Improvement: The filename of DTOs with generic types will now contain the generic type(s) (e.g. the filename for the DTO ProductDto\<T> will now be named ProductOfT).
 
 ### Version 4.3.2
 
@@ -49,10 +53,10 @@
 
 ### Version 4.3.0
 
-- Fixed: An issue where `Event` package enums generated multiple files. 
-> ⚠️ **NOTE**
->
-> This may move some enums moving to different locations and namespaces.
+- Fixed: An issue where `Event` package enums generated multiple files.
+  > ⚠️ **NOTE**
+  >
+  > This may move some enums moving to different locations and namespaces.
 
 ### Version 4.2.1
 
@@ -98,7 +102,6 @@
 
 - Upgrade : `DtoModelTemplate` upgraded to use the `ICSharpFileBuilderTemplate` paradigm.
 - Enums will now generate comments captured in designers.
-
 
 ### Version 3.3.10
 
