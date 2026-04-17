@@ -17,12 +17,12 @@
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#4ba1d060-8722-4b1d-97e1-e7f070b8be2e</correlationId>
       <path>Intent.Modules.Application.MediatR/Templates/CommandHandler/CommandHandlerTemplatePartial.cs</path>
-      <count>5</count>
+      <count>4</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2026-04-10T07:49:59.9664197Z</updatedAt>
-      <deviationsHash>D512A46EC74C4AFA699F518F0EE24CAFFF85EA4CBDF674A85E72EF2293AD7D5E</deviationsHash>
-      <fileHash>780A168403F71A3EB6464DE44E5D6C49CF6676AA7481CE23508803D0D78C983C</fileHash>
+      <updatedAt>2026-04-16T13:54:01.7657643Z</updatedAt>
+      <deviationsHash>45F0E388CB0C4E3D64467AA57D70BD6C9724BC5626E9350F648BC6E6D1C51C92</deviationsHash>
+      <fileHash>4B3C155D93EE7861ED42B4D788EF3D339166DB82F7F9D59731D79BFD69250E2A</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#4ba1d060-8722-4b1d-97e1-e7f070b8be2e</correlationId>
@@ -61,7 +61,7 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T11:59:03.9211343Z</approvedAt>
       <deviationsHash>D72A7087CDC915E7C6B7F2AF457725FA0904481D031DF505A1E87D0B11611223</deviationsHash>
-      <fileHash>B6D8F7A0EBFDCAB3021731404BB1D26E4B2387278442F65528AF82DC6E594A9F</fileHash>
+      <fileHash>7589057666F35683EAD9B54950D9CC536FFB0B785806F791EDFC04CB4748E2D7</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#6fe47b20-09e5-4a25-8675-746c403d0158</correlationId>
@@ -92,12 +92,12 @@
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#3a8eb772-0533-42c8-9767-a87c67884d46</correlationId>
       <path>Intent.Modules.Application.MediatR/Templates/QueryHandler/QueryHandlerTemplatePartial.cs</path>
-      <count>5</count>
+      <count>4</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2026-04-10T07:49:59.9666718Z</updatedAt>
-      <deviationsHash>2E1D57B316518177C069597CB5BAECC925F094AEB340BD606E1E944EBE8573E7</deviationsHash>
-      <fileHash>77A2DDA5049E2AE76C12E0045EAF4C3041B63268CF80EEC56B36F9403BAF9004</fileHash>
+      <updatedAt>2026-04-16T13:54:01.7659951Z</updatedAt>
+      <deviationsHash>7B745C15B50D9875F4EAC37E4A6C23237CE24013F55790959765095107C31D58</deviationsHash>
+      <fileHash>05672EB027571056B75EDB0863078AD88BB9C3A6F76EE633F15D2DF80A4CD4DC</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#3a8eb772-0533-42c8-9767-a87c67884d46</correlationId>
@@ -136,7 +136,7 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T11:59:03.9320667Z</approvedAt>
       <deviationsHash>24B24F0B8727CEE0B383F6BA9AFF5903C8082E39814D73E618A07F7176E373BF</deviationsHash>
-      <fileHash>AEE5719B0E9638DC0B996AF2D67B50F8D9B271B76084A5783C8AE443296D8660</fileHash>
+      <fileHash>72DD7DDAE11FDD2A7802B970FAE03CB61811F3C8FD0BBF50D29FB44FC6736F2C</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#7b686f14-b047-44e4-9065-4de3b48e6048</correlationId>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ea40d00e-d553-46f5-9928-a08250ba3cd0" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>AITasksFactoryExtension</name>
+  <display>AITasksFactoryExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>e92495db-1b26-4389-bf06-cc1b375520b1</parentFolderId>
+  <packageId>e92495db-1b26-4389-bf06-cc1b375520b1</packageId>
+  <packageName>Intent.Application.MediatR</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

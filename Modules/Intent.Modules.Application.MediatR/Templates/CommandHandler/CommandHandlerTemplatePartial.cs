@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using Intent.AI;
@@ -9,7 +10,6 @@ using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.DependencyInjection.MediatR;
 using Intent.Modules.Application.MediatR.Settings;
 using Intent.Modules.Application.MediatR.Templates.CommandModels;
-using Intent.Modules.Application.MediatR.Templates.QueryHandler;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -79,51 +79,6 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
                     });
                 });
 
-            template.ExecutionContext.AITaskManager.RegisterTaskProvider(new TemplateAITaskProvider((changes, outputFiles) =>
-            {
-                var outputFile = outputFiles.FirstOrDefault(x => x.Template?.Equals(template) == true);
-                if (outputFile != null && !outputFile.Content.Contains("throw new NotImplementedException"))
-                {
-                    return null;
-                }
-
-                var intention = new StringBuilder();
-                foreach (var associationEnd in model.InternalElement.AssociatedElements)
-                {
-                    intention.AppendLine($"- This command must `{associationEnd.SpecializationType}` against the {associationEnd.TypeReference.Element.Name}.");
-                }
-
-                return new TemplateAITask(template)
-                {
-                    Type = "Implement Command Handler",
-                    Title = $"Implement Handler: {template.ClassName}",
-                    Instructions =
-                                $"""
-                                 Implement the functionality for handling the {model.Name} command in the {template.ClassName} class.
-                                 """,
-                    Context =
-                                $"""
-                                 ## User has modeled the following intentions:
-                                 {intention}
-
-                                 ## Implementation Rules:
-                                 - ALWAYS follow the architectural guidelines as and when they become apparent.
-                                 - NEVER modify the method signature of the Handle method.
-                                 - ALWAYS ensure that the `IntentManaged` attribute indicates that the body of the method must be in `Mode.Ignore` (e.g. `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]`).
-                                 - Only ever inject in dependencies from the Domain or Application layers.
-                                 - Never introduce dependencies on infrastructural NuGet packages (e.g. Entity Framework, Dapper, etc.) directly in the handler. If data access is required, use the appropriate repository in the Domain layer and inject that into the handler.
-                                 - Follow the user's modeled intentions as best as possible.
-                                 - Search code usages to discover a way to implement the required functionality.
-                                 - Calling `SaveChangesAsync` is only required if this command returns a payload that includes a surrogate key (e.g. `Id`).
-
-                                 ## Architectural Guidelines:
-                                 - Follow the Single Responsibility Principle. The handler should only be responsible for handling the command and delegating work to other services or components as necessary.
-                                 - Use Dependency Injection to inject any required services or repositories into the handler's constructor.
-                                 - Ensure that the handler is focused on orchestrating the retrieval of data and does not contain complex data manipulation. Place complex data manipulation logic in the infrastructure layer (e.g. in a repository) if possible.
-                                 - If a data aggregation (e.g. Count, Average, Sum, etc) is required, perform this in the infrastructure layer (e.g. in a repository) rather than in the handler itself.
-                                 """,
-                };
-            }));
         }
 
 
@@ -136,6 +91,8 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
                 relativeLocation: $"{this.GetFolderPath(additionalFolders: Model.GetConceptName())}")
                     .WithAISummary("MediatR Handler implementation for the " + Model.Name + " command.")
                     .WithAIContext("""
+                                    Use the mediatr-command-handler skill when modifying this handler.
+
                                     ## Implementation Rules:
                                     - ALWAYS follow the architectural guidelines as and when they become apparent.
                                     - NEVER modify the method signature of the Handle method.
@@ -192,48 +149,5 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
             public TemplateMigrationCriteria Criteria => TemplateMigrationCriteria.Upgrade(1, 2);
         }
 
-    }
-
-    public class TemplateAITask : IAITask
-    {
-        private readonly IIntentTemplate _template;
-        public TemplateAITask(IIntentTemplate template, IList<string> filesToInclude = null)
-        {
-            Id = ((IntentTemplateBase)template).GetCorrelationId() ?? throw new ArgumentException("CorrelationId could not be found for template", nameof(template));
-            _template = template;
-
-            FilesToInclude = filesToInclude ?? new List<string>();
-            RelatedTemplates = _template.GetAllTemplateDependencies()
-                .Select(x => _template.ExecutionContext.FindTemplateInstance(x))
-                .Distinct()
-                .ToList();
-        }
-
-        public string Id { get; }
-
-        public ITemplate Template => _template;
-
-        public string Type { get; init; }
-
-        public string Title { get; init; }
-
-        public string Instructions { get; init; }
-
-        public string Context { get; init; }
-
-        public IList<ITemplate> RelatedTemplates { get; }
-
-        public IList<string> FilesToInclude { get; }
-
-        public virtual bool IsApplicableToChanges(IChange[] changes)
-        {
-            if (changes.Any(change => change.Template == _template)
-                || changes.Any(change => RelatedTemplates.Contains(change.Template)))
-            {
-                return true;
-            }
-
-            return false;
-        }
     }
 }

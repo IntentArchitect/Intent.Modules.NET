@@ -1,9 +1,12 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.DependencyInjection.MediatR;
 using Intent.Modules.Application.MediatR.Settings;
-using Intent.Modules.Application.MediatR.Templates.CommandHandler;
 using Intent.Modules.Application.MediatR.Templates.QueryHandler;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -14,10 +17,6 @@ using Intent.Modules.Constants;
 using Intent.Modules.Metadata.Security.Models;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -105,11 +104,7 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryModels
                                 var assignmentStatement = new CSharpFieldAssignmentStatement(prop.Name, rhs);
                                 ctor.AddStatement(assignmentStatement);
                             });
-
-                            
                         });
-
-
                     }
                 });
 
@@ -119,63 +114,6 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryModels
                 FulfillsRole(TemplateRoles.Application.Validation.Query);
                 QueryHandlerTemplate.Configure(this, model);
             }
-            else
-            {
-                RegisterAITaskToUpdateHandlerWhenQueryChanges(model);
-            }
-        }
-
-        private void RegisterAITaskToUpdateHandlerWhenQueryChanges(QueryModel model)
-        {
-            this.ExecutionContext.AITaskManager.RegisterTaskProvider(new TemplateAITaskProvider((changes, outputFiles) =>
-            {
-                var handlerTemplate = this.GetTemplate<ICSharpFileBuilderTemplate>(QueryHandlerTemplate.TemplateId, Model);
-                var handlerOutputFile = outputFiles.FirstOrDefault(x => x.Template?.Equals(handlerTemplate) == true);
-
-                if (handlerTemplate == null || handlerOutputFile == null)
-                {
-                    return null;
-                }
-
-                if (!OnlyContractChanged(changes, handlerTemplate))
-                {
-                    return null;
-                }
-
-                var intention = new StringBuilder();
-                foreach (var associationEnd in model.InternalElement.AssociatedElements)
-                {
-                    intention.AppendLine($"- This query must `{associationEnd.SpecializationType}` against the {associationEnd.TypeReference.Element.Name}.");
-                }
-
-                return new TemplateAITask(this, [handlerOutputFile.TargetFilePath])
-                {
-                    Type = "Update Query Handler",
-                    Title = $"Update Handler: {this.ClassName}",
-                    Instructions =
-                        $"""
-                         Update the {handlerTemplate.ClassName} handler based on the changes to {this.ClassName}.
-                         """,
-                    Context =
-                        $"""
-                         ## User has modeled the following intentions:
-                         {intention}
-
-                         ## Implementation Rules:
-                         - ALWAYS follow the architectural guidelines as and when they become apparent.
-                         - NEVER modify the method signature of the Handle method.
-                         - ALWAYS ensure that the `IntentManaged` attribute indicates that the body of the method must be in `Mode.Ignore` (e.g. `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]`).
-                         - Only ever inject in dependencies from the Domain or Application layers.
-                         - Never introduce dependencies on infrastructural NuGet packages (e.g. Entity Framework, Dapper, etc.) directly in the handler. If data access is required, use the appropriate repository in the Domain layer and inject that into the handler.
-                         - Follow the user's modeled intentions as best as possible.
-
-                         ## Architectural Guidelines:
-                         - Follow the Single Responsibility Principle. The handler should only be responsible for handling the query and delegating work to other services or components as necessary.
-                         - Use Dependency Injection to inject any required services or repositories into the handler's constructor.
-                         - Ensure that the handler is focused on orchestrating the retrieval of data and does not contain complex data manipulation. Place complex data manipulation logic in the infrastructure layer (e.g. in a repository) if possible.
-                         """
-                };
-            }));
         }
 
         private bool OnlyContractChanged(IChange[] changes, ITemplate handlerTemplate)

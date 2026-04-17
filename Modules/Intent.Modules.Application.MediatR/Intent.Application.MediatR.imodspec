@@ -59,6 +59,10 @@
       <role>Application.Query</role>
       <location></location>
     </template>
+    <template id="Intent.Modules.Application.MediatR.Templates.StaticContentTemplateRegistrations.AISkillsStaticContentTemplateRegistration" externalReference="c96ce07d-4408-40dd-a413-86d75b183db8">
+      <role>AI.Context.Skills.MediatR</role>
+      <location></location>
+    </template>
   </templates>
   <dependencies>
     <dependency id="Intent.Application.DependencyInjection" version="4.1.14" />
@@ -134,7 +138,9 @@
     </group>
   </moduleSettings>
   <moduleSettingsExtensions />
-  <factoryExtensions />
+  <factoryExtensions>
+    <factoryExtension id="Intent.Application.MediatR.AITasksFactoryExtension" externalReference="ea40d00e-d553-46f5-9928-a08250ba3cd0" />
+  </factoryExtensions>
   <migrations>
     <migration version="4.3.0-pre.0" />
   </migrations>
