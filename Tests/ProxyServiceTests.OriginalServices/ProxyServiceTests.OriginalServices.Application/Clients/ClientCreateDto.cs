@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -11,6 +12,7 @@ namespace ProxyServiceTests.OriginalServices.Application.Clients
         {
         }
 
+        [DefaultValue("n/a")]
         public string Name { get; set; } = "n/a";
 
         public static ClientCreateDto Create(string name = "n/a")

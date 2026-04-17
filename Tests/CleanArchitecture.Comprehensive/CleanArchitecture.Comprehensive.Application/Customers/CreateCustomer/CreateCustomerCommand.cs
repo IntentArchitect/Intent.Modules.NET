@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel;
 using CleanArchitecture.Comprehensive.Application.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -20,6 +21,7 @@ namespace CleanArchitecture.Comprehensive.Application.Customers.CreateCustomer
 
         public string Name { get; set; }
         public string Surname { get; set; }
+        [DefaultValue("")]
         public string Email { get; set; }
         public CreateCustomerAddressDto Address { get; set; }
     }

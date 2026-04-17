@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel;
 using CleanArchitecture.Comprehensive.Application.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -24,6 +25,7 @@ namespace CleanArchitecture.Comprehensive.Application.Customers.UpdateCustomer
         }
 
         public Guid Id { get; set; }
+        [DefaultValue("default")]
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Email { get; set; }
