@@ -12,8 +12,8 @@ For full patterns with rules, read the files in `resources/patterns/` before gen
   - [Members](#members)
   - [Model \& Type Integration](#model--type-integration)
   - [Advanced Expressions](#advanced-expressions)
-    - [Build Lifecycle Hooks](#build-lifecycle-hooks)
-    - [Top-Level Statements](#top-level-statements)
+  - [Build Lifecycle Hooks](#build-lifecycle-hooks)
+  - [Top-Level Statements](#top-level-statements)
   - [Template Contract](#template-contract)
   - [Control Flow](#control-flow)
   - [Advanced Types](#advanced-types)
@@ -34,7 +34,28 @@ CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath(), this)
 ```csharp
 .AddUsing("System")
 .AddUsing("Microsoft.Extensions.DependencyInjection")
+
+if (useTopLevelStatements)
+{
+    CSharpFile.AddUsing(this.GetNamespace());
+}
+
+var template = GetTemplate<IClassProvider>(templateDependency);
+if (template != null)
+{
+    AddUsing(template.Namespace);
+}
+
+foreach (var ns in requiredNamespaces)
+{
+    AddUsing(ns);
+}
 ```
+
+Use `AddUsing(...)` when the namespace is needed independently of a specific type reference, or is discovered dynamically.  
+Prefer `UseType("Namespace.Type")` when the namespace should only be introduced if that exact concrete type is required.
+
+> **Builder inference rule**: `UseType(...)` works because the builder tracks the type reference and auto-introduces the namespace. Raw strings are opaque — the builder cannot see a type reference inside `"DefaultValue(0)"`. Always reach for `UseType` / `GetTypeName` before reaching for `AddUsing`.
 
 ---
 
@@ -133,7 +154,7 @@ CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath(), this)
 var dtoType = GetTypeName(MyDtoTemplate.TemplateId, Model)
               ?? throw new InvalidOperationException("DTO template type could not be resolved.");
 
-// 6) External type usage: never hardcode namespace + using separately when UseType can do both.
+// 6) Concrete type usage: never hardcode namespace + using separately when UseType can do both.
 var cancellationTokenType = UseType("System.Threading.CancellationToken");
 ```
 

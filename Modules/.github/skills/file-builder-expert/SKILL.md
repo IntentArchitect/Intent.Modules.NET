@@ -1,6 +1,6 @@
 ---
 name: file-builder-expert
-description: "Use when converting a standard C# class template into an Intent Architect File Builder template, especially when asked to create a builder for this file, convert TransformText string output to CSharpFile fluent API, or generate matching template registration classes."
+description: "Use when converting a standard C# class template or source file into an Intent Architect File Builder template, especially when asked to create a builder for this file, convert TransformText string output to CSharpFile fluent API, or generate matching template registration classes."
 argument-hint: "[source file] [target template name] [single-file|file-per-model|custom]"
 ---
 
@@ -13,7 +13,7 @@ argument-hint: "[source file] [target template name] [single-file|file-per-model
 4. Use specialized control flow builders (`AddIfStatement`, `AddForEachStatement`, `AddTryBlock`, etc.) for all logic. Use `CSharpInvocationStatement` for method calls. `CSharpMethodChainStatement` and `AddMethodChainStatement(...)` are `[Obsolete]` — never use either.
 5. Register all `OnBuild` and `AfterBuild` callbacks during constructor setup. Always supply an explicit priority integer. Use the workspace band convention: **0=Core, 100=Enrichment, 500=Extension, 1000=Final**. `FileBuilderHelper.cs` is the authority on sort order: priority → template-type-name → template-id → model-id → creation order.
 6. When a template must locate an element created by another template (`FindMethod`, `FindClass`, `FindStatement`), its callback **must** use a strictly higher priority number than the source template's callback.
-7. Resolve model-driven types via the Type System APIs, never by guessing: `GetTypeName(...)` for model/type references, `GetTypeName(templateId, model)` for TemplateId-based references, and `UseType("Namespace.Type")` for fully qualified framework/external types.
+7. Resolve model-driven types via the Type System APIs, never by guessing: `GetTypeName(...)` for model/type references, `GetTypeName(templateId, model)` for TemplateId-based references, and `UseType("Namespace.Type")` when a namespace should be introduced only because a specific concrete type is required. Do not use `UseType(...)` for types represented in the Intent model.
 8. Generate members from model metadata when applicable: iterate `Model.Attributes` / `Model.Operations` and call `.AddProperty(...)` / `.AddMethod(...)` with resolved type names.
 9. Advanced member discipline:
     - Properties: use `.Static()` for static members; use `.WithOptional(bool)` only when the target member API exposes it, otherwise model optionality must come from resolved type/nullability (`GetTypeName(...)`) and explicit property modifiers (for example `.Required()` when needed).
@@ -41,6 +41,60 @@ Read the relevant pattern file **before generating code** for that scenario:
 | OnBuild / AfterBuild priority, factory extensions, FindMethod, InsertAbove | `resources/patterns/lifecycle-hooks.cs` |
 | Build errors, timing failures, metadata exceptions, registration mismatches | `resources/troubleshooting.md` |
 | Quick API lookup (file setup, members, type declarations) | `resources/api-cheatsheet.md` |
+
+## Using Directives
+
+1. Use `AddUsing("Namespace")` for file-level namespace imports.
+2. `AddUsing(...)` can be called during `CSharpFile` construction, later in the constructor, in helper methods, or in event/reconciliation logic when namespaces are discovered dynamically.
+3. Prefer `UseType("Namespace.Type")` when the namespace should only appear if that exact concrete type is referenced. This applies to any non-model-resolved type, not only framework/external types.
+4. Prefer `AddUsing(...)` when the namespace is needed independently of a specific type reference, or when it is discovered from dependencies, events, or collections.
+5. `AddUsingBlock(...)` is unrelated to namespace imports. It creates a C# `using (...) { }` statement inside a method body.
+
+### 🔑 Builder inference rule
+The builder can only track type references that go through its type system (`UseType`, `GetTypeName`). When you emit a type name as a **raw string** (e.g. `AddAttribute("DefaultValue(0)")`), the builder sees opaque text and cannot infer the namespace. In that case you must add the namespace manually with `AddUsing(...)`. **The correct fix is always to reach for the typed builder API first** so the namespace is introduced as a side-effect of the type reference:
+
+```csharp
+// BAD — raw string, builder cannot infer System.ComponentModel
+prop.AddAttribute($"DefaultValue({property.Value})");
+// That requires manually calling AddUsing("System.ComponentModel") elsewhere.
+
+// GOOD — typed builder call, UseType introduces System.ComponentModel automatically
+prop.AddAttribute(UseType("System.ComponentModel.DefaultValueAttribute"), attribute =>
+{
+    attribute.AddArgument(property.Value);
+});
+```
+
+Apply this rule to every emitted type reference — attributes, base types, parameter types, generic arguments. Reach for `UseType` / `GetTypeName` before reaching for `AddUsing`.
+
+## Conditional AddUsing Patterns
+
+```csharp
+// Branch-based:
+if (useTopLevelStatements)
+{
+    CSharpFile.AddUsing(this.GetNamespace());
+}
+
+// Dependency-driven:
+foreach (var templateDependency in @event.TemplateDependencies)
+{
+    var template = GetTemplate<IClassProvider>(templateDependency);
+    if (template != null)
+    {
+        AddUsing(template.Namespace);
+    }
+}
+
+// Namespace collection:
+foreach (var ns in @event.RequiredNamespaces)
+{
+    AddUsing(ns);
+}
+
+// Only introduce the namespace when this exact type is needed:
+method.AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken");
+```
 
 ## Minimal Template Shape
 

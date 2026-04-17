@@ -73,6 +73,9 @@ method.AddWhileStatement("!done", loop =>
 });
 
 // --- USING BLOCK ---
+// NOTE:
+//   - AddUsingBlock(...) creates a method-body using statement.
+//   - File-level namespace imports are added with CSharpFile.AddUsing(...) or template.AddUsing(...).
 
 method.AddUsingBlock("var scope = serviceProvider.CreateScope()", block =>
 {
