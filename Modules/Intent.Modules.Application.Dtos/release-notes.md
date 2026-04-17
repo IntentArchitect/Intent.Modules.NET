@@ -1,6 +1,6 @@
 ### Version 4.5.2
 
-- Improvement: Inbound DTOs (i.e. those used as operation parameters on a Service) will now have a `[DefaultValue(...)]` attribute emitted on properties that have a default value set in the designer.
+- Improvement: DTOs will now have a `[DefaultValue(...)]` attribute emitted on properties that have a default value set in the designer.
 
 ### Version 4.5.1
 
