@@ -114,22 +114,19 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
                 }
                 else
                 {
-                    if (updateMapping != null)
+                    if (updateMapping != null && updateMapping.MappedEnds.Count > 0)
                     {
-                        if (updateMapping.MappedEnds.Count == 0)
-                        {
-                            statements.Add(new CSharpStatement("// IntentInitialGen"));
-                            statements.Add("// TODO: Implement entity update...");
-                            statements.Add("""throw new NotImplementedException("Implement entity update...");""");
-                        }
-                        else
-                        {
-                            var updateStatements = csharpMapping.GenerateUpdateStatements(updateMapping);
-                            method.Class.WireUpDomainServicesForOperations(updateAction, updateStatements);
-                            AdjustOperationInvocationForAsyncAndReturn(method, updateMapping, updateStatements);
+                        var updateStatements = csharpMapping.GenerateUpdateStatements(updateMapping);
+                        method.Class.WireUpDomainServicesForOperations(updateAction, updateStatements);
+                        AdjustOperationInvocationForAsyncAndReturn(method, updateMapping, updateStatements);
 
-                            statements.AddRange(updateStatements);
-                        }
+                        statements.AddRange(updateStatements);
+                    }
+                    else
+                    {
+                        statements.Add(new CSharpStatement("// IntentInitialGen"));
+                        statements.Add("// TODO: Implement entity update...");
+                        statements.Add("""throw new NotImplementedException("Implement entity update...");""");
                     }
 
                     if (RepositoryRequiresExplicitUpdate(template, entity))
