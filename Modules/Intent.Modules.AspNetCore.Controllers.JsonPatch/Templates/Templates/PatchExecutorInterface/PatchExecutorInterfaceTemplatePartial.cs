@@ -22,6 +22,8 @@ namespace Intent.Modules.AspNetCore.Controllers.JsonPatch.Templates.Templates.Pa
         public PatchExecutorInterfaceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddUsing("System.Threading")
+                .AddUsing("System.Threading.Tasks")
                 .AddInterface($"IPatchExecutor", @interface =>
                 {
                     @interface.WithComments(
@@ -33,15 +35,17 @@ namespace Intent.Modules.AspNetCore.Controllers.JsonPatch.Templates.Templates.Pa
                         """);
                     @interface.AddGenericParameter("T", out var T);
 
-                    @interface.AddMethod("void", "ApplyTo", method =>
+                    @interface.AddMethod("Task", "ApplyToAsync", method =>
                     {
                         method.WithComments("""
                                             /// <summary>
-                                            /// Applies the patch to the target object and (if applicable) validates the result.
+                                            /// Applies the patch to the target object and (if applicable) validates the result asynchronously.
                                             /// </summary>
                                             /// <param name="target">The object to apply the patch to.</param>
+                                            /// <param name="cancellationToken">A token to cancel the operation.</param>
                                             """);
                         method.AddParameter(T, "target");
+                        method.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
                     });
                 });
         }

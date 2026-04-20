@@ -93,7 +93,7 @@ internal class TradServicePatchEntityInteractionStrategy : IInteractionStrategy
             [
                 new CSharpStatement($"LoadOriginalState({entityDetails.VariableName}, {param.Name})")
                     .WithSemicolon(),
-                new CSharpStatement($"{param.Name}.PatchExecutor.ApplyTo({param.Name})")
+                new CSharpStatement($"await {param.Name}.PatchExecutor.ApplyToAsync({param.Name}, cancellationToken)")
                     .WithSemicolon(),
                 new CSharpStatement($"ApplyChangesTo({param.Name}, {entityDetails.VariableName})")
                     .WithSemicolon()
