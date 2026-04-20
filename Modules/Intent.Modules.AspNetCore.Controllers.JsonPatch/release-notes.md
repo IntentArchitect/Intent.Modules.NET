@@ -1,4 +1,4 @@
-### Version 1.0.1-pre.0
+### Version 1.0.1
 
 - Fixed: `IPatchExecutor<T>` now exposes `ApplyToAsync` (returning `Task`, with optional `CancellationToken`) instead of the synchronous `ApplyTo`. `JsonMergePatchExecutor<T>` now calls `ValidateAsync` internally, resolving `AsyncValidatorInvokedSynchronouslyException` thrown when FluentValidation validators contain async rules (e.g. `CustomAsync`).
 
