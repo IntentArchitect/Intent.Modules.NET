@@ -40,7 +40,7 @@ namespace JsonPatchRfc7396.Swashbuckle.Application.Documents.PatchDocumentChange
                 throw new NotFoundException($"Could not find DocumentChange '{request.Id}'");
             }
             LoadOriginalState(documentChange, request);
-            request.PatchExecutor.ApplyTo(request);
+            await request.PatchExecutor.ApplyToAsync(request, cancellationToken);
             ApplyChangesTo(request, documentChange);
 
             _documentRepository.Update(document);

@@ -35,7 +35,7 @@ namespace JsonPatchRfc7396.Swashbuckle.Application.Documents.PatchDocument
             }
 
             LoadOriginalState(document, request);
-            request.PatchExecutor.ApplyTo(request);
+            await request.PatchExecutor.ApplyToAsync(request, cancellationToken);
             ApplyChangesTo(request, document);
 
             _documentRepository.Update(document);
