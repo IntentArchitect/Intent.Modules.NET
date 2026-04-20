@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="b8201720-882a-42ad-abb6-870a97815334" version="3.1.0">
+  <name>SQL Server Database Project</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="00D1A9C2-B5F0-4AF3-8072-F6C62B433612">SQL Server Database Project</type>
+  </targetTypes>
+  <targetReferenceTypes />
+  <applyMode>always</applyMode>
+  <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA9UlEQVQ4T2NkwAO+f/+e8P///3wGBgYDNGUXGBkZJ3Jyci5gxKX/27dv/dc//CmYdO0bw56nvxhMRVjASk+/+cPgIs3GkKfFxaApwDIBnwH/jTe8ZSjX4WAIkGVDsWfD418MnVd+MJwNEGbAa4Dq6jcMrYacWA2oPv+d4XaoCGEDYFYjewEmBjbg27dv//EFJMgVuADcAB8fH6xqtmzZwkC0AevWrkcxJCg4kIEkA7A5gSQDSHUBHysjJBpBgYgvDDKPfQInJGSAkpAIGcDAwHABb1ImZAAXFxfOxAZyFVYvgMIDFgtkGQDzLygWiDIAX0okZAAAerik+4DNuxEAAAAASUVORK5CYII=" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return false;</displayIconFunction>
+  <displayFunction />
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>false</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>f0d6fe41-55fc-486f-998b-5b49efa2e07f</parentFolderId>
+  <order>0</order>
+  <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+  <packageName>Intent.VisualStudio.Projects</packageName>
+  <onAppliedScript>const SqlServerDatabaseProjectStereotype = "b8201720-882a-42ad-abb6-870a97815334";
+const DotNetFrameworkStereotype = "f3fcc35a-4bb2-44e7-aca2-d721e047a4c9";
+
+let stereotype = element.getStereotype(SqlServerDatabaseProjectStereotype);
+
+if (element.hasStereotype(DotNetFrameworkStereotype)) {
+    stereotype.getProperty("Project Type").setValue(".NET Framework");
+}</onAppliedScript>
+  <onChangedScript>const SqlServerDatabaseProjectStereotype = "b8201720-882a-42ad-abb6-870a97815334";
+const DotNetFrameworkStereotype = "f3fcc35a-4bb2-44e7-aca2-d721e047a4c9";
+
+let stereotype = element.getStereotype(SqlServerDatabaseProjectStereotype);
+
+if (stereotype.getProperty("Project Type").getValue() === "SDK") {
+    if (element.hasStereotype(DotNetFrameworkStereotype)) {
+        element.removeStereotype(DotNetFrameworkStereotype);
+    }
+} else if (stereotype.getProperty("Project Type").getValue() === ".NET Framework") {
+    if (!element.hasStereotype(DotNetFrameworkStereotype)) {
+        element.addStereotype(DotNetFrameworkStereotype);
+    }
+}</onChangedScript>
+  <properties>
+    <property id="2099930c-69b8-4989-bb60-e2c252f8b7ac">
+      <name>Project Type</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>options</optionsSource>
+      <placeholder>(required)</placeholder>
+      <defaultValue>SDK</defaultValue>
+      <valueOptions>
+        <option>.NET Framework</option>
+        <option>SDK</option>
+      </valueOptions>
+      <isRequiredFunction>return true;</isRequiredFunction>
+    </property>
+    <property id="fcf08ff1-cd64-415e-9285-ed8b0de225ea">
+      <name>Version</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder>(required)</placeholder>
+      <defaultValue>2.1.0</defaultValue>
+      <isActiveFunction>return ProjectType === "SDK";</isActiveFunction>
+      <isRequiredFunction>return true;</isRequiredFunction>
+    </property>
+  </properties>
+</stereotypeDefinition>

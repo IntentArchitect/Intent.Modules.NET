@@ -291,11 +291,11 @@
     <file>
       <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#807ee533-3ab8-4fe6-a06c-30d45eecf014</correlationId>
       <path>Intent.Modules.VisualStudio.Projects/Templates/DirectoryPackagesProps/DirectoryPackagesPropsTemplatePartial.cs</path>
-      <count>3</count>
+      <count>4</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2025-01-23T08:20:24.5541639Z</updatedAt>
-      <deviationsHash>C0DCCD7E71FC67ABD8FFD60A265629B153EED314AB7ED75EE43E9A6FEC998AFC</deviationsHash>
+      <updatedAt>2026-04-20T12:09:10.0088998Z</updatedAt>
+      <deviationsHash>369952E693151AB674EBCFE1D33C9FA81B339B4DBEA546C9904C3854CF5AFE51</deviationsHash>
       <fileHash>43FC61CF36020B1993399DF807FC74B84B1C4F71F553A34F581762EE182C055B</fileHash>
     </file>
     <file>
