@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.ServiceImplementations</id>
   <version>4.7.0-pre.0</version>
@@ -19,6 +19,10 @@
         <add key="ClassName" description="Class name" />
       </config>
     </template>
+    <template id="Intent.Modules.Application.ServiceImplementations.Templates.StaticContentTemplateRegistrations.AISkillsStaticContentTemplateRegistration" externalReference="aab9fff8-9539-4da7-9c2a-bc3307444b54">
+      <role>AI.Context.Skills.ServiceImplementation</role>
+      <location></location>
+    </template>
   </templates>
   <decorators />
   <dependencies>
@@ -38,5 +42,8 @@
   <metadata>
     <install target="Services" src="Intent.Metadata/Module Builder/Intent.Application.ServiceImplementations/Intent.Application.ServiceImplementations.pkg.config" externalReference="2d61b3f1-47a2-4d3f-b8cf-308a4e3ed4d7" />
   </metadata>
+  <factoryExtensions>
+    <factoryExtension id="Intent.Application.ServiceImplementations.AiTaskFactoryExtension" externalReference="7d04d65c-c4ca-4167-b417-a10573d6ec0e" />
+  </factoryExtensions>
   <migrations />
 </package>
