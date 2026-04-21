@@ -3,9 +3,11 @@ using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.Settings;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Metadata.Security.Models;
 using Intent.Modules.Security.Shared;
 using static Intent.Modules.Constants.TemplateRoles.Blazor.Client;
@@ -84,4 +86,45 @@ internal static class CqrsTemplateHelpers
 
         return typeValue;
     }
+
+    /// <summary>
+    /// Determines how a property's default value should be represented in a <c>[DefaultValue(...)]</c> attribute.
+    /// <list type="bullet">
+    ///   <item><see cref="DefaultValueAttributeKind.Simple"/> — a direct literal argument, e.g. <c>[DefaultValue(42)]</c></item>
+    ///   <item><see cref="DefaultValueAttributeKind.TypeAndString"/> — the type+string overload, e.g. <c>[DefaultValue(typeof(DateTime), "2024-01-01")]</c></item>
+    ///   <item><see cref="DefaultValueAttributeKind.None"/> — the attribute cannot represent this type and should be omitted</item>
+    /// </list>
+    /// </summary>
+    public static DefaultValueAttributeKind GetDefaultValueAttributeKind(this DTOFieldModel property)
+    {
+        if (property.TypeReference?.IsCollection == true) return DefaultValueAttributeKind.None;
+        var element = property.TypeReference?.Element;
+        if (element == null) return DefaultValueAttributeKind.None;
+
+        if (element.IsEnumModel() ||
+            element.IsStringType() ||
+            element.IsBoolType() ||
+            element.IsCharType() ||
+            element.IsIntType() ||
+            element.IsLongType() ||
+            element.IsFloatType() ||
+            element.IsDoubleType() ||
+            element.IsDecimalType())
+            return DefaultValueAttributeKind.Simple;
+
+        if (element.IsDateType() ||
+            element.IsDateTimeType() ||
+            element.IsDateTimeOffsetType() ||
+            element.IsGuidType())
+            return DefaultValueAttributeKind.TypeAndString;
+
+        return DefaultValueAttributeKind.None;
+    }
+}
+
+internal enum DefaultValueAttributeKind
+{
+    None,
+    Simple,
+    TypeAndString
 }

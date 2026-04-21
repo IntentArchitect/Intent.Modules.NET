@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using Intent.RoslynWeaver.Attributes;
 using ProxyServiceTests.OriginalServices.Domain;
 
@@ -12,6 +13,7 @@ namespace ProxyServiceTests.OriginalServices.Application.Accounts
         {
         }
 
+        [DefaultValue(0)]
         public decimal Amount { get; set; } = 0;
         public Currency Currency { get; set; }
 

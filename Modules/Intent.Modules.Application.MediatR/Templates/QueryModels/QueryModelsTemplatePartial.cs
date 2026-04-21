@@ -92,6 +92,23 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryModels
                                 prop.TryAddXmlDocComments(property.InternalElement);
                                 prop.RepresentsModel(property);
 
+                                var defaultValueKind = property.GetDefaultValueAttributeKind();
+                                if (!string.IsNullOrWhiteSpace(property.Value) && defaultValueKind != DefaultValueAttributeKind.None)
+                                {
+                                    prop.AddAttribute(UseType("System.ComponentModel.DefaultValue"), attribute =>
+                                    {
+                                        if (defaultValueKind == DefaultValueAttributeKind.TypeAndString)
+                                        {
+                                            attribute.AddArgument($"typeof({GetTypeName(property.TypeReference)})");
+                                            attribute.AddArgument($"\"{property.Value}\"");
+                                        }
+                                        else
+                                        {
+                                            attribute.AddArgument(property.Value);
+                                        }
+                                    });
+                                }
+
                                 if (property.HasStereotype("OpenAPI Settings")
                                     && !string.IsNullOrWhiteSpace(property.GetStereotype("OpenAPI Settings").GetProperty("Example Value")?.Value))
                                 {

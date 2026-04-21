@@ -12,9 +12,10 @@ namespace JsonPatchRfc7396.Swashbuckle.Application.Common.Patching
     public interface IPatchExecutor<T>
     {
         /// <summary>
-        /// Applies the patch to the target object and (if applicable) validates the result.
+        /// Applies the patch to the target object and (if applicable) validates the result asynchronously.
         /// </summary>
         /// <param name="target">The object to apply the patch to.</param>
-        void ApplyTo(T target);
+        /// <param name="cancellationToken">A token to cancel the operation.</param>
+        Task ApplyToAsync(T target, CancellationToken cancellationToken = default);
     }
 }

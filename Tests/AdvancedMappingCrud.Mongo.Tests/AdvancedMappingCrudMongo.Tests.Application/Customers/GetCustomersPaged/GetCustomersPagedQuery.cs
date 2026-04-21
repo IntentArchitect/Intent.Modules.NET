@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using AdvancedMappingCrudMongo.Tests.Application.Common.Interfaces;
 using AdvancedMappingCrudMongo.Tests.Application.Common.Pagination;
 using Intent.RoslynWeaver.Attributes;
@@ -16,7 +17,9 @@ namespace AdvancedMappingCrudMongo.Tests.Application.Customers.GetCustomersPaged
             PageSize = pageSize;
         }
 
+        [DefaultValue(5)]
         public int PageNo { get; set; }
+        [DefaultValue(50)]
         public int PageSize { get; set; }
     }
 }

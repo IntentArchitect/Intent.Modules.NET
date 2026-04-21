@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using ProxyServiceTests.OriginalServices.Application.Common.Interfaces;
@@ -17,6 +18,7 @@ namespace ProxyServiceTests.OriginalServices.Application.Accounts.CreateAccount
             Number = number;
         }
 
+        [DefaultValue("00")]
         public string Number { get; set; }
         public CreateAccountMoneyDto Amount { get; set; }
         public Guid ClientId { get; set; }

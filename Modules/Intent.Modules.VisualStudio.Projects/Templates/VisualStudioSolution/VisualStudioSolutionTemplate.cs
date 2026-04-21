@@ -123,10 +123,16 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution
             {
                 var filePath = $"{model.ToOutputTargetConfig().RelativeLocation}\\{model.Name}.{model.FileExtension}".Replace("/", "\\");
 
+                var typeGuid = model is SQLServerDatabaseProjectModel sqlModel &&
+                               sqlModel.HasSQLServerDatabaseProject() &&
+                               sqlModel.GetSQLServerDatabaseProject().ProjectType().IsSDK()
+                    ? VisualStudioProjectTypeIds.SdkSqlProject
+                    : model.ProjectTypeId;
+
                 var project = slnFile.Projects.GetOrCreateProject(
                     id: model.Id,
                     name: model.Name,
-                    typeGuid: model.ProjectTypeId,
+                    typeGuid: typeGuid,
                     filePath: filePath,
                     parent: currentSlnFolder,
                     alreadyExisted: out _);

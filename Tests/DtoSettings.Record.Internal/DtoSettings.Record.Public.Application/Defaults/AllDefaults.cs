@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -18,8 +19,11 @@ namespace DtoSettings.Record.Public.Application.Defaults
         {
         }
 
+        [DefaultValue("one")]
         public string One { get; internal set; } = "one";
+        [DefaultValue(2)]
         public int Two { get; internal set; } = 2;
+        [DefaultValue("three")]
         public string Three { get; internal set; } = "three";
     }
 }
