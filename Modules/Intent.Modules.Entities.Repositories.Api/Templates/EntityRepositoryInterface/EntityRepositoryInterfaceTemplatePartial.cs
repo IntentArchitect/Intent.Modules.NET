@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Exceptions;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -22,6 +23,9 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInt
     public partial class EntityRepositoryInterfaceTemplate : CSharpTemplateBase<ClassModel>, ICSharpFileBuilderTemplate
     {
         public const string TemplateId = "Intent.Entities.Repositories.Api.EntityRepositoryInterface";
+        private const string DomainEntityTemplateId = "Domain.Entity";
+        private const string DomainEntityInterfaceTemplateId = "Domain.Entity.Interface";
+        private const string RepositoryInterfaceTemplateId = "Repository.Interface";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public EntityRepositoryInterfaceTemplate(IOutputTarget outputTarget, ClassModel model)
@@ -100,13 +104,57 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInt
             ? $"<{string.Join(", ", Model.GenericTypes)}>"
             : string.Empty;
 
-        public string RepositoryInterfaceName => GetTypeName(RepositoryInterfaceTemplate.TemplateId);
+        public string RepositoryInterfaceName
+        {
+            get
+            {
+                if (!TryGetTemplate<ITemplate>(RepositoryInterfaceTemplate.TemplateId, out _))
+                {
+                    throw new ElementException(Model.InternalElement, $"Could not find the template '{RepositoryInterfaceTemplateId}' for entity '{Model.Name}'. Please make sure you have installed a module like Intent.Entities.Repositories.Api that provides this template.");
+                }
 
-        public string EntityStateName => $"{GetTypeName("Domain.Entity", Model)}{GenericTypeParameters}";
+                return GetTypeName(RepositoryInterfaceTemplate.TemplateId);
+            }
+        }
 
-        public string EntityInterfaceName => $"{GetTypeName("Domain.Entity.Interface", Model)}{GenericTypeParameters}";
+        public string EntityStateName
+        {
+            get
+            {
+                if (!TryGetTemplate<ITemplate>(TemplateRoles.Domain.Entity.Primary, Model, out _))
+                {
+                    throw new ElementException(Model.InternalElement, $"Could not find the template '{DomainEntityTemplateId}' for entity '{Model.Name}'. Please make sure you have installed a module like Intent.Entities that provides this template.");
+                }
 
-        public string PrimaryKeyType => GetTemplate<ITemplate>("Domain.Entity", Model).GetMetadata().CustomMetadata.TryGetValue("Surrogate Key Type", out var type) ? UseType(type) : UseType("System.Guid");
+                return $"{GetTypeName(DomainEntityTemplateId, Model)}{GenericTypeParameters}";
+            }
+        }
+
+        public string EntityInterfaceName
+        {
+            get
+            {
+                if (!TryGetTemplate<ITemplate>(TemplateRoles.Domain.Entity.Interface, Model, out _))
+                {
+                    throw new ElementException(Model.InternalElement, $"Could not find the template '{DomainEntityInterfaceTemplateId}' for entity '{Model.Name}'. Please make sure you have installed a module like Intent.Entities that provides this template.");
+                }
+
+                return $"{GetTypeName(DomainEntityInterfaceTemplateId, Model)}{GenericTypeParameters}";
+            }
+        }
+
+        public string PrimaryKeyType
+        {
+            get
+            {
+                if (!TryGetTemplate<ITemplate>(TemplateRoles.Domain.Entity.Primary, Model, out var template))
+                {
+                    throw new ElementException(Model.InternalElement, $"Could not find the template '{DomainEntityTemplateId}' for entity '{Model.Name}'. Please make sure you have installed a module like Intent.Entities that provides this template.");
+                }
+
+                return template.GetMetadata().CustomMetadata.TryGetValue("Surrogate Key Type", out var type) ? UseType(type) : UseType("System.Guid");
+            }
+        }
 
         public string PrimaryKeyName => Model.Attributes.FirstOrDefault(x => x.HasStereotype("Primary Key"))?.Name.ToPascalCase() ?? "Id";
 

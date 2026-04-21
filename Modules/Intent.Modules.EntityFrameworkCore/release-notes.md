@@ -1,3 +1,7 @@
+### Version 5.0.42
+
+- Fixed: NullReferenceException when LazyLoadingWithProxies is enabled but no Entity template could be found.
+
 ### Version 5.0.41
 
 - Improvement: When Domain Constraints are installed, using `Text Limits` can also be used to specify string column lengths if `Text Constraints` are not being used.

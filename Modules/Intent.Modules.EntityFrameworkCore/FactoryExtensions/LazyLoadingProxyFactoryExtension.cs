@@ -20,6 +20,8 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
 
+#nullable enable
+
 namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
@@ -39,55 +41,60 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-
             if (!application.Settings.GetDatabaseSettings().LazyLoadingWithProxies())
             {
                 return;
             }
-            var rdbmsModels = _metadataManager.Domain(application).GetClassModels()
-                .Where(p => p.InternalElement.Package.AsDomainPackageModel()?.HasRelationalDatabase() == true)
-                .ToList();
 
-            foreach (var model in rdbmsModels)
+            var rdbmsModels = _metadataManager
+                .Domain(application)
+                .GetClassModels()
+                .Where(p => p.InternalElement.Package.AsDomainPackageModel()?.HasRelationalDatabase() == true);
+
+            var entityTemplates = rdbmsModels
+                .Select(model => GetEntityTemplate(application, model))
+                .Where(model => model is not null)
+                .Cast<ICSharpFileBuilderTemplate>()
+                .ToArray();
+            
+            foreach (var entityTemplate in entityTemplates)
             {
-                ICSharpFileBuilderTemplate entityTetmplate = GetEntityTemplate(application, model);
-                entityTetmplate.CSharpFile.OnBuild(file =>
+                entityTemplate.CSharpFile.OnBuild(file =>
                 {
-                    var @class = file.Classes.First();
-                    foreach (var property in @class.Properties)
+                    foreach (var property in file.TypeDeclarations.SelectMany(type => type.Properties))
                     {
-                        if (property.HasMetadata("model"))
+                        if (!property.HasMetadata("model"))
                         {
-                            var model = property.GetMetadata("model");
-                            ITypeReference typeReference;
-                            if (model is AttributeModel attributeModel)
-                            {
+                            continue;
+                        }
+                        var model = property.GetMetadata("model");
+                        ITypeReference typeReference;
+                        switch (model)
+                        {
+                            case AttributeModel attributeModel:
                                 typeReference = attributeModel.TypeReference;
-                            }
-                            else if (model is AssociationEndModel associationEndModel)
-                            {
+                                break;
+                            case AssociationEndModel associationEndModel:
                                 typeReference = associationEndModel;
-                            }
-                            else
-                            {
+                                break;
+                            default:
                                 continue;
-                            }
-                            if (typeReference.Element.IsClassModel())
-                            {
-                                property.Virtual();
-                            }
+                        }
+                        if (typeReference.Element.IsClassModel())
+                        {
+                            property.Virtual();
                         }
                     }
                 }, 1000);
             }
         }
 
-        private ICSharpFileBuilderTemplate GetEntityTemplate(IApplication application, ClassModel model)
+        private static ICSharpFileBuilderTemplate? GetEntityTemplate(IApplication application, ClassModel model)
         {
             var entityTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.Entity.EntityImplementation, model.Id);
-            if (((IntentTemplateBase)entityTemplate).TryGetTemplate(TemplateRoles.Domain.Entity.State, model.Id, out ICSharpFileBuilderTemplate stateTempalate))
+            if (entityTemplate?.TryGetTemplate(TemplateRoles.Domain.Entity.State, model.Id, out ICSharpFileBuilderTemplate? stateTemplate) == true)
             {
-                entityTemplate = stateTempalate;
+                entityTemplate = stateTemplate;
             }
             return entityTemplate;
         }
