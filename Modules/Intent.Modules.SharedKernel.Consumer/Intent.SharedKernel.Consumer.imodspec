@@ -2,7 +2,7 @@
 <package>
   <id>Intent.SharedKernel.Consumer</id>
   <version>1.0.0-beta.8</version>
-  <supportedClientVersions>[4.6.0-a, 5.0.0-a)</supportedClientVersions>
+  <supportedClientVersions>[4.7.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Shared Kernel Consumer pattern</summary>
   <description>Shared Kernel Consumer pattern</description>
   <authors>Intent Architect</authors>

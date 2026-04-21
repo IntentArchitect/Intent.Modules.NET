@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.EntityFrameworkCore.Api;
 using Intent.Metadata.RDBMS.Api;
@@ -18,9 +21,6 @@ using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using Intent.Utils;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -295,7 +295,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
         //        rules = $"""
         //            ## Instructions:
         //            - Only add additional methods to the repository for querying aggregations or complex queries. Otherwise just use the existing methods.
-                    
+
         //            ## Rules when adding methods:
         //            - Always add the method signature to the repository interface contract first, then implement it in the repository implementation.
         //            - Always add the `[IntentIgnore]` attribute to any method added.

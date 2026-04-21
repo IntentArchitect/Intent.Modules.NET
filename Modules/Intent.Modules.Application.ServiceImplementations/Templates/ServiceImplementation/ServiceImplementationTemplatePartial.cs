@@ -1,3 +1,7 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using Intent.AI;
 using Intent.Engine;
 using Intent.Metadata.Models;
@@ -14,10 +18,6 @@ using Intent.Modules.Common.TypeResolution;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using ModelHasFolderTemplateExtensions = Intent.Modules.Common.CSharp.Templates.ModelHasFolderTemplateExtensions;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -137,10 +137,10 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
                 }
 
                 var intention = new StringBuilder();
-                    intention.AppendLine($"## Intentions For the service");
-                    foreach (var operation in model.Operations)
-                    {
-                        intention.AppendLine($"### For Operation {operation.Name}");
+                intention.AppendLine($"## Intentions For the service");
+                foreach (var operation in model.Operations)
+                {
+                    intention.AppendLine($"### For Operation {operation.Name}");
 
                     foreach (var associationEnd in operation.InternalElement.AssociatedElements)
                     {
@@ -212,7 +212,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }
 
-        [IntentManaged(Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
         {
             return CSharpFile
@@ -272,6 +272,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
         }
     }
 
+    [IntentIgnore]
     public class TemplateAITask : IAITask
     {
         private readonly IIntentTemplate _template;
@@ -315,6 +316,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
         }
     }
 
+    [IntentIgnore]
     public class TemplateAITaskProvider(Func<IChange[], IOutputFile[], IAITask?> createTask) : IAITaskProvider
     {
 
