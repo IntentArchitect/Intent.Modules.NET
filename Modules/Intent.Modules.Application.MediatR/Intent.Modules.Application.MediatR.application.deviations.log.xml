@@ -22,7 +22,7 @@
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
       <updatedAt>2026-04-16T13:54:01.7657643Z</updatedAt>
       <deviationsHash>45F0E388CB0C4E3D64467AA57D70BD6C9724BC5626E9350F648BC6E6D1C51C92</deviationsHash>
-      <fileHash>4B3C155D93EE7861ED42B4D788EF3D339166DB82F7F9D59731D79BFD69250E2A</fileHash>
+      <fileHash>5C74189045C9F048CB741B477E72434A66429BDCE05B3F4E77BA6C8F5B75521A</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#4ba1d060-8722-4b1d-97e1-e7f070b8be2e</correlationId>
@@ -97,7 +97,7 @@
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
       <updatedAt>2026-04-16T13:54:01.7659951Z</updatedAt>
       <deviationsHash>7B745C15B50D9875F4EAC37E4A6C23237CE24013F55790959765095107C31D58</deviationsHash>
-      <fileHash>05672EB027571056B75EDB0863078AD88BB9C3A6F76EE633F15D2DF80A4CD4DC</fileHash>
+      <fileHash>ECE43374415F78436439C0704A71C8FD653D9A323E121CA1D997F7E1D9B9B4B7</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#3a8eb772-0533-42c8-9767-a87c67884d46</correlationId>
@@ -150,6 +150,16 @@
       <approvedAt>2024-08-20T11:59:03.9301358Z</approvedAt>
       <deviationsHash>95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B</deviationsHash>
       <fileHash>89E2D0975AD46BB6EBC9BED7B3E88AA2BB47C0A31C19890BD1CE5DC28031DFA5</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#c96ce07d-4408-40dd-a413-86d75b183db8</correlationId>
+      <path>Intent.Modules.Application.MediatR/Templates/StaticContentTemplateRegistrations/AISkillsStaticContentTemplateRegistration.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-04-21T09:33:59.2984245Z</updatedAt>
+      <deviationsHash>95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B</deviationsHash>
+      <fileHash>785AF4747FEDCE651B28A0C6AF38D964E4B6D03C27CA6E171F1687DD04C8201A</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions</correlationId>

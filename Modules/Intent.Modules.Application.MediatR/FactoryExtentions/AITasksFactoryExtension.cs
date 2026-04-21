@@ -49,15 +49,6 @@ namespace Intent.Modules.Application.MediatR.FactoryExtentions
             application.AITaskManager.RegisterTaskProvider(new TemplateAITaskProvider(application, GetTasks));
         }
 
-        internal class TemplateAITaskProvider(IApplication application, Func<IChange[], IOutputFile[], IApplication, IAITask[]> createTask) : IAITaskProvider
-        {
-
-            public IAITask[] GetTasks(IChange[] changes, IOutputFile[] outputFiles)
-            {
-                return createTask(changes, outputFiles, application);
-            }
-        }
-
         public IAITask[] GetTasks(IChange[] changes, IOutputFile[] outputFiles, IApplication application)
         {
             var tasks = new List<IAITask>();
@@ -82,7 +73,7 @@ namespace Intent.Modules.Application.MediatR.FactoryExtentions
 
             foreach (var change in handlerChanges)
             {
-                if (!TryGetTemplate<ICSharpFileBuilderTemplate, QueryModel>(change.Template, out var template, out var model))
+                if (!change.Template!.TryCastTemplate<ICSharpFileBuilderTemplate, QueryModel>(out var template, out var model))
                 {
                     continue;
                 }
@@ -101,7 +92,7 @@ namespace Intent.Modules.Application.MediatR.FactoryExtentions
 
             foreach (var change in handlerChanges)
             {
-                if (!TryGetTemplate<ICSharpFileBuilderTemplate, CommandModel>(change.Template, out var template, out var model))
+                if (!change.Template!.TryCastTemplate<ICSharpFileBuilderTemplate, CommandModel>(out var template, out var model))
                 {
                     continue;
                 }
@@ -112,13 +103,13 @@ namespace Intent.Modules.Application.MediatR.FactoryExtentions
 
         private IEnumerable<IAITask> GetOnlyContractChangedCommandTasks(IChange[] changes, IApplication application)
         {
-            var commandChanges = changes.Where(c => 
+            var commandChanges = changes.Where(c =>
                                             c.Template?.Id == CommandModelsTemplate.TemplateId &&
                                             c.ChangeType != ChangeType.Delete);
 
             foreach (var change in commandChanges)
             {
-                if (!TryGetTemplate<ICSharpFileBuilderTemplate, CommandModel>(change.Template, out var template, out var model))
+                if (!change.Template!.TryCastTemplate<ICSharpFileBuilderTemplate, CommandModel>(out var template, out var model))
                 {
                     continue;
                 }
@@ -138,13 +129,13 @@ namespace Intent.Modules.Application.MediatR.FactoryExtentions
 
         private IEnumerable<IAITask> GetOnlyContractChangedQueryTasks(IChange[] changes, IApplication application)
         {
-            var queryChanges = changes.Where(c => 
+            var queryChanges = changes.Where(c =>
                                             c.Template?.Id == QueryModelsTemplate.TemplateId &&
                                             c.ChangeType != ChangeType.Delete);
 
             foreach (var change in queryChanges)
             {
-                if (!TryGetTemplate<ICSharpFileBuilderTemplate, QueryModel>(change.Template, out var template, out var model))
+                if (!change.Template!.TryCastTemplate<ICSharpFileBuilderTemplate, QueryModel>(out var template, out var model))
                 {
                     continue;
                 }
@@ -275,18 +266,6 @@ namespace Intent.Modules.Application.MediatR.FactoryExtentions
                 """;
         }
 
-        private static bool TryGetTemplate<TTemplate, TModel>(
-            ITemplate? candidateTemplate,
-            [NotNullWhen(true)] out TTemplate? template,
-            [NotNullWhen(true)] out TModel? model)
-            where TTemplate : class, ITemplate
-            where TModel : class
-        {
-            model = null;
-            template = candidateTemplate as TTemplate;
-            return template is not null && template.TryGetModel<TModel>(out model);
-        }
-
         private IEnumerable<IAITask> GetMissingHandlerImplementationAITasks(IChange[] changes, IApplication application)
         {
             return GetMissingCommandHandlerImplementationTasks(changes, application)
@@ -305,7 +284,7 @@ namespace Intent.Modules.Application.MediatR.FactoryExtentions
                 .Concat(GetOnlyContractChangedQueryTasks(changes, application));
         }
 
-        private static bool HasMissingImplementation(IChange change) =>  change.Content.Contains("throw new NotImplementedException");
+        private static bool HasMissingImplementation(IChange change) => change.Content.Contains("throw new NotImplementedException");
 
         private static bool ChangeSetIncludesTemplate(IEnumerable<IChange> changes, ITemplate template) => changes.Any(x => x.Template?.Equals(template) == true);
 

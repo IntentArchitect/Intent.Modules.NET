@@ -2,6 +2,6 @@
 <outputFiles>
   <files>
     <file relativePath="Intent.Modules.Application.MediatR/content/AgentInstructions/readme.txt" state="ignored;once-off-generated" />
-    <file relativePath="Intent.Modules.Application.MediatR/content/AISkills/readme.txt" state="once-off-generated" />
+    <file relativePath="Intent.Modules.Application.MediatR/content/AISkills/readme.txt" state="ignored;once-off-generated" />
   </files>
 </outputFiles>

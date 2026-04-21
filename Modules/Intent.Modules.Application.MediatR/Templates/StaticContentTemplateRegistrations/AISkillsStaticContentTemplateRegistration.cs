@@ -4,7 +4,7 @@ using Intent.Modules.Common.Templates.AIStaticContent;
 using Intent.Modules.Common.Templates.StaticContent;
 using Intent.RoslynWeaver.Attributes;
 
-[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration", Version = "1.0")]
 
 namespace Intent.Modules.Application.MediatR.Templates.StaticContentTemplateRegistrations

@@ -5,6 +5,7 @@ using Intent.Modules.Common.Templates;
 using Intent.Templates;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -51,6 +52,30 @@ namespace Intent.Modules.Application.MediatR.FactoryExtentions
             }
 
             return false;
+        }
+    }
+
+    internal static class ITemplateExtensions
+    {
+        internal static bool TryCastTemplate<TTemplate, TModel>(
+            this ITemplate candidateTemplate,
+            [NotNullWhen(true)] out TTemplate? template,
+            [NotNullWhen(true)] out TModel? model)
+            where TTemplate : class, ITemplate
+            where TModel : class
+        {
+            model = null;
+            template = candidateTemplate as TTemplate;
+            return template is not null && template.TryGetModel(out model);
+        }
+    }
+
+    internal class TemplateAITaskProvider(IApplication application, Func<IChange[], IOutputFile[], IApplication, IAITask[]> createTask) : IAITaskProvider
+    {
+
+        public IAITask[] GetTasks(IChange[] changes, IOutputFile[] outputFiles)
+        {
+            return createTask(changes, outputFiles, application);
         }
     }
 }
