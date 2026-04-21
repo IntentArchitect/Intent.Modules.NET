@@ -1,3 +1,8 @@
+### Version 1.2.3
+
+- Improvement: Better support to identify areas where AI should be implementing logic.
+- Improvement: Added support for AI Context in various implementation strategies to enable AI-assisted generation of service call logic.
+
 ### Version 1.2.2
 
 - Improvement: Introduced components (and relocated basic entity patch logic) for upcoming JSON Patch module.

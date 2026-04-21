@@ -1,3 +1,7 @@
+### Version 4.7.0
+
+- Improvement: AI Context supplied for supplying context and skills.
+
 ### Version 4.6.2
 
 - Improvement: Generate `[DefaultValue(...)]` attributes for Command/Query DTO fields with default values.
