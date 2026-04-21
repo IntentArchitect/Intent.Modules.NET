@@ -1,6 +1,7 @@
 ### Version 4.1.0
 
 - Fixed: Support for `Folders` and `Output Anchor`s directly off the root folder.
+- Fixed: Migration to 4.0.0 will set the Package correctly to `Root Folder` specialization type.
 
 ### Version 4.0.1
 
