@@ -62,7 +62,7 @@ namespace Intent.Modules.VisualStudio.Projects.Migrations
                     stereotype.Properties.Add(
                         id: VersionPropertyId,
                         name: "Version",
-                        value: null,
+                        value: "2.1.0",
                         configure: config => { config.IsActive = false; });
 
                     requiresSave = true;
