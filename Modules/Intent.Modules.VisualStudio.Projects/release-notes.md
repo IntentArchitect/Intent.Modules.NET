@@ -1,3 +1,7 @@
+### Version 4.0.1
+
+- Fixed: SQL Server Database Project templates now correctly switch generated `.sqlproj` XML structure when toggling between `.NET Framework` and `SDK` project types.
+
 ### Version 4.0.0
 
 - The Visual Studio Designer has been removed and its functionality has been moved into a new `Codebase Structure` designer. This designer has changed Visual Studio solutions from being modelled as packages to instead be modelled as elements within a package, allowing you to make multiple Visual Studio solutions without needing to make multiple packages.
