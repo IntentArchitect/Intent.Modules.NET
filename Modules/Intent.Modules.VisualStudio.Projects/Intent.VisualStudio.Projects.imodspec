@@ -158,8 +158,8 @@
     <!-- /Minimum Compatible Versions -->
   </interoperability>
   <dependencies>
-    <dependency id="Intent.Common" version="3.9.0" />
-    <dependency id="Intent.Common.CSharp" version="3.9.5" />
+    <dependency id="Intent.Common" version="3.10.0" />
+    <dependency id="Intent.Common.CSharp" version="3.10.5-pre.0" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.Modelers.CodebaseStructure" version="1.0.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />

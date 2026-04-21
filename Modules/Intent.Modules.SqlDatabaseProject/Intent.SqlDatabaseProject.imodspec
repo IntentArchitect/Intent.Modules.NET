@@ -31,7 +31,7 @@
   <interoperability>
     <detect id="Intent.VisualStudio.Projects">
       <install>
-        <package id="Intent.VisualStudio.Projects" version="4.0.0" />
+        <package id="Intent.VisualStudio.Projects" version="4.0.1-pre.0" />
       </install>
     </detect>
   </interoperability>
