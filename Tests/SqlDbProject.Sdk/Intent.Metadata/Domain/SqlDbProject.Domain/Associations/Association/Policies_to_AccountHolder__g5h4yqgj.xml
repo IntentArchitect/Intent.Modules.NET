@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="8f38bd28-370a-47f6-9489-55a6a5272340">
+  <sourceEnd id="2e7e9d4d-6fb1-4848-b53a-142abeeb8b8d" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Policies</name>
+    <display>Policies: Policy[*]</display>
+    <order>0</order>
+    <typeReference id="0ba85b24-cad7-4e41-9e44-d9d44955505c">
+      <typeId>f25c3d13-5b0a-4bcd-85c9-6d4effeaf435</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SqlDbProject.Domain</typePackageName>
+      <typePackageId>01c581e9-8fc3-47bc-b9a9-aadc1284b12e</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="8f38bd28-370a-47f6-9489-55a6a5272340" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>AccountHolder</name>
+    <display>AccountHolder: AccountHolder</display>
+    <order>11</order>
+    <typeReference id="d47144a2-d4fc-4073-9333-2e5379f72f4a">
+      <typeId>ac174b22-944e-48ab-8643-00e0fbc77655</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SqlDbProject.Domain</typePackageName>
+      <typePackageId>01c581e9-8fc3-47bc-b9a9-aadc1284b12e</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>
