@@ -1,6 +1,7 @@
 ### Version 5.2.0
 
 - Improvement: Added AI Agent guidance.
+- Improvement: Updated module dependencies.
 
 ### Version 5.1.11
 

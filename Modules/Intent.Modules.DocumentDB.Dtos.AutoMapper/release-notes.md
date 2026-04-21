@@ -1,3 +1,7 @@
+### Version 1.0.7
+
+- Improvement: Updated module dependencies.
+
 ### Version 1.0.6
 
 - Improvement: Documentation and ProjectUrl link added.

@@ -1,3 +1,7 @@
+### Version 2.0.4
+
+- Improvement: Updated module dependencies.
+
 ### Version 2.0.3
 
 - Improvement: Updated Nuget Packages
