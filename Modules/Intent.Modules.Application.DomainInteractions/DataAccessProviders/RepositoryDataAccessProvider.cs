@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Application.DomainInteractions.Extensions;
@@ -20,9 +22,10 @@ internal class RepositoryDataAccessProvider : IDataAccessProvider
     private readonly ICSharpFileBuilderTemplate _template;
     private readonly CSharpClassMappingManager _mappingManager;
     private readonly bool _hasUnitOfWork;
-    private readonly CSharpProperty[] _pks;
+    private readonly CSharpProperty[]? _pks;
     private readonly bool _isUsingProjections;
     private readonly IQueryImplementation _queryImplementation;
+    private readonly string _entityWithPksName;
 
     public RepositoryDataAccessProvider(
         string repositoryFieldName,
@@ -36,8 +39,13 @@ internal class RepositoryDataAccessProvider : IDataAccessProvider
         _repositoryFieldName = repositoryFieldName;
         _template = template;
         _mappingManager = mappingManager;
-        var entityTemplate = _template.GetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.Entity.Primary, entity);
+        var entityTemplate = _template.GetTemplate<ICSharpFileBuilderTemplate>(Entity.Primary, entity);
+        if (entityTemplate is null)
+        {
+            throw new ElementException(entity.InternalElement, $"Could not find the template '{Entity.Primary}' for entity '{entity.Name}'. Please make sure you have installed a module like Intent.Entities that provides this template.");
+        }
         _pks = entityTemplate.CSharpFile.Classes.First().GetPropertiesWithPrimaryKey();
+        _entityWithPksName = entity.Name;
         if (_template.TryGetTypeName(Specification, entity, out var specificationType))
         {
             _queryImplementation = new SpecificationImplementation(this, _repositoryFieldName, queryContext, specificationType);
@@ -59,7 +67,7 @@ internal class RepositoryDataAccessProvider : IDataAccessProvider
         }
         else
         {
-            return "";
+            return string.Empty;
         }
     }
 
@@ -590,10 +598,6 @@ internal class RepositoryDataAccessProvider : IDataAccessProvider
 
             if (expression is not null && expressionResult.UsesFilterMethod)
             {
-                //if (orderBy != null)
-                //{
-                //    expression = new CSharpStatement($"q => {expression.GetText("")}(q).OrderBy({_provider.GetOrderByValue(orderByIsNullable, orderBy)})");
-                //}
                 // When passing in Func<IQueryable, IQueryable> (query option):
                 invocation.AddArgument(expression);
             }
@@ -607,8 +611,15 @@ internal class RepositoryDataAccessProvider : IDataAccessProvider
 
     private record FilterExpressionResult(bool UsesFilterMethod, CSharpStatement? Statement);
 
-    private string? GetOrderByValue(bool orderByIsNullable, string? orderByField)
+    private string GetOrderByValue(bool orderByIsNullable, string? orderByField)
     {
-        return orderByIsNullable ? $"{orderByField} ?? \"{_pks[0].Name}\"" : orderByField;
+        if (orderByIsNullable)
+        {
+            return _pks is null 
+                ? throw new InvalidOperationException($"Unable to determine order by value as entity '{_entityWithPksName}' does not have primary keys defined.")
+                : $"{orderByField} ?? \"{_pks[0].Name}\"";
+        }
+
+        return orderByField ?? string.Empty;
     }
 }

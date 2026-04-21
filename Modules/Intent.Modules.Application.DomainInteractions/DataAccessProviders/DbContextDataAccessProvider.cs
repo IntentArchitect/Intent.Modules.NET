@@ -1,3 +1,4 @@
+using System;
 using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
@@ -21,9 +22,10 @@ internal class DbContextDataAccessProvider : IDataAccessProvider
     private readonly ICSharpTemplate _template;
     private readonly CSharpClassMappingManager _mappingManager;
     private readonly CSharpAccessMemberStatement _dbSetAccessor;
-    private readonly CSharpProperty[] _pks;
+    private readonly CSharpProperty[]? _pks;
     private readonly bool _isUsingProjections;
     private readonly QueryActionContext? _queryContext;
+    private readonly string _entityWithPksName;
 
     public DbContextDataAccessProvider(
         string dbContextField,
@@ -38,8 +40,13 @@ internal class DbContextDataAccessProvider : IDataAccessProvider
 
         _dbSetAccessor = new CSharpAccessMemberStatement(_dbContextField, GetDbSetName(entity));
 
-        var entityTemplate = _template.GetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.Entity.Primary, entity);
+        var entityTemplate = _template.GetTemplate<ICSharpFileBuilderTemplate>(Entity.Primary, entity);
+        if (entityTemplate is null)
+        {
+            throw new ElementException(entity.InternalElement, $"Could not find the template '{Entity.Primary}' for entity '{entity.Name}'. Please make sure you have installed a module like Intent.Entities that provides this template.");
+        }
         _pks = entityTemplate.CSharpFile.Classes.First().GetPropertiesWithPrimaryKey();
+        _entityWithPksName = entity.Name;
         _isUsingProjections = queryContext?.ImplementWithProjections() == true;
         _queryContext = queryContext;
     }
@@ -164,6 +171,11 @@ internal class DbContextDataAccessProvider : IDataAccessProvider
             _template.AddUsing("System.Linq");
             _template.AddUsing("Microsoft.EntityFrameworkCore");
 
+            if (_pks is null)
+            {
+                throw new InvalidOperationException($"Unable to determine order by value as entity '{_entityWithPksName}' does not have primary keys defined.");
+            }
+            
             var dbSetAccessor = new CSharpAccessMemberStatement(_dbContextField, GetDbSetName(targetEntityType));
             var lookupStatement = new CSharpInvocationStatement($"await {dbSetAccessor}", "Where")
                 .AddArgument($"x => {sourceIdsExpression}.Contains(x.{_pks[0].Name})")
@@ -315,7 +327,14 @@ internal class DbContextDataAccessProvider : IDataAccessProvider
 
     private string GetOrderByValue(bool orderByIsNullable, string? orderByField)
     {
-        return orderByIsNullable ? $"{orderByField} ?? \"{_pks[0].Name}\"" : orderByField;
+        if (orderByIsNullable)
+        {
+            return _pks is null 
+                ? throw new InvalidOperationException($"Unable to determine order by value as entity '{_entityWithPksName}' does not have primary keys defined.") 
+                : $"{orderByField} ?? \"{_pks[0].Name}\"";
+        }
+
+        return orderByField ?? string.Empty;
     }
 
     private CSharpInvocationStatement AddProjectTo(CSharpStatement statement)
@@ -378,7 +397,7 @@ internal class DbContextDataAccessProvider : IDataAccessProvider
     {
         // for now cursor based is not implements with EF
         prerequisiteStatements = new List<CSharpStatement>();
-        return new CSharpStatement("");
+        return new CSharpStatement(string.Empty);
     }
 
     public string GetDbSetName(ClassModel model)
