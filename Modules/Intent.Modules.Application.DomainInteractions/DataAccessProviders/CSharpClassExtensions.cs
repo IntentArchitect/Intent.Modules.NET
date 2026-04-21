@@ -39,7 +39,7 @@ public static class CSharpClassExtensions
         };
     }
 
-    public static CSharpProperty[] GetPropertiesWithPrimaryKey(this CSharpClass rootEntity)
+    public static CSharpProperty[]? GetPropertiesWithPrimaryKey(this CSharpClass rootEntity)
     {
         rootEntity.TryGetMetadata<CSharpProperty[]>("primary-keys", out var pks);
         return pks;

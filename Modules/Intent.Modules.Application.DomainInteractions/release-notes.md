@@ -1,7 +1,11 @@
-### Version 1.2.3
+### Version 1.2.4
 
 - Improvement: Better support to identify areas where AI should be implementing logic.
 - Improvement: Added support for AI Context in various implementation strategies to enable AI-assisted generation of service call logic.
+
+### Version 1.2.3
+
+- Fixed: Added guards to give clearer error messages when Primary Keys could not be found on an Entity and when an Entity template could not be found.
 
 ### Version 1.2.2
 
