@@ -3,6 +3,14 @@
   <ApplicationId>fd35607d-60bc-40aa-a91c-c7fad672ee3b</ApplicationId>
   <FileLogs>
     <FileLog>
+      <ProjectId>ad6d0733-ce20-419a-bcc6-93fe56cb5ac7</ProjectId>
+      <CorrelationId>Intent.Modules.Application.ServiceImplementations.Templates.StaticContentTemplateRegistrations.AISkillsStaticContentTemplateRegistration#application-service-implementation/SKILL.md</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>.agents/skills/application-service-implementation/SKILL.md</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>application-service-implementation/SKILL.md</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>e46e7457-e8a9-470e-910a-d8342edad72d</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default#e46e7457-e8a9-470e-910a-d8342edad72d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
