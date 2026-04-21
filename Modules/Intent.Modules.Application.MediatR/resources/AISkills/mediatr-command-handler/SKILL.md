@@ -14,7 +14,8 @@ Implement command handler business logic inside an existing handler file. Favor 
 - ALWAYS if you modify the `Handle` method, ensure that the `IntentManaged` attribute indicates that the body of the method must be in `Mode.Ignore` (e.g. `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]`).
 - Inject only dependencies from the Domain or Application layers.
 - Never introduce direct dependencies on infrastructure packages or infrastructure types in the handler, including Entity Framework, Dapper, concrete DbContexts, SQL clients, or vendor-specific data access abstractions.
-- If data access is required, use an existing repository abstraction from the Domain or Application layers. If the required abstraction does not exist yet, extend the appropriate repository interface in an allowed layer and use that.
+- If data access is required, favor using an existing repository abstraction from the Domain or Application layers, but extend them if required .
+- If the response requires any aggregation (Count/Sum/Average/Min/Max/First/Last/GroupBy), the handler MUST NOT compute it. The handler must call a Domain/Application abstraction (repository/read service) that returns an aggregated result/summary. If no suitable method exists, extend the appropriate repository/read abstraction (Domain/Application layer interface) and implement it in Infrastructure. Do not “temporarily” aggregate in the handler
 - Follow the modeled domain language already present in the codebase: aggregates, entities, value objects, policies, invariants, statuses, and business terms should drive the implementation.
 - Search the codebase for similar handlers, repository methods, domain services, validation flows, and result patterns before introducing a new approach.
 - Add private helper methods inside the handler when they improve clarity, keep business flow readable, or encapsulate repeated branching logic.

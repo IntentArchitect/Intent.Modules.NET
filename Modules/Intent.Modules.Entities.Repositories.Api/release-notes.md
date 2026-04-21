@@ -1,3 +1,7 @@
+### Version 5.2.0
+
+- Improvement: Added AI Agent guidance.
+
 ### Version 5.1.10
 
 - Improvement: Documentation and ProjectUrl link added.
