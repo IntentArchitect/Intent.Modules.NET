@@ -2,7 +2,7 @@
 <package>
   <id>Intent.AspNetCore.OutputCaching.Redis</id>
   <version>1.1.15-pre.0</version>
-  <supportedClientVersions>[4.4.0-a, 5.0.0-a)</supportedClientVersions>
+  <supportedClientVersions>[4.5.0-a, 5.0.0-a)</supportedClientVersions>
   <releaseNotes>release-notes.md</releaseNotes>
   <summary>Provides output caching patterns with Redis for ASP.NET Core</summary>
   <description>Provides output caching patterns with Redis for ASP.NET Core</description>
