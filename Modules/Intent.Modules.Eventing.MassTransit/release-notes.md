@@ -1,3 +1,7 @@
+### Version 7.1.2
+
+- Fixed: Minimum client version.
+
 ### Version 7.1.1
 
 - Improvement: Updated NuGet package versions.

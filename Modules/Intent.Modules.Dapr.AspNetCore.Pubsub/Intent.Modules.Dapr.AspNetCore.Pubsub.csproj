@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -12,10 +12,11 @@
     <PackageReference Include="Intent.Modules.Modelers.Eventing" Version="6.0.3" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="4.0.7" />
     <PackageReference Include="Intent.Modules.Modelers.Services.EventInteractions" Version="1.2.0" />
-    <PackageReference Include="Intent.Packager" Version="3.5.0">
+    <PackageReference Include="Intent.Packager" Version="3.6.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Intent.Persistence.SDK" Version="1.0.1-alpha.2" />
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="3.0.0" />
     <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.11.0" />
   </ItemGroup>

@@ -1,3 +1,8 @@
+### Version 5.3.7
+
+- Improvement: Update module dependencies.
+- Fixed: Minimum client version.
+
 ### Version 5.3.6
 
 - Improvement: Updated NuGet package versions.

@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.NetTopologySuite</id>
-  <version>1.0.2</version>
-  <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
+  <version>1.0.3-pre.0</version>
+  <supportedClientVersions>[4.4.0-a,5.0.0)</supportedClientVersions>
   <summary>A .NET GIS solution that is fast and reliable for the .NET platform.</summary>
   <description>A .NET GIS solution that is fast and reliable for the .NET platform.</description>
   <authors>Intent Architect</authors>
@@ -51,7 +51,7 @@
     </detect>
   </interoperability>
   <dependencies>
-    <dependency id="Intent.Common" version="3.6.0" />
+    <dependency id="Intent.Common" version="3.7.2" />
     <dependency id="Intent.Common.CSharp" version="3.8.0" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Modelers.Domain" version="3.12.8" />
@@ -69,4 +69,5 @@
   <metadata>
     <install target="Services;Domain" src="Intent.Metadata/Module Builder/Intent.NetTopologySuite/Intent.NetTopologySuite.pkg.config" externalReference="0f76b5d4-168c-4ff3-86e7-0c07b39dfceb" />
   </metadata>
+  <migrations />
 </package>

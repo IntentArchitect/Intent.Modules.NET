@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore.TemporalTables</id>
-  <version>1.0.2</version>
-  <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
+  <version>1.0.3-pre.0</version>
+  <supportedClientVersions>[4.4.0-a,5.0.0)</supportedClientVersions>
   <summary>Introduces Entity Framework temporal table support for compatible providers</summary>
   <description>Introduces Entity Framework temporal table support for compatible providers</description>
   <authors>Intent Architect</authors>
@@ -49,4 +49,5 @@
   <metadata>
     <install target="Domain" src="Intent.Metadata/Module Builder/Intent.EntityFrameworkCore.TemporalTables/Intent.EntityFrameworkCore.TemporalTables.pkg.config" externalReference="1585256a-0514-4990-b997-4c198e9d7ffa" />
   </metadata>
+  <migrations />
 </package>

@@ -1,3 +1,7 @@
+### Version 4.2.17
+
+- Fixed: Minimum client version.
+
 ### Version 4.2.16
 
 - Improvement: Updated NuGet package versions.

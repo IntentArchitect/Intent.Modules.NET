@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Entities.BasicAuditing</id>
-  <version>1.0.9</version>
-  <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
+  <version>1.0.10-pre.0</version>
+  <supportedClientVersions>[4.4.0-a,5.0.0)</supportedClientVersions>
   <summary>Applies basic auditing to selected domain entities (i.e. when an entity is created or updated and by who).</summary>
   <description>Applies basic auditing to selected domain entities (i.e. when an entity is created or updated and by who).</description>
   <tags>csharp dotnet entities auditing</tags>
@@ -26,7 +26,7 @@
     <factoryExtension id="Intent.Entities.BasicAuditing.EfCoreExtension" externalReference="5c2b2464-aaf2-40bb-8c23-f3608e8ed4aa" />
   </factoryExtensions>
   <moduleSettings>
-    <group id="e51c0868-816d-432b-9cc3-c597fdb1ef0d" title="Basic Auditing" externalReference="e51c0868-816d-432b-9cc3-c597fdb1ef0d">
+    <group id="e51c0868-816d-432b-9cc3-c597fdb1ef0d" title="Basic Auditing" externalReference="e51c0868-816d-432b-9cc3-c597fdb1ef0d" type="application-settings">
       <settings>
         <setting id="5f617e3b-b027-4b23-aeb5-5ee4c7968173" title="User Identity to Audit" type="select">
           <hint>Which data would you like to audit to identify the user.</hint>

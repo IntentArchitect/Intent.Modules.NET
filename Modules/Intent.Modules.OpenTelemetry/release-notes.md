@@ -1,3 +1,7 @@
+### Version 2.2.16
+
+- Fixed: Minimum client version.
+
 ### Version 2.2.15
 
 - Improvement: Updated NuGet package versions.

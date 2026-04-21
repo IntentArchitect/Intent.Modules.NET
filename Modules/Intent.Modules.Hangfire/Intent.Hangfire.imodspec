@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Hangfire</id>
-  <version>1.0.9</version>
-  <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
+  <version>1.0.10-pre.0</version>
+  <supportedClientVersions>[4.4.0-a,5.0.0)</supportedClientVersions>
   <summary>Perform time based and fire-and-forget background processing jobs using Hangfire</summary>
   <description>Perform time based and fire-and-forget background processing jobs using Hangfire</description>
   <authors>Intent Architect</authors>
@@ -39,7 +39,7 @@
   <decorators></decorators>
   <factoryExtensions></factoryExtensions>
   <moduleSettings>
-    <group id="51fa8230-f836-453f-bdbf-1aef2e3a41cb" title="Hangfire Settings" externalReference="51fa8230-f836-453f-bdbf-1aef2e3a41cb">
+    <group id="51fa8230-f836-453f-bdbf-1aef2e3a41cb" title="Hangfire Settings" externalReference="51fa8230-f836-453f-bdbf-1aef2e3a41cb" type="application-settings">
       <settings>
         <setting id="66b854a5-3a68-40bf-a283-8eff57f29a35" title="Storage" type="select">
           <hint>The storage provider for the Hangfire jobs</hint>

@@ -1,3 +1,7 @@
+### Version 1.2.3
+
+- Fixed: Minimum client version.
+
 ### Version 1.2.2
 
 - Improvement: Added help topics.

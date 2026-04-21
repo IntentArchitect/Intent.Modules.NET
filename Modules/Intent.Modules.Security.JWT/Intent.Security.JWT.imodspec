@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Security.JWT</id>
-  <version>4.3.7</version>
-  <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
+  <version>4.3.8-pre.0</version>
+  <supportedClientVersions>[4.4.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Configures API Service security authorization using JWT bearer tokens</summary>
   <description>Configures API Service security authorization using JWT bearer tokens</description>
   <authors>Intent Architect</authors>
@@ -20,7 +20,7 @@
   </factoryExtensions>
   <dependencies>
     <dependency id="Intent.Application.Identity" version="3.6.0" />
-    <dependency id="Intent.AspNetCore" version="6.0.3" />
+    <dependency id="Intent.AspNetCore" version="6.1.0" />
     <dependency id="Intent.Common" version="3.7.2" />
     <dependency id="Intent.Common.CSharp" version="3.8.3" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
@@ -43,7 +43,7 @@
     <install target="Module Builder" src="Intent.Metadata/Module Builder/Intent.Security.JWT/Intent.Security.JWT.pkg.config" externalReference="dc5bde69-a694-4347-9683-d746710568e7" />
   </metadata>
   <moduleSettings>
-    <group id="2c1a1918-97eb-4b21-8a15-021dd72db73c" title="JWT Security Settings" externalReference="2c1a1918-97eb-4b21-8a15-021dd72db73c">
+    <group id="2c1a1918-97eb-4b21-8a15-021dd72db73c" title="JWT Security Settings" externalReference="2c1a1918-97eb-4b21-8a15-021dd72db73c" type="application-settings">
       <settings>
         <setting id="c2fba79a-6285-4ec8-ad76-585f089d8aa5" title="JWT Bearer Authentication Type" type="select">
           <hint>Configure how you JWT Token is authenticated</hint>

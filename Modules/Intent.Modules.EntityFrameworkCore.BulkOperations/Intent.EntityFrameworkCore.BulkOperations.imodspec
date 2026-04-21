@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore.BulkOperations</id>
-  <version>1.0.17</version>
-  <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
+  <version>1.0.18-pre.0</version>
+  <supportedClientVersions>[4.4.0-a,5.0.0)</supportedClientVersions>
   <summary>Bulk Import / Update supprt for EntityFramework Core (requires commercial license)</summary>
   <description>Bulk Import / Update supprt for EntityFramework Core, using `Z.EntityFramework.Extensions.EFCore` NuGet package (requires commercial license)</description>
   <authors>Intent Architect</authors>
@@ -17,7 +17,7 @@
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.Common" version="3.6.0" />
+    <dependency id="Intent.Common" version="3.7.2" />
     <dependency id="Intent.Common.CSharp" version="3.8.0" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
   </dependencies>
@@ -28,4 +28,5 @@
   <tags />
   <moduleSettingsExtensions />
   <metadata />
+  <migrations />
 </package>

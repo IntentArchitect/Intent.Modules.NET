@@ -1,3 +1,7 @@
+### Version 1.0.10
+
+- Fixed: Minimum client version.
+
 ### Version 1.0.9
 
 - Improvement: Prevent certain required stereotypes from being removed from the element.

@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.SharedKernel</id>
   <version>1.0.0-beta.5</version>
-  <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
+  <supportedClientVersions>[4.4.0-a,5.0.0)</supportedClientVersions>
   <summary>Shared Kernel pattern</summary>
   <description>Shared Kernel pattern</description>
   <authors>Intent Architect</authors>

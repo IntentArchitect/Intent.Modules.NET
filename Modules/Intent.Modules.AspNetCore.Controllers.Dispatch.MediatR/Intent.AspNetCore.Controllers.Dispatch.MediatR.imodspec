@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.Controllers.Dispatch.MediatR</id>
   <version>6.1.3-pre.0</version>
@@ -35,4 +35,5 @@
     <install target="Services" src="modelers/Http CQRS Extensions.designer.settings" externalReference="6b40d709-b7a2-492e-83b8-c935e79c1b6e" />
     <install target="Services" src="Intent.Metadata/Module Builder/Intent.AspNetCore.Controllers.Dispatch.MediatR/Intent.AspNetCore.Controllers.Dispatch.MediatR.pkg.config" externalReference="c150a471-8907-4bc4-8be8-f63c8a782e69" />
   </metadata>
+  <migrations />
 </package>

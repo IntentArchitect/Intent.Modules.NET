@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modules.Common;
+using Intent.Modules.Modelers.UI.Api;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -11,16 +12,16 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Blazor.Components.MudBlazor.Api
 {
     [IntentManaged(Mode.Fully, Signature = Mode.Fully)]
-    public class SpacerModel : IMetadataModel, IHasStereotypes, IHasName, IElementWrapper
+    public class SpacerModel : IMetadataModel, IHasStereotypes, IHasName, IElementWrapper, IComponentModel
     {
         public const string SpecializationType = "Spacer";
         public const string SpecializationTypeId = "cfc58280-fe7e-466d-9c00-ddb41b5462e7";
         protected readonly IElement _element;
 
         [IntentManaged(Mode.Fully)]
-        public SpacerModel(IElement element, string requiredType = SpecializationType)
+        public SpacerModel(IElement element, string requiredType = SpecializationTypeId)
         {
-            if (!requiredType.Equals(element.SpecializationType, StringComparison.InvariantCultureIgnoreCase))
+            if (!requiredType.Equals(element.SpecializationType, StringComparison.InvariantCultureIgnoreCase) && !requiredType.Equals(element.SpecializationTypeId, StringComparison.InvariantCultureIgnoreCase))
             {
                 throw new Exception($"Cannot create a '{GetType().Name}' from element with specialization type '{element.SpecializationType}'. Must be of type '{SpecializationType}'");
             }

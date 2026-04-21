@@ -1,3 +1,7 @@
+### Version 2.0.2
+
+- Fixed: Minimum client version.
+
 ### Version 2.0.1
 
 - Improvement: Added stereotype descriptions in preperation for Intent Architect 4.5. 

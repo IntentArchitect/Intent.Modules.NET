@@ -1,3 +1,7 @@
+### Version 1.0.8
+
+- Fixed: Minimum client version.
+
 ### Version 1.0.7
 
 - Improvement: Updated NuGet package versions.

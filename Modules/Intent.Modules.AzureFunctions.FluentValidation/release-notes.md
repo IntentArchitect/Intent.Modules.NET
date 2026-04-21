@@ -1,3 +1,7 @@
+### Version 5.1.5
+
+- Fixed: Minimum client version.
+
 ### Version 5.1.4
 
 - Improvement: Updated NuGet package versions.

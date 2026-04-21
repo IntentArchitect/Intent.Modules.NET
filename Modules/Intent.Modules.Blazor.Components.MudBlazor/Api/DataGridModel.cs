@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modules.Common;
+using Intent.Modules.Modelers.UI.Api;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -11,16 +12,16 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Blazor.Components.MudBlazor.Api
 {
     [IntentManaged(Mode.Fully, Signature = Mode.Fully)]
-    public class DataGridModel : IMetadataModel, IHasStereotypes, IHasName, IElementWrapper
+    public class DataGridModel : IMetadataModel, IHasStereotypes, IHasName, IElementWrapper, IComponentModel
     {
         public const string SpecializationType = "Data Grid";
         public const string SpecializationTypeId = "4b33f894-ad6e-43e0-a238-4286375c9ab7";
         protected readonly IElement _element;
 
         [IntentManaged(Mode.Fully)]
-        public DataGridModel(IElement element, string requiredType = SpecializationType)
+        public DataGridModel(IElement element, string requiredType = SpecializationTypeId)
         {
-            if (!requiredType.Equals(element.SpecializationType, StringComparison.InvariantCultureIgnoreCase))
+            if (!requiredType.Equals(element.SpecializationType, StringComparison.InvariantCultureIgnoreCase) && !requiredType.Equals(element.SpecializationTypeId, StringComparison.InvariantCultureIgnoreCase))
             {
                 throw new Exception($"Cannot create a '{GetType().Name}' from element with specialization type '{element.SpecializationType}'. Must be of type '{SpecializationType}'");
             }

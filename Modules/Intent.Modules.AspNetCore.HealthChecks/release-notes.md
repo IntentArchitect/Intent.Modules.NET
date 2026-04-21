@@ -1,3 +1,7 @@
+### Version 2.0.14
+
+- Fixed: Minimum client version.
+
 ### Version 2.0.13
 
 - Improvement: Updated module documentation to use centralized documentation site.

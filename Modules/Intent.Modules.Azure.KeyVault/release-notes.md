@@ -1,3 +1,7 @@
+### Version 2.0.19
+
+- Fixed: Minimum client version.
+
 ### Version 2.0.18
 
 - Improvement: Updated NuGet package versions.

@@ -7,6 +7,7 @@
   <packageExtensions>
     <packageExtension type="Services Package" typeId="df45eaf6-9202-4c25-8dd5-677e9ba1e906">
       <requiredPackages />
+      <contextMenuOptions />
       <creationOptions />
       <scriptOptions />
       <typeOrder />

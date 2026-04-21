@@ -1,3 +1,7 @@
+### Version 3.3.16
+
+- Fixed: Minimum Client Version.
+
 ### Version 3.3.15
 
 - Improvement: Updated module documentation to use centralized documentation site.

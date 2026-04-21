@@ -1,3 +1,7 @@
+### Version 3.6.4
+
+- Fixed: Minimum client version.
+
 ### Version 3.6.3
 
 - Improvement: Updated NuGet package versions.

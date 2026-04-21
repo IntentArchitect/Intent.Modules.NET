@@ -1,3 +1,7 @@
+### Version 6.0.1
+
+- Improvement: Updated module dependencies.
+
 ### Version 6.0.0
 
 - Improvement: Updated to work with Microsoft.OpenApi (2.4.1) library version.

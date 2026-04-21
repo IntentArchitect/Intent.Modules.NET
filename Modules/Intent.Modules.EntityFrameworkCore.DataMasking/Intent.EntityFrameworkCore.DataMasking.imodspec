@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore.DataMasking</id>
-  <version>1.0.0-beta.9</version>
-  <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
+  <version>1.0.0-beta.10</version>
+  <supportedClientVersions>[4.4.0-a,5.0.0)</supportedClientVersions>
   <summary>Introduces role based, field-level data masking support for Entity Framework Core providers</summary>
   <description>Introduces role based, field-level data masking support for Entity Framework Core providers</description>
   <authors>Intent Architect</authors>

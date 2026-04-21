@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.Controllers.Dispatch.ServiceContract</id>
   <version>5.2.20</version>
@@ -30,4 +30,5 @@
   </files>
   <moduleSettingsExtensions />
   <metadata />
+  <migrations />
 </package>

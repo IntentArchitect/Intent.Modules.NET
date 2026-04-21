@@ -1,3 +1,7 @@
+### Version 1.0.35
+
+- Fixed: Minimum client version.
+
 ### Version 1.0.34
 
 - Improvement: Updated NuGet package versions.
