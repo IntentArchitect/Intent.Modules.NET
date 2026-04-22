@@ -3,6 +3,20 @@
   <ApplicationId>2442638e-5601-4d9a-a9bc-493024ec6e4e</ApplicationId>
   <FileLogs>
     <FileLog>
+      <ProjectId>dcd411bb-8564-4199-988a-957009e9357a</ProjectId>
+      <CorrelationId>Intent.Modules.Application.MediatR.Templates.StaticContentTemplateRegistrations.AISkillsStaticContentTemplateRegistration#mediatr-command-handler/SKILL.md</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>.agents/skills/mediatr-command-handler/SKILL.md</ApplicationRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dcd411bb-8564-4199-988a-957009e9357a</ProjectId>
+      <CorrelationId>Intent.Modules.Application.MediatR.Templates.StaticContentTemplateRegistrations.AISkillsStaticContentTemplateRegistration#mediatr-query-handler/SKILL.md</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>.agents/skills/mediatr-query-handler/SKILL.md</ApplicationRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#ef3a67b3-3f8e-48b2-ae81-e40fca72031b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>WindowsServiceHost.Tests.sln</ApplicationRelativeFilePath>
@@ -190,6 +204,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>WindowsServiceHost.Tests/Jobs/RunEvery15Seconds.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RunEvery15Seconds.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0d195826-c00e-41ed-a41c-91263912a4fb</ProjectId>
+      <CorrelationId>Intent.QuartzScheduler.ScheduledJob#7e4cccb8-1498-42bb-a508-b09a5fe5be68</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>WindowsServiceHost.Tests/Jobs/UnScheduledJob.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UnScheduledJob.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
