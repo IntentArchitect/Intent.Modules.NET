@@ -209,6 +209,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>0d195826-c00e-41ed-a41c-91263912a4fb</ProjectId>
+      <CorrelationId>Intent.QuartzScheduler.ScheduledJob#7e4cccb8-1498-42bb-a508-b09a5fe5be68</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>WindowsServiceHost.Tests/Jobs/UnScheduledJob.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UnScheduledJob.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>0da1c5db-f98c-4823-b467-1708a6b3ce35</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#bb6f5d37-756f-4127-8c9a-a832472aa945</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
