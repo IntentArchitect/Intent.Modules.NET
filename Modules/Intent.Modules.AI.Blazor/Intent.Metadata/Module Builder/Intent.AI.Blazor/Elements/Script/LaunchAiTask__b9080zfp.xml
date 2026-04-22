@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="cf64e594-9153-425c-b614-40cc2aebad6e" type="Script" typeId="101fd5b6-3159-4810-9490-a103ef323e9c">
-  <name>Implement with AI</name>
-  <display>Implement with AI</display>
+  <name>LaunchAiTask</name>
+  <display>LaunchAiTask</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
   <isMapped>false</isMapped>
