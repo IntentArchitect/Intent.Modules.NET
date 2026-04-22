@@ -32,7 +32,7 @@ namespace Intent.Modules.UnitTesting.Templates.IntegrationEventHandlerTest
                     @class.AddConstructor(ctor => ctor.AddAttribute(CSharpIntentManagedAttribute.Ignore()));
                 });
 
-            CSharpFile.AfterBuild((@file =>
+            CSharpFile.AfterBuild(file =>
             {
                 var @class = file.Classes.First();
                 var ctor = @class.Constructors.First();
@@ -51,7 +51,7 @@ namespace Intent.Modules.UnitTesting.Templates.IntegrationEventHandlerTest
 
                     TestHelpers.AddDefaultSuccessTest(this, @class, details);
                 }
-            }), 9999);
+            }, 9999);
         }
 
         [IntentManaged(Mode.Fully)]

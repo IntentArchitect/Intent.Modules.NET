@@ -34,28 +34,27 @@ namespace Intent.Modules.UnitTesting.Templates.CommandHandlerTest
                 {
                     @class.AddAttribute(CSharpIntentManagedAttribute.Merge());
                     @class.AddConstructor(ctor => ctor.AddAttribute(CSharpIntentManagedAttribute.Ignore()));
-                });
-
-            CSharpFile.AfterBuild((@file =>
-            {
-                var @class = file.Classes.First();
-                var ctor = @class.Constructors.First();
-                var handlerTemplates = ExecutionContext.FindTemplateInstances(TemplateRoles.Application.Handler.Command, model);
-                var handlerTemplate = handlerTemplates.FirstOrDefault(t => t.CanRunTemplate());
-
-                if (handlerTemplate != null && handlerTemplate is ICSharpFileBuilderTemplate csharpTemplate)
+                })
+                .AfterBuild(file =>
                 {
+                    var @class = file.Classes.First();
+                    var ctor = @class.Constructors.First();
+                    var handlerTemplates = ExecutionContext.FindTemplateInstances(TemplateRoles.Application.Handler.Command, model);
+                    var handlerTemplate = handlerTemplates.FirstOrDefault(t => t.CanRunTemplate());
+
+                    if (handlerTemplate is not ICSharpFileBuilderTemplate csharpTemplate)
+                    {
+                        return;
+                    }
+
                     var details = TestHelpers.SuccessTestDetails.CreateCommandDetails(model);
                     TestHelpers.PopulateTestConstructor(this, ctor, handlerTemplate, csharpTemplate, details);
 
-                    @class.AddField(GetTypeName(handlerTemplate), "_handler", @field =>
-                    {
-                        @field.PrivateReadOnly();
-                    });
+                    var handlerType = GetTypeName(handlerTemplate)!;
+                    @class.AddField(handlerType, "_handler", field => { field.PrivateReadOnly(); });
 
                     TestHelpers.AddDefaultSuccessTest(this, @class, details);
-                }
-            }), 9999);
+                }, 9999);
         }
 
         [IntentManaged(Mode.Fully)]
@@ -72,7 +71,5 @@ namespace Intent.Modules.UnitTesting.Templates.CommandHandlerTest
         {
             return CSharpFile.ToString();
         }
-
-
     }
 }

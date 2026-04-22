@@ -32,7 +32,7 @@ namespace Intent.Modules.UnitTesting.Templates.DomainServiceTest
                     @class.AddConstructor(ctor => ctor.AddAttribute(CSharpIntentManagedAttribute.Ignore()));
                 });
 
-            CSharpFile.AfterBuild((@file =>
+            CSharpFile.AfterBuild(file =>
             {
                 var @class = file.Classes.First();
                 var ctor = @class.Constructors.First();
@@ -56,7 +56,7 @@ namespace Intent.Modules.UnitTesting.Templates.DomainServiceTest
                         TestHelpers.AddDefaultSuccessTest(this, @class, TestHelpers.SuccessTestDetails.CreateDomainServiceDetails(operation));
                     }
                 }
-            }), 9999);
+            }, 9999);
         }
 
         [IntentManaged(Mode.Fully)]

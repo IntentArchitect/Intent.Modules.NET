@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f2b26d71-4e8d-4200-a498-312f41f1d98f" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>UnitTestingAITasksFactoryExtension</name>
+  <display>UnitTestingAITasksFactoryExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>eb78a52a-4926-4c8e-b4c8-776cd2a3a91d</parentFolderId>
+  <packageId>eb78a52a-4926-4c8e-b4c8-776cd2a3a91d</packageId>
+  <packageName>Intent.UnitTesting</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

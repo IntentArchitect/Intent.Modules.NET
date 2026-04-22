@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.UnitTesting</id>
-  <version>1.0.5</version>
-  <supportedClientVersions>[4.5.18-a,5.0.0)</supportedClientVersions>
+  <version>1.1.0-pre.0</version>
+  <supportedClientVersions>[4.7.0-a,5.0.0)</supportedClientVersions>
   <summary>The module adds support for Unit Testing applications.</summary>
   <description>The module adds support for Unit Testing applications.</description>
   <authors>Intent Architect</authors>
@@ -11,6 +11,10 @@
   <releaseNotes>release-notes.md</releaseNotes>
   <tags>csharp xunit unittesting test moq nsubstitute</tags>
   <templates>
+    <template id="Intent.Modules.UnitTesting.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticStaticContentTemplateRegistration" externalReference="2a840bc0-fd8f-4e6c-b273-13de34fd1073">
+      <role>AI.Context.Instructions.UnitTest</role>
+      <location></location>
+    </template>
     <template id="Intent.UnitTesting.CommandHandlerTest" externalReference="6afc7253-d3cd-4d2f-aa7c-3816f718d72d">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
@@ -63,6 +67,7 @@
   <decorators></decorators>
   <factoryExtensions>
     <factoryExtension id="Intent.UnitTesting.NuGetInstallFactoryExtension" externalReference="92e43c85-2541-4ca0-b3a7-f71965c0e7bc" />
+    <factoryExtension id="Intent.UnitTesting.UnitTestingAITasksFactoryExtension" externalReference="f2b26d71-4e8d-4200-a498-312f41f1d98f" />
   </factoryExtensions>
   <moduleSettings>
     <group id="d62269ea-8e64-44a0-8392-e1a69da7c960" title="Unit Test Settings" externalReference="d62269ea-8e64-44a0-8392-e1a69da7c960" type="application-settings">
@@ -86,7 +91,7 @@
     </group>
   </moduleSettings>
   <dependencies>
-    <dependency id="Intent.Common" version="3.8.0" />
+    <dependency id="Intent.Common" version="3.11.0-pre.2" />
     <dependency id="Intent.Common.CSharp" version="3.8.0" />
     <dependency id="Intent.Common.Types" version="4.1.1" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />

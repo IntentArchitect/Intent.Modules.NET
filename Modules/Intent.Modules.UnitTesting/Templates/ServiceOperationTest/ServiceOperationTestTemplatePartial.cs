@@ -32,7 +32,7 @@ namespace Intent.Modules.UnitTesting.Templates.ServiceOperationTest
                    @class.AddConstructor(ctor => ctor.AddAttribute(CSharpIntentManagedAttribute.Ignore()));
                });
 
-            CSharpFile.AfterBuild((@file =>
+            CSharpFile.AfterBuild(file =>
             {
                 var @class = file.Classes.First();
                 var ctor = @class.Constructors.First();
@@ -55,7 +55,7 @@ namespace Intent.Modules.UnitTesting.Templates.ServiceOperationTest
                         TestHelpers.AddDefaultSuccessTest(this, @class, TestHelpers.SuccessTestDetails.CreateServiceDetails(operation));
                     }
                 }
-            }), 9999);
+            }, 9999);
         }
 
         [IntentManaged(Mode.Fully)]

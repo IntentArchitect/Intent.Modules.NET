@@ -54,7 +54,7 @@
   </decorators>
   <interoperability></interoperability>
   <dependencies>
-    <dependency id="Intent.Common" version="3.9.0" />
+    <dependency id="Intent.Common" version="3.11.0-pre.0" />
     <dependency id="Intent.Common.CSharp" version="3.9.5" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Entities.Repositories.Api" version="5.2.0-pre.3" />
