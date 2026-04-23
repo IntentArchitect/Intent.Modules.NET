@@ -1,10 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Threading;
 using Intent.CodeToModelOperations;
 using Intent.Engine;
+using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.Dtos.Settings;
@@ -21,6 +17,11 @@ using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Threading;
 using static Intent.Modules.Constants.TemplateRoles.Blazor.Client;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -44,6 +45,11 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
             AddTypeSource(TemplateRoles.Application.Contracts.Enum);
             AddTypeSource(TemplateRoles.Application.Contracts.Clients.Enum);
             AddTypeSource(ContractEnumModelTemplate.TemplateId);
+
+            if(string.IsNullOrWhiteSpace(model.Name))
+            {
+                throw new ElementException(model.InternalElement, "DTO model name cannot be empty.");
+            }
 
             var csharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath());
             AddTypeDeclaration(csharpFile);
