@@ -30,22 +30,22 @@
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#8229e960-3d06-4e61-952e-b08570edca67</correlationId>
       <path>Intent.Modules.Application.Dtos/Templates/DtoModel/DtoModelTemplatePartial.cs</path>
-      <count>3</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-04-17T10:01:01.6727313Z</updatedAt>
-      <deviationsHash>CBF2FA0A0D1A6482A0CD768FB8EB049AD07A7F2F9CDEE1F8BCA08C4A4A226F9D</deviationsHash>
-      <fileHash>10A230D48989D2859371AB92B2DCAE028FB10C3C7C004DBEB482BA142004D76F</fileHash>
+      <count>2</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-04-23T10:26:46.4996815Z</updatedAt>
+      <deviationsHash>80126F9C3A10BA42660149B19D33A84B84B50321E2E5B3CC732DDCF5D0A16D45</deviationsHash>
+      <fileHash>0886BD2428CF4BCEEF0B2AB5BAF6361FAAABBDF546BF300753FA9CB5B1063143</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#8229e960-3d06-4e61-952e-b08570edca67</correlationId>
       <path>Intent.Modules.Application.Dtos/Templates/DtoModel/DtoModelTemplateRegistration.cs</path>
-      <count>2</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-04-17T10:01:01.6727728Z</updatedAt>
-      <deviationsHash>51C524C56F4BCB6463B9A1F7015CEF437B22CFAF1DE8D121963D4E50ECAA5758</deviationsHash>
-      <fileHash>37C18CDF3C04EA8C03864F06DB0B3E4271AD8C0F208B7C08223A19AA2AC62D15</fileHash>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-04-23T10:26:46.4997047Z</updatedAt>
+      <deviationsHash>95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B</deviationsHash>
+      <fileHash>37A5CB9DAE89707ABD1B9D8903752059D3CCB827B9161A56546C9AF182D6CA33</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions</correlationId>
