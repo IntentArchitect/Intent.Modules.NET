@@ -86,7 +86,7 @@ namespace Intent.Modules.Application.Dtos.Pagination.FactoryExtensions
 
         private static void UpdateController(IApplication application, int pageNumberDefault, string pageSizeDefault, string orderByDefault, IElement queryModel)
         {
-            var controllerTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.AspNetCore.Controllers.Controller", queryModel.ParentElement.Id);
+            var controllerTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.AspNetCore.Controllers.Controller", queryModel.ParentElement?.Id);
             controllerTemplate?.CSharpFile.AfterBuild(file =>
             {
                 var @class = file.Classes.First();

@@ -1,3 +1,7 @@
+### Version 4.2.0
+
+- Fixed: Fixed SF crash around Paged Queries not in folders.
+
 ### Version 4.1.5
 
 - Fixed: Updated `Intent.Persistence.SDK` to latest version to resolve compatibility issues.
