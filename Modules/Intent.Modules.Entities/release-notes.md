@@ -1,3 +1,7 @@
+### Version 5.3.0
+
+- Improvement: Added 4.7 AI support.
+
 ### Version 5.2.3
 
 - Improvement: Improved handling of collection default values on constructors

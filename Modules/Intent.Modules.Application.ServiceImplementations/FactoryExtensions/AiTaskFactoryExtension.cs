@@ -45,8 +45,28 @@ namespace Intent.Modules.Application.ServiceImplementations.FactoryExtensions
             var tasks = new List<IAITask>();
 
             tasks.AddRange(GetMissingOperationImplementationAITasks(changes, application));
+            tasks.AddRange(GetContractChangedButServiceHasntAITasks(changes, application));
 
             return tasks.ToArray();
+        }
+
+        private IEnumerable<IAITask> GetContractChangedButServiceHasntAITasks(IChange[] changes, IApplication application)
+        {
+            var handlerChanges = changes.Where(c =>
+                                            c.Template?.Id == ServiceImplementationTemplate.TemplateId &&
+                                            HasMissingImplementation(c) &&
+                                            c.ChangeType != ChangeType.Delete
+                                            );
+
+            foreach (var change in handlerChanges)
+            {
+                if (!change.Template!.TryCastTemplate<ICSharpFileBuilderTemplate, ServiceModel>(out var template, out var model))
+                {
+                    continue;
+                }
+
+                yield return CreateMissingImplementationServiceImplementationAITask(template, model);
+            }
         }
 
         private static bool HasMissingImplementation(IChange change) => change.Content.Contains("throw new NotImplementedException");
@@ -74,7 +94,7 @@ namespace Intent.Modules.Application.ServiceImplementations.FactoryExtensions
         private IAITask CreateMissingImplementationServiceImplementationAITask(ICSharpFileBuilderTemplate template, ServiceModel model)
         {
             var intention = new StringBuilder();
-            intention.AppendLine($"## Intentions For the service");
+            intention.AppendLine($"## Intentions for the service");
             foreach (var operation in model.Operations)
             {
                 intention.AppendLine($"### For Operation {operation.Name}");
