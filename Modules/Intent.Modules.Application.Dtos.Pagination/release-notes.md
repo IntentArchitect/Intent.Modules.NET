@@ -24,7 +24,7 @@
 
 ### Version 4.1.0
 
-- Improvement: Help topics added to documention
+- Improvement: Help topics added to documentation
 
 ### Version 4.0.16
 

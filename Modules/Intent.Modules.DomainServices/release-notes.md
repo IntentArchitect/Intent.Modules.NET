@@ -1,3 +1,7 @@
+### Version 1.2.0
+
+- Improvement: Added AI Task Support, for 4.7.
+
 ### Version 1.1.14
 
 - Fixed: Minimum client version.
