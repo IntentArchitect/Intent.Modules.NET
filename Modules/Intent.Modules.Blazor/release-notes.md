@@ -1,3 +1,7 @@
+### Version 1.1.0
+
+- Improvement: Converted Blazor AI to use skills for Page implementation, and align with new AI implementation.
+
 ### Version 1.0.12
 
 - Fixed: Issue where SF would give an exception in certain situations

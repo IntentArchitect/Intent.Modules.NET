@@ -1,6 +1,6 @@
 ### Version 1.2.0
 
-- Improvement: Added AI Task Support, for 4.7.
+- Improvement: Added AI Task Support, for 5.0.
 
 ### Version 1.1.14
 
