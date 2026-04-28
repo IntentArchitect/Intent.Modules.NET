@@ -20,6 +20,7 @@ Implement command handler business logic inside an existing handler file. Favor 
 - Search the codebase for similar handlers, repository methods, domain services, validation flows, and result patterns before introducing a new approach.
 - Add private helper methods inside the handler when they improve clarity, keep business flow readable, or encapsulate repeated branching logic.
 - Keep orchestration in the handler and place durable business rules in domain entities, value objects, specifications, or domain/application services when those patterns already exist nearby.
+- Assume there is an ambient unit of work save in place unless nearby code shows otherwise. Explicitly save only when needed by the use case, such as when a surrogate key must be returned before control leaves the handler, or when an existing local convention requires an explicit save.
 
 ## Workflow
 

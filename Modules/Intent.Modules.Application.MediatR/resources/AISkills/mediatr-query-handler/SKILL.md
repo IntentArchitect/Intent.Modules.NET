@@ -20,6 +20,7 @@ Implement query handler business logic inside an existing handler file. Keep han
 - Search the codebase for similar query handlers, read models, repository methods, projections, pagination patterns, and mapping conventions before inventing a new approach.
 - Add private helper methods inside the handler when they improve readability, mapping clarity, or reuse of branching/query composition logic.
 - Keep the handler focused on orchestrating retrieval, filtering, and mapping. Push reusable rules or interpretation logic into existing domain/application abstractions when nearby code already uses them.
+- Assume there is an ambient unit of work save in place unless nearby code shows otherwise. Explicitly save only when needed by the use case, such as when a surrogate key must be returned before control leaves the handler, or when an existing local convention requires an explicit save.
 
 ## Workflow
 
