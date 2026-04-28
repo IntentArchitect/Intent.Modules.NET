@@ -1,5 +1,6 @@
 ### Version 5.3.7
 
+- Improvement: Improved Console logging.
 - Improvement: Update module dependencies.
 - Fixed: Minimum client version.
 

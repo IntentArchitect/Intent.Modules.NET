@@ -64,6 +64,7 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.Decorators
                             "Override", new JObject()
                             {
                                 { "Microsoft", "Warning" },
+                                { "Microsoft.Hosting.Lifetime", "Information" },
                                 { "System", "Warning" }
                             }
                         }
@@ -187,7 +188,7 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.Decorators
                 switch (serilogSink.AsEnum())
                 {
                     case SerilogSettings.SinksOptionsEnum.Console:
-                        args["outputTemplate"] = "[{Timestamp:yyyy-MM-dd HH:mm:ss.fff}] [{Level:u3}] {Category:0} - {Message}{NewLine:1}{Exception}";
+                        args["outputTemplate"] = "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}";
                         args["restrictedToMinimumLevel"] = "Information";
                         break;
                     case SerilogSettings.SinksOptionsEnum.File:
