@@ -1,3 +1,7 @@
+### Version 6.0.8
+
+- Improvement: Updated module dependencies.
+
 ### Version 6.0.7
 
 - Improvement: Updated NuGet package versions.

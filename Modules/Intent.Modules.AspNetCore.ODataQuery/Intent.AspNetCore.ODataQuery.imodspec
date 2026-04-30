@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.ODataQuery</id>
-  <version>1.0.19</version>
-  <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
+  <version>1.0.20-pre.0</version>
+  <supportedClientVersions>[4.4.0-a,6.0.0-a)</supportedClientVersions>
   <summary>The module adds support for ODataQuery options to standard ASP.NET Core Controllers.</summary>
   <description>The module adds support for ODataQuery options to standard ASP.NET Core Controllers.</description>
   <authors>Intent Architect</authors>
@@ -29,7 +29,7 @@
     <factoryExtension id="Intent.AspNetCore.ODataQuery.SwaggerConfigExtension" externalReference="d03b3262-faad-40cc-9961-40b9b913596b" />
   </factoryExtensions>
   <moduleSettings>
-    <group id="f9a82d4b-bb1b-4fa5-9586-36485364e6fc" title="OData Query Settings" externalReference="f9a82d4b-bb1b-4fa5-9586-36485364e6fc">
+    <group id="f9a82d4b-bb1b-4fa5-9586-36485364e6fc" title="OData Query Settings" externalReference="f9a82d4b-bb1b-4fa5-9586-36485364e6fc" type="application-settings">
       <settings>
         <setting id="f07b3386-b22c-48b7-b39a-3b113d0984e3" title="Allow Filter Option" type="switch">
           <hint>Enable $filter query option. This allows  expression based filtering of data.</hint>

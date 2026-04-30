@@ -1,3 +1,7 @@
+### Version 1.1.2
+
+- Improvement: Updated module dependencies.
+
 ### Version 1.1.1
 
 - Improvement: Latest VS Project Module allows new SDK project style in Visual Studio.

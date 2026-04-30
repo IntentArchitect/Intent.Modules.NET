@@ -1,3 +1,11 @@
+### Version 1.2.0
+
+- Improvement: Added AI Task Support, for 5.0.
+
+### Version 1.1.14
+
+- Fixed: Minimum client version.
+
 ### Version 1.1.13
 
 - Improvement: Updated module documentation to use centralized documentation site.

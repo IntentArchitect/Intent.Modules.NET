@@ -517,7 +517,10 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
         {
-            return CSharpFile.GetConfig();
+            return CSharpFile
+                    .GetConfig()
+                    .WithAISummary($"Persistent domain entity for {Model.Name} entity")
+                    .WithAIContext("Use the domain-entity skill when modifying this class.");
         }
 
         [IntentManaged(Mode.Ignore, Body = Mode.Ignore)]

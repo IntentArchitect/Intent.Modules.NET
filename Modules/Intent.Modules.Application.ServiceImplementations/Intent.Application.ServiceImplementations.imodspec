@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.ServiceImplementations</id>
-  <version>4.6.1</version>
-  <supportedClientVersions>[4.5.8-a, 5.0.0-a)</supportedClientVersions>
+  <version>4.7.0-pre.0</version>
+  <supportedClientVersions>[5.0.0-a, 6.0.0-a)</supportedClientVersions>
   <summary>Provides a standard service implementation pattern for Application Contracts</summary>
   <description>Provides a standard service implementation pattern for Application Contracts</description>
   <authors>Intent Architect</authors>
@@ -19,11 +19,15 @@
         <add key="ClassName" description="Class name" />
       </config>
     </template>
+    <template id="Intent.Modules.Application.ServiceImplementations.Templates.StaticContentTemplateRegistrations.AISkillsStaticContentTemplateRegistration" externalReference="aab9fff8-9539-4da7-9c2a-bc3307444b54">
+      <role>AI.Context.Skills.ServiceImplementation</role>
+      <location></location>
+    </template>
   </templates>
   <decorators />
   <dependencies>
     <dependency id="Intent.Application.Contracts" version="5.1.3" />
-    <dependency id="Intent.Common" version="3.8.0" />
+    <dependency id="Intent.Common" version="3.11.0-pre.1" />
     <dependency id="Intent.Common.CSharp" version="3.9.0" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Modelers.Services" version="4.0.10" />
@@ -38,5 +42,8 @@
   <metadata>
     <install target="Services" src="Intent.Metadata/Module Builder/Intent.Application.ServiceImplementations/Intent.Application.ServiceImplementations.pkg.config" externalReference="2d61b3f1-47a2-4d3f-b8cf-308a4e3ed4d7" />
   </metadata>
+  <factoryExtensions>
+    <factoryExtension id="Intent.Application.ServiceImplementations.AiTaskFactoryExtension" externalReference="7d04d65c-c4ca-4167-b417-a10573d6ec0e" />
+  </factoryExtensions>
   <migrations />
 </package>

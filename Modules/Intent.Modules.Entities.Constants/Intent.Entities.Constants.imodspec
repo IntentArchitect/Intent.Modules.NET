@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Entities.Constants</id>
-  <version>1.0.6</version>
-  <supportedClientVersions>[4.3.0-a, 5.0.0)</supportedClientVersions>
+  <version>1.0.7-pre.0</version>
+  <supportedClientVersions>[4.5.18-a, 6.0.0-a)</supportedClientVersions>
   <summary>Module for introducing constants instead on numeric literals.</summary>
   <description>Module for introducing constants instead on numeric literals.</description>
   <tags>csharp dotnet domain entities entity</tags>
@@ -16,7 +16,7 @@
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.Common" version="3.6.0" />
+    <dependency id="Intent.Common" version="3.7.2" />
     <dependency id="Intent.Common.CSharp" version="3.9.8" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Metadata.RDBMS" version="3.5.2" />
@@ -29,4 +29,5 @@
   </files>
   <moduleSettingsExtensions />
   <metadata />
+  <migrations />
 </package>

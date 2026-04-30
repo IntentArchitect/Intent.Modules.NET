@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.MassTransit</id>
-  <version>7.1.1</version>
-  <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
+  <version>7.1.2-pre.0</version>
+  <supportedClientVersions>[4.5.18-a, 6.0.0-a)</supportedClientVersions>
   <summary>MassTransit is a free, open-source distributed application framework for .NET which integrates with the Intent Architect Eventing designer.</summary>
   <description>MassTransit is a free, open-source distributed application framework for .NET which integrates with the Intent Architect Eventing designer.</description>
   <authors>Intent Architect</authors>
@@ -77,7 +77,7 @@
     <factoryExtension id="Intent.Eventing.MassTransit.TelemetryConfiguratorExtension" externalReference="75840da1-9946-4375-845b-78aad753a902" />
   </factoryExtensions>
   <moduleSettings>
-    <group id="b1c11f3f-63ce-4917-8ffb-b6c7698346c7" title="MassTransit Message Bus Settings" externalReference="b1c11f3f-63ce-4917-8ffb-b6c7698346c7">
+    <group id="b1c11f3f-63ce-4917-8ffb-b6c7698346c7" title="MassTransit Message Bus Settings" externalReference="b1c11f3f-63ce-4917-8ffb-b6c7698346c7" type="application-settings">
       <settings>
         <setting id="2888b373-0419-4d33-ba56-2d8d0bf98eb9" title="Messaging Service Provider" type="select">
           <defaultValue>in-memory</defaultValue>

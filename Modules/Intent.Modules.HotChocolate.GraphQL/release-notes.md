@@ -1,3 +1,7 @@
+### Version 5.0.10
+
+- Fixed: Minimum client version.
+
 ### Version 5.0.9
 
 - Improvement: Updated module documentation to use centralized documentation site.

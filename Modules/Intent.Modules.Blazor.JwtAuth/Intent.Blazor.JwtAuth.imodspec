@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Blazor.JwtAuth</id>
-  <version>1.0.0-alpha.1</version>
-  <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
+  <version>1.0.0-alpha.2</version>
+  <supportedClientVersions>[4.4.0-a,6.0.0-a)</supportedClientVersions>
   <summary>Implements JWT authentication services for Blazor.</summary>
   <description>Implements JWT authentication services for Blazor.</description>
   <authors>Intent Architect</authors>

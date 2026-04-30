@@ -1,3 +1,7 @@
+### Version 1.1.9
+
+- Fixed: Minimum client version.
+
 ### Version 1.1.8
 
 - Improvement: Updated module documentation to use centralized documentation site.

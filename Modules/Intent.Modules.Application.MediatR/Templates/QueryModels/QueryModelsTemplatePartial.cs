@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
@@ -56,7 +57,7 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryModels
                     @class.AddConstructor();
                     var ctor = @class.Constructors.First();
 
-                    // get the last property which has no value. All items occuring before this cannot have a default value set in the constructor
+                    // get the last property which has no value. All items occurring before this cannot have a default value set in the constructor
                     var lastNonNullable = Model.Properties.LastOrDefault(p => string.IsNullOrEmpty(p.Value))?.InternalElement.Order ?? 0;
 
                     List<string> nulledFields = [];
@@ -114,17 +115,13 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryModels
                                     prop.WithComments(xmlComments: $"/// <example>{property.GetStereotype("OpenAPI Settings").GetProperty("Example Value")?.Value}</example>");
                                 }
 
-                                // Do the assigmentment in the constructor, if the parameter has a default value, we need to use the null-coalescing operator to assign the default value to the property if the parameter is null
+                                // Do the assignment in the constructor, if the parameter has a default value, we need to use the null-coalescing operator to assign the default value to the property if the parameter is null
                                 var rhs = setDefaultValue && nulledFields.Contains(property.Id) ? $"{property.Name.ToParameterName()} ?? {property.Value}" :
                                     property.Name.ToParameterName();
                                 var assignmentStatement = new CSharpFieldAssignmentStatement(prop.Name, rhs);
                                 ctor.AddStatement(assignmentStatement);
                             });
-
-
                         });
-
-
                     }
                 });
 
@@ -134,6 +131,11 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryModels
                 FulfillsRole(TemplateRoles.Application.Validation.Query);
                 QueryHandlerTemplate.Configure(this, model);
             }
+        }
+
+        private bool OnlyContractChanged(IChange[] changes, ITemplate handlerTemplate)
+        {
+            return changes.Any(x => x.Template?.Equals(this) == true) && changes.All(x => x.Template?.Equals(handlerTemplate) != true);
         }
 
         [IntentManaged(Mode.Fully)]

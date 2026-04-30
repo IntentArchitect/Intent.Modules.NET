@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using Intent.AI;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
@@ -159,10 +161,15 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }
 
-        [IntentManaged(Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
         {
-            return CSharpFile.GetConfig();
+            return CSharpFile.GetConfig()
+                    .WithAISummary($"Application Service implementation for the {Model.Name} service.")
+                    .WithAIContext(
+                                """
+                                Use the application-service-implementation skill when modifying this service implementation.
+                                """); ;
         }
 
 

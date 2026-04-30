@@ -12,14 +12,14 @@
       <fileHash>E80613B26A7097394B2B70F0AEAE34CC9F7D656B55278E2008C771578CFBC8D8</fileHash>
     </file>
     <file>
-      <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#cd5ec8d4-a454-4644-942f-4923971ac10f</correlationId>
-      <path>Intent.Modules.AI.Blazor/Templates/StaticContentTemplateRegistrations/MudBlazorAIPromptTemplatesStaticContentTemplateRegistration.cs</path>
+      <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#34e97eb7-8cca-4b18-b097-1d64e245c26f</correlationId>
+      <path>Intent.Modules.AI.Blazor/Templates/StaticContentTemplateRegistrations/AIAgentSkillsStaticContentTemplateRegistration.cs</path>
       <count>2</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2025-08-17T10:10:30.1279167Z</updatedAt>
-      <deviationsHash>E2EC82870D2F9BD78DD52F4166C7B5AA70E71098C7CD010099E62730609FD0E4</deviationsHash>
-      <fileHash>6F260C9B6059DE066EC1E2C6D93206339A4D33D04E2CF1AB50C115ECC63E47B3</fileHash>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-04-20T12:01:01.7396795Z</updatedAt>
+      <deviationsHash>F8D0B32FEA7237BDE74F48547C0CAEA7A2AE22C6A9CF6A3B2E22397FEF58141C</deviationsHash>
+      <fileHash>05FA25DE1C9FAFF3C5B192A0E1F6637FEDAC3B18D9FB722E496F63D274516942</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#338fdca3-cde3-47ec-9aa9-b164c8ff9cb9</correlationId>

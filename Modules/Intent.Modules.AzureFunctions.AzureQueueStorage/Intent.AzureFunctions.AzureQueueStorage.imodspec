@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AzureFunctions.AzureQueueStorage</id>
   <version>1.1.0</version>
-  <supportedClientVersions>[4.5.18-a,5.0.0)</supportedClientVersions>
+  <supportedClientVersions>[4.5.18-a,6.0.0-a)</supportedClientVersions>
   <summary>Use Azure Functions to receive and dispatch Azure Queue Storage Messages to an event handler.</summary>
   <description>Use Azure Functions to receive and dispatch Azure Queue Storage Messages to an event handler.</description>
   <authors>Intent Architect</authors>

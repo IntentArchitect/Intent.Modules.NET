@@ -2,7 +2,7 @@
 <package>
   <id>Intent.AzureFunctions.EntityFrameworkCore</id>
   <version>5.0.3</version>
-  <supportedClientVersions>[4.5.15-a, 5.0.0-a)</supportedClientVersions>
+  <supportedClientVersions>[4.5.15-a, 6.0.0-a)</supportedClientVersions>
   <releaseNotes>release-notes.md</releaseNotes>
   <summary>Supplies Azure Functions with start-up configuration to perform Database start-up routines and to apply the Unit Of Work pattern</summary>
   <description>Supplies Azure Functions with start-up configuration to perform Database start-up routines and to apply the Unit Of Work pattern</description>

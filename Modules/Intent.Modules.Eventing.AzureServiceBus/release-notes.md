@@ -1,3 +1,7 @@
+### Version 1.2.1
+
+- Fixed: Minimum client version.
+
 ### Version 1.2.0
 
 - New Feature: Support composite message bus configurations where multiple message brokers coexist.

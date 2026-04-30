@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -8,6 +8,7 @@
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.10.0" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.10.0" />
+    <PackageReference Include="Intent.Modules.Entities" Version="5.2.3" />
     <PackageReference Include="Intent.Modules.EntityFrameworkCore" Version="5.0.23" />
     <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.12.4" />
     <PackageReference Include="Intent.Packager" Version="3.6.0">
@@ -21,7 +22,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
-    <ProjectReference Include="..\Intent.Modules.Entities\Intent.Modules.Entities.csproj" />
     <ProjectReference Include="..\Intent.Modules.EntityFrameworkCore\Intent.Modules.EntityFrameworkCore.csproj" />
   </ItemGroup>
 

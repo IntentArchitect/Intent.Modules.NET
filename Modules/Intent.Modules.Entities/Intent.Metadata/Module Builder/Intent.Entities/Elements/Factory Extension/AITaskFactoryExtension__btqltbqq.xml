@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8853b39c-4fd2-48e4-91e0-4625b4a0a61f" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>AITaskFactoryExtension</name>
+  <display>AITaskFactoryExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>dcc00891-d339-4864-a22c-24b3ae9fbc67</parentFolderId>
+  <packageId>dcc00891-d339-4864-a22c-24b3ae9fbc67</packageId>
+  <packageName>Intent.Entities</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#ab4a6e0e-2762-4d4b-96ac-5a5d92fed787</correlationId>
+      <path>Intent.Modules.DomainServices/Templates/StaticContentTemplateRegistrations/AISkillsStaticContentTemplateRegistration.cs</path>
+      <count>2</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-04-29T17:47:26.2810413Z</updatedAt>
+      <deviationsHash>FD832E9E9EF010DE58F2F64D76B40C5ADE31F5198DB2CD59A08AEC6AE5F8F5F8</deviationsHash>
+      <fileHash>6E63CCEFC03ED1E779CC959D97AD4977C60335E877FF78165B2740B82AA8C3DD</fileHash>
+    </file>
+  </files>
 </deviationsLog>

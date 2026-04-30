@@ -1,3 +1,7 @@
+### Version 4.8.0
+
+- Improvement: Updated module dependencies.
+
 ### Version 4.7.19
 
 - Improvement: Updated module dependencies.

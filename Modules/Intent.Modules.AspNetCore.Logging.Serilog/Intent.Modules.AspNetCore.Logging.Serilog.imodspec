@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Modules.AspNetCore.Logging.Serilog</id>
-  <version>5.3.6</version>
-  <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
+  <version>5.3.7-pre.1</version>
+  <supportedClientVersions>[4.4.0-a, 6.0.0-a)</supportedClientVersions>
   <releaseNotes>release-notes.md</releaseNotes>
   <summary>Provides Serilog logging for ASP.NET Core.</summary>
   <description>Provides Serilog logging for ASP.NET Core.</description>
@@ -27,7 +27,7 @@
     <factoryExtension id="Intent.Modules.AspNetCore.Logging.Serilog.SerilogStartupConfigurationExtension" externalReference="8b105b15-9d7b-425c-b739-1b4e40c2b9a9" />
   </factoryExtensions>
   <moduleSettings>
-    <group id="627ffe24-50f0-4e12-8276-073a255523b0" title="Serilog Settings" externalReference="627ffe24-50f0-4e12-8276-073a255523b0">
+    <group id="627ffe24-50f0-4e12-8276-073a255523b0" title="Serilog Settings" externalReference="627ffe24-50f0-4e12-8276-073a255523b0" type="application-settings">
       <settings>
         <setting id="e1e76d8d-298a-4f47-af08-0b08fdcc95c1" title="Sinks" type="multi-select">
           <defaultValue>["console"]</defaultValue>
@@ -44,7 +44,7 @@
   <interoperability></interoperability>
   <dependencies>
     <dependency id="Intent.AspNetCore" version="6.1.0" />
-    <dependency id="Intent.Common" version="3.6.0" />
+    <dependency id="Intent.Common" version="3.7.2" />
     <dependency id="Intent.Common.CSharp" version="3.8.0" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />

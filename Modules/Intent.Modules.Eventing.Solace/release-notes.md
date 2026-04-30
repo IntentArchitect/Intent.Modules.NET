@@ -1,3 +1,7 @@
+### Version 2.1.2
+
+- Fixed: Minimum client version.
+
 ### Version 2.1.1
 
 - Improvement: Updated NuGet package versions.

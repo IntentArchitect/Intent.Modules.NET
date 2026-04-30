@@ -1,3 +1,8 @@
+### Version 5.2.0
+
+- Improvement: Added AI Agent guidance.
+- Improvement: Updated module dependencies.
+
 ### Version 5.1.11
 
 - Improvement: Added friendly error messages for missing required Entity templates to help developers understand what module they need to install.

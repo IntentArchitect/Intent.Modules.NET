@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.Controllers.Dispatch.ServiceContract</id>
   <version>5.2.20</version>
-  <supportedClientVersions>[4.5.15-a, 5.0.0-a)</supportedClientVersions>
+  <supportedClientVersions>[4.5.15-a, 6.0.0-a)</supportedClientVersions>
   <summary>Instructs ASP.NET Core Controllers to dispatch requests to a separate handler via Application Contract interfaces.</summary>
   <description>Instructs ASP.NET Core Controllers to dispatch requests to a separate handler via Application Contract interfaces.</description>
   <authors>Intent Architect</authors>
@@ -30,4 +30,5 @@
   </files>
   <moduleSettingsExtensions />
   <metadata />
+  <migrations />
 </package>

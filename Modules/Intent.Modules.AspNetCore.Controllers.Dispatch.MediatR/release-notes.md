@@ -1,3 +1,7 @@
+### Version 6.1.3
+
+- Improvement: Updated module dependencies.
+
 ### Version 6.1.2
 
 - Improvement: Updated package references

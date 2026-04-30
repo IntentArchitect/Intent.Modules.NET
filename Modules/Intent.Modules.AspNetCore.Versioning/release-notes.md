@@ -1,3 +1,7 @@
+### Version 1.1.12
+
+- Fixed: Minumum client version.
+
 ### Version 1.1.11
 
 - Improvement: Updated to work with Microsoft.OpenApi (2.4.1 and up) library version.

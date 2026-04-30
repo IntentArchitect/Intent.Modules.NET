@@ -1,3 +1,7 @@
+### Version 4.3.8
+
+- Fixed: Minimum client version.
+
 ### Version 4.3.7
 
 - Improvement: Updated NuGet package versions.

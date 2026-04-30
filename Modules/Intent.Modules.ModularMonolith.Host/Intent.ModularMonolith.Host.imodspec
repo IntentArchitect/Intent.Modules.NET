@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.ModularMonolith.Host</id>
   <version>2.0.0</version>
-  <supportedClientVersions>[4.4.0-a,5.0.0)</supportedClientVersions>
+  <supportedClientVersions>[4.4.0-a,6.0.0-a)</supportedClientVersions>
   <summary>Module for configuring Modular Monolith Host</summary>
   <description>Module for configuring Modular Monolith Host</description>
   <authors>Intent Architect</authors>

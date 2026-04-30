@@ -4,15 +4,22 @@
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#18e4bf9f-2cff-41f4-a98a-333dc4c1178a</correlationId>
       <path>Intent.Modules.Application.ServiceImplementations/Templates/ServiceImplementation/ServiceImplementationTemplatePartial.cs</path>
+      <count>2</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-04-21T17:32:05.7587136Z</updatedAt>
+      <deviationsHash>B0B85F2D43C71C043B4681E73372DF7B1B2B222280F739B7177841E2B4BA6896</deviationsHash>
+      <fileHash>421057D648789317925C2918EAF74376263CA2E1F731386B688504BE283F31E3</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#aab9fff8-9539-4da7-9c2a-bc3307444b54</correlationId>
+      <path>Intent.Modules.Application.ServiceImplementations/Templates/StaticContentTemplateRegistrations/AISkillsStaticContentTemplateRegistration.cs</path>
       <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-08-19T06:39:52.1700444Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-08-20T12:00:41.1090559Z</approvedAt>
-      <deviationsHash>D7C52521FEEF1A215C079BA96DE2545DB31EE0DFAE336D8C915006E7FADE8A9D</deviationsHash>
-      <fileHash>0FA7429614147CFC6BED738ABEFD228C3B5BEFC04EEC6FFACA85B374863D90C3</fileHash>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-04-21T17:32:05.7589787Z</updatedAt>
+      <deviationsHash>95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B</deviationsHash>
+      <fileHash>F1170E6870DCFCEE51C4D21DC2E924F0207B7F27CA80E6DD2DD713D0236CA285</fileHash>
     </file>
   </files>
 </deviationsLog>

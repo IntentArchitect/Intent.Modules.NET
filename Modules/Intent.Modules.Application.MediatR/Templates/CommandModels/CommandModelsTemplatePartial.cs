@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Xml.Linq;
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
@@ -115,7 +116,7 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandModels
                                     prop.WithComments(xmlComments: $"/// <example>{property.GetStereotype("OpenAPI Settings").GetProperty("Example Value")?.Value}</example>");
                                 }
 
-                                // Do the assigmentment in the constructor, if the parameter has a default value, we need to use the null-coalescing operator to assign the default value to the property if the parameter is null
+                                // Do the assignment in the constructor, if the parameter has a default value, we need to use the null-coalescing operator to assign the default value to the property if the parameter is null
                                 var rhs = setDefaultValue && nulledFields.Contains(property.Id) ? $"{property.Name.ToParameterName()} ?? {property.Value}" :
                                     property.Name.ToParameterName();
                                 var assignmentStatement = new CSharpFieldAssignmentStatement(prop.Name, rhs);
@@ -131,6 +132,11 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandModels
                 FulfillsRole(TemplateRoles.Application.Validation.Command);
                 CommandHandlerTemplate.Configure(this, model);
             }
+        }
+
+        private bool OnlyContractChanged(IChange[] changes, ITemplate handlerTemplate)
+        {
+            return changes.Any(x => x.Template?.Equals(this) == true) && changes.All(x => x.Template?.Equals(handlerTemplate) != true);
         }
 
         [IntentManaged(Mode.Fully)]

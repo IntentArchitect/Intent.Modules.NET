@@ -71,7 +71,8 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DefaultDomainEventHandle
             return new CSharpFileConfig(
                 className: $"{Model.Name}Handler",
                 @namespace: $"{this.GetNamespace()}",
-                relativeLocation: this.GetFolderPath());
+                relativeLocation: this.GetFolderPath())
+                    .WithAIContext("Use the mediatr-domain-event-handler skill when editing this class.");
         }
 
         [IntentManaged(Mode.Fully)]

@@ -1,3 +1,7 @@
+### Version 4.2.8
+
+- Fixed: Minimum client version.
+
 ### Version 4.2.7
 
 - Improvement: Updated module documentation to use centralized documentation site.

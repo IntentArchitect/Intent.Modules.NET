@@ -12,6 +12,11 @@
     <Compile Remove="content\MudBlazorAIPromptTemplates\SearchEntity\SearchEntityTemplate.razor.cs" />
     <Compile Remove="content\MudBlazorAIPromptTemplates\ViewEntity\EntityViewTemplate.cs" />
     <Compile Remove="content\MudBlazorAIPromptTemplates\ViewEntity\ViewCustomer.razor.cs" />
+    <Compile Remove="resources\AgentSkills\blazor-dialog-adding-entity\add-entity-dialog-sample.razor.cs" />
+    <Compile Remove="resources\AgentSkills\blazor-dialog-editing-entity\edit-entity-dialog-sample.razor.cs" />
+    <Compile Remove="resources\AgentSkills\blazor-page-adding-entity\add-entity-sample.razor.cs" />
+    <Compile Remove="resources\AgentSkills\blazor-page-editing-entity\edit-entity-sample.razor.cs" />
+    <Compile Remove="resources\AgentSkills\blazor-page-search-entity\search-entity-sample.razor.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,10 +26,15 @@
     <None Include="content\MudBlazorAIPromptTemplates\EditEntity\EditEntityTemplate.razor.cs" />
     <None Include="content\MudBlazorAIPromptTemplates\SearchEntity\SearchEntityTemplate.razor.cs" />
     <None Include="content\MudBlazorAIPromptTemplates\ViewEntity\EntityViewTemplate.cs" />
+    <None Include="resources\AgentSkills\blazor-dialog-adding-entity\add-entity-dialog-sample.razor.cs" />
+    <None Include="resources\AgentSkills\blazor-dialog-editing-entity\edit-entity-dialog-sample.razor.cs" />
+    <None Include="resources\AgentSkills\blazor-page-adding-entity\add-entity-sample.razor.cs" />
+    <None Include="resources\AgentSkills\blazor-page-editing-entity\edit-entity-sample.razor.cs" />
+    <None Include="resources\AgentSkills\blazor-page-search-entity\search-entity-sample.razor.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common" Version="3.7.3" />
+	<PackageReference Include="Intent.Modules.Common" Version="3.11.0-pre.2" />
     <PackageReference Include="Intent.Modules.Common.AI" Version="1.0.0-pre.0" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.9.3" />
     <PackageReference Include="Intent.Modules.Modelers.Services.CQRS" Version="5.1.1" />
@@ -35,16 +45,12 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="3.0.0" />
-    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.12.1-pre.0" />
+	<PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.14.0-pre.3" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Intent.Modules.AI.Blazor.Samples.MudBlazor\**\*.*" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="resources\" />
   </ItemGroup>
 
 </Project>

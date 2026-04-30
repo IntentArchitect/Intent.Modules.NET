@@ -1,3 +1,7 @@
+### Version 1.1.0
+
+- Improvement: Centralized AI task registration for generated unit tests into a factory extension instead of registering tasks inside individual templates.
+
 ### Version 1.0.5
 
 - Improvement: Will now create the test project in the same solution folder as the application project.

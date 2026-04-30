@@ -1,3 +1,7 @@
+### Version 1.2.1
+
+- Fixed: Minimum client version.
+
 ### Version 1.2.0
 
 - Improvement: Azure Functions Event Grid handlers now support composite message bus configurations, allowing multiple message brokers to coexist in the same application.

@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Common.UnitOfWork</id>
   <version>1.0.3</version>
-  <supportedClientVersions>[4.4.0-a,5.0.0)</supportedClientVersions>
+  <supportedClientVersions>[4.4.0-a,6.0.0-a)</supportedClientVersions>
   <summary>Common Unit Of Work Module for Intent.Modules.NET</summary>
   <description>Common Unit Of Work Module for Intent.Modules.NET</description>
   <authors>Intent Architect</authors>

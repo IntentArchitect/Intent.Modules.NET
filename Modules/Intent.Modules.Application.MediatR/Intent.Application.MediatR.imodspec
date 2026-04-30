@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.MediatR</id>
-  <version>4.6.2</version>
-  <supportedClientVersions>[4.5.0-a, 5.0.0-a)</supportedClientVersions>
+  <version>4.7.0-pre.4</version>
+  <supportedClientVersions>[5.0.0-a, 6.0.0-a)</supportedClientVersions>
   <summary>Provides the MediatR middleware</summary>
   <description>Provides the MediatR middleware</description>
   <authors>Intent Architect</authors>
@@ -59,11 +59,15 @@
       <role>Application.Query</role>
       <location></location>
     </template>
+    <template id="Intent.Modules.Application.MediatR.Templates.StaticContentTemplateRegistrations.AISkillsStaticContentTemplateRegistration" externalReference="c96ce07d-4408-40dd-a413-86d75b183db8">
+      <role>AI.Context.Skills.MediatR</role>
+      <location></location>
+    </template>
   </templates>
   <dependencies>
     <dependency id="Intent.Application.DependencyInjection" version="4.1.14" />
     <dependency id="Intent.Application.DependencyInjection.MediatR" version="3.6.3" />
-    <dependency id="Intent.Common" version="3.8.0" />
+    <dependency id="Intent.Common" version="3.11.0-pre.2" />
     <dependency id="Intent.Common.CSharp" version="3.9.4" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Metadata.Security" version="1.0.0" />
@@ -134,7 +138,9 @@
     </group>
   </moduleSettings>
   <moduleSettingsExtensions />
-  <factoryExtensions />
+  <factoryExtensions>
+    <factoryExtension id="Intent.Application.MediatR.AITasksFactoryExtension" externalReference="ea40d00e-d553-46f5-9928-a08250ba3cd0" />
+  </factoryExtensions>
   <migrations>
     <migration version="4.3.0-pre.0" />
   </migrations>

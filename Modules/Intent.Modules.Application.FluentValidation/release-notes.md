@@ -1,3 +1,7 @@
+### Version 3.11.8
+
+- Fixed: Minimum client version.
+
 ### Version 3.11.7
 
 - Improvement: Updated module dependencies.

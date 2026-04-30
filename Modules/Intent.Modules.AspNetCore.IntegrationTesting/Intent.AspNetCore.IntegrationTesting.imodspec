@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.IntegrationTesting</id>
   <version>2.0.18</version>
-  <supportedClientVersions>[4.5.18-a, 5.0.0-a)</supportedClientVersions>
+  <supportedClientVersions>[4.5.18-a, 6.0.0-a)</supportedClientVersions>
   <summary>The module adds support for Integration Testing Asp.Net Core applications.</summary>
   <description>The module adds support for Integration Testing Asp.Net Core applications.</description>
   <authors>Intent Architect</authors>

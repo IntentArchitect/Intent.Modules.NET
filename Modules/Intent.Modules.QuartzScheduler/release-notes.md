@@ -1,3 +1,7 @@
+### Version 1.0.14
+
+- Fixed: Minimum client version.
+
 ### Version 1.0.13
 
 - Fixed: Quartz configuration now only includes scheduled jobs that have the Scheduling stereotype applied.

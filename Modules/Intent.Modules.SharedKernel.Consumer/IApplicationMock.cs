@@ -5,6 +5,7 @@ using Intent.Metadata.Models;
 using Intent.Templates;
 using System;
 using System.Collections.Generic;
+using Intent.AI;
 
 namespace Intent.Modules.SharedKernel.Consumer
 {
@@ -43,6 +44,7 @@ namespace Intent.Modules.SharedKernel.Consumer
         public IEnumerable<IOutputTarget> OutputTargets => throw new NotImplementedException();
 
         public IChanges ChangeManager => throw new NotImplementedException();
+        public IAITaskManager AITaskManager => throw new NotImplementedException();
 
         public IEnumerable<IIntentInstalledModule> InstalledModules => throw new NotImplementedException();
 

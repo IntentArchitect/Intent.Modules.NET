@@ -132,10 +132,12 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventHandler
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }
 
-        [IntentManaged(Mode.Fully)]
+        [IntentManaged(Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
         {
-            return CSharpFile.GetConfig();
+            return CSharpFile
+                .GetConfig()
+                .WithAIContext("Use the mediatr-domain-event-handler skill when editing this class.");
         }
 
         [IntentManaged(Mode.Fully)]

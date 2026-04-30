@@ -1,3 +1,7 @@
+### Version 1.0.7
+
+- Fixed: Minimum client version.
+
 ### Version 1.0.6
 
 - Fixed: Compatibility issue with `Intent.Common.CSharp` version 3.9.8.

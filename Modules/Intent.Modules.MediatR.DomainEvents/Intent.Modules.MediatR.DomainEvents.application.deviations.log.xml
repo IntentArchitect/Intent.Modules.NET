@@ -9,7 +9,7 @@
       <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
       <updatedAt>2025-09-13T06:35:29.1295519Z</updatedAt>
       <deviationsHash>FAF138549BA5B5640D17327BD80CB0CF7D2BF80BA96E369685AB9F70A120B625</deviationsHash>
-      <fileHash>8114F8DF9B20B0EB397182D977BDBFD51BF9F71D7526A4D387526EDE302AFA02</fileHash>
+      <fileHash>80916D2217B524CD1B93A3451FBF5F58D57A93D8335E1139B291004CFAD0AA62</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#34c20673-1032-4d98-baf2-a9d925038db3</correlationId>
@@ -23,6 +23,16 @@
       <approvedAt>2024-08-20T12:25:22.4629057Z</approvedAt>
       <deviationsHash>D9C53325E8AEAAB8649C6F3B9469AC646671C0DB648368E1575572827242A97B</deviationsHash>
       <fileHash>B985CE917554B4C555D023C9266E1003C4D96884EE126763F34AE96433E9C216</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#aa7baa8c-29eb-4986-8a70-c002a6ef5c69</correlationId>
+      <path>Intent.Modules.MediatR.DomainEvents/Templates/DomainEventHandler/DomainEventHandlerTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-04-29T13:17:51.0019471Z</updatedAt>
+      <deviationsHash>E22973819D479146BC248596005F85079EC86032A092016E77A43C05D9F67C5C</deviationsHash>
+      <fileHash>BBCE80ECDFDCA69C03C9AD89E69958E0831F53284D62B7E2CC22CBDF51E4FFE5</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#facf0926-17f5-4e56-b647-5718e15fcbb4</correlationId>
@@ -43,6 +53,16 @@
       <updatedAt>2025-09-13T06:35:29.1296279Z</updatedAt>
       <deviationsHash>317A07DBB5882837B1997B132AE6092513C3B302932DC82FFDF16A67451D4553</deviationsHash>
       <fileHash>8C7D074EC5B777BF8795F0A0DCDD69781C67CEF744F7D4DC8EFFE7E92F752F42</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#e51200b4-a5f9-4dd4-abf1-fd26e44265ae</correlationId>
+      <path>Intent.Modules.MediatR.DomainEvents/Templates/StaticContentTemplateRegistrations/AISkillsStaticContentTemplateRegistration.cs</path>
+      <count>2</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-04-29T13:17:51.0021527Z</updatedAt>
+      <deviationsHash>FD832E9E9EF010DE58F2F64D76B40C5ADE31F5198DB2CD59A08AEC6AE5F8F5F8</deviationsHash>
+      <fileHash>02A9CE8D2F8CD1234B7BDF7D1C5FCF9C7B9916D588AD7F7BBD6D4BDEB3345757</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions</correlationId>

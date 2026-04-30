@@ -1,5 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Text;
+using System.Threading.Channels;
+using Intent.AI;
 using Intent.Engine;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.DependencyInjection.MediatR;
@@ -13,6 +18,7 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using static Intent.Modules.Constants.TemplateRoles.Blazor.Client;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -77,7 +83,6 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryHandler
                         method.AddStatement("""throw new NotImplementedException("Your implementation here...");""");
                     });
                 });
-
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
@@ -86,7 +91,11 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryHandler
             return new CSharpFileConfig(
                 className: $"{Model.Name}Handler",
                 @namespace: $"{this.GetNamespace(additionalFolders: Model.GetConceptName())}",
-                relativeLocation: $"{this.GetFolderPath(additionalFolders: Model.GetConceptName())}");
+                relativeLocation: $"{this.GetFolderPath(additionalFolders: Model.GetConceptName())}")
+                    .WithAISummary("MediatR Handler implementation for the " + Model.Name + " query.")
+                    .WithAIContext("""
+                                   Use the mediatr-query-handler skill when modifying this handler.
+                                   """);
         }
 
         public CSharpFile CSharpFile { get; }
@@ -109,4 +118,5 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryHandler
             return template.GetTypeName(QueryModelsTemplate.TemplateId, model);
         }
     }
+
 }

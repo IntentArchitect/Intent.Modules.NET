@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.HealthChecks</id>
-  <version>2.0.13</version>
-  <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
+  <version>2.0.14-pre.0</version>
+  <supportedClientVersions>[4.4.0-a, 6.0.0-a)</supportedClientVersions>
   <summary>Monitor various aspects of your application to determine if is responding to requests normally.</summary>
   <description>Monitor various aspects of your application to determine if is responding to requests normally.</description>
   <authors>Intent Architect</authors>
@@ -23,7 +23,7 @@
   <decorators></decorators>
   <factoryExtensions />
   <moduleSettings>
-    <group id="842cff41-d028-438f-913e-85932ce0f6e8" title="Health Checks" externalReference="842cff41-d028-438f-913e-85932ce0f6e8">
+    <group id="842cff41-d028-438f-913e-85932ce0f6e8" title="Health Checks" externalReference="842cff41-d028-438f-913e-85932ce0f6e8" type="application-settings">
       <settings>
         <setting id="1405e444-058b-423c-83a7-217b3da1f9d3" title="Publish Events" type="select">
           <hint>Specify where to publish events for monitoring health status availability.</hint>

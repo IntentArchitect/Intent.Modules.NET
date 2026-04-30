@@ -47,6 +47,9 @@ namespace Intent.Modules.VisualStudio.Projects.Migrations
 
             foreach (var package in designer.GetPackages())
             {
+                package.SpecializationType = RootFolderModel.SpecializationType;
+                package.SpecializationTypeId = RootFolderModel.SpecializationTypeId;
+                
                 var vsElement = package.Classes.Add(
                     id: Guid.NewGuid().ToString(),
                     specializationType: VisualStudioSolutionModel.SpecializationType,

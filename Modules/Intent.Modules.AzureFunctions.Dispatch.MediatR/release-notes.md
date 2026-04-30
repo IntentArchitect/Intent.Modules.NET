@@ -1,3 +1,7 @@
+### Version 2.0.5
+
+- Fixed: Minimum client version.
+
 ### Version 2.0.4
 
 - Fixed: Can customize success response codes through `HTTP Settings` Stereotype.

@@ -40,7 +40,7 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
             var entityName = interaction.TypeReference.Element.Name;
             var foundEntity = interaction.TypeReference.Element.AsClassModel() ??
                               interaction.TypeReference.Element.AsOperationModel()?.ParentClass ??
-                              throw new ElementException(interactionElement, 
+                              throw new ElementException(interactionElement,
                                   $"""
                                    In order for Update Entity Action to model how to update an instance of {entityName} it needs to reference either:
                                    1. The {entityName} entity itself.
@@ -72,9 +72,9 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
             }
 
             method.AddStatement(ExecutionPhases.BusinessLogic, string.Empty);
-            
+
             var csharpMapping = method.GetMappingManager();
-            
+
             var template = (ICSharpFileBuilderTemplate)method.File.Template;
 
             // For those using the basic patch implementation
@@ -83,13 +83,13 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
             {
                 csharpMapping.AddMappingResolver(new EntityPatchMappingTypeResolver(template), -1);
             }
-            
+
             try
             {
                 var entityDetails = method.TrackedEntities()[updateAction.Id];
                 var entity = entityDetails.ElementModel.AsClassModel();
                 var updateMapping = updateAction.Mappings.GetUpdateEntityMapping();
-                
+
                 var statements = new List<CSharpStatement>();
 
                 if (updateMapping != null)
@@ -114,13 +114,19 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
                 }
                 else
                 {
-                    if (updateMapping != null)
+                    if (updateMapping != null && updateMapping.MappedEnds.Count > 0)
                     {
                         var updateStatements = csharpMapping.GenerateUpdateStatements(updateMapping);
                         method.Class.WireUpDomainServicesForOperations(updateAction, updateStatements);
                         AdjustOperationInvocationForAsyncAndReturn(method, updateMapping, updateStatements);
 
                         statements.AddRange(updateStatements);
+                    }
+                    else
+                    {
+                        statements.Add(new CSharpStatement("// IntentInitialGen"));
+                        statements.Add("// TODO: Implement entity update...");
+                        statements.Add("""throw new NotImplementedException("Implement entity update...");""");
                     }
 
                     if (RepositoryRequiresExplicitUpdate(template, entity))

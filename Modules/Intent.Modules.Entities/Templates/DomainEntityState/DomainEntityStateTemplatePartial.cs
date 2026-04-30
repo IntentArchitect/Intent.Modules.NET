@@ -98,7 +98,8 @@ namespace Intent.Modules.Entities.Templates.DomainEntityState
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
         {
-            var config = CSharpFile.GetConfig();
+            var config = CSharpFile.GetConfig()
+                    .WithAIContext("Use the domain-entity skill when modifying this class.");
             config.FileName = $"{Model.Name}State";
             return config;
         }

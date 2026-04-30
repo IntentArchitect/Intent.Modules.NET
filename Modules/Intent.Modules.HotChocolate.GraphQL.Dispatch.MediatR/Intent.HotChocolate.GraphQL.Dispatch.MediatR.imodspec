@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.HotChocolate.GraphQL.Dispatch.MediatR</id>
-  <version>2.0.1</version>
-  <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
+  <version>2.0.2-pre.0</version>
+  <supportedClientVersions>[4.4.0-a, 6.0.0-a)</supportedClientVersions>
   <summary>GraphQL operation auto-implementations that dispatch Commands and Queries through the MediatR library.</summary>
   <description>GraphQL operation auto-implementations that dispatch Commands and Queries through the MediatR library.</description>
   <authors>Intent Architect</authors>
@@ -33,4 +33,5 @@
   <metadata>
     <install target="Services" src="Intent.Metadata/Module Builder/Intent.HotChocolate.GraphQL.Dispatch.MediatR/Intent.HotChocolate.GraphQL.Dispatch.MediatR.pkg.config" externalReference="c579fb07-37c6-47dc-a136-c6a2010c2eca" />
   </metadata>
+  <migrations />
 </package>

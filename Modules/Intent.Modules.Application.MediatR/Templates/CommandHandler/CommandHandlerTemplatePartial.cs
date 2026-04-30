@@ -1,5 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Text;
+using System.Threading;
+using Intent.AI;
 using Intent.Engine;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.DependencyInjection.MediatR;
@@ -13,6 +18,7 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using static Intent.Modules.Constants.TemplateRoles.Blazor.Client;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -22,8 +28,7 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
     [IntentManaged(Mode.Merge, Signature = Mode.Merge)]
     public partial class CommandHandlerTemplate : CSharpTemplateBase<CommandModel, CommandHandlerDecorator>, ICSharpFileBuilderTemplate
     {
-        [IntentManaged(Mode.Fully)]
-        public const string TemplateId = "Intent.Application.MediatR.CommandHandler";
+        [IntentManaged(Mode.Fully)] public const string TemplateId = "Intent.Application.MediatR.CommandHandler";
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public CommandHandlerTemplate(IOutputTarget outputTarget, CommandModel model) : base(TemplateId, outputTarget, model)
@@ -47,7 +52,6 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
             template.AddTypeSource(TemplateRoles.Application.Contracts.Enum);
             template.AddTypeSource(TemplateRoles.Application.Contracts.Clients.Dto);
             template.AddTypeSource(TemplateRoles.Application.Contracts.Clients.Enum);
-
             template.CSharpFile
                 .AddUsing("System")
                 .AddUsing("System.Threading")
@@ -59,10 +63,7 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
                     @class.AddMetadata("model", model);
                     @class.ImplementsInterface(GetRequestHandlerInterface(template, model));
                     @class.AddAttribute("IntentManaged(Mode.Merge, Signature = Mode.Fully)");
-                    @class.AddConstructor(ctor =>
-                    {
-                        ctor.AddAttribute(CSharpIntentManagedAttribute.Merge());
-                    });
+                    @class.AddConstructor(ctor => { ctor.AddAttribute(CSharpIntentManagedAttribute.Merge()); });
                     @class.AddMethod(GetReturnType(template, model), "Handle", method =>
                     {
                         method.RegisterAsProcessingHandlerForModel(model);
@@ -77,6 +78,7 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
                         method.AddStatement("""throw new NotImplementedException("Your implementation here...");""");
                     });
                 });
+
         }
 
 
@@ -86,7 +88,12 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
             return new CSharpFileConfig(
                 className: $"{Model.Name}Handler",
                 @namespace: $"{this.GetNamespace(additionalFolders: Model.GetConceptName())}",
-                relativeLocation: $"{this.GetFolderPath(additionalFolders: Model.GetConceptName())}");
+                relativeLocation: $"{this.GetFolderPath(additionalFolders: Model.GetConceptName())}")
+                    .WithAISummary("MediatR Handler implementation for the " + Model.Name + " command.")
+                    .WithAIContext(
+                                """
+                                Use the mediatr-command-handler skill when modifying this handler.
+                                """);
         }
 
         public CSharpFile CSharpFile { get; }
@@ -132,5 +139,6 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
 
             public TemplateMigrationCriteria Criteria => TemplateMigrationCriteria.Upgrade(1, 2);
         }
+
     }
 }

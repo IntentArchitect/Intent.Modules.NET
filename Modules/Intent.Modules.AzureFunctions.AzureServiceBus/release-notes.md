@@ -1,3 +1,7 @@
+### Version 1.1.1
+
+- Fixed: Minimum client version.
+
 ### Version 1.1.0
 
 - Improvement: Azure Functions Azure Service Bus handlers now support composite message bus configurations, allowing multiple message brokers to coexist in the same application.

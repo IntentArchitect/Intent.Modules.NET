@@ -1,3 +1,7 @@
+### Version 1.0.6
+
+- Fixed: Minimum client version.
+
 ### Version 1.0.5
 
 - Improvement: Prevent `CancellationToken` automatically applied with `Asyncronous` stereotype applied with `No Cancellation Token` set to true.

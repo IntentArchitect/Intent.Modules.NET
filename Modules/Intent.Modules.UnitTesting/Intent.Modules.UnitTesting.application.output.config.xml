@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <outputFiles>
   <files>
+    <file relativePath="Intent.Modules.UnitTesting/content/AIInstructions/readme.txt" state="ignored;once-off-generated" />
     <file relativePath="Intent.Modules.UnitTesting/Intent.Modules.UnitTesting.csproj" state="ignored">
       <isIgnoredNotes><![CDATA[Prevent these dependencies from being installed]]></isIgnoredNotes>
     </file>

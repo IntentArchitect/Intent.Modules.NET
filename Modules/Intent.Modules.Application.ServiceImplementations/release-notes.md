@@ -1,3 +1,7 @@
+### Version 4.7.0
+
+- Improvement: AI Context supplied for supplying context and skills.
+
 ### Version 4.6.1
 
 - Improvement: Prevent `CancellationToken` automatically applied with `Asyncronous` stereotype applied with `No Cancellation Token` set to true.

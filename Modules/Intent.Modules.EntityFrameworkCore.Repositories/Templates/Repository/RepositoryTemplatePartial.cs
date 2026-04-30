@@ -14,6 +14,7 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
 using Intent.Modules.EntityFrameworkCore.Repositories.Settings;
+using Intent.Modules.EntityFrameworkCore.Repositories.Templates.RepositoryBase;
 using Intent.Modules.EntityFrameworkCore.Templates;
 using Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration;
 using Intent.Modules.Metadata.RDBMS.Settings;
@@ -47,7 +48,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
                 {
                     @class.AddMetadata("model", model);
                     @class.AddAttribute("[IntentManaged(Mode.Merge, Signature = Mode.Fully)]");
-                    @class.WithBaseType($"RepositoryBase<{EntityInterfaceName}, {EntityName}, {DbContextName}>");
+                    @class.WithBaseType($"{GetTypeName(RepositoryBaseTemplate.TemplateId)}<{EntityInterfaceName}, {EntityName}, {DbContextName}>");
                     @class.ImplementsInterface(RepositoryContractName);
                     @class.AddConstructor(ctor =>
                     {
@@ -210,7 +211,19 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
             return new CSharpFileConfig(
                 className: $"{Model.Name}Repository",
                 @namespace: $"{this.GetNamespace()}",
-                relativeLocation: $"{this.GetFolderPath()}");
+                relativeLocation: $"{this.GetFolderPath()}")
+                .WithAISummary("Entity Framework Core Repository concrete implementation for the " + Model.Name + " entity.")
+                .WithAIContext("""
+                               ## Instructions:
+                               - Only add additional methods to the repository for querying aggregations or complex queries. Otherwise just use the existing methods.
+                               
+                               ## Rules when adding methods:
+                               - Always add the method signature to the repository interface contract first, then implement it in the repository implementation.
+                               - Always add the `[IntentIgnore]` attribute to any method added.
+                               - Always read the base repository methods to understand what is already provided and available before adding new methods.
+                               - Optimize for query performance and maintainability when adding new methods.
+                               - Never return tuples. If a complex return type is required, create a new Contract record in the Application layer and return that instead.
+                               """);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
@@ -269,5 +282,36 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
             return TryGetTemplate<EntityTypeConfigurationTemplate>(EntityTypeConfigurationTemplate.TemplateId, Model.Id, out var _);
         }
 
+        public override object GetAIContext()
+        {
+            var baseContext = base.GetAIContext();
+            return baseContext;
+        }
+
+        //public override object GetAIContext()
+        //{
+        //    return new
+        //    {
+        //        rules = $"""
+        //            ## Instructions:
+        //            - Only add additional methods to the repository for querying aggregations or complex queries. Otherwise just use the existing methods.
+
+        //            ## Rules when adding methods:
+        //            - Always add the method signature to the repository interface contract first, then implement it in the repository implementation.
+        //            - Always add the `[IntentIgnore]` attribute to any method added.
+        //            - Always read the base repository methods to understand what is already provided and available before adding new methods.
+        //            - Optimize for query performance and maintainability when adding new methods.
+        //            - Never return tuples. If a complex return type is required, create a new Contract record in the Application layer and return that instead.
+        //            """,
+        //        relatedFiles = new List<object>
+        //        {
+        //            new
+        //            {
+        //                filePath = this.GetTemplate<ITemplate>(RepositoryBaseTemplate.TemplateId).GetMetadata().GetFilePath(),
+        //                reason = "The base class for this class. Always read this before modifying this file."
+        //            }
+        //        }
+        //    };
+        //}
     }
 }

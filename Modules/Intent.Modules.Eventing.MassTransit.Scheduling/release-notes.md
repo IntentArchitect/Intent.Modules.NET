@@ -1,3 +1,7 @@
+### Version 1.1.1
+
+- Fixed: Minimum client version.
+
 ### Version 1.1.0
 
 - Improvement: Updated to support composite message bus architecture and `IMessageBus` interface.

@@ -1,3 +1,7 @@
+### Version 1.1.15
+
+- Fixed: Minimum client version.
+
 ### Version 1.1.14
 
 - Improvement: Updated NuGet package versions.

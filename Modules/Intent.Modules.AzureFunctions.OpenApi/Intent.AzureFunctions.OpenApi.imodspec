@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AzureFunctions.OpenApi</id>
-  <version>2.0.9</version>
-  <supportedClientVersions>[4.2.4, 5.0.0-a)</supportedClientVersions>
+  <version>2.0.10-pre.0</version>
+  <supportedClientVersions>[4.5.15-a, 6.0.0-a)</supportedClientVersions>
   <summary>OpenAPI support for Azure Functions</summary>
   <description>OpenAPI support for Azure Functions</description>
   <authors>Intent Architect</authors>

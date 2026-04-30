@@ -62,8 +62,8 @@
       <metadata />
       <childElements>
         <childElement id="5f44ff7f-0716-47f1-8b70-38a94055f2d4" type="Run Script Option" typeId="345d46fb-c500-409a-88c7-26720572c9af">
-          <name>Implement with AI</name>
-          <display>Implement with AI: Inline Script</display>
+          <name>Generate Component</name>
+          <display>Generate Component: Inline Script</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
           <typeReference id="02cac1ac-4af9-4236-99af-0e19d1302c24">
@@ -87,7 +87,7 @@
               <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
               <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
               <properties>
-                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="await execute();" isActive="true" />
+                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="await createComponentImplementAICodingTask();" isActive="true" />
                 <property name="7df9c3b9-91a0-4cb7-bc3a-15d72f160054" display="Dependencies" value="[&quot;cf64e594-9153-425c-b614-40cc2aebad6e&quot;]" isActive="true" />
               </properties>
             </stereotype>

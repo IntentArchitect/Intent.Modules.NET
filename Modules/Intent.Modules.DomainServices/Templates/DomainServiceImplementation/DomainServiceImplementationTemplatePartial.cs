@@ -47,7 +47,7 @@ namespace Intent.Modules.DomainServices.Templates.DomainServiceImplementation
                     @class.TryAddXmlDocComments(model.InternalElement);
                     @class.AddConstructor(ctor =>
                     {
-                        ctor.AddAttribute(CSharpIntentManagedAttribute.Merge().WithBodyIgnored());
+                        ctor.AddAttribute(CSharpIntentManagedAttribute.Merge());
                     });
 
                     foreach (var operation in Model.Operations)

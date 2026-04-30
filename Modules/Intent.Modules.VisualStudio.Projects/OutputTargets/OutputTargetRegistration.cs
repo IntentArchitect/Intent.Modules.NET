@@ -29,6 +29,16 @@ namespace Intent.Modules.VisualStudio.Projects.OutputTargets
                 }
             }
 
+            var rootFolders = _metadataManager.CodebaseStructure(application).GetRootFolderModels();
+            foreach (var rootFolder in rootFolders)
+            {
+                registry.RegisterOutputTarget(rootFolder.ToOutputTargetConfig());
+                foreach (var f in rootFolder.Folders)
+                {
+                    Register(registry, f);
+                }
+            }
+
             var solutionFolders = _metadataManager.CodebaseStructure(application).GetSolutionFolderModels();
             foreach (var solutionFolder in solutionFolders)
             {
