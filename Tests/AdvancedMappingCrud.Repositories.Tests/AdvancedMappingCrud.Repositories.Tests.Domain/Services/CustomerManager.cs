@@ -12,7 +12,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Services
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class CustomerManager : ICustomerManager
     {
-        [IntentManaged(Mode.Merge, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public CustomerManager()
         {
         }

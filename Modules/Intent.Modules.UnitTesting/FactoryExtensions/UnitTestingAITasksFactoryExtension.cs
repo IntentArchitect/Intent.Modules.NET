@@ -1,3 +1,7 @@
+using System;
+using System.Linq;
+using System.Runtime.Intrinsics.X86;
+using System.Threading.Tasks;
 using Intent.AI;
 using Intent.Engine;
 using Intent.Metadata.Models;
@@ -18,10 +22,6 @@ using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using Microsoft.VisualBasic;
-using System;
-using System.Linq;
-using System.Runtime.Intrinsics.X86;
-using System.Threading.Tasks;
 using static Intent.Modules.UnitTesting.Settings.UnitTestSettings;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]

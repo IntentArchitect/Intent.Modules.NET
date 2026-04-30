@@ -14,7 +14,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Services.ExtensiveDomain
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class ExtensiveDomainService : IExtensiveDomainService
     {
-        [IntentManaged(Mode.Merge, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public ExtensiveDomainService()
         {
         }

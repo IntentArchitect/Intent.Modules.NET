@@ -3,6 +3,14 @@
   <ApplicationId>0383bf92-fdf9-4f70-99fc-3db21db75e11</ApplicationId>
   <FileLogs>
     <FileLog>
+      <ProjectId>a4639fed-de62-411d-a530-63bfb1488bfe</ProjectId>
+      <CorrelationId>Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration#csharp-guidelines.md</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>.agents/instructions/csharp-guidelines.md</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>csharp-guidelines.md</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>74597f83-40fa-4d83-8174-4f31b847175e</ProjectId>
       <CorrelationId>Intent.IaC.Terraform.Applications.AzureEventGridResourcesTf</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

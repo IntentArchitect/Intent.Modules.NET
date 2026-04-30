@@ -10,7 +10,7 @@ namespace CleanArchitecture.Comprehensive.Domain.Services.DDD
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class DataContractDomainService : IDataContractDomainService
     {
-        [IntentManaged(Mode.Merge, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public DataContractDomainService()
         {
         }

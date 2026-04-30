@@ -3,6 +3,14 @@
   <ApplicationId>ed6e4565-5571-4334-8b10-b6d9a9a63d0c</ApplicationId>
   <FileLogs>
     <FileLog>
+      <ProjectId>7c290a15-5110-4a02-ac33-3e551818b9ab</ProjectId>
+      <CorrelationId>Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration#csharp-guidelines.md</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>.agents/instructions/csharp-guidelines.md</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>csharp-guidelines.md</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>21fdbbfa-4c17-4097-b868-b18dc81dd126</ProjectId>
       <CorrelationId>Intent.Modules.Application.MediatR.Templates.StaticContentTemplateRegistrations.AISkillsStaticContentTemplateRegistration#mediatr-command-handler/SKILL.md</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

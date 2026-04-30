@@ -11,7 +11,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Services
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class PricingService : IPricingService
     {
-        [IntentManaged(Mode.Merge, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public PricingService()
         {
         }

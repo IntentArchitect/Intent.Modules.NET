@@ -16,7 +16,7 @@ namespace TrainingModel.Tests.Domain.Services
     {
         private readonly ICategoryRepository _categoriesRepository;
 
-        [IntentManaged(Mode.Merge, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public CategoryService(ICategoryRepository categoriesRepository)
         {
             _categoriesRepository = categoriesRepository;

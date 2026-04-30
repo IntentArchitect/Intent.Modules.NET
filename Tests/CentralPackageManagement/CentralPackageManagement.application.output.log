@@ -3,6 +3,14 @@
   <ApplicationId>9534342e-b577-43f8-86d3-ad489ac18b60</ApplicationId>
   <FileLogs>
     <FileLog>
+      <ProjectId>2b7ae7aa-ba71-4346-80af-f503779a2fef</ProjectId>
+      <CorrelationId>Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration#csharp-guidelines.md</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CentralPackageManagement/.agents/instructions/csharp-guidelines.md</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>csharp-guidelines.md</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <CorrelationId>Intent.VisualStudio.Projects.GitIgnore#85d2d69d-9f77-4833-b8a5-ee03e79a9590</CorrelationId>
       <OverwriteBehaviour>overwrite-disabled</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CentralPackageManagement/.gitignore</ApplicationRelativeFilePath>

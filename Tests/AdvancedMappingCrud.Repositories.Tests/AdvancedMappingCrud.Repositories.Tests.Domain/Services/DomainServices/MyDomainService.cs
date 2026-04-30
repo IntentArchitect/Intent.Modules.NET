@@ -9,7 +9,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Services.DomainServices
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class MyDomainService : IMyDomainService
     {
-        [IntentManaged(Mode.Merge, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public MyDomainService()
         {
         }

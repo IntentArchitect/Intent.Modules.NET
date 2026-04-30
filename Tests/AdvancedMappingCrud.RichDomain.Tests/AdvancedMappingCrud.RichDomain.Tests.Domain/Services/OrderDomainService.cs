@@ -11,9 +11,10 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Domain.Services
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class OrderDomainService : IOrderDomainService
     {
-        [IntentManaged(Mode.Merge, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public OrderDomainService()
         {
+            
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Merge)]

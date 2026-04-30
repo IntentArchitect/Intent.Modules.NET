@@ -17,7 +17,7 @@ namespace SharedKernel.Kernel.Tests.Domain.Services
     {
         private readonly ICurrencyRepository _currencyRepository;
 
-        [IntentManaged(Mode.Merge, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public CurrencyService(ICurrencyRepository currencyRepository)
         {
             _currencyRepository = currencyRepository;

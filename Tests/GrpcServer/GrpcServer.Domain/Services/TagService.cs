@@ -13,7 +13,7 @@ namespace GrpcServer.Domain.Services
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class TagService : ITagService
     {
-        [IntentManaged(Mode.Merge, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public TagService()
         {
         }

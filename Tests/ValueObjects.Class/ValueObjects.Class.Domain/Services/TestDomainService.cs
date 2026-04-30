@@ -9,7 +9,7 @@ namespace ValueObjects.Class.Domain.Services
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class TestDomainService : ITestDomainService
     {
-        [IntentManaged(Mode.Merge, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public TestDomainService()
         {
         }

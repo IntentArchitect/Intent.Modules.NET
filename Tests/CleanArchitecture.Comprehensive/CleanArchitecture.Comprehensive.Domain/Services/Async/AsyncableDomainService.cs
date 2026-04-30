@@ -11,7 +11,7 @@ namespace CleanArchitecture.Comprehensive.Domain.Services.Async
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class AsyncableDomainService : IAsyncableDomainService
     {
-        [IntentManaged(Mode.Merge, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public AsyncableDomainService()
         {
         }

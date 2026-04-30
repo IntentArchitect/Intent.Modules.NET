@@ -10,7 +10,7 @@ namespace CleanArchitecture.Comprehensive.Domain.Services.DDD
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class AccountingDomainService : IAccountingDomainService
     {
-        [IntentManaged(Mode.Merge, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public AccountingDomainService()
         {
         }

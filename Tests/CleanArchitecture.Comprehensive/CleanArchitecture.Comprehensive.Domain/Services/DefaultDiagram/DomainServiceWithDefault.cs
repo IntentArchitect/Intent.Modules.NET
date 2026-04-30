@@ -9,7 +9,7 @@ namespace CleanArchitecture.Comprehensive.Domain.Services.DefaultDiagram
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class DomainServiceWithDefault : IDomainServiceWithDefault
     {
-        [IntentManaged(Mode.Merge, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public DomainServiceWithDefault()
         {
         }

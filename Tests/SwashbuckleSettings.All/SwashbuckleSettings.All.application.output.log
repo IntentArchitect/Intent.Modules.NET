@@ -3,6 +3,14 @@
   <ApplicationId>a26894fb-e873-47c8-b57a-5646890e1fcb</ApplicationId>
   <FileLogs>
     <FileLog>
+      <ProjectId>edf8b679-7ea0-4f95-96fb-5aea28ae559c</ProjectId>
+      <CorrelationId>Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration#csharp-guidelines.md</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>.agents/instructions/csharp-guidelines.md</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>csharp-guidelines.md</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>92f884a5-5ccd-47f6-96b5-7f254a30ebee</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default#92f884a5-5ccd-47f6-96b5-7f254a30ebee</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

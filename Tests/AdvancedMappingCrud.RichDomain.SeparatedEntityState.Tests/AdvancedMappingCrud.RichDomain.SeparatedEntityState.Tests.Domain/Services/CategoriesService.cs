@@ -13,7 +13,7 @@ namespace AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain.Servi
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class CategoriesService : ICategoriesService
     {
-        [IntentManaged(Mode.Merge, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public CategoriesService()
         {
         }
