@@ -22,7 +22,7 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="a16a4bf7-fc6d-4a97-9c8e-83393980f71e" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+    <childElement id="a16a4bf7-fc6d-4a97-9c8e-83393980f71e" type="Output Anchor" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
       <name>Front End</name>
       <display>Front End</display>
       <externalReference>164d4bd8-c4f0-4ca1-baa1-2549cc348c20</externalReference>
@@ -32,7 +32,16 @@
       <parentFolderId>01b56205-0857-4ef2-b337-b3aaff11bc04</parentFolderId>
       <packageId>941f8521-a7d4-4bbb-86d2-988a78ff25c1</packageId>
       <packageName>AdvancedMappingCrud.Cosmos.Tests</packageName>
-      <stereotypes />
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="a23c7901-31a5-4cbf-b8bf-1be128977e6d" name="Output Anchor Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="8d79a350-96f1-4d50-bb0a-f65a5c53ec62" display="Create Sub-Folders" value="true" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata />
       <childElements />
     </childElement>

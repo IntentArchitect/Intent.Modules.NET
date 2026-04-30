@@ -14,5 +14,57 @@
       <deviationsHash>15EF45840CC9DFC30FE037B4322716C6739B4A98B0C9C31943849688E66B5549</deviationsHash>
       <fileHash>276FAC0AD81449635DD3A0E135F03ECD3A2F5590ED108536F83F11B2DF8AE3A3</fileHash>
     </file>
+    <file>
+      <correlationId>Intent.DomainServices.DomainServiceImplementation#8a932b0b-fad7-4321-910d-be00d175bd06</correlationId>
+      <path>CleanArchitecture.Comprehensive.Domain/Services/Async/AsyncableDomainService.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-04-29T18:16:11.1824852Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-04-29T18:47:48.0044342Z</approvedAt>
+      <deviationsHash>C9F310D6549C9E5496092B65410D6FA6EE232746B0F133CBB259A3652FF4070E</deviationsHash>
+      <fileHash>6DD0F0DDBB8CE7DC366A40192F65B96671F2F207A8EA290A91A8AD80D6864631</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.DomainServices.DomainServiceImplementation#f17d084f-2ad9-4343-a6d2-d4b35e491a83</correlationId>
+      <path>CleanArchitecture.Comprehensive.Domain/Services/DDD/AccountingDomainService.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-04-29T18:16:11.1822919Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-04-29T18:47:47.9980556Z</approvedAt>
+      <deviationsHash>9328A51BA3E8F2C10DA6BF495885C305B822F72A247B0BFE9A998E19262C0365</deviationsHash>
+      <fileHash>94F90E2EB245FF535EE57363F68CE1E23FC8F4F143FF9B1AC59103B65DDE8992</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.DomainServices.DomainServiceImplementation#a3810e59-7d70-4bc2-be3d-052898de4840</correlationId>
+      <path>CleanArchitecture.Comprehensive.Domain/Services/DDD/DataContractDomainService.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-04-29T18:16:11.182496Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-04-29T18:47:47.9915093Z</approvedAt>
+      <deviationsHash>588926151246B43619BC3B643168797D7DD88CCDF2007C33F0F99A26D98EB331</deviationsHash>
+      <fileHash>B8C47568F3DF6253C21D6343DDC4667D04F1DA0AE85E38DB7C90326A470471BB</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.DomainServices.DomainServiceImplementation#7ce55354-a1b4-4955-b7bf-2f037e97bd23</correlationId>
+      <path>CleanArchitecture.Comprehensive.Domain/Services/DefaultDiagram/DomainServiceWithDefault.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-04-29T18:16:11.1825044Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-04-29T18:47:47.9814186Z</approvedAt>
+      <deviationsHash>B97BAABAABB6616742D951603EEA23B6D0FD60351EC4A7098B09729A3F06F6F9</deviationsHash>
+      <fileHash>856D97FEBD8F91F2444C50E2A727D00EB1A0909E1EA10692E87FC89D1CF32F92</fileHash>
+    </file>
   </files>
 </deviationsLog>

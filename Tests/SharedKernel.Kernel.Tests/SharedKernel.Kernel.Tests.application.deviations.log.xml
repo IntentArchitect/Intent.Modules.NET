@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.DomainServices.DomainServiceImplementation#f245796d-91ac-4f1e-9d25-25c3a6450c0b</correlationId>
+      <path>SharedKernel.Kernel.Tests.Domain/Services/CurrencyService.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-04-29T18:15:52.0539096Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-04-29T18:47:37.4409535Z</approvedAt>
+      <deviationsHash>74BFF6A1A56ECAF53E95400EAF38150D48DA0C1B7FA401823A78944FEFB5196E</deviationsHash>
+      <fileHash>501EF2BD50DD7BAED69D2D6EEE424D48D4BC493DB4185F71E3E7FA864E5DAA4B</fileHash>
+    </file>
+  </files>
 </deviationsLog>

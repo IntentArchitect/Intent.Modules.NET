@@ -3,6 +3,30 @@
   <ApplicationId>7f3699ed-e203-4f0b-998e-5f8b125d1de4</ApplicationId>
   <FileLogs>
     <FileLog>
+      <ProjectId>f1087f72-9ee7-4db9-a7e0-60ff3f554f77</ProjectId>
+      <CorrelationId>Intent.Modules.Application.ServiceImplementations.Templates.StaticContentTemplateRegistrations.AISkillsStaticContentTemplateRegistration#application-service-implementation/SKILL.md</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>.agents/skills/application-service-implementation/SKILL.md</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>application-service-implementation/SKILL.md</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f1087f72-9ee7-4db9-a7e0-60ff3f554f77</ProjectId>
+      <CorrelationId>Intent.Modules.Application.MediatR.Templates.StaticContentTemplateRegistrations.AISkillsStaticContentTemplateRegistration#mediatr-command-handler/SKILL.md</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>.agents/skills/mediatr-command-handler/SKILL.md</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>mediatr-command-handler/SKILL.md</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f1087f72-9ee7-4db9-a7e0-60ff3f554f77</ProjectId>
+      <CorrelationId>Intent.Modules.Application.MediatR.Templates.StaticContentTemplateRegistrations.AISkillsStaticContentTemplateRegistration#mediatr-query-handler/SKILL.md</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>.agents/skills/mediatr-query-handler/SKILL.md</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>mediatr-query-handler/SKILL.md</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>a37d4c20-c284-4250-b74b-920bdb7141f5</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default#a37d4c20-c284-4250-b74b-920bdb7141f5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

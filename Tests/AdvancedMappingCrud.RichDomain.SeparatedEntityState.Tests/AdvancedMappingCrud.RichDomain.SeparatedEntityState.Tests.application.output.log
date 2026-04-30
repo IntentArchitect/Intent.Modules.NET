@@ -3,6 +3,54 @@
   <ApplicationId>0abfdbe8-eba7-4178-b806-07d9c96991f7</ApplicationId>
   <FileLogs>
     <FileLog>
+      <ProjectId>33f77d23-5e69-4d0c-8a04-474000891bf5</ProjectId>
+      <CorrelationId>Intent.Modules.Application.ServiceImplementations.Templates.StaticContentTemplateRegistrations.AISkillsStaticContentTemplateRegistration#application-service-implementation/SKILL.md</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>.agents/skills/application-service-implementation/SKILL.md</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>application-service-implementation/SKILL.md</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>33f77d23-5e69-4d0c-8a04-474000891bf5</ProjectId>
+      <CorrelationId>Intent.Modules.Entities.Templates.StaticContentTemplateRegistrations.AISkillsStaticContentTemplateRegistration#domain-entity/SKILL.md</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>.agents/skills/domain-entity/SKILL.md</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>domain-entity/SKILL.md</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>33f77d23-5e69-4d0c-8a04-474000891bf5</ProjectId>
+      <CorrelationId>Intent.Modules.DomainServices.Templates.StaticContentTemplateRegistrations.AISkillsStaticContentTemplateRegistration#domain-services/SKILL.md</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>.agents/skills/domain-services/SKILL.md</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>domain-services/SKILL.md</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>33f77d23-5e69-4d0c-8a04-474000891bf5</ProjectId>
+      <CorrelationId>Intent.Modules.Application.MediatR.Templates.StaticContentTemplateRegistrations.AISkillsStaticContentTemplateRegistration#mediatr-command-handler/SKILL.md</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>.agents/skills/mediatr-command-handler/SKILL.md</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>mediatr-command-handler/SKILL.md</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>33f77d23-5e69-4d0c-8a04-474000891bf5</ProjectId>
+      <CorrelationId>Intent.Modules.MediatR.DomainEvents.Templates.StaticContentTemplateRegistrations.AISkillsStaticContentTemplateRegistration#mediatr-domain-event-handler/SKILL.md</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>.agents/skills/mediatr-domain-event-handler/SKILL.md</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>mediatr-domain-event-handler/SKILL.md</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>33f77d23-5e69-4d0c-8a04-474000891bf5</ProjectId>
+      <CorrelationId>Intent.Modules.Application.MediatR.Templates.StaticContentTemplateRegistrations.AISkillsStaticContentTemplateRegistration#mediatr-query-handler/SKILL.md</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>.agents/skills/mediatr-query-handler/SKILL.md</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>mediatr-query-handler/SKILL.md</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>4f29cb25-50c3-4492-bf7b-f6433d0e706a</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#4f29cb25-50c3-4492-bf7b-f6433d0e706a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

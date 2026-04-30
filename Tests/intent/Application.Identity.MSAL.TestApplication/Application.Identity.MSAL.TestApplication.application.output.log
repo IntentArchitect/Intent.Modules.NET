@@ -3,6 +3,22 @@
   <ApplicationId>4188da7c-c7fc-4d6a-9d0c-522a695bfe1f</ApplicationId>
   <FileLogs>
     <FileLog>
+      <ProjectId>2c78e3a3-a96f-4597-bcb0-67343d565455</ProjectId>
+      <CorrelationId>Intent.Modules.Application.ServiceImplementations.Templates.StaticContentTemplateRegistrations.AISkillsStaticContentTemplateRegistration#application-service-implementation/SKILL.md</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../../Application.Identity.MSAL.TestApplication/Application.Identity.MSAL.TestApplication/.agents/skills/application-service-implementation/SKILL.md</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>application-service-implementation/SKILL.md</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2c78e3a3-a96f-4597-bcb0-67343d565455</ProjectId>
+      <CorrelationId>Intent.Modules.Entities.Templates.StaticContentTemplateRegistrations.AISkillsStaticContentTemplateRegistration#domain-entity/SKILL.md</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../../Application.Identity.MSAL.TestApplication/Application.Identity.MSAL.TestApplication/.agents/skills/domain-entity/SKILL.md</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>domain-entity/SKILL.md</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>768525a0-b0d4-4197-b873-ed24f0e3cfe5</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#768525a0-b0d4-4197-b873-ed24f0e3cfe5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

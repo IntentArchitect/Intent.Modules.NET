@@ -1,4 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.DomainServices.DomainServiceImplementation#0b4fda89-35c9-4175-9009-f0150e36b42e</correlationId>
+      <path>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain/Services/CategoriesService.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-04-29T18:15:30.9399493Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-04-29T18:46:41.0354753Z</approvedAt>
+      <deviationsHash>4448EB10A54B85458441BF3C6B75990ED58E31D063D1A6316703A32C3C684D7A</deviationsHash>
+      <fileHash>2091B794A366FD48379A97C4C011095A2BC5107BD2D23E08E18D87CD485BFFBE</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.DomainServices.DomainServiceImplementation#acc745d6-ec06-41e3-9fbf-69905e229f95</correlationId>
+      <path>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain/Services/OrderDomainService.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-04-29T18:15:30.9400817Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-04-29T18:46:41.0450913Z</approvedAt>
+      <deviationsHash>11E8CE0941089825DC4CC65A34906018BAF923F7395243EF62C76898B6CEE119</deviationsHash>
+      <fileHash>50792C52FE43D346F342256D05A5EFB8E06AC3493C14532FAF4FF6BA276F689D</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.DomainServices.DomainServiceImplementation#b7702185-6edf-4b9d-a006-8634a5e98986</correlationId>
+      <path>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain/Services/SecondService.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-04-29T18:15:30.9400895Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-04-29T18:46:41.052125Z</approvedAt>
+      <deviationsHash>7A64322FCA21EB476259EF0C62DAA58F6D1AE920E18FDE459CAB7EE448D97105</deviationsHash>
+      <fileHash>38430158E0211A6B979B94E751843D310F6D5628207A91E4B7939B5D4E41B675</fileHash>
+    </file>
+  </files>
 </deviationsLog>

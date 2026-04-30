@@ -3,155 +3,163 @@
   <ApplicationId>f8b54b48-1f06-4e13-a107-2e93c5a3e37b</ApplicationId>
   <FileLogs>
     <FileLog>
-      <ProjectId>23d60d6c-b9c2-47d2-9962-2107504028e2</ProjectId>
-      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.MudBlazorAIPromptTemplatesStaticContentTemplateRegistration#E:/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/add-entity-dialog.md</CorrelationId>
+      <ProjectId>37451176-fd29-4104-8923-bf4d27f54064</ProjectId>
+      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.AIAgentInstructionsStaticContentTemplateRegistration#blazor-mudblazor-general.instructions.md</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/add-entity-dialog.md</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>E:/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/add-entity-dialog.md</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>.agents/instructions/blazor-mudblazor-general.instructions.md</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>blazor-mudblazor-general.instructions.md</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>23d60d6c-b9c2-47d2-9962-2107504028e2</ProjectId>
-      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.MudBlazorAIPromptTemplatesStaticContentTemplateRegistration#E:/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/add-entity.md</CorrelationId>
+      <ProjectId>55912663-024f-471d-a355-7a01f4a5321e</ProjectId>
+      <CorrelationId>Intent.Modules.Application.ServiceImplementations.Templates.StaticContentTemplateRegistrations.AISkillsStaticContentTemplateRegistration#application-service-implementation/SKILL.md</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/add-entity.md</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>E:/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/add-entity.md</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>.agents/skills/application-service-implementation/SKILL.md</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>application-service-implementation/SKILL.md</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>23d60d6c-b9c2-47d2-9962-2107504028e2</ProjectId>
-      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.MudBlazorAIPromptTemplatesStaticContentTemplateRegistration#E:/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/AddEntity/AddEntityTemplate.razor</CorrelationId>
+      <ProjectId>55912663-024f-471d-a355-7a01f4a5321e</ProjectId>
+      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.AIAgentSkillsStaticContentTemplateRegistration#blazor-dialog-adding-entity/add-entity-dialog-sample.razor</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/AddEntity/AddEntityTemplate.razor</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>E:/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/AddEntity/AddEntityTemplate.razor</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>.agents/skills/blazor-dialog-adding-entity/add-entity-dialog-sample.razor</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>blazor-dialog-adding-entity/add-entity-dialog-sample.razor</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>23d60d6c-b9c2-47d2-9962-2107504028e2</ProjectId>
-      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.MudBlazorAIPromptTemplatesStaticContentTemplateRegistration#E:/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/AddEntity/AddEntityTemplate.razor.cs</CorrelationId>
+      <ProjectId>55912663-024f-471d-a355-7a01f4a5321e</ProjectId>
+      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.AIAgentSkillsStaticContentTemplateRegistration#blazor-dialog-adding-entity/add-entity-dialog-sample.razor.cs</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/AddEntity/AddEntityTemplate.razor.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>E:/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/AddEntity/AddEntityTemplate.razor.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>.agents/skills/blazor-dialog-adding-entity/add-entity-dialog-sample.razor.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>blazor-dialog-adding-entity/add-entity-dialog-sample.razor.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>23d60d6c-b9c2-47d2-9962-2107504028e2</ProjectId>
-      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.MudBlazorAIPromptTemplatesStaticContentTemplateRegistration#E:/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/AddEntityDialog/AddEntityDialogTemplate.razor</CorrelationId>
+      <ProjectId>55912663-024f-471d-a355-7a01f4a5321e</ProjectId>
+      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.AIAgentSkillsStaticContentTemplateRegistration#blazor-dialog-adding-entity/SKILL.md</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/AddEntityDialog/AddEntityDialogTemplate.razor</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>E:/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/AddEntityDialog/AddEntityDialogTemplate.razor</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>.agents/skills/blazor-dialog-adding-entity/SKILL.md</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>blazor-dialog-adding-entity/SKILL.md</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>23d60d6c-b9c2-47d2-9962-2107504028e2</ProjectId>
-      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.MudBlazorAIPromptTemplatesStaticContentTemplateRegistration#E:/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/AddEntityDialog/AddEntityDialogTemplate.razor.cs</CorrelationId>
+      <ProjectId>55912663-024f-471d-a355-7a01f4a5321e</ProjectId>
+      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.AIAgentSkillsStaticContentTemplateRegistration#blazor-dialog-editing-entity/edit-entity-dialog-sample.razor</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/AddEntityDialog/AddEntityDialogTemplate.razor.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>E:/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/AddEntityDialog/AddEntityDialogTemplate.razor.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>.agents/skills/blazor-dialog-editing-entity/edit-entity-dialog-sample.razor</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>blazor-dialog-editing-entity/edit-entity-dialog-sample.razor</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>23d60d6c-b9c2-47d2-9962-2107504028e2</ProjectId>
-      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.MudBlazorAIPromptTemplatesStaticContentTemplateRegistration#E:/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/edit-entity-dialog.md</CorrelationId>
+      <ProjectId>55912663-024f-471d-a355-7a01f4a5321e</ProjectId>
+      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.AIAgentSkillsStaticContentTemplateRegistration#blazor-dialog-editing-entity/edit-entity-dialog-sample.razor.cs</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/edit-entity-dialog.md</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>E:/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/edit-entity-dialog.md</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>.agents/skills/blazor-dialog-editing-entity/edit-entity-dialog-sample.razor.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>blazor-dialog-editing-entity/edit-entity-dialog-sample.razor.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>23d60d6c-b9c2-47d2-9962-2107504028e2</ProjectId>
-      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.MudBlazorAIPromptTemplatesStaticContentTemplateRegistration#E:/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/edit-entity.md</CorrelationId>
+      <ProjectId>55912663-024f-471d-a355-7a01f4a5321e</ProjectId>
+      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.AIAgentSkillsStaticContentTemplateRegistration#blazor-dialog-editing-entity/SKILL.md</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/edit-entity.md</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>E:/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/edit-entity.md</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>.agents/skills/blazor-dialog-editing-entity/SKILL.md</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>blazor-dialog-editing-entity/SKILL.md</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>23d60d6c-b9c2-47d2-9962-2107504028e2</ProjectId>
-      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.MudBlazorAIPromptTemplatesStaticContentTemplateRegistration#E:/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/EditEntity/EditEntityTemplate.razor</CorrelationId>
+      <ProjectId>55912663-024f-471d-a355-7a01f4a5321e</ProjectId>
+      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.AIAgentSkillsStaticContentTemplateRegistration#blazor-page-adding-entity/add-entity-sample.razor</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/EditEntity/EditEntityTemplate.razor</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>E:/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/EditEntity/EditEntityTemplate.razor</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>.agents/skills/blazor-page-adding-entity/add-entity-sample.razor</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>blazor-page-adding-entity/add-entity-sample.razor</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>23d60d6c-b9c2-47d2-9962-2107504028e2</ProjectId>
-      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.MudBlazorAIPromptTemplatesStaticContentTemplateRegistration#E:/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/EditEntity/EditEntityTemplate.razor.cs</CorrelationId>
+      <ProjectId>55912663-024f-471d-a355-7a01f4a5321e</ProjectId>
+      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.AIAgentSkillsStaticContentTemplateRegistration#blazor-page-adding-entity/add-entity-sample.razor.cs</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/EditEntity/EditEntityTemplate.razor.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>E:/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/EditEntity/EditEntityTemplate.razor.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>.agents/skills/blazor-page-adding-entity/add-entity-sample.razor.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>blazor-page-adding-entity/add-entity-sample.razor.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>23d60d6c-b9c2-47d2-9962-2107504028e2</ProjectId>
-      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.MudBlazorAIPromptTemplatesStaticContentTemplateRegistration#E:/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/EditEntityDialog/EditEntityDialogTemplate.razor</CorrelationId>
+      <ProjectId>55912663-024f-471d-a355-7a01f4a5321e</ProjectId>
+      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.AIAgentSkillsStaticContentTemplateRegistration#blazor-page-adding-entity/SKILL.md</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/EditEntityDialog/EditEntityDialogTemplate.razor</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>E:/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/EditEntityDialog/EditEntityDialogTemplate.razor</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>.agents/skills/blazor-page-adding-entity/SKILL.md</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>blazor-page-adding-entity/SKILL.md</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>23d60d6c-b9c2-47d2-9962-2107504028e2</ProjectId>
-      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.MudBlazorAIPromptTemplatesStaticContentTemplateRegistration#E:/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/EditEntityDialog/EditEntityDialogTemplate.razor.cs</CorrelationId>
+      <ProjectId>55912663-024f-471d-a355-7a01f4a5321e</ProjectId>
+      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.AIAgentSkillsStaticContentTemplateRegistration#blazor-page-editing-entity/edit-entity-sample.razor</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/EditEntityDialog/EditEntityDialogTemplate.razor.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>E:/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/EditEntityDialog/EditEntityDialogTemplate.razor.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>.agents/skills/blazor-page-editing-entity/edit-entity-sample.razor</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>blazor-page-editing-entity/edit-entity-sample.razor</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>23d60d6c-b9c2-47d2-9962-2107504028e2</ProjectId>
-      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.MudBlazorAIPromptTemplatesStaticContentTemplateRegistration#E:/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/prompt-config.json</CorrelationId>
+      <ProjectId>55912663-024f-471d-a355-7a01f4a5321e</ProjectId>
+      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.AIAgentSkillsStaticContentTemplateRegistration#blazor-page-editing-entity/edit-entity-sample.razor.cs</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/prompt-config.json</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>E:/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/prompt-config.json</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>.agents/skills/blazor-page-editing-entity/edit-entity-sample.razor.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>blazor-page-editing-entity/edit-entity-sample.razor.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>23d60d6c-b9c2-47d2-9962-2107504028e2</ProjectId>
-      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.MudBlazorAIPromptTemplatesStaticContentTemplateRegistration#E:/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/prompt.md</CorrelationId>
+      <ProjectId>55912663-024f-471d-a355-7a01f4a5321e</ProjectId>
+      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.AIAgentSkillsStaticContentTemplateRegistration#blazor-page-editing-entity/SKILL.md</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/prompt.md</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>E:/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/prompt.md</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>.agents/skills/blazor-page-editing-entity/SKILL.md</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>blazor-page-editing-entity/SKILL.md</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>23d60d6c-b9c2-47d2-9962-2107504028e2</ProjectId>
-      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.MudBlazorAIPromptTemplatesStaticContentTemplateRegistration#E:/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/search-entity.md</CorrelationId>
+      <ProjectId>55912663-024f-471d-a355-7a01f4a5321e</ProjectId>
+      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.AIAgentSkillsStaticContentTemplateRegistration#blazor-page-search-entity/search-entity-sample.razor</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/search-entity.md</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>E:/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/search-entity.md</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>.agents/skills/blazor-page-search-entity/search-entity-sample.razor</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>blazor-page-search-entity/search-entity-sample.razor</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>23d60d6c-b9c2-47d2-9962-2107504028e2</ProjectId>
-      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.MudBlazorAIPromptTemplatesStaticContentTemplateRegistration#E:/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/SearchEntity/SearchEntityTemplate.razor</CorrelationId>
+      <ProjectId>55912663-024f-471d-a355-7a01f4a5321e</ProjectId>
+      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.AIAgentSkillsStaticContentTemplateRegistration#blazor-page-search-entity/search-entity-sample.razor.cs</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/SearchEntity/SearchEntityTemplate.razor</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>E:/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/SearchEntity/SearchEntityTemplate.razor</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>.agents/skills/blazor-page-search-entity/search-entity-sample.razor.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>blazor-page-search-entity/search-entity-sample.razor.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>23d60d6c-b9c2-47d2-9962-2107504028e2</ProjectId>
-      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.MudBlazorAIPromptTemplatesStaticContentTemplateRegistration#E:/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/SearchEntity/SearchEntityTemplate.razor.cs</CorrelationId>
+      <ProjectId>55912663-024f-471d-a355-7a01f4a5321e</ProjectId>
+      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.AIAgentSkillsStaticContentTemplateRegistration#blazor-page-search-entity/SKILL.md</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/SearchEntity/SearchEntityTemplate.razor.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>E:/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/SearchEntity/SearchEntityTemplate.razor.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>.agents/skills/blazor-page-search-entity/SKILL.md</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>blazor-page-search-entity/SKILL.md</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>23d60d6c-b9c2-47d2-9962-2107504028e2</ProjectId>
-      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.MudBlazorAIPromptTemplatesStaticContentTemplateRegistration#E:/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/ViewEntity/EntityViewTemplate.cs</CorrelationId>
+      <ProjectId>55912663-024f-471d-a355-7a01f4a5321e</ProjectId>
+      <CorrelationId>Intent.Modules.Entities.Templates.StaticContentTemplateRegistrations.AISkillsStaticContentTemplateRegistration#domain-entity/SKILL.md</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/ViewEntity/EntityViewTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>E:/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/ViewEntity/EntityViewTemplate.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>.agents/skills/domain-entity/SKILL.md</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>domain-entity/SKILL.md</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>23d60d6c-b9c2-47d2-9962-2107504028e2</ProjectId>
-      <CorrelationId>Intent.Modules.AI.Blazor.Templates.StaticContentTemplateRegistrations.MudBlazorAIPromptTemplatesStaticContentTemplateRegistration#E:/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/ViewEntity/EntityViewTemplate.razor</CorrelationId>
+      <ProjectId>55912663-024f-471d-a355-7a01f4a5321e</ProjectId>
+      <CorrelationId>Intent.Modules.Application.MediatR.Templates.StaticContentTemplateRegistrations.AISkillsStaticContentTemplateRegistration#mediatr-command-handler/SKILL.md</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/ViewEntity/EntityViewTemplate.razor</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>E:/Intent.Modules.NET/Tests/AI.Prompt.Templates/BlazorServerTests/Intent.Blazor.AI/ViewEntity/EntityViewTemplate.razor</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>.agents/skills/mediatr-command-handler/SKILL.md</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>mediatr-command-handler/SKILL.md</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>55912663-024f-471d-a355-7a01f4a5321e</ProjectId>
+      <CorrelationId>Intent.Modules.Application.MediatR.Templates.StaticContentTemplateRegistrations.AISkillsStaticContentTemplateRegistration#mediatr-query-handler/SKILL.md</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>.agents/skills/mediatr-query-handler/SKILL.md</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>mediatr-query-handler/SKILL.md</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

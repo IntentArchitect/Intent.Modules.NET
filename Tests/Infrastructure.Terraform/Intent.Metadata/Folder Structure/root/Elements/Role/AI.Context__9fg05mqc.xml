@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="253a8088-c210-4c53-aae9-37280a88908a" type="Role" typeId="8663c9f9-2852-45e7-aaa1-0883a2e6f1da">
+  <name>AI.Context</name>
+  <display>AI.Context</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>8f7691f2-acde-488b-84f9-7a18f67a05a2</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

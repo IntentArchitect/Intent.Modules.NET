@@ -28,6 +28,58 @@
       <fileHash>2B4DAE5B19A8BDF8E596ED27C2030B5C0F27E9AC397B42E521A6D745D385A22F</fileHash>
     </file>
     <file>
+      <correlationId>Intent.DomainServices.DomainServiceImplementation#72a486f2-1098-4369-bfd3-3ef22ec1de9a</correlationId>
+      <path>AdvancedMappingCrud.Repositories.Tests.Domain/Services/CustomerManager.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-04-29T18:15:35.1410522Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-04-29T18:46:52.7094682Z</approvedAt>
+      <deviationsHash>1F599B74E61CBB64A3EC0F062FB905EFC20F277BFDB7C189D8330AC90EE39674</deviationsHash>
+      <fileHash>F88F086F47B954E672D9932B67276FD4B5BD6FE9F13D2E4194DF7DFB01F1D4AA</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.DomainServices.DomainServiceImplementation#3b9a8b1f-914c-4429-968c-5ebdb2450778</correlationId>
+      <path>AdvancedMappingCrud.Repositories.Tests.Domain/Services/DomainServices/MyDomainService.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-04-29T18:15:35.1411865Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-04-29T18:46:47.4481182Z</approvedAt>
+      <deviationsHash>F6E4076BF7F911680287AE5994A99588583245427EED6616647FECC226A358D8</deviationsHash>
+      <fileHash>0DB1FEB8F13C30C1792D0595CBBD969918D5CBC57479761E2BF9BD9A82C62D02</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.DomainServices.DomainServiceImplementation#fbb90816-6006-42f4-8463-33c486d8d9b7</correlationId>
+      <path>AdvancedMappingCrud.Repositories.Tests.Domain/Services/ExtensiveDomainServices/ExtensiveDomainService.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-04-29T18:15:35.1411796Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-04-29T18:46:52.7227319Z</approvedAt>
+      <deviationsHash>C49E3DDC6DB5B6E6385698420FE78241DF01AFB6F5F9DCCB221D2458A3702DF4</deviationsHash>
+      <fileHash>A5225E73ABAD6896F90C0ACF232148AE7BCCA324C9670C44E35B6242F78075E9</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.DomainServices.DomainServiceImplementation#b8245173-1e14-4b6f-914f-1bf0df55d30d</correlationId>
+      <path>AdvancedMappingCrud.Repositories.Tests.Domain/Services/PricingService.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-04-29T18:15:35.141193Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-04-29T18:46:52.7182392Z</approvedAt>
+      <deviationsHash>08434FC72D35991662FB27C7A0CB9977BC45E19F64548DC93BCB29BDD834452C</deviationsHash>
+      <fileHash>9AB0281B38185AD752AE33F3269782D75D909CC79C7F16645EFA8C4AEF7CE9D4</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#c28c7bc4-2b22-4257-bf26-e3deffc0cfb9</correlationId>
       <path>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/CountriesService/UpdateCountryTests.cs</path>
       <count>1</count>

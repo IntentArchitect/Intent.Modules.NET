@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a95a86cd-797a-4333-8573-2d2ca6f5db20" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>skills</name>
+  <display>skills</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>4c907167-5ae5-4a3e-baa5-a123d479c65e</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b68823ed-f7ef-434b-9877-819e0caf956a" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>instructions</name>
+  <display>instructions</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>4fd7d766-7bdc-4f80-ba76-eb09fd81ef82</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

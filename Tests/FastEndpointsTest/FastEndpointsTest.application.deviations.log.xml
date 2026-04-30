@@ -1,4 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.DomainServices.DomainServiceImplementation#3871fd16-d05a-4367-bf31-a9732ba3baca</correlationId>
+      <path>FastEndpointsTest.Domain/Services/DDD/AccountingDomainService.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-04-29T18:17:05.4652038Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-04-29T18:48:00.0391628Z</approvedAt>
+      <deviationsHash>9328A51BA3E8F2C10DA6BF495885C305B822F72A247B0BFE9A998E19262C0365</deviationsHash>
+      <fileHash>3D9CB4D2B6B6EC18BE33A5C95530B6FFC1844F04E0CEAA6EE2F7529F14B7FE12</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.DomainServices.DomainServiceImplementation#df0325a2-3b51-4688-8620-677bc063fb29</correlationId>
+      <path>FastEndpointsTest.Domain/Services/DDD/DataContractDomainService.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-04-29T18:17:05.4652128Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-04-29T18:48:00.0291037Z</approvedAt>
+      <deviationsHash>588926151246B43619BC3B643168797D7DD88CCDF2007C33F0F99A26D98EB331</deviationsHash>
+      <fileHash>D78D04F61C189BCB3AA0B0C94E1E56F7069C592991E8638698410C92002FAE45</fileHash>
+    </file>
+  </files>
 </deviationsLog>

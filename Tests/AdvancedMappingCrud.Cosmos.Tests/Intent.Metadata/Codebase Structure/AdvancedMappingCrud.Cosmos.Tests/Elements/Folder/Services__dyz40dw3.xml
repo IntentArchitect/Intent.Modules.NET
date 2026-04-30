@@ -22,6 +22,29 @@
   </stereotypes>
   <metadata />
   <childElements>
+    <childElement id="099e3d8d-9635-4481-ad19-23a07569e694" type="Output Anchor" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>IntegrationTests.PagedResult</name>
+      <display>IntegrationTests.PagedResult</display>
+      <externalReference>31f47c80-d53b-484a-8ba1-d463ec54e5bf</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c2789ebb-e26c-4166-ac92-e240bc07a060</parentFolderId>
+      <packageId>941f8521-a7d4-4bbb-86d2-988a78ff25c1</packageId>
+      <packageName>AdvancedMappingCrud.Cosmos.Tests</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="a23c7901-31a5-4cbf-b8bf-1be128977e6d" name="Output Anchor Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="8d79a350-96f1-4d50-bb0a-f65a5c53ec62" display="Create Sub-Folders" value="true" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
     <childElement id="1b5e2128-5150-4f1f-a89e-4feac9b8651b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.AspNetCore.IntegrationTesting.PagedResult</name>
       <display>Intent.AspNetCore.IntegrationTesting.PagedResult</display>
@@ -32,24 +55,20 @@
       <parentFolderId>c2789ebb-e26c-4166-ac92-e240bc07a060</parentFolderId>
       <packageId>941f8521-a7d4-4bbb-86d2-988a78ff25c1</packageId>
       <packageName>AdvancedMappingCrud.Cosmos.Tests</packageName>
-      <stereotypes />
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="099e3d8d-9635-4481-ad19-23a07569e694" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
-      <name>IntegrationTests.PagedResult</name>
-      <display>IntegrationTests.PagedResult</display>
-      <externalReference>31f47c80-d53b-484a-8ba1-d463ec54e5bf</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>c2789ebb-e26c-4166-ac92-e240bc07a060</parentFolderId>
-      <packageId>941f8521-a7d4-4bbb-86d2-988a78ff25c1</packageId>
-      <packageName>AdvancedMappingCrud.Cosmos.Tests</packageName>
-      <stereotypes />
-      <metadata />
       <childElements />
     </childElement>
   </childElements>

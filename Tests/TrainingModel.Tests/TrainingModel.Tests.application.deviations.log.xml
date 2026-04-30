@@ -27,5 +27,18 @@
       <deviationsHash>F51C20E3F46CBBF13BED84763893C5F72733296503651524775197003F8F1B59</deviationsHash>
       <fileHash>C186B91A4E640838973B7A7620E79A1C24805EF2BC1246E52AD69DF99C912F21</fileHash>
     </file>
+    <file>
+      <correlationId>Intent.DomainServices.DomainServiceImplementation#53ebb767-6a64-4d2a-a547-dd9e565899b6</correlationId>
+      <path>TrainingModel.Tests.Domain/Services/CategoryService.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-04-29T18:38:49.5765264Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-04-29T18:49:12.9514654Z</approvedAt>
+      <deviationsHash>56B96D072CAC5B4CE0672E18A49E040853C22852F6DE152F9EF6CFFC3F6CD183</deviationsHash>
+      <fileHash>49ED84AD8A72B226418CFB4F31393842747695CAF574BCB4AF4F833C45C5380F</fileHash>
+    </file>
   </files>
 </deviationsLog>

@@ -2,6 +2,19 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.DomainServices.DomainServiceImplementation#16efcf1b-039a-4956-925d-33bf34cfea19</correlationId>
+      <path>ValueObjects.Class.Domain/Services/TestDomainService.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-04-29T18:27:46.8223928Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-04-29T18:49:01.8355723Z</approvedAt>
+      <deviationsHash>EA124819E104F18A0E6D22B9D3B733278922AE821D222FACC766288615A07B25</deviationsHash>
+      <fileHash>8C3F4E33D333938F6C2D37B37A2B1615F0AFAD4054F0DE5A1F5C32EA41CB9A7F</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.AspNetCore.IntegrationTesting.EFContainerFixture#7d7615c8-520a-404d-81f4-26e60a789db9</correlationId>
       <path>ValueObjects.Class.IntegrationTests/EFContainerFixture.cs</path>
       <count>1</count>

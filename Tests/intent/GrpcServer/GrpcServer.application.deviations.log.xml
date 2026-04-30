@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.DomainServices.DomainServiceImplementation#aa4bf6dd-025a-4353-bb1f-5e9e88435c6e</correlationId>
+      <path>GrpcServer.Domain/Services/TagService.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-04-29T18:19:42.6922858Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-04-29T18:47:54.4800433Z</approvedAt>
+      <deviationsHash>2D7CB511209E9D732DD52F3AB5E74DCFB99DA87397F22EBDE769EEF4E06C1F63</deviationsHash>
+      <fileHash>599D3CA66AE7316DB6792810A61785FE7BBA13E06F733BC5E0370B1EF18C773E</fileHash>
+    </file>
+  </files>
 </deviationsLog>

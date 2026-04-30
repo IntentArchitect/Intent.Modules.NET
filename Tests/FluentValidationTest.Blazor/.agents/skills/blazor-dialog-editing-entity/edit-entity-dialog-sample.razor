@@ -1,0 +1,127 @@
+@using UI.AI.Samples.Api.Components.Pages.Dialogs.Customers
+@using UI.AI.Samples.Domain
+<MudDialog>
+    <TitleContent>
+        <MudText Typo="Typo.h6">
+            Edit Customer
+        </MudText>
+    </TitleContent>
+    <DialogContent>
+        <MudStack Spacing="2" Class="pa-2">
+            @if (Model == null)
+            {
+                <MudProgressCircular Size="Size.Medium" Indeterminate/>
+            }
+            else
+            {
+                <MudForm @ref="_form">
+                    <MudStack Spacing="2">
+                        <MudStack Row Spacing="2">
+                            <MudTextField Label="First Name"
+                                          @bind-Value="Model.Name"
+                                          For="@(() => Model.Name)"
+                                          Required="true"
+                                          Immediate
+                                          Variant="Variant.Text" />
+                            <MudTextField Label="Surname"
+                                          @bind-Value="Model.Surname"
+                                          For="@(() => Model.Surname)"
+                                          Required="true"
+                                          Immediate
+                                          Variant="Variant.Text" />
+                        </MudStack>
+                        <MudTextField Label="Email"
+                                      @bind-Value="Model.Email"
+                                      For="@(() => Model.Email)"
+                                      Required="true"
+                                      Immediate
+                                      Variant="Variant.Text"
+                                      Validation="@((string? v) => string.IsNullOrWhiteSpace(v) ? new[] { "Email is required" } : !v.Contains("@") ? new[] { "Enter a valid email address" } : Array.Empty<string>())" />
+                        <MudSwitch T="bool" @bind-Checked="Model.IsActive" Color="Color.Primary">Active</MudSwitch>
+                        <MudPaper Elevation="1" Class="pa-2 my-2">
+                            <MudText Typo="Typo.subtitle2" Class="mb-1">Preferences</MudText>
+                            <MudStack Row Spacing="2">
+                                <MudSwitch T="bool" @bind-Checked="Model.Preference.NewsLetter" Color="Color.Primary">Newsletter</MudSwitch>
+                                <MudSwitch T="bool" @bind-Checked="Model.Preference.Specials" Color="Color.Secondary">Specials</MudSwitch>
+                            </MudStack>
+                        </MudPaper>
+                        @if (Model.Loyalty != null)
+                        {
+                            <MudPaper Elevation="1" Class="pa-2 my-2">
+                                <MudStack Row Justify="Justify.SpaceBetween" AlignItems="AlignItems.Center">
+                                    <MudText Typo="Typo.subtitle2" Class="mb-1">Loyalty</MudText>
+                                    <MudButton Variant="Variant.Text" Color="Color.Error" OnClick="@(() => RemoveLoyalty())" StartIcon="@Icons.Material.Filled.Delete" Size="Size.Small">Remove</MudButton>
+                                </MudStack>
+                                <MudStack Row Spacing="2">
+                                    <MudTextField Label="Loyalty No"
+                                                  @bind-Value="Model.Loyalty.LoyaltyNo"
+                                                  For="@(() => Model.Loyalty.LoyaltyNo)"
+                                                  Immediate
+                                                  Variant="Variant.Text"/>
+                                    <MudNumericField @bind-Value="Model.Loyalty.Points"
+                                                    Label="Points"
+                                                    For="@(() => Model.Loyalty.Points)"
+                                                    Immediate/>
+                                </MudStack>
+                            </MudPaper>
+                        }
+                        else
+                        {
+                            <MudButton Color="Color.Primary" Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.Add" OnClick="@(() => AddLoyalty())">
+                                Add Loyalty
+                            </MudButton>
+                        }
+                        <MudPaper Elevation="1" Class="pa-2 my-2">
+                            <MudStack Row Justify="Justify.SpaceBetween" AlignItems="AlignItems.Center">
+                                <MudText Typo="Typo.subtitle2" Class="mb-1">Addresses</MudText>
+                                <MudButton Color="Color.Primary" Variant="Variant.Text" OnClick="@(() => AddAddress())" StartIcon="@Icons.Material.Filled.Add" Size="Size.Small">Add Address</MudButton>
+                            </MudStack>
+                            <MudTable T="UpdateCustomerCommandAddressesModel"
+                                      Items="@Model.Addresses"
+                                      Dense="true"
+                                      Hover="true"
+                                      Elevation="0">
+                                <HeaderContent>
+                                    <MudTh>Line 1</MudTh>
+                                    <MudTh>Line 2</MudTh>
+                                    <MudTh>City</MudTh>
+                                    <MudTh>Postal</MudTh>
+                                    <MudTh>Type</MudTh>
+                                    <MudTh></MudTh>
+                                </HeaderContent>
+                                <RowTemplate>
+                                    <MudTd>
+                                        <MudTextField Class="pa-0" @bind-Value="context.Line1" Immediate Dense Variant="Variant.Text" />
+                                    </MudTd>
+                                    <MudTd>
+                                        <MudTextField Class="pa-0" @bind-Value="context.Line2" Immediate Dense Variant="Variant.Text" />
+                                    </MudTd>
+                                    <MudTd>
+                                        <MudTextField Class="pa-0" @bind-Value="context.City" Immediate Dense Variant="Variant.Text" />
+                                    </MudTd>
+                                    <MudTd>
+                                        <MudTextField Class="pa-0" @bind-Value="context.Postal" Immediate Dense Variant="Variant.Text" />
+                                    </MudTd>
+                                    <MudTd>
+                                        <MudSelect T="AddressType" @bind-Value="context.AddressType" Dense Class="pa-0">
+                                            <MudSelectItem T="AddressType" Value="@AddressType.Deliver">Delivery</MudSelectItem>
+                                            <MudSelectItem T="AddressType" Value="@AddressType.Billing">Billing</MudSelectItem>
+                                        </MudSelect>
+                                    </MudTd>
+                                    <MudTd>
+                                        <MudIconButton Icon="@Icons.Material.Filled.Delete" Color="Color.Error" OnClick="@(() => RemoveAddress(context))" Size="Size.Small" />
+                                    </MudTd>
+                                </RowTemplate>
+                            </MudTable>
+                            <MudText Class="mt-1" Color="Color.Error" Typo="Typo.caption" Style="min-height:20px">@(_showAtLeastOneDeliveryMessage ? "At least one delivery address is required." : string.Empty)</MudText>
+                        </MudPaper>
+                    </MudStack>
+                </MudForm>
+            }
+        </MudStack>
+    </DialogContent>
+    <DialogActions>
+        <MudButton Color="Color.Secondary" OnClick="@OnCancel">Cancel</MudButton>
+        <MudButton Color="Color.Primary" OnClick="@OnSubmit" Variant="Variant.Filled">Save</MudButton>
+    </DialogActions>
+</MudDialog>

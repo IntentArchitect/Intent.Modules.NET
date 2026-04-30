@@ -3,17 +3,19 @@
   <ApplicationId>2442638e-5601-4d9a-a9bc-493024ec6e4e</ApplicationId>
   <FileLogs>
     <FileLog>
-      <ProjectId>dcd411bb-8564-4199-988a-957009e9357a</ProjectId>
+      <ProjectId>7e992967-9bc8-4bbf-a979-e6262625001d</ProjectId>
       <CorrelationId>Intent.Modules.Application.MediatR.Templates.StaticContentTemplateRegistrations.AISkillsStaticContentTemplateRegistration#mediatr-command-handler/SKILL.md</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>.agents/skills/mediatr-command-handler/SKILL.md</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>mediatr-command-handler/SKILL.md</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>dcd411bb-8564-4199-988a-957009e9357a</ProjectId>
+      <ProjectId>7e992967-9bc8-4bbf-a979-e6262625001d</ProjectId>
       <CorrelationId>Intent.Modules.Application.MediatR.Templates.StaticContentTemplateRegistrations.AISkillsStaticContentTemplateRegistration#mediatr-query-handler/SKILL.md</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>.agents/skills/mediatr-query-handler/SKILL.md</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>mediatr-query-handler/SKILL.md</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

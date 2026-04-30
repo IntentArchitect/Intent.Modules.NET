@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="2236eaec-7370-49df-810c-aace0faaab3a" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>HttpClients</name>
+  <display>HttpClients</display>
+  <externalReference>a8789b61-65c2-46f5-a32c-4ff2d92f763d</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>bc2ca533-13f9-4767-a682-88ea134a7322</parentFolderId>
+  <packageId>4af7945e-7095-49cf-b174-d9d381c15521</packageId>
+  <packageName>AdvancedMappingCrud.DbContext.ProjectTo.Tests</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.Common.CSharp</definitionPackageName>
+      <definitionPackageId>730e1275-0c32-44f7-991a-9619d07ca68d</definitionPackageId>
+      <properties>
+        <property name="96df2fa6-7361-4e43-9acf-dbcea23b650a" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="58eae8d8-6a5e-4ac8-8a72-b587dbd35662" type="Output Anchor" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>IntegrationTests.HttpClients</name>
+      <display>IntegrationTests.HttpClients</display>
+      <externalReference>d4443416-18f0-408a-810b-726906b4e418</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>2236eaec-7370-49df-810c-aace0faaab3a</parentFolderId>
+      <packageId>4af7945e-7095-49cf-b174-d9d381c15521</packageId>
+      <packageName>AdvancedMappingCrud.DbContext.ProjectTo.Tests</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="a23c7901-31a5-4cbf-b8bf-1be128977e6d" name="Output Anchor Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="8d79a350-96f1-4d50-bb0a-f65a5c53ec62" display="Create Sub-Folders" value="true" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="297935c8-8669-4d13-ad5f-5f4843d703b0" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.IntegrationTesting.HttpClient</name>
+      <display>Intent.AspNetCore.IntegrationTesting.HttpClient</display>
+      <externalReference>Intent.AspNetCore.IntegrationTesting</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>2236eaec-7370-49df-810c-aace0faaab3a</parentFolderId>
+      <packageId>4af7945e-7095-49cf-b174-d9d381c15521</packageId>
+      <packageName>AdvancedMappingCrud.DbContext.ProjectTo.Tests</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="33fc00b3-729e-4a8b-a91a-0b2b8d73d81f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.IntegrationTesting.HttpClientRequestException</name>
+      <display>Intent.AspNetCore.IntegrationTesting.HttpClientRequestException</display>
+      <externalReference>Intent.AspNetCore.IntegrationTesting</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>2236eaec-7370-49df-810c-aace0faaab3a</parentFolderId>
+      <packageId>4af7945e-7095-49cf-b174-d9d381c15521</packageId>
+      <packageName>AdvancedMappingCrud.DbContext.ProjectTo.Tests</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="2683abee-2fed-4dd1-92bf-ff0377d94700" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.IntegrationTesting.JsonResponse</name>
+      <display>Intent.AspNetCore.IntegrationTesting.JsonResponse</display>
+      <externalReference>Intent.AspNetCore.IntegrationTesting</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>2236eaec-7370-49df-810c-aace0faaab3a</parentFolderId>
+      <packageId>4af7945e-7095-49cf-b174-d9d381c15521</packageId>
+      <packageName>AdvancedMappingCrud.DbContext.ProjectTo.Tests</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="20c026f3-b8c2-412e-a030-846fc5345ddf" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.IntegrationTesting.ProblemDetailsWithErrors</name>
+      <display>Intent.AspNetCore.IntegrationTesting.ProblemDetailsWithErrors</display>
+      <externalReference>Intent.AspNetCore.IntegrationTesting</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>2236eaec-7370-49df-810c-aace0faaab3a</parentFolderId>
+      <packageId>4af7945e-7095-49cf-b174-d9d381c15521</packageId>
+      <packageName>AdvancedMappingCrud.DbContext.ProjectTo.Tests</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="41f0d85c-8ae2-4fcd-8256-c4189a0d1531" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract</name>
+      <display>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract</display>
+      <externalReference>Intent.AspNetCore.IntegrationTesting</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>2236eaec-7370-49df-810c-aace0faaab3a</parentFolderId>
+      <packageId>4af7945e-7095-49cf-b174-d9d381c15521</packageId>
+      <packageName>AdvancedMappingCrud.DbContext.ProjectTo.Tests</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

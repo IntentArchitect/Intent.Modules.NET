@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c0097a48-2ace-4349-ba8d-0c3258eddeb0" type="Output Anchor" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+  <name>AI.Context.Skills</name>
+  <display>AI.Context.Skills</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>4ad9051a-865d-4ddd-9acd-54c2441f6a39</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
