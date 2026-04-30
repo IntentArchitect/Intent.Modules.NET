@@ -1,5 +1,3 @@
-using System;
-using System.Linq;
 using Intent.AI;
 using Intent.Engine;
 using Intent.Metadata.Models;
@@ -19,6 +17,12 @@ using Intent.Modules.UnitTesting.Templates.ServiceOperationTest;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using Microsoft.VisualBasic;
+using System;
+using System.Linq;
+using System.Runtime.Intrinsics.X86;
+using System.Threading.Tasks;
+using static Intent.Modules.UnitTesting.Settings.UnitTestSettings;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -41,6 +45,22 @@ namespace Intent.Modules.UnitTesting.FactoryExtensions
             RegisterIntegrationEventHandlerTestAITasks(application);
             RegisterDomainServiceTestAITasks(application);
             RegisterDomainEventHandlerTestAITasks(application);
+        }
+
+        private static string GetContext(MockFrameworkOptionsEnum mockFramework)
+        {
+            var mockFrameworkName = UnitTestMockHelpers.GetMockFrameworkName(mockFramework);
+            var mockContext = UnitTestMockHelpers.GetMockFrameworkContext(mockFramework);
+
+            return $"""
+                    ## Tool Guidance
+                    Do not use the run_software_factory tool in this conversation unless I explicitly ask you to.
+
+                    ## Mock Framework
+                    Use **{mockFrameworkName}** for all mocking. Do NOT use any other mock framework.
+
+                    {mockContext}
+                    """;
         }
 
         private static void RegisterCommandHandlerTestAITasks(IApplication application)
@@ -75,7 +95,6 @@ namespace Intent.Modules.UnitTesting.FactoryExtensions
 
                     var mockFramework = application.Settings.GetUnitTestSettings().MockFramework().AsEnum();
                     var mockFrameworkName = UnitTestMockHelpers.GetMockFrameworkName(mockFramework);
-                    var mockContext = UnitTestMockHelpers.GetMockFrameworkContext(mockFramework);
 
                     return new UnitTestAITask((IIntentTemplate)commandHandlerTestTemplate, handlerTemplate)
                     {
@@ -83,13 +102,7 @@ namespace Intent.Modules.UnitTesting.FactoryExtensions
                         Title = $"Implement Unit Tests: {commandHandlerTestTemplate.ClassName}",
                         Instructions =
                             $"Implement comprehensive unit tests for the {model.Name}Handler command handler in the {commandHandlerTestTemplate.ClassName} class using {mockFrameworkName}.",
-                        Context =
-                            $"""
-                              ## Mock Framework
-                              Use **{mockFrameworkName}** for all mocking. Do NOT use any other mock framework.
-
-                              {mockContext}
-                              """
+                        Context = GetContext(mockFramework)
                     };
                 }));
             }
@@ -127,7 +140,6 @@ namespace Intent.Modules.UnitTesting.FactoryExtensions
 
                     var mockFramework = application.Settings.GetUnitTestSettings().MockFramework().AsEnum();
                     var mockFrameworkName = UnitTestMockHelpers.GetMockFrameworkName(mockFramework);
-                    var mockContext = UnitTestMockHelpers.GetMockFrameworkContext(mockFramework);
 
                     return new UnitTestAITask((IIntentTemplate)queryHandlerTestTemplate, handlerTemplate)
                     {
@@ -135,13 +147,7 @@ namespace Intent.Modules.UnitTesting.FactoryExtensions
                         Title = $"Implement Unit Tests: {queryHandlerTestTemplate.ClassName}",
                         Instructions =
                             $"Implement comprehensive unit tests for the {model.Name}Handler query handler in the {queryHandlerTestTemplate.ClassName} class using {mockFrameworkName}.",
-                        Context =
-                            $"""
-                              ## Mock Framework
-                              Use **{mockFrameworkName}** for all mocking. Do NOT use any other mock framework.
-
-                              {mockContext}
-                              """
+                        Context = GetContext(mockFramework)
                     };
                 }));
             }
@@ -179,7 +185,6 @@ namespace Intent.Modules.UnitTesting.FactoryExtensions
 
                     var mockFramework = application.Settings.GetUnitTestSettings().MockFramework().AsEnum();
                     var mockFrameworkName = UnitTestMockHelpers.GetMockFrameworkName(mockFramework);
-                    var mockContext = UnitTestMockHelpers.GetMockFrameworkContext(mockFramework);
 
                     return new UnitTestAITask((IIntentTemplate)serviceOperationTestTemplate, serviceTemplate)
                     {
@@ -187,13 +192,7 @@ namespace Intent.Modules.UnitTesting.FactoryExtensions
                         Title = $"Implement Unit Tests: {serviceOperationTestTemplate.ClassName}",
                         Instructions =
                             $"Implement comprehensive unit tests for the {model.Name} service in the {serviceOperationTestTemplate.ClassName} class using {mockFrameworkName}.",
-                        Context =
-                            $"""
-                              ## Mock Framework
-                              Use **{mockFrameworkName}** for all mocking. Do NOT use any other mock framework.
-
-                              {mockContext}
-                              """
+                        Context = GetContext(mockFramework)
                     };
                 }));
             }
@@ -231,7 +230,6 @@ namespace Intent.Modules.UnitTesting.FactoryExtensions
 
                     var mockFramework = application.Settings.GetUnitTestSettings().MockFramework().AsEnum();
                     var mockFrameworkName = UnitTestMockHelpers.GetMockFrameworkName(mockFramework);
-                    var mockContext = UnitTestMockHelpers.GetMockFrameworkContext(mockFramework);
 
                     return new UnitTestAITask((IIntentTemplate)integrationEventHandlerTestTemplate, handlerTemplate)
                     {
@@ -239,13 +237,7 @@ namespace Intent.Modules.UnitTesting.FactoryExtensions
                         Title = $"Implement Unit Tests: {integrationEventHandlerTestTemplate.ClassName}",
                         Instructions =
                             $"Implement comprehensive unit tests for the {model.Name} integration event handler in the {integrationEventHandlerTestTemplate.ClassName} class using {mockFrameworkName}.",
-                        Context =
-                            $"""
-                              ## Mock Framework
-                              Use **{mockFrameworkName}** for all mocking. Do NOT use any other mock framework.
-
-                              {mockContext}
-                              """
+                        Context = GetContext(mockFramework)
                     };
                 }));
             }
@@ -283,7 +275,6 @@ namespace Intent.Modules.UnitTesting.FactoryExtensions
 
                     var mockFramework = application.Settings.GetUnitTestSettings().MockFramework().AsEnum();
                     var mockFrameworkName = UnitTestMockHelpers.GetMockFrameworkName(mockFramework);
-                    var mockContext = UnitTestMockHelpers.GetMockFrameworkContext(mockFramework);
 
                     return new UnitTestAITask((IIntentTemplate)domainServiceTestTemplate, serviceTemplate)
                     {
@@ -291,13 +282,7 @@ namespace Intent.Modules.UnitTesting.FactoryExtensions
                         Title = $"Implement Unit Tests: {domainServiceTestTemplate.ClassName}",
                         Instructions =
                             $"Implement comprehensive unit tests for the {model.Name} domain service in the {domainServiceTestTemplate.ClassName} class using {mockFrameworkName}.",
-                        Context =
-                            $"""
-                              ## Mock Framework
-                              Use **{mockFrameworkName}** for all mocking. Do NOT use any other mock framework.
-
-                              {mockContext}
-                              """
+                        Context = GetContext(mockFramework)
                     };
                 }));
             }
@@ -335,7 +320,6 @@ namespace Intent.Modules.UnitTesting.FactoryExtensions
 
                     var mockFramework = application.Settings.GetUnitTestSettings().MockFramework().AsEnum();
                     var mockFrameworkName = UnitTestMockHelpers.GetMockFrameworkName(mockFramework);
-                    var mockContext = UnitTestMockHelpers.GetMockFrameworkContext(mockFramework);
 
                     return new UnitTestAITask((IIntentTemplate)domainEventHandlerTestTemplate, handlerTemplate)
                     {
@@ -343,13 +327,7 @@ namespace Intent.Modules.UnitTesting.FactoryExtensions
                         Title = $"Implement Unit Tests: {domainEventHandlerTestTemplate.ClassName}",
                         Instructions =
                             $"Implement comprehensive unit tests for the {model.Name} domain event handler in the {domainEventHandlerTestTemplate.ClassName} class using {mockFrameworkName}.",
-                        Context =
-                            $"""
-                              ## Mock Framework
-                              Use **{mockFrameworkName}** for all mocking. Do NOT use any other mock framework.
-
-                              {mockContext}
-                              """
+                        Context = GetContext(mockFramework)
                     };
                 }));
             }

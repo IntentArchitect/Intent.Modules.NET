@@ -109,6 +109,9 @@ namespace Intent.Modules.MediatR.DomainEvents.FactoryExtensions
                 Context =
                         $"""
 
+                        ## Tool Guidance
+                        Do not use the run_software_factory tool in this conversation unless I explicitly ask you to.
+
                         ## User Intentions
                         {intention}
                         

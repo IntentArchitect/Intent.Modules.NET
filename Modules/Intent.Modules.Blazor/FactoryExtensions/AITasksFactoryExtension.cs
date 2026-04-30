@@ -81,9 +81,12 @@ namespace Intent.Modules.Blazor.FactoryExtensions
                 Type = "Implement Blazor Component",
                 Title = $"Implement Blazor Component: {model.Name}",
                 Context = @$"""
+                            ## Tool Guidance
+                            Do not use the run_software_factory tool in this conversation unless I explicitly ask you to.
+
                             ## User has modeled the following intentions:
                             {intention}
-                        """,
+                            """,
                 Instructions =
                         $"""Implement the {model.Name} Blazor component using the appropriate skill(s)."""
             };

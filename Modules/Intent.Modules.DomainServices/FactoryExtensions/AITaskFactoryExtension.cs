@@ -70,6 +70,9 @@ namespace Intent.Modules.DomainServices.FactoryExtensions
                         """,
                 Context =
                         $"""
+
+                        ## Tool Guidance
+                        Do not use the run_software_factory tool in this conversation unless I explicitly ask you to.                        
                         
                         ## Implementation Rules:
                         - Try to infer intent from template/model names. If unsure, favour asking. Specifically for event handlers: if you cannot infer at least one concrete side effect from existing code, call ask_user_question. Task.CompletedTask may be used as the default implementation **only once the user selects/approves the “no-op” option.

@@ -232,6 +232,10 @@ namespace Intent.Modules.Application.MediatR.FactoryExtentions
 
             return
                 $"""
+
+                ## Tool Guidance
+                Do not use the run_software_factory tool in this conversation unless I explicitly ask you to.
+                
                 ## User has modeled the following intentions:
                 {intention}
 
@@ -254,6 +258,10 @@ namespace Intent.Modules.Application.MediatR.FactoryExtentions
 
             return
                 $"""
+
+                ## Tool Guidance
+                Do not use the run_software_factory tool in this conversation unless I explicitly ask you to.
+                
                 ## User has modeled the following intentions:
                 {intention}
 
