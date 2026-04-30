@@ -68,10 +68,7 @@ namespace Intent.Modules.UnitTesting.FactoryExtensions
 
                 application.AITaskManager.RegisterTaskProvider(new UnitTestAITaskProvider((changes, outputFiles) =>
                 {
-                    var outputFile = outputFiles.FirstOrDefault(x => x.Template?.Equals(commandHandlerTestTemplate) == true);
-                    if (changes.All(x => x.Template?.Equals(commandHandlerTestTemplate) != true && x.Template?.Equals(handlerTemplate) != true)
-                        && outputFile != null
-                        && !outputFile.Content.Contains("Assert.Fail("))
+                    if (changes.All(x => x.Template?.Equals(commandHandlerTestTemplate) != true && x.Template?.Equals(handlerTemplate) != true))
                     {
                         return null;
                     }
@@ -123,10 +120,7 @@ namespace Intent.Modules.UnitTesting.FactoryExtensions
 
                 application.AITaskManager.RegisterTaskProvider(new UnitTestAITaskProvider((changes, outputFiles) =>
                 {
-                    var outputFile = outputFiles.FirstOrDefault(x => x.Template?.Equals(queryHandlerTestTemplate) == true);
-                    if (changes.All(x => x.Template?.Equals(queryHandlerTestTemplate) != true && x.Template?.Equals(handlerTemplate) != true)
-                        && outputFile != null
-                        && !outputFile.Content.Contains("Assert.Fail("))
+                    if (changes.All(x => x.Template?.Equals(queryHandlerTestTemplate) != true && x.Template?.Equals(handlerTemplate) != true))
                     {
                         return null;
                     }
@@ -178,10 +172,7 @@ namespace Intent.Modules.UnitTesting.FactoryExtensions
 
                 application.AITaskManager.RegisterTaskProvider(new UnitTestAITaskProvider((changes, outputFiles) =>
                 {
-                    var outputFile = outputFiles.FirstOrDefault(x => x.Template?.Equals(serviceOperationTestTemplate) == true);
-                    if (changes.All(x => x.Template?.Equals(serviceOperationTestTemplate) != true && x.Template?.Equals(serviceTemplate) != true)
-                        && outputFile != null
-                        && !outputFile.Content.Contains("Assert.Fail("))
+                    if (changes.All(x => x.Template?.Equals(serviceOperationTestTemplate) != true && x.Template?.Equals(serviceTemplate) != true))
                     {
                         return null;
                     }
@@ -233,10 +224,7 @@ namespace Intent.Modules.UnitTesting.FactoryExtensions
 
                 application.AITaskManager.RegisterTaskProvider(new UnitTestAITaskProvider((changes, outputFiles) =>
                 {
-                    var outputFile = outputFiles.FirstOrDefault(x => x.Template?.Equals(integrationEventHandlerTestTemplate) == true);
-                    if (changes.All(x => x.Template?.Equals(integrationEventHandlerTestTemplate) != true && x.Template?.Equals(handlerTemplate) != true)
-                        && outputFile != null
-                        && !outputFile.Content.Contains("Assert.Fail("))
+                    if (changes.All(x => x.Template?.Equals(integrationEventHandlerTestTemplate) != true && x.Template?.Equals(handlerTemplate) != true))
                     {
                         return null;
                     }
@@ -288,10 +276,7 @@ namespace Intent.Modules.UnitTesting.FactoryExtensions
 
                 application.AITaskManager.RegisterTaskProvider(new UnitTestAITaskProvider((changes, outputFiles) =>
                 {
-                    var outputFile = outputFiles.FirstOrDefault(x => x.Template?.Equals(domainServiceTestTemplate) == true);
-                    if (changes.All(x => x.Template?.Equals(domainServiceTestTemplate) != true && x.Template?.Equals(serviceTemplate) != true)
-                        && outputFile != null
-                        && !outputFile.Content.Contains("Assert.Fail("))
+                    if (changes.All(x => x.Template?.Equals(domainServiceTestTemplate) != true && x.Template?.Equals(serviceTemplate) != true))
                     {
                         return null;
                     }
@@ -343,10 +328,7 @@ namespace Intent.Modules.UnitTesting.FactoryExtensions
 
                 application.AITaskManager.RegisterTaskProvider(new UnitTestAITaskProvider((changes, outputFiles) =>
                 {
-                    var outputFile = outputFiles.FirstOrDefault(x => x.Template?.Equals(domainEventHandlerTestTemplate) == true);
-                    if (changes.All(x => x.Template?.Equals(domainEventHandlerTestTemplate) != true && x.Template?.Equals(handlerTemplate) != true)
-                        && outputFile != null
-                        && !outputFile.Content.Contains("Assert.Fail("))
+                    if (changes.All(x => x.Template?.Equals(domainEventHandlerTestTemplate) != true && x.Template?.Equals(handlerTemplate) != true))
                     {
                         return null;
                     }
