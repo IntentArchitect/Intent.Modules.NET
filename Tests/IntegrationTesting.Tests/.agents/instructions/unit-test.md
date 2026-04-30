@@ -2,7 +2,7 @@
 description: Instructions for implementing unit tests for Intent-managed .NET applications, covering command handlers, query handlers, domain event handlers, integration event handlers, domain services, and application service operations.
 appliesTo:
   - "**/*Tests.cs"
-contentHash: A7F637CBDF5718EA552E966370280890D1FA4976B11B7E2E6530599A1C25D0AE
+contentHash: 4C40CD1ED8F6A09F8E289BA1B1D15E33200C53ECEC2690C9983D81B4AED95EC1
 ---
 
 ## Code Preservation Rules
@@ -29,9 +29,13 @@ contentHash: A7F637CBDF5718EA552E966370280890D1FA4976B11B7E2E6530599A1C25D0AE
 
 ## Test Data Quality
 - Only set entity properties that are directly used in assertions or affect test behaviour.
-- Avoid meaningless placeholder strings — use `""`, `Guid.Empty`, or `0` when the value doesn't matter.
+- Avoid meaningless placeholder strings — use "", Guid.Empty, or 0 only for fields that are NOT part of the behavior under test and are NOT asserted.
+- When the test asserts an assignment/update/mapping, use distinct, non-default values for “before” and “after” so the test fails if the assignment is removed.
+    - Example: if asserting customer.Name is updated from the command, ensure original customer.Name != command.Name.
+- Prefer minimal but semantically different values over “realistic” ones (e.g. "A" → "B" is fine; don’t generate lorem ipsum).
 - Do not create multiple tests that differ only in data quantity (e.g. 1 item vs 2 items) — one representative happy path is sufficient.
 - Do not create separate tests solely to re-verify mock calls already covered in the happy path.
+- If a test’s purpose is “changes X”, add at least one assertion that would fail if X were unchanged (either Assert.NotEqual(old, new) or by arranging different before/after values and asserting the after value).
 
 ## Tests to Avoid
 - Do not create tests solely for parameter verification — functional tests already cover this.
