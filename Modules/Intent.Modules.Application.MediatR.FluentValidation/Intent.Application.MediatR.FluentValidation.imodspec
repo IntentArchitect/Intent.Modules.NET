@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.MediatR.FluentValidation</id>
-  <version>4.10.1</version>
-  <supportedClientVersions>[4.4.0-a, 6.0.0-a)</supportedClientVersions>
+  <version>4.11.0-pre.0</version>
+  <supportedClientVersions>[5.0.0-a, 6.0.0-a)</supportedClientVersions>
   <summary>Provides support for specifying fluent validation on Commands and Queries</summary>
   <description>Provides support for specifying fluent validation on Commands and Queries</description>
   <authors>Intent Architect</authors>
@@ -46,6 +46,7 @@
   </templates>
   <decorators />
   <factoryExtensions>
+    <factoryExtension id="Intent.Application.MediatR.FluentValidation.AITasksFactoryExtension" externalReference="278efa79-5a2d-43ee-96f2-c2b0e6edf3c7" />
     <factoryExtension id="Intent.Application.MediatR.FluentValidation.CombineWithModelsTemplateFactoryExtension" externalReference="e259f7b4-2fe3-4a54-ab1d-419981c73524" />
     <factoryExtension id="Intent.Application.MediatR.FluentValidation.UnhandledExceptionBahaviorExtension" externalReference="20d51a9e-95cd-4345-ae85-1d90fbdac190" />
   </factoryExtensions>
@@ -62,9 +63,9 @@
     </detect>
   </interoperability>
   <dependencies>
-    <dependency id="Intent.Application.FluentValidation" version="3.11.7" />
+    <dependency id="Intent.Application.FluentValidation" version="3.12.0-pre.0" />
     <dependency id="Intent.Application.MediatR" version="4.6.0" />
-    <dependency id="Intent.Common" version="3.8.0" />
+    <dependency id="Intent.Common" version="3.11.0-pre.2" />
     <dependency id="Intent.Common.CSharp" version="3.9.4" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Modelers.Services" version="4.0.10" />

@@ -128,7 +128,12 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
     [IntentManaged(Mode.Fully)]
     protected override CSharpFileConfig DefineFileConfig()
     {
-        return CSharpFile.GetConfig();
+        return CSharpFile.GetConfig()
+            .WithAISummary("Custom Fluent Validation implementation for " + Model.Name + ".")
+            .WithAIContext(
+                        """
+                        Use the custom-fluent-validation skill when implementing custom validation methods in this class.
+                        """);
     }
 
     [IntentManaged(Mode.Fully)]

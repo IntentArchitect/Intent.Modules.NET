@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1fe58b4e-5d1e-4d56-aa16-68724b6ccca6" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>AITasksFactoryExtension</name>
+  <display>AITasksFactoryExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>31c500b7-66f0-46fc-8748-23ac58a8c375</parentFolderId>
+  <packageId>31c500b7-66f0-46fc-8748-23ac58a8c375</packageId>
+  <packageName>Intent.Application.FluentValidation.Dtos</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
