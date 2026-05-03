@@ -7,74 +7,177 @@ description: Implements the body of a FluentValidation CustomAsync method in a C
 
 You are implementing the body of a custom FluentValidation async validation method in a C# clean-architecture project.
 
-What you are given: A validator class (e.g. `CreateCustomerCommandValidator`) that inherits from `AbstractValidator<T>`. Inside it is one or more `private async Task` methods with the signature:
+## What You Are Given
 
-```
+A validator class (e.g. `CreateCustomerCommandValidator`) that inherits from `AbstractValidator<T>`, containing one or more `private async Task` methods registered via `.CustomAsync(...)` in `ConfigureValidationRules`. Their bodies currently throw `NotImplementedException`:
+
+```csharp
 private async Task SomeValidationMethodAsync(
     TProperty value,
     ValidationContext<TCommand> validationContext,
     CancellationToken cancellationToken)
 ```
 
-These are registered via `.CustomAsync(SomeValidationMethodAsync)` in `ConfigureValidationRules`. Their bodies currently throw `NotImplementedException`.
+---
 
-Your task:
+## RULE 0 — ABSOLUTE PROHIBITION: Never Invent, Never No-Op
 
-1. Read the validator file the user points you to. Identify the unimplemented custom method(s) — the ones whose body only throws NotImplementedException.
+> **These prohibitions are unconditional. No other instruction in this skill, and no reasoning of your own, can override them.**
 
-2. Infer the intent from all available context:
-- The method name (e.g. ValidateEmailAsync → validate email format or uniqueness)
-- The property being validated and its type
-- The command/DTO class — read it to understand the full shape of the object
-- Domain entity classes in the Domain/Entities folder — read them to understand the data model
-- Repository interfaces in the Domain/Repositories folder — check what query methods are available
-- Any related domain rules, naming conventions, or sibling validators that hint at intent
+### Prohibition A — No invented logic of any kind
 
-3. Implement the method body. Rules:
-- Do NOT change the method signature — only the body between the braces
-- Use validationContext.AddFailure(...) to report failures (do not throw exceptions)
-- Use async/await properly; if no async work is needed, return Task.CompletedTask
-- Returning Task.CompletedTask is fine only when the method contains actual validation logic that is synchronous.
-- Use cancellationToken when calling async methods
-- If a validation method’s intent is not explicitly documented in code (comment, domain rule, existing validator pattern, or tests), OR the intent is not fairly obvious, the assistant MUST stop and ask 1–4 clarifying questions via ask_user_question before implementing. 
-    - Treat XML docs as authoritative requirements
-- You MUST NOT:
-    - invent validation rules
-    - add "placeholder" failures
-    - implement a no-op (e.g. return; / Task.CompletedTask) merely to avoid NotImplementedException
-    - remove the rule hookup (CustomAsync(...)) unless the user explicitly approves it.
-- If XML documentation explicitly specifies a validation requirement, implement it as written without asking the user for confirmation. If implementing it requires a repository/service method that does not exist, add the minimal required method to the appropriate interface and implementation, inject that dependency into the validator, and proceed. Only ask the user when the comment is still ambiguous (e.g., scope of uniqueness, accepted formats), not when it is merely missing supporting infrastructure.
-- If the requirement implies external access, auto-discover or extend dependencies
-- If the intent is suggested by comments/naming, the assistant should attempt to confirm it by reading referenced enum/type definitions. Ask the user only if the required symbol/service cannot be found in code.
-- Do not introduce new validation constraints (e.g., min length, regex, allowed characters) unless they are explicitly specified in:
-    - XML docs/comments on the property/DTO/command, or
-    - an existing domain rule/value object, or
-    - an existing validator/test demonstrating the same rule.
-- If not specified, you MUST ask clarifying questions and THEN only implement no additional rule beyond what already exists in the validator chain, IF the user provides no additional context.
-- "No additional rules" is NOT an acceptable default assumption, unless specifically instructed by the user. If the user provides no additional context, you MUST ask follow-up questions to confirm whether any additional rules are needed, and if so, what they are. If the user confirms that no additional rules are needed, you may implement a no-op (e.g. return Task.CompletedTask) in that case.
+You must **never** write any line of code whose logic is not traceable to an explicit requirement in the codebase. "Invented logic" means any statement, condition, check, or failure message that you derived from reasoning, intuition, naming, or general domain knowledge rather than from an explicit source.
 
-4. Dependency discovery requirement: 
-Before asking the user for clarification, the assistant must read the definitions of any non-primitive types involved in the rule (enums, value objects, DTOs) 
-and search for relevant repository/service interfaces that could support the validation (e.g., ICustomerRepository, ICustomerReadRepository). 
-Only ask the user if, after this, the rule intent is still ambiguous or required infrastructure is missing.
+**Calling `AddFailure` does not make an implementation valid.** An `AddFailure` call that encodes an invented condition is just as forbidden as any other invented code. The following example is **FORBIDDEN** because the `IsNullOrWhiteSpace` check and the failure message were invented — they appear nowhere in the codebase:
 
-5. If services are needed (e.g. a repository to check uniqueness in the database):
-- Add the required interface as a constructor parameter
-- Store it in a private readonly field
-- Update the constructor body to assign it
-- Do NOT change the existing constructor signature shape — only add new parameters; keep the existing IValidatorProvider provider parameter if it is already there
+```csharp
+// FORBIDDEN — invented rule dressed up as real validation:
+if (string.IsNullOrWhiteSpace(value))
+{
+    validationContext.AddFailure("Suburb", "Suburb must not be empty.");
+}
+await Task.CompletedTask;
+```
 
-6. If a STRONG intent cannot be reasonably inferred from the available code, or the intent is ambiguous, stop and ask the user:
-- What the validation rule should enforce (e.g. "must be unique", "must match a regex", "must exist in the database")
-- Whether any external service or repository is needed
-- Any domain-specific rules that are not visible in the code
-- Where requirements are not explicitly stated in code/comments/docs/tests, DO NOT implement "minimal" validation - in this case you MUST stop and ask clarifying questions first.
-- Only ask if:
-    - there are conflicting hints (comment says Delivery, but enum has no Delivery, etc.), or
-    - implementing would require a new external dependency (repo/service) that isn’t already available and there’s no clear existing interface method to use, or
-    - multiple plausible interpretations remain even after reading the referenced types.
+Invented logic includes, but is not limited to:
 
-If a CustomAsync method has no explicit requirement (XML docs/comments/tests/domain rule), do NOT make up an implemention and do NOT implement a no op implementation (unless specifically instructed to) - you MUST ask what the rule should be.
-You must NEVER implement a no-op (e.g. return Task.CompletedTask) just to avoid NotImplementedException — if there is no clear intent, you MUST ask the user what the rule should be.
-Do NOT guess wildly — a wrong implementation is worse than asking. If the method name and property together make the intent obvious (e.g. ValidateEmailAsync on an Email string property), proceed. If the name is ambiguous (e.g. ValidateIdNumberAsync where the rule could be format-based or uniqueness-based), ask. 
-Do NOT prioritize "making the validator functional" over correctness to the intended business rules. If it is not OBVIOUS as to the intent of the validation, always seek clarification from the user by asking question(s).
+- Any condition you chose because it "seems right" for the property type or name
+- Format constraints (regex patterns, email structure, phone number formats, etc.)
+- Length or range constraints (min/max length, min/max value)
+- Null or whitespace guards applied without an explicit requirement to do so
+- Allowed or disallowed values
+- Existence or uniqueness checks inferred from naming
+- Failure messages you composed yourself
+- Any logic derived from general programming knowledge, domain conventions, or "what validators usually do"
+
+**None of the following are justifications for writing any line of code:**
+
+- "It seems reasonable."
+- "The method is named `ValidateSuburbAsync`."
+- "Suburb is a string so checking for whitespace is sensible."
+- "This is a common validation pattern."
+- "I inferred from context that this is what was intended."
+
+Every line of validation logic must be traceable to one of these explicit sources:
+
+- XML documentation on the method, property, command, or entity
+- An inline code comment directly describing the rule
+- A domain rule or value object in the codebase that encodes the constraint
+- An existing test that asserts the specific behaviour
+
+If no such source exists for even a single line you intend to write, **you must ask** before writing anything.
+
+### Prohibition B — No no-ops and no disguised no-ops
+
+Any method body that produces no real validation outcome is forbidden.
+
+**Explicit no-ops** — forbidden unless the user has explicitly written something like _"implement a no-op"_ or _"no validation logic is needed"_:
+
+```csharp
+// FORBIDDEN:
+throw new NotImplementedException();
+return Task.CompletedTask;
+return;
+await Task.CompletedTask;
+// (empty body)
+```
+
+**Disguised no-ops** — code with the appearance of logic but no real outcome. These are equally forbidden:
+
+```csharp
+// FORBIDDEN — guard with no rule following it:
+if (string.IsNullOrWhiteSpace(value))
+{
+    return;
+}
+await Task.CompletedTask;
+```
+
+**When you lack sufficient information, asking is the correct and only acceptable output. A no-op — explicit or disguised — is never a valid substitute for asking.**
+
+---
+
+## RULE 1 — Ask Before You Implement
+
+You **must ask the user** before writing any implementation unless **all three** of the following conditions are met:
+
+1. The exact validation rule is unambiguously stated in XML docs, comments, tests, or an existing domain rule — not inferred from naming or context; **AND**
+2. Every line of code the implementation requires is traceable to those same explicit sources — nothing is assumed, filled in, or "reasonable"; **AND**
+3. Every required repository/service method either already exists or its signature can be derived directly and unambiguously from the stated requirement.
+
+If **any** condition is not fully satisfied, **stop and ask** 1–4 targeted questions. Do not write any code. Do not write a no-op. Do not write invented logic. Ask.
+
+---
+
+## Step 1 — Identify Unimplemented Methods
+
+Read the validator file. Find every `private async Task` method whose body only throws `NotImplementedException`. These are your targets.
+
+---
+
+## Step 2 — Gather Context Before Deciding
+
+For each unimplemented method, collect all available evidence **before** deciding whether to implement or ask:
+
+- Read the command/DTO class to understand the full shape of the validated object.
+- Read domain entity classes (`Domain/Entities`) to understand the data model.
+- Read repository/service interfaces (`Domain/Repositories`) to find available query methods.
+- Read the definitions of all non-primitive types referenced in the method (enums, value objects, DTOs).
+- Check XML docs and inline comments on the method, command, and relevant properties.
+- Check sibling validators for established patterns.
+
+The purpose of this step is to find **explicit requirements**, not to build intuition. If after reading all of the above you have found no explicit requirement, the answer is to ask — not to implement based on what seems plausible.
+
+---
+
+## Step 3 — Decide: Implement or Ask
+
+After Step 2, apply this decision:
+
+**Ask if any of the following are true:**
+
+- No explicit requirement was found in the sources listed in Rule 0 Prohibition A.
+- The method name or property name suggests intent but no source explicitly states the rule.
+- The rule could be interpreted in more than one way.
+- Any line you would write is not directly traceable to an explicit source.
+- A required repository/service method does not exist and its signature is not directly derivable from an explicit requirement.
+- There are conflicting signals in the codebase.
+
+**Implement only if every single line of the planned implementation is directly traceable to an explicit source, with nothing left to assume or fill in.**
+
+Before writing anything, perform the source-traceability check: for each statement you plan to write, identify the exact source (file, line, or doc) that requires it. If you cannot identify such a source for any statement, stop and ask.
+
+When asking, be specific:
+
+- What rule should this validation enforce? (e.g. uniqueness, format, existence, range)
+- What failure message should be shown to the user?
+- Should it query the database or an external service?
+- Are there specific formats, lengths, or allowed values?
+
+---
+
+## Step 4 — Implement (Only When Authorised by Step 3)
+
+### Code rules
+
+- Do **not** change the method signature — only replace the body between the braces.
+- Use `validationContext.AddFailure(...)` to report failures; never throw exceptions.
+- Use `async`/`await` correctly and pass `cancellationToken` to every async call.
+- Every statement in the method body must be traceable to an explicit source — see Rule 0 Prohibition A. Remove any statement you cannot trace, then ask the user about it instead.
+- Do **not** add any constraint, guard clause, or failure message that is not explicitly specified in docs, domain rules, or tests.
+
+### If a required repository/service method is missing
+
+If an explicit requirement calls for an operation whose method does not yet exist, add the minimal required method to the appropriate interface and implementation. Derive the method signature directly from the stated requirement — do not invent it.
+
+### Constructor injection
+
+- Add each required dependency as a new constructor parameter.
+- Store it in a `private readonly` field and assign it in the constructor body.
+- Keep all existing parameters (including `IValidatorProvider provider` if present); only append new ones.
+
+---
+
+## Step 5 — Do Not Remove Hookups
+
+Never remove a `.CustomAsync(...)` registration unless the user explicitly approves it.
