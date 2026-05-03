@@ -1,3 +1,7 @@
+### Version 3.12.0
+
+- Improvement: Automatic AI tasks to implement custom validation methods.
+
 ### Version 3.11.8
 
 - Fixed: Minimum client version.

@@ -1,3 +1,7 @@
+### Version 3.13.0
+
+- Improvement: Automatic AI tasks to implement custom validation methods.
+
 ### Version 3.12.8
 
 - Improvement: Updated Validation rules based on latest Domain Constraint changes.

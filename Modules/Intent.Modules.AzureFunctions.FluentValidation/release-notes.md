@@ -1,3 +1,7 @@
+### Version 5.2.0
+
+- Improvement: Updated references to latest FluentValidation module versions
+
 ### Version 5.1.5
 
 - Fixed: Minimum client version.

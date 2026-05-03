@@ -1,3 +1,7 @@
+### Version 4.11.0
+
+- Improvement: Automatic AI tasks to implement custom validation methods.
+
 ### Version 4.10.1
 
 - Improvement: Updated Validation rules based on latest Domain Constraint changes.
