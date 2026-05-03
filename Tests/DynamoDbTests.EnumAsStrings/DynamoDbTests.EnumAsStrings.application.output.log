@@ -20,6 +20,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>c3166fe0-28ea-4d41-ad08-db0b7a6a555f</ProjectId>
+      <CorrelationId>Intent.Modules.Application.FluentValidation.Templates.StaticContentTemplateRegistrations.AISkillsStaticContentTemplateRegistration#custom-fluent-validation/SKILL.md</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>.agents/skills/custom-fluent-validation/SKILL.md</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>custom-fluent-validation/SKILL.md</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c3166fe0-28ea-4d41-ad08-db0b7a6a555f</ProjectId>
       <CorrelationId>Intent.Modules.Entities.Templates.StaticContentTemplateRegistrations.AISkillsStaticContentTemplateRegistration#domain-entity/SKILL.md</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>.agents/skills/domain-entity/SKILL.md</ApplicationRelativeFilePath>
