@@ -1,3 +1,7 @@
+### Version 3.12.9
+
+- Fixed: Prevented string-only inferred rules (for example, `MaximumLength`) from being generated for enum DTO fields mapped to string entity attributes.
+
 ### Version 3.12.8
 
 - Improvement: Updated Validation rules based on latest Domain Constraint changes.
