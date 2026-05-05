@@ -8,12 +8,15 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Entities.Settings;
 using Intent.Modules.Entities.Templates.CollectionWrapper;
 using Intent.Modules.Entities.Templates.DomainEntityInterface;
 using Intent.Modules.Entities.Templates.DomainEnum;
 using Intent.Modules.Modelers.Domain.Settings;
 using Intent.RoslynWeaver.Attributes;
+using AttributeModel = Intent.Modelers.Domain.Api.AttributeModel;
+using OperationModel = Intent.Modelers.Domain.Api.OperationModel;
 
 namespace Intent.Modules.Entities.Templates;
 
@@ -133,7 +136,7 @@ public abstract class DomainEntityStateTemplateBase : CSharpTemplateBase<ClassMo
 
             if (metadatamodel is AttributeModel attribute && !string.IsNullOrWhiteSpace(attribute.Value))
             {
-                property.WithInitialValue(attribute.Value);
+                property.WithInitialValue(attribute.Value.AsFormattedValidTypeValue(this, typeReference));
             }
             else if (metadatamodel is AssociationEndModel associationEnd && !string.IsNullOrWhiteSpace(associationEnd.Value))
             {
@@ -239,4 +242,28 @@ public abstract class DomainEntityStateTemplateBase : CSharpTemplateBase<ClassMo
 
         return argumentName;
     }
+
+    //private string FormatInitialValue(string value, ITypeReference typeReference)
+    //{
+    //    var element = typeReference.Element;
+
+    //    if (element.IsEnumModel() && !value.Contains('.') && element.AsEnumModel().Literals.Any(l => l.Name == value))
+    //    {
+    //        return $"{GetTypeName(typeReference)}.{value}";
+    //    }
+
+    //    // String: wrap in quotes unless it is already quoted, is null/default, or looks like a method call / field reference
+    //    if (element != null && element.IsStringType()
+    //        && !value.StartsWith('"')
+    //        && !value.StartsWith('@')
+    //        && value != "null"
+    //        && value != "default"
+    //        && !value.Contains('(')
+    //        && !value.Contains('.'))
+    //    {
+    //        return $"\"{value}\"";
+    //    }
+
+    //    return value;
+    //}
 }

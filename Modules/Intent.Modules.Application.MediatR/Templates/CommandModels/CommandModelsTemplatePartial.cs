@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Xml.Linq;
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
@@ -18,6 +13,12 @@ using Intent.Modules.Constants;
 using Intent.Modules.Metadata.Security.Models;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection.Metadata;
+using System.Text;
+using System.Xml.Linq;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -75,7 +76,7 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandModels
                             // only parameters with a value AFTER the last parameter with a value get the value specified
                             if (setDefaultValue)
                             {
-                                param.WithDefaultValue(property.Value);
+                                param.WithDefaultValue(property.Value.AsFormattedValidTypeValue(this, property.TypeReference));
 
                                 // if is a collection, with a default value, set to null instead
                                 if (property.TypeReference?.IsCollection ?? false)
@@ -101,11 +102,11 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandModels
                                         if (defaultValueKind == DefaultValueAttributeKind.TypeAndString)
                                         {
                                             attribute.AddArgument($"typeof({GetTypeName(property.TypeReference)})");
-                                            attribute.AddArgument($"\"{property.Value}\"");
+                                            attribute.AddArgument($"\"{property.Value.AsFormattedValidTypeValue(this, property.TypeReference)}\"");
                                         }
                                         else
                                         {
-                                            attribute.AddArgument(property.Value);
+                                            attribute.AddArgument(property.Value.AsFormattedValidTypeValue(this, property.TypeReference));
                                         }
                                     });
                                 }

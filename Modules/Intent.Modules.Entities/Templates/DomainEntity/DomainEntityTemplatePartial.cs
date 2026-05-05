@@ -144,7 +144,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                                     // only parameters with a value AFTER the last parameter with a value get the value specified
                                     if (setDefaultValue)
                                     {
-                                        param.WithDefaultValue(parameter.Value);
+                                        param.WithDefaultValue(parameter.Value.AsFormattedValidTypeValue(this, parameter.TypeReference));
                                         param.RepresentsModel(parameter);
 
                                         // if is a collection, with a default value, set to null instead

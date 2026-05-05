@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Application.Identity" Version="3.4.0" />
+    <PackageReference Include="Intent.Modules.Application.MediatR" Version="4.6.2" />
     <PackageReference Include="Intent.Modules.Common" Version="3.11.0-pre.2" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.9.4" />
     <PackageReference Include="Intent.Packager" Version="3.6.0">
@@ -18,7 +19,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Intent.Modules.Application.MediatR\Intent.Modules.Application.MediatR.csproj" />
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
     <ProjectReference Include="..\Intent.Modules.Common.UnitOfWork\Intent.Modules.Common.UnitOfWork.csproj" PrivateAssets="All" />
   </ItemGroup>

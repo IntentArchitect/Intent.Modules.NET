@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Intent.Modules.Application.Dtos" Version="4.5.2" />
     <PackageReference Include="Intent.Modules.Common" Version="3.10.0" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.10.0" />
     <PackageReference Include="Intent.Modules.Entities.Repositories.Api" Version="4.0.3" />
@@ -20,7 +21,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Intent.Modules.Application.Dtos\Intent.Modules.Application.Dtos.csproj" />
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
   </ItemGroup>
 

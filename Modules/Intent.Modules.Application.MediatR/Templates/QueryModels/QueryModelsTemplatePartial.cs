@@ -75,7 +75,7 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryModels
                             // only parameters with a value AFTER the last parameter with a value get the value specified
                             if (property.InternalElement.Order >= lastNonNullable && !string.IsNullOrEmpty(property.Value))
                             {
-                                param.WithDefaultValue(property.Value);
+                                param.WithDefaultValue(property.Value.AsFormattedValidTypeValue(this, property.TypeReference));
 
                                 // if is a collection, with a default value, set to null instead
                                 if (property.TypeReference?.IsCollection ?? false)
@@ -100,11 +100,11 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryModels
                                         if (defaultValueKind == DefaultValueAttributeKind.TypeAndString)
                                         {
                                             attribute.AddArgument($"typeof({GetTypeName(property.TypeReference)})");
-                                            attribute.AddArgument($"\"{property.Value}\"");
+                                            attribute.AddArgument($"\"{property.Value.AsFormattedValidTypeValue(this, property.TypeReference)}\"");
                                         }
                                         else
                                         {
-                                            attribute.AddArgument(property.Value);
+                                            attribute.AddArgument(property.Value.AsFormattedValidTypeValue(this, property.TypeReference));
                                         }
                                     });
                                 }
