@@ -48,7 +48,7 @@ internal static class DomainConstraintRules
         return attribute.HasStereotype(DomainConstraintStereotypes.Required) ||
                attribute.HasStereotype(DomainConstraintStereotypes.CollectionLimits) ||
                (CanApplyStringRules(field) &&
-                (attribute.HasStereotype("Text Constraints") ||
+                (HasConfiguredTextConstraintMaxLength(attribute) ||
                  attribute.HasStereotype(DomainConstraintStereotypes.TextLimits) ||
                  attribute.HasStereotype(DomainConstraintStereotypes.RegularExpression) ||
                  attribute.HasStereotype(DomainConstraintStereotypes.Email) ||
@@ -68,23 +68,15 @@ internal static class DomainConstraintRules
         HashSet<string> appliedRuleSpaces)
     {
         // 1. RDBMS Text Constraints (Physical overrides Logical)
-        if (CanApplyStringRules(field) &&
-            mappedAttribute.HasStereotype("Text Constraints") &&
+        var configuredTextConstraintMaxLength = CanApplyStringRules(field)
+            ? GetConfiguredTextConstraintMaxLength(mappedAttribute)
+            : null;
+
+        if (configuredTextConstraintMaxLength.HasValue &&
             !IsRuleSpaceApplied(appliedRuleSpaces, RuleSpaces.LengthMax))
         {
-            try
-            {
-                var maxLength = mappedAttribute.GetStereotypeProperty<int?>("Text Constraints", "MaxLength");
-                if (maxLength > 0)
-                {
-                    validationRuleChain.AddChainStatement($"MaximumLength({maxLength})", x => x.AddMetadata(RuleSpaceMetadataKey, RuleSpaces.LengthMax));
-                    appliedRuleSpaces.Add(RuleSpaces.LengthMax);
-                }
-            }
-            catch (Exception e)
-            {
-                Logging.Log.Debug("Could not resolve [Text Constraints] stereotype: " + e.Message);
-            }
+            validationRuleChain.AddChainStatement($"MaximumLength({configuredTextConstraintMaxLength.Value})", x => x.AddMetadata(RuleSpaceMetadataKey, RuleSpaces.LengthMax));
+            appliedRuleSpaces.Add(RuleSpaces.LengthMax);
         }
 
         // 2. Container-Level Rules (Required, Collection Limits)
@@ -268,6 +260,22 @@ internal static class DomainConstraintRules
             var uriType = template is not null ? template.UseType("System.Uri") : "System.Uri";
             var uriKindType = template is not null ? template.UseType("System.UriKind") : "System.UriKind";
             yield return new RuleData(RuleSpaces.Url, $"Must(value => {uriType}.TryCreate(value, {uriKindType}.Absolute, out _))", $"WithMessage(\"{ToPascalCaseName(attribute.Name)} must be a valid URL.\")");
+        }
+    }
+
+    private static bool HasConfiguredTextConstraintMaxLength(AttributeModel attribute) => GetConfiguredTextConstraintMaxLength(attribute).HasValue;
+
+    private static int? GetConfiguredTextConstraintMaxLength(AttributeModel attribute)
+    {
+        try
+        {
+            var maxLength = attribute.GetStereotypeProperty<int?>("Text Constraints", "MaxLength");
+            return maxLength > 0 ? maxLength : null;
+        }
+        catch (Exception e)
+        {
+            Logging.Log.Debug("Could not resolve [Text Constraints] stereotype: " + e.Message);
+            return null;
         }
     }
 
