@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6e05cfb4-8a63-4913-a357-a3bcfdc62a37" type="Enum" typeId="85fba0e9-9161-4c85-a603-a229ef312beb">
+  <comment />
+  <name>Process</name>
+  <display>Process</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>a49ecb57-af64-42ac-8046-70a4a1c8baa6</parentFolderId>
+  <packageId>e1abeceb-9b9b-4095-85d4-f3eb571670f6</packageId>
+  <packageName>FluentValidationTest.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="dd762ab3-e715-4e8d-9cdd-992df5a09210" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>ProcessA</name>
+      <display>ProcessA</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>6e05cfb4-8a63-4913-a357-a3bcfdc62a37</parentFolderId>
+      <packageId>e1abeceb-9b9b-4095-85d4-f3eb571670f6</packageId>
+      <packageName>FluentValidationTest.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="c0e84fc9-5417-4ae6-8daa-b524d01f1fda" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>ProcessB</name>
+      <display>ProcessB</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>6e05cfb4-8a63-4913-a357-a3bcfdc62a37</parentFolderId>
+      <packageId>e1abeceb-9b9b-4095-85d4-f3eb571670f6</packageId>
+      <packageName>FluentValidationTest.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

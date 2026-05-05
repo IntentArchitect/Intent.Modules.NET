@@ -1,5 +1,6 @@
 using FluentValidationTest.Domain.Common.Interfaces;
 using FluentValidationTest.Domain.Repositories.ValidationScenarios.ConstructorOperationConstraints;
+using FluentValidationTest.Domain.Repositories.ValidationScenarios.EnumMapping;
 using FluentValidationTest.Domain.Repositories.ValidationScenarios.IdentityConstraints;
 using FluentValidationTest.Domain.Repositories.ValidationScenarios.Nullability;
 using FluentValidationTest.Domain.Repositories.ValidationScenarios.NumericConstraints;
@@ -8,6 +9,7 @@ using FluentValidationTest.Domain.Repositories.ValidationScenarios.StressSuite;
 using FluentValidationTest.Domain.Repositories.ValidationScenarios.TextConstraints;
 using FluentValidationTest.Infrastructure.Persistence;
 using FluentValidationTest.Infrastructure.Repositories.ValidationScenarios.ConstructorOperationConstraints;
+using FluentValidationTest.Infrastructure.Repositories.ValidationScenarios.EnumMapping;
 using FluentValidationTest.Infrastructure.Repositories.ValidationScenarios.IdentityConstraints;
 using FluentValidationTest.Infrastructure.Repositories.ValidationScenarios.Nullability;
 using FluentValidationTest.Infrastructure.Repositories.ValidationScenarios.NumericConstraints;
@@ -35,6 +37,7 @@ namespace FluentValidationTest.Infrastructure
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<IConstructedConstrainedEntityRepository, ConstructedConstrainedEntityRepository>();
+            services.AddTransient<IOrderRepository, OrderRepository>();
             services.AddTransient<IUniqueAccountEntityRepository, UniqueAccountEntityRepository>();
             services.AddTransient<IUniquePersonEntityRepository, UniquePersonEntityRepository>();
             services.AddTransient<INullabilityConstrainedEntityRepository, NullabilityConstrainedEntityRepository>();
