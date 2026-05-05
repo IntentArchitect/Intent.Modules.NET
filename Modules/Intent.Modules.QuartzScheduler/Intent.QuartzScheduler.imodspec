@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.QuartzScheduler</id>
-  <version>1.0.14-pre.0</version>
+  <version>1.0.14</version>
   <supportedClientVersions>[4.4.0-a,6.0.0-a)</supportedClientVersions>
   <summary>Quartz Scheduling patterns for time based activities</summary>
   <description>Quartz Scheduling patterns for time based activities</description>

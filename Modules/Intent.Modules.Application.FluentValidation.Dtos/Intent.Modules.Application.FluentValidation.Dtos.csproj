@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -8,7 +8,7 @@
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Application.Dtos" Version="3.3.10" />
     <PackageReference Include="Intent.Modules.Application.FluentValidation" Version="3.10.2" />
-	<PackageReference Include="Intent.Modules.Common" Version="3.11.0-pre.2" />
+	<PackageReference Include="Intent.Modules.Common" Version="3.11.0" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.8.1" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.9.0" />
     <PackageReference Include="Intent.Packager" Version="3.6.0">
