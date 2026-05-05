@@ -3,6 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Transactions;
 using AspNetCoreMvc.Application.Common.Eventing;
+using AspNetCoreMvc.Application.Common.Validation;
 using AspNetCoreMvc.Application.Interfaces;
 using AspNetCoreMvc.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
