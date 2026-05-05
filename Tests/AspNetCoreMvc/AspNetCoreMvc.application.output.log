@@ -322,14 +322,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>0a7a6b05-4fe2-4186-bf89-e683f81e900a</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#4dcbbf94-eb31-4104-987e-fb734818045f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AspNetCoreMvc.Application/ClientsService/ClientCreateDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ClientsService/ClientCreateDtoValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>0a7a6b05-4fe2-4186-bf89-e683f81e900a</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#bcf5228c-3395-4b15-8214-86ffaf2c7224</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCoreMvc.Application/ClientsService/ClientDto.cs</ApplicationRelativeFilePath>
@@ -350,14 +342,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCoreMvc.Application/ClientsService/ClientUpdateDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ClientsService/ClientUpdateDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>0a7a6b05-4fe2-4186-bf89-e683f81e900a</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#c8c35da6-5915-4c1e-a810-dbc90306feac</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AspNetCoreMvc.Application/ClientsService/ClientUpdateDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ClientsService/ClientUpdateDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -554,26 +538,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>0967fa6e-1c93-4f05-afb6-1f882af0d037</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationServiceInterface#0640c819-2f25-4123-a083-23f09c937549</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AspNetCoreMvc.Application/Common/Validation/IValidationService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IValidationService.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>0967fa6e-1c93-4f05-afb6-1f882af0d037</ProjectId>
       <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface#bdc2bb63-33d7-4eca-975f-a9bf7d1cdf3b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCoreMvc.Application/Common/Validation/IValidatorProvider.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IValidatorProvider.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>0967fa6e-1c93-4f05-afb6-1f882af0d037</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationService#d2395dbf-b3ce-411b-be21-885909666b8c</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AspNetCoreMvc.Application/Common/Validation/ValidationService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ValidationService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

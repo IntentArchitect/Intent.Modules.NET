@@ -20,14 +20,12 @@ namespace AspNetCoreMvc.Api.Controllers
     public class ClientsController : Controller
     {
         private readonly IClientsService _appService;
-        private readonly IValidationService _validationService;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IEventBus _eventBus;
 
-        public ClientsController(IClientsService appService, IValidationService validationService, IUnitOfWork unitOfWork, IEventBus eventBus)
+        public ClientsController(IClientsService appService, IUnitOfWork unitOfWork, IEventBus eventBus)
         {
             _appService = appService ?? throw new ArgumentNullException(nameof(appService));
-            _validationService = validationService ?? throw new ArgumentNullException(nameof(validationService));
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             _eventBus = eventBus ?? throw new ArgumentNullException(nameof(eventBus));
         }
