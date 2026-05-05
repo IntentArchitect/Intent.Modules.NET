@@ -24,6 +24,7 @@ namespace DtoSettings.Class.Protected.Infrastructure
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<ICollectionEntityRepository, CollectionEntityRepository>();
             services.AddTransient<ICustomerRepository, CustomerRepository>();
+            services.AddTransient<IDefaultValueEntityRepository, DefaultValueEntityRepository>();
             services.AddTransient<IInvoiceRepository, InvoiceRepository>();
             return services;
         }

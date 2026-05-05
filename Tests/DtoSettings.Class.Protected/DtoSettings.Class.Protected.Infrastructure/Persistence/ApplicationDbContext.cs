@@ -18,6 +18,7 @@ namespace DtoSettings.Class.Protected.Infrastructure.Persistence
         public DbSet<CollectionEntity> CollectionEntities { get; set; }
 
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<DefaultValueEntity> DefaultValueEntities { get; set; }
 
         public DbSet<Invoice> Invoices { get; set; }
 
@@ -28,6 +29,7 @@ namespace DtoSettings.Class.Protected.Infrastructure.Persistence
             ConfigureModel(modelBuilder);
             modelBuilder.ApplyConfiguration(new CollectionEntityConfiguration());
             modelBuilder.ApplyConfiguration(new CustomerConfiguration());
+            modelBuilder.ApplyConfiguration(new DefaultValueEntityConfiguration());
             modelBuilder.ApplyConfiguration(new InvoiceConfiguration());
         }
 

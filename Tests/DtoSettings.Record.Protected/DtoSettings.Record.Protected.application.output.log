@@ -372,6 +372,46 @@
     </FileLog>
     <FileLog>
       <ProjectId>396b134a-8f3f-431c-9894-0513cc01c4d7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#bf72246c-e79d-4b8a-ac2b-67127d5fe42a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Record.Public.Application/DefaultValues/DefaultValue/DefaultValueCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DefaultValues/DefaultValue/DefaultValueCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>396b134a-8f3f-431c-9894-0513cc01c4d7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#bf72246c-e79d-4b8a-ac2b-67127d5fe42a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Record.Public.Application/DefaultValues/DefaultValue/DefaultValueCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DefaultValues/DefaultValue/DefaultValueCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>396b134a-8f3f-431c-9894-0513cc01c4d7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#5b9dddcd-44a5-4948-b317-dd1255ac24b9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Record.Public.Application/DefaultValues/DefaultValue/DefaultValueQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DefaultValues/DefaultValue/DefaultValueQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>396b134a-8f3f-431c-9894-0513cc01c4d7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#5b9dddcd-44a5-4948-b317-dd1255ac24b9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Record.Public.Application/DefaultValues/DefaultValue/DefaultValueQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DefaultValues/DefaultValue/DefaultValueQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>396b134a-8f3f-431c-9894-0513cc01c4d7</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#2262a181-05fa-4109-aece-e457bd02c3d9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Record.Public.Application/DefaultValues/DefaultValueDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DefaultValues/DefaultValueDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>396b134a-8f3f-431c-9894-0513cc01c4d7</ProjectId>
       <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection#d1f4805d-87aa-4d44-88f5-8a3c3018b158</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Record.Public.Application/DependencyInjection.cs</ApplicationRelativeFilePath>
@@ -620,6 +660,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>0d5320ea-e518-4826-ac06-08148727eaab</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEnum#b6712b74-bf8a-46b9-91da-0cf5ff41aafe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Record.Public.Domain/DefaultValueEnum.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DefaultValueEnum.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0d5320ea-e518-4826-ac06-08148727eaab</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#0d5320ea-e518-4826-ac06-08148727eaab</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Record.Public.Domain/DtoSettings.Record.Public.Domain.csproj</ApplicationRelativeFilePath>
@@ -640,6 +688,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Record.Public.Domain/Entities/Customer.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Customer.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d5c31fef-2855-4fb7-a28b-558c7c89b26c</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#1fe05f5e-b990-44b0-b302-b184db3c2bda</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Record.Public.Domain/Entities/DefaultValueEntity.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DefaultValueEntity.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -680,6 +736,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Record.Public.Domain/Repositories/ICustomerRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICustomerRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ea71b2b9-b079-4567-ae6f-da9cde891326</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#1fe05f5e-b990-44b0-b302-b184db3c2bda</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Record.Public.Domain/Repositories/IDefaultValueEntityRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IDefaultValueEntityRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -764,6 +828,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>b3785c2b-2a4c-4631-9494-ff2b1e888611</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#1fe05f5e-b990-44b0-b302-b184db3c2bda</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Record.Public.Infrastructure/Persistence/Configurations/DefaultValueEntityConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DefaultValueEntityConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b3785c2b-2a4c-4631-9494-ff2b1e888611</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#4db32430-16e4-4d67-90cc-5b283932c4fd</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Record.Public.Infrastructure/Persistence/Configurations/InvoiceConfiguration.cs</ApplicationRelativeFilePath>
@@ -784,6 +856,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Record.Public.Infrastructure/Repositories/CustomerRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CustomerRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ce568f12-d044-4308-a5eb-bdfec4fd76b9</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#1fe05f5e-b990-44b0-b302-b184db3c2bda</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Record.Public.Infrastructure/Repositories/DefaultValueEntityRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DefaultValueEntityRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

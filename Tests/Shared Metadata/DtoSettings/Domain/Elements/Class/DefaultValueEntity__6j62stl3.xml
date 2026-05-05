@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1fe05f5e-b990-44b0-b302-b184db3c2bda" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>DefaultValueEntity</name>
+  <display>DefaultValueEntity</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>24c63adc-2c26-4e25-b51a-7eb448059977</parentFolderId>
+  <packageId>24c63adc-2c26-4e25-b51a-7eb448059977</packageId>
+  <packageName>DtoSettings.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="1af4aa22-2036-4d72-a647-acdf3442942a" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id</name>
+      <display>Id: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="91a1dbac-747f-4cb4-bdf3-db744f8e1a67">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>1fe05f5e-b990-44b0-b302-b184db3c2bda</parentFolderId>
+      <packageId>24c63adc-2c26-4e25-b51a-7eb448059977</packageId>
+      <packageName>DtoSettings.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b99aac21-9ca4-467f-a3a6-046255a9eed6" name="Primary Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="a7a5e921-18b9-43b4-8078-b4ac4e5dae6f" display="Data source" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="2819a304-f837-4504-b0d0-77cd109de713" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>StringDefault</name>
+      <display>StringDefault: string = NoQuoteDefault</display>
+      <isAbstract>false</isAbstract>
+      <value>NoQuoteDefault</value>
+      <genericTypes />
+      <typeReference id="4c2ea37e-1c83-4a9a-8ca1-9a57a9016c1f">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>1fe05f5e-b990-44b0-b302-b184db3c2bda</parentFolderId>
+      <packageId>24c63adc-2c26-4e25-b51a-7eb448059977</packageId>
+      <packageName>DtoSettings.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="13649b19-4dfe-43ec-967f-0b85a5801dd6" name="Text Limits">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.Domain.Constraints</definitionPackageName>
+          <definitionPackageId>f852e12f-1a19-4c8d-8192-8393c6ce59da</definitionPackageId>
+          <properties>
+            <property name="97720240-6daf-4cdd-a498-c4e989427e44" display="Min Length" isActive="true" />
+            <property name="e1a84061-6203-4843-b21e-eef5db195803" display="Max Length" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="d6046490-3476-41a1-9e9d-cd7f0832effa" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>IntDefault</name>
+      <display>IntDefault: string = 0</display>
+      <isAbstract>false</isAbstract>
+      <value>0</value>
+      <genericTypes />
+      <typeReference id="85cfee43-24ee-49f9-b2b8-acc9187880ba">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>1fe05f5e-b990-44b0-b302-b184db3c2bda</parentFolderId>
+      <packageId>24c63adc-2c26-4e25-b51a-7eb448059977</packageId>
+      <packageName>DtoSettings.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="13649b19-4dfe-43ec-967f-0b85a5801dd6" name="Text Limits">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.Domain.Constraints</definitionPackageName>
+          <definitionPackageId>f852e12f-1a19-4c8d-8192-8393c6ce59da</definitionPackageId>
+          <properties>
+            <property name="97720240-6daf-4cdd-a498-c4e989427e44" display="Min Length" isActive="true" />
+            <property name="e1a84061-6203-4843-b21e-eef5db195803" display="Max Length" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="6df55f65-a090-4158-be87-e9c89a51b26e" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>EnumDefault</name>
+      <display>EnumDefault: DefaultValueEnum = Two</display>
+      <isAbstract>false</isAbstract>
+      <value>Two</value>
+      <genericTypes />
+      <typeReference id="693a2792-fd15-497f-a207-a06eddef506a">
+        <typeId>b6712b74-bf8a-46b9-91da-0cf5ff41aafe</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>DtoSettings.Domain</typePackageName>
+        <typePackageId>24c63adc-2c26-4e25-b51a-7eb448059977</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>1fe05f5e-b990-44b0-b302-b184db3c2bda</parentFolderId>
+      <packageId>24c63adc-2c26-4e25-b51a-7eb448059977</packageId>
+      <packageName>DtoSettings.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b6712b74-bf8a-46b9-91da-0cf5ff41aafe" type="Enum" typeId="85fba0e9-9161-4c85-a603-a229ef312beb">
+  <name>DefaultValueEnum</name>
+  <display>DefaultValueEnum</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>24c63adc-2c26-4e25-b51a-7eb448059977</parentFolderId>
+  <packageId>24c63adc-2c26-4e25-b51a-7eb448059977</packageId>
+  <packageName>DtoSettings.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="970425ba-f355-416a-9c2e-92d950d4af1b" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>One</name>
+      <display>One = 1</display>
+      <isAbstract>false</isAbstract>
+      <value>1</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b6712b74-bf8a-46b9-91da-0cf5ff41aafe</parentFolderId>
+      <packageId>24c63adc-2c26-4e25-b51a-7eb448059977</packageId>
+      <packageName>DtoSettings.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="4624e364-8464-4fe4-b8cc-e314dc529615" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Two</name>
+      <display>Two = 2</display>
+      <isAbstract>false</isAbstract>
+      <value>2</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b6712b74-bf8a-46b9-91da-0cf5ff41aafe</parentFolderId>
+      <packageId>24c63adc-2c26-4e25-b51a-7eb448059977</packageId>
+      <packageName>DtoSettings.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="87871cb8-82a3-4a43-8bed-1656e06506e0" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Three</name>
+      <display>Three = 3</display>
+      <isAbstract>false</isAbstract>
+      <value>3</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b6712b74-bf8a-46b9-91da-0cf5ff41aafe</parentFolderId>
+      <packageId>24c63adc-2c26-4e25-b51a-7eb448059977</packageId>
+      <packageName>DtoSettings.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

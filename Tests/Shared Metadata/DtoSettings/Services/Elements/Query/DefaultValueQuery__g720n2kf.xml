@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5b9dddcd-44a5-4948-b317-dd1255ac24b9" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>DefaultValueQuery</name>
+  <display>DefaultValueQuery: int</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <typeReference id="25a70a5e-5279-434e-8840-e5a233233451">
+    <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.Common.Types</typePackageName>
+    <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>97c8df32-8e4b-42ed-b518-6b7f3c69522c</parentFolderId>
+  <packageId>24958345-ec60-4d20-9c08-de1c4255fc5d</packageId>
+  <packageName>DtoSettings.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="1387df55-b9a2-457c-9522-0580a479b7a8" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>StringDefault</name>
+      <display>StringDefault: string = NoQuoteDefault</display>
+      <isAbstract>false</isAbstract>
+      <value>NoQuoteDefault</value>
+      <genericTypes />
+      <typeReference id="acaeb344-58c4-4f3d-9fe1-e62e3e0411f2">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>5b9dddcd-44a5-4948-b317-dd1255ac24b9</parentFolderId>
+      <packageId>24958345-ec60-4d20-9c08-de1c4255fc5d</packageId>
+      <packageName>DtoSettings.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="7681e049-335f-48ce-b2b2-ad098dad0906" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>IntDefault</name>
+      <display>IntDefault: int = 0</display>
+      <isAbstract>false</isAbstract>
+      <value>0</value>
+      <genericTypes />
+      <typeReference id="3edb3c97-3a1e-4f91-97be-08e1d6094a9b">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>5b9dddcd-44a5-4948-b317-dd1255ac24b9</parentFolderId>
+      <packageId>24958345-ec60-4d20-9c08-de1c4255fc5d</packageId>
+      <packageName>DtoSettings.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="71a57a5a-0fe3-44d1-a320-1af0d4137bb2" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>EnumDefault</name>
+      <display>EnumDefault: DefaultValueEnum = One</display>
+      <isAbstract>false</isAbstract>
+      <value>One</value>
+      <genericTypes />
+      <typeReference id="f0076c7c-bb18-4e6d-93cd-a47f9463f0a0">
+        <typeId>b6712b74-bf8a-46b9-91da-0cf5ff41aafe</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>DtoSettings.Domain</typePackageName>
+        <typePackageId>24c63adc-2c26-4e25-b51a-7eb448059977</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>5b9dddcd-44a5-4948-b317-dd1255ac24b9</parentFolderId>
+      <packageId>24958345-ec60-4d20-9c08-de1c4255fc5d</packageId>
+      <packageName>DtoSettings.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
