@@ -1,6 +1,7 @@
 ### Version 5.3.0
 
-- Improvement: Added 4.7 AI support.
+- Improvement: Added 5.0 AI support.
+- Improvement: Format DTO default values to valid C# code for a given type.
 
 ### Version 5.2.3
 

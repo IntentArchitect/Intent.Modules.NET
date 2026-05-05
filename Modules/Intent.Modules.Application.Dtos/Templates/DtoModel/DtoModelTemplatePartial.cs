@@ -1,3 +1,9 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection.Metadata;
+using System.Runtime.CompilerServices;
+using System.Threading;
 using Intent.CodeToModelOperations;
 using Intent.Engine;
 using Intent.Exceptions;
@@ -17,12 +23,6 @@ using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Runtime.CompilerServices;
-using System.Threading;
 using static Intent.Modules.Constants.TemplateRoles.Blazor.Client;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -109,7 +109,7 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
                                 // only parameters with a value AFTER the last parameter with a value get the value specified
                                 if (setDefaultValue)
                                 {
-                                    param.WithDefaultValue(field.Value);
+                                    param.WithDefaultValue(field.Value.AsFormattedValidTypeValue(this, field.TypeReference));
 
                                     // if is a collection, with a default value, set to null instead
                                     // and store the fieldId
@@ -241,11 +241,11 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
                                     if (defaultValueKind == DefaultValueAttributeKind.TypeAndString)
                                     {
                                         attribute.AddArgument($"typeof({GetTypeName(field.TypeReference)})");
-                                        attribute.AddArgument($"\"{field.Value}\"");
+                                        attribute.AddArgument($"\"{field.Value.AsFormattedValidTypeValue(this, field.TypeReference)}\"");
                                     }
                                     else
                                     {
-                                        attribute.AddArgument(field.Value);
+                                        attribute.AddArgument(field.Value.AsFormattedValidTypeValue(this, field.TypeReference));
                                     }
                                 });
                             }

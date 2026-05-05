@@ -1,3 +1,7 @@
+### Version 4.6.0
+
+- Improvement: Format DTO default values to valid C# code for a given type.
+
 ### Version 4.5.3
 
 - Improvement: Added additional check when DTO model name is empty, with ElementException direct to the offending element.

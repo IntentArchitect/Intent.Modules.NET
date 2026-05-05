@@ -1,6 +1,7 @@
 ### Version 4.7.0
 
 - Improvement: AI Context supplied for supplying context and skills.
+- Improvement: Format Command/Query default values to valid C# code for a given type.
 
 ### Version 4.6.2
 
