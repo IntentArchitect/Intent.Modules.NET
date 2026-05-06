@@ -28,7 +28,7 @@ namespace Intent.Modules.QuartzScheduler.Templates.ScheduledJob
                 .AddUsing("System.Threading.Tasks")
                 .AddClass($"{Model.Name.ToPascalCase()}", @class =>
                 {
-                    if (Model.GetScheduling().DisallowConcurrentExecution())
+                    if (Model.GetScheduling()?.DisallowConcurrentExecution() == true)
                     {
                         @class.AddAttribute(UseType("Quartz.DisallowConcurrentExecution"));
                     }

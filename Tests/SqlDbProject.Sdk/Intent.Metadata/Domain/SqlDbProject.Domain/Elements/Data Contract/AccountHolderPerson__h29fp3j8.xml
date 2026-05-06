@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="afe11cda-bbbc-40fb-b75d-03a42b96d040" type="Data Contract" typeId="4464fabe-c59e-4d90-81fc-c9245bdd1afd">
+  <name>AccountHolderPerson</name>
+  <display>AccountHolderPerson</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>01c581e9-8fc3-47bc-b9a9-aadc1284b12e</parentFolderId>
+  <packageId>01c581e9-8fc3-47bc-b9a9-aadc1284b12e</packageId>
+  <packageName>SqlDbProject.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="5679c207-0f60-4f75-b926-fd6c51303e56" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>StakeholderId</name>
+      <display>StakeholderId: long</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="3bb3ec8f-e2ce-49fd-ab33-e87559a9cd1d">
+        <typeId>33013006-E404-48C2-AC46-24EF5A5774FD</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>afe11cda-bbbc-40fb-b75d-03a42b96d040</parentFolderId>
+      <packageId>01c581e9-8fc3-47bc-b9a9-aadc1284b12e</packageId>
+      <packageName>SqlDbProject.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="59b7160e-0270-4162-aa38-e234ea307e90" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Birthdate</name>
+      <display>Birthdate: datetime</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="43eb0dfd-973b-4de0-9879-f73eab118fe9">
+        <typeId>a4107c29-7851-4121-9416-cf1236908f1e</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>afe11cda-bbbc-40fb-b75d-03a42b96d040</parentFolderId>
+      <packageId>01c581e9-8fc3-47bc-b9a9-aadc1284b12e</packageId>
+      <packageName>SqlDbProject.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="9a848177-654d-4c2f-89e3-bb708c5efcc7" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>SexTypeId</name>
+      <display>SexTypeId: int</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="a979bd37-ca84-4f83-aeb5-0b6efc197787">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>afe11cda-bbbc-40fb-b75d-03a42b96d040</parentFolderId>
+      <packageId>01c581e9-8fc3-47bc-b9a9-aadc1284b12e</packageId>
+      <packageName>SqlDbProject.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="b8e25a74-f57d-4946-a3d7-ca38a05b32a4" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Description</name>
+      <display>Description: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="419d14c2-88d6-480b-b331-e41a1fc6ea04">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>afe11cda-bbbc-40fb-b75d-03a42b96d040</parentFolderId>
+      <packageId>01c581e9-8fc3-47bc-b9a9-aadc1284b12e</packageId>
+      <packageName>SqlDbProject.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="5e8707ee-ed34-48ea-8fbf-7f6fb81ac13f" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Height</name>
+      <display>Height: decimal</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="b2a329ca-661e-432a-8ec4-8fea44a455b3">
+        <typeId>675c7b84-997a-44e0-82b9-cd724c07c9e6</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>afe11cda-bbbc-40fb-b75d-03a42b96d040</parentFolderId>
+      <packageId>01c581e9-8fc3-47bc-b9a9-aadc1284b12e</packageId>
+      <packageName>SqlDbProject.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="8775f4d0-7ffd-4678-a6a8-fd7e0c6fbc87" name="Decimal Constraints">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="849d8f6f-573f-428a-bc46-8db2614c47c9" display="Precision" value="17" isActive="true" />
+            <property name="ff13f032-826f-4ca3-9806-ea4f10b8d600" display="Scale" value="3" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

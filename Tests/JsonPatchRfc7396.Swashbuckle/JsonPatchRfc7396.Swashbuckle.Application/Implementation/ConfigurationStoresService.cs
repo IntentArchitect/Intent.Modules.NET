@@ -101,7 +101,7 @@ namespace JsonPatchRfc7396.Swashbuckle.Application.Implementation
             }
 
             LoadOriginalState(configurationStore, dto);
-            dto.PatchExecutor.ApplyTo(dto);
+            await dto.PatchExecutor.ApplyToAsync(dto, cancellationToken);
             ApplyChangesTo(dto, configurationStore);
             return configurationStore.MapToConfigurationStoreDto(_mapper);
         }
@@ -158,7 +158,7 @@ namespace JsonPatchRfc7396.Swashbuckle.Application.Implementation
                 throw new NotFoundException($"Could not find ConfigurationItem '{id}'");
             }
             LoadOriginalState(configurationItem, dto);
-            dto.PatchExecutor.ApplyTo(dto);
+            await dto.PatchExecutor.ApplyToAsync(dto, cancellationToken);
             ApplyChangesTo(dto, configurationItem);
             return configurationItem.MapToConfigurationConfigurationItemDto(_mapper);
         }

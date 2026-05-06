@@ -55,7 +55,7 @@ namespace Intent.Modules.QuartzScheduler.Templates.QuartzConfiguration
 
                         method.AddMethodChainStatement("services", statement =>
                         {
-                            var scheduledJobs = ExecutionContext.MetadataManager.Services(ExecutionContext.GetApplicationConfig().Id).GetScheduledJobModels();
+                            var scheduledJobs = ExecutionContext.MetadataManager.Services(ExecutionContext.GetApplicationConfig().Id).GetScheduledJobModels()?.Where(j => j.HasScheduling()) ?? Enumerable.Empty<ScheduledJobModel>();
 
                             var quartzLambda = new CSharpLambdaBlock("q");
 
@@ -85,8 +85,8 @@ namespace Intent.Modules.QuartzScheduler.Templates.QuartzConfiguration
                             statement
                                 .AddChainStatement(new CSharpInvocationStatement("AddQuartzHostedService")
                                     .AddArgument(new CSharpLambdaBlock("options")
-                                    .AddStatement("options.WaitForJobsToComplete = true;")
-                                ).WithoutSemicolon());
+                                        .AddStatement("options.WaitForJobsToComplete = true;")
+                                    ).WithoutSemicolon());
                         });
 
 

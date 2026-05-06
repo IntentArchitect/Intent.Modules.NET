@@ -201,5 +201,6 @@
     <application id="4e2e78cb-a7d2-4b5c-9653-399737bb308f" name="JsonPatchRfc7396.Swashbuckle" solutionFolder="JsonPatch" relativePath="JsonPatchRfc7396.Swashbuckle/JsonPatchRfc7396.Swashbuckle.application.config" />
     <application id="935d7481-7030-4594-9d73-d00f99484a4e" name="JsonPatchRfc7396.Scalar" solutionFolder="JsonPatch" relativePath="JsonPatchRfc7396.Scalar/JsonPatchRfc7396.Scalar.application.config" />
     <application id="3eb83206-a40a-4eff-b7b6-facd5e6f88c4" name="HttpClientLibrary" solutionFolder="Architecture" relativePath="HttpClientLibrary/HttpClientLibrary.application.config" />
+    <application id="46ad474b-c39f-4be9-be67-cca851ffabe0" name="SqlDbProject.Sdk" solutionFolder="Database" relativePath="SqlDbProject.Sdk/SqlDbProject.Sdk.application.config" />
   </applications>
 </solution>

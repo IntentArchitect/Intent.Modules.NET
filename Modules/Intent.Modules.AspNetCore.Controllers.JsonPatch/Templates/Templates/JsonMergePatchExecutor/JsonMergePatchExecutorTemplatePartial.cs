@@ -28,6 +28,8 @@ public partial class JsonMergePatchExecutorTemplate : CSharpTemplateBase<object>
 
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
             .AddUsing("Morcatko.AspNetCore.JsonMergePatch")
+            .AddUsing("System.Threading")
+            .AddUsing("System.Threading.Tasks")
             .AddClass("JsonMergePatchExecutor", @class =>
             {
                 @class
@@ -51,9 +53,11 @@ public partial class JsonMergePatchExecutorTemplate : CSharpTemplateBase<object>
                     }
                 });
 
-                @class.AddMethod("void", "ApplyTo", method =>
+                @class.AddMethod("Task", "ApplyToAsync", method =>
                 {
+                    method.Async();
                     method.AddParameter(T, "target");
+                    method.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
 
                     method.AddStatement("ArgumentNullException.ThrowIfNull(target);")
                         .AddStatement("_document.ApplyTo(target);", stmt => stmt.SeparatedFromPrevious());
@@ -61,7 +65,7 @@ public partial class JsonMergePatchExecutorTemplate : CSharpTemplateBase<object>
                     if (HasFluentValidation())
                     {
                         method.AddStatement($"var validator = _validatorProvider.GetValidator<{T}>();", stmt => stmt.SeparatedFromPrevious())
-                            .AddStatement("var validationResult = validator.Validate(target);", stmt => stmt.SeparatedFromPrevious());
+                            .AddStatement("var validationResult = await validator.ValidateAsync(target, cancellationToken);", stmt => stmt.SeparatedFromPrevious());
 
                         method.AddIfStatement("!validationResult.IsValid",
                             ifStmt => { ifStmt.AddStatement("throw new ValidationException(validationResult.Errors);"); });

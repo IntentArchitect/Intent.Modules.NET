@@ -93,7 +93,7 @@ internal class CommandPatchEntityInteractionStrategy : IInteractionStrategy
             [
                 new CSharpStatement($"LoadOriginalState({entityDetails.VariableName}, request)")
                     .WithSemicolon(),
-                new CSharpStatement("request.PatchExecutor.ApplyTo(request)")
+                new CSharpStatement("await request.PatchExecutor.ApplyToAsync(request, cancellationToken)")
                     .WithSemicolon(),
                 new CSharpStatement($"ApplyChangesTo(request, {entityDetails.VariableName})")
                     .WithSemicolon()

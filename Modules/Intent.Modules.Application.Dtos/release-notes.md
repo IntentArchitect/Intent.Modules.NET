@@ -1,3 +1,7 @@
+### Version 4.5.3
+
+- Improvement: Added additional check when DTO model name is empty, with ElementException direct to the offending element.
+
 ### Version 4.5.2
 
 - Improvement: DTOs will now have a `[DefaultValue(...)]` attribute emitted on properties that have a default value set in the designer.

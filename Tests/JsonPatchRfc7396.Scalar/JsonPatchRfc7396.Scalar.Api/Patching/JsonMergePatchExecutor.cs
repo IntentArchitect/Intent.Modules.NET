@@ -21,7 +21,7 @@ namespace JsonPatchRfc7396.Scalar.Api.Patching
             _validatorProvider = validatorProvider ?? throw new ArgumentNullException(nameof(validatorProvider));
         }
 
-        public void ApplyTo(T target)
+        public async Task ApplyToAsync(T target, CancellationToken cancellationToken = default)
         {
             ArgumentNullException.ThrowIfNull(target);
 
@@ -29,7 +29,7 @@ namespace JsonPatchRfc7396.Scalar.Api.Patching
 
             var validator = _validatorProvider.GetValidator<T>();
 
-            var validationResult = validator.Validate(target);
+            var validationResult = await validator.ValidateAsync(target, cancellationToken);
 
             if (!validationResult.IsValid)
             {

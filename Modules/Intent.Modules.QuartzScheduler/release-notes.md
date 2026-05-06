@@ -1,3 +1,7 @@
+### Version 1.0.13
+
+- Fixed: Quartz configuration now only includes scheduled jobs that have the Scheduling stereotype applied.
+
 ### Version 1.0.12
 
 - Improvement: Updated NuGet package versions.
@@ -16,7 +20,7 @@
 
 ### Version 1.0.8
 
-- Improvement: Added stereotype descriptions in preperation for Intent Architect 4.5. 
+- Improvement: Added stereotype descriptions in preperation for Intent Architect 4.5.
 
 ### Version 1.0.7
 

@@ -278,6 +278,11 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
         private IEnumerable<CSharpStatement> GetTableMapping(ClassExtensionModel model)
         {
+            if (!model.IsAggregateRoot() && model.ParentClass is not null && !model.ParentClass.IsAbstract)
+            {
+                throw new ElementException(model.InternalElement, $"Not Supported: Composite entity inherits from {model.ParentClass.Name} that is not Abstract.");
+            }
+            
             if (model.HasView() && model.HasTable())
             {
                 throw new ElementException(model.InternalElement, $"Entity \"{model.Name}\" [{model.Id}] has both a \"Table\" and \"View\" stereotype applied to it.");
@@ -846,7 +851,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             }
         }
 
-        public void EnsurePrimaryKeysOnEntity(ICanBeReferencedType entityModel, params RequiredEntityProperty[] columns)
+        private void EnsurePrimaryKeysOnEntity(ICanBeReferencedType entityModel, params RequiredEntityProperty[] columns)
         {
             if (TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.Entity.Primary, entityModel.Id, out var template))
             {

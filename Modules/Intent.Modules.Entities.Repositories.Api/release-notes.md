@@ -1,3 +1,7 @@
+### Version 5.1.11
+
+- Improvement: Added friendly error messages for missing required Entity templates to help developers understand what module they need to install.
+
 ### Version 5.1.10
 
 - Improvement: Documentation and ProjectUrl link added.

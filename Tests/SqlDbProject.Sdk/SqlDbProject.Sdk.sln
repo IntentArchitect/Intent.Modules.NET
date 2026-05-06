@@ -1,0 +1,17 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{42EA0DBD-9CF1-443E-919E-BE9C484E4577}") = "SqlDbProject.Sdk.SqlDatabaseProject.Sdk", "SqlDbProject.Sdk.SqlDatabaseProject.Sdk\SqlDbProject.Sdk.SqlDatabaseProject.Sdk.sqlproj", "{06836873-70CC-44D2-A00D-86B054C081FF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+	EndGlobalSection
+EndGlobal

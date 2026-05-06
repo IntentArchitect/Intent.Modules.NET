@@ -72,13 +72,13 @@ Data flow remains explicit and mapped. No mapper dependency is required in this 
 
 ### PATCH Executor Abstraction
 
-- `IPatchExecutor<T>` interface with `ApplyTo(T target)`.
+- `IPatchExecutor<T>` interface with `ApplyToAsync(T target, CancellationToken cancellationToken = default)`.
 - Used by generated Commands/DTOs, keeping application contracts transport-agnostic.
 
 ```csharp
 public interface IPatchExecutor<T>
 {
-    void ApplyTo(T target);
+    Task ApplyToAsync(T target, CancellationToken cancellationToken = default);
 }
 ```
 
@@ -104,7 +104,7 @@ For generated PATCH update flows, handlers/service operations follow this order:
 
 1. Query the entity.
 2. Hydrate the incoming request through `LoadOriginalState(entity, request)`.
-3. Apply the incoming json diff on the original request with `request.PatchExecutor.ApplyTo(request)`.
+3. Apply the incoming json diff on the original request with `await request.PatchExecutor.ApplyToAsync(request, cancellationToken)`.
 4. Apply the new request changes to the retrieved entity using `ApplyChangesTo(request, entity)`.
 5. Persist changes.
 
@@ -155,7 +155,7 @@ public async Task<ResultDto> Handle(UpdateThingCommand request, CancellationToke
     var entity = await _repo.FindByIdAsync(request.Id, cancellationToken);
 
     LoadOriginalState(entity, request);
-    request.PatchExecutor.ApplyTo(request);
+    await request.PatchExecutor.ApplyToAsync(request, cancellationToken);
     ApplyChangesTo(request, entity);
 
     await _unitOfWork.SaveChangesAsync(cancellationToken);

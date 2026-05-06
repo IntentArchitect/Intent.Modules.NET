@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Threading;
 using Intent.CodeToModelOperations;
 using Intent.Engine;
+using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.Dtos.Settings;
@@ -44,6 +45,11 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
             AddTypeSource(TemplateRoles.Application.Contracts.Enum);
             AddTypeSource(TemplateRoles.Application.Contracts.Clients.Enum);
             AddTypeSource(ContractEnumModelTemplate.TemplateId);
+
+            if (string.IsNullOrWhiteSpace(model.Name))
+            {
+                throw new ElementException(model.InternalElement, "DTO model name cannot be empty.");
+            }
 
             var csharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath());
             AddTypeDeclaration(csharpFile);
@@ -393,7 +399,7 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
                     setter.Protected();
                     break;
                 case DTOSettings.PropertySetterAccessibilityOptionsEnum.Public:
-                    default:
+                default:
                     //This property is public so don't want to duplicate the accessor
                     //setter.Public();
                     break;
@@ -538,7 +544,7 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
             return CSharpFile.ToString();
         }
 
-        #pragma warning disable IDE0010
+#pragma warning disable IDE0010
         private string GetTemplateFileName()
         {
             if (!Model.GenericTypes.Any())
@@ -605,7 +611,7 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
 
             return changes;
         }
-        #pragma warning restore IDE0010
+#pragma warning restore IDE0010
 
         private ICSharpSemanticComparisonNode _rootComparisonNode;
 

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="7e4cccb8-1498-42bb-a508-b09a5fe5be68" type="Scheduled Job" typeId="57b933b6-cec8-4fd5-8060-948f5e39d45e">
+  <name>UnScheduledJob</name>
+  <display>UnScheduledJob</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>82a423be-aa73-4ae7-acec-0eb4a420739a</parentFolderId>
+  <packageId>82a423be-aa73-4ae7-acec-0eb4a420739a</packageId>
+  <packageName>WindowsServiceHost.Tests.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

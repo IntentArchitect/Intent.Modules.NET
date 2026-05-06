@@ -1,3 +1,8 @@
+### Version 1.1.1
+
+- Improvement: Latest VS Project Module allows new SDK project style in Visual Studio.
+- Fixed: `GUID` Primary Keys are now generating correct SQL.
+
 ### Version 1.1.0
 
 - Improvement: Updated module dependencies including moving over to the Codebase Structure designer.

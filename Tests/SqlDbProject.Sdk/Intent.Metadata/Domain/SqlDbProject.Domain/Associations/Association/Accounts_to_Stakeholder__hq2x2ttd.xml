@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="fa459c1b-a2e8-4733-b4ca-560bd797656f">
+  <sourceEnd id="b0fae99c-5eda-4a10-b0bd-bbe0650857b4" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Accounts</name>
+    <display>Accounts: Account[*]</display>
+    <order>0</order>
+    <typeReference id="ac3b0c79-cf68-4476-bb3a-56cc915c60da">
+      <typeId>6db124d7-054e-4cf4-89e5-0706d63b18ca</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SqlDbProject.Domain</typePackageName>
+      <typePackageId>01c581e9-8fc3-47bc-b9a9-aadc1284b12e</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="fa459c1b-a2e8-4733-b4ca-560bd797656f" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Stakeholder</name>
+    <display>Stakeholder: AccountHolder</display>
+    <order>7</order>
+    <typeReference id="c0a5fb8d-4d85-4dc0-87d1-63511ffb1386">
+      <typeId>ac174b22-944e-48ab-8643-00e0fbc77655</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SqlDbProject.Domain</typePackageName>
+      <typePackageId>01c581e9-8fc3-47bc-b9a9-aadc1284b12e</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>
