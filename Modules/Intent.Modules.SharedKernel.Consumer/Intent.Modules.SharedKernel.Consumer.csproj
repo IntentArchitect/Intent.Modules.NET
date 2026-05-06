@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common" Version="3.11.0-pre.0" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.11.0" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.10.0" />
     <PackageReference Include="Intent.Modules.DomainServices" Version="1.1.13" />
     <PackageReference Include="Intent.Modules.Entities" Version="5.2.3" />

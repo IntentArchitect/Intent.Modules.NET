@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <Version>1.1.0-pre.0</Version>
+    <Version>1.1.0</Version>
     <Authors>Intent Architect</Authors>
     <Description>MudBlazor components module for Intent Architect.</Description>
     <Copyright>Copyright 2024</Copyright>
@@ -16,9 +16,9 @@
 
   <ItemGroup>
     <PackageReference Include="Intent.Architect.Persistence" Version="3.7.0" />
-    <PackageReference Include="Intent.Modules.Common" Version="3.11.0-pre.2" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.11.0" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.9.3" />
-    <PackageReference Include="Intent.Modules.Modelers.UI" Version="1.0.5-pre.0" />
+    <PackageReference Include="Intent.Modules.Modelers.UI" Version="1.1.0" />
     <PackageReference Include="Intent.Modules.Modelers.UI.Core" Version="1.0.0" />
     <PackageReference Include="Intent.Packager" Version="3.6.0">
       <PrivateAssets>all</PrivateAssets>
