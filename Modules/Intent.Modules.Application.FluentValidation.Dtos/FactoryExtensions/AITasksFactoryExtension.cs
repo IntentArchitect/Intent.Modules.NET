@@ -74,7 +74,7 @@ namespace Intent.Modules.Application.FluentValidation.Dtos.FactoryExtensions
 
         private static bool IsValidator(IApplication application, IChange c)
         {
-            return c.Template!.Id == DTOValidatorTemplate.TemplateId;
+            return c.Template?.Id == DTOValidatorTemplate.TemplateId;
         }
 
         private static bool HasMissingImplementation(IChange change) => change.Content.Contains("throw new NotImplementedException");
