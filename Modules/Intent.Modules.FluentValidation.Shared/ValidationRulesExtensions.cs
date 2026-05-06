@@ -53,7 +53,7 @@ internal static class ValidationRulesExtensions
                     UniqueConstraintRules.TryGetAdvancedMappedAttribute(field, out attr) ||
                     UniqueConstraintRules.TryGetAssociationMappedAttribute(field, sourceElementAdvancedMappingsList, out attr)
                 ) &&
-                DomainConstraintRules.HasAnyRules(attr!))
+                DomainConstraintRules.HasApplicableRules(field, attr!))
             {
                 return true;
             }
@@ -412,7 +412,7 @@ internal static class ValidationRulesExtensions
 
         if (hasMappedAttribute)
         {
-            DomainConstraintRules.ApplyFallbackRules(template, validationRuleChain, mappedAttribute!, appliedRuleSpaces);
+            DomainConstraintRules.ApplyFallbackRules(template, validationRuleChain, field, mappedAttribute!, appliedRuleSpaces);
         }
     }
 

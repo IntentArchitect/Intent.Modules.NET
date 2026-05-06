@@ -2,7 +2,9 @@ using System.Reflection;
 using FluentValidation;
 using FluentValidationTest.Application.Common.Behaviours;
 using FluentValidationTest.Application.Common.Validation;
+using FluentValidationTest.Application.Implementation.ValidationScenarios.EnumToStringMapping;
 using FluentValidationTest.Application.Implementation.ValidationScenarios.StressSuite;
+using FluentValidationTest.Application.Interfaces.ValidationScenarios.EnumToStringMapping;
 using FluentValidationTest.Application.Interfaces.ValidationScenarios.StressSuite;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
@@ -30,6 +32,7 @@ namespace FluentValidationTest.Application
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddScoped<IValidatorProvider, ValidatorProvider>();
             services.AddTransient<IValidationService, ValidationService>();
+            services.AddTransient<IOrderService, OrderService>();
             services.AddTransient<IInvoiceService, InvoiceService>();
             return services;
         }

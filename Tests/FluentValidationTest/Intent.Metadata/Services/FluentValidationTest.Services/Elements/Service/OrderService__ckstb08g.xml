@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="4b0c78a7-cbc4-472a-ba22-c70f80f24708" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <name>OrderService</name>
+  <display>OrderService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>a49ecb57-af64-42ac-8046-70a4a1c8baa6</parentFolderId>
+  <packageId>e1abeceb-9b9b-4095-85d4-f3eb571670f6</packageId>
+  <packageName>FluentValidationTest.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="362d538b-a022-4852-b931-34eeb1402029" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>ProcessOrder</name>
+      <display>ProcessOrder(dto: ProcessOrderDto): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="75a1c92c-7183-4c7d-ae76-56b49f36732f">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>4b0c78a7-cbc4-472a-ba22-c70f80f24708</parentFolderId>
+      <packageId>e1abeceb-9b9b-4095-85d4-f3eb571670f6</packageId>
+      <packageName>FluentValidationTest.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="fe109e87-3bba-4db9-87b3-3f10b65fbeba" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>dto</name>
+          <display>in : dto: ProcessOrderDto</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="4a61d3a0-3317-46cd-89e2-0b22542fe90f">
+            <typeId>07c7a358-38d7-4bc1-a51a-33bd3e7b5235</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>FluentValidationTest.Services</typePackageName>
+            <typePackageId>e1abeceb-9b9b-4095-85d4-f3eb571670f6</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>362d538b-a022-4852-b931-34eeb1402029</parentFolderId>
+          <packageId>e1abeceb-9b9b-4095-85d4-f3eb571670f6</packageId>
+          <packageName>FluentValidationTest.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

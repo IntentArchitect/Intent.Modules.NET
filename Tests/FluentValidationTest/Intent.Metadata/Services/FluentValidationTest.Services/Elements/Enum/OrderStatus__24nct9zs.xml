@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5db51c1f-a280-4531-a90c-dad3967e1c59" type="Enum" typeId="85fba0e9-9161-4c85-a603-a229ef312beb">
+  <name>OrderStatus</name>
+  <display>OrderStatus</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>a49ecb57-af64-42ac-8046-70a4a1c8baa6</parentFolderId>
+  <packageId>e1abeceb-9b9b-4095-85d4-f3eb571670f6</packageId>
+  <packageName>FluentValidationTest.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="c7b2609a-199c-4cfd-bb15-6bab791d0a81" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Pending</name>
+      <display>Pending</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>5db51c1f-a280-4531-a90c-dad3967e1c59</parentFolderId>
+      <packageId>e1abeceb-9b9b-4095-85d4-f3eb571670f6</packageId>
+      <packageName>FluentValidationTest.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="9df9e6a5-5a5c-47a0-8223-cb33113b67c9" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Approved</name>
+      <display>Approved</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>5db51c1f-a280-4531-a90c-dad3967e1c59</parentFolderId>
+      <packageId>e1abeceb-9b9b-4095-85d4-f3eb571670f6</packageId>
+      <packageName>FluentValidationTest.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="1206f527-9d16-4b90-a067-ec467f603a22" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Rejected</name>
+      <display>Rejected</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>5db51c1f-a280-4531-a90c-dad3967e1c59</parentFolderId>
+      <packageId>e1abeceb-9b9b-4095-85d4-f3eb571670f6</packageId>
+      <packageName>FluentValidationTest.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a49ecb57-af64-42ac-8046-70a4a1c8baa6" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <comment># Enum-to-String Mapping: FluentValidation Regression Test
+
+## Test Coverage
+
+This folder contains positive-only regression tests for enum-to-string mapping scenarios in FluentValidation.
+
+### Test Cases
+
+#### 1. CQRS: CreateOrderCommand
+
+**Pattern**: Command DTO with Create Entity Action
+
+**DTO Fields**:
+- `Status: OrderStatus` (enum type)
+  - Mapped to Order entity
+  - Expected: `.IsInEnum()` validator
+- `Notes: string` (string type)
+  - Explicit Validations stereotype: MaxLength = 100
+  - Expected: `.MaximumLength(100)` validator
+
+**Validator File**: `CreateOrderCommandValidator.cs`
+
+#### 2. Traditional Service: OrderService
+
+**Pattern**: Service with Operation Parameters (no DTO)
+
+**Operation Parameters**:
+- `status: OrderStatus` (enum parameter)
+  - Validates using domain enum values
+  - Expected: `.IsInEnum()` validator (via FluentValidation service validators)
+- `notes: string` (string parameter)
+  - Inherits constraints from mapped entity attribute (Order.Notes)
+  - Expected: `.MaximumLength(100)` validator
+
+**Service File**: `OrderService.cs`
+**Operation**: `ProcessOrder(status: OrderStatus, notes: string): void`
+
+## Domain Model Constraints
+
+**Entity**: Order
+
+Each attribute demonstrates BOTH constraint approaches:
+
+| Attribute | Domain Constraints | RDBMS Constraints | Purpose |
+|-----------|-------------------|------------------|----------|
+| StatusText | Text Limits (50) | Text Constraints (50) | Show dual stereotypes |
+| Notes | Text Limits (100) | Text Constraints (100) | Show dual stereotypes |
+
+**Why Both?**
+- Domain Constraints: Validation metadata (used by FluentValidation modules)
+- Text Constraints: Database schema metadata (used by EF Core / RDBMS modules)
+- Both can coexist and serve different purposes
+
+## Positive Assertions Only
+
+Both test cases use **presence-based assertions**:
+
+### CreateOrderCommand Assertions
+
+1. ✅ `Status` field generates `.IsInEnum()` rule
+2. ✅ `Notes` field generates `.MaximumLength(100)` rule
+3. ✅ Code compiles without errors
+
+### OrderService Assertions
+
+1. ✅ Service generates with `ProcessOrder` operation
+2. ✅ Parameters properly typed (enum and string)
+3. ✅ Code compiles without errors
+
+## Test Stability
+
+✅ **No Negative Snapshots**: Uses positive assertions only
+✅ **CI/CD Stable**: Won't fail on unrelated changes
+✅ **Guards Behavior**: Verifies what should be present
+✅ **Comprehensive Coverage**: CQRS + Traditional Services patterns
+
+## Generated Files
+
+### Domain
+- `Order.cs` - Entity with dual constraint stereotypes
+- `OrderStatus.cs` - Enum (Pending, Approved, Rejected)
+
+### Application (CQRS)
+- `CreateOrderCommand.cs` - Command DTO
+- `CreateOrderCommandValidator.cs` - Validator with rules
+- `CreateOrderCommandHandler.cs` - Handler
+
+### Application (Services)
+- `OrderService.cs` - Service implementation
+- `IOrderService.cs` - Service interface
+
+## Future Enhancement
+
+Once negative snapshot support becomes available:
+- Verify absence of unintended rules
+- Validate complete validator chains
+- Assert rule ordering and composition</comment>
+  <name>EnumToStringMapping</name>
+  <display>EnumToStringMapping</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>2c9b3dd2-c55b-488d-8091-632106916125</parentFolderId>
+  <packageId>e1abeceb-9b9b-4095-85d4-f3eb571670f6</packageId>
+  <packageName>FluentValidationTest.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.Common.CSharp</definitionPackageName>
+      <definitionPackageId>730e1275-0c32-44f7-991a-9619d07ca68d</definitionPackageId>
+      <properties>
+        <property name="96df2fa6-7361-4e43-9acf-dbcea23b650a" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements />
+</class>

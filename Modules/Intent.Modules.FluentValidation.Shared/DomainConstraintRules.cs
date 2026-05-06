@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
+using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.Shared;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -42,39 +43,47 @@ internal static class DomainConstraintRules
                attribute.HasStereotype(DomainConstraintStereotypes.Url);
     }
 
+    internal static bool HasApplicableRules(DTOFieldModel field, AttributeModel attribute)
+    {
+        return attribute.HasStereotype(DomainConstraintStereotypes.Required) ||
+               attribute.HasStereotype(DomainConstraintStereotypes.CollectionLimits) ||
+               (CanApplyStringRules(field) &&
+                (HasConfiguredTextConstraintMaxLength(attribute) ||
+                 attribute.HasStereotype(DomainConstraintStereotypes.TextLimits) ||
+                 attribute.HasStereotype(DomainConstraintStereotypes.RegularExpression) ||
+                 attribute.HasStereotype(DomainConstraintStereotypes.Email) ||
+                 attribute.HasStereotype(DomainConstraintStereotypes.Base64) ||
+                 attribute.HasStereotype(DomainConstraintStereotypes.Url))) ||
+               attribute.HasStereotype(DomainConstraintStereotypes.NumericLimits);
+    }
+
     /// <summary>
     /// Implements the "Collect and Join" pattern for grouped collection validation.
     /// </summary>
     internal static void ApplyFallbackRules(
         ICSharpTemplate? template,
         CSharpMethodChainStatement validationRuleChain,
+        DTOFieldModel field,
         AttributeModel mappedAttribute,
         HashSet<string> appliedRuleSpaces)
     {
         // 1. RDBMS Text Constraints (Physical overrides Logical)
-        if (mappedAttribute.HasStereotype("Text Constraints") &&
+        var configuredTextConstraintMaxLength = CanApplyStringRules(field)
+            ? GetConfiguredTextConstraintMaxLength(mappedAttribute)
+            : null;
+
+        if (configuredTextConstraintMaxLength.HasValue &&
             !IsRuleSpaceApplied(appliedRuleSpaces, RuleSpaces.LengthMax))
         {
-            try
-            {
-                var maxLength = mappedAttribute.GetStereotypeProperty<int?>("Text Constraints", "MaxLength");
-                if (maxLength > 0)
-                {
-                    validationRuleChain.AddChainStatement($"MaximumLength({maxLength})", x => x.AddMetadata(RuleSpaceMetadataKey, RuleSpaces.LengthMax));
-                    appliedRuleSpaces.Add(RuleSpaces.LengthMax);
-                }
-            }
-            catch (Exception e)
-            {
-                Logging.Log.Debug("Could not resolve [Text Constraints] stereotype: " + e.Message);
-            }
+            validationRuleChain.AddChainStatement($"MaximumLength({configuredTextConstraintMaxLength.Value})", x => x.AddMetadata(RuleSpaceMetadataKey, RuleSpaces.LengthMax));
+            appliedRuleSpaces.Add(RuleSpaces.LengthMax);
         }
 
         // 2. Container-Level Rules (Required, Collection Limits)
         ApplyContainerRules(mappedAttribute, validationRuleChain, appliedRuleSpaces);
 
         // 3. Instance-Level Rules (Collect & Join)
-        var itemRules = GetItemLevelRules(mappedAttribute, template, appliedRuleSpaces).ToList();
+        var itemRules = GetItemLevelRules(field, mappedAttribute, template, appliedRuleSpaces).ToList();
         var validItemRules = itemRules.Where(r => !IsRuleSpaceApplied(appliedRuleSpaces, r.RuleSpace)).ToList();
 
         if (!validItemRules.Any()) return;
@@ -156,10 +165,11 @@ internal static class DomainConstraintRules
         }
     }
 
-    private static IEnumerable<RuleData> GetItemLevelRules(AttributeModel attribute, ICSharpTemplate? template, HashSet<string> appliedRuleSpaces)
+    private static IEnumerable<RuleData> GetItemLevelRules(DTOFieldModel field, AttributeModel attribute, ICSharpTemplate? template, HashSet<string> appliedRuleSpaces)
     {
         // Text Limits
-        if (attribute.HasStereotype(DomainConstraintStereotypes.TextLimits))
+        if (CanApplyStringRules(field) &&
+            attribute.HasStereotype(DomainConstraintStereotypes.TextLimits))
         {
             var textLimits = attribute.GetStereotype(DomainConstraintStereotypes.TextLimits);
             var minStr = textLimits?.GetProperty("Min Length")?.Value;
@@ -213,7 +223,8 @@ internal static class DomainConstraintRules
         }
 
         // Regex
-        if (attribute.HasStereotype(DomainConstraintStereotypes.RegularExpression))
+        if (CanApplyStringRules(field) &&
+            attribute.HasStereotype(DomainConstraintStereotypes.RegularExpression))
         {
             var pattern = attribute.GetStereotype(DomainConstraintStereotypes.RegularExpression)?.GetProperty("Pattern")?.Value;
             var message = attribute.GetStereotype(DomainConstraintStereotypes.RegularExpression)?.GetProperty("Message")?.Value;
@@ -228,26 +239,47 @@ internal static class DomainConstraintRules
         }
 
         // Email
-        if (attribute.HasStereotype(DomainConstraintStereotypes.Email))
+        if (CanApplyStringRules(field) &&
+            attribute.HasStereotype(DomainConstraintStereotypes.Email))
         {
             yield return new RuleData(RuleSpaces.Email, "EmailAddress()");
         }
 
         // Base64
-        if (attribute.HasStereotype(DomainConstraintStereotypes.Base64))
+        if (CanApplyStringRules(field) &&
+            attribute.HasStereotype(DomainConstraintStereotypes.Base64))
         {
             var base64Type = template is not null ? template.UseType("System.Buffers.Text.Base64") : "System.Buffers.Text.Base64";
             yield return new RuleData(RuleSpaces.Base64, $"Must(value => {base64Type}.IsValid(value))", $"WithMessage(\"{ToPascalCaseName(attribute.Name)} must be a valid Base64 string.\")");
         }
 
         // URL
-        if (attribute.HasStereotype(DomainConstraintStereotypes.Url))
+        if (CanApplyStringRules(field) &&
+            attribute.HasStereotype(DomainConstraintStereotypes.Url))
         {
             var uriType = template is not null ? template.UseType("System.Uri") : "System.Uri";
             var uriKindType = template is not null ? template.UseType("System.UriKind") : "System.UriKind";
             yield return new RuleData(RuleSpaces.Url, $"Must(value => {uriType}.TryCreate(value, {uriKindType}.Absolute, out _))", $"WithMessage(\"{ToPascalCaseName(attribute.Name)} must be a valid URL.\")");
         }
     }
+
+    private static bool HasConfiguredTextConstraintMaxLength(AttributeModel attribute) => GetConfiguredTextConstraintMaxLength(attribute).HasValue;
+
+    private static int? GetConfiguredTextConstraintMaxLength(AttributeModel attribute)
+    {
+        try
+        {
+            var maxLength = attribute.GetStereotypeProperty<int?>("Text Constraints", "MaxLength");
+            return maxLength > 0 ? maxLength : null;
+        }
+        catch (Exception e)
+        {
+            Logging.Log.Debug("Could not resolve [Text Constraints] stereotype: " + e.Message);
+            return null;
+        }
+    }
+
+    private static bool CanApplyStringRules(DTOFieldModel field) => field.TypeReference.HasStringType();
 
     internal static bool IsRuleSpaceApplied(HashSet<string> appliedRuleSpaces, string space)
     {

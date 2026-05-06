@@ -1,3 +1,7 @@
+### Version 3.13.1
+
+- Fixed: Prevented string-only inferred rules (for example, `MaximumLength`) from being generated for enum DTO fields mapped to string entity attributes.
+
 ### Version 3.13.0
 
 - Improvement: Automatic AI tasks to implement custom validation methods.

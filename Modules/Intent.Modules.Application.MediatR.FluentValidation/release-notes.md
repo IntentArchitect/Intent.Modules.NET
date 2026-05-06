@@ -1,3 +1,7 @@
+### Version 4.12.0
+
+- Fixed: Prevented string-only inferred rules (for example, `MaximumLength`) from being generated for enum fields mapped to string entity attributes.
+
 ### Version 4.11.0
 
 - Improvement: Automatic AI tasks to implement custom validation methods.

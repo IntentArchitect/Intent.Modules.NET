@@ -1,5 +1,6 @@
 using FluentValidationTest.Domain.Common.Interfaces;
 using FluentValidationTest.Domain.Entities.ValidationScenarios.ConstructorOperationConstraints;
+using FluentValidationTest.Domain.Entities.ValidationScenarios.EnumMapping;
 using FluentValidationTest.Domain.Entities.ValidationScenarios.IdentityConstraints;
 using FluentValidationTest.Domain.Entities.ValidationScenarios.Nullability;
 using FluentValidationTest.Domain.Entities.ValidationScenarios.NumericConstraints;
@@ -7,6 +8,7 @@ using FluentValidationTest.Domain.Entities.ValidationScenarios.PatternConstraint
 using FluentValidationTest.Domain.Entities.ValidationScenarios.StressSuite;
 using FluentValidationTest.Domain.Entities.ValidationScenarios.TextConstraints;
 using FluentValidationTest.Infrastructure.Persistence.Configurations.ValidationScenarios.ConstructorOperationConstraints;
+using FluentValidationTest.Infrastructure.Persistence.Configurations.ValidationScenarios.EnumMapping;
 using FluentValidationTest.Infrastructure.Persistence.Configurations.ValidationScenarios.IdentityConstraints;
 using FluentValidationTest.Infrastructure.Persistence.Configurations.ValidationScenarios.Nullability;
 using FluentValidationTest.Infrastructure.Persistence.Configurations.ValidationScenarios.NumericConstraints;
@@ -28,6 +30,7 @@ namespace FluentValidationTest.Infrastructure.Persistence
         }
 
         public DbSet<ConstructedConstrainedEntity> ConstructedConstrainedEntities { get; set; }
+        public DbSet<Order> Orders { get; set; }
         public DbSet<UniqueAccountEntity> UniqueAccountEntities { get; set; }
         public DbSet<UniquePersonEntity> UniquePersonEntities { get; set; }
         public DbSet<NullabilityConstrainedEntity> NullabilityConstrainedEntities { get; set; }
@@ -45,6 +48,7 @@ namespace FluentValidationTest.Infrastructure.Persistence
 
             ConfigureModel(modelBuilder);
             modelBuilder.ApplyConfiguration(new ConstructedConstrainedEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new OrderConfiguration());
             modelBuilder.ApplyConfiguration(new UniqueAccountEntityConfiguration());
             modelBuilder.ApplyConfiguration(new UniquePersonEntityConfiguration());
             modelBuilder.ApplyConfiguration(new NullabilityConstrainedEntityConfiguration());
