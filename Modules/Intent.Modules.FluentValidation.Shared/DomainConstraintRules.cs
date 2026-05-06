@@ -204,6 +204,8 @@ internal static class DomainConstraintRules
             var maxStr = numLimits?.GetProperty("Max Value")?.Value;
             var hasMin = IsPopulated(minStr);
             var hasMax = IsPopulated(maxStr);
+            var minExclusive = ResolveIsExclusive(TryGetPropertyValue(numLimits, "Min Boundary Type"), "Min Boundary Type");
+            var maxExclusive = ResolveIsExclusive(TryGetPropertyValue(numLimits, "Max Boundary Type"), "Max Boundary Type");
 
             if (hasMin && hasMax)
             {
@@ -211,15 +213,24 @@ internal static class DomainConstraintRules
                 var maxClaimed = IsRuleSpaceApplied(appliedRuleSpaces, RuleSpaces.NumericMax);
 
                 if (!minClaimed && !maxClaimed)
-                    yield return new RuleData(RuleSpaces.Numeric, $"InclusiveBetween({FormatNumericLiteral(minStr!, attribute)}, {FormatNumericLiteral(maxStr!, attribute)})");
+                {
+                    if (!minExclusive && !maxExclusive)
+                        yield return new RuleData(RuleSpaces.Numeric, $"InclusiveBetween({FormatNumericLiteral(minStr!, attribute)}, {FormatNumericLiteral(maxStr!, attribute)})");
+                    else if (minExclusive && maxExclusive)
+                        yield return new RuleData(RuleSpaces.Numeric, $"ExclusiveBetween({FormatNumericLiteral(minStr!, attribute)}, {FormatNumericLiteral(maxStr!, attribute)})");
+                    else
+                        yield return new RuleData(RuleSpaces.Numeric,
+                            minExclusive ? $"GreaterThan({FormatNumericLiteral(minStr!, attribute)})" : $"GreaterThanOrEqualTo({FormatNumericLiteral(minStr!, attribute)})",
+                            maxExclusive ? $"LessThan({FormatNumericLiteral(maxStr!, attribute)})" : $"LessThanOrEqualTo({FormatNumericLiteral(maxStr!, attribute)})");
+                }
                 else if (minClaimed && !maxClaimed)
-                    yield return new RuleData(RuleSpaces.NumericMax, $"LessThanOrEqualTo({FormatNumericLiteral(maxStr!, attribute)})");
+                    yield return new RuleData(RuleSpaces.NumericMax, maxExclusive ? $"LessThan({FormatNumericLiteral(maxStr!, attribute)})" : $"LessThanOrEqualTo({FormatNumericLiteral(maxStr!, attribute)})");
                 else if (!minClaimed && maxClaimed)
-                    yield return new RuleData(RuleSpaces.NumericMin, $"GreaterThanOrEqualTo({FormatNumericLiteral(minStr!, attribute)})");
+                    yield return new RuleData(RuleSpaces.NumericMin, minExclusive ? $"GreaterThan({FormatNumericLiteral(minStr!, attribute)})" : $"GreaterThanOrEqualTo({FormatNumericLiteral(minStr!, attribute)})");
                 // both claimed → emit nothing
             }
-            else if (hasMin) yield return new RuleData(RuleSpaces.NumericMin, $"GreaterThanOrEqualTo({FormatNumericLiteral(minStr!, attribute)})");
-            else if (hasMax) yield return new RuleData(RuleSpaces.NumericMax, $"LessThanOrEqualTo({FormatNumericLiteral(maxStr!, attribute)})");
+            else if (hasMin) yield return new RuleData(RuleSpaces.NumericMin, minExclusive ? $"GreaterThan({FormatNumericLiteral(minStr!, attribute)})" : $"GreaterThanOrEqualTo({FormatNumericLiteral(minStr!, attribute)})");
+            else if (hasMax) yield return new RuleData(RuleSpaces.NumericMax, maxExclusive ? $"LessThan({FormatNumericLiteral(maxStr!, attribute)})" : $"LessThanOrEqualTo({FormatNumericLiteral(maxStr!, attribute)})");
         }
 
         // Regex
@@ -280,6 +291,19 @@ internal static class DomainConstraintRules
     }
 
     private static bool CanApplyStringRules(DTOFieldModel field) => field.TypeReference.HasStringType();
+
+    private static string? TryGetPropertyValue(IStereotype? stereotype, string propertyName)
+    {
+        try { return stereotype?.GetProperty(propertyName)?.Value; }
+        catch { return null; }
+    }
+
+    private static bool ResolveIsExclusive(string? boundaryType, string propertyName) => boundaryType switch
+    {
+        null or "" or "Inclusive" => false,
+        "Exclusive" => true,
+        _ => throw new InvalidOperationException($"Unsupported {propertyName} value: \"{boundaryType}\"")
+    };
 
     internal static bool IsRuleSpaceApplied(HashSet<string> appliedRuleSpaces, string space)
     {
