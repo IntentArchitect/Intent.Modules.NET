@@ -6,17 +6,17 @@ using MediatR;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "2.0")]
 
-namespace FluentValidationTest.Application.ValidationScenarios.EnumToStringMapping.CreateOrder
+namespace FluentValidationTest.Application.ValidationScenarios.EnumToStringMapping.EnumToStringMapping
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand>
+    public class EnumToStringMappingCommandHandler : IRequestHandler<EnumToStringMappingCommand>
     {
-        private readonly IOrderRepository _orderRepository;
+        private readonly IEnumToStringMappingRepository _enumToStringMappingRepository;
 
         [IntentManaged(Mode.Merge)]
-        public CreateOrderCommandHandler(IOrderRepository orderRepository)
+        public EnumToStringMappingCommandHandler(IEnumToStringMappingRepository enumToStringMappingRepository)
         {
-            _orderRepository = orderRepository;
+            _enumToStringMappingRepository = enumToStringMappingRepository;
         }
 
         /// <summary>
@@ -28,16 +28,16 @@ namespace FluentValidationTest.Application.ValidationScenarios.EnumToStringMappi
         /// Domain Entity Target: Order (OrderStatus enum mapped to Order.StatusText string)
         /// </summary>
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task Handle(CreateOrderCommand request, CancellationToken cancellationToken)
+        public async Task Handle(EnumToStringMappingCommand request, CancellationToken cancellationToken)
         {
-            var order = new Order
+            var order = new Domain.Entities.ValidationScenarios.EnumMapping.EnumToStringMapping
             {
                 StatusText = request.Status.ToString(),
                 Notes = request.Notes,
                 ProcessText = request.Process.ToString()
             };
 
-            _orderRepository.Add(order);
+            _enumToStringMappingRepository.Add(order);
         }
     }
 }

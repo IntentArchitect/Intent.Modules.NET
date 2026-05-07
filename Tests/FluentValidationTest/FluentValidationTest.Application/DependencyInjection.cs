@@ -32,7 +32,7 @@ namespace FluentValidationTest.Application
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddScoped<IValidatorProvider, ValidatorProvider>();
             services.AddTransient<IValidationService, ValidationService>();
-            services.AddTransient<IOrderService, OrderService>();
+            services.AddTransient<IEnumToStringMappingService, EnumToStringMappingService>();
             services.AddTransient<IInvoiceService, InvoiceService>();
             return services;
         }

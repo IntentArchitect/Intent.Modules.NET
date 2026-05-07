@@ -7,15 +7,15 @@ using Intent.RoslynWeaver.Attributes;
 namespace FluentValidationTest.Domain.Repositories.ValidationScenarios.EnumMapping
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IOrderRepository : IEFRepository<Order, Order>
+    public interface IEnumToStringMappingRepository : IEFRepository<EnumToStringMapping, EnumToStringMapping>
     {
         [IntentManaged(Mode.Fully)]
         Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
-        Task<Order?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<EnumToStringMapping?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
-        Task<Order?> FindByIdAsync(Guid id, Func<IQueryable<Order>, IQueryable<Order>> queryOptions, CancellationToken cancellationToken = default);
+        Task<EnumToStringMapping?> FindByIdAsync(Guid id, Func<IQueryable<EnumToStringMapping>, IQueryable<EnumToStringMapping>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
-        Task<List<Order>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
+        Task<List<EnumToStringMapping>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }
 }

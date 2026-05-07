@@ -74,7 +74,9 @@
           <definitionPackageId>f852e12f-1a19-4c8d-8192-8393c6ce59da</definitionPackageId>
           <properties>
             <property name="4c8d4fd3-bfcd-44d7-9b12-7e2dc141fb72" display="Min Value" value="18" isActive="true" />
+            <property name="3e3830cd-1a87-47d2-8659-02a269b6e482" display="Min Boundary Type" value="Inclusive" isActive="false" />
             <property name="9dad612e-e7ca-4d2e-a1e5-aaf0d4c82d17" display="Max Value" value="120" isActive="true" />
+            <property name="337335e1-749d-49ec-962d-0b57566bbaeb" display="Max Boundary Type" value="Inclusive" isActive="false" />
           </properties>
         </stereotype>
       </stereotypes>
@@ -108,7 +110,9 @@
           <definitionPackageId>f852e12f-1a19-4c8d-8192-8393c6ce59da</definitionPackageId>
           <properties>
             <property name="4c8d4fd3-bfcd-44d7-9b12-7e2dc141fb72" display="Min Value" value="0" isActive="true" />
+            <property name="3e3830cd-1a87-47d2-8659-02a269b6e482" display="Min Boundary Type" value="Inclusive" isActive="false" />
             <property name="9dad612e-e7ca-4d2e-a1e5-aaf0d4c82d17" display="Max Value" value="100" isActive="true" />
+            <property name="337335e1-749d-49ec-962d-0b57566bbaeb" display="Max Boundary Type" value="Inclusive" isActive="false" />
           </properties>
         </stereotype>
       </stereotypes>
@@ -142,7 +146,9 @@
           <definitionPackageId>f852e12f-1a19-4c8d-8192-8393c6ce59da</definitionPackageId>
           <properties>
             <property name="4c8d4fd3-bfcd-44d7-9b12-7e2dc141fb72" display="Min Value" value="0" isActive="true" />
+            <property name="3e3830cd-1a87-47d2-8659-02a269b6e482" display="Min Boundary Type" value="Inclusive" isActive="true" />
             <property name="9dad612e-e7ca-4d2e-a1e5-aaf0d4c82d17" display="Max Value" value="100" isActive="true" />
+            <property name="337335e1-749d-49ec-962d-0b57566bbaeb" display="Max Boundary Type" value="Inclusive" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>
@@ -176,7 +182,9 @@
           <definitionPackageId>f852e12f-1a19-4c8d-8192-8393c6ce59da</definitionPackageId>
           <properties>
             <property name="4c8d4fd3-bfcd-44d7-9b12-7e2dc141fb72" display="Min Value" value="1" isActive="true" />
+            <property name="3e3830cd-1a87-47d2-8659-02a269b6e482" display="Min Boundary Type" value="Inclusive" isActive="true" />
             <property name="9dad612e-e7ca-4d2e-a1e5-aaf0d4c82d17" display="Max Value" value="10000" isActive="true" />
+            <property name="337335e1-749d-49ec-962d-0b57566bbaeb" display="Max Boundary Type" value="Inclusive" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>
@@ -204,6 +212,302 @@
       <packageId>541ca9b0-4650-482d-b21e-fb0d1d89b6d3</packageId>
       <packageName>FluentValidationTest.Domain</packageName>
       <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="020c7f08-39bf-44d9-beb3-6a29fdbd1abc" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <comment>Tests min exclusive (&gt;), max inclusive (&lt;=). Value must be &gt; 0 and &lt;= 100.</comment>
+      <name>ExclusiveMinInclusiveMaxFloat</name>
+      <display>ExclusiveMinInclusiveMaxFloat: float</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="3bc035ce-5b49-45c4-9dca-ec46296a08cf">
+        <typeId>341929E9-E3E7-46AA-ACB3-B0438421F4C4</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>17743299-39fa-4f3e-901e-38aae4aeb7d4</parentFolderId>
+      <packageId>541ca9b0-4650-482d-b21e-fb0d1d89b6d3</packageId>
+      <packageName>FluentValidationTest.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="cb14e47d-672c-4244-8950-7c4ebf8cf8ed" name="Numeric Limits">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.Domain.Constraints</definitionPackageName>
+          <definitionPackageId>f852e12f-1a19-4c8d-8192-8393c6ce59da</definitionPackageId>
+          <properties>
+            <property name="4c8d4fd3-bfcd-44d7-9b12-7e2dc141fb72" display="Min Value" value="0" isActive="true" />
+            <property name="3e3830cd-1a87-47d2-8659-02a269b6e482" display="Min Boundary Type" value="Exclusive" isActive="true" />
+            <property name="9dad612e-e7ca-4d2e-a1e5-aaf0d4c82d17" display="Max Value" value="100" isActive="true" />
+            <property name="337335e1-749d-49ec-962d-0b57566bbaeb" display="Max Boundary Type" value="Inclusive" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="3cc2a622-e666-49d6-bd81-107fbde936eb" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <comment>Tests min inclusive (&gt;=), max exclusive (&lt;). Value must be &gt;= 10 and &lt; 50.</comment>
+      <name>InclusiveMinExclusiveMaxDouble</name>
+      <display>InclusiveMinExclusiveMaxDouble: double</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="dca90293-f859-4695-b2eb-7938246ba104">
+        <typeId>24A77F70-5B97-40DD-8F9A-4208AD5F9219</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>17743299-39fa-4f3e-901e-38aae4aeb7d4</parentFolderId>
+      <packageId>541ca9b0-4650-482d-b21e-fb0d1d89b6d3</packageId>
+      <packageName>FluentValidationTest.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="cb14e47d-672c-4244-8950-7c4ebf8cf8ed" name="Numeric Limits">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.Domain.Constraints</definitionPackageName>
+          <definitionPackageId>f852e12f-1a19-4c8d-8192-8393c6ce59da</definitionPackageId>
+          <properties>
+            <property name="4c8d4fd3-bfcd-44d7-9b12-7e2dc141fb72" display="Min Value" value="10" isActive="true" />
+            <property name="3e3830cd-1a87-47d2-8659-02a269b6e482" display="Min Boundary Type" value="Inclusive" isActive="true" />
+            <property name="9dad612e-e7ca-4d2e-a1e5-aaf0d4c82d17" display="Max Value" value="50" isActive="true" />
+            <property name="337335e1-749d-49ec-962d-0b57566bbaeb" display="Max Boundary Type" value="Exclusive" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="e39dd2fe-b03d-4ae9-9e5e-a11017b0677f" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <comment>Tests both boundaries exclusive (&gt; and &lt;). Value must be &gt; 0.01 and &lt; 999.99.</comment>
+      <name>ExclusiveMinExclusiveMaxDecimal</name>
+      <display>ExclusiveMinExclusiveMaxDecimal: decimal</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="61a386a1-95e2-4ffd-95e8-20d98a69f977">
+        <typeId>675c7b84-997a-44e0-82b9-cd724c07c9e6</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>17743299-39fa-4f3e-901e-38aae4aeb7d4</parentFolderId>
+      <packageId>541ca9b0-4650-482d-b21e-fb0d1d89b6d3</packageId>
+      <packageName>FluentValidationTest.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="cb14e47d-672c-4244-8950-7c4ebf8cf8ed" name="Numeric Limits">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.Domain.Constraints</definitionPackageName>
+          <definitionPackageId>f852e12f-1a19-4c8d-8192-8393c6ce59da</definitionPackageId>
+          <properties>
+            <property name="4c8d4fd3-bfcd-44d7-9b12-7e2dc141fb72" display="Min Value" value="0.01" isActive="true" />
+            <property name="3e3830cd-1a87-47d2-8659-02a269b6e482" display="Min Boundary Type" value="Exclusive" isActive="true" />
+            <property name="9dad612e-e7ca-4d2e-a1e5-aaf0d4c82d17" display="Max Value" value="999.99" isActive="true" />
+            <property name="337335e1-749d-49ec-962d-0b57566bbaeb" display="Max Boundary Type" value="Exclusive" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="82c6d5de-484e-4799-ac68-112f6da76ad6" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <comment>Tests only min boundary defined as exclusive (&gt;). Value must be &gt; -10.5.</comment>
+      <name>OnlyMinExclusiveFloat</name>
+      <display>OnlyMinExclusiveFloat: float</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="be81aeb8-8669-481d-92f9-a714166a1d3b">
+        <typeId>341929E9-E3E7-46AA-ACB3-B0438421F4C4</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>17743299-39fa-4f3e-901e-38aae4aeb7d4</parentFolderId>
+      <packageId>541ca9b0-4650-482d-b21e-fb0d1d89b6d3</packageId>
+      <packageName>FluentValidationTest.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="cb14e47d-672c-4244-8950-7c4ebf8cf8ed" name="Numeric Limits">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.Domain.Constraints</definitionPackageName>
+          <definitionPackageId>f852e12f-1a19-4c8d-8192-8393c6ce59da</definitionPackageId>
+          <properties>
+            <property name="4c8d4fd3-bfcd-44d7-9b12-7e2dc141fb72" display="Min Value" value="-10.5" isActive="true" />
+            <property name="3e3830cd-1a87-47d2-8659-02a269b6e482" display="Min Boundary Type" value="Exclusive" isActive="true" />
+            <property name="9dad612e-e7ca-4d2e-a1e5-aaf0d4c82d17" display="Max Value" isActive="true" />
+            <property name="337335e1-749d-49ec-962d-0b57566bbaeb" display="Max Boundary Type" value="Inclusive" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="9fe27aad-8c06-492b-bf03-bc9c00313384" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <comment>Tests only max boundary defined as exclusive (&lt;). Value must be &lt; 1000.0.</comment>
+      <name>OnlyMaxExclusiveDouble</name>
+      <display>OnlyMaxExclusiveDouble: double</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="aa8dfc4a-8678-42d4-a414-afcf5b1e1ce2">
+        <typeId>24A77F70-5B97-40DD-8F9A-4208AD5F9219</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>17743299-39fa-4f3e-901e-38aae4aeb7d4</parentFolderId>
+      <packageId>541ca9b0-4650-482d-b21e-fb0d1d89b6d3</packageId>
+      <packageName>FluentValidationTest.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="cb14e47d-672c-4244-8950-7c4ebf8cf8ed" name="Numeric Limits">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.Domain.Constraints</definitionPackageName>
+          <definitionPackageId>f852e12f-1a19-4c8d-8192-8393c6ce59da</definitionPackageId>
+          <properties>
+            <property name="4c8d4fd3-bfcd-44d7-9b12-7e2dc141fb72" display="Min Value" isActive="true" />
+            <property name="3e3830cd-1a87-47d2-8659-02a269b6e482" display="Min Boundary Type" value="Inclusive" isActive="true" />
+            <property name="9dad612e-e7ca-4d2e-a1e5-aaf0d4c82d17" display="Max Value" value="1000.0" isActive="true" />
+            <property name="337335e1-749d-49ec-962d-0b57566bbaeb" display="Max Boundary Type" value="Exclusive" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="8977d66f-6bb2-4832-ab92-2ba1a90a945c" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <comment>Tests both boundaries inclusive (&gt;= and &lt;=). Value must be &gt;= 5.5 and &lt;= 99.9.</comment>
+      <name>InclusiveMinInclusiveMaxFloat</name>
+      <display>InclusiveMinInclusiveMaxFloat: float</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="98f588d5-959f-476d-9e65-b4d904190960">
+        <typeId>341929E9-E3E7-46AA-ACB3-B0438421F4C4</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>17743299-39fa-4f3e-901e-38aae4aeb7d4</parentFolderId>
+      <packageId>541ca9b0-4650-482d-b21e-fb0d1d89b6d3</packageId>
+      <packageName>FluentValidationTest.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="cb14e47d-672c-4244-8950-7c4ebf8cf8ed" name="Numeric Limits">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.Domain.Constraints</definitionPackageName>
+          <definitionPackageId>f852e12f-1a19-4c8d-8192-8393c6ce59da</definitionPackageId>
+          <properties>
+            <property name="4c8d4fd3-bfcd-44d7-9b12-7e2dc141fb72" display="Min Value" value="5.5" isActive="true" />
+            <property name="3e3830cd-1a87-47d2-8659-02a269b6e482" display="Min Boundary Type" value="Inclusive" isActive="true" />
+            <property name="9dad612e-e7ca-4d2e-a1e5-aaf0d4c82d17" display="Max Value" value="99.9" isActive="true" />
+            <property name="337335e1-749d-49ec-962d-0b57566bbaeb" display="Max Boundary Type" value="Inclusive" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="4cc0e7c2-a222-46fb-ad8f-e62c3d06d9bf" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <comment>Tests negative number range with mixed boundaries. Value must be &gt;= -100.00 and &lt; -0.01.</comment>
+      <name>NegativeRangeDecimal</name>
+      <display>NegativeRangeDecimal: decimal</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="843c90c7-7c01-45ee-a8d2-cc087e4171ba">
+        <typeId>675c7b84-997a-44e0-82b9-cd724c07c9e6</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>17743299-39fa-4f3e-901e-38aae4aeb7d4</parentFolderId>
+      <packageId>541ca9b0-4650-482d-b21e-fb0d1d89b6d3</packageId>
+      <packageName>FluentValidationTest.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="cb14e47d-672c-4244-8950-7c4ebf8cf8ed" name="Numeric Limits">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.Domain.Constraints</definitionPackageName>
+          <definitionPackageId>f852e12f-1a19-4c8d-8192-8393c6ce59da</definitionPackageId>
+          <properties>
+            <property name="4c8d4fd3-bfcd-44d7-9b12-7e2dc141fb72" display="Min Value" value="-100.00" isActive="true" />
+            <property name="3e3830cd-1a87-47d2-8659-02a269b6e482" display="Min Boundary Type" value="Inclusive" isActive="true" />
+            <property name="9dad612e-e7ca-4d2e-a1e5-aaf0d4c82d17" display="Max Value" value="-0.01" isActive="true" />
+            <property name="337335e1-749d-49ec-962d-0b57566bbaeb" display="Max Boundary Type" value="Exclusive" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="0a5fdf91-dcb7-415c-b33b-6fb08c579170" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <comment>Tests very narrow range with exclusive boundaries. Value must be &gt; 0.001 and &lt; 0.999.</comment>
+      <name>NarrowRangeDouble</name>
+      <display>NarrowRangeDouble: double</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="c6b8f770-2369-473b-b59f-7dc6575eac95">
+        <typeId>24A77F70-5B97-40DD-8F9A-4208AD5F9219</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>17743299-39fa-4f3e-901e-38aae4aeb7d4</parentFolderId>
+      <packageId>541ca9b0-4650-482d-b21e-fb0d1d89b6d3</packageId>
+      <packageName>FluentValidationTest.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="cb14e47d-672c-4244-8950-7c4ebf8cf8ed" name="Numeric Limits">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.Domain.Constraints</definitionPackageName>
+          <definitionPackageId>f852e12f-1a19-4c8d-8192-8393c6ce59da</definitionPackageId>
+          <properties>
+            <property name="4c8d4fd3-bfcd-44d7-9b12-7e2dc141fb72" display="Min Value" value="0.001" isActive="true" />
+            <property name="3e3830cd-1a87-47d2-8659-02a269b6e482" display="Min Boundary Type" value="Exclusive" isActive="true" />
+            <property name="9dad612e-e7ca-4d2e-a1e5-aaf0d4c82d17" display="Max Value" value="0.999" isActive="true" />
+            <property name="337335e1-749d-49ec-962d-0b57566bbaeb" display="Max Boundary Type" value="Exclusive" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata />
       <childElements />
     </childElement>

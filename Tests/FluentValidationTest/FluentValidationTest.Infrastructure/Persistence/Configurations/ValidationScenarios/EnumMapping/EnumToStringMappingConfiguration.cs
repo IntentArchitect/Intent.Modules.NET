@@ -8,9 +8,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace FluentValidationTest.Infrastructure.Persistence.Configurations.ValidationScenarios.EnumMapping
 {
-    public class OrderConfiguration : IEntityTypeConfiguration<Order>
+    public class EnumToStringMappingConfiguration : IEntityTypeConfiguration<EnumToStringMapping>
     {
-        public void Configure(EntityTypeBuilder<Order> builder)
+        public void Configure(EntityTypeBuilder<EnumToStringMapping> builder)
         {
             builder.HasKey(x => x.Id);
 

@@ -4,13 +4,13 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.MediatR.FluentValidation.CommandValidator", Version = "2.0")]
 
-namespace FluentValidationTest.Application.ValidationScenarios.EnumToStringMapping.CreateOrder
+namespace FluentValidationTest.Application.ValidationScenarios.EnumToStringMapping.EnumToStringMapping
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public class CreateOrderCommandValidator : AbstractValidator<CreateOrderCommand>
+    public class EnumToStringMappingCommandValidator : AbstractValidator<EnumToStringMappingCommand>
     {
         [IntentManaged(Mode.Merge)]
-        public CreateOrderCommandValidator()
+        public EnumToStringMappingCommandValidator()
         {
             ConfigureValidationRules();
         }
