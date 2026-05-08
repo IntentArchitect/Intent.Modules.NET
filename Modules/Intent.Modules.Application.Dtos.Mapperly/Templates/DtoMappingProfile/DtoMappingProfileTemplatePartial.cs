@@ -39,8 +39,12 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
                     var mapperDependencies = MappingHelper.DiscoverMapperDependencies(this, Model);
 
                     var entityTemplate = MappingHelper.GetEntityTemplate(this, Model);
-                    var dtoModelName = GetTypeName(TemplateRoles.Application.Contracts.Dto, Model);
+
+                    var entityClassName = entityTemplate.ClassName;  
+                    var dtoModelName = Model.Name;
+
                     var entityTypeName = GetTypeName(entityTemplate);
+                    var dtoTypeName = GetTypeName(TemplateRoles.Application.Contracts.Dto, Model);
 
                     // Analyze field mappings to determine what custom methods/attributes are needed
                     var mappingConfigurations = BuildMappingConfigurations();
@@ -78,10 +82,10 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
                     }
 
                     // Generate mapping methods with attributes
-                    @class.AddMethod(dtoModelName, $"{entityTypeName}To{dtoModelName}", method =>
+                    @class.AddMethod(dtoTypeName, $"{entityClassName}To{dtoModelName}", method =>
                     {
                         method.Public().Partial();
-                        method.AddParameter(entityTypeName, entityTypeName.ToCamelCase()).WithoutMethodModifier();
+                        method.AddParameter(entityTypeName, entityClassName.ToCamelCase()).WithoutMethodModifier();
 
                         // Add [MapperIgnoreSource] attributes for unmapped source properties
                         foreach (var unmappedProp in unmappedSourceProperties)
@@ -99,7 +103,7 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
                             {
                                 method.AddAttribute("MapPropertyFromSource", attribute =>
                                 {
-                                    attribute.AddArgument($"nameof({dtoModelName}.{config.TargetPropertyName})");
+                                    attribute.AddArgument($"nameof({dtoTypeName}.{config.TargetPropertyName})");
                                     attribute.AddArgument($"Use = nameof({config.CustomMethodName})");
                                 });
                             }
@@ -108,16 +112,16 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
                                 method.AddAttribute("MapProperty", attribute =>
                                 {
                                     attribute.AddArgument($"nameof({entityTypeName}.{config.AttributePath})");
-                                    attribute.AddArgument($"nameof({dtoModelName}.{config.TargetPropertyName})");
+                                    attribute.AddArgument($"nameof({dtoTypeName}.{config.TargetPropertyName})");
                                 });
                             }
                         }
                     });
 
-                    @class.AddMethod($"List<{dtoModelName}>", $"{entityTypeName}To{dtoModelName}List", method =>
+                    @class.AddMethod($"List<{dtoTypeName}>", $"{entityClassName}To{dtoModelName}List", method =>
                     {
                         method.Public().Partial();
-                        method.AddParameter($"List<{entityTypeName}>", entityTypeName.ToCamelCase().Pluralize()).WithoutMethodModifier();
+                        method.AddParameter($"List<{entityTypeName}>", entityClassName.ToCamelCase().Pluralize()).WithoutMethodModifier();
                     });
 
                     // Generate custom mapping methods
