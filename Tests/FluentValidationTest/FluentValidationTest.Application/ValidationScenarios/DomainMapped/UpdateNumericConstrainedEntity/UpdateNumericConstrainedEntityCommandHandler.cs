@@ -32,6 +32,14 @@ namespace FluentValidationTest.Application.ValidationScenarios.DomainMapped.Upda
             numericConstrainedEntity.Score = request.Score;
             numericConstrainedEntity.Price = request.Price;
             numericConstrainedEntity.OptionalThreshold = request.OptionalThreshold;
+            numericConstrainedEntity.ExclusiveMinInclusiveMaxFloat = request.ExclusiveMinInclusiveMaxFloat;
+            numericConstrainedEntity.InclusiveMinExclusiveMaxDouble = request.InclusiveMinExclusiveMaxDouble;
+            numericConstrainedEntity.ExclusiveMinExclusiveMaxDecimal = request.ExclusiveMinExclusiveMaxDecimal;
+            numericConstrainedEntity.OnlyMinExclusiveFloat = request.OnlyMinExclusiveFloat;
+            numericConstrainedEntity.OnlyMaxExclusiveDouble = request.OnlyMaxExclusiveDouble;
+            numericConstrainedEntity.InclusiveMinInclusiveMaxFloat = request.InclusiveMinInclusiveMaxFloat;
+            numericConstrainedEntity.NegativeRangeDecimal = request.NegativeRangeDecimal;
+            numericConstrainedEntity.NarrowRangeDouble = request.NarrowRangeDouble;
         }
     }
 }

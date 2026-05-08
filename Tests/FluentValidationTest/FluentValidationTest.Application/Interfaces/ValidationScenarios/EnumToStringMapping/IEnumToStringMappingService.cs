@@ -6,7 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace FluentValidationTest.Application.Interfaces.ValidationScenarios.EnumToStringMapping
 {
-    public interface IOrderService
+    public interface IEnumToStringMappingService
     {
         Task ProcessOrder(ProcessOrderDto dto, CancellationToken cancellationToken = default);
     }

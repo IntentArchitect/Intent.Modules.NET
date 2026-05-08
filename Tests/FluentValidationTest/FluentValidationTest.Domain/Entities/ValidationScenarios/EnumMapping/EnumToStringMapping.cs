@@ -4,9 +4,9 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace FluentValidationTest.Domain.Entities.ValidationScenarios.EnumMapping
 {
-    public class Order
+    public class EnumToStringMapping
     {
-        public Order()
+        public EnumToStringMapping()
         {
             StatusText = null!;
             Notes = null!;

@@ -21,7 +21,7 @@
   <targetEnd id="c88d3b42-170c-4a3d-a3e4-578a42ca3af1" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
     <name>numericConstrainedEntity</name>
     <display>[create] numericConstrainedEntity: NumericConstrainedEntity</display>
-    <order>5</order>
+    <order>13</order>
     <traits>
       <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
     </traits>
@@ -126,6 +126,126 @@
                 <path>
                   <target id="9a18ef5f-5b11-4b85-a5c2-207cbd7a19fc" name="CreateNumericConstrainedEntityCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
                   <target id="9371f992-cb91-444c-9dd5-d42950989574" name="OptionalThreshold" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{ExclusiveMinInclusiveMaxFloat}</expression>
+            <path>
+              <target id="17743299-39fa-4f3e-901e-38aae4aeb7d4" name="NumericConstrainedEntity" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="020c7f08-39bf-44d9-beb3-6a29fdbd1abc" name="ExclusiveMinInclusiveMaxFloat" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="ExclusiveMinInclusiveMaxFloat" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="9a18ef5f-5b11-4b85-a5c2-207cbd7a19fc" name="CreateNumericConstrainedEntityCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="ec782267-de27-4913-86af-7bdd8252a3ca" name="ExclusiveMinInclusiveMaxFloat" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{InclusiveMinExclusiveMaxDouble}</expression>
+            <path>
+              <target id="17743299-39fa-4f3e-901e-38aae4aeb7d4" name="NumericConstrainedEntity" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="3cc2a622-e666-49d6-bd81-107fbde936eb" name="InclusiveMinExclusiveMaxDouble" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="InclusiveMinExclusiveMaxDouble" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="9a18ef5f-5b11-4b85-a5c2-207cbd7a19fc" name="CreateNumericConstrainedEntityCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="e3ed3a35-672d-4b1e-a818-76c05734583d" name="InclusiveMinExclusiveMaxDouble" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{ExclusiveMinExclusiveMaxDecimal}</expression>
+            <path>
+              <target id="17743299-39fa-4f3e-901e-38aae4aeb7d4" name="NumericConstrainedEntity" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="e39dd2fe-b03d-4ae9-9e5e-a11017b0677f" name="ExclusiveMinExclusiveMaxDecimal" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="ExclusiveMinExclusiveMaxDecimal" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="9a18ef5f-5b11-4b85-a5c2-207cbd7a19fc" name="CreateNumericConstrainedEntityCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="513beecd-7df7-484b-ab27-166eba4e8fe0" name="ExclusiveMinExclusiveMaxDecimal" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OnlyMinExclusiveFloat}</expression>
+            <path>
+              <target id="17743299-39fa-4f3e-901e-38aae4aeb7d4" name="NumericConstrainedEntity" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="82c6d5de-484e-4799-ac68-112f6da76ad6" name="OnlyMinExclusiveFloat" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="OnlyMinExclusiveFloat" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="9a18ef5f-5b11-4b85-a5c2-207cbd7a19fc" name="CreateNumericConstrainedEntityCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="bb6d5d1b-1a79-4e4a-8b38-98fe5b81bd50" name="OnlyMinExclusiveFloat" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OnlyMaxExclusiveDouble}</expression>
+            <path>
+              <target id="17743299-39fa-4f3e-901e-38aae4aeb7d4" name="NumericConstrainedEntity" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="9fe27aad-8c06-492b-bf03-bc9c00313384" name="OnlyMaxExclusiveDouble" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="OnlyMaxExclusiveDouble" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="9a18ef5f-5b11-4b85-a5c2-207cbd7a19fc" name="CreateNumericConstrainedEntityCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="3eda2a47-fa57-4821-ab07-3adf0ae2ad51" name="OnlyMaxExclusiveDouble" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{InclusiveMinInclusiveMaxFloat}</expression>
+            <path>
+              <target id="17743299-39fa-4f3e-901e-38aae4aeb7d4" name="NumericConstrainedEntity" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="8977d66f-6bb2-4832-ab92-2ba1a90a945c" name="InclusiveMinInclusiveMaxFloat" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="InclusiveMinInclusiveMaxFloat" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="9a18ef5f-5b11-4b85-a5c2-207cbd7a19fc" name="CreateNumericConstrainedEntityCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="3303c7ce-965e-47a9-ba17-112778a35b2d" name="InclusiveMinInclusiveMaxFloat" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{NegativeRangeDecimal}</expression>
+            <path>
+              <target id="17743299-39fa-4f3e-901e-38aae4aeb7d4" name="NumericConstrainedEntity" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="4cc0e7c2-a222-46fb-ad8f-e62c3d06d9bf" name="NegativeRangeDecimal" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="NegativeRangeDecimal" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="9a18ef5f-5b11-4b85-a5c2-207cbd7a19fc" name="CreateNumericConstrainedEntityCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="44eb0eec-61ee-4545-aad4-0042d90acd9d" name="NegativeRangeDecimal" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{NarrowRangeDouble}</expression>
+            <path>
+              <target id="17743299-39fa-4f3e-901e-38aae4aeb7d4" name="NumericConstrainedEntity" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="0a5fdf91-dcb7-415c-b33b-6fb08c579170" name="NarrowRangeDouble" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="NarrowRangeDouble" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="9a18ef5f-5b11-4b85-a5c2-207cbd7a19fc" name="CreateNumericConstrainedEntityCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="7310ec4b-b036-485e-a4f1-7c0d14b9e2cf" name="NarrowRangeDouble" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>

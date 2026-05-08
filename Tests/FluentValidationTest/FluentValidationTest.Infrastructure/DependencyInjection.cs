@@ -37,7 +37,7 @@ namespace FluentValidationTest.Infrastructure
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<IConstructedConstrainedEntityRepository, ConstructedConstrainedEntityRepository>();
-            services.AddTransient<IOrderRepository, OrderRepository>();
+            services.AddTransient<IEnumToStringMappingRepository, EnumToStringMappingRepository>();
             services.AddTransient<IUniqueAccountEntityRepository, UniqueAccountEntityRepository>();
             services.AddTransient<IUniquePersonEntityRepository, UniquePersonEntityRepository>();
             services.AddTransient<INullabilityConstrainedEntityRepository, NullabilityConstrainedEntityRepository>();

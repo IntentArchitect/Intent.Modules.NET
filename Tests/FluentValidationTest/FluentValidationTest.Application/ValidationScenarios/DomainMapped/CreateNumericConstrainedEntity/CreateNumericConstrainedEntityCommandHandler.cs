@@ -27,7 +27,15 @@ namespace FluentValidationTest.Application.ValidationScenarios.DomainMapped.Crea
                 Percentage = request.Percentage,
                 Score = request.Score,
                 Price = request.Price,
-                OptionalThreshold = request.OptionalThreshold
+                OptionalThreshold = request.OptionalThreshold,
+                ExclusiveMinInclusiveMaxFloat = request.ExclusiveMinInclusiveMaxFloat,
+                InclusiveMinExclusiveMaxDouble = request.InclusiveMinExclusiveMaxDouble,
+                ExclusiveMinExclusiveMaxDecimal = request.ExclusiveMinExclusiveMaxDecimal,
+                OnlyMinExclusiveFloat = request.OnlyMinExclusiveFloat,
+                OnlyMaxExclusiveDouble = request.OnlyMaxExclusiveDouble,
+                InclusiveMinInclusiveMaxFloat = request.InclusiveMinInclusiveMaxFloat,
+                NegativeRangeDecimal = request.NegativeRangeDecimal,
+                NarrowRangeDouble = request.NarrowRangeDouble
             };
 
             _numericConstrainedEntityRepository.Add(numericConstrainedEntity);

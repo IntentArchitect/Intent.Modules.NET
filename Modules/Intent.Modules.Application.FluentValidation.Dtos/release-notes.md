@@ -1,5 +1,6 @@
 ### Version 3.13.1
 
+- Improvement: `Numeric Limits` domain constraint stereotype now supports `Exclusive` boundary types, generating `GreaterThan`, `LessThan`, and `ExclusiveBetween` rules as appropriate.
 - Fixed: Prevented string-only inferred rules (for example, `MaximumLength`) from being generated for enum DTO fields mapped to string entity attributes.
 
 ### Version 3.13.0

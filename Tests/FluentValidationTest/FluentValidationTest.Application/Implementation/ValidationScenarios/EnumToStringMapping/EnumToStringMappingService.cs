@@ -10,27 +10,27 @@ using Intent.RoslynWeaver.Attributes;
 namespace FluentValidationTest.Application.Implementation.ValidationScenarios.EnumToStringMapping
 {
     [IntentManaged(Mode.Merge)]
-    public class OrderService : IOrderService
+    public class EnumToStringMappingService : IEnumToStringMappingService
     {
-        private readonly IOrderRepository _orderRepository;
+        private readonly IEnumToStringMappingRepository _enumToStringMappingRepository;
 
         [IntentManaged(Mode.Merge)]
-        public OrderService(IOrderRepository orderRepository)
+        public EnumToStringMappingService(IEnumToStringMappingRepository enumToStringMappingRepository)
         {
-            _orderRepository = orderRepository;
+            _enumToStringMappingRepository = enumToStringMappingRepository;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task ProcessOrder(ProcessOrderDto dto, CancellationToken cancellationToken = default)
         {
-            var order = new Order
+            var order = new Domain.Entities.ValidationScenarios.EnumMapping.EnumToStringMapping
             {
                 StatusText = dto.Status.ToString(),
                 Notes = dto.Notes,
                 ProcessText = dto.Process.ToString()
             };
 
-            _orderRepository.Add(order);
+            _enumToStringMappingRepository.Add(order);
         }
     }
 }

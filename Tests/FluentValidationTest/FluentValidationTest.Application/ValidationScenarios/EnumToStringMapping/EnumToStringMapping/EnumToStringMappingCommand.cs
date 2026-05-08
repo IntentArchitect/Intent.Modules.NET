@@ -5,7 +5,7 @@ using MediatR;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.MediatR.CommandModels", Version = "1.0")]
 
-namespace FluentValidationTest.Application.ValidationScenarios.EnumToStringMapping.CreateOrder
+namespace FluentValidationTest.Application.ValidationScenarios.EnumToStringMapping.EnumToStringMapping
 {
     /// <summary>
     /// CreateOrderCommand DTO with enum-to-string mapping scenario.
@@ -15,9 +15,9 @@ namespace FluentValidationTest.Application.ValidationScenarios.EnumToStringMappi
     /// 
     /// Domain Entity Target: Order (OrderStatus enum mapped to Order.StatusText string)
     /// </summary>
-    public class CreateOrderCommand : IRequest, ICommand
+    public class EnumToStringMappingCommand : IRequest, ICommand
     {
-        public CreateOrderCommand(OrderStatus status, string notes, Process process)
+        public EnumToStringMappingCommand(OrderStatus status, string notes, Process process)
         {
             Status = status;
             Notes = notes;

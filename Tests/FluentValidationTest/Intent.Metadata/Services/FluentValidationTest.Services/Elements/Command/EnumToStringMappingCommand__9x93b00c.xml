@@ -6,8 +6,8 @@ Test Case: Verify enum field (Status) generates IsInEnum() validator.
 Also verify string field (Notes) generates MaximumLength(100) validator.
 
 Domain Entity Target: Order (OrderStatus enum mapped to Order.StatusText string)</comment>
-  <name>CreateOrderCommand</name>
-  <display>CreateOrderCommand: void</display>
+  <name>EnumToStringMappingCommand</name>
+  <display>EnumToStringMappingCommand: void</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />

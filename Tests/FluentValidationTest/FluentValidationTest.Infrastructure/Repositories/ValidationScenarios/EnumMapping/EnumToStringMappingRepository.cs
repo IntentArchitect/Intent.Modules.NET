@@ -11,9 +11,9 @@ using Intent.RoslynWeaver.Attributes;
 namespace FluentValidationTest.Infrastructure.Repositories.ValidationScenarios.EnumMapping
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class OrderRepository : RepositoryBase<Order, Order, ApplicationDbContext>, IOrderRepository
+    public class EnumToStringMappingRepository : RepositoryBase<EnumToStringMapping, EnumToStringMapping, ApplicationDbContext>, IEnumToStringMappingRepository
     {
-        public OrderRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
+        public EnumToStringMappingRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 
@@ -24,20 +24,21 @@ namespace FluentValidationTest.Infrastructure.Repositories.ValidationScenarios.E
             return await FindProjectToAsync<TProjection>(x => x.Id == id, cancellationToken);
         }
 
-        public async Task<Order?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
+        public async Task<EnumToStringMapping?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
-        public async Task<Order?> FindByIdAsync(
+        public async Task<EnumToStringMapping?> FindByIdAsync(
             Guid id,
-            Func<IQueryable<Order>, IQueryable<Order>> queryOptions,
+            Func<IQueryable<EnumToStringMapping>, IQueryable<EnumToStringMapping>> queryOptions,
             CancellationToken cancellationToken = default)
         {
             return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
         }
 
-        public async Task<List<Order>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default)
+        public async Task<List<EnumToStringMapping>> FindByIdsAsync(
+            Guid[] ids, CancellationToken cancellationToken = default)
         {
             // Force materialization - Some combinations of .net9 runtime and EF runtime crash with "Convert ReadOnlySpan to List since expression trees can't handle ref struct"
             var idList = ids.ToList();
