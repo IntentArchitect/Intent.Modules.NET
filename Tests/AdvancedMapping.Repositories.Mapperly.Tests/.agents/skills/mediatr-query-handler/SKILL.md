@@ -1,7 +1,7 @@
 ---
 name: mediatr-query-handler
 description: implement or revise mediatR query handler business logic in an existing handler file. use when a c# mediatR query handler has an incomplete or incorrect handle method and chatgpt should update the handle method, add private helper methods, and extend application or domain abstractions such as repositories or read services if required, while avoiding direct infrastructure dependencies in the handler.
-contentHash: C374BC8F2298E87725CB7442DC878C6A1BE138160776EF05DEB8E3D1B06C3A4D
+contentHash: 29D6CD71EDD7A00273F6BD21386151277914B41D14570E8ADFC56C3577C2BAD9
 ---
 
 # MediatR Query Handler
@@ -57,6 +57,8 @@ When a needed read capability is missing:
 - Prefer names such as `GetDetailsAsync`, `ListByCriteriaAsync`, `SearchActive...Async`, or `GetSummaryAsync` over schema-oriented names.
 - Do not explain or encode infrastructure implementation details in the handler.
 - Do not reference EF includes, Dapper SQL, joins, or storage-specific tuning from the handler.
+
+
 
 ## Output expectations
 

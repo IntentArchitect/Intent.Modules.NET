@@ -1,7 +1,7 @@
 ---
 name: mediatr-command-handler
 description: implement or revise mediatR command handler business logic in an existing handler file. use when a c# mediatR command handler has an incomplete or incorrect handle method and chatgpt should update the handle method, add private helper methods, and extend application or domain abstractions such as repositories or services if required, while avoiding direct infrastructure dependencies in the handler.
-contentHash: 2F6B130BDA60FC80328C94F6FE226CF69236047BCF1CCFBD6CB0808D1D2EAFFE
+contentHash: 3558D196D6ECBAB215E24F1748E48F9DAD17EBAD47F6123D3F7CAF79F022D889
 ---
 
 # MediatR Command Handler
@@ -21,7 +21,6 @@ Implement command handler business logic inside an existing handler file. Favor 
 - Search the codebase for similar handlers, repository methods, domain services, validation flows, and result patterns before introducing a new approach.
 - Add private helper methods inside the handler when they improve clarity, keep business flow readable, or encapsulate repeated branching logic.
 - Keep orchestration in the handler and place durable business rules in domain entities, value objects, specifications, or domain/application services when those patterns already exist nearby.
-- Assume there is an ambient unit of work save in place unless nearby code shows otherwise. Explicitly save only when needed by the use case, such as when a surrogate key must be returned before control leaves the handler, or when an existing local convention requires an explicit save.
 
 ## Workflow
 
@@ -58,6 +57,45 @@ When a needed repository capability is missing:
 - Prefer expressive methods such as `GetForUpdateAsync`, `ExistsBy...Async`, `FindActive...Async`, or `SaveAsync` over storage-oriented names.
 - Do not add infrastructure comments or instructions to the handler.
 - Do not reference how the repository will be implemented in EF, Dapper, SQL, or similar.
+
+## Unit of Work guidance
+
+- SaveChanges rule (STRICT): Do not call UnitOfWork.SaveChangesAsync(...) / SaveChangesAsync(...) in a handler/service method unless the operation returns a payload that requires DB-generated values, such as a generated Id, surrogate key, RowVersion/concurrency token, DB-generated timestamp, or computed column.
+- If the operation returns Unit, void, Task, or IRequest with no result: do not call SaveChangesAsync.
+- If the operation returns an identifier or DTO that needs generated fields: call SaveChangesAsync before returning.
+- If unsure, omit SaveChangesAsync and assume an outer unit-of-work/pipeline commit.
+- When reviewing code, remove SaveChangesAsync unless there is a clear generated-value or immediate-commit requirement.
+
+## AutoMapper guidance
+
+- Any read/query method (including application services) that returns Application-layer DTOs (*Dto) derived from Domain entities must use AutoMapper.
+  -Do not manually construct DTOs (new XxxDto { ... }) on read/query paths.
+- If the required mapping does not exist, create it:
+  - Add an AutoMapper Profile.
+  - Include mapping extension methods in the same file, matching existing conventions:
+- Before using repository `ProjectTo` operations, verify that the required AutoMapper mappings exist.
+- Allowed exception (rare):
+  - Manual DTO construction is allowed only when the DTO is a non-entity-shaped view model/aggregation and AutoMapper is not reasonable.
+  - This must include an inline code comment explaining why AutoMapper is not reasonable.
+  - “Mapping doesn’t exist yet” is not a valid exception.
+
+Example:
+```csharp
+public class CustomerDtoProfile : Profile
+{
+    public CustomerDtoProfile()
+    {
+        CreateMap<Customer, CustomerDto>();
+    }
+}
+
+public static class CustomerDtoMappingExtensions
+{
+    public static CustomerDto MapToCustomerDto(this Customer projectFrom, IMapper mapper) => mapper.Map<CustomerDto>(projectFrom);
+
+    public static List<CustomerDto> MapToCustomerDtoList(this IEnumerable<Customer> projectFrom, IMapper mapper) => projectFrom.Select(x => x.MapToCustomerDto(mapper)).ToList();
+}
+```
 
 ## Output expectations
 
