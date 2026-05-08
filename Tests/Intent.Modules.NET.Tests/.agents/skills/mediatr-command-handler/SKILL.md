@@ -1,8 +1,9 @@
 ---
 name: mediatr-command-handler
 description: implement or revise mediatR command handler business logic in an existing handler file. use when a c# mediatR command handler has an incomplete or incorrect handle method and chatgpt should update the handle method, add private helper methods, and extend application or domain abstractions such as repositories or services if required, while avoiding direct infrastructure dependencies in the handler.
-contentHash: 261150D0F34CE6932637966BD658795908B14B8C204C28434BE43098FC5C1C69
+contentHash: 230773E1A276195D8286E165F16E193B45C9EC0132C00A4FB76339DC8242023C
 ---
+Manual
 
 # MediatR Command Handler
 
@@ -65,6 +66,44 @@ When a needed repository capability is missing:
 - If the operation returns an identifier or DTO that needs generated fields: call SaveChangesAsync before returning.
 - If unsure, omit SaveChangesAsync and assume an outer unit-of-work/pipeline commit.
 - When reviewing code, remove SaveChangesAsync unless there is a clear generated-value or immediate-commit requirement.
+
+## Entity Framework repository guidance
+
+- Repository update rule (STRICT): Do not call repository.Update(...) / repo.Update(...) when using EF repositories.
+- EF tracks loaded entities automatically. Modify the entity properties directly and let the Unit of Work persist the tracked changes.
+- Only call Add/Create/Delete operations when inserting or removing entities.
+- When reviewing code, remove unnecessary Update calls for entities loaded from an EF repository.
+
+## AutoMapper guidance
+
+- Any read/query method (including application services) that returns Application-layer DTOs (*Dto) derived from Domain entities must use AutoMapper.
+  -Do not manually construct DTOs (new XxxDto { ... }) on read/query paths.
+- If the required mapping does not exist, create it:
+  - Add an AutoMapper Profile.
+  - Include mapping extension methods in the same file, matching existing conventions:
+- Before using repository `ProjectTo` operations, verify that the required AutoMapper mappings exist.
+- Allowed exception (rare):
+  - Manual DTO construction is allowed only when the DTO is a non-entity-shaped view model/aggregation and AutoMapper is not reasonable.
+  - This must include an inline code comment explaining why AutoMapper is not reasonable.
+  - “Mapping doesn’t exist yet” is not a valid exception.
+
+Example:
+```csharp
+public class CustomerDtoProfile : Profile
+{
+    public CustomerDtoProfile()
+    {
+        CreateMap<Customer, CustomerDto>();
+    }
+}
+
+public static class CustomerDtoMappingExtensions
+{
+    public static CustomerDto MapToCustomerDto(this Customer projectFrom, IMapper mapper) => mapper.Map<CustomerDto>(projectFrom);
+
+    public static List<CustomerDto> MapToCustomerDtoList(this IEnumerable<Customer> projectFrom, IMapper mapper) => projectFrom.Select(x => x.MapToCustomerDto(mapper)).ToList();
+}
+```
 
 ## Output expectations
 

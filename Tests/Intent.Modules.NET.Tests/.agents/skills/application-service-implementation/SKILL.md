@@ -4,6 +4,8 @@ description: implement or revise traditional application service business logic 
 contentHash: 3A97224A634FD4B382930BCD4F5BAA4DABA6537918C40EB75254F0E99E05997D
 ---
 
+Manual
+
 # Traditional Service Implementation
 
 Implement business logic inside an existing traditional application service file. Keep service implementations aligned with the modeled domain, nearby service patterns, and application-layer boundaries.
