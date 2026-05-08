@@ -41,9 +41,9 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
                     var entityTemplate = MappingHelper.GetEntityTemplate(this, Model);
 
                     var entityClassName = entityTemplate.ClassName;  
-                    var dtoModelName = Model.Name;
-
                     var entityTypeName = GetTypeName(entityTemplate);
+
+                    var dtoModelName = Model.Name;
                     var dtoTypeName = GetTypeName(TemplateRoles.Application.Contracts.Dto, Model);
 
                     // Analyze field mappings to determine what custom methods/attributes are needed
@@ -118,6 +118,7 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
                         }
                     });
 
+                    UseType("System.Collections.Generic.List");
                     @class.AddMethod($"List<{dtoTypeName}>", $"{entityClassName}To{dtoModelName}List", method =>
                     {
                         method.Public().Partial();
