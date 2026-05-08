@@ -1,11 +1,11 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Application.ServiceImplementations.Api;
 using Intent.Modules.Common.Templates.AIStaticContent;
 using Intent.Modules.Common.Templates.StaticContent;
 using Intent.RoslynWeaver.Attributes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using static Intent.Modules.Constants.TemplateRoles.Application;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -109,7 +109,7 @@ public static class CustomerDtoMappingExtensions
             result["Additional Service Rules"] = string.Join(Environment.NewLine + Environment.NewLine, additionalServiceRules);
             return result;
 
-            
+
         }
     }
 }

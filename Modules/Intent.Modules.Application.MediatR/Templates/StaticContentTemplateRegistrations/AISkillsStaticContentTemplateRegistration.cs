@@ -1,12 +1,12 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using Intent.Engine;
 using Intent.Modules.Application.MediatR.Api;
 using Intent.Modules.Common.Templates.AIStaticContent;
 using Intent.Modules.Common.Templates.StaticContent;
 using Intent.RoslynWeaver.Attributes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration", Version = "1.0")]
@@ -28,7 +28,7 @@ namespace Intent.Modules.Application.MediatR.Templates.StaticContentTemplateRegi
 
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public override IReadOnlyDictionary<string, string> Replacements(IOutputTarget outputTarget) 
+        public override IReadOnlyDictionary<string, string> Replacements(IOutputTarget outputTarget)
         {
 
             var settings = outputTarget.ExecutionContext.GetSettings();
