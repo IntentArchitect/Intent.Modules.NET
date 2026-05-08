@@ -1,3 +1,7 @@
+### Version 4.7.1
+
+- Improvement: Tweaked CommandHandler skill around automatic Unit Of Work.
+
 ### Version 4.7.0
 
 - Improvement: AI Context supplied for supplying context and skills.

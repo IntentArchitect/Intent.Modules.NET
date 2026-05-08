@@ -57,6 +57,8 @@ When a needed read capability is missing:
 - Do not explain or encode infrastructure implementation details in the handler.
 - Do not reference EF includes, Dapper SQL, joins, or storage-specific tuning from the handler.
 
+<#= Additional Query Rules #>
+
 ## Output expectations
 
 Produce a concrete code update that:

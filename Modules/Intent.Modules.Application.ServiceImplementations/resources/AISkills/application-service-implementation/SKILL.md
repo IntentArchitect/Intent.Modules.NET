@@ -21,7 +21,6 @@ Implement business logic inside an existing traditional application service file
 - Search the codebase for similar services, repository methods, domain operations, mapping conventions, validation flows, error patterns, and save conventions before introducing a new approach.
 - Add private helper methods inside the service when they improve readability, encapsulate repeated branching logic, or keep the main business flow clear.
 - Keep orchestration in the service and place durable business rules in domain entities, value objects, specifications, or domain/application services when those patterns already exist nearby.
-- Assume there is an ambient unit of work save in place unless nearby code shows otherwise. Explicitly save only when needed by the use case, such as when a surrogate key must be returned before control leaves the operation, or when an existing local convention requires an explicit save.
 
 ## Workflow
 
@@ -83,6 +82,8 @@ When a needed capability is missing:
 - Follow the existing application error/result conventions already used in the solution.
 - Reuse nearby patterns for not found, validation failures, business rule failures, and authorization failures.
 - Do not invent a new exception or result style when the surrounding code already establishes one.
+
+<#= Additional Service Rules #>
 
 ## Output expectations
 
