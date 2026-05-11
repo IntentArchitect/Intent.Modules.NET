@@ -20,9 +20,9 @@ using static Intent.Modules.Constants.TemplateRoles.Blazor.Client;
 namespace Intent.Modules.Application.ServiceImplementations.FactoryExtensions
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public class AiTaskFactoryExtension : FactoryExtensionBase
+    public class AITaskFactoryExtension : FactoryExtensionBase
     {
-        public override string Id => "Intent.Application.ServiceImplementations.AiTaskFactoryExtension";
+        public override string Id => "Intent.Application.ServiceImplementations.AITaskFactoryExtension";
 
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;

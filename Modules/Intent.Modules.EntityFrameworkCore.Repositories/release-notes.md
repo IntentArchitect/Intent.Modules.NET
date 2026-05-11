@@ -1,3 +1,7 @@
+### Version 4.8.1
+
+- Improvement: Better AI Context Engineering for SKills.
+
 ### Version 4.8.0
 
 - Improvement: Updated module dependencies.

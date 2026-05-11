@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3121b279-42f6-4315-9122-26a42384f54e" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>.agents</name>
+  <display>.agents</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>1f458c5c-3b9e-4877-b70a-c7a7fd73486e</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

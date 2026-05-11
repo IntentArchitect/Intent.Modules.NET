@@ -55,16 +55,6 @@
       <fileHash>8C7D074EC5B777BF8795F0A0DCDD69781C67CEF744F7D4DC8EFFE7E92F752F42</fileHash>
     </file>
     <file>
-      <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#e51200b4-a5f9-4dd4-abf1-fd26e44265ae</correlationId>
-      <path>Intent.Modules.MediatR.DomainEvents/Templates/StaticContentTemplateRegistrations/AISkillsStaticContentTemplateRegistration.cs</path>
-      <count>2</count>
-      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-04-29T13:17:51.0021527Z</updatedAt>
-      <deviationsHash>FD832E9E9EF010DE58F2F64D76B40C5ADE31F5198DB2CD59A08AEC6AE5F8F5F8</deviationsHash>
-      <fileHash>02A9CE8D2F8CD1234B7BDF7D1C5FCF9C7B9916D588AD7F7BBD6D4BDEB3345757</fileHash>
-    </file>
-    <file>
       <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions</correlationId>
       <path>Intent.Modules.MediatR.DomainEvents/Templates/TemplateExtensions.cs</path>
       <count>1</count>

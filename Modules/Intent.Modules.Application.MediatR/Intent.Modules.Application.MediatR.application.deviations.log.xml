@@ -152,16 +152,6 @@
       <fileHash>89E2D0975AD46BB6EBC9BED7B3E88AA2BB47C0A31C19890BD1CE5DC28031DFA5</fileHash>
     </file>
     <file>
-      <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#c96ce07d-4408-40dd-a413-86d75b183db8</correlationId>
-      <path>Intent.Modules.Application.MediatR/Templates/StaticContentTemplateRegistrations/AISkillsStaticContentTemplateRegistration.cs</path>
-      <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2026-04-21T09:33:59.2984245Z</updatedAt>
-      <deviationsHash>95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B</deviationsHash>
-      <fileHash>5EFD169E0E95F17F2137FEBAF10E42927409452F62853F748D457D9926E75233</fileHash>
-    </file>
-    <file>
       <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions</correlationId>
       <path>Intent.Modules.Application.MediatR/Templates/TemplateExtensions.cs</path>
       <count>11</count>

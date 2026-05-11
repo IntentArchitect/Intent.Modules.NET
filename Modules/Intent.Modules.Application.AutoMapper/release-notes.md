@@ -1,3 +1,7 @@
+### Version 5.3.8
+
+- Improvement: Added AI Skill context extensions for Services skills.
+
 ### Version 5.3.7
 
 - Fixed: Missing AutoMapper version update added for commercial version.

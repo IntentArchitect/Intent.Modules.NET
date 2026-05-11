@@ -1,3 +1,7 @@
+### Version 5.4.1
+
+- Improvement: Updated Skill Template to new extensible version.
+
 ### Version 5.4.0
 
 - Improvement: Centralized AI task registration into a factory extension instead of registering tasks inside individual templates.

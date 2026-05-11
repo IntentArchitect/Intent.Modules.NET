@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore.Repositories</id>
-  <version>4.8.0</version>
+  <version>4.8.1-pre.0</version>
   <supportedClientVersions>[5.0.0-a,6.0.0-a)</supportedClientVersions>
   <summary>Generates Repositories for Domain Entities</summary>
   <description>Generates Repositories for Domain Entities</description>
@@ -54,7 +54,7 @@
   </decorators>
   <interoperability></interoperability>
   <dependencies>
-    <dependency id="Intent.Common" version="3.11.0" />
+    <dependency id="Intent.Common" version="3.11.1-pre.0" />
     <dependency id="Intent.Common.CSharp" version="3.9.5" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Entities.Repositories.Api" version="5.2.0" />
@@ -86,6 +86,7 @@
     </groupExtension>
   </moduleSettingsExtensions>
   <factoryExtensions>
+    <factoryExtension id="Intent.EntityFrameworkCore.Repositories.AISkillsExtension" externalReference="1afad309-13dc-4237-a120-f6b31924db93" />
     <factoryExtension id="Intent.EntityFrameworkCore.Repositories.CustomRepositoryMethodsExtension" externalReference="9e59c198-59ae-4bda-ab55-caa7830d951f" />
     <factoryExtension id="Intent.EntityFrameworkCore.Repositories.DbContextInterfaceExtension" externalReference="1cf00c3d-11a6-4a5b-b6f8-ba684a21be4a" />
     <factoryExtension id="Intent.EntityFrameworkCore.Repositories.EntityRepositoryInterfaceSyncExtension" externalReference="03e4264c-744e-4b91-a96d-ae175d36008b" />

@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.MediatR.DomainEvents</id>
-  <version>5.4.0</version>
+  <version>5.4.1-pre.0</version>
   <supportedClientVersions>[5.0.0-a, 6.0.0-a)</supportedClientVersions>
   <summary>Generates handlers for Domain Events for MediatR</summary>
   <description>Generates handlers for Domain Events for MediatR</description>
@@ -34,6 +34,10 @@
       <role>Application.DomainEventHandler.Explicit</role>
       <location>EventHandlers</location>
     </template>
+    <template id="Intent.MediatR.DomainEvents.DomainEventHandlerSkill" externalReference="be9e3837-7c5a-4785-a1e6-88e2d7e4ed3f">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
     <template id="Intent.MediatR.DomainEvents.DomainEventNotification" externalReference="facf0926-17f5-4e56-b647-5718e15fcbb4">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
@@ -50,10 +54,6 @@
       <role>Infrastructure.Services</role>
       <location>Services</location>
     </template>
-    <template id="Intent.Modules.MediatR.DomainEvents.Templates.StaticContentTemplateRegistrations.AISkillsStaticContentTemplateRegistration" externalReference="e51200b4-a5f9-4dd4-abf1-fd26e44265ae">
-      <role>AI.Context.Skills</role>
-      <location></location>
-    </template>
   </templates>
   <decorators></decorators>
   <factoryExtensions>
@@ -63,7 +63,7 @@
   <dependencies>
     <dependency id="Intent.Application.DependencyInjection.MediatR" version="3.6.3" />
     <dependency id="Intent.Application.DomainInteractions" version="1.2.0" />
-    <dependency id="Intent.Common" version="3.11.0" />
+    <dependency id="Intent.Common" version="3.11.1-pre.0" />
     <dependency id="Intent.Common.CSharp" version="3.9.10" />
     <dependency id="Intent.Common.Types" version="4.0.0" />
     <dependency id="Intent.Modelers.Domain" version="3.12.6" />

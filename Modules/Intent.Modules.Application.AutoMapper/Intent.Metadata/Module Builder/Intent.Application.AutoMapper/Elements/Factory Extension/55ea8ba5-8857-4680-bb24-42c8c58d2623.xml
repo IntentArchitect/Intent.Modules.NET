@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="55ea8ba5-8857-4680-bb24-42c8c58d2623" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>AISkillsExtension</name>
+  <display>AISkillsExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>bbd2c56f-b591-4434-ac25-2b08337570c3</parentFolderId>
+  <packageId>bbd2c56f-b591-4434-ac25-2b08337570c3</packageId>
+  <packageName>Intent.Application.AutoMapper</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

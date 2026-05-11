@@ -1,3 +1,7 @@
+### Version 5.3.1
+
+- Improvement: Updated Skill Template to new extensible version.
+
 ### Version 5.3.0
 
 - Improvement: Added 5.0 AI support.
