@@ -18,16 +18,20 @@ internal class MapperlyMappingStrategy : IMappingStrategy
     public void ImplementMappingStatement(ICSharpClassMethodDeclaration method, List<CSharpStatement> statements,
         EntityDetails entity, ICSharpTemplate template, ITypeReference returnType, string? returnDto)
     {
-        template.TryGetTypeName("Intent.Application.Dtos.Mapperly.DtoMappingProfile", returnType.Element, out var _);
+        if(!template.TryGetTypeName("Intent.Application.Dtos.Mapperly.DtoMappingProfile", returnType.Element, out var dtoTypeName))
+        {
+            return;
+        }
         var ctor = method.Class.Constructors.FirstOrDefault();
         if (ctor is null)
         {
             method.Class.AddConstructor();
             ctor = method.Class.Constructors.First();
         }
-        if (ctor.Parameters.All(x => x.Type != $"{entity.ElementModel.Name}DtoMapper"))
+
+        if (ctor.Parameters.All(x => !x.Type.EndsWith(dtoTypeName)))
         {
-            ctor.AddParameter($"{entity.ElementModel.Name}DtoMapper", "mapper", param => param.IntroduceReadonlyField());
+            ctor.AddParameter(dtoTypeName, "mapper", param => param.IntroduceReadonlyField());
         }
         statements.Add($"return _mapper.{entity.ElementModel.Name}To{returnDto}{(returnType.IsCollection ? "List" : "")}({entity.VariableName}{(returnType.IsCollection ? ".ToList()" : "")});");
     }
@@ -35,7 +39,10 @@ internal class MapperlyMappingStrategy : IMappingStrategy
     public void ImplementPagedMappingStatement(ICSharpClassMethodDeclaration method, List<CSharpStatement> statements, EntityDetails entity,
         ICSharpTemplate template, ITypeReference returnType, string? returnDto, string? mappingMethod)
     {
-        template.TryGetTypeName("Intent.Application.Dtos.Mapperly.DtoMappingProfile", returnType.Element, out var _);
+        if (!template.TryGetTypeName("Intent.Application.Dtos.Mapperly.DtoMappingProfile", returnType.Element, out var dtoTypeName))
+        {
+            return;
+        }
         var ctor = method.Class.Constructors.FirstOrDefault();
         if (ctor is null)
         {
@@ -43,9 +50,9 @@ internal class MapperlyMappingStrategy : IMappingStrategy
             ctor = method.Class.Constructors.First();
         }
 
-        if (ctor.Parameters.All(x => x.Type != $"{entity.ElementModel.Name}DtoMapper"))
+        if (ctor.Parameters.All(x => !x.Type.EndsWith(dtoTypeName)))
         {
-            ctor.AddParameter($"{entity.ElementModel.Name}DtoMapper", "mapper", param => param.IntroduceReadonlyField());
+            ctor.AddParameter(dtoTypeName, "mapper", param => param.IntroduceReadonlyField());
         }
         statements.Add($"return {entity.VariableName}.{mappingMethod}(x => _mapper.{entity.ElementModel.Name}To{returnDto}(x));");
     }
