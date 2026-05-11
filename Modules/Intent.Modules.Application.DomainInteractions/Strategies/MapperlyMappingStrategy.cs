@@ -54,7 +54,7 @@ internal class MapperlyMappingStrategy : IMappingStrategy
         {
             ctor.AddParameter(dtoTypeName, "mapper", param => param.IntroduceReadonlyField());
         }
-        statements.Add($"return {entity.VariableName}.{mappingMethod}(x => _mapper.{entity.ElementModel.Name}To{returnDto}(x));");
+        statements.Add($"return _mapper.{entity.VariableName}.{mappingMethod}(x => _mapper.{entity.ElementModel.Name}To{returnDto}(x));");
     }
 
     public bool HasProjectTo() => false;
