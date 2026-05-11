@@ -65,38 +65,39 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Str
     {
         public void ImplementCreateMappingStatement(CSharpStatementAggregator codeLines, string variableName, ICSharpTemplate template, DTOModel dtoToReturn, string entityName)
         {
-            codeLines.Add($"var mapper = new {entityName}DtoMapper();");
+            codeLines.Add($"var mapper = new {dtoToReturn.Name}();");
             codeLines.Add($"return mapper.{entityName}To{dtoToReturn.Name}({variableName});");
         }
 
         public void ImplementDeleteWithReturnMappingStatement(CSharpStatementAggregator codeLines, string variableName, string dtoType, string entityName)
         {
-            codeLines.Add($"var mapper = new {entityName}DtoMapper();");
+            codeLines.Add($"var mapper = new {dtoType});");
             codeLines.Add($"return mapper.{entityName}To{dtoType}({variableName});");
         }
 
         public void ImplementGetAllMappingStatement(CSharpStatementAggregator codeLines,string variableName, string unqualifiedDtoTypeName, string entityName)
         {
-            codeLines.Add($"var mapper = new {entityName}DtoMapper();");
+            codeLines.Add($"var mapper = new {unqualifiedDtoTypeName};");
             codeLines.Add($"return mapper.{entityName}To{unqualifiedDtoTypeName}List({variableName});");
         }
 
         public void ImplementGetAllPagedMappingStatement(CSharpStatementAggregator codeLines, string variableName, string unqualifiedDtoTypeName, string entityName)
         {
-            codeLines.Add($"var mapper = new {entityName}DtoMapper();");
+            codeLines.Add($"var mapper = new {unqualifiedDtoTypeName}();");
             codeLines.Add($"return results.MapToPagedResult(x => mapper.{entityName}To{unqualifiedDtoTypeName}(x));");
         }
 
         public void ImplementGetByIdMappingStatement(CSharpStatementAggregator codeLines, string variableName, string unqualifiedDtoTypeName , string entityName)
         {
-            codeLines.Add($"var mapper = new {entityName}DtoMapper();");
+            codeLines.Add($"var mapper = new {unqualifiedDtoTypeName}");
             codeLines.Add($"return mapper.{entityName}To{unqualifiedDtoTypeName}List({variableName});");
         }
 
         public void ImplementUpdateMappingStatement(List<CSharpStatement> codeLines, string variableName, ICSharpTemplate template, OperationModel operationModel, string entityName)
         {
-            codeLines.Add($"var mapper = new {entityName}DtoMapper();");
-            codeLines.Add($"return mapper.{entityName}To{template.GetTypeName((IElement)operationModel.TypeReference.Element)}List({variableName});");
+            var dtoTypeName = template.GetTypeName((IElement)operationModel.TypeReference.Element);
+            codeLines.Add($"var mapper = new {dtoTypeName};");
+            codeLines.Add($"return mapper.{entityName}To{dtoTypeName}List({variableName});");
         }
 
         public bool IsMatch(ICSharpFileBuilderTemplate template)

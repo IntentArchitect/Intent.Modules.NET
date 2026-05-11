@@ -18,7 +18,7 @@ internal class MapperlyMappingStrategy : IMappingStrategy
     public void ImplementMappingStatement(ICSharpClassMethodDeclaration method, List<CSharpStatement> statements,
         EntityDetails entity, ICSharpTemplate template, ITypeReference returnType, string? returnDto)
     {
-        if(!template.TryGetTypeName("Intent.Application.Dtos.Mapperly.DtoMappingProfile", returnType.Element, out var dtoTypeName))
+        if (!template.TryGetTypeName("Intent.Application.Dtos.Mapperly.DtoMappingProfile", returnType.Element, out var dtoTypeName))
         {
             return;
         }
@@ -31,7 +31,7 @@ internal class MapperlyMappingStrategy : IMappingStrategy
 
         if (ctor.Parameters.All(x => !x.Type.EndsWith(dtoTypeName)))
         {
-            ctor.AddParameter(dtoTypeName, "mapper", param => param.IntroduceReadonlyField());
+           ctor.AddParameter(dtoTypeName, "mapper", param => param.IntroduceReadonlyField());
         }
         statements.Add($"return _mapper.{entity.ElementModel.Name}To{returnDto}{(returnType.IsCollection ? "List" : "")}({entity.VariableName}{(returnType.IsCollection ? ".ToList()" : "")});");
     }
