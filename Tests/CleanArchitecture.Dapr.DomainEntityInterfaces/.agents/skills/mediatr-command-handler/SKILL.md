@@ -1,9 +1,9 @@
 ---
 name: mediatr-command-handler
 description: implement or revise mediatR command handler business logic in an existing handler file. use when a c# mediatR command handler has an incomplete or incorrect handle method and chatgpt should update the handle method, add private helper methods, and extend application or domain abstractions such as repositories or services if required, while avoiding direct infrastructure dependencies in the handler.
-contentHash: 3558D196D6ECBAB215E24F1748E48F9DAD17EBAD47F6123D3F7CAF79F022D889
+template-id: Intent.Application.MediatR.CommandHandlerSkillTemplate
+contentHash: D76304A6D5AE36C5A079AD481B7C0B842E303CFEBC108E73FF8201EA9E340053
 ---
-
 # MediatR Command Handler
 
 Implement command handler business logic inside an existing handler file. Favor domain intent, existing code patterns, and clean layer boundaries over convenience shortcuts.
@@ -26,10 +26,10 @@ Implement command handler business logic inside an existing handler file. Favor 
 
 1. Inspect the existing handler, request, response, validator, repository interfaces, and related domain types.
 2. Search for code usages of:
-   - similar command handlers
-   - repository interfaces and existing repository methods
-   - domain operations on the target aggregate or entity
-   - result and error patterns used in the solution
+  - similar command handlers
+  - repository interfaces and existing repository methods
+  - domain operations on the target aggregate or entity
+  - result and error patterns used in the solution
 3. Infer the intended business flow from the request shape, naming, surrounding domain model, and nearby feature implementations.
 4. Implement the `Handle` method using existing patterns first.
 5. If the handler needs missing DAL capabilities, extend the relevant repository abstraction in an allowed layer instead of pulling infrastructure into the handler.
@@ -58,28 +58,19 @@ When a needed repository capability is missing:
 - Do not add infrastructure comments or instructions to the handler.
 - Do not reference how the repository will be implemented in EF, Dapper, SQL, or similar.
 
-## Unit of Work guidance
-
-- SaveChanges rule (STRICT): Do not call UnitOfWork.SaveChangesAsync(...) / SaveChangesAsync(...) in a handler/service method unless the operation returns a payload that requires DB-generated values, such as a generated Id, surrogate key, RowVersion/concurrency token, DB-generated timestamp, or computed column.
-- If the operation returns Unit, void, Task, or IRequest with no result: do not call SaveChangesAsync.
-- If the operation returns an identifier or DTO that needs generated fields: call SaveChangesAsync before returning.
-- If unsure, omit SaveChangesAsync and assume an outer unit-of-work/pipeline commit.
-- When reviewing code, remove SaveChangesAsync unless there is a clear generated-value or immediate-commit requirement.
-
 ## AutoMapper guidance
 
-- Any read/query method (including application services) that returns Application-layer DTOs (*Dto) derived from Domain entities must use AutoMapper.
-  -Do not manually construct DTOs (new XxxDto { ... }) on read/query paths.
+- Any read/query method, including application services, that returns Application-layer DTOs (*Dto) derived from Domain entities must use AutoMapper.
+  - Do not manually construct DTOs (`new XxxDto { ... }`) on read/query paths.
 - If the required mapping does not exist, create it:
   - Add an AutoMapper Profile.
-  - Include mapping extension methods in the same file, matching existing conventions:
+  - Include mapping extension methods in the same file, matching existing conventions.
 - Before using repository `ProjectTo` operations, verify that the required AutoMapper mappings exist.
-- Allowed exception (rare):
-  - Manual DTO construction is allowed only when the DTO is a non-entity-shaped view model/aggregation and AutoMapper is not reasonable.
+- Manual DTO construction is allowed only when the DTO is a non-entity-shaped view model/aggregation and AutoMapper is not reasonable.
   - This must include an inline code comment explaining why AutoMapper is not reasonable.
   - “Mapping doesn’t exist yet” is not a valid exception.
 
-Example:
+**Example:**
 ```csharp
 public class CustomerDtoProfile : Profile
 {
@@ -91,9 +82,11 @@ public class CustomerDtoProfile : Profile
 
 public static class CustomerDtoMappingExtensions
 {
-    public static CustomerDto MapToCustomerDto(this Customer projectFrom, IMapper mapper) => mapper.Map<CustomerDto>(projectFrom);
+    public static CustomerDto MapToCustomerDto(this Customer projectFrom, IMapper mapper) =>
+        mapper.Map<CustomerDto>(projectFrom);
 
-    public static List<CustomerDto> MapToCustomerDtoList(this IEnumerable<Customer> projectFrom, IMapper mapper) => projectFrom.Select(x => x.MapToCustomerDto(mapper)).ToList();
+    public static List<CustomerDto> MapToCustomerDtoList(this IEnumerable<Customer> projectFrom, IMapper mapper) =>
+        projectFrom.Select(x => x.MapToCustomerDto(mapper)).ToList();
 }
 ```
 

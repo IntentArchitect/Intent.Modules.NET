@@ -1,9 +1,9 @@
 ---
 name: mediatr-command-handler
 description: implement or revise mediatR command handler business logic in an existing handler file. use when a c# mediatR command handler has an incomplete or incorrect handle method and chatgpt should update the handle method, add private helper methods, and extend application or domain abstractions such as repositories or services if required, while avoiding direct infrastructure dependencies in the handler.
-contentHash: 5119161163CAA488CDFCCC5F61D80B6CCBC42A534347BFEFE451FB7D05305F26
+template-id: Intent.Application.MediatR.CommandHandlerSkillTemplate
+contentHash: 661C9F4353E0108F738C585C38C0449D5C604DFB8CA09F4439916AD1A1D777C5
 ---
-
 # MediatR Command Handler
 
 Implement command handler business logic inside an existing handler file. Favor domain intent, existing code patterns, and clean layer boundaries over convenience shortcuts.
@@ -26,10 +26,10 @@ Implement command handler business logic inside an existing handler file. Favor 
 
 1. Inspect the existing handler, request, response, validator, repository interfaces, and related domain types.
 2. Search for code usages of:
-   - similar command handlers
-   - repository interfaces and existing repository methods
-   - domain operations on the target aggregate or entity
-   - result and error patterns used in the solution
+  - similar command handlers
+  - repository interfaces and existing repository methods
+  - domain operations on the target aggregate or entity
+  - result and error patterns used in the solution
 3. Infer the intended business flow from the request shape, naming, surrounding domain model, and nearby feature implementations.
 4. Implement the `Handle` method using existing patterns first.
 5. If the handler needs missing DAL capabilities, extend the relevant repository abstraction in an allowed layer instead of pulling infrastructure into the handler.

@@ -2,7 +2,7 @@
 <package>
   <id>Intent.AspNetCore.Identity.UI</id>
   <version>2.0.4</version>
-  <supportedClientVersions>[4.6.0-a, 6.0.0-a)</supportedClientVersions>
+  <supportedClientVersions>[5.0.0-a, 6.0.0-a)</supportedClientVersions>
   <releaseNotes>release-notes.md</releaseNotes>
   <summary>ASP.NET Core Identity UI is the default Razor Pages built-in UI for the ASP.NET Core Identity framework.</summary>
   <description>ASP.NET Core Identity UI is the default Razor Pages built-in UI for the ASP.NET Core Identity framework.</description>

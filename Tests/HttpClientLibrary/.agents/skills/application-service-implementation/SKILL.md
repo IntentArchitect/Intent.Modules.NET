@@ -1,9 +1,9 @@
 ---
 name: traditional-service-implementation
 description: implement or revise traditional application service business logic in an existing service file. use when a c# application service class has incomplete or incorrect operation logic and chatgpt should update service methods, add private helper methods, and extend application or domain abstractions such as repositories, read services, or domain services if required, while avoiding direct infrastructure dependencies in the service.
-contentHash: E153447710AA9ED0F2C6546E6DB8EBD8A8F114450264CBE2C635919ACED4F87C
+template-id: Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate
+contentHash: 111D1C0964E3E4FDEC4AD98A53EE3863EF56CE88C0821AF493A9591145D95F8A
 ---
-
 # Traditional Service Implementation
 
 Implement business logic inside an existing traditional application service file. Keep service implementations aligned with the modeled domain, nearby service patterns, and application-layer boundaries.
@@ -27,12 +27,12 @@ Implement business logic inside an existing traditional application service file
 
 1. Inspect the existing service class, interface, operation signatures, DTOs, repositories/read services/domain services, and related domain types.
 2. Search for code usages of:
-   - similar traditional application services
-   - repository, read-service, or domain-service abstractions
-   - domain operations on the target aggregate or entity
-   - DTO mapping conventions
-   - validation, authorization, and error/result patterns
-   - save and unit-of-work conventions in nearby services
+  - similar traditional application services
+  - repository, read-service, or domain-service abstractions
+  - domain operations on the target aggregate or entity
+  - DTO mapping conventions
+  - validation, authorization, and error/result patterns
+  - save and unit-of-work conventions in nearby services
 3. Infer the intended business flow from the operation names, parameters, return types, surrounding domain model, and nearby feature implementations.
 4. Implement the service operation using existing patterns first.
 5. If the service needs missing DAL capabilities, extend the relevant repository/read/application abstraction in an allowed layer instead of introducing infrastructure access into the service.
@@ -83,14 +83,6 @@ When a needed capability is missing:
 - Follow the existing application error/result conventions already used in the solution.
 - Reuse nearby patterns for not found, validation failures, business rule failures, and authorization failures.
 - Do not invent a new exception or result style when the surrounding code already establishes one.
-
-## Unit of Work guidance (Only applicable to service operations which change persistent state)
-
-- SaveChanges rule (STRICT): Do not call UnitOfWork.SaveChangesAsync(...) / SaveChangesAsync(...) in a handler/service method unless the operation returns a payload that requires DB-generated values, such as a generated Id, surrogate key, RowVersion/concurrency token, DB-generated timestamp, or computed column.
-- If the operation returns Unit, void, Task, or IRequest with no result: do not call SaveChangesAsync.
-- If the operation returns an identifier or DTO that needs generated fields: call SaveChangesAsync before returning.
-- If unsure, omit SaveChangesAsync and assume an outer unit-of-work/pipeline commit.
-- When reviewing code, remove SaveChangesAsync unless there is a clear generated-value or immediate-commit requirement.
 
 ## Output expectations
 

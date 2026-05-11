@@ -1,9 +1,9 @@
 ---
 name: traditional-service-implementation
 description: implement or revise traditional application service business logic in an existing service file. use when a c# application service class has incomplete or incorrect operation logic and chatgpt should update service methods, add private helper methods, and extend application or domain abstractions such as repositories, read services, or domain services if required, while avoiding direct infrastructure dependencies in the service.
-contentHash: D8FD97F1711D1917DA2DCB9CA18008811CDF35BCFB34CB0266665744169D3A0C
+template-id: Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate
+contentHash: 55FD0F11BA83903239C9309F7F962A46175B5130D90AE55D8A8D13BE1FD41A31
 ---
-
 # Traditional Service Implementation
 
 Implement business logic inside an existing traditional application service file. Keep service implementations aligned with the modeled domain, nearby service patterns, and application-layer boundaries.
@@ -27,12 +27,12 @@ Implement business logic inside an existing traditional application service file
 
 1. Inspect the existing service class, interface, operation signatures, DTOs, repositories/read services/domain services, and related domain types.
 2. Search for code usages of:
-   - similar traditional application services
-   - repository, read-service, or domain-service abstractions
-   - domain operations on the target aggregate or entity
-   - DTO mapping conventions
-   - validation, authorization, and error/result patterns
-   - save and unit-of-work conventions in nearby services
+  - similar traditional application services
+  - repository, read-service, or domain-service abstractions
+  - domain operations on the target aggregate or entity
+  - DTO mapping conventions
+  - validation, authorization, and error/result patterns
+  - save and unit-of-work conventions in nearby services
 3. Infer the intended business flow from the operation names, parameters, return types, surrounding domain model, and nearby feature implementations.
 4. Implement the service operation using existing patterns first.
 5. If the service needs missing DAL capabilities, extend the relevant repository/read/application abstraction in an allowed layer instead of introducing infrastructure access into the service.
@@ -84,28 +84,19 @@ When a needed capability is missing:
 - Reuse nearby patterns for not found, validation failures, business rule failures, and authorization failures.
 - Do not invent a new exception or result style when the surrounding code already establishes one.
 
-## Unit of Work guidance (Only applicable to service operations which change persistent state)
-
-- SaveChanges rule (STRICT): Do not call UnitOfWork.SaveChangesAsync(...) / SaveChangesAsync(...) in a handler/service method unless the operation returns a payload that requires DB-generated values, such as a generated Id, surrogate key, RowVersion/concurrency token, DB-generated timestamp, or computed column.
-- If the operation returns Unit, void, Task, or IRequest with no result: do not call SaveChangesAsync.
-- If the operation returns an identifier or DTO that needs generated fields: call SaveChangesAsync before returning.
-- If unsure, omit SaveChangesAsync and assume an outer unit-of-work/pipeline commit.
-- When reviewing code, remove SaveChangesAsync unless there is a clear generated-value or immediate-commit requirement.
-
 ## AutoMapper guidance
 
-- Any read/query method (including application services) that returns Application-layer DTOs (*Dto) derived from Domain entities must use AutoMapper.
-  -Do not manually construct DTOs (new XxxDto { ... }) on read/query paths.
+- Any read/query method, including application services, that returns Application-layer DTOs (*Dto) derived from Domain entities must use AutoMapper.
+  - Do not manually construct DTOs (`new XxxDto { ... }`) on read/query paths.
 - If the required mapping does not exist, create it:
   - Add an AutoMapper Profile.
-  - Include mapping extension methods in the same file, matching existing conventions:
+  - Include mapping extension methods in the same file, matching existing conventions.
 - Before using repository `ProjectTo` operations, verify that the required AutoMapper mappings exist.
-- Allowed exception (rare):
-  - Manual DTO construction is allowed only when the DTO is a non-entity-shaped view model/aggregation and AutoMapper is not reasonable.
+- Manual DTO construction is allowed only when the DTO is a non-entity-shaped view model/aggregation and AutoMapper is not reasonable.
   - This must include an inline code comment explaining why AutoMapper is not reasonable.
   - “Mapping doesn’t exist yet” is not a valid exception.
 
-Example:
+**Example:**
 ```csharp
 public class CustomerDtoProfile : Profile
 {
@@ -117,9 +108,11 @@ public class CustomerDtoProfile : Profile
 
 public static class CustomerDtoMappingExtensions
 {
-    public static CustomerDto MapToCustomerDto(this Customer projectFrom, IMapper mapper) => mapper.Map<CustomerDto>(projectFrom);
+    public static CustomerDto MapToCustomerDto(this Customer projectFrom, IMapper mapper) =>
+        mapper.Map<CustomerDto>(projectFrom);
 
-    public static List<CustomerDto> MapToCustomerDtoList(this IEnumerable<Customer> projectFrom, IMapper mapper) => projectFrom.Select(x => x.MapToCustomerDto(mapper)).ToList();
+    public static List<CustomerDto> MapToCustomerDtoList(this IEnumerable<Customer> projectFrom, IMapper mapper) =>
+        projectFrom.Select(x => x.MapToCustomerDto(mapper)).ToList();
 }
 ```
 

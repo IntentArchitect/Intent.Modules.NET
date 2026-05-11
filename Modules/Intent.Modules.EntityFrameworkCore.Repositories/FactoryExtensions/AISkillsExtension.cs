@@ -1,11 +1,11 @@
+using System;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.FileBuilders.MarkdownFileBuilder;
 using Intent.Modules.Common.Plugins;
+using Intent.Modules.EntityFrameworkCore.Repositories.Api;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
-using Intent.Modules.EntityFrameworkCore.Repositories.Api;
-using System;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]

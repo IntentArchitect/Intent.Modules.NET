@@ -1,9 +1,9 @@
 ---
 name: mediatr-query-handler
 description: implement or revise mediatR query handler business logic in an existing handler file. use when a c# mediatR query handler has an incomplete or incorrect handle method and chatgpt should update the handle method, add private helper methods, and extend application or domain abstractions such as repositories or read services if required, while avoiding direct infrastructure dependencies in the handler.
-contentHash: 772F11A6496A42240E977397A48C019B0D6AD534034C06D619E66D36EDECCFBD
+template-id: {TemplateId}
+contentHash: 1784FD1B7BCFC7FEEB0557B080C20F2183B06CBF336B921D190617FCF5A9FCFD
 ---
-
 # MediatR Query Handler
 
 Implement query handler business logic inside an existing handler file. Keep handlers aligned with the modeled domain and existing query patterns while protecting architectural boundaries.
@@ -27,10 +27,10 @@ Implement query handler business logic inside an existing handler file. Keep han
 
 1. Inspect the existing handler, request, response, repository or read-service abstractions, and related domain/read-model types.
 2. Search for code usages of:
-   - similar query handlers
-   - projection or DTO mapping patterns
-   - pagination, sorting, filtering, and authorization rules
-   - repository or read-service methods serving similar data
+  - similar query handlers
+  - projection or DTO mapping patterns
+  - pagination, sorting, filtering, and authorization rules
+  - repository or read-service methods serving similar data
 3. Infer the intended read behavior from the request shape, response contract, naming, and nearby feature implementations.
 4. Implement the `Handle` method using existing query patterns first.
 5. If the handler needs missing DAL capabilities, extend the relevant repository or read abstraction in an allowed layer instead of introducing infrastructure access into the handler.
@@ -60,18 +60,17 @@ When a needed read capability is missing:
 
 ## AutoMapper guidance
 
-- Any read/query method (including application services) that returns Application-layer DTOs (*Dto) derived from Domain entities must use AutoMapper.
-  -Do not manually construct DTOs (new XxxDto { ... }) on read/query paths.
+- Any read/query method, including application services, that returns Application-layer DTOs (*Dto) derived from Domain entities must use AutoMapper.
+  - Do not manually construct DTOs (`new XxxDto { ... }`) on read/query paths.
 - If the required mapping does not exist, create it:
   - Add an AutoMapper Profile.
-  - Include mapping extension methods in the same file, matching existing conventions:
+  - Include mapping extension methods in the same file, matching existing conventions.
 - Before using repository `ProjectTo` operations, verify that the required AutoMapper mappings exist.
-- Allowed exception (rare):
-  - Manual DTO construction is allowed only when the DTO is a non-entity-shaped view model/aggregation and AutoMapper is not reasonable.
+- Manual DTO construction is allowed only when the DTO is a non-entity-shaped view model/aggregation and AutoMapper is not reasonable.
   - This must include an inline code comment explaining why AutoMapper is not reasonable.
   - “Mapping doesn’t exist yet” is not a valid exception.
 
-Example:
+**Example:**
 ```csharp
 public class CustomerDtoProfile : Profile
 {
@@ -83,9 +82,11 @@ public class CustomerDtoProfile : Profile
 
 public static class CustomerDtoMappingExtensions
 {
-    public static CustomerDto MapToCustomerDto(this Customer projectFrom, IMapper mapper) => mapper.Map<CustomerDto>(projectFrom);
+    public static CustomerDto MapToCustomerDto(this Customer projectFrom, IMapper mapper) =>
+        mapper.Map<CustomerDto>(projectFrom);
 
-    public static List<CustomerDto> MapToCustomerDtoList(this IEnumerable<Customer> projectFrom, IMapper mapper) => projectFrom.Select(x => x.MapToCustomerDto(mapper)).ToList();
+    public static List<CustomerDto> MapToCustomerDtoList(this IEnumerable<Customer> projectFrom, IMapper mapper) =>
+        projectFrom.Select(x => x.MapToCustomerDto(mapper)).ToList();
 }
 ```
 
