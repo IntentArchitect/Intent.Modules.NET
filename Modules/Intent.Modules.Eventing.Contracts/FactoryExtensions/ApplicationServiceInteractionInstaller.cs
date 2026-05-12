@@ -54,11 +54,13 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
 
                     var mappingManager = method.GetMappingManager();
                     mappingManager.AddMappingResolver(new ProcessingHandlerDomainUpdateMappingTypeResolver(template)); // This order matters
+                    mappingManager.AddMappingResolver(new InvocationMappingTypeResolver(template));
                     mappingManager.AddMappingResolver(new ProcessingHandlerDomainMappingTypeResolver(template));
                     mappingManager.AddMappingResolver(new TypeConvertingMappingResolver(template));
 
                     template.AddTypeSource(TemplateRoles.Domain.Entity.Primary);
                     template.AddTypeSource(TemplateRoles.Domain.ValueObject);
+
                     // TODO: These can go to the handler template:
                     mappingManager.SetFromReplacement(handler.Model, "message");
                     mappingManager.SetFromReplacement(handler.Model.InternalElement.TypeReference.Element, "message");
