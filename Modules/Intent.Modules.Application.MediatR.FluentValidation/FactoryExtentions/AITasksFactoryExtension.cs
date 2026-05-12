@@ -75,7 +75,7 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.FactoryExtentions
 
         private static bool IsValidator(IApplication application, IChange c)
         {
-            return c.Template!.Id == CommandValidatorTemplate.TemplateId || c.Template!.Id == QueryValidatorTemplate.TemplateId;
+            return c.Template?.Id == CommandValidatorTemplate.TemplateId || c.Template?.Id == QueryValidatorTemplate.TemplateId;
         }
 
         private static bool HasMissingImplementation(IChange change) => change.Content.Contains("throw new NotImplementedException");

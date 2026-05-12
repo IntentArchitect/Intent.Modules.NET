@@ -1,3 +1,7 @@
+### Version 4.11.1
+
+- Fixed: Issue with Validator AI task creation on deleted files.
+
 ### Version 4.11.0
 
 - Improvement: Automatic AI tasks to implement custom validation methods.
