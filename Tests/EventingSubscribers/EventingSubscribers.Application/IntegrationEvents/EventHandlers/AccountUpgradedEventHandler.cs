@@ -30,6 +30,7 @@ namespace EventingSubscribers.Application.IntegrationEvents.EventHandlers
             }
 
             updateAccount.Tier = message.NewTier;
+            updateAccount.CompleteUpgrade();
         }
     }
 }
