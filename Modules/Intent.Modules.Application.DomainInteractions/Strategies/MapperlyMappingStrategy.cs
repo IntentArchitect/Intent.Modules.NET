@@ -39,7 +39,13 @@ internal class MapperlyMappingStrategy : IMappingStrategy
     public void ImplementPagedMappingStatement(ICSharpClassMethodDeclaration method, List<CSharpStatement> statements, EntityDetails entity,
         ICSharpTemplate template, ITypeReference returnType, string? returnDto, string? mappingMethod)
     {
-        if (!template.TryGetTypeName("Intent.Application.Dtos.Mapperly.DtoMappingProfile", returnType.Element, out var dtoTypeName))
+        // this check should always pass, as there is the same check up the stack, but just extra validation here
+        if(!returnType.GenericTypeParameters.Any())
+        {
+            return;
+        }
+
+        if (!template.TryGetTypeName("Intent.Application.Dtos.Mapperly.DtoMappingProfile", returnType.GenericTypeParameters.First().Element, out var dtoTypeName))
         {
             return;
         }
@@ -54,7 +60,7 @@ internal class MapperlyMappingStrategy : IMappingStrategy
         {
             ctor.AddParameter(dtoTypeName, "mapper", param => param.IntroduceReadonlyField());
         }
-        statements.Add($"return _mapper.{entity.VariableName}.{mappingMethod}(x => _mapper.{entity.ElementModel.Name}To{returnDto}(x));");
+        statements.Add($"return {entity.VariableName}.{mappingMethod}(x => _mapper.{entity.ElementModel.Name}To{returnDto}(x));");
     }
 
     public bool HasProjectTo() => false;

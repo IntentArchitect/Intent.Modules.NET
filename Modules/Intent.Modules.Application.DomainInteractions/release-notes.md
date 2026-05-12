@@ -1,3 +1,7 @@
+### Version 1.2.5
+
+- Fixed: Mappings in handlers for PagedResult now generating correctly for Mapperly.
+
 ### Version 1.2.4
 
 - Improvement: Better support to identify areas where AI should be implementing logic.
