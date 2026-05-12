@@ -1,3 +1,7 @@
+### Version 3.12.1
+
+- Improvement: Updated skill format and generation to align with other modules.
+
 ### Version 3.12.0
 
 - Improvement: Automatic AI tasks to implement custom validation methods.
