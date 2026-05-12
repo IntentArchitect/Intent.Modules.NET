@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="ed59d5b3-2697-4e1e-803b-e76ea7e7f773">
+  <sourceEnd id="d1c56809-2502-4c65-a51d-63684d6ffdc5" type="Subscribe Integration Event Source End" typeId="5d8f5c33-f9c9-4629-b637-fad9b0096894">
+    <display>handled by: EventingSubscribers.Services.InvoiceCreatedEventHandler</display>
+    <order>0</order>
+    <typeReference id="1654b8cf-e770-44ca-b94c-d3f3b0c840a3">
+      <typeId>97cca0ad-7815-4dc9-b764-91963afc8873</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EventingSubscribers.Services</typePackageName>
+      <typePackageId>22cb17ed-3dc7-4bce-93f2-dc1f50b46ff4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="ed59d5b3-2697-4e1e-803b-e76ea7e7f773" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
+    <name>Handler</name>
+    <display>[handles] InvoiceCreatedEvent</display>
+    <order>0</order>
+    <traits>
+      <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+    </traits>
+    <typeReference id="5a684f55-8367-465c-b6e5-53913be06335">
+      <typeId>1e258279-0d15-44ea-88f2-acb152421706</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EventingSubscribers.Eventing.Messages</typePackageName>
+      <typePackageId>8cceced3-b6bf-491d-8064-1e407a19ca6a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Subscribe Integration Event</associationType>
+  <associationTypeId>80aa7f6d-64e5-4d24-a81e-6bc212925ca7</associationTypeId>
+  <stereotypes />
+</association>

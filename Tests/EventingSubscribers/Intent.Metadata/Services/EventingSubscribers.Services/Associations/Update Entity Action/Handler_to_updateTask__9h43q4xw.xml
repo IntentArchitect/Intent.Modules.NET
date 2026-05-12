@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="b0184989-2d05-4710-b3dc-777d05490782">
+  <sourceEnd id="21f966f8-b3eb-4f04-a067-8cbb21cdd722" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : TaskAssignedEventHandler.Handler</display>
+    <order>0</order>
+    <typeReference id="7c0bc356-9cff-4a39-8fd0-00d35fe382f1">
+      <typeId>a1c77b6b-1f26-4b08-8fac-3d95190ba5f5</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EventingSubscribers.Services</typePackageName>
+      <typePackageId>22cb17ed-3dc7-4bce-93f2-dc1f50b46ff4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="b0184989-2d05-4710-b3dc-777d05490782" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>updateTask</name>
+    <display>[update] updateTask: ShipTask</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="7ab60cf1-b3f0-4d19-8caa-fdc11c88326d">
+      <typeId>a4d83f17-27f2-4f8e-9347-78c32f7a8b22</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EventingSubscribers.Domain</typePackageName>
+      <typePackageId>d7623b69-ddd4-4b32-82d3-c5d0b26b7904</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="f8ed0666-9d96-4b22-a569-3e203152124c" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="a1c77b6b-1f26-4b08-8fac-3d95190ba5f5" location="[EventingSubscribers].[Services].[Handler]" />
+        <target applicationId="f8ed0666-9d96-4b22-a569-3e203152124c" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="a4d83f17-27f2-4f8e-9347-78c32f7a8b22" location="[EventingSubscribers].[Services].[Task]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="a4d83f17-27f2-4f8e-9347-78c32f7a8b22" name="Task" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="0e4a89ec-25ba-4e4e-906c-f20d1fe288c5" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="a1c77b6b-1f26-4b08-8fac-3d95190ba5f5" name="Handler" type="association" specialization="Subscribe Integration Event Target End" specializationId="16fa2952-79e6-4150-b5ab-45aa4c106de4" />
+                  <target id="82e0ac25-7da8-4e34-9386-13d15a47b468" name="Id" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="f8ed0666-9d96-4b22-a569-3e203152124c" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="a1c77b6b-1f26-4b08-8fac-3d95190ba5f5" location="[EventingSubscribers].[Services].[Handler]" />
+        <target applicationId="f8ed0666-9d96-4b22-a569-3e203152124c" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="a4d83f17-27f2-4f8e-9347-78c32f7a8b22" location="[EventingSubscribers].[Services].[ShipTask]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Priority}</expression>
+            <path>
+              <target id="a4d83f17-27f2-4f8e-9347-78c32f7a8b22" name="ShipTask" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="bb5bc103-3d51-419f-a178-323d9dec17be" name="Priority" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Priority" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="a1c77b6b-1f26-4b08-8fac-3d95190ba5f5" name="Handler" type="association" specialization="Subscribe Integration Event Target End" specializationId="16fa2952-79e6-4150-b5ab-45aa4c106de4" />
+                  <target id="f3c22ee1-3e2c-4fea-873f-0c1447fcde04" name="Priority" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

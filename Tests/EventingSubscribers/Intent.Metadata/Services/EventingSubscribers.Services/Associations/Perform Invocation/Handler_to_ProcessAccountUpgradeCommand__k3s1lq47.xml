@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="b7e2bcf7-ed43-4815-b21b-15bda97df848">
+  <sourceEnd id="5de26a2d-018b-4697-8c1d-636512894d77" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : CommandInvokedEventHandler.Handler</display>
+    <order>0</order>
+    <typeReference id="af8648ad-0a15-46f7-8448-2ae235f4acde">
+      <typeId>3d090b50-9c91-47e5-a9fd-9bd5457b8e16</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EventingSubscribers.Services</typePackageName>
+      <typePackageId>22cb17ed-3dc7-4bce-93f2-dc1f50b46ff4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="b7e2bcf7-ed43-4815-b21b-15bda97df848" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <display>[call] ProcessAccountUpgradeCommand(...): void</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="c910e63f-95c0-4705-b411-3df2bea0f5a4">
+      <typeId>e2a75454-aaba-4cd6-afdc-bf8f456c2a18</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EventingSubscribers.Services</typePackageName>
+      <typePackageId>22cb17ed-3dc7-4bce-93f2-dc1f50b46ff4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Invocation Mapping" typeId="a4c4c5cc-76df-48ed-9d4e-c35caf44b567">
+        <source applicationId="f8ed0666-9d96-4b22-a569-3e203152124c" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="3d090b50-9c91-47e5-a9fd-9bd5457b8e16" location="[EventingSubscribers].[Services].[Handler]" />
+        <target applicationId="f8ed0666-9d96-4b22-a569-3e203152124c" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="e2a75454-aaba-4cd6-afdc-bf8f456c2a18" location="[EventingSubscribers].[Services].[ProcessAccountUpgradeCommand]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Handler}</expression>
+            <path>
+              <target id="e2a75454-aaba-4cd6-afdc-bf8f456c2a18" name="ProcessAccountUpgradeCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+            </path>
+            <sources>
+              <source identifier="Handler" mappingType="Invocation Mapping" mappingTypeId="7ca5c18a-bdbe-434b-a68a-421899a077e7">
+                <path>
+                  <target id="3d090b50-9c91-47e5-a9fd-9bd5457b8e16" name="Handler" type="association" specialization="Subscribe Integration Event Target End" specializationId="16fa2952-79e6-4150-b5ab-45aa4c106de4" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Perform Invocation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>

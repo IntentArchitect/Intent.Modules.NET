@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c4f25b7f-9392-49d5-bea7-f14fcd6eea82" type="Enum" typeId="85fba0e9-9161-4c85-a603-a229ef312beb">
+  <comment>Enum for Task priority values</comment>
+  <name>TaskPriority</name>
+  <display>TaskPriority</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d7623b69-ddd4-4b32-82d3-c5d0b26b7904</parentFolderId>
+  <packageId>d7623b69-ddd4-4b32-82d3-c5d0b26b7904</packageId>
+  <packageName>EventingSubscribers.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="15361274-41c9-4713-8545-9f2b7751bb8b" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Low</name>
+      <display>Low</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c4f25b7f-9392-49d5-bea7-f14fcd6eea82</parentFolderId>
+      <packageId>d7623b69-ddd4-4b32-82d3-c5d0b26b7904</packageId>
+      <packageName>EventingSubscribers.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="59a84e81-89be-47ab-90d3-1d4367230bc9" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Medium</name>
+      <display>Medium</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c4f25b7f-9392-49d5-bea7-f14fcd6eea82</parentFolderId>
+      <packageId>d7623b69-ddd4-4b32-82d3-c5d0b26b7904</packageId>
+      <packageName>EventingSubscribers.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="72f714e6-f358-4a93-81df-f0e0027aeb8d" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>High</name>
+      <display>High</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c4f25b7f-9392-49d5-bea7-f14fcd6eea82</parentFolderId>
+      <packageId>d7623b69-ddd4-4b32-82d3-c5d0b26b7904</packageId>
+      <packageName>EventingSubscribers.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="801dc8bd-51a0-4b38-99f8-24fac8fd9ac7">
+  <sourceEnd id="05503504-4237-492d-994e-5ce86ec744df" type="Subscribe Integration Event Source End" typeId="5d8f5c33-f9c9-4629-b637-fad9b0096894">
+    <display>handled by: EventingSubscribers.Services.ProductLookedUpEventHandler</display>
+    <order>0</order>
+    <typeReference id="40098cf0-e043-423b-a6b3-5c308ec2d497">
+      <typeId>a344f500-6f50-4652-ac80-195c7210dfd2</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EventingSubscribers.Services</typePackageName>
+      <typePackageId>22cb17ed-3dc7-4bce-93f2-dc1f50b46ff4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="801dc8bd-51a0-4b38-99f8-24fac8fd9ac7" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
+    <name>Handler</name>
+    <display>[handles] ProductLookedUpEvent</display>
+    <order>0</order>
+    <traits>
+      <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+    </traits>
+    <typeReference id="97cda4b4-560e-4770-b696-a2d980470913">
+      <typeId>71bb1a5f-e557-4960-8523-c44ac79bef1f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EventingSubscribers.Eventing.Messages</typePackageName>
+      <typePackageId>8cceced3-b6bf-491d-8064-1e407a19ca6a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Subscribe Integration Event</associationType>
+  <associationTypeId>80aa7f6d-64e5-4d24-a81e-6bc212925ca7</associationTypeId>
+  <stereotypes />
+</association>

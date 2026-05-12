@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="76adc388-01b6-4b67-abfb-4ce67ccd11cb">
+  <sourceEnd id="b93f6e35-dc6f-4ec2-b056-1fbe99413335" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : CommandInvokedEventHandler.Handler</display>
+    <order>0</order>
+    <typeReference id="3ee6fdb0-5efe-4580-8db7-f2cd9ccd73a9">
+      <typeId>3d090b50-9c91-47e5-a9fd-9bd5457b8e16</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EventingSubscribers.Services</typePackageName>
+      <typePackageId>22cb17ed-3dc7-4bce-93f2-dc1f50b46ff4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="76adc388-01b6-4b67-abfb-4ce67ccd11cb" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <display>[call] ProcessUpgradeAsync(...): void</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="30e0fa82-ff67-4062-ac58-7306b2e089d0">
+      <typeId>f5444c2a-6c27-4b43-82f6-f80dea36e562</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EventingSubscribers.Services</typePackageName>
+      <typePackageId>22cb17ed-3dc7-4bce-93f2-dc1f50b46ff4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Invocation Mapping" typeId="a4c4c5cc-76df-48ed-9d4e-c35caf44b567">
+        <source applicationId="f8ed0666-9d96-4b22-a569-3e203152124c" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="3d090b50-9c91-47e5-a9fd-9bd5457b8e16" location="[EventingSubscribers].[Services].[Handler]" />
+        <target applicationId="f8ed0666-9d96-4b22-a569-3e203152124c" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="f5444c2a-6c27-4b43-82f6-f80dea36e562" location="[EventingSubscribers].[Services].[ProcessUpgradeAsync]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Handler}</expression>
+            <path>
+              <target id="f5444c2a-6c27-4b43-82f6-f80dea36e562" name="ProcessUpgradeAsync" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+            </path>
+            <sources>
+              <source identifier="Handler" mappingType="Invocation Mapping" mappingTypeId="7ca5c18a-bdbe-434b-a68a-421899a077e7">
+                <path>
+                  <target id="3d090b50-9c91-47e5-a9fd-9bd5457b8e16" name="Handler" type="association" specialization="Subscribe Integration Event Target End" specializationId="16fa2952-79e6-4150-b5ab-45aa4c106de4" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Perform Invocation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>
