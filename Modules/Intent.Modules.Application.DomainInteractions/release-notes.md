@@ -1,6 +1,7 @@
 ### Version 1.2.3
 
 - Fixed: Added guards to give clearer error messages when Primary Keys could not be found on an Entity and when an Entity template could not be found.
+- Improvement: Module dependencies updated.
 
 ### Version 1.2.2
 

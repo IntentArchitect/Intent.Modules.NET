@@ -1,5 +1,9 @@
 ### Version 5.3.1
 
+- Improvement: Module dependencies updated.
+
+### Version 5.3.1
+
 - Improvement: Relocated basic entity patch logic for upcoming JSON Patch module.
 
 ### Version 5.3.0

@@ -1,17 +1,20 @@
-using System.Linq;
 using Intent.Engine;
+using Intent.Modules.Application.MediatR.CRUD.Eventing.MappingTypeResolvers;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Interactions;
 using Intent.Modules.Common.CSharp.Mapping;
+using Intent.Modules.Common.CSharp.Mapping.Resolvers;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Constants;
 using Intent.Modules.Eventing.Contracts.InteractionStrategies;
+using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventEnum;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using System.Linq;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -50,6 +53,12 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
                     var method = handler.Method;
 
                     var mappingManager = method.GetMappingManager();
+                    mappingManager.AddMappingResolver(new ProcessingHandlerDomainUpdateMappingTypeResolver(template)); // This order matters
+                    mappingManager.AddMappingResolver(new ProcessingHandlerDomainMappingTypeResolver(template));
+                    mappingManager.AddMappingResolver(new TypeConvertingMappingResolver(template));
+
+                    template.AddTypeSource(TemplateRoles.Domain.Entity.Primary);
+                    template.AddTypeSource(TemplateRoles.Domain.ValueObject);
                     // TODO: These can go to the handler template:
                     mappingManager.SetFromReplacement(handler.Model, "message");
                     mappingManager.SetFromReplacement(handler.Model.InternalElement.TypeReference.Element, "message");
