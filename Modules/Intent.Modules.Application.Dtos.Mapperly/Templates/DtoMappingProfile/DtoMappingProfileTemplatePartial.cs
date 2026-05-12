@@ -28,6 +28,10 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
         {
             AddNugetDependency(NugetPackages.RiokMapperly(outputTarget));
 
+            /*These often are field types in the target dto. Not only value types*/
+            AddTypeSource(TemplateRoles.Domain.Enum);
+            AddTypeSource(TemplateRoles.Domain.ValueObject);
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Riok.Mapperly.Abstractions")
                 .AddClass($"{Model.Name}Mapper", @class =>
