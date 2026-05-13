@@ -91,5 +91,29 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="e4c01b1c-3155-4320-bf8c-18c781fb0741" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Blank</name>
+      <display>Blank: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="10bb859c-afe8-4e9d-aad7-16bb5784b313">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>13945119-ae21-49e6-900d-b07bcc5c1c0c</parentFolderId>
+      <packageId>79e09ed8-63e8-4f9e-b981-5de86029d61b</packageId>
+      <packageName>SqlDbProject.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
   </childElements>
 </class>
