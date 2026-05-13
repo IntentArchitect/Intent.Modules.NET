@@ -5,7 +5,7 @@
     <order>0</order>
     <typeReference id="a780c3df-4235-4385-bfaa-3285a5a7bdcd">
       <typeId>719bf858-605f-4901-87b6-424c6348769a</typeId>
-      <isNavigable>true</isNavigable>
+      <isNavigable>false</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
       <isRequired>true</isRequired>
@@ -22,6 +22,9 @@
     <name>invoice</name>
     <display>[delete] invoice: Invoice</display>
     <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="ff9512ec-2373-46b5-854a-56663a61655e">
       <typeId>36fe654d-f983-4baa-bf05-465e1e13e0fd</typeId>
       <isNavigable>true</isNavigable>

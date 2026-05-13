@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3236e464-1188-46e5-a7b9-c5b6ac12a9e6" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <comment>Update Entity with VO destination address</comment>
+  <name>Shipment</name>
+  <display>Shipment</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d7623b69-ddd4-4b32-82d3-c5d0b26b7904</parentFolderId>
+  <packageId>d7623b69-ddd4-4b32-82d3-c5d0b26b7904</packageId>
+  <packageName>EventingSubscribers.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="16f49749-9d92-4ee8-a80d-eba35b08be42" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id</name>
+      <display>Id: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="13bdf2db-766d-43c4-8de3-cb99fce6169a">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>3236e464-1188-46e5-a7b9-c5b6ac12a9e6</parentFolderId>
+      <packageId>d7623b69-ddd4-4b32-82d3-c5d0b26b7904</packageId>
+      <packageName>EventingSubscribers.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b99aac21-9ca4-467f-a3a6-046255a9eed6" name="Primary Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="a7a5e921-18b9-43b4-8078-b4ac4e5dae6f" display="Data source" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="b441bda0-43d0-4158-8ceb-d030de232a7b" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Title</name>
+      <display>Title: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="95aed61a-ca88-460c-9536-e06bba250298">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>3236e464-1188-46e5-a7b9-c5b6ac12a9e6</parentFolderId>
+      <packageId>d7623b69-ddd4-4b32-82d3-c5d0b26b7904</packageId>
+      <packageName>EventingSubscribers.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="ca96602f-fb48-46b9-946c-4b4a0a8711d2" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>DestinationAddress</name>
+      <display>DestinationAddress: Address</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="17293e59-dd99-4c00-8d2c-d3549c032d80">
+        <typeId>3d5890ec-7e4a-43d8-a065-2449f4391f73</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EventingSubscribers.Domain</typePackageName>
+        <typePackageId>d7623b69-ddd4-4b32-82d3-c5d0b26b7904</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>3236e464-1188-46e5-a7b9-c5b6ac12a9e6</parentFolderId>
+      <packageId>d7623b69-ddd4-4b32-82d3-c5d0b26b7904</packageId>
+      <packageName>EventingSubscribers.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f90bb956-40e7-4a94-a760-abc512bb90c2" type="Enum" typeId="85fba0e9-9161-4c85-a603-a229ef312beb">
+  <comment>Enum for Order status values</comment>
+  <name>OrderStatus</name>
+  <display>OrderStatus</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d7623b69-ddd4-4b32-82d3-c5d0b26b7904</parentFolderId>
+  <packageId>d7623b69-ddd4-4b32-82d3-c5d0b26b7904</packageId>
+  <packageName>EventingSubscribers.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="0939eaa1-e525-4ecb-9c2b-1579b8bb8d96" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Pending</name>
+      <display>Pending</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f90bb956-40e7-4a94-a760-abc512bb90c2</parentFolderId>
+      <packageId>d7623b69-ddd4-4b32-82d3-c5d0b26b7904</packageId>
+      <packageName>EventingSubscribers.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="05a19de8-9536-4050-a002-02b92d8a3391" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Active</name>
+      <display>Active</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f90bb956-40e7-4a94-a760-abc512bb90c2</parentFolderId>
+      <packageId>d7623b69-ddd4-4b32-82d3-c5d0b26b7904</packageId>
+      <packageName>EventingSubscribers.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="2f6408ac-8e90-4bdd-b7af-cd7d4a3dad59" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Completed</name>
+      <display>Completed</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f90bb956-40e7-4a94-a760-abc512bb90c2</parentFolderId>
+      <packageId>d7623b69-ddd4-4b32-82d3-c5d0b26b7904</packageId>
+      <packageName>EventingSubscribers.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

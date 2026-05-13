@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="049e445a-dfba-4bc9-ac4d-f03a61e03ec2">
+  <sourceEnd id="1c3b2344-15d6-4f78-94fe-2adc5b7751eb" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : ShipmentReceivedEventHandler.Handler</display>
+    <order>0</order>
+    <typeReference id="6e417247-571a-4453-a8bb-45e4eb52b363">
+      <typeId>10a8f9ff-3225-4913-911c-720f74975b2a</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EventingSubscribers.Services</typePackageName>
+      <typePackageId>22cb17ed-3dc7-4bce-93f2-dc1f50b46ff4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="049e445a-dfba-4bc9-ac4d-f03a61e03ec2" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>updateShipment</name>
+    <display>[update] updateShipment: Shipment</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="d2d8886f-6565-446c-ad7a-16e9662d3410">
+      <typeId>3236e464-1188-46e5-a7b9-c5b6ac12a9e6</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EventingSubscribers.Domain</typePackageName>
+      <typePackageId>d7623b69-ddd4-4b32-82d3-c5d0b26b7904</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="f8ed0666-9d96-4b22-a569-3e203152124c" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="10a8f9ff-3225-4913-911c-720f74975b2a" location="[EventingSubscribers].[Services].[Handler]" />
+        <target applicationId="f8ed0666-9d96-4b22-a569-3e203152124c" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="3236e464-1188-46e5-a7b9-c5b6ac12a9e6" location="[EventingSubscribers].[Services].[Shipment]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{ShipmentId}</expression>
+            <path>
+              <target id="3236e464-1188-46e5-a7b9-c5b6ac12a9e6" name="Shipment" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="16f49749-9d92-4ee8-a80d-eba35b08be42" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="ShipmentId" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="10a8f9ff-3225-4913-911c-720f74975b2a" name="Handler" type="association" specialization="Subscribe Integration Event Target End" specializationId="16fa2952-79e6-4150-b5ab-45aa4c106de4" />
+                  <target id="73b3beb0-6d15-4f88-9d14-4066264f4111" name="ShipmentId" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="f8ed0666-9d96-4b22-a569-3e203152124c" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="10a8f9ff-3225-4913-911c-720f74975b2a" location="[EventingSubscribers].[Services].[Handler]" />
+        <target applicationId="f8ed0666-9d96-4b22-a569-3e203152124c" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="3236e464-1188-46e5-a7b9-c5b6ac12a9e6" location="[EventingSubscribers].[Services].[Shipment]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Title}</expression>
+            <path>
+              <target id="3236e464-1188-46e5-a7b9-c5b6ac12a9e6" name="Shipment" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="b441bda0-43d0-4158-8ceb-d030de232a7b" name="Title" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Title" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="10a8f9ff-3225-4913-911c-720f74975b2a" name="Handler" type="association" specialization="Subscribe Integration Event Target End" specializationId="16fa2952-79e6-4150-b5ab-45aa4c106de4" />
+                  <target id="da3aa716-ce74-409c-82f7-c37bb7a3d509" name="Title" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{DestinationStreet}</expression>
+            <path>
+              <target id="3236e464-1188-46e5-a7b9-c5b6ac12a9e6" name="Shipment" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="ca96602f-fb48-46b9-946c-4b4a0a8711d2" name="DestinationAddress" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+              <target id="f91b9fd9-34c5-4ecb-ba26-2d465aaae6c1" name="Street" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="DestinationStreet" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="10a8f9ff-3225-4913-911c-720f74975b2a" name="Handler" type="association" specialization="Subscribe Integration Event Target End" specializationId="16fa2952-79e6-4150-b5ab-45aa4c106de4" />
+                  <target id="de57144d-9984-4da1-b81b-ca2e23602885" name="DestinationStreet" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{DestinationCity}</expression>
+            <path>
+              <target id="3236e464-1188-46e5-a7b9-c5b6ac12a9e6" name="Shipment" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="ca96602f-fb48-46b9-946c-4b4a0a8711d2" name="DestinationAddress" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+              <target id="22d5f988-24b2-4b48-b1e1-111399dedf8b" name="City" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="DestinationCity" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="10a8f9ff-3225-4913-911c-720f74975b2a" name="Handler" type="association" specialization="Subscribe Integration Event Target End" specializationId="16fa2952-79e6-4150-b5ab-45aa4c106de4" />
+                  <target id="238c4dc1-2398-4a4d-aabf-993d5520bbbc" name="DestinationCity" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

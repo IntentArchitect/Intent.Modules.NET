@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a4d685b2-de52-4bb0-8f98-b987fb7b5104" type="Message" typeId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">
+  <name>TaskAssignedEvent</name>
+  <display>TaskAssignedEvent</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>8cceced3-b6bf-491d-8064-1e407a19ca6a</parentFolderId>
+  <packageId>8cceced3-b6bf-491d-8064-1e407a19ca6a</packageId>
+  <packageName>EventingSubscribers.Eventing.Messages</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="82e0ac25-7da8-4e34-9386-13d15a47b468" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>Id</name>
+      <display>Id: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="85141f50-95d3-4111-b7e8-5e51d962caaf">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>a4d685b2-de52-4bb0-8f98-b987fb7b5104</parentFolderId>
+      <packageId>8cceced3-b6bf-491d-8064-1e407a19ca6a</packageId>
+      <packageName>EventingSubscribers.Eventing.Messages</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="f3c22ee1-3e2c-4fea-873f-0c1447fcde04" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>Priority</name>
+      <display>Priority: TaskPriority</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="7d5941a9-9ce9-45cb-bee1-a5c6b3295762">
+        <typeId>c4f25b7f-9392-49d5-bea7-f14fcd6eea82</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EventingSubscribers.Domain</typePackageName>
+        <typePackageId>d7623b69-ddd4-4b32-82d3-c5d0b26b7904</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>a4d685b2-de52-4bb0-8f98-b987fb7b5104</parentFolderId>
+      <packageId>8cceced3-b6bf-491d-8064-1e407a19ca6a</packageId>
+      <packageName>EventingSubscribers.Eventing.Messages</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

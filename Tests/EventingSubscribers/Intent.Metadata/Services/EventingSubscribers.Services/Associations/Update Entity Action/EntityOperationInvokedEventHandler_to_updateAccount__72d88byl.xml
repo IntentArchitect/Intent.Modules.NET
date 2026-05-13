@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="95f66666-e6aa-405b-a6b5-87e814502309">
+  <sourceEnd id="d84246aa-aa2a-49c4-8572-7c203e58c656" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : EventingSubscribers.Services.EntityOperationInvokedEventHandler</display>
+    <order>0</order>
+    <typeReference id="4c7ba30c-0bbf-47fa-8ad9-16242177e816">
+      <typeId>7bbc758b-7767-4c3a-a52a-7306b3b7610d</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EventingSubscribers.Services</typePackageName>
+      <typePackageId>22cb17ed-3dc7-4bce-93f2-dc1f50b46ff4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="95f66666-e6aa-405b-a6b5-87e814502309" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>updateAccount</name>
+    <display>[update] updateAccount: Account</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="c6c7b3f3-12c5-4d8f-9587-0aa1ab08760d">
+      <typeId>80c317fc-d151-4c64-a24f-718128dbc9ee</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EventingSubscribers.Domain</typePackageName>
+      <typePackageId>d7623b69-ddd4-4b32-82d3-c5d0b26b7904</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

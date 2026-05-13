@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="4f568b38-537e-42be-8be9-09c955182df5" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>169f3801-8244-4b9e-ac2f-3eaede785048</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>22cb17ed-3dc7-4bce-93f2-dc1f50b46ff4</parentFolderId>
+  <packageId>22cb17ed-3dc7-4bce-93f2-dc1f50b46ff4</packageId>
+  <packageName>EventingSubscribers.Services</packageName>
+  <diagram>
+    <targetPackageId>22cb17ed-3dc7-4bce-93f2-dc1f50b46ff4</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EventingSubscribers.Application\EventingSubscribers.Application.csproj" />
+    <ProjectReference Include="..\EventingSubscribers.Infrastructure\EventingSubscribers.Infrastructure.csproj" />
+  </ItemGroup>
+  </Project>

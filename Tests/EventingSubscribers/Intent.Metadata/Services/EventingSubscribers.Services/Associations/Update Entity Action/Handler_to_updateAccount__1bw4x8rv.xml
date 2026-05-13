@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="13a78b13-4665-4892-b18b-7f99dbc29bf4">
+  <sourceEnd id="dead04be-1d58-405c-9242-be8318bae84e" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : AccountUpgradedEventHandler.Handler</display>
+    <order>0</order>
+    <typeReference id="050d9ffb-b1df-4971-be3c-83c90a0602de">
+      <typeId>b0105835-4ddf-4ef5-a9d4-b2bcfb7544ef</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EventingSubscribers.Services</typePackageName>
+      <typePackageId>22cb17ed-3dc7-4bce-93f2-dc1f50b46ff4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="13a78b13-4665-4892-b18b-7f99dbc29bf4" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>updateAccount</name>
+    <display>[update] updateAccount: Account</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="31a78b02-fe90-4517-98ee-58bf92886bc4">
+      <typeId>80c317fc-d151-4c64-a24f-718128dbc9ee</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EventingSubscribers.Domain</typePackageName>
+      <typePackageId>d7623b69-ddd4-4b32-82d3-c5d0b26b7904</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="f8ed0666-9d96-4b22-a569-3e203152124c" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="b0105835-4ddf-4ef5-a9d4-b2bcfb7544ef" location="[EventingSubscribers].[Services].[Handler]" />
+        <target applicationId="f8ed0666-9d96-4b22-a569-3e203152124c" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="80c317fc-d151-4c64-a24f-718128dbc9ee" location="[EventingSubscribers].[Services].[Account]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{NewTier}</expression>
+            <path>
+              <target id="80c317fc-d151-4c64-a24f-718128dbc9ee" name="Account" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="dd5313c7-1e3d-48cf-833e-86992dd25dce" name="Tier" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="NewTier" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="b0105835-4ddf-4ef5-a9d4-b2bcfb7544ef" name="Handler" type="association" specialization="Subscribe Integration Event Target End" specializationId="16fa2952-79e6-4150-b5ab-45aa4c106de4" />
+                  <target id="c8319920-26df-4557-bddc-358185e30650" name="NewTier" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Handler}</expression>
+            <path>
+              <target id="80c317fc-d151-4c64-a24f-718128dbc9ee" name="Account" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="a60179cf-e8e6-4311-9755-9c87f5ea71b0" name="CompleteUpgrade" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+            </path>
+            <sources>
+              <source identifier="Handler" mappingType="Invocation Mapping" mappingTypeId="d30bdba1-9c47-4917-b81d-29230fed5d6a">
+                <path>
+                  <target id="b0105835-4ddf-4ef5-a9d4-b2bcfb7544ef" name="Handler" type="association" specialization="Subscribe Integration Event Target End" specializationId="16fa2952-79e6-4150-b5ab-45aa4c106de4" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="f8ed0666-9d96-4b22-a569-3e203152124c" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="b0105835-4ddf-4ef5-a9d4-b2bcfb7544ef" location="[EventingSubscribers].[Services].[Handler]" />
+        <target applicationId="f8ed0666-9d96-4b22-a569-3e203152124c" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="80c317fc-d151-4c64-a24f-718128dbc9ee" location="[EventingSubscribers].[Services].[Account]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="80c317fc-d151-4c64-a24f-718128dbc9ee" name="Account" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="62d2429b-b319-460b-a7f6-0ca31808e660" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="b0105835-4ddf-4ef5-a9d4-b2bcfb7544ef" name="Handler" type="association" specialization="Subscribe Integration Event Target End" specializationId="16fa2952-79e6-4150-b5ab-45aa4c106de4" />
+                  <target id="a6bd36a1-dc07-420a-96c3-ff577a588ac3" name="Id" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

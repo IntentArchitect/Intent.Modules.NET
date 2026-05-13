@@ -22,6 +22,9 @@
     <name>invoice</name>
     <display>[query] invoice: Invoice</display>
     <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="3575b017-459d-40a1-a29a-83238a425b30">
       <typeId>36fe654d-f983-4baa-bf05-465e1e13e0fd</typeId>
       <isNavigable>true</isNavigable>
