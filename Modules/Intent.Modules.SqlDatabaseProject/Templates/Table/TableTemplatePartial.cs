@@ -195,6 +195,8 @@ namespace Intent.Modules.SqlDatabaseProject.Templates.Table
                     AttributeModelStereotypeExtensions.TextConstraints.SQLDataTypeOptionsEnum.VARCHAR => $"VARCHAR({GetConstraintLength()})",
                     var dt => throw new ArgumentOutOfRangeException($"Unsupported SQL Data Type: {dt}")
                 });
+
+                return;
             }
 
             sb.Append(textConstraints?.SQLDataType().AsEnum() switch
