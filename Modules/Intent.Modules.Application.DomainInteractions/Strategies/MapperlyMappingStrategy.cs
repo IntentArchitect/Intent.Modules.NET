@@ -37,7 +37,7 @@ internal class MapperlyMappingStrategy : IMappingStrategy
         {
            ctor.AddParameter(dtoTypeName, "mapper", param => param.IntroduceReadonlyField());
         }
-        statements.Add($"return _mapper.{entity.ElementModel.Name}To{returnDto}{(returnType.IsCollection ? "List" : "")}({entity.VariableName}{(returnType.IsCollection ? ".ToList()" : "")});");
+        statements.Add($"return _mapper.{entity.ElementModel.Name}To{returnDto}{(returnType.IsCollection ? "List" : "")}({entity.VariableName});");
     }
 
     public void ImplementPagedMappingStatement(ICSharpClassMethodDeclaration method, List<CSharpStatement> statements, EntityDetails entity,

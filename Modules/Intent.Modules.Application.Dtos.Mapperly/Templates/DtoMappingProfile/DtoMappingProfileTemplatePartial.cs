@@ -127,7 +127,7 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
                     @class.AddMethod(UseType($"System.Collections.Generic.List<{dtoTypeName}>"), $"{entityClassName}To{dtoModelName}List", method =>
                     {
                         method.Public().Partial();
-                        method.AddParameter($"List<{entityTypeName}>", entityClassName.ToCamelCase().Pluralize()).WithoutMethodModifier();
+                        method.AddParameter($"IEnumerable<{entityTypeName}>", entityClassName.ToCamelCase().Pluralize()).WithoutMethodModifier();
                     });
 
                     // Generate custom mapping methods
