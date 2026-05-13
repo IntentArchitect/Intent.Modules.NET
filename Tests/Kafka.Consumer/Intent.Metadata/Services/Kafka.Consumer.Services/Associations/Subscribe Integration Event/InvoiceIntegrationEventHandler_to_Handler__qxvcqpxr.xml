@@ -19,8 +19,12 @@
     <childElements />
   </sourceEnd>
   <targetEnd id="aaebb30a-f360-40af-9737-db3a20a0e5c8" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
-    <display>handles: InvoiceUpdatedEvent</display>
+    <name>Handler</name>
+    <display>[handles] InvoiceUpdatedEvent</display>
     <order>1</order>
+    <traits>
+      <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+    </traits>
     <typeReference id="c3d76dde-bed5-4869-a8a7-66e4da9a0221">
       <typeId>d0135111-9cd4-4e55-b527-2f3033767c16</typeId>
       <isNavigable>true</isNavigable>

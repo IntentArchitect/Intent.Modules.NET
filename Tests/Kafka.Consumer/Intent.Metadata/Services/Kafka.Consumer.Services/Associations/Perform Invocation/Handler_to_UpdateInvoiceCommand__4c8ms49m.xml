@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <association id="b40e243f-063b-45dc-8393-aac270c5ef65">
-  <sourceEnd id="d8beb2cf-a492-4bab-b067-35c6f6e6a726" type="Service Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
-    <display>published by : InvoiceIntegrationEventHandler.</display>
+  <sourceEnd id="d8beb2cf-a492-4bab-b067-35c6f6e6a726" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : InvoiceIntegrationEventHandler.Handler</display>
     <order>0</order>
     <typeReference id="90b3ff1a-e793-4cec-b6e6-336cf71524b2">
       <typeId>aaebb30a-f360-40af-9737-db3a20a0e5c8</typeId>
@@ -18,9 +18,12 @@
     <metadata />
     <childElements />
   </sourceEnd>
-  <targetEnd id="b40e243f-063b-45dc-8393-aac270c5ef65" type="Service Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
-    <display>publish: UpdateInvoiceCommand</display>
+  <targetEnd id="b40e243f-063b-45dc-8393-aac270c5ef65" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <display>[call] UpdateInvoiceCommand(...): void</display>
     <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="4966882e-162d-4e13-a902-2ba3b0a30a53">
       <typeId>c0e2d473-e2e0-440a-a199-322fcb3d31ab</typeId>
       <isNavigable>true</isNavigable>
@@ -74,7 +77,7 @@
     <metadata />
     <childElements />
   </targetEnd>
-  <associationType>Service Invocation</associationType>
+  <associationType>Perform Invocation</associationType>
   <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
   <stereotypes />
 </association>
