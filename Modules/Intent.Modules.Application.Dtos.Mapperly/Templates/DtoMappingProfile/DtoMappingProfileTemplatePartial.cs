@@ -115,11 +115,12 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
                             {
                                 method.AddAttribute("MapProperty", attribute =>
                                 {
-                                    /*When attribute is nested there are nasty issues that come up. See Mapperly docs on "full nameof".
-                                    In theory we should also do this when entityTypeName gets fully qualified.
+                                    /*See Mapperly docs on "full-nameof".
+                                     Nasty issues occur if you dont full-nameof with @ if the nesting path has attributes with the same name when C# nameof resolves
                                      */
-                                    var attributeIsNested = config.AttributePath.Count(c => c == '.') >= 2;
-                                    if (attributeIsNested)  
+                                    var attributeIsNestedOutsideClass = config.AttributePath.Count(c => c == '.') >= 2;
+                                    var entityIsFullyQualified = entityTypeName.Contains(".");
+                                    if (attributeIsNestedOutsideClass || entityIsFullyQualified)  
                                     {
                                         attribute.AddArgument($"nameof(@{entityTypeName}.{config.AttributePath})");
                                     }
