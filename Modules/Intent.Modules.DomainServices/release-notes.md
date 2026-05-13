@@ -1,3 +1,7 @@
+### Version 1.2.1
+
+- Improvement: Updated Skill Template to new extensible version.
+
 ### Version 1.2.0
 
 - Improvement: Added AI Task Support, for 5.0.

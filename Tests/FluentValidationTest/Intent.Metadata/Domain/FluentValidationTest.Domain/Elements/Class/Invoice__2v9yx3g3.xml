@@ -108,7 +108,9 @@
           <definitionPackageId>f852e12f-1a19-4c8d-8192-8393c6ce59da</definitionPackageId>
           <properties>
             <property name="4c8d4fd3-bfcd-44d7-9b12-7e2dc141fb72" display="Min Value" value="0.01" isActive="true" />
+            <property name="3e3830cd-1a87-47d2-8659-02a269b6e482" display="Min Boundary Type" value="Inclusive" isActive="true" />
             <property name="9dad612e-e7ca-4d2e-a1e5-aaf0d4c82d17" display="Max Value" isActive="true" />
+            <property name="337335e1-749d-49ec-962d-0b57566bbaeb" display="Max Boundary Type" value="Inclusive" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>

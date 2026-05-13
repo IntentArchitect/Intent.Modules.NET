@@ -1,9 +1,9 @@
 ---
 name: traditional-service-implementation
 description: implement or revise traditional application service business logic in an existing service file. use when a c# application service class has incomplete or incorrect operation logic and chatgpt should update service methods, add private helper methods, and extend application or domain abstractions such as repositories, read services, or domain services if required, while avoiding direct infrastructure dependencies in the service.
-contentHash: D1579E96CB19574C9CF6EAF41DFC2E565C6AC0C0A244E66ABB7C19D1D260A1F9
+template-id: Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate
+contentHash: 111D1C0964E3E4FDEC4AD98A53EE3863EF56CE88C0821AF493A9591145D95F8A
 ---
-
 # Traditional Service Implementation
 
 Implement business logic inside an existing traditional application service file. Keep service implementations aligned with the modeled domain, nearby service patterns, and application-layer boundaries.
@@ -22,18 +22,17 @@ Implement business logic inside an existing traditional application service file
 - Search the codebase for similar services, repository methods, domain operations, mapping conventions, validation flows, error patterns, and save conventions before introducing a new approach.
 - Add private helper methods inside the service when they improve readability, encapsulate repeated branching logic, or keep the main business flow clear.
 - Keep orchestration in the service and place durable business rules in domain entities, value objects, specifications, or domain/application services when those patterns already exist nearby.
-- Assume there is an ambient unit of work save in place unless nearby code shows otherwise. Explicitly save only when needed by the use case, such as when a surrogate key must be returned before control leaves the operation, or when an existing local convention requires an explicit save.
 
 ## Workflow
 
 1. Inspect the existing service class, interface, operation signatures, DTOs, repositories/read services/domain services, and related domain types.
 2. Search for code usages of:
-   - similar traditional application services
-   - repository, read-service, or domain-service abstractions
-   - domain operations on the target aggregate or entity
-   - DTO mapping conventions
-   - validation, authorization, and error/result patterns
-   - save and unit-of-work conventions in nearby services
+  - similar traditional application services
+  - repository, read-service, or domain-service abstractions
+  - domain operations on the target aggregate or entity
+  - DTO mapping conventions
+  - validation, authorization, and error/result patterns
+  - save and unit-of-work conventions in nearby services
 3. Infer the intended business flow from the operation names, parameters, return types, surrounding domain model, and nearby feature implementations.
 4. Implement the service operation using existing patterns first.
 5. If the service needs missing DAL capabilities, extend the relevant repository/read/application abstraction in an allowed layer instead of introducing infrastructure access into the service.

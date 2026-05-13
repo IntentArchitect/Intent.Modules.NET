@@ -30,7 +30,7 @@ namespace FluentValidationTest.Infrastructure.Persistence
         }
 
         public DbSet<ConstructedConstrainedEntity> ConstructedConstrainedEntities { get; set; }
-        public DbSet<Order> Orders { get; set; }
+        public DbSet<EnumToStringMapping> EnumToStringMappings { get; set; }
         public DbSet<UniqueAccountEntity> UniqueAccountEntities { get; set; }
         public DbSet<UniquePersonEntity> UniquePersonEntities { get; set; }
         public DbSet<NullabilityConstrainedEntity> NullabilityConstrainedEntities { get; set; }
@@ -48,7 +48,7 @@ namespace FluentValidationTest.Infrastructure.Persistence
 
             ConfigureModel(modelBuilder);
             modelBuilder.ApplyConfiguration(new ConstructedConstrainedEntityConfiguration());
-            modelBuilder.ApplyConfiguration(new OrderConfiguration());
+            modelBuilder.ApplyConfiguration(new EnumToStringMappingConfiguration());
             modelBuilder.ApplyConfiguration(new UniqueAccountEntityConfiguration());
             modelBuilder.ApplyConfiguration(new UniquePersonEntityConfiguration());
             modelBuilder.ApplyConfiguration(new NullabilityConstrainedEntityConfiguration());

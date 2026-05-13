@@ -1,3 +1,7 @@
+### Version 5.0.43
+
+- Improvement: AI Skill enhancements.
+
 ### Version 5.0.42
 
 - Fixed: NullReferenceException when LazyLoadingWithProxies is enabled but no Entity template could be found.

@@ -1,9 +1,9 @@
 ---
 name: mediatr-domain-event-handler
 description: implement or revise jimmy bogard-style mediatr domain event handlers in clean architecture c# solutions. use when a domain event notification handler, outbox/integration-event reaction, projection update, notification side effect, audit side effect, or cross-aggregate follow-up is incomplete or incorrect and chatgpt should update the handler while preserving clean layer boundaries and existing codebase conventions.
-contentHash: 9B9516B477FAAED293B0001184BF703F48FC798E06830CA70B780E9E1DAFAAD8
+template-id: Intent.MediatR.DomainEvents.DomainEventHandlerSkill
+contentHash: 648009971454BD0CEB6755A528345B213B22B450F9385F48AB9C20D630F781F9
 ---
-
 # MediatR Domain Event Handler
 
 Implement Jimmy Bogard-style domain event handlers in Clean Architecture. Favor existing patterns, domain language, and allowed abstractions over convenience shortcuts.
@@ -35,10 +35,10 @@ Do not move the original command decision into the event handler. The handler re
 
 1. Inspect the existing handler, request, response, validator, repository interfaces, and related domain types.
 2. Search for code usages of:
-   - similar domain event handlers
-   - repository interfaces and existing repository methods
-   - domain operations on the target aggregate or entity
-   - result and error patterns used in the solution
+  - similar domain event handlers
+  - repository interfaces and existing repository methods
+  - domain operations on the target aggregate or entity
+  - result and error patterns used in the solution
 3. Infer the intended business flow from the request shape, naming, surrounding domain model, and nearby feature implementations.
 4. Implement the `Handle` method using existing patterns first.
 5. If the handler needs missing DAL capabilities, extend the relevant repository abstraction in an allowed layer instead of pulling infrastructure into the handler.

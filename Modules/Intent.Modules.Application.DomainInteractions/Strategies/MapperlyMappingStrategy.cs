@@ -44,15 +44,16 @@ internal class MapperlyMappingStrategy : IMappingStrategy
         ICSharpTemplate template, ITypeReference returnType, string? returnDto, string? mappingMethod)
     {
         // this check should always pass, as there is the same check up the stack, but just extra validation here
-        if(!returnType.GenericTypeParameters.Any())
+        if (!returnType.GenericTypeParameters.Any())
         {
             return;
         }
 
-        if (!template.TryGetTypeName("Intent.Application.Dtos.Mapperly.DtoMappingProfile", returnType.GenericTypeParameters.First().Element, out var dtoTypeName))
+        if(!template.TryGetTypeName("Intent.Application.Dtos.Mapperly.DtoMappingProfile", returnType.GenericTypeParameters.First().Element, out var dtoTypeName))
         {
             return;
         }
+
         var ctor = method.Class.Constructors.FirstOrDefault();
         if (ctor is null)
         {
@@ -64,6 +65,7 @@ internal class MapperlyMappingStrategy : IMappingStrategy
         {
             ctor.AddParameter(dtoTypeName, "mapper", param => param.IntroduceReadonlyField());
         }
+        
         statements.Add($"return {entity.VariableName}.{mappingMethod}(x => _mapper.{entity.ElementModel.Name}To{returnDto}(x));");
     }
 

@@ -1,6 +1,6 @@
 ### Version 1.2.5
 
-- Fixed: Mappings in handlers for PagedResult now generating correctly for Mapperly.
+- Fixed: Mapperly paged queries not always generating the correct mappings.
 
 ### Version 1.2.4
 

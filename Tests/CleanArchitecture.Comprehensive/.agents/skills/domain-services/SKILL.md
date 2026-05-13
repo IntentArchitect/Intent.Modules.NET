@@ -1,9 +1,9 @@
 ---
 name: domain-services
 description: guidance for implementing missing c# domain service functionality in clean architecture solutions. use when an ai coding agent must complete methods in domain-level service classes where domain entities live in a separate project with no infrastructure dependencies, service interfaces belong in the domain, and implementations must express business logic that does not naturally fit inside a single entity.
-contentHash: 423ADE790FD3708745806DCE4EE9AE2C9D855370D31BA38C90339950097940CE
+template-id: Intent.DomainServices.DomainServiceSkill
+contentHash: 92300F78C9DE9084A66ABF0BBA272DB48FBD3AF1AC4007FCFB834A4C8EE9DE93
 ---
-
 # Domain Services Implementation
 
 ## Purpose
@@ -28,9 +28,9 @@ A Domain Service here means a domain-level class that expresses business rules t
 1. Inspect the Domain Service class, its interface, related entities/value objects, domain exceptions/results, and any existing tests.
 2. Identify each unimplemented method and write down the business invariant it should enforce.
 3. Determine where the logic belongs:
-   - Single aggregate/entity behavior: implement or delegate to that entity when possible.
-   - Cross-entity, cross-value-object, or policy logic: implement in the Domain Service.
-   - Infrastructure/app orchestration: do not implement in the Domain Service; surface a clear domain abstraction or leave orchestration outside the domain.
+  - Single aggregate/entity behavior: implement or delegate to that entity when possible.
+  - Cross-entity, cross-value-object, or policy logic: implement in the Domain Service.
+  - Infrastructure/app orchestration: do not implement in the Domain Service; surface a clear domain abstraction or leave orchestration outside the domain.
 4. Implement the smallest complete domain-only solution.
 5. Add or update focused unit tests for the business rules and edge cases.
 6. Check that the Domain project still has no new external dependencies.
