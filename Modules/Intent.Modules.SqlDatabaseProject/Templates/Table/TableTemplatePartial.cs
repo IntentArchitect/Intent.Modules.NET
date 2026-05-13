@@ -181,6 +181,7 @@ namespace Intent.Modules.SqlDatabaseProject.Templates.Table
 
             if (textLimits is null && textConstraints is null)
             {
+                sb.Append("NVARCHAR(MAX)");
                 return;
             }
 
