@@ -18,7 +18,11 @@ internal class MapperlyMappingStrategy : IMappingStrategy
     public void ImplementMappingStatement(ICSharpClassMethodDeclaration method, List<CSharpStatement> statements,
         EntityDetails entity, ICSharpTemplate template, ITypeReference returnType, string? returnDto)
     {
-        if (!template.TryGetTypeName("Intent.Application.Dtos.Mapperly.DtoMappingProfile", returnType.Element, out var dtoTypeName))
+
+        if (!template.TryGetTypeName(
+              "Intent.Application.Dtos.Mapperly.DtoMappingProfile",
+              returnType.Element,
+              out var dtoTypeName) )
         {
             return;
         }

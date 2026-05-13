@@ -115,9 +115,9 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
                             {
                                 method.AddAttribute("MapProperty", attribute =>
                                 {
-                                    /*When attribute is nested there are nasty issues that come up. See Mapperly docs on "full name of".
+                                    /*When attribute is nested there are nasty issues that come up. See Mapperly docs on "full nameof".
                                     In theory we should also do this when entityTypeName gets fully qualified.
-                                    But how can we know at this point if Intent is going to disambiguate ambiguous references with a FQN?*/
+                                     */
                                     var attributeIsNested = config.AttributePath.Count(c => c == '.') >= 2;
                                     if (attributeIsNested)  
                                     {
