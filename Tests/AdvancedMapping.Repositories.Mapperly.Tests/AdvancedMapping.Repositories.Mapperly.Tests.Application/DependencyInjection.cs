@@ -29,6 +29,7 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application
             });
             services.AddSingleton<CustomerDtoMapper>();
             services.AddSingleton<CustomerPreferencesDtoMapper>();
+            services.AddSingleton<CustomerSummaryDtoMapper>();
             services.AddSingleton<OrderAddressDtoMapper>();
             services.AddSingleton<OrderCustomerDtoMapper>();
             services.AddSingleton<OrderDiscountDtoMapper>();
