@@ -1,3 +1,7 @@
+### Version 1.2.5
+
+- Fixed: Mapperly paged queries not always generating the correct mappings.
+
 ### Version 1.2.4
 
 - Improvement: Better support to identify areas where AI should be implementing logic.
