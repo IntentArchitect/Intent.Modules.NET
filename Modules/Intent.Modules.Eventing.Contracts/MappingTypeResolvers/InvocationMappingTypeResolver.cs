@@ -20,6 +20,11 @@ public class InvocationMappingTypeResolver : IMappingTypeResolver
     {
         var model = mappingModel.Model;
 
+        if (model.SpecializationType == "Command")
+        {
+            return new ConstructorMapping(mappingModel, (ICSharpTemplate)_template);
+        }
+
         if (model.SpecializationType == "Operation")
         {
             return new MethodInvocationMapping(mappingModel, (ICSharpTemplate)_template);
