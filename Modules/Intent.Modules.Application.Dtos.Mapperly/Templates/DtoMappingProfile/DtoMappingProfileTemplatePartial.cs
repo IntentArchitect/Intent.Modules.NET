@@ -45,7 +45,7 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
 
                     var entityTemplate = MappingHelper.GetEntityTemplate(this, Model);
 
-                    var entityClassName = entityTemplate.ClassName;  
+                    var entityClassName = entityTemplate.ClassName;
                     var entityTypeName = GetTypeName(entityTemplate);
 
                     var dtoModelName = Model.Name;
@@ -60,7 +60,7 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
                     // Generate [UseMapper] fields for each dependency
                     foreach (var dependency in mapperDependencies)
                     {
-                        var fieldName = $"_{dependency.ClassName.ToCamelCase()}";
+                        string fieldName = GetDependencyFieldName(dependency);
                         @class.AddField(this.GetTypeName(dependency), fieldName, field =>
                         {
                             field.PrivateReadOnly();
@@ -97,7 +97,7 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
                         {
                             method.AddAttribute("MapperIgnoreSource", attribute =>
                             {
-                                attribute.AddArgument(GetSafeMapperlyNameof(entityTypeName, unmappedProp));                 
+                                attribute.AddArgument(GetSafeMapperlyNameof(entityTypeName, unmappedProp));
                             });
                         }
 
@@ -137,10 +137,15 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
                         {
                             method.Private();
                             method.AddParameter(entityTypeName, "source");
-                            method.WithExpressionBody(BuildCustomMappingExpression(config));
+                            method.WithExpressionBody(BuildCustomMappingExpression(config, mapperDependencies));
                         });
                     }
                 });
+        }
+
+        private static string GetDependencyFieldName(ICSharpFileBuilderTemplate dependency)
+        {
+            return $"_{dependency.ClassName.ToCamelCase()}";
         }
 
         /*See Mapperly docs on "full nameof".
@@ -266,14 +271,35 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
             return result;
         }
 
-        private string BuildCustomMappingExpression(MappingConfiguration config)
+        private string BuildCustomMappingExpression(MappingConfiguration config, IReadOnlyCollection<ICSharpFileBuilderTemplate> mapperDependencies)
         {
             var expression = config.SourceExpression.Replace("src.", "source.");
+            var targetReference = config.Field.TypeReference;
+
             if (config.ShouldCast)
             {
                 expression = $"({GetTypeName(config.Field.TypeReference)}){expression}";
             }
+            if (config.Field.TypeReference.IsCollection)
+            {
+                var targetClassName = config.Field.TypeReference.Element.Name;
+                var dependency = mapperDependencies.FirstOrDefault(x =>
+                {
+                    return x.TryGetModel<DTOModel>(out var dtoModel)
+                           && dtoModel.Name == targetClassName;
+                });
+                if (dependency != null)
+                {
+                    var mapperFieldName = GetDependencyFieldName(dependency);
+                    dependency.TryGetModel<DTOModel>(out var dtoModel); //TryGetModel guaranteed to pass since it was returned in the firstordefault above
+                    var entityClassName = dtoModel.Mapping.Element.Name;
+                    var modelClassName = dtoModel.Name;
+                
+                    expression = $"{expression}.Select({mapperFieldName}.{entityClassName}To{modelClassName})";
 
+                }
+            }
+      
             return expression;
         }
     }
