@@ -239,10 +239,7 @@ internal static class MappingHelper
                 continue;
             }
             
-            // Get the DTOModel from the DTO template - this is the key!
-            var nestedDtoAsTemplateWithModel = nestedDtoTemplate as ITemplateWithModel;
-
-            if (nestedDtoAsTemplateWithModel?.Model is not DTOModel nestedDtoModel)
+            if(!nestedDtoTemplate.TryGetModel<DTOModel>(out var nestedDtoModel))
             {
                 continue;
             }
