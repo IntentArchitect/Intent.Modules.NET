@@ -1,3 +1,7 @@
+### Version 1.1.3
+
+- Fixed: Added support for `Domain.Constraints` -> `Text Limit` stereotype, instead of only recognising `Text Constraint` stereotype.
+
 ### Version 1.1.2
 
 - Improvement: Updated module dependencies.
