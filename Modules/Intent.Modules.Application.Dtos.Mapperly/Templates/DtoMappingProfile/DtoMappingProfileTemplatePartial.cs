@@ -1,7 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Intent.Engine;
+using Intent.IArchitect.Agent.Persistence;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -12,6 +10,9 @@ using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using Intent.Utils;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -96,7 +97,7 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
                         {
                             method.AddAttribute("MapperIgnoreSource", attribute =>
                             {
-                                attribute.AddArgument($"nameof({entityTypeName}.{unmappedProp})");
+                                attribute.AddArgument(GetSafeMapperlyNameof(entityTypeName, unmappedProp));                 
                             });
                         }
 
@@ -107,7 +108,7 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
                             {
                                 method.AddAttribute("MapPropertyFromSource", attribute =>
                                 {
-                                    attribute.AddArgument($"nameof({dtoTypeName}.{config.TargetPropertyName})");
+                                    attribute.AddArgument(GetSafeMapperlyNameof(dtoTypeName, config.TargetPropertyName));
                                     attribute.AddArgument($"Use = nameof({config.CustomMethodName})");
                                 });
                             }
@@ -115,21 +116,9 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
                             {
                                 method.AddAttribute("MapProperty", attribute =>
                                 {
-                                    /*See Mapperly docs on "full-nameof".
-                                     Nasty issues occur if you dont full-nameof with @ if the nesting path has attributes with the same name when C# nameof resolves
-                                     */
-                                    var attributeIsNestedOutsideClass = config.AttributePath.Count(c => c == '.') >= 2;
-                                    var entityIsFullyQualified = entityTypeName.Contains(".");
-                                    if (attributeIsNestedOutsideClass || entityIsFullyQualified)  
-                                    {
-                                        attribute.AddArgument($"nameof(@{entityTypeName}.{config.AttributePath})");
-                                    }
-                                    else
-                                    {
-                                        attribute.AddArgument($"nameof({entityTypeName}.{config.AttributePath})");
-                                    }
+                                    attribute.AddArgument(GetSafeMapperlyNameof(entityTypeName, config.AttributePath));
 
-                                    attribute.AddArgument($"nameof({dtoTypeName}.{config.TargetPropertyName})");
+                                    attribute.AddArgument(GetSafeMapperlyNameof(dtoTypeName, config.TargetPropertyName));
                                 });
                             }
                         }
@@ -152,6 +141,21 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
                         });
                     }
                 });
+        }
+
+        /*See Mapperly docs on "full nameof".
+         Nasty issues occur if you dont "full nameof" if the full path has propreties with the same name when C# nameof resolves
+           */
+        private static string GetSafeMapperlyNameof(string typeName, string memberPath)
+        {
+            var typeIsFullyQualified = typeName.Contains('.');
+            var memberPathHopsOutsideClass = memberPath.Count(c => c == '.') >= 2;
+
+            var useFullNameof = typeIsFullyQualified || memberPathHopsOutsideClass;
+
+            return useFullNameof
+                ? $"nameof(@{typeName}.{memberPath})"
+                : $"nameof({typeName}.{memberPath})";
         }
 
 
