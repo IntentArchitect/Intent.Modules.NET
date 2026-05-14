@@ -50,7 +50,7 @@ namespace Intent.Modules.Application.FluentValidation.Dtos.FactoryExtensions
 
             foreach (var change in entities)
             {
-                if (!change.Template!.TryCastTemplate<ICSharpFileBuilderTemplate, IMetadataModel>(out var template, out var model))
+                if (change.Template?.TryCastTemplate<ICSharpFileBuilderTemplate, IMetadataModel>(out var template, out var model) != true)
                 {
                     continue;
                 }

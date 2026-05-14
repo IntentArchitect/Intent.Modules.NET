@@ -189,7 +189,7 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Templates
                     var nullForgivingOperator = pathTarget.Element?.TypeReference.IsNullable == true ? "!" : string.Empty;
                     var operationCall = pathTarget.Specialization == OperationModel.SpecializationType ? "()" : string.Empty;
 
-                    return $"{pathTarget.Name}{operationCall}{nullForgivingOperator}";
+                    return $"{pathTarget.Name.ToPascalCase()}{operationCall}{nullForgivingOperator}";
                 })).TrimEnd('!');
 
             return (Path: path, MethodName: MethodName.ForMember);

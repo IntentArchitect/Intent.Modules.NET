@@ -112,7 +112,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                     var typeInfo = primaryTemplate.GetTypeInfo(attribute.TypeReference);
                     if (NeedsNullabilityAssignment(typeInfo))
                     {
-                        ctor.AddStatement($"{attribute.Name} = null!;");
+                        ctor.AddStatement($"{attribute.Name.ToPascalCase()} = null!;");
                     }
                 }
 
@@ -147,7 +147,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                     var typeInfo = dataContractTemplate.GetTypeInfo(attribute.TypeReference);
                     if (NeedsNullabilityAssignment(typeInfo))
                     {
-                        ctor.AddStatement($"{attribute.Name} = null!;");
+                        ctor.AddStatement($"{attribute.Name.ToPascalCase()} = null!;");
                     }
                 }
             });

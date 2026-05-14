@@ -53,7 +53,7 @@ namespace Intent.Modules.MediatR.DomainEvents.FactoryExtensions
 
             foreach (var change in entities)
             {
-                if (!change.Template!.TryCastTemplate<ICSharpFileBuilderTemplate, IMetadataModel>(out var template, out var model))
+                if (change.Template?.TryCastTemplate<ICSharpFileBuilderTemplate, IMetadataModel>(out var template, out var model) != true)
                 {
                     continue;
                 }
@@ -128,7 +128,7 @@ namespace Intent.Modules.MediatR.DomainEvents.FactoryExtensions
 
         private bool IsDomainEventHandler(IApplication application, IChange c)
         {
-            return c.Template!.Id == DefaultDomainEventHandlerTemplate.TemplateId || c.Template!.Id == DomainEventHandlerTemplate.TemplateId;
+            return c.Template?.Id == DefaultDomainEventHandlerTemplate.TemplateId || c.Template?.Id == DomainEventHandlerTemplate.TemplateId;
         }
 
         private static bool HasMissingImplementation(IChange change) => change.Content.Contains("throw new NotImplementedException");
