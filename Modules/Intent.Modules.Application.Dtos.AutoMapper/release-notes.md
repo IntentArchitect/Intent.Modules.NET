@@ -1,3 +1,7 @@
+### Version 4.0.20
+
+- Fixed: Inconstsant casing on generated code.
+
 ### Version 4.0.19
 
 - Improvement: Documentation and ProjectUrl link added.

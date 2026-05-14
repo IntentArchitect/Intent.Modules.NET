@@ -1,6 +1,7 @@
 ### Version 5.4.1
 
 - Improvement: Updated Skill Template to new extensible version.
+- Fixed: Issue with Validator AI task creation on deleted files.
 
 ### Version 5.4.0
 

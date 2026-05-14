@@ -2,6 +2,7 @@
 
 - Improvement: AI Skill enhancements.
 - Fixed: Naming conventions when adding parameterless constructors to Domain DataContracts.
+- Fixed: Inconsistant casing in generated code.
 
 ### Version 5.0.42
 

@@ -113,6 +113,11 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Templates
                 || !pathTargets.First().Element.IsAssociationEndModel()
                 || !template.GetTypeInfo(field.TypeReference).IsPrimitive)
             {
+                if(IsExpression(pathTargets))
+                {
+                    return (string.Join(".", pathTargets.Select(s => s.Name)), MethodName.ForMember);
+                }
+
                 var (path, methodName) = GetPath(pathTargets);
 
                 return ($"src.{path}", methodName);
@@ -132,6 +137,14 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Templates
                 (Multiplicity.Many, Multiplicity.Many) => GetMultiplePk(template, pathTargets),
                 _ => throw new InvalidOperationException($"Problem resolving association {association.SourceEnd.Multiplicity} -> {association.TargetEnd.Multiplicity}")
             };
+        }
+
+        private static bool IsExpression(IEnumerable<IElementMappingPathTarget> pathTargets)
+        {
+            char[] targetChars = { '?', '(' };
+            var fullExpressionPath = string.Join(".", pathTargets.Select(p => p.Name));
+
+            return fullExpressionPath.Any(c => targetChars.Contains(c));
         }
 
         private static void AddFieldMapping(CSharpMethodChainStatement statement, DTOFieldModel field, string mapping)

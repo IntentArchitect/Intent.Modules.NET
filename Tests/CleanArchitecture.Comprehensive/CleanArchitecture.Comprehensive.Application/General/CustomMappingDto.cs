@@ -32,7 +32,9 @@ namespace CleanArchitecture.Comprehensive.Application.General
         public void Mapping(Profile profile)
         {
             profile.CreateMap<CustomMapping, CustomMappingDto>()
-                .ForMember(d => d.CustomInt, opt => opt.MapFrom(src => src.When!.HasValue ? src.When.Value.Day : 1));
+                .ForMember(d => d.CustomInt, opt => opt.MapFrom(src => src.When.HasValue ? src.When.Value.Day : 1));
         }
+
+
     }
 }
