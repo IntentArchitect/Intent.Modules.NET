@@ -1,4 +1,4 @@
-﻿Microsoft Visual Studio Solution File, Format Version 12.00
+Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
 VisualStudioVersion = 18.0.11104.47
 MinimumVisualStudioVersion = 10.0.40219.1
@@ -405,6 +405,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Aws.Lambda.Functions.Sqs", "Intent.Modules.Aws.Lambda.Functions.Sqs\Intent.Modules.Aws.Lambda.Functions.Sqs.csproj", "{E8EE9F41-D5B2-4A78-B2BB-281A4C60A3AE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.Controllers.JsonPatch", "Intent.Modules.AspNetCore.Controllers.JsonPatch\Intent.Modules.AspNetCore.Controllers.JsonPatch.csproj", "{E949417C-4BD9-4E2D-AC3B-8E9D50D05A5F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Eventing.NServiceBus", "Intent.Modules.Eventing.NServiceBus\Intent.Modules.Eventing.NServiceBus.csproj", "{E492480E-7810-4634-83AC-C8E3C16E1CAD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -1068,6 +1070,10 @@ Global
 		{E949417C-4BD9-4E2D-AC3B-8E9D50D05A5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E949417C-4BD9-4E2D-AC3B-8E9D50D05A5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E949417C-4BD9-4E2D-AC3B-8E9D50D05A5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E492480E-7810-4634-83AC-C8E3C16E1CAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E492480E-7810-4634-83AC-C8E3C16E1CAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E492480E-7810-4634-83AC-C8E3C16E1CAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E492480E-7810-4634-83AC-C8E3C16E1CAD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
