@@ -1,6 +1,6 @@
 ### Version 4.0.20
 
-- Fixed: Inconstsant casing on generated code.
+- Fixed: Inconsistent casing on generated code.
 
 ### Version 4.0.19
 
