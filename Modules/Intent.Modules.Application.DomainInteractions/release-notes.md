@@ -1,3 +1,6 @@
+### Version 1.2.6
+- Fixed: For Mapperly, corrected classes and property names when an entity name is fully qualified
+
 ### Version 1.2.5
 
 - Fixed: Mapperly paged queries not always generating the correct mappings.

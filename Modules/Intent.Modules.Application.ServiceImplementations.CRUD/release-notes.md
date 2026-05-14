@@ -1,3 +1,6 @@
+### Version 5.3.2
+- Fixed: For Mapperly, corrected DTO class name when entity name was fully qualified
+
 ### Version 5.3.1
 
 - Improvement: Relocated basic entity patch logic for upcoming JSON Patch module.

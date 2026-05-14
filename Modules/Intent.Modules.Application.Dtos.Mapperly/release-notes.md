@@ -1,3 +1,8 @@
+### Version 1.0.5
+- Fixed: When a navigation of a field hops across classes or fully qualified namespaces prefix `@`, mapperly's "full `nameof`", to the path to prevent field name collisions.
+- Fixed: When an `Enum` or `ValueObject` is used it's associated `using` statements are added.
+- Fixed: When a `List` is mapped accross multiple classes in a complex mapping, the associated LINQ `Select` statement is added to perform the map
+
 ### Version 1.0.4
 
 - Improvement: Split Mapperly mapping path generation for attribute paths vs runtime expressions to avoid trimming and keep `nameof(...)` paths clean.
