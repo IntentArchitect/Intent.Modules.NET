@@ -55,6 +55,21 @@ After **every** code change, verify the exit code is `0`:
 dotnet build "path/to/affected.csproj" --no-incremental --verbosity minimal --nologo
 ```
 
+## 🤖 Available Skills
+
+Specialized skills live in `Modules/.agents/skills/`. Load the relevant skill **before** generating code for that scenario — each skill contains Musts, Must Nots, pattern indexes, and a resource folder.
+
+| Skill | Path | When to use |
+| :--- | :--- | :--- |
+| **file-builder-expert** | `skills/file-builder-expert/SKILL.md` | Converting a C# class to a `CSharpFile` fluent template; writing `OnBuild`/`AfterBuild` callbacks; creating template registration classes; resolving types via `GetTypeName`/`UseType`. |
+| **intent-mapping-architect** | `skills/intent-mapping-architect/SKILL.md` | Generating update/creation mappings from designer metadata; implementing `CSharpClassMappingManager`, `IMappingTypeResolver`, or `CSharpMappingBase`; handling recursive object/collection mapping. |
+| **intent-metadata-consumer** | `skills/intent-metadata-consumer/SKILL.md` | Reading stereotype properties to drive code generation; authoring or extending `*StereotypeExtensions.cs`; writing LINQ queries against typed model collections (`ClassModel`, `DTOModel`, etc.). |
+| **intent-module-orchestrator** | `skills/intent-module-orchestrator/SKILL.md` | Dispatching `ContainerRegistrationRequest` / `AppSettingRegistrationRequest` via `EventDispatcher`; finding and modifying templates from other modules; authoring `*FactoryExtension` classes; priority-band ordering. |
+
+> **Maintenance:** Use `Modules/.agents/prompts/refresh-intent-skills.prompt.md` to audit skills against the latest SDK and update any stale patterns or resource files.
+
+---
+
 ## 🛠️ Debugging & Troubleshooting
 
 ### Runtime Context Acquisition
