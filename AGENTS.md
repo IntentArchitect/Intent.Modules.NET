@@ -59,6 +59,17 @@ dotnet build "path/to/affected.csproj" --no-incremental --verbosity minimal --no
 
 Specialized skills live in `Modules/.agents/skills/`. Load the relevant skill **before** generating code for that scenario — each skill contains Musts, Must Nots, pattern indexes, and a resource folder.
 
+### Module Building Skills (load in sequence when building a new module)
+
+| Skill | Path | When to use |
+| :--- | :--- | :--- |
+| **module-kickoff** | `skills/module-kickoff/SKILL.md` | **Start here for any new module.** Gathers requirements from the developer, validates sufficiency, produces a Requirements Summary. Do not proceed without it. |
+| **tech-pattern-researcher** | `skills/tech-pattern-researcher/SKILL.md` | After module-kickoff. Researches the technology in isolation, maps it to Clean Architecture, defines files to generate. Produces a Pattern Document. |
+| **module-ecosystem-analyst** | `skills/module-ecosystem-analyst/SKILL.md` | After tech-pattern-researcher. Scans the Intent ecosystem (what Eventing.Contracts provides, which modeler modules drive generation, which SDK base classes to use). Produces an Attack Plan with ordered implementation increments. |
+| **intent-module-builder** | `skills/intent-module-builder/SKILL.md` | After module-ecosystem-analyst. Uses MCP to scaffold the module in the Module Builder designer: creates template elements, factory extensions, NuGet declarations, runs SF to generate stubs. Produces a compiled module skeleton. |
+
+### Implementation Skills (load as needed during module implementation)
+
 | Skill | Path | When to use |
 | :--- | :--- | :--- |
 | **file-builder-expert** | `skills/file-builder-expert/SKILL.md` | Converting a C# class to a `CSharpFile` fluent template; writing `OnBuild`/`AfterBuild` callbacks; creating template registration classes; resolving types via `GetTypeName`/`UseType`. |
