@@ -14,6 +14,6 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Mappings.Order
         [MapperIgnoreSource(nameof(Payment.OrderId))]
         public partial OrderPaymentDto PaymentToOrderPaymentDto(Payment payment);
 
-        public partial List<OrderPaymentDto> PaymentToOrderPaymentDtoList(List<Payment> payments);
+        public partial List<OrderPaymentDto> PaymentToOrderPaymentDtoList(IEnumerable<Payment> payments);
     }
 }

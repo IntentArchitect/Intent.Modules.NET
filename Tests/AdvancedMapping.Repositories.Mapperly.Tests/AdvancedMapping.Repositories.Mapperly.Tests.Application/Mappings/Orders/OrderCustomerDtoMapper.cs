@@ -22,6 +22,6 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Mappings.Order
         [MapProperty(nameof(Customer.Addresses), nameof(OrderCustomerDto.Addresses))]
         public partial OrderCustomerDto CustomerToOrderCustomerDto(Customer customer);
 
-        public partial List<OrderCustomerDto> CustomerToOrderCustomerDtoList(List<Customer> customers);
+        public partial List<OrderCustomerDto> CustomerToOrderCustomerDtoList(IEnumerable<Customer> customers);
     }
 }

@@ -25,7 +25,7 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Customers.GetC
         public async Task<List<CustomerDto>> Handle(GetCustomersQuery request, CancellationToken cancellationToken)
         {
             var customers = await _customerRepository.FindAllAsync(cancellationToken);
-            return _mapper.CustomerToCustomerDtoList(customers.ToList());
+            return _mapper.CustomerToCustomerDtoList(customers);
         }
     }
 }

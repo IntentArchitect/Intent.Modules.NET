@@ -14,6 +14,6 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Mappings.Order
         [MapperIgnoreSource(nameof(Shipment.OrderId))]
         public partial OrderShipmentDto ShipmentToOrderShipmentDto(Shipment shipment);
 
-        public partial List<OrderShipmentDto> ShipmentToOrderShipmentDtoList(List<Shipment> shipments);
+        public partial List<OrderShipmentDto> ShipmentToOrderShipmentDtoList(IEnumerable<Shipment> shipments);
     }
 }

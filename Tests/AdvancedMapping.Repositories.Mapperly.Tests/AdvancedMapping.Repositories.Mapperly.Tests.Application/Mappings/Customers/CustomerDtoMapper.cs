@@ -16,7 +16,7 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Mappings.Custo
         [MapPropertyFromSource(nameof(CustomerDto.PreferencesSpecials), Use = nameof(MapPreferencesSpecials))]
         public partial CustomerDto CustomerToCustomerDto(Customer customer);
 
-        public partial List<CustomerDto> CustomerToCustomerDtoList(List<Customer> customers);
+        public partial List<CustomerDto> CustomerToCustomerDtoList(IEnumerable<Customer> customers);
 
         private bool? MapPreferencesNewsletter(Customer source) => (bool?)source.Preferences?.Newsletter;
 

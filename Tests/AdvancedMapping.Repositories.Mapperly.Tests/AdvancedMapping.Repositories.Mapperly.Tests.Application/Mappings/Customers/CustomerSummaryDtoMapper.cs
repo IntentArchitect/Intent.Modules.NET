@@ -16,6 +16,6 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Mappings.Custo
         [MapperIgnoreSource(nameof(Customer.MetadataJson))]
         public partial CustomerSummaryDto CustomerToCustomerSummaryDto(Customer customer);
 
-        public partial List<CustomerSummaryDto> CustomerToCustomerSummaryDtoList(List<Customer> customers);
+        public partial List<CustomerSummaryDto> CustomerToCustomerSummaryDtoList(IEnumerable<Customer> customers);
     }
 }

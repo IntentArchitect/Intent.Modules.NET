@@ -21,6 +21,6 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Mappings.Order
 
         public partial OrderProductDto ProductToOrderProductDto(Product product);
 
-        public partial List<OrderProductDto> ProductToOrderProductDtoList(List<Product> products);
+        public partial List<OrderProductDto> ProductToOrderProductDtoList(IEnumerable<Product> products);
     }
 }

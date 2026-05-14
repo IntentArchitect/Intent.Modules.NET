@@ -22,6 +22,6 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Mappings.Order
         [MapperIgnoreSource(nameof(OrderLine.OrderId))]
         public partial OrderOrderLineDto OrderLineToOrderOrderLineDto(OrderLine orderLine);
 
-        public partial List<OrderOrderLineDto> OrderLineToOrderOrderLineDtoList(List<OrderLine> orderLines);
+        public partial List<OrderOrderLineDto> OrderLineToOrderOrderLineDtoList(IEnumerable<OrderLine> orderLines);
     }
 }
