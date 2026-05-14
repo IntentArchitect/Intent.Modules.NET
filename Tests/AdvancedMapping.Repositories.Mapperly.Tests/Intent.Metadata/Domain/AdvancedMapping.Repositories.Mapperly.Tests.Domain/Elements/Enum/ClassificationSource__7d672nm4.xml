@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="938ffa6a-3fdd-4b18-a746-c3cea27b042e" type="Enum" typeId="85fba0e9-9161-4c85-a603-a229ef312beb">
+  <name>ClassificationSource</name>
+  <display>ClassificationSource</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9804eb76-4b5e-4998-8c95-0116febd73cd</parentFolderId>
+  <packageId>9804eb76-4b5e-4998-8c95-0116febd73cd</packageId>
+  <packageName>AdvancedMapping.Repositories.Mapperly.Tests.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="e7ff6d94-7438-4be8-8324-688d1128afef" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Manual</name>
+      <display>Manual = 1</display>
+      <isAbstract>false</isAbstract>
+      <value>1</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>938ffa6a-3fdd-4b18-a746-c3cea27b042e</parentFolderId>
+      <packageId>9804eb76-4b5e-4998-8c95-0116febd73cd</packageId>
+      <packageName>AdvancedMapping.Repositories.Mapperly.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="4d344b34-a8d1-4575-a581-d66444d54cdc" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>MachineLearing</name>
+      <display>MachineLearing = 2</display>
+      <isAbstract>false</isAbstract>
+      <value>2</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>938ffa6a-3fdd-4b18-a746-c3cea27b042e</parentFolderId>
+      <packageId>9804eb76-4b5e-4998-8c95-0116febd73cd</packageId>
+      <packageName>AdvancedMapping.Repositories.Mapperly.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="76bc1966-48a5-4f6c-b1f5-200ea6f07daf" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>RulesEngine</name>
+      <display>RulesEngine = 3</display>
+      <isAbstract>false</isAbstract>
+      <value>3</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>938ffa6a-3fdd-4b18-a746-c3cea27b042e</parentFolderId>
+      <packageId>9804eb76-4b5e-4998-8c95-0116febd73cd</packageId>
+      <packageName>AdvancedMapping.Repositories.Mapperly.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

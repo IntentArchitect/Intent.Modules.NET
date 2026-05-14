@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="2c28372e-1b3f-4c15-8fcc-5ae3b0b03506">
+  <sourceEnd id="ac3aa92b-37d1-4c93-bac2-56c3d9f2b9fc" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
+    <display>created by : CustomerSegments.CreateCustomerSegmentsCommand</display>
+    <order>0</order>
+    <typeReference id="1e1a17fc-86d1-4d01-a45a-ed99afc3ee5c">
+      <typeId>b9f60063-b33d-438d-8ea3-67673a8d500d</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMapping.Repositories.Mapperly.Tests.Services</typePackageName>
+      <typePackageId>5acc1023-d19a-4150-9b5f-ce23f31ef1cb</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="2c28372e-1b3f-4c15-8fcc-5ae3b0b03506" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
+    <name>customerSegments</name>
+    <display>[create] customerSegments: CustomerSegments</display>
+    <order>4</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="27bbc830-c125-4217-a2a0-aebbba2e91cd">
+      <typeId>f5d179f1-a6ff-4d2a-827a-0d0d9faec695</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMapping.Repositories.Mapperly.Tests.Domain</typePackageName>
+      <typePackageId>9804eb76-4b5e-4998-8c95-0116febd73cd</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Create Entity Mapping" typeId="5f172141-fdba-426b-980e-163e782ff53e">
+        <source applicationId="3bf3dc59-97c7-4633-b5f2-147e9c2ee45c" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="b9f60063-b33d-438d-8ea3-67673a8d500d" location="[AdvancedMapping.Repositories.Mapperly.Tests].[Services].[CreateCustomerSegmentsCommand]" />
+        <target applicationId="3bf3dc59-97c7-4633-b5f2-147e9c2ee45c" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="f5d179f1-a6ff-4d2a-827a-0d0d9faec695" location="[AdvancedMapping.Repositories.Mapperly.Tests].[Services].[CustomerSegments]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CreateCustomerSegmentsCommand}</expression>
+            <path>
+              <target id="f5d179f1-a6ff-4d2a-827a-0d0d9faec695" name="CustomerSegments" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+            </path>
+            <sources>
+              <source identifier="CreateCustomerSegmentsCommand" mappingType="Invocation Mapping" mappingTypeId="47dc4a51-30a3-4ee8-8c7d-25a35bb965b9">
+                <path>
+                  <target id="b9f60063-b33d-438d-8ea3-67673a8d500d" name="CreateCustomerSegmentsCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{SegmentId}</expression>
+            <path>
+              <target id="f5d179f1-a6ff-4d2a-827a-0d0d9faec695" name="CustomerSegments" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="28f221e8-fc6f-46d4-966c-fb1abb52af8f" name="SegmentId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="SegmentId" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="b9f60063-b33d-438d-8ea3-67673a8d500d" name="CreateCustomerSegmentsCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="b8b9a2fa-0928-4139-b868-f5f3f62c4427" name="SegmentId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{CustomerId}</expression>
+            <path>
+              <target id="f5d179f1-a6ff-4d2a-827a-0d0d9faec695" name="CustomerSegments" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="fc33184c-29fc-4369-886d-a58248407514" name="CustomerId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="CustomerId" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="b9f60063-b33d-438d-8ea3-67673a8d500d" name="CreateCustomerSegmentsCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="090ae1e3-9b08-4204-bd3c-eb1fd4b54da2" name="CustomerId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{ClassificationSource}</expression>
+            <path>
+              <target id="f5d179f1-a6ff-4d2a-827a-0d0d9faec695" name="CustomerSegments" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="c1027766-6c36-4dba-a2a5-1056651df2b0" name="ClassificationSource" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="ClassificationSource" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="b9f60063-b33d-438d-8ea3-67673a8d500d" name="CreateCustomerSegmentsCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="6348016f-fbe6-44a4-9a10-9c97cfc8f6a7" name="ClassificationSource" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Confidence}</expression>
+            <path>
+              <target id="f5d179f1-a6ff-4d2a-827a-0d0d9faec695" name="CustomerSegments" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="68c40a69-dea1-429f-a394-b74f495de42e" name="Confidence" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Confidence" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="b9f60063-b33d-438d-8ea3-67673a8d500d" name="CreateCustomerSegmentsCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="5e3bae99-ff81-4828-82d4-202d061205fa" name="Confidence" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Create Entity Action</associationType>
+  <associationTypeId>7a3f0474-3cf8-4249-baac-8c07c49465e0</associationTypeId>
+  <stereotypes />
+</association>

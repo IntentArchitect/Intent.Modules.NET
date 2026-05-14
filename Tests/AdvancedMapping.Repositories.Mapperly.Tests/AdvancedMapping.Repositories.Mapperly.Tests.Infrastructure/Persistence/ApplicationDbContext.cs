@@ -1,5 +1,7 @@
 using AdvancedMapping.Repositories.Mapperly.Tests.Domain.Common.Interfaces;
+using AdvancedMapping.Repositories.Mapperly.Tests.Domain.Entities;
 using AdvancedMapping.Repositories.Mapperly.Tests.Domain.Entities.Sales;
+using AdvancedMapping.Repositories.Mapperly.Tests.Infrastructure.Persistence.Configurations;
 using AdvancedMapping.Repositories.Mapperly.Tests.Infrastructure.Persistence.Configurations.Sales;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
@@ -15,6 +17,9 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Infrastructure.Persistence
         {
         }
 
+        public DbSet<CustomerSegments> CustomerSegments { get; set; }
+        public DbSet<Segment> Segments { get; set; }
+
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Discount> Discounts { get; set; }
         public DbSet<Order> Orders { get; set; }
@@ -26,6 +31,8 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Infrastructure.Persistence
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
+            modelBuilder.ApplyConfiguration(new CustomerSegmentsConfiguration());
+            modelBuilder.ApplyConfiguration(new SegmentConfiguration());
             modelBuilder.ApplyConfiguration(new CustomerConfiguration());
             modelBuilder.ApplyConfiguration(new DiscountConfiguration());
             modelBuilder.ApplyConfiguration(new OrderConfiguration());

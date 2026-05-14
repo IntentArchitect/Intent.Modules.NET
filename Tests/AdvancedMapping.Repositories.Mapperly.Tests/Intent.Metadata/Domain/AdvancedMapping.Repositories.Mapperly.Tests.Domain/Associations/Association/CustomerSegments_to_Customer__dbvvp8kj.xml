@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="199eb3b2-81a3-449c-86d6-95eca532106c">
+  <sourceEnd id="26d9ddca-2d18-43b0-805b-e087935f4aaa" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>CustomerSegments</name>
+    <display>CustomerSegments: CustomerSegments[*]</display>
+    <order>8</order>
+    <typeReference id="1b33de8c-b972-490b-8657-5b0366de99a2">
+      <typeId>f5d179f1-a6ff-4d2a-827a-0d0d9faec695</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMapping.Repositories.Mapperly.Tests.Domain</typePackageName>
+      <typePackageId>9804eb76-4b5e-4998-8c95-0116febd73cd</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="199eb3b2-81a3-449c-86d6-95eca532106c" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Customer</name>
+    <display>Customer: Customer</display>
+    <order>6</order>
+    <typeReference id="d5053f94-e291-4242-a4cf-db9149f14cfc">
+      <typeId>8710f1f5-5778-466f-a69a-e7b4e5d1b3d6</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMapping.Repositories.Mapperly.Tests.Domain</typePackageName>
+      <typePackageId>9804eb76-4b5e-4998-8c95-0116febd73cd</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>
