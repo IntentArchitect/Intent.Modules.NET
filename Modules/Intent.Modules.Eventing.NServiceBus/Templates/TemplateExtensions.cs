@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using Intent.Modelers.Services.EventInteractions;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration;
-using Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusHostedService;
 using Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageBus;
 using Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageHandler;
 using Intent.RoslynWeaver.Attributes;
@@ -18,11 +17,6 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates
         public static string GetNServiceBusConfigurationName(this IIntentTemplate template)
         {
             return template.GetTypeName(NServiceBusConfigurationTemplate.TemplateId);
-        }
-
-        public static string GetNServiceBusHostedServiceName(this IIntentTemplate template)
-        {
-            return template.GetTypeName(NServiceBusHostedServiceTemplate.TemplateId);
         }
 
         public static string GetNServiceBusMessageBusName(this IIntentTemplate template)
