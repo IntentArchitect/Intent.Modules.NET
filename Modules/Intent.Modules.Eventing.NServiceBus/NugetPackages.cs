@@ -13,6 +13,7 @@ namespace Intent.Modules.Eventing.NServiceBus
     {
         public const string NServiceBusPackageName = "NServiceBus";
         public const string NServiceBusAmazonSQSPackageName = "NServiceBus.AmazonSQS";
+        public const string NServiceBusExtensionsHostingPackageName = "NServiceBus.Extensions.Hosting";
         public const string NServiceBusRabbitMQPackageName = "NServiceBus.RabbitMQ";
         public const string NServiceBusTransportAzureServiceBusPackageName = "NServiceBus.Transport.AzureServiceBus";
         public const string NServiceBusTransportSqlServerPackageName = "NServiceBus.Transport.SqlServer";
@@ -31,6 +32,13 @@ namespace Intent.Modules.Eventing.NServiceBus
                     {
                         ( >= 8, >= 0) => new PackageVersion("8.1.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{NServiceBusAmazonSQSPackageName}'"),
+                    }
+                );
+            NugetRegistry.Register(NServiceBusExtensionsHostingPackageName,
+                (framework) => (framework.Major, framework.Minor) switch
+                    {
+                        ( >= 8, >= 0) => new PackageVersion("2.0.0"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{NServiceBusExtensionsHostingPackageName}'"),
                     }
                 );
             NugetRegistry.Register(NServiceBusRabbitMQPackageName,
@@ -59,6 +67,8 @@ namespace Intent.Modules.Eventing.NServiceBus
         public static NugetPackageInfo NServiceBus(IOutputTarget outputTarget) => NugetRegistry.GetVersion(NServiceBusPackageName, outputTarget.GetMaxNetAppVersion());
 
         public static NugetPackageInfo NServiceBusAmazonSQS(IOutputTarget outputTarget) => NugetRegistry.GetVersion(NServiceBusAmazonSQSPackageName, outputTarget.GetMaxNetAppVersion());
+
+        public static NugetPackageInfo NServiceBusExtensionsHosting(IOutputTarget outputTarget) => NugetRegistry.GetVersion(NServiceBusExtensionsHostingPackageName, outputTarget.GetMaxNetAppVersion());
 
         public static NugetPackageInfo NServiceBusRabbitMQ(IOutputTarget outputTarget) => NugetRegistry.GetVersion(NServiceBusRabbitMQPackageName, outputTarget.GetMaxNetAppVersion());
 

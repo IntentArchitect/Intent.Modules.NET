@@ -3,12 +3,9 @@ using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
-using Intent.Modules.Common.CSharp.Configuration;
-using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
-using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.Modules.Eventing.NServiceBus.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -28,15 +25,17 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
         {
             FulfillsRole(TemplateRoles.Application.Eventing.MessageBusConfiguration);
 
+AddNugetDependency(NugetPackages.NServiceBus(OutputTarget));
+                    AddNugetDependency(NugetPackages.NServiceBusExtensionsHosting(OutputTarget));
+
             var transport = ExecutionContext.Settings.GetNServiceBusSettings().Transport();
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Microsoft.Extensions.Configuration")
-                .AddUsing("Microsoft.Extensions.DependencyInjection")
+                .AddUsing("Microsoft.Extensions.Hosting")
                 .AddUsing("NServiceBus")
                 .OnBuild(file =>
                 {
-                    AddNugetDependency(NugetPackages.NServiceBus(OutputTarget));
                     if (transport.IsRabbitmq())
                         AddNugetDependency(NugetPackages.NServiceBusRabbitMQ(OutputTarget));
                     else if (transport.IsAzureServiceBus())
@@ -45,15 +44,22 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
                         AddNugetDependency(NugetPackages.NServiceBusAmazonSQS(OutputTarget));
                     else if (transport.IsSqlServer())
                         AddNugetDependency(NugetPackages.NServiceBusTransportSqlServer(OutputTarget));
-                    // Learning Transport is built into NServiceBus core — no extra package needed
                 })
                 .AddClass("NServiceBusConfiguration", @class =>
                 {
                     @class.Static();
-                    @class.AddMethod("IServiceCollection", "AddNServiceBus", method =>
+
+                    @class.AddMethod("IHostBuilder", "AddNServiceBus", method =>
                     {
                         method.Static();
-                        method.AddParameter("IServiceCollection", "services", p => p.WithThisModifier());
+                        method.AddParameter("IHostBuilder", "hostBuilder", p => p.WithThisModifier());
+                        method.AddParameter("IConfiguration", "configuration");
+                        method.AddReturn("hostBuilder.UseNServiceBus(ctx => ConfigureEndpoint(configuration))");
+                    });
+
+                    @class.AddMethod("EndpointConfiguration", "ConfigureEndpoint", method =>
+                    {
+                        method.Static().Private();
                         method.AddParameter("IConfiguration", "configuration");
 
                         method.AddStatement(@"var endpointName = configuration[""NServiceBus:EndpointName""] ?? throw new InvalidOperationException(""NServiceBus:EndpointName is not configured"");");
@@ -86,43 +92,9 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
                         method.AddStatement("endpointConfiguration.EnableInstallers();", s => s.SeparatedFromPrevious());
                         method.AddStatement("endpointConfiguration.UseSerialization<SystemJsonSerializer>();");
 
-                        method.AddStatement("var startableEndpoint = EndpointWithExternallyManagedContainer.Create(endpointConfiguration, services);", s => s.SeparatedFromPrevious());
-                        method.AddStatement("services.AddSingleton<IStartableEndpointWithExternallyManagedContainer>(startableEndpoint);");
-                        method.AddStatement($"services.AddHostedService<{this.GetNServiceBusHostedServiceName()}>();");
-                        method.AddStatement($"services.AddScoped<{this.GetBusInterfaceName()}, {this.GetNServiceBusMessageBusName()}>();");
-
-                        method.AddReturn("services", s => s.SeparatedFromPrevious());
+                        method.AddReturn("endpointConfiguration", s => s.SeparatedFromPrevious());
                     });
                 });
-        }
-
-        public override void BeforeTemplateExecution()
-        {
-            ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
-                .ToRegister("AddNServiceBus", ServiceConfigurationRequest.ParameterType.Configuration)
-                .ForConcern("Infrastructure")
-                .HasDependency(this));
-
-            var transport = ExecutionContext.Settings.GetNServiceBusSettings().Transport();
-
-            ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("NServiceBus", new { EndpointName = "MyApplication" }));
-
-            if (transport.IsRabbitmq())
-            {
-                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("ConnectionStrings", new { RabbitMQ = "host=localhost" }));
-            }
-            else if (transport.IsAzureServiceBus())
-            {
-                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("ConnectionStrings",
-                    new { AzureServiceBus = "Endpoint=sb://your-namespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=your-key" }));
-            }
-            else if (transport.IsSqlServer())
-            {
-                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("ConnectionStrings",
-                    new { SqlServer = "Server=localhost;Database=NServiceBus;Integrated Security=True;" }));
-            }
-            // Amazon SQS uses AWS SDK credential chain — no connection string placeholder needed
-            // Learning Transport needs no connection string
         }
 
         [IntentManaged(Mode.Fully)]

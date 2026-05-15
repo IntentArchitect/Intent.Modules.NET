@@ -21,40 +21,9 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusHostedService
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public NServiceBusHostedServiceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            // Pending removal from Module Builder designer — UseNServiceBus() handles lifecycle internally.
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
-                .AddUsing("System.Threading")
-                .AddUsing("System.Threading.Tasks")
-                .AddUsing("Microsoft.Extensions.Hosting")
-                .AddUsing("NServiceBus")
-                .AddClass("NServiceBusHostedService", @class =>
-                {
-                    @class.ImplementsInterface("IHostedService");
-
-                    @class.AddField("IStartableEndpointWithExternallyManagedContainer", "_startableEndpoint", f => f.PrivateReadOnly());
-                    @class.AddField("IServiceProvider", "_serviceProvider", f => f.PrivateReadOnly());
-                    @class.AddField("IEndpointInstance?", "_endpointInstance", f => f.Private());
-
-                    @class.AddConstructor(ctor =>
-                    {
-                        ctor.AddParameter("IStartableEndpointWithExternallyManagedContainer", "startableEndpoint", p => p.IntroduceReadonlyField());
-                        ctor.AddParameter("IServiceProvider", "serviceProvider", p => p.IntroduceReadonlyField());
-                    });
-
-                    @class.AddMethod("Task", "StartAsync", method =>
-                    {
-                        method.Async();
-                        method.AddParameter("CancellationToken", "cancellationToken");
-                        method.AddStatement("_endpointInstance = await _startableEndpoint.Start(_serviceProvider, cancellationToken);");
-                    });
-
-                    @class.AddMethod("Task", "StopAsync", method =>
-                    {
-                        method.Async();
-                        method.AddParameter("CancellationToken", "cancellationToken");
-                        method.AddIfStatement("_endpointInstance is not null", b =>
-                            b.AddStatement("await _endpointInstance.Stop(cancellationToken);"));
-                    });
-                });
+                .AddClass("NServiceBusHostedService", @class => { });
         }
 
         [IntentManaged(Mode.Fully)]
