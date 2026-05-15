@@ -15,32 +15,11 @@ namespace Intent.Modules.Eventing.NServiceBus.FactoryExtensions
         public override string Id => "Intent.Eventing.NServiceBus.NServiceBusRegistrationExtension";
 
         [IntentManaged(Mode.Ignore)]
-        public override int Order => 0;
+        public override int Order => 500;
 
-        /// <summary>
-        /// This is an example override which would extend the
-        /// <see cref="ExecutionLifeCycleSteps.AfterTemplateRegistrations"/> phase of the Software Factory execution.
-        /// See <see cref="FactoryExtensionBase"/> for all available overrides.
-        /// </summary>
-        /// <remarks>
-        /// It is safe to update or delete this method.
-        /// </remarks>
-        protected override void OnAfterTemplateRegistrations(IApplication application)
-        {
-            // Your custom logic here.
-        }
-
-        /// <summary>
-        /// This is an example override which would extend the
-        /// <see cref="ExecutionLifeCycleSteps.BeforeTemplateExecution"/> phase of the Software Factory execution.
-        /// See <see cref="FactoryExtensionBase"/> for all available overrides.
-        /// </summary>
-        /// <remarks>
-        /// It is safe to update or delete this method.
-        /// </remarks>
-        protected override void OnBeforeTemplateExecution(IApplication application)
-        {
-            // Your custom logic here.
-        }
+        // TODO: Add NServiceBus endpoint configuration and IHostedService wiring here.
+        // This requires generating NServiceBusConfiguration.cs (static extension method) and
+        // NServiceBusHostedService.cs, then finding the infrastructure DI template and calling them.
+        // The IMessageBus -> NServiceBusMessageBus registration is handled by NServiceBusPublisherTemplate.BeforeTemplateExecution.
     }
 }

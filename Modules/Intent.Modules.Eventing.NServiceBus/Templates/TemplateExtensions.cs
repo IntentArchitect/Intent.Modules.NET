@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using Intent.Modelers.Services.EventInteractions;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConsumer;
-using Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusPublisher;
+using Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageBus;
+using Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageHandler;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -13,19 +13,20 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetNServiceBusConsumerName<T>(this IIntentTemplate<T> template) where T : IntegrationEventHandlerModel
+
+        public static string GetNServiceBusMessageBusName(this IIntentTemplate template)
         {
-            return template.GetTypeName(NServiceBusConsumerTemplate.TemplateId, template.Model);
+            return template.GetTypeName(NServiceBusMessageBusTemplate.TemplateId);
         }
 
-        public static string GetNServiceBusConsumerName(this IIntentTemplate template, IntegrationEventHandlerModel model)
+        public static string GetNServiceBusMessageHandlerName<T>(this IIntentTemplate<T> template) where T : IntegrationEventHandlerModel
         {
-            return template.GetTypeName(NServiceBusConsumerTemplate.TemplateId, model);
+            return template.GetTypeName(NServiceBusMessageHandlerTemplate.TemplateId, template.Model);
         }
 
-        public static string GetNServiceBusPublisherName(this IIntentTemplate template)
+        public static string GetNServiceBusMessageHandlerName(this IIntentTemplate template, IntegrationEventHandlerModel model)
         {
-            return template.GetTypeName(NServiceBusPublisherTemplate.TemplateId);
+            return template.GetTypeName(NServiceBusMessageHandlerTemplate.TemplateId, model);
         }
 
     }

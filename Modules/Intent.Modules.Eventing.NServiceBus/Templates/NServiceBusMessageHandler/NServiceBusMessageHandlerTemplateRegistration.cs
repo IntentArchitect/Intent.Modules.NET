@@ -13,24 +13,24 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.FilePerModel", Version = "1.0")]
 
-namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConsumer
+namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageHandler
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class NServiceBusConsumerTemplateRegistration : FilePerModelTemplateRegistration<IntegrationEventHandlerModel>
+    public class NServiceBusMessageHandlerTemplateRegistration : FilePerModelTemplateRegistration<IntegrationEventHandlerModel>
     {
         private readonly IMetadataManager _metadataManager;
 
-        public NServiceBusConsumerTemplateRegistration(IMetadataManager metadataManager)
+        public NServiceBusMessageHandlerTemplateRegistration(IMetadataManager metadataManager)
         {
             _metadataManager = metadataManager;
         }
 
-        public override string TemplateId => NServiceBusConsumerTemplate.TemplateId;
+        public override string TemplateId => NServiceBusMessageHandlerTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, IntegrationEventHandlerModel model)
         {
-            return new NServiceBusConsumerTemplate(outputTarget, model);
+            return new NServiceBusMessageHandlerTemplate(outputTarget, model);
         }
 
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]

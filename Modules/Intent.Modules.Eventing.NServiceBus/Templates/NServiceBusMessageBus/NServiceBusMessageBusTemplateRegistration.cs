@@ -11,17 +11,17 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel", Version = "1.0")]
 
-namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusPublisher
+namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageBus
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class NServiceBusPublisherTemplateRegistration : SingleFileTemplateRegistration
+    public class NServiceBusMessageBusTemplateRegistration : SingleFileTemplateRegistration
     {
-        public override string TemplateId => NServiceBusPublisherTemplate.TemplateId;
+        public override string TemplateId => NServiceBusMessageBusTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new NServiceBusPublisherTemplate(outputTarget);
+            return new NServiceBusMessageBusTemplate(outputTarget);
         }
     }
 }
