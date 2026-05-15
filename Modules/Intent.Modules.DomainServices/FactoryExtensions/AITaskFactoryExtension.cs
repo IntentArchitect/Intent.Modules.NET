@@ -42,14 +42,14 @@ namespace Intent.Modules.DomainServices.FactoryExtensions
         private IEnumerable<IAITask> GetImplementDomainServiceAITasks(IChange[] changes, IApplication application)
         {
             var entities = changes.Where(c =>
-                                    c.Template!.Id == DomainServiceImplementationTemplate.TemplateId &&
+                                    c.Template?.Id == DomainServiceImplementationTemplate.TemplateId &&
                                     HasMissingImplementation(c) &&
                                     c.ChangeType != ChangeType.Delete
                                     );
 
             foreach (var change in entities)
             {
-                if (!change.Template!.TryCastTemplate<ICSharpFileBuilderTemplate, DomainServiceModel>(out var template, out var model))
+                if (change.Template?.TryCastTemplate<ICSharpFileBuilderTemplate, DomainServiceModel>(out var template, out var model) != true)
                 {
                     continue;
                 }

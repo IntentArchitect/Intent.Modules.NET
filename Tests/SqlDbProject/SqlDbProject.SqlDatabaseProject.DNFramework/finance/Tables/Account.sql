@@ -1,7 +1,7 @@
 CREATE TABLE [finance].[Account]
 (
     [AccountId] BIGINT IDENTITY (1,1) NOT NULL,
-    [Description] NVARCHAR(255) NOT NULL,
+    [Description] NVARCHAR(250) NOT NULL,
     [AccountNumber] NVARCHAR(64) NOT NULL,
     [ExternalReference] NVARCHAR(255) NOT NULL,
     [AccountTypeId] INT NOT NULL,

@@ -136,8 +136,8 @@
       <childElements />
     </childElement>
     <childElement id="5adba7d0-7786-489f-8a2d-e552c4943f58" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
-      <name>CustomInt</name>
-      <display>CustomInt: int</display>
+      <name>customInt</name>
+      <display>customInt: int</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="82557cd0-50eb-4c86-b121-06dd9a24a63a">
@@ -156,7 +156,8 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>false</autoSyncTypeReference>
         <mappedPath>
-          <target id="508a5697-778d-45fb-9adc-c0beeb297e49" name="When" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+          <target name="src" type="n/a" />
+          <target name="When" type="n/a" />
           <target name="HasValue ? src" type="n/a" />
           <target name="When" type="n/a" />
           <target name="Value" type="n/a" />

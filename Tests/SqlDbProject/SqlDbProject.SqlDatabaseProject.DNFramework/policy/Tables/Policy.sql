@@ -4,7 +4,7 @@ CREATE TABLE [policy].[Policy]
     [PolicyStatusId] UNIQUEIDENTIFIER NOT NULL,
     [AccountHolderId] BIGINT NOT NULL,
     [ProductId] INT NOT NULL,
-    [PolicyNumber] NVARCHAR(MAX) NOT NULL,
+    [PolicyNumber] VARCHAR(MAX) NOT NULL,
     [OriginalInceptionDate] DATETIME NOT NULL,
     [StartDate] DATETIME NOT NULL,
     [ReviewDate] DATETIME NULL,

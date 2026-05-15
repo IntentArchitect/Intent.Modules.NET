@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9ffdf103-e4cd-4461-acd6-52cbc25f3f56" type="Message" typeId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">
+  <name>ItemCreatedEvent</name>
+  <display>ItemCreatedEvent</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>8cceced3-b6bf-491d-8064-1e407a19ca6a</parentFolderId>
+  <packageId>8cceced3-b6bf-491d-8064-1e407a19ca6a</packageId>
+  <packageName>EventingSubscribers.Eventing.Messages</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="c7bd13f4-cb93-43ff-a068-c2c656f69e20" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>ItemId</name>
+      <display>ItemId: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="92e00ce0-cfac-4458-9035-af7bef897c2c">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>9ffdf103-e4cd-4461-acd6-52cbc25f3f56</parentFolderId>
+      <packageId>8cceced3-b6bf-491d-8064-1e407a19ca6a</packageId>
+      <packageName>EventingSubscribers.Eventing.Messages</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="e51fc6d7-6d5e-4c7e-b0b4-17a6100c9af9" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>Category</name>
+      <display>Category: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="8f7f0026-fd26-4ccd-99fe-4924fdc87227">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>9ffdf103-e4cd-4461-acd6-52cbc25f3f56</parentFolderId>
+      <packageId>8cceced3-b6bf-491d-8064-1e407a19ca6a</packageId>
+      <packageName>EventingSubscribers.Eventing.Messages</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="bd3f6bee-e33c-470a-8a8c-d48ae61f3212" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>Name</name>
+      <display>Name: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="472b76e4-2747-430c-acd0-be83c1331805">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>9ffdf103-e4cd-4461-acd6-52cbc25f3f56</parentFolderId>
+      <packageId>8cceced3-b6bf-491d-8064-1e407a19ca6a</packageId>
+      <packageName>EventingSubscribers.Eventing.Messages</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="d7667615-8237-4bfa-b499-1b045bd87104" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>Price</name>
+      <display>Price: decimal</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="0fe7b416-799d-4021-828c-f876fdae6fb0">
+        <typeId>675c7b84-997a-44e0-82b9-cd724c07c9e6</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>9ffdf103-e4cd-4461-acd6-52cbc25f3f56</parentFolderId>
+      <packageId>8cceced3-b6bf-491d-8064-1e407a19ca6a</packageId>
+      <packageName>EventingSubscribers.Eventing.Messages</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

@@ -176,27 +176,55 @@ namespace Intent.Modules.SqlDatabaseProject.Templates.Table
 
         private static void ApplyTextConstraints(AttributeModel attribute, StringBuilder sb)
         {
+            var textLimits = attribute.GetTextLimits();
             var textConstraints = attribute.GetTextConstraints();
-            if (textConstraints == null)
+
+            if (textLimits is null && textConstraints is null)
             {
+                sb.Append("NVARCHAR(MAX)");
                 return;
             }
 
-            sb.Append(textConstraints.SQLDataType().AsEnum() switch
+            if (textLimits is null && textConstraints != null)
             {
-                AttributeModelStereotypeExtensions.TextConstraints.SQLDataTypeOptionsEnum.DEFAULT => $"NVARCHAR({GetConstraintLength()})",
+                sb.Append(textConstraints.SQLDataType().AsEnum() switch
+                {
+                    AttributeModelStereotypeExtensions.TextConstraints.SQLDataTypeOptionsEnum.DEFAULT => $"NVARCHAR({GetConstraintLength()})",
+                    AttributeModelStereotypeExtensions.TextConstraints.SQLDataTypeOptionsEnum.NTEXT => "NTEXT",
+                    AttributeModelStereotypeExtensions.TextConstraints.SQLDataTypeOptionsEnum.NVARCHAR => $"NVARCHAR({GetConstraintLength()})",
+                    AttributeModelStereotypeExtensions.TextConstraints.SQLDataTypeOptionsEnum.TEXT => "TEXT",
+                    AttributeModelStereotypeExtensions.TextConstraints.SQLDataTypeOptionsEnum.VARCHAR => $"VARCHAR({GetConstraintLength()})",
+                    var dt => throw new ArgumentOutOfRangeException($"Unsupported SQL Data Type: {dt}")
+                });
+
+                return;
+            }
+
+            sb.Append(textConstraints?.SQLDataType().AsEnum() switch
+            {
+                null => $"NVARCHAR({GetTextLimitLength()})",
+                AttributeModelStereotypeExtensions.TextConstraints.SQLDataTypeOptionsEnum.DEFAULT => $"NVARCHAR({GetTextLimitLength()})",
                 AttributeModelStereotypeExtensions.TextConstraints.SQLDataTypeOptionsEnum.NTEXT => "NTEXT",
-                AttributeModelStereotypeExtensions.TextConstraints.SQLDataTypeOptionsEnum.NVARCHAR => $"NVARCHAR({GetConstraintLength()})",
+                AttributeModelStereotypeExtensions.TextConstraints.SQLDataTypeOptionsEnum.NVARCHAR => $"NVARCHAR({GetTextLimitLength()})",
                 AttributeModelStereotypeExtensions.TextConstraints.SQLDataTypeOptionsEnum.TEXT => "TEXT",
-                AttributeModelStereotypeExtensions.TextConstraints.SQLDataTypeOptionsEnum.VARCHAR => $"VARCHAR({GetConstraintLength()})",
+                AttributeModelStereotypeExtensions.TextConstraints.SQLDataTypeOptionsEnum.VARCHAR => $"VARCHAR({GetTextLimitLength()})",
                 var dt => throw new ArgumentOutOfRangeException($"Unsupported SQL Data Type: {dt}")
             });
 
+
             return;
+
             string GetConstraintLength()
             {
                 return textConstraints.MaxLength().HasValue 
                     ? textConstraints.MaxLength()!.Value.ToString() 
+                    : "MAX";
+            }
+
+            string GetTextLimitLength()
+            {
+                return textLimits.TryGetProperty("Max Length", out var maxLengthProperty) && !string.IsNullOrWhiteSpace(maxLengthProperty.Value)
+                    ? maxLengthProperty.Value.ToString()
                     : "MAX";
             }
         }

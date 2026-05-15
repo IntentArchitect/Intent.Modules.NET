@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="79074c45-0d2f-47cd-930f-8e967fee8323" type="Message" typeId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">
+  <name>ServiceOperationInvokedEvent</name>
+  <display>ServiceOperationInvokedEvent</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>8cceced3-b6bf-491d-8064-1e407a19ca6a</parentFolderId>
+  <packageId>8cceced3-b6bf-491d-8064-1e407a19ca6a</packageId>
+  <packageName>EventingSubscribers.Eventing.Messages</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a344f500-6f50-4652-ac80-195c7210dfd2" type="Integration Event Handler" typeId="c0582230-22f5-4f74-8eb0-ec6fc9364900">
+  <name>ProductLookedUpEventHandler</name>
+  <display>ProductLookedUpEventHandler</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>22cb17ed-3dc7-4bce-93f2-dc1f50b46ff4</parentFolderId>
+  <packageId>22cb17ed-3dc7-4bce-93f2-dc1f50b46ff4</packageId>
+  <packageName>EventingSubscribers.Services</packageName>
+  <traits>
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

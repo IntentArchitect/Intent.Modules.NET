@@ -1,3 +1,7 @@
+### Version 6.1.2
+
+- Improvement: Code generated for Integration Event Handlers will also allow for CRUD operations.
+
 ### Version 6.1.1
 
 - Fixed: Updated `Intent.Persistence.SDK` to latest version to resolve compatibility issues.
