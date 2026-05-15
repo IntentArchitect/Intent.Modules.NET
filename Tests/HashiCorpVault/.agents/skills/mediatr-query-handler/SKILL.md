@@ -1,8 +1,8 @@
 ---
 name: mediatr-query-handler
 description: implement or revise mediatR query handler business logic in an existing handler file. use when a c# mediatR query handler has an incomplete or incorrect handle method and chatgpt should update the handle method, add private helper methods, and extend application or domain abstractions such as repositories or read services if required, while avoiding direct infrastructure dependencies in the handler.
-template-id: {TemplateId}
-contentHash: DBB67334C494567BB9DC17FA2A4B6D50E7505C79DDFA1273664DB0A3FB69E5F2
+template-id: Intent.Application.MediatR.QueryHandlerSkillTemplate
+contentHash: 71A0FCF0DD450153DC92FF79DDC6768DCF3049F94E8B4D10001CC2ACB1970818
 ---
 # MediatR Query Handler
 

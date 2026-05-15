@@ -9,20 +9,6 @@
   <stereotypes />
   <metadata />
   <childElements>
-    <childElement id="0baeacc6-9b9c-467e-a34e-e1767c5dd07e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Modules.Application.FluentValidation.Templates.StaticContentTemplateRegistrations.AISkillsStaticContentTemplateRegistration</name>
-      <display>Intent.Modules.Application.FluentValidation.Templates.StaticContentTemplateRegistrations.AISkillsStaticContentTemplateRegistration</display>
-      <externalReference>Intent.Application.FluentValidation</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>d8c9780d-4e01-4979-b2f1-5f5bb3ccd9ab</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="00d6db01-b7eb-4fe4-94ea-32be8c3cdd6e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate</name>
       <display>Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate</display>
@@ -83,6 +69,20 @@
       <name>Intent.MediatR.DomainEvents.DomainEventHandlerSkill</name>
       <display>Intent.MediatR.DomainEvents.DomainEventHandlerSkill</display>
       <externalReference>Intent.MediatR.DomainEvents</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d8c9780d-4e01-4979-b2f1-5f5bb3ccd9ab</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="e2c32152-58d5-48e6-a02c-76f5f1be934f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.FluentValidation.CustomValidationSkillTemplate</name>
+      <display>Intent.Application.FluentValidation.CustomValidationSkillTemplate</display>
+      <externalReference>Intent.Application.FluentValidation</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
