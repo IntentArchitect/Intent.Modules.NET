@@ -31,6 +31,7 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application
                 cfg.AddOpenBehavior(typeof(UnitOfWorkBehaviour<,>));
             });
             services.AddSingleton<CustomerDtoMapper>();
+            services.AddSingleton<CustomerLeanDtoMapper>();
             services.AddSingleton<CustomerPreferencesDtoMapper>();
             services.AddSingleton<CustomerSummaryDtoMapper>();
             services.AddSingleton<CustomerSegmentsDtoMapper>();
