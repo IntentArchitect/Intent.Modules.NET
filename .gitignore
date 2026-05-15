@@ -242,6 +242,9 @@ ModelManifest.xml
 # FAKE - F# Make
 .fake/
 
+# Git extensions
+*.orig
+
 # INTENT FILES:
 *.imod
 *.iat
@@ -253,3 +256,4 @@ ModelManifest.xml
 .terraform.*
 terraform.tfstate
 **/*.tfstate*
+

@@ -3,10 +3,22 @@
   <name>Common</name>
   <display>Common</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>aa08f102-b2e6-4bab-bbc8-1d9b2c838129</parentFolderId>
-  <stereotypes />
+  <packageId>7360b8e2-bc2d-40c4-87fa-6e305b1dc9f4</packageId>
+  <packageName>AdvancedMapping.Repositories.Mapperly.Tests</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.Common.CSharp</definitionPackageName>
+      <definitionPackageId>730e1275-0c32-44f7-991a-9619d07ca68d</definitionPackageId>
+      <properties>
+        <property name="96df2fa6-7361-4e43-9acf-dbcea23b650a" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
   <metadata />
   <childElements />
 </class>

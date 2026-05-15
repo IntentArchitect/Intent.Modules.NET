@@ -1,10 +1,10 @@
 ### Version 5.3.3
+
 - Fixed: For Mapperly, corrected DTO class name when entity name was fully qualified
 
 ### Version 5.3.2
 
 - Improvement: Module dependencies updated.
-
 
 ### Version 5.3.1
 
