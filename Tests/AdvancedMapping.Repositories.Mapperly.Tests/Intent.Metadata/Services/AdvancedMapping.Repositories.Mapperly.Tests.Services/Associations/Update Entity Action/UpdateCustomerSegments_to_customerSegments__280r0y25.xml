@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="76f6ae20-548a-4528-b0d5-4f45872b1665">
+  <sourceEnd id="904ecb9b-7ea1-4a72-9ad8-428fe69beb95" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : CustomerSegmentsService.UpdateCustomerSegments</display>
+    <order>0</order>
+    <typeReference id="4fb6e34b-f796-4471-bd0f-f95a1e255cc9">
+      <typeId>c63dd147-f580-4af3-96ca-28f8283697a1</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMapping.Repositories.Mapperly.Tests.Services</typePackageName>
+      <typePackageId>5acc1023-d19a-4150-9b5f-ce23f31ef1cb</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="76f6ae20-548a-4528-b0d5-4f45872b1665" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>customerSegments</name>
+    <display>[update] customerSegments: CustomerSegments</display>
+    <order>2</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="3bd5f428-c0e7-4923-9b49-3198ae41870c">
+      <typeId>f5d179f1-a6ff-4d2a-827a-0d0d9faec695</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMapping.Repositories.Mapperly.Tests.Domain</typePackageName>
+      <typePackageId>9804eb76-4b5e-4998-8c95-0116febd73cd</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="3bf3dc59-97c7-4633-b5f2-147e9c2ee45c" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="c63dd147-f580-4af3-96ca-28f8283697a1" location="[AdvancedMapping.Repositories.Mapperly.Tests].[Services].[UpdateCustomerSegments]" />
+        <target applicationId="3bf3dc59-97c7-4633-b5f2-147e9c2ee45c" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="f5d179f1-a6ff-4d2a-827a-0d0d9faec695" location="[AdvancedMapping.Repositories.Mapperly.Tests].[Services].[CustomerSegments]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{id}</expression>
+            <path>
+              <target id="f5d179f1-a6ff-4d2a-827a-0d0d9faec695" name="CustomerSegments" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="50d23850-331a-44a2-9289-6998ecb57854" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="c63dd147-f580-4af3-96ca-28f8283697a1" name="UpdateCustomerSegments" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="a1d70530-5424-4b88-bcad-be217bb5369f" name="id" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="3bf3dc59-97c7-4633-b5f2-147e9c2ee45c" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="c63dd147-f580-4af3-96ca-28f8283697a1" location="[AdvancedMapping.Repositories.Mapperly.Tests].[Services].[UpdateCustomerSegments]" />
+        <target applicationId="3bf3dc59-97c7-4633-b5f2-147e9c2ee45c" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="f5d179f1-a6ff-4d2a-827a-0d0d9faec695" location="[AdvancedMapping.Repositories.Mapperly.Tests].[Services].[CustomerSegments]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{dto.SegmentId}</expression>
+            <path>
+              <target id="f5d179f1-a6ff-4d2a-827a-0d0d9faec695" name="CustomerSegments" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="28f221e8-fc6f-46d4-966c-fb1abb52af8f" name="SegmentId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="dto.SegmentId" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="c63dd147-f580-4af3-96ca-28f8283697a1" name="UpdateCustomerSegments" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="3671c195-af35-4b8d-83d3-68a103ff3709" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="7e6ec6e0-c28b-43f7-82d0-3ac940e452ce" name="SegmentId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{dto.CustomerId}</expression>
+            <path>
+              <target id="f5d179f1-a6ff-4d2a-827a-0d0d9faec695" name="CustomerSegments" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="fc33184c-29fc-4369-886d-a58248407514" name="CustomerId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="dto.CustomerId" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="c63dd147-f580-4af3-96ca-28f8283697a1" name="UpdateCustomerSegments" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="3671c195-af35-4b8d-83d3-68a103ff3709" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="a2d21db0-5c08-40d0-852f-8e0b0574937d" name="CustomerId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{dto.Confidence}</expression>
+            <path>
+              <target id="f5d179f1-a6ff-4d2a-827a-0d0d9faec695" name="CustomerSegments" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="68c40a69-dea1-429f-a394-b74f495de42e" name="Confidence" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="dto.Confidence" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="c63dd147-f580-4af3-96ca-28f8283697a1" name="UpdateCustomerSegments" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="3671c195-af35-4b8d-83d3-68a103ff3709" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="292b586c-84f7-4468-ba4c-89236f7cf0a6" name="Confidence" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

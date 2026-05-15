@@ -15,23 +15,26 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.CustomerSegmen
         public Guid Id { get; set; }
         public Guid SegmentId { get; set; }
         public Guid CustomerId { get; set; }
-        public ClassificationSource ClassificationSource { get; set; }
         public decimal Confidence { get; set; }
+        public SegmentType SegmentType { get; set; }
+        public int SegmentPriority { get; set; }
 
         public static CustomerSegmentsDto Create(
             Guid id,
             Guid segmentId,
             Guid customerId,
-            ClassificationSource classificationSource,
-            decimal confidence)
+            decimal confidence,
+            SegmentType segmentType, int segmentPriority)
         {
             return new CustomerSegmentsDto
             {
                 Id = id,
                 SegmentId = segmentId,
                 CustomerId = customerId,
-                ClassificationSource = classificationSource,
                 Confidence = confidence
+,
+                SegmentType = segmentType,
+                SegmentPriority = segmentPriority
             };
         }
     }

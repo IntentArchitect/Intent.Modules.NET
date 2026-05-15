@@ -14,7 +14,7 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Infrastructure.Persistence
         {
             builder.HasKey(x => x.Id);
 
-            builder.Property(x => x.Name)
+            builder.Property(x => x.SegmentType)
                 .IsRequired();
 
             builder.Property(x => x.Priority)

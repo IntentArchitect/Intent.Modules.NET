@@ -6,14 +6,10 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Domain.Entities
 {
     public class Segment
     {
-        public Segment()
-        {
-            Name = null!;
-        }
 
         public Guid Id { get; set; }
 
-        public string Name { get; set; }
+        public SegmentType SegmentType { get; set; }
 
         public int Priority { get; set; }
     }

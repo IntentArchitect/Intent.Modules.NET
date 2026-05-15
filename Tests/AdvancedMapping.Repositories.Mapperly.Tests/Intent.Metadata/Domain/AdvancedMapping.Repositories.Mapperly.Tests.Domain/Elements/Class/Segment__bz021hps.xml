@@ -48,18 +48,18 @@
       <childElements />
     </childElement>
     <childElement id="ca4604f7-54ee-4efa-ad2d-bf00b536ceb4" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>Name</name>
-      <display>Name: string</display>
+      <name>SegmentType</name>
+      <display>SegmentType: SegmentType</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="35581319-ada6-4961-8034-d9ed1b5f2ef3">
-        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeId>938ffa6a-3fdd-4b18-a746-c3cea27b042e</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
         <isRequired>true</isRequired>
-        <typePackageName>Intent.Common.Types</typePackageName>
-        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <typePackageName>AdvancedMapping.Repositories.Mapperly.Tests.Domain</typePackageName>
+        <typePackageId>9804eb76-4b5e-4998-8c95-0116febd73cd</typePackageId>
         <stereotypes />
         <genericTypeParameters />
       </typeReference>

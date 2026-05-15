@@ -11,6 +11,7 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Mappings.Custo
     [Mapper]
     public partial class CustomerSegmentsDtoMapper
     {
+        [MapProperty(nameof(@Domain.Entities.CustomerSegments.Segment.SegmentType), nameof(CustomerSegmentsDto.SegmentType))]
         public partial CustomerSegmentsDto CustomerSegmentsToCustomerSegmentsDto(Domain.Entities.CustomerSegments customerSegments);
 
         public partial List<CustomerSegmentsDto> CustomerSegmentsToCustomerSegmentsDtoList(IEnumerable<Domain.Entities.CustomerSegments> customerSegments);

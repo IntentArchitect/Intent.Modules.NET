@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="143588ea-77c9-4911-a14d-7d4c2cecbb40" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <name>CustomerSegmentsService</name>
+  <display>CustomerSegmentsService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>5acc1023-d19a-4150-9b5f-ce23f31ef1cb</parentFolderId>
+  <packageId>5acc1023-d19a-4150-9b5f-ce23f31ef1cb</packageId>
+  <packageName>AdvancedMapping.Repositories.Mapperly.Tests.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="d21859ad-a18f-4a34-ae27-64ba48028216" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>CreateCustomerSegments</name>
+      <display>CreateCustomerSegments(dto: CreateCustomerSegmentsDto): guid</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="f2dc2456-b3f1-4be9-9d50-f6b7c6188826">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>143588ea-77c9-4911-a14d-7d4c2cecbb40</parentFolderId>
+      <packageId>5acc1023-d19a-4150-9b5f-ce23f31ef1cb</packageId>
+      <packageName>AdvancedMapping.Repositories.Mapperly.Tests.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="6fcd6b2c-f923-4640-885a-7c5359b63663" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>dto</name>
+          <display>in : dto: CreateCustomerSegmentsDto</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="dc7cd736-dd7b-4d6a-b136-c12402e131af">
+            <typeId>d3fb5013-e812-48f4-8e2e-8470a4a2e407</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AdvancedMapping.Repositories.Mapperly.Tests.Services</typePackageName>
+            <typePackageId>5acc1023-d19a-4150-9b5f-ce23f31ef1cb</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>d21859ad-a18f-4a34-ae27-64ba48028216</parentFolderId>
+          <packageId>5acc1023-d19a-4150-9b5f-ce23f31ef1cb</packageId>
+          <packageName>AdvancedMapping.Repositories.Mapperly.Tests.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="c63dd147-f580-4af3-96ca-28f8283697a1" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>UpdateCustomerSegments</name>
+      <display>UpdateCustomerSegments(id: guid, dto: UpdateCustomerSegmentsDto): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="28613549-c965-48c1-b774-df3c3c4fcb4b">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>143588ea-77c9-4911-a14d-7d4c2cecbb40</parentFolderId>
+      <packageId>5acc1023-d19a-4150-9b5f-ce23f31ef1cb</packageId>
+      <packageName>AdvancedMapping.Repositories.Mapperly.Tests.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="a1d70530-5424-4b88-bcad-be217bb5369f" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="1eeb4fcd-b439-49ac-8d39-60e3bad6edec">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>c63dd147-f580-4af3-96ca-28f8283697a1</parentFolderId>
+          <packageId>5acc1023-d19a-4150-9b5f-ce23f31ef1cb</packageId>
+          <packageName>AdvancedMapping.Repositories.Mapperly.Tests.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="3671c195-af35-4b8d-83d3-68a103ff3709" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>dto</name>
+          <display>in : dto: UpdateCustomerSegmentsDto</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="a981f95d-8293-44f6-9132-8b81c90e45b7">
+            <typeId>7825f639-16bf-496c-88f2-617fbf0b1afd</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AdvancedMapping.Repositories.Mapperly.Tests.Services</typePackageName>
+            <typePackageId>5acc1023-d19a-4150-9b5f-ce23f31ef1cb</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>c63dd147-f580-4af3-96ca-28f8283697a1</parentFolderId>
+          <packageId>5acc1023-d19a-4150-9b5f-ce23f31ef1cb</packageId>
+          <packageName>AdvancedMapping.Repositories.Mapperly.Tests.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="88e0d07b-1f3d-4bb4-b26b-e3175740f11b" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>FindCustomerSegmentsById</name>
+      <display>FindCustomerSegmentsById(id: guid): CustomerSegmentsDto</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="00badae5-ab0a-4187-b234-d3d113fb18e3">
+        <typeId>3af8932b-09b5-483e-894e-024b0fc5b649</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>AdvancedMapping.Repositories.Mapperly.Tests.Services</typePackageName>
+        <typePackageId>5acc1023-d19a-4150-9b5f-ce23f31ef1cb</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>143588ea-77c9-4911-a14d-7d4c2cecbb40</parentFolderId>
+      <packageId>5acc1023-d19a-4150-9b5f-ce23f31ef1cb</packageId>
+      <packageName>AdvancedMapping.Repositories.Mapperly.Tests.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="6c867a0b-08d8-4fe9-9591-89c014c3f751" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="0f428f36-7414-49bf-abdc-05ba1721173b">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>88e0d07b-1f3d-4bb4-b26b-e3175740f11b</parentFolderId>
+          <packageId>5acc1023-d19a-4150-9b5f-ce23f31ef1cb</packageId>
+          <packageName>AdvancedMapping.Repositories.Mapperly.Tests.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="1a3bd55a-a3db-47d2-9941-ad5d64d54faa" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>FindCustomerSegments</name>
+      <display>FindCustomerSegments(): CustomerSegmentsDto[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="738c050b-1864-4db9-99e1-eb64d2cb9a1d">
+        <typeId>3af8932b-09b5-483e-894e-024b0fc5b649</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>AdvancedMapping.Repositories.Mapperly.Tests.Services</typePackageName>
+        <typePackageId>5acc1023-d19a-4150-9b5f-ce23f31ef1cb</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>143588ea-77c9-4911-a14d-7d4c2cecbb40</parentFolderId>
+      <packageId>5acc1023-d19a-4150-9b5f-ce23f31ef1cb</packageId>
+      <packageName>AdvancedMapping.Repositories.Mapperly.Tests.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="5aa4cf16-1bd0-4c10-8189-4fff851e80a9" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>DeleteCustomerSegments</name>
+      <display>DeleteCustomerSegments(id: guid): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="ee1a94a3-4e6e-45c0-b2c6-d3d6ec88cec7">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>143588ea-77c9-4911-a14d-7d4c2cecbb40</parentFolderId>
+      <packageId>5acc1023-d19a-4150-9b5f-ce23f31ef1cb</packageId>
+      <packageName>AdvancedMapping.Repositories.Mapperly.Tests.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="20a16555-4077-4f46-bb64-3b06df4e2e48" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="f78552a5-f7ee-4a7b-b79d-b4609c42a6af">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>5aa4cf16-1bd0-4c10-8189-4fff851e80a9</parentFolderId>
+          <packageId>5acc1023-d19a-4150-9b5f-ce23f31ef1cb</packageId>
+          <packageName>AdvancedMapping.Repositories.Mapperly.Tests.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

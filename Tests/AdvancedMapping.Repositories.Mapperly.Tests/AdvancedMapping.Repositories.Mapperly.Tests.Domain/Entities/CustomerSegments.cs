@@ -19,8 +19,6 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Domain.Entities
 
         public Guid CustomerId { get; set; }
 
-        public ClassificationSource ClassificationSource { get; set; }
-
         public decimal Confidence { get; set; }
 
         public virtual Segment Segment { get; set; }

@@ -22,7 +22,7 @@
   <targetEnd id="f0ae2db2-e082-4106-b94b-68cf54d24b45" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>Segment</name>
     <display>Segment: Segment</display>
-    <order>5</order>
+    <order>4</order>
     <typeReference id="7cdf5eb1-dc83-4338-bf1e-ed0772d26f0f">
       <typeId>30e1b19e-ccc4-4b61-8465-926e6d41868c</typeId>
       <isNavigable>true</isNavigable>

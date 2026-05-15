@@ -121,30 +121,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="c1027766-6c36-4dba-a2a5-1056651df2b0" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>ClassificationSource</name>
-      <display>ClassificationSource: ClassificationSource</display>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <typeReference id="a181de02-0fc0-4ff6-9b5f-e8039271f315">
-        <typeId>938ffa6a-3fdd-4b18-a746-c3cea27b042e</typeId>
-        <isNavigable>true</isNavigable>
-        <isNullable>false</isNullable>
-        <isCollection>false</isCollection>
-        <isRequired>true</isRequired>
-        <typePackageName>AdvancedMapping.Repositories.Mapperly.Tests.Domain</typePackageName>
-        <typePackageId>9804eb76-4b5e-4998-8c95-0116febd73cd</typePackageId>
-        <stereotypes />
-        <genericTypeParameters />
-      </typeReference>
-      <isMapped>false</isMapped>
-      <parentFolderId>f5d179f1-a6ff-4d2a-827a-0d0d9faec695</parentFolderId>
-      <packageId>9804eb76-4b5e-4998-8c95-0116febd73cd</packageId>
-      <packageName>AdvancedMapping.Repositories.Mapperly.Tests.Domain</packageName>
-      <stereotypes />
-      <metadata />
-      <childElements />
-    </childElement>
     <childElement id="68c40a69-dea1-429f-a394-b74f495de42e" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>Confidence</name>
       <display>Confidence: decimal</display>

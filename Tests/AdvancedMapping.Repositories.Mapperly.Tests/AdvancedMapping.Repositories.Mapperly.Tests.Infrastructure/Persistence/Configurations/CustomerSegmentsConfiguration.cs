@@ -20,9 +20,6 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Infrastructure.Persistence
             builder.Property(x => x.CustomerId)
                 .IsRequired();
 
-            builder.Property(x => x.ClassificationSource)
-                .IsRequired();
-
             builder.Property(x => x.Confidence)
                 .IsRequired();
 
