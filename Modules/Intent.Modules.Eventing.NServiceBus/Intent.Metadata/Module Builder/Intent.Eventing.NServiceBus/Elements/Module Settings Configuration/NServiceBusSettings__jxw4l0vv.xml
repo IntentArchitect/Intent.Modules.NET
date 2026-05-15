@@ -25,6 +25,7 @@
       <name>Transport</name>
       <display>Transport</display>
       <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>76e5fbf4-95c3-4d3e-8343-0969c4a67df6</parentFolderId>
@@ -36,10 +37,10 @@
           <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
           <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
           <properties>
-            <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Text Box" isActive="true" />
+            <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Select" isActive="true" />
             <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="false" />
             <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" isActive="true" />
-            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" isActive="true" />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="RabbitMQ" isActive="true" />
             <property name="c3456e79-0607-41a5-9b85-e0712f4f4834" display="Is Active Function" isActive="true" />
             <property name="fa54329f-d4e5-48bc-8027-e17206e9fc89" display="Is Required Function" isActive="true" />
             <property name="29696a13-bf1d-4fbd-bdf3-adb802430cb4" display="Order Priority" isActive="true" />
@@ -47,63 +48,78 @@
         </stereotype>
       </stereotypes>
       <metadata />
-      <childElements />
-    </childElement>
-    <childElement id="755f6223-496a-4b34-83a7-04902f75a440" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
-      <name>EndpointName</name>
-      <display>EndpointName</display>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>76e5fbf4-95c3-4d3e-8343-0969c4a67df6</parentFolderId>
-      <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
-      <packageName>Intent.Eventing.NServiceBus</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="4805c791-5be3-4049-b929-6046d7be9944" name="Field Configuration">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
-          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
-          <properties>
-            <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Text Box" isActive="true" />
-            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="false" />
-            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" isActive="true" />
-            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" isActive="true" />
-            <property name="c3456e79-0607-41a5-9b85-e0712f4f4834" display="Is Active Function" isActive="true" />
-            <property name="fa54329f-d4e5-48bc-8027-e17206e9fc89" display="Is Required Function" isActive="true" />
-            <property name="29696a13-bf1d-4fbd-bdf3-adb802430cb4" display="Order Priority" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements />
-    </childElement>
-    <childElement id="e7eb3d7d-0753-4bac-8d1a-1a56dfdfa763" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
-      <name>ConnectionString</name>
-      <display>ConnectionString</display>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>76e5fbf4-95c3-4d3e-8343-0969c4a67df6</parentFolderId>
-      <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
-      <packageName>Intent.Eventing.NServiceBus</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="4805c791-5be3-4049-b929-6046d7be9944" name="Field Configuration">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
-          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
-          <properties>
-            <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Text Box" isActive="true" />
-            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="false" />
-            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" isActive="true" />
-            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" isActive="true" />
-            <property name="c3456e79-0607-41a5-9b85-e0712f4f4834" display="Is Active Function" isActive="true" />
-            <property name="fa54329f-d4e5-48bc-8027-e17206e9fc89" display="Is Required Function" isActive="true" />
-            <property name="29696a13-bf1d-4fbd-bdf3-adb802430cb4" display="Order Priority" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="020b350e-65db-4042-9d22-da54fd4d65f1" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>RabbitMQ</name>
+          <display>RabbitMQ = rabbitmq</display>
+          <isAbstract>false</isAbstract>
+          <value>rabbitmq</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>537d4def-c538-417c-bada-a785c14195b3</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="93699281-15bf-47d0-be2b-a9c55568509c" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>AzureServiceBus</name>
+          <display>AzureServiceBus = azure-service-bus</display>
+          <isAbstract>false</isAbstract>
+          <value>azure-service-bus</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>537d4def-c538-417c-bada-a785c14195b3</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="eec61944-4b45-4a3a-8b27-af7ec2ec2b55" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>AmazonSQS</name>
+          <display>AmazonSQS = amazon-sqs</display>
+          <isAbstract>false</isAbstract>
+          <value>amazon-sqs</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>537d4def-c538-417c-bada-a785c14195b3</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="21e43c32-0703-497e-9228-c260f2cb6dfe" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>SqlServer</name>
+          <display>SqlServer = sql-server</display>
+          <isAbstract>false</isAbstract>
+          <value>sql-server</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>537d4def-c538-417c-bada-a785c14195b3</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="eccedcd3-e765-472b-bb91-6f83d61e8a39" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>LearningTransport</name>
+          <display>LearningTransport = learning-transport</display>
+          <isAbstract>false</isAbstract>
+          <value>learning-transport</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>537d4def-c538-417c-bada-a785c14195b3</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
   </childElements>
 </class>

@@ -39,10 +39,63 @@ namespace Intent.Modules.Eventing.NServiceBus.Settings
             return _groupSettings.GetSetting(settingId);
         }
 
-        public string Transport() => _groupSettings.GetSetting("537d4def-c538-417c-bada-a785c14195b3")?.Value;
+        public TransportOptions Transport() => new TransportOptions(_groupSettings.GetSetting("537d4def-c538-417c-bada-a785c14195b3")?.Value);
 
-        public string EndpointName() => _groupSettings.GetSetting("755f6223-496a-4b34-83a7-04902f75a440")?.Value;
+        public class TransportOptions
+        {
+            public readonly string Value;
 
-        public string ConnectionString() => _groupSettings.GetSetting("e7eb3d7d-0753-4bac-8d1a-1a56dfdfa763")?.Value;
+            public TransportOptions(string value)
+            {
+                Value = value;
+            }
+
+            public TransportOptionsEnum AsEnum()
+            {
+                return Value switch
+                {
+                    "rabbitmq" => TransportOptionsEnum.Rabbitmq,
+                    "azure-service-bus" => TransportOptionsEnum.AzureServiceBus,
+                    "amazon-sqs" => TransportOptionsEnum.AmazonSqs,
+                    "sql-server" => TransportOptionsEnum.SqlServer,
+                    "learning-transport" => TransportOptionsEnum.LearningTransport,
+                    _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
+                };
+            }
+
+            public bool IsRabbitmq()
+            {
+                return Value == "rabbitmq";
+            }
+
+            public bool IsAzureServiceBus()
+            {
+                return Value == "azure-service-bus";
+            }
+
+            public bool IsAmazonSqs()
+            {
+                return Value == "amazon-sqs";
+            }
+
+            public bool IsSqlServer()
+            {
+                return Value == "sql-server";
+            }
+
+            public bool IsLearningTransport()
+            {
+                return Value == "learning-transport";
+            }
+        }
+
+        public enum TransportOptionsEnum
+        {
+            Rabbitmq,
+            AzureServiceBus,
+            AmazonSqs,
+            SqlServer,
+            LearningTransport,
+        }
     }
 }
