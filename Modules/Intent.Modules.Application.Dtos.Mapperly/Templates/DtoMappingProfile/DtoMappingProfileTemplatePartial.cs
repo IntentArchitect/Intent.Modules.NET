@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.IArchitect.Agent.Persistence;
 using Intent.Modelers.Services.Api;
@@ -10,9 +13,6 @@ using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using Intent.Utils;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -294,12 +294,12 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
                     dependency.TryGetModel<DTOModel>(out var dtoModel); //TryGetModel guaranteed to pass since it was returned in the firstordefault above
                     var entityClassName = dtoModel.Mapping.Element.Name;
                     var modelClassName = dtoModel.Name;
-                
+
                     expression = $"{expression}.Select({mapperFieldName}.{entityClassName}To{modelClassName})";
 
                 }
             }
-      
+
             return expression;
         }
     }
