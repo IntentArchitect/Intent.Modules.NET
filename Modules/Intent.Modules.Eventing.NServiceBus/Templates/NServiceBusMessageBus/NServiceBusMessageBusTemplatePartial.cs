@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
-using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
@@ -76,15 +75,6 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageBus
                         method.AddStatement("_buffer.Clear();", s => s.SeparatedFromPrevious());
                     });
                 });
-        }
-
-        public override void BeforeTemplateExecution()
-        {
-            ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this)
-                .ForInterface(this.GetBusInterfaceName())
-                .ForConcern("Infrastructure")
-                .WithPriority(100)
-                .WithPerServiceCallLifeTime());
         }
 
         [IntentManaged(Mode.Fully)]

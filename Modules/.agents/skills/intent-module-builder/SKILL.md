@@ -23,9 +23,10 @@ Use the Intent Architect Module Builder designer (via MCP tools) to scaffold the
 
 1. Never hardcode element IDs from memory or from other modules — IDs are solution-specific GUIDs. Always read them from the live model.
 2. Never create a template element without configuring its "C# Template Settings" stereotype (Templating Method, Model Type, Role, Default Location at minimum).
-3. Never skip the Software Factory run. The scaffold only exists after SF generates it from the Module Builder metadata — hand-creating files bypasses the designer and breaks synchronization.
-4. Never apply staged file changes without reviewing them first. Use `get_designer_model_snapshot` or read the diff before calling `apply_staged_file_changes`.
-5. Never run SF on the target application (the sample NServiceBus app) in this skill — that happens in `module-increment-loop`. This skill only runs SF on the Module Builder application.
+3. Never create a template element without also setting its **type reference**. For single-file templates, set the type reference to the Single File element (typeId: `f65d2904-88c9-4501-873a-a4eec8303b1d`). If left as `<type not set>`, the Template Settings stereotype becomes invalid and SF will report errors.
+4. Never skip the Software Factory run. The scaffold only exists after SF generates it from the Module Builder metadata — hand-creating files bypasses the designer and breaks synchronization.
+5. Never apply staged file changes without reviewing them first. Use `get_designer_model_snapshot` or read the diff before calling `apply_staged_file_changes`.
+6. Never run SF on the target application (the sample app) in this skill — that happens in `module-increment-loop`. This skill only runs SF on the Module Builder application.
 
 ---
 
@@ -221,7 +222,9 @@ apply_change_model_operations([
    apply_staged_file_changes()
    ```
 
-5. **Verify compilation:**
+5. **Fix SDK package versions (known IA 5.x bug).** After applying staged changes, open the generated `.csproj` and verify the three Intent SDK package versions match what other modules in the solution use. SF regenerates the csproj with incorrect versions — manually correct them before building. Read an adjacent module's `.csproj` to get the correct versions.
+
+6. **Verify compilation:**
    ```powershell
    dotnet build "<path-to-new-module.csproj>" --no-incremental --verbosity minimal --nologo
    ```
@@ -234,11 +237,14 @@ apply_change_model_operations([
 Before handing off to `module-increment-loop`, confirm:
 
 - [ ] Module `.csproj` compiles with exit code 0
+- [ ] SDK package versions in `.csproj` match adjacent modules (not the SF-generated defaults)
 - [ ] One `*TemplatePartial.cs` stub exists per template in the Attack Plan
 - [ ] One `*TemplateRegistration.cs` exists per template
 - [ ] `NugetPackages.cs` exists and references the correct packages
 - [ ] `*.imodspec` is present and lists all templates and factory extensions
 - [ ] Folder structure matches the scaffold from the Attack Plan's Module Blueprint
+- [ ] `*.imodspec` `supportedClientVersions`: use the two-step rule — the SDK build error gives the floor version; check a neighbouring module's `modules.config` to find the ceiling. Set the range to `[floor, ceiling]`.
+- [ ] Module version in `*.imodspec`, `.csproj`, and the designer Module Settings stereotype are in sync. Start at `1.0.0-pre.0`. The designer value wins if it is higher than the others.
 
 Note the path to the `.csproj` and the list of stub files — this is the starting state for Increment 1.
 

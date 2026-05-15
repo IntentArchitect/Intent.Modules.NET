@@ -25,7 +25,7 @@ OnAfterTemplateRegistrations()       ──►  FindTemplateInstance(s) → reso
 
 ### Event Orchestration
 
-5. **Publish `ContainerRegistrationRequest`** from `OnBeforeTemplateExecution(...)` to register a type in the DI container. Never write DI wire-up code directly into configuration templates as raw strings.
+5. **Publish `ContainerRegistrationRequest`** from `OnBeforeTemplateExecution(...)` to register a type in the DI container — but **only when targeting an Intent DI receptor module** (`Application.DependencyInjection` concern=`"Application"`, `Infrastructure.DependencyInjection` concern=`"Infrastructure"`). These modules listen for the event and write `services.AddScoped<I, T>()` into their generated `AddApplication()` / `AddInfrastructure()` methods. If your module generates its own `Add*` extension method (via `ServiceConfigurationRequest`), register types inline there — `ContainerRegistrationRequest` is not appropriate and will produce a duplicate or misplaced registration.
 6. **Publish `AppSettingRegistrationRequest`** from `OnBeforeTemplateExecution(...)` for every key/value the module needs in `appsettings.json`. The framework de-duplicates and idempotently merges entries.
 7. **Declare template dependencies** with `.HasDependency(this)` or `.HasDependency(template)` so the Software Factory can sequence file output correctly.
 8. **Set `ForConcern`** when the DI registration must land in a specific startup configuration file (e.g., `"Application"`, `"Infrastructure"`).

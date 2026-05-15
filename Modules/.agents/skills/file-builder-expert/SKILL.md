@@ -29,6 +29,8 @@ argument-hint: "[source file] [target template name] [single-file|file-per-model
 6. Never use implicit priority (omitting the second argument, which defaults to 0) for reconciliation logic that depends on the existence of elements from other modules. Always supply an explicit integer.
 7. Never hardcode type strings for types represented in the Intent model. Resolve them via `GetTypeName(...)` / `GetTypeName(templateId, model)` and only use `UseType(...)` for external fully qualified names.
 8. Must not use raw string interpolation for Lambda arrows `=>` or Object Initializer braces `{}`. Use dedicated builder blocks (`CSharpLambdaBlock`, `CSharpObjectInitializerBlock`).
+9. Never call `field.WithAssignment(string)` directly on `CSharpField` — that overload is `[Obsolete]`. Use `field.WithAssignment(new CSharpStatement("value"))` instead. For collection fields that should be initialised to their default empty state, prefer `field.WithInstantiation()`.
+10. Never use `param.IntroduceReadonlyField()` for fields that are not constructor-injected parameters (e.g. nullable state fields like `IEndpointInstance? _endpointInstance`). Those must be declared with an explicit `@class.AddField(type, name, f => f.Private())` call.
 
 ## Pattern Index
 
