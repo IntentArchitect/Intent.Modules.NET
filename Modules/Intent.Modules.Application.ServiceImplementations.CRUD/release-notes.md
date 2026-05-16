@@ -1,3 +1,7 @@
+### Version 5.3.3
+
+- Fixed: Issue where DtoName was duplicate with some PagedResults.
+
 ### Version 5.3.2
 
 - Improvement: Module dependencies updated.

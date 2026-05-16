@@ -1,3 +1,7 @@
+### Version 4.0.21
+
+- Fixed: Default enum values to `default` instead of `null`  when mapping in certain scenarios.
+
 ### Version 4.0.20
 
 - Fixed: Inconsistent casing on generated code.
