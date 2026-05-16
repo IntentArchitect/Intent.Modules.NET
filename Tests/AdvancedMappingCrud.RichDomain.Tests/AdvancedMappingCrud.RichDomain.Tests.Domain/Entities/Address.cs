@@ -41,6 +41,8 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Domain.Entities
 
         public int Postal { get; private set; }
 
+        public virtual AddressDetails? AddressDetails { get; private set; }
+
         public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }
