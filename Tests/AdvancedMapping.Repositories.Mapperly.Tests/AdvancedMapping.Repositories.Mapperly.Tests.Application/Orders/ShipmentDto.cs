@@ -14,6 +14,7 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Orders
             DispatchDocumentNumber = null!;
             ManifestCarrierCode = null!;
             ManifestDocumentNumber = null!;
+            CustomsDocuments = null!;
         }
 
         public Guid Id { get; set; }
@@ -28,6 +29,7 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Orders
         public decimal ManifestTotalWeight { get; set; }
         public string ManifestDocumentNumber { get; set; }
         public DateTime ManifestDocumentIssuedOn { get; set; }
+        public List<ShipmentCustomsDocumentDto> CustomsDocuments { get; set; }
 
         public static ShipmentDto Create(
             Guid id,
@@ -41,7 +43,7 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Orders
             string manifestCarrierCode,
             decimal manifestTotalWeight,
             string manifestDocumentNumber,
-            DateTime manifestDocumentIssuedOn)
+            DateTime manifestDocumentIssuedOn, List<ShipmentCustomsDocumentDto> customsDocuments)
         {
             return new ShipmentDto
             {
@@ -56,7 +58,8 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Orders
                 ManifestCarrierCode = manifestCarrierCode,
                 ManifestTotalWeight = manifestTotalWeight,
                 ManifestDocumentNumber = manifestDocumentNumber,
-                ManifestDocumentIssuedOn = manifestDocumentIssuedOn
+                ManifestDocumentIssuedOn = manifestDocumentIssuedOn,
+                CustomsDocuments = customsDocuments
             };
         }
     }

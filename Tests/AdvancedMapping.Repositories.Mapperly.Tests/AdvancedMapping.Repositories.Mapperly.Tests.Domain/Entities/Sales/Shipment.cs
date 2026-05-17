@@ -26,5 +26,7 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Domain.Entities.Sales
         public virtual Dispatch Dispatch { get; set; }
 
         public virtual Manifest Manifest { get; set; }
+
+        public virtual Customs? Customs { get; set; }
     }
 }

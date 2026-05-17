@@ -11,10 +11,20 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Mappings.Order
     [Mapper]
     public partial class ShipmentDtoMapper
     {
+        [UseMapper]
+        private readonly ShipmentCustomsDocumentDtoMapper _shipmentCustomsDocumentDtoMapper;
+
+        public ShipmentDtoMapper(ShipmentCustomsDocumentDtoMapper shipmentCustomsDocumentDtoMapper)
+        {
+            _shipmentCustomsDocumentDtoMapper = shipmentCustomsDocumentDtoMapper;
+        }
         [MapProperty(nameof(@Shipment.Dispatch.Document.DocumentNumber), nameof(ShipmentDto.DispatchDocumentNumber))]
         [MapProperty(nameof(@Shipment.Manifest.Document.DocumentNumber), nameof(ShipmentDto.ManifestDocumentNumber))]
+        [MapPropertyFromSource(nameof(ShipmentDto.CustomsDocuments), Use = nameof(MapCustomsDocuments))]
         public partial ShipmentDto ShipmentToShipmentDto(Shipment shipment);
 
         public partial List<ShipmentDto> ShipmentToShipmentDtoList(IEnumerable<Shipment> shipments);
+
+        private IEnumerable<ShipmentCustomsDocumentDto> MapCustomsDocuments(Shipment source) => source.Customs!.CustomsDocuments.Select(_shipmentCustomsDocumentDtoMapper.CustomsDocumentToShipmentCustomsDocumentDto);
     }
 }

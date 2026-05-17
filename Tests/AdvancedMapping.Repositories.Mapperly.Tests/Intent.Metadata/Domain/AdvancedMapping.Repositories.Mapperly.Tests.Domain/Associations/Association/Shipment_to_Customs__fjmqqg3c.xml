@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="fa2addc3-3d9c-4803-8ca1-f9ed86155d5a">
+  <sourceEnd id="818f8840-43d8-485a-8257-0ba6d6295902" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Shipment</name>
+    <display>Shipment: Shipment</display>
+    <order>0</order>
+    <typeReference id="8335bd42-858e-44cf-85da-58bbbcdf0798">
+      <typeId>6b13f0ba-38d3-47c4-9999-935e3a5dabeb</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMapping.Repositories.Mapperly.Tests.Domain</typePackageName>
+      <typePackageId>9804eb76-4b5e-4998-8c95-0116febd73cd</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="fa2addc3-3d9c-4803-8ca1-f9ed86155d5a" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Customs</name>
+    <display>Customs: Customs?</display>
+    <order>7</order>
+    <typeReference id="0c0815ec-06a2-44a5-a418-3460aa805c82">
+      <typeId>d337194a-0c78-46a2-a492-cb6af8fb98fc</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMapping.Repositories.Mapperly.Tests.Domain</typePackageName>
+      <typePackageId>9804eb76-4b5e-4998-8c95-0116febd73cd</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>
