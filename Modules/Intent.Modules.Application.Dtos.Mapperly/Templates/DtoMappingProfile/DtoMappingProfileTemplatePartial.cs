@@ -154,7 +154,7 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
         private static string GetSafeMapperlyNameof(string typeName, string memberPath)
         {
             var typeIsFullyQualified = typeName.Contains('.');
-            var memberPathHopsOutsideClass = memberPath.Count(c => c == '.') >= 2;
+            var memberPathHopsOutsideClass = memberPath.Contains('.');
 
             var useFullNameof = typeIsFullyQualified || memberPathHopsOutsideClass;
 

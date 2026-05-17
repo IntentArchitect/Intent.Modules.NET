@@ -44,6 +44,7 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application
             services.AddSingleton<OrderProductCategoryDtoMapper>();
             services.AddSingleton<OrderProductDtoMapper>();
             services.AddSingleton<OrderShipmentDtoMapper>();
+            services.AddSingleton<ShipmentDtoMapper>();
             services.AddScoped<IValidatorProvider, ValidatorProvider>();
             services.AddTransient<ICustomerSegmentsService, CustomerSegmentsService>();
             return services;
