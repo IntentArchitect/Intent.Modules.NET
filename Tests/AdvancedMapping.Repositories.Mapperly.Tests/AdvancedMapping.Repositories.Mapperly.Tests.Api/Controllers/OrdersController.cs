@@ -5,6 +5,8 @@ using AdvancedMapping.Repositories.Mapperly.Tests.Application.Orders.CreateOrder
 using AdvancedMapping.Repositories.Mapperly.Tests.Application.Orders.DeleteOrder;
 using AdvancedMapping.Repositories.Mapperly.Tests.Application.Orders.GetOrderById;
 using AdvancedMapping.Repositories.Mapperly.Tests.Application.Orders.GetOrders;
+using AdvancedMapping.Repositories.Mapperly.Tests.Application.Orders.GetShipmentById;
+using AdvancedMapping.Repositories.Mapperly.Tests.Application.Orders.GetShipments;
 using AdvancedMapping.Repositories.Mapperly.Tests.Application.Orders.UpdateOrder;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -117,6 +119,43 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Api.Controllers
         {
             var result = await _mediator.Send(new GetOrdersQuery(), cancellationToken);
             return Ok(result);
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="200">Returns the specified ShipmentDto.</response>
+        /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">No ShipmentDto could be found with the provided parameters.</response>
+        [HttpGet("api/orders/{orderId}/shipments/{id}")]
+        [ProducesResponseType(typeof(ShipmentDto), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<ShipmentDto>> GetShipmentById(
+            [FromRoute] Guid orderId,
+            [FromRoute] Guid id,
+            CancellationToken cancellationToken = default)
+        {
+            var result = await _mediator.Send(new GetShipmentByIdQuery(orderId: orderId, id: id), cancellationToken);
+            return result == null ? NotFound() : Ok(result);
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="200">Returns the specified List&lt;ShipmentDto&gt;.</response>
+        /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">No List&lt;ShipmentDto&gt; could be found with the provided parameters.</response>
+        [HttpGet("api/orders/{orderId}/shipments")]
+        [ProducesResponseType(typeof(List<ShipmentDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<List<ShipmentDto>>> GetShipments(
+            [FromRoute] Guid orderId,
+            CancellationToken cancellationToken = default)
+        {
+            var result = await _mediator.Send(new GetShipmentsQuery(orderId: orderId), cancellationToken);
+            return result == null ? NotFound() : Ok(result);
         }
     }
 }

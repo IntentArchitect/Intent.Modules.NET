@@ -36,8 +36,7 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Domain.Entities.Sales
 
         public bool IsActive()
         {
-            // TODO: Implement IsActive (Order) functionality
-            throw new NotImplementedException("Replace with your implementation...");
+            return true;
         }
     }
 }
