@@ -1,8 +1,6 @@
 using System.Reflection;
 using AdvancedMapping.Repositories.Mapperly.Tests.Application.Common.Behaviours;
 using AdvancedMapping.Repositories.Mapperly.Tests.Application.Common.Validation;
-using AdvancedMapping.Repositories.Mapperly.Tests.Application.Implementation;
-using AdvancedMapping.Repositories.Mapperly.Tests.Application.Interfaces;
 using AdvancedMapping.Repositories.Mapperly.Tests.Application.Mappings.Customers;
 using AdvancedMapping.Repositories.Mapperly.Tests.Application.Mappings.CustomerSegments;
 using AdvancedMapping.Repositories.Mapperly.Tests.Application.Mappings.Orders;
@@ -49,7 +47,6 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application
             services.AddSingleton<ShipmentVesselDtoMapper>();
             services.AddScoped<IValidatorProvider, ValidatorProvider>();
             services.AddTransient<IValidationService, ValidationService>();
-            services.AddTransient<ICustomerSegmentsService, CustomerSegmentsService>();
             return services;
         }
     }
