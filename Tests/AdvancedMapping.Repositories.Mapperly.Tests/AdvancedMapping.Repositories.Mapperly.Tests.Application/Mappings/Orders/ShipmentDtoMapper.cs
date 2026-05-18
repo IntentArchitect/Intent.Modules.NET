@@ -18,6 +18,7 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Mappings.Order
         {
             _shipmentCustomsDocumentDtoMapper = shipmentCustomsDocumentDtoMapper;
         }
+        [MapperIgnoreSource(nameof(Shipment.CustomsId))]
         [MapProperty(nameof(@Shipment.Dispatch.Document.DocumentNumber), nameof(ShipmentDto.DispatchDocumentNumber))]
         [MapProperty(nameof(@Shipment.Manifest.Document.DocumentNumber), nameof(ShipmentDto.ManifestDocumentNumber))]
         [MapPropertyFromSource(nameof(ShipmentDto.CustomsDocuments), Use = nameof(MapCustomsDocuments))]

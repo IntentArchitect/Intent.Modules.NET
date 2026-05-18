@@ -25,6 +25,7 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Infrastructure
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<ICustomerSegmentsRepository, CustomerSegmentsRepository>();
+            services.AddTransient<ICustomsRepository, CustomsRepository>();
             services.AddTransient<ISegmentRepository, SegmentRepository>();
             services.AddTransient<ICustomerRepository, CustomerRepository>();
             services.AddTransient<IDiscountRepository, DiscountRepository>();

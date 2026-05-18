@@ -18,6 +18,7 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Infrastructure.Persistence
         }
 
         public DbSet<CustomerSegments> CustomerSegments { get; set; }
+        public DbSet<Customs> Customs { get; set; }
         public DbSet<Segment> Segments { get; set; }
 
         public DbSet<Customer> Customers { get; set; }
@@ -32,6 +33,7 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Infrastructure.Persistence
 
             ConfigureModel(modelBuilder);
             modelBuilder.ApplyConfiguration(new CustomerSegmentsConfiguration());
+            modelBuilder.ApplyConfiguration(new CustomsConfiguration());
             modelBuilder.ApplyConfiguration(new SegmentConfiguration());
             modelBuilder.ApplyConfiguration(new CustomerConfiguration());
             modelBuilder.ApplyConfiguration(new DiscountConfiguration());

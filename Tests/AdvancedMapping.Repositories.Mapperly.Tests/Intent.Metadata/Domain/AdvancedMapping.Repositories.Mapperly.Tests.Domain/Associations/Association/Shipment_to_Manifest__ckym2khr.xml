@@ -22,7 +22,7 @@
   <targetEnd id="558b8aa7-9d99-43cd-89d5-30a7f6ea84f7" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>Manifest</name>
     <display>Manifest: Manifest</display>
-    <order>6</order>
+    <order>7</order>
     <typeReference id="5365e487-dc05-47dc-bc78-3e169d38398e">
       <typeId>15cc0303-93ac-4b0a-bdbc-506b598f1cf6</typeId>
       <isNavigable>true</isNavigable>

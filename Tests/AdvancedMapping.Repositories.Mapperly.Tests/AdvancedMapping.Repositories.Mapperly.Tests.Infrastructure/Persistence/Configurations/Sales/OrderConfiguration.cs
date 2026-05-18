@@ -108,13 +108,18 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Infrastructure.Persistence
 
             builder.Property(x => x.ShippedOn);
 
+            builder.Property(x => x.CustomsId);
+
             builder.OwnsOne(x => x.Dispatch, ConfigureDispatch)
                 .Navigation(x => x.Dispatch).IsRequired();
 
             builder.OwnsOne(x => x.Manifest, ConfigureManifest)
                 .Navigation(x => x.Manifest).IsRequired();
 
-            builder.OwnsOne(x => x.Customs, ConfigureCustoms);
+            builder.HasOne(x => x.Customs)
+                .WithMany()
+                .HasForeignKey(x => x.CustomsId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
 
         public static void ConfigureDispatch(OwnedNavigationBuilder<Shipment, Dispatch> builder)
@@ -178,39 +183,6 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Infrastructure.Persistence
 
             builder.OwnsOne(x => x.Document, ConfigureDocument)
                 .Navigation(x => x.Document).IsRequired();
-        }
-
-        public static void ConfigureCustoms(OwnedNavigationBuilder<Shipment, Customs> builder)
-        {
-            builder.WithOwner()
-                .HasForeignKey(x => x.Id);
-
-            builder.HasKey(x => x.Id);
-
-            builder.Property(x => x.OriginCountry)
-                .IsRequired();
-
-            builder.Property(x => x.DestinationCountry)
-                .IsRequired();
-
-            builder.OwnsMany(x => x.CustomsDocuments, ConfigureCustomsDocuments);
-        }
-
-        public static void ConfigureCustomsDocuments(OwnedNavigationBuilder<Customs, CustomsDocument> builder)
-        {
-            builder.WithOwner()
-                .HasForeignKey(x => x.CustomsId);
-
-            builder.HasKey(x => x.Id);
-
-            builder.Property(x => x.CustomsId)
-                .IsRequired();
-
-            builder.Property(x => x.DocumentNumber)
-                .IsRequired();
-
-            builder.Property(x => x.DocumentType)
-                .IsRequired();
         }
     }
 }
