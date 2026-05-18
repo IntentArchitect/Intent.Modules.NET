@@ -31,37 +31,42 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Api.Controllers
 
         /// <summary>
         /// </summary>
-        /// <response code="200">Returns the specified Guid.</response>
+        /// <response code="201">Successfully created.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
-        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
-        [HttpGet("customer-segments")]
+        [HttpPost("customer-segments")]
         [Produces(MediaTypeNames.Application.Json)]
-        [ProducesResponseType(typeof(JsonResponse<Guid>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(JsonResponse<Guid>), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<JsonResponse<Guid>>> CreateCustomerSegments(
-            [FromQuery][Required] CreateCustomerSegmentsDto dto,
+            [FromBody] CreateCustomerSegmentsDto dto,
             CancellationToken cancellationToken = default)
         {
             var result = Guid.Empty;
-            result = await _appService.CreateCustomerSegments(dto, cancellationToken);
-            return Ok(new JsonResponse<Guid>(result));
+
+            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+                new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
+            {
+                result = await _appService.CreateCustomerSegments(dto, cancellationToken);
+                await _unitOfWork.SaveChangesAsync(cancellationToken);
+                transaction.Complete();
+            }
+            return CreatedAtAction(nameof(FindCustomerSegmentsById), new { id = result }, new JsonResponse<Guid>(result));
         }
 
         /// <summary>
         /// </summary>
-        /// <response code="201">Successfully created.</response>
+        /// <response code="204">Successfully updated.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
         /// <response code="404">One or more entities could not be found with the provided parameters.</response>
-        [HttpPost("customer-segments")]
-        [ProducesResponseType(StatusCodes.Status201Created)]
+        [HttpPatch("customer-segments")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> UpdateCustomerSegments(
             Guid id,
-            [FromBody] UpdateCustomerSegmentsDto dto,
+            UpdateCustomerSegmentsDto dto,
             CancellationToken cancellationToken = default)
         {
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
@@ -71,7 +76,7 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Api.Controllers
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
             }
-            return Created(string.Empty, null);
+            return NoContent();
         }
 
         /// <summary>
