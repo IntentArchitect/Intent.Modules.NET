@@ -39,7 +39,7 @@ namespace Intent.Modules.Hangfire.Templates.HangfireDashboardAuthFilter
                             AddUsing("Microsoft.Extensions.DependencyInjection");
 
                             method.AddStatement($"var currentUser = context.GetHttpContext().RequestServices.GetRequiredService<{GetTypeName("Intent.Application.Identity.CurrentUserServiceInterface")}>();");
-                            method.AddStatement("return currentUser.UserId is not null;");
+                            method.AddStatement("return currentUser.GetAsync().GetAwaiter().GetResult()?.Id is not null;");
                         }
                         else
                         {
