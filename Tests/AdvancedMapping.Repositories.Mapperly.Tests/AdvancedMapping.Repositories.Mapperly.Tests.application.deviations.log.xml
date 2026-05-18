@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration#d0a27e24-c3f7-41f7-9a3f-7643706aabe4</correlationId>
+      <path>AdvancedMapping.Repositories.Mapperly.Tests.Api/Configuration/SwashbuckleConfiguration.cs</path>
+      <count>1</count>
+      <updatedByAccountName>matthew.holmes@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Matthew Holmes</updatedByDisplayName>
+      <updatedAt>2026-05-18T09:25:20.8555829Z</updatedAt>
+      <deviationsHash>95AB2835E13F632CAA2E426C797ABB59F62D265E38246CAF7B13296304CDABAE</deviationsHash>
+      <fileHash>20D4BF5D3C233D73D904F71C68BDE0BFEAA6C81945FC1A4C49CD1D995B9FD5B6</fileHash>
+    </file>
+  </files>
 </deviationsLog>
