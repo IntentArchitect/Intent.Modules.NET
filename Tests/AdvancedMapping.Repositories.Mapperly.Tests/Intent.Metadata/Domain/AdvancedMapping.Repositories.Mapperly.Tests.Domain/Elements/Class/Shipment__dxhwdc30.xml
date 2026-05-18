@@ -179,8 +179,8 @@
       <childElements />
     </childElement>
     <childElement id="9d3dc51e-1365-47bf-945d-d54b21ac6601" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>CustomsId</name>
-      <display>CustomsId: guid?</display>
+      <name>ContainerId</name>
+      <display>ContainerId: guid?</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="904d98dc-bc48-48e0-a14f-c1057b19dc9d">

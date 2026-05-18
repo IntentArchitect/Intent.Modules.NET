@@ -4,19 +4,17 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AdvancedMapping.Repositories.Mapperly.Tests.Domain.Entities
 {
-    public class CustomsDocument
+    public class Vessel
     {
-        public CustomsDocument()
+        public Vessel()
         {
-            DocumentNumber = null!;
+            IMOCode = null!;
         }
 
         public Guid Id { get; set; }
 
-        public Guid CustomsId { get; set; }
+        public Guid ContainerId { get; set; }
 
-        public string DocumentNumber { get; set; }
-
-        public CustomsDocumentType DocumentType { get; set; }
+        public string IMOCode { get; set; }
     }
 }

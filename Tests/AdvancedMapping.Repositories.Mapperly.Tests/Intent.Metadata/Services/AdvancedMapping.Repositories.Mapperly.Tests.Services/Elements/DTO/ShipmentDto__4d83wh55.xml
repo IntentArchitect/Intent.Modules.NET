@@ -717,8 +717,8 @@
       <childElements />
     </childElement>
     <childElement id="f2f18717-e484-4a31-9370-94fdfb59d195" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
-      <name>CustomsDocuments</name>
-      <display>CustomsDocuments: ShipmentCustomsDocumentDto[*]</display>
+      <name>Vessels</name>
+      <display>Vessels: ShipmentVesselDto[*]</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="ff208ec7-f2ee-47b6-9163-d6ddf10db0d8">
@@ -737,8 +737,8 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>false</autoSyncTypeReference>
         <mappedPath>
-          <target id="fa2addc3-3d9c-4803-8ca1-f9ed86155d5a" name="Customs" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
-          <target id="7c0cc64f-bc6b-4ce9-a9e5-e273b1de84c5" name="CustomsDocuments" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+          <target id="fa2addc3-3d9c-4803-8ca1-f9ed86155d5a" name="Container" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+          <target id="7c0cc64f-bc6b-4ce9-a9e5-e273b1de84c5" name="Vessels" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>9191993f-ae8b-4010-acf8-a8e8dd35373c</parentFolderId>

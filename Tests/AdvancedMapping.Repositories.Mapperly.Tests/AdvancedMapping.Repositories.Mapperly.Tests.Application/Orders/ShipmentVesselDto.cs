@@ -1,4 +1,3 @@
-using AdvancedMapping.Repositories.Mapperly.Tests.Domain;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -6,24 +5,22 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Orders
 {
-    public class ShipmentCustomsDocumentDto
+    public class ShipmentVesselDto
     {
-        public ShipmentCustomsDocumentDto()
+        public ShipmentVesselDto()
         {
             DocumentNumber = null!;
         }
 
         public Guid Id { get; set; }
         public string DocumentNumber { get; set; }
-        public CustomsDocumentType DocumentType { get; set; }
 
-        public static ShipmentCustomsDocumentDto Create(Guid id, string documentNumber, CustomsDocumentType documentType)
+        public static ShipmentVesselDto Create(Guid id, string documentNumber)
         {
-            return new ShipmentCustomsDocumentDto
+            return new ShipmentVesselDto
             {
                 Id = id,
-                DocumentNumber = documentNumber,
-                DocumentType = documentType
+                DocumentNumber = documentNumber
             };
         }
     }

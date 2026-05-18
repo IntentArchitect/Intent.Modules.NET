@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="495b1c39-1870-4dba-b453-9e66a611a56a" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
-  <name>CustomsDocument</name>
-  <display>CustomsDocument</display>
+  <name>Vessel</name>
+  <display>Vessel</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
@@ -48,8 +48,8 @@
       <childElements />
     </childElement>
     <childElement id="ca909f1d-4f16-42a8-8647-23396e89c175" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>CustomsId</name>
-      <display>CustomsId: guid</display>
+      <name>ContainerId</name>
+      <display>ContainerId: guid</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="5d06888b-6c9d-4481-ba5b-6cb9e41777ce">
@@ -85,8 +85,8 @@
       <childElements />
     </childElement>
     <childElement id="a8a82db7-0aaa-4dca-8cab-afb3707377f4" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>DocumentNumber</name>
-      <display>DocumentNumber: string</display>
+      <name>IMOCode</name>
+      <display>IMOCode: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="faf7014c-0c44-4b66-a087-db32bfa03b8a">
@@ -97,30 +97,6 @@
         <isRequired>true</isRequired>
         <typePackageName>Intent.Common.Types</typePackageName>
         <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
-        <stereotypes />
-        <genericTypeParameters />
-      </typeReference>
-      <isMapped>false</isMapped>
-      <parentFolderId>495b1c39-1870-4dba-b453-9e66a611a56a</parentFolderId>
-      <packageId>9804eb76-4b5e-4998-8c95-0116febd73cd</packageId>
-      <packageName>AdvancedMapping.Repositories.Mapperly.Tests.Domain</packageName>
-      <stereotypes />
-      <metadata />
-      <childElements />
-    </childElement>
-    <childElement id="45a11df0-ff31-40b7-96bd-4615763f0dbd" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>DocumentType</name>
-      <display>DocumentType: CustomsDocumentType</display>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <typeReference id="ed17d131-ba97-4766-abc8-416735871aed">
-        <typeId>10672db6-7895-4209-b299-7b384b03a051</typeId>
-        <isNavigable>true</isNavigable>
-        <isNullable>false</isNullable>
-        <isCollection>false</isCollection>
-        <isRequired>true</isRequired>
-        <typePackageName>AdvancedMapping.Repositories.Mapperly.Tests.Domain</typePackageName>
-        <typePackageId>9804eb76-4b5e-4998-8c95-0116febd73cd</typePackageId>
         <stereotypes />
         <genericTypeParameters />
       </typeReference>

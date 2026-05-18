@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="d037e2f1-f9b7-4651-ba09-1a31e38cdf4d">
+  <sourceEnd id="d9fae171-9a49-4c3b-a654-691f58bbeeaf" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
+    <display>created by : Containers.CreateContainerCommand</display>
+    <order>0</order>
+    <typeReference id="0c59ac94-a6ce-49b8-b07d-dd6671bf8a89">
+      <typeId>a49afff6-4075-4281-8dc6-e4bfdd7ecc61</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMapping.Repositories.Mapperly.Tests.Services</typePackageName>
+      <typePackageId>5acc1023-d19a-4150-9b5f-ce23f31ef1cb</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="d037e2f1-f9b7-4651-ba09-1a31e38cdf4d" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
+    <name>container</name>
+    <display>[create] container: Container</display>
+    <order>2</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="d576e1ab-3ad2-4553-b0a9-4e1aef07b695">
+      <typeId>d337194a-0c78-46a2-a492-cb6af8fb98fc</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMapping.Repositories.Mapperly.Tests.Domain</typePackageName>
+      <typePackageId>9804eb76-4b5e-4998-8c95-0116febd73cd</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Create Entity Mapping" typeId="5f172141-fdba-426b-980e-163e782ff53e">
+        <source applicationId="3bf3dc59-97c7-4633-b5f2-147e9c2ee45c" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="a49afff6-4075-4281-8dc6-e4bfdd7ecc61" location="[AdvancedMapping.Repositories.Mapperly.Tests].[Services].[CreateContainerCommand]" />
+        <target applicationId="3bf3dc59-97c7-4633-b5f2-147e9c2ee45c" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="d337194a-0c78-46a2-a492-cb6af8fb98fc" location="[AdvancedMapping.Repositories.Mapperly.Tests].[Services].[Container]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CreateContainerCommand}</expression>
+            <path>
+              <target id="d337194a-0c78-46a2-a492-cb6af8fb98fc" name="Container" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+            </path>
+            <sources>
+              <source identifier="CreateContainerCommand" mappingType="Invocation Mapping" mappingTypeId="47dc4a51-30a3-4ee8-8c7d-25a35bb965b9">
+                <path>
+                  <target id="a49afff6-4075-4281-8dc6-e4bfdd7ecc61" name="CreateContainerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{ContainerNumber}</expression>
+            <path>
+              <target id="d337194a-0c78-46a2-a492-cb6af8fb98fc" name="Container" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="135e0753-7978-46a5-baab-2e24d371bca6" name="ContainerNumber" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="ContainerNumber" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="a49afff6-4075-4281-8dc6-e4bfdd7ecc61" name="CreateContainerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="104a2758-d196-4911-8439-ea2b3dfe0506" name="ContainerNumber" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{SealNumber}</expression>
+            <path>
+              <target id="d337194a-0c78-46a2-a492-cb6af8fb98fc" name="Container" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="8e8dd695-1e0c-440f-9b17-5c9092a3c6bb" name="SealNumber" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="SealNumber" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="a49afff6-4075-4281-8dc6-e4bfdd7ecc61" name="CreateContainerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="0826daf5-3f3a-43ac-af6e-7b4aeb3d7e70" name="SealNumber" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Create Entity Action</associationType>
+  <associationTypeId>7a3f0474-3cf8-4249-baac-8c07c49465e0</associationTypeId>
+  <stereotypes />
+</association>

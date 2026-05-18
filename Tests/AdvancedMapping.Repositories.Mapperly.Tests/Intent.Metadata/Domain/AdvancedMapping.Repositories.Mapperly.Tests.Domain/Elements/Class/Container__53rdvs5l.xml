@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="d337194a-0c78-46a2-a492-cb6af8fb98fc" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
-  <name>Customs</name>
-  <display>Customs</display>
+  <name>Container</name>
+  <display>Container</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
@@ -48,8 +48,8 @@
       <childElements />
     </childElement>
     <childElement id="135e0753-7978-46a5-baab-2e24d371bca6" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>OriginCountry</name>
-      <display>OriginCountry: string</display>
+      <name>ContainerNumber</name>
+      <display>ContainerNumber: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="41db0d80-fd24-4c46-a30f-1e9fcdd65c8c">
@@ -72,8 +72,8 @@
       <childElements />
     </childElement>
     <childElement id="8e8dd695-1e0c-440f-9b17-5c9092a3c6bb" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>DestinationCountry</name>
-      <display>DestinationCountry: string</display>
+      <name>SealNumber</name>
+      <display>SealNumber: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="d5c34280-d132-41d2-8775-453322a08567">

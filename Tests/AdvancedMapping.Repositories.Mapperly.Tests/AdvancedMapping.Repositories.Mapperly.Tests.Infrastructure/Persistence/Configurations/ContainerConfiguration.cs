@@ -8,35 +8,32 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace AdvancedMapping.Repositories.Mapperly.Tests.Infrastructure.Persistence.Configurations
 {
-    public class CustomsConfiguration : IEntityTypeConfiguration<Customs>
+    public class ContainerConfiguration : IEntityTypeConfiguration<Container>
     {
-        public void Configure(EntityTypeBuilder<Customs> builder)
+        public void Configure(EntityTypeBuilder<Container> builder)
         {
             builder.HasKey(x => x.Id);
 
-            builder.Property(x => x.OriginCountry)
+            builder.Property(x => x.ContainerNumber)
                 .IsRequired();
 
-            builder.Property(x => x.DestinationCountry)
+            builder.Property(x => x.SealNumber)
                 .IsRequired();
 
-            builder.OwnsMany(x => x.CustomsDocuments, ConfigureCustomsDocuments);
+            builder.OwnsMany(x => x.Vessels, ConfigureVessels);
         }
 
-        public static void ConfigureCustomsDocuments(OwnedNavigationBuilder<Customs, CustomsDocument> builder)
+        public static void ConfigureVessels(OwnedNavigationBuilder<Container, Vessel> builder)
         {
             builder.WithOwner()
-                .HasForeignKey(x => x.CustomsId);
+                .HasForeignKey(x => x.ContainerId);
 
             builder.HasKey(x => x.Id);
 
-            builder.Property(x => x.CustomsId)
+            builder.Property(x => x.ContainerId)
                 .IsRequired();
 
-            builder.Property(x => x.DocumentNumber)
-                .IsRequired();
-
-            builder.Property(x => x.DocumentType)
+            builder.Property(x => x.IMOCode)
                 .IsRequired();
         }
     }

@@ -20,8 +20,8 @@
     <childElements />
   </sourceEnd>
   <targetEnd id="fa2addc3-3d9c-4803-8ca1-f9ed86155d5a" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
-    <name>Customs</name>
-    <display>Customs: Customs?</display>
+    <name>Container</name>
+    <display>Container: Container?</display>
     <order>8</order>
     <typeReference id="0c0815ec-06a2-44a5-a418-3460aa805c82">
       <typeId>d337194a-0c78-46a2-a492-cb6af8fb98fc</typeId>

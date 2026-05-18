@@ -12,20 +12,20 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Mappings.Order
     public partial class ShipmentDtoMapper
     {
         [UseMapper]
-        private readonly ShipmentCustomsDocumentDtoMapper _shipmentCustomsDocumentDtoMapper;
+        private readonly ShipmentVesselDtoMapper _shipmentVesselDtoMapper;
 
-        public ShipmentDtoMapper(ShipmentCustomsDocumentDtoMapper shipmentCustomsDocumentDtoMapper)
+        public ShipmentDtoMapper(ShipmentVesselDtoMapper shipmentVesselDtoMapper)
         {
-            _shipmentCustomsDocumentDtoMapper = shipmentCustomsDocumentDtoMapper;
+            _shipmentVesselDtoMapper = shipmentVesselDtoMapper;
         }
-        [MapperIgnoreSource(nameof(Shipment.CustomsId))]
+        [MapperIgnoreSource(nameof(Shipment.ContainerId))]
         [MapProperty(nameof(@Shipment.Dispatch.Document.DocumentNumber), nameof(ShipmentDto.DispatchDocumentNumber))]
         [MapProperty(nameof(@Shipment.Manifest.Document.DocumentNumber), nameof(ShipmentDto.ManifestDocumentNumber))]
-        [MapPropertyFromSource(nameof(ShipmentDto.CustomsDocuments), Use = nameof(MapCustomsDocuments))]
+        [MapPropertyFromSource(nameof(ShipmentDto.Vessels), Use = nameof(MapVessels))]
         public partial ShipmentDto ShipmentToShipmentDto(Shipment shipment);
 
         public partial List<ShipmentDto> ShipmentToShipmentDtoList(IEnumerable<Shipment> shipments);
 
-        private IEnumerable<ShipmentCustomsDocumentDto> MapCustomsDocuments(Shipment source) => source.Customs!.CustomsDocuments.Select(_shipmentCustomsDocumentDtoMapper.CustomsDocumentToShipmentCustomsDocumentDto);
+        private IEnumerable<ShipmentVesselDto> MapVessels(Shipment source) => source.Container!.Vessels.Select(_shipmentVesselDtoMapper.VesselToShipmentVesselDto);
     }
 }

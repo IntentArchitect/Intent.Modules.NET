@@ -9,11 +9,12 @@ using Riok.Mapperly.Abstractions;
 namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Mappings.Orders
 {
     [Mapper]
-    public partial class ShipmentCustomsDocumentDtoMapper
+    public partial class ShipmentVesselDtoMapper
     {
-        [MapperIgnoreSource(nameof(CustomsDocument.CustomsId))]
-        public partial ShipmentCustomsDocumentDto CustomsDocumentToShipmentCustomsDocumentDto(CustomsDocument customsDocument);
+        [MapperIgnoreSource(nameof(Vessel.ContainerId))]
+        [MapProperty(nameof(Vessel.IMOCode), nameof(ShipmentVesselDto.DocumentNumber))]
+        public partial ShipmentVesselDto VesselToShipmentVesselDto(Vessel vessel);
 
-        public partial List<ShipmentCustomsDocumentDto> CustomsDocumentToShipmentCustomsDocumentDtoList(IEnumerable<CustomsDocument> customsDocuments);
+        public partial List<ShipmentVesselDto> VesselToShipmentVesselDtoList(IEnumerable<Vessel> vessels);
     }
 }

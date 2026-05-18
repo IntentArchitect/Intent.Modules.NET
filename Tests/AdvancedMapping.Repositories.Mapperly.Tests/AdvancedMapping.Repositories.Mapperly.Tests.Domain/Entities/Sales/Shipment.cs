@@ -23,12 +23,12 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Domain.Entities.Sales
 
         public DateTime? ShippedOn { get; set; }
 
-        public Guid? CustomsId { get; set; }
+        public Guid? ContainerId { get; set; }
 
         public virtual Dispatch Dispatch { get; set; }
 
         public virtual Manifest Manifest { get; set; }
 
-        public virtual Customs? Customs { get; set; }
+        public virtual Container? Container { get; set; }
     }
 }

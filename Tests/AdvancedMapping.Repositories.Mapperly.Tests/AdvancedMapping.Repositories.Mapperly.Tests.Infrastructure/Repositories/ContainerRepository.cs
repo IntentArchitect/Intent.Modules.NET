@@ -9,26 +9,26 @@ using Intent.RoslynWeaver.Attributes;
 namespace AdvancedMapping.Repositories.Mapperly.Tests.Infrastructure.Repositories
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class CustomsRepository : RepositoryBase<Customs, Customs, ApplicationDbContext>, ICustomsRepository
+    public class ContainerRepository : RepositoryBase<Container, Container, ApplicationDbContext>, IContainerRepository
     {
-        public CustomsRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public ContainerRepository(ApplicationDbContext dbContext) : base(dbContext)
         {
         }
 
-        public async Task<Customs?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
+        public async Task<Container?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
-        public async Task<Customs?> FindByIdAsync(
+        public async Task<Container?> FindByIdAsync(
             Guid id,
-            Func<IQueryable<Customs>, IQueryable<Customs>> queryOptions,
+            Func<IQueryable<Container>, IQueryable<Container>> queryOptions,
             CancellationToken cancellationToken = default)
         {
             return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
         }
 
-        public async Task<List<Customs>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default)
+        public async Task<List<Container>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default)
         {
             // Force materialization - Some combinations of .net9 runtime and EF runtime crash with "Convert ReadOnlySpan to List since expression trees can't handle ref struct"
             var idList = ids.ToList();

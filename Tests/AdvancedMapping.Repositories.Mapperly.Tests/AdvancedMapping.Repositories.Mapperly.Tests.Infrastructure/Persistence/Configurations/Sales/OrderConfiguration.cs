@@ -108,7 +108,7 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Infrastructure.Persistence
 
             builder.Property(x => x.ShippedOn);
 
-            builder.Property(x => x.CustomsId);
+            builder.Property(x => x.ContainerId);
 
             builder.OwnsOne(x => x.Dispatch, ConfigureDispatch)
                 .Navigation(x => x.Dispatch).IsRequired();
@@ -116,9 +116,9 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Infrastructure.Persistence
             builder.OwnsOne(x => x.Manifest, ConfigureManifest)
                 .Navigation(x => x.Manifest).IsRequired();
 
-            builder.HasOne(x => x.Customs)
+            builder.HasOne(x => x.Container)
                 .WithMany()
-                .HasForeignKey(x => x.CustomsId)
+                .HasForeignKey(x => x.ContainerId)
                 .OnDelete(DeleteBehavior.Restrict);
         }
 

@@ -1,3 +1,4 @@
+using AdvancedMapping.Repositories.Mapperly.Tests.Application.Common.Validation;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 
@@ -10,15 +11,19 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Orders.CreateO
     public class CreateOrderCommandValidator : AbstractValidator<CreateOrderCommand>
     {
         [IntentManaged(Mode.Merge)]
-        public CreateOrderCommandValidator()
+        public CreateOrderCommandValidator(IValidatorProvider provider)
         {
-            ConfigureValidationRules();
+            ConfigureValidationRules(provider);
         }
 
-        private void ConfigureValidationRules()
+        private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.Status)
                 .NotNull();
+
+            RuleFor(v => v.Shipments)
+                .NotNull()
+                .ForEach(x => x.SetValidator(provider.GetValidator<CreateOrderCommandShipmentsDto>()!));
         }
     }
 }
