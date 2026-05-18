@@ -5,7 +5,6 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Constants;
 using Intent.Modules.Eventing.NServiceBus.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -23,7 +22,7 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public NServiceBusConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            FulfillsRole(TemplateRoles.Application.Eventing.MessageBusConfiguration);
+            FulfillsRole("Infrastructure.DependencyInjection.NServiceBus");
 
 AddNugetDependency(NugetPackages.NServiceBus(OutputTarget));
                     AddNugetDependency(NugetPackages.NServiceBusExtensionsHosting(OutputTarget));

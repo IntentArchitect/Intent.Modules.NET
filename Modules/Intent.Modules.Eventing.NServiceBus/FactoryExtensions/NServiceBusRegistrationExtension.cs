@@ -56,6 +56,27 @@ namespace Intent.Modules.Eventing.NServiceBus.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
+            var messageBusTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(
+                TemplateRoles.Application.Eventing.MessageBusImplementation);
+
+            if (messageBusTemplate != null)
+            {
+                var diTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(
+                    TemplateRoles.Infrastructure.DependencyInjection);
+                if (diTemplate != null)
+                {
+                    var busInterfaceTemplate = application.FindTemplateInstance<IClassProvider>(
+                        TemplateRoles.Application.Eventing.MessageBusInterface);
+                    if (busInterfaceTemplate != null)
+                    {
+                        diTemplate.CSharpFile.OnBuild(file =>
+                        {
+                            file.AddUsing(busInterfaceTemplate.Namespace);
+                        }, 500);
+                    }
+                }
+            }
+
             var programTemplate = application.FindTemplateInstance<IProgramTemplate>("App.Program");
             if (programTemplate == null) return;
 

@@ -13,8 +13,8 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Application.Eventing.MessageBusConfiguration</role>
-      <location>Eventing</location>
+      <role>Infrastructure.DependencyInjection.NServiceBus</role>
+      <location>Configuration</location>
     </template>
     <template id="Intent.Eventing.NServiceBus.NServiceBusMessageBus" externalReference="3915ea52-60d2-46e0-a827-44859cf211d0">
       <config>

@@ -18,50 +18,54 @@ using Intent.Templates;
 
 namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageHandler
 {
-    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public partial class NServiceBusMessageHandlerTemplate : CSharpTemplateBase<IntegrationEventHandlerModel>, ICSharpFileBuilderTemplate
+    [IntentManaged(Mode.Merge, Body = Mode.Merge)]
+    public partial class NServiceBusMessageHandlerTemplate : CSharpTemplateBase<IList<IntegrationEventHandlerModel>>, ICSharpFileBuilderTemplate
     {
         public const string TemplateId = "Intent.Eventing.NServiceBus.NServiceBusMessageHandler";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public NServiceBusMessageHandlerTemplate(IOutputTarget outputTarget, IntegrationEventHandlerModel model) : base(TemplateId, outputTarget, model)
+        public NServiceBusMessageHandlerTemplate(IOutputTarget outputTarget, IList<IntegrationEventHandlerModel> model) : base(TemplateId, outputTarget, model)
         {
             AddTypeSource(IntegrationEventMessageTemplate.TemplateId);
 
-            CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+            var parentElement = Model.First().InternalElement.ParentElement;
+            var className = parentElement.SpecializationType == "Folder"
+                ? $"{parentElement.Name.ToPascalCase()}MessageHandler"
+                : "EventMessageHandler";
+
+            // Flatten all (handler, subscription) pairs across every handler in this folder group
+            var handlerSubscriptions = Model
+                .SelectMany(h => h.IntegrationEventSubscriptions()
+                    .Select(sub => (Handler: h, Subscription: sub)))
+                .ToList();
+
+            CSharpFile = new CSharpFile(this.GetNamespace("MessageHandlers"), this.GetFolderPath("MessageHandlers"))
                 .AddUsing("System.Threading.Tasks")
                 .AddUsing("NServiceBus")
-                .AddClass($"{Model.Name.ToPascalCase()}MessageHandler", @class =>
+                .AddClass(className, @class =>
                 {
-                    var subscriptions = Model.IntegrationEventSubscriptions().ToList();
-                    var multipleSubscriptions = subscriptions.Count > 1;
-
-                    foreach (var subscription in subscriptions)
+                    foreach (var (_, sub) in handlerSubscriptions)
                     {
-                        var messageTypeName = this.GetIntegrationEventMessageName(subscription.TypeReference.Element.AsMessageModel());
+                        var messageTypeName = this.GetIntegrationEventMessageName(sub.TypeReference.Element.AsMessageModel());
                         @class.ImplementsInterface($"IHandleMessages<{messageTypeName}>");
                     }
 
                     @class.AddConstructor(ctor =>
                     {
-                        foreach (var subscription in subscriptions)
+                        foreach (var (_, sub) in handlerSubscriptions)
                         {
-                            var messageTypeName = this.GetIntegrationEventMessageName(subscription.TypeReference.Element.AsMessageModel());
+                            var messageTypeName = this.GetIntegrationEventMessageName(sub.TypeReference.Element.AsMessageModel());
                             var handlerInterface = $"{this.GetIntegrationEventHandlerInterfaceName()}<{messageTypeName}>";
-                            var paramName = multipleSubscriptions
-                                ? $"handler{subscription.TypeReference.Element.Name.ToPascalCase()}"
-                                : "handler";
+                            var paramName = $"handler{sub.TypeReference.Element.Name.ToPascalCase()}";
                             ctor.AddParameter(handlerInterface, paramName, param =>
                                 param.IntroduceReadonlyField());
                         }
                     });
 
-                    foreach (var subscription in subscriptions)
+                    foreach (var (_, sub) in handlerSubscriptions)
                     {
-                        var messageTypeName = this.GetIntegrationEventMessageName(subscription.TypeReference.Element.AsMessageModel());
-                        var fieldName = multipleSubscriptions
-                            ? $"_handler{subscription.TypeReference.Element.Name.ToPascalCase()}"
-                            : "_handler";
+                        var messageTypeName = this.GetIntegrationEventMessageName(sub.TypeReference.Element.AsMessageModel());
+                        var fieldName = $"_handler{sub.TypeReference.Element.Name.ToPascalCase()}";
 
                         @class.AddMethod("Task", "Handle", method =>
                         {

@@ -15,8 +15,8 @@ using Intent.Templates;
 
 namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageHandler
 {
-    [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class NServiceBusMessageHandlerTemplateRegistration : FilePerModelTemplateRegistration<IntegrationEventHandlerModel>
+    [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Merge)]
+    public class NServiceBusMessageHandlerTemplateRegistration : FilePerModelTemplateRegistration<IList<IntegrationEventHandlerModel>>
     {
         private readonly IMetadataManager _metadataManager;
 
@@ -27,16 +27,19 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageHandle
 
         public override string TemplateId => NServiceBusMessageHandlerTemplate.TemplateId;
 
-        [IntentManaged(Mode.Fully)]
-        public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, IntegrationEventHandlerModel model)
+        [IntentManaged(Mode.Merge)]
+        public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, IList<IntegrationEventHandlerModel> model)
         {
             return new NServiceBusMessageHandlerTemplate(outputTarget, model);
         }
 
-        [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
-        public override IEnumerable<IntegrationEventHandlerModel> GetModels(IApplication application)
+        [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Merge)]
+        public override IEnumerable<IList<IntegrationEventHandlerModel>> GetModels(IApplication application)
         {
-            return _metadataManager.Services(application).GetIntegrationEventHandlerModels();
+            return _metadataManager.Services(application)
+                .GetIntegrationEventHandlerModels()
+                .GroupBy(h => h.InternalElement.ParentElement.Id)
+                .Select(g => (IList<IntegrationEventHandlerModel>)g.ToList());
         }
     }
 }
