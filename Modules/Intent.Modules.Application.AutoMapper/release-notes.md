@@ -1,3 +1,7 @@
+### Version 5.3.9
+
+- Fixed: Where `FindByIdProjectTo` generates its lambda expression to ensure the fields are PascalCase according to C# naming convention.
+
 ### Version 5.3.8
 
 - Improvement: Added AI Skill context extensions for Services skills.

@@ -1,3 +1,7 @@
+### Version 1.0.11
+
+- Fixed: Issue where default Dashbaord Auth Filter was using older `ICurrentUserService` implementation
+
 ### Version 1.0.10
 
 - Fixed: Minimum client version.

@@ -25,7 +25,7 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryHandlerSkill
         {
             WithContentHashing = true;
             MarkdownFile = new MarkdownFile($"SKILL", relativeLocation: "mediatr-query-handler")
-                .FromMarkdown("""
+                .FromMarkdown($"""
 ---
 name: mediatr-query-handler
 description: implement or revise mediatR query handler business logic in an existing handler file. use when a c# mediatR query handler has an incomplete or incorrect handle method and chatgpt should update the handle method, add private helper methods, and extend application or domain abstractions such as repositories or read services if required, while avoiding direct infrastructure dependencies in the handler.

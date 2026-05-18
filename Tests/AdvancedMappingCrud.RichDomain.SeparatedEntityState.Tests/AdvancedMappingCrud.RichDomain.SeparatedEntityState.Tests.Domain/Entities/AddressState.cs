@@ -30,5 +30,7 @@ namespace AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain.Entit
         public string City { get; set; }
 
         public int Postal { get; set; }
+
+        public virtual AddressDetails? AddressDetails { get; set; }
     }
 }

@@ -1,3 +1,7 @@
+### Version 4.7.2
+
+- Fixed: Small fix in the template-id of the generated skill file for the QueryHandlerSkill
+
 ### Version 4.7.1
 
 - Improvement: Tweaked CommandHandler skill around automatic Unit Of Work.

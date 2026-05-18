@@ -11,7 +11,7 @@ using Microsoft.OpenApi;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Swashbuckle.AspNetCore.SwaggerUI;
 
-[assembly: DefaultIntentManaged(Mode.Ignore)]
+[assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration", Version = "1.0")]
 
 namespace AdvancedMapping.Repositories.Mapperly.Tests.Api.Configuration
@@ -49,22 +49,22 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Api.Configuration
                     options.OperationFilter<HideRouteParametersFromBodyOperationFilter>();
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
 
-                //    var securityScheme = new OpenApiSecurityScheme()
-                //    {
-                //        Name = "Authorization",
-                //        Description = "Enter a Bearer Token into the `Value` field to have it automatically prefixed with `Bearer ` and used as an `Authorization` header value for requests.",
-                //        In = ParameterLocation.Header,
-                //        Type = SecuritySchemeType.Http,
-                //        Scheme = "bearer",
-                //        BearerFormat = "JWT"
-                //    };
+                    var securityScheme = new OpenApiSecurityScheme()
+                    {
+                        Name = "Authorization",
+                        Description = "Enter a Bearer Token into the `Value` field to have it automatically prefixed with `Bearer ` and used as an `Authorization` header value for requests.",
+                        In = ParameterLocation.Header,
+                        Type = SecuritySchemeType.Http,
+                        Scheme = "bearer",
+                        BearerFormat = "JWT"
+                    };
 
-                //    options.AddSecurityDefinition("Bearer", securityScheme);
-                //    options.AddSecurityRequirement(document => new OpenApiSecurityRequirement
-                //{
-                //    { new OpenApiSecuritySchemeReference("Bearer", document), new List<string>() }
-                //});
-                //    options.SchemaFilter<TypeSchemaFilter>();
+                    options.AddSecurityDefinition("Bearer", securityScheme);
+                    options.AddSecurityRequirement(document => new OpenApiSecurityRequirement
+                {
+                    { new OpenApiSecuritySchemeReference("Bearer", document), new List<string>() }
+                });
+                    options.SchemaFilter<TypeSchemaFilter>();
 
                 });
             return services;
