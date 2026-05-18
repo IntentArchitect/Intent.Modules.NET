@@ -1,3 +1,4 @@
+using AdvancedMapping.Repositories.Mapperly.Tests.Domain.Entities;
 using AdvancedMapping.Repositories.Mapperly.Tests.Domain.Entities.Sales;
 using AdvancedMapping.Repositories.Mapperly.Tests.Domain.Repositories.Sales;
 using Intent.RoslynWeaver.Attributes;
@@ -28,7 +29,15 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Customers.Crea
                 Email = request.Email,
                 IsVip = request.IsVip,
                 BirthDate = request.BirthDate,
-                MetadataJson = request.MetadataJson
+                MetadataJson = request.MetadataJson,
+                Preferences = request.Preferences is not null
+                    ? new Preferences
+                    {
+                        Newsletter = request.Preferences.Newsletter,
+                        Specials = request.Preferences.Specials,
+                        Theme = request.Preferences.Theme
+                    }
+                    : null
             };
 
             _customerRepository.Add(customer);

@@ -67,6 +67,9 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Infrastructure.Persistence
 
             builder.Property(x => x.Specials)
                 .IsRequired();
+
+            builder.Property(x => x.Theme)
+                .IsRequired();
         }
     }
 }

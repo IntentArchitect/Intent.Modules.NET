@@ -1,3 +1,4 @@
+using AdvancedMapping.Repositories.Mapperly.Tests.Application.Common.Validation;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 
@@ -10,18 +11,21 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Customers.Crea
     public class CreateCustomerCommandValidator : AbstractValidator<CreateCustomerCommand>
     {
         [IntentManaged(Mode.Merge)]
-        public CreateCustomerCommandValidator()
+        public CreateCustomerCommandValidator(IValidatorProvider provider)
         {
-            ConfigureValidationRules();
+            ConfigureValidationRules(provider);
         }
 
-        private void ConfigureValidationRules()
+        private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.Name)
                 .NotNull();
 
             RuleFor(v => v.Email)
                 .NotNull();
+
+            RuleFor(v => v.Preferences)
+                .SetValidator(provider.GetValidator<CreateCustomerCommandPreferencesDto>()!);
         }
     }
 }

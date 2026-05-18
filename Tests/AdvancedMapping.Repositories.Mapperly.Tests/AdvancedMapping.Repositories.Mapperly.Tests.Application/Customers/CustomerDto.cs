@@ -1,3 +1,4 @@
+using AdvancedMapping.Repositories.Mapperly.Tests.Domain;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -21,6 +22,7 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Customers
         public string? MetadataJson { get; set; }
         public bool? PreferencesNewsletter { get; set; }
         public bool? PreferencesSpecials { get; set; }
+        public Theme PreferencesTheme { get; set; }
 
         public static CustomerDto Create(
             Guid id,
@@ -29,7 +31,7 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Customers
             bool isVip,
             DateTime? birthDate,
             string? metadataJson,
-            bool? preferencesNewsletter, bool? preferencesSpecials)
+            bool? preferencesNewsletter, bool? preferencesSpecials, Theme preferencesTheme)
         {
             return new CustomerDto
             {
@@ -40,7 +42,8 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Customers
                 BirthDate = birthDate,
                 MetadataJson = metadataJson,
                 PreferencesNewsletter = preferencesNewsletter,
-                PreferencesSpecials = preferencesSpecials
+                PreferencesSpecials = preferencesSpecials,
+                PreferencesTheme = preferencesTheme
             };
         }
     }

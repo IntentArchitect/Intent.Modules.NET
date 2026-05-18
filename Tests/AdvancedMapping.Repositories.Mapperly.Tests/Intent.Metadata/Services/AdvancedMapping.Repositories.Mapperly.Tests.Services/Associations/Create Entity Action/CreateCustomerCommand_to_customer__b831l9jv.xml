@@ -21,7 +21,7 @@
   <targetEnd id="47ab7894-7dd6-4756-a1ae-69d824442609" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
     <name>customer</name>
     <display>[create] customer: Customer</display>
-    <order>5</order>
+    <order>6</order>
     <traits>
       <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
     </traits>
@@ -126,6 +126,57 @@
                 <path>
                   <target id="6e50c390-e001-4b19-a285-abd1e438cc4e" name="CreateCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
                   <target id="64e3d648-c971-45a7-b0db-d7e7f103486c" name="MetadataJson" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Preferences.Newsletter}</expression>
+            <path>
+              <target id="8710f1f5-5778-466f-a69a-e7b4e5d1b3d6" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="aa564791-36b6-402e-9b88-a88f59db3692" name="Preferences" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="5af4c450-86c8-48be-b0e1-46d83bd32d8f" name="Newsletter" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Preferences.Newsletter" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="6e50c390-e001-4b19-a285-abd1e438cc4e" name="CreateCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="d334b9e1-b9d0-49d9-8768-a51c10a6c2cb" name="Preferences" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="d92243c8-d34f-4919-b611-d53d2ea9dfbc" name="Newsletter" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Preferences.Specials}</expression>
+            <path>
+              <target id="8710f1f5-5778-466f-a69a-e7b4e5d1b3d6" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="aa564791-36b6-402e-9b88-a88f59db3692" name="Preferences" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="075a3c12-6538-4825-be8c-3e4b826a5d86" name="Specials" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Preferences.Specials" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="6e50c390-e001-4b19-a285-abd1e438cc4e" name="CreateCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="d334b9e1-b9d0-49d9-8768-a51c10a6c2cb" name="Preferences" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="e72c883c-f3c4-4774-9dda-c0fe2edb52dd" name="Specials" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Preferences.Theme}</expression>
+            <path>
+              <target id="8710f1f5-5778-466f-a69a-e7b4e5d1b3d6" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="aa564791-36b6-402e-9b88-a88f59db3692" name="Preferences" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="1f6c797c-a6e3-4a5f-9373-f682dbbbbe6e" name="Theme" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Preferences.Theme" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="6e50c390-e001-4b19-a285-abd1e438cc4e" name="CreateCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="d334b9e1-b9d0-49d9-8768-a51c10a6c2cb" name="Preferences" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="9757eb1e-8ded-4e4e-9ec8-e4ed15cd63a0" name="Theme" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>
