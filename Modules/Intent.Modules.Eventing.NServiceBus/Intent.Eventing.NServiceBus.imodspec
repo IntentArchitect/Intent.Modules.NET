@@ -41,7 +41,7 @@
     <group id="76e5fbf4-95c3-4d3e-8343-0969c4a67df6" title="NServiceBusSettings" type="application-settings" externalReference="76e5fbf4-95c3-4d3e-8343-0969c4a67df6">
       <settings>
         <setting id="537d4def-c538-417c-bada-a785c14195b3" title="Transport" type="select">
-          <defaultValue>RabbitMQ</defaultValue>
+          <defaultValue>learning-transport</defaultValue>
           <options>
             <option value="rabbitmq" description="RabbitMQ" />
             <option value="azure-service-bus" description="AzureServiceBus" />

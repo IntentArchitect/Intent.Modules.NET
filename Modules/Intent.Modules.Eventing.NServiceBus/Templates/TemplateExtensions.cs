@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Intent.Modelers.Services.EventInteractions;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration;
 using Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusMessageBus;
@@ -24,14 +23,9 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates
             return template.GetTypeName(NServiceBusMessageBusTemplate.TemplateId);
         }
 
-        public static string GetNServiceBusMessageHandlerName<T>(this IIntentTemplate<T> template) where T : IntegrationEventHandlerModel
+        public static string GetNServiceBusMessageHandlerName(this IIntentTemplate template)
         {
-            return template.GetTypeName(NServiceBusMessageHandlerTemplate.TemplateId, template.Model);
-        }
-
-        public static string GetNServiceBusMessageHandlerName(this IIntentTemplate template, IntegrationEventHandlerModel model)
-        {
-            return template.GetTypeName(NServiceBusMessageHandlerTemplate.TemplateId, model);
+            return template.GetTypeName(NServiceBusMessageHandlerTemplate.TemplateId);
         }
 
     }

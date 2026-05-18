@@ -18,6 +18,8 @@ Use the Intent Architect Module Builder designer (via MCP tools) to scaffold the
 4. **Create one element at a time, verify, then continue.** Don't batch all `apply_change_model_operations` calls into one step before checking results. After each meaningful group of changes, call `get_designer_model_snapshot` to confirm the model reflects what was intended.
 5. **Run Software Factory after all module elements are declared** (not before). Apply staged file changes only after reviewing the diff.
 6. **Verify compilation** after applying staged changes. Run `dotnet build` on the generated `.csproj` before marking this skill complete.
+7. **Follow the full iteration cycle for every change** — including post-scaffold changes. The cycle is always: designer change → SF on module → apply staged changes → compile module → SF on target app → inspect output. Never shortcut it.
+8. **Check for Intent markers before touching any `.cs` file.** If a file has `[assembly: IntentTemplate(...)]` or `[assembly: DefaultIntentManaged(Mode.Fully)]`, it is SF-owned. Only `[IntentManaged(Body = Mode.Ignore)]` sections within it are safe to edit directly.
 
 ## Must Nots
 
@@ -26,7 +28,27 @@ Use the Intent Architect Module Builder designer (via MCP tools) to scaffold the
 3. Never create a template element without also setting its **type reference**. For single-file templates, set the type reference to the Single File element (typeId: `f65d2904-88c9-4501-873a-a4eec8303b1d`). If left as `<type not set>`, the Template Settings stereotype becomes invalid and SF will report errors.
 4. Never skip the Software Factory run. The scaffold only exists after SF generates it from the Module Builder metadata — hand-creating files bypasses the designer and breaks synchronization.
 5. Never apply staged file changes without reviewing them first. Use `get_designer_model_snapshot` or read the diff before calling `apply_staged_file_changes`.
-6. Never run SF on the target application (the sample app) in this skill — that happens in `module-increment-loop`. This skill only runs SF on the Module Builder application.
+6. Never run SF on the target application (the sample app) before compiling the module — the target app must pick up the updated module first.
+7. **Never directly edit `*TemplateRegistration.cs` files** for structural changes (base class, method signatures, registration type). These files carry `[assembly: IntentTemplate(...)]` and are SF-owned. To change a template's registration type (e.g. `FilePerModel` → `SingleFileListModel`), change it in the Module Builder designer and let SF regenerate the file. Only `[IntentManaged(Body = Mode.Ignore)]` bodies (e.g. `GetModels`) are editable directly.
+8. **Never manually look up NuGet versions for existing packages.** Use the **"Get latest from NuGet.org"** context menu action in the Intent Architect Module Builder designer — right-click the NuGet Packages element to update all versions at once. Only look up versions manually when creating a brand-new package that doesn't yet exist in the designer.
+
+---
+
+## The Iteration Cycle (applies to every change, not just initial scaffold)
+
+Any modification to module behaviour — template type, NuGet version, factory extension logic, registration type — follows this fixed sequence:
+
+```
+1. Change in designer (Module Builder)
+2. Run SF on the module app       → run_software_factory(module_app_id)
+3. Apply staged changes           → apply_staged_file_changes(module_app_id)
+4. Edit bespoke bodies if needed  → only Body = Mode.Ignore sections
+5. Compile the module             → dotnet build <module.csproj>
+6. Run SF on the target/test app  → run_software_factory(target_app_id)
+7. Inspect the generated output
+```
+
+Skipping or reordering steps (e.g. editing generated files before running SF, or running target SF before compiling the module) produces incorrect or overwritten output.
 
 ---
 

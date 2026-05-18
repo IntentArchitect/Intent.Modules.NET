@@ -23,28 +23,28 @@ namespace Intent.Modules.Eventing.NServiceBus
             NugetRegistry.Register(NServiceBusPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, >= 0) => new PackageVersion("8.2.6"),
+                        ( >= 8, >= 0) => new PackageVersion("10.1.4"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{NServiceBusPackageName}'"),
                     }
                 );
             NugetRegistry.Register(NServiceBusAmazonSQSPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, >= 0) => new PackageVersion("8.1.0"),
+                        ( >= 8, >= 0) => new PackageVersion("9.0.1"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{NServiceBusAmazonSQSPackageName}'"),
                     }
                 );
             NugetRegistry.Register(NServiceBusExtensionsHostingPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, >= 0) => new PackageVersion("2.0.0"),
+                        ( >= 8, >= 0) => new PackageVersion("4.0.1"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{NServiceBusExtensionsHostingPackageName}'"),
                     }
                 );
             NugetRegistry.Register(NServiceBusRabbitMQPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, >= 0) => new PackageVersion("9.1.0"),
+                        ( >= 8, >= 0) => new PackageVersion("11.2.1"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{NServiceBusRabbitMQPackageName}'"),
                     }
                 );

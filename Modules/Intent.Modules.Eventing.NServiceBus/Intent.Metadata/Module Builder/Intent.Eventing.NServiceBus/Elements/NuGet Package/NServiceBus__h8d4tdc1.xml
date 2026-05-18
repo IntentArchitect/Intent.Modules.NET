@@ -25,8 +25,8 @@
   <metadata />
   <childElements>
     <childElement id="e797c230-8ee5-4894-b1e0-3b51815cfd7e" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.2.6</name>
-      <display>8.2.6 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <name>10.1.4</name>
+      <display>10.1.4 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>

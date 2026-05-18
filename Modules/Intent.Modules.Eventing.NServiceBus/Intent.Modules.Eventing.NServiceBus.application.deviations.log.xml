@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#17b4280e-2f8f-41c0-a70d-166cd3e351a8</correlationId>
+      <path>Intent.Modules.Eventing.NServiceBus/Templates/NServiceBusMessageHandler/NServiceBusMessageHandlerTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-05-18T19:37:34.4620154Z</updatedAt>
+      <deviationsHash>12AD4D237AF8FDBBDDA19951C10482A3AB22F34D1C57880CD8CFF7DFF2BD65E5</deviationsHash>
+      <fileHash>C0D792485A86F0642FDC1EBDE97BFB3EB30C87E6AC9E396895684EDE5A7E62B2</fileHash>
+    </file>
+  </files>
 </deviationsLog>

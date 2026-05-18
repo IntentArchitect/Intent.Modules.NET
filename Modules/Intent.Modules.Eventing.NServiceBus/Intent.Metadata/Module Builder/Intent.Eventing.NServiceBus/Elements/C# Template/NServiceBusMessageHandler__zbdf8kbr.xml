@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="17b4280e-2f8f-41c0-a70d-166cd3e351a8" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
   <name>NServiceBusMessageHandler</name>
-  <display>NServiceBusMessageHandler: File Per Model</display>
+  <display>NServiceBusMessageHandler: Single File</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
   <typeReference id="a496ba0d-2e70-4759-aa1b-50b6be3fc85e">
-    <typeId>99cb461f-ec82-4dde-a804-e3393a5e2a8d</typeId>
+    <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
