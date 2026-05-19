@@ -25,7 +25,7 @@
   <interoperability>
     <detect id="Intent.Application.DomainInteractions">
       <install>
-        <package id="Intent.Application.DomainInteractions" version="1.1.12" />
+        <package id="Intent.Application.DomainInteractions" version="1.2.6-pre.0" />
       </install>
     </detect>
   </interoperability>
