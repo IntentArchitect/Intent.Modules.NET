@@ -1,5 +1,6 @@
 ### Version 1.2.6
-- Fixed: For Mapperly, corrected classes and property names when an entity name is fully qualified
+- Improvement: Updated code generation for query handlers when Mapperly is used to avoid premature materializing collections before mapping. 
+- Fixed: When two or more DTOs in the same folder are of the form `<Entity>Dto.cs` and `<Entity><SomeString>Dto.cs` the correct DTO is now injected into the constructor of the corresponding handlers
 
 ### Version 1.2.5
 

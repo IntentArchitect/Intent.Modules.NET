@@ -1,11 +1,10 @@
 ### Version 1.1.0
-- Fixed: When entities needed to be fully qualified, mapping file has no compilation errors
-- Fixed: When a navigation of a field hops across classes or fully qualified namespaces prefix `@`, mapperly's "full `nameof`", to the path to prevent field name collisions.
-- Fixed: When a domain entity is fully qualified prefix `@`, mapperly's "full `nameof`", to the path to prevent field name collisions.
-- Fixed: When an `Enum` is used in the return type of an explict mapping it's associated `using` statements are now added.
-- Fixed: When a domain entity has a pluralised name mappings fully qualify it to prevent conflict with the namespace
+- Improvement: If a navigation of a field hops across classes or enities are fully qualified prefix `@`, mapperly's "full `nameof`", to the path to prevent field name collisions.  
+See: https://mapperly.riok.app/docs/configuration/full-nameof/
+- Fixed: When entities needed to be fully qualified, mapping file is now generated correcly
+- Fixed: When an `Enum` is in the return type of an explict mapping it's associated `using` statements are added.
+- Fixed: Domain entities with pluralised names are now fully qualified it to prevent conflicting with the namespace name
 - Fixed: When a `List` is mapped accross multiple classes in a explicit mapping, the associated LINQ `Select` statement is added to perform the map
-- Fixed: When two or more Dtos in the same folder were of the form `<Entity>Dto.cs` and `<Entity><AnyString>Dto` the correct dto is now injected into the constructor of the corresponding handlers
 
 ### Version 1.0.4
 
