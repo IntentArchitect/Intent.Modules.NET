@@ -270,6 +270,14 @@ Before handing off to `module-increment-loop`, confirm:
 
 Note the path to the `.csproj` and the list of stub files — this is the starting state for Increment 1.
 
+### Eventing Module Post-Scaffold Checklist (additional)
+
+If the module is an eventing/messaging transport (pub/sub), verify message delivery end-to-end after the target app SF run — compilation alone is not sufficient:
+
+1. Run the target app and make a request that publishes an event.
+2. Confirm the handler log entry appears in the output. If it does not, check `[AppBin]/.diagnostics/[EndpointName]-configuration.txt` → `Manifest-MessageTypes[*].IsEvent`. If `"IsEvent": false`, the transport's event convention is not configured.
+3. **NServiceBus-specific:** `DefiningEventsAs(type => type.Name.EndsWith("Event"))` must be called in `ConfigureEndpoint`. The event POCOs from `Eventing.Contracts` do not implement `IEvent` — without this convention, NServiceBus treats all messages as basic messages and silently drops pub/sub delivery.
+
 ---
 
 ## Handoff
