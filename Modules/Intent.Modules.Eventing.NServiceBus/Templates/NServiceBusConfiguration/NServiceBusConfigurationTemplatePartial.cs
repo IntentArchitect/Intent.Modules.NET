@@ -24,26 +24,35 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
         {
             FulfillsRole("Infrastructure.DependencyInjection.NServiceBus");
 
-AddNugetDependency(NugetPackages.NServiceBus(OutputTarget));
-                    AddNugetDependency(NugetPackages.NServiceBusExtensionsHosting(OutputTarget));
+            AddNugetDependency(NugetPackages.NServiceBus(OutputTarget));
+            AddNugetDependency(NugetPackages.NServiceBusExtensionsHosting(OutputTarget));
 
             var transport = ExecutionContext.Settings.GetNServiceBusSettings().Transport();
+            switch (transport.AsEnum())
+            {
+                case NServiceBusSettings.TransportOptionsEnum.Rabbitmq:
+                    AddNugetDependency(NugetPackages.NServiceBusRabbitMQ(OutputTarget));
+                    break;
+                case NServiceBusSettings.TransportOptionsEnum.AzureServiceBus:
+                    AddNugetDependency(NugetPackages.NServiceBusTransportAzureServiceBus(OutputTarget));
+                    break;
+                case NServiceBusSettings.TransportOptionsEnum.AmazonSqs:
+                    AddNugetDependency(NugetPackages.NServiceBusAmazonSQS(OutputTarget));
+                    break;
+                case NServiceBusSettings.TransportOptionsEnum.SqlServer:
+                    AddNugetDependency(NugetPackages.NServiceBusTransportSqlServer(OutputTarget));
+                    break;
+                case NServiceBusSettings.TransportOptionsEnum.LearningTransport:
+                    // Learning Transport is included in NServiceBus.Core — no extra package needed
+                    break;
+                default:
+                    throw new InvalidOperationException($"Unsupported transport type: {transport.Value}");
+            }
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Microsoft.Extensions.Configuration")
                 .AddUsing("Microsoft.Extensions.Hosting")
                 .AddUsing("NServiceBus")
-                .OnBuild(file =>
-                {
-                    if (transport.IsRabbitmq())
-                        AddNugetDependency(NugetPackages.NServiceBusRabbitMQ(OutputTarget));
-                    else if (transport.IsAzureServiceBus())
-                        AddNugetDependency(NugetPackages.NServiceBusTransportAzureServiceBus(OutputTarget));
-                    else if (transport.IsAmazonSqs())
-                        AddNugetDependency(NugetPackages.NServiceBusAmazonSQS(OutputTarget));
-                    else if (transport.IsSqlServer())
-                        AddNugetDependency(NugetPackages.NServiceBusTransportSqlServer(OutputTarget));
-                })
                 .AddClass("NServiceBusConfiguration", @class =>
                 {
                     @class.Static();
