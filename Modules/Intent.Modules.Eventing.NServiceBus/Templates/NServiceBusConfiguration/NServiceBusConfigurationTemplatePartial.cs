@@ -91,6 +91,9 @@ AddNugetDependency(NugetPackages.NServiceBus(OutputTarget));
                         method.AddStatement("endpointConfiguration.EnableInstallers();", s => s.SeparatedFromPrevious());
                         method.AddStatement("endpointConfiguration.UseSerialization<SystemJsonSerializer>();");
 
+                        method.AddStatement("var conventions = endpointConfiguration.Conventions();", s => s.SeparatedFromPrevious());
+                        method.AddStatement("conventions.DefiningEventsAs(type => type.Name.EndsWith(\"Event\"));");
+
                         method.AddReturn("endpointConfiguration", s => s.SeparatedFromPrevious());
                     });
                 });
