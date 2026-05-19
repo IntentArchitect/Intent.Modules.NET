@@ -301,6 +301,8 @@
         <isNullable>true</isNullable>
         <isCollection>false</isCollection>
         <isRequired>true</isRequired>
+        <typePackageName>AdvancedMapping.Repositories.Mapperly.Tests.Services</typePackageName>
+        <typePackageId>5acc1023-d19a-4150-9b5f-ce23f31ef1cb</typePackageId>
         <stereotypes />
         <genericTypeParameters />
       </typeReference>
