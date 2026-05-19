@@ -295,7 +295,7 @@ namespace Intent.Modules.Application.Dtos.Mapperly.Templates.DtoMappingProfile
                     var entityClassName = dtoModel.Mapping.Element.Name;
                     var modelClassName = dtoModel.Name;
 
-                    expression = $"{expression}.Select({mapperFieldName}.{entityClassName}To{modelClassName})";
+                    expression = $"{expression}.{UseType("System.Linq.Select")}({mapperFieldName}.{entityClassName}To{modelClassName})";
 
                 }
             }
