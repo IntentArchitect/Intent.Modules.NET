@@ -1,3 +1,7 @@
+### Version 4.1.1
+
+- Improvement: Moved common folder logic to `Intent.Modelers.CodebaseStructure`
+
 ### Version 4.1.0
 
 - Fixed: Support for `Folders` and `Output Anchor`s directly off the root folder.

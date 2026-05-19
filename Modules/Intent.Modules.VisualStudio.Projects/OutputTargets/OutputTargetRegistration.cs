@@ -5,6 +5,7 @@ using Intent.Modelers.CodebaseStructure.Api;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Registrations;
+using Intent.Modelers.CodebaseStructure.OutputTargets;
 
 namespace Intent.Modules.VisualStudio.Projects.OutputTargets
 {
@@ -26,16 +27,6 @@ namespace Intent.Modules.VisualStudio.Projects.OutputTargets
                 foreach (var folder in model.Folders.DetectDuplicates())
                 {
                     Register(registry, folder);
-                }
-            }
-
-            var rootFolders = _metadataManager.CodebaseStructure(application).GetRootFolderModels();
-            foreach (var rootFolder in rootFolders)
-            {
-                registry.RegisterOutputTarget(rootFolder.ToOutputTargetConfig());
-                foreach (var f in rootFolder.Folders)
-                {
-                    Register(registry, f);
                 }
             }
 
@@ -64,23 +55,6 @@ namespace Intent.Modules.VisualStudio.Projects.OutputTargets
             foreach (var child in folder.Folders.DetectDuplicates())
             {
                 Register(registry, child);
-            }
-        }
-    }
-
-    internal static class OutputTargetRegistrationExtensions
-    {
-        public static IEnumerable<FolderModel> DetectDuplicates(this IEnumerable<FolderModel> sequence)
-        {
-            var folderNameSet = new HashSet<string>();
-
-            foreach (var folderModel in sequence)
-            {
-                if (!folderNameSet.Add(folderModel.Name))
-                {
-                    throw new ElementException(folderModel.InternalElement, $"Duplicate Folder found at same location.");
-                }
-                yield return folderModel;
             }
         }
     }
