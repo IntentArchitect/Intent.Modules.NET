@@ -41,8 +41,18 @@ namespace Intent.Modules.Eventing.NServiceBus.FactoryExtensions
                     .WithPerServiceCallLifeTime());
 
             var transport = application.Settings.GetNServiceBusSettings().Transport();
+            var recoverabilityPolicy = application.Settings.GetNServiceBusSettings().RecoverabilityPolicy();
 
             application.EventDispatcher.Publish(new AppSettingRegistrationRequest("NServiceBus", new { EndpointName = "MyApplication" }));
+
+            if (!recoverabilityPolicy.IsNone())
+            {
+                if (recoverabilityPolicy.IsImmediateOnly() || recoverabilityPolicy.IsImmediateAndDelayed())
+                    application.EventDispatcher.Publish(new AppSettingRegistrationRequest("NServiceBus:Recoverability", new { ImmediateRetries = 5 }));
+                if (recoverabilityPolicy.IsDelayedOnly() || recoverabilityPolicy.IsImmediateAndDelayed())
+                    application.EventDispatcher.Publish(new AppSettingRegistrationRequest("NServiceBus:Recoverability", new { DelayedRetries = 3, DelayIncreaseSeconds = 10 }));
+                application.EventDispatcher.Publish(new AppSettingRegistrationRequest("NServiceBus", new { ErrorQueue = "error" }));
+            }
 
             if (transport.IsRabbitmq())
                 application.EventDispatcher.Publish(new AppSettingRegistrationRequest("ConnectionStrings", new { RabbitMQ = "host=localhost" }));

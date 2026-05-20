@@ -50,6 +50,16 @@
             <option value="learning-transport" description="LearningTransport" />
           </options>
         </setting>
+        <setting id="4060477a-191f-43be-a2c1-f2dd94ff00e2" title="RecoverabilityPolicy" type="select">
+          <hint>Determines which retry configuration blocks are generated. Values are read from appsettings.json at runtime.</hint>
+          <defaultValue>immediate-and-delayed</defaultValue>
+          <options>
+            <option value="none" description="None" />
+            <option value="immediate-only" description="ImmediateOnly" />
+            <option value="delayed-only" description="DelayedOnly" />
+            <option value="immediate-and-delayed" description="ImmediateAndDelayed" />
+          </options>
+        </setting>
       </settings>
     </group>
   </moduleSettings>

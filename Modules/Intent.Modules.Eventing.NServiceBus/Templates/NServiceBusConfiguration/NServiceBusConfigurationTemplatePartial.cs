@@ -28,6 +28,7 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
             AddNugetDependency(NugetPackages.NServiceBusExtensionsHosting(OutputTarget));
 
             var transport = ExecutionContext.Settings.GetNServiceBusSettings().Transport();
+            var recoverabilityPolicy = ExecutionContext.Settings.GetNServiceBusSettings().RecoverabilityPolicy();
             switch (transport.AsEnum())
             {
                 case NServiceBusSettings.TransportOptionsEnum.Rabbitmq:
@@ -102,6 +103,24 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
 
                         method.AddStatement("var conventions = endpointConfiguration.Conventions();", s => s.SeparatedFromPrevious());
                         method.AddStatement("conventions.DefiningEventsAs(type => type.Name.EndsWith(\"Event\"));");
+
+                        if (!recoverabilityPolicy.IsNone())
+                        {
+                            var recoverability = new CSharpStatement("endpointConfiguration.Recoverability()");
+
+                            if (recoverabilityPolicy.IsImmediateOnly() || recoverabilityPolicy.IsImmediateAndDelayed())
+                                recoverability = recoverability.AddInvocation("Immediate", inv => inv
+                                    .AddArgument("""r => r.NumberOfRetries(configuration.GetValue<int>("NServiceBus:Recoverability:ImmediateRetries", 5))""")
+                                    .OnNewLine());
+
+                            if (recoverabilityPolicy.IsDelayedOnly() || recoverabilityPolicy.IsImmediateAndDelayed())
+                                recoverability = recoverability.AddInvocation("Delayed", inv => inv
+                                    .AddArgument("""r => r.NumberOfRetries(configuration.GetValue<int>("NServiceBus:Recoverability:DelayedRetries", 3)).TimeIncrease(TimeSpan.FromSeconds(configuration.GetValue<int>("NServiceBus:Recoverability:DelayIncreaseSeconds", 10)))""")
+                                    .OnNewLine());
+
+                            method.AddStatement(recoverability, s => s.SeparatedFromPrevious());
+                            method.AddStatement("""endpointConfiguration.SendFailedMessagesTo(configuration["NServiceBus:ErrorQueue"] ?? "error");""");
+                        }
 
                         method.AddReturn("endpointConfiguration", s => s.SeparatedFromPrevious());
                     });

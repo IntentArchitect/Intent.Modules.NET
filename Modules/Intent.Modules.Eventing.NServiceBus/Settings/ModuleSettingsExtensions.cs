@@ -97,5 +97,56 @@ namespace Intent.Modules.Eventing.NServiceBus.Settings
             SqlServer,
             LearningTransport,
         }
+        public RecoverabilityPolicyOptions RecoverabilityPolicy() => new RecoverabilityPolicyOptions(_groupSettings.GetSetting("4060477a-191f-43be-a2c1-f2dd94ff00e2")?.Value);
+
+        public class RecoverabilityPolicyOptions
+        {
+            public readonly string Value;
+
+            public RecoverabilityPolicyOptions(string value)
+            {
+                Value = value;
+            }
+
+            public RecoverabilityPolicyOptionsEnum AsEnum()
+            {
+                return Value switch
+                {
+                    "none" => RecoverabilityPolicyOptionsEnum.None,
+                    "immediate-only" => RecoverabilityPolicyOptionsEnum.ImmediateOnly,
+                    "delayed-only" => RecoverabilityPolicyOptionsEnum.DelayedOnly,
+                    "immediate-and-delayed" => RecoverabilityPolicyOptionsEnum.ImmediateAndDelayed,
+                    _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
+                };
+            }
+
+            public bool IsNone()
+            {
+                return Value == "none";
+            }
+
+            public bool IsImmediateOnly()
+            {
+                return Value == "immediate-only";
+            }
+
+            public bool IsDelayedOnly()
+            {
+                return Value == "delayed-only";
+            }
+
+            public bool IsImmediateAndDelayed()
+            {
+                return Value == "immediate-and-delayed";
+            }
+        }
+
+        public enum RecoverabilityPolicyOptionsEnum
+        {
+            None,
+            ImmediateOnly,
+            DelayedOnly,
+            ImmediateAndDelayed,
+        }
     }
 }

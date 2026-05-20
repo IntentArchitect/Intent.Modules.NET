@@ -121,5 +121,91 @@
         </childElement>
       </childElements>
     </childElement>
+    <childElement id="4060477a-191f-43be-a2c1-f2dd94ff00e2" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
+      <name>RecoverabilityPolicy</name>
+      <display>RecoverabilityPolicy</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>76e5fbf4-95c3-4d3e-8343-0969c4a67df6</parentFolderId>
+      <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+      <packageName>Intent.Eventing.NServiceBus</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4805c791-5be3-4049-b929-6046d7be9944" name="Field Configuration">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Select" isActive="true" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="false" />
+            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Determines which retry configuration blocks are generated. Values are read from appsettings.json at runtime." isActive="true" />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="immediate-and-delayed" isActive="true" />
+            <property name="c3456e79-0607-41a5-9b85-e0712f4f4834" display="Is Active Function" isActive="true" />
+            <property name="fa54329f-d4e5-48bc-8027-e17206e9fc89" display="Is Required Function" isActive="true" />
+            <property name="29696a13-bf1d-4fbd-bdf3-adb802430cb4" display="Order Priority" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="7e72c5b2-7323-44a5-bba5-4deb3cb172e7" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>None</name>
+          <display>None = none</display>
+          <isAbstract>false</isAbstract>
+          <value>none</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>4060477a-191f-43be-a2c1-f2dd94ff00e2</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="59dc00ab-53c3-42c8-9ce3-f7e4fb3c11d7" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>ImmediateOnly</name>
+          <display>ImmediateOnly = immediate-only</display>
+          <isAbstract>false</isAbstract>
+          <value>immediate-only</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>4060477a-191f-43be-a2c1-f2dd94ff00e2</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="69588d78-6225-47e8-bd9b-267eca4f3b42" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>DelayedOnly</name>
+          <display>DelayedOnly = delayed-only</display>
+          <isAbstract>false</isAbstract>
+          <value>delayed-only</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>4060477a-191f-43be-a2c1-f2dd94ff00e2</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="f24e2298-1758-44d4-bf04-48807de36bc7" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>ImmediateAndDelayed</name>
+          <display>ImmediateAndDelayed = immediate-and-delayed</display>
+          <isAbstract>false</isAbstract>
+          <value>immediate-and-delayed</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>4060477a-191f-43be-a2c1-f2dd94ff00e2</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>
