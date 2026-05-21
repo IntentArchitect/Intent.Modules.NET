@@ -2,17 +2,27 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.Application.DependencyInjection.DependencyInjection#e8c45922-0d62-4676-880f-95c333310411</correlationId>
+      <path>DynamoDbTests.EntityInterfaces.Application/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-05-21T09:05:14.3279821Z</updatedAt>
+      <deviationsHash>50BCBD3DEED821B0E03E9D3BCED90F2EC73D3FB02DB87ABB1C20BD2390960870</deviationsHash>
+      <fileHash>E846FB957D65DAE2DC82F81774B4771C508420B084487EEAE5DC0C395B501319</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#3049e536-274a-4c3c-870d-28ed104ded62</correlationId>
       <path>DynamoDbTests.EntityInterfaces.Infrastructure/DependencyInjection.cs</path>
       <count>1</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2025-09-02T22:39:11.1409944Z</updatedAt>
-      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2025-09-02T22:39:51.0707489Z</approvedAt>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-05-21T09:59:09.1595271Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2026-05-21T09:59:09.1595842Z</approvedAt>
       <deviationsHash>C964CA59B2AE569C4CF74B30E5EFCC0CE179EFA49CC86D5E8584FED18702D2BC</deviationsHash>
-      <fileHash>DEB320008A6CD2699AAC971079E99B4A852FA8615345DFE78CC70D3D0099AEE8</fileHash>
+      <fileHash>4D8D8FD2382AC81BD783DD7712526B4B61DE2C26FD0F5973FA834FDF47CA0A64</fileHash>
     </file>
   </files>
 </deviationsLog>

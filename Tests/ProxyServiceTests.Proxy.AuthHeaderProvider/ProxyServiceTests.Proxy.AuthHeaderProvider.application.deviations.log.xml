@@ -2,6 +2,16 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.Application.DependencyInjection.DependencyInjection#753c5846-aae4-4a75-9dd4-3f85e54df56b</correlationId>
+      <path>ProxyServiceTests.Proxy.AuthHeaderProvider.Application/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-05-21T09:10:01.8808927Z</updatedAt>
+      <deviationsHash>50BCBD3DEED821B0E03E9D3BCED90F2EC73D3FB02DB87ABB1C20BD2390960870</deviationsHash>
+      <fileHash>32758B7F86351C358F301575BEE13A6E6E3067AAA44A4240007AD46512A358CE</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#761d3dbc-d11d-446f-98f4-4f06cbba8cdc</correlationId>
       <path>ProxyServiceTests.Proxy.AuthHeaderProvider.Infrastructure/DependencyInjection.cs</path>
       <count>1</count>

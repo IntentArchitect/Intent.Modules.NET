@@ -13,6 +13,7 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.Infrastructure
 {
     public static class DependencyInjection
     {
+        [IntentMerge]
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<ApplicationDbContext>((sp, options) =>

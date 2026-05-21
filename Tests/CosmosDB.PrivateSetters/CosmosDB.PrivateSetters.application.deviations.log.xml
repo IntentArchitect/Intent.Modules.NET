@@ -14,5 +14,15 @@
       <deviationsHash>10D1A2ABF37D1D1F6796CD2E43198F2B8B26381BFBF171DE92AF44925BBEF165</deviationsHash>
       <fileHash>136718B8E6D25B9E3180B6296DD14C6F9AD138787EB9C6D8D0B4B94FCEED4F02</fileHash>
     </file>
+    <file>
+      <correlationId>Intent.Application.DependencyInjection.DependencyInjection#60f00310-024f-46e9-a78b-147e179e5c6c</correlationId>
+      <path>CosmosDB.PrivateSetters.Application/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-05-21T09:01:47.6239921Z</updatedAt>
+      <deviationsHash>50BCBD3DEED821B0E03E9D3BCED90F2EC73D3FB02DB87ABB1C20BD2390960870</deviationsHash>
+      <fileHash>1342113A3DD683C9AC40E19854CD1C3937ACF09A534E32F254F3BF3ADA99F26F</fileHash>
+    </file>
   </files>
 </deviationsLog>

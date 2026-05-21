@@ -15,6 +15,16 @@
       <fileHash>D7F6210CACA47347DBCC6458213C16D8A594B24314D5EAF9BB0E7AE3E197EEB0</fileHash>
     </file>
     <file>
+      <correlationId>Intent.Application.DependencyInjection.DependencyInjection#86b1f24f-302e-4d84-a207-8d46ee2647f5</correlationId>
+      <path>MassTransit.RequestResponse.Client.Application/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-05-21T09:06:45.4691623Z</updatedAt>
+      <deviationsHash>50BCBD3DEED821B0E03E9D3BCED90F2EC73D3FB02DB87ABB1C20BD2390960870</deviationsHash>
+      <fileHash>7C22A68609E312977C8BCB3BE43F3461DF8B56B53069952BCC44D51FB3FD9FAC</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.Eventing.MassTransit.MassTransitConfiguration#0d104f34-f4bd-4c02-acbc-aab02d46a002</correlationId>
       <path>MassTransit.RequestResponse.Client.Infrastructure/Configuration/MassTransitConfiguration.cs</path>
       <count>2</count>
@@ -26,6 +36,16 @@
       <approvedAt>2026-03-17T08:41:38.0348615Z</approvedAt>
       <deviationsHash>119595912D7981F382F5BF7C263B1A2E3B9CD50FA7D6E48BEDB24D427DC81390</deviationsHash>
       <fileHash>4362B4D4F4D91E25588D6A37C2C496C7305003EC42BAC9F064A3ECE0CB3BC8A7</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#ef4de942-d2df-4fed-8c17-4403c88c5f8c</correlationId>
+      <path>MassTransit.RequestResponse.Client.Infrastructure/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-05-21T09:06:45.4693359Z</updatedAt>
+      <deviationsHash>F59B9B9A3043B5132849B2AED40A2431B415224D915BA01C3830F96F45C13B4B</deviationsHash>
+      <fileHash>7E2FE4968A8F169AE740AE25FE0CB91DEEAF0073B7A2A94D3C447DEAD92E0304</fileHash>
     </file>
   </files>
 </deviationsLog>

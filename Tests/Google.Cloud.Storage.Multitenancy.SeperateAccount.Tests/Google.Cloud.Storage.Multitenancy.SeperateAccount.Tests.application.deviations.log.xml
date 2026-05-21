@@ -14,5 +14,25 @@
       <deviationsHash>E1624FE86FFB7559750893F2934464C72015B415E2F360CEE867B4BC10C71174</deviationsHash>
       <fileHash>CE38B1AC81EA17292D6120CA889B62257873D635E347CC7899DB38A69E0A530B</fileHash>
     </file>
+    <file>
+      <correlationId>Intent.Application.DependencyInjection.DependencyInjection#27f9632b-6c45-472e-a499-dc84012010ec</correlationId>
+      <path>Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Application/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-05-21T09:08:48.2851366Z</updatedAt>
+      <deviationsHash>50BCBD3DEED821B0E03E9D3BCED90F2EC73D3FB02DB87ABB1C20BD2390960870</deviationsHash>
+      <fileHash>900F61D00D17AD59F74FD4CF11F3B87C4A49DB53953A1CD4AE95B154A38F5E40</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#0e7b66bb-f0a7-43a7-a4f2-691efde23c4d</correlationId>
+      <path>Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Infrastructure/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-05-21T09:08:48.2853382Z</updatedAt>
+      <deviationsHash>F59B9B9A3043B5132849B2AED40A2431B415224D915BA01C3830F96F45C13B4B</deviationsHash>
+      <fileHash>4D31BCF58BFA9F761E9969698E3BD84B772A6AA8264EB6F2A8B4A0A554ABF8FE</fileHash>
+    </file>
   </files>
 </deviationsLog>

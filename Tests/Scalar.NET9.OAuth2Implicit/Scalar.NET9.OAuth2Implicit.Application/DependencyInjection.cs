@@ -10,6 +10,7 @@ namespace Scalar.NET9.OAuth2Implicit.Application
 {
     public static class DependencyInjection
     {
+        [IntentMerge]
         public static IServiceCollection AddApplication(this IServiceCollection services, IConfiguration configuration)
         {
             return services;

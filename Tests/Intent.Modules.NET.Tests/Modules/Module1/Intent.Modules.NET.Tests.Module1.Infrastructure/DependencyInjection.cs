@@ -16,6 +16,7 @@ namespace Intent.Modules.NET.Tests.Module1.Infrastructure
 {
     public static class DependencyInjection
     {
+        [IntentMerge]
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<Module1DbContext>((sp, options) =>
