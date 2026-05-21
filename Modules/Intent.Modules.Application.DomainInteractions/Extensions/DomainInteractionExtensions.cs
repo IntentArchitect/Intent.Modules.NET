@@ -352,12 +352,22 @@ public static class DomainInteractionExtensions
         else if (returnType.Element.IsTypeDefinitionModel() &&
                  (entitiesReturningNonUserSuppliedPks.Count == 1 || entitiesReturningAnyPk.Count == 1)) // No need for TrackedEntities thus no check for it
         {
+            var primaryKeyDataSourceFilter = entitiesReturningNonUserSuppliedPks.Count == 1
+                   ? PrimaryKeyDataSourceFilter.NonUserSupplied
+                   : PrimaryKeyDataSourceFilter.Any;
+
             var entityDetails = entitiesReturningNonUserSuppliedPks.Count == 1
                 ? entitiesReturningNonUserSuppliedPks[0]
                 : entitiesReturningAnyPk[0];
+
             var entity = entityDetails.ElementModel.AsClassModel();
-            statements.Add(new CSharpReturnStatement(
-                $"{entityDetails.VariableName}.{entity.GetTypesInHierarchy().SelectMany(x => x.Attributes).FirstOrDefault(x => x.IsPrimaryKey(PrimaryKeyDataSourceFilter.NonUserSupplied))?.Name ?? "Id"}"));
+
+            var primaryKey = entity.GetTypesInHierarchy()
+                .SelectMany(x => x.Attributes)
+                .Single(x => x.IsPrimaryKey(primaryKeyDataSourceFilter) &&
+                             x.TypeReference.Element.Id == returnType.Element.Id);
+
+            statements.Add(new CSharpReturnStatement($"{entityDetails.VariableName}.{primaryKey.Name}"));
         }
         else if (method.TrackedEntities().Values.Any(x => returnType.Element.Id == x.ElementModel.Id))
         {
@@ -461,6 +471,7 @@ public static class DomainInteractionExtensions
                 .ToList();
         }
 
+ 
         return method.TrackedEntities().Values
             .Where(x => x.ElementModel.AsClassModel()?.GetTypesInHierarchy()
                 .SelectMany(c => c.Attributes)
