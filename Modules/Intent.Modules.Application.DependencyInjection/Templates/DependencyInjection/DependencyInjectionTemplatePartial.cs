@@ -41,6 +41,7 @@ public partial class DependencyInjectionTemplate : CSharpTemplateBase<object, De
                 priClass.Static();
                 priClass.AddMethod("IServiceCollection", "AddApplication", method =>
                 {
+                    method.AddAttribute("IntentMerge");
                     method.Static();
                     method.AddParameter("IServiceCollection", "services", parm => parm.WithThisModifier());
                     method.AddParameter("IConfiguration", "configuration");

@@ -42,6 +42,7 @@ namespace Intent.Modules.Infrastructure.DependencyInjection.Templates.Dependency
                     @class.Static();
                     @class.AddMethod("IServiceCollection", "AddInfrastructure", method =>
                     {
+                        method.AddAttribute("IntentMerge");
                         method.Static();
                         method.AddParameter("this IServiceCollection", "services");
                         method.AddParameter("IConfiguration", "configuration");
