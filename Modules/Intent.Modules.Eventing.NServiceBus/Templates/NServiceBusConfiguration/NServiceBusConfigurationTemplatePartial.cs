@@ -1,10 +1,14 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
+using Intent.Modelers.Eventing.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Eventing.Contracts.Templates.IntegrationCommand;
+using Intent.Modules.Eventing.NServiceBus.Api;
 using Intent.Modules.Eventing.NServiceBus.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -77,25 +81,25 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
                         if (transport.IsRabbitmq())
                         {
                             method.AddStatement(@"var connectionString = configuration.GetConnectionString(""RabbitMQ"") ?? throw new InvalidOperationException(""ConnectionStrings:RabbitMQ is not configured"");", s => s.SeparatedFromPrevious());
-                            method.AddStatement("endpointConfiguration.UseTransport(new RabbitMQTransport(RoutingTopology.Conventional(QueueType.Quorum), connectionString));");
+                            method.AddStatement("var transportConfig = endpointConfiguration.UseTransport(new RabbitMQTransport(RoutingTopology.Conventional(QueueType.Quorum), connectionString));");
                         }
                         else if (transport.IsAzureServiceBus())
                         {
                             method.AddStatement(@"var connectionString = configuration.GetConnectionString(""AzureServiceBus"") ?? throw new InvalidOperationException(""ConnectionStrings:AzureServiceBus is not configured"");", s => s.SeparatedFromPrevious());
-                            method.AddStatement("endpointConfiguration.UseTransport(new AzureServiceBusTransport(connectionString));");
+                            method.AddStatement("var transportConfig = endpointConfiguration.UseTransport(new AzureServiceBusTransport(connectionString));");
                         }
                         else if (transport.IsAmazonSqs())
                         {
-                            method.AddStatement("endpointConfiguration.UseTransport(new SqsTransport());", s => s.SeparatedFromPrevious());
+                            method.AddStatement("var transportConfig = endpointConfiguration.UseTransport(new SqsTransport());", s => s.SeparatedFromPrevious());
                         }
                         else if (transport.IsSqlServer())
                         {
                             method.AddStatement(@"var connectionString = configuration.GetConnectionString(""SqlServer"") ?? throw new InvalidOperationException(""ConnectionStrings:SqlServer is not configured"");", s => s.SeparatedFromPrevious());
-                            method.AddStatement("endpointConfiguration.UseTransport(new SqlServerTransport(connectionString));");
+                            method.AddStatement("var transportConfig = endpointConfiguration.UseTransport(new SqlServerTransport(connectionString));");
                         }
                         else if (transport.IsLearningTransport())
                         {
-                            method.AddStatement("endpointConfiguration.UseTransport(new LearningTransport());", s => s.SeparatedFromPrevious());
+                            method.AddStatement("var transportConfig = endpointConfiguration.UseTransport(new LearningTransport());", s => s.SeparatedFromPrevious());
                         }
 
                         method.AddStatement("endpointConfiguration.EnableInstallers();", s => s.SeparatedFromPrevious());
@@ -120,6 +124,23 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
 
                             method.AddStatement(recoverability, s => s.SeparatedFromPrevious());
                             method.AddStatement("""endpointConfiguration.SendFailedMessagesTo(configuration["NServiceBus:ErrorQueue"] ?? "error");""");
+                        }
+
+                        var commandTemplates = ExecutionContext
+                            .FindTemplateInstances<CSharpTemplateBase<IntegrationCommandModel>>(
+                                IntegrationCommandTemplate.TemplateId)
+                            .ToList();
+
+                        if (commandTemplates.Count > 0)
+                        {
+                            method.AddStatement("var routing = transportConfig.Routing();", s => s.SeparatedFromPrevious());
+                            foreach (var ct in commandTemplates)
+                            {
+                                var commandTypeName = GetTypeName(IntegrationCommandTemplate.TemplateId, ct.Model);
+                                var commandName = ct.Model.Name;
+                                var defaultEndpoint = ct.Model.GetNServiceBusMessageSettings()?.EndpointName() ?? commandName;
+                                method.AddStatement($"""routing.RouteToEndpoint(typeof({commandTypeName}), configuration["NServiceBus:Routing:Commands:{commandName}"] ?? "{defaultEndpoint}");""");
+                            }
                         }
 
                         method.AddReturn("endpointConfiguration", s => s.SeparatedFromPrevious());
