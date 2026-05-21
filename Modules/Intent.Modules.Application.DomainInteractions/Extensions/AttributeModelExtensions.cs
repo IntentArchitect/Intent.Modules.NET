@@ -8,28 +8,40 @@ using Intent.Modules.Common.CSharp.Builder;
 
 namespace Intent.Modules.Application.DomainInteractions.Extensions;
 
+internal enum PrimaryKeyDataSourceFilter
+{
+    Any,
+    UserSupplied,
+    NonUserSupplied
+}
+
 internal static class AttributeModelExtensions
 {
-    public static bool IsPrimaryKey(this AttributeModel attribute, bool? isUserSupplied = null)
+    public static bool IsPrimaryKey(
+        this AttributeModel attribute,
+        PrimaryKeyDataSourceFilter dataSourceFilter = PrimaryKeyDataSourceFilter.Any)
     {
         if (!attribute.HasStereotype("Primary Key"))
         {
             return false;
         }
 
-        if (!isUserSupplied.HasValue)
+        if (dataSourceFilter == PrimaryKeyDataSourceFilter.Any)
         {
             return true;
         }
 
-        if (!attribute.GetStereotype("Primary Key").TryGetProperty("Data source", out var property))
+        var isUserSuppliedPrimaryKey =
+            attribute.GetStereotype("Primary Key").TryGetProperty("Data source", out var property) &&
+            property.Value == "User supplied";
+
+        return dataSourceFilter switch
         {
-            return isUserSupplied == false;
-        }
-
-        return property.Value == "User supplied" == isUserSupplied.Value;
+            PrimaryKeyDataSourceFilter.UserSupplied => isUserSuppliedPrimaryKey,
+            PrimaryKeyDataSourceFilter.NonUserSupplied => !isUserSuppliedPrimaryKey,
+            _ => throw new ArgumentOutOfRangeException(nameof(dataSourceFilter), dataSourceFilter, null)
+        };
     }
-
     public static bool IsForeignKey(this AttributeModel attribute)
     {
         return attribute.HasStereotype("Foreign Key");

@@ -309,8 +309,8 @@ public static class DomainInteractionExtensions
         var mapperIsInstalled = MappingStrategyProvider.Instance.HasMappingStrategy(method);
 
         var template = method.File.Template;
-        var entitiesReturningPk = GetEntitiesReturningPk(method, returnType);
-        var nonUserSuppliedEntitiesReturningPks = GetEntitiesReturningPk(method, returnType, isUserSupplied: false);
+        var entitiesReturningAnyPk = GetEntitiesReturningPk(method, returnType);
+        var entitiesReturningNonUserSuppliedPks = GetEntitiesReturningPk(method, returnType, PrimaryKeyDataSourceFilter.NonUserSupplied);
 
         if (mapperIsInstalled &&
             returnType.Element.AsDTOModel()?.IsMapped == true &&
@@ -350,14 +350,14 @@ public static class DomainInteractionExtensions
             }
         }
         else if (returnType.Element.IsTypeDefinitionModel() &&
-                 (nonUserSuppliedEntitiesReturningPks.Count == 1 || entitiesReturningPk.Count == 1)) // No need for TrackedEntities thus no check for it
+                 (entitiesReturningNonUserSuppliedPks.Count == 1 || entitiesReturningAnyPk.Count == 1)) // No need for TrackedEntities thus no check for it
         {
-            var entityDetails = nonUserSuppliedEntitiesReturningPks.Count == 1
-                ? nonUserSuppliedEntitiesReturningPks[0]
-                : entitiesReturningPk[0];
+            var entityDetails = entitiesReturningNonUserSuppliedPks.Count == 1
+                ? entitiesReturningNonUserSuppliedPks[0]
+                : entitiesReturningAnyPk[0];
             var entity = entityDetails.ElementModel.AsClassModel();
             statements.Add(new CSharpReturnStatement(
-                $"{entityDetails.VariableName}.{entity.GetTypesInHierarchy().SelectMany(x => x.Attributes).FirstOrDefault(x => x.IsPrimaryKey(isUserSupplied: false))?.Name ?? "Id"}"));
+                $"{entityDetails.VariableName}.{entity.GetTypesInHierarchy().SelectMany(x => x.Attributes).FirstOrDefault(x => x.IsPrimaryKey(PrimaryKeyDataSourceFilter.NonUserSupplied))?.Name ?? "Id"}"));
         }
         else if (method.TrackedEntities().Values.Any(x => returnType.Element.Id == x.ElementModel.Id))
         {
@@ -439,14 +439,14 @@ public static class DomainInteractionExtensions
         return new List<PrimaryKeyFilterMapping>();
     }
 
-    private static List<EntityDetails> GetEntitiesReturningPk(CSharpClassMethod method, ITypeReference returnType, bool? isUserSupplied = null)
+    private static List<EntityDetails> GetEntitiesReturningPk(CSharpClassMethod method, ITypeReference returnType, PrimaryKeyDataSourceFilter primaryKeyDataSourceFilter = PrimaryKeyDataSourceFilter.Any)
     {
         if (returnType.Element.IsDTOModel())
         {
             var dto = returnType.Element.AsDTOModel();
 
             var mappedPks = dto.Fields
-                .Where(x => x.Mapping != null && x.Mapping.Element.IsAttributeModel() && x.Mapping.Element.AsAttributeModel().IsPrimaryKey(isUserSupplied))
+                .Where(x => x.Mapping != null && x.Mapping.Element.IsAttributeModel() && x.Mapping.Element.AsAttributeModel().IsPrimaryKey(primaryKeyDataSourceFilter))
                 .Select(x => x.Mapping.Element.AsAttributeModel().InternalElement.ParentElement.Id)
                 .Distinct()
                 .ToArray();
@@ -464,7 +464,7 @@ public static class DomainInteractionExtensions
         return method.TrackedEntities().Values
             .Where(x => x.ElementModel.AsClassModel()?.GetTypesInHierarchy()
                 .SelectMany(c => c.Attributes)
-                .Count(a => a.IsPrimaryKey(isUserSupplied) && a.TypeReference.Element.Id == returnType.Element.Id) == 1)
+                .Count(a => a.IsPrimaryKey(primaryKeyDataSourceFilter) && a.TypeReference.Element.Id == returnType.Element.Id) == 1)
             .ToList();
     }
 
